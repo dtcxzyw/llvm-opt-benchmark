@@ -6176,9 +6176,9 @@ define internal fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef %0, ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %37
 
 37:                                               ; preds = %5, %processExceptional32.exit.thread
@@ -6290,9 +6290,9 @@ define internal fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef %0, ptr nound
   br i1 %100, label %101, label %.preheader
 
 101:                                              ; preds = %97
-  %102 = load i32, ptr %35, align 4
+  %102 = load i32, ptr %34, align 4
   %103 = or i32 %102, %.6
-  %104 = load ptr, ptr %36, align 8
+  %104 = load ptr, ptr %35, align 8
   %.not35.i = icmp eq ptr %104, null
   br i1 %.not35.i, label %processExceptional32.exit.thread, label %105
 
@@ -6404,12 +6404,12 @@ limexRunReports.exit.i82:                         ; preds = %131, %125
 
 151:                                              ; preds = %149
   store i32 %96, ptr %31, align 8
-  store i32 %141, ptr %35, align 4
-  store ptr %.sroa.498.5, ptr %36, align 8
-  store i8 0, ptr %34, align 16
+  store i32 %141, ptr %34, align 4
+  store ptr %.sroa.498.5, ptr %35, align 8
+  store i8 0, ptr %36, align 16
   br label %processExceptional32.exit.thread
 
-processExceptional32.exit.thread:                 ; preds = %109, %149, %105, %151, %101, %95
+processExceptional32.exit.thread:                 ; preds = %109, %105, %151, %149, %101, %95
   %.7.ph = phi i32 [ %.6, %95 ], [ %103, %101 ], [ %150, %149 ], [ %150, %151 ], [ %103, %105 ], [ %103, %109 ]
   %152 = getelementptr i8, ptr %1, i64 %.072187
   %153 = getelementptr i8, ptr %152, i64 -1

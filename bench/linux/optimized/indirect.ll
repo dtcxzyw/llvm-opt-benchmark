@@ -1830,8 +1830,8 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %26 = ashr i64 %22, %25
   %27 = trunc i64 %26 to i32
   %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 %3)
-  %.not86 = icmp ugt i32 %28, %2
-  br i1 %.not86, label %29, label %.thread
+  %.not87 = icmp ugt i32 %28, %2
+  br i1 %.not87, label %29, label %.thread
 
 29:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
@@ -1910,39 +1910,39 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %13, ptr noundef nonnull @__func__.ext4_block_to_path, i32 noundef 107, ptr noundef nonnull @.str.6, i64 noundef %73, i64 noundef %75) #12
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %.pre103 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %.pre, i64 872
-  %.pre105 = load ptr, ptr %.phi.trans.insert104, align 8
-  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.pre105, i64 172
-  %.pre107 = load i32, ptr %.phi.trans.insert106, align 4
-  %.pre108 = lshr i64 %.pre103, 2
-  %.pre109 = trunc i64 %.pre108 to i32
-  %.pre111 = shl i64 %.pre108, 32
-  %.pre113 = ashr exact i64 %.pre111, 32
-  %.pre115 = shl i32 %.pre107, 1
-  %.pre117 = shl nuw i32 1, %.pre115
-  %.pre119 = zext nneg i32 %.pre117 to i64
+  %.pre104 = load i64, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre, i64 872
+  %.pre106 = load ptr, ptr %.phi.trans.insert105, align 8
+  %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %.pre106, i64 172
+  %.pre108 = load i32, ptr %.phi.trans.insert107, align 4
+  %.pre109 = lshr i64 %.pre104, 2
+  %.pre110 = trunc i64 %.pre109 to i32
+  %.pre112 = shl i64 %.pre109, 32
+  %.pre114 = ashr exact i64 %.pre112, 32
+  %.pre116 = shl i32 %.pre108, 1
+  %.pre118 = shl nuw i32 1, %.pre116
+  %.pre120 = zext nneg i32 %.pre118 to i64
   br label %76
 
 76:                                               ; preds = %69, %61, %51, %46, %40
-  %.pre-phi120 = phi i64 [ %.pre119, %69 ], [ %38, %61 ], [ %38, %51 ], [ %38, %46 ], [ %38, %40 ]
-  %.pre-phi118 = phi i32 [ %.pre117, %69 ], [ %37, %61 ], [ %37, %51 ], [ %37, %46 ], [ %37, %40 ]
-  %.pre-phi116 = phi i32 [ %.pre115, %69 ], [ %36, %61 ], [ %36, %51 ], [ %36, %46 ], [ %36, %40 ]
-  %.pre-phi114 = phi i64 [ %.pre113, %69 ], [ %35, %61 ], [ %35, %51 ], [ %35, %46 ], [ %35, %40 ]
-  %.pre-phi110 = phi i32 [ %.pre109, %69 ], [ %31, %61 ], [ %31, %51 ], [ %31, %46 ], [ %31, %40 ]
+  %.pre-phi121 = phi i64 [ %.pre120, %69 ], [ %38, %61 ], [ %38, %51 ], [ %38, %46 ], [ %38, %40 ]
+  %.pre-phi119 = phi i32 [ %.pre118, %69 ], [ %37, %61 ], [ %37, %51 ], [ %37, %46 ], [ %37, %40 ]
+  %.pre-phi117 = phi i32 [ %.pre116, %69 ], [ %36, %61 ], [ %36, %51 ], [ %36, %46 ], [ %36, %40 ]
+  %.pre-phi115 = phi i64 [ %.pre114, %69 ], [ %35, %61 ], [ %35, %51 ], [ %35, %46 ], [ %35, %40 ]
+  %.pre-phi111 = phi i32 [ %.pre110, %69 ], [ %31, %61 ], [ %31, %51 ], [ %31, %46 ], [ %31, %40 ]
   %77 = phi i64 [ 0, %69 ], [ 14, %61 ], [ 13, %51 ], [ 12, %46 ], [ %41, %40 ]
-  %78 = phi i32 [ %.pre107, %69 ], [ %33, %61 ], [ %33, %51 ], [ %33, %46 ], [ %33, %40 ]
+  %78 = phi i32 [ %.pre108, %69 ], [ %33, %61 ], [ %33, %51 ], [ %33, %46 ], [ %33, %40 ]
   %79 = phi ptr [ %.pre, %69 ], [ %13, %61 ], [ %13, %51 ], [ %13, %46 ], [ %13, %40 ]
   %80 = phi i1 [ false, %69 ], [ true, %61 ], [ true, %51 ], [ true, %46 ], [ false, %40 ]
   %81 = phi i32 [ 0, %69 ], [ 4, %61 ], [ 3, %51 ], [ 2, %46 ], [ 1, %40 ]
   %82 = icmp ult i32 %28, 12
-  br i1 %82, label %.thread171, label %83
+  br i1 %82, label %.thread172, label %83
 
 83:                                               ; preds = %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
   %84 = add i32 %28, -12
   %85 = zext i32 %84 to i64
-  %86 = icmp sgt i64 %.pre-phi114, %85
+  %86 = icmp sgt i64 %.pre-phi115, %85
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
@@ -1952,8 +1952,8 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %117
 
 89:                                               ; preds = %83
-  %90 = sub i32 %84, %.pre-phi110
-  %91 = icmp ult i32 %90, %.pre-phi118
+  %90 = sub i32 %84, %.pre-phi111
+  %91 = icmp ult i32 %90, %.pre-phi119
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %89
@@ -1961,16 +1961,16 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %93 = lshr i32 %90, %78
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %93, ptr %94, align 4
-  %95 = add i32 %.pre-phi110, -1
+  %95 = add i32 %.pre-phi111, -1
   %96 = and i32 %90, %95
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %96, ptr %97, align 8
   br label %117
 
 98:                                               ; preds = %89
-  %99 = sub nuw i32 %90, %.pre-phi118
-  %100 = lshr i32 %99, %.pre-phi116
-  %101 = icmp ult i32 %100, %.pre-phi110
+  %99 = sub nuw i32 %90, %.pre-phi119
+  %100 = lshr i32 %99, %.pre-phi117
+  %101 = icmp ult i32 %100, %.pre-phi111
   br i1 %101, label %102, label %110
 
 102:                                              ; preds = %98
@@ -1978,7 +1978,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %100, ptr %103, align 4
   %104 = lshr i32 %99, %78
-  %105 = add i32 %.pre-phi110, -1
+  %105 = add i32 %.pre-phi111, -1
   %106 = and i32 %104, %105
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %106, ptr %107, align 8
@@ -1989,8 +1989,8 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 
 110:                                              ; preds = %98
   %111 = zext i32 %99 to i64
-  %112 = add nsw i64 %.pre-phi114, 12
-  %113 = add nsw i64 %112, %.pre-phi120
+  %112 = add nsw i64 %.pre-phi115, 12
+  %113 = add nsw i64 %112, %.pre-phi121
   %114 = add nsw i64 %113, %111
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %116 = load i64, ptr %115, align 8
@@ -2002,26 +2002,26 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %119 = icmp samesign ugt i32 %81, %118
   br i1 %119, label %120, label %151, !prof !18
 
-.thread171:                                       ; preds = %76
-  br i1 %80, label %120, label %.thread172, !prof !18
+.thread172:                                       ; preds = %76
+  br i1 %80, label %120, label %.thread173, !prof !18
 
-120:                                              ; preds = %.thread171, %117
+120:                                              ; preds = %.thread172, %117
   tail call void asm sideeffect "2053: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2053) #12, !srcloc !48
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1259, i32 0, i64 12) #12, !srcloc !49
   unreachable
 
-.thread172:                                       ; preds = %.thread171
+.thread173:                                       ; preds = %.thread172
   %121 = zext nneg i32 %28 to i64
   %122 = getelementptr i32, ptr %11, i64 %77
   %123 = getelementptr i32, ptr %11, i64 %121
   %124 = icmp ult ptr %122, %123
   br i1 %124, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %.thread172, %142
-  %125 = phi ptr [ %146, %142 ], [ %122, %.thread172 ]
-  %126 = phi ptr [ %145, %142 ], [ null, %.thread172 ]
-  %127 = phi i64 [ %144, %142 ], [ 0, %.thread172 ]
-  %128 = phi i64 [ %143, %142 ], [ 0, %.thread172 ]
+.preheader:                                       ; preds = %.thread173, %142
+  %125 = phi ptr [ %146, %142 ], [ %122, %.thread173 ]
+  %126 = phi ptr [ %145, %142 ], [ null, %.thread173 ]
+  %127 = phi i64 [ %144, %142 ], [ 0, %.thread173 ]
+  %128 = phi i64 [ %143, %142 ], [ 0, %.thread173 ]
   %129 = load i32, ptr %125, align 4
   %130 = zext i32 %129 to i64
   %131 = icmp eq i32 %129, 0
@@ -2054,8 +2054,8 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br i1 %147, label %.preheader, label %148, !llvm.loop !41
 
 148:                                              ; preds = %142
-  %.not63 = icmp eq i64 %144, 0
-  br i1 %.not63, label %.thread, label %149
+  %.not64 = icmp eq i64 %144, 0
+  br i1 %.not64, label %.thread, label %149
 
 149:                                              ; preds = %148
   %150 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %143, i64 noundef %144, ptr noundef %145, ptr noundef %146), !range !40
@@ -2072,9 +2072,9 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %155 = getelementptr i32, ptr %11, i64 %77
   %156 = getelementptr i8, ptr %1, i64 -248
   %157 = icmp ult ptr %155, %156
-  br i1 %157, label %.preheader68, label %.thread61
+  br i1 %157, label %.preheader69, label %.thread62
 
-.preheader68:                                     ; preds = %154, %175
+.preheader69:                                     ; preds = %154, %175
   %158 = phi ptr [ %179, %175 ], [ %155, %154 ]
   %159 = phi ptr [ %178, %175 ], [ null, %154 ]
   %160 = phi i64 [ %177, %175 ], [ 0, %154 ]
@@ -2084,7 +2084,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %164 = icmp eq i32 %162, 0
   br i1 %164, label %175, label %165
 
-165:                                              ; preds = %.preheader68
+165:                                              ; preds = %.preheader69
   %166 = icmp eq i64 %160, 0
   br i1 %166, label %175, label %167
 
@@ -2100,23 +2100,23 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 172:                                              ; preds = %167
   %173 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %161, i64 noundef %160, ptr noundef %159, ptr noundef %158), !range !40
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %175, label %.thread61
+  br i1 %174, label %175, label %.thread62
 
-175:                                              ; preds = %172, %170, %165, %.preheader68
-  %176 = phi i64 [ %161, %170 ], [ %161, %.preheader68 ], [ %163, %165 ], [ %163, %172 ]
-  %177 = phi i64 [ %171, %170 ], [ %160, %.preheader68 ], [ 1, %165 ], [ 1, %172 ]
-  %178 = phi ptr [ %159, %170 ], [ %159, %.preheader68 ], [ %158, %165 ], [ %158, %172 ]
+175:                                              ; preds = %172, %170, %165, %.preheader69
+  %176 = phi i64 [ %161, %170 ], [ %161, %.preheader69 ], [ %163, %165 ], [ %163, %172 ]
+  %177 = phi i64 [ %171, %170 ], [ %160, %.preheader69 ], [ 1, %165 ], [ 1, %172 ]
+  %178 = phi ptr [ %159, %170 ], [ %159, %.preheader69 ], [ %158, %165 ], [ %158, %172 ]
   %179 = getelementptr i8, ptr %158, i64 4
   %180 = icmp ult ptr %179, %156
-  br i1 %180, label %.preheader68, label %181, !llvm.loop !41
+  br i1 %180, label %.preheader69, label %181, !llvm.loop !41
 
 181:                                              ; preds = %175
   %.not = icmp eq i64 %177, 0
-  br i1 %.not, label %.thread61, label %182
+  br i1 %.not, label %.thread62, label %182
 
 182:                                              ; preds = %181
   %183 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %176, i64 noundef %177, ptr noundef %178, ptr noundef %179), !range !40
-  br label %.thread61
+  br label %.thread62
 
 184:                                              ; preds = %153
   %185 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
@@ -2158,7 +2158,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
 
 209:                                              ; preds = %196, %190, %184
   %210 = icmp ugt ptr %185, %7
-  br i1 %210, label %211, label %.thread61
+  br i1 %210, label %211, label %.thread62
 
 211:                                              ; preds = %209
   %212 = getelementptr i8, ptr %7, i64 -24
@@ -2184,25 +2184,25 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %220, ptr noundef %222, ptr noundef %225, i32 noundef %229)
   %230 = getelementptr i8, ptr %218, i64 -24
   %231 = icmp ugt ptr %230, %7
-  br i1 %231, label %217, label %.thread61, !llvm.loop !50
+  br i1 %231, label %217, label %.thread62, !llvm.loop !50
 
-.thread61:                                        ; preds = %217, %172, %154, %209, %182, %181
+.thread62:                                        ; preds = %217, %172, %154, %209, %182, %181
   %232 = phi ptr [ null, %181 ], [ null, %182 ], [ %185, %209 ], [ null, %154 ], [ null, %172 ], [ %185, %217 ]
   %233 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %234 = load i32, ptr %10, align 4
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %238, label %236
 
-236:                                              ; preds = %.thread61
+236:                                              ; preds = %.thread62
   %237 = icmp ugt ptr %233, %8
-  br i1 %237, label %242, label %.loopexit67
+  br i1 %237, label %242, label %.loopexit68
 
-238:                                              ; preds = %.thread61
+238:                                              ; preds = %.thread62
   %239 = load ptr, ptr %233, align 8
   %240 = getelementptr i8, ptr %239, i64 4
   store ptr %240, ptr %233, align 8
   %241 = icmp ugt ptr %233, %8
-  br i1 %241, label %242, label %.loopexit67
+  br i1 %241, label %242, label %.loopexit68
 
 242:                                              ; preds = %238, %236
   %243 = getelementptr i8, ptr %8, i64 -24
@@ -2225,14 +2225,14 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %250, ptr noundef %252, ptr noundef %253, i32 noundef %257)
   %258 = getelementptr i8, ptr %248, i64 -24
   %259 = icmp ugt ptr %258, %8
-  br i1 %259, label %247, label %.loopexit67, !llvm.loop !51
+  br i1 %259, label %247, label %.loopexit68, !llvm.loop !51
 
 260:                                              ; preds = %151
   %261 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %262 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %263 = load i32, ptr %9, align 4
   %264 = icmp eq i32 %263, 0
-  br i1 %264, label %.loopexit72, label %265
+  br i1 %264, label %.loopexit73, label %265
 
 265:                                              ; preds = %260
   %266 = ptrtoint ptr %261 to i64
@@ -2246,14 +2246,14 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %274 = call i64 @llvm.smin.i64(i64 %269, i64 %273)
   %275 = trunc i64 %274 to i32
   %276 = icmp slt i32 %275, 0
-  br i1 %276, label %.loopexit72, label %.preheader71
+  br i1 %276, label %.loopexit73, label %.preheader72
 
-277:                                              ; preds = %.preheader71
+277:                                              ; preds = %.preheader72
   %278 = add i32 %280, 1
   %279 = icmp sgt i32 %278, %275
-  br i1 %279, label %.loopexit72, label %.preheader71, !llvm.loop !52
+  br i1 %279, label %.loopexit73, label %.preheader72, !llvm.loop !52
 
-.preheader71:                                     ; preds = %265, %277
+.preheader72:                                     ; preds = %265, %277
   %280 = phi i32 [ %278, %277 ], [ 0, %265 ]
   %281 = sext i32 %280 to i64
   %282 = getelementptr i32, ptr %5, i64 %281
@@ -2263,7 +2263,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %286 = icmp eq i32 %283, %285
   br i1 %286, label %277, label %287
 
-287:                                              ; preds = %.preheader71
+287:                                              ; preds = %.preheader72
   %288 = icmp eq ptr %261, %7
   br i1 %288, label %289, label %299
 
@@ -2279,7 +2279,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %290, i32 noundef %297)
   %298 = load ptr, ptr %261, align 8
   store i32 0, ptr %298, align 4
-  br label %.loopexit72
+  br label %.loopexit73
 
 299:                                              ; preds = %287
   %300 = getelementptr inbounds nuw i8, ptr %261, i64 16
@@ -2294,20 +2294,20 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %309 = sdiv exact i64 %308, 24
   %310 = trunc i64 %309 to i32
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %301, ptr noundef %302, ptr noundef %303, i32 noundef %310)
-  br label %.loopexit72
+  br label %.loopexit73
 
-.loopexit72:                                      ; preds = %277, %299, %289, %265, %260
+.loopexit73:                                      ; preds = %277, %299, %289, %265, %260
   %311 = load i32, ptr %10, align 4
   %312 = icmp eq i32 %311, 0
   br i1 %312, label %313, label %316
 
-313:                                              ; preds = %.loopexit72
+313:                                              ; preds = %.loopexit73
   %314 = load ptr, ptr %262, align 8
   %315 = getelementptr i8, ptr %314, i64 4
   store ptr %315, ptr %262, align 8
   br label %316
 
-316:                                              ; preds = %313, %.loopexit72
+316:                                              ; preds = %313, %.loopexit73
   %317 = getelementptr i8, ptr %7, i64 -24
   %318 = getelementptr i8, ptr %8, i64 -24
   %319 = zext nneg i32 %81 to i64
@@ -2319,7 +2319,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %325 = icmp ugt ptr %261, %7
   %326 = icmp ugt ptr %262, %8
   %327 = select i1 %325, i1 true, i1 %326
-  br i1 %327, label %.lr.ph, label %.loopexit70
+  br i1 %327, label %.lr.ph, label %.loopexit71
 
 .lr.ph:                                           ; preds = %316
   %328 = ashr exact i64 %34, 30
@@ -2351,14 +2351,14 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %351 = load i64, ptr %350, align 8
   %352 = icmp eq i64 %347, %351
-  br i1 %352, label %.thread62, label %356
+  br i1 %352, label %.thread63, label %356
 
-.thread62:                                        ; preds = %343
+.thread63:                                        ; preds = %343
   %353 = load ptr, ptr %333, align 8
   %354 = getelementptr i8, ptr %353, i64 4
   %355 = load ptr, ptr %332, align 8
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %345, ptr noundef %354, ptr noundef %355, i32 noundef %337)
-  br label %.loopexit70
+  br label %.loopexit71
 
 356:                                              ; preds = %343, %329
   %357 = icmp sle i32 %337, %341
@@ -2398,62 +2398,62 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %381 = icmp ugt ptr %369, %7
   %382 = icmp ugt ptr %380, %8
   %383 = select i1 %381, i1 true, i1 %382
-  br i1 %383, label %329, label %.loopexit70
+  br i1 %383, label %329, label %.loopexit71
 
-.loopexit70:                                      ; preds = %379, %316, %.thread62, %432, %428, %424, %414, %405, %.loopexit67
-  %384 = phi ptr [ %232, %405 ], [ %232, %414 ], [ %232, %424 ], [ %232, %432 ], [ %232, %428 ], [ %232, %.loopexit67 ], [ %261, %.thread62 ], [ %261, %316 ], [ %261, %379 ]
-  %385 = phi ptr [ %233, %405 ], [ %233, %414 ], [ %233, %424 ], [ %233, %432 ], [ %233, %428 ], [ %233, %.loopexit67 ], [ %262, %.thread62 ], [ %262, %316 ], [ %262, %379 ]
+.loopexit71:                                      ; preds = %379, %316, %.thread63, %432, %428, %424, %414, %405, %.loopexit68
+  %384 = phi ptr [ %232, %405 ], [ %232, %414 ], [ %232, %424 ], [ %232, %432 ], [ %232, %428 ], [ %232, %.loopexit68 ], [ %261, %.thread63 ], [ %261, %316 ], [ %261, %379 ]
+  %385 = phi ptr [ %233, %405 ], [ %233, %414 ], [ %233, %424 ], [ %233, %432 ], [ %233, %428 ], [ %233, %.loopexit68 ], [ %262, %.thread63 ], [ %262, %316 ], [ %262, %379 ]
   %386 = icmp ugt ptr %384, %7
-  br i1 %386, label %.preheader66, label %.loopexit
+  br i1 %386, label %.preheader67, label %.loopexit
 
-.loopexit:                                        ; preds = %393, %.loopexit70
+.loopexit:                                        ; preds = %393, %.loopexit71
   %387 = icmp ugt ptr %385, %8
-  br i1 %387, label %.preheader64, label %.thread
+  br i1 %387, label %.preheader65, label %.thread
 
-.preheader66:                                     ; preds = %.loopexit70, %393
-  %388 = phi ptr [ %394, %393 ], [ %384, %.loopexit70 ]
+.preheader67:                                     ; preds = %.loopexit71, %393
+  %388 = phi ptr [ %394, %393 ], [ %384, %.loopexit71 ]
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load ptr, ptr %389, align 8
   %391 = icmp eq ptr %390, null
   br i1 %391, label %393, label %392
 
-392:                                              ; preds = %.preheader66
+392:                                              ; preds = %.preheader67
   call void @__brelse(ptr noundef nonnull %390) #12
   br label %393
 
-393:                                              ; preds = %392, %.preheader66
+393:                                              ; preds = %392, %.preheader67
   %394 = getelementptr i8, ptr %388, i64 -24
   %395 = icmp ugt ptr %394, %7
-  br i1 %395, label %.preheader66, label %.loopexit, !llvm.loop !53
+  br i1 %395, label %.preheader67, label %.loopexit, !llvm.loop !53
 
-.preheader64:                                     ; preds = %.loopexit, %401
+.preheader65:                                     ; preds = %.loopexit, %401
   %396 = phi ptr [ %402, %401 ], [ %385, %.loopexit ]
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %398 = load ptr, ptr %397, align 8
   %399 = icmp eq ptr %398, null
   br i1 %399, label %401, label %400
 
-400:                                              ; preds = %.preheader64
+400:                                              ; preds = %.preheader65
   call void @__brelse(ptr noundef nonnull %398) #12
   br label %401
 
-401:                                              ; preds = %400, %.preheader64
+401:                                              ; preds = %400, %.preheader65
   %402 = getelementptr i8, ptr %396, i64 -24
   %403 = icmp ugt ptr %402, %8
-  br i1 %403, label %.preheader64, label %.thread, !llvm.loop !54
+  br i1 %403, label %.preheader65, label %.thread, !llvm.loop !54
 
-.loopexit67:                                      ; preds = %247, %238, %236
+.loopexit68:                                      ; preds = %247, %238, %236
   %404 = load i32, ptr %5, align 16
   switch i32 %404, label %405 [
     i32 12, label %414
     i32 13, label %424
-    i32 14, label %.loopexit70
+    i32 14, label %.loopexit71
   ]
 
-405:                                              ; preds = %.loopexit67
+405:                                              ; preds = %.loopexit68
   %406 = add nuw nsw i32 %81, 1
   %407 = icmp samesign ult i32 %406, %118
-  br i1 %407, label %408, label %.loopexit70
+  br i1 %407, label %408, label %.loopexit71
 
 408:                                              ; preds = %405
   %409 = getelementptr i8, ptr %1, i64 -248
@@ -2468,11 +2468,11 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   store i32 0, ptr %409, align 4
   br label %414
 
-414:                                              ; preds = %412, %408, %.loopexit67
-  %415 = phi i32 [ %406, %412 ], [ %406, %408 ], [ %81, %.loopexit67 ]
+414:                                              ; preds = %412, %408, %.loopexit68
+  %415 = phi i32 [ %406, %412 ], [ %406, %408 ], [ %81, %.loopexit68 ]
   %416 = add nuw nsw i32 %415, 1
   %417 = icmp slt i32 %416, %118
-  br i1 %417, label %418, label %.loopexit70
+  br i1 %417, label %418, label %.loopexit71
 
 418:                                              ; preds = %414
   %419 = getelementptr i8, ptr %1, i64 -244
@@ -2487,26 +2487,26 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   store i32 0, ptr %419, align 4
   br label %424
 
-424:                                              ; preds = %422, %418, %.loopexit67
-  %425 = phi i32 [ %416, %422 ], [ %416, %418 ], [ %81, %.loopexit67 ]
+424:                                              ; preds = %422, %418, %.loopexit68
+  %425 = phi i32 [ %416, %422 ], [ %416, %418 ], [ %81, %.loopexit68 ]
   %426 = add nuw nsw i32 %425, 1
   %427 = icmp slt i32 %426, %118
-  br i1 %427, label %428, label %.loopexit70
+  br i1 %427, label %428, label %.loopexit71
 
 428:                                              ; preds = %424
   %429 = getelementptr i8, ptr %1, i64 -240
   %430 = load i32, ptr %429, align 4
   store i32 %430, ptr %9, align 4
   %431 = icmp eq i32 %430, 0
-  br i1 %431, label %.loopexit70, label %432
+  br i1 %431, label %.loopexit71, label %432
 
 432:                                              ; preds = %428
   %433 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %433, i32 noundef 3)
   store i32 0, ptr %429, align 4
-  br label %.loopexit70
+  br label %.loopexit71
 
-.thread:                                          ; preds = %401, %139, %.thread172, %.loopexit, %149, %148, %4
+.thread:                                          ; preds = %401, %139, %.thread173, %.loopexit, %149, %148, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

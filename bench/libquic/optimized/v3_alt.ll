@@ -82,16 +82,16 @@ define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %0, ptr
 
 .preheader:                                       ; preds = %3
   %5 = tail call i64 @sk_num(ptr noundef %2) #7
-  %.not40 = icmp eq i64 %5, 0
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not41 = icmp eq i64 %5, 0
+  br i1 %.not41, label %.loopexit, label %.lr.ph
 
 6:                                                ; preds = %3
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.25, i32 noundef 319) #7
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %31
-  %.02439 = phi i64 [ %32, %31 ], [ 0, %.preheader ]
-  %7 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.02439) #7
+  %.02440 = phi i64 [ %32, %31 ], [ 0, %.preheader ]
+  %7 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.02440) #7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = tail call i32 @name_cmp(ptr noundef %9, ptr noundef nonnull @.str.4) #7
@@ -146,7 +146,7 @@ define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %0, ptr
   br label %31
 
 31:                                               ; preds = %.thread, %16, %26
-  %32 = add nuw i64 %.02439, 1
+  %32 = add nuw i64 %.02440, 1
   %33 = tail call i64 @sk_num(ptr noundef %2) #7
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !15
@@ -168,8 +168,8 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
 
 .preheader:                                       ; preds = %3
   %5 = tail call i64 @sk_num(ptr noundef %2) #7
-  %.not32 = icmp eq i64 %5, 0
-  br i1 %.not32, label %.loopexit, label %.lr.ph
+  %.not33 = icmp eq i64 %5, 0
+  br i1 %.not33, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq ptr %1, null
@@ -177,8 +177,8 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
-  %.01931.us = phi i64 [ %19, %.thread.us ], [ 0, %.lr.ph ]
-  %7 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.01931.us) #7
+  %.01932.us = phi i64 [ %19, %.thread.us ], [ 0, %.lr.ph ]
+  %7 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.01932.us) #7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = tail call i32 @name_cmp(ptr noundef %9, ptr noundef nonnull @.str.32) #7
@@ -203,7 +203,7 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
 
 .thread.us:                                       ; preds = %16
   %18 = tail call i64 @sk_push(ptr noundef nonnull %4, ptr noundef nonnull %17) #7
-  %19 = add nuw i64 %.01931.us, 1
+  %19 = add nuw i64 %.01932.us, 1
   %20 = tail call i64 @sk_num(ptr noundef %2) #7
   %21 = icmp ult i64 %19, %20
   br i1 %21, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !16
@@ -213,8 +213,8 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %copy_issuer.exit
-  %.01931 = phi i64 [ %57, %copy_issuer.exit ], [ 0, %.lr.ph ]
-  %23 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.01931) #7
+  %.01932 = phi i64 [ %57, %copy_issuer.exit ], [ 0, %.lr.ph ]
+  %23 = tail call ptr @sk_value(ptr noundef %2, i64 noundef %.01932) #7
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = tail call i32 @name_cmp(ptr noundef %25, ptr noundef nonnull @.str.32) #7
@@ -302,7 +302,7 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
   br label %copy_issuer.exit
 
 copy_issuer.exit:                                 ; preds = %.thread, %._crit_edge.i, %37, %32
-  %57 = add nuw i64 %.01931, 1
+  %57 = add nuw i64 %.01932, 1
   %58 = tail call i64 @sk_num(ptr noundef %2) #7
   %59 = icmp ult i64 %57, %58
   br i1 %59, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
@@ -834,8 +834,8 @@ do_dirname.exit:                                  ; preds = %34
 
 38:                                               ; preds = %13
   %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 59) #8
-  %.not.i49 = icmp eq ptr %39, null
-  br i1 %.not.i49, label %do_othername.exit.thread, label %40
+  %.not.i50 = icmp eq ptr %39, null
+  br i1 %.not.i50, label %do_othername.exit.thread, label %40
 
 40:                                               ; preds = %38
   %41 = tail call ptr @OTHERNAME_new() #7

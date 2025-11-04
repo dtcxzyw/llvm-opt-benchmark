@@ -1925,8 +1925,8 @@ define internal ptr @pysqlite_cursor_iternext(ptr noundef %0) #0 {
   %wide.trip.count.i = zext nneg i32 %17 to i64
   br label %28
 
-28:                                               ; preds = %_Py_NewRef.exit120.thread.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_Py_NewRef.exit120.thread.i ]
+28:                                               ; preds = %_Py_NewRef.exit.thread146.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_Py_NewRef.exit.thread146.i ]
   %29 = load ptr, ptr %21, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !49
@@ -1964,16 +1964,16 @@ define internal ptr @pysqlite_cursor_iternext(ptr noundef %0) #0 {
 49:                                               ; preds = %42
   %50 = tail call i32 @sqlite3_errcode(ptr noundef %24) #7
   %51 = icmp eq i32 %50, 7
-  br i1 %51, label %_Py_NewRef.exit.thread125.i, label %53
+  br i1 %51, label %_Py_NewRef.exit.thread130.i, label %53
 
-_Py_NewRef.exit.thread125.i:                      ; preds = %49
+_Py_NewRef.exit.thread130.i:                      ; preds = %49
   %52 = tail call ptr @PyErr_NoMemory() #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
 53:                                               ; preds = %49
   %54 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !13
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %_Py_NewRef.exit120.thread.i, label %_Py_NewRef.exit120.thread.sink.split.i
+  br i1 %55, label %_Py_NewRef.exit.thread146.i, label %_Py_NewRef.exit.thread146.sink.split.i
 
 56:                                               ; preds = %42
   %57 = load ptr, ptr %6, align 8, !tbaa !15
@@ -1983,23 +1983,23 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
   %61 = sext i32 %60 to i64
   %62 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %47, i64 noundef %61) #7
   %.not112.i = icmp eq ptr %62, null
-  br i1 %.not112.i, label %Py_DECREF.exit115.i, label %63
+  br i1 %.not112.i, label %Py_DECREF.exit120.i, label %63
 
 63:                                               ; preds = %56
   %64 = tail call ptr @PyObject_CallOneArg(ptr noundef %41, ptr noundef nonnull %62) #7
   %65 = load i32, ptr %62, align 8, !tbaa !13
-  %.not.i116.i = icmp sgt i32 %65, -1
-  br i1 %.not.i116.i, label %66, label %_Py_NewRef.exit120.i
+  %.not.i121.i = icmp sgt i32 %65, -1
+  br i1 %.not.i121.i, label %66, label %_Py_NewRef.exit.i
 
 66:                                               ; preds = %63
   %67 = add nsw i32 %65, -1
   store i32 %67, ptr %62, align 8, !tbaa !13
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %_Py_NewRef.exit120.i
+  br i1 %68, label %69, label %_Py_NewRef.exit.i
 
 69:                                               ; preds = %66
   tail call void @_Py_Dealloc(ptr noundef nonnull %62) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 .thread.i:                                        ; preds = %37, %34, %32, %28
   %70 = tail call ptr @PyEval_SaveThread() #7
@@ -2019,7 +2019,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 76:                                               ; preds = %.thread.i
   %77 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !13
   %78 = icmp slt i32 %77, 0
-  br i1 %78, label %_Py_NewRef.exit120.thread.i, label %_Py_NewRef.exit120.thread.sink.split.i
+  br i1 %78, label %_Py_NewRef.exit.thread146.i, label %_Py_NewRef.exit.thread146.sink.split.i
 
 79:                                               ; preds = %.thread.i
   %80 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2027,7 +2027,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
   %82 = load ptr, ptr %81, align 8, !tbaa !16
   %83 = tail call i64 @sqlite3_column_int64(ptr noundef %82, i32 noundef %74) #7
   %84 = tail call ptr @PyLong_FromLongLong(i64 noundef %83) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 85:                                               ; preds = %.thread.i
   %86 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2035,7 +2035,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
   %88 = load ptr, ptr %87, align 8, !tbaa !16
   %89 = tail call double @sqlite3_column_double(ptr noundef %88, i32 noundef %74) #7
   %90 = tail call ptr @PyFloat_FromDouble(double noundef %89) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 91:                                               ; preds = %.thread.i
   %92 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2052,7 +2052,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 
 100:                                              ; preds = %97
   %101 = tail call ptr @PyErr_NoMemory() #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
 102:                                              ; preds = %97, %91
   %103 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2069,13 +2069,13 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 112:                                              ; preds = %102
   %113 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef %95, i64 noundef %107) #7
   %.not109.i = icmp eq ptr %113, null
-  br i1 %.not109.i, label %114, label %_Py_NewRef.exit120.thread.i
+  br i1 %.not109.i, label %114, label %_Py_NewRef.exit.thread146.i
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr @PyExc_UnicodeDecodeError, align 8, !tbaa !14
   %116 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %115) #7
   %.not110.i = icmp eq i32 %116, 0
-  br i1 %.not110.i, label %Py_DECREF.exit115.i, label %117
+  br i1 %.not110.i, label %Py_DECREF.exit120.i, label %117
 
 117:                                              ; preds = %114
   tail call void @PyErr_Clear() #7
@@ -2088,7 +2088,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 
 123:                                              ; preds = %117
   %124 = tail call ptr @PyErr_NoMemory() #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
 125:                                              ; preds = %117
   %126 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %2, i64 noundef 199, ptr noundef nonnull @.str.16, ptr noundef nonnull %121, ptr noundef %95) #7
@@ -2102,23 +2102,23 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 
 132:                                              ; preds = %125
   call void @PyErr_SetString(ptr noundef %131, ptr noundef nonnull @.str.19) #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
 133:                                              ; preds = %125
   call void @PyErr_SetObject(ptr noundef %131, ptr noundef nonnull %128) #7
   %134 = load i32, ptr %128, align 8, !tbaa !13
-  %.not.i114.i = icmp sgt i32 %134, -1
-  br i1 %.not.i114.i, label %135, label %Py_DECREF.exit115.i
+  %.not.i119.i = icmp sgt i32 %134, -1
+  br i1 %.not.i119.i, label %135, label %Py_DECREF.exit120.i
 
 135:                                              ; preds = %133
   %136 = add nsw i32 %134, -1
   store i32 %136, ptr %128, align 8, !tbaa !13
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %Py_DECREF.exit115.i
+  br i1 %137, label %138, label %Py_DECREF.exit120.i
 
 138:                                              ; preds = %135
   call void @_Py_Dealloc(ptr noundef nonnull %128) #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
 139:                                              ; preds = %102
   %140 = icmp eq ptr %110, @PyBytes_Type
@@ -2126,7 +2126,7 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 
 141:                                              ; preds = %139
   %142 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %95, i64 noundef %107) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 143:                                              ; preds = %139
   %144 = icmp eq ptr %110, @PyByteArray_Type
@@ -2134,11 +2134,11 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
 
 145:                                              ; preds = %143
   %146 = tail call ptr @PyByteArray_FromStringAndSize(ptr noundef %95, i64 noundef %107) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 147:                                              ; preds = %143
   %148 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %110, ptr noundef nonnull @.str.20, ptr noundef %95, i64 noundef %107) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 149:                                              ; preds = %.thread.i
   %150 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2146,56 +2146,56 @@ _Py_NewRef.exit.thread125.i:                      ; preds = %49
   %152 = load ptr, ptr %151, align 8, !tbaa !16
   %153 = tail call ptr @sqlite3_column_blob(ptr noundef %152, i32 noundef %74) #7
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %.thread130.i
+  br i1 %154, label %155, label %.thread142.i
 
 155:                                              ; preds = %149
   %156 = tail call i32 @sqlite3_errcode(ptr noundef %24) #7
   %157 = icmp eq i32 %156, 7
-  br i1 %157, label %164, label %.thread130.i
+  br i1 %157, label %164, label %.thread142.i
 
-.thread130.i:                                     ; preds = %155, %149
+.thread142.i:                                     ; preds = %155, %149
   %158 = load ptr, ptr %6, align 8, !tbaa !15
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !16
   %161 = tail call i32 @sqlite3_column_bytes(ptr noundef %160, i32 noundef %74) #7
   %162 = sext i32 %161 to i64
   %163 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %153, i64 noundef %162) #7
-  br label %_Py_NewRef.exit120.i
+  br label %_Py_NewRef.exit.i
 
 164:                                              ; preds = %155
   %165 = tail call ptr @PyErr_NoMemory() #7
-  br label %Py_DECREF.exit115.i
+  br label %Py_DECREF.exit120.i
 
-_Py_NewRef.exit120.i:                             ; preds = %.thread130.i, %147, %145, %141, %85, %79, %69, %66, %63
-  %.4.i = phi ptr [ %84, %79 ], [ %90, %85 ], [ %163, %.thread130.i ], [ %148, %147 ], [ %146, %145 ], [ %142, %141 ], [ %64, %69 ], [ %64, %66 ], [ %64, %63 ]
+_Py_NewRef.exit.i:                                ; preds = %.thread142.i, %147, %145, %141, %85, %79, %69, %66, %63
+  %.4.i = phi ptr [ %84, %79 ], [ %90, %85 ], [ %163, %.thread142.i ], [ %64, %69 ], [ %64, %66 ], [ %64, %63 ], [ %148, %147 ], [ %146, %145 ], [ %142, %141 ]
   %.not113.i = icmp eq ptr %.4.i, null
-  br i1 %.not113.i, label %Py_DECREF.exit115.i, label %_Py_NewRef.exit120.thread.i
+  br i1 %.not113.i, label %Py_DECREF.exit120.i, label %_Py_NewRef.exit.thread146.i
 
-_Py_NewRef.exit120.thread.sink.split.i:           ; preds = %76, %53
-  %.sink180.i = phi i32 [ %54, %53 ], [ %77, %76 ]
-  %166 = add nuw i32 %.sink180.i, 1
+_Py_NewRef.exit.thread146.sink.split.i:           ; preds = %76, %53
+  %.sink192.i = phi i32 [ %54, %53 ], [ %77, %76 ]
+  %166 = add nuw i32 %.sink192.i, 1
   store i32 %166, ptr @_Py_NoneStruct, align 8, !tbaa !13
-  br label %_Py_NewRef.exit120.thread.i
+  br label %_Py_NewRef.exit.thread146.i
 
-_Py_NewRef.exit120.thread.i:                      ; preds = %_Py_NewRef.exit120.thread.sink.split.i, %_Py_NewRef.exit120.i, %112, %76, %53
-  %.4135.i = phi ptr [ %.4.i, %_Py_NewRef.exit120.i ], [ @_Py_NoneStruct, %76 ], [ %113, %112 ], [ @_Py_NoneStruct, %53 ], [ @_Py_NoneStruct, %_Py_NewRef.exit120.thread.sink.split.i ]
+_Py_NewRef.exit.thread146.i:                      ; preds = %_Py_NewRef.exit.thread146.sink.split.i, %_Py_NewRef.exit.i, %112, %76, %53
+  %.4149.i = phi ptr [ %.4.i, %_Py_NewRef.exit.i ], [ @_Py_NoneStruct, %76 ], [ %113, %112 ], [ @_Py_NoneStruct, %53 ], [ @_Py_NoneStruct, %_Py_NewRef.exit.thread146.sink.split.i ]
   %167 = getelementptr ptr, ptr %27, i64 %indvars.iv.i
-  store ptr %.4135.i, ptr %167, align 8, !tbaa !14
+  store ptr %.4149.i, ptr %167, align 8, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %28, !llvm.loop !78
 
-._crit_edge.i:                                    ; preds = %_Py_NewRef.exit120.thread.i, %20
+._crit_edge.i:                                    ; preds = %_Py_NewRef.exit.thread146.i, %20
   %168 = tail call ptr @PyErr_Occurred() #7
   %.not105.i = icmp eq ptr %168, null
-  br i1 %.not105.i, label %174, label %Py_DECREF.exit115.i
+  br i1 %.not105.i, label %174, label %Py_DECREF.exit120.i
 
-Py_DECREF.exit115.i:                              ; preds = %_Py_NewRef.exit120.i, %56, %._crit_edge.i, %164, %138, %135, %133, %132, %123, %114, %100, %_Py_NewRef.exit.thread125.i
+Py_DECREF.exit120.i:                              ; preds = %_Py_NewRef.exit.i, %56, %._crit_edge.i, %164, %138, %135, %133, %132, %123, %114, %100, %_Py_NewRef.exit.thread130.i
   %169 = load i32, ptr %19, align 8, !tbaa !13
   %.not.i.i = icmp sgt i32 %169, -1
   br i1 %.not.i.i, label %170, label %_pysqlite_fetch_one_row.exit.thread
 
-170:                                              ; preds = %Py_DECREF.exit115.i
+170:                                              ; preds = %Py_DECREF.exit120.i
   %171 = add nsw i32 %169, -1
   store i32 %171, ptr %19, align 8, !tbaa !13
   %172 = icmp eq i32 %171, 0
@@ -2205,7 +2205,7 @@ Py_DECREF.exit115.i:                              ; preds = %_Py_NewRef.exit120.
   call void @_Py_Dealloc(ptr noundef nonnull %19) #7
   br label %_pysqlite_fetch_one_row.exit.thread
 
-_pysqlite_fetch_one_row.exit.thread:              ; preds = %9, %Py_DECREF.exit115.i, %170, %173
+_pysqlite_fetch_one_row.exit.thread:              ; preds = %9, %Py_DECREF.exit120.i, %170, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %12, align 4, !tbaa !3
   br label %Py_DECREF.exit51

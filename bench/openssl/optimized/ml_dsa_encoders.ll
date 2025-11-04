@@ -930,7 +930,7 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   store i64 %70, ptr %31, align 8, !tbaa !50
   %.0.copyload.i.i = load i64, ptr %65, align 1
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.0.copyload.i19.i = load i32, ptr %71, align 1
+  %.0.copyload.i20.i = load i32, ptr %71, align 1
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %73 = load i8, ptr %72, align 1, !tbaa !23
   %74 = zext i8 %73 to i32
@@ -951,10 +951,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %87 = and i32 %86, 8191
   %88 = sub nuw nsw i32 8384513, %87
   %89 = sub nsw i32 4096, %87
-  %.neg.i.i.i.i20.i = ashr i32 %89, 31
-  %90 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i20.i) #10, !srcloc !42
+  %.neg.i.i.i.i21.i = ashr i32 %89, 31
+  %90 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !42
   %91 = and i32 %90, %88
-  %92 = xor i32 %.neg.i.i.i.i20.i, -1
+  %92 = xor i32 %.neg.i.i.i.i21.i, -1
   %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %92) #10, !srcloc !42
   %94 = and i32 %93, %89
   %95 = or i32 %94, %91
@@ -965,10 +965,10 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %99 = and i32 %98, 8191
   %100 = sub nuw nsw i32 8384513, %99
   %101 = sub nsw i32 4096, %99
-  %.neg.i.i.i.i21.i = ashr i32 %101, 31
-  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !42
+  %.neg.i.i.i.i22.i = ashr i32 %101, 31
+  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !42
   %103 = and i32 %102, %100
-  %104 = xor i32 %.neg.i.i.i.i21.i, -1
+  %104 = xor i32 %.neg.i.i.i.i22.i, -1
   %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %104) #10, !srcloc !42
   %106 = and i32 %105, %101
   %107 = or i32 %106, %103
@@ -979,64 +979,64 @@ PACKET_copy_bytes.exit65:                         ; preds = %37
   %111 = and i32 %110, 8191
   %112 = sub nuw nsw i32 8384513, %111
   %113 = sub nsw i32 4096, %111
-  %.neg.i.i.i.i22.i = ashr i32 %113, 31
-  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !42
+  %.neg.i.i.i.i23.i = ashr i32 %113, 31
+  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !42
   %115 = and i32 %114, %112
-  %116 = xor i32 %.neg.i.i.i.i22.i, -1
+  %116 = xor i32 %.neg.i.i.i.i23.i, -1
   %117 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %116) #10, !srcloc !42
   %118 = and i32 %117, %113
   %119 = or i32 %118, %115
   %120 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 16
   store i32 %119, ptr %108, align 4, !tbaa !21
   %121 = lshr i64 %.0.copyload.i.i, 52
-  %122 = shl i32 %.0.copyload.i19.i, 12
+  %122 = shl i32 %.0.copyload.i20.i, 12
   %123 = and i32 %122, 4096
   %124 = trunc nuw nsw i64 %121 to i32
   %125 = or disjoint i32 %123, %124
   %126 = sub nuw nsw i32 8384513, %125
   %127 = sub nsw i32 4096, %125
-  %.neg.i.i.i.i23.i = ashr i32 %127, 31
-  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !42
+  %.neg.i.i.i.i24.i = ashr i32 %127, 31
+  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !42
   %129 = and i32 %128, %126
-  %130 = xor i32 %.neg.i.i.i.i23.i, -1
+  %130 = xor i32 %.neg.i.i.i.i24.i, -1
   %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !42
   %132 = and i32 %131, %127
   %133 = or i32 %132, %129
   %134 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 20
   store i32 %133, ptr %120, align 4, !tbaa !21
-  %135 = lshr i32 %.0.copyload.i19.i, 1
+  %135 = lshr i32 %.0.copyload.i20.i, 1
   %136 = and i32 %135, 8191
   %137 = sub nuw nsw i32 8384513, %136
   %138 = sub nsw i32 4096, %136
-  %.neg.i.i.i.i24.i = ashr i32 %138, 31
-  %139 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !42
+  %.neg.i.i.i.i25.i = ashr i32 %138, 31
+  %139 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !42
   %140 = and i32 %139, %137
-  %141 = xor i32 %.neg.i.i.i.i24.i, -1
+  %141 = xor i32 %.neg.i.i.i.i25.i, -1
   %142 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %141) #10, !srcloc !42
   %143 = and i32 %142, %138
   %144 = or i32 %143, %140
   %145 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 24
   store i32 %144, ptr %134, align 4, !tbaa !21
-  %146 = lshr i32 %.0.copyload.i19.i, 14
+  %146 = lshr i32 %.0.copyload.i20.i, 14
   %147 = and i32 %146, 8191
   %148 = sub nuw nsw i32 8384513, %147
   %149 = sub nsw i32 4096, %147
-  %.neg.i.i.i.i25.i = ashr i32 %149, 31
-  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !42
+  %.neg.i.i.i.i26.i = ashr i32 %149, 31
+  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !42
   %151 = and i32 %150, %148
-  %152 = xor i32 %.neg.i.i.i.i25.i, -1
+  %152 = xor i32 %.neg.i.i.i.i26.i, -1
   %153 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %152) #10, !srcloc !42
   %154 = and i32 %153, %149
   %155 = or i32 %154, %151
   %156 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 28
   store i32 %155, ptr %145, align 4, !tbaa !21
-  %157 = call i32 @llvm.fshl.i32(i32 %74, i32 %.0.copyload.i19.i, i32 5)
+  %157 = call i32 @llvm.fshl.i32(i32 %74, i32 %.0.copyload.i20.i, i32 5)
   %158 = sub nuw nsw i32 8384513, %157
   %159 = sub nsw i32 4096, %157
-  %.neg.i.i.i.i26.i = ashr i32 %159, 31
-  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !42
+  %.neg.i.i.i.i27.i = ashr i32 %159, 31
+  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27.i) #10, !srcloc !42
   %161 = and i32 %160, %158
-  %162 = xor i32 %.neg.i.i.i.i26.i, -1
+  %162 = xor i32 %.neg.i.i.i.i27.i, -1
   %163 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %162) #10, !srcloc !42
   %164 = and i32 %163, %159
   %165 = or i32 %164, %161
@@ -1875,9 +1875,9 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   store i64 %10, ptr %3, align 8, !tbaa !50
   %.0.copyload.i = load i32, ptr %8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.0.copyload.i14 = load i32, ptr %11, align 1
+  %.0.copyload.i15 = load i32, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.0.copyload.i15 = load i16, ptr %12, align 1
+  %.0.copyload.i16 = load i16, ptr %12, align 1
   %13 = and i32 %.0.copyload.i, 1048575
   %14 = sub nuw nsw i32 8904705, %13
   %15 = sub nsw i32 524288, %13
@@ -1891,41 +1891,41 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %.01036, i64 4
   store i32 %21, ptr %.01036, align 4, !tbaa !21
   %23 = lshr i32 %.0.copyload.i, 20
-  %24 = shl i32 %.0.copyload.i14, 12
+  %24 = shl i32 %.0.copyload.i15, 12
   %25 = and i32 %24, 1044480
   %26 = or disjoint i32 %25, %23
   %27 = sub nuw nsw i32 8904705, %26
   %28 = sub nsw i32 524288, %26
-  %.neg.i.i.i.i16 = ashr i32 %28, 31
-  %29 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i16) #10, !srcloc !42
+  %.neg.i.i.i.i17 = ashr i32 %28, 31
+  %29 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !42
   %30 = and i32 %29, %27
-  %31 = xor i32 %.neg.i.i.i.i16, -1
+  %31 = xor i32 %.neg.i.i.i.i17, -1
   %32 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %31) #10, !srcloc !42
   %33 = and i32 %32, %28
   %34 = or i32 %33, %30
   %35 = getelementptr inbounds nuw i8, ptr %.01036, i64 8
   store i32 %34, ptr %22, align 4, !tbaa !21
-  %36 = lshr i32 %.0.copyload.i14, 8
+  %36 = lshr i32 %.0.copyload.i15, 8
   %37 = and i32 %36, 1048575
   %38 = sub nuw nsw i32 8904705, %37
   %39 = sub nsw i32 524288, %37
-  %.neg.i.i.i.i17 = ashr i32 %39, 31
-  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i17) #10, !srcloc !42
+  %.neg.i.i.i.i18 = ashr i32 %39, 31
+  %40 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !42
   %41 = and i32 %40, %38
-  %42 = xor i32 %.neg.i.i.i.i17, -1
+  %42 = xor i32 %.neg.i.i.i.i18, -1
   %43 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %42) #10, !srcloc !42
   %44 = and i32 %43, %39
   %45 = or i32 %44, %41
   %46 = getelementptr inbounds nuw i8, ptr %.01036, i64 12
   store i32 %45, ptr %35, align 4, !tbaa !21
-  %47 = zext i16 %.0.copyload.i15 to i32
-  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %.0.copyload.i14, i32 4)
+  %47 = zext i16 %.0.copyload.i16 to i32
+  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %.0.copyload.i15, i32 4)
   %49 = sub nuw nsw i32 8904705, %48
   %50 = sub nsw i32 524288, %48
-  %.neg.i.i.i.i18 = ashr i32 %50, 31
-  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i18) #10, !srcloc !42
+  %.neg.i.i.i.i19 = ashr i32 %50, 31
+  %51 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i19) #10, !srcloc !42
   %52 = and i32 %51, %49
-  %53 = xor i32 %.neg.i.i.i.i18, -1
+  %53 = xor i32 %.neg.i.i.i.i19, -1
   %54 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %53) #10, !srcloc !42
   %55 = and i32 %54, %50
   %56 = or i32 %55, %52
@@ -1936,8 +1936,8 @@ define internal range(i32 0, 2) i32 @poly_decode_signed_two_to_power_19(ptr noun
   br i1 %exitcond.not, label %59, label %4, !llvm.loop !79
 
 59:                                               ; preds = %4, %7
-  %.013 = phi i32 [ 1, %7 ], [ 0, %4 ]
-  ret i32 %.013
+  %.011 = phi i32 [ 1, %7 ], [ 0, %4 ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

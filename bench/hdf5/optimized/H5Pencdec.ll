@@ -757,9 +757,9 @@ define internal range(i32 -1, -2147483648) i32 @H5P__encode_cb(ptr noundef reado
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
-59:                                               ; preds = %58, %2, %11
-  %.021 = phi i32 [ %.2, %58 ], [ 0, %11 ], [ 0, %2 ]
-  ret i32 %.021
+59:                                               ; preds = %2, %11, %58
+  %.022 = phi i32 [ %.2, %58 ], [ 0, %11 ], [ 0, %2 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1274,9 +1274,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
   br label %.thread94.thread
 
 .thread94.thread:                                 ; preds = %12, %18, %29, %36, %1, %108, %111, %.thread94
-  %.053 = phi i64 [ -1, %111 ], [ -1, %108 ], [ %.157100, %.thread94 ], [ -1, %1 ], [ -1, %36 ], [ -1, %29 ], [ -1, %18 ], [ -1, %12 ]
+  %.056 = phi i64 [ -1, %111 ], [ -1, %108 ], [ %.157100, %.thread94 ], [ -1, %1 ], [ -1, %36 ], [ -1, %29 ], [ -1, %18 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.053
+  ret i64 %.056
 }
 
 declare i64 @H5P__new_plist_of_type(i32 noundef) local_unnamed_addr #3

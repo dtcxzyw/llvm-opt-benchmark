@@ -262,7 +262,7 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr nound
   br i1 %.not39.i, label %._crit_edge.i, label %.select.unfold_crit_edge.i
 
 .select.unfold_crit_edge.i:                       ; preds = %27
-  %.pre45.i = load i32, ptr %2, align 8
+  %.pre46.i = load i32, ptr %2, align 8
   br label %.critedge.sink.split.i
 
 ._crit_edge.i:                                    ; preds = %27
@@ -291,7 +291,7 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr nound
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %36, %29, %.select.unfold_crit_edge.i
-  %.sink.i = phi i32 [ %38, %36 ], [ %.pre45.i, %.select.unfold_crit_edge.i ], [ %15, %29 ]
+  %.sink.i = phi i32 [ %38, %36 ], [ %.pre46.i, %.select.unfold_crit_edge.i ], [ %15, %29 ]
   %39 = load ptr, ptr %6, align 8
   store i32 %.sink.i, ptr %39, align 4
   br label %r_mark_regions.exit

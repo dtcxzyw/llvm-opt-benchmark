@@ -566,7 +566,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 
 16:                                               ; preds = %.backedge, %2
   %17 = load i32, ptr %1, align 8, !tbaa !21
-  switch i32 %17, label %.thread131 [
+  switch i32 %17, label %.thread134 [
     i32 1, label %18
     i32 2, label %32
     i32 3, label %47
@@ -591,7 +591,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %25 = load ptr, ptr %9, align 8, !tbaa !29
   %26 = load ptr, ptr %10, align 8, !tbaa !28
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 143, ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef %26) #7
-  br label %.thread131
+  br label %.thread134
 
 27:                                               ; preds = %21, %18
   %28 = load ptr, ptr %12, align 8, !tbaa !37
@@ -627,7 +627,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 204, ptr noundef nonnull @__func__.acpt_state) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 146, ptr noundef null) #7
-  br label %.thread131
+  br label %.thread134
 
 37:                                               ; preds = %32, %35, %34
   %.094 = phi i32 [ 2, %34 ], [ 0, %35 ], [ 10, %32 ]
@@ -635,7 +635,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %39 = load ptr, ptr %10, align 8, !tbaa !28
   %40 = tail call i32 @BIO_lookup(ptr noundef %38, ptr noundef %39, i32 noundef 1, i32 noundef %.094, i32 noundef 1, ptr noundef nonnull %11) #7
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.thread131, label %42
+  br i1 %41, label %.thread134, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %11, align 8, !tbaa !26
@@ -646,7 +646,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @__func__.acpt_state) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 142, ptr noundef null) #7
-  br label %.thread131
+  br label %.thread134
 
 46:                                               ; preds = %42
   store ptr %43, ptr %5, align 8, !tbaa !42
@@ -688,7 +688,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 236, ptr noundef nonnull @__func__.acpt_state) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 118, ptr noundef null) #7
-  br label %.thread131
+  br label %.thread134
 
 68:                                               ; preds = %47
   store i32 %55, ptr %6, align 8, !tbaa !24
@@ -709,7 +709,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 76:                                               ; preds = %69
   %77 = load i32, ptr %6, align 8, !tbaa !24
   %78 = tail call i32 @BIO_closesocket(i32 noundef %77) #7
-  br label %.thread131
+  br label %.thread134
 
 79:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -724,7 +724,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %84 = load i32, ptr %6, align 8, !tbaa !24
   %85 = call i32 @BIO_closesocket(i32 noundef %84) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread131
+  br label %.thread134
 
 86:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -733,7 +733,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %88 = call ptr @BIO_ADDR_service_string(ptr noundef nonnull %80, i32 noundef 1) #7
   store ptr %88, ptr %13, align 8, !tbaa !39
   store i32 5, ptr %1, align 8, !tbaa !21
-  br label %.thread131
+  br label %.thread134
 
 89:                                               ; preds = %16
   %90 = load ptr, ptr %4, align 8, !tbaa !17
@@ -765,12 +765,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 102:                                              ; preds = %92
   %103 = tail call i32 @BIO_sock_should_retry(i32 noundef %100) #7
   %.not112 = icmp eq i32 %103, 0
-  br i1 %.not112, label %.thread131, label %104
+  br i1 %.not112, label %.thread134, label %104
 
 104:                                              ; preds = %102
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 12) #7
   store i32 3, ptr %93, align 4, !tbaa !44
-  br label %.thread131
+  br label %.thread134
 
 .critedge:                                        ; preds = %92
   %105 = tail call ptr @BIO_new_socket(i32 noundef %100, i32 noundef 1) #7
@@ -811,12 +811,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
   %123 = tail call ptr @BIO_ADDR_service_string(ptr noundef nonnull %97, i32 noundef 1) #7
   store ptr %123, ptr %15, align 8, !tbaa !41
   store i32 6, ptr %1, align 8, !tbaa !21
-  br label %.thread131
+  br label %.thread134
 
 124:                                              ; preds = %16
   %125 = load ptr, ptr %4, align 8, !tbaa !17
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %.thread131
+  br i1 %126, label %127, label %.thread134
 
 127:                                              ; preds = %124
   store i32 5, ptr %1, align 8, !tbaa !21
@@ -828,15 +828,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @acpt_state(ptr noundef %0,
 128:                                              ; preds = %113, %116, %118
   %.0100 = phi ptr [ %105, %113 ], [ %.1101, %118 ], [ %105, %116 ]
   %129 = tail call i32 @BIO_free(ptr noundef nonnull %.0100) #7
-  br label %.thread131
+  br label %.thread134
 
 130:                                              ; preds = %.critedge
   %131 = tail call i32 @BIO_closesocket(i32 noundef %100) #7
-  br label %.thread131
+  br label %.thread134
 
-.thread131:                                       ; preds = %37, %124, %16, %36, %24, %45, %62, %83, %76, %102, %86, %104, %121, %130, %128
-  %.099 = phi i32 [ -1, %128 ], [ -1, %130 ], [ 1, %86 ], [ -1, %104 ], [ 1, %121 ], [ -1, %24 ], [ -1, %45 ], [ -1, %62 ], [ -1, %83 ], [ -1, %76 ], [ %100, %102 ], [ -1, %36 ], [ -1, %37 ], [ 0, %16 ], [ 1, %124 ]
-  ret i32 %.099
+.thread134:                                       ; preds = %37, %124, %16, %36, %24, %45, %62, %83, %76, %102, %86, %104, %121, %130, %128
+  %.196 = phi i32 [ -1, %128 ], [ -1, %130 ], [ 1, %86 ], [ -1, %104 ], [ 1, %121 ], [ -1, %24 ], [ -1, %45 ], [ -1, %62 ], [ -1, %83 ], [ -1, %76 ], [ %100, %102 ], [ -1, %36 ], [ -1, %37 ], [ 0, %16 ], [ 1, %124 ]
+  ret i32 %.196
 }
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

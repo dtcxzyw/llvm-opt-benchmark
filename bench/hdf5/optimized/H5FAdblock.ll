@@ -58,7 +58,7 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %.thread56, !prof !9
+  br i1 %7, label %8, label %.thread59, !prof !9
 
 8:                                                ; preds = %1
   %9 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5FA_dblock_t_reg_free_list) #3
@@ -69,7 +69,7 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !10
   %13 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FA__dblock_alloc, i32 noundef 101, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.3) #3
-  br label %.thread56
+  br label %.thread59
 
 15:                                               ; preds = %8
   %16 = tail call i32 @H5FA__hdr_incr(ptr noundef %0) #3
@@ -129,11 +129,11 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
 
 55:                                               ; preds = %43
   store i64 %27, ptr %54, align 8, !tbaa !39
-  br label %.thread56
+  br label %.thread59
 
 56:                                               ; preds = %43
   store i64 %52, ptr %54, align 8, !tbaa !39
-  br label %.thread56
+  br label %.thread59
 
 57:                                               ; preds = %32
   %58 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !10
@@ -151,7 +151,7 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 256
   store ptr %67, ptr %68, align 8, !tbaa !43
   %69 = icmp eq ptr %67, null
-  br i1 %69, label %70, label %.thread56
+  br i1 %69, label %70, label %.thread59
 
 70:                                               ; preds = %61
   %71 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !10
@@ -162,17 +162,17 @@ define ptr @H5FA__dblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
 74:                                               ; preds = %18, %57, %70
   %75 = tail call i32 @H5FA__dblock_dest(ptr noundef nonnull %9)
   %76 = icmp slt i32 %75, 0
-  br i1 %76, label %77, label %.thread56
+  br i1 %76, label %77, label %.thread59
 
 77:                                               ; preds = %74
   %78 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !10
   %79 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
   %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FA__dblock_alloc, i32 noundef 155, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.7) #3
-  br label %.thread56
+  br label %.thread59
 
-.thread56:                                        ; preds = %61, %55, %56, %11, %1, %74, %77
-  %.0 = phi ptr [ null, %77 ], [ null, %74 ], [ null, %1 ], [ null, %11 ], [ %9, %56 ], [ %9, %55 ], [ %9, %61 ]
-  ret ptr %.0
+.thread59:                                        ; preds = %61, %55, %56, %11, %1, %74, %77
+  %.044 = phi ptr [ null, %77 ], [ null, %74 ], [ null, %1 ], [ null, %11 ], [ %9, %56 ], [ %9, %55 ], [ %9, %61 ]
+  ret ptr %.044
 }
 
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
@@ -643,8 +643,8 @@ define range(i32 -1, 1) i32 @H5FA__dblock_delete(ptr noundef %0, i64 noundef %1)
   br label %H5FA__dblock_unprotect.exit.thread
 
 H5FA__dblock_unprotect.exit.thread:               ; preds = %.loopexit, %50, %40, %2, %59
-  %.024 = phi i32 [ -1, %59 ], [ -1, %40 ], [ 0, %2 ], [ %.1.ph, %50 ], [ %.1.ph, %.loopexit ]
-  ret i32 %.024
+  %.023 = phi i32 [ -1, %59 ], [ -1, %40 ], [ 0, %2 ], [ %.1.ph, %50 ], [ %.1.ph, %.loopexit ]
+  ret i32 %.023
 }
 
 declare i32 @H5AC_expunge_entry(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1

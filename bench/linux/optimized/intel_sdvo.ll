@@ -589,15 +589,15 @@ define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !annotation !11
   %169 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef nonnull %32, i8 noundef zeroext -115, ptr noundef null, i32 noundef 0, i1 noundef zeroext true)
-  br i1 %169, label %170, label %.thread8
+  br i1 %169, label %170, label %.thread9
 
 170:                                              ; preds = %132
   %171 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef nonnull %32, ptr noundef nonnull %4, i32 noundef 1)
   %172 = load i8, ptr %4, align 1
   %spec.select = select i1 %171, i8 %172, i8 1
-  br label %.thread8
+  br label %.thread9
 
-.thread8:                                         ; preds = %170, %132
+.thread9:                                         ; preds = %170, %132
   %173 = phi i8 [ 1, %132 ], [ %spec.select, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = getelementptr inbounds nuw i8, ptr %32, i64 3532
@@ -605,8 +605,8 @@ define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32
   %175 = getelementptr inbounds nuw i8, ptr %32, i64 400
   br label %176
 
-176:                                              ; preds = %179, %.thread8
-  %177 = phi i64 [ %181, %179 ], [ 0, %.thread8 ]
+176:                                              ; preds = %179, %.thread9
+  %177 = phi i64 [ %181, %179 ], [ 0, %.thread9 ]
   %178 = icmp eq i64 %177, 3
   br i1 %178, label %199, label %179
 

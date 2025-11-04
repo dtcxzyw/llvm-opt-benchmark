@@ -583,27 +583,27 @@ define ptr @o2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef c
 
 .preheader:                                       ; preds = %20
   %23 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %21) #4
-  %.not5261 = icmp eq ptr %23, null
-  br i1 %.not5261, label %.loopexit59, label %.lr.ph
+  %.not5262 = icmp eq ptr %23, null
+  br i1 %.not5262, label %.loopexit60, label %.lr.ph
 
 24:                                               ; preds = %20, %18
   %25 = tail call ptr @OPENSSL_sk_new_null() #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %60, label %.loopexit59
+  br i1 %26, label %60, label %.loopexit60
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %27 = phi ptr [ %28, %.lr.ph ], [ %23, %.preheader ]
   tail call void @SCT_free(ptr noundef nonnull %27) #4
   %28 = tail call ptr @OPENSSL_sk_pop(ptr noundef nonnull %21) #4
   %.not52 = icmp eq ptr %28, null
-  br i1 %.not52, label %.loopexit59, label %.lr.ph, !llvm.loop !28
+  br i1 %.not52, label %.loopexit60, label %.lr.ph, !llvm.loop !28
 
-.loopexit59:                                      ; preds = %.lr.ph, %.preheader, %24
+.loopexit60:                                      ; preds = %.lr.ph, %.preheader, %24
   %.039 = phi ptr [ %25, %24 ], [ %21, %.preheader ], [ %21, %.lr.ph ]
   br label %29
 
-29:                                               ; preds = %47, %.loopexit59
-  %.041 = phi i64 [ %14, %.loopexit59 ], [ %48, %47 ]
+29:                                               ; preds = %47, %.loopexit60
+  %.041 = phi i64 [ %14, %.loopexit60 ], [ %48, %47 ]
   switch i64 %.041, label %31 [
     i64 0, label %51
     i64 1, label %30

@@ -173,21 +173,21 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 
 .preheader.i.i:                                   ; preds = %39
   %41 = load i64, ptr %5, align 8, !tbaa !27
-  %.not38.i.i = icmp eq i64 %41, 0
-  br i1 %.not38.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not39.i.i = icmp eq i64 %41, 0
+  br i1 %.not39.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %42 = load ptr, ptr %7, align 8, !tbaa !33
   br label %45
 
 43:                                               ; preds = %45
-  %44 = add nuw i64 %.02837.i.i, 1
+  %44 = add nuw i64 %.02838.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %44, %41
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %45, !llvm.loop !34
 
 45:                                               ; preds = %43, %.lr.ph.i.i
-  %.02837.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %43 ]
-  %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02837.i.i
+  %.02838.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %44, %43 ]
+  %46 = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %42, i64 %.02838.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = load ptr, ptr %48, align 8, !tbaa !22

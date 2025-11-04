@@ -106,7 +106,7 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
 22:                                               ; preds = %19
   %23 = tail call ptr @EC_curve_nid2nist(i32 noundef %13) #5
   %.not150 = icmp eq ptr %23, null
-  br i1 %.not150, label %.thread169, label %24
+  br i1 %.not150, label %.thread171, label %24
 
 24:                                               ; preds = %22
   %25 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #5
@@ -116,7 +116,7 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
 26:                                               ; preds = %24
   %27 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %23) #5
   %28 = icmp slt i32 %27, 1
-  br i1 %28, label %.thread, label %.thread169
+  br i1 %28, label %.thread, label %.thread171
 
 29:                                               ; preds = %8
   %30 = tail call i32 @EC_GROUP_get_field_type(ptr noundef nonnull %1) #5
@@ -223,11 +223,11 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
   br i1 %.not143, label %84, label %82
 
 82:                                               ; preds = %80
-  %switch.selectcmp155 = icmp eq i32 %49, 2
+  %switch.selectcmp157 = icmp eq i32 %49, 2
   %switch.selectcmp = icmp eq i32 %49, 4
   %switch.select = select i1 %switch.selectcmp, ptr @.str.2, ptr @.str.3
-  %switch.select156 = select i1 %switch.selectcmp155, ptr @.str.1, ptr %switch.select
-  %83 = call fastcc i32 @print_bin(ptr noundef %0, ptr noundef nonnull %switch.select156, ptr noundef %81, i64 noundef %50, i32 noundef %2)
+  %switch.select158 = select i1 %switch.selectcmp157, ptr @.str.1, ptr %switch.select
+  %83 = call fastcc i32 @print_bin(ptr noundef %0, ptr noundef nonnull %switch.select158, ptr noundef %81, i64 noundef %50, i32 noundef %2)
   %.not144 = icmp eq i32 %83, 0
   br i1 %.not144, label %.thread, label %84
 
@@ -246,12 +246,12 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
   br i1 %.not147, label %.thread, label %89
 
 89:                                               ; preds = %87, %86
-  br i1 %.not134, label %.thread169, label %90
+  br i1 %.not134, label %.thread171, label %90
 
 90:                                               ; preds = %89
   %91 = call fastcc i32 @print_bin(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %53, i64 noundef %.0103, i32 noundef %2)
   %.not148 = icmp eq i32 %91, 0
-  br i1 %.not148, label %.thread, label %.thread169
+  br i1 %.not148, label %.thread, label %.thread171
 
 .thread:                                          ; preds = %72, %68, %66, %63, %90, %87, %84, %82, %78, %76, %74, %58, %56, %48, %44, %41, %39, %29, %33, %36, %26, %24, %19, %15, %12, %10, %3, %5
   %.0109.ph = phi ptr [ null, %5 ], [ null, %3 ], [ null, %10 ], [ null, %12 ], [ null, %15 ], [ null, %19 ], [ null, %24 ], [ null, %26 ], [ %34, %90 ], [ %34, %87 ], [ %34, %84 ], [ %34, %82 ], [ %34, %78 ], [ %34, %76 ], [ %34, %74 ], [ %34, %58 ], [ %34, %56 ], [ %34, %48 ], [ %34, %44 ], [ %34, %41 ], [ %34, %39 ], [ %34, %36 ], [ null, %33 ], [ null, %29 ], [ %34, %63 ], [ %34, %66 ], [ %34, %68 ], [ %34, %72 ]
@@ -263,23 +263,23 @@ define range(i32 0, 2) i32 @ECPKParameters_print(ptr noundef %0, ptr noundef %1,
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @__func__.ECPKParameters_print) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.093.ph, ptr noundef null) #5
-  br label %.thread169
+  br label %.thread171
 
-.thread169:                                       ; preds = %90, %89, %26, %22, %.thread
-  %.092196 = phi i32 [ 0, %.thread ], [ 1, %26 ], [ 1, %22 ], [ 1, %89 ], [ 1, %90 ]
-  %.099193 = phi ptr [ %.099.ph, %.thread ], [ %6, %26 ], [ %6, %22 ], [ %6, %89 ], [ %6, %90 ]
-  %.0100191 = phi i64 [ %.0100.ph, %.thread ], [ 0, %26 ], [ 0, %22 ], [ %50, %89 ], [ %50, %90 ]
-  %.0104189 = phi ptr [ %.0104.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %31, %89 ], [ %31, %90 ]
-  %.0106187 = phi ptr [ %.0106.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %37, %89 ], [ %37, %90 ]
-  %.0109185 = phi ptr [ %.0109.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %34, %89 ], [ %34, %90 ]
-  call void @BN_free(ptr noundef %.0104189) #5
-  call void @BN_free(ptr noundef %.0109185) #5
-  call void @BN_free(ptr noundef %.0106187) #5
+.thread171:                                       ; preds = %90, %89, %26, %22, %.thread
+  %.092198 = phi i32 [ 0, %.thread ], [ 1, %26 ], [ 1, %22 ], [ 1, %89 ], [ 1, %90 ]
+  %.099195 = phi ptr [ %.099.ph, %.thread ], [ %6, %26 ], [ %6, %22 ], [ %6, %89 ], [ %6, %90 ]
+  %.0100193 = phi i64 [ %.0100.ph, %.thread ], [ 0, %26 ], [ 0, %22 ], [ %50, %89 ], [ %50, %90 ]
+  %.0104191 = phi ptr [ %.0104.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %31, %89 ], [ %31, %90 ]
+  %.0106189 = phi ptr [ %.0106.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %37, %89 ], [ %37, %90 ]
+  %.0109187 = phi ptr [ %.0109.ph, %.thread ], [ null, %26 ], [ null, %22 ], [ %34, %89 ], [ %34, %90 ]
+  call void @BN_free(ptr noundef %.0104191) #5
+  call void @BN_free(ptr noundef %.0109187) #5
+  call void @BN_free(ptr noundef %.0106189) #5
   %92 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @CRYPTO_clear_free(ptr noundef %92, i64 noundef %.0100191, ptr noundef nonnull @.str, i32 noundef 220) #5
-  call void @BN_CTX_free(ptr noundef %.099193) #5
+  call void @CRYPTO_clear_free(ptr noundef %92, i64 noundef %.0100193, ptr noundef nonnull @.str, i32 noundef 220) #5
+  call void @BN_CTX_free(ptr noundef %.099195) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.092196
+  ret i32 %.092198
 }
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1

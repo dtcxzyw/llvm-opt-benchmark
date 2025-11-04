@@ -2326,7 +2326,7 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread12, label %47
+  br i1 %46, label %.thread13, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 96
@@ -2336,13 +2336,13 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %52 = add i64 %51, 4095
   %53 = lshr i64 %52, 12
   %54 = icmp eq i64 %49, %53
-  br i1 %54, label %.thread12, label %55
+  br i1 %54, label %.thread13, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 696
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %.thread10
+  br i1 %58, label %59, label %.thread11
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 688
@@ -2402,17 +2402,17 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
 94:                                               ; preds = %86
   %95 = load ptr, ptr %66, align 8
   %96 = icmp eq ptr %95, %78
-  br i1 %96, label %.thread9, label %97
+  br i1 %96, label %.thread10, label %97
 
 97:                                               ; preds = %94
   call void @i915_gem_object_release_memory_region(ptr noundef %8) #11
   call void @i915_gem_object_init_memory_region(ptr noundef %8, ptr noundef %78) #11
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %94, %97
+.thread10:                                        ; preds = %94, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread12
+  br label %.thread13
 
 98:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2422,20 +2422,20 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
 
 99:                                               ; preds = %.thread
   %100 = sext i32 %68 to i64
-  br label %.thread10
+  br label %.thread11
 
-.thread10:                                        ; preds = %99, %55
+.thread11:                                        ; preds = %99, %55
   %101 = phi i64 [ %100, %99 ], [ -19, %55 ]
   %102 = icmp eq ptr %10, null
-  br i1 %102, label %.thread14, label %103
+  br i1 %102, label %.thread15, label %103
 
-103:                                              ; preds = %.thread10
+103:                                              ; preds = %.thread11
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %105 = load ptr, ptr %104, align 8
-  br label %.thread14
+  br label %.thread15
 
-.thread14:                                        ; preds = %103, %.thread10
-  %106 = phi ptr [ %105, %103 ], [ null, %.thread10 ]
+.thread15:                                        ; preds = %103, %.thread11
+  %106 = phi ptr [ %105, %103 ], [ null, %.thread11 ]
   %107 = inttoptr i64 %101 to ptr
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %106, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull %107) #11
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 248
@@ -2445,14 +2445,14 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
 
 110:                                              ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %.thread9, %110, %47, %43
+.thread13:                                        ; preds = %.thread10, %110, %47, %43
   %111 = load ptr, ptr %32, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %121, label %113
 
-113:                                              ; preds = %.thread12
+113:                                              ; preds = %.thread13
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 0
@@ -2464,8 +2464,8 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %120 = call i64 @intel_runtime_pm_get(ptr noundef nonnull %119) #11
   br label %121
 
-121:                                              ; preds = %117, %113, %.thread12
-  %122 = phi i64 [ %120, %117 ], [ 0, %113 ], [ 0, %.thread12 ]
+121:                                              ; preds = %117, %113, %.thread13
+  %122 = phi i64 [ %120, %117 ], [ 0, %113 ], [ 0, %.thread13 ]
   %123 = call zeroext i1 @drm_dev_enter(ptr noundef %10, ptr noundef nonnull %4) #11
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
@@ -2492,19 +2492,19 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %137 = load i32, ptr %136, align 8
   %138 = and i32 %137, 8
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %167, label %.thread13
+  br i1 %139, label %167, label %.thread14
 
 140:                                              ; preds = %132
   %141 = icmp eq i32 %133, 256
   %142 = icmp ne i64 %122, 0
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %144, label %.thread13
+  br i1 %143, label %144, label %.thread14
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 592
   %146 = load i32, ptr %145, align 8
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %.thread13
+  br i1 %147, label %148, label %.thread14
 
 148:                                              ; preds = %144
   store i32 1, ptr %145, align 8
@@ -2524,20 +2524,20 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   %157 = load ptr, ptr %9, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8948
   call void @_raw_spin_unlock(ptr noundef nonnull %158) #11
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %135, %148, %144, %140
+.thread14:                                        ; preds = %135, %148, %144, %140
   %159 = and i64 %122, 250
   %160 = icmp eq i64 %159, 0
   br i1 %160, label %164, label %161
 
-161:                                              ; preds = %.thread13
+161:                                              ; preds = %.thread14
   %162 = load ptr, ptr %9, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8968
   call void @intel_wakeref_auto(ptr noundef nonnull %163, i64 noundef 251) #11
   br label %164
 
-164:                                              ; preds = %161, %.thread13
+164:                                              ; preds = %161, %.thread14
   call void @i915_ttm_adjust_lru(ptr noundef %8)
   %165 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %166 = load ptr, ptr %165, align 8
@@ -2554,8 +2554,8 @@ define internal i32 @vm_fault_ttm(ptr noundef %0) #1 align 16 {
   call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %171) #11
   br label %172
 
-172:                                              ; preds = %.thread14, %169, %167, %40, %28, %20, %15
-  %173 = phi i32 [ 2, %28 ], [ 2, %40 ], [ 2, %15 ], [ %21, %20 ], [ %133, %169 ], [ %133, %167 ], [ 2, %.thread14 ]
+172:                                              ; preds = %.thread15, %169, %167, %40, %28, %20, %15
+  %173 = phi i32 [ 2, %28 ], [ 2, %40 ], [ 2, %15 ], [ %21, %20 ], [ %133, %169 ], [ %133, %167 ], [ 2, %.thread15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %173
 }

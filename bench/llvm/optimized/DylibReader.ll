@@ -967,11 +967,11 @@ _ZNSt10unique_ptrIN4llvm6object15MachOObjectFileESt14default_deleteIS2_EED2Ev.ex
   br i1 %.not3.i, label %169, label %._crit_edge, !llvm.loop !124
 
 .loopexit.sink.split:                             ; preds = %274, %272
-  %.sink197 = phi ptr [ %273, %272 ], [ %275, %274 ]
-  %291 = load ptr, ptr %.sink197, align 8, !tbaa !37
+  %.sink194 = phi ptr [ %273, %272 ], [ %275, %274 ]
+  %291 = load ptr, ptr %.sink194, align 8, !tbaa !37
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8
-  call void %293(ptr noundef nonnull align 8 dereferenceable(8) %.sink197) #19
+  call void %293(ptr noundef nonnull align 8 dereferenceable(8) %.sink194) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %274, %272

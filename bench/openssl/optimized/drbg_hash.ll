@@ -262,50 +262,50 @@ define internal range(i32 0, 2) i32 @drbg_hash_verify_zeroization(ptr noundef re
   br label %12
 
 9:                                                ; preds = %12
-  %10 = add nuw nsw i64 %.02342, 1
+  %10 = add nuw nsw i64 %.02347, 1
   %exitcond.not = icmp eq i64 %10, 111
-  br i1 %exitcond.not, label %.preheader39, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader44, label %12, !llvm.loop !20
 
-.preheader39:                                     ; preds = %9
+.preheader44:                                     ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 151
   br label %18
 
 12:                                               ; preds = %7, %9
-  %.02342 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.02342
+  %.02347 = phi i64 [ 0, %7 ], [ %10, %9 ]
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.02347
   %14 = load i8, ptr %13, align 1, !tbaa !22
   %.not30 = icmp eq i8 %14, 0
   br i1 %.not30, label %9, label %.thread
 
 15:                                               ; preds = %18
-  %16 = add nuw nsw i64 %.02243, 1
-  %exitcond47.not = icmp eq i64 %16, 111
-  br i1 %exitcond47.not, label %.preheader, label %18, !llvm.loop !23
+  %16 = add nuw nsw i64 %.02248, 1
+  %exitcond52.not = icmp eq i64 %16, 111
+  br i1 %exitcond52.not, label %.preheader, label %18, !llvm.loop !23
 
 .preheader:                                       ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 262
   br label %23
 
-18:                                               ; preds = %.preheader39, %15
-  %.02243 = phi i64 [ 0, %.preheader39 ], [ %16, %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.02243
+18:                                               ; preds = %.preheader44, %15
+  %.02248 = phi i64 [ 0, %.preheader44 ], [ %16, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %.02248
   %20 = load i8, ptr %19, align 1, !tbaa !22
   %.not31 = icmp eq i8 %20, 0
   br i1 %.not31, label %15, label %.thread
 
 21:                                               ; preds = %23
-  %22 = add nuw nsw i64 %.044, 1
-  %exitcond48.not = icmp eq i64 %22, 111
-  br i1 %exitcond48.not, label %.thread, label %23, !llvm.loop !24
+  %22 = add nuw nsw i64 %.049, 1
+  %exitcond53.not = icmp eq i64 %22, 111
+  br i1 %exitcond53.not, label %.thread, label %23, !llvm.loop !24
 
 23:                                               ; preds = %.preheader, %21
-  %.044 = phi i64 [ 0, %.preheader ], [ %22, %21 ]
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.044
+  %.049 = phi i64 [ 0, %.preheader ], [ %22, %21 ]
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.049
   %25 = load i8, ptr %24, align 1, !tbaa !22
   %.not32 = icmp eq i8 %25, 0
   br i1 %.not32, label %21, label %.thread
 
-.thread:                                          ; preds = %12, %18, %21, %23
+.thread:                                          ; preds = %12, %18, %23, %21
   %.025 = phi i32 [ 1, %21 ], [ 0, %23 ], [ 0, %18 ], [ 0, %12 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !18
   %.not33 = icmp eq ptr %26, null

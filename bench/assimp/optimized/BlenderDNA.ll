@@ -4274,8 +4274,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit:  ; preds = %_ZN6Assimp12StreamR
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit6: ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit
   %46 = load i8, ptr %36, align 1
   store ptr %37, ptr %35, align 8
-  %.sroa.059.1..sroa_idx78 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 1
-  store i8 %46, ptr %.sroa.059.1..sroa_idx78, align 1
+  %.sroa.059.1..sroa_idx80 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 1
+  store i8 %46, ptr %.sroa.059.1..sroa_idx80, align 1
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
@@ -4303,8 +4303,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit6: ; preds = %_ZN6Assimp12StreamR
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit7: ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit6
   %59 = load i8, ptr %49, align 1
   store ptr %50, ptr %48, align 8
-  %.sroa.059.2..sroa_idx79 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 2
-  store i8 %59, ptr %.sroa.059.2..sroa_idx79, align 2
+  %.sroa.059.2..sroa_idx81 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 2
+  store i8 %59, ptr %.sroa.059.2..sroa_idx81, align 2
   %60 = load ptr, ptr %3, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
@@ -4332,8 +4332,8 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit7: ; preds = %_ZN6Assimp12StreamR
 _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit8: ; preds = %_ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit7
   %72 = load i8, ptr %62, align 1
   store ptr %63, ptr %61, align 8
-  %.sroa.059.3..sroa_idx80 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 3
-  store i8 %72, ptr %.sroa.059.3..sroa_idx80, align 1
+  %.sroa.059.3..sroa_idx82 = getelementptr inbounds nuw i8, ptr %.sroa.059, i64 3
+  store i8 %72, ptr %.sroa.059.3..sroa_idx82, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq i8 %72, 0
   br i1 %.not, label %73, label %.thread
@@ -4377,8 +4377,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %87, !prof !16
 
 87:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
-  %cond = icmp eq i64 %82, 1
-  br i1 %cond, label %88, label %90
+  %cond67 = icmp eq i64 %82, 1
+  br i1 %cond67, label %88, label %90
 
 88:                                               ; preds = %87
   %89 = load i8, ptr %81, align 1

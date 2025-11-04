@@ -40,8 +40,6 @@ $_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectio
 
 $_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf = comdat any
 
-$_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE = comdat any
-
 $_ZNK8facebook4yoga5Style22computeFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf = comdat any
 
 $_ZNK8facebook4yoga5Style20computeFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf = comdat any
@@ -801,7 +799,7 @@ _ZN8facebook4yoga9boundAxisEPKNS0_4NodeENS0_13FlexDirectionENS0_9DirectionEfff.e
   br label %_ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i
 
 _ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i: ; preds = %368, %367, %_ZN8facebook4yoga9boundAxisEPKNS0_4NodeENS0_13FlexDirectionENS0_9DirectionEfff.exit192
-  %.sroa.0.0.i.i.i257 = phi float [ %366, %367 ], [ %370, %368 ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9boundAxisEPKNS0_4NodeENS0_13FlexDirectionENS0_9DirectionEfff.exit192 ]
+  %.sroa.0.0.i.i.i258 = phi float [ %366, %367 ], [ %370, %368 ], [ 0x7FF8000000000000, %_ZN8facebook4yoga9boundAxisEPKNS0_4NodeENS0_13FlexDirectionENS0_9DirectionEfff.exit192 ]
   %371 = getelementptr inbounds nuw i8, ptr %2, i64 106
   %372 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef nonnull align 1 dereferenceable(18) %371)
   %373 = lshr i64 %372, 32
@@ -822,69 +820,69 @@ _ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9Dir
   br label %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
 
 _ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i, %377, %378
-  %.sroa.0.0.i.i7.i258 = phi float [ %376, %377 ], [ %380, %378 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i ]
-  %or.cond.i.i.i259 = fcmp ord float %.sroa.0.0.i.i.i257, 0.000000e+00
-  %381 = fcmp olt float %.sroa.0.0.i.i.i257, 0.000000e+00
-  %382 = fcmp uno float %.sroa.0.0.i.i.i257, 0.000000e+00
-  %.sink.i.i.i260 = select i1 %or.cond.i.i.i259, i1 %381, i1 %382
-  %383 = select i1 %.sink.i.i.i260, float 0.000000e+00, float %.sroa.0.0.i.i.i257
-  %or.cond.i.i8.i = fcmp ord float %.sroa.0.0.i.i7.i258, 0.000000e+00
-  %384 = fcmp uno float %.sroa.0.0.i.i7.i258, 0.000000e+00
-  %385 = fcmp olt float %.sroa.0.0.i.i7.i258, 0.000000e+00
-  %.sink.i.i9.i = select i1 %or.cond.i.i8.i, i1 %385, i1 %384
-  %386 = select i1 %.sink.i.i9.i, float 0.000000e+00, float %.sroa.0.0.i.i7.i258
+  %.sroa.0.0.i.i7.i259 = phi float [ %376, %377 ], [ %380, %378 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style25computeInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i ]
+  %or.cond.i.i.i260 = fcmp ord float %.sroa.0.0.i.i.i258, 0.000000e+00
+  %381 = fcmp olt float %.sroa.0.0.i.i.i258, 0.000000e+00
+  %382 = fcmp uno float %.sroa.0.0.i.i.i258, 0.000000e+00
+  %.sink.i.i.i261 = select i1 %or.cond.i.i.i260, i1 %381, i1 %382
+  %383 = select i1 %.sink.i.i.i261, float 0.000000e+00, float %.sroa.0.0.i.i.i258
+  %or.cond.i.i8.i262 = fcmp ord float %.sroa.0.0.i.i7.i259, 0.000000e+00
+  %384 = fcmp uno float %.sroa.0.0.i.i7.i259, 0.000000e+00
+  %385 = fcmp olt float %.sroa.0.0.i.i7.i259, 0.000000e+00
+  %.sink.i.i9.i263 = select i1 %or.cond.i.i8.i262, i1 %385, i1 %384
+  %386 = select i1 %.sink.i.i9.i263, float 0.000000e+00, float %.sroa.0.0.i.i7.i259
   %387 = fadd float %383, %386
   %388 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef nonnull align 1 dereferenceable(18) %361)
   %389 = lshr i64 %388, 32
   %390 = trunc i64 %389 to i8
   %391 = trunc i64 %388 to i32
   %392 = bitcast i32 %391 to float
-  switch i8 %390, label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit [
+  switch i8 %390, label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i [
     i8 1, label %393
     i8 2, label %394
   ]
 
 393:                                              ; preds = %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
-  br label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
+  br label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i
 
 394:                                              ; preds = %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
   %395 = fmul float %3, %392
   %396 = fmul float %395, 0x3F847AE140000000
-  br label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
+  br label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i
 
-_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit, %393, %394
+_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i: ; preds = %394, %393, %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
   %.sroa.0.0.i.i.i255 = phi float [ %392, %393 ], [ %396, %394 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style34computeInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit ]
-  %or.cond.i.i.i256 = fcmp ord float %.sroa.0.0.i.i.i255, 0.000000e+00
-  %397 = fcmp uno float %.sroa.0.0.i.i.i255, 0.000000e+00
-  %398 = fcmp olt float %.sroa.0.0.i.i.i255, 0.000000e+00
-  %.sink.i.i.i = select i1 %or.cond.i.i.i256, i1 %398, i1 %397
-  %399 = select i1 %.sink.i.i.i, float 0.000000e+00, float %.sroa.0.0.i.i.i255
-  %400 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef nonnull align 1 dereferenceable(18) %371)
-  %401 = lshr i64 %400, 32
-  %402 = trunc i64 %401 to i8
-  %403 = trunc i64 %400 to i32
-  %404 = bitcast i32 %403 to float
-  switch i8 %402, label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit [
-    i8 1, label %405
-    i8 2, label %406
+  %397 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %22, ptr noundef nonnull align 1 dereferenceable(18) %371)
+  %398 = lshr i64 %397, 32
+  %399 = trunc i64 %398 to i8
+  %400 = trunc i64 %397 to i32
+  %401 = bitcast i32 %400 to float
+  switch i8 %399, label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit [
+    i8 1, label %402
+    i8 2, label %403
   ]
 
-405:                                              ; preds = %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
-  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+402:                                              ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i
+  br label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
 
-406:                                              ; preds = %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %407 = fmul float %404, 0.000000e+00
-  %408 = fmul float %407, 0x3F847AE140000000
-  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+403:                                              ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i
+  %404 = fmul float %401, 0.000000e+00
+  %405 = fmul float %404, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit
 
-_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit, %405, %406
-  %.sroa.0.0.i.i261 = phi float [ %404, %405 ], [ %408, %406 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit ]
-  %or.cond.i.i262 = fcmp ord float %.sroa.0.0.i.i261, 0.000000e+00
-  %409 = fcmp uno float %.sroa.0.0.i.i261, 0.000000e+00
-  %410 = fcmp olt float %.sroa.0.0.i.i261, 0.000000e+00
-  %.sink.i.i263 = select i1 %or.cond.i.i262, i1 %410, i1 %409
-  %411 = select i1 %.sink.i.i263, float 0.000000e+00, float %.sroa.0.0.i.i261
-  %412 = fadd float %399, %411
+_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i, %402, %403
+  %.sroa.0.0.i.i7.i256 = phi float [ %401, %402 ], [ %405, %403 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit.i ]
+  %or.cond.i.i.i257 = fcmp ord float %.sroa.0.0.i.i.i255, 0.000000e+00
+  %406 = fcmp olt float %.sroa.0.0.i.i.i255, 0.000000e+00
+  %407 = fcmp uno float %.sroa.0.0.i.i.i255, 0.000000e+00
+  %.sink.i.i.i = select i1 %or.cond.i.i.i257, i1 %406, i1 %407
+  %408 = select i1 %.sink.i.i.i, float 0.000000e+00, float %.sroa.0.0.i.i.i255
+  %or.cond.i.i8.i = fcmp ord float %.sroa.0.0.i.i7.i256, 0.000000e+00
+  %409 = fcmp uno float %.sroa.0.0.i.i7.i256, 0.000000e+00
+  %410 = fcmp olt float %.sroa.0.0.i.i7.i256, 0.000000e+00
+  %.sink.i.i9.i = select i1 %or.cond.i.i8.i, i1 %410, i1 %409
+  %411 = select i1 %.sink.i.i9.i, float 0.000000e+00, float %.sroa.0.0.i.i7.i256
+  %412 = fadd float %408, %411
   %413 = fadd float %387, %412
   %or.cond.i9.i190 = fcmp ord float %.sroa.027.0.i.i189, %413
   %414 = fcmp uno float %.sroa.027.0.i.i189, 0.000000e+00
@@ -897,8 +895,8 @@ _ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9Direct
   %417 = fcmp uno float %.0, 0.000000e+00
   br i1 %417, label %.thread, label %422
 
-418:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga4Node20getResolvedDimensionENS0_9DirectionENS0_9DimensionEff.exit169
-  %.0137 = phi float [ %288, %_ZNK8facebook4yoga4Node20getResolvedDimensionENS0_9DirectionENS0_9DimensionEff.exit169 ], [ %416, %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit ]
+418:                                              ; preds = %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit, %_ZNK8facebook4yoga4Node20getResolvedDimensionENS0_9DirectionENS0_9DimensionEff.exit169
+  %.0137 = phi float [ %288, %_ZNK8facebook4yoga4Node20getResolvedDimensionENS0_9DirectionENS0_9DimensionEff.exit169 ], [ %416, %_ZNK8facebook4yoga5Style32computeInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf.exit ]
   %419 = fcmp uno float %.0, 0.000000e+00
   %420 = fcmp uno float %.0137, 0.000000e+00
   %421 = xor i1 %419, %420
@@ -1443,14 +1441,14 @@ define internal fastcc void @_ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4No
   %21 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
   br label %_ZNK8facebook4yoga5Style28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
 
-default.unreachable:                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit, %switch.lookup159, %111, %100, %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga5Style26computeInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf.exit, %32, %23, %8
+default.unreachable:                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga5Style26computeInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf.exit, %32, %23, %8
   unreachable
 
 _ZNK8facebook4yoga5Style28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %16, %18, %20
   %.sroa.0.0.in.i.i = phi i64 [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
   %22 = and i64 %.sroa.0.0.in.i.i, 1095216660480
-  %.not156 = icmp eq i64 %22, 0
-  br i1 %.not156, label %100, label %23
+  %.not162 = icmp eq i64 %22, 0
+  br i1 %.not162, label %100, label %23
 
 23:                                               ; preds = %_ZNK8facebook4yoga5Style28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
   switch i32 %.0.i.i, label %default.unreachable [
@@ -1661,11 +1659,10 @@ switch.lookup:                                    ; preds = %_ZN8facebook4yoga25
 100:                                              ; preds = %_ZNK8facebook4yoga5Style25isInlineStartPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga5Style28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
   %101 = select i1 %13, i32 0, i32 2
   %.0.i.i92 = select i1 %10, i32 %101, i32 3
-  switch i32 %.0.i.i92, label %default.unreachable [
+  switch i32 %.0.i.i92, label %default.unreachable.i [
     i32 0, label %102
-    i32 1, label %104
-    i32 2, label %106
-    i32 3, label %108
+    i32 3, label %106
+    i32 2, label %104
   ]
 
 102:                                              ; preds = %100
@@ -1673,358 +1670,398 @@ switch.lookup:                                    ; preds = %_ZN8facebook4yoga25
   br label %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
 
 104:                                              ; preds = %100
-  %105 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
+  %105 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
   br label %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
 
 106:                                              ; preds = %100
-  %107 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
+  %107 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
   br label %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
 
-108:                                              ; preds = %100
-  %109 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
-  br label %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
+default.unreachable.i:                            ; preds = %100
+  unreachable
 
-_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %102, %104, %106, %108
-  %.sroa.0.0.in.i.i94 = phi i64 [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ]
-  %110 = and i64 %.sroa.0.0.in.i.i94, 1095216660480
-  %.not157 = icmp eq i64 %110, 0
-  br i1 %.not157, label %183, label %111
+_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %102, %104, %106
+  %.sroa.0.0.in.i.i94 = phi i64 [ %103, %102 ], [ %105, %104 ], [ %107, %106 ]
+  %108 = and i64 %.sroa.0.0.in.i.i94, 1095216660480
+  %.not163 = icmp eq i64 %108, 0
+  br i1 %.not163, label %192, label %109
 
-111:                                              ; preds = %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
-  switch i32 %.0.i.i92, label %default.unreachable [
-    i32 0, label %112
-    i32 1, label %114
-    i32 2, label %116
-    i32 3, label %118
+109:                                              ; preds = %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
+  switch i32 %.0.i.i92, label %default.unreachable.i98 [
+    i32 0, label %110
+    i32 3, label %114
+    i32 2, label %112
   ]
 
-112:                                              ; preds = %111
-  %113 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
+110:                                              ; preds = %109
+  %111 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
   br label %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
 
-114:                                              ; preds = %111
-  %115 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
+112:                                              ; preds = %109
+  %113 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
   br label %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
 
-116:                                              ; preds = %111
-  %117 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
+114:                                              ; preds = %109
+  %115 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
   br label %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
 
-118:                                              ; preds = %111
-  %119 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
-  br label %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
+default.unreachable.i98:                          ; preds = %109
+  unreachable
 
-_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %112, %114, %116, %118
-  %.sroa.0.0.in.i.i98 = phi i64 [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %119, %118 ]
-  %120 = and i64 %.sroa.0.0.in.i.i98, 1095216660480
-  %121 = icmp eq i64 %120, 12884901888
-  br i1 %121, label %183, label %122
+_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %110, %112, %114
+  %.sroa.0.0.in.i.i97 = phi i64 [ %111, %110 ], [ %113, %112 ], [ %115, %114 ]
+  %116 = and i64 %.sroa.0.0.in.i.i97, 1095216660480
+  %117 = icmp eq i64 %116, 12884901888
+  br i1 %117, label %192, label %118
 
-122:                                              ; preds = %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
-  %123 = icmp ult i8 %4, 4
-  br i1 %123, label %switch.lookup159, label %124
+118:                                              ; preds = %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit
+  %119 = icmp ult i8 %4, 4
+  br i1 %119, label %switch.lookup165, label %120
 
-124:                                              ; preds = %122
+120:                                              ; preds = %118
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
   unreachable
 
-switch.lookup159:                                 ; preds = %122
-  %125 = zext nneg i8 %4 to i64
-  %switch.gep160 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 %125
-  %switch.load161 = load i64, ptr %switch.gep160, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %127 = getelementptr inbounds nuw float, ptr %126, i64 %switch.load161
-  %128 = load float, ptr %127, align 4, !tbaa !4
-  %switch152 = icmp samesign ult i8 %4, 2
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 436
-  %130 = zext i1 %switch152 to i64
-  %131 = getelementptr inbounds nuw float, ptr %129, i64 %130
-  %132 = load float, ptr %131, align 4, !tbaa !4
-  %133 = fsub float %128, %132
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %135 = tail call noundef float @_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %134, i8 noundef zeroext %4, i8 noundef zeroext %3)
-  %136 = fsub float %133, %135
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  switch i32 %.0.i.i92, label %default.unreachable [
-    i32 0, label %138
-    i32 1, label %140
-    i32 2, label %142
-    i32 3, label %144
-  ]
-
-138:                                              ; preds = %switch.lookup159
-  %139 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %137, i8 noundef zeroext %3)
-  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-
-140:                                              ; preds = %switch.lookup159
-  %141 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %137)
-  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-
-142:                                              ; preds = %switch.lookup159
-  %143 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %137, i8 noundef zeroext %3)
-  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-
-144:                                              ; preds = %switch.lookup159
-  %145 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %137)
-  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-
-_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104: ; preds = %144, %142, %140, %138
-  %.sroa.0.0.in.i.i105 = phi i64 [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ]
-  %146 = lshr i64 %.sroa.0.0.in.i.i105, 32
-  %147 = trunc i64 %146 to i8
-  %148 = trunc i64 %.sroa.0.0.in.i.i105 to i32
-  %149 = bitcast i32 %148 to float
-  switch i8 %147, label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit [
-    i8 1, label %150
-    i8 2, label %151
-  ]
-
-150:                                              ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-  br label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-
-151:                                              ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104
-  %152 = fmul float %11, %149
-  %153 = fmul float %152, 0x3F847AE140000000
-  br label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-
-_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104, %150, %151
-  %.sroa.0.0.i.i106 = phi float [ %149, %150 ], [ %153, %151 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i104 ]
-  %.inv.i107 = fcmp ord float %.sroa.0.0.i.i106, 0.000000e+00
-  %154 = select i1 %.inv.i107, float %.sroa.0.0.i.i106, float 0.000000e+00
-  %155 = fsub float %136, %154
-  switch i32 %.0.i.i92, label %default.unreachable [
-    i32 0, label %156
-    i32 1, label %158
-    i32 2, label %160
-    i32 3, label %162
-  ]
-
-156:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %157 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
-  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-
-158:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %159 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
-  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-
-160:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %161 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
-  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-
-162:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %163 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
-  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-
-_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110: ; preds = %162, %160, %158, %156
-  %.sroa.0.0.in.i.i111 = phi i64 [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ]
-  %164 = lshr i64 %.sroa.0.0.in.i.i111, 32
-  %165 = trunc i64 %164 to i8
-  %166 = trunc i64 %.sroa.0.0.in.i.i111 to i32
-  %167 = bitcast i32 %166 to float
-  switch i8 %165, label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit [
-    i8 1, label %168
-    i8 2, label %169
-  ]
-
-168:                                              ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-  br label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-
-169:                                              ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
-  %170 = fmul float %11, %167
-  %171 = fmul float %170, 0x3F847AE140000000
-  br label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-
-_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110, %168, %169
-  %.sroa.0.0.i.i112 = phi float [ %167, %168 ], [ %171, %169 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110 ]
-  %.inv.i113 = fcmp ord float %.sroa.0.0.i.i112, 0.000000e+00
-  %172 = select i1 %.inv.i113, float %.sroa.0.0.i.i112, float 0.000000e+00
-  %173 = fsub float %155, %172
-  switch i8 %4, label %default.unreachable147 [
-    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117
-    i8 1, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit120
-    i8 2, label %174
-    i8 3, label %175
-  ]
-
-174:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117
-
-175:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117
-
-default.unreachable147:                           ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-  unreachable
-
-_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117: ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit, %174, %175
-  %.0.i116 = phi i32 [ 0, %174 ], [ 2, %175 ], [ 1, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit ]
-  %.not74 = icmp eq i32 %.0.i.i, %.0.i116
-  br i1 %.not74, label %switch.lookup162, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit120
-
-_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit120: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
-  %.0.i.i118 = phi i64 [ 1, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit ], [ %130, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117 ]
-  %176 = getelementptr inbounds nuw float, ptr %126, i64 %.0.i.i118
-  %177 = load float, ptr %176, align 4, !tbaa !4
-  %178 = load float, ptr %131, align 4, !tbaa !4
-  %179 = fsub float %177, %178
-  %180 = fsub float %179, %173
-  br label %switch.lookup162
-
-switch.lookup162:                                 ; preds = %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit120, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117
-  %181 = phi float [ %180, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit120 ], [ %173, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit117 ]
-  %182 = zext nneg i8 %4 to i64
-  %switch.gep163 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %182
-  %switch.load164 = load i32, ptr %switch.gep163, align 4
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %181, i32 noundef %switch.load164)
-  br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
-
-183:                                              ; preds = %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
-  br i1 %5, label %184, label %._crit_edge
-
-184:                                              ; preds = %183
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %186 = load i32, ptr %185, align 8
-  %187 = trunc i32 %186 to i8
-  %188 = lshr i8 %187, 4
-  %189 = and i8 %188, 7
-  switch i8 %189, label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit [
-    i8 0, label %190
-    i8 3, label %190
-    i8 2, label %208
-    i8 1, label %234
-    i8 4, label %234
-    i8 5, label %234
-  ]
-
-190:                                              ; preds = %184, %184
-  %191 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
-  %192 = icmp ult i8 %4, 4
-  br i1 %192, label %switch.lookup165, label %193
-
-193:                                              ; preds = %190
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
-  unreachable
-
-switch.lookup165:                                 ; preds = %190
-  %194 = zext nneg i8 %4 to i64
-  %switch.gep166 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %194
+switch.lookup165:                                 ; preds = %118
+  %121 = zext nneg i8 %4 to i64
+  %switch.gep166 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf, i64 %121
   %switch.load167 = load i64, ptr %switch.gep166, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 476
-  %196 = getelementptr inbounds nuw float, ptr %195, i64 %switch.load167
-  %197 = load float, ptr %196, align 4, !tbaa !4
-  %198 = fadd float %191, %197
-  %199 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %200 = load ptr, ptr %199, align 8, !tbaa !19
-  %201 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %200, i32 noundef 2)
-  br i1 %201, label %switch.lookup171, label %switch.lookup168
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 436
+  %123 = getelementptr inbounds nuw float, ptr %122, i64 %switch.load167
+  %124 = load float, ptr %123, align 4, !tbaa !4
+  %switch158 = icmp samesign ult i8 %4, 2
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 436
+  %126 = zext i1 %switch158 to i64
+  %127 = getelementptr inbounds nuw float, ptr %125, i64 %126
+  %128 = load float, ptr %127, align 4, !tbaa !4
+  %129 = fsub float %124, %128
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  switch i32 %.0.i.i92, label %default.unreachable.i108 [
+    i32 0, label %132
+    i32 3, label %136
+    i32 2, label %134
+  ]
 
-switch.lookup168:                                 ; preds = %switch.lookup165
-  %202 = zext nneg i8 %4 to i64
-  %switch.gep169 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %202
-  %switch.load170 = load i64, ptr %switch.gep169, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 492
-  %204 = getelementptr inbounds nuw float, ptr %203, i64 %switch.load170
-  %205 = load float, ptr %204, align 4, !tbaa !4
-  %206 = fadd float %198, %205
-  br label %switch.lookup171
+132:                                              ; preds = %switch.lookup165
+  %133 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %130, ptr noundef nonnull align 1 dereferenceable(18) %131, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103
 
-switch.lookup171:                                 ; preds = %switch.lookup165, %switch.lookup168
-  %.0.i.i123 = phi float [ %198, %switch.lookup165 ], [ %206, %switch.lookup168 ]
-  %207 = zext nneg i8 %4 to i64
-  %switch.gep172 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %207
-  %switch.load173 = load i32, ptr %switch.gep172, align 4
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %.0.i.i123, i32 noundef %switch.load173)
+134:                                              ; preds = %switch.lookup165
+  %135 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %130, ptr noundef nonnull align 1 dereferenceable(18) %131, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103
+
+136:                                              ; preds = %switch.lookup165
+  %137 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %130, ptr noundef nonnull align 1 dereferenceable(18) %131)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103
+
+default.unreachable.i108:                         ; preds = %switch.lookup165
+  unreachable
+
+_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103: ; preds = %136, %134, %132
+  %.sroa.0.0.in.i.i104 = phi i64 [ %133, %132 ], [ %135, %134 ], [ %137, %136 ]
+  %138 = lshr i64 %.sroa.0.0.in.i.i104, 32
+  %139 = trunc i64 %138 to i8
+  %140 = trunc i64 %.sroa.0.0.in.i.i104 to i32
+  %141 = bitcast i32 %140 to float
+  switch i8 %139, label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit [
+    i8 1, label %142
+    i8 2, label %143
+  ]
+
+142:                                              ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+
+143:                                              ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103
+  %144 = fmul float %141, 0.000000e+00
+  %145 = fmul float %144, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+
+_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103, %142, %143
+  %.sroa.0.0.i.i105 = phi float [ %141, %142 ], [ %145, %143 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i103 ]
+  %or.cond.i.i106 = fcmp ord float %.sroa.0.0.i.i105, 0.000000e+00
+  %146 = fcmp uno float %.sroa.0.0.i.i105, 0.000000e+00
+  %147 = fcmp olt float %.sroa.0.0.i.i105, 0.000000e+00
+  %.sink.i.i107 = select i1 %or.cond.i.i106, i1 %147, i1 %146
+  %148 = select i1 %.sink.i.i107, float 0.000000e+00, float %.sroa.0.0.i.i105
+  %149 = fsub float %129, %148
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  switch i32 %.0.i.i92, label %default.unreachable.i114 [
+    i32 0, label %151
+    i32 3, label %155
+    i32 2, label %153
+  ]
+
+151:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+  %152 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %150, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
+
+153:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+  %154 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %150, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
+
+155:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+  %156 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %150)
+  br label %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
+
+default.unreachable.i114:                         ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+  unreachable
+
+_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110: ; preds = %155, %153, %151
+  %.sroa.0.0.in.i.i111 = phi i64 [ %152, %151 ], [ %154, %153 ], [ %156, %155 ]
+  %157 = lshr i64 %.sroa.0.0.in.i.i111, 32
+  %158 = trunc i64 %157 to i8
+  %159 = trunc i64 %.sroa.0.0.in.i.i111 to i32
+  %160 = bitcast i32 %159 to float
+  switch i8 %158, label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit [
+    i8 1, label %161
+    i8 2, label %162
+  ]
+
+161:                                              ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+
+162:                                              ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110
+  %163 = fmul float %11, %160
+  %164 = fmul float %163, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+
+_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110, %161, %162
+  %.sroa.0.0.i.i112 = phi float [ %160, %161 ], [ %164, %162 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeMarginENS0_12PhysicalEdgeENS0_9DirectionE.exit.i110 ]
+  %.inv.i113 = fcmp ord float %.sroa.0.0.i.i112, 0.000000e+00
+  %165 = select i1 %.inv.i113, float %.sroa.0.0.i.i112, float 0.000000e+00
+  %166 = fsub float %149, %165
+  switch i32 %.0.i.i92, label %default.unreachable.i120 [
+    i32 0, label %167
+    i32 3, label %171
+    i32 2, label %169
+  ]
+
+167:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %168 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116
+
+169:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %170 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15, i8 noundef zeroext %3)
+  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116
+
+171:                                              ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %172 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 1 dereferenceable(18) %15)
+  br label %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116
+
+default.unreachable.i120:                         ; preds = %_ZNK8facebook4yoga5Style22computeInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf.exit
+  unreachable
+
+_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116: ; preds = %171, %169, %167
+  %.sroa.0.0.in.i.i117 = phi i64 [ %168, %167 ], [ %170, %169 ], [ %172, %171 ]
+  %173 = lshr i64 %.sroa.0.0.in.i.i117, 32
+  %174 = trunc i64 %173 to i8
+  %175 = trunc i64 %.sroa.0.0.in.i.i117 to i32
+  %176 = bitcast i32 %175 to float
+  switch i8 %174, label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit [
+    i8 1, label %177
+    i8 2, label %178
+  ]
+
+177:                                              ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116
+  br label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+
+178:                                              ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116
+  %179 = fmul float %11, %176
+  %180 = fmul float %179, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+
+_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116, %177, %178
+  %.sroa.0.0.i.i118 = phi float [ %176, %177 ], [ %180, %178 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style15computePositionENS0_12PhysicalEdgeENS0_9DirectionE.exit.i116 ]
+  %.inv.i119 = fcmp ord float %.sroa.0.0.i.i118, 0.000000e+00
+  %181 = select i1 %.inv.i119, float %.sroa.0.0.i.i118, float 0.000000e+00
+  %182 = fsub float %166, %181
+  switch i8 %4, label %default.unreachable153 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123
+    i8 1, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit126
+    i8 2, label %183
+    i8 3, label %184
+  ]
+
+183:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123
+
+184:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123
+
+default.unreachable153:                           ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+  unreachable
+
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123: ; preds = %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit, %183, %184
+  %.0.i122 = phi i32 [ 0, %183 ], [ 2, %184 ], [ 1, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit ]
+  %.not74 = icmp eq i32 %.0.i.i, %.0.i122
+  br i1 %.not74, label %switch.lookup168, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit126
+
+_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit126: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %.0.i.i124 = phi i64 [ 1, %_ZNK8facebook4yoga5Style24computeInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf.exit ], [ %126, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123 ]
+  %185 = getelementptr inbounds nuw float, ptr %122, i64 %.0.i.i124
+  %186 = load float, ptr %185, align 4, !tbaa !4
+  %187 = load float, ptr %127, align 4, !tbaa !4
+  %188 = fsub float %186, %187
+  %189 = fsub float %188, %182
+  br label %switch.lookup168
+
+switch.lookup168:                                 ; preds = %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit126, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123
+  %190 = phi float [ %189, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit126 ], [ %182, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit123 ]
+  %191 = zext nneg i8 %4 to i64
+  %switch.gep169 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %191
+  %switch.load170 = load i32, ptr %switch.gep169, align 4
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %190, i32 noundef %switch.load170)
   br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
 
-208:                                              ; preds = %184
-  %209 = icmp ult i8 %4, 4
-  br i1 %209, label %switch.lookup174, label %210
+192:                                              ; preds = %_ZNK8facebook4yoga5Style23isInlineEndPositionAutoENS0_13FlexDirectionENS0_9DirectionE.exit, %_ZNK8facebook4yoga5Style26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE.exit
+  br i1 %5, label %193, label %._crit_edge
 
-210:                                              ; preds = %208
+193:                                              ; preds = %192
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %195 = load i32, ptr %194, align 8
+  %196 = trunc i32 %195 to i8
+  %197 = lshr i8 %196, 4
+  %198 = and i8 %197, 7
+  switch i8 %198, label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit [
+    i8 0, label %199
+    i8 3, label %199
+    i8 2, label %217
+    i8 1, label %243
+    i8 4, label %243
+    i8 5, label %243
+  ]
+
+199:                                              ; preds = %193, %193
+  %200 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
+  %201 = icmp ult i8 %4, 4
+  br i1 %201, label %switch.lookup171, label %202
+
+202:                                              ; preds = %199
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
   unreachable
 
-switch.lookup174:                                 ; preds = %208
+switch.lookup171:                                 ; preds = %199
+  %203 = zext nneg i8 %4 to i64
+  %switch.gep172 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %203
+  %switch.load173 = load i64, ptr %switch.gep172, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %205 = getelementptr inbounds nuw float, ptr %204, i64 %switch.load173
+  %206 = load float, ptr %205, align 4, !tbaa !4
+  %207 = fadd float %200, %206
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %209 = load ptr, ptr %208, align 8, !tbaa !19
+  %210 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %209, i32 noundef 2)
+  br i1 %210, label %switch.lookup177, label %switch.lookup174
+
+switch.lookup174:                                 ; preds = %switch.lookup171
   %211 = zext nneg i8 %4 to i64
-  %switch.gep175 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %211
+  %switch.gep175 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %211
   %switch.load176 = load i64, ptr %switch.gep175, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 492
   %213 = getelementptr inbounds nuw float, ptr %212, i64 %switch.load176
   %214 = load float, ptr %213, align 4, !tbaa !4
-  %215 = tail call noundef float @_ZNK8facebook4yoga5Style20computeFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
-  %216 = fadd float %214, %215
-  %217 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %218 = load ptr, ptr %217, align 8, !tbaa !19
-  %219 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %218, i32 noundef 2)
-  br i1 %219, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i, label %switch.lookup177
+  %215 = fadd float %207, %214
+  br label %switch.lookup177
 
-switch.lookup177:                                 ; preds = %switch.lookup174
-  %220 = zext nneg i8 %4 to i64
-  %switch.gep178 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %220
-  %switch.load179 = load i64, ptr %switch.gep178, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 492
-  %222 = getelementptr inbounds nuw float, ptr %221, i64 %switch.load179
-  %223 = load float, ptr %222, align 4, !tbaa !4
-  %224 = fadd float %216, %223
-  br label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i
-
-_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i: ; preds = %switch.lookup177, %switch.lookup174
-  %.0.i17.i = phi float [ %216, %switch.lookup174 ], [ %224, %switch.lookup177 ]
-  %switch.i.i = icmp samesign ult i8 %4, 2
-  %spec.select.i.i = zext i1 %switch.i.i to i64
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 436
-  %226 = getelementptr inbounds nuw float, ptr %225, i64 %spec.select.i.i
-  %227 = load float, ptr %226, align 4, !tbaa !4
-  %228 = getelementptr inbounds nuw i8, ptr %2, i64 436
-  %229 = getelementptr inbounds nuw float, ptr %228, i64 %spec.select.i.i
-  %230 = load float, ptr %229, align 4, !tbaa !4
-  %231 = zext nneg i8 %4 to i64
-  %switch.gep181 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %231
-  %switch.load182 = load i32, ptr %switch.gep181, align 4
-  %232 = fsub float %227, %230
-  %233 = fsub float %232, %.0.i17.i
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %233, i32 noundef %switch.load182)
+switch.lookup177:                                 ; preds = %switch.lookup171, %switch.lookup174
+  %.0.i.i129 = phi float [ %207, %switch.lookup171 ], [ %215, %switch.lookup174 ]
+  %216 = zext nneg i8 %4 to i64
+  %switch.gep178 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %216
+  %switch.load179 = load i32, ptr %switch.gep178, align 4
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %.0.i.i129, i32 noundef %switch.load179)
   br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
 
-234:                                              ; preds = %184, %184, %184
+217:                                              ; preds = %193
+  %218 = icmp ult i8 %4, 4
+  br i1 %218, label %switch.lookup180, label %219
+
+219:                                              ; preds = %217
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
+  unreachable
+
+switch.lookup180:                                 ; preds = %217
+  %220 = zext nneg i8 %4 to i64
+  %switch.gep181 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %220
+  %switch.load182 = load i64, ptr %switch.gep181, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %222 = getelementptr inbounds nuw float, ptr %221, i64 %switch.load182
+  %223 = load float, ptr %222, align 4, !tbaa !4
+  %224 = tail call noundef float @_ZNK8facebook4yoga5Style20computeFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
+  %225 = fadd float %223, %224
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %227 = load ptr, ptr %226, align 8, !tbaa !19
+  %228 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %227, i32 noundef 2)
+  br i1 %228, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i, label %switch.lookup183
+
+switch.lookup183:                                 ; preds = %switch.lookup180
+  %229 = zext nneg i8 %4 to i64
+  %switch.gep184 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %229
+  %switch.load185 = load i64, ptr %switch.gep184, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 492
+  %231 = getelementptr inbounds nuw float, ptr %230, i64 %switch.load185
+  %232 = load float, ptr %231, align 4, !tbaa !4
+  %233 = fadd float %225, %232
+  br label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i
+
+_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i: ; preds = %switch.lookup183, %switch.lookup180
+  %.0.i17.i = phi float [ %225, %switch.lookup180 ], [ %233, %switch.lookup183 ]
+  %switch.i.i = icmp samesign ult i8 %4, 2
+  %spec.select.i.i = zext i1 %switch.i.i to i64
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 436
+  %235 = getelementptr inbounds nuw float, ptr %234, i64 %spec.select.i.i
+  %236 = load float, ptr %235, align 4, !tbaa !4
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 436
+  %238 = getelementptr inbounds nuw float, ptr %237, i64 %spec.select.i.i
+  %239 = load float, ptr %238, align 4, !tbaa !4
+  %240 = zext nneg i8 %4 to i64
+  %switch.gep187 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %240
+  %switch.load188 = load i32, ptr %switch.gep187, align 4
+  %241 = fsub float %236, %239
+  %242 = fsub float %241, %.0.i17.i
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %242, i32 noundef %switch.load188)
+  br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
+
+243:                                              ; preds = %193, %193, %193
   tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %1, ptr noundef nonnull %2, i8 noundef zeroext %3, i8 noundef zeroext %4, float noundef %6)
   br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
 
-._crit_edge:                                      ; preds = %183
-  %235 = load i32, ptr %12, align 8
-  %.fr = freeze i32 %235
-  %236 = lshr i32 %.fr, 16
-  %237 = trunc i32 %236 to i8
-  %238 = and i8 %237, 15
-  %239 = icmp eq i8 %238, 0
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %241 = load i32, ptr %240, align 8
-  %.fr158 = freeze i32 %241
-  %242 = lshr i32 %.fr158, 12
-  %243 = trunc i32 %242 to i8
-  %244 = and i8 %243, 15
-  %245 = select i1 %239, i8 %244, i8 %238
-  %246 = icmp eq i8 %245, 5
-  %247 = and i32 %.fr158, 8
-  %.not.not.i.i = icmp eq i32 %247, 0
-  %or.cond.i = and i1 %246, %.not.not.i.i
-  %248 = and i32 %.fr158, 12582912
-  %249 = icmp eq i32 %248, 8388608
+._crit_edge:                                      ; preds = %192
+  %244 = load i32, ptr %12, align 8
+  %.fr = freeze i32 %244
+  %245 = lshr i32 %.fr, 16
+  %246 = trunc i32 %245 to i8
+  %247 = and i8 %246, 15
+  %248 = icmp eq i8 %247, 0
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %250 = load i32, ptr %249, align 8
+  %.fr164 = freeze i32 %250
+  %251 = lshr i32 %.fr164, 12
+  %252 = trunc i32 %251 to i8
+  %253 = and i8 %252, 15
+  %254 = select i1 %248, i8 %253, i8 %247
+  %255 = icmp eq i8 %254, 5
+  %256 = and i32 %.fr164, 8
+  %.not.not.i.i = icmp eq i32 %256, 0
+  %or.cond.i = and i1 %255, %.not.not.i.i
+  %257 = and i32 %.fr164, 12582912
+  %258 = icmp eq i32 %257, 8388608
   br i1 %or.cond.i, label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i, label %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i
 
 _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i: ; preds = %._crit_edge
-  br i1 %249, label %250, label %251
+  br i1 %258, label %259, label %260
 
 _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i: ; preds = %._crit_edge
-  br i1 %249, label %.thread37.i, label %.thread34.i
+  br i1 %258, label %.thread37.i, label %.thread34.i
 
-250:                                              ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i
-  switch i8 %245, label %.thread37.i [
+259:                                              ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i
+  switch i8 %254, label %.thread37.i [
     i8 3, label %.thread34.i
     i8 2, label %.thread39.i
   ]
 
-251:                                              ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i
-  switch i8 %245, label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit [
+260:                                              ; preds = %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.i
+  switch i8 %254, label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit [
     i8 0, label %.thread34.i
     i8 1, label %.thread34.i
     i8 5, label %.thread34.i
@@ -2036,101 +2073,101 @@ _ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i: ; preds 
     i8 2, label %.thread39.i
   ]
 
-.thread34.i:                                      ; preds = %251, %251, %251, %251, %251, %251, %251, %250, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i
-  %252 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
-  %253 = icmp ult i8 %4, 4
-  br i1 %253, label %switch.lookup183, label %254
+.thread34.i:                                      ; preds = %260, %260, %260, %260, %260, %260, %260, %259, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i
+  %261 = tail call noundef float @_ZNK8facebook4yoga5Style22computeFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
+  %262 = icmp ult i8 %4, 4
+  br i1 %262, label %switch.lookup189, label %263
 
-254:                                              ; preds = %.thread34.i
+263:                                              ; preds = %.thread34.i
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
   unreachable
 
-switch.lookup183:                                 ; preds = %.thread34.i
-  %255 = zext nneg i8 %4 to i64
-  %switch.gep184 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %255
-  %switch.load185 = load i64, ptr %switch.gep184, align 8
-  %256 = getelementptr inbounds nuw i8, ptr %1, i64 476
-  %257 = getelementptr inbounds nuw float, ptr %256, i64 %switch.load185
-  %258 = load float, ptr %257, align 4, !tbaa !4
-  %259 = fadd float %252, %258
-  %260 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %261 = load ptr, ptr %260, align 8, !tbaa !19
-  %262 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %261, i32 noundef 2)
-  br i1 %262, label %switch.lookup189, label %switch.lookup186
+switch.lookup189:                                 ; preds = %.thread34.i
+  %264 = zext nneg i8 %4 to i64
+  %switch.gep190 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %264
+  %switch.load191 = load i64, ptr %switch.gep190, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %266 = getelementptr inbounds nuw float, ptr %265, i64 %switch.load191
+  %267 = load float, ptr %266, align 4, !tbaa !4
+  %268 = fadd float %261, %267
+  %269 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %270 = load ptr, ptr %269, align 8, !tbaa !19
+  %271 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %270, i32 noundef 2)
+  br i1 %271, label %switch.lookup195, label %switch.lookup192
 
-switch.lookup186:                                 ; preds = %switch.lookup183
-  %263 = zext nneg i8 %4 to i64
-  %switch.gep187 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %263
-  %switch.load188 = load i64, ptr %switch.gep187, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %1, i64 492
-  %265 = getelementptr inbounds nuw float, ptr %264, i64 %switch.load188
-  %266 = load float, ptr %265, align 4, !tbaa !4
-  %267 = fadd float %259, %266
-  br label %switch.lookup189
-
-switch.lookup189:                                 ; preds = %switch.lookup183, %switch.lookup186
-  %.0.i22.i = phi float [ %259, %switch.lookup183 ], [ %267, %switch.lookup186 ]
-  %268 = zext nneg i8 %4 to i64
-  %switch.gep190 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %268
-  %switch.load191 = load i32, ptr %switch.gep190, align 4
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %.0.i22.i, i32 noundef %switch.load191)
-  br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
-
-.thread37.i:                                      ; preds = %251, %250, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i
-  %269 = icmp ult i8 %4, 4
-  br i1 %269, label %switch.lookup192, label %270
-
-270:                                              ; preds = %.thread37.i
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
-  unreachable
-
-switch.lookup192:                                 ; preds = %.thread37.i
-  %271 = zext nneg i8 %4 to i64
-  %switch.gep193 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %271
+switch.lookup192:                                 ; preds = %switch.lookup189
+  %272 = zext nneg i8 %4 to i64
+  %switch.gep193 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.18, i64 %272
   %switch.load194 = load i64, ptr %switch.gep193, align 8
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 476
-  %273 = getelementptr inbounds nuw float, ptr %272, i64 %switch.load194
-  %274 = load float, ptr %273, align 4, !tbaa !4
-  %275 = tail call noundef float @_ZNK8facebook4yoga5Style20computeFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
-  %276 = fadd float %274, %275
-  %277 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %278 = load ptr, ptr %277, align 8, !tbaa !19
-  %279 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %278, i32 noundef 2)
-  br i1 %279, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i127, label %switch.lookup195
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 492
+  %274 = getelementptr inbounds nuw float, ptr %273, i64 %switch.load194
+  %275 = load float, ptr %274, align 4, !tbaa !4
+  %276 = fadd float %268, %275
+  br label %switch.lookup195
 
-switch.lookup195:                                 ; preds = %switch.lookup192
-  %280 = zext nneg i8 %4 to i64
-  %switch.gep196 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %280
-  %switch.load197 = load i64, ptr %switch.gep196, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %1, i64 492
-  %282 = getelementptr inbounds nuw float, ptr %281, i64 %switch.load197
-  %283 = load float, ptr %282, align 4, !tbaa !4
-  %284 = fadd float %276, %283
-  br label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i127
-
-_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i127: ; preds = %switch.lookup195, %switch.lookup192
-  %.0.i24.i = phi float [ %276, %switch.lookup192 ], [ %284, %switch.lookup195 ]
-  %switch.i.i128 = icmp samesign ult i8 %4, 2
-  %spec.select.i.i129 = zext i1 %switch.i.i128 to i64
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 436
-  %286 = getelementptr inbounds nuw float, ptr %285, i64 %spec.select.i.i129
-  %287 = load float, ptr %286, align 4, !tbaa !4
-  %288 = getelementptr inbounds nuw i8, ptr %2, i64 436
-  %289 = getelementptr inbounds nuw float, ptr %288, i64 %spec.select.i.i129
-  %290 = load float, ptr %289, align 4, !tbaa !4
-  %291 = zext nneg i8 %4 to i64
-  %switch.gep199 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %291
-  %switch.load200 = load i32, ptr %switch.gep199, align 4
-  %292 = fsub float %287, %290
-  %293 = fsub float %292, %.0.i24.i
-  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %293, i32 noundef %switch.load200)
+switch.lookup195:                                 ; preds = %switch.lookup189, %switch.lookup192
+  %.0.i22.i = phi float [ %268, %switch.lookup189 ], [ %276, %switch.lookup192 ]
+  %277 = zext nneg i8 %4 to i64
+  %switch.gep196 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %277
+  %switch.load197 = load i32, ptr %switch.gep196, align 4
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %.0.i22.i, i32 noundef %switch.load197)
   br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
 
-.thread39.i:                                      ; preds = %251, %250
+.thread37.i:                                      ; preds = %260, %259, %_ZN8facebook4yoga21resolveChildAlignmentEPKNS0_4NodeES3_.exit.thread.i
+  %278 = icmp ult i8 %4, 4
+  br i1 %278, label %switch.lookup198, label %279
+
+279:                                              ; preds = %.thread37.i
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.2) #11
+  unreachable
+
+switch.lookup198:                                 ; preds = %.thread37.i
+  %280 = zext nneg i8 %4 to i64
+  %switch.gep199 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %280
+  %switch.load200 = load i64, ptr %switch.gep199, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %282 = getelementptr inbounds nuw float, ptr %281, i64 %switch.load200
+  %283 = load float, ptr %282, align 4, !tbaa !4
+  %284 = tail call noundef float @_ZNK8facebook4yoga5Style20computeFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 noundef zeroext %4, i8 noundef zeroext %3, float noundef %6)
+  %285 = fadd float %283, %284
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %287 = load ptr, ptr %286, align 8, !tbaa !19
+  %288 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %287, i32 noundef 2)
+  br i1 %288, label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i133, label %switch.lookup201
+
+switch.lookup201:                                 ; preds = %switch.lookup198
+  %289 = zext nneg i8 %4 to i64
+  %switch.gep202 = getelementptr inbounds nuw i64, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.21, i64 %289
+  %switch.load203 = load i64, ptr %switch.gep202, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 492
+  %291 = getelementptr inbounds nuw float, ptr %290, i64 %switch.load203
+  %292 = load float, ptr %291, align 4, !tbaa !4
+  %293 = fadd float %285, %292
+  br label %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i133
+
+_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i133: ; preds = %switch.lookup201, %switch.lookup198
+  %.0.i24.i = phi float [ %285, %switch.lookup198 ], [ %293, %switch.lookup201 ]
+  %switch.i.i134 = icmp samesign ult i8 %4, 2
+  %spec.select.i.i135 = zext i1 %switch.i.i134 to i64
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 436
+  %295 = getelementptr inbounds nuw float, ptr %294, i64 %spec.select.i.i135
+  %296 = load float, ptr %295, align 4, !tbaa !4
+  %297 = getelementptr inbounds nuw i8, ptr %2, i64 436
+  %298 = getelementptr inbounds nuw float, ptr %297, i64 %spec.select.i.i135
+  %299 = load float, ptr %298, align 4, !tbaa !4
+  %300 = zext nneg i8 %4 to i64
+  %switch.gep205 = getelementptr inbounds nuw i32, ptr @switch.table._ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.19, i64 %300
+  %switch.load206 = load i32, ptr %switch.gep205, align 4
+  %301 = fsub float %296, %299
+  %302 = fsub float %301, %.0.i24.i
+  tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %2, float noundef %302, i32 noundef %switch.load206)
+  br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
+
+.thread39.i:                                      ; preds = %260, %259
   tail call fastcc void @_ZN8facebook4yogaL23setCenterLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf(ptr noundef nonnull readonly %1, ptr noundef nonnull %2, i8 noundef zeroext %3, i8 noundef zeroext %4, float noundef %6)
   br label %_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit
 
-_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit: ; preds = %.thread39.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i127, %switch.lookup189, %251, %234, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i, %switch.lookup171, %184, %switch.lookup162, %switch.lookup
+_ZN8facebook4yogaL20justifyAbsoluteChildEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.exit: ; preds = %.thread39.i, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i133, %switch.lookup195, %260, %243, %_ZN8facebook4yoga25getPositionOfOppositeEdgeEfNS0_13FlexDirectionEPKNS0_4NodeES4_.exit.i.i, %switch.lookup177, %193, %switch.lookup168, %switch.lookup
   ret void
 }
 
@@ -2168,7 +2205,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit.thread: ; preds 
 
 ._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge: ; preds = %26
   %.pre = load ptr, ptr %12, align 8, !tbaa !70
-  %.pre315 = load i64, ptr %18, align 8
+  %.pre310 = load i64, ptr %18, align 8
   br label %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
 
 27:                                               ; preds = %26
@@ -2194,12 +2231,12 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %27
   br label %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
 
 _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge, %31
-  %32 = phi i64 [ %.pre315, %._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge ], [ 0, %31 ]
+  %32 = phi i64 [ %.pre310, %._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge ], [ 0, %31 ]
   %33 = phi ptr [ %.pre, %._ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit_crit_edge ], [ null, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.not.i110285 = icmp ne ptr %33, null
+  %.not.i110282 = icmp ne ptr %33, null
   %35 = icmp ne i64 %32, 0
-  %36 = select i1 %.not.i110285, i1 true, i1 %35
+  %36 = select i1 %.not.i110282, i1 true, i1 %35
   br i1 %36, label %.lr.ph, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit.thread, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
@@ -2214,754 +2251,747 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %47 = icmp eq i8 %3, 2
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  br label %55
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  br label %56
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit: ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
-  %49 = trunc i8 %.1 to i1
+  %50 = trunc i8 %.1 to i1
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit: ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit
-  %.0.lcssa = phi i1 [ false, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit ], [ %49, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit ]
-  %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !79
-  %.not12.i.i.i111 = icmp eq ptr %51, null
+  %.0.lcssa = phi i1 [ false, %_ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit ], [ %50, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit ]
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !79
+  %.not12.i.i.i111 = icmp eq ptr %52, null
   br i1 %.not12.i.i.i111, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit115, label %.lr.ph.i.i.i112
 
 .lr.ph.i.i.i112:                                  ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit, %.lr.ph.i.i.i112
-  %.013.i.i.i113 = phi ptr [ %52, %.lr.ph.i.i.i112 ], [ %51, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %52 = load ptr, ptr %.013.i.i.i113, align 8, !tbaa !79
+  %.013.i.i.i113 = phi ptr [ %53, %.lr.ph.i.i.i112 ], [ %52, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %53 = load ptr, ptr %.013.i.i.i113, align 8, !tbaa !79
   call void @_ZdlPvm(ptr noundef nonnull %.013.i.i.i113, i64 noundef 24) #12
-  %.not.i.i.i114 = icmp eq ptr %52, null
+  %.not.i.i.i114 = icmp eq ptr %53, null
   br i1 %.not.i.i.i114, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit115, label %.lr.ph.i.i.i112, !llvm.loop !80
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit115: ; preds = %.lr.ph.i.i.i112, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.0.lcssa
 
-53:                                               ; preds = %401
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %402
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-55:                                               ; preds = %.lr.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
-  %56 = phi i64 [ %39, %.lr.ph ], [ %402, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
-  %57 = phi ptr [ %38, %.lr.ph ], [ %403, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
-  %.0286 = phi i8 [ 0, %.lr.ph ], [ %.1, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 536
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 544
-  %60 = load ptr, ptr %59, align 8, !tbaa !68
-  %61 = load ptr, ptr %58, align 8, !tbaa !69
-  %62 = ptrtoint ptr %60 to i64
+56:                                               ; preds = %.lr.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
+  %57 = phi i64 [ %39, %.lr.ph ], [ %403, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
+  %58 = phi ptr [ %38, %.lr.ph ], [ %404, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
+  %.0283 = phi i8 [ 0, %.lr.ph ], [ %.1, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit ]
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 536
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 544
+  %61 = load ptr, ptr %60, align 8, !tbaa !68
+  %62 = load ptr, ptr %59, align 8, !tbaa !69
   %63 = ptrtoint ptr %61 to i64
-  %64 = sub i64 %62, %63
-  %65 = ashr exact i64 %64, 3
-  %.not.i.i.i.i = icmp ult i64 %56, %65
-  br i1 %.not.i.i.i.i, label %67, label %66
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = ashr exact i64 %65, 3
+  %.not.i.i.i.i = icmp ult i64 %57, %66
+  br i1 %.not.i.i.i.i, label %68, label %67
 
-66:                                               ; preds = %55
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %56, i64 noundef %65) #11
+67:                                               ; preds = %56
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %57, i64 noundef %66) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %66
+.noexc:                                           ; preds = %67
   unreachable
 
-67:                                               ; preds = %55
-  %68 = getelementptr inbounds nuw ptr, ptr %61, i64 %56
-  %69 = load ptr, ptr %68, align 8, !tbaa !77
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %71 = load i32, ptr %70, align 8
-  %72 = and i32 %71, 201326592
-  %73 = icmp eq i32 %72, 67108864
-  br i1 %73, label %364, label %74
+68:                                               ; preds = %56
+  %69 = getelementptr inbounds nuw ptr, ptr %62, i64 %57
+  %70 = load ptr, ptr %69, align 8, !tbaa !77
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %72 = load i32, ptr %71, align 8
+  %73 = and i32 %72, 201326592
+  %74 = icmp eq i32 %73, 67108864
+  br i1 %74, label %365, label %75
 
-.loopexit:                                        ; preds = %343
+.loopexit:                                        ; preds = %344
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-.loopexit.split-lp:                               ; preds = %66
+.loopexit.split-lp:                               ; preds = %67
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-74:                                               ; preds = %67
-  %75 = lshr i32 %71, 20
-  %76 = trunc i32 %75 to i8
-  %77 = and i8 %76, 3
-  switch i8 %77, label %364 [
-    i8 2, label %78
-    i8 0, label %340
+75:                                               ; preds = %68
+  %76 = lshr i32 %72, 20
+  %77 = trunc i32 %76 to i8
+  %78 = and i8 %77, 3
+  switch i8 %78, label %365 [
+    i8 2, label %79
+    i8 0, label %341
   ]
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %41, align 8, !tbaa !19
-  %80 = invoke noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %79, i32 noundef 4)
-          to label %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit unwind label %218
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %41, align 8, !tbaa !19
+  %81 = invoke noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr noundef nonnull align 8 dereferenceable(48) %80, i32 noundef 4)
+          to label %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit unwind label %219
 
-_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit: ; preds = %78
-  br i1 %80, label %.thread, label %81
+_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit: ; preds = %79
+  br i1 %81, label %.thread, label %82
 
-81:                                               ; preds = %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit
-  %82 = load float, ptr %42, align 4, !tbaa !4
-  %83 = invoke i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44, i8 noundef zeroext 1)
-          to label %.noexc117 unwind label %220
+82:                                               ; preds = %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit
+  %83 = load float, ptr %42, align 4, !tbaa !4
+  %84 = invoke i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44, i8 noundef zeroext 1)
+          to label %.noexc117 unwind label %221
 
-.noexc117:                                        ; preds = %81
-  %84 = lshr i64 %83, 32
-  %85 = trunc i64 %84 to i8
-  %86 = trunc i64 %83 to i32
-  %87 = bitcast i32 %86 to float
-  switch i8 %85, label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i [
-    i8 1, label %88
-    i8 2, label %89
+.noexc117:                                        ; preds = %82
+  %85 = lshr i64 %84, 32
+  %86 = trunc i64 %85 to i8
+  %87 = trunc i64 %84 to i32
+  %88 = bitcast i32 %87 to float
+  switch i8 %86, label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i [
+    i8 1, label %89
+    i8 2, label %90
   ]
-
-88:                                               ; preds = %.noexc117
-  br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
 89:                                               ; preds = %.noexc117
-  %90 = fmul float %87, 0.000000e+00
-  %91 = fmul float %90, 0x3F847AE140000000
   br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i
 
-_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %89, %88, %.noexc117
-  %.sroa.0.0.i.i.i = phi float [ %87, %88 ], [ %91, %89 ], [ 0x7FF8000000000000, %.noexc117 ]
-  %92 = invoke i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44, i8 noundef zeroext 1)
-          to label %.noexc118 unwind label %220
+90:                                               ; preds = %.noexc117
+  %91 = fmul float %88, 0.000000e+00
+  %92 = fmul float %91, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i
+
+_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i: ; preds = %90, %89, %.noexc117
+  %.sroa.0.0.i.i.i = phi float [ %88, %89 ], [ %92, %90 ], [ 0x7FF8000000000000, %.noexc117 ]
+  %93 = invoke i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44, i8 noundef zeroext 1)
+          to label %.noexc118 unwind label %221
 
 .noexc118:                                        ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i
-  %93 = lshr i64 %92, 32
-  %94 = trunc i64 %93 to i8
-  %95 = trunc i64 %92 to i32
-  %96 = bitcast i32 %95 to float
-  switch i8 %94, label %101 [
-    i8 1, label %97
-    i8 2, label %98
+  %94 = lshr i64 %93, 32
+  %95 = trunc i64 %94 to i8
+  %96 = trunc i64 %93 to i32
+  %97 = bitcast i32 %96 to float
+  switch i8 %95, label %102 [
+    i8 1, label %98
+    i8 2, label %99
   ]
-
-97:                                               ; preds = %.noexc118
-  br label %101
 
 98:                                               ; preds = %.noexc118
-  %99 = fmul float %96, 0.000000e+00
-  %100 = fmul float %99, 0x3F847AE140000000
-  br label %101
+  br label %102
 
-101:                                              ; preds = %98, %97, %.noexc118
-  %.sroa.0.0.i.i5.i = phi float [ %96, %97 ], [ %100, %98 ], [ 0x7FF8000000000000, %.noexc118 ]
+99:                                               ; preds = %.noexc118
+  %100 = fmul float %97, 0.000000e+00
+  %101 = fmul float %100, 0x3F847AE140000000
+  br label %102
+
+102:                                              ; preds = %99, %98, %.noexc118
+  %.sroa.0.0.i.i5.i = phi float [ %97, %98 ], [ %101, %99 ], [ 0x7FF8000000000000, %.noexc118 ]
   %or.cond.i.i.i = fcmp ord float %.sroa.0.0.i.i.i, 0.000000e+00
-  %102 = fcmp olt float %.sroa.0.0.i.i.i, 0.000000e+00
-  %103 = fcmp uno float %.sroa.0.0.i.i.i, 0.000000e+00
-  %.sink.i.i.i = select i1 %or.cond.i.i.i, i1 %102, i1 %103
-  %104 = select i1 %.sink.i.i.i, float 0.000000e+00, float %.sroa.0.0.i.i.i
+  %103 = fcmp olt float %.sroa.0.0.i.i.i, 0.000000e+00
+  %104 = fcmp uno float %.sroa.0.0.i.i.i, 0.000000e+00
+  %.sink.i.i.i = select i1 %or.cond.i.i.i, i1 %103, i1 %104
+  %105 = select i1 %.sink.i.i.i, float 0.000000e+00, float %.sroa.0.0.i.i.i
   %or.cond.i.i6.i = fcmp ord float %.sroa.0.0.i.i5.i, 0.000000e+00
-  %105 = fcmp uno float %.sroa.0.0.i.i5.i, 0.000000e+00
-  %106 = fcmp olt float %.sroa.0.0.i.i5.i, 0.000000e+00
-  %.sink.i.i7.i = select i1 %or.cond.i.i6.i, i1 %106, i1 %105
-  %107 = select i1 %.sink.i.i7.i, float 0.000000e+00, float %.sroa.0.0.i.i5.i
-  %108 = fadd float %104, %107
-  %109 = fsub float %82, %108
-  %110 = load float, ptr %45, align 4, !tbaa !4
-  %111 = invoke i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44)
-          to label %.noexc126 unwind label %222
+  %106 = fcmp uno float %.sroa.0.0.i.i5.i, 0.000000e+00
+  %107 = fcmp olt float %.sroa.0.0.i.i5.i, 0.000000e+00
+  %.sink.i.i7.i = select i1 %or.cond.i.i6.i, i1 %107, i1 %106
+  %108 = select i1 %.sink.i.i7.i, float 0.000000e+00, float %.sroa.0.0.i.i5.i
+  %109 = fadd float %105, %108
+  %110 = fsub float %83, %109
+  %111 = load float, ptr %45, align 4, !tbaa !4
+  %112 = invoke i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44)
+          to label %.noexc126 unwind label %223
 
-.noexc126:                                        ; preds = %101
-  %112 = lshr i64 %111, 32
-  %113 = trunc i64 %112 to i8
-  %114 = trunc i64 %111 to i32
-  %115 = bitcast i32 %114 to float
-  switch i8 %113, label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119 [
-    i8 1, label %116
-    i8 2, label %117
+.noexc126:                                        ; preds = %102
+  %113 = lshr i64 %112, 32
+  %114 = trunc i64 %113 to i8
+  %115 = trunc i64 %112 to i32
+  %116 = bitcast i32 %115 to float
+  switch i8 %114, label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119 [
+    i8 1, label %117
+    i8 2, label %118
   ]
-
-116:                                              ; preds = %.noexc126
-  br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119
 
 117:                                              ; preds = %.noexc126
-  %118 = fmul float %115, 0.000000e+00
-  %119 = fmul float %118, 0x3F847AE140000000
   br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119
 
-_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119: ; preds = %117, %116, %.noexc126
-  %.sroa.0.0.i.i.i120 = phi float [ %115, %116 ], [ %119, %117 ], [ 0x7FF8000000000000, %.noexc126 ]
-  %120 = invoke i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44)
-          to label %.noexc127 unwind label %222
+118:                                              ; preds = %.noexc126
+  %119 = fmul float %116, 0.000000e+00
+  %120 = fmul float %119, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119
+
+_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119: ; preds = %118, %117, %.noexc126
+  %.sroa.0.0.i.i.i120 = phi float [ %116, %117 ], [ %120, %118 ], [ 0x7FF8000000000000, %.noexc126 ]
+  %121 = invoke i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 1 dereferenceable(18) %44)
+          to label %.noexc127 unwind label %223
 
 .noexc127:                                        ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119
-  %121 = lshr i64 %120, 32
-  %122 = trunc i64 %121 to i8
-  %123 = trunc i64 %120 to i32
-  %124 = bitcast i32 %123 to float
-  switch i8 %122, label %129 [
-    i8 1, label %125
-    i8 2, label %126
+  %122 = lshr i64 %121, 32
+  %123 = trunc i64 %122 to i8
+  %124 = trunc i64 %121 to i32
+  %125 = bitcast i32 %124 to float
+  switch i8 %123, label %130 [
+    i8 1, label %126
+    i8 2, label %127
   ]
 
-125:                                              ; preds = %.noexc127
-  br label %129
-
 126:                                              ; preds = %.noexc127
-  %127 = fmul float %124, 0.000000e+00
-  %128 = fmul float %127, 0x3F847AE140000000
-  br label %129
+  br label %130
 
-129:                                              ; preds = %126, %125, %.noexc127
-  %.sroa.0.0.i.i5.i121 = phi float [ %124, %125 ], [ %128, %126 ], [ 0x7FF8000000000000, %.noexc127 ]
+127:                                              ; preds = %.noexc127
+  %128 = fmul float %125, 0.000000e+00
+  %129 = fmul float %128, 0x3F847AE140000000
+  br label %130
+
+130:                                              ; preds = %127, %126, %.noexc127
+  %.sroa.0.0.i.i5.i121 = phi float [ %125, %126 ], [ %129, %127 ], [ 0x7FF8000000000000, %.noexc127 ]
   %or.cond.i.i.i122 = fcmp ord float %.sroa.0.0.i.i.i120, 0.000000e+00
-  %130 = fcmp olt float %.sroa.0.0.i.i.i120, 0.000000e+00
-  %131 = fcmp uno float %.sroa.0.0.i.i.i120, 0.000000e+00
-  %.sink.i.i.i123 = select i1 %or.cond.i.i.i122, i1 %130, i1 %131
-  %132 = select i1 %.sink.i.i.i123, float 0.000000e+00, float %.sroa.0.0.i.i.i120
+  %131 = fcmp olt float %.sroa.0.0.i.i.i120, 0.000000e+00
+  %132 = fcmp uno float %.sroa.0.0.i.i.i120, 0.000000e+00
+  %.sink.i.i.i123 = select i1 %or.cond.i.i.i122, i1 %131, i1 %132
+  %133 = select i1 %.sink.i.i.i123, float 0.000000e+00, float %.sroa.0.0.i.i.i120
   %or.cond.i.i6.i124 = fcmp ord float %.sroa.0.0.i.i5.i121, 0.000000e+00
-  %133 = fcmp uno float %.sroa.0.0.i.i5.i121, 0.000000e+00
-  %134 = fcmp olt float %.sroa.0.0.i.i5.i121, 0.000000e+00
-  %.sink.i.i7.i125 = select i1 %or.cond.i.i6.i124, i1 %134, i1 %133
-  %135 = select i1 %.sink.i.i7.i125, float 0.000000e+00, float %.sroa.0.0.i.i5.i121
-  %136 = fadd float %132, %135
-  %137 = fsub float %110, %136
+  %134 = fcmp uno float %.sroa.0.0.i.i5.i121, 0.000000e+00
+  %135 = fcmp olt float %.sroa.0.0.i.i5.i121, 0.000000e+00
+  %.sink.i.i7.i125 = select i1 %or.cond.i.i6.i124, i1 %135, i1 %134
+  %136 = select i1 %.sink.i.i7.i125, float 0.000000e+00, float %.sroa.0.0.i.i5.i121
+  %137 = fadd float %133, %136
+  %138 = fsub float %111, %137
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit, %129
-  %138 = phi float [ %109, %129 ], [ %9, %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit ]
-  %139 = phi float [ %137, %129 ], [ %10, %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit ]
-  invoke void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %69, float noundef %138, float noundef %139, i32 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(56) %4, i32 noundef %5, i32 noundef %6)
-          to label %140 unwind label %222
+.thread:                                          ; preds = %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit, %130
+  %139 = phi float [ %110, %130 ], [ %9, %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit ]
+  %140 = phi float [ %138, %130 ], [ %10, %_ZNK8facebook4yoga4Node9hasErrataENS0_6ErrataE.exit ]
+  invoke void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %70, float noundef %139, float noundef %140, i32 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(56) %4, i32 noundef %5, i32 noundef %6)
+          to label %141 unwind label %223
 
-140:                                              ; preds = %.thread
-  %141 = trunc i8 %.0286 to i1
-  br i1 %141, label %144, label %142
+141:                                              ; preds = %.thread
+  %142 = trunc i8 %.0283 to i1
+  br i1 %142, label %145, label %143
 
-142:                                              ; preds = %140
-  %143 = load i8, ptr %69, align 8
-  br label %144
+143:                                              ; preds = %141
+  %144 = load i8, ptr %70, align 8
+  br label %145
 
-144:                                              ; preds = %142, %140
-  %145 = phi i8 [ 1, %140 ], [ %143, %142 ]
-  %146 = load i32, ptr %46, align 8
-  %147 = trunc i32 %146 to i8
-  %148 = lshr i8 %147, 2
-  %149 = and i8 %148, 3
-  br i1 %47, label %150, label %151
+145:                                              ; preds = %143, %141
+  %146 = phi i8 [ 1, %141 ], [ %144, %143 ]
+  %147 = load i32, ptr %46, align 8
+  %148 = trunc i32 %147 to i8
+  %149 = lshr i8 %148, 2
+  %150 = and i8 %149, 3
+  br i1 %47, label %151, label %152
 
-150:                                              ; preds = %144
-  switch i8 %149, label %151 [
+151:                                              ; preds = %145
+  switch i8 %150, label %152 [
     i8 2, label %.thread185
     i8 3, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
   ]
 
-151:                                              ; preds = %144, %150
-  %spec.select.i = phi i8 [ 2, %144 ], [ 3, %150 ]
-  %152 = icmp samesign ult i8 %149, 2
-  %153 = select i1 %152, i8 %spec.select.i, i8 0
-  %154 = and i8 %147, 4
-  %.not232 = icmp eq i8 %154, 0
-  br i1 %.not232, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit, label %155
+152:                                              ; preds = %145, %151
+  %spec.select.i = phi i8 [ 2, %145 ], [ 3, %151 ]
+  %153 = icmp samesign ult i8 %150, 2
+  %154 = select i1 %153, i8 %spec.select.i, i8 0
+  %155 = and i8 %148, 4
+  %.not232 = icmp eq i8 %155, 0
+  br i1 %.not232, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit, label %156
 
-155:                                              ; preds = %151
-  %156 = and i8 %147, 8
-  %.not233 = icmp eq i8 %156, 0
-  br i1 %.not233, label %182, label %.thread185
+156:                                              ; preds = %152
+  %157 = and i8 %148, 8
+  %.not233 = icmp eq i8 %157, 0
+  br i1 %.not233, label %183, label %.thread185
 
-.thread185:                                       ; preds = %150, %155
-  %.0.i181188 = phi i8 [ %149, %155 ], [ 3, %150 ]
-  %157 = phi i1 [ %152, %155 ], [ false, %150 ]
-  %158 = phi i8 [ %153, %155 ], [ 0, %150 ]
-  %159 = getelementptr inbounds nuw i8, ptr %69, i64 70
-  %160 = load i16, ptr %159, align 1, !tbaa !82
-  %161 = and i16 %160, 7
-  %.not.i129 = icmp eq i16 %161, 0
-  br i1 %.not.i129, label %162, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+.thread185:                                       ; preds = %151, %156
+  %.0.i181188 = phi i8 [ %150, %156 ], [ 3, %151 ]
+  %158 = phi i1 [ %153, %156 ], [ false, %151 ]
+  %159 = phi i8 [ %154, %156 ], [ 0, %151 ]
+  %160 = getelementptr inbounds nuw i8, ptr %70, i64 70
+  %161 = load i16, ptr %160, align 1, !tbaa !82
+  %162 = and i16 %161, 7
+  %.not.i129 = icmp eq i16 %162, 0
+  br i1 %.not.i129, label %163, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-162:                                              ; preds = %.thread185
-  %163 = getelementptr inbounds nuw i8, ptr %69, i64 74
-  %164 = load i16, ptr %163, align 1, !tbaa !82
-  %165 = and i16 %164, 7
-  %.not1.i = icmp eq i16 %165, 0
-  br i1 %.not1.i, label %166, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+163:                                              ; preds = %.thread185
+  %164 = getelementptr inbounds nuw i8, ptr %70, i64 74
+  %165 = load i16, ptr %164, align 1, !tbaa !82
+  %166 = and i16 %165, 7
+  %.not1.i = icmp eq i16 %166, 0
+  br i1 %.not1.i, label %167, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %168 = load i16, ptr %167, align 1, !tbaa !82
-  %169 = and i16 %168, 7
-  %.not2.i = icmp eq i16 %169, 0
-  br i1 %.not2.i, label %170, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+167:                                              ; preds = %163
+  %168 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %169 = load i16, ptr %168, align 1, !tbaa !82
+  %170 = and i16 %169, 7
+  %.not2.i = icmp eq i16 %170, 0
+  br i1 %.not2.i, label %171, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %69, i64 82
-  %172 = load i16, ptr %171, align 1, !tbaa !82
-  %173 = and i16 %172, 7
-  %.not3.i = icmp eq i16 %173, 0
-  br i1 %.not3.i, label %174, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+171:                                              ; preds = %167
+  %172 = getelementptr inbounds nuw i8, ptr %70, i64 82
+  %173 = load i16, ptr %172, align 1, !tbaa !82
+  %174 = and i16 %173, 7
+  %.not3.i = icmp eq i16 %174, 0
+  br i1 %.not3.i, label %175, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %69, i64 78
-  %176 = load i16, ptr %175, align 1, !tbaa !82
-  %177 = and i16 %176, 7
-  %.not4.i = icmp eq i16 %177, 0
-  br i1 %.not4.i, label %178, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+175:                                              ; preds = %171
+  %176 = getelementptr inbounds nuw i8, ptr %70, i64 78
+  %177 = load i16, ptr %176, align 1, !tbaa !82
+  %178 = and i16 %177, 7
+  %.not4.i = icmp eq i16 %178, 0
+  br i1 %.not4.i, label %179, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-178:                                              ; preds = %174
-  %179 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  %180 = load i16, ptr %179, align 1, !tbaa !82
-  %.fr235 = freeze i16 %180
-  %181 = and i16 %.fr235, 7
-  %.not236 = icmp eq i16 %181, 0
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw i8, ptr %70, i64 80
+  %181 = load i16, ptr %180, align 1, !tbaa !82
+  %.fr235 = freeze i16 %181
+  %182 = and i16 %.fr235, 7
+  %.not236 = icmp eq i16 %182, 0
   %spec.select = select i1 %.not236, ptr %1, ptr %0
   br label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
 
-182:                                              ; preds = %155
-  %183 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %184 = load i16, ptr %183, align 1, !tbaa !82
-  %185 = and i16 %184, 7
-  %.not.i130 = icmp eq i16 %185, 0
-  br i1 %.not.i130, label %186, label %.thread229
+183:                                              ; preds = %156
+  %184 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %185 = load i16, ptr %184, align 1, !tbaa !82
+  %186 = and i16 %185, 7
+  %.not.i130 = icmp eq i16 %186, 0
+  br i1 %.not.i130, label %187, label %.thread229
 
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %69, i64 76
-  %188 = load i16, ptr %187, align 1, !tbaa !82
-  %189 = and i16 %188, 7
-  %.not1.i131 = icmp eq i16 %189, 0
-  br i1 %.not1.i131, label %190, label %.thread229
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds nuw i8, ptr %70, i64 76
+  %189 = load i16, ptr %188, align 1, !tbaa !82
+  %190 = and i16 %189, 7
+  %.not1.i131 = icmp eq i16 %190, 0
+  br i1 %.not1.i131, label %191, label %.thread229
 
-190:                                              ; preds = %186
-  %191 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %192 = load i16, ptr %191, align 1, !tbaa !82
-  %193 = and i16 %192, 7
-  %.not2.i132 = icmp eq i16 %193, 0
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %193 = load i16, ptr %192, align 1, !tbaa !82
+  %194 = and i16 %193, 7
+  %.not2.i132 = icmp eq i16 %194, 0
   br i1 %.not2.i132, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit, label %.thread229
 
-_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit: ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %69, i64 84
-  %195 = load i16, ptr %194, align 1, !tbaa !82
-  %.fr = freeze i16 %195
-  %196 = and i16 %.fr, 7
-  %.not234 = icmp eq i16 %196, 0
+_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit: ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %70, i64 84
+  %196 = load i16, ptr %195, align 1, !tbaa !82
+  %.fr = freeze i16 %196
+  %197 = and i16 %.fr, 7
+  %.not234 = icmp eq i16 %197, 0
   br i1 %.not234, label %.thread195, label %.thread229
 
-.thread229:                                       ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit, %190, %186, %182
+.thread229:                                       ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit, %191, %187, %183
   br label %.thread195
 
-_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread: ; preds = %178, %174, %170, %166, %162, %.thread185
-  %197 = phi ptr [ %0, %.thread185 ], [ %0, %162 ], [ %0, %166 ], [ %0, %170 ], [ %0, %174 ], [ %spec.select, %178 ]
-  %198 = icmp eq i8 %.0.i181188, 3
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 436
-  %200 = getelementptr inbounds nuw i8, ptr %69, i64 436
-  %201 = zext i1 %157 to i64
-  %202 = getelementptr inbounds nuw float, ptr %200, i64 %201
-  br i1 %198, label %210, label %208
+_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread: ; preds = %179, %175, %171, %167, %163, %.thread185
+  %198 = phi ptr [ %0, %.thread185 ], [ %0, %163 ], [ %0, %167 ], [ %0, %171 ], [ %0, %175 ], [ %spec.select, %179 ]
+  %199 = icmp eq i8 %.0.i181188, 3
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 436
+  %201 = getelementptr inbounds nuw i8, ptr %70, i64 436
+  %202 = zext i1 %158 to i64
+  %203 = getelementptr inbounds nuw float, ptr %201, i64 %202
+  br i1 %199, label %211, label %209
 
 .thread195:                                       ; preds = %.thread229, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit
   %.ph199 = phi ptr [ %1, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit ], [ %0, %.thread229 ]
-  %203 = getelementptr inbounds nuw i8, ptr %69, i64 456
-  %204 = getelementptr inbounds nuw i8, ptr %.ph199, i64 440
-  %205 = getelementptr inbounds nuw i8, ptr %69, i64 436
-  %206 = zext i1 %152 to i64
-  %207 = getelementptr inbounds nuw float, ptr %205, i64 %206
+  %204 = getelementptr inbounds nuw i8, ptr %70, i64 456
+  %205 = getelementptr inbounds nuw i8, ptr %.ph199, i64 440
+  %206 = getelementptr inbounds nuw i8, ptr %70, i64 436
+  %207 = zext i1 %153 to i64
+  %208 = getelementptr inbounds nuw float, ptr %206, i64 %207
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i
 
-208:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
-  %209 = getelementptr inbounds nuw i8, ptr %69, i64 444
+209:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+  %210 = getelementptr inbounds nuw i8, ptr %70, i64 444
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i
 
-210:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
-  %211 = getelementptr inbounds nuw i8, ptr %69, i64 452
+211:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread
+  %212 = getelementptr inbounds nuw i8, ptr %70, i64 452
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i
 
-_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i: ; preds = %210, %208, %.thread195
-  %.in = phi ptr [ %207, %.thread195 ], [ %202, %208 ], [ %202, %210 ]
-  %.in237 = phi ptr [ %204, %.thread195 ], [ %199, %208 ], [ %199, %210 ]
-  %.in238 = phi ptr [ %203, %.thread195 ], [ %209, %208 ], [ %211, %210 ]
-  %212 = phi i8 [ %153, %.thread195 ], [ %158, %208 ], [ %158, %210 ]
-  %.0.i6.i = phi i32 [ 1, %.thread195 ], [ 2, %208 ], [ 0, %210 ]
-  %213 = load float, ptr %.in238, align 4, !tbaa !4
-  %214 = load float, ptr %.in237, align 4, !tbaa !4
-  %215 = load float, ptr %.in, align 4, !tbaa !4
-  %216 = fsub float %214, %215
-  %217 = fsub float %216, %213
-  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %69, float noundef %217, i32 noundef %.0.i6.i)
-          to label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit unwind label %224
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i: ; preds = %211, %209, %.thread195
+  %.in = phi ptr [ %208, %.thread195 ], [ %203, %209 ], [ %203, %211 ]
+  %.in237 = phi ptr [ %205, %.thread195 ], [ %200, %209 ], [ %200, %211 ]
+  %.in238 = phi ptr [ %204, %.thread195 ], [ %210, %209 ], [ %212, %211 ]
+  %213 = phi i8 [ %154, %.thread195 ], [ %159, %209 ], [ %159, %211 ]
+  %.0.i6.i = phi i32 [ 1, %.thread195 ], [ 2, %209 ], [ 0, %211 ]
+  %214 = load float, ptr %.in238, align 4, !tbaa !4
+  %215 = load float, ptr %.in237, align 4, !tbaa !4
+  %216 = load float, ptr %.in, align 4, !tbaa !4
+  %217 = fsub float %215, %216
+  %218 = fsub float %217, %214
+  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %70, float noundef %218, i32 noundef %.0.i6.i)
+          to label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit unwind label %225
 
-218:                                              ; preds = %78
-  %219 = landingpad { ptr, i32 }
+219:                                              ; preds = %79
+  %220 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-220:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i, %81
-  %221 = landingpad { ptr, i32 }
+221:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i, %82
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-222:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119, %101, %.thread
-  %223 = landingpad { ptr, i32 }
+223:                                              ; preds = %_ZNK8facebook4yoga5Style24computeInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE.exit.i119, %102, %.thread
+  %224 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-224:                                              ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i
-  %225 = landingpad { ptr, i32 }
+225:                                              ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i
+  %226 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i, %151
-  %226 = phi i8 [ %153, %151 ], [ %212, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i ]
-  %227 = and i8 %226, -3
-  %228 = icmp eq i8 %227, 1
-  br i1 %228, label %229, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
+_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i, %152
+  %227 = phi i8 [ %154, %152 ], [ %213, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i ]
+  %228 = and i8 %227, -3
+  %229 = icmp eq i8 %228, 1
+  br i1 %229, label %230, label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
 
-229:                                              ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
-  %.not239 = icmp samesign ult i8 %226, 2
-  br i1 %.not239, label %254, label %230
+230:                                              ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
+  %.not239 = icmp samesign ult i8 %227, 2
+  br i1 %.not239, label %255, label %231
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds nuw i8, ptr %69, i64 70
-  %232 = load i16, ptr %231, align 1, !tbaa !82
-  %233 = and i16 %232, 7
-  %.not.i135 = icmp eq i16 %233, 0
-  br i1 %.not.i135, label %234, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+231:                                              ; preds = %230
+  %232 = getelementptr inbounds nuw i8, ptr %70, i64 70
+  %233 = load i16, ptr %232, align 1, !tbaa !82
+  %234 = and i16 %233, 7
+  %.not.i135 = icmp eq i16 %234, 0
+  br i1 %.not.i135, label %235, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-234:                                              ; preds = %230
-  %235 = getelementptr inbounds nuw i8, ptr %69, i64 74
-  %236 = load i16, ptr %235, align 1, !tbaa !82
-  %237 = and i16 %236, 7
-  %.not1.i136 = icmp eq i16 %237, 0
-  br i1 %.not1.i136, label %238, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+235:                                              ; preds = %231
+  %236 = getelementptr inbounds nuw i8, ptr %70, i64 74
+  %237 = load i16, ptr %236, align 1, !tbaa !82
+  %238 = and i16 %237, 7
+  %.not1.i136 = icmp eq i16 %238, 0
+  br i1 %.not1.i136, label %239, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-238:                                              ; preds = %234
-  %239 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %240 = load i16, ptr %239, align 1, !tbaa !82
-  %241 = and i16 %240, 7
-  %.not2.i137 = icmp eq i16 %241, 0
-  br i1 %.not2.i137, label %242, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+239:                                              ; preds = %235
+  %240 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %241 = load i16, ptr %240, align 1, !tbaa !82
+  %242 = and i16 %241, 7
+  %.not2.i137 = icmp eq i16 %242, 0
+  br i1 %.not2.i137, label %243, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-242:                                              ; preds = %238
-  %243 = getelementptr inbounds nuw i8, ptr %69, i64 82
-  %244 = load i16, ptr %243, align 1, !tbaa !82
-  %245 = and i16 %244, 7
-  %.not3.i138 = icmp eq i16 %245, 0
-  br i1 %.not3.i138, label %246, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+243:                                              ; preds = %239
+  %244 = getelementptr inbounds nuw i8, ptr %70, i64 82
+  %245 = load i16, ptr %244, align 1, !tbaa !82
+  %246 = and i16 %245, 7
+  %.not3.i138 = icmp eq i16 %246, 0
+  br i1 %.not3.i138, label %247, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-246:                                              ; preds = %242
-  %247 = getelementptr inbounds nuw i8, ptr %69, i64 78
-  %248 = load i16, ptr %247, align 1, !tbaa !82
-  %249 = and i16 %248, 7
-  %.not4.i139 = icmp eq i16 %249, 0
-  br i1 %.not4.i139, label %250, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds nuw i8, ptr %70, i64 78
+  %249 = load i16, ptr %248, align 1, !tbaa !82
+  %250 = and i16 %249, 7
+  %.not4.i139 = icmp eq i16 %250, 0
+  br i1 %.not4.i139, label %251, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-250:                                              ; preds = %246
-  %251 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  %252 = load i16, ptr %251, align 1, !tbaa !82
-  %.fr242 = freeze i16 %252
-  %253 = and i16 %.fr242, 7
-  %.not243 = icmp eq i16 %253, 0
-  br i1 %.not243, label %269, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+251:                                              ; preds = %247
+  %252 = getelementptr inbounds nuw i8, ptr %70, i64 80
+  %253 = load i16, ptr %252, align 1, !tbaa !82
+  %.fr242 = freeze i16 %253
+  %254 = and i16 %.fr242, 7
+  %.not243 = icmp eq i16 %254, 0
+  br i1 %.not243, label %270, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-254:                                              ; preds = %229
-  %255 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %256 = load i16, ptr %255, align 1, !tbaa !82
-  %257 = and i16 %256, 7
-  %.not.i141 = icmp eq i16 %257, 0
-  br i1 %.not.i141, label %258, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+255:                                              ; preds = %230
+  %256 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %257 = load i16, ptr %256, align 1, !tbaa !82
+  %258 = and i16 %257, 7
+  %.not.i141 = icmp eq i16 %258, 0
+  br i1 %.not.i141, label %259, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-258:                                              ; preds = %254
-  %259 = getelementptr inbounds nuw i8, ptr %69, i64 76
-  %260 = load i16, ptr %259, align 1, !tbaa !82
-  %261 = and i16 %260, 7
-  %.not1.i142 = icmp eq i16 %261, 0
-  br i1 %.not1.i142, label %262, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+259:                                              ; preds = %255
+  %260 = getelementptr inbounds nuw i8, ptr %70, i64 76
+  %261 = load i16, ptr %260, align 1, !tbaa !82
+  %262 = and i16 %261, 7
+  %.not1.i142 = icmp eq i16 %262, 0
+  br i1 %.not1.i142, label %263, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-262:                                              ; preds = %258
-  %263 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %264 = load i16, ptr %263, align 1, !tbaa !82
-  %265 = and i16 %264, 7
-  %.not2.i143 = icmp eq i16 %265, 0
+263:                                              ; preds = %259
+  %264 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %265 = load i16, ptr %264, align 1, !tbaa !82
+  %266 = and i16 %265, 7
+  %.not2.i143 = icmp eq i16 %266, 0
   br i1 %.not2.i143, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140: ; preds = %262
-  %266 = getelementptr inbounds nuw i8, ptr %69, i64 84
-  %267 = load i16, ptr %266, align 1, !tbaa !82
-  %.fr240 = freeze i16 %267
-  %268 = and i16 %.fr240, 7
-  %.not241 = icmp eq i16 %268, 0
+_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140: ; preds = %263
+  %267 = getelementptr inbounds nuw i8, ptr %70, i64 84
+  %268 = load i16, ptr %267, align 1, !tbaa !82
+  %.fr240 = freeze i16 %268
+  %269 = and i16 %.fr240, 7
+  %.not241 = icmp eq i16 %269, 0
   br i1 %.not241, label %.thread216, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
 
-_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread: ; preds = %254, %258, %262, %230, %234, %238, %242, %246, %250, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140
-  br label %269
+_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread: ; preds = %255, %259, %263, %231, %235, %239, %243, %247, %251, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140
+  br label %270
 
-269:                                              ; preds = %250, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
-  %270 = phi ptr [ %0, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread ], [ %1, %250 ]
-  switch i8 %226, label %default.unreachable231 [
-    i8 3, label %276
-    i8 1, label %.thread216
-    i8 2, label %273
-  ]
+270:                                              ; preds = %251, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread
+  %271 = phi ptr [ %0, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140.thread ], [ %1, %251 ]
+  %272 = icmp eq i8 %227, 3
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 436
+  %274 = getelementptr inbounds nuw i8, ptr %70, i64 436
+  br i1 %272, label %279, label %277
 
-default.unreachable231:                           ; preds = %269
-  unreachable
-
-.thread216:                                       ; preds = %269, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140
-  %.ph217 = phi ptr [ %1, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140 ], [ %270, %269 ]
-  %271 = getelementptr inbounds nuw i8, ptr %69, i64 456
-  %272 = getelementptr inbounds nuw i8, ptr %.ph217, i64 440
+.thread216:                                       ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit140
+  %275 = getelementptr inbounds nuw i8, ptr %70, i64 456
+  %276 = getelementptr inbounds nuw i8, ptr %70, i64 440
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149
 
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds nuw i8, ptr %69, i64 444
-  %275 = getelementptr inbounds nuw i8, ptr %270, i64 436
+277:                                              ; preds = %270
+  %278 = getelementptr inbounds nuw i8, ptr %70, i64 444
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149
 
-276:                                              ; preds = %269
-  %277 = getelementptr inbounds nuw i8, ptr %69, i64 452
-  %278 = getelementptr inbounds nuw i8, ptr %270, i64 436
+279:                                              ; preds = %270
+  %280 = getelementptr inbounds nuw i8, ptr %70, i64 452
   br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149
 
-_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149: ; preds = %276, %273, %.thread216
-  %.sink = phi i64 [ 436, %276 ], [ 436, %273 ], [ 440, %.thread216 ]
-  %.in245 = phi ptr [ %278, %276 ], [ %275, %273 ], [ %272, %.thread216 ]
-  %.in246 = phi ptr [ %277, %276 ], [ %274, %273 ], [ %271, %.thread216 ]
-  %.0.i6.i150 = phi i32 [ 0, %276 ], [ 2, %273 ], [ 1, %.thread216 ]
-  %279 = getelementptr inbounds nuw i8, ptr %69, i64 %.sink
-  %280 = load float, ptr %.in246, align 4, !tbaa !4
-  %281 = load float, ptr %.in245, align 4, !tbaa !4
-  %282 = load float, ptr %279, align 4, !tbaa !4
-  %283 = fsub float %281, %282
-  %284 = fsub float %283, %280
-  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %69, float noundef %284, i32 noundef %.0.i6.i150)
-          to label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154 unwind label %285
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149: ; preds = %279, %277, %.thread216
+  %.in244 = phi ptr [ %276, %.thread216 ], [ %274, %277 ], [ %274, %279 ]
+  %.in245 = phi ptr [ %48, %.thread216 ], [ %273, %277 ], [ %273, %279 ]
+  %.in246 = phi ptr [ %275, %.thread216 ], [ %278, %277 ], [ %280, %279 ]
+  %.0.i6.i150 = phi i32 [ 1, %.thread216 ], [ 2, %277 ], [ 0, %279 ]
+  %281 = load float, ptr %.in246, align 4, !tbaa !4
+  %282 = load float, ptr %.in245, align 4, !tbaa !4
+  %283 = load float, ptr %.in244, align 4, !tbaa !4
+  %284 = fsub float %282, %283
+  %285 = fsub float %284, %281
+  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %70, float noundef %285, i32 noundef %.0.i6.i150)
+          to label %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154 unwind label %286
 
-285:                                              ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149
-  %286 = landingpad { ptr, i32 }
+286:                                              ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149
+  %287 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154: ; preds = %150, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
-  %287 = getelementptr inbounds nuw i8, ptr %69, i64 444
-  %288 = load float, ptr %287, align 4, !tbaa !4
-  %289 = getelementptr inbounds nuw i8, ptr %69, i64 448
-  %290 = load float, ptr %289, align 4, !tbaa !4
-  %291 = getelementptr inbounds nuw i8, ptr %69, i64 70
-  %292 = load i16, ptr %291, align 2, !tbaa !82
-  %293 = and i16 %292, 7
-  %.not.i155 = icmp eq i16 %293, 0
-  br i1 %.not.i155, label %294, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154: ; preds = %151, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i149, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit
+  %288 = getelementptr inbounds nuw i8, ptr %70, i64 444
+  %289 = load float, ptr %288, align 4, !tbaa !4
+  %290 = getelementptr inbounds nuw i8, ptr %70, i64 448
+  %291 = load float, ptr %290, align 4, !tbaa !4
+  %292 = getelementptr inbounds nuw i8, ptr %70, i64 70
+  %293 = load i16, ptr %292, align 2, !tbaa !82
+  %294 = and i16 %293, 7
+  %.not.i155 = icmp eq i16 %294, 0
+  br i1 %.not.i155, label %295, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-294:                                              ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
-  %295 = getelementptr inbounds nuw i8, ptr %69, i64 74
-  %296 = load i16, ptr %295, align 1, !tbaa !82
-  %297 = and i16 %296, 7
-  %.not1.i156 = icmp eq i16 %297, 0
-  br i1 %.not1.i156, label %298, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+295:                                              ; preds = %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
+  %296 = getelementptr inbounds nuw i8, ptr %70, i64 74
+  %297 = load i16, ptr %296, align 1, !tbaa !82
+  %298 = and i16 %297, 7
+  %.not1.i156 = icmp eq i16 %298, 0
+  br i1 %.not1.i156, label %299, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-298:                                              ; preds = %294
-  %299 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %300 = load i16, ptr %299, align 1, !tbaa !82
-  %301 = and i16 %300, 7
-  %.not2.i157 = icmp eq i16 %301, 0
-  br i1 %.not2.i157, label %302, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+299:                                              ; preds = %295
+  %300 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %301 = load i16, ptr %300, align 1, !tbaa !82
+  %302 = and i16 %301, 7
+  %.not2.i157 = icmp eq i16 %302, 0
+  br i1 %.not2.i157, label %303, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-302:                                              ; preds = %298
-  %303 = getelementptr inbounds nuw i8, ptr %69, i64 82
-  %304 = load i16, ptr %303, align 1, !tbaa !82
-  %305 = and i16 %304, 7
-  %.not3.i158 = icmp eq i16 %305, 0
-  br i1 %.not3.i158, label %306, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+303:                                              ; preds = %299
+  %304 = getelementptr inbounds nuw i8, ptr %70, i64 82
+  %305 = load i16, ptr %304, align 1, !tbaa !82
+  %306 = and i16 %305, 7
+  %.not3.i158 = icmp eq i16 %306, 0
+  br i1 %.not3.i158, label %307, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds nuw i8, ptr %69, i64 78
-  %308 = load i16, ptr %307, align 1, !tbaa !82
-  %309 = and i16 %308, 7
-  %.not4.i159 = icmp eq i16 %309, 0
-  br i1 %.not4.i159, label %310, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+307:                                              ; preds = %303
+  %308 = getelementptr inbounds nuw i8, ptr %70, i64 78
+  %309 = load i16, ptr %308, align 1, !tbaa !82
+  %310 = and i16 %309, 7
+  %.not4.i159 = icmp eq i16 %310, 0
+  br i1 %.not4.i159, label %311, label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-310:                                              ; preds = %306
-  %311 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  %312 = load i16, ptr %311, align 1, !tbaa !82
-  %313 = and i16 %312, 7
-  %314 = icmp ne i16 %313, 0
+311:                                              ; preds = %307
+  %312 = getelementptr inbounds nuw i8, ptr %70, i64 80
+  %313 = load i16, ptr %312, align 1, !tbaa !82
+  %314 = and i16 %313, 7
+  %315 = icmp ne i16 %314, 0
   br label %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
 
-_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160: ; preds = %310, %306, %302, %298, %294, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
-  %315 = phi i1 [ true, %306 ], [ true, %302 ], [ true, %298 ], [ true, %294 ], [ true, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154 ], [ %314, %310 ]
-  %316 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %317 = load i16, ptr %316, align 1, !tbaa !82
-  %318 = and i16 %317, 7
-  %.not.i161 = icmp eq i16 %318, 0
-  br i1 %.not.i161, label %319, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
+_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160: ; preds = %311, %307, %303, %299, %295, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154
+  %316 = phi i1 [ true, %307 ], [ true, %303 ], [ true, %299 ], [ true, %295 ], [ true, %_ZN8facebook4yoga24setChildTrailingPositionEPKNS0_4NodeEPS1_NS0_13FlexDirectionE.exit154 ], [ %315, %311 ]
+  %317 = getelementptr inbounds nuw i8, ptr %70, i64 72
+  %318 = load i16, ptr %317, align 1, !tbaa !82
+  %319 = and i16 %318, 7
+  %.not.i161 = icmp eq i16 %319, 0
+  br i1 %.not.i161, label %320, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
 
-319:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
-  %320 = getelementptr inbounds nuw i8, ptr %69, i64 76
-  %321 = load i16, ptr %320, align 1, !tbaa !82
-  %322 = and i16 %321, 7
-  %.not1.i162 = icmp eq i16 %322, 0
-  br i1 %.not1.i162, label %323, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
+320:                                              ; preds = %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+  %321 = getelementptr inbounds nuw i8, ptr %70, i64 76
+  %322 = load i16, ptr %321, align 1, !tbaa !82
+  %323 = and i16 %322, 7
+  %.not1.i162 = icmp eq i16 %323, 0
+  br i1 %.not1.i162, label %324, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
 
-323:                                              ; preds = %319
-  %324 = getelementptr inbounds nuw i8, ptr %69, i64 86
-  %325 = load i16, ptr %324, align 1, !tbaa !82
-  %326 = and i16 %325, 7
-  %.not2.i163 = icmp eq i16 %326, 0
-  br i1 %.not2.i163, label %327, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
+324:                                              ; preds = %320
+  %325 = getelementptr inbounds nuw i8, ptr %70, i64 86
+  %326 = load i16, ptr %325, align 1, !tbaa !82
+  %327 = and i16 %326, 7
+  %.not2.i163 = icmp eq i16 %327, 0
+  br i1 %.not2.i163, label %328, label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
 
-327:                                              ; preds = %323
-  %328 = getelementptr inbounds nuw i8, ptr %69, i64 84
-  %329 = load i16, ptr %328, align 1, !tbaa !82
-  %330 = and i16 %329, 7
-  %331 = icmp ne i16 %330, 0
+328:                                              ; preds = %324
+  %329 = getelementptr inbounds nuw i8, ptr %70, i64 84
+  %330 = load i16, ptr %329, align 1, !tbaa !82
+  %331 = and i16 %330, 7
+  %332 = icmp ne i16 %331, 0
   br label %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
 
-_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164: ; preds = %327, %323, %319, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
-  %332 = phi i1 [ true, %323 ], [ true, %319 ], [ true, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160 ], [ %331, %327 ]
-  %333 = fsub float %288, %7
-  %334 = select i1 %315, float %333, float %288
-  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %69, float noundef %334, i32 noundef 0)
-          to label %335 unwind label %338
+_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164: ; preds = %328, %324, %320, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160
+  %333 = phi i1 [ true, %324 ], [ true, %320 ], [ true, %_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit160 ], [ %332, %328 ]
+  %334 = fsub float %289, %7
+  %335 = select i1 %316, float %334, float %289
+  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %70, float noundef %335, i32 noundef 0)
+          to label %336 unwind label %339
 
-335:                                              ; preds = %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
-  %336 = fsub float %290, %8
-  %337 = select i1 %332, float %336, float %290
-  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %69, float noundef %337, i32 noundef 1)
-          to label %364 unwind label %338
+336:                                              ; preds = %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
+  %337 = fsub float %291, %8
+  %338 = select i1 %333, float %337, float %291
+  invoke void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %70, float noundef %338, i32 noundef 1)
+          to label %365 unwind label %339
 
-338:                                              ; preds = %335, %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
-  %339 = landingpad { ptr, i32 }
+339:                                              ; preds = %336, %_ZNK8facebook4yoga5Style21verticalInsetsDefinedEv.exit164
+  %340 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-340:                                              ; preds = %74
-  %341 = load i8, ptr %69, align 8
-  %342 = and i8 %341, 8
-  %.not = icmp eq i8 %342, 0
-  br i1 %.not, label %343, label %364
+341:                                              ; preds = %75
+  %342 = load i8, ptr %70, align 8
+  %343 = and i8 %342, 8
+  %.not = icmp eq i8 %343, 0
+  br i1 %.not, label %344, label %365
 
-343:                                              ; preds = %340
-  invoke void @_ZN8facebook4yoga4Node21cloneChildrenIfNeededEv(ptr noundef nonnull align 8 dereferenceable(584) %69)
-          to label %344 unwind label %.loopexit
+344:                                              ; preds = %341
+  invoke void @_ZN8facebook4yoga4Node21cloneChildrenIfNeededEv(ptr noundef nonnull align 8 dereferenceable(584) %70)
+          to label %345 unwind label %.loopexit
 
-344:                                              ; preds = %343
-  %345 = invoke noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(584) %69, i8 noundef zeroext %3)
-          to label %346 unwind label %360
+345:                                              ; preds = %344
+  %346 = invoke noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(584) %70, i8 noundef zeroext %3)
+          to label %347 unwind label %361
 
-346:                                              ; preds = %344
-  %347 = getelementptr inbounds nuw i8, ptr %69, i64 444
-  %348 = load float, ptr %347, align 4, !tbaa !4
-  %349 = fadd float %7, %348
-  %350 = getelementptr inbounds nuw i8, ptr %69, i64 448
-  %351 = load float, ptr %350, align 4, !tbaa !4
-  %352 = fadd float %8, %351
-  %353 = invoke noundef zeroext i1 @_ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjffff(ptr noundef %0, ptr noundef nonnull %69, i32 noundef %2, i8 noundef zeroext %345, ptr noundef nonnull align 4 dereferenceable(56) %4, i32 noundef %40, i32 noundef %6, float noundef %349, float noundef %352, float noundef %9, float noundef %10)
-          to label %354 unwind label %362
+347:                                              ; preds = %345
+  %348 = getelementptr inbounds nuw i8, ptr %70, i64 444
+  %349 = load float, ptr %348, align 4, !tbaa !4
+  %350 = fadd float %7, %349
+  %351 = getelementptr inbounds nuw i8, ptr %70, i64 448
+  %352 = load float, ptr %351, align 4, !tbaa !4
+  %353 = fadd float %8, %352
+  %354 = invoke noundef zeroext i1 @_ZN8facebook4yoga25layoutAbsoluteDescendantsEPNS0_4NodeES2_NS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjjffff(ptr noundef %0, ptr noundef nonnull %70, i32 noundef %2, i8 noundef zeroext %346, ptr noundef nonnull align 4 dereferenceable(56) %4, i32 noundef %40, i32 noundef %6, float noundef %350, float noundef %353, float noundef %9, float noundef %10)
+          to label %355 unwind label %363
 
-354:                                              ; preds = %346
-  %355 = trunc i8 %.0286 to i1
-  %356 = select i1 %353, i1 true, i1 %355
-  br i1 %356, label %357, label %364
+355:                                              ; preds = %347
+  %356 = trunc i8 %.0283 to i1
+  %357 = select i1 %354, i1 true, i1 %356
+  br i1 %357, label %358, label %365
 
-357:                                              ; preds = %354
-  %358 = load i8, ptr %69, align 8
-  %359 = or i8 %358, 1
-  store i8 %359, ptr %69, align 8
-  br label %364
+358:                                              ; preds = %355
+  %359 = load i8, ptr %70, align 8
+  %360 = or i8 %359, 1
+  store i8 %360, ptr %70, align 8
+  br label %365
 
-360:                                              ; preds = %344
-  %361 = landingpad { ptr, i32 }
+361:                                              ; preds = %345
+  %362 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-362:                                              ; preds = %346
-  %363 = landingpad { ptr, i32 }
+363:                                              ; preds = %347
+  %364 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
 
-364:                                              ; preds = %74, %340, %335, %357, %354, %67
-  %.1 = phi i8 [ %.0286, %67 ], [ %.0286, %340 ], [ %145, %335 ], [ 1, %357 ], [ 0, %354 ], [ %.0286, %74 ]
-  %365 = load i64, ptr %37, align 8, !tbaa !83
-  %366 = add i64 %365, 1
-  %367 = load ptr, ptr %12, align 8, !tbaa !70
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 536
-  %369 = getelementptr inbounds nuw i8, ptr %367, i64 544
-  %370 = load ptr, ptr %369, align 8, !tbaa !68
-  %371 = load ptr, ptr %368, align 8, !tbaa !69
-  %372 = ptrtoint ptr %370 to i64
+365:                                              ; preds = %75, %341, %336, %358, %355, %68
+  %.1 = phi i8 [ %.0283, %68 ], [ %.0283, %341 ], [ %146, %336 ], [ 1, %358 ], [ 0, %355 ], [ %.0283, %75 ]
+  %366 = load i64, ptr %37, align 8, !tbaa !83
+  %367 = add i64 %366, 1
+  %368 = load ptr, ptr %12, align 8, !tbaa !70
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 536
+  %370 = getelementptr inbounds nuw i8, ptr %368, i64 544
+  %371 = load ptr, ptr %370, align 8, !tbaa !68
+  %372 = load ptr, ptr %369, align 8, !tbaa !69
   %373 = ptrtoint ptr %371 to i64
-  %374 = sub i64 %372, %373
-  %375 = ashr exact i64 %374, 3
-  %.not12.i.i = icmp ult i64 %366, %375
+  %374 = ptrtoint ptr %372 to i64
+  %375 = sub i64 %373, %374
+  %376 = ashr exact i64 %375, 3
+  %.not12.i.i = icmp ult i64 %367, %376
   br i1 %.not12.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %364, %tailrecurse.i.i
-  %376 = load ptr, ptr %48, align 8, !tbaa !84
-  %377 = icmp eq ptr %376, null
-  br i1 %377, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !85
+.lr.ph.i.i:                                       ; preds = %365, %tailrecurse.i.i
+  %377 = load ptr, ptr %49, align 8, !tbaa !84
+  %378 = icmp eq ptr %377, null
+  br i1 %378, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, label %tailrecurse.i.i, !prof !85
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i: ; preds = %.lr.ph.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
-  %378 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  %379 = load ptr, ptr %378, align 8, !tbaa !86
-  store ptr %379, ptr %12, align 8, !tbaa !70
-  %380 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  %381 = load i64, ptr %380, align 8, !tbaa !88
-  store i64 %381, ptr %37, align 8, !tbaa !83
-  %382 = load ptr, ptr %376, align 8, !tbaa !79
-  store ptr %382, ptr %48, align 8, !tbaa !79
-  call void @_ZdlPvm(ptr noundef nonnull %376, i64 noundef 24) #12
-  %383 = load i64, ptr %37, align 8, !tbaa !83
-  %384 = add i64 %383, 1
-  %385 = load ptr, ptr %12, align 8, !tbaa !70
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 536
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 544
-  %388 = load ptr, ptr %387, align 8, !tbaa !68
-  %389 = load ptr, ptr %386, align 8, !tbaa !69
-  %390 = ptrtoint ptr %388 to i64
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 8
+  %380 = load ptr, ptr %379, align 8, !tbaa !86
+  store ptr %380, ptr %12, align 8, !tbaa !70
+  %381 = getelementptr inbounds nuw i8, ptr %377, i64 16
+  %382 = load i64, ptr %381, align 8, !tbaa !88
+  store i64 %382, ptr %37, align 8, !tbaa !83
+  %383 = load ptr, ptr %377, align 8, !tbaa !79
+  store ptr %383, ptr %49, align 8, !tbaa !79
+  call void @_ZdlPvm(ptr noundef nonnull %377, i64 noundef 24) #12
+  %384 = load i64, ptr %37, align 8, !tbaa !83
+  %385 = add i64 %384, 1
+  %386 = load ptr, ptr %12, align 8, !tbaa !70
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 536
+  %388 = getelementptr inbounds nuw i8, ptr %386, i64 544
+  %389 = load ptr, ptr %388, align 8, !tbaa !68
+  %390 = load ptr, ptr %387, align 8, !tbaa !69
   %391 = ptrtoint ptr %389 to i64
-  %392 = sub i64 %390, %391
-  %393 = ashr exact i64 %392, 3
-  %.not.i.i = icmp ult i64 %384, %393
+  %392 = ptrtoint ptr %390 to i64
+  %393 = sub i64 %391, %392
+  %394 = ashr exact i64 %393, 3
+  %.not.i.i = icmp ult i64 %385, %394
   br i1 %.not.i.i, label %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i, label %.lr.ph.i.i
 
-_ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %364
-  %394 = phi ptr [ %367, %364 ], [ %385, %tailrecurse.i.i ]
-  %.lcssa7.i.i = phi i64 [ %366, %364 ], [ %384, %tailrecurse.i.i ]
-  %.lcssa.i.i = phi ptr [ %371, %364 ], [ %389, %tailrecurse.i.i ]
+_ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %365
+  %395 = phi ptr [ %368, %365 ], [ %386, %tailrecurse.i.i ]
+  %.lcssa7.i.i = phi i64 [ %367, %365 ], [ %385, %tailrecurse.i.i ]
+  %.lcssa.i.i = phi ptr [ %372, %365 ], [ %390, %tailrecurse.i.i ]
   store i64 %.lcssa7.i.i, ptr %37, align 8, !tbaa !83
-  %395 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
-  %396 = load ptr, ptr %395, align 8, !tbaa !77
-  %397 = getelementptr inbounds nuw i8, ptr %396, i64 40
-  %398 = load i32, ptr %397, align 8
-  %399 = and i32 %398, 201326592
-  %400 = icmp eq i32 %399, 134217728
-  br i1 %400, label %401, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit, !prof !78
+  %396 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa7.i.i
+  %397 = load ptr, ptr %396, align 8, !tbaa !77
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 40
+  %399 = load i32, ptr %398, align 8
+  %400 = and i32 %399, 201326592
+  %401 = icmp eq i32 %400, 134217728
+  br i1 %401, label %402, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit, !prof !78
 
-401:                                              ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i
+402:                                              ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i
   invoke void @_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8Iterator17skipContentsNodesEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #13
-          to label %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge unwind label %53
+          to label %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge unwind label %54
 
-._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge: ; preds = %401
-  %.pre316 = load ptr, ptr %12, align 8, !tbaa !70
-  %.pre317 = load i64, ptr %37, align 8
+._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge: ; preds = %402
+  %.pre311 = load ptr, ptr %12, align 8, !tbaa !70
+  %.pre312 = load i64, ptr %37, align 8
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit: ; preds = %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i
-  %402 = phi i64 [ %.pre317, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa7.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
-  %403 = phi ptr [ %.pre316, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ null, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %394, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
-  %.not.i110 = icmp ne ptr %403, null
-  %404 = icmp ne i64 %402, 0
-  %405 = select i1 %.not.i110, i1 true, i1 %404
-  br i1 %405, label %55, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit
+  %403 = phi i64 [ %.pre312, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ 0, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %.lcssa7.i.i, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
+  %404 = phi ptr [ %.pre311, %._ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEv.exit_crit_edge ], [ null, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.i.i ], [ %395, %_ZNK8facebook4yoga4Node8getChildEm.exit.i.i ]
+  %.not.i110 = icmp ne ptr %404, null
+  %405 = icmp ne i64 %403, 0
+  %406 = select i1 %.not.i110, i1 true, i1 %405
+  br i1 %406, label %56, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit.loopexit
 
-_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170: ; preds = %.loopexit, %.loopexit.split-lp, %53, %360, %362, %218, %222, %338, %285, %224, %220
-  %.pn108 = phi { ptr, i32 } [ %54, %53 ], [ %219, %218 ], [ %221, %220 ], [ %223, %222 ], [ %286, %285 ], [ %225, %224 ], [ %339, %338 ], [ %363, %362 ], [ %361, %360 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %406 = load ptr, ptr %48, align 8, !tbaa !79
-  %.not12.i.i.i171 = icmp eq ptr %406, null
+_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170: ; preds = %.loopexit, %.loopexit.split-lp, %54, %361, %363, %219, %223, %339, %286, %225, %221
+  %.pn108 = phi { ptr, i32 } [ %55, %54 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %287, %286 ], [ %226, %225 ], [ %340, %339 ], [ %364, %363 ], [ %362, %361 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %407 = load ptr, ptr %49, align 8, !tbaa !79
+  %.not12.i.i.i171 = icmp eq ptr %407, null
   br i1 %.not12.i.i.i171, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit175, label %.lr.ph.i.i.i172
 
 .lr.ph.i.i.i172:                                  ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170, %.lr.ph.i.i.i172
-  %.013.i.i.i173 = phi ptr [ %407, %.lr.ph.i.i.i172 ], [ %406, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170 ]
-  %407 = load ptr, ptr %.013.i.i.i173, align 8, !tbaa !79
+  %.013.i.i.i173 = phi ptr [ %408, %.lr.ph.i.i.i172 ], [ %407, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170 ]
+  %408 = load ptr, ptr %.013.i.i.i173, align 8, !tbaa !79
   call void @_ZdlPvm(ptr noundef nonnull %.013.i.i.i173, i64 noundef 24) #12
-  %.not.i.i.i174 = icmp eq ptr %407, null
+  %.not.i.i.i174 = icmp eq ptr %408, null
   br i1 %.not.i.i.i174, label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit175, label %.lr.ph.i.i.i172, !llvm.loop !80
 
 _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit175: ; preds = %.lr.ph.i.i.i172, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit170
@@ -4947,11 +4977,10 @@ define linkonce_odr noundef float @_ZNK8facebook4yoga5Style32computeInlineEndPad
   %8 = select i1 %7, i32 0, i32 2
   %.0.i.i = select i1 %6, i32 %8, i32 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  switch i32 %.0.i.i, label %default.unreachable [
+  switch i32 %.0.i.i, label %default.unreachable.i [
     i32 0, label %10
-    i32 1, label %12
-    i32 2, label %14
-    i32 3, label %16
+    i32 3, label %14
+    i32 2, label %12
   ]
 
 10:                                               ; preds = %4
@@ -4959,112 +4988,92 @@ define linkonce_odr noundef float @_ZNK8facebook4yoga5Style32computeInlineEndPad
   br label %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %9)
+  %13 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %9, i8 noundef zeroext %2)
   br label %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
 
 14:                                               ; preds = %4
-  %15 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %9, i8 noundef zeroext %2)
+  %15 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %9)
   br label %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
 
-16:                                               ; preds = %4
-  %17 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %9)
-  br label %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
-
-default.unreachable:                              ; preds = %4
+default.unreachable.i:                            ; preds = %4
   unreachable
 
-_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i: ; preds = %16, %14, %12, %10
-  %.sroa.0.0.in.i.i = phi i64 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ]
-  %18 = lshr i64 %.sroa.0.0.in.i.i, 32
-  %19 = trunc i64 %18 to i8
-  %20 = trunc i64 %.sroa.0.0.in.i.i to i32
-  %21 = bitcast i32 %20 to float
-  switch i8 %19, label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit [
-    i8 1, label %22
-    i8 2, label %23
+_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i: ; preds = %14, %12, %10
+  %.sroa.0.0.in.i.i = phi i64 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ]
+  %16 = lshr i64 %.sroa.0.0.in.i.i, 32
+  %17 = trunc i64 %16 to i8
+  %18 = trunc i64 %.sroa.0.0.in.i.i to i32
+  %19 = bitcast i32 %18 to float
+  switch i8 %17, label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit [
+    i8 1, label %20
+    i8 2, label %21
   ]
 
-22:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+20:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
   br label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
 
-23:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
-  %24 = fmul float %3, %21
-  %25 = fmul float %24, 0x3F847AE140000000
+21:                                               ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+  %22 = fmul float %3, %19
+  %23 = fmul float %22, 0x3F847AE140000000
   br label %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
 
-_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i, %22, %23
-  %.sroa.0.0.i.i = phi float [ %21, %22 ], [ %25, %23 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i ]
+_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit: ; preds = %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i, %20, %21
+  %.sroa.0.0.i.i = phi float [ %19, %20 ], [ %23, %21 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style14computePaddingENS0_12PhysicalEdgeENS0_9DirectionE.exit.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 66
+  switch i32 %.0.i.i, label %default.unreachable.i10 [
+    i32 0, label %25
+    i32 3, label %29
+    i32 2, label %27
+  ]
+
+25:                                               ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %26 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %24, i8 noundef zeroext %2)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+
+27:                                               ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %28 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %24, i8 noundef zeroext %2)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+
+29:                                               ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
+  %30 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %24)
+  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+
+default.unreachable.i10:                          ; preds = %_ZNK8facebook4yoga5Style23computeInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf.exit
+  unreachable
+
+_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i: ; preds = %29, %27, %25
+  %.sroa.0.0.in.i.i6 = phi i64 [ %26, %25 ], [ %28, %27 ], [ %30, %29 ]
+  %31 = lshr i64 %.sroa.0.0.in.i.i6, 32
+  %32 = trunc i64 %31 to i8
+  %33 = trunc i64 %.sroa.0.0.in.i.i6 to i32
+  %34 = bitcast i32 %33 to float
+  switch i8 %32, label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit [
+    i8 1, label %35
+    i8 2, label %36
+  ]
+
+35:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+
+36:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i
+  %37 = fmul float %34, 0.000000e+00
+  %38 = fmul float %37, 0x3F847AE140000000
+  br label %_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit
+
+_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i, %35, %36
+  %.sroa.0.0.i.i7 = phi float [ %34, %35 ], [ %38, %36 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit.i ]
   %or.cond.i.i = fcmp ord float %.sroa.0.0.i.i, 0.000000e+00
-  %26 = fcmp uno float %.sroa.0.0.i.i, 0.000000e+00
-  %27 = fcmp olt float %.sroa.0.0.i.i, 0.000000e+00
-  %.sink.i.i = select i1 %or.cond.i.i, i1 %27, i1 %26
-  %28 = select i1 %.sink.i.i, float 0.000000e+00, float %.sroa.0.0.i.i
-  %29 = tail call noundef float @_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1, i8 noundef zeroext %2)
-  %30 = fadd float %29, %28
-  ret float %30
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef float @_ZNK8facebook4yoga5Style22computeInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = and i8 %1, -2
-  %5 = icmp eq i8 %4, 2
-  %6 = icmp eq i8 %2, 2
-  %7 = select i1 %6, i32 0, i32 2
-  %.0.i = select i1 %5, i32 %7, i32 3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  switch i32 %.0.i, label %default.unreachable6 [
-    i32 0, label %9
-    i32 1, label %11
-    i32 2, label %13
-    i32 3, label %15
-  ]
-
-9:                                                ; preds = %3
-  %10 = tail call i64 @_ZNK8facebook4yoga5Style15computeLeftEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %8, i8 noundef zeroext %2)
-  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-
-11:                                               ; preds = %3
-  %12 = tail call i64 @_ZNK8facebook4yoga5Style14computeTopEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %8)
-  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-
-13:                                               ; preds = %3
-  %14 = tail call i64 @_ZNK8facebook4yoga5Style16computeRightEdgeERKSt5arrayINS0_16StyleValueHandleELm9EENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %8, i8 noundef zeroext %2)
-  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-
-15:                                               ; preds = %3
-  %16 = tail call i64 @_ZNK8facebook4yoga5Style17computeBottomEdgeERKSt5arrayINS0_16StyleValueHandleELm9EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(18) %8)
-  br label %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-
-default.unreachable6:                             ; preds = %3
-  unreachable
-
-_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit: ; preds = %9, %11, %13, %15
-  %.sroa.0.0.in.i = phi i64 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ]
-  %17 = lshr i64 %.sroa.0.0.in.i, 32
-  %18 = trunc i64 %17 to i8
-  %19 = trunc i64 %.sroa.0.0.in.i to i32
-  %20 = bitcast i32 %19 to float
-  switch i8 %18, label %_ZN8facebook4yoga11StyleLength7resolveEf.exit [
-    i8 1, label %21
-    i8 2, label %22
-  ]
-
-21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-22:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
-  %23 = fmul float %20, 0.000000e+00
-  %24 = fmul float %23, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
-
-_ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %21, %22
-  %.sroa.0.0.i = phi float [ %20, %21 ], [ %24, %22 ], [ 0x7FF8000000000000, %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit ]
-  %or.cond.i = fcmp ord float %.sroa.0.0.i, 0.000000e+00
-  %25 = fcmp uno float %.sroa.0.0.i, 0.000000e+00
-  %26 = fcmp olt float %.sroa.0.0.i, 0.000000e+00
-  %.sink.i = select i1 %or.cond.i, i1 %26, i1 %25
-  %27 = select i1 %.sink.i, float 0.000000e+00, float %.sroa.0.0.i
-  ret float %27
+  %39 = fcmp olt float %.sroa.0.0.i.i, 0.000000e+00
+  %40 = fcmp uno float %.sroa.0.0.i.i, 0.000000e+00
+  %.sink.i.i = select i1 %or.cond.i.i, i1 %39, i1 %40
+  %41 = select i1 %.sink.i.i, float 0.000000e+00, float %.sroa.0.0.i.i
+  %or.cond.i.i8 = fcmp ord float %.sroa.0.0.i.i7, 0.000000e+00
+  %42 = fcmp uno float %.sroa.0.0.i.i7, 0.000000e+00
+  %43 = fcmp olt float %.sroa.0.0.i.i7, 0.000000e+00
+  %.sink.i.i9 = select i1 %or.cond.i.i8, i1 %43, i1 %42
+  %44 = select i1 %.sink.i.i9, float 0.000000e+00, float %.sroa.0.0.i.i7
+  %45 = fadd float %41, %44
+  ret float %45
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

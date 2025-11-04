@@ -226,9 +226,9 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
 20:                                               ; preds = %17
   %21 = tail call ptr %19(ptr noundef %0, i64 noundef %7) #5
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread124, label %26
+  br i1 %22, label %.thread125, label %26
 
-.thread124:                                       ; preds = %20
+.thread125:                                       ; preds = %20
   %23 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !16
   %24 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !16
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__iblock_debug, i32 noundef 182, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.25) #5
@@ -283,8 +283,8 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
 60:                                               ; preds = %42
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.31, i32 noundef %3, ptr noundef nonnull @.str.4) #5
   %62 = load i8, ptr %58, align 2, !tbaa !41
-  %.not135 = icmp eq i8 %62, 0
-  br i1 %.not135, label %.thread, label %.lr.ph
+  %.not136 = icmp eq i8 %62, 0
+  br i1 %.not136, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60
   %63 = add nsw i32 %3, 3
@@ -329,25 +329,25 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef %3, ptr noundef nonnull @.str.4) #5
   %89 = load i64, ptr %52, align 8, !tbaa !54
-  %.not136 = icmp eq i64 %89, 0
-  br i1 %.not136, label %._crit_edge, label %.lr.ph130
+  %.not137 = icmp eq i64 %89, 0
+  br i1 %.not137, label %._crit_edge, label %.lr.ph131
 
-.lr.ph130:                                        ; preds = %87
+.lr.ph131:                                        ; preds = %87
   %90 = add nsw i32 %3, 3
   %91 = tail call i32 @llvm.smax.i32(i32 %4, i32 3)
   %92 = add nsw i32 %91, -3
   %93 = getelementptr inbounds nuw i8, ptr %34, i64 256
   br label %94
 
-94:                                               ; preds = %.lr.ph130, %94
-  %95 = phi i64 [ 0, %.lr.ph130 ], [ %102, %94 ]
-  %.084129 = phi i32 [ 0, %.lr.ph130 ], [ %101, %94 ]
-  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.084129) #5
+94:                                               ; preds = %.lr.ph131, %94
+  %95 = phi i64 [ 0, %.lr.ph131 ], [ %102, %94 ]
+  %.084130 = phi i32 [ 0, %.lr.ph131 ], [ %101, %94 ]
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.084130) #5
   %97 = load ptr, ptr %93, align 8, !tbaa !60
   %98 = getelementptr inbounds nuw i64, ptr %97, i64 %95
   %99 = load i64, ptr %98, align 8, !tbaa !16
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %90, ptr noundef nonnull @.str.4, i32 noundef %92, ptr noundef nonnull %9, i64 noundef %99) #5
-  %101 = add i32 %.084129, 1
+  %101 = add i32 %.084130, 1
   %102 = zext i32 %101 to i64
   %103 = load i64, ptr %52, align 8, !tbaa !54
   %104 = icmp ugt i64 %103, %102
@@ -366,37 +366,37 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.35, i32 noundef %3, ptr noundef nonnull @.str.4) #5
   %109 = load i64, ptr %55, align 8, !tbaa !55
-  %.not137 = icmp eq i64 %109, 0
-  br i1 %.not137, label %._crit_edge134, label %.lr.ph133
+  %.not138 = icmp eq i64 %109, 0
+  br i1 %.not138, label %._crit_edge135, label %.lr.ph134
 
-.lr.ph133:                                        ; preds = %107
+.lr.ph134:                                        ; preds = %107
   %110 = add nsw i32 %3, 3
   %111 = call i32 @llvm.smax.i32(i32 %4, i32 3)
   %112 = add nsw i32 %111, -3
   %113 = getelementptr inbounds nuw i8, ptr %34, i64 264
   br label %114
 
-114:                                              ; preds = %.lr.ph133, %114
-  %115 = phi i64 [ 0, %.lr.ph133 ], [ %122, %114 ]
-  %.0131 = phi i32 [ 0, %.lr.ph133 ], [ %121, %114 ]
-  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.0131) #5
+114:                                              ; preds = %.lr.ph134, %114
+  %115 = phi i64 [ 0, %.lr.ph134 ], [ %122, %114 ]
+  %.0132 = phi i32 [ 0, %.lr.ph134 ], [ %121, %114 ]
+  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.0132) #5
   %117 = load ptr, ptr %113, align 8, !tbaa !62
   %118 = getelementptr inbounds nuw i64, ptr %117, i64 %115
   %119 = load i64, ptr %118, align 8, !tbaa !16
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %110, ptr noundef nonnull @.str.4, i32 noundef %112, ptr noundef nonnull %10, i64 noundef %119) #5
-  %121 = add i32 %.0131, 1
+  %121 = add i32 %.0132, 1
   %122 = zext i32 %121 to i64
   %123 = load i64, ptr %55, align 8, !tbaa !55
   %124 = icmp ugt i64 %123, %122
-  br i1 %124, label %114, label %._crit_edge134, !llvm.loop !63
+  br i1 %124, label %114, label %._crit_edge135, !llvm.loop !63
 
-._crit_edge134:                                   ; preds = %114, %107
+._crit_edge135:                                   ; preds = %114, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %125
 
-125:                                              ; preds = %82, %105, %._crit_edge134, %36, %29
-  %.090 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge134 ], [ %34, %105 ], [ %34, %82 ]
-  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge134 ], [ 0, %105 ], [ -1, %82 ]
+125:                                              ; preds = %82, %105, %._crit_edge135, %36, %29
+  %.090 = phi ptr [ null, %29 ], [ null, %36 ], [ %34, %._crit_edge135 ], [ %34, %105 ], [ %34, %82 ]
+  %.1 = phi i32 [ -1, %29 ], [ -1, %36 ], [ 0, %._crit_edge135 ], [ 0, %105 ], [ -1, %82 ]
   %.not105 = icmp eq ptr %.088, null
   br i1 %.not105, label %135, label %126
 
@@ -444,9 +444,9 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %150 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__iblock_debug, i32 noundef 260, i64 noundef %148, i64 noundef %149, ptr noundef nonnull @.str.24) #5
   br label %151
 
-151:                                              ; preds = %.thread124, %8, %147, %144, %143
-  %.092 = phi i32 [ -1, %147 ], [ %.5, %144 ], [ %.5, %143 ], [ 0, %8 ], [ -1, %.thread124 ]
-  ret i32 %.092
+151:                                              ; preds = %.thread125, %8, %147, %144, %143
+  %.087 = phi i32 [ -1, %147 ], [ %.5, %144 ], [ %.5, %143 ], [ 0, %8 ], [ -1, %.thread125 ]
+  ret i32 %.087
 }
 
 declare ptr @H5EA__iblock_protect(ptr noundef, i32 noundef) local_unnamed_addr #1

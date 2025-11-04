@@ -31887,9 +31887,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #5 {
+  %.sroa.0149 = alloca <2 x i64>, align 16
+  %.sroa.0148 = alloca <2 x i64>, align 16
   %.sroa.0147 = alloca <2 x i64>, align 16
-  %.sroa.0146 = alloca <2 x i64>, align 16
-  %.sroa.0145 = alloca <2 x i64>, align 16
   %.sroa.0 = alloca <2 x i64>, align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
@@ -31990,7 +31990,7 @@ roseCountingMiracleScan.exit:                     ; preds = %46, %roseCountingMi
   br label %206
 
 roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
-  %.0152 = phi i32 [ 0, %20 ], [ %.040.i, %45 ], [ %55, %46 ]
+  %.0154 = phi i32 [ 0, %20 ], [ %.040.i, %45 ], [ %55, %46 ]
   br i1 %23, label %58, label %.thread
 
 58:                                               ; preds = %roseCountingMiracleScan.exit.thread
@@ -32008,59 +32008,59 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %70 = insertelement <16 x i8> poison, i8 %22, i64 0
   %71 = shufflevector <16 x i8> %70, <16 x i8> poison, <16 x i32> zeroinitializer
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  br label %.critedge.i114
+  br label %.critedge.i116
 
-.critedge.i114:                                   ; preds = %73, %58
-  %.040.i115 = phi i32 [ %.0152, %58 ], [ %80, %73 ]
-  %.037.i116 = phi ptr [ %65, %58 ], [ %74, %73 ]
-  %.not.i117 = icmp ugt ptr %72, %.037.i116
-  br i1 %.not.i117, label %81, label %73
+.critedge.i116:                                   ; preds = %73, %58
+  %.040.i117 = phi i32 [ %.0154, %58 ], [ %80, %73 ]
+  %.037.i118 = phi ptr [ %65, %58 ], [ %74, %73 ]
+  %.not.i119 = icmp ugt ptr %72, %.037.i118
+  br i1 %.not.i119, label %81, label %73
 
-73:                                               ; preds = %.critedge.i114
-  %74 = getelementptr inbounds i8, ptr %.037.i116, i64 -16
+73:                                               ; preds = %.critedge.i116
+  %74 = getelementptr inbounds i8, ptr %.037.i118, i64 -16
   %75 = load <16 x i8>, ptr %74, align 1
   %76 = icmp eq <16 x i8> %71, %75
   %77 = bitcast <16 x i1> %76 to i16
   %78 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %77)
   %79 = zext nneg i16 %78 to i32
-  %80 = add i32 %.040.i115, %79
-  %.not47.i118 = icmp ult i32 %80, %69
-  br i1 %.not47.i118, label %.critedge.i114, label %roseCountingMiracleScan.exit124.loopexit
+  %80 = add i32 %.040.i117, %79
+  %.not47.i120 = icmp ult i32 %80, %69
+  br i1 %.not47.i120, label %.critedge.i116, label %roseCountingMiracleScan.exit126.loopexit
 
-81:                                               ; preds = %.critedge.i114
-  %.not45.i120 = icmp eq ptr %66, %.037.i116
-  br i1 %.not45.i120, label %.thread, label %82
+81:                                               ; preds = %.critedge.i116
+  %.not45.i122 = icmp eq ptr %66, %.037.i118
+  br i1 %.not45.i122, label %.thread, label %82
 
 82:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0147)
   %83 = add i8 %22, 1
-  %.sroa.0145.0.zext = zext i8 %83 to i64
-  %.sroa.0145.0.isplat = mul nuw i64 %.sroa.0145.0.zext, 72340172838076673
-  %.sroa.0145.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0145.0.isplat, i64 0
-  %.sroa.0145.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0145.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
-  store <2 x i64> %.sroa.0145.0.vsplat.splat, ptr %.sroa.0145, align 16
-  %84 = ptrtoint ptr %.037.i116 to i64
+  %.sroa.0147.0.zext = zext i8 %83 to i64
+  %.sroa.0147.0.isplat = mul nuw i64 %.sroa.0147.0.zext, 72340172838076673
+  %.sroa.0147.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0147.0.isplat, i64 0
+  %.sroa.0147.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0147.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
+  store <2 x i64> %.sroa.0147.0.vsplat.splat, ptr %.sroa.0147, align 16
+  %84 = ptrtoint ptr %.037.i118 to i64
   %85 = ptrtoint ptr %66 to i64
   %86 = sub i64 %84, %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0145, ptr nonnull align 1 %66, i64 %86, i1 false)
-  %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287 = load <16 x i8>, ptr %.sroa.0145, align 16
-  %87 = icmp eq <16 x i8> %71, %.sroa.0145.0..sroa.0145.0..sroa.0145.0..sroa.0145.0.187245287
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0147, ptr nonnull align 1 %66, i64 %86, i1 false)
+  %.sroa.0147.0..sroa.0147.0..sroa.0147.0..sroa.0147.0.187245287 = load <16 x i8>, ptr %.sroa.0147, align 16
+  %87 = icmp eq <16 x i8> %71, %.sroa.0147.0..sroa.0147.0..sroa.0147.0..sroa.0147.0.187245287
   %88 = bitcast <16 x i1> %87 to i16
   %89 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %88)
   %90 = zext nneg i16 %89 to i32
-  %91 = add i32 %.040.i115, %90
-  %.not46.i121 = icmp ult i32 %91, %69
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0145)
-  br i1 %.not46.i121, label %.thread, label %roseCountingMiracleScan.exit124
+  %91 = add i32 %.040.i117, %90
+  %.not46.i123 = icmp ult i32 %91, %69
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0147)
+  br i1 %.not46.i123, label %.thread, label %roseCountingMiracleScan.exit126
 
-roseCountingMiracleScan.exit124.loopexit:         ; preds = %73
+roseCountingMiracleScan.exit126.loopexit:         ; preds = %73
   %.pre = ptrtoint ptr %74 to i64
   %.pre213 = ptrtoint ptr %66 to i64
-  br label %roseCountingMiracleScan.exit124
+  br label %roseCountingMiracleScan.exit126
 
-roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMiracleScan.exit124.loopexit
-  %.pre-phi214 = phi i64 [ %.pre213, %roseCountingMiracleScan.exit124.loopexit ], [ %85, %82 ]
-  %.pre-phi = phi i64 [ %.pre, %roseCountingMiracleScan.exit124.loopexit ], [ %85, %82 ]
+roseCountingMiracleScan.exit126:                  ; preds = %82, %roseCountingMiracleScan.exit126.loopexit
+  %.pre-phi214 = phi i64 [ %.pre213, %roseCountingMiracleScan.exit126.loopexit ], [ %85, %82 ]
+  %.pre-phi = phi i64 [ %.pre, %roseCountingMiracleScan.exit126.loopexit ], [ %85, %82 ]
   %92 = sub i64 %18, %.pre-phi214
   %93 = add i64 %92, %.pre-phi
   br label %206
@@ -32088,15 +32088,15 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %113 = bitcast <2 x i64> %96 to <16 x i8>
   %114 = bitcast <2 x i64> %98 to <16 x i8>
-  br label %.critedge.i125
+  br label %.critedge.i127
 
-.critedge.i125:                                   ; preds = %115, %104
+.critedge.i127:                                   ; preds = %115, %104
   %.053.i = phi i32 [ 0, %104 ], [ %131, %115 ]
   %.052.i = phi ptr [ %107, %104 ], [ %116, %115 ]
-  %.not.i126 = icmp ugt ptr %112, %.052.i
-  br i1 %.not.i126, label %132, label %115
+  %.not.i128 = icmp ugt ptr %112, %.052.i
+  br i1 %.not.i128, label %132, label %115
 
-115:                                              ; preds = %.critedge.i125
+115:                                              ; preds = %.critedge.i127
   %116 = getelementptr inbounds i8, ptr %.052.i, i64 -16
   %117 = load <2 x i64>, ptr %116, align 1
   %118 = bitcast <2 x i64> %117 to <16 x i8>
@@ -32114,28 +32114,28 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   %130 = zext nneg i16 %129 to i32
   %131 = add i32 %.053.i, %130
   %.not62.i = icmp ult i32 %131, %111
-  br i1 %.not62.i, label %.critedge.i125, label %roseCountingMiracleScanShufti.exit.loopexit
+  br i1 %.not62.i, label %.critedge.i127, label %roseCountingMiracleScanShufti.exit.loopexit
 
-132:                                              ; preds = %.critedge.i125
+132:                                              ; preds = %.critedge.i127
   %.not60.i = icmp eq ptr %108, %.052.i
   br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %133
 
 133:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0146)
-  %.sroa.0146.0.zext = zext i8 %100 to i64
-  %.sroa.0146.0.isplat = mul nuw i64 %.sroa.0146.0.zext, 72340172838076673
-  %.sroa.0146.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0146.0.isplat, i64 0
-  %.sroa.0146.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0146.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
-  store <2 x i64> %.sroa.0146.0.vsplat.splat, ptr %.sroa.0146, align 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0148)
+  %.sroa.0148.0.zext = zext i8 %100 to i64
+  %.sroa.0148.0.isplat = mul nuw i64 %.sroa.0148.0.zext, 72340172838076673
+  %.sroa.0148.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0148.0.isplat, i64 0
+  %.sroa.0148.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0148.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
+  store <2 x i64> %.sroa.0148.0.vsplat.splat, ptr %.sroa.0148, align 16
   %134 = ptrtoint ptr %.052.i to i64
   %135 = ptrtoint ptr %108 to i64
   %136 = sub i64 %134, %135
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0146, ptr align 1 %108, i64 %136, i1 false)
-  %.sroa.0146.0..sroa.0146.0..sroa.0146.0..sroa.0146.0. = load <2 x i64>, ptr %.sroa.0146, align 16
-  %137 = bitcast <2 x i64> %.sroa.0146.0..sroa.0146.0..sroa.0146.0..sroa.0146.0. to <16 x i8>
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0148, ptr align 1 %108, i64 %136, i1 false)
+  %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. = load <2 x i64>, ptr %.sroa.0148, align 16
+  %137 = bitcast <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0. to <16 x i8>
   %138 = and <16 x i8> %137, splat (i8 15)
   %139 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %113, <16 x i8> %138)
-  %140 = lshr <2 x i64> %.sroa.0146.0..sroa.0146.0..sroa.0146.0..sroa.0146.0., splat (i64 4)
+  %140 = lshr <2 x i64> %.sroa.0148.0..sroa.0148.0..sroa.0148.0..sroa.0148.0., splat (i64 4)
   %141 = bitcast <2 x i64> %140 to <16 x i8>
   %142 = and <16 x i8> %141, splat (i8 15)
   %143 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %114, <16 x i8> %142)
@@ -32147,7 +32147,7 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   %149 = zext nneg i16 %148 to i32
   %150 = add i32 %.053.i, %149
   %.not61.i = icmp ult i32 %150, %111
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
   br i1 %.not61.i, label %roseCountingMiracleScanShufti.exit.thread, label %roseCountingMiracleScanShufti.exit
 
 roseCountingMiracleScanShufti.exit.loopexit:      ; preds = %115
@@ -32181,16 +32181,16 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %166 = bitcast <2 x i64> %96 to <16 x i8>
   %167 = bitcast <2 x i64> %98 to <16 x i8>
-  br label %.critedge.i128
+  br label %.critedge.i130
 
-.critedge.i128:                                   ; preds = %168, %153
-  %.053.i129 = phi i32 [ %.1, %153 ], [ %184, %168 ]
-  %.052.i130 = phi ptr [ %160, %153 ], [ %169, %168 ]
-  %.not.i131 = icmp ugt ptr %165, %.052.i130
-  br i1 %.not.i131, label %185, label %168
+.critedge.i130:                                   ; preds = %168, %153
+  %.053.i131 = phi i32 [ %.1, %153 ], [ %184, %168 ]
+  %.052.i132 = phi ptr [ %160, %153 ], [ %169, %168 ]
+  %.not.i133 = icmp ugt ptr %165, %.052.i132
+  br i1 %.not.i133, label %185, label %168
 
-168:                                              ; preds = %.critedge.i128
-  %169 = getelementptr inbounds i8, ptr %.052.i130, i64 -16
+168:                                              ; preds = %.critedge.i130
+  %169 = getelementptr inbounds i8, ptr %.052.i132, i64 -16
   %170 = load <2 x i64>, ptr %169, align 1
   %171 = bitcast <2 x i64> %170 to <16 x i8>
   %172 = and <16 x i8> %171, splat (i8 15)
@@ -32205,30 +32205,30 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   %181 = xor i16 %180, -1
   %182 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %181)
   %183 = zext nneg i16 %182 to i32
-  %184 = add i32 %.053.i129, %183
-  %.not62.i132 = icmp ult i32 %184, %164
-  br i1 %.not62.i132, label %.critedge.i128, label %roseCountingMiracleScanShufti.exit138.loopexit
+  %184 = add i32 %.053.i131, %183
+  %.not62.i134 = icmp ult i32 %184, %164
+  br i1 %.not62.i134, label %.critedge.i130, label %roseCountingMiracleScanShufti.exit140.loopexit
 
-185:                                              ; preds = %.critedge.i128
-  %.not60.i134 = icmp eq ptr %161, %.052.i130
-  br i1 %.not60.i134, label %.thread, label %186
+185:                                              ; preds = %.critedge.i130
+  %.not60.i136 = icmp eq ptr %161, %.052.i132
+  br i1 %.not60.i136, label %.thread, label %186
 
 186:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0147)
-  %.sroa.0147.0.zext = zext i8 %100 to i64
-  %.sroa.0147.0.isplat = mul nuw i64 %.sroa.0147.0.zext, 72340172838076673
-  %.sroa.0147.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0147.0.isplat, i64 0
-  %.sroa.0147.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0147.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
-  store <2 x i64> %.sroa.0147.0.vsplat.splat, ptr %.sroa.0147, align 16
-  %187 = ptrtoint ptr %.052.i130 to i64
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0149)
+  %.sroa.0149.0.zext = zext i8 %100 to i64
+  %.sroa.0149.0.isplat = mul nuw i64 %.sroa.0149.0.zext, 72340172838076673
+  %.sroa.0149.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0149.0.isplat, i64 0
+  %.sroa.0149.0.vsplat.splat = shufflevector <2 x i64> %.sroa.0149.0.vsplat.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
+  store <2 x i64> %.sroa.0149.0.vsplat.splat, ptr %.sroa.0149, align 16
+  %187 = ptrtoint ptr %.052.i132 to i64
   %188 = ptrtoint ptr %161 to i64
   %189 = sub i64 %187, %188
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0147, ptr nonnull align 1 %161, i64 %189, i1 false)
-  %.sroa.0147.0..sroa.0147.0..sroa.0147.0..sroa.0147.0. = load <2 x i64>, ptr %.sroa.0147, align 16
-  %190 = bitcast <2 x i64> %.sroa.0147.0..sroa.0147.0..sroa.0147.0..sroa.0147.0. to <16 x i8>
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0149, ptr nonnull align 1 %161, i64 %189, i1 false)
+  %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. = load <2 x i64>, ptr %.sroa.0149, align 16
+  %190 = bitcast <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0. to <16 x i8>
   %191 = and <16 x i8> %190, splat (i8 15)
   %192 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %191)
-  %193 = lshr <2 x i64> %.sroa.0147.0..sroa.0147.0..sroa.0147.0..sroa.0147.0., splat (i64 4)
+  %193 = lshr <2 x i64> %.sroa.0149.0..sroa.0149.0..sroa.0149.0..sroa.0149.0., splat (i64 4)
   %194 = bitcast <2 x i64> %193 to <16 x i8>
   %195 = and <16 x i8> %194, splat (i8 15)
   %196 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %167, <16 x i8> %195)
@@ -32238,25 +32238,25 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   %200 = xor i16 %199, -1
   %201 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %200)
   %202 = zext nneg i16 %201 to i32
-  %203 = add i32 %.053.i129, %202
-  %.not61.i135 = icmp ult i32 %203, %164
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0147)
-  br i1 %.not61.i135, label %.thread, label %roseCountingMiracleScanShufti.exit138
+  %203 = add i32 %.053.i131, %202
+  %.not61.i137 = icmp ult i32 %203, %164
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0149)
+  br i1 %.not61.i137, label %.thread, label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit138.loopexit:   ; preds = %168
+roseCountingMiracleScanShufti.exit140.loopexit:   ; preds = %168
   %.pre219 = ptrtoint ptr %169 to i64
   %.pre221 = ptrtoint ptr %161 to i64
-  br label %roseCountingMiracleScanShufti.exit138
+  br label %roseCountingMiracleScanShufti.exit140
 
-roseCountingMiracleScanShufti.exit138:            ; preds = %186, %roseCountingMiracleScanShufti.exit138.loopexit
-  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit138.loopexit ], [ %188, %186 ]
-  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit138.loopexit ], [ %188, %186 ]
+roseCountingMiracleScanShufti.exit140:            ; preds = %186, %roseCountingMiracleScanShufti.exit140.loopexit
+  %.pre-phi222 = phi i64 [ %.pre221, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
+  %.pre-phi220 = phi i64 [ %.pre219, %roseCountingMiracleScanShufti.exit140.loopexit ], [ %188, %186 ]
   %204 = sub i64 %18, %.pre-phi222
   %205 = add i64 %204, %.pre-phi220
   br label %206
 
-206:                                              ; preds = %roseCountingMiracleScanShufti.exit138, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit124, %roseCountingMiracleScan.exit
-  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit124 ], [ %152, %roseCountingMiracleScanShufti.exit ], [ %205, %roseCountingMiracleScanShufti.exit138 ]
+206:                                              ; preds = %roseCountingMiracleScanShufti.exit140, %roseCountingMiracleScanShufti.exit, %roseCountingMiracleScan.exit126, %roseCountingMiracleScan.exit
+  %.10 = phi i64 [ %57, %roseCountingMiracleScan.exit ], [ %93, %roseCountingMiracleScan.exit126 ], [ %152, %roseCountingMiracleScanShufti.exit ], [ %205, %roseCountingMiracleScanShufti.exit140 ]
   store i64 %.10, ptr %5, align 8
   br label %.thread
 

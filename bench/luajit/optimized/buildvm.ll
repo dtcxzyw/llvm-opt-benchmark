@@ -1927,9 +1927,9 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i32, ptr %5, align 8, !tbaa !22
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph282, label %._crit_edge283
+  br i1 %7, label %.lr.ph283, label %._crit_edge284
 
-.lr.ph282:                                        ; preds = %2
+.lr.ph283:                                        ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -1942,10 +1942,10 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %18
 
-18:                                               ; preds = %.lr.ph282, %._crit_edge277
-  %19 = phi i32 [ %6, %.lr.ph282 ], [ %295, %._crit_edge277 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next, %._crit_edge277 ]
-  %.0163280 = phi ptr [ %1, %.lr.ph282 ], [ %.1.lcssa, %._crit_edge277 ]
+18:                                               ; preds = %.lr.ph283, %._crit_edge278
+  %19 = phi i32 [ %6, %.lr.ph283 ], [ %295, %._crit_edge278 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next, %._crit_edge278 ]
+  %.0163281 = phi ptr [ %1, %.lr.ph283 ], [ %.1.lcssa, %._crit_edge278 ]
   %20 = getelementptr inbounds nuw %struct.dasm_Section, ptr %8, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !23
@@ -1954,29 +1954,29 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %25 = load i32, ptr %24, align 8, !tbaa !36
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %23, i64 %26
-  %.not219272 = icmp eq ptr %22, %27
-  br i1 %.not219272, label %._crit_edge277, label %.lr.ph276
+  %.not219273 = icmp eq ptr %22, %27
+  br i1 %.not219273, label %._crit_edge278, label %.lr.ph277
 
-.loopexit260:                                     ; preds = %40, %40
+.loopexit261:                                     ; preds = %40, %40
   %.not219 = icmp eq ptr %.2167, %27
-  br i1 %.not219, label %._crit_edge277.loopexit, label %.lr.ph276, !llvm.loop !54
+  br i1 %.not219, label %._crit_edge278.loopexit, label %.lr.ph277, !llvm.loop !54
 
-.lr.ph276:                                        ; preds = %18, %.loopexit260
-  %.1274 = phi ptr [ %.2, %.loopexit260 ], [ %.0163280, %18 ]
-  %.0165273 = phi ptr [ %.2167, %.loopexit260 ], [ %22, %18 ]
+.lr.ph277:                                        ; preds = %18, %.loopexit261
+  %.1275 = phi ptr [ %.2, %.loopexit261 ], [ %.0163281, %18 ]
+  %.0165274 = phi ptr [ %.2167, %.loopexit261 ], [ %22, %18 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !33
-  %29 = getelementptr inbounds nuw i8, ptr %.0165273, i64 4
-  %30 = load i32, ptr %.0165273, align 4, !tbaa !43
+  %29 = getelementptr inbounds nuw i8, ptr %.0165274, i64 4
+  %30 = load i32, ptr %.0165274, align 4, !tbaa !43
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
   br label %33
 
-33:                                               ; preds = %.backedge, %.lr.ph276
-  %.0184 = phi ptr [ null, %.lr.ph276 ], [ %.0184.be, %.backedge ]
-  %.0173 = phi ptr [ %32, %.lr.ph276 ], [ %.0173.be, %.backedge ]
-  %.1166 = phi ptr [ %29, %.lr.ph276 ], [ %.1166.be, %.backedge ]
-  %.2 = phi ptr [ %.1274, %.lr.ph276 ], [ %.2.be, %.backedge ]
-  %.2287 = ptrtoint ptr %.2 to i64
+33:                                               ; preds = %.backedge, %.lr.ph277
+  %.0184 = phi ptr [ null, %.lr.ph277 ], [ %.0184.be, %.backedge ]
+  %.0173 = phi ptr [ %32, %.lr.ph277 ], [ %.0173.be, %.backedge ]
+  %.1166 = phi ptr [ %29, %.lr.ph277 ], [ %.1166.be, %.backedge ]
+  %.2 = phi ptr [ %.1275, %.lr.ph277 ], [ %.2.be, %.backedge ]
+  %.2288 = ptrtoint ptr %.2 to i64
   %34 = getelementptr inbounds nuw i8, ptr %.0173, i64 1
   %35 = load i8, ptr %.0173, align 1, !tbaa !44
   %36 = add i8 %35, 23
@@ -1993,8 +1993,8 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %41 = phi i32 [ %39, %37 ], [ 0, %33 ]
   switch i8 %35, label %291 [
     i8 -23, label %42
-    i8 -22, label %.thread251
-    i8 -21, label %.thread251
+    i8 -22, label %.thread252
+    i8 -21, label %.thread252
     i8 -17, label %64
     i8 -19, label %71
     i8 -18, label %73
@@ -2013,8 +2013,8 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
     i8 -5, label %242
     i8 -3, label %287
     i8 -4, label %288
-    i8 -2, label %.loopexit260
-    i8 -1, label %.loopexit260
+    i8 -2, label %.loopexit261
+    i8 -1, label %.loopexit261
   ]
 
 42:                                               ; preds = %40
@@ -2023,7 +2023,7 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %43 = load i8, ptr %34, align 1, !tbaa !44
   %44 = and i8 %43, -2
   %switch = icmp eq i8 %44, -18
-  %spec.select236 = select i1 %switch, ptr %spec.select, ptr null
+  %spec.select237 = select i1 %switch, ptr %spec.select, ptr null
   %45 = icmp eq i32 %41, 0
   br i1 %45, label %46, label %56
 
@@ -2042,9 +2042,9 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
 54:                                               ; preds = %51, %46
   %.0199.in = phi i8 [ %53, %51 ], [ %49, %46 ]
   %.not233 = icmp eq i8 %.0199.in, 5
-  br i1 %.not233, label %.thread239, label %.thread241
+  br i1 %.not233, label %.thread240, label %.thread242
 
-.thread241:                                       ; preds = %54
+.thread242:                                       ; preds = %54
   %55 = xor i8 %48, -128
   store i8 %55, ptr %47, align 1, !tbaa !44
   br label %.backedge
@@ -2052,36 +2052,36 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
 56:                                               ; preds = %42
   %57 = add i32 %41, -128
   %58 = icmp ult i32 %57, -256
-  br i1 %58, label %71, label %..thread239_crit_edge
+  br i1 %58, label %71, label %..thread240_crit_edge
 
-..thread239_crit_edge:                            ; preds = %56
+..thread240_crit_edge:                            ; preds = %56
   %.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select, i64 -1
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !44
-  br label %.thread239
+  br label %.thread240
 
-.thread239:                                       ; preds = %..thread239_crit_edge, %54
-  %59 = phi i8 [ %.pre, %..thread239_crit_edge ], [ %48, %54 ]
+.thread240:                                       ; preds = %..thread240_crit_edge, %54
+  %59 = phi i8 [ %.pre, %..thread240_crit_edge ], [ %48, %54 ]
   %60 = getelementptr inbounds i8, ptr %spec.select, i64 -1
   %61 = add i8 %59, -64
   store i8 %61, ptr %60, align 1, !tbaa !44
-  br label %.thread251
+  br label %.thread252
 
-.thread251:                                       ; preds = %173, %178, %.thread239, %40, %40, %67
-  %.0201 = phi i32 [ %41, %40 ], [ %41, %40 ], [ %41, %67 ], [ %41, %.thread239 ], [ %172, %178 ], [ %172, %173 ]
-  %.5189 = phi ptr [ %.0184, %40 ], [ %.0184, %40 ], [ null, %67 ], [ %spec.select236, %.thread239 ], [ %.0184, %178 ], [ %.0184, %173 ]
-  %.5178 = phi ptr [ %34, %40 ], [ %34, %40 ], [ %34, %67 ], [ %34, %.thread239 ], [ %.7180, %178 ], [ %.7180, %173 ]
-  %.5170 = phi ptr [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %67 ], [ %.2167, %.thread239 ], [ %159, %178 ], [ %159, %173 ]
-  %.5 = phi ptr [ %.2, %40 ], [ %.2, %40 ], [ %.2, %67 ], [ %.2, %.thread239 ], [ %.2, %178 ], [ %174, %173 ]
+.thread252:                                       ; preds = %173, %178, %.thread240, %40, %40, %67
+  %.0201 = phi i32 [ %41, %40 ], [ %41, %40 ], [ %41, %67 ], [ %41, %.thread240 ], [ %172, %178 ], [ %172, %173 ]
+  %.5189 = phi ptr [ %.0184, %40 ], [ %.0184, %40 ], [ null, %67 ], [ %spec.select237, %.thread240 ], [ %.0184, %178 ], [ %.0184, %173 ]
+  %.5178 = phi ptr [ %34, %40 ], [ %34, %40 ], [ %34, %67 ], [ %34, %.thread240 ], [ %.7180, %178 ], [ %.7180, %173 ]
+  %.5170 = phi ptr [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %67 ], [ %.2167, %.thread240 ], [ %159, %178 ], [ %159, %173 ]
+  %.5 = phi ptr [ %.2, %40 ], [ %.2, %40 ], [ %.2, %67 ], [ %.2, %.thread240 ], [ %.2, %178 ], [ %174, %173 ]
   %62 = trunc i32 %.0201 to i8
   %63 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i8 %62, ptr %.5, align 1, !tbaa !44
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread251, %71, %76, %136, %183, %207, %287, %291, %40, %40, %220, %210, %.thread241, %.loopexit, %.loopexit259
-  %.0184.be = phi ptr [ %.0184, %291 ], [ %.5189, %.thread251 ], [ %.7191, %71 ], [ %.8192, %76 ], [ %.9193248, %136 ], [ %.0184, %183 ], [ %.0184, %207 ], [ %.0184, %40 ], [ %.0184, %40 ], [ %.2, %287 ], [ %.0184, %220 ], [ %.0184, %210 ], [ %spec.select236, %.thread241 ], [ %.0184, %.loopexit ], [ %.0184, %.loopexit259 ]
-  %.0173.be = phi ptr [ %.1174, %291 ], [ %.5178, %.thread251 ], [ %.6179, %71 ], [ %34, %76 ], [ %80, %136 ], [ %181, %183 ], [ %.2175, %207 ], [ %34, %40 ], [ %34, %40 ], [ %34, %287 ], [ %211, %220 ], [ %211, %210 ], [ %34, %.thread241 ], [ %293, %.loopexit ], [ %294, %.loopexit259 ]
-  %.1166.be = phi ptr [ %.2167, %291 ], [ %.5170, %.thread251 ], [ %.6171, %71 ], [ %.2167, %76 ], [ %.2167, %136 ], [ %.2167, %183 ], [ %.2167, %207 ], [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %287 ], [ %.2167, %220 ], [ %.2167, %210 ], [ %.2167, %.thread241 ], [ %.2167, %.loopexit ], [ %.2167, %.loopexit259 ]
-  %.2.be = phi ptr [ %292, %291 ], [ %63, %.thread251 ], [ %72, %71 ], [ %78, %76 ], [ %.8, %136 ], [ %190, %183 ], [ %209, %207 ], [ %.2, %40 ], [ %.2, %40 ], [ %.2, %287 ], [ %.2, %220 ], [ %.2, %210 ], [ %.2, %.thread241 ], [ %.12.lcssa, %.loopexit ], [ %.13.lcssa, %.loopexit259 ]
+.backedge:                                        ; preds = %.thread252, %71, %76, %136, %183, %207, %287, %291, %40, %40, %220, %210, %.thread242, %.loopexit, %.loopexit260
+  %.0184.be = phi ptr [ %.0184, %291 ], [ %.5189, %.thread252 ], [ %.7191, %71 ], [ %.8192, %76 ], [ %.9193249, %136 ], [ %.0184, %183 ], [ %.0184, %207 ], [ %.0184, %40 ], [ %.0184, %40 ], [ %.2, %287 ], [ %.0184, %220 ], [ %.0184, %210 ], [ %spec.select237, %.thread242 ], [ %.0184, %.loopexit ], [ %.0184, %.loopexit260 ]
+  %.0173.be = phi ptr [ %.1174, %291 ], [ %.5178, %.thread252 ], [ %.6179, %71 ], [ %34, %76 ], [ %80, %136 ], [ %181, %183 ], [ %.2175, %207 ], [ %34, %40 ], [ %34, %40 ], [ %34, %287 ], [ %211, %220 ], [ %211, %210 ], [ %34, %.thread242 ], [ %293, %.loopexit ], [ %294, %.loopexit260 ]
+  %.1166.be = phi ptr [ %.2167, %291 ], [ %.5170, %.thread252 ], [ %.6171, %71 ], [ %.2167, %76 ], [ %.2167, %136 ], [ %.2167, %183 ], [ %.2167, %207 ], [ %.2167, %40 ], [ %.2167, %40 ], [ %.2167, %287 ], [ %.2167, %220 ], [ %.2167, %210 ], [ %.2167, %.thread242 ], [ %.2167, %.loopexit ], [ %.2167, %.loopexit260 ]
+  %.2.be = phi ptr [ %292, %291 ], [ %63, %.thread252 ], [ %72, %71 ], [ %78, %76 ], [ %.8, %136 ], [ %190, %183 ], [ %209, %207 ], [ %.2, %40 ], [ %.2, %40 ], [ %.2, %287 ], [ %.2, %220 ], [ %.2, %210 ], [ %.2, %.thread242 ], [ %.12.lcssa, %.loopexit ], [ %.13.lcssa, %.loopexit260 ]
   br label %33, !llvm.loop !54
 
 64:                                               ; preds = %40
@@ -2096,11 +2096,11 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %69 = load i8, ptr %68, align 1, !tbaa !44
   %70 = add i8 %69, 2
   store i8 %70, ptr %68, align 1, !tbaa !44
-  br label %.thread251
+  br label %.thread252
 
 71:                                               ; preds = %170, %56, %64, %40, %collect_reloc.exit, %153
   %.1202 = phi i32 [ %41, %40 ], [ %157, %153 ], [ 0, %collect_reloc.exit ], [ %41, %64 ], [ %41, %56 ], [ %172, %170 ]
-  %.7191 = phi ptr [ %.0184, %40 ], [ %.0184, %153 ], [ %.0184, %collect_reloc.exit ], [ null, %64 ], [ %spec.select236, %56 ], [ %.0184, %170 ]
+  %.7191 = phi ptr [ %.0184, %40 ], [ %.0184, %153 ], [ %.0184, %collect_reloc.exit ], [ null, %64 ], [ %spec.select237, %56 ], [ %.0184, %170 ]
   %.6179 = phi ptr [ %34, %40 ], [ %.8181, %153 ], [ %286, %collect_reloc.exit ], [ %34, %64 ], [ %34, %56 ], [ %.7180, %170 ]
   %.6171 = phi ptr [ %.2167, %40 ], [ %.7172, %153 ], [ %.2167, %collect_reloc.exit ], [ %.2167, %64 ], [ %.2167, %56 ], [ %159, %170 ]
   store i32 %.1202, ptr %.2, align 1
@@ -2144,15 +2144,15 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %95 = load i8, ptr %94, align 1, !tbaa !44
   %96 = xor i8 %95, %93
   store i8 %96, ptr %94, align 1, !tbaa !44
-  br label %.thread243
+  br label %.thread244
 
 97:                                               ; preds = %89
   %98 = shl nuw nsw i8 1, %91
   %99 = xor i8 %90, %98
   store i8 %99, ptr %85, align 1, !tbaa !44
-  br label %.thread243
+  br label %.thread244
 
-.thread243:                                       ; preds = %92, %97
+.thread244:                                       ; preds = %92, %97
   %100 = and i32 %41, 7
   br label %124
 
@@ -2181,16 +2181,16 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %.0182 = phi ptr [ %109, %105 ], [ %85, %103 ]
   %113 = getelementptr inbounds nuw i8, ptr %.0182, i64 1
   %114 = icmp ult ptr %113, %.2
-  br i1 %114, label %.lr.ph271.preheader, label %._crit_edge
+  br i1 %114, label %.lr.ph272.preheader, label %._crit_edge
 
-.lr.ph271.preheader:                              ; preds = %112
-  %.0182288 = ptrtoint ptr %.0182 to i64
-  %115 = xor i64 %.0182288, -1
-  %116 = add i64 %115, %.2287
+.lr.ph272.preheader:                              ; preds = %112
+  %.0182289 = ptrtoint ptr %.0182 to i64
+  %115 = xor i64 %.0182289, -1
+  %116 = add i64 %115, %.2288
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0182, ptr nonnull align 1 %113, i64 %116, i1 false), !tbaa !44
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph271.preheader, %112
+._crit_edge:                                      ; preds = %.lr.ph272.preheader, %112
   %.not227 = icmp eq ptr %.0184, null
   %117 = getelementptr inbounds i8, ptr %.0184, i64 -1
   %spec.select235 = select i1 %.not227, ptr null, ptr %117
@@ -2209,36 +2209,36 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %123 = shl i32 %.2203, 4
   br label %136
 
-124:                                              ; preds = %.thread243, %120
-  %.7250 = phi ptr [ %.2, %.thread243 ], [ %.7, %120 ]
-  %.9193249 = phi ptr [ %.0184, %.thread243 ], [ %.9193, %120 ]
-  %.2203247 = phi i32 [ %100, %.thread243 ], [ %.2203, %120 ]
+124:                                              ; preds = %.thread244, %120
+  %.7251 = phi ptr [ %.2, %.thread244 ], [ %.7, %120 ]
+  %.9193250 = phi ptr [ %.0184, %.thread244 ], [ %.9193, %120 ]
+  %.2203248 = phi i32 [ %100, %.thread244 ], [ %.2203, %120 ]
   %125 = icmp ugt i8 %81, 63
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %124
-  %127 = shl i32 %.2203247, 3
+  %127 = shl i32 %.2203248, 3
   br label %136
 
 128:                                              ; preds = %124
-  %129 = icmp eq i32 %.2203247, 4
+  %129 = icmp eq i32 %.2203248, 4
   %130 = icmp samesign ult i8 %81, 32
   %or.cond5 = select i1 %129, i1 %130, i1 false
   br i1 %or.cond5, label %131, label %136
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %.7250, i64 -1
+  %132 = getelementptr inbounds i8, ptr %.7251, i64 -1
   %133 = load i8, ptr %132, align 1, !tbaa !44
   %134 = xor i8 %133, 4
   store i8 %134, ptr %132, align 1, !tbaa !44
-  %135 = getelementptr inbounds nuw i8, ptr %.7250, i64 1
-  store i8 32, ptr %.7250, align 1, !tbaa !44
+  %135 = getelementptr inbounds nuw i8, ptr %.7251, i64 1
+  store i8 32, ptr %.7251, align 1, !tbaa !44
   br label %136
 
 136:                                              ; preds = %126, %131, %128, %122
-  %.9193248 = phi ptr [ %.9193, %122 ], [ %.9193249, %126 ], [ %.9193249, %131 ], [ %.9193249, %128 ]
-  %.3204 = phi i32 [ %123, %122 ], [ %127, %126 ], [ 4, %131 ], [ %.2203247, %128 ]
-  %.8 = phi ptr [ %.7, %122 ], [ %.7250, %126 ], [ %135, %131 ], [ %.7250, %128 ]
+  %.9193249 = phi ptr [ %.9193, %122 ], [ %.9193250, %126 ], [ %.9193250, %131 ], [ %.9193250, %128 ]
+  %.3204 = phi i32 [ %123, %122 ], [ %127, %126 ], [ 4, %131 ], [ %.2203248, %128 ]
+  %.8 = phi ptr [ %.7, %122 ], [ %.7251, %126 ], [ %135, %131 ], [ %.7251, %128 ]
   %137 = getelementptr inbounds i8, ptr %.8, i64 -1
   %138 = load i8, ptr %137, align 1, !tbaa !44
   %139 = trunc i32 %.3204 to i8
@@ -2262,10 +2262,10 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %152 = trunc i64 %151 to i32
   br label %153
 
-153:                                              ; preds = %.thread255, %40, %144
-  %.4205 = phi i32 [ %152, %144 ], [ %41, %40 ], [ %169, %.thread255 ]
-  %.8181 = phi ptr [ %142, %144 ], [ %34, %40 ], [ %.7180, %.thread255 ]
-  %.7172 = phi ptr [ %145, %144 ], [ %.2167, %40 ], [ %159, %.thread255 ]
+153:                                              ; preds = %.thread256, %40, %144
+  %.4205 = phi i32 [ %152, %144 ], [ %41, %40 ], [ %169, %.thread256 ]
+  %.8181 = phi ptr [ %142, %144 ], [ %34, %40 ], [ %.7180, %.thread256 ]
+  %.7172 = phi ptr [ %145, %144 ], [ %.2167, %40 ], [ %159, %.thread256 ]
   %154 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %155 = ptrtoint ptr %154 to i64
   %156 = trunc i64 %155 to i32
@@ -2283,16 +2283,16 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %165 = getelementptr inbounds i32, ptr %163, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !43
   %167 = icmp slt i32 %166, 0
-  br i1 %167, label %.thread255, label %170
+  br i1 %167, label %.thread256, label %170
 
-.thread255:                                       ; preds = %158
+.thread256:                                       ; preds = %158
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %169 = load i32, ptr %168, align 4, !tbaa !43
   br label %153
 
 170:                                              ; preds = %158
   %171 = load i32, ptr %.2167, align 4, !tbaa !43
-  %.neg222 = sub i64 %16, %.2287
+  %.neg222 = sub i64 %16, %.2288
   %.neg223 = trunc i64 %.neg222 to i32
   %.neg224 = add i32 %.neg223, -4
   %.neg = add i32 %.neg224, %166
@@ -2308,12 +2308,12 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %176 = add i8 %175, -16
   %177 = getelementptr inbounds i8, ptr %.2, i64 -2
   store i8 %176, ptr %177, align 1, !tbaa !44
-  br label %.thread251
+  br label %.thread252
 
 178:                                              ; preds = %170
   %179 = getelementptr inbounds i8, ptr %.2, i64 -1
   store i8 -21, ptr %179, align 1, !tbaa !44
-  br label %.thread251
+  br label %.thread252
 
 180:                                              ; preds = %40
   %181 = getelementptr inbounds nuw i8, ptr %.0173, i64 2
@@ -2388,36 +2388,36 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   br label %.backedge
 
 228:                                              ; preds = %40
-  %.not221265 = icmp eq i32 %41, 0
-  br i1 %.not221265, label %.loopexit, label %.lr.ph268.preheader
+  %.not221266 = icmp eq i32 %41, 0
+  br i1 %.not221266, label %.loopexit, label %.lr.ph269.preheader
 
-.lr.ph268.preheader:                              ; preds = %228
+.lr.ph269.preheader:                              ; preds = %228
   %229 = load i8, ptr %34, align 1, !tbaa !44
   %230 = zext i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.2, i8 %229, i64 %230, i1 false), !tbaa !44
   %scevgep = getelementptr i8, ptr %.2, i64 1
   %231 = add i32 %41, -1
   %232 = zext i32 %231 to i64
-  %scevgep286 = getelementptr i8, ptr %scevgep, i64 %232
+  %scevgep287 = getelementptr i8, ptr %scevgep, i64 %232
   br label %.loopexit
 
 233:                                              ; preds = %40
   %234 = load i8, ptr %34, align 1, !tbaa !44
   %235 = zext i8 %234 to i64
-  %236 = sub i64 %.2287, %16
+  %236 = sub i64 %.2288, %16
   %237 = and i64 %236, %235
-  %.not220263 = icmp eq i64 %237, 0
-  br i1 %.not220263, label %.loopexit259, label %.lr.ph
+  %.not220264 = icmp eq i64 %237, 0
+  br i1 %.not220264, label %.loopexit260, label %.lr.ph
 
 .lr.ph:                                           ; preds = %233, %.lr.ph
-  %.13264 = phi ptr [ %238, %.lr.ph ], [ %.2, %233 ]
-  %238 = getelementptr inbounds nuw i8, ptr %.13264, i64 1
-  store i8 -112, ptr %.13264, align 1, !tbaa !44
+  %.13265 = phi ptr [ %238, %.lr.ph ], [ %.2, %233 ]
+  %238 = getelementptr inbounds nuw i8, ptr %.13265, i64 1
+  store i8 -112, ptr %.13265, align 1, !tbaa !44
   %239 = ptrtoint ptr %238 to i64
   %240 = sub i64 %239, %16
   %241 = and i64 %240, %235
   %.not220 = icmp eq i64 %241, 0
-  br i1 %.not220, label %.loopexit259, label %.lr.ph, !llvm.loop !56
+  br i1 %.not220, label %.loopexit260, label %.lr.ph, !llvm.loop !56
 
 242:                                              ; preds = %40
   %243 = load i8, ptr %34, align 1, !tbaa !44
@@ -2481,7 +2481,7 @@ collect_reloc.exit:                               ; preds = %250, %sym_decorate.
   %276 = phi i32 [ %.pre.i, %sym_decorate.exit.i ], [ %245, %250 ]
   %277 = load ptr, ptr %14, align 8, !tbaa !63
   %278 = ptrtoint ptr %277 to i64
-  %279 = sub i64 %.2287, %278
+  %279 = sub i64 %.2288, %278
   %280 = trunc i64 %279 to i32
   %281 = sext i32 %276 to i64
   %282 = getelementptr inbounds %struct.BuildReloc, ptr %15, i64 %281
@@ -2510,30 +2510,30 @@ collect_reloc.exit:                               ; preds = %250, %sym_decorate.
   store i8 %.0200.in, ptr %.2, align 1, !tbaa !44
   br label %.backedge
 
-.loopexit:                                        ; preds = %.lr.ph268.preheader, %228
-  %.12.lcssa = phi ptr [ %.2, %228 ], [ %scevgep286, %.lr.ph268.preheader ]
+.loopexit:                                        ; preds = %.lr.ph269.preheader, %228
+  %.12.lcssa = phi ptr [ %.2, %228 ], [ %scevgep287, %.lr.ph269.preheader ]
   %293 = getelementptr inbounds nuw i8, ptr %.0173, i64 2
   br label %.backedge
 
-.loopexit259:                                     ; preds = %.lr.ph, %233
+.loopexit260:                                     ; preds = %.lr.ph, %233
   %.13.lcssa = phi ptr [ %.2, %233 ], [ %238, %.lr.ph ]
   %294 = getelementptr inbounds nuw i8, ptr %.0173, i64 2
   br label %.backedge
 
-._crit_edge277.loopexit:                          ; preds = %.loopexit260
-  %.pre290 = load i32, ptr %5, align 8, !tbaa !22
-  br label %._crit_edge277
+._crit_edge278.loopexit:                          ; preds = %.loopexit261
+  %.pre291 = load i32, ptr %5, align 8, !tbaa !22
+  br label %._crit_edge278
 
-._crit_edge277:                                   ; preds = %._crit_edge277.loopexit, %18
-  %295 = phi i32 [ %19, %18 ], [ %.pre290, %._crit_edge277.loopexit ]
-  %.1.lcssa = phi ptr [ %.0163280, %18 ], [ %.2, %._crit_edge277.loopexit ]
+._crit_edge278:                                   ; preds = %._crit_edge278.loopexit, %18
+  %295 = phi i32 [ %19, %18 ], [ %.pre291, %._crit_edge278.loopexit ]
+  %.1.lcssa = phi ptr [ %.0163281, %18 ], [ %.2, %._crit_edge278.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %296 = sext i32 %295 to i64
   %297 = icmp slt i64 %indvars.iv.next, %296
-  br i1 %297, label %18, label %._crit_edge283, !llvm.loop !68
+  br i1 %297, label %18, label %._crit_edge284, !llvm.loop !68
 
-._crit_edge283:                                   ; preds = %._crit_edge277, %2
-  %.0163.lcssa = phi ptr [ %1, %2 ], [ %.1.lcssa, %._crit_edge277 ]
+._crit_edge284:                                   ; preds = %._crit_edge278, %2
+  %.0163.lcssa = phi ptr [ %1, %2 ], [ %.1.lcssa, %._crit_edge278 ]
   %298 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %299 = load i64, ptr %298, align 8, !tbaa !53
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 %299

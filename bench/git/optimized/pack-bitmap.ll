@@ -1803,21 +1803,21 @@ define dso_local ptr @pseudo_merge_bitmap_for_commit(ptr noundef %0, ptr noundef
 6:                                                ; preds = %2
   %7 = tail call ptr @bitmap_new() #22
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.02029 = load ptr, ptr %8, align 8, !tbaa !110
-  %.not2230 = icmp eq ptr %.02029, null
-  br i1 %.not2230, label %._crit_edge, label %.lr.ph
+  %.02030 = load ptr, ptr %8, align 8, !tbaa !110
+  %.not2231 = icmp eq ptr %.02030, null
+  br i1 %.not2231, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %22
-  %.02031 = phi ptr [ %.02029, %.lr.ph ], [ %.020, %22 ]
-  %11 = load ptr, ptr %.02031, align 8, !tbaa !112
+  %.02032 = phi ptr [ %.02030, %.lr.ph ], [ %.020, %22 ]
+  %11 = load ptr, ptr %.02032, align 8, !tbaa !112
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = tail call fastcc i32 @bitmap_position(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.thread26, label %15
+  br i1 %14, label %.thread27, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %9, align 8, !tbaa !49
@@ -1837,16 +1837,16 @@ bitmap_num_objects.exit:                          ; preds = %17, %19
   %.0.in.i = phi ptr [ %18, %17 ], [ %21, %19 ]
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !8
   %.not23 = icmp ult i32 %13, %.0.i
-  br i1 %.not23, label %22, label %.thread26
+  br i1 %.not23, label %22, label %.thread27
 
-.thread26:                                        ; preds = %10, %bitmap_num_objects.exit
+.thread27:                                        ; preds = %10, %bitmap_num_objects.exit
   tail call void @bitmap_free(ptr noundef %7) #22
   br label %28
 
 22:                                               ; preds = %bitmap_num_objects.exit
   %23 = zext nneg i32 %13 to i64
   tail call void @bitmap_set(ptr noundef %7, i64 noundef %23) #22
-  %24 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.02032, i64 8
   %.020 = load ptr, ptr %24, align 8, !tbaa !110
   %.not22 = icmp eq ptr %.020, null
   br i1 %.not22, label %._crit_edge, label %10, !llvm.loop !115
@@ -1861,8 +1861,8 @@ bitmap_num_objects.exit:                          ; preds = %17, %19
   %27 = tail call ptr @pseudo_merge_bitmap(ptr noundef nonnull %3, ptr noundef nonnull %25) #22
   br label %28
 
-28:                                               ; preds = %.thread26, %._crit_edge, %2, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %2 ], [ null, %._crit_edge ], [ null, %.thread26 ]
+28:                                               ; preds = %.thread27, %._crit_edge, %2, %26
+  %.0 = phi ptr [ %27, %26 ], [ null, %2 ], [ null, %._crit_edge ], [ null, %.thread27 ]
   ret ptr %.0
 }
 

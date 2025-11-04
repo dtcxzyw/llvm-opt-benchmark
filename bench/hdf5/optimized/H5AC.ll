@@ -418,7 +418,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
 8:                                                ; preds = %1
   %9 = xor i1 %6, true
   %10 = select i1 %4, i1 true, i1 %9
-  br i1 %10, label %11, label %.thread39, !prof !41
+  br i1 %10, label %11, label %.thread40, !prof !41
 
 11:                                               ; preds = %.thread, %8
   %12 = icmp eq ptr %0, null
@@ -428,7 +428,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %14 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %15 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1891, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.48) #8
-  br label %.thread39
+  br label %.thread40
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %0, align 8, !tbaa !63
@@ -439,7 +439,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %20 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %21 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1893, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.49) #8
-  br label %.thread39
+  br label %.thread40
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -457,7 +457,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %32 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %33 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1905, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.50) #8
-  br label %.thread39
+  br label %.thread40
 
 35:                                               ; preds = %27
   %36 = icmp ugt i64 %29, 1024
@@ -467,7 +467,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %38 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %39 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1907, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.51) #8
-  br label %.thread39
+  br label %.thread40
 
 41:                                               ; preds = %35, %23
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -497,7 +497,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %55 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %56 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1913, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.52) #8
-  br label %.thread39
+  br label %.thread40
 
 58:                                               ; preds = %51, %41
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1200
@@ -509,7 +509,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %63 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %64 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1916, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.53) #8
-  br label %.thread39
+  br label %.thread40
 
 66:                                               ; preds = %58
   %67 = icmp ugt i64 %60, 33554432
@@ -519,7 +519,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %69 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %70 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %71 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1918, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.54) #8
-  br label %.thread39
+  br label %.thread40
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -531,7 +531,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %76 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %77 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1922, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.55) #8
-  br label %.thread39
+  br label %.thread40
 
 79:                                               ; preds = %72
   %80 = call fastcc i32 @H5AC__ext_config_2_int_config(ptr noundef nonnull %0, ptr noundef %2)
@@ -542,23 +542,23 @@ define range(i32 -1, 1) i32 @H5AC_validate_config(ptr noundef readonly captures(
   %83 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %84 = load i64, ptr @H5E_SYSTEM_g, align 8, !tbaa !42
   %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1925, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.45) #8
-  br label %.thread39
+  br label %.thread40
 
 86:                                               ; preds = %79
   %87 = call i32 @H5C_validate_resize_config(ptr noundef nonnull %2, i32 noundef 15) #8
   %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %.thread39
+  br i1 %88, label %89, label %.thread40
 
 89:                                               ; preds = %86
   %90 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %91 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !42
   %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_validate_config, i32 noundef 1928, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.56) #8
-  br label %.thread39
+  br label %.thread40
 
-.thread39:                                        ; preds = %37, %31, %8, %86, %89, %82, %75, %68, %62, %54, %19, %13
-  %.028 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %54 ], [ -1, %62 ], [ -1, %68 ], [ -1, %75 ], [ -1, %82 ], [ -1, %89 ], [ 0, %86 ], [ 0, %8 ], [ -1, %31 ], [ -1, %37 ]
+.thread40:                                        ; preds = %37, %31, %8, %86, %89, %82, %75, %68, %62, %54, %19, %13
+  %.029 = phi i32 [ -1, %13 ], [ -1, %19 ], [ -1, %54 ], [ -1, %62 ], [ -1, %68 ], [ -1, %75 ], [ -1, %82 ], [ -1, %89 ], [ 0, %86 ], [ 0, %8 ], [ -1, %31 ], [ -1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.028
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2397,7 +2397,7 @@ define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly
   %31 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %32 = load i64, ptr @H5E_CANTGETSIZE_g, align 8, !tbaa !42
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_unprotect, i32 noundef 1565, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.33) #8
-  br label %.thread30
+  br label %.thread31
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2410,9 +2410,9 @@ define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly
   %39 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !42
   %40 = load i64, ptr @H5E_BADSIZE_g, align 8, !tbaa !42
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_unprotect, i32 noundef 1568, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.34) #8
-  br label %.thread30
+  br label %.thread31
 
-.thread30:                                        ; preds = %30, %38
+.thread31:                                        ; preds = %30, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
@@ -2431,8 +2431,8 @@ define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5AC_unprotect, i32 noundef 1589, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.35) #8
   br label %50
 
-50:                                               ; preds = %.thread30, %43, %46
-  %.026 = phi i32 [ -1, %46 ], [ 0, %43 ], [ -1, %.thread30 ]
+50:                                               ; preds = %.thread31, %43, %46
+  %.026 = phi i32 [ -1, %46 ], [ 0, %43 ], [ -1, %.thread31 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
@@ -2457,8 +2457,8 @@ define range(i32 -1, 1) i32 @H5AC_unprotect(ptr noundef %0, ptr noundef readonly
   br label %68
 
 68:                                               ; preds = %12, %60, %64, %50
-  %.027 = phi i32 [ -1, %64 ], [ %.026, %60 ], [ %.026, %50 ], [ 0, %12 ]
-  ret i32 %.027
+  %.1 = phi i32 [ -1, %64 ], [ %.026, %60 ], [ %.026, %50 ], [ 0, %12 ]
+  ret i32 %.1
 }
 
 declare i32 @H5C_unprotect(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

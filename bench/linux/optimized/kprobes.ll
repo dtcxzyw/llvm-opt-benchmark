@@ -321,7 +321,7 @@ define dso_local ptr @__get_insn_slot(ptr noundef %0) local_unnamed_addr #0 alig
   tail call void @perf_event_ksymbol(i16 noundef zeroext 2, i64 noundef %65, i32 noundef 4096, i1 noundef zeroext false, ptr noundef %67) #21
   br label %68
 
-68:                                               ; preds = %41, %53, %54, %27
+68:                                               ; preds = %27, %54, %53, %41
   %69 = phi ptr [ %64, %54 ], [ null, %53 ], [ null, %41 ], [ %34, %27 ]
   tail call void @mutex_unlock(ptr noundef %0) #21
   ret ptr %69

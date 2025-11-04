@@ -393,7 +393,7 @@ parse_line.exit:                                  ; preds = %31, %41
   call void @ff_subtitles_queue_finalize(ptr noundef nonnull %0, ptr noundef %12) #10
   br label %136
 
-136:                                              ; preds = %132, %.loopexit.thread, %.thread98
+136:                                              ; preds = %.thread98, %.loopexit.thread, %132
   %.5 = phi i32 [ %.051112145, %132 ], [ -12, %.loopexit.thread ], [ %.4.ph, %.thread98 ]
   %137 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

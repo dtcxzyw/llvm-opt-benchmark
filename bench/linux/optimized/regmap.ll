@@ -8397,12 +8397,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 512
   switch i64 %6, label %.thread [
-    i64 1, label %.split8.split.us
-    i64 2, label %.split8.split.us11
-    i64 4, label %.split8.split
+    i64 1, label %.split9.split.us
+    i64 2, label %.split9.split.us12
+    i64 4, label %.split9.split
   ]
 
-.split8.split.us:                                 ; preds = %26, %45
+.split9.split.us:                                 ; preds = %26, %45
   %28 = phi i64 [ %47, %45 ], [ 0, %26 ]
   %29 = phi i32 [ %46, %45 ], [ 0, %26 ]
   %30 = getelementptr i8, ptr %2, i64 %28
@@ -8412,12 +8412,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %38, label %35
 
-35:                                               ; preds = %.split8.split.us
+35:                                               ; preds = %.split9.split.us
   %36 = load i32, ptr %7, align 4
   %37 = mul i32 %36, %29
   br label %40
 
-38:                                               ; preds = %.split8.split.us
+38:                                               ; preds = %.split9.split.us
   %39 = shl i32 %29, %33
   br label %40
 
@@ -8432,9 +8432,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %46 = add i32 %29, 1
   %47 = sext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.split8.split.us, label %.thread, !llvm.loop !89
+  br i1 %48, label %.split9.split.us, label %.thread, !llvm.loop !89
 
-.split8.split.us11:                               ; preds = %26, %67
+.split9.split.us12:                               ; preds = %26, %67
   %49 = phi i64 [ %69, %67 ], [ 0, %26 ]
   %50 = phi i32 [ %68, %67 ], [ 0, %26 ]
   %51 = shl nsw i64 %49, 1
@@ -8445,12 +8445,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %.split8.split.us11
+57:                                               ; preds = %.split9.split.us12
   %58 = load i32, ptr %7, align 4
   %59 = mul i32 %58, %50
   br label %62
 
-60:                                               ; preds = %.split8.split.us11
+60:                                               ; preds = %.split9.split.us12
   %61 = shl i32 %50, %55
   br label %62
 
@@ -8465,9 +8465,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %68 = add i32 %50, 1
   %69 = sext i32 %68 to i64
   %70 = icmp ugt i64 %3, %69
-  br i1 %70, label %.split8.split.us11, label %.thread, !llvm.loop !89
+  br i1 %70, label %.split9.split.us12, label %.thread, !llvm.loop !89
 
-.split8.split:                                    ; preds = %26, %88
+.split9.split:                                    ; preds = %26, %88
   %71 = phi i64 [ %90, %88 ], [ 0, %26 ]
   %72 = phi i32 [ %89, %88 ], [ 0, %26 ]
   %73 = shl nsw i64 %71, 2
@@ -8477,11 +8477,11 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %.split8.split
+78:                                               ; preds = %.split9.split
   %79 = shl i32 %72, %76
   br label %83
 
-80:                                               ; preds = %.split8.split
+80:                                               ; preds = %.split9.split
   %81 = load i32, ptr %7, align 4
   %82 = mul i32 %81, %72
   br label %83
@@ -8497,7 +8497,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %89 = add i32 %72, 1
   %90 = sext i32 %89 to i64
   %91 = icmp ugt i64 %3, %90
-  br i1 %91, label %.split8.split, label %.thread, !llvm.loop !89
+  br i1 %91, label %.split9.split, label %.thread, !llvm.loop !89
 
 .thread:                                          ; preds = %88, %83, %67, %62, %40, %45, %26, %20
   %92 = phi i32 [ 0, %20 ], [ -22, %26 ], [ %43, %40 ], [ 0, %45 ], [ %65, %62 ], [ 0, %67 ], [ %86, %83 ], [ 0, %88 ]

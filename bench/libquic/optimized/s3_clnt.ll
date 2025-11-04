@@ -1621,34 +1621,34 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %88 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %5, ptr noundef nonnull %8) #11
   %.not90 = icmp eq i32 %88, 0
-  br i1 %.not90, label %.thread114, label %89
+  br i1 %.not90, label %.thread118, label %89
 
 89:                                               ; preds = %87
   %90 = call i64 @CBS_len(ptr noundef nonnull %8) #11
   %91 = icmp eq i64 %90, 0
-  br i1 %91, label %.thread114, label %92
+  br i1 %91, label %.thread118, label %92
 
 92:                                               ; preds = %89
   %93 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %5, ptr noundef nonnull %9) #11
   %.not91 = icmp eq i32 %93, 0
-  br i1 %.not91, label %.thread114, label %94
+  br i1 %.not91, label %.thread118, label %94
 
 94:                                               ; preds = %92
   %95 = call i64 @CBS_len(ptr noundef nonnull %9) #11
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.thread114, label %97
+  br i1 %96, label %.thread118, label %97
 
 97:                                               ; preds = %94
   %98 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %5, ptr noundef nonnull %10) #11
   %.not92 = icmp eq i32 %98, 0
-  br i1 %.not92, label %.thread114, label %99
+  br i1 %.not92, label %.thread118, label %99
 
 99:                                               ; preds = %97
   %100 = call i64 @CBS_len(ptr noundef nonnull %10) #11
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %.thread114, label %102
+  br i1 %101, label %.thread118, label %102
 
-.thread114:                                       ; preds = %87, %89, %92, %94, %97, %99
+.thread118:                                       ; preds = %87, %89, %92, %94, %97, %99
   store i32 50, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1135) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1659,7 +1659,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 102:                                              ; preds = %99
   %103 = call ptr @DH_new() #11
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread111, label %105
+  br i1 %104, label %.thread115, label %105
 
 105:                                              ; preds = %102
   %106 = call ptr @CBS_data(ptr noundef nonnull %8) #11
@@ -1675,7 +1675,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   %114 = icmp eq ptr %113, null
   %115 = icmp eq ptr %111, null
   %or.cond108 = select i1 %114, i1 true, i1 %115
-  br i1 %or.cond108, label %.thread111, label %116
+  br i1 %or.cond108, label %.thread115, label %116
 
 116:                                              ; preds = %105
   %117 = call i32 @DH_num_bits(ptr noundef nonnull %103) #11
@@ -1688,7 +1688,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 
 122:                                              ; preds = %116
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 105, ptr noundef nonnull @.str, i32 noundef 1152) #11
-  br label %.thread111
+  br label %.thread115
 
 123:                                              ; preds = %116
   %124 = icmp ugt i32 %117, 4096
@@ -1696,7 +1696,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 
 125:                                              ; preds = %123
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 141, ptr noundef nonnull @.str, i32 noundef 1158) #11
-  br label %.thread111
+  br label %.thread115
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %33, align 8, !tbaa !49
@@ -1707,9 +1707,9 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 576
   %131 = call i32 @CBS_stow(ptr noundef nonnull %10, ptr noundef nonnull %130, ptr noundef nonnull %11) #11
   %.not93 = icmp eq i32 %131, 0
-  br i1 %.not93, label %136, label %.thread117
+  br i1 %.not93, label %136, label %.thread121
 
-.thread117:                                       ; preds = %126
+.thread121:                                       ; preds = %126
   %132 = load i64, ptr %11, align 8, !tbaa !105
   %133 = trunc i64 %132 to i16
   %134 = load ptr, ptr %33, align 8, !tbaa !49
@@ -1721,7 +1721,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %174
 
-.thread111:                                       ; preds = %122, %125, %102, %105
+.thread115:                                       ; preds = %122, %125, %102, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1763,7 +1763,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 148:                                              ; preds = %146, %144, %139
   store i32 50, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1183) #11
-  br label %.thread120
+  br label %.thread124
 
 149:                                              ; preds = %146
   %150 = load i16, ptr %13, align 2, !tbaa !108
@@ -1779,7 +1779,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 156:                                              ; preds = %149
   store i32 47, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 243, ptr noundef nonnull @.str, i32 noundef 1191) #11
-  br label %.thread120
+  br label %.thread124
 
 157:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1788,22 +1788,22 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   %160 = load i16, ptr %13, align 2, !tbaa !108
   %161 = call i32 @SSL_ECDH_CTX_init(ptr noundef nonnull %159, i16 noundef zeroext %160) #11
   %.not88 = icmp eq i32 %161, 0
-  br i1 %.not88, label %.thread123, label %162
+  br i1 %.not88, label %.thread127, label %162
 
 162:                                              ; preds = %157
   %163 = load ptr, ptr %33, align 8, !tbaa !49
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 576
   %165 = call i32 @CBS_stow(ptr noundef nonnull %14, ptr noundef nonnull %164, ptr noundef nonnull %15) #11
   %.not89 = icmp eq i32 %165, 0
-  br i1 %.not89, label %.thread123, label %166
+  br i1 %.not89, label %.thread127, label %166
 
-.thread120:                                       ; preds = %148, %156
+.thread124:                                       ; preds = %148, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %243
 
-.thread123:                                       ; preds = %162, %157
+.thread127:                                       ; preds = %162, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1832,7 +1832,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 223, ptr noundef nonnull @.str, i32 noundef 1206) #11
   br label %243
 
-174:                                              ; preds = %166, %.thread117, %171
+174:                                              ; preds = %166, %.thread121, %171
   %175 = call ptr @CBS_data(ptr noundef nonnull %6) #11
   %176 = call i64 @CBS_len(ptr noundef nonnull %6) #11
   %177 = call i64 @CBS_len(ptr noundef nonnull %5) #11
@@ -1876,16 +1876,16 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 197:                                              ; preds = %195, %193
   store i32 50, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1230) #11
-  br label %.thread129
+  br label %.thread133
 
 198:                                              ; preds = %195
   %199 = load i8, ptr %18, align 1, !tbaa !123
   %200 = load i8, ptr %19, align 1, !tbaa !123
   %201 = call i32 @tls12_check_peer_sigalg(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i8 noundef zeroext %199, i8 noundef zeroext %200, ptr noundef nonnull %188) #11
   %.not98 = icmp eq i32 %201, 0
-  br i1 %.not98, label %.thread129, label %202
+  br i1 %.not98, label %.thread133, label %202
 
-.thread129:                                       ; preds = %198, %197
+.thread133:                                       ; preds = %198, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1930,7 +1930,7 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
 218:                                              ; preds = %216, %214
   store i32 50, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1248) #11
-  br label %.thread132
+  br label %.thread136
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %17, align 8, !tbaa !139
@@ -1963,15 +1963,15 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   %235 = call ptr @CBS_data(ptr noundef nonnull %20) #11
   %236 = call i64 @CBS_len(ptr noundef nonnull %20) #11
   %237 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %2, ptr noundef %235, i64 noundef %236) #11
-  %.not134 = icmp eq i32 %237, 0
-  br i1 %.not134, label %.critedge, label %238
+  %.not138 = icmp eq i32 %237, 0
+  br i1 %.not138, label %.critedge, label %238
 
 .critedge:                                        ; preds = %230, %226, %222, %219, %234
   store i32 51, ptr %3, align 4, !tbaa !73
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 114, ptr noundef nonnull @.str, i32 noundef 1268) #11
-  br label %.thread132
+  br label %.thread136
 
-.thread132:                                       ; preds = %218, %.critedge
+.thread136:                                       ; preds = %218, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %243
@@ -1996,15 +1996,15 @@ define hidden i32 @ssl3_get_server_key_exchange(ptr noundef %0) local_unnamed_ad
   call void @EVP_PKEY_free(ptr noundef %.2) #11
   br label %247
 
-243:                                              ; preds = %.thread132, %.thread129, %.thread120, %.thread114, %.thread, %241, %173
-  %.063 = phi ptr [ null, %241 ], [ null, %173 ], [ null, %.thread ], [ null, %.thread114 ], [ null, %.thread120 ], [ %188, %.thread129 ], [ %188, %.thread132 ]
+243:                                              ; preds = %.thread136, %.thread133, %.thread124, %.thread118, %.thread, %241, %173
+  %.063 = phi ptr [ null, %241 ], [ null, %173 ], [ null, %.thread ], [ null, %.thread118 ], [ null, %.thread124 ], [ %188, %.thread133 ], [ %188, %.thread136 ]
   %244 = load i32, ptr %3, align 4, !tbaa !73
   %245 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %244) #11
   br label %246
 
-246:                                              ; preds = %.thread123, %136, %.thread111, %183, %243
-  %.267 = phi ptr [ null, %183 ], [ null, %243 ], [ null, %136 ], [ %103, %.thread111 ], [ null, %.thread123 ]
-  %.164 = phi ptr [ null, %183 ], [ %.063, %243 ], [ null, %136 ], [ null, %.thread111 ], [ null, %.thread123 ]
+246:                                              ; preds = %.thread127, %136, %.thread115, %183, %243
+  %.267 = phi ptr [ null, %183 ], [ null, %243 ], [ null, %136 ], [ %103, %.thread115 ], [ null, %.thread127 ]
+  %.164 = phi ptr [ null, %183 ], [ %.063, %243 ], [ null, %136 ], [ null, %.thread115 ], [ null, %.thread127 ]
   call void @EVP_PKEY_free(ptr noundef %.164) #11
   call void @DH_free(ptr noundef %.267) #11
   call void @EC_POINT_free(ptr noundef null) #11
@@ -2142,8 +2142,8 @@ define hidden i32 @ssl3_get_certificate_request(ptr noundef %0) local_unnamed_ad
 
 .preheader:                                       ; preds = %56
   %58 = call i64 @CBS_len(ptr noundef nonnull %6) #11
-  %.not5164 = icmp eq i64 %58, 0
-  br i1 %.not5164, label %._crit_edge, label %.lr.ph
+  %.not5166 = icmp eq i64 %58, 0
+  br i1 %.not5166, label %._crit_edge, label %.lr.ph
 
 59:                                               ; preds = %56
   %60 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 50) #11
@@ -2154,9 +2154,9 @@ define hidden i32 @ssl3_get_certificate_request(ptr noundef %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.not52 = icmp eq i32 %61, 0
-  br i1 %.not52, label %.thread57, label %63
+  br i1 %.not52, label %.thread59, label %63
 
-.thread57:                                        ; preds = %.lr.ph
+.thread59:                                        ; preds = %.lr.ph
   %62 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 50) #11
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 1375) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2182,7 +2182,7 @@ define hidden i32 @ssl3_get_certificate_request(ptr noundef %0) local_unnamed_ad
 73:                                               ; preds = %68, %63
   %74 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 50) #11
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1385) #11
-  br label %.thread60
+  br label %.thread62
 
 75:                                               ; preds = %68
   %76 = call i64 @sk_push(ptr noundef nonnull %33, ptr noundef nonnull %66) #11
@@ -2191,9 +2191,9 @@ define hidden i32 @ssl3_get_certificate_request(ptr noundef %0) local_unnamed_ad
 
 77:                                               ; preds = %75
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1390) #11
-  br label %.thread60
+  br label %.thread62
 
-.thread60:                                        ; preds = %73, %77
+.thread62:                                        ; preds = %73, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86
@@ -2217,10 +2217,10 @@ define hidden i32 @ssl3_get_certificate_request(ptr noundef %0) local_unnamed_ad
   store ptr %33, ptr %85, align 8, !tbaa !144
   br label %86
 
-86:                                               ; preds = %.thread60, %.thread57, %54, %._crit_edge, %59, %45, %38, %35, %28
-  %.040 = phi i32 [ 0, %28 ], [ 0, %35 ], [ 1, %._crit_edge ], [ 0, %59 ], [ 0, %54 ], [ 0, %45 ], [ 0, %38 ], [ 0, %.thread57 ], [ 0, %.thread60 ]
-  %.037 = phi ptr [ null, %28 ], [ null, %35 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %54 ], [ null, %45 ], [ null, %38 ], [ null, %.thread57 ], [ %66, %.thread60 ]
-  %.036 = phi ptr [ null, %28 ], [ null, %35 ], [ null, %._crit_edge ], [ %33, %59 ], [ %33, %54 ], [ %33, %45 ], [ %33, %38 ], [ %33, %.thread57 ], [ %33, %.thread60 ]
+86:                                               ; preds = %.thread62, %.thread59, %54, %._crit_edge, %59, %45, %38, %35, %28
+  %.040 = phi i32 [ 0, %28 ], [ 0, %35 ], [ 1, %._crit_edge ], [ 0, %59 ], [ 0, %54 ], [ 0, %45 ], [ 0, %38 ], [ 0, %.thread59 ], [ 0, %.thread62 ]
+  %.037 = phi ptr [ null, %28 ], [ null, %35 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %54 ], [ null, %45 ], [ null, %38 ], [ null, %.thread59 ], [ %66, %.thread62 ]
+  %.036 = phi ptr [ null, %28 ], [ null, %35 ], [ null, %._crit_edge ], [ %33, %59 ], [ %33, %54 ], [ %33, %45 ], [ %33, %38 ], [ %33, %.thread59 ], [ %33, %.thread62 ]
   call void @X509_NAME_free(ptr noundef %.037) #11
   call void @sk_pop_free(ptr noundef %.036, ptr noundef nonnull @X509_NAME_free) #11
   br label %87
@@ -2526,7 +2526,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %40 = sub i64 %39, %36
   %41 = call i32 @CBB_init_fixed(ptr noundef nonnull %4, ptr noundef %37, i64 noundef %40) #11
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %.thread113, label %42
+  br i1 %.not, label %.thread119, label %42
 
 42:                                               ; preds = %27
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2549,7 +2549,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 
 56:                                               ; preds = %52
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 196, ptr noundef nonnull @.str, i32 noundef 1577) #11
-  br label %.thread113
+  br label %.thread119
 
 57:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2586,27 +2586,27 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %7) #11
   %.not79 = icmp eq i32 %75, 0
-  br i1 %.not79, label %.thread110, label %76
+  br i1 %.not79, label %.thread116, label %76
 
 76:                                               ; preds = %74
   %77 = call i64 @OPENSSL_strnlen(ptr noundef nonnull %6, i64 noundef 129) #11
   %78 = call i32 @CBB_add_bytes(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %77) #11
   %.not80 = icmp eq i32 %78, 0
-  br i1 %.not80, label %.thread110, label %79
+  br i1 %.not80, label %.thread116, label %79
 
 79:                                               ; preds = %76
   %80 = call i32 @CBB_flush(ptr noundef nonnull %4) #11
   %.not81 = icmp eq i32 %80, 0
-  br i1 %.not81, label %.thread110, label %81
+  br i1 %.not81, label %.thread116, label %81
 
 .thread:                                          ; preds = %62, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread113
+  br label %.thread119
 
-.thread110:                                       ; preds = %76, %74, %79
+.thread116:                                       ; preds = %76, %74, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread113
+  br label %.thread119
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2629,7 +2629,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 
 88:                                               ; preds = %85
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1615) #11
-  br label %.thread113
+  br label %.thread119
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -2638,7 +2638,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %93 = load ptr, ptr %92, align 8, !tbaa !127
   %94 = call ptr @X509_get_pubkey(ptr noundef %93) #11
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.thread113, label %96
+  br i1 %95, label %.thread119, label %96
 
 96:                                               ; preds = %89
   %97 = call ptr @EVP_PKEY_get0_RSA(ptr noundef nonnull %94) #11
@@ -2648,7 +2648,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 99:                                               ; preds = %96
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 1626) #11
   call void @EVP_PKEY_free(ptr noundef nonnull %94) #11
-  br label %.thread113
+  br label %.thread119
 
 100:                                              ; preds = %96
   %101 = call i32 @EVP_PKEY_bits(ptr noundef nonnull %94) #11
@@ -2667,7 +2667,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %111 = call i32 @RAND_bytes(ptr noundef nonnull %110, i64 noundef 46) #11
   %.not90 = icmp eq i32 %111, 0
-  br i1 %.not90, label %.thread113, label %112
+  br i1 %.not90, label %.thread119, label %112
 
 112:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2679,12 +2679,12 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 115:                                              ; preds = %112
   %116 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %4, ptr noundef nonnull %8) #11
   %.not91 = icmp eq i32 %116, 0
-  br i1 %.not91, label %.thread115, label %117
+  br i1 %.not91, label %.thread121, label %117
 
-.thread115:                                       ; preds = %115
+.thread121:                                       ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread113
+  br label %.thread119
 
 117:                                              ; preds = %115, %112
   %.069 = phi ptr [ %4, %112 ], [ %8, %115 ]
@@ -2693,7 +2693,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %119 = zext i32 %118 to i64
   %120 = call i32 @CBB_reserve(ptr noundef nonnull %.069, ptr noundef nonnull %10, i64 noundef %119) #11
   %.not92 = icmp eq i32 %120, 0
-  br i1 %.not92, label %.thread119, label %121
+  br i1 %.not92, label %.thread125, label %121
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %10, align 8, !tbaa !126
@@ -2701,31 +2701,31 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %124 = zext i32 %123 to i64
   %125 = call i32 @RSA_encrypt(ptr noundef nonnull %97, ptr noundef nonnull %9, ptr noundef %122, i64 noundef %124, ptr noundef nonnull %86, i64 noundef 48, i32 noundef 1) #11
   %.not93 = icmp eq i32 %125, 0
-  br i1 %.not93, label %.thread119, label %126
+  br i1 %.not93, label %.thread125, label %126
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %10, align 8, !tbaa !126
   %128 = load i64, ptr %9, align 8, !tbaa !105
   %129 = call i32 @ssl_log_rsa_client_key_exchange(ptr noundef nonnull %0, ptr noundef %127, i64 noundef %128, ptr noundef nonnull %86, i64 noundef 48) #11
   %.not94 = icmp eq i32 %129, 0
-  br i1 %.not94, label %.thread119, label %130
+  br i1 %.not94, label %.thread125, label %130
 
 130:                                              ; preds = %126
   %131 = load i64, ptr %9, align 8, !tbaa !105
   %132 = call i32 @CBB_did_write(ptr noundef nonnull %.069, i64 noundef %131) #11
   %.not95 = icmp eq i32 %132, 0
-  br i1 %.not95, label %.thread119, label %133
+  br i1 %.not95, label %.thread125, label %133
 
 133:                                              ; preds = %130
   %134 = call i32 @CBB_flush(ptr noundef nonnull %4) #11
   %.not96 = icmp eq i32 %134, 0
-  br i1 %.not96, label %.thread119, label %135
+  br i1 %.not96, label %.thread125, label %135
 
-.thread119:                                       ; preds = %130, %126, %121, %117, %133
+.thread125:                                       ; preds = %130, %126, %121, %117, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread113
+  br label %.thread119
 
 135:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2755,19 +2755,19 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 144:                                              ; preds = %142, %140
   %.0 = phi i32 [ %141, %140 ], [ %143, %142 ]
   %.not86 = icmp eq i32 %.0, 0
-  br i1 %.not86, label %.thread122, label %145
+  br i1 %.not86, label %.thread128, label %145
 
 145:                                              ; preds = %144
   %146 = load ptr, ptr %43, align 8, !tbaa !49
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 560
   %148 = call i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef nonnull %147, ptr noundef nonnull %11) #11
   %.not87 = icmp eq i32 %148, 0
-  br i1 %.not87, label %.thread122, label %149
+  br i1 %.not87, label %.thread128, label %149
 
 149:                                              ; preds = %145
   %150 = call i32 @CBB_flush(ptr noundef nonnull %4) #11
   %.not88 = icmp eq i32 %150, 0
-  br i1 %.not88, label %.thread122, label %151
+  br i1 %.not88, label %.thread128, label %151
 
 151:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2780,9 +2780,9 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %158 = zext i16 %157 to i64
   %159 = call i32 @SSL_ECDH_CTX_compute_secret(ptr noundef nonnull %153, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef %155, i64 noundef %158) #11
   %.not89 = icmp eq i32 %159, 0
-  br i1 %.not89, label %167, label %.thread124
+  br i1 %.not89, label %167, label %.thread130
 
-.thread124:                                       ; preds = %151
+.thread130:                                       ; preds = %151
   %160 = load ptr, ptr %43, align 8, !tbaa !49
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 560
   call void @SSL_ECDH_CTX_cleanup(ptr noundef nonnull %161) #11
@@ -2797,9 +2797,9 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %179
 
-.thread122:                                       ; preds = %149, %145, %144
+.thread128:                                       ; preds = %149, %145, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread113
+  br label %.thread119
 
 167:                                              ; preds = %151
   %168 = load i8, ptr %12, align 1, !tbaa !123
@@ -2807,7 +2807,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %170 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %169) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread113
+  br label %.thread119
 
 171:                                              ; preds = %136
   %172 = and i64 %83, 8
@@ -2824,14 +2824,14 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 
 176:                                              ; preds = %173
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1696) #11
-  br label %.thread113
+  br label %.thread119
 
 177:                                              ; preds = %171
   %178 = call i32 @ssl3_send_alert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 40) #11
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 1702) #11
-  br label %.thread113
+  br label %.thread119
 
-179:                                              ; preds = %173, %.thread124, %135
+179:                                              ; preds = %173, %.thread130, %135
   br i1 %.not78, label %205, label %180
 
 180:                                              ; preds = %179
@@ -2874,9 +2874,9 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
 197:                                              ; preds = %194
   %198 = call i32 @CBB_finish(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %16) #11
   %.not102 = icmp eq i32 %198, 0
-  br i1 %.not102, label %204, label %.thread126
+  br i1 %.not102, label %204, label %.thread132
 
-.thread126:                                       ; preds = %197
+.thread132:                                       ; preds = %197
   %199 = load ptr, ptr %2, align 8, !tbaa !126
   %200 = load i64, ptr %3, align 8, !tbaa !105
   call void @OPENSSL_cleanse(ptr noundef %199, i64 noundef %200) #11
@@ -2899,12 +2899,12 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread113
+  br label %.thread119
 
-205:                                              ; preds = %.thread126, %179
+205:                                              ; preds = %.thread132, %179
   %206 = call i32 @CBB_finish(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %17) #11
   %.not103 = icmp eq i32 %206, 0
-  br i1 %.not103, label %.thread113, label %207
+  br i1 %.not103, label %.thread119, label %207
 
 207:                                              ; preds = %205
   %208 = load ptr, ptr %32, align 8, !tbaa !70
@@ -2913,7 +2913,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %211 = load i64, ptr %17, align 8, !tbaa !105
   %212 = call i32 %210(ptr noundef nonnull %0, i32 noundef 16, i64 noundef %211) #11
   %.not104 = icmp eq i32 %212, 0
-  br i1 %.not104, label %.thread113, label %213
+  br i1 %.not104, label %.thread119, label %213
 
 213:                                              ; preds = %207
   store i32 4481, ptr %18, align 4, !tbaa !42
@@ -2927,7 +2927,7 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 12
   store i32 %219, ptr %221, align 4, !tbaa !154
   %222 = icmp eq i32 %219, 0
-  br i1 %222, label %.thread113, label %223
+  br i1 %222, label %.thread119, label %223
 
 223:                                              ; preds = %213
   %224 = load ptr, ptr %43, align 8, !tbaa !49
@@ -2950,21 +2950,21 @@ define hidden i32 @ssl3_send_client_key_exchange(ptr noundef %0) local_unnamed_a
   %238 = call i32 %237(ptr noundef nonnull %0) #11
   br label %243
 
-.thread113:                                       ; preds = %100, %99, %89, %204, %167, %.thread122, %.thread119, %.thread115, %.thread110, %.thread, %213, %205, %207, %27, %177, %176, %88, %56
+.thread119:                                       ; preds = %100, %99, %89, %204, %167, %.thread128, %.thread125, %.thread121, %.thread116, %.thread, %213, %205, %207, %27, %177, %176, %88, %56
   call void @CBB_cleanup(ptr noundef nonnull %4) #11
   %239 = load ptr, ptr %2, align 8, !tbaa !126
   %.not105 = icmp eq ptr %239, null
   br i1 %.not105, label %243, label %240
 
-240:                                              ; preds = %.thread113
+240:                                              ; preds = %.thread119
   %241 = load i64, ptr %3, align 8, !tbaa !105
   call void @OPENSSL_cleanse(ptr noundef nonnull %239, i64 noundef %241) #11
   %242 = load ptr, ptr %2, align 8, !tbaa !126
   call void @free(ptr noundef %242) #11
   br label %243
 
-243:                                              ; preds = %.thread113, %240, %223
-  %.1 = phi i32 [ %238, %223 ], [ -1, %240 ], [ -1, %.thread113 ]
+243:                                              ; preds = %.thread119, %240, %223
+  %.1 = phi i32 [ %238, %223 ], [ -1, %240 ], [ -1, %.thread119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3050,9 +3050,9 @@ define hidden i32 @ssl3_send_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   %46 = call i32 @ssl_private_key_type(ptr noundef nonnull %0) #11
   %47 = call i32 @ssl3_cert_verify_hash(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef %46) #11
   %.not42 = icmp eq i32 %47, 0
-  br i1 %.not42, label %.thread51, label %48
+  br i1 %.not42, label %.thread53, label %48
 
-.thread51:                                        ; preds = %45
+.thread53:                                        ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3063,14 +3063,14 @@ define hidden i32 @ssl3_send_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %.not43 = icmp eq i32 %49, 0
-  br i1 %.not43, label %.thread54, label %50
+  br i1 %.not43, label %.thread56, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 @CBB_reserve(ptr noundef nonnull %3, ptr noundef nonnull %8, i64 noundef %36) #11
   %.not44 = icmp eq i32 %51, 0
-  br i1 %.not44, label %.thread54, label %52
+  br i1 %.not44, label %.thread56, label %52
 
-.thread54:                                        ; preds = %50, %48
+.thread56:                                        ; preds = %50, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3097,19 +3097,19 @@ define hidden i32 @ssl3_send_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
 60:                                               ; preds = %57
   %61 = call i32 @CBB_did_write(ptr noundef nonnull %2, i64 noundef 2) #11
   %.not38 = icmp eq i32 %61, 0
-  br i1 %.not38, label %.thread58, label %62
+  br i1 %.not38, label %.thread60, label %62
 
 62:                                               ; preds = %60, %57
   %63 = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %.not39 = icmp eq i32 %63, 0
-  br i1 %.not39, label %.thread58, label %64
+  br i1 %.not39, label %.thread60, label %64
 
 64:                                               ; preds = %62
   %65 = call i32 @CBB_reserve(ptr noundef nonnull %3, ptr noundef nonnull %9, i64 noundef %36) #11
   %.not40 = icmp eq i32 %65, 0
-  br i1 %.not40, label %.thread58, label %66
+  br i1 %.not40, label %.thread60, label %66
 
-.thread58:                                        ; preds = %64, %62, %60
+.thread60:                                        ; preds = %64, %62, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %88
 
@@ -3160,7 +3160,7 @@ define hidden i32 @ssl3_send_cert_verify(ptr noundef %0) local_unnamed_addr #0 {
   %87 = call i32 %86(ptr noundef nonnull %0) #11
   br label %89
 
-88:                                               ; preds = %.thread58, %.thread54, %.thread51, %.thread, %72, %75, %77, %69, %20, %70
+88:                                               ; preds = %.thread60, %.thread56, %.thread53, %.thread, %72, %75, %77, %69, %20, %70
   call void @CBB_cleanup(ptr noundef nonnull %2) #11
   br label %89
 

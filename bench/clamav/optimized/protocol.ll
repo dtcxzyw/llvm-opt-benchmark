@@ -257,8 +257,8 @@ onas_send_stream.exit:                            ; preds = %60, %65, %.thread.i
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %101
-  %.not.i192 = icmp eq ptr %3, null
-  br i1 %.not.i192, label %109, label %104
+  %.not.i193 = icmp eq ptr %3, null
+  br i1 %.not.i193, label %109, label %104
 
 104:                                              ; preds = %103
   %105 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #15
@@ -362,7 +362,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   %137 = icmp sgt i32 %1, 1
   %.not190 = icmp eq ptr %8, null
   %.not168 = icmp eq i32 %1, 4
-  br label %.thread220.outer
+  br label %.thread221.outer
 
 138:                                              ; preds = %onas_fdpass.exit
   store i32 0, ptr %6, align 4, !tbaa !12
@@ -377,22 +377,22 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   store i32 %143, ptr %7, align 4, !tbaa !12
   br label %276
 
-.thread220:                                       ; preds = %.thread220.backedge, %.thread220.outer
-  %.not155 = phi i1 [ %.not155.ph, %.thread220.outer ], [ false, %.thread220.backedge ]
+.thread221:                                       ; preds = %.thread221.backedge, %.thread221.outer
+  %.not155 = phi i1 [ %.not155.ph, %.thread221.outer ], [ false, %.thread221.backedge ]
   %144 = call i32 %onas_fd_recvln.onas_recvln(ptr noundef nonnull %20, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef %5) #15, !callees !28
   switch i32 %144, label %147 [
     i32 0, label %254
     i32 -1, label %145
   ]
 
-145:                                              ; preds = %.thread220
+145:                                              ; preds = %.thread221
   br i1 %.not190, label %276, label %146
 
 146:                                              ; preds = %145
   store i32 12, ptr %8, align 4, !tbaa !12
   br label %276
 
-147:                                              ; preds = %.thread220
+147:                                              ; preds = %.thread221
   br i1 %.not160, label %148, label %151
 
 148:                                              ; preds = %147
@@ -402,19 +402,19 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
 
 151:                                              ; preds = %148, %147
   %152 = icmp sgt i32 %144, 7
-  br i1 %152, label %153, label %.thread220.backedge
+  br i1 %152, label %153, label %.thread221.backedge
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %18, align 8, !tbaa !13
   %155 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %154, i32 noundef 58) #16
   %.not161 = icmp eq ptr %155, null
-  br i1 %.not161, label %.thread197, label %156
+  br i1 %.not161, label %.thread198, label %156
 
 156:                                              ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 1
   %158 = load i8, ptr %157, align 1, !tbaa !29
   %.not162 = icmp eq i8 %158, 32
-  br i1 %.not162, label %.thread200, label %159
+  br i1 %.not162, label %.thread201, label %159
 
 159:                                              ; preds = %156
   store i8 0, ptr %155, align 1, !tbaa !29
@@ -432,15 +432,15 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   %164 = phi ptr [ %160, %159 ], [ %.pre, %162 ]
   %165 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %164, i32 noundef 58) #16
   %.not164 = icmp eq ptr %165, null
-  br i1 %.not164, label %.thread197, label %.thread200
+  br i1 %.not164, label %.thread198, label %.thread201
 
-.thread197:                                       ; preds = %153, %163
+.thread198:                                       ; preds = %153, %163
   %166 = phi ptr [ %154, %153 ], [ %164, %163 ]
   %167 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(16) @.str.4, i64 noundef 7) #16
   %.not165 = icmp eq i32 %167, 0
   br i1 %.not165, label %168, label %176
 
-168:                                              ; preds = %.thread197
+168:                                              ; preds = %.thread198
   %or.cond3 = icmp ugt i32 %1, 4
   br i1 %or.cond3, label %173, label %169
 
@@ -455,7 +455,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   %175 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef %174) #15
   br label %178
 
-176:                                              ; preds = %.thread197
+176:                                              ; preds = %.thread198
   %177 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull %166) #15
   br label %178
 
@@ -466,75 +466,75 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   store i32 27, ptr %8, align 4, !tbaa !12
   br label %276
 
-.thread200:                                       ; preds = %156, %163
+.thread201:                                       ; preds = %156, %163
   %180 = phi ptr [ %164, %163 ], [ %154, %156 ]
-  %.0119203 = phi ptr [ %165, %163 ], [ %155, %156 ]
+  %.0119204 = phi ptr [ %165, %163 ], [ %155, %156 ]
   %181 = load ptr, ptr %19, align 8, !tbaa !13
   %182 = getelementptr inbounds i8, ptr %181, i64 -7
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %182, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
   %.not167 = icmp eq i32 %bcmp, 0
   br i1 %.not167, label %183, label %202
 
-183:                                              ; preds = %.thread200
+183:                                              ; preds = %.thread201
   store i8 0, ptr %182, align 1, !tbaa !29
   store i32 0, ptr %6, align 4, !tbaa !12
   br i1 %.not168, label %184, label %190
 
 184:                                              ; preds = %183
-  br i1 %.not160, label %.thread208, label %185
+  br i1 %.not160, label %.thread209, label %185
 
 185:                                              ; preds = %184
   %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @onas_dsresult.last_filename) #16
   %.not169 = icmp eq i32 %186, 0
-  br i1 %.not169, label %.thread210, label %187
+  br i1 %.not169, label %.thread211, label %187
 
 187:                                              ; preds = %185
   %188 = add nsw i32 %.1.ph, 1
   %189 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @onas_dsresult.last_filename, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096) #15
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @onas_dsresult.last_filename, i64 4096), align 16, !tbaa !29
-  br label %.thread210
+  br label %.thread211
 
 190:                                              ; preds = %183
   %191 = add nsw i32 %.1.ph, 1
-  br i1 %.not160, label %.thread208, label %192
+  br i1 %.not160, label %.thread209, label %192
 
 192:                                              ; preds = %190
-  br i1 %137, label %.thread210, label %196
+  br i1 %137, label %.thread211, label %196
 
-.thread210:                                       ; preds = %185, %187, %192
-  %.4206212 = phi i32 [ %191, %192 ], [ %.1.ph, %185 ], [ %188, %187 ]
-  %193 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %.0119203) #15
+.thread211:                                       ; preds = %185, %187, %192
+  %.4207213 = phi i32 [ %191, %192 ], [ %.1.ph, %185 ], [ %188, %187 ]
+  %193 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %.0119204) #15
   %194 = load ptr, ptr @action, align 8, !tbaa !30
   %.not171 = icmp eq ptr %194, null
-  br i1 %.not171, label %.thread208, label %195
+  br i1 %.not171, label %.thread209, label %195
 
-195:                                              ; preds = %.thread210
+195:                                              ; preds = %.thread211
   call void %194(ptr noundef nonnull %3) #15
-  br label %.thread208
+  br label %.thread209
 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %18, align 8, !tbaa !13
   %198 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %197) #15
-  store i8 0, ptr %.0119203, align 1, !tbaa !29
+  store i8 0, ptr %.0119204, align 1, !tbaa !29
   %199 = load ptr, ptr @action, align 8, !tbaa !30
   %.not170 = icmp eq ptr %199, null
-  br i1 %.not170, label %.thread208, label %200
+  br i1 %.not170, label %.thread209, label %200
 
 200:                                              ; preds = %196
   %201 = load ptr, ptr %18, align 8, !tbaa !13
   call void %199(ptr noundef %201) #15
-  br label %.thread208
+  br label %.thread209
 
-.thread208:                                       ; preds = %184, %195, %.thread210, %200, %196, %190
-  %.4207 = phi i32 [ %.4206212, %195 ], [ %.4206212, %.thread210 ], [ %191, %200 ], [ %191, %196 ], [ %191, %190 ], [ %.1.ph, %184 ]
-  br i1 %.not190, label %.thread220.outer.backedge, label %.thread220.sink.split
+.thread209:                                       ; preds = %184, %195, %.thread211, %200, %196, %190
+  %.4208 = phi i32 [ %.4207213, %195 ], [ %.4207213, %.thread211 ], [ %191, %200 ], [ %191, %196 ], [ %191, %190 ], [ %.1.ph, %184 ]
+  br i1 %.not190, label %.thread221.outer.backedge, label %.thread221.sink.split
 
-.thread220.outer:                                 ; preds = %.thread220.outer.backedge, %.preheader
-  %.not155.ph = phi i1 [ true, %.preheader ], [ false, %.thread220.outer.backedge ]
-  %.1.ph = phi i32 [ 0, %.preheader ], [ %.1.ph.be, %.thread220.outer.backedge ]
-  br label %.thread220
+.thread221.outer:                                 ; preds = %.thread221.outer.backedge, %.preheader
+  %.not155.ph = phi i1 [ true, %.preheader ], [ false, %.thread221.outer.backedge ]
+  %.1.ph = phi i32 [ 0, %.preheader ], [ %.1.ph.be, %.thread221.outer.backedge ]
+  br label %.thread221
 
-202:                                              ; preds = %.thread200
+202:                                              ; preds = %.thread201
   %203 = icmp samesign ugt i32 %144, 32
   br i1 %203, label %204, label %221
 
@@ -546,13 +546,13 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
 
 206:                                              ; preds = %204
   %207 = icmp samesign ugt i32 %144, 34
-  br i1 %207, label %208, label %.thread215
+  br i1 %207, label %208, label %.thread216
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds i8, ptr %181, i64 -35
   %bcmp175 = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %209, ptr noundef nonnull dereferenceable(34) @.str.12, i64 34)
   %.not176 = icmp eq i32 %bcmp175, 0
-  br i1 %.not176, label %210, label %.thread215
+  br i1 %.not176, label %210, label %.thread216
 
 210:                                              ; preds = %208, %204
   br i1 %.not189, label %214, label %211
@@ -571,7 +571,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br i1 %137, label %216, label %218
 
 216:                                              ; preds = %215
-  %217 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119203) #15
+  %217 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119204) #15
   br label %220
 
 218:                                              ; preds = %215
@@ -579,24 +579,24 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br label %220
 
 220:                                              ; preds = %216, %218, %214
-  br i1 %.not190, label %.thread220.backedge, label %.thread220.sink.split
+  br i1 %.not190, label %.thread221.backedge, label %.thread221.sink.split
 
-.thread220.backedge:                              ; preds = %220, %.thread218, %253, %242, %151
-  br label %.thread220
+.thread221.backedge:                              ; preds = %220, %.thread219, %253, %242, %151
+  br label %.thread221
 
 221:                                              ; preds = %202
   %222 = icmp samesign ugt i32 %144, 21
-  br i1 %222, label %.thread215, label %.thread218
+  br i1 %222, label %.thread216, label %.thread219
 
-.thread215:                                       ; preds = %206, %208, %221
+.thread216:                                       ; preds = %206, %208, %221
   %223 = getelementptr inbounds i8, ptr %181, i64 -22
   %bcmp179 = call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %223, ptr noundef nonnull dereferenceable(21) @.str.14, i64 21)
   %.not180 = icmp eq i32 %bcmp179, 0
   br i1 %.not180, label %232, label %224
 
-224:                                              ; preds = %.thread215
+224:                                              ; preds = %.thread216
   %225 = icmp samesign ugt i32 %144, 23
-  br i1 %225, label %226, label %.thread218
+  br i1 %225, label %226, label %.thread219
 
 226:                                              ; preds = %224
   %227 = getelementptr inbounds i8, ptr %181, i64 -24
@@ -606,15 +606,15 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
 
 228:                                              ; preds = %226
   %229 = icmp samesign ugt i32 %144, 41
-  br i1 %229, label %230, label %.thread218
+  br i1 %229, label %230, label %.thread219
 
 230:                                              ; preds = %228
   %231 = getelementptr inbounds i8, ptr %181, i64 -42
   %bcmp183 = call i32 @bcmp(ptr noundef nonnull dereferenceable(41) %231, ptr noundef nonnull dereferenceable(41) @.str.16, i64 41)
   %.not184 = icmp eq i32 %bcmp183, 0
-  br i1 %.not184, label %232, label %.thread218
+  br i1 %.not184, label %232, label %.thread219
 
-232:                                              ; preds = %230, %226, %.thread215
+232:                                              ; preds = %230, %226, %.thread216
   br i1 %.not189, label %236, label %233
 
 233:                                              ; preds = %232
@@ -631,7 +631,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br i1 %137, label %238, label %240
 
 238:                                              ; preds = %237
-  %239 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119203) #15
+  %239 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119204) #15
   br label %242
 
 240:                                              ; preds = %237
@@ -639,14 +639,14 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br label %242
 
 242:                                              ; preds = %238, %240, %236
-  br i1 %.not190, label %.thread220.backedge, label %.thread220.sink.split
+  br i1 %.not190, label %.thread221.backedge, label %.thread221.sink.split
 
-.thread218:                                       ; preds = %221, %224, %228, %230
+.thread219:                                       ; preds = %221, %224, %228, %230
   %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %182, ptr noundef nonnull dereferenceable(6) @.str.17, i64 6)
   %.not188 = icmp eq i32 %bcmp187, 0
-  br i1 %.not188, label %243, label %.thread220.backedge
+  br i1 %.not188, label %243, label %.thread221.backedge
 
-243:                                              ; preds = %.thread218
+243:                                              ; preds = %.thread219
   br i1 %.not189, label %247, label %244
 
 244:                                              ; preds = %243
@@ -663,7 +663,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br i1 %137, label %249, label %251
 
 249:                                              ; preds = %248
-  %250 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119203) #15
+  %250 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0119204) #15
   br label %253
 
 251:                                              ; preds = %248
@@ -671,19 +671,19 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
   br label %253
 
 253:                                              ; preds = %249, %251, %247
-  br i1 %.not190, label %.thread220.backedge, label %.thread220.sink.split
+  br i1 %.not190, label %.thread221.backedge, label %.thread221.sink.split
 
-.thread220.sink.split:                            ; preds = %253, %242, %220, %.thread208
-  %.sink = phi i32 [ 1, %.thread208 ], [ 34, %253 ], [ 16, %242 ], [ 11, %220 ]
-  %.2.ph = phi i32 [ %.4207, %.thread208 ], [ %.1.ph, %220 ], [ %.1.ph, %242 ], [ %.1.ph, %253 ]
+.thread221.sink.split:                            ; preds = %253, %242, %220, %.thread209
+  %.sink = phi i32 [ 1, %.thread209 ], [ 34, %253 ], [ 16, %242 ], [ 11, %220 ]
+  %.2.ph = phi i32 [ %.4208, %.thread209 ], [ %.1.ph, %220 ], [ %.1.ph, %242 ], [ %.1.ph, %253 ]
   store i32 %.sink, ptr %8, align 4, !tbaa !12
-  br label %.thread220.outer.backedge
+  br label %.thread221.outer.backedge
 
-.thread220.outer.backedge:                        ; preds = %.thread220.sink.split, %.thread208
-  %.1.ph.be = phi i32 [ %.4207, %.thread208 ], [ %.2.ph, %.thread220.sink.split ]
-  br label %.thread220.outer
+.thread221.outer.backedge:                        ; preds = %.thread221.sink.split, %.thread209
+  %.1.ph.be = phi i32 [ %.4208, %.thread209 ], [ %.2.ph, %.thread221.sink.split ]
+  br label %.thread221.outer
 
-254:                                              ; preds = %.thread220
+254:                                              ; preds = %.thread221
   br i1 %.not155, label %255, label %276
 
 255:                                              ; preds = %254

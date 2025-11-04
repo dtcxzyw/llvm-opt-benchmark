@@ -147,66 +147,66 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.preheader
-  %.062.ph142 = phi ptr [ %3, %.lr.ph.preheader ], [ %45, %.lr.ph.backedge ]
-  %.063.ph140 = phi i64 [ 6, %.lr.ph.preheader ], [ %46, %.lr.ph.backedge ]
-  %8 = icmp eq i64 %.063.ph140, 6
+  %.062.ph145 = phi ptr [ %3, %.lr.ph.preheader ], [ %45, %.lr.ph.backedge ]
+  %.063.ph143 = phi i64 [ 6, %.lr.ph.preheader ], [ %46, %.lr.ph.backedge ]
+  %8 = icmp eq i64 %.063.ph143, 6
   br i1 %8, label %.lr.ph.split.split, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
-  %9 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph142, i64 noundef %.063.ph140) #7
+  %9 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph145, i64 noundef %.063.ph143) #7
   %10 = trunc i64 %9 to i32
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.split.us, label %.lr.ph138.preheader
+  br i1 %11, label %.split.us, label %.lr.ph141.preheader
 
-.lr.ph138.preheader:                              ; preds = %.lr.ph.split.us.split
+.lr.ph141.preheader:                              ; preds = %.lr.ph.split.us.split
   %12 = icmp slt i32 %10, 0
-  br i1 %12, label %.lr.ph341.preheader, label %.split101.us
+  br i1 %12, label %.lr.ph344.preheader, label %.split104.us
 
-.lr.ph341.preheader:                              ; preds = %.lr.ph138.preheader
+.lr.ph344.preheader:                              ; preds = %.lr.ph141.preheader
   %13 = tail call ptr @__errno_location() #8
-  br label %.lr.ph341
+  br label %.lr.ph344
 
-.lr.ph138:                                        ; preds = %16
+.lr.ph141:                                        ; preds = %16
   %14 = icmp slt i32 %18, 0
-  br i1 %14, label %.lr.ph341, label %.split101.us
+  br i1 %14, label %.lr.ph344, label %.split104.us
 
-.lr.ph341:                                        ; preds = %.lr.ph341.preheader, %.lr.ph138
+.lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph141
   %15 = load i32, ptr %13, align 4
-  switch i32 %15, label %.split104.us [
+  switch i32 %15, label %.split107.us [
     i32 11, label %16
     i32 4, label %16
   ]
 
-16:                                               ; preds = %.lr.ph341, %.lr.ph341
-  %17 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph142, i64 noundef %.063.ph140) #7
+16:                                               ; preds = %.lr.ph344, %.lr.ph344
+  %17 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph145, i64 noundef %.063.ph143) #7
   %18 = trunc i64 %17 to i32
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.split.us, label %.lr.ph138
+  br i1 %19, label %.split.us, label %.lr.ph141
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  %20 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph142, i64 noundef 6) #7
+  %20 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph145, i64 noundef 6) #7
   %21 = trunc i64 %20 to i32
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.split107.us, label %.lr.ph123.preheader.preheader
+  br i1 %22, label %.split110.us, label %.lr.ph126.preheader.preheader
 
-.lr.ph123.preheader.preheader:                    ; preds = %.lr.ph.split.split
+.lr.ph126.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %23 = icmp slt i32 %21, 0
-  br i1 %23, label %.lr.ph342.preheader, label %.split101.us
+  br i1 %23, label %.lr.ph345.preheader, label %.split104.us
 
-.lr.ph342.preheader:                              ; preds = %.lr.ph123.preheader.preheader
+.lr.ph345.preheader:                              ; preds = %.lr.ph126.preheader.preheader
   %24 = tail call ptr @__errno_location() #8
-  br label %.lr.ph342
+  br label %.lr.ph345
 
-.split107.us:                                     ; preds = %.lr.ph.split.split, %37
+.split110.us:                                     ; preds = %.lr.ph.split.split, %37
   %25 = tail call i32 @slurm_get_log_level() #7
   %26 = icmp sgt i32 %25, 4
   br i1 %26, label %27, label %28
 
-27:                                               ; preds = %.split107.us
+27:                                               ; preds = %.split110.us
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.handle_pmi2_cmd) #7
   br label %28
 
-28:                                               ; preds = %27, %.split107.us
+28:                                               ; preds = %27, %.split110.us
   %29 = tail call ptr @__errno_location() #8
   store i32 5, ptr %29, align 4
   br label %.thread
@@ -217,7 +217,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.split.us
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.063.ph140, i32 noundef 6) #7
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.063.ph143, i32 noundef 6) #7
   br label %33
 
 33:                                               ; preds = %32, %.split.us
@@ -225,42 +225,42 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   store i32 5, ptr %34, align 4
   br label %.thread
 
-.lr.ph123.preheader:                              ; preds = %37
+.lr.ph126.preheader:                              ; preds = %37
   %35 = icmp slt i32 %39, 0
-  br i1 %35, label %.lr.ph342, label %.split101.us
+  br i1 %35, label %.lr.ph345, label %.split104.us
 
-.lr.ph342:                                        ; preds = %.lr.ph342.preheader, %.lr.ph123.preheader
+.lr.ph345:                                        ; preds = %.lr.ph345.preheader, %.lr.ph126.preheader
   %36 = load i32, ptr %24, align 4
-  switch i32 %36, label %.split104.us [
+  switch i32 %36, label %.split107.us [
     i32 11, label %37
     i32 4, label %37
   ]
 
-37:                                               ; preds = %.lr.ph342, %.lr.ph342
-  %38 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph142, i64 noundef 6) #7
+37:                                               ; preds = %.lr.ph345, %.lr.ph345
+  %38 = call i64 @read(i32 noundef %0, ptr noundef %.062.ph145, i64 noundef 6) #7
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.split107.us, label %.lr.ph123.preheader
+  br i1 %40, label %.split110.us, label %.lr.ph126.preheader
 
-.split104.us:                                     ; preds = %.lr.ph341, %.lr.ph342
-  %.063.ph140244 = phi i64 [ 6, %.lr.ph342 ], [ %.063.ph140, %.lr.ph341 ]
+.split107.us:                                     ; preds = %.lr.ph344, %.lr.ph345
+  %.063.ph143247 = phi i64 [ 6, %.lr.ph345 ], [ %.063.ph143, %.lr.ph344 ]
   %41 = tail call i32 @slurm_get_log_level() #7
   %42 = icmp sgt i32 %41, 4
   br i1 %42, label %43, label %.thread
 
-43:                                               ; preds = %.split104.us
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.063.ph140244, i32 noundef 6) #7
+43:                                               ; preds = %.split107.us
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.063.ph143247, i32 noundef 6) #7
   br label %.thread
 
-.split101.us:                                     ; preds = %.lr.ph138, %.lr.ph123.preheader, %.lr.ph138.preheader, %.lr.ph123.preheader.preheader
-  %.us-phi102 = phi i64 [ %20, %.lr.ph123.preheader.preheader ], [ %9, %.lr.ph138.preheader ], [ %38, %.lr.ph123.preheader ], [ %17, %.lr.ph138 ]
-  %44 = and i64 %.us-phi102, 2147483647
-  %45 = getelementptr inbounds nuw i8, ptr %.062.ph142, i64 %44
-  %46 = sub i64 %.063.ph140, %44
+.split104.us:                                     ; preds = %.lr.ph141, %.lr.ph126.preheader, %.lr.ph141.preheader, %.lr.ph126.preheader.preheader
+  %.us-phi105 = phi i64 [ %20, %.lr.ph126.preheader.preheader ], [ %9, %.lr.ph141.preheader ], [ %38, %.lr.ph126.preheader ], [ %17, %.lr.ph141 ]
+  %44 = and i64 %.us-phi105, 2147483647
+  %45 = getelementptr inbounds nuw i8, ptr %.062.ph145, i64 %44
+  %46 = sub i64 %.063.ph143, %44
   %.not74 = icmp eq i64 %46, 0
-  br i1 %.not74, label %.outer86._crit_edge, label %47
+  br i1 %.not74, label %.outer89._crit_edge, label %47
 
-47:                                               ; preds = %.split101.us
+47:                                               ; preds = %.split104.us
   %48 = tail call i32 @slurm_get_log_level() #7
   %49 = icmp sgt i32 %48, 6
   br i1 %49, label %50, label %.lr.ph.backedge
@@ -272,7 +272,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
 .lr.ph.backedge:                                  ; preds = %50, %47
   br label %.lr.ph, !llvm.loop !8
 
-.outer86._crit_edge:                              ; preds = %.split101.us
+.outer89._crit_edge:                              ; preds = %.split104.us
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 0, ptr %51, align 1
   %52 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #7
@@ -284,136 +284,136 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   %56 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %55, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 597, ptr noundef nonnull @__func__.handle_pmi2_cmd) #7
   store ptr %56, ptr %4, align 8
   %57 = ashr exact i64 %54, 32
-  %.not75192 = icmp eq i64 %54, 0
-  br i1 %.not75192, label %.outer._crit_edge, label %.lr.ph145
+  %.not75195 = icmp eq i64 %54, 0
+  br i1 %.not75195, label %.outer._crit_edge, label %.lr.ph148
 
-.lr.ph145:                                        ; preds = %.outer86._crit_edge, %.lr.ph145.backedge
-  %.058.ph195 = phi ptr [ %95, %.lr.ph145.backedge ], [ %56, %.outer86._crit_edge ]
-  %.059.ph193 = phi i64 [ %96, %.lr.ph145.backedge ], [ %57, %.outer86._crit_edge ]
-  %58 = icmp eq i64 %.059.ph193, %57
-  br i1 %58, label %.lr.ph145.split.split, label %.lr.ph145.split.us.split
+.lr.ph148:                                        ; preds = %.outer89._crit_edge, %.lr.ph148.backedge
+  %.058.ph198 = phi ptr [ %95, %.lr.ph148.backedge ], [ %56, %.outer89._crit_edge ]
+  %.059.ph196 = phi i64 [ %96, %.lr.ph148.backedge ], [ %57, %.outer89._crit_edge ]
+  %58 = icmp eq i64 %.059.ph196, %57
+  br i1 %58, label %.lr.ph148.split.split, label %.lr.ph148.split.us.split
 
-.lr.ph145.split.us.split:                         ; preds = %.lr.ph145
-  %59 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph195, i64 noundef %.059.ph193) #7
+.lr.ph148.split.us.split:                         ; preds = %.lr.ph148
+  %59 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph198, i64 noundef %.059.ph196) #7
   %60 = trunc i64 %59 to i32
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.split148.us, label %.lr.ph189.preheader
+  br i1 %61, label %.split151.us, label %.lr.ph192.preheader
 
-.lr.ph189.preheader:                              ; preds = %.lr.ph145.split.us.split
+.lr.ph192.preheader:                              ; preds = %.lr.ph148.split.us.split
   %62 = icmp slt i32 %60, 0
-  br i1 %62, label %.lr.ph344.preheader, label %.split151.us
+  br i1 %62, label %.lr.ph347.preheader, label %.split154.us
 
-.lr.ph344.preheader:                              ; preds = %.lr.ph189.preheader
+.lr.ph347.preheader:                              ; preds = %.lr.ph192.preheader
   %63 = tail call ptr @__errno_location() #8
-  br label %.lr.ph344
+  br label %.lr.ph347
 
-.lr.ph189:                                        ; preds = %66
+.lr.ph192:                                        ; preds = %66
   %64 = icmp slt i32 %68, 0
-  br i1 %64, label %.lr.ph344, label %.split151.us
+  br i1 %64, label %.lr.ph347, label %.split154.us
 
-.lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph189
+.lr.ph347:                                        ; preds = %.lr.ph347.preheader, %.lr.ph192
   %65 = load i32, ptr %63, align 4
-  switch i32 %65, label %.split154.us [
+  switch i32 %65, label %.split157.us [
     i32 11, label %66
     i32 4, label %66
   ]
 
-66:                                               ; preds = %.lr.ph344, %.lr.ph344
-  %67 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph195, i64 noundef %.059.ph193) #7
+66:                                               ; preds = %.lr.ph347, %.lr.ph347
+  %67 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph198, i64 noundef %.059.ph196) #7
   %68 = trunc i64 %67 to i32
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.split148.us, label %.lr.ph189
+  br i1 %69, label %.split151.us, label %.lr.ph192
 
-.lr.ph145.split.split:                            ; preds = %.lr.ph145
-  %70 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph195, i64 noundef %57) #7
+.lr.ph148.split.split:                            ; preds = %.lr.ph148
+  %70 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph198, i64 noundef %57) #7
   %71 = trunc i64 %70 to i32
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.split158.us, label %.lr.ph174.preheader.preheader
+  br i1 %72, label %.split161.us, label %.lr.ph177.preheader.preheader
 
-.lr.ph174.preheader.preheader:                    ; preds = %.lr.ph145.split.split
+.lr.ph177.preheader.preheader:                    ; preds = %.lr.ph148.split.split
   %73 = icmp slt i32 %71, 0
-  br i1 %73, label %.lr.ph346.preheader, label %.split151.us
+  br i1 %73, label %.lr.ph349.preheader, label %.split154.us
 
-.lr.ph346.preheader:                              ; preds = %.lr.ph174.preheader.preheader
+.lr.ph349.preheader:                              ; preds = %.lr.ph177.preheader.preheader
   %74 = tail call ptr @__errno_location() #8
-  br label %.lr.ph346
+  br label %.lr.ph349
 
-.split158.us:                                     ; preds = %.lr.ph145.split.split, %87
+.split161.us:                                     ; preds = %.lr.ph148.split.split, %87
   %75 = tail call i32 @slurm_get_log_level() #7
   %76 = icmp sgt i32 %75, 4
   br i1 %76, label %77, label %78
 
-77:                                               ; preds = %.split158.us
+77:                                               ; preds = %.split161.us
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd) #7
   br label %78
 
-78:                                               ; preds = %77, %.split158.us
+78:                                               ; preds = %77, %.split161.us
   %79 = tail call ptr @__errno_location() #8
   store i32 5, ptr %79, align 4
   br label %.thread
 
-.split148.us:                                     ; preds = %.lr.ph145.split.us.split, %66
+.split151.us:                                     ; preds = %.lr.ph148.split.us.split, %66
   %80 = tail call i32 @slurm_get_log_level() #7
   %81 = icmp sgt i32 %80, 4
   br i1 %81, label %82, label %83
 
-82:                                               ; preds = %.split148.us
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.059.ph193, i32 noundef %53) #7
+82:                                               ; preds = %.split151.us
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.059.ph196, i32 noundef %53) #7
   br label %83
 
-83:                                               ; preds = %82, %.split148.us
+83:                                               ; preds = %82, %.split151.us
   %84 = tail call ptr @__errno_location() #8
   store i32 5, ptr %84, align 4
   br label %.thread
 
-.lr.ph174.preheader:                              ; preds = %87
+.lr.ph177.preheader:                              ; preds = %87
   %85 = icmp slt i32 %89, 0
-  br i1 %85, label %.lr.ph346, label %.split151.us
+  br i1 %85, label %.lr.ph349, label %.split154.us
 
-.lr.ph346:                                        ; preds = %.lr.ph346.preheader, %.lr.ph174.preheader
+.lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph177.preheader
   %86 = load i32, ptr %74, align 4
-  switch i32 %86, label %.split154.us [
+  switch i32 %86, label %.split157.us [
     i32 11, label %87
     i32 4, label %87
   ]
 
-87:                                               ; preds = %.lr.ph346, %.lr.ph346
-  %88 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph195, i64 noundef %57) #7
+87:                                               ; preds = %.lr.ph349, %.lr.ph349
+  %88 = tail call i64 @read(i32 noundef %0, ptr noundef %.058.ph198, i64 noundef %57) #7
   %89 = trunc i64 %88 to i32
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.split158.us, label %.lr.ph174.preheader
+  br i1 %90, label %.split161.us, label %.lr.ph177.preheader
 
-.split154.us:                                     ; preds = %.lr.ph344, %.lr.ph346
-  %.059.ph193226 = phi i64 [ %57, %.lr.ph346 ], [ %.059.ph193, %.lr.ph344 ]
+.split157.us:                                     ; preds = %.lr.ph347, %.lr.ph349
+  %.059.ph196229 = phi i64 [ %57, %.lr.ph349 ], [ %.059.ph196, %.lr.ph347 ]
   %91 = tail call i32 @slurm_get_log_level() #7
   %92 = icmp sgt i32 %91, 4
   br i1 %92, label %93, label %.thread
 
-93:                                               ; preds = %.split154.us
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.059.ph193226, i32 noundef %53) #7
+93:                                               ; preds = %.split157.us
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %.059.ph196229, i32 noundef %53) #7
   br label %.thread
 
-.split151.us:                                     ; preds = %.lr.ph189, %.lr.ph174.preheader, %.lr.ph189.preheader, %.lr.ph174.preheader.preheader
-  %.us-phi152 = phi i64 [ %70, %.lr.ph174.preheader.preheader ], [ %59, %.lr.ph189.preheader ], [ %88, %.lr.ph174.preheader ], [ %67, %.lr.ph189 ]
-  %94 = and i64 %.us-phi152, 2147483647
-  %95 = getelementptr inbounds nuw i8, ptr %.058.ph195, i64 %94
-  %96 = sub i64 %.059.ph193, %94
+.split154.us:                                     ; preds = %.lr.ph192, %.lr.ph177.preheader, %.lr.ph192.preheader, %.lr.ph177.preheader.preheader
+  %.us-phi155 = phi i64 [ %70, %.lr.ph177.preheader.preheader ], [ %59, %.lr.ph192.preheader ], [ %88, %.lr.ph177.preheader ], [ %67, %.lr.ph192 ]
+  %94 = and i64 %.us-phi155, 2147483647
+  %95 = getelementptr inbounds nuw i8, ptr %.058.ph198, i64 %94
+  %96 = sub i64 %.059.ph196, %94
   %.not76 = icmp eq i64 %96, 0
   br i1 %.not76, label %.outer._crit_edge, label %97
 
-97:                                               ; preds = %.split151.us
+97:                                               ; preds = %.split154.us
   %98 = tail call i32 @slurm_get_log_level() #7
   %99 = icmp sgt i32 %98, 6
-  br i1 %99, label %100, label %.lr.ph145.backedge
+  br i1 %99, label %100, label %.lr.ph148.backedge
 
 100:                                              ; preds = %97
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd, ptr noundef nonnull @.str.2, i32 noundef 598, ptr noundef nonnull @__func__.handle_pmi2_cmd, i64 noundef %96, i32 noundef %53) #7
-  br label %.lr.ph145.backedge
+  br label %.lr.ph148.backedge
 
-.lr.ph145.backedge:                               ; preds = %100, %97
-  br label %.lr.ph145, !llvm.loop !11
+.lr.ph148.backedge:                               ; preds = %100, %97
+  br label %.lr.ph148, !llvm.loop !11
 
-.outer._crit_edge:                                ; preds = %.split151.us, %.outer86._crit_edge
+.outer._crit_edge:                                ; preds = %.split154.us, %.outer89._crit_edge
   %101 = getelementptr inbounds i8, ptr %56, i64 %57
   store i8 0, ptr %101, align 1
   %102 = tail call i32 @slurm_get_log_level() #7
@@ -490,7 +490,7 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd) #7
   br label %136
 
-.thread:                                          ; preds = %.split154.us, %93, %83, %78, %.split104.us, %43, %33, %28
+.thread:                                          ; preds = %.split157.us, %93, %83, %78, %.split107.us, %43, %33, %28
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   br label %136
 

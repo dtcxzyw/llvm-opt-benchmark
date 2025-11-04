@@ -1537,7 +1537,7 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef re
   %fputc153 = tail call i32 @fputc(i32 10, ptr %396)
   br label %397
 
-397:                                              ; preds = %12, %24, %20, %31, %43, %39, %72, %84, %80, %94, %106, %102, %116, %128, %124, %138, %150, %146, %160, %172, %168, %182, %194, %190, %201, %213, %209, %220, %232, %228, %239, %251, %247, %258, %270, %266, %280, %292, %288, %299, %311, %307, %318, %331, %326, %340, %352, %348, %361, %375, %369, %381, %393, %389, %53, %65, %61
+397:                                              ; preds = %12, %24, %20, %31, %43, %39, %53, %65, %61, %72, %84, %80, %94, %106, %102, %116, %128, %124, %138, %150, %146, %160, %172, %168, %182, %194, %190, %201, %213, %209, %220, %232, %228, %239, %251, %247, %258, %270, %266, %280, %292, %288, %299, %311, %307, %318, %331, %326, %340, %352, %348, %361, %375, %369, %381, %393, %389
   %398 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !7
   %399 = icmp sgt i64 %398, -1
   %400 = load i32, ptr @enable_error_stack, align 4
@@ -1550,8 +1550,8 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef re
   br label %404
 
 404:                                              ; preds = %356, %9, %91, %135, %179, %315, %296, %157, %113, %50, %402, %397
-  %.079 = phi i32 [ -1, %397 ], [ -1, %402 ], [ 0, %315 ], [ 0, %296 ], [ 0, %179 ], [ 0, %157 ], [ 0, %135 ], [ 0, %113 ], [ 0, %91 ], [ 0, %9 ], [ 0, %356 ], [ 0, %50 ]
-  ret i32 %.079
+  %.080155 = phi i32 [ -1, %402 ], [ -1, %397 ], [ 0, %315 ], [ 0, %296 ], [ 0, %179 ], [ 0, %157 ], [ 0, %135 ], [ 0, %113 ], [ 0, %91 ], [ 0, %9 ], [ 0, %356 ], [ 0, %50 ]
+  ret i32 %.080155
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -4112,18 +4112,18 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 
 47:                                               ; preds = %46, %46, %46, %46
   %48 = mul i64 %9, %4
-  %.not294351 = icmp eq i64 %48, 0
-  br i1 %.not294351, label %.thread, label %.lr.ph355
+  %.not294356 = icmp eq i64 %48, 0
+  br i1 %.not294356, label %.thread, label %.lr.ph360
 
-.lr.ph355:                                        ; preds = %47, %66
-  %.0208353 = phi ptr [ %68, %66 ], [ %3, %47 ]
-  %.0213352 = phi i64 [ %67, %66 ], [ %48, %47 ]
-  %..0213 = tail call i64 @llvm.umin.i64(i64 %.0213352, i64 8)
-  %49 = tail call i64 @fwrite(ptr noundef %.0208353, i64 noundef 1, i64 noundef %..0213, ptr noundef %0)
+.lr.ph360:                                        ; preds = %47, %66
+  %.0208358 = phi ptr [ %68, %66 ], [ %3, %47 ]
+  %.0213357 = phi i64 [ %67, %66 ], [ %48, %47 ]
+  %..0213 = tail call i64 @llvm.umin.i64(i64 %.0213357, i64 8)
+  %49 = tail call i64 @fwrite(ptr noundef %.0208358, i64 noundef 1, i64 noundef %..0213, ptr noundef %0)
   %.not295 = icmp eq i64 %49, %..0213
   br i1 %.not295, label %66, label %50
 
-50:                                               ; preds = %.lr.ph355
+50:                                               ; preds = %.lr.ph360
   %51 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.thread
@@ -4149,27 +4149,27 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc296 = tail call i32 @fputc(i32 10, ptr %65)
   br label %.thread
 
-66:                                               ; preds = %.lr.ph355
-  %67 = sub i64 %.0213352, %..0213
-  %68 = getelementptr inbounds nuw i8, ptr %.0208353, i64 %..0213
+66:                                               ; preds = %.lr.ph360
+  %67 = sub i64 %.0213357, %..0213
+  %68 = getelementptr inbounds nuw i8, ptr %.0208358, i64 %..0213
   %.not294 = icmp eq i64 %67, 0
-  br i1 %.not294, label %.thread, label %.lr.ph355
+  br i1 %.not294, label %.thread, label %.lr.ph360
 
 69:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = tail call i32 @H5Tget_strpad(i64 noundef %2) #16
-  %.not363 = icmp eq i64 %4, 0
-  br i1 %.not363, label %.loopexit, label %.lr.ph350
+  %.not368 = icmp eq i64 %4, 0
+  br i1 %.not368, label %.loopexit, label %.lr.ph355
 
-.lr.ph350:                                        ; preds = %69
-  %.fr364 = freeze i32 %70
-  %.not365 = icmp eq i32 %.fr364, 0
+.lr.ph355:                                        ; preds = %69
+  %.fr369 = freeze i32 %70
+  %.not370 = icmp eq i32 %.fr369, 0
   br label %71
 
-71:                                               ; preds = %.lr.ph350, %.critedge
-  %.0211348 = phi i64 [ %9, %.lr.ph350 ], [ %.1212, %.critedge ]
-  %.2347 = phi i64 [ 0, %.lr.ph350 ], [ %128, %.critedge ]
-  %72 = mul i64 %.0211348, %.2347
+71:                                               ; preds = %.lr.ph355, %.critedge
+  %.0211353 = phi i64 [ %9, %.lr.ph355 ], [ %.1212, %.critedge ]
+  %.2352 = phi i64 [ 0, %.lr.ph355 ], [ %128, %.critedge ]
+  %72 = mul i64 %.0211353, %.2352
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   %74 = tail call i32 @H5Tis_variable_str(i64 noundef %2) #16
   %.not289 = icmp eq i32 %74, 0
@@ -4212,55 +4212,55 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 
 95:                                               ; preds = %71, %77
   %.0227 = phi ptr [ %76, %77 ], [ %73, %71 ]
-  %.1212 = phi i64 [ %78, %77 ], [ %.0211348, %71 ]
-  %.not366 = icmp eq i64 %.1212, 0
-  br i1 %.not366, label %.critedge, label %.lr.ph344
+  %.1212 = phi i64 [ %78, %77 ], [ %.0211353, %71 ]
+  %.not371 = icmp eq i64 %.1212, 0
+  br i1 %.not371, label %.critedge, label %.lr.ph349
 
-.lr.ph344:                                        ; preds = %95
-  br i1 %.not365, label %.lr.ph344.split, label %.lr.ph344.split.us
+.lr.ph349:                                        ; preds = %95
+  br i1 %.not370, label %.lr.ph349.split, label %.lr.ph349.split.us
 
-.lr.ph344.split.us:                               ; preds = %.lr.ph344, %100
-  %96 = phi i64 [ %102, %100 ], [ 0, %.lr.ph344 ]
-  %.0228342.us = phi i32 [ %101, %100 ], [ 0, %.lr.ph344 ]
+.lr.ph349.split.us:                               ; preds = %.lr.ph349, %100
+  %96 = phi i64 [ %102, %100 ], [ 0, %.lr.ph349 ]
+  %.0228347.us = phi i32 [ %101, %100 ], [ 0, %.lr.ph349 ]
   %97 = getelementptr inbounds nuw i8, ptr %.0227, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !15
   store i8 %98, ptr %6, align 1
   %99 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %.not292.us = icmp eq i64 %99, 1
-  br i1 %.not292.us, label %100, label %.split.us346
+  br i1 %.not292.us, label %100, label %.split.us351
 
-100:                                              ; preds = %.lr.ph344.split.us
-  %101 = add i32 %.0228342.us, 1
+100:                                              ; preds = %.lr.ph349.split.us
+  %101 = add i32 %.0228347.us, 1
   %102 = zext i32 %101 to i64
   %103 = icmp ugt i64 %.1212, %102
-  br i1 %103, label %.lr.ph344.split.us, label %.critedge, !llvm.loop !65
+  br i1 %103, label %.lr.ph349.split.us, label %.critedge, !llvm.loop !65
 
 104:                                              ; preds = %111
-  %105 = add i32 %.0228342, 1
+  %105 = add i32 %.0228347, 1
   %106 = zext i32 %105 to i64
   %107 = icmp ugt i64 %.1212, %106
-  br i1 %107, label %.lr.ph344.split, label %.critedge, !llvm.loop !65
+  br i1 %107, label %.lr.ph349.split, label %.critedge, !llvm.loop !65
 
-.lr.ph344.split:                                  ; preds = %.lr.ph344, %104
-  %108 = phi i64 [ %106, %104 ], [ 0, %.lr.ph344 ]
-  %.0228342 = phi i32 [ %105, %104 ], [ 0, %.lr.ph344 ]
+.lr.ph349.split:                                  ; preds = %.lr.ph349, %104
+  %108 = phi i64 [ %106, %104 ], [ 0, %.lr.ph349 ]
+  %.0228347 = phi i32 [ %105, %104 ], [ 0, %.lr.ph349 ]
   %109 = getelementptr inbounds nuw i8, ptr %.0227, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !15
-  %.not367 = icmp eq i8 %110, 0
-  br i1 %.not367, label %.critedge, label %111
+  %.not372 = icmp eq i8 %110, 0
+  br i1 %.not372, label %.critedge, label %111
 
-111:                                              ; preds = %.lr.ph344.split
+111:                                              ; preds = %.lr.ph349.split
   store i8 %110, ptr %6, align 1
   %112 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %.not292 = icmp eq i64 %112, 1
-  br i1 %.not292, label %104, label %.split.us346
+  br i1 %.not292, label %104, label %.split.us351
 
-.split.us346:                                     ; preds = %.lr.ph344.split.us, %111
+.split.us351:                                     ; preds = %.lr.ph349.split.us, %111
   %113 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %115, label %.loopexit
 
-115:                                              ; preds = %.split.us346
+115:                                              ; preds = %.split.us351
   %116 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !7
   %117 = icmp sgt i64 %116, -1
   %118 = load i64, ptr @H5tools_ERR_CLS_g, align 8
@@ -4281,13 +4281,13 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc293 = tail call i32 @fputc(i32 10, ptr %127)
   br label %.loopexit
 
-.critedge:                                        ; preds = %100, %104, %.lr.ph344.split, %95
-  %128 = add nuw i64 %.2347, 1
-  %exitcond383.not = icmp eq i64 %128, %4
-  br i1 %exitcond383.not, label %.loopexit, label %71, !llvm.loop !66
+.critedge:                                        ; preds = %100, %104, %.lr.ph349.split, %95
+  %128 = add nuw i64 %.2352, 1
+  %exitcond388.not = icmp eq i64 %128, %4
+  br i1 %exitcond388.not, label %.loopexit, label %71, !llvm.loop !66
 
-.loopexit:                                        ; preds = %.critedge, %69, %.split.us346, %124, %120, %79, %91, %87
-  %.7224 = phi i32 [ -1, %87 ], [ -1, %91 ], [ -1, %79 ], [ -1, %120 ], [ -1, %124 ], [ -1, %.split.us346 ], [ 0, %69 ], [ 0, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %69, %.split.us351, %124, %120, %79, %91, %87
+  %.7224 = phi i32 [ -1, %87 ], [ -1, %91 ], [ -1, %79 ], [ -1, %120 ], [ -1, %124 ], [ -1, %.split.us351 ], [ 0, %69 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -4297,21 +4297,21 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   br i1 %131, label %144, label %.preheader
 
 .preheader:                                       ; preds = %129
-  %.not361 = icmp eq i64 %4, 0
-  %.not362 = icmp eq i32 %130, 0
-  %or.cond443 = or i1 %.not361, %.not362
-  br i1 %or.cond443, label %.thread, label %.lr.ph338.us
+  %.not366 = icmp eq i64 %4, 0
+  %.not367 = icmp eq i32 %130, 0
+  %or.cond447 = or i1 %.not366, %.not367
+  br i1 %or.cond447, label %.thread, label %.lr.ph343.us
 
-.lr.ph338.us:                                     ; preds = %.preheader, %._crit_edge339.us
-  %.3340.us = phi i64 [ %143, %._crit_edge339.us ], [ 0, %.preheader ]
-  %132 = mul i64 %.3340.us, %9
+.lr.ph343.us:                                     ; preds = %.preheader, %._crit_edge344.us
+  %.3345.us = phi i64 [ %143, %._crit_edge344.us ], [ 0, %.preheader ]
+  %132 = mul i64 %.3345.us, %9
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 %132
   br label %134
 
-134:                                              ; preds = %.lr.ph338.us, %141
-  %.0216336.us = phi i32 [ 0, %.lr.ph338.us ], [ %142, %141 ]
-  %135 = tail call i64 @H5Tget_member_offset(i64 noundef %2, i32 noundef %.0216336.us) #16
-  %136 = tail call i64 @H5Tget_member_type(i64 noundef %2, i32 noundef %.0216336.us) #16
+134:                                              ; preds = %.lr.ph343.us, %141
+  %.0216341.us = phi i32 [ 0, %.lr.ph343.us ], [ %142, %141 ]
+  %135 = tail call i64 @H5Tget_member_offset(i64 noundef %2, i32 noundef %.0216341.us) #16
+  %136 = tail call i64 @H5Tget_member_type(i64 noundef %2, i32 noundef %.0216341.us) #16
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 %135
   %138 = tail call i32 @render_bin_output(ptr noundef %0, i64 noundef %1, i64 noundef %136, ptr noundef %137, i64 noundef 1)
   %139 = icmp sgt i32 %138, -1
@@ -4319,14 +4319,14 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   br i1 %139, label %141, label %.split.us
 
 141:                                              ; preds = %134
-  %142 = add nuw i32 %.0216336.us, 1
-  %exitcond381.not = icmp eq i32 %142, %130
-  br i1 %exitcond381.not, label %._crit_edge339.us, label %134, !llvm.loop !67
+  %142 = add nuw i32 %.0216341.us, 1
+  %exitcond386.not = icmp eq i32 %142, %130
+  br i1 %exitcond386.not, label %._crit_edge344.us, label %134, !llvm.loop !67
 
-._crit_edge339.us:                                ; preds = %141
-  %143 = add nuw i64 %.3340.us, 1
-  %exitcond382.not = icmp eq i64 %143, %4
-  br i1 %exitcond382.not, label %.thread, label %.lr.ph338.us, !llvm.loop !68
+._crit_edge344.us:                                ; preds = %141
+  %143 = add nuw i64 %.3345.us, 1
+  %exitcond387.not = icmp eq i64 %143, %4
+  br i1 %exitcond387.not, label %.thread, label %.lr.ph343.us, !llvm.loop !68
 
 144:                                              ; preds = %129
   %145 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
@@ -4387,25 +4387,25 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %178 = call i32 @H5Tget_array_dims2(i64 noundef %2, ptr noundef nonnull %7) #16
   %179 = add i32 %177, -1
   %or.cond16 = icmp ult i32 %179, 32
-  br i1 %or.cond16, label %.lr.ph332.preheader, label %183
+  br i1 %or.cond16, label %.lr.ph337.preheader, label %183
 
-.lr.ph332.preheader:                              ; preds = %175
+.lr.ph337.preheader:                              ; preds = %175
   %wide.trip.count = zext nneg i32 %177 to i64
-  br label %.lr.ph332
+  br label %.lr.ph337
 
-.preheader316:                                    ; preds = %.lr.ph332
-  %.not360 = icmp eq i64 %4, 0
-  br i1 %.not360, label %._crit_edge335, label %.lr.ph334
+.preheader321:                                    ; preds = %.lr.ph337
+  %.not365 = icmp eq i64 %4, 0
+  br i1 %.not365, label %._crit_edge340, label %.lr.ph339
 
-.lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph332
-  %indvars.iv = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next, %.lr.ph332 ]
-  %.0209331 = phi i64 [ 1, %.lr.ph332.preheader ], [ %182, %.lr.ph332 ]
+.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
+  %indvars.iv = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next, %.lr.ph337 ]
+  %.0209336 = phi i64 [ 1, %.lr.ph337.preheader ], [ %182, %.lr.ph337 ]
   %180 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %181 = load i64, ptr %180, align 8, !tbaa !7
-  %182 = mul i64 %181, %.0209331
+  %182 = mul i64 %181, %.0209336
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond379.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond379.not, label %.preheader316, label %.lr.ph332, !llvm.loop !69
+  %exitcond384.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond384.not, label %.preheader321, label %.lr.ph337, !llvm.loop !69
 
 183:                                              ; preds = %175
   %184 = call i32 @H5Tclose(i64 noundef %176) #16
@@ -4434,20 +4434,20 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc285 = call i32 @fputc(i32 10, ptr %199)
   br label %224
 
-200:                                              ; preds = %.lr.ph334
-  %201 = add nuw i64 %.4333, 1
-  %exitcond380.not = icmp eq i64 %201, %4
-  br i1 %exitcond380.not, label %._crit_edge335, label %.lr.ph334, !llvm.loop !70
+200:                                              ; preds = %.lr.ph339
+  %201 = add nuw i64 %.4338, 1
+  %exitcond385.not = icmp eq i64 %201, %4
+  br i1 %exitcond385.not, label %._crit_edge340, label %.lr.ph339, !llvm.loop !70
 
-.lr.ph334:                                        ; preds = %.preheader316, %200
-  %.4333 = phi i64 [ %201, %200 ], [ 0, %.preheader316 ]
-  %202 = mul i64 %.4333, %9
+.lr.ph339:                                        ; preds = %.preheader321, %200
+  %.4338 = phi i64 [ %201, %200 ], [ 0, %.preheader321 ]
+  %202 = mul i64 %.4338, %9
   %203 = getelementptr inbounds nuw i8, ptr %3, i64 %202
   %204 = call i32 @render_bin_output(ptr noundef %0, i64 noundef %1, i64 noundef %176, ptr noundef %203, i64 noundef %182)
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %206, label %200
 
-206:                                              ; preds = %.lr.ph334
+206:                                              ; preds = %.lr.ph339
   %207 = call i32 @H5Tclose(i64 noundef %176) #16
   %208 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %209 = icmp sgt i32 %208, 0
@@ -4474,28 +4474,28 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc286 = call i32 @fputc(i32 10, ptr %222)
   br label %224
 
-._crit_edge335:                                   ; preds = %200, %.preheader316
+._crit_edge340:                                   ; preds = %200, %.preheader321
   %223 = call i32 @H5Tclose(i64 noundef %176) #16
   br label %224
 
-224:                                              ; preds = %206, %219, %215, %183, %196, %192, %._crit_edge335
-  %.19 = phi i32 [ 0, %._crit_edge335 ], [ -1, %192 ], [ -1, %196 ], [ -1, %183 ], [ -1, %215 ], [ -1, %219 ], [ -1, %206 ]
+224:                                              ; preds = %206, %219, %215, %183, %196, %192, %._crit_edge340
+  %.19 = phi i32 [ 0, %._crit_edge340 ], [ -1, %192 ], [ -1, %196 ], [ -1, %183 ], [ -1, %215 ], [ -1, %219 ], [ -1, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 225:                                              ; preds = %46
   %226 = tail call i64 @H5Tget_super(i64 noundef %2) #16
-  %.not359 = icmp eq i64 %4, 0
-  br i1 %.not359, label %._crit_edge329, label %.lr.ph328
+  %.not364 = icmp eq i64 %4, 0
+  br i1 %.not364, label %._crit_edge334, label %.lr.ph333
 
-227:                                              ; preds = %.lr.ph328
-  %228 = add nuw i64 %.5326, 1
-  %exitcond377.not = icmp eq i64 %228, %4
-  br i1 %exitcond377.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !71
+227:                                              ; preds = %.lr.ph333
+  %228 = add nuw i64 %.5331, 1
+  %exitcond382.not = icmp eq i64 %228, %4
+  br i1 %exitcond382.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !71
 
-.lr.ph328:                                        ; preds = %225, %227
-  %.5326 = phi i64 [ %228, %227 ], [ 0, %225 ]
-  %229 = mul i64 %.5326, %9
+.lr.ph333:                                        ; preds = %225, %227
+  %.5331 = phi i64 [ %228, %227 ], [ 0, %225 ]
+  %229 = mul i64 %.5331, %9
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 %229
   %231 = load i64, ptr %230, align 8, !tbaa !72
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
@@ -4504,7 +4504,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %236, label %227
 
-236:                                              ; preds = %.lr.ph328
+236:                                              ; preds = %.lr.ph333
   %237 = tail call i32 @H5Tclose(i64 noundef %226) #16
   %238 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %239 = icmp sgt i32 %238, 0
@@ -4531,7 +4531,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc284 = tail call i32 @fputc(i32 10, ptr %252)
   br label %.thread
 
-._crit_edge329:                                   ; preds = %227, %225
+._crit_edge334:                                   ; preds = %227, %225
   %253 = tail call i32 @H5Tclose(i64 noundef %226) #16
   br label %.thread
 
@@ -4566,7 +4566,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 269:                                              ; preds = %267
   %270 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %272, label %.loopexit318
+  br i1 %271, label %272, label %.loopexit323
 
 272:                                              ; preds = %269
   %273 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !7
@@ -4580,30 +4580,30 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %278 = load i64, ptr @H5E_tools_g, align 8, !tbaa !7
   %279 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !7
   %280 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %273, ptr noundef nonnull @.str.47, ptr noundef nonnull @__func__.render_bin_output, i32 noundef 1949, i64 noundef %275, i64 noundef %278, i64 noundef %279, ptr noundef nonnull @.str.100) #16
-  br label %.loopexit318
+  br label %.loopexit323
 
 281:                                              ; preds = %272
   %282 = load ptr, ptr @stderr, align 8, !tbaa !9
   %283 = tail call i64 @fwrite(ptr nonnull @.str.100, i64 22, i64 1, ptr %282) #17
   %284 = load ptr, ptr @stderr, align 8, !tbaa !9
   %fputc283 = tail call i32 @fputc(i32 10, ptr %284)
-  br label %.loopexit318
+  br label %.loopexit323
 
 285:                                              ; preds = %267
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  %.not358 = icmp eq i64 %4, 0
-  br i1 %.not358, label %.loopexit318, label %.lr.ph325
+  %.not363 = icmp eq i64 %4, 0
+  br i1 %.not363, label %.loopexit323, label %.lr.ph330
 
-.lr.ph325:                                        ; preds = %285, %351
-  %.6323 = phi i64 [ %352, %351 ], [ 0, %285 ]
-  %286 = mul i64 %.6323, %9
+.lr.ph330:                                        ; preds = %285, %351
+  %.6328 = phi i64 [ %352, %351 ], [ 0, %285 ]
+  %286 = mul i64 %.6328, %9
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 %286
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr align 1 %287, i64 %9, i1 false)
   %288 = call i64 @H5Ropen_object(ptr noundef nonnull %8, i64 noundef 0, i64 noundef 0) #16
   %289 = icmp slt i64 %288, 0
   br i1 %289, label %290, label %306
 
-290:                                              ; preds = %.lr.ph325
+290:                                              ; preds = %.lr.ph330
   %291 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %293, label %351
@@ -4629,7 +4629,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %fputc282 = call i32 @fputc(i32 10, ptr %305)
   br label %351
 
-306:                                              ; preds = %.lr.ph325
+306:                                              ; preds = %.lr.ph330
   %307 = call i64 @H5Ropen_region(ptr noundef nonnull %8, i64 noundef 0, i64 noundef 0) #16
   %308 = icmp sgt i64 %307, -1
   br i1 %308, label %309, label %349
@@ -4711,11 +4711,11 @@ h5tools_is_zero.exit:                             ; preds = %321
   br label %351
 
 351:                                              ; preds = %349, %298, %302, %290
-  %352 = add nuw i64 %.6323, 1
-  %exitcond376.not = icmp eq i64 %352, %4
-  br i1 %exitcond376.not, label %.loopexit318, label %.lr.ph325, !llvm.loop !76
+  %352 = add nuw i64 %.6328, 1
+  %exitcond381.not = icmp eq i64 %352, %4
+  br i1 %exitcond381.not, label %.loopexit323, label %.lr.ph330, !llvm.loop !76
 
-.loopexit318:                                     ; preds = %351, %285, %269, %281, %277
+.loopexit323:                                     ; preds = %351, %285, %269, %281, %277
   %.26 = phi i32 [ -1, %277 ], [ -1, %281 ], [ -1, %269 ], [ 0, %285 ], [ 0, %351 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
@@ -4757,23 +4757,23 @@ h5tools_is_zero.exit:                             ; preds = %321
 
 375:                                              ; preds = %46
   %376 = tail call i64 @H5Tget_super(i64 noundef %2) #16
-  %.not357 = icmp eq i64 %4, 0
-  br i1 %.not357, label %._crit_edge, label %.lr.ph322
+  %.not362 = icmp eq i64 %4, 0
+  br i1 %.not362, label %._crit_edge, label %.lr.ph327
 
-377:                                              ; preds = %.lr.ph322
-  %378 = add nuw i64 %.7321, 1
-  %exitcond375.not = icmp eq i64 %378, %4
-  br i1 %exitcond375.not, label %._crit_edge, label %.lr.ph322, !llvm.loop !77
+377:                                              ; preds = %.lr.ph327
+  %378 = add nuw i64 %.7326, 1
+  %exitcond380.not = icmp eq i64 %378, %4
+  br i1 %exitcond380.not, label %._crit_edge, label %.lr.ph327, !llvm.loop !77
 
-.lr.ph322:                                        ; preds = %375, %377
-  %.7321 = phi i64 [ %378, %377 ], [ 0, %375 ]
-  %379 = mul i64 %.7321, %9
+.lr.ph327:                                        ; preds = %375, %377
+  %.7326 = phi i64 [ %378, %377 ], [ 0, %375 ]
+  %379 = mul i64 %.7326, %9
   %380 = getelementptr inbounds nuw i8, ptr %3, i64 %379
   %381 = tail call i32 @render_bin_output(ptr noundef %0, i64 noundef %1, i64 noundef %376, ptr noundef %380, i64 noundef 2)
   %382 = icmp slt i32 %381, 0
   br i1 %382, label %383, label %377
 
-383:                                              ; preds = %.lr.ph322
+383:                                              ; preds = %.lr.ph327
   %384 = tail call i32 @H5Tclose(i64 noundef %376) #16
   %385 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
   %386 = icmp sgt i32 %385, 0
@@ -4805,17 +4805,17 @@ h5tools_is_zero.exit:                             ; preds = %321
   br label %.thread
 
 401:                                              ; preds = %46, %46
-  %.not356 = icmp eq i64 %4, 0
-  br i1 %.not356, label %.thread, label %.lr.ph
+  %.not361 = icmp eq i64 %4, 0
+  br i1 %.not361, label %.thread, label %.lr.ph
 
 402:                                              ; preds = %.lr.ph
-  %403 = add nuw i64 %.8320, 1
+  %403 = add nuw i64 %.8325, 1
   %exitcond.not = icmp eq i64 %403, %4
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %401, %402
-  %.8320 = phi i64 [ %403, %402 ], [ 0, %401 ]
-  %404 = mul i64 %.8320, %9
+  %.8325 = phi i64 [ %403, %402 ], [ 0, %401 ]
+  %404 = mul i64 %.8325, %9
   %405 = getelementptr inbounds nuw i8, ptr %3, i64 %404
   %406 = tail call i64 @fwrite(ptr noundef %405, i64 noundef 1, i64 noundef %9, ptr noundef %0)
   %.not = icmp eq i64 %9, %406
@@ -4873,9 +4873,9 @@ h5tools_is_zero.exit:                             ; preds = %321
   %fputc297 = tail call i32 @fputc(i32 10, ptr %438)
   br label %.thread
 
-.thread:                                          ; preds = %402, %._crit_edge339.us, %66, %401, %.preheader, %47, %50, %62, %58, %167, %171, %.split.us, %._crit_edge, %392, %396, %383, %.loopexit318, %._crit_edge329, %245, %249, %236, %224, %152, %156, %144, %.loopexit, %265, %361, %372, %11, %23, %19, %30, %42, %38, %407, %419, %415, %423, %435, %431
-  %.0 = phi i32 [ %.7224, %.loopexit ], [ %.19, %224 ], [ %.26, %.loopexit318 ], [ 0, %265 ], [ 0, %361 ], [ 0, %372 ], [ -1, %11 ], [ -1, %23 ], [ -1, %19 ], [ -1, %30 ], [ -1, %42 ], [ -1, %38 ], [ -1, %407 ], [ -1, %419 ], [ -1, %415 ], [ -1, %423 ], [ -1, %435 ], [ -1, %431 ], [ -1, %152 ], [ -1, %156 ], [ -1, %144 ], [ 0, %._crit_edge329 ], [ -1, %245 ], [ -1, %249 ], [ -1, %236 ], [ 0, %._crit_edge ], [ -1, %392 ], [ -1, %396 ], [ -1, %383 ], [ -1, %.split.us ], [ -1, %171 ], [ -1, %167 ], [ -1, %58 ], [ -1, %62 ], [ -1, %50 ], [ 0, %47 ], [ 0, %.preheader ], [ 0, %401 ], [ 0, %66 ], [ 0, %._crit_edge339.us ], [ 0, %402 ]
-  ret i32 %.0
+.thread:                                          ; preds = %402, %._crit_edge344.us, %66, %401, %.preheader, %47, %50, %62, %58, %167, %171, %.split.us, %265, %361, %372, %11, %23, %19, %30, %42, %38, %.loopexit, %144, %156, %152, %224, %236, %249, %245, %._crit_edge334, %.loopexit323, %383, %396, %392, %._crit_edge, %407, %419, %415, %423, %435, %431
+  %.1218 = phi i32 [ %.7224, %.loopexit ], [ %.19, %224 ], [ %.26, %.loopexit323 ], [ 0, %265 ], [ 0, %361 ], [ 0, %372 ], [ -1, %11 ], [ -1, %23 ], [ -1, %19 ], [ -1, %30 ], [ -1, %42 ], [ -1, %38 ], [ -1, %152 ], [ -1, %156 ], [ -1, %144 ], [ 0, %._crit_edge334 ], [ -1, %245 ], [ -1, %249 ], [ -1, %236 ], [ 0, %._crit_edge ], [ -1, %392 ], [ -1, %396 ], [ -1, %383 ], [ -1, %407 ], [ -1, %419 ], [ -1, %415 ], [ -1, %423 ], [ -1, %435 ], [ -1, %431 ], [ -1, %.split.us ], [ -1, %171 ], [ -1, %167 ], [ -1, %58 ], [ -1, %62 ], [ -1, %50 ], [ 0, %47 ], [ 0, %.preheader ], [ 0, %401 ], [ 0, %66 ], [ 0, %._crit_edge344.us ], [ 0, %402 ]
+  ret i32 %.1218
 }
 
 declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #1

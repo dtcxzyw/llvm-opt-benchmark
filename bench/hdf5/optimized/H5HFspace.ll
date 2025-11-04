@@ -130,10 +130,10 @@ define range(i32 -1, 1) i32 @H5HF__space_start(ptr noundef %0, i1 noundef zeroex
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
-44:                                               ; preds = %43, %2, %14, %24, %20
-  %.017 = phi i32 [ -1, %20 ], [ 0, %14 ], [ %.1, %43 ], [ 0, %24 ], [ 0, %2 ]
+44:                                               ; preds = %2, %14, %24, %20, %43
+  %.016 = phi i32 [ -1, %20 ], [ 0, %14 ], [ %.1, %43 ], [ 0, %24 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.017
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -607,9 +607,9 @@ define range(i32 -1, 1) i32 @H5HF__space_close(ptr noundef captures(none) %0) lo
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %43
 
-43:                                               ; preds = %42, %1, %9
-  %.014 = phi i32 [ %.1, %42 ], [ 0, %9 ], [ 0, %1 ]
-  ret i32 %.014
+43:                                               ; preds = %1, %9, %42
+  %.013 = phi i32 [ %.1, %42 ], [ 0, %9 ], [ 0, %1 ]
+  ret i32 %.013
 }
 
 declare i32 @H5FS_sect_stats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

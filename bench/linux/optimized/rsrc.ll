@@ -939,7 +939,7 @@ select.unfold.us:                                 ; preds = %.thread.us
   %45 = add i32 %44, 1
   store i32 %45, ptr %30, align 32
   %46 = icmp eq i64 %43, %14
-  br i1 %46, label %.split10.us, label %.thread.us, !llvm.loop !34
+  br i1 %46, label %.split11.us, label %.thread.us, !llvm.loop !34
 
 47:                                               ; preds = %25
   %48 = load ptr, ptr %6, align 32
@@ -1005,14 +1005,14 @@ select.unfold:                                    ; preds = %.thread, %73
   %84 = add i32 %83, 1
   store i32 %84, ptr %30, align 32
   %85 = icmp eq i64 %82, %14
-  br i1 %85, label %.split10.us, label %.split, !llvm.loop !34
+  br i1 %85, label %.split11.us, label %.split, !llvm.loop !34
 
-.split10.us:                                      ; preds = %select.unfold, %select.unfold.us
-  %.us-phi11 = phi i32 [ %45, %select.unfold.us ], [ %84, %select.unfold ]
+.split11.us:                                      ; preds = %select.unfold, %select.unfold.us
+  %.us-phi12 = phi i32 [ %45, %select.unfold.us ], [ %84, %select.unfold ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store i32 0, ptr %86, align 16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 1012
-  store i32 %.us-phi11, ptr %87, align 4
+  store i32 %.us-phi12, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %88, align 8
   br label %89
@@ -1022,8 +1022,8 @@ select.unfold:                                    ; preds = %.thread, %73
   call void @__io_sqe_files_unregister(ptr noundef %0)
   br label %89
 
-89:                                               ; preds = %.loopexit, %.split10.us, %47, %22, %13, %11, %9, %4
-  %90 = phi i32 [ %.ph, %.loopexit ], [ 0, %.split10.us ], [ -12, %47 ], [ -16, %4 ], [ -22, %9 ], [ -24, %11 ], [ -24, %13 ], [ %23, %22 ]
+89:                                               ; preds = %.loopexit, %.split11.us, %47, %22, %13, %11, %9, %4
+  %90 = phi i32 [ %.ph, %.loopexit ], [ 0, %.split11.us ], [ -12, %47 ], [ -16, %4 ], [ -22, %9 ], [ -24, %11 ], [ -24, %13 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %90
 }

@@ -1180,27 +1180,27 @@ _ZNK4ncnn3Mat5emptyEv.exit306:                    ; preds = %576
   %593 = load i32, ptr %592, align 4, !tbaa !51
   %594 = mul nsw i32 %591, %593
   store i32 %594, ptr %14, align 4, !tbaa !31
-  switch i32 %.0228, label %599 [
-    i32 8, label %.sink.split421
-    i32 4, label %595
-    i32 1, label %596
+  %595 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %596 = load i32, ptr %595, align 4, !tbaa !54
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %596)
+  switch i32 %.0228, label %.unreachabledefault [
+    i32 8, label %599
+    i32 4, label %597
+    i32 1, label %598
   ]
 
-595:                                              ; preds = %586
-  br label %.sink.split421
-
-596:                                              ; preds = %586
-  br label %.sink.split421
-
-.sink.split421:                                   ; preds = %586, %596, %595
-  %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %595 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, %596 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %586 ]
-  %597 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %598 = load i32, ptr %597, align 4, !tbaa !54
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %15, i32 %598)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink, ptr nonnull %2, ptr nonnull %12, ptr nonnull %14)
+597:                                              ; preds = %586
   br label %599
 
-599:                                              ; preds = %.sink.split421, %586
+598:                                              ; preds = %586
+  br label %599
+
+.unreachabledefault:                              ; preds = %586
+  unreachable
+
+599:                                              ; preds = %586, %597, %598
+  %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %597 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, %598 ], [ @_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %586 ]
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull %_ZNK4ncnn15Reshape_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink, ptr nonnull %2, ptr nonnull %12, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK4ncnn3Mat5emptyEv.exit306.thread
 

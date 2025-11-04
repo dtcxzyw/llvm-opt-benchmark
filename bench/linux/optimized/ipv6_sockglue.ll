@@ -1590,7 +1590,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 16
   %23 = tail call zeroext i1 @sockopt_ns_capable(ptr noundef %22, i32 noundef 13) #13
-  br i1 %23, label %24, label %.thread13
+  br i1 %23, label %24, label %.thread14
 
 24:                                               ; preds = %18, %15
   %25 = icmp sgt i32 %4, 0
@@ -1598,19 +1598,19 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
 
 26:                                               ; preds = %24
   %27 = icmp eq ptr %2, null
-  br i1 %27, label %.thread13, label %28
+  br i1 %27, label %.thread14, label %28
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %4 to i64
   %30 = icmp eq i32 %4, 1
-  br i1 %30, label %.thread13, label %31
+  br i1 %30, label %.thread14, label %31
 
 31:                                               ; preds = %28
   %32 = and i32 %4, 7
   %33 = icmp ne i32 %32, 0
   %34 = icmp samesign ugt i32 %4, 2040
   %35 = or i1 %34, %33
-  br i1 %35, label %.thread13, label %36
+  br i1 %35, label %.thread14, label %36
 
 36:                                               ; preds = %31
   %37 = tail call ptr @llvm.returnaddress(i32 0)
@@ -1646,7 +1646,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %52 = phi ptr [ %39, %50 ], [ inttoptr (i64 -12 to ptr), %36 ], [ inttoptr (i64 -14 to ptr), %49 ]
   %53 = ptrtoint ptr %52 to i64
   %54 = trunc i64 %53 to i32
-  br label %.thread13
+  br label %.thread14
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 1
@@ -1658,7 +1658,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
 
 60:                                               ; preds = %55
   tail call void @kfree(ptr noundef nonnull %39) #13
-  br label %.thread13
+  br label %.thread14
 
 61:                                               ; preds = %55, %24
   %62 = phi ptr [ %39, %55 ], [ null, %24 ]
@@ -1672,7 +1672,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
 67:                                               ; preds = %61
   %68 = ptrtoint ptr %65 to i64
   %69 = trunc i64 %68 to i32
-  br label %.thread13
+  br label %.thread14
 
 70:                                               ; preds = %61
   %71 = icmp ne ptr %65, null
@@ -1689,11 +1689,11 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 4
-  br i1 %80, label %81, label %.thread11
+  br i1 %80, label %81, label %.thread12
 
 81:                                               ; preds = %77
   %82 = tail call zeroext i1 @seg6_validate_srh(ptr noundef nonnull %75, i32 noundef %4, i1 noundef zeroext false) #13
-  br i1 %82, label %83, label %.thread11
+  br i1 %82, label %83, label %.thread12
 
 83:                                               ; preds = %81, %73, %70
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -1757,9 +1757,9 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %127 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %126, ptr null, ptr nonnull elementtype(ptr) %126) #13, !srcloc !15
   tail call void @dst_release(ptr noundef %127) #13
   %128 = icmp eq ptr %123, null
-  br i1 %128, label %.thread13, label %.thread11
+  br i1 %128, label %.thread14, label %.thread12
 
-.thread11:                                        ; preds = %81, %77, %120
+.thread12:                                        ; preds = %81, %77, %120
   %129 = phi i32 [ 0, %120 ], [ -22, %77 ], [ -22, %81 ]
   %130 = phi ptr [ %123, %120 ], [ %65, %77 ], [ %65, %81 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -1770,21 +1770,21 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %135 = icmp eq i32 %134, 1
   br i1 %135, label %139, label %136
 
-136:                                              ; preds = %.thread11
+136:                                              ; preds = %.thread12
   %137 = icmp sgt i32 %134, 0
-  br i1 %137, label %.thread13, label %138, !prof !10
+  br i1 %137, label %.thread14, label %138, !prof !10
 
 138:                                              ; preds = %136
   tail call void @refcount_warn_saturate(ptr noundef nonnull %130, i32 noundef 3) #13
-  br label %.thread13
+  br label %.thread14
 
-139:                                              ; preds = %.thread11
+139:                                              ; preds = %.thread12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 48
   tail call void @kvfree_call_rcu(ptr noundef nonnull %140, ptr noundef nonnull %130) #13
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %136, %138, %139, %120, %67, %60, %.thread, %31, %28, %26, %18
+.thread14:                                        ; preds = %136, %138, %139, %120, %67, %60, %.thread, %31, %28, %26, %18
   %141 = phi i32 [ %54, %.thread ], [ -22, %60 ], [ %69, %67 ], [ -1, %18 ], [ -22, %26 ], [ -22, %31 ], [ -22, %28 ], [ 0, %120 ], [ %129, %139 ], [ %129, %138 ], [ %129, %136 ]
   ret i32 %141
 }

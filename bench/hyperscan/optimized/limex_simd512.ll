@@ -8679,9 +8679,9 @@ define internal fastcc void @nfaExecLimEx512_Rev_Stream(ptr noundef %0, ptr noun
   %.sroa.7.0..sroa_idx345 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %.sroa.4384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 224
   br label %49
 
@@ -8899,11 +8899,11 @@ diff512.exit:                                     ; preds = %185
   br i1 %.not473, label %193, label %diff512.exit.thread
 
 193:                                              ; preds = %diff512.exit
-  %.sroa.0383.0.copyload = load <4 x i64>, ptr %47, align 64
+  %.sroa.0383.0.copyload = load <4 x i64>, ptr %46, align 64
   %.sroa.4384.0.copyload = load <4 x i64>, ptr %.sroa.4384.0..sroa_idx, align 32
   %194 = or <4 x i64> %.sroa.0383.0.copyload, %.sroa.0167.6
   %195 = or <4 x i64> %.sroa.4384.0.copyload, %.sroa.25.6
-  %196 = load ptr, ptr %48, align 8
+  %196 = load ptr, ptr %47, align 8
   %.not54.i = icmp eq ptr %196, null
   br i1 %.not54.i, label %processExceptional512.exit.thread, label %197
 
@@ -9078,9 +9078,9 @@ limexRunReports.exit.i97:                         ; preds = %245, %239
 273:                                              ; preds = %270
   store <4 x i64> %168, ptr %42, align 64
   store <4 x i64> %169, ptr %.sroa.4392.0..sroa_idx, align 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %47, ptr noundef nonnull align 64 dereferenceable(64) %43, i64 64, i1 false)
-  store ptr %.sroa.4369.6, ptr %48, align 8
-  store i8 0, ptr %46, align 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %46, ptr noundef nonnull align 64 dereferenceable(64) %43, i64 64, i1 false)
+  store ptr %.sroa.4369.6, ptr %47, align 8
+  store i8 0, ptr %48, align 64
   br label %processExceptional512.exit.thread447
 
 processExceptional512.exit.thread447:             ; preds = %270, %273

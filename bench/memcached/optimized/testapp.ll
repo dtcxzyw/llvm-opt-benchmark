@@ -1796,8 +1796,8 @@ define internal range(i32 0, 3) i32 @test_issue_101() #0 {
 
 .preheader:                                       ; preds = %5, %25
   %15 = phi i1 [ false, %25 ], [ true, %5 ]
-  %indvars.iv65.sroa.phi = phi ptr [ %.sroa.5, %25 ], [ %.sroa.0, %5 ]
-  %16 = load ptr, ptr %indvars.iv65.sroa.phi, align 8, !tbaa !35
+  %indvars.iv66.sroa.phi = phi ptr [ %.sroa.5, %25 ], [ %.sroa.0, %5 ]
+  %16 = load ptr, ptr %indvars.iv66.sroa.phi, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   br label %18
 
@@ -1893,8 +1893,8 @@ define internal range(i32 0, 3) i32 @test_issue_101() #0 {
 
 52:                                               ; preds = %.loopexit, %62
   %53 = phi i1 [ true, %.loopexit ], [ false, %62 ]
-  %indvars.iv68.sroa.phi = phi ptr [ %.sroa.0, %.loopexit ], [ %.sroa.5, %62 ]
-  %54 = load ptr, ptr %indvars.iv68.sroa.phi, align 8, !tbaa !35
+  %indvars.iv69.sroa.phi = phi ptr [ %.sroa.0, %.loopexit ], [ %.sroa.5, %62 ]
+  %54 = load ptr, ptr %indvars.iv69.sroa.phi, align 8, !tbaa !35
   %55 = icmp eq ptr %54, null
   br i1 %55, label %62, label %56
 
@@ -1909,7 +1909,7 @@ define internal range(i32 0, 3) i32 @test_issue_101() #0 {
 
 61:                                               ; preds = %59, %56
   call void @free(ptr noundef nonnull %54) #21
-  store ptr null, ptr %indvars.iv68.sroa.phi, align 8, !tbaa !35
+  store ptr null, ptr %indvars.iv69.sroa.phi, align 8, !tbaa !35
   br label %62
 
 62:                                               ; preds = %52, %61

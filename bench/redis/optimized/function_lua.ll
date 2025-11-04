@@ -142,7 +142,7 @@ define internal i32 @luaRegisterFunction(ptr noundef %0) #0 {
   %7 = tail call i32 @lua_gettop(ptr noundef %0) #9
   %8 = add i32 %7, -3
   %or.cond.i = icmp ult i32 %8, -2
-  br i1 %or.cond.i, label %.thread108.i.i, label %9
+  br i1 %or.cond.i, label %.thread109.i.i, label %9
 
 9:                                                ; preds = %6
   %10 = icmp eq i32 %7, 1
@@ -151,19 +151,19 @@ define internal i32 @luaRegisterFunction(ptr noundef %0) #0 {
 11:                                               ; preds = %9
   %12 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #9
   %13 = icmp eq i32 %12, 5
-  br i1 %13, label %14, label %.thread108.i.i
+  br i1 %13, label %14, label %.thread109.i.i
 
 14:                                               ; preds = %11
   tail call void @lua_pushnil(ptr noundef %0) #9
   %15 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #9
-  %.not141.i.i = icmp eq i32 %15, 0
-  br i1 %.not141.i.i, label %.thread108.i.i, label %.lr.ph.i.i
+  %.not142.i.i = icmp eq i32 %15, 0
+  br i1 %.not142.i.i, label %.thread109.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %63
-  %.138145.i.i = phi ptr [ %.239.i.i, %63 ], [ null, %14 ]
-  %.141144.i.i = phi ptr [ %.242.i.i, %63 ], [ null, %14 ]
-  %.144143.i.i = phi ptr [ %.245.i.i, %63 ], [ null, %14 ]
-  %.064142.i.i = phi i64 [ %.165.i.i, %63 ], [ 0, %14 ]
+  %.138146.i.i = phi ptr [ %.239.i.i, %63 ], [ null, %14 ]
+  %.141145.i.i = phi ptr [ %.242.i.i, %63 ], [ null, %14 ]
+  %.144144.i.i = phi ptr [ %.245.i.i, %63 ], [ null, %14 ]
+  %.065143.i.i = phi i64 [ %.166.i.i, %63 ], [ 0, %14 ]
   %16 = tail call i32 @lua_isstring(ptr noundef %0, i32 noundef -2) #9
   %.not53.i.i = icmp eq i32 %16, 0
   br i1 %.not53.i.i, label %.thread.i.i, label %17
@@ -177,7 +177,7 @@ define internal i32 @luaRegisterFunction(ptr noundef %0) #0 {
 20:                                               ; preds = %17
   %21 = tail call ptr @luaGetStringSds(ptr noundef %0, i32 noundef -1) #9
   %.not55.i.i = icmp eq ptr %21, null
-  br i1 %.not55.i.i, label %.thread78.i.i, label %62
+  br i1 %.not55.i.i, label %.thread79.i.i, label %62
 
 22:                                               ; preds = %17
   %23 = tail call i32 @strcasecmp(ptr noundef %18, ptr noundef nonnull @.str.17) #10
@@ -272,72 +272,72 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %62
 
 62:                                               ; preds = %luaRegisterFunctionReadFlags.exit.i.i, %24, %20
-  %.266.i.i = phi i64 [ %.064142.i.i, %20 ], [ %.064142.i.i, %24 ], [ %.025.lcssa.i.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
-  %.346.i.i = phi ptr [ %21, %20 ], [ %.144143.i.i, %24 ], [ %.144143.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
-  %.3.i.i = phi ptr [ %.141144.i.i, %20 ], [ %25, %24 ], [ %.141144.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %.267.i.i = phi i64 [ %.065143.i.i, %20 ], [ %.065143.i.i, %24 ], [ %.025.lcssa.i.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %.346.i.i = phi ptr [ %21, %20 ], [ %.144144.i.i, %24 ], [ %.144144.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
+  %.3.i.i = phi ptr [ %.141145.i.i, %20 ], [ %25, %24 ], [ %.141145.i.i, %luaRegisterFunctionReadFlags.exit.i.i ]
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
   br label %63
 
 63:                                               ; preds = %62, %31
-  %.165.i.i = phi i64 [ %.266.i.i, %62 ], [ %.064142.i.i, %31 ]
-  %.245.i.i = phi ptr [ %.346.i.i, %62 ], [ %.144143.i.i, %31 ]
-  %.242.i.i = phi ptr [ %.3.i.i, %62 ], [ %.141144.i.i, %31 ]
-  %.239.i.i = phi ptr [ %.138145.i.i, %62 ], [ %33, %31 ]
+  %.166.i.i = phi i64 [ %.267.i.i, %62 ], [ %.065143.i.i, %31 ]
+  %.245.i.i = phi ptr [ %.346.i.i, %62 ], [ %.144144.i.i, %31 ]
+  %.242.i.i = phi ptr [ %.3.i.i, %62 ], [ %.141145.i.i, %31 ]
+  %.239.i.i = phi ptr [ %.138146.i.i, %62 ], [ %33, %31 ]
   %64 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #9
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %63
   %.not51.i.i = icmp eq ptr %.245.i.i, null
-  br i1 %.not51.i.i, label %.thread78.i.i, label %65
+  br i1 %.not51.i.i, label %.thread79.i.i, label %65
 
 65:                                               ; preds = %._crit_edge.i.i
   %.not52.i.i = icmp eq ptr %.239.i.i, null
-  br i1 %.not52.i.i, label %.thread87.i.i, label %luaRegisterFunctionReadArgs.exit
+  br i1 %.not52.i.i, label %.thread88.i.i, label %luaRegisterFunctionReadArgs.exit
 
 .thread.sink.split.i.i:                           ; preds = %44, %.lr.ph47.i.i.i, %49
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %36, %34, %28, %24, %.lr.ph.i.i, %.thread.sink.split.i.i
-  %.040.i.i = phi ptr [ %.141144.i.i, %.thread.sink.split.i.i ], [ null, %24 ], [ %.141144.i.i, %28 ], [ %.141144.i.i, %36 ], [ %.141144.i.i, %34 ], [ %.141144.i.i, %.lr.ph.i.i ]
+  %.040.i.i = phi ptr [ %.141145.i.i, %.thread.sink.split.i.i ], [ null, %24 ], [ %.141145.i.i, %28 ], [ %.141145.i.i, %36 ], [ %.141145.i.i, %34 ], [ %.141145.i.i, %.lr.ph.i.i ]
   %.036.i.i = phi ptr [ @.str.23, %.thread.sink.split.i.i ], [ @.str.18, %24 ], [ @.str.20, %28 ], [ @.str.22, %36 ], [ @.str.24, %34 ], [ @.str.14, %.lr.ph.i.i ]
-  %.not61.i.i = icmp eq ptr %.144143.i.i, null
-  br i1 %.not61.i.i, label %.thread78.i.i, label %.thread87.i.i
+  %.not61.i.i = icmp eq ptr %.144144.i.i, null
+  br i1 %.not61.i.i, label %.thread79.i.i, label %.thread88.i.i
 
-.thread87.i.i:                                    ; preds = %.thread.i.i, %65
-  %.144133.i.i = phi ptr [ %.144143.i.i, %.thread.i.i ], [ %.245.i.i, %65 ]
-  %.03696.i.i = phi ptr [ %.036.i.i, %.thread.i.i ], [ @.str.26, %65 ]
-  %.03795.i.i = phi ptr [ %.138145.i.i, %.thread.i.i ], [ null, %65 ]
-  %.04094.i.i = phi ptr [ %.040.i.i, %.thread.i.i ], [ %.242.i.i, %65 ]
-  tail call void @sdsfree(ptr noundef nonnull %.144133.i.i) #9
-  br label %.thread78.i.i
+.thread88.i.i:                                    ; preds = %.thread.i.i, %65
+  %.144134.i.i = phi ptr [ %.144144.i.i, %.thread.i.i ], [ %.245.i.i, %65 ]
+  %.03697.i.i = phi ptr [ %.036.i.i, %.thread.i.i ], [ @.str.26, %65 ]
+  %.03796.i.i = phi ptr [ %.138146.i.i, %.thread.i.i ], [ null, %65 ]
+  %.04095.i.i = phi ptr [ %.040.i.i, %.thread.i.i ], [ %.242.i.i, %65 ]
+  tail call void @sdsfree(ptr noundef nonnull %.144134.i.i) #9
+  br label %.thread79.i.i
 
-.thread78.i.i:                                    ; preds = %20, %.thread87.i.i, %.thread.i.i, %._crit_edge.i.i
-  %.03686.i.i = phi ptr [ %.03696.i.i, %.thread87.i.i ], [ %.036.i.i, %.thread.i.i ], [ @.str.25, %._crit_edge.i.i ], [ @.str.16, %20 ]
-  %.03785.i.i = phi ptr [ %.03795.i.i, %.thread87.i.i ], [ %.138145.i.i, %.thread.i.i ], [ %.239.i.i, %._crit_edge.i.i ], [ %.138145.i.i, %20 ]
-  %.04084.i.i = phi ptr [ %.04094.i.i, %.thread87.i.i ], [ %.040.i.i, %.thread.i.i ], [ %.242.i.i, %._crit_edge.i.i ], [ %.141144.i.i, %20 ]
-  %.not62.i.i = icmp eq ptr %.04084.i.i, null
+.thread79.i.i:                                    ; preds = %20, %.thread88.i.i, %.thread.i.i, %._crit_edge.i.i
+  %.03687.i.i = phi ptr [ %.03697.i.i, %.thread88.i.i ], [ %.036.i.i, %.thread.i.i ], [ @.str.25, %._crit_edge.i.i ], [ @.str.16, %20 ]
+  %.03786.i.i = phi ptr [ %.03796.i.i, %.thread88.i.i ], [ %.138146.i.i, %.thread.i.i ], [ %.239.i.i, %._crit_edge.i.i ], [ %.138146.i.i, %20 ]
+  %.04085.i.i = phi ptr [ %.04095.i.i, %.thread88.i.i ], [ %.040.i.i, %.thread.i.i ], [ %.242.i.i, %._crit_edge.i.i ], [ %.141145.i.i, %20 ]
+  %.not62.i.i = icmp eq ptr %.04085.i.i, null
   br i1 %.not62.i.i, label %67, label %66
 
-66:                                               ; preds = %.thread78.i.i
-  tail call void @sdsfree(ptr noundef nonnull %.04084.i.i) #9
+66:                                               ; preds = %.thread79.i.i
+  tail call void @sdsfree(ptr noundef nonnull %.04085.i.i) #9
   br label %67
 
-67:                                               ; preds = %66, %.thread78.i.i
-  %.not63.i.i = icmp eq ptr %.03785.i.i, null
-  br i1 %.not63.i.i, label %.thread108.i.i, label %68
+67:                                               ; preds = %66, %.thread79.i.i
+  %.not63.i.i = icmp eq ptr %.03786.i.i, null
+  br i1 %.not63.i.i, label %.thread109.i.i, label %68
 
 68:                                               ; preds = %67
-  %69 = load i32, ptr %.03785.i.i, align 4, !tbaa !12
+  %69 = load i32, ptr %.03786.i.i, align 4, !tbaa !12
   tail call void @luaL_unref(ptr noundef %0, i32 noundef -10000, i32 noundef %69) #9
-  tail call void @zfree(ptr noundef nonnull %.03785.i.i) #9
-  br label %.thread108.i.i
+  tail call void @zfree(ptr noundef nonnull %.03786.i.i) #9
+  br label %.thread109.i.i
 
 70:                                               ; preds = %9
   %71 = tail call ptr @luaGetStringSds(ptr noundef %0, i32 noundef 1) #9
   %.not.i11.i = icmp eq ptr %71, null
-  br i1 %.not.i11.i, label %.thread108.i.i, label %72
+  br i1 %.not.i11.i, label %.thread109.i.i, label %72
 
 72:                                               ; preds = %70
   %73 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #9
@@ -352,10 +352,10 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
 
 78:                                               ; preds = %72
   tail call void @sdsfree(ptr noundef nonnull %71) #9
-  br label %.thread108.i.i
+  br label %.thread109.i.i
 
-.thread108.i.i:                                   ; preds = %70, %78, %11, %14, %67, %68, %6
-  %.str.12.sink = phi ptr [ @.str.12, %6 ], [ %.03686.i.i, %68 ], [ %.03686.i.i, %67 ], [ @.str.13, %11 ], [ @.str.25, %14 ], [ @.str.28, %78 ], [ @.str.27, %70 ]
+.thread109.i.i:                                   ; preds = %70, %78, %11, %14, %67, %68, %6
+  %.str.12.sink = phi ptr [ @.str.12, %6 ], [ %.03687.i.i, %68 ], [ %.03687.i.i, %67 ], [ @.str.13, %11 ], [ @.str.25, %14 ], [ @.str.28, %78 ], [ @.str.27, %70 ]
   tail call void @luaPushError(ptr noundef %0, ptr noundef %.str.12.sink) #9
   %79 = tail call i32 @luaError(ptr noundef %0) #9
   br label %89
@@ -364,7 +364,7 @@ luaRegisterFunctionReadArgs.exit:                 ; preds = %75, %65
   %.sroa.0.0 = phi ptr [ %71, %75 ], [ %.245.i.i, %65 ]
   %.sroa.7.0 = phi ptr [ null, %75 ], [ %.242.i.i, %65 ]
   %.sroa.11.0 = phi ptr [ %77, %75 ], [ %.239.i.i, %65 ]
-  %.sroa.16.0 = phi i64 [ 0, %75 ], [ %.165.i.i, %65 ]
+  %.sroa.16.0 = phi i64 [ 0, %75 ], [ %.166.i.i, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !22
   %80 = load ptr, ptr %3, align 8, !tbaa !23
@@ -397,8 +397,8 @@ luaRegisterFunctionArgsDispose.exit:              ; preds = %82, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %89
 
-89:                                               ; preds = %88, %.thread108.i.i, %4
-  %.0 = phi i32 [ %79, %.thread108.i.i ], [ %.1, %88 ], [ %5, %4 ]
+89:                                               ; preds = %88, %.thread109.i.i, %4
+  %.0 = phi i32 [ %79, %.thread109.i.i ], [ %.1, %88 ], [ %5, %4 ]
   ret i32 %.0
 }
 

@@ -327,7 +327,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %15, ptr %16, align 4
   %17 = icmp sgt i32 %15, -1
-  br i1 %17, label %18, label %.loopexit15
+  br i1 %17, label %18, label %.loopexit16
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -352,7 +352,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %34 = load i32, ptr @pid_max, align 4
   %35 = icmp slt i32 %32, %34
   %36 = select i1 %33, i1 %35, i1 false
-  br i1 %36, label %37, label %.loopexit14
+  br i1 %36, label %37, label %.loopexit15
 
 37:                                               ; preds = %26
   %38 = icmp eq i32 %32, 1
@@ -362,7 +362,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit14, label %43
+  br i1 %42, label %.loopexit15, label %43
 
 43:                                               ; preds = %39, %37
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 88
@@ -372,7 +372,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
 
 47:                                               ; preds = %43
   %48 = tail call zeroext i1 @ns_capable(ptr noundef %45, i32 noundef 21) #14
-  br i1 %48, label %49, label %.loopexit14
+  br i1 %48, label %49, label %.loopexit15
 
 49:                                               ; preds = %47, %43
   %50 = add nsw i64 %24, -1
@@ -428,7 +428,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %80 = select i1 %79, i32 -11, i32 %68
   %81 = sext i32 %80 to i64
   %.pre = trunc i64 %22 to i32
-  br label %.loopexit14
+  br label %.loopexit15
 
 82:                                               ; preds = %76
   %83 = getelementptr %struct.upid, ptr %19, i64 %22
@@ -439,14 +439,14 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %86 = load ptr, ptr %85, align 8
   %87 = add nsw i64 %22, -1
   %88 = icmp sgt i64 %22, 0
-  br i1 %88, label %21, label %.loopexit15, !llvm.loop !19
+  br i1 %88, label %21, label %.loopexit16, !llvm.loop !19
 
-.loopexit15:                                      ; preds = %82, %14
+.loopexit16:                                      ; preds = %82, %14
   %89 = phi i32 [ %15, %14 ], [ -1, %82 ]
   %90 = icmp eq ptr %0, @init_pid_ns
   br i1 %90, label %101, label %91
 
-91:                                               ; preds = %.loopexit15
+91:                                               ; preds = %.loopexit16
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %93 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %92, i32 1, ptr nonnull elementtype(i32) %92) #14, !srcloc !20
   %94 = icmp eq i32 %93, 0
@@ -463,7 +463,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   tail call void @refcount_warn_saturate(ptr noundef nonnull %92, i32 noundef %100) #14
   br label %101
 
-101:                                              ; preds = %99, %95, %.loopexit15
+101:                                              ; preds = %99, %95, %.loopexit16
   store volatile i32 1, ptr %12, align 8
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %102, align 8
@@ -485,7 +485,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %112 = zext i32 %107 to i64
   %113 = getelementptr %struct.upid, ptr %106, i64 %112
   %114 = icmp ult ptr %113, %106
-  br i1 %114, label %.loopexit13, label %.preheader
+  br i1 %114, label %.loopexit14, label %.preheader
 
 .preheader:                                       ; preds = %111, %.preheader
   %115 = phi ptr [ %125, %.preheader ], [ %113, %111 ]
@@ -501,18 +501,18 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   store i32 %124, ptr %122, align 8
   %125 = getelementptr i8, ptr %115, i64 -16
   %126 = icmp ult ptr %125, %106
-  br i1 %126, label %.loopexit13, label %.preheader, !llvm.loop !22
+  br i1 %126, label %.loopexit14, label %.preheader, !llvm.loop !22
 
-.loopexit13:                                      ; preds = %.preheader, %111
+.loopexit14:                                      ; preds = %.preheader, %111
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pidmap_lock) #14
   br label %155
 
 127:                                              ; preds = %101
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pidmap_lock) #14
   tail call void @put_pid_ns(ptr noundef %0) #14
-  br label %.loopexit14
+  br label %.loopexit15
 
-.loopexit14:                                      ; preds = %47, %39, %26, %78, %127
+.loopexit15:                                      ; preds = %47, %39, %26, %78, %127
   %128 = phi i32 [ %89, %127 ], [ %.pre, %78 ], [ %28, %26 ], [ %28, %39 ], [ %28, %47 ]
   %129 = phi i64 [ -12, %127 ], [ %81, %78 ], [ -1, %47 ], [ -22, %39 ], [ -22, %26 ]
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pidmap_lock) #14
@@ -521,7 +521,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %132 = icmp ugt i32 %130, %131
   br i1 %132, label %.loopexit, label %133
 
-133:                                              ; preds = %.loopexit14
+133:                                              ; preds = %.loopexit15
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 96
   br label %135
 
@@ -539,7 +539,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %146 = icmp ugt i32 %144, %145
   br i1 %146, label %.loopexit, label %135, !llvm.loop !23
 
-.loopexit:                                        ; preds = %135, %.loopexit14
+.loopexit:                                        ; preds = %135, %.loopexit15
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %148, -2147483648
@@ -557,8 +557,8 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %154 = inttoptr i64 %129 to ptr
   br label %155
 
-155:                                              ; preds = %152, %.loopexit13, %9, %3
-  %156 = phi ptr [ %154, %152 ], [ %12, %.loopexit13 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %9 ]
+155:                                              ; preds = %152, %.loopexit14, %9, %3
+  %156 = phi ptr [ %154, %152 ], [ %12, %.loopexit14 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -12 to ptr), %9 ]
   ret ptr %156
 }
 

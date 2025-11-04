@@ -855,7 +855,7 @@ H5B__node_dest.exit.thread:                       ; preds = %26, %38, %162, %H5B
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef writeonly captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef writeonly captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull captures(none) %9) unnamed_addr #0 {
   %11 = alloca %struct.H5B_cache_ud_t, align 8
   %12 = alloca [3 x double], align 16
   %13 = alloca %struct.H5B_cache_ud_t, align 8
@@ -894,8 +894,8 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %33 = load ptr, ptr %26, align 8, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 260
   %35 = load i32, ptr %34, align 4, !tbaa !25
-  %.not299 = icmp eq i32 %35, 0
-  br i1 %.not299, label %._crit_edge.thread, label %.lr.ph
+  %.not300 = icmp eq i32 %35, 0
+  br i1 %.not300, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %32
   store ptr %0, ptr %13, align 8, !tbaa !40
@@ -914,9 +914,9 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   br label %42
 
 42:                                               ; preds = %.lr.ph, %42
-  %.0262296 = phi i32 [ %35, %.lr.ph ], [ %..0262, %42 ]
-  %.0267295 = phi i32 [ 0, %.lr.ph ], [ %.0267., %42 ]
-  %43 = add i32 %.0262296, %.0267295
+  %.0262297 = phi i32 [ %35, %.lr.ph ], [ %..0262, %42 ]
+  %.0267296 = phi i32 [ 0, %.lr.ph ], [ %.0267., %42 ]
+  %43 = add i32 %.0262297, %.0267296
   %44 = lshr i32 %43, 1
   %45 = load ptr, ptr %39, align 8, !tbaa !46
   %46 = load ptr, ptr %40, align 8, !tbaa !36
@@ -932,8 +932,8 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 %55
   %57 = tail call i32 %45(ptr noundef %51, ptr noundef %6, ptr noundef %56) #6
   %58 = icmp slt i32 %57, 0
-  %.0267. = select i1 %58, i32 %.0267295, i32 %52
-  %..0262 = select i1 %58, i32 %44, i32 %.0262296
+  %.0267. = select i1 %58, i32 %.0267296, i32 %52
+  %..0262 = select i1 %58, i32 %44, i32 %.0262297
   %59 = icmp ult i32 %.0267., %..0262
   %60 = icmp ne i32 %57, 0
   %61 = and i1 %59, %60
@@ -1629,7 +1629,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %545 = load i64, ptr %461, align 8, !tbaa !51
   %546 = getelementptr inbounds nuw i8, ptr %544, i64 272
   store i64 %545, ptr %546, align 8, !tbaa !64
-  %.pre303 = load i32, ptr %34, align 4, !tbaa !25
+  %.pre304 = load i32, ptr %34, align 4, !tbaa !25
   br label %559
 
 .thread.i:                                        ; preds = %539, %527, %479, %464, %426
@@ -1653,7 +1653,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   br label %H5B__insert_child.exit
 
 559:                                              ; preds = %543, %412
-  %560 = phi i32 [ %.pre303, %543 ], [ %408, %412 ]
+  %560 = phi i32 [ %.pre304, %543 ], [ %408, %412 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %561 = icmp ult i32 %.1265, %560
@@ -1730,14 +1730,14 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %612 = load i64, ptr %611, align 8, !tbaa !55
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %586, ptr nonnull readonly align 1 %5, i64 %612, i1 false)
   %613 = icmp eq i32 %.0260, 2
-  %spec.select.i292 = select i1 %613, i32 %582, i32 %.2266
+  %spec.select.i293 = select i1 %613, i32 %582, i32 %.2266
   %614 = getelementptr inbounds nuw i8, ptr %.0257, i64 288
   %615 = load ptr, ptr %614, align 8, !tbaa !38
-  %616 = zext i32 %spec.select.i292 to i64
+  %616 = zext i32 %spec.select.i293 to i64
   %617 = getelementptr inbounds nuw i64, ptr %615, i64 %616
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
   %619 = load i32, ptr %587, align 4, !tbaa !25
-  %620 = sub i32 %619, %spec.select.i292
+  %620 = sub i32 %619, %spec.select.i293
   %621 = zext i32 %620 to i64
   %622 = shl nuw nsw i64 %621, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %618, ptr align 8 %617, i64 %622, i1 false)
@@ -1830,11 +1830,11 @@ H5B__insert_child.exit.thread:                    ; preds = %623, %565, %405, %3
   br label %672
 
 672:                                              ; preds = %10, %661, %668, %659
-  %.0269 = phi i32 [ -1, %668 ], [ %.3, %661 ], [ %.3, %659 ], [ -1, %10 ]
+  %.0259 = phi i32 [ -1, %668 ], [ %.3, %661 ], [ %.3, %659 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  ret i32 %.0269
+  ret i32 %.0259
 }
 
 declare i32 @H5AC_move_entry(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -2671,7 +2671,7 @@ define internal fastcc range(i32 -1, 6) i32 @H5B__remove_helper(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5B_cache_ud_t, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -2827,9 +2827,9 @@ define range(i32 -1, 1) i32 @H5B_delete(ptr noundef %0, ptr noundef %1, i64 noun
   br label %92
 
 92:                                               ; preds = %21, %32, %13, %88, %.loopexit61
-  %.047 = phi i32 [ -1, %88 ], [ %.1.ph, %.loopexit61 ], [ 0, %13 ], [ -1, %21 ], [ -1, %32 ]
+  %.044 = phi i32 [ -1, %88 ], [ %.1.ph, %.loopexit61 ], [ 0, %13 ], [ -1, %21 ], [ -1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.047
+  ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable

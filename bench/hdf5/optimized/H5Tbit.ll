@@ -221,9 +221,9 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %9 = trunc nuw i8 %8 to i1
   %not. = xor i1 %7, true
-  %.not107 = select i1 %not., i1 %9, i1 false
+  %.not102 = select i1 %not., i1 %9, i1 false
   %.not = icmp eq i64 %1, 0
-  %or.cond = or i1 %.not, %.not107
+  %or.cond = or i1 %.not, %.not102
   br i1 %or.cond, label %H5T__bit_set.exit, label %10, !prof !15
 
 10:                                               ; preds = %4
@@ -474,7 +474,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   store i8 %152, ptr %150, align 1, !tbaa !10
   br label %153
 
-153:                                              ; preds = %._crit_edge.thread.sink.split.i90, %._crit_edge.i86, %108, %._crit_edge.thread.sink.split.i74, %._crit_edge.i70, %65, %59
+153:                                              ; preds = %59, %65, %._crit_edge.i70, %._crit_edge.thread.sink.split.i74, %108, %._crit_edge.i86, %._crit_edge.thread.sink.split.i90
   %.4.ph = phi i32 [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %108 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ 0, %._crit_edge.i70 ], [ 0, %65 ], [ -1, %59 ]
   %154 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #8
   %155 = icmp slt i32 %154, 0
@@ -486,10 +486,10 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %159 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.3) #8
   br label %H5T__bit_set.exit
 
-H5T__bit_set.exit:                                ; preds = %50, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %12, %4, %156, %153
-  %.051 = phi i32 [ -1, %156 ], [ %.4.ph, %153 ], [ 0, %4 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.sink.split.i ], [ -1, %50 ]
+H5T__bit_set.exit:                                ; preds = %50, %12, %._crit_edge.i, %._crit_edge.thread.sink.split.i, %4, %156, %153
+  %.054 = phi i32 [ -1, %156 ], [ %.4.ph, %153 ], [ 0, %4 ], [ -1, %50 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.051
+  ret i32 %.054
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

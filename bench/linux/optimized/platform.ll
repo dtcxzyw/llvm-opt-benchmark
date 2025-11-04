@@ -402,7 +402,7 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread5, label %8
+  br i1 %7, label %.thread6, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -427,9 +427,9 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   %24 = add i32 %14, %23
   %25 = add nuw nsw i64 %13, 1
   %26 = icmp eq i64 %25, %11
-  br i1 %26, label %.thread5, label %12, !llvm.loop !5
+  br i1 %26, label %.thread6, label %12, !llvm.loop !5
 
-.thread5:                                         ; preds = %22, %2
+.thread6:                                         ; preds = %22, %2
   %27 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #15
   br label %61
 
@@ -448,7 +448,7 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
 
 37:                                               ; preds = %33
   %38 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #15
-  br label %.thread8
+  br label %.thread9
 
 39:                                               ; preds = %28
   br i1 %31, label %.thread, label %61
@@ -464,9 +464,9 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   %45 = trunc i64 %44 to i32
   %46 = tail call ptr @irq_get_irq_data(i32 noundef %45) #15
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread8, label %.thread6
+  br i1 %47, label %.thread9, label %.thread7
 
-.thread6:                                         ; preds = %43
+.thread7:                                         ; preds = %43
   %48 = load i64, ptr %29, align 8
   %49 = trunc i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -485,23 +485,23 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   store i32 %60, ptr %58, align 8
   br label %67
 
-61:                                               ; preds = %.thread5, %39
+61:                                               ; preds = %.thread6, %39
   %62 = icmp eq i32 %1, 0
-  br i1 %62, label %63, label %.thread8
+  br i1 %62, label %63, label %.thread9
 
 63:                                               ; preds = %61
   %64 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #15
-  br i1 %64, label %65, label %.thread8
+  br i1 %64, label %65, label %.thread9
 
 65:                                               ; preds = %63
   %66 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %4) #15
-  br label %.thread8
+  br label %.thread9
 
-67:                                               ; preds = %.thread, %.thread6
+67:                                               ; preds = %.thread, %.thread7
   %68 = load i64, ptr %15, align 8
   %69 = trunc i64 %68 to i32
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %.thread8, !prof !11
+  br i1 %70, label %71, label %.thread9, !prof !11
 
 71:                                               ; preds = %67
   tail call void asm sideeffect "367: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 367b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 367) #15, !srcloc !12
@@ -510,9 +510,9 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 237, i32 2313, i64 12) #15, !srcloc !14
   tail call void asm sideeffect "369: nop\0A\09.pushsection .discard.instr_end\0A\09.long 369b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 369) #15, !srcloc !15
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_end\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #15, !srcloc !16
-  br label %.thread8
+  br label %.thread9
 
-.thread8:                                         ; preds = %43, %37, %63, %61, %65, %71, %67
+.thread9:                                         ; preds = %43, %37, %63, %61, %65, %71, %67
   %72 = phi i32 [ -22, %71 ], [ %69, %67 ], [ -6, %43 ], [ -22, %37 ], [ -6, %63 ], [ -6, %61 ], [ -6, %65 ]
   ret i32 %72
 }
@@ -608,7 +608,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 29:                                               ; preds = %22
   store i32 %23, ptr %27, align 4
   %30 = icmp sgt i32 %23, 0
-  br i1 %30, label %31, label %.thread17
+  br i1 %30, label %31, label %.thread18
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -639,19 +639,19 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 47:                                               ; preds = %.thread
   %48 = tail call ptr @irq_create_affinity_masks(i32 noundef %23, ptr noundef nonnull %1) #15
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit, label %.preheader57
+  br i1 %49, label %.loopexit, label %.preheader58
 
-.thread17:                                        ; preds = %29
+.thread18:                                        ; preds = %29
   %50 = tail call ptr @irq_create_affinity_masks(i32 noundef %23, ptr noundef nonnull %1) #15
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %.thread18
+  br i1 %51, label %.loopexit, label %.thread19
 
-52:                                               ; preds = %.preheader57
+52:                                               ; preds = %.preheader58
   %53 = add nuw nsw i64 %55, 1
   %54 = icmp eq i64 %53, %34
-  br i1 %54, label %.thread18, label %.preheader57, !llvm.loop !19
+  br i1 %54, label %.thread19, label %.preheader58, !llvm.loop !19
 
-.preheader57:                                     ; preds = %47, %52
+.preheader58:                                     ; preds = %47, %52
   %55 = phi i64 [ %53, %52 ], [ 0, %47 ]
   %56 = getelementptr i32, ptr %33, i64 %55
   %57 = load i32, ptr %56, align 4
@@ -660,15 +660,15 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %52, label %61
 
-61:                                               ; preds = %.preheader57
+61:                                               ; preds = %.preheader58
   %62 = getelementptr i32, ptr %33, i64 %55
   %63 = load i32, ptr %62, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.5, i32 noundef %63, i32 noundef %59) #16
   tail call void @kfree(ptr noundef nonnull %48) #15
   br label %.loopexit
 
-.thread18:                                        ; preds = %52, %.thread17
-  %64 = phi ptr [ %50, %.thread17 ], [ %48, %52 ]
+.thread19:                                        ; preds = %52, %.thread18
+  %64 = phi ptr [ %50, %.thread18 ], [ %48, %52 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @devres_add(ptr noundef nonnull %65, ptr noundef nonnull %27) #15
   tail call void @kfree(ptr noundef nonnull %64) #15
@@ -676,13 +676,13 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
   store ptr %66, ptr %4, align 8
   br label %68
 
-.loopexit:                                        ; preds = %40, %.thread17, %61, %47
-  %67 = phi i32 [ %59, %61 ], [ -12, %47 ], [ -12, %.thread17 ], [ %41, %40 ]
+.loopexit:                                        ; preds = %40, %.thread18, %61, %47
+  %67 = phi i32 [ %59, %61 ], [ -12, %47 ], [ -12, %.thread18 ], [ %41, %40 ]
   tail call void @devres_free(ptr noundef nonnull %27) #15
   br label %68
 
-68:                                               ; preds = %.loopexit, %.thread18, %22, %19, %17, %13, %7, %5
-  %69 = phi i32 [ %67, %.loopexit ], [ %23, %.thread18 ], [ -1, %5 ], [ -34, %7 ], [ %15, %13 ], [ -28, %17 ], [ -28, %19 ], [ -12, %22 ]
+68:                                               ; preds = %.loopexit, %.thread19, %22, %19, %17, %13, %7, %5
+  %69 = phi i32 [ %67, %.loopexit ], [ %23, %.thread19 ], [ -1, %5 ], [ -34, %7 ], [ %15, %13 ], [ -28, %17 ], [ -28, %19 ], [ -12, %22 ]
   ret i32 %69
 }
 

@@ -479,9 +479,9 @@ define dso_local range(i32 -2147483648, 1) i32 @fib6_tables_dump(ptr noundef %0,
 41:                                               ; preds = %40, %.preheader
   %42 = load ptr, ptr %16, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %fib6_walk_continue.exit.thread, label %.preheader11
+  br i1 %43, label %fib6_walk_continue.exit.thread, label %.preheader12
 
-.preheader11:                                     ; preds = %41, %100
+.preheader12:                                     ; preds = %41, %100
   %44 = phi ptr [ %101, %100 ], [ %42, %41 ]
   %45 = load i32, ptr %15, align 8
   switch i32 %45, label %thread-pre-split8.i [
@@ -497,8 +497,8 @@ define dso_local range(i32 -2147483648, 1) i32 @fib6_tables_dump(ptr noundef %0,
   store i32 0, ptr %15, align 8
   br label %48
 
-48:                                               ; preds = %46, %.preheader11
-  %49 = phi ptr [ %47, %46 ], [ %44, %.preheader11 ]
+48:                                               ; preds = %46, %.preheader12
+  %49 = phi ptr [ %47, %46 ], [ %44, %.preheader12 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
@@ -508,8 +508,8 @@ define dso_local range(i32 -2147483648, 1) i32 @fib6_tables_dump(ptr noundef %0,
   store i32 1, ptr %15, align 8
   br label %54
 
-54:                                               ; preds = %53, %.preheader11
-  %55 = phi ptr [ %49, %53 ], [ %44, %.preheader11 ]
+54:                                               ; preds = %53, %.preheader12
+  %55 = phi ptr [ %49, %53 ], [ %44, %.preheader12 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
@@ -522,7 +522,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fib6_tables_dump(ptr noundef %0,
   store ptr %61, ptr %20, align 8
   br label %62
 
-thread-pre-split.i:                               ; preds = %.preheader11
+thread-pre-split.i:                               ; preds = %.preheader12
   %.pr.i = load ptr, ptr %20, align 8
   br label %62
 
@@ -565,8 +565,8 @@ thread-pre-split.i:                               ; preds = %.preheader11
   store i32 3, ptr %15, align 8
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %82, %.preheader11
-  %83 = phi ptr [ %63, %82 ], [ %44, %.preheader11 ]
+.loopexit.i:                                      ; preds = %82, %.preheader12
+  %83 = phi ptr [ %63, %82 ], [ %44, %.preheader12 ]
   %84 = load ptr, ptr %14, align 8
   %85 = icmp eq ptr %83, %84
   br i1 %85, label %fib6_walk_continue.exit.thread, label %86
@@ -602,14 +602,14 @@ thread-pre-split.i:                               ; preds = %.preheader11
   call void asm sideeffect "964: nop\0A\09.pushsection .discard.instr_end\0A\09.long 964b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 964) #13, !srcloc !29
   br label %thread-pre-split8.i
 
-thread-pre-split8.i:                              ; preds = %99, %96, %.thread7.i, %.preheader11
+thread-pre-split8.i:                              ; preds = %99, %96, %.thread7.i, %.preheader12
   %.pr9.i = load ptr, ptr %16, align 8
   br label %100
 
 100:                                              ; preds = %thread-pre-split8.i, %93
   %101 = phi ptr [ %.pr9.i, %thread-pre-split8.i ], [ %87, %93 ]
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %fib6_walk_continue.exit.thread, label %.preheader11, !llvm.loop !30
+  br i1 %102, label %fib6_walk_continue.exit.thread, label %.preheader12, !llvm.loop !30
 
 fib6_walk_continue.exit:                          ; preds = %74
   %103 = icmp slt i32 %76, 1
@@ -635,12 +635,12 @@ fib6_walk_continue.exit.thread:                   ; preds = %.loopexit.i, %100, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %fib6_walk_continue.exit.thread, %26, %8, %109
-  %.ph27 = phi i32 [ -22, %109 ], [ 0, %8 ], [ 0, %26 ], [ %104, %fib6_walk_continue.exit.thread ]
+  %.ph28 = phi i32 [ -22, %109 ], [ 0, %8 ], [ 0, %26 ], [ %104, %fib6_walk_continue.exit.thread ]
   call void @kfree(ptr noundef nonnull %6) #13
   br label %110
 
 110:                                              ; preds = %.sink.split, %3
-  %111 = phi i32 [ -12, %3 ], [ %.ph27, %.sink.split ]
+  %111 = phi i32 [ -12, %3 ], [ %.ph28, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %111
 }

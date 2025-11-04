@@ -4061,13 +4061,13 @@ define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0,
   br i1 %44, label %8, label %.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv8 = phi i64 [ %40, %.preheader.preheader ], [ %indvars.iv.next9, %.preheader ]
-  %45 = getelementptr ptr, ptr %7, i64 %indvars.iv8
+  %indvars.iv9 = phi i64 [ %40, %.preheader.preheader ], [ %indvars.iv.next10, %.preheader ]
+  %45 = getelementptr ptr, ptr %7, i64 %indvars.iv9
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 64
   tail call void @scsi_remove_host(ptr noundef %47) #19
-  %indvars.iv.next9 = add nsw i64 %indvars.iv8, -1
-  %.not = icmp eq i64 %indvars.iv8, 0
+  %indvars.iv.next10 = add nsw i64 %indvars.iv9, -1
+  %.not = icmp eq i64 %indvars.iv9, 0
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %41, %.preheader, %37, %2

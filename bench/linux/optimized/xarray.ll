@@ -1898,12 +1898,12 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   tail call void asm sideeffect "189: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 189b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 189) #8, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1010, i32 2305, i64 12) #8, !srcloc !30
   tail call void asm sideeffect "190: nop\0A\09.pushsection .discard.instr_end\0A\09.long 190b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 190) #8, !srcloc !31
-  br label %.loopexit4
+  br label %.loopexit5
 
 14:                                               ; preds = %4
   %15 = add nuw nsw i32 %10, 6
   %16 = icmp samesign ugt i32 %15, %2
-  br i1 %16, label %.loopexit5, label %17
+  br i1 %16, label %.loopexit6, label %17
 
 17:                                               ; preds = %14
   %.lhs.trunc = trunc nuw nsw i32 %2 to i16
@@ -1921,7 +1921,7 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   %26 = load ptr, ptr %21, align 8
   %27 = tail call noalias align 8 ptr @kmem_cache_alloc_lru(ptr noundef %25, ptr noundef %26, i32 noundef %3) #8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit4, label %29
+  br i1 %28, label %.loopexit5, label %29
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %0, align 8
@@ -1963,16 +1963,16 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   store ptr %27, ptr %22, align 8
   %52 = add nsw i32 %24, -1
   %53 = icmp eq i32 %24, 0
-  br i1 %53, label %.loopexit5, label %23, !llvm.loop !33
+  br i1 %53, label %.loopexit6, label %23, !llvm.loop !33
 
-.loopexit4:                                       ; preds = %23, %13
+.loopexit5:                                       ; preds = %23, %13
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit4, %.preheader
-  %57 = phi ptr [ %59, %.preheader ], [ %55, %.loopexit4 ]
+.preheader:                                       ; preds = %.loopexit5, %.preheader
+  %57 = phi ptr [ %59, %.preheader ], [ %55, %.loopexit5 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load volatile ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
@@ -1981,12 +1981,12 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   %61 = icmp eq ptr %59, null
   br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit4
+.loopexit:                                        ; preds = %.preheader, %.loopexit5
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr inttoptr (i64 -46 to ptr), ptr %62, align 8
-  br label %.loopexit5
+  br label %.loopexit6
 
-.loopexit5:                                       ; preds = %49, %.loopexit, %14
+.loopexit6:                                       ; preds = %49, %.loopexit, %14
   ret void
 }
 

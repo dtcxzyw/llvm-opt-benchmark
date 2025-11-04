@@ -5368,7 +5368,7 @@ define internal fastcc void @crec_copy(ptr noundef %0, i32 noundef %1, i32 nound
   %13 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !31
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread90, label %16
+  br i1 %15, label %.thread91, label %16
 
 16:                                               ; preds = %8
   %17 = icmp ugt i32 %14, 128
@@ -5376,7 +5376,7 @@ define internal fastcc void @crec_copy(ptr noundef %0, i32 noundef %1, i32 nound
 
 18:                                               ; preds = %16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %crec_ct2irt.exit.thread67, label %19
+  br i1 %.not, label %crec_ct2irt.exit.thread68, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %0, i64 -352
@@ -5429,13 +5429,13 @@ ctype_rawchild.exit:                              ; preds = %26
   %switch.selectcmp.i = icmp eq i32 %44, 4
   %switch.select.i = select i1 %switch.selectcmp.i, i32 13, i32 10
   %switch.selectcmp25.i = icmp eq i32 %44, 8
-  br i1 %switch.selectcmp25.i, label %crec_ct2irt.exit.thread67.sink.split, label %crec_ct2irt.exit
+  br i1 %switch.selectcmp25.i, label %crec_ct2irt.exit.thread68.sink.split, label %crec_ct2irt.exit
 
 46:                                               ; preds = %41
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %48 = xor i32 %47, 31
   %49 = icmp samesign ult i32 %48, 4
-  br i1 %49, label %50, label %crec_ct2irt.exit.thread67
+  br i1 %49, label %50, label %crec_ct2irt.exit.thread68
 
 50:                                               ; preds = %46
   %51 = shl nuw nsw i32 %48, 1
@@ -5443,7 +5443,7 @@ ctype_rawchild.exit:                              ; preds = %26
   %.lobit.i = and i32 %52, 1
   %53 = add nuw nsw i32 %.lobit.i, 15
   %54 = add nuw nsw i32 %53, %51
-  br label %crec_ct2irt.exit.thread67.sink.split
+  br label %crec_ct2irt.exit.thread68.sink.split
 
 55:                                               ; preds = %38
   %.mask23.i = and i32 %39, -268435456
@@ -5455,12 +5455,12 @@ ctype_rawchild.exit:                              ; preds = %26
   %59 = load i32, ptr %58, align 4, !tbaa !57
   %60 = icmp eq i32 %59, 8
   %61 = select i1 %60, i32 9, i32 5
-  br label %crec_ct2irt.exit.thread67.sink.split
+  br label %crec_ct2irt.exit.thread68.sink.split
 
 62:                                               ; preds = %55
   %63 = and i32 %39, -201326592
   %64 = icmp eq i32 %63, 872415232
-  br i1 %64, label %65, label %crec_ct2irt.exit.thread67
+  br i1 %64, label %65, label %crec_ct2irt.exit.thread68
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %.018.i, i64 4
@@ -5468,17 +5468,17 @@ ctype_rawchild.exit:                              ; preds = %26
   %switch.selectcmp27.i = icmp eq i32 %67, 8
   %switch.select28.i = select i1 %switch.selectcmp27.i, i32 13, i32 10
   %switch.selectcmp29.i = icmp eq i32 %67, 16
-  br i1 %switch.selectcmp29.i, label %crec_ct2irt.exit.thread67.sink.split, label %crec_ct2irt.exit
+  br i1 %switch.selectcmp29.i, label %crec_ct2irt.exit.thread68.sink.split, label %crec_ct2irt.exit
 
 crec_ct2irt.exit:                                 ; preds = %65, %45
   %.017.i = phi i32 [ %switch.select.i, %45 ], [ %switch.select28.i, %65 ]
   %68 = icmp eq i32 %.017.i, 10
-  br i1 %68, label %crec_ct2irt.exit.thread67, label %crec_ct2irt.exit.thread67.sink.split
+  br i1 %68, label %crec_ct2irt.exit.thread68, label %crec_ct2irt.exit.thread68.sink.split
 
 69:                                               ; preds = %19
   %70 = and i32 %23, 8388608
   %.not50 = icmp eq i32 %70, 0
-  br i1 %.not50, label %71, label %crec_ct2irt.exit.thread67
+  br i1 %.not50, label %71, label %crec_ct2irt.exit.thread68
 
 71:                                               ; preds = %69
   %72 = getelementptr i8, ptr %4, i64 8
@@ -5630,54 +5630,54 @@ crec_ct2irt.exit.i:                               ; preds = %122, %114, %107, %1
 
 .thread.i:                                        ; preds = %138, %127, %81, %74
   %.340.i = phi i32 [ %146, %138 ], [ %133, %127 ], [ %.03713.i, %81 ], [ %.03713.i, %74 ]
-  %.not.i53 = icmp eq i16 %78, 0
-  br i1 %.not.i53, label %crec_copy_unroll.exit, label %74
+  %.not.i54 = icmp eq i16 %78, 0
+  br i1 %.not.i54, label %crec_copy_unroll.exit, label %74
 
-crec_ct2irt.exit.thread67.sink.split:             ; preds = %57, %50, %45, %65, %crec_ct2irt.exit
+crec_ct2irt.exit.thread68.sink.split:             ; preds = %57, %50, %45, %65, %crec_ct2irt.exit
   %.017.i.ph.sink = phi i32 [ %.017.i, %crec_ct2irt.exit ], [ %61, %57 ], [ %54, %50 ], [ 14, %45 ], [ 14, %65 ]
   %147 = zext nneg i32 %.017.i.ph.sink to i64
   %148 = getelementptr inbounds nuw i8, ptr @lj_ir_type_size, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !31
   %150 = zext i8 %149 to i32
-  br label %crec_ct2irt.exit.thread67
+  br label %crec_ct2irt.exit.thread68
 
-crec_ct2irt.exit.thread67:                        ; preds = %crec_ct2irt.exit.thread67.sink.split, %crec_ct2irt.exit, %18, %62, %46, %69
-  %.283.shrunk = phi i32 [ 8, %69 ], [ 8, %46 ], [ 8, %62 ], [ 8, %18 ], [ 8, %crec_ct2irt.exit ], [ %150, %crec_ct2irt.exit.thread67.sink.split ]
-  %151 = phi i1 [ false, %69 ], [ false, %46 ], [ false, %62 ], [ false, %18 ], [ false, %crec_ct2irt.exit ], [ true, %crec_ct2irt.exit.thread67.sink.split ]
-  %.022.i = phi i32 [ 22, %69 ], [ 22, %46 ], [ 22, %62 ], [ 22, %18 ], [ 22, %crec_ct2irt.exit ], [ %.017.i.ph.sink, %crec_ct2irt.exit.thread67.sink.split ]
+crec_ct2irt.exit.thread68:                        ; preds = %crec_ct2irt.exit.thread68.sink.split, %crec_ct2irt.exit, %18, %62, %46, %69
+  %.284.shrunk = phi i32 [ 8, %69 ], [ 8, %46 ], [ 8, %62 ], [ 8, %18 ], [ 8, %crec_ct2irt.exit ], [ %150, %crec_ct2irt.exit.thread68.sink.split ]
+  %151 = phi i1 [ false, %69 ], [ false, %46 ], [ false, %62 ], [ false, %18 ], [ false, %crec_ct2irt.exit ], [ true, %crec_ct2irt.exit.thread68.sink.split ]
+  %.022.i = phi i32 [ 22, %69 ], [ 22, %46 ], [ 22, %62 ], [ 22, %18 ], [ 22, %crec_ct2irt.exit ], [ %.017.i.ph.sink, %crec_ct2irt.exit.thread68.sink.split ]
   br label %152
 
-152:                                              ; preds = %._crit_edge.i, %crec_ct2irt.exit.thread67
-  %.024.i = phi i32 [ %.283.shrunk, %crec_ct2irt.exit.thread67 ], [ %161, %._crit_edge.i ]
-  %.123.i = phi i32 [ %.022.i, %crec_ct2irt.exit.thread67 ], [ %162, %._crit_edge.i ]
-  %.020.i = phi i32 [ 0, %crec_ct2irt.exit.thread67 ], [ %.121.lcssa.i, %._crit_edge.i ]
-  %.0.i54 = phi i32 [ 0, %crec_ct2irt.exit.thread67 ], [ %.1.lcssa.i, %._crit_edge.i ]
+152:                                              ; preds = %._crit_edge.i, %crec_ct2irt.exit.thread68
+  %.024.i = phi i32 [ %.284.shrunk, %crec_ct2irt.exit.thread68 ], [ %161, %._crit_edge.i ]
+  %.123.i = phi i32 [ %.022.i, %crec_ct2irt.exit.thread68 ], [ %162, %._crit_edge.i ]
+  %.020.i = phi i32 [ 0, %crec_ct2irt.exit.thread68 ], [ %.121.lcssa.i, %._crit_edge.i ]
+  %.0.i55 = phi i32 [ 0, %crec_ct2irt.exit.thread68 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %153 = add nuw nsw i32 %.020.i, %.024.i
   %.not32.i = icmp ugt i32 %153, %14
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %152
-  %154 = zext i32 %.0.i54 to i64
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %.0.i54, i32 16)
+  %154 = zext i32 %.0.i55 to i64
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %.0.i55, i32 16)
   %wide.trip.count.i = zext i32 %umax.i to i64
-  br label %.lr.ph.i55
+  br label %.lr.ph.i56
 
-.lr.ph.i55:                                       ; preds = %156, %.lr.ph.preheader.i
+.lr.ph.i56:                                       ; preds = %156, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %154, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %156 ]
   %155 = phi i32 [ %153, %.lr.ph.preheader.i ], [ %159, %156 ]
   %.12133.i = phi i32 [ %.020.i, %.lr.ph.preheader.i ], [ %155, %156 ]
   %exitcond.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.i, label %crec_copy_unroll.exit.thread, label %156
 
-156:                                              ; preds = %.lr.ph.i55
+156:                                              ; preds = %.lr.ph.i56
   %157 = getelementptr inbounds nuw %struct.CRecMemList, ptr %6, i64 %indvars.iv.i
   store i32 %.12133.i, ptr %157, align 16, !tbaa !116
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store i32 %.123.i, ptr %158, align 4, !tbaa !118
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %159 = add nuw nsw i32 %155, %.024.i
-  %.not.i56 = icmp ugt i32 %159, %14
-  br i1 %.not.i56, label %._crit_edge.loopexit.i, label %.lr.ph.i55, !llvm.loop !119
+  %.not.i57 = icmp ugt i32 %159, %14
+  br i1 %.not.i57, label %._crit_edge.loopexit.i, label %.lr.ph.i56, !llvm.loop !119
 
 ._crit_edge.loopexit.i:                           ; preds = %156
   %160 = trunc nuw i64 %indvars.iv.next.i to i32
@@ -5685,7 +5685,7 @@ crec_ct2irt.exit.thread67:                        ; preds = %crec_ct2irt.exit.th
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %152
   %.121.lcssa.i = phi i32 [ %.020.i, %152 ], [ %155, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i54, %152 ], [ %160, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i55, %152 ], [ %160, %._crit_edge.loopexit.i ]
   %161 = lshr i32 %.024.i, 1
   %162 = add i32 %.123.i, -2
   %163 = icmp ult i32 %.121.lcssa.i, %14
@@ -5736,18 +5736,18 @@ crec_copy_unroll.exit:                            ; preds = %.thread.i, %._crit_
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %186 = add i32 %.03946.i, 1
   %187 = icmp ult i32 %186, 4
-  %.not.i57 = icmp samesign ult i64 %indvars.iv.next53.i, %170
-  %or.cond.i58 = select i1 %187, i1 %.not.i57, i1 false
-  br i1 %or.cond.i58, label %.loopexit.i, label %.preheader.i59
+  %.not.i58 = icmp samesign ult i64 %indvars.iv.next53.i, %170
+  %or.cond.i59 = select i1 %187, i1 %.not.i58, i1 false
+  br i1 %or.cond.i59, label %.loopexit.i, label %.preheader.i60
 
-.preheader.i59:                                   ; preds = %171
+.preheader.i60:                                   ; preds = %171
   %188 = zext i32 %.03847.i to i64
   %.not4344.i = icmp samesign ult i64 %indvars.iv52.i, %188
-  br i1 %.not4344.i, label %.loopexit.i, label %.lr.ph.i60
+  br i1 %.not4344.i, label %.loopexit.i, label %.lr.ph.i61
 
-.lr.ph.i60:                                       ; preds = %.preheader.i59, %.lr.ph.i60
-  %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i62, %.lr.ph.i60 ], [ %188, %.preheader.i59 ]
-  %189 = getelementptr inbounds nuw %struct.CRecMemList, ptr %6, i64 %indvars.iv.i61
+.lr.ph.i61:                                       ; preds = %.preheader.i60, %.lr.ph.i61
+  %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %.lr.ph.i61 ], [ %188, %.preheader.i60 ]
+  %189 = getelementptr inbounds nuw %struct.CRecMemList, ptr %6, i64 %indvars.iv.i62
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i32, ptr %190, align 8, !tbaa !122
   %192 = trunc i32 %191 to i16
@@ -5767,33 +5767,33 @@ crec_copy_unroll.exit:                            ; preds = %.thread.i, %._crit_
   store i16 %198, ptr %166, align 8, !tbaa !31
   store i16 %201, ptr %168, align 2, !tbaa !31
   %202 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next.i62 to i32
+  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next.i63 to i32
   %exitcond = icmp eq i32 %indvars.iv50.i, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit.i, label %.lr.ph.i60, !llvm.loop !123
+  br i1 %exitcond, label %.loopexit.i, label %.lr.ph.i61, !llvm.loop !123
 
-.loopexit.i:                                      ; preds = %.lr.ph.i60, %.preheader.i59, %171
-  %.140.i = phi i32 [ %186, %171 ], [ 0, %.preheader.i59 ], [ 0, %.lr.ph.i60 ]
-  %.1.i = phi i32 [ %.03847.i, %171 ], [ %.03847.i, %.preheader.i59 ], [ %indvars.iv50.i, %.lr.ph.i60 ]
+.loopexit.i:                                      ; preds = %.lr.ph.i61, %.preheader.i60, %171
+  %.140.i = phi i32 [ %186, %171 ], [ 0, %.preheader.i60 ], [ 0, %.lr.ph.i61 ]
+  %.1.i = phi i32 [ %.03847.i, %171 ], [ %.03847.i, %.preheader.i60 ], [ %indvars.iv50.i, %.lr.ph.i61 ]
   %indvars.iv.next51.i = add i32 %indvars.iv50.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %170
   br i1 %exitcond55.not.i, label %crec_copy_emit.exit, label %171, !llvm.loop !124
 
 crec_copy_emit.exit:                              ; preds = %.loopexit.i
-  br i1 %.042, label %.thread90, label %203
+  br i1 %.042, label %.thread91, label %203
 
 203:                                              ; preds = %crec_copy_emit.exit
   store i16 23040, ptr %167, align 4, !tbaa !31
   store i16 0, ptr %166, align 8, !tbaa !31
   store i16 0, ptr %168, align 2, !tbaa !31
   %204 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  br label %.thread90
+  br label %.thread91
 
-.thread90:                                        ; preds = %8, %203, %crec_copy_emit.exit
+.thread91:                                        ; preds = %8, %203, %crec_copy_emit.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %211
 
-crec_copy_unroll.exit.thread:                     ; preds = %103, %119, %crec_ct2irt.exit.i, %136, %74, %.lr.ph.i55, %71, %crec_copy_unroll.exit, %16
+crec_copy_unroll.exit.thread:                     ; preds = %103, %119, %crec_ct2irt.exit.i, %136, %74, %.lr.ph.i56, %71, %crec_copy_unroll.exit, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %205
 
@@ -5808,7 +5808,7 @@ crec_copy_unroll.exit.thread:                     ; preds = %103, %119, %crec_ct
   %210 = tail call i32 @lj_opt_fold(ptr noundef %0) #9
   br label %211
 
-211:                                              ; preds = %.thread90, %205
+211:                                              ; preds = %.thread91, %205
   ret void
 }
 

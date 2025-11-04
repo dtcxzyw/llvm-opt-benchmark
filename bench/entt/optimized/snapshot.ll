@@ -17966,7 +17966,7 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit: ; preds = %1
   %17 = load ptr, ptr %16, align 8, !tbaa !101
   %18 = load ptr, ptr %13, align 8, !tbaa !102
   %.not5.i.i.i = icmp eq ptr %17, %18
-  br i1 %.not5.i.i.i, label %.loopexit49, label %.lr.ph.preheader.i.i.i
+  br i1 %.not5.i.i.i, label %.loopexit48, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.noexc30
   %19 = ptrtoint ptr %17 to i64
@@ -17988,13 +17988,13 @@ _ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit: ; preds = %1
 
 .noexc31:                                         ; preds = %.lr.ph.i.i.i
   %.not.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i, label %.loopexit49, label %.lr.ph.i.i.i, !llvm.loop !163
+  br i1 %.not.i.i.i, label %.loopexit48, label %.lr.ph.i.i.i, !llvm.loop !163
 
-.loopexit49:                                      ; preds = %.noexc31, %.noexc30
+.loopexit48:                                      ; preds = %.noexc31, %.noexc30
   %29 = invoke noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
           to label %30 unwind label %.loopexit.split-lp
 
-30:                                               ; preds = %.loopexit49
+30:                                               ; preds = %.loopexit48
   br i1 %29, label %31, label %158
 
 31:                                               ; preds = %30
@@ -18042,14 +18042,14 @@ _ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   unreachable
 
 _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %34, %_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IsSharedEv.exit.i.i, %39, %44
-  br i1 %33, label %56, label %.thread
+  br i1 %33, label %56, label %156
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %180
 
-.loopexit.split-lp:                               ; preds = %.loopexit49, %1, %_ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit, %.noexc
+.loopexit.split-lp:                               ; preds = %.loopexit48, %1, %_ZN4entt14basic_registryINS_6entityESaIS1_EE6createEv.exit, %.noexc
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %180
@@ -18068,7 +18068,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 56:                                               ; preds = %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %57 = load ptr, ptr %4, align 8, !tbaa !314
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %156, label %58
+  br i1 %.not, label %.thread, label %58
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %57, align 8, !tbaa !4
@@ -18251,14 +18251,14 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull align 8 dereferenceable(8) %57) #25
-  br label %156
+  br label %.thread
 
 _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit: ; preds = %79
   %150 = load ptr, ptr %57, align 8, !tbaa !4
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(8) %57) #25
-  br label %.thread
+  br label %156
 
 _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit36: ; preds = %140, %64
   %.pn22 = phi { ptr, i32 } [ %65, %64 ], [ %.pn20, %140 ]
@@ -18268,20 +18268,20 @@ _ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit
   call void %155(ptr noundef nonnull align 8 dereferenceable(8) %57) #25
   br label %157
 
-.thread:                                          ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit, %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %158
-
-156:                                              ; preds = %56, %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit.thread
+.thread:                                          ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit.thread, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %179
+
+156:                                              ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit, %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %158
 
 157:                                              ; preds = %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit36, %54, %52
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %_ZNSt10unique_ptrIN7testing8internal9DeathTestESt14default_deleteIS2_EED2Ev.exit36 ], [ %55, %54 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %180
 
-158:                                              ; preds = %.thread, %30
+158:                                              ; preds = %156, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %159 unwind label %168
@@ -18352,7 +18352,7 @@ _ZN7testing7MessageD2Ev.exit40:                   ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %180
 
-179:                                              ; preds = %156, %_ZN7testing7MessageD2Ev.exit
+179:                                              ; preds = %.thread, %_ZN7testing7MessageD2Ev.exit
   call void @_ZN4entt14basic_registryINS_6entityESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

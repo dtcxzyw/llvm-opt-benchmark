@@ -1142,9 +1142,9 @@ define ptr @H5FD_get_class(i64 noundef %0) local_unnamed_addr #0 {
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_get_class, i32 noundef 548, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.32) #11
   br label %47
 
-47:                                               ; preds = %18, %24, %43, %42, %15, %11
-  %.012 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %24 ], [ %.2, %42 ], [ null, %43 ], [ %21, %18 ]
-  ret ptr %.012
+47:                                               ; preds = %18, %15, %11, %42, %43, %24
+  %.013 = phi ptr [ null, %11 ], [ null, %15 ], [ null, %24 ], [ %.2, %42 ], [ null, %43 ], [ %21, %18 ]
+  ret ptr %.013
 }
 
 declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #1
@@ -1310,9 +1310,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_sb_encode(ptr noundef %0, ptr nounde
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_sb_encode, i32 noundef 627, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.34) #11
   br label %44
 
-44:                                               ; preds = %.thread, %38, %17, %20, %40, %13
-  %.013 = phi i32 [ -1, %13 ], [ -1, %40 ], [ %32, %38 ], [ 0, %20 ], [ 0, %17 ], [ -1, %.thread ]
-  ret i32 %.013
+44:                                               ; preds = %.thread, %17, %20, %40, %13, %38
+  %.012 = phi i32 [ -1, %13 ], [ -1, %40 ], [ %32, %38 ], [ 0, %20 ], [ 0, %17 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1616,9 +1616,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_free_driver_info(i64 noundef %0, ptr
   %50 = tail call ptr @H5MM_xfree_const(ptr noundef nonnull %1) #11
   br label %51
 
-51:                                               ; preds = %.thread, %25, %45, %43, %49, %16, %19, %12
-  %.017 = phi i32 [ -1, %12 ], [ 0, %19 ], [ 0, %16 ], [ -1, %25 ], [ -1, %45 ], [ %37, %43 ], [ 0, %49 ], [ -1, %.thread ]
-  ret i32 %.017
+51:                                               ; preds = %.thread, %16, %19, %12, %49, %43, %45, %25
+  %.018 = phi i32 [ -1, %12 ], [ 0, %19 ], [ 0, %16 ], [ -1, %25 ], [ -1, %45 ], [ %37, %43 ], [ 0, %49 ], [ -1, %.thread ]
+  ret i32 %.018
 }
 
 declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #1
@@ -1925,16 +1925,16 @@ define range(i32 -1, 1) i32 @H5FD_open(i1 noundef zeroext %0, ptr noundef writeo
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %106 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %11) #11
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.thread80, label %108
+  br i1 %107, label %.thread81, label %108
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %56, align 8, !tbaa !22
   %110 = call ptr %109(ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %.065) #11
   %111 = call i32 @H5_user_cb_restore(ptr noundef nonnull %11) #11
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.thread80, label %116
+  br i1 %112, label %.thread81, label %116
 
-.thread80:                                        ; preds = %108, %105
+.thread81:                                        ; preds = %108, %105
   %H5E_CANTSET_g.sink99 = phi ptr [ @H5E_CANTSET_g, %105 ], [ @H5E_CANTRESTORE_g, %108 ]
   %.sink96 = phi i32 [ 960, %105 ], [ 964, %108 ]
   %113 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
@@ -2031,12 +2031,12 @@ define range(i32 -1, 1) i32 @H5FD_open(i1 noundef zeroext %0, ptr noundef writeo
   store ptr %.167, ptr %1, align 8, !tbaa !42
   br label %168
 
-168:                                              ; preds = %.thread80, %.thread, %24, %165, %161, %153, %145, %137, %127, %118, %82, %73, %66, %59, %51, %43, %36, %29, %20, %103
-  %.064 = phi i32 [ -1, %20 ], [ -1, %29 ], [ -1, %36 ], [ -1, %43 ], [ -1, %51 ], [ -1, %59 ], [ -1, %66 ], [ -1, %73 ], [ -1, %127 ], [ -1, %137 ], [ -1, %145 ], [ -1, %153 ], [ -1, %161 ], [ 0, %165 ], [ -1, %118 ], [ -1, %82 ], [ 0, %24 ], [ 0, %103 ], [ -1, %.thread ], [ -1, %.thread80 ]
+168:                                              ; preds = %.thread81, %.thread, %24, %165, %161, %153, %145, %137, %127, %118, %82, %73, %66, %59, %51, %43, %36, %29, %20, %103
+  %.062 = phi i32 [ -1, %20 ], [ -1, %29 ], [ -1, %36 ], [ -1, %43 ], [ -1, %51 ], [ -1, %59 ], [ -1, %66 ], [ -1, %73 ], [ -1, %127 ], [ -1, %137 ], [ -1, %145 ], [ -1, %153 ], [ -1, %161 ], [ 0, %165 ], [ -1, %118 ], [ -1, %82 ], [ 0, %24 ], [ 0, %103 ], [ -1, %.thread ], [ -1, %.thread81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.064
+  ret i32 %.062
 }
 
 declare i32 @H5FD_driver_query(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2107,9 +2107,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5FD__query(ptr noundef n
   store i64 0, ptr %1, align 8, !tbaa !10
   br label %35
 
-35:                                               ; preds = %.thread, %28, %2, %34, %30
-  %.012 = phi i32 [ -1, %30 ], [ %22, %28 ], [ 0, %34 ], [ 0, %2 ], [ -1, %.thread ]
-  ret i32 %.012
+35:                                               ; preds = %.thread, %2, %34, %30, %28
+  %.011 = phi i32 [ -1, %30 ], [ %22, %28 ], [ 0, %34 ], [ 0, %2 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2308,9 +2308,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_close(ptr noundef %0) local_unnamed_
   %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_close, i32 noundef 1080, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.65) #11
   br label %46
 
-46:                                               ; preds = %.thread, %40, %15, %42, %24, %11
-  %.013 = phi i32 [ -1, %11 ], [ -1, %24 ], [ -1, %42 ], [ %34, %40 ], [ 0, %15 ], [ -1, %.thread ]
-  ret i32 %.013
+46:                                               ; preds = %.thread, %15, %42, %24, %11, %40
+  %.012 = phi i32 [ -1, %11 ], [ -1, %24 ], [ -1, %42 ], [ %34, %40 ], [ 0, %15 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #1
@@ -3490,9 +3490,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_get_fs_type_map(ptr noundef %0, ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %44, i64 28, i1 false)
   br label %45
 
-45:                                               ; preds = %.thread, %37, %16, %43, %39, %12
-  %.014 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
-  ret i32 %.014
+45:                                               ; preds = %.thread, %16, %43, %39, %12, %37
+  %.013 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5687,9 +5687,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_flush(ptr noundef %0, i1 noundef zer
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_flush, i32 noundef 2491, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.98) #11
   br label %44
 
-44:                                               ; preds = %.thread, %38, %16, %19, %40, %12
-  %.012 = phi i32 [ -1, %12 ], [ -1, %40 ], [ %32, %38 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
-  ret i32 %.012
+44:                                               ; preds = %.thread, %16, %19, %40, %12, %38
+  %.011 = phi i32 [ -1, %12 ], [ -1, %40 ], [ %32, %38 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 declare i64 @H5CX_get_dxpl() local_unnamed_addr #1
@@ -5908,9 +5908,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_truncate(ptr noundef %0, i1 noundef 
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_truncate, i32 noundef 2564, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.99) #11
   br label %44
 
-44:                                               ; preds = %.thread, %38, %16, %19, %40, %12
-  %.012 = phi i32 [ -1, %12 ], [ -1, %40 ], [ %32, %38 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
-  ret i32 %.012
+44:                                               ; preds = %.thread, %16, %19, %40, %12, %38
+  %.011 = phi i32 [ -1, %12 ], [ -1, %40 ], [ %32, %38 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6104,9 +6104,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_lock(ptr noundef %0, i1 noundef zero
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_lock, i32 noundef 2630, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.101) #11
   br label %43
 
-43:                                               ; preds = %.thread, %37, %16, %19, %39, %12
-  %.012 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
-  ret i32 %.012
+43:                                               ; preds = %.thread, %16, %19, %39, %12, %37
+  %.011 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %19 ], [ 0, %16 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6300,9 +6300,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_unlock(ptr noundef %0) local_unnamed
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_unlock, i32 noundef 2696, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.103) #11
   br label %42
 
-42:                                               ; preds = %.thread, %36, %15, %18, %38, %11
-  %.011 = phi i32 [ -1, %11 ], [ -1, %38 ], [ %30, %36 ], [ 0, %18 ], [ 0, %15 ], [ -1, %.thread ]
-  ret i32 %.011
+42:                                               ; preds = %.thread, %15, %18, %38, %11, %36
+  %.010 = phi i32 [ -1, %11 ], [ -1, %38 ], [ %30, %36 ], [ 0, %18 ], [ 0, %15 ], [ -1, %.thread ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6507,9 +6507,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_ctl(ptr noundef %0, i64 noundef %1, 
   %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_ctl, i32 noundef 2797, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.105) #11
   br label %52
 
-52:                                               ; preds = %.thread, %40, %19, %46, %48, %42, %15
-  %.017 = phi i32 [ -1, %15 ], [ -1, %42 ], [ %34, %40 ], [ -1, %48 ], [ 0, %46 ], [ 0, %19 ], [ -1, %.thread ]
-  ret i32 %.017
+52:                                               ; preds = %.thread, %19, %46, %48, %42, %15, %40
+  %.016 = phi i32 [ -1, %15 ], [ -1, %42 ], [ %34, %40 ], [ -1, %48 ], [ 0, %46 ], [ 0, %19 ], [ -1, %.thread ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -6764,9 +6764,9 @@ define range(i32 -1, -2147483648) i32 @H5FD_get_vfd_handle(ptr noundef %0, i64 n
   %48 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_get_vfd_handle, i32 noundef 2903, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.108) #11
   br label %49
 
-49:                                               ; preds = %.thread, %43, %17, %45, %26, %13
-  %.014 = phi i32 [ -1, %13 ], [ -1, %26 ], [ -1, %45 ], [ %37, %43 ], [ 0, %17 ], [ -1, %.thread ]
-  ret i32 %.014
+49:                                               ; preds = %.thread, %17, %45, %26, %13, %43
+  %.013 = phi i32 [ -1, %13 ], [ -1, %26 ], [ -1, %45 ], [ %37, %43 ], [ 0, %17 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
@@ -7110,8 +7110,8 @@ define internal range(i32 -1, -2147483648) i32 @H5FD__free_cls(ptr noundef %0, p
   br label %34
 
 34:                                               ; preds = %.thread, %2, %32, %26
-  %.011 = phi i32 [ -1, %26 ], [ %.1, %32 ], [ 0, %2 ], [ -1, %.thread ]
-  ret i32 %.011
+  %.010 = phi i32 [ -1, %26 ], [ %.1, %32 ], [ 0, %2 ], [ -1, %.thread ]
+  ret i32 %.010
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

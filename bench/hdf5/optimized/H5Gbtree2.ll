@@ -125,9 +125,9 @@ define internal range(i32 -1, 1) i32 @H5G__dense_btree2_name_compare(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
-44:                                               ; preds = %43, %3, %17, %20
-  %.019 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %.1, %43 ], [ 0, %3 ]
-  ret i32 %.019
+44:                                               ; preds = %3, %17, %20, %43
+  %.018 = phi i32 [ 0, %17 ], [ 0, %20 ], [ %.1, %43 ], [ 0, %3 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

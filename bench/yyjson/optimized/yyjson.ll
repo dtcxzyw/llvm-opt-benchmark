@@ -35810,14 +35810,14 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   br i1 %235, label %270, label %264, !prof !4
 
 264:                                              ; preds = %263
-  %.sroa.0.0.copyload.i333.i516 = load i32, ptr %.8252.i477, align 1
-  %265 = and i32 %.sroa.0.0.copyload.i333.i516, 12632304
+  %.sroa.0.0.copyload.i339.i516 = load i32, ptr %.8252.i477, align 1
+  %265 = and i32 %.sroa.0.0.copyload.i339.i516, 12632304
   %266 = icmp eq i32 %265, 8421600
-  %267 = trunc i32 %.sroa.0.0.copyload.i333.i516 to i8
+  %267 = trunc i32 %.sroa.0.0.copyload.i339.i516 to i8
   br i1 %266, label %268, label %.thread, !prof !23
 
 268:                                              ; preds = %264
-  %269 = and i32 %.sroa.0.0.copyload.i333.i516, 8207
+  %269 = and i32 %.sroa.0.0.copyload.i339.i516, 8207
   switch i32 %269, label %.critedge.i517 [
     i32 8205, label %.thread
     i32 0, label %.thread
@@ -35844,32 +35844,32 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   ], !prof !212
 
 .critedge.i517:                                   ; preds = %276, %268
-  %storemerge1308 = phi i32 [ %.sroa.0.0.copyload.i333.i516, %268 ], [ %.sroa.0.0.insert.insert.i, %276 ]
+  %storemerge1308 = phi i32 [ %.sroa.0.0.copyload.i339.i516, %268 ], [ %.sroa.0.0.insert.insert.i, %276 ]
   store i32 %storemerge1308, ptr %.8.i478, align 1
   %278 = getelementptr inbounds nuw i8, ptr %.8.i478, i64 3
   %279 = getelementptr inbounds nuw i8, ptr %.8252.i477, i64 3
   br label %.preheader1325.backedge
 
 280:                                              ; preds = %248
-  %.sroa.0.0.copyload.i332.i507 = load i32, ptr %.8252.i477, align 1
-  %281 = and i32 %.sroa.0.0.copyload.i332.i507, -1061109512
+  %.sroa.0.0.copyload.i338.i507 = load i32, ptr %.8252.i477, align 1
+  %281 = and i32 %.sroa.0.0.copyload.i338.i507, -1061109512
   %282 = icmp ne i32 %281, -2139062032
-  %283 = and i32 %.sroa.0.0.copyload.i332.i507, 12295
+  %283 = and i32 %.sroa.0.0.copyload.i338.i507, 12295
   %.not306.i508 = icmp eq i32 %283, 0
   %or.cond.i509 = or i1 %282, %.not306.i508
-  %284 = trunc i32 %.sroa.0.0.copyload.i332.i507 to i8
+  %284 = trunc i32 %.sroa.0.0.copyload.i338.i507 to i8
   br i1 %or.cond.i509, label %.thread, label %285, !prof !133
 
 285:                                              ; preds = %280
-  %286 = and i32 %.sroa.0.0.copyload.i332.i507, 4
+  %286 = and i32 %.sroa.0.0.copyload.i338.i507, 4
   %287 = icmp ne i32 %286, 0
-  %288 = and i32 %.sroa.0.0.copyload.i332.i507, 12291
+  %288 = and i32 %.sroa.0.0.copyload.i338.i507, 12291
   %289 = icmp ne i32 %288, 0
   %.not309.i510 = and i1 %287, %289
   br i1 %.not309.i510, label %.thread, label %.critedge323.i511, !prof !4
 
 .critedge323.i511:                                ; preds = %285
-  store i32 %.sroa.0.0.copyload.i332.i507, ptr %.8.i478, align 1
+  store i32 %.sroa.0.0.copyload.i338.i507, ptr %.8.i478, align 1
   %290 = getelementptr inbounds nuw i8, ptr %.8.i478, i64 4
   br label %.preheader1325.backedge
 
@@ -35882,9 +35882,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %296 = getelementptr inbounds nuw i8, ptr %.8252.i477, i64 1
   br label %.preheader1325.backedge
 
-.preheader1325.backedge:                          ; preds = %291, %297, %409, %412, %260, %.critedge.i517, %.critedge323.i511, %312, %.critedge328.i493, %.critedge331.i489
-  %.8252.i477.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %262, %260 ], [ %279, %.critedge.i517 ], [ %234, %.critedge323.i511 ], [ %296, %291 ], [ %305, %297 ], [ %329, %312 ], [ %354, %.critedge328.i493 ], [ %234, %.critedge331.i489 ]
-  %.8.i478.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %261, %260 ], [ %278, %.critedge.i517 ], [ %290, %.critedge323.i511 ], [ %295, %291 ], [ %304, %297 ], [ %328, %312 ], [ %353, %.critedge328.i493 ], [ %403, %.critedge331.i489 ]
+.preheader1325.backedge:                          ; preds = %291, %297, %409, %412, %260, %.critedge.i517, %.critedge323.i511, %312, %.critedge330.i493, %.critedge335.i489
+  %.8252.i477.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %262, %260 ], [ %279, %.critedge.i517 ], [ %234, %.critedge323.i511 ], [ %296, %291 ], [ %305, %297 ], [ %329, %312 ], [ %354, %.critedge330.i493 ], [ %234, %.critedge335.i489 ]
+  %.8.i478.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %261, %260 ], [ %278, %.critedge.i517 ], [ %290, %.critedge323.i511 ], [ %295, %291 ], [ %304, %297 ], [ %328, %312 ], [ %353, %.critedge330.i493 ], [ %403, %.critedge335.i489 ]
   br label %.preheader1325
 
 297:                                              ; preds = %248
@@ -35949,12 +35949,12 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
 
 335:                                              ; preds = %330
   %336 = and i32 %.sroa.0.0.insert.ext.i593, 8207
-  switch i32 %336, label %.critedge328.i493 [
+  switch i32 %336, label %.critedge330.i493 [
     i32 8205, label %.thread1057
     i32 0, label %.thread1057
   ], !prof !212
 
-.critedge328.i493:                                ; preds = %335
+.critedge330.i493:                                ; preds = %335
   %337 = zext i16 %.sroa.0.0.copyload.i590 to i64
   %338 = shl nuw nsw i64 %337, 12
   %339 = lshr i16 %.sroa.0.0.copyload.i590, 2
@@ -35987,9 +35987,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %357 = icmp ne i32 %356, -2139062032
   %358 = and i32 %.sroa.0.0.copyload.i.i483, 12295
   %.not293.i484 = icmp eq i32 %358, 0
-  %or.cond329.i485 = or i1 %357, %.not293.i484
+  %or.cond333.i485 = or i1 %357, %.not293.i484
   %359 = lshr i32 %.sroa.0.0.copyload.i.i483, 24
-  br i1 %or.cond329.i485, label %.thread1057, label %360, !prof !133
+  br i1 %or.cond333.i485, label %.thread1057, label %360, !prof !133
 
 360:                                              ; preds = %355
   %361 = and i32 %.sroa.0.0.copyload.i.i483, 4
@@ -35997,9 +35997,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %363 = and i32 %.sroa.0.0.copyload.i.i483, 12291
   %364 = icmp ne i32 %363, 0
   %.not296.i486 = and i1 %362, %364
-  br i1 %.not296.i486, label %.thread1057, label %.critedge331.i489, !prof !4
+  br i1 %.not296.i486, label %.thread1057, label %.critedge335.i489, !prof !4
 
-.critedge331.i489:                                ; preds = %360
+.critedge335.i489:                                ; preds = %360
   %365 = shl i32 %.sroa.0.0.copyload.i.i483, 18
   %366 = and i32 %365, 1835008
   %367 = shl i32 %.sroa.0.0.copyload.i.i483, 4
@@ -36514,14 +36514,14 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   br i1 %612, label %647, label %641, !prof !4
 
 641:                                              ; preds = %640
-  %.sroa.0.0.copyload.i333.i428 = load i32, ptr %.8252.i389, align 1
-  %642 = and i32 %.sroa.0.0.copyload.i333.i428, 12632304
+  %.sroa.0.0.copyload.i339.i428 = load i32, ptr %.8252.i389, align 1
+  %642 = and i32 %.sroa.0.0.copyload.i339.i428, 12632304
   %643 = icmp eq i32 %642, 8421600
-  %644 = trunc i32 %.sroa.0.0.copyload.i333.i428 to i8
+  %644 = trunc i32 %.sroa.0.0.copyload.i339.i428 to i8
   br i1 %643, label %645, label %.thread1067, !prof !23
 
 645:                                              ; preds = %641
-  %646 = and i32 %.sroa.0.0.copyload.i333.i428, 8207
+  %646 = and i32 %.sroa.0.0.copyload.i339.i428, 8207
   switch i32 %646, label %.critedge.i429 [
     i32 8205, label %.thread1067
     i32 0, label %.thread1067
@@ -36548,32 +36548,32 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   ], !prof !212
 
 .critedge.i429:                                   ; preds = %653, %645
-  %storemerge1309 = phi i32 [ %.sroa.0.0.copyload.i333.i428, %645 ], [ %.sroa.0.0.insert.insert.i599, %653 ]
+  %storemerge1309 = phi i32 [ %.sroa.0.0.copyload.i339.i428, %645 ], [ %.sroa.0.0.insert.insert.i599, %653 ]
   store i32 %storemerge1309, ptr %.8.i390, align 1
   %655 = getelementptr inbounds nuw i8, ptr %.8.i390, i64 3
   %656 = getelementptr inbounds nuw i8, ptr %.8252.i389, i64 3
   br label %.preheader.backedge
 
 657:                                              ; preds = %625
-  %.sroa.0.0.copyload.i332.i419 = load i32, ptr %.8252.i389, align 1
-  %658 = and i32 %.sroa.0.0.copyload.i332.i419, -1061109512
+  %.sroa.0.0.copyload.i338.i419 = load i32, ptr %.8252.i389, align 1
+  %658 = and i32 %.sroa.0.0.copyload.i338.i419, -1061109512
   %659 = icmp ne i32 %658, -2139062032
-  %660 = and i32 %.sroa.0.0.copyload.i332.i419, 12295
+  %660 = and i32 %.sroa.0.0.copyload.i338.i419, 12295
   %.not306.i420 = icmp eq i32 %660, 0
   %or.cond.i421 = or i1 %659, %.not306.i420
-  %661 = trunc i32 %.sroa.0.0.copyload.i332.i419 to i8
+  %661 = trunc i32 %.sroa.0.0.copyload.i338.i419 to i8
   br i1 %or.cond.i421, label %.thread1067, label %662, !prof !133
 
 662:                                              ; preds = %657
-  %663 = and i32 %.sroa.0.0.copyload.i332.i419, 4
+  %663 = and i32 %.sroa.0.0.copyload.i338.i419, 4
   %664 = icmp ne i32 %663, 0
-  %665 = and i32 %.sroa.0.0.copyload.i332.i419, 12291
+  %665 = and i32 %.sroa.0.0.copyload.i338.i419, 12291
   %666 = icmp ne i32 %665, 0
   %.not309.i422 = and i1 %664, %666
   br i1 %.not309.i422, label %.thread1067, label %.critedge323.i423, !prof !4
 
 .critedge323.i423:                                ; preds = %662
-  store i32 %.sroa.0.0.copyload.i332.i419, ptr %.8.i390, align 1
+  store i32 %.sroa.0.0.copyload.i338.i419, ptr %.8.i390, align 1
   %667 = getelementptr inbounds nuw i8, ptr %.8.i390, i64 4
   br label %.preheader.backedge
 
@@ -36586,9 +36586,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %673 = getelementptr inbounds nuw i8, ptr %.8252.i389, i64 1
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %668, %674, %786, %789, %637, %.critedge.i429, %.critedge323.i423, %689, %.critedge328.i405, %.critedge331.i401
-  %.8252.i389.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %639, %637 ], [ %656, %.critedge.i429 ], [ %611, %.critedge323.i423 ], [ %673, %668 ], [ %682, %674 ], [ %706, %689 ], [ %731, %.critedge328.i405 ], [ %611, %.critedge331.i401 ]
-  %.8.i390.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %638, %637 ], [ %655, %.critedge.i429 ], [ %667, %.critedge323.i423 ], [ %672, %668 ], [ %681, %674 ], [ %705, %689 ], [ %730, %.critedge328.i405 ], [ %780, %.critedge331.i401 ]
+.preheader.backedge:                              ; preds = %668, %674, %786, %789, %637, %.critedge.i429, %.critedge323.i423, %689, %.critedge330.i405, %.critedge335.i401
+  %.8252.i389.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %639, %637 ], [ %656, %.critedge.i429 ], [ %611, %.critedge323.i423 ], [ %673, %668 ], [ %682, %674 ], [ %706, %689 ], [ %731, %.critedge330.i405 ], [ %611, %.critedge335.i401 ]
+  %.8.i390.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %638, %637 ], [ %655, %.critedge.i429 ], [ %667, %.critedge323.i423 ], [ %672, %668 ], [ %681, %674 ], [ %705, %689 ], [ %730, %.critedge330.i405 ], [ %780, %.critedge335.i401 ]
   br label %.preheader
 
 674:                                              ; preds = %625
@@ -36653,12 +36653,12 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
 
 712:                                              ; preds = %707
   %713 = and i32 %.sroa.0.0.insert.ext.i603, 8207
-  switch i32 %713, label %.critedge328.i405 [
+  switch i32 %713, label %.critedge330.i405 [
     i32 8205, label %.thread1077
     i32 0, label %.thread1077
   ], !prof !212
 
-.critedge328.i405:                                ; preds = %712
+.critedge330.i405:                                ; preds = %712
   %714 = zext i16 %.sroa.0.0.copyload.i600 to i64
   %715 = shl nuw nsw i64 %714, 12
   %716 = lshr i16 %.sroa.0.0.copyload.i600, 2
@@ -36691,9 +36691,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %734 = icmp ne i32 %733, -2139062032
   %735 = and i32 %.sroa.0.0.copyload.i.i395, 12295
   %.not293.i396 = icmp eq i32 %735, 0
-  %or.cond329.i397 = or i1 %734, %.not293.i396
+  %or.cond333.i397 = or i1 %734, %.not293.i396
   %736 = lshr i32 %.sroa.0.0.copyload.i.i395, 24
-  br i1 %or.cond329.i397, label %.thread1077, label %737, !prof !133
+  br i1 %or.cond333.i397, label %.thread1077, label %737, !prof !133
 
 737:                                              ; preds = %732
   %738 = and i32 %.sroa.0.0.copyload.i.i395, 4
@@ -36701,9 +36701,9 @@ get_enc_table_with_flag.exit67:                   ; preds = %20, %21
   %740 = and i32 %.sroa.0.0.copyload.i.i395, 12291
   %741 = icmp ne i32 %740, 0
   %.not296.i398 = and i1 %739, %741
-  br i1 %.not296.i398, label %.thread1077, label %.critedge331.i401, !prof !4
+  br i1 %.not296.i398, label %.thread1077, label %.critedge335.i401, !prof !4
 
-.critedge331.i401:                                ; preds = %737
+.critedge335.i401:                                ; preds = %737
   %742 = shl i32 %.sroa.0.0.copyload.i.i395, 18
   %743 = and i32 %742, 1835008
   %744 = shl i32 %.sroa.0.0.copyload.i.i395, 4
@@ -38090,14 +38090,14 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   br i1 %1470, label %1505, label %1499, !prof !4
 
 1499:                                             ; preds = %1498
-  %.sroa.0.0.copyload.i333.i340 = load i32, ptr %.8252.i301, align 1
-  %1500 = and i32 %.sroa.0.0.copyload.i333.i340, 12632304
+  %.sroa.0.0.copyload.i339.i340 = load i32, ptr %.8252.i301, align 1
+  %1500 = and i32 %.sroa.0.0.copyload.i339.i340, 12632304
   %1501 = icmp eq i32 %1500, 8421600
-  %1502 = trunc i32 %.sroa.0.0.copyload.i333.i340 to i8
+  %1502 = trunc i32 %.sroa.0.0.copyload.i339.i340 to i8
   br i1 %1501, label %1503, label %.thread1097, !prof !23
 
 1503:                                             ; preds = %1499
-  %1504 = and i32 %.sroa.0.0.copyload.i333.i340, 8207
+  %1504 = and i32 %.sroa.0.0.copyload.i339.i340, 8207
   switch i32 %1504, label %.critedge.i341 [
     i32 8205, label %.thread1097
     i32 0, label %.thread1097
@@ -38124,32 +38124,32 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   ], !prof !212
 
 .critedge.i341:                                   ; preds = %1511, %1503
-  %storemerge = phi i32 [ %.sroa.0.0.copyload.i333.i340, %1503 ], [ %.sroa.0.0.insert.insert.i609, %1511 ]
+  %storemerge = phi i32 [ %.sroa.0.0.copyload.i339.i340, %1503 ], [ %.sroa.0.0.insert.insert.i609, %1511 ]
   store i32 %storemerge, ptr %.8.i302, align 1
   %1513 = getelementptr inbounds nuw i8, ptr %.8.i302, i64 3
   %1514 = getelementptr inbounds nuw i8, ptr %.8252.i301, i64 3
   br label %.preheader1386.backedge
 
 1515:                                             ; preds = %1483
-  %.sroa.0.0.copyload.i332.i331 = load i32, ptr %.8252.i301, align 1
-  %1516 = and i32 %.sroa.0.0.copyload.i332.i331, -1061109512
+  %.sroa.0.0.copyload.i338.i331 = load i32, ptr %.8252.i301, align 1
+  %1516 = and i32 %.sroa.0.0.copyload.i338.i331, -1061109512
   %1517 = icmp ne i32 %1516, -2139062032
-  %1518 = and i32 %.sroa.0.0.copyload.i332.i331, 12295
+  %1518 = and i32 %.sroa.0.0.copyload.i338.i331, 12295
   %.not306.i332 = icmp eq i32 %1518, 0
   %or.cond.i333 = or i1 %1517, %.not306.i332
-  %1519 = trunc i32 %.sroa.0.0.copyload.i332.i331 to i8
+  %1519 = trunc i32 %.sroa.0.0.copyload.i338.i331 to i8
   br i1 %or.cond.i333, label %.thread1097, label %1520, !prof !133
 
 1520:                                             ; preds = %1515
-  %1521 = and i32 %.sroa.0.0.copyload.i332.i331, 4
+  %1521 = and i32 %.sroa.0.0.copyload.i338.i331, 4
   %1522 = icmp ne i32 %1521, 0
-  %1523 = and i32 %.sroa.0.0.copyload.i332.i331, 12291
+  %1523 = and i32 %.sroa.0.0.copyload.i338.i331, 12291
   %1524 = icmp ne i32 %1523, 0
   %.not309.i334 = and i1 %1522, %1524
   br i1 %.not309.i334, label %.thread1097, label %.critedge323.i335, !prof !4
 
 .critedge323.i335:                                ; preds = %1520
-  store i32 %.sroa.0.0.copyload.i332.i331, ptr %.8.i302, align 1
+  store i32 %.sroa.0.0.copyload.i338.i331, ptr %.8.i302, align 1
   %1525 = getelementptr inbounds nuw i8, ptr %.8.i302, i64 4
   br label %.preheader1386.backedge
 
@@ -38162,9 +38162,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1531 = getelementptr inbounds nuw i8, ptr %.8252.i301, i64 1
   br label %.preheader1386.backedge
 
-.preheader1386.backedge:                          ; preds = %1526, %1532, %1642, %1645, %1495, %.critedge.i341, %.critedge323.i335, %1547, %.critedge328.i317, %.critedge331.i313
-  %.8252.i301.be = phi ptr [ %1648, %1645 ], [ %1643, %1642 ], [ %1497, %1495 ], [ %1514, %.critedge.i341 ], [ %1469, %.critedge323.i335 ], [ %1531, %1526 ], [ %1540, %1532 ], [ %1564, %1547 ], [ %1589, %.critedge328.i317 ], [ %1469, %.critedge331.i313 ]
-  %.8.i302.be = phi ptr [ %1647, %1645 ], [ %1644, %1642 ], [ %1496, %1495 ], [ %1513, %.critedge.i341 ], [ %1525, %.critedge323.i335 ], [ %1530, %1526 ], [ %1539, %1532 ], [ %1563, %1547 ], [ %1588, %.critedge328.i317 ], [ %1638, %.critedge331.i313 ]
+.preheader1386.backedge:                          ; preds = %1526, %1532, %1642, %1645, %1495, %.critedge.i341, %.critedge323.i335, %1547, %.critedge330.i317, %.critedge335.i313
+  %.8252.i301.be = phi ptr [ %1648, %1645 ], [ %1643, %1642 ], [ %1497, %1495 ], [ %1514, %.critedge.i341 ], [ %1469, %.critedge323.i335 ], [ %1531, %1526 ], [ %1540, %1532 ], [ %1564, %1547 ], [ %1589, %.critedge330.i317 ], [ %1469, %.critedge335.i313 ]
+  %.8.i302.be = phi ptr [ %1647, %1645 ], [ %1644, %1642 ], [ %1496, %1495 ], [ %1513, %.critedge.i341 ], [ %1525, %.critedge323.i335 ], [ %1530, %1526 ], [ %1539, %1532 ], [ %1563, %1547 ], [ %1588, %.critedge330.i317 ], [ %1638, %.critedge335.i313 ]
   br label %.preheader1386
 
 1532:                                             ; preds = %1483
@@ -38229,12 +38229,12 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
 
 1570:                                             ; preds = %1565
   %1571 = and i32 %.sroa.0.0.insert.ext.i613, 8207
-  switch i32 %1571, label %.critedge328.i317 [
+  switch i32 %1571, label %.critedge330.i317 [
     i32 8205, label %.thread1107
     i32 0, label %.thread1107
   ], !prof !212
 
-.critedge328.i317:                                ; preds = %1570
+.critedge330.i317:                                ; preds = %1570
   %1572 = zext i16 %.sroa.0.0.copyload.i610 to i64
   %1573 = shl nuw nsw i64 %1572, 12
   %1574 = lshr i16 %.sroa.0.0.copyload.i610, 2
@@ -38267,9 +38267,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1592 = icmp ne i32 %1591, -2139062032
   %1593 = and i32 %.sroa.0.0.copyload.i.i307, 12295
   %.not293.i308 = icmp eq i32 %1593, 0
-  %or.cond329.i309 = or i1 %1592, %.not293.i308
+  %or.cond333.i309 = or i1 %1592, %.not293.i308
   %1594 = lshr i32 %.sroa.0.0.copyload.i.i307, 24
-  br i1 %or.cond329.i309, label %.thread1107, label %1595, !prof !133
+  br i1 %or.cond333.i309, label %.thread1107, label %1595, !prof !133
 
 1595:                                             ; preds = %1590
   %1596 = and i32 %.sroa.0.0.copyload.i.i307, 4
@@ -38277,9 +38277,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1598 = and i32 %.sroa.0.0.copyload.i.i307, 12291
   %1599 = icmp ne i32 %1598, 0
   %.not296.i310 = and i1 %1597, %1599
-  br i1 %.not296.i310, label %.thread1107, label %.critedge331.i313, !prof !4
+  br i1 %.not296.i310, label %.thread1107, label %.critedge335.i313, !prof !4
 
-.critedge331.i313:                                ; preds = %1595
+.critedge335.i313:                                ; preds = %1595
   %1600 = shl i32 %.sroa.0.0.copyload.i.i307, 18
   %1601 = and i32 %1600, 1835008
   %1602 = shl i32 %.sroa.0.0.copyload.i.i307, 4
@@ -38783,14 +38783,14 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   br i1 %1844, label %1879, label %1873, !prof !4
 
 1873:                                             ; preds = %1872
-  %.sroa.0.0.copyload.i333.i252 = load i32, ptr %.8252.i213, align 1
-  %1874 = and i32 %.sroa.0.0.copyload.i333.i252, 12632304
+  %.sroa.0.0.copyload.i339.i252 = load i32, ptr %.8252.i213, align 1
+  %1874 = and i32 %.sroa.0.0.copyload.i339.i252, 12632304
   %1875 = icmp eq i32 %1874, 8421600
-  %1876 = trunc i32 %.sroa.0.0.copyload.i333.i252 to i8
+  %1876 = trunc i32 %.sroa.0.0.copyload.i339.i252 to i8
   br i1 %1875, label %1877, label %.thread1117, !prof !23
 
 1877:                                             ; preds = %1873
-  %1878 = and i32 %.sroa.0.0.copyload.i333.i252, 8207
+  %1878 = and i32 %.sroa.0.0.copyload.i339.i252, 8207
   switch i32 %1878, label %.critedge.i253 [
     i32 8205, label %.thread1117
     i32 0, label %.thread1117
@@ -38817,32 +38817,32 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   ], !prof !212
 
 .critedge.i253:                                   ; preds = %1885, %1877
-  %storemerge1292 = phi i32 [ %.sroa.0.0.copyload.i333.i252, %1877 ], [ %.sroa.0.0.insert.insert.i619, %1885 ]
+  %storemerge1292 = phi i32 [ %.sroa.0.0.copyload.i339.i252, %1877 ], [ %.sroa.0.0.insert.insert.i619, %1885 ]
   store i32 %storemerge1292, ptr %.8.i214, align 1
   %1887 = getelementptr inbounds nuw i8, ptr %.8.i214, i64 3
   %1888 = getelementptr inbounds nuw i8, ptr %.8252.i213, i64 3
   br label %.preheader1372.backedge
 
 1889:                                             ; preds = %1857
-  %.sroa.0.0.copyload.i332.i243 = load i32, ptr %.8252.i213, align 1
-  %1890 = and i32 %.sroa.0.0.copyload.i332.i243, -1061109512
+  %.sroa.0.0.copyload.i338.i243 = load i32, ptr %.8252.i213, align 1
+  %1890 = and i32 %.sroa.0.0.copyload.i338.i243, -1061109512
   %1891 = icmp ne i32 %1890, -2139062032
-  %1892 = and i32 %.sroa.0.0.copyload.i332.i243, 12295
+  %1892 = and i32 %.sroa.0.0.copyload.i338.i243, 12295
   %.not306.i244 = icmp eq i32 %1892, 0
   %or.cond.i245 = or i1 %1891, %.not306.i244
-  %1893 = trunc i32 %.sroa.0.0.copyload.i332.i243 to i8
+  %1893 = trunc i32 %.sroa.0.0.copyload.i338.i243 to i8
   br i1 %or.cond.i245, label %.thread1117, label %1894, !prof !133
 
 1894:                                             ; preds = %1889
-  %1895 = and i32 %.sroa.0.0.copyload.i332.i243, 4
+  %1895 = and i32 %.sroa.0.0.copyload.i338.i243, 4
   %1896 = icmp ne i32 %1895, 0
-  %1897 = and i32 %.sroa.0.0.copyload.i332.i243, 12291
+  %1897 = and i32 %.sroa.0.0.copyload.i338.i243, 12291
   %1898 = icmp ne i32 %1897, 0
   %.not309.i246 = and i1 %1896, %1898
   br i1 %.not309.i246, label %.thread1117, label %.critedge323.i247, !prof !4
 
 .critedge323.i247:                                ; preds = %1894
-  store i32 %.sroa.0.0.copyload.i332.i243, ptr %.8.i214, align 1
+  store i32 %.sroa.0.0.copyload.i338.i243, ptr %.8.i214, align 1
   %1899 = getelementptr inbounds nuw i8, ptr %.8.i214, i64 4
   br label %.preheader1372.backedge
 
@@ -38855,9 +38855,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1905 = getelementptr inbounds nuw i8, ptr %.8252.i213, i64 1
   br label %.preheader1372.backedge
 
-.preheader1372.backedge:                          ; preds = %1900, %1906, %2016, %2019, %1869, %.critedge.i253, %.critedge323.i247, %1921, %.critedge328.i229, %.critedge331.i225
-  %.8252.i213.be = phi ptr [ %2022, %2019 ], [ %2017, %2016 ], [ %1871, %1869 ], [ %1888, %.critedge.i253 ], [ %1843, %.critedge323.i247 ], [ %1905, %1900 ], [ %1914, %1906 ], [ %1938, %1921 ], [ %1963, %.critedge328.i229 ], [ %1843, %.critedge331.i225 ]
-  %.8.i214.be = phi ptr [ %2021, %2019 ], [ %2018, %2016 ], [ %1870, %1869 ], [ %1887, %.critedge.i253 ], [ %1899, %.critedge323.i247 ], [ %1904, %1900 ], [ %1913, %1906 ], [ %1937, %1921 ], [ %1962, %.critedge328.i229 ], [ %2012, %.critedge331.i225 ]
+.preheader1372.backedge:                          ; preds = %1900, %1906, %2016, %2019, %1869, %.critedge.i253, %.critedge323.i247, %1921, %.critedge330.i229, %.critedge335.i225
+  %.8252.i213.be = phi ptr [ %2022, %2019 ], [ %2017, %2016 ], [ %1871, %1869 ], [ %1888, %.critedge.i253 ], [ %1843, %.critedge323.i247 ], [ %1905, %1900 ], [ %1914, %1906 ], [ %1938, %1921 ], [ %1963, %.critedge330.i229 ], [ %1843, %.critedge335.i225 ]
+  %.8.i214.be = phi ptr [ %2021, %2019 ], [ %2018, %2016 ], [ %1870, %1869 ], [ %1887, %.critedge.i253 ], [ %1899, %.critedge323.i247 ], [ %1904, %1900 ], [ %1913, %1906 ], [ %1937, %1921 ], [ %1962, %.critedge330.i229 ], [ %2012, %.critedge335.i225 ]
   br label %.preheader1372
 
 1906:                                             ; preds = %1857
@@ -38922,12 +38922,12 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
 
 1944:                                             ; preds = %1939
   %1945 = and i32 %.sroa.0.0.insert.ext.i623, 8207
-  switch i32 %1945, label %.critedge328.i229 [
+  switch i32 %1945, label %.critedge330.i229 [
     i32 8205, label %.thread1127
     i32 0, label %.thread1127
   ], !prof !212
 
-.critedge328.i229:                                ; preds = %1944
+.critedge330.i229:                                ; preds = %1944
   %1946 = zext i16 %.sroa.0.0.copyload.i620 to i64
   %1947 = shl nuw nsw i64 %1946, 12
   %1948 = lshr i16 %.sroa.0.0.copyload.i620, 2
@@ -38960,9 +38960,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1966 = icmp ne i32 %1965, -2139062032
   %1967 = and i32 %.sroa.0.0.copyload.i.i219, 12295
   %.not293.i220 = icmp eq i32 %1967, 0
-  %or.cond329.i221 = or i1 %1966, %.not293.i220
+  %or.cond333.i221 = or i1 %1966, %.not293.i220
   %1968 = lshr i32 %.sroa.0.0.copyload.i.i219, 24
-  br i1 %or.cond329.i221, label %.thread1127, label %1969, !prof !133
+  br i1 %or.cond333.i221, label %.thread1127, label %1969, !prof !133
 
 1969:                                             ; preds = %1964
   %1970 = and i32 %.sroa.0.0.copyload.i.i219, 4
@@ -38970,9 +38970,9 @@ write_indent.exit779:                             ; preds = %select.unfold, %127
   %1972 = and i32 %.sroa.0.0.copyload.i.i219, 12291
   %1973 = icmp ne i32 %1972, 0
   %.not296.i222 = and i1 %1971, %1973
-  br i1 %.not296.i222, label %.thread1127, label %.critedge331.i225, !prof !4
+  br i1 %.not296.i222, label %.thread1127, label %.critedge335.i225, !prof !4
 
-.critedge331.i225:                                ; preds = %1969
+.critedge335.i225:                                ; preds = %1969
   %1974 = shl i32 %.sroa.0.0.copyload.i.i219, 18
   %1975 = and i32 %1974, 1835008
   %1976 = shl i32 %.sroa.0.0.copyload.i.i219, 4
@@ -40799,14 +40799,14 @@ size_align_up.exit474.i:                          ; preds = %2702
   br i1 %2923, label %2958, label %2952, !prof !4
 
 2952:                                             ; preds = %2951
-  %.sroa.0.0.copyload.i333.i164 = load i32, ptr %.8252.i125, align 1
-  %2953 = and i32 %.sroa.0.0.copyload.i333.i164, 12632304
+  %.sroa.0.0.copyload.i339.i164 = load i32, ptr %.8252.i125, align 1
+  %2953 = and i32 %.sroa.0.0.copyload.i339.i164, 12632304
   %2954 = icmp eq i32 %2953, 8421600
-  %2955 = trunc i32 %.sroa.0.0.copyload.i333.i164 to i8
+  %2955 = trunc i32 %.sroa.0.0.copyload.i339.i164 to i8
   br i1 %2954, label %2956, label %.thread1200, !prof !23
 
 2956:                                             ; preds = %2952
-  %2957 = and i32 %.sroa.0.0.copyload.i333.i164, 8207
+  %2957 = and i32 %.sroa.0.0.copyload.i339.i164, 8207
   switch i32 %2957, label %.critedge.i165 [
     i32 8205, label %.thread1200
     i32 0, label %.thread1200
@@ -40833,32 +40833,32 @@ size_align_up.exit474.i:                          ; preds = %2702
   ], !prof !212
 
 .critedge.i165:                                   ; preds = %2964, %2956
-  %storemerge1299 = phi i32 [ %.sroa.0.0.copyload.i333.i164, %2956 ], [ %.sroa.0.0.insert.insert.i629, %2964 ]
+  %storemerge1299 = phi i32 [ %.sroa.0.0.copyload.i339.i164, %2956 ], [ %.sroa.0.0.insert.insert.i629, %2964 ]
   store i32 %storemerge1299, ptr %.8.i126, align 1
   %2966 = getelementptr inbounds nuw i8, ptr %.8.i126, i64 3
   %2967 = getelementptr inbounds nuw i8, ptr %.8252.i125, i64 3
   br label %.preheader1353.backedge
 
 2968:                                             ; preds = %2936
-  %.sroa.0.0.copyload.i332.i155 = load i32, ptr %.8252.i125, align 1
-  %2969 = and i32 %.sroa.0.0.copyload.i332.i155, -1061109512
+  %.sroa.0.0.copyload.i338.i155 = load i32, ptr %.8252.i125, align 1
+  %2969 = and i32 %.sroa.0.0.copyload.i338.i155, -1061109512
   %2970 = icmp ne i32 %2969, -2139062032
-  %2971 = and i32 %.sroa.0.0.copyload.i332.i155, 12295
+  %2971 = and i32 %.sroa.0.0.copyload.i338.i155, 12295
   %.not306.i156 = icmp eq i32 %2971, 0
   %or.cond.i157 = or i1 %2970, %.not306.i156
-  %2972 = trunc i32 %.sroa.0.0.copyload.i332.i155 to i8
+  %2972 = trunc i32 %.sroa.0.0.copyload.i338.i155 to i8
   br i1 %or.cond.i157, label %.thread1200, label %2973, !prof !133
 
 2973:                                             ; preds = %2968
-  %2974 = and i32 %.sroa.0.0.copyload.i332.i155, 4
+  %2974 = and i32 %.sroa.0.0.copyload.i338.i155, 4
   %2975 = icmp ne i32 %2974, 0
-  %2976 = and i32 %.sroa.0.0.copyload.i332.i155, 12291
+  %2976 = and i32 %.sroa.0.0.copyload.i338.i155, 12291
   %2977 = icmp ne i32 %2976, 0
   %.not309.i158 = and i1 %2975, %2977
   br i1 %.not309.i158, label %.thread1200, label %.critedge323.i159, !prof !4
 
 .critedge323.i159:                                ; preds = %2973
-  store i32 %.sroa.0.0.copyload.i332.i155, ptr %.8.i126, align 1
+  store i32 %.sroa.0.0.copyload.i338.i155, ptr %.8.i126, align 1
   %2978 = getelementptr inbounds nuw i8, ptr %.8.i126, i64 4
   br label %.preheader1353.backedge
 
@@ -40871,9 +40871,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %2984 = getelementptr inbounds nuw i8, ptr %.8252.i125, i64 1
   br label %.preheader1353.backedge
 
-.preheader1353.backedge:                          ; preds = %2979, %2985, %3095, %3098, %2948, %.critedge.i165, %.critedge323.i159, %3000, %.critedge328.i141, %.critedge331.i137
-  %.8252.i125.be = phi ptr [ %3101, %3098 ], [ %3096, %3095 ], [ %2950, %2948 ], [ %2967, %.critedge.i165 ], [ %2922, %.critedge323.i159 ], [ %2984, %2979 ], [ %2993, %2985 ], [ %3017, %3000 ], [ %3042, %.critedge328.i141 ], [ %2922, %.critedge331.i137 ]
-  %.8.i126.be = phi ptr [ %3100, %3098 ], [ %3097, %3095 ], [ %2949, %2948 ], [ %2966, %.critedge.i165 ], [ %2978, %.critedge323.i159 ], [ %2983, %2979 ], [ %2992, %2985 ], [ %3016, %3000 ], [ %3041, %.critedge328.i141 ], [ %3091, %.critedge331.i137 ]
+.preheader1353.backedge:                          ; preds = %2979, %2985, %3095, %3098, %2948, %.critedge.i165, %.critedge323.i159, %3000, %.critedge330.i141, %.critedge335.i137
+  %.8252.i125.be = phi ptr [ %3101, %3098 ], [ %3096, %3095 ], [ %2950, %2948 ], [ %2967, %.critedge.i165 ], [ %2922, %.critedge323.i159 ], [ %2984, %2979 ], [ %2993, %2985 ], [ %3017, %3000 ], [ %3042, %.critedge330.i141 ], [ %2922, %.critedge335.i137 ]
+  %.8.i126.be = phi ptr [ %3100, %3098 ], [ %3097, %3095 ], [ %2949, %2948 ], [ %2966, %.critedge.i165 ], [ %2978, %.critedge323.i159 ], [ %2983, %2979 ], [ %2992, %2985 ], [ %3016, %3000 ], [ %3041, %.critedge330.i141 ], [ %3091, %.critedge335.i137 ]
   br label %.preheader1353
 
 2985:                                             ; preds = %2936
@@ -40938,12 +40938,12 @@ size_align_up.exit474.i:                          ; preds = %2702
 
 3023:                                             ; preds = %3018
   %3024 = and i32 %.sroa.0.0.insert.ext.i633, 8207
-  switch i32 %3024, label %.critedge328.i141 [
+  switch i32 %3024, label %.critedge330.i141 [
     i32 8205, label %.thread1210
     i32 0, label %.thread1210
   ], !prof !212
 
-.critedge328.i141:                                ; preds = %3023
+.critedge330.i141:                                ; preds = %3023
   %3025 = zext i16 %.sroa.0.0.copyload.i630 to i64
   %3026 = shl nuw nsw i64 %3025, 12
   %3027 = lshr i16 %.sroa.0.0.copyload.i630, 2
@@ -40976,9 +40976,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %3045 = icmp ne i32 %3044, -2139062032
   %3046 = and i32 %.sroa.0.0.copyload.i.i131, 12295
   %.not293.i132 = icmp eq i32 %3046, 0
-  %or.cond329.i133 = or i1 %3045, %.not293.i132
+  %or.cond333.i133 = or i1 %3045, %.not293.i132
   %3047 = lshr i32 %.sroa.0.0.copyload.i.i131, 24
-  br i1 %or.cond329.i133, label %.thread1210, label %3048, !prof !133
+  br i1 %or.cond333.i133, label %.thread1210, label %3048, !prof !133
 
 3048:                                             ; preds = %3043
   %3049 = and i32 %.sroa.0.0.copyload.i.i131, 4
@@ -40986,9 +40986,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %3051 = and i32 %.sroa.0.0.copyload.i.i131, 12291
   %3052 = icmp ne i32 %3051, 0
   %.not296.i134 = and i1 %3050, %3052
-  br i1 %.not296.i134, label %.thread1210, label %.critedge331.i137, !prof !4
+  br i1 %.not296.i134, label %.thread1210, label %.critedge335.i137, !prof !4
 
-.critedge331.i137:                                ; preds = %3048
+.critedge335.i137:                                ; preds = %3048
   %3053 = shl i32 %.sroa.0.0.copyload.i.i131, 18
   %3054 = and i32 %3053, 1835008
   %3055 = shl i32 %.sroa.0.0.copyload.i.i131, 4
@@ -41492,14 +41492,14 @@ size_align_up.exit474.i:                          ; preds = %2702
   br i1 %3297, label %3332, label %3326, !prof !4
 
 3326:                                             ; preds = %3325
-  %.sroa.0.0.copyload.i333.i = load i32, ptr %.8252.i, align 1
-  %3327 = and i32 %.sroa.0.0.copyload.i333.i, 12632304
+  %.sroa.0.0.copyload.i339.i = load i32, ptr %.8252.i, align 1
+  %3327 = and i32 %.sroa.0.0.copyload.i339.i, 12632304
   %3328 = icmp eq i32 %3327, 8421600
-  %3329 = trunc i32 %.sroa.0.0.copyload.i333.i to i8
+  %3329 = trunc i32 %.sroa.0.0.copyload.i339.i to i8
   br i1 %3328, label %3330, label %.thread1220, !prof !23
 
 3330:                                             ; preds = %3326
-  %3331 = and i32 %.sroa.0.0.copyload.i333.i, 8207
+  %3331 = and i32 %.sroa.0.0.copyload.i339.i, 8207
   switch i32 %3331, label %.critedge.i [
     i32 8205, label %.thread1220
     i32 0, label %.thread1220
@@ -41526,32 +41526,32 @@ size_align_up.exit474.i:                          ; preds = %2702
   ], !prof !212
 
 .critedge.i:                                      ; preds = %3338, %3330
-  %storemerge1300 = phi i32 [ %.sroa.0.0.copyload.i333.i, %3330 ], [ %.sroa.0.0.insert.insert.i639, %3338 ]
+  %storemerge1300 = phi i32 [ %.sroa.0.0.copyload.i339.i, %3330 ], [ %.sroa.0.0.insert.insert.i639, %3338 ]
   store i32 %storemerge1300, ptr %.8.i100, align 1
   %3340 = getelementptr inbounds nuw i8, ptr %.8.i100, i64 3
   %3341 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
   br label %.preheader1339.backedge
 
 3342:                                             ; preds = %3310
-  %.sroa.0.0.copyload.i332.i = load i32, ptr %.8252.i, align 1
-  %3343 = and i32 %.sroa.0.0.copyload.i332.i, -1061109512
+  %.sroa.0.0.copyload.i338.i = load i32, ptr %.8252.i, align 1
+  %3343 = and i32 %.sroa.0.0.copyload.i338.i, -1061109512
   %3344 = icmp ne i32 %3343, -2139062032
-  %3345 = and i32 %.sroa.0.0.copyload.i332.i, 12295
+  %3345 = and i32 %.sroa.0.0.copyload.i338.i, 12295
   %.not306.i = icmp eq i32 %3345, 0
   %or.cond.i = or i1 %3344, %.not306.i
-  %3346 = trunc i32 %.sroa.0.0.copyload.i332.i to i8
+  %3346 = trunc i32 %.sroa.0.0.copyload.i338.i to i8
   br i1 %or.cond.i, label %.thread1220, label %3347, !prof !133
 
 3347:                                             ; preds = %3342
-  %3348 = and i32 %.sroa.0.0.copyload.i332.i, 4
+  %3348 = and i32 %.sroa.0.0.copyload.i338.i, 4
   %3349 = icmp ne i32 %3348, 0
-  %3350 = and i32 %.sroa.0.0.copyload.i332.i, 12291
+  %3350 = and i32 %.sroa.0.0.copyload.i338.i, 12291
   %3351 = icmp ne i32 %3350, 0
   %.not309.i = and i1 %3349, %3351
   br i1 %.not309.i, label %.thread1220, label %.critedge323.i, !prof !4
 
 .critedge323.i:                                   ; preds = %3347
-  store i32 %.sroa.0.0.copyload.i332.i, ptr %.8.i100, align 1
+  store i32 %.sroa.0.0.copyload.i338.i, ptr %.8.i100, align 1
   %3352 = getelementptr inbounds nuw i8, ptr %.8.i100, i64 4
   br label %.preheader1339.backedge
 
@@ -41564,9 +41564,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %3358 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
   br label %.preheader1339.backedge
 
-.preheader1339.backedge:                          ; preds = %3353, %3359, %3469, %3472, %3322, %.critedge.i, %.critedge323.i, %3374, %.critedge328.i, %.critedge331.i
-  %.8252.i.be = phi ptr [ %3475, %3472 ], [ %3470, %3469 ], [ %3324, %3322 ], [ %3341, %.critedge.i ], [ %3296, %.critedge323.i ], [ %3358, %3353 ], [ %3367, %3359 ], [ %3391, %3374 ], [ %3416, %.critedge328.i ], [ %3296, %.critedge331.i ]
-  %.8.i100.be = phi ptr [ %3474, %3472 ], [ %3471, %3469 ], [ %3323, %3322 ], [ %3340, %.critedge.i ], [ %3352, %.critedge323.i ], [ %3357, %3353 ], [ %3366, %3359 ], [ %3390, %3374 ], [ %3415, %.critedge328.i ], [ %3465, %.critedge331.i ]
+.preheader1339.backedge:                          ; preds = %3353, %3359, %3469, %3472, %3322, %.critedge.i, %.critedge323.i, %3374, %.critedge330.i, %.critedge335.i
+  %.8252.i.be = phi ptr [ %3475, %3472 ], [ %3470, %3469 ], [ %3324, %3322 ], [ %3341, %.critedge.i ], [ %3296, %.critedge323.i ], [ %3358, %3353 ], [ %3367, %3359 ], [ %3391, %3374 ], [ %3416, %.critedge330.i ], [ %3296, %.critedge335.i ]
+  %.8.i100.be = phi ptr [ %3474, %3472 ], [ %3471, %3469 ], [ %3323, %3322 ], [ %3340, %.critedge.i ], [ %3352, %.critedge323.i ], [ %3357, %3353 ], [ %3366, %3359 ], [ %3390, %3374 ], [ %3415, %.critedge330.i ], [ %3465, %.critedge335.i ]
   br label %.preheader1339
 
 3359:                                             ; preds = %3310
@@ -41631,12 +41631,12 @@ size_align_up.exit474.i:                          ; preds = %2702
 
 3397:                                             ; preds = %3392
   %3398 = and i32 %.sroa.0.0.insert.ext.i643, 8207
-  switch i32 %3398, label %.critedge328.i [
+  switch i32 %3398, label %.critedge330.i [
     i32 8205, label %.thread1230
     i32 0, label %.thread1230
   ], !prof !212
 
-.critedge328.i:                                   ; preds = %3397
+.critedge330.i:                                   ; preds = %3397
   %3399 = zext i16 %.sroa.0.0.copyload.i640 to i64
   %3400 = shl nuw nsw i64 %3399, 12
   %3401 = lshr i16 %.sroa.0.0.copyload.i640, 2
@@ -41669,9 +41669,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %3419 = icmp ne i32 %3418, -2139062032
   %3420 = and i32 %.sroa.0.0.copyload.i.i, 12295
   %.not293.i = icmp eq i32 %3420, 0
-  %or.cond329.i = or i1 %3419, %.not293.i
+  %or.cond333.i = or i1 %3419, %.not293.i
   %3421 = lshr i32 %.sroa.0.0.copyload.i.i, 24
-  br i1 %or.cond329.i, label %.thread1230, label %3422, !prof !133
+  br i1 %or.cond333.i, label %.thread1230, label %3422, !prof !133
 
 3422:                                             ; preds = %3417
   %3423 = and i32 %.sroa.0.0.copyload.i.i, 4
@@ -41679,9 +41679,9 @@ size_align_up.exit474.i:                          ; preds = %2702
   %3425 = and i32 %.sroa.0.0.copyload.i.i, 12291
   %3426 = icmp ne i32 %3425, 0
   %.not296.i = and i1 %3424, %3426
-  br i1 %.not296.i, label %.thread1230, label %.critedge331.i, !prof !4
+  br i1 %.not296.i, label %.thread1230, label %.critedge335.i, !prof !4
 
-.critedge331.i:                                   ; preds = %3422
+.critedge335.i:                                   ; preds = %3422
   %3427 = shl i32 %.sroa.0.0.copyload.i.i, 18
   %3428 = and i32 %3427, 1835008
   %3429 = shl i32 %.sroa.0.0.copyload.i.i, 4
@@ -43525,14 +43525,14 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   br i1 %236, label %271, label %265, !prof !4
 
 265:                                              ; preds = %264
-  %.sroa.0.0.copyload.i333.i62.i = load i32, ptr %.8252.i23.i, align 1
-  %266 = and i32 %.sroa.0.0.copyload.i333.i62.i, 12632304
+  %.sroa.0.0.copyload.i339.i62.i = load i32, ptr %.8252.i23.i, align 1
+  %266 = and i32 %.sroa.0.0.copyload.i339.i62.i, 12632304
   %267 = icmp eq i32 %266, 8421600
-  %268 = trunc i32 %.sroa.0.0.copyload.i333.i62.i to i8
+  %268 = trunc i32 %.sroa.0.0.copyload.i339.i62.i to i8
   br i1 %267, label %269, label %.thread, !prof !23
 
 269:                                              ; preds = %265
-  %270 = and i32 %.sroa.0.0.copyload.i333.i62.i, 8207
+  %270 = and i32 %.sroa.0.0.copyload.i339.i62.i, 8207
   switch i32 %270, label %.critedge.i63.i [
     i32 8205, label %.thread
     i32 0, label %.thread
@@ -43559,32 +43559,32 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   ], !prof !212
 
 .critedge.i63.i:                                  ; preds = %277, %269
-  %storemerge866 = phi i32 [ %.sroa.0.0.copyload.i333.i62.i, %269 ], [ %.sroa.0.0.insert.insert.i.i, %277 ]
+  %storemerge866 = phi i32 [ %.sroa.0.0.copyload.i339.i62.i, %269 ], [ %.sroa.0.0.insert.insert.i.i, %277 ]
   store i32 %storemerge866, ptr %.8.i24.i, align 1
   %279 = getelementptr inbounds nuw i8, ptr %.8.i24.i, i64 3
   %280 = getelementptr inbounds nuw i8, ptr %.8252.i23.i, i64 3
   br label %.preheader883.backedge
 
 281:                                              ; preds = %249
-  %.sroa.0.0.copyload.i332.i53.i = load i32, ptr %.8252.i23.i, align 1
-  %282 = and i32 %.sroa.0.0.copyload.i332.i53.i, -1061109512
+  %.sroa.0.0.copyload.i338.i53.i = load i32, ptr %.8252.i23.i, align 1
+  %282 = and i32 %.sroa.0.0.copyload.i338.i53.i, -1061109512
   %283 = icmp ne i32 %282, -2139062032
-  %284 = and i32 %.sroa.0.0.copyload.i332.i53.i, 12295
+  %284 = and i32 %.sroa.0.0.copyload.i338.i53.i, 12295
   %.not306.i54.i = icmp eq i32 %284, 0
   %or.cond.i55.i = or i1 %283, %.not306.i54.i
-  %285 = trunc i32 %.sroa.0.0.copyload.i332.i53.i to i8
+  %285 = trunc i32 %.sroa.0.0.copyload.i338.i53.i to i8
   br i1 %or.cond.i55.i, label %.thread, label %286, !prof !133
 
 286:                                              ; preds = %281
-  %287 = and i32 %.sroa.0.0.copyload.i332.i53.i, 4
+  %287 = and i32 %.sroa.0.0.copyload.i338.i53.i, 4
   %288 = icmp ne i32 %287, 0
-  %289 = and i32 %.sroa.0.0.copyload.i332.i53.i, 12291
+  %289 = and i32 %.sroa.0.0.copyload.i338.i53.i, 12291
   %290 = icmp ne i32 %289, 0
   %.not309.i56.i = and i1 %288, %290
   br i1 %.not309.i56.i, label %.thread, label %.critedge323.i57.i, !prof !4
 
 .critedge323.i57.i:                               ; preds = %286
-  store i32 %.sroa.0.0.copyload.i332.i53.i, ptr %.8.i24.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i53.i, ptr %.8.i24.i, align 1
   %291 = getelementptr inbounds nuw i8, ptr %.8.i24.i, i64 4
   br label %.preheader883.backedge
 
@@ -43597,9 +43597,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %297 = getelementptr inbounds nuw i8, ptr %.8252.i23.i, i64 1
   br label %.preheader883.backedge
 
-.preheader883.backedge:                           ; preds = %292, %298, %410, %413, %261, %.critedge.i63.i, %.critedge323.i57.i, %313, %.critedge328.i39.i, %.critedge331.i35.i
-  %.8252.i23.i.be = phi ptr [ %416, %413 ], [ %411, %410 ], [ %263, %261 ], [ %280, %.critedge.i63.i ], [ %235, %.critedge323.i57.i ], [ %297, %292 ], [ %306, %298 ], [ %330, %313 ], [ %355, %.critedge328.i39.i ], [ %235, %.critedge331.i35.i ]
-  %.8.i24.i.be = phi ptr [ %415, %413 ], [ %412, %410 ], [ %262, %261 ], [ %279, %.critedge.i63.i ], [ %291, %.critedge323.i57.i ], [ %296, %292 ], [ %305, %298 ], [ %329, %313 ], [ %354, %.critedge328.i39.i ], [ %404, %.critedge331.i35.i ]
+.preheader883.backedge:                           ; preds = %292, %298, %410, %413, %261, %.critedge.i63.i, %.critedge323.i57.i, %313, %.critedge330.i39.i, %.critedge335.i35.i
+  %.8252.i23.i.be = phi ptr [ %416, %413 ], [ %411, %410 ], [ %263, %261 ], [ %280, %.critedge.i63.i ], [ %235, %.critedge323.i57.i ], [ %297, %292 ], [ %306, %298 ], [ %330, %313 ], [ %355, %.critedge330.i39.i ], [ %235, %.critedge335.i35.i ]
+  %.8.i24.i.be = phi ptr [ %415, %413 ], [ %412, %410 ], [ %262, %261 ], [ %279, %.critedge.i63.i ], [ %291, %.critedge323.i57.i ], [ %296, %292 ], [ %305, %298 ], [ %329, %313 ], [ %354, %.critedge330.i39.i ], [ %404, %.critedge335.i35.i ]
   br label %.preheader883
 
 298:                                              ; preds = %249
@@ -43664,12 +43664,12 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
 
 336:                                              ; preds = %331
   %337 = and i32 %.sroa.0.0.insert.ext.i107.i, 8207
-  switch i32 %337, label %.critedge328.i39.i [
+  switch i32 %337, label %.critedge330.i39.i [
     i32 8205, label %.thread615
     i32 0, label %.thread615
   ], !prof !212
 
-.critedge328.i39.i:                               ; preds = %336
+.critedge330.i39.i:                               ; preds = %336
   %338 = zext i16 %.sroa.0.0.copyload.i104.i to i64
   %339 = shl nuw nsw i64 %338, 12
   %340 = lshr i16 %.sroa.0.0.copyload.i104.i, 2
@@ -43702,9 +43702,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %358 = icmp ne i32 %357, -2139062032
   %359 = and i32 %.sroa.0.0.copyload.i.i29.i, 12295
   %.not293.i30.i = icmp eq i32 %359, 0
-  %or.cond329.i31.i = or i1 %358, %.not293.i30.i
+  %or.cond333.i31.i = or i1 %358, %.not293.i30.i
   %360 = lshr i32 %.sroa.0.0.copyload.i.i29.i, 24
-  br i1 %or.cond329.i31.i, label %.thread615, label %361, !prof !133
+  br i1 %or.cond333.i31.i, label %.thread615, label %361, !prof !133
 
 361:                                              ; preds = %356
   %362 = and i32 %.sroa.0.0.copyload.i.i29.i, 4
@@ -43712,9 +43712,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %364 = and i32 %.sroa.0.0.copyload.i.i29.i, 12291
   %365 = icmp ne i32 %364, 0
   %.not296.i32.i = and i1 %363, %365
-  br i1 %.not296.i32.i, label %.thread615, label %.critedge331.i35.i, !prof !4
+  br i1 %.not296.i32.i, label %.thread615, label %.critedge335.i35.i, !prof !4
 
-.critedge331.i35.i:                               ; preds = %361
+.critedge335.i35.i:                               ; preds = %361
   %366 = shl i32 %.sroa.0.0.copyload.i.i29.i, 18
   %367 = and i32 %366, 1835008
   %368 = shl i32 %.sroa.0.0.copyload.i.i29.i, 4
@@ -44229,14 +44229,14 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   br i1 %613, label %648, label %642, !prof !4
 
 642:                                              ; preds = %641
-  %.sroa.0.0.copyload.i333.i.i = load i32, ptr %.8252.i.i, align 1
-  %643 = and i32 %.sroa.0.0.copyload.i333.i.i, 12632304
+  %.sroa.0.0.copyload.i339.i.i = load i32, ptr %.8252.i.i, align 1
+  %643 = and i32 %.sroa.0.0.copyload.i339.i.i, 12632304
   %644 = icmp eq i32 %643, 8421600
-  %645 = trunc i32 %.sroa.0.0.copyload.i333.i.i to i8
+  %645 = trunc i32 %.sroa.0.0.copyload.i339.i.i to i8
   br i1 %644, label %646, label %.thread625, !prof !23
 
 646:                                              ; preds = %642
-  %647 = and i32 %.sroa.0.0.copyload.i333.i.i, 8207
+  %647 = and i32 %.sroa.0.0.copyload.i339.i.i, 8207
   switch i32 %647, label %.critedge.i.i [
     i32 8205, label %.thread625
     i32 0, label %.thread625
@@ -44263,32 +44263,32 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   ], !prof !212
 
 .critedge.i.i:                                    ; preds = %654, %646
-  %storemerge867 = phi i32 [ %.sroa.0.0.copyload.i333.i.i, %646 ], [ %.sroa.0.0.insert.insert.i113.i, %654 ]
+  %storemerge867 = phi i32 [ %.sroa.0.0.copyload.i339.i.i, %646 ], [ %.sroa.0.0.insert.insert.i113.i, %654 ]
   store i32 %storemerge867, ptr %.8.i.i, align 1
   %656 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 3
   %657 = getelementptr inbounds nuw i8, ptr %.8252.i.i, i64 3
   br label %.preheader.backedge
 
 658:                                              ; preds = %626
-  %.sroa.0.0.copyload.i332.i.i = load i32, ptr %.8252.i.i, align 1
-  %659 = and i32 %.sroa.0.0.copyload.i332.i.i, -1061109512
+  %.sroa.0.0.copyload.i338.i.i = load i32, ptr %.8252.i.i, align 1
+  %659 = and i32 %.sroa.0.0.copyload.i338.i.i, -1061109512
   %660 = icmp ne i32 %659, -2139062032
-  %661 = and i32 %.sroa.0.0.copyload.i332.i.i, 12295
+  %661 = and i32 %.sroa.0.0.copyload.i338.i.i, 12295
   %.not306.i.i = icmp eq i32 %661, 0
   %or.cond.i.i = or i1 %660, %.not306.i.i
-  %662 = trunc i32 %.sroa.0.0.copyload.i332.i.i to i8
+  %662 = trunc i32 %.sroa.0.0.copyload.i338.i.i to i8
   br i1 %or.cond.i.i, label %.thread625, label %663, !prof !133
 
 663:                                              ; preds = %658
-  %664 = and i32 %.sroa.0.0.copyload.i332.i.i, 4
+  %664 = and i32 %.sroa.0.0.copyload.i338.i.i, 4
   %665 = icmp ne i32 %664, 0
-  %666 = and i32 %.sroa.0.0.copyload.i332.i.i, 12291
+  %666 = and i32 %.sroa.0.0.copyload.i338.i.i, 12291
   %667 = icmp ne i32 %666, 0
   %.not309.i.i = and i1 %665, %667
   br i1 %.not309.i.i, label %.thread625, label %.critedge323.i.i, !prof !4
 
 .critedge323.i.i:                                 ; preds = %663
-  store i32 %.sroa.0.0.copyload.i332.i.i, ptr %.8.i.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i, ptr %.8.i.i, align 1
   %668 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 4
   br label %.preheader.backedge
 
@@ -44301,9 +44301,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %674 = getelementptr inbounds nuw i8, ptr %.8252.i.i, i64 1
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %669, %675, %787, %790, %638, %.critedge.i.i, %.critedge323.i.i, %690, %.critedge328.i.i, %.critedge331.i.i
-  %.8252.i.i.be = phi ptr [ %793, %790 ], [ %788, %787 ], [ %640, %638 ], [ %657, %.critedge.i.i ], [ %612, %.critedge323.i.i ], [ %674, %669 ], [ %683, %675 ], [ %707, %690 ], [ %732, %.critedge328.i.i ], [ %612, %.critedge331.i.i ]
-  %.8.i.i.be = phi ptr [ %792, %790 ], [ %789, %787 ], [ %639, %638 ], [ %656, %.critedge.i.i ], [ %668, %.critedge323.i.i ], [ %673, %669 ], [ %682, %675 ], [ %706, %690 ], [ %731, %.critedge328.i.i ], [ %781, %.critedge331.i.i ]
+.preheader.backedge:                              ; preds = %669, %675, %787, %790, %638, %.critedge.i.i, %.critedge323.i.i, %690, %.critedge330.i.i, %.critedge335.i.i
+  %.8252.i.i.be = phi ptr [ %793, %790 ], [ %788, %787 ], [ %640, %638 ], [ %657, %.critedge.i.i ], [ %612, %.critedge323.i.i ], [ %674, %669 ], [ %683, %675 ], [ %707, %690 ], [ %732, %.critedge330.i.i ], [ %612, %.critedge335.i.i ]
+  %.8.i.i.be = phi ptr [ %792, %790 ], [ %789, %787 ], [ %639, %638 ], [ %656, %.critedge.i.i ], [ %668, %.critedge323.i.i ], [ %673, %669 ], [ %682, %675 ], [ %706, %690 ], [ %731, %.critedge330.i.i ], [ %781, %.critedge335.i.i ]
   br label %.preheader
 
 675:                                              ; preds = %626
@@ -44368,12 +44368,12 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
 
 713:                                              ; preds = %708
   %714 = and i32 %.sroa.0.0.insert.ext.i117.i, 8207
-  switch i32 %714, label %.critedge328.i.i [
+  switch i32 %714, label %.critedge330.i.i [
     i32 8205, label %.thread635
     i32 0, label %.thread635
   ], !prof !212
 
-.critedge328.i.i:                                 ; preds = %713
+.critedge330.i.i:                                 ; preds = %713
   %715 = zext i16 %.sroa.0.0.copyload.i114.i to i64
   %716 = shl nuw nsw i64 %715, 12
   %717 = lshr i16 %.sroa.0.0.copyload.i114.i, 2
@@ -44406,9 +44406,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %735 = icmp ne i32 %734, -2139062032
   %736 = and i32 %.sroa.0.0.copyload.i.i.i, 12295
   %.not293.i.i = icmp eq i32 %736, 0
-  %or.cond329.i.i = or i1 %735, %.not293.i.i
+  %or.cond333.i.i = or i1 %735, %.not293.i.i
   %737 = lshr i32 %.sroa.0.0.copyload.i.i.i, 24
-  br i1 %or.cond329.i.i, label %.thread635, label %738, !prof !133
+  br i1 %or.cond333.i.i, label %.thread635, label %738, !prof !133
 
 738:                                              ; preds = %733
   %739 = and i32 %.sroa.0.0.copyload.i.i.i, 4
@@ -44416,9 +44416,9 @@ get_enc_table_with_flag.exit.i:                   ; preds = %22, %21
   %741 = and i32 %.sroa.0.0.copyload.i.i.i, 12291
   %742 = icmp ne i32 %741, 0
   %.not296.i.i = and i1 %740, %742
-  br i1 %.not296.i.i, label %.thread635, label %.critedge331.i.i, !prof !4
+  br i1 %.not296.i.i, label %.thread635, label %.critedge335.i.i, !prof !4
 
-.critedge331.i.i:                                 ; preds = %738
+.critedge335.i.i:                                 ; preds = %738
   %743 = shl i32 %.sroa.0.0.copyload.i.i.i, 18
   %744 = and i32 %743, 1835008
   %745 = shl i32 %.sroa.0.0.copyload.i.i.i, 4
@@ -45835,14 +45835,14 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   br i1 %1474, label %1509, label %1503, !prof !4
 
 1503:                                             ; preds = %1502
-  %.sroa.0.0.copyload.i333.i707.i = load i32, ptr %.8252.i668.i, align 1
-  %1504 = and i32 %.sroa.0.0.copyload.i333.i707.i, 12632304
+  %.sroa.0.0.copyload.i339.i707.i = load i32, ptr %.8252.i668.i, align 1
+  %1504 = and i32 %.sroa.0.0.copyload.i339.i707.i, 12632304
   %1505 = icmp eq i32 %1504, 8421600
-  %1506 = trunc i32 %.sroa.0.0.copyload.i333.i707.i to i8
+  %1506 = trunc i32 %.sroa.0.0.copyload.i339.i707.i to i8
   br i1 %1505, label %1507, label %.thread655, !prof !23
 
 1507:                                             ; preds = %1503
-  %1508 = and i32 %.sroa.0.0.copyload.i333.i707.i, 8207
+  %1508 = and i32 %.sroa.0.0.copyload.i339.i707.i, 8207
   switch i32 %1508, label %.critedge.i708.i [
     i32 8205, label %.thread655
     i32 0, label %.thread655
@@ -45869,32 +45869,32 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   ], !prof !212
 
 .critedge.i708.i:                                 ; preds = %1515, %1507
-  %storemerge = phi i32 [ %.sroa.0.0.copyload.i333.i707.i, %1507 ], [ %.sroa.0.0.insert.insert.i.i69, %1515 ]
+  %storemerge = phi i32 [ %.sroa.0.0.copyload.i339.i707.i, %1507 ], [ %.sroa.0.0.insert.insert.i.i69, %1515 ]
   store i32 %storemerge, ptr %.8.i669.i, align 1
   %1517 = getelementptr inbounds nuw i8, ptr %.8.i669.i, i64 3
   %1518 = getelementptr inbounds nuw i8, ptr %.8252.i668.i, i64 3
   br label %.preheader944.backedge
 
 1519:                                             ; preds = %1487
-  %.sroa.0.0.copyload.i332.i698.i = load i32, ptr %.8252.i668.i, align 1
-  %1520 = and i32 %.sroa.0.0.copyload.i332.i698.i, -1061109512
+  %.sroa.0.0.copyload.i338.i698.i = load i32, ptr %.8252.i668.i, align 1
+  %1520 = and i32 %.sroa.0.0.copyload.i338.i698.i, -1061109512
   %1521 = icmp ne i32 %1520, -2139062032
-  %1522 = and i32 %.sroa.0.0.copyload.i332.i698.i, 12295
+  %1522 = and i32 %.sroa.0.0.copyload.i338.i698.i, 12295
   %.not306.i699.i = icmp eq i32 %1522, 0
   %or.cond.i700.i = or i1 %1521, %.not306.i699.i
-  %1523 = trunc i32 %.sroa.0.0.copyload.i332.i698.i to i8
+  %1523 = trunc i32 %.sroa.0.0.copyload.i338.i698.i to i8
   br i1 %or.cond.i700.i, label %.thread655, label %1524, !prof !133
 
 1524:                                             ; preds = %1519
-  %1525 = and i32 %.sroa.0.0.copyload.i332.i698.i, 4
+  %1525 = and i32 %.sroa.0.0.copyload.i338.i698.i, 4
   %1526 = icmp ne i32 %1525, 0
-  %1527 = and i32 %.sroa.0.0.copyload.i332.i698.i, 12291
+  %1527 = and i32 %.sroa.0.0.copyload.i338.i698.i, 12291
   %1528 = icmp ne i32 %1527, 0
   %.not309.i701.i = and i1 %1526, %1528
   br i1 %.not309.i701.i, label %.thread655, label %.critedge323.i702.i, !prof !4
 
 .critedge323.i702.i:                              ; preds = %1524
-  store i32 %.sroa.0.0.copyload.i332.i698.i, ptr %.8.i669.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i698.i, ptr %.8.i669.i, align 1
   %1529 = getelementptr inbounds nuw i8, ptr %.8.i669.i, i64 4
   br label %.preheader944.backedge
 
@@ -45907,9 +45907,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1535 = getelementptr inbounds nuw i8, ptr %.8252.i668.i, i64 1
   br label %.preheader944.backedge
 
-.preheader944.backedge:                           ; preds = %1530, %1536, %1646, %1649, %1499, %.critedge.i708.i, %.critedge323.i702.i, %1551, %.critedge328.i684.i, %.critedge331.i680.i
-  %.8252.i668.i.be = phi ptr [ %1652, %1649 ], [ %1647, %1646 ], [ %1501, %1499 ], [ %1518, %.critedge.i708.i ], [ %1473, %.critedge323.i702.i ], [ %1535, %1530 ], [ %1544, %1536 ], [ %1568, %1551 ], [ %1593, %.critedge328.i684.i ], [ %1473, %.critedge331.i680.i ]
-  %.8.i669.i.be = phi ptr [ %1651, %1649 ], [ %1648, %1646 ], [ %1500, %1499 ], [ %1517, %.critedge.i708.i ], [ %1529, %.critedge323.i702.i ], [ %1534, %1530 ], [ %1543, %1536 ], [ %1567, %1551 ], [ %1592, %.critedge328.i684.i ], [ %1642, %.critedge331.i680.i ]
+.preheader944.backedge:                           ; preds = %1530, %1536, %1646, %1649, %1499, %.critedge.i708.i, %.critedge323.i702.i, %1551, %.critedge330.i684.i, %.critedge335.i680.i
+  %.8252.i668.i.be = phi ptr [ %1652, %1649 ], [ %1647, %1646 ], [ %1501, %1499 ], [ %1518, %.critedge.i708.i ], [ %1473, %.critedge323.i702.i ], [ %1535, %1530 ], [ %1544, %1536 ], [ %1568, %1551 ], [ %1593, %.critedge330.i684.i ], [ %1473, %.critedge335.i680.i ]
+  %.8.i669.i.be = phi ptr [ %1651, %1649 ], [ %1648, %1646 ], [ %1500, %1499 ], [ %1517, %.critedge.i708.i ], [ %1529, %.critedge323.i702.i ], [ %1534, %1530 ], [ %1543, %1536 ], [ %1567, %1551 ], [ %1592, %.critedge330.i684.i ], [ %1642, %.critedge335.i680.i ]
   br label %.preheader944
 
 1536:                                             ; preds = %1487
@@ -45974,12 +45974,12 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
 
 1574:                                             ; preds = %1569
   %1575 = and i32 %.sroa.0.0.insert.ext.i752.i, 8207
-  switch i32 %1575, label %.critedge328.i684.i [
+  switch i32 %1575, label %.critedge330.i684.i [
     i32 8205, label %.thread665
     i32 0, label %.thread665
   ], !prof !212
 
-.critedge328.i684.i:                              ; preds = %1574
+.critedge330.i684.i:                              ; preds = %1574
   %1576 = zext i16 %.sroa.0.0.copyload.i749.i to i64
   %1577 = shl nuw nsw i64 %1576, 12
   %1578 = lshr i16 %.sroa.0.0.copyload.i749.i, 2
@@ -46012,9 +46012,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1596 = icmp ne i32 %1595, -2139062032
   %1597 = and i32 %.sroa.0.0.copyload.i.i674.i, 12295
   %.not293.i675.i = icmp eq i32 %1597, 0
-  %or.cond329.i676.i = or i1 %1596, %.not293.i675.i
+  %or.cond333.i676.i = or i1 %1596, %.not293.i675.i
   %1598 = lshr i32 %.sroa.0.0.copyload.i.i674.i, 24
-  br i1 %or.cond329.i676.i, label %.thread665, label %1599, !prof !133
+  br i1 %or.cond333.i676.i, label %.thread665, label %1599, !prof !133
 
 1599:                                             ; preds = %1594
   %1600 = and i32 %.sroa.0.0.copyload.i.i674.i, 4
@@ -46022,9 +46022,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1602 = and i32 %.sroa.0.0.copyload.i.i674.i, 12291
   %1603 = icmp ne i32 %1602, 0
   %.not296.i677.i = and i1 %1601, %1603
-  br i1 %.not296.i677.i, label %.thread665, label %.critedge331.i680.i, !prof !4
+  br i1 %.not296.i677.i, label %.thread665, label %.critedge335.i680.i, !prof !4
 
-.critedge331.i680.i:                              ; preds = %1599
+.critedge335.i680.i:                              ; preds = %1599
   %1604 = shl i32 %.sroa.0.0.copyload.i.i674.i, 18
   %1605 = and i32 %1604, 1835008
   %1606 = shl i32 %.sroa.0.0.copyload.i.i674.i, 4
@@ -46528,14 +46528,14 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   br i1 %1848, label %1883, label %1877, !prof !4
 
 1877:                                             ; preds = %1876
-  %.sroa.0.0.copyload.i333.i.i130 = load i32, ptr %.8252.i.i91, align 1
-  %1878 = and i32 %.sroa.0.0.copyload.i333.i.i130, 12632304
+  %.sroa.0.0.copyload.i339.i.i130 = load i32, ptr %.8252.i.i91, align 1
+  %1878 = and i32 %.sroa.0.0.copyload.i339.i.i130, 12632304
   %1879 = icmp eq i32 %1878, 8421600
-  %1880 = trunc i32 %.sroa.0.0.copyload.i333.i.i130 to i8
+  %1880 = trunc i32 %.sroa.0.0.copyload.i339.i.i130 to i8
   br i1 %1879, label %1881, label %.thread675, !prof !23
 
 1881:                                             ; preds = %1877
-  %1882 = and i32 %.sroa.0.0.copyload.i333.i.i130, 8207
+  %1882 = and i32 %.sroa.0.0.copyload.i339.i.i130, 8207
   switch i32 %1882, label %.critedge.i.i131 [
     i32 8205, label %.thread675
     i32 0, label %.thread675
@@ -46562,32 +46562,32 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   ], !prof !212
 
 .critedge.i.i131:                                 ; preds = %1889, %1881
-  %storemerge850 = phi i32 [ %.sroa.0.0.copyload.i333.i.i130, %1881 ], [ %.sroa.0.0.insert.insert.i758.i, %1889 ]
+  %storemerge850 = phi i32 [ %.sroa.0.0.copyload.i339.i.i130, %1881 ], [ %.sroa.0.0.insert.insert.i758.i, %1889 ]
   store i32 %storemerge850, ptr %.8.i.i92, align 1
   %1891 = getelementptr inbounds nuw i8, ptr %.8.i.i92, i64 3
   %1892 = getelementptr inbounds nuw i8, ptr %.8252.i.i91, i64 3
   br label %.preheader930.backedge
 
 1893:                                             ; preds = %1861
-  %.sroa.0.0.copyload.i332.i.i121 = load i32, ptr %.8252.i.i91, align 1
-  %1894 = and i32 %.sroa.0.0.copyload.i332.i.i121, -1061109512
+  %.sroa.0.0.copyload.i338.i.i121 = load i32, ptr %.8252.i.i91, align 1
+  %1894 = and i32 %.sroa.0.0.copyload.i338.i.i121, -1061109512
   %1895 = icmp ne i32 %1894, -2139062032
-  %1896 = and i32 %.sroa.0.0.copyload.i332.i.i121, 12295
+  %1896 = and i32 %.sroa.0.0.copyload.i338.i.i121, 12295
   %.not306.i.i122 = icmp eq i32 %1896, 0
   %or.cond.i.i123 = or i1 %1895, %.not306.i.i122
-  %1897 = trunc i32 %.sroa.0.0.copyload.i332.i.i121 to i8
+  %1897 = trunc i32 %.sroa.0.0.copyload.i338.i.i121 to i8
   br i1 %or.cond.i.i123, label %.thread675, label %1898, !prof !133
 
 1898:                                             ; preds = %1893
-  %1899 = and i32 %.sroa.0.0.copyload.i332.i.i121, 4
+  %1899 = and i32 %.sroa.0.0.copyload.i338.i.i121, 4
   %1900 = icmp ne i32 %1899, 0
-  %1901 = and i32 %.sroa.0.0.copyload.i332.i.i121, 12291
+  %1901 = and i32 %.sroa.0.0.copyload.i338.i.i121, 12291
   %1902 = icmp ne i32 %1901, 0
   %.not309.i.i124 = and i1 %1900, %1902
   br i1 %.not309.i.i124, label %.thread675, label %.critedge323.i.i125, !prof !4
 
 .critedge323.i.i125:                              ; preds = %1898
-  store i32 %.sroa.0.0.copyload.i332.i.i121, ptr %.8.i.i92, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i121, ptr %.8.i.i92, align 1
   %1903 = getelementptr inbounds nuw i8, ptr %.8.i.i92, i64 4
   br label %.preheader930.backedge
 
@@ -46600,9 +46600,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1909 = getelementptr inbounds nuw i8, ptr %.8252.i.i91, i64 1
   br label %.preheader930.backedge
 
-.preheader930.backedge:                           ; preds = %1904, %1910, %2020, %2023, %1873, %.critedge.i.i131, %.critedge323.i.i125, %1925, %.critedge328.i.i107, %.critedge331.i.i103
-  %.8252.i.i91.be = phi ptr [ %2026, %2023 ], [ %2021, %2020 ], [ %1875, %1873 ], [ %1892, %.critedge.i.i131 ], [ %1847, %.critedge323.i.i125 ], [ %1909, %1904 ], [ %1918, %1910 ], [ %1942, %1925 ], [ %1967, %.critedge328.i.i107 ], [ %1847, %.critedge331.i.i103 ]
-  %.8.i.i92.be = phi ptr [ %2025, %2023 ], [ %2022, %2020 ], [ %1874, %1873 ], [ %1891, %.critedge.i.i131 ], [ %1903, %.critedge323.i.i125 ], [ %1908, %1904 ], [ %1917, %1910 ], [ %1941, %1925 ], [ %1966, %.critedge328.i.i107 ], [ %2016, %.critedge331.i.i103 ]
+.preheader930.backedge:                           ; preds = %1904, %1910, %2020, %2023, %1873, %.critedge.i.i131, %.critedge323.i.i125, %1925, %.critedge330.i.i107, %.critedge335.i.i103
+  %.8252.i.i91.be = phi ptr [ %2026, %2023 ], [ %2021, %2020 ], [ %1875, %1873 ], [ %1892, %.critedge.i.i131 ], [ %1847, %.critedge323.i.i125 ], [ %1909, %1904 ], [ %1918, %1910 ], [ %1942, %1925 ], [ %1967, %.critedge330.i.i107 ], [ %1847, %.critedge335.i.i103 ]
+  %.8.i.i92.be = phi ptr [ %2025, %2023 ], [ %2022, %2020 ], [ %1874, %1873 ], [ %1891, %.critedge.i.i131 ], [ %1903, %.critedge323.i.i125 ], [ %1908, %1904 ], [ %1917, %1910 ], [ %1941, %1925 ], [ %1966, %.critedge330.i.i107 ], [ %2016, %.critedge335.i.i103 ]
   br label %.preheader930
 
 1910:                                             ; preds = %1861
@@ -46667,12 +46667,12 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
 
 1948:                                             ; preds = %1943
   %1949 = and i32 %.sroa.0.0.insert.ext.i762.i, 8207
-  switch i32 %1949, label %.critedge328.i.i107 [
+  switch i32 %1949, label %.critedge330.i.i107 [
     i32 8205, label %.thread685
     i32 0, label %.thread685
   ], !prof !212
 
-.critedge328.i.i107:                              ; preds = %1948
+.critedge330.i.i107:                              ; preds = %1948
   %1950 = zext i16 %.sroa.0.0.copyload.i759.i to i64
   %1951 = shl nuw nsw i64 %1950, 12
   %1952 = lshr i16 %.sroa.0.0.copyload.i759.i, 2
@@ -46705,9 +46705,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1970 = icmp ne i32 %1969, -2139062032
   %1971 = and i32 %.sroa.0.0.copyload.i.i.i97, 12295
   %.not293.i.i98 = icmp eq i32 %1971, 0
-  %or.cond329.i.i99 = or i1 %1970, %.not293.i.i98
+  %or.cond333.i.i99 = or i1 %1970, %.not293.i.i98
   %1972 = lshr i32 %.sroa.0.0.copyload.i.i.i97, 24
-  br i1 %or.cond329.i.i99, label %.thread685, label %1973, !prof !133
+  br i1 %or.cond333.i.i99, label %.thread685, label %1973, !prof !133
 
 1973:                                             ; preds = %1968
   %1974 = and i32 %.sroa.0.0.copyload.i.i.i97, 4
@@ -46715,9 +46715,9 @@ write_indent.exit816.i:                           ; preds = %select.unfold, %127
   %1976 = and i32 %.sroa.0.0.copyload.i.i.i97, 12291
   %1977 = icmp ne i32 %1976, 0
   %.not296.i.i100 = and i1 %1975, %1977
-  br i1 %.not296.i.i100, label %.thread685, label %.critedge331.i.i103, !prof !4
+  br i1 %.not296.i.i100, label %.thread685, label %.critedge335.i.i103, !prof !4
 
-.critedge331.i.i103:                              ; preds = %1973
+.critedge335.i.i103:                              ; preds = %1973
   %1978 = shl i32 %.sroa.0.0.copyload.i.i.i97, 18
   %1979 = and i32 %1978, 1835008
   %1980 = shl i32 %.sroa.0.0.copyload.i.i.i97, 4
@@ -48582,14 +48582,14 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   br i1 %2951, label %2986, label %2980, !prof !4
 
 2980:                                             ; preds = %2979
-  %.sroa.0.0.copyload.i333.i542.i = load i32, ptr %.8252.i503.i, align 1
-  %2981 = and i32 %.sroa.0.0.copyload.i333.i542.i, 12632304
+  %.sroa.0.0.copyload.i339.i542.i = load i32, ptr %.8252.i503.i, align 1
+  %2981 = and i32 %.sroa.0.0.copyload.i339.i542.i, 12632304
   %2982 = icmp eq i32 %2981, 8421600
-  %2983 = trunc i32 %.sroa.0.0.copyload.i333.i542.i to i8
+  %2983 = trunc i32 %.sroa.0.0.copyload.i339.i542.i to i8
   br i1 %2982, label %2984, label %.thread758, !prof !23
 
 2984:                                             ; preds = %2980
-  %2985 = and i32 %.sroa.0.0.copyload.i333.i542.i, 8207
+  %2985 = and i32 %.sroa.0.0.copyload.i339.i542.i, 8207
   switch i32 %2985, label %.critedge.i543.i [
     i32 8205, label %.thread758
     i32 0, label %.thread758
@@ -48616,32 +48616,32 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   ], !prof !212
 
 .critedge.i543.i:                                 ; preds = %2992, %2984
-  %storemerge857 = phi i32 [ %.sroa.0.0.copyload.i333.i542.i, %2984 ], [ %.sroa.0.0.insert.insert.i.i220, %2992 ]
+  %storemerge857 = phi i32 [ %.sroa.0.0.copyload.i339.i542.i, %2984 ], [ %.sroa.0.0.insert.insert.i.i220, %2992 ]
   store i32 %storemerge857, ptr %.8.i504.i, align 1
   %2994 = getelementptr inbounds nuw i8, ptr %.8.i504.i, i64 3
   %2995 = getelementptr inbounds nuw i8, ptr %.8252.i503.i, i64 3
   br label %.preheader911.backedge
 
 2996:                                             ; preds = %2964
-  %.sroa.0.0.copyload.i332.i533.i = load i32, ptr %.8252.i503.i, align 1
-  %2997 = and i32 %.sroa.0.0.copyload.i332.i533.i, -1061109512
+  %.sroa.0.0.copyload.i338.i533.i = load i32, ptr %.8252.i503.i, align 1
+  %2997 = and i32 %.sroa.0.0.copyload.i338.i533.i, -1061109512
   %2998 = icmp ne i32 %2997, -2139062032
-  %2999 = and i32 %.sroa.0.0.copyload.i332.i533.i, 12295
+  %2999 = and i32 %.sroa.0.0.copyload.i338.i533.i, 12295
   %.not306.i534.i = icmp eq i32 %2999, 0
   %or.cond.i535.i = or i1 %2998, %.not306.i534.i
-  %3000 = trunc i32 %.sroa.0.0.copyload.i332.i533.i to i8
+  %3000 = trunc i32 %.sroa.0.0.copyload.i338.i533.i to i8
   br i1 %or.cond.i535.i, label %.thread758, label %3001, !prof !133
 
 3001:                                             ; preds = %2996
-  %3002 = and i32 %.sroa.0.0.copyload.i332.i533.i, 4
+  %3002 = and i32 %.sroa.0.0.copyload.i338.i533.i, 4
   %3003 = icmp ne i32 %3002, 0
-  %3004 = and i32 %.sroa.0.0.copyload.i332.i533.i, 12291
+  %3004 = and i32 %.sroa.0.0.copyload.i338.i533.i, 12291
   %3005 = icmp ne i32 %3004, 0
   %.not309.i536.i = and i1 %3003, %3005
   br i1 %.not309.i536.i, label %.thread758, label %.critedge323.i537.i, !prof !4
 
 .critedge323.i537.i:                              ; preds = %3001
-  store i32 %.sroa.0.0.copyload.i332.i533.i, ptr %.8.i504.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i533.i, ptr %.8.i504.i, align 1
   %3006 = getelementptr inbounds nuw i8, ptr %.8.i504.i, i64 4
   br label %.preheader911.backedge
 
@@ -48654,9 +48654,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3012 = getelementptr inbounds nuw i8, ptr %.8252.i503.i, i64 1
   br label %.preheader911.backedge
 
-.preheader911.backedge:                           ; preds = %3007, %3013, %3123, %3126, %2976, %.critedge.i543.i, %.critedge323.i537.i, %3028, %.critedge328.i519.i, %.critedge331.i515.i
-  %.8252.i503.i.be = phi ptr [ %3129, %3126 ], [ %3124, %3123 ], [ %2978, %2976 ], [ %2995, %.critedge.i543.i ], [ %2950, %.critedge323.i537.i ], [ %3012, %3007 ], [ %3021, %3013 ], [ %3045, %3028 ], [ %3070, %.critedge328.i519.i ], [ %2950, %.critedge331.i515.i ]
-  %.8.i504.i.be = phi ptr [ %3128, %3126 ], [ %3125, %3123 ], [ %2977, %2976 ], [ %2994, %.critedge.i543.i ], [ %3006, %.critedge323.i537.i ], [ %3011, %3007 ], [ %3020, %3013 ], [ %3044, %3028 ], [ %3069, %.critedge328.i519.i ], [ %3119, %.critedge331.i515.i ]
+.preheader911.backedge:                           ; preds = %3007, %3013, %3123, %3126, %2976, %.critedge.i543.i, %.critedge323.i537.i, %3028, %.critedge330.i519.i, %.critedge335.i515.i
+  %.8252.i503.i.be = phi ptr [ %3129, %3126 ], [ %3124, %3123 ], [ %2978, %2976 ], [ %2995, %.critedge.i543.i ], [ %2950, %.critedge323.i537.i ], [ %3012, %3007 ], [ %3021, %3013 ], [ %3045, %3028 ], [ %3070, %.critedge330.i519.i ], [ %2950, %.critedge335.i515.i ]
+  %.8.i504.i.be = phi ptr [ %3128, %3126 ], [ %3125, %3123 ], [ %2977, %2976 ], [ %2994, %.critedge.i543.i ], [ %3006, %.critedge323.i537.i ], [ %3011, %3007 ], [ %3020, %3013 ], [ %3044, %3028 ], [ %3069, %.critedge330.i519.i ], [ %3119, %.critedge335.i515.i ]
   br label %.preheader911
 
 3013:                                             ; preds = %2964
@@ -48721,12 +48721,12 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
 
 3051:                                             ; preds = %3046
   %3052 = and i32 %.sroa.0.0.insert.ext.i587.i, 8207
-  switch i32 %3052, label %.critedge328.i519.i [
+  switch i32 %3052, label %.critedge330.i519.i [
     i32 8205, label %.thread768
     i32 0, label %.thread768
   ], !prof !212
 
-.critedge328.i519.i:                              ; preds = %3051
+.critedge330.i519.i:                              ; preds = %3051
   %3053 = zext i16 %.sroa.0.0.copyload.i584.i to i64
   %3054 = shl nuw nsw i64 %3053, 12
   %3055 = lshr i16 %.sroa.0.0.copyload.i584.i, 2
@@ -48759,9 +48759,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3073 = icmp ne i32 %3072, -2139062032
   %3074 = and i32 %.sroa.0.0.copyload.i.i509.i, 12295
   %.not293.i510.i = icmp eq i32 %3074, 0
-  %or.cond329.i511.i = or i1 %3073, %.not293.i510.i
+  %or.cond333.i511.i = or i1 %3073, %.not293.i510.i
   %3075 = lshr i32 %.sroa.0.0.copyload.i.i509.i, 24
-  br i1 %or.cond329.i511.i, label %.thread768, label %3076, !prof !133
+  br i1 %or.cond333.i511.i, label %.thread768, label %3076, !prof !133
 
 3076:                                             ; preds = %3071
   %3077 = and i32 %.sroa.0.0.copyload.i.i509.i, 4
@@ -48769,9 +48769,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3079 = and i32 %.sroa.0.0.copyload.i.i509.i, 12291
   %3080 = icmp ne i32 %3079, 0
   %.not296.i512.i = and i1 %3078, %3080
-  br i1 %.not296.i512.i, label %.thread768, label %.critedge331.i515.i, !prof !4
+  br i1 %.not296.i512.i, label %.thread768, label %.critedge335.i515.i, !prof !4
 
-.critedge331.i515.i:                              ; preds = %3076
+.critedge335.i515.i:                              ; preds = %3076
   %3081 = shl i32 %.sroa.0.0.copyload.i.i509.i, 18
   %3082 = and i32 %3081, 1835008
   %3083 = shl i32 %.sroa.0.0.copyload.i.i509.i, 4
@@ -49275,14 +49275,14 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   br i1 %3325, label %3360, label %3354, !prof !4
 
 3354:                                             ; preds = %3353
-  %.sroa.0.0.copyload.i333.i.i281 = load i32, ptr %.8252.i.i242, align 1
-  %3355 = and i32 %.sroa.0.0.copyload.i333.i.i281, 12632304
+  %.sroa.0.0.copyload.i339.i.i281 = load i32, ptr %.8252.i.i242, align 1
+  %3355 = and i32 %.sroa.0.0.copyload.i339.i.i281, 12632304
   %3356 = icmp eq i32 %3355, 8421600
-  %3357 = trunc i32 %.sroa.0.0.copyload.i333.i.i281 to i8
+  %3357 = trunc i32 %.sroa.0.0.copyload.i339.i.i281 to i8
   br i1 %3356, label %3358, label %.thread778, !prof !23
 
 3358:                                             ; preds = %3354
-  %3359 = and i32 %.sroa.0.0.copyload.i333.i.i281, 8207
+  %3359 = and i32 %.sroa.0.0.copyload.i339.i.i281, 8207
   switch i32 %3359, label %.critedge.i.i282 [
     i32 8205, label %.thread778
     i32 0, label %.thread778
@@ -49309,32 +49309,32 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   ], !prof !212
 
 .critedge.i.i282:                                 ; preds = %3366, %3358
-  %storemerge858 = phi i32 [ %.sroa.0.0.copyload.i333.i.i281, %3358 ], [ %.sroa.0.0.insert.insert.i593.i, %3366 ]
+  %storemerge858 = phi i32 [ %.sroa.0.0.copyload.i339.i.i281, %3358 ], [ %.sroa.0.0.insert.insert.i593.i, %3366 ]
   store i32 %storemerge858, ptr %.8.i.i243, align 1
   %3368 = getelementptr inbounds nuw i8, ptr %.8.i.i243, i64 3
   %3369 = getelementptr inbounds nuw i8, ptr %.8252.i.i242, i64 3
   br label %.preheader897.backedge
 
 3370:                                             ; preds = %3338
-  %.sroa.0.0.copyload.i332.i.i272 = load i32, ptr %.8252.i.i242, align 1
-  %3371 = and i32 %.sroa.0.0.copyload.i332.i.i272, -1061109512
+  %.sroa.0.0.copyload.i338.i.i272 = load i32, ptr %.8252.i.i242, align 1
+  %3371 = and i32 %.sroa.0.0.copyload.i338.i.i272, -1061109512
   %3372 = icmp ne i32 %3371, -2139062032
-  %3373 = and i32 %.sroa.0.0.copyload.i332.i.i272, 12295
+  %3373 = and i32 %.sroa.0.0.copyload.i338.i.i272, 12295
   %.not306.i.i273 = icmp eq i32 %3373, 0
   %or.cond.i.i274 = or i1 %3372, %.not306.i.i273
-  %3374 = trunc i32 %.sroa.0.0.copyload.i332.i.i272 to i8
+  %3374 = trunc i32 %.sroa.0.0.copyload.i338.i.i272 to i8
   br i1 %or.cond.i.i274, label %.thread778, label %3375, !prof !133
 
 3375:                                             ; preds = %3370
-  %3376 = and i32 %.sroa.0.0.copyload.i332.i.i272, 4
+  %3376 = and i32 %.sroa.0.0.copyload.i338.i.i272, 4
   %3377 = icmp ne i32 %3376, 0
-  %3378 = and i32 %.sroa.0.0.copyload.i332.i.i272, 12291
+  %3378 = and i32 %.sroa.0.0.copyload.i338.i.i272, 12291
   %3379 = icmp ne i32 %3378, 0
   %.not309.i.i275 = and i1 %3377, %3379
   br i1 %.not309.i.i275, label %.thread778, label %.critedge323.i.i276, !prof !4
 
 .critedge323.i.i276:                              ; preds = %3375
-  store i32 %.sroa.0.0.copyload.i332.i.i272, ptr %.8.i.i243, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i272, ptr %.8.i.i243, align 1
   %3380 = getelementptr inbounds nuw i8, ptr %.8.i.i243, i64 4
   br label %.preheader897.backedge
 
@@ -49347,9 +49347,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3386 = getelementptr inbounds nuw i8, ptr %.8252.i.i242, i64 1
   br label %.preheader897.backedge
 
-.preheader897.backedge:                           ; preds = %3381, %3387, %3497, %3500, %3350, %.critedge.i.i282, %.critedge323.i.i276, %3402, %.critedge328.i.i258, %.critedge331.i.i254
-  %.8252.i.i242.be = phi ptr [ %3503, %3500 ], [ %3498, %3497 ], [ %3352, %3350 ], [ %3369, %.critedge.i.i282 ], [ %3324, %.critedge323.i.i276 ], [ %3386, %3381 ], [ %3395, %3387 ], [ %3419, %3402 ], [ %3444, %.critedge328.i.i258 ], [ %3324, %.critedge331.i.i254 ]
-  %.8.i.i243.be = phi ptr [ %3502, %3500 ], [ %3499, %3497 ], [ %3351, %3350 ], [ %3368, %.critedge.i.i282 ], [ %3380, %.critedge323.i.i276 ], [ %3385, %3381 ], [ %3394, %3387 ], [ %3418, %3402 ], [ %3443, %.critedge328.i.i258 ], [ %3493, %.critedge331.i.i254 ]
+.preheader897.backedge:                           ; preds = %3381, %3387, %3497, %3500, %3350, %.critedge.i.i282, %.critedge323.i.i276, %3402, %.critedge330.i.i258, %.critedge335.i.i254
+  %.8252.i.i242.be = phi ptr [ %3503, %3500 ], [ %3498, %3497 ], [ %3352, %3350 ], [ %3369, %.critedge.i.i282 ], [ %3324, %.critedge323.i.i276 ], [ %3386, %3381 ], [ %3395, %3387 ], [ %3419, %3402 ], [ %3444, %.critedge330.i.i258 ], [ %3324, %.critedge335.i.i254 ]
+  %.8.i.i243.be = phi ptr [ %3502, %3500 ], [ %3499, %3497 ], [ %3351, %3350 ], [ %3368, %.critedge.i.i282 ], [ %3380, %.critedge323.i.i276 ], [ %3385, %3381 ], [ %3394, %3387 ], [ %3418, %3402 ], [ %3443, %.critedge330.i.i258 ], [ %3493, %.critedge335.i.i254 ]
   br label %.preheader897
 
 3387:                                             ; preds = %3338
@@ -49414,12 +49414,12 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
 
 3425:                                             ; preds = %3420
   %3426 = and i32 %.sroa.0.0.insert.ext.i597.i, 8207
-  switch i32 %3426, label %.critedge328.i.i258 [
+  switch i32 %3426, label %.critedge330.i.i258 [
     i32 8205, label %.thread788
     i32 0, label %.thread788
   ], !prof !212
 
-.critedge328.i.i258:                              ; preds = %3425
+.critedge330.i.i258:                              ; preds = %3425
   %3427 = zext i16 %.sroa.0.0.copyload.i594.i to i64
   %3428 = shl nuw nsw i64 %3427, 12
   %3429 = lshr i16 %.sroa.0.0.copyload.i594.i, 2
@@ -49452,9 +49452,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3447 = icmp ne i32 %3446, -2139062032
   %3448 = and i32 %.sroa.0.0.copyload.i.i.i248, 12295
   %.not293.i.i249 = icmp eq i32 %3448, 0
-  %or.cond329.i.i250 = or i1 %3447, %.not293.i.i249
+  %or.cond333.i.i250 = or i1 %3447, %.not293.i.i249
   %3449 = lshr i32 %.sroa.0.0.copyload.i.i.i248, 24
-  br i1 %or.cond329.i.i250, label %.thread788, label %3450, !prof !133
+  br i1 %or.cond333.i.i250, label %.thread788, label %3450, !prof !133
 
 3450:                                             ; preds = %3445
   %3451 = and i32 %.sroa.0.0.copyload.i.i.i248, 4
@@ -49462,9 +49462,9 @@ get_enc_table_with_flag.exit.i169:                ; preds = %2701, %2700
   %3453 = and i32 %.sroa.0.0.copyload.i.i.i248, 12291
   %3454 = icmp ne i32 %3453, 0
   %.not296.i.i251 = and i1 %3452, %3454
-  br i1 %.not296.i.i251, label %.thread788, label %.critedge331.i.i254, !prof !4
+  br i1 %.not296.i.i251, label %.thread788, label %.critedge335.i.i254, !prof !4
 
-.critedge331.i.i254:                              ; preds = %3450
+.critedge335.i.i254:                              ; preds = %3450
   %3455 = shl i32 %.sroa.0.0.copyload.i.i.i248, 18
   %3456 = and i32 %3455, 1835008
   %3457 = shl i32 %.sroa.0.0.copyload.i.i.i248, 4

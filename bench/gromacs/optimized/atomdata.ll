@@ -2398,8 +2398,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
 194:                                              ; preds = %194, %.lr.ph256.split.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %194 ], [ 0, %.lr.ph256.split.us.i ]
   %195 = add nuw nsw i64 %indvars.iv, %192
-  %.idx163 = shl i64 %195, 3
-  %196 = getelementptr i8, ptr %190, i64 %.idx163
+  %.idx164 = shl i64 %195, 3
+  %196 = getelementptr i8, ptr %190, i64 %.idx164
   store float 0.000000e+00, ptr %196, align 4, !tbaa !71
   %197 = getelementptr i8, ptr %196, i64 4
   store float 0.000000e+00, ptr %197, align 4, !tbaa !71
@@ -3240,9 +3240,9 @@ _ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit: ; preds = %_Z
   br i1 %565, label %_ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit, label %576
 
 _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %_ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit, %_ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.thread
-  %cond = icmp eq i32 %561, 2
+  %cond.not = icmp eq i32 %561, 2
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br i1 %cond, label %573, label %572
+  br i1 %cond.not, label %573, label %572
 
 567:                                              ; preds = %26, %10
   %568 = landingpad { ptr, i32 }
@@ -3314,9 +3314,9 @@ _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %_ZN3gmxL28kerne
 ._ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit_crit_edge: ; preds = %590
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !181
-  %.phi.trans.insert89 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %.pre90 = load i32, ptr %.phi.trans.insert89, align 4, !tbaa !182
-  %592 = icmp eq i32 %.pre90, 1
+  %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %.pre91 = load i32, ptr %.phi.trans.insert90, align 4, !tbaa !182
+  %592 = icmp eq i32 %.pre91, 1
   %593 = select i1 %592, i32 4, i32 3
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
@@ -3371,7 +3371,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %611
   br label %.body50
 
 614:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN3gmx23nbnxn_atomdata_output_tESaIS1_EE12emplace_backIJRKNS0_15NbnxmKernelTypeERKiRKNS0_13PinningPolicyEEEERS1_DpOT_.exit
-  %.01884 = phi i32 [ 0, %.lr.ph ], [ %623, %_ZNSt6vectorIN3gmx23nbnxn_atomdata_output_tESaIS1_EE12emplace_backIJRKNS0_15NbnxmKernelTypeERKiRKNS0_13PinningPolicyEEEERS1_DpOT_.exit ]
+  %.01885 = phi i32 [ 0, %.lr.ph ], [ %623, %_ZNSt6vectorIN3gmx23nbnxn_atomdata_output_tESaIS1_EE12emplace_backIJRKNS0_15NbnxmKernelTypeERKiRKNS0_13PinningPolicyEEEERS1_DpOT_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.sroa.0.0.copyload.i = load i64, ptr %605, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
@@ -3399,7 +3399,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %611
 
 _ZNSt6vectorIN3gmx23nbnxn_atomdata_output_tESaIS1_EE12emplace_backIJRKNS0_15NbnxmKernelTypeERKiRKNS0_13PinningPolicyEEEERS1_DpOT_.exit: ; preds = %622, %.noexc62
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %623 = add nuw nsw i32 %.01884, 1
+  %623 = add nuw nsw i32 %.01885, 1
   %exitcond.not = icmp eq i32 %623, %9
   br i1 %exitcond.not, label %._crit_edge, label %614, !llvm.loop !189
 

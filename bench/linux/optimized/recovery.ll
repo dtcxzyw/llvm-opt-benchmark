@@ -175,14 +175,14 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %45
 
-45:                                               ; preds = %select.unfold49, %25
-  %46 = phi i64 [ 0, %25 ], [ %.ph, %select.unfold49 ]
-  %47 = phi i8 [ 0, %25 ], [ %.ph53, %select.unfold49 ]
-  %48 = phi i32 [ 0, %25 ], [ %.ph54, %select.unfold49 ]
-  %49 = phi i32 [ 0, %25 ], [ %.ph55, %select.unfold49 ]
-  %50 = phi i32 [ 0, %25 ], [ %.ph56, %select.unfold49 ]
-  %51 = phi i64 [ %22, %25 ], [ %.ph58, %select.unfold49 ]
-  %52 = phi i32 [ %18, %25 ], [ %.ph59, %select.unfold49 ]
+45:                                               ; preds = %.thread39, %25
+  %46 = phi i64 [ 0, %25 ], [ %.ph, %.thread39 ]
+  %47 = phi i8 [ 0, %25 ], [ %.ph53, %.thread39 ]
+  %48 = phi i32 [ 0, %25 ], [ %.ph54, %.thread39 ]
+  %49 = phi i32 [ 0, %25 ], [ %.ph55, %.thread39 ]
+  %50 = phi i32 [ 0, %25 ], [ %.ph56, %.thread39 ]
+  %51 = phi i64 [ %22, %25 ], [ %.ph58, %.thread39 ]
+  %52 = phi i32 [ %18, %25 ], [ %.ph59, %.thread39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !annotation !5
   %53 = call i32 @__SCT__cond_resched() #9
@@ -330,7 +330,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   call fastcc void @calc_chksums(ptr noundef %0, ptr noundef %73, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %138 = getelementptr inbounds nuw i8, ptr %73, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %138, ptr nonnull elementtype(i32) %138) #9
-  br label %select.unfold49, !llvm.loop !11
+  br label %.thread39, !llvm.loop !11
 
 .thread:                                          ; preds = %122, %134, %127, %121
   %139 = load i32, ptr %31, align 8
@@ -415,7 +415,7 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
 195:                                              ; preds = %191, %185
   %196 = getelementptr inbounds nuw i8, ptr %73, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %196, ptr nonnull elementtype(i32) %196) #9, !srcloc !15
-  br label %select.unfold49, !llvm.loop !11
+  br label %.thread39, !llvm.loop !11
 
 197:                                              ; preds = %119
   %198 = load ptr, ptr %74, align 8
@@ -747,11 +747,11 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
   %387 = phi i32 [ %48, %197 ], [ %382, %.loopexit ]
   %388 = phi i32 [ %50, %197 ], [ %383, %.loopexit ]
   %389 = icmp eq ptr %73, null
-  br i1 %389, label %select.unfold49, label %390, !llvm.loop !11
+  br i1 %389, label %.thread39, label %390, !llvm.loop !11
 
 390:                                              ; preds = %386
   call void @__brelse(ptr noundef nonnull %73) #9
-  br label %select.unfold49, !llvm.loop !11
+  br label %.thread39, !llvm.loop !11
 
 391:                                              ; preds = %87
   %392 = getelementptr inbounds nuw i8, ptr %75, i64 48
@@ -800,11 +800,11 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr noundef captures(non
 418:                                              ; preds = %413
   store i32 %416, ptr %33, align 8
   %419 = icmp eq ptr %73, null
-  br i1 %419, label %select.unfold49, label %420
+  br i1 %419, label %.thread39, label %420
 
 420:                                              ; preds = %418
   call void @__brelse(ptr noundef nonnull %73) #9
-  br label %select.unfold49
+  br label %.thread39
 
 421:                                              ; preds = %413
   %422 = call i32 @llvm.bswap.i32(i32 %415)
@@ -922,11 +922,11 @@ jbd2_commit_block_csum_verify.exit:               ; preds = %459
 476:                                              ; preds = %471, %466
   store i32 %52, ptr %33, align 8
   %477 = icmp eq ptr %73, null
-  br i1 %477, label %select.unfold49, label %478
+  br i1 %477, label %.thread39, label %478
 
 478:                                              ; preds = %476
   call void @__brelse(ptr noundef nonnull %73) #9
-  br label %select.unfold49
+  br label %.thread39
 
 jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_commit_block_csum_verify.exit, %402
   %479 = phi i64 [ %51, %402 ], [ %72, %471 ], [ %72, %jbd2_commit_block_csum_verify.exit ], [ %72, %449 ]
@@ -940,7 +940,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
 
 483:                                              ; preds = %482, %jbd2_commit_block_csum_verify.exit.thread
   %484 = add i32 %52, 1
-  br label %select.unfold49, !llvm.loop !11
+  br label %.thread39, !llvm.loop !11
 
 485:                                              ; preds = %87
   br i1 %23, label %.thread45, label %489
@@ -957,11 +957,11 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
 490:                                              ; preds = %.thread45, %489
   %491 = phi i8 [ %488, %.thread45 ], [ %47, %489 ]
   %492 = icmp eq ptr %73, null
-  br i1 %492, label %select.unfold49, label %493, !llvm.loop !11
+  br i1 %492, label %.thread39, label %493, !llvm.loop !11
 
 493:                                              ; preds = %490
   call void @__brelse(ptr noundef nonnull %73) #9
-  br label %select.unfold49, !llvm.loop !11
+  br label %.thread39, !llvm.loop !11
 
 494:                                              ; preds = %489
   %495 = getelementptr inbounds nuw i8, ptr %75, i64 12
@@ -1082,7 +1082,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
 
 563:                                              ; preds = %562, %.thread48
   %564 = icmp eq i32 %560, 0
-  br i1 %564, label %select.unfold49, label %.loopexit79, !llvm.loop !11
+  br i1 %564, label %.thread39, label %.loopexit79, !llvm.loop !11
 
 565:                                              ; preds = %87
   %566 = icmp eq ptr %73, null
@@ -1099,14 +1099,14 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %635
 
-select.unfold49:                                  ; preds = %137, %563, %483, %195, %386, %390, %476, %478, %490, %493, %418, %420
-  %.ph = phi i64 [ %46, %420 ], [ %46, %418 ], [ %46, %493 ], [ %46, %490 ], [ %46, %478 ], [ %46, %476 ], [ %46, %390 ], [ %46, %386 ], [ %46, %195 ], [ %480, %483 ], [ %46, %563 ], [ %46, %137 ]
-  %.ph53 = phi i8 [ 0, %420 ], [ 0, %418 ], [ %491, %493 ], [ %491, %490 ], [ 0, %478 ], [ 0, %476 ], [ %120, %390 ], [ %120, %386 ], [ %120, %195 ], [ 0, %483 ], [ %47, %563 ], [ 0, %137 ]
-  %.ph54 = phi i32 [ %48, %420 ], [ %48, %418 ], [ %48, %493 ], [ %48, %490 ], [ %48, %478 ], [ %48, %476 ], [ %387, %390 ], [ %387, %386 ], [ %48, %195 ], [ %48, %483 ], [ %48, %563 ], [ %48, %137 ]
-  %.ph55 = phi i32 [ %49, %420 ], [ %49, %418 ], [ %49, %493 ], [ %49, %490 ], [ %49, %478 ], [ %49, %476 ], [ %108, %390 ], [ %108, %386 ], [ %108, %195 ], [ %49, %483 ], [ %49, %563 ], [ %108, %137 ]
-  %.ph56 = phi i32 [ %50, %420 ], [ %50, %418 ], [ %50, %493 ], [ %50, %490 ], [ %50, %478 ], [ %50, %476 ], [ %388, %390 ], [ %388, %386 ], [ %50, %195 ], [ %50, %483 ], [ %50, %563 ], [ %50, %137 ]
-  %.ph58 = phi i64 [ %51, %420 ], [ %51, %418 ], [ %51, %493 ], [ %51, %490 ], [ %51, %478 ], [ %51, %476 ], [ %51, %390 ], [ %51, %386 ], [ %51, %195 ], [ %479, %483 ], [ %51, %563 ], [ %51, %137 ]
-  %.ph59 = phi i32 [ %52, %420 ], [ %52, %418 ], [ %52, %493 ], [ %52, %490 ], [ %52, %478 ], [ %52, %476 ], [ %52, %390 ], [ %52, %386 ], [ %52, %195 ], [ %484, %483 ], [ %52, %563 ], [ %52, %137 ]
+.thread39:                                        ; preds = %137, %563, %420, %418, %483, %195, %386, %390, %476, %478, %490, %493
+  %.ph = phi i64 [ %46, %493 ], [ %46, %490 ], [ %46, %478 ], [ %46, %476 ], [ %46, %390 ], [ %46, %386 ], [ %46, %195 ], [ %480, %483 ], [ %46, %418 ], [ %46, %420 ], [ %46, %563 ], [ %46, %137 ]
+  %.ph53 = phi i8 [ %491, %493 ], [ %491, %490 ], [ 0, %478 ], [ 0, %476 ], [ %120, %390 ], [ %120, %386 ], [ %120, %195 ], [ 0, %483 ], [ 0, %418 ], [ 0, %420 ], [ %47, %563 ], [ 0, %137 ]
+  %.ph54 = phi i32 [ %48, %493 ], [ %48, %490 ], [ %48, %478 ], [ %48, %476 ], [ %387, %390 ], [ %387, %386 ], [ %48, %195 ], [ %48, %483 ], [ %48, %418 ], [ %48, %420 ], [ %48, %563 ], [ %48, %137 ]
+  %.ph55 = phi i32 [ %49, %493 ], [ %49, %490 ], [ %49, %478 ], [ %49, %476 ], [ %108, %390 ], [ %108, %386 ], [ %108, %195 ], [ %49, %483 ], [ %49, %418 ], [ %49, %420 ], [ %49, %563 ], [ %108, %137 ]
+  %.ph56 = phi i32 [ %50, %493 ], [ %50, %490 ], [ %50, %478 ], [ %50, %476 ], [ %388, %390 ], [ %388, %386 ], [ %50, %195 ], [ %50, %483 ], [ %50, %418 ], [ %50, %420 ], [ %50, %563 ], [ %50, %137 ]
+  %.ph58 = phi i64 [ %51, %493 ], [ %51, %490 ], [ %51, %478 ], [ %51, %476 ], [ %51, %390 ], [ %51, %386 ], [ %51, %195 ], [ %479, %483 ], [ %51, %418 ], [ %51, %420 ], [ %51, %563 ], [ %51, %137 ]
+  %.ph59 = phi i32 [ %52, %493 ], [ %52, %490 ], [ %52, %478 ], [ %52, %476 ], [ %52, %390 ], [ %52, %386 ], [ %52, %195 ], [ %484, %483 ], [ %52, %418 ], [ %52, %420 ], [ %52, %563 ], [ %52, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %45, !llvm.loop !11
 

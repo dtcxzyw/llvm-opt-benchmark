@@ -215,7 +215,7 @@ define i32 @ff_hw_base_encode_receive_packet(ptr noundef %0, ptr noundef %1, ptr
   unreachable
 
 46:                                               ; preds = %.preheader, %331
-  %.079 = phi ptr [ %.1119.ph, %331 ], [ %8, %.preheader ]
+  %.079 = phi ptr [ %.1120.ph, %331 ], [ %8, %.preheader ]
   %47 = load ptr, ptr %23, align 8, !tbaa !68
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8, !tbaa !69
@@ -258,7 +258,7 @@ define i32 @ff_hw_base_encode_receive_packet(ptr noundef %0, ptr noundef %1, ptr
 .thread:                                          ; preds = %58, %53, %46
   %67 = call i32 @ff_encode_get_frame(ptr noundef %1, ptr noundef %.079) #8
   %68 = icmp eq i32 %67, -541478725
-  br i1 %68, label %.thread116, label %69
+  br i1 %68, label %.thread117, label %69
 
 69:                                               ; preds = %.thread
   %70 = icmp slt i32 %67, 0
@@ -266,7 +266,7 @@ define i32 @ff_hw_base_encode_receive_packet(ptr noundef %0, ptr noundef %1, ptr
 
 71:                                               ; preds = %69
   %.not.i = icmp eq ptr %.079, null
-  br i1 %.not.i, label %.thread116, label %72
+  br i1 %.not.i, label %.thread117, label %72
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %.079, i64 104
@@ -483,14 +483,14 @@ hw_base_encode_check_frame.exit.i:                ; preds = %100, %98, %96, %94
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %193, label %201
 
-.thread116:                                       ; preds = %.thread, %71
+.thread117:                                       ; preds = %.thread, %71
   store i32 1, ptr %39, align 4, !tbaa !103
   %185 = load i64, ptr %30, align 8, !tbaa !94
   %186 = load i64, ptr %33, align 8, !tbaa !55
   %.not85.i = icmp sgt i64 %185, %186
   br i1 %.not85.i, label %201, label %187
 
-187:                                              ; preds = %.thread116
+187:                                              ; preds = %.thread117
   %188 = load ptr, ptr %38, align 8, !tbaa !102
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
   %190 = load i64, ptr %189, align 8, !tbaa !19
@@ -516,8 +516,8 @@ hw_base_encode_check_frame.exit.i:                ; preds = %100, %98, %96, %94
   call void @av_free(ptr noundef nonnull %102) #8
   br label %hw_base_encode_send_frame.exit
 
-201:                                              ; preds = %.thread116, %187, %179
-  %.1119.ph = phi ptr [ %.079, %179 ], [ null, %187 ], [ null, %.thread116 ]
+201:                                              ; preds = %.thread117, %187, %179
+  %.1120.ph = phi ptr [ %.079, %179 ], [ null, %187 ], [ null, %.thread117 ]
   %202 = load ptr, ptr %24, align 8, !tbaa !70
   %.not100 = icmp eq ptr %202, null
   br i1 %.not100, label %203, label %205
@@ -670,8 +670,8 @@ hw_base_encode_check_frame.exit.i:                ; preds = %100, %98, %96, %94
   %280 = load i64, ptr %279, align 8, !tbaa !54
   store i64 %280, ptr %43, align 8, !tbaa !108
   %281 = load ptr, ptr %24, align 8, !tbaa !70
-  %.not.i113 = icmp eq ptr %281, null
-  br i1 %.not.i113, label %282, label %.preheader44.i
+  %.not.i114 = icmp eq ptr %281, null
+  br i1 %.not.i114, label %282, label %.preheader44.i
 
 282:                                              ; preds = %277
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.2, i32 noundef 362) #8
@@ -730,12 +730,12 @@ hw_base_encode_check_frame.exit.i:                ; preds = %100, %98, %96, %94
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %299
-  %.pre.i114 = load ptr, ptr %24, align 8, !tbaa !70
-  %.not3649.i = icmp eq ptr %.pre.i114, null
+  %.pre.i115 = load ptr, ptr %24, align 8, !tbaa !70
+  %.not3649.i = icmp eq ptr %.pre.i115, null
   br i1 %.not3649.i, label %hw_base_encode_clear_old.exit, label %.lr.ph53.i
 
 .lr.ph53.i:                                       ; preds = %._crit_edge.i, %329
-  %.251.i = phi ptr [ %302, %329 ], [ %.pre.i114, %._crit_edge.i ]
+  %.251.i = phi ptr [ %302, %329 ], [ %.pre.i115, %._crit_edge.i ]
   %.03150.i = phi ptr [ %.132.i, %329 ], [ null, %._crit_edge.i ]
   %301 = getelementptr inbounds nuw i8, ptr %.251.i, i64 16
   %302 = load ptr, ptr %301, align 8, !tbaa !71

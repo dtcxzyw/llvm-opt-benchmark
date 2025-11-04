@@ -255,8 +255,8 @@ define internal range(i32 -1, 2) i32 @H5MF__sect_simple_can_shrink(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %69, %64, %51, %46, %54, %68, %2, %25, %15, %27
-  %.0 = phi i32 [ -1, %15 ], [ 1, %25 ], [ -1, %2 ], [ 0, %27 ], [ 0, %68 ], [ 0, %54 ], [ 1, %51 ], [ -1, %46 ], [ 1, %69 ], [ -1, %64 ]
-  ret i32 %.0
+  %.036 = phi i32 [ -1, %15 ], [ 1, %25 ], [ -1, %2 ], [ 0, %27 ], [ 0, %68 ], [ 0, %54 ], [ 1, %51 ], [ -1, %46 ], [ 1, %69 ], [ -1, %64 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable

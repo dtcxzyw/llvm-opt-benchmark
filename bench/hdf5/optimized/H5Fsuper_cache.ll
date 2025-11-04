@@ -222,7 +222,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread206, !prof !9
+  br i1 %13, label %14, label %.thread209, !prof !9
 
 14:                                               ; preds = %4
   %15 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5F_super_t_reg_free_list) #8
@@ -233,7 +233,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %18 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 420, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.12) #8
-  br label %.thread206
+  br label %.thread209
 
 21:                                               ; preds = %14
   %22 = call fastcc i32 @H5F__superblock_prefix_decode(ptr noundef %15, ptr noundef %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false)
@@ -490,8 +490,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %184 = ptrtoint ptr %175 to i64
   %185 = sub i64 %136, %184
   %186 = icmp ult i64 %185, 4
-  %or.cond239 = select i1 %183, i1 true, i1 %186
-  br i1 %or.cond239, label %187, label %191
+  %or.cond241 = select i1 %183, i1 true, i1 %186
+  br i1 %or.cond241, label %187, label %191
 
 187:                                              ; preds = %181
   %188 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -541,8 +541,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %217 = ptrtoint ptr %199 to i64
   %218 = sub i64 %136, %217
   %219 = icmp ult i64 %218, 2
-  %or.cond242 = select i1 %216, i1 true, i1 %219
-  br i1 %or.cond242, label %220, label %224
+  %or.cond244 = select i1 %216, i1 true, i1 %219
+  br i1 %or.cond244, label %220, label %224
 
 220:                                              ; preds = %215
   %221 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -558,8 +558,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %136, %228
   %230 = icmp ult i64 %229, 2
-  %or.cond245 = or i1 %227, %230
-  br i1 %or.cond245, label %231, label %235
+  %or.cond247 = or i1 %227, %230
+  br i1 %or.cond247, label %231, label %235
 
 231:                                              ; preds = %224
   %232 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -786,29 +786,29 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %371 = ptrtoint ptr %0 to i64
   %372 = sub i64 %370, %371
   %373 = icmp ugt i64 %372, %1
-  br i1 %373, label %374, label %.thread206
+  br i1 %373, label %374, label %.thread209
 
 374:                                              ; preds = %368
   %375 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %376 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %377 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 606, i64 noundef %375, i64 noundef %376, ptr noundef nonnull @.str.24) #8
-  br label %.thread206
+  br label %.thread209
 
 .thread:                                          ; preds = %24, %40, %47, %56, %63, %72, %82, %89, %98, %114, %127, %139, %153, %163, %177, %187, %203, %210, %220, %231, %256, %271, %278, %286, %319, %328, %342, %361
   %378 = call i32 @H5F__super_free(ptr noundef nonnull %15) #8
   %379 = icmp slt i32 %378, 0
-  br i1 %379, label %380, label %.thread206
+  br i1 %379, label %380, label %.thread209
 
 380:                                              ; preds = %.thread
   %381 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %382 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !10
   %383 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__cache_superblock_deserialize, i32 noundef 614, i64 noundef %381, i64 noundef %382, ptr noundef nonnull @.str.25) #8
-  br label %.thread206
+  br label %.thread209
 
-.thread206:                                       ; preds = %17, %368, %374, %4, %.thread, %380
-  %.0 = phi ptr [ null, %380 ], [ null, %.thread ], [ null, %4 ], [ %15, %368 ], [ %15, %374 ], [ null, %17 ]
+.thread209:                                       ; preds = %17, %368, %374, %4, %.thread, %380
+  %.0151 = phi ptr [ null, %380 ], [ null, %.thread ], [ null, %4 ], [ %15, %368 ], [ %15, %374 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.0
+  ret ptr %.0151
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1111,10 +1111,10 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_serialize(ptr nounde
   store i8 %165, ptr %163, align 1, !tbaa !31
   br label %166
 
-166:                                              ; preds = %112, %124, %.thread82, %4, %80, %89, %76
-  %.073 = phi i32 [ -1, %76 ], [ -1, %89 ], [ 0, %80 ], [ 0, %4 ], [ -1, %112 ], [ -1, %124 ], [ 0, %.thread82 ]
+166:                                              ; preds = %4, %80, %89, %76, %.thread82, %124, %112
+  %.074 = phi i32 [ -1, %76 ], [ -1, %89 ], [ 0, %80 ], [ 0, %4 ], [ -1, %112 ], [ -1, %124 ], [ 0, %.thread82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.073
+  ret i32 %.074
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1367,7 +1367,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %12 = trunc nuw i8 %11 to i1
   %13 = xor i1 %12, true
   %14 = select i1 %10, i1 true, i1 %13
-  br i1 %14, label %15, label %.thread116, !prof !9
+  br i1 %14, label %15, label %.thread117, !prof !9
 
 15:                                               ; preds = %5
   %or.cond = icmp slt i64 %2, 8
@@ -1377,7 +1377,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %17 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %18 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 157, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.4) #8
-  br label %.thread116
+  br label %.thread117
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1390,7 +1390,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %25 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 162, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.4) #8
-  br label %.thread116
+  br label %.thread117
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 9
@@ -1405,7 +1405,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %35 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %36 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 165, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.5) #8
-  br label %.thread116
+  br label %.thread117
 
 38:                                               ; preds = %28
   %39 = icmp samesign ult i8 %30, 2
@@ -1421,7 +1421,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %44 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %45 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 176, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.4) #8
-  br label %.thread116
+  br label %.thread117
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 13
@@ -1436,7 +1436,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %52 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %54 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 182, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.4) #8
-  br label %.thread116
+  br label %.thread117
 
 55:                                               ; preds = %49, %47
   %.sink126.in = phi ptr [ %48, %47 ], [ %29, %49 ]
@@ -1462,26 +1462,26 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %64 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %65 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 189, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.7) #8
-  br label %.thread116
+  br label %.thread117
 
 67:                                               ; preds = %.split
   %68 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %58)
   %69 = icmp eq i8 %68, 1
-  br i1 %69, label %.split110, label %71
+  br i1 %69, label %.split111, label %71
 
-.split110:                                        ; preds = %67
+.split111:                                        ; preds = %67
   %70 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %58, i1 true)
-  %.off111 = add nsw i8 %70, -1
-  %switch112 = icmp ult i8 %.off111, 5
-  br i1 %switch112, label %75, label %71
+  %.off112 = add nsw i8 %70, -1
+  %switch113 = icmp ult i8 %.off112, 5
+  br i1 %switch113, label %75, label %71
 
-71:                                               ; preds = %.split110, %67
+71:                                               ; preds = %.split111, %67
   %72 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %73 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %74 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 192, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.8) #8
-  br label %.thread116
+  br label %.thread117
 
-75:                                               ; preds = %.split110
+75:                                               ; preds = %.split111
   br i1 %4, label %76, label %100
 
 76:                                               ; preds = %75
@@ -1497,20 +1497,20 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %80 = add nuw nsw i32 %77, 39
   %81 = add nuw nsw i32 %80, %78
   %82 = add nuw nsw i32 %81, %79
-  br label %.thread114
+  br label %.thread115
 
 83:                                               ; preds = %76
   %84 = zext i8 %58 to i32
   %85 = add nuw nsw i32 %77, 43
   %86 = add nuw nsw i32 %85, %78
   %87 = add nuw nsw i32 %86, %84
-  br label %.thread114
+  br label %.thread115
 
 88:                                               ; preds = %76
   %89 = add nuw nsw i32 %78, 7
-  br label %.thread114
+  br label %.thread115
 
-.thread114:                                       ; preds = %88, %.thread, %83
+.thread115:                                       ; preds = %88, %.thread, %83
   %90 = phi i32 [ %89, %88 ], [ %82, %.thread ], [ %87, %83 ]
   %91 = zext nneg i32 %90 to i64
   %92 = load ptr, ptr %3, align 8, !tbaa !33
@@ -1519,19 +1519,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %96, label %100
 
-96:                                               ; preds = %.thread114
+96:                                               ; preds = %.thread115
   %97 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %98 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__superblock_prefix_decode, i32 noundef 206, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.10) #8
-  br label %.thread116
+  br label %.thread117
 
-100:                                              ; preds = %.thread114, %75
+100:                                              ; preds = %.thread115, %75
   store ptr %29, ptr %1, align 8, !tbaa !12
-  br label %.thread116
+  br label %.thread117
 
-.thread116:                                       ; preds = %96, %5, %100, %71, %63, %51, %43, %34, %24, %16
-  %.081 = phi i32 [ -1, %16 ], [ -1, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %63 ], [ -1, %71 ], [ 0, %100 ], [ -1, %51 ], [ 0, %5 ], [ -1, %96 ]
-  ret i32 %.081
+.thread117:                                       ; preds = %96, %5, %100, %71, %63, %51, %43, %34, %24, %16
+  %.082 = phi i32 [ -1, %16 ], [ -1, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %63 ], [ -1, %71 ], [ 0, %100 ], [ -1, %51 ], [ 0, %5 ], [ -1, %96 ]
+  ret i32 %.082
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -1722,8 +1722,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nou
   br label %106
 
 106:                                              ; preds = %84, %102, %6, %.thread, %69, %41, %32, %24, %18
-  %.062 = phi i32 [ -1, %18 ], [ -1, %24 ], [ -1, %32 ], [ -1, %41 ], [ -1, %69 ], [ 0, %.thread ], [ 0, %6 ], [ -1, %102 ], [ -1, %84 ]
-  ret i32 %.062
+  %.064 = phi i32 [ -1, %18 ], [ -1, %24 ], [ -1, %32 ], [ -1, %41 ], [ -1, %69 ], [ 0, %.thread ], [ 0, %6 ], [ -1, %102 ], [ -1, %84 ]
+  ret i32 %.064
 }
 
 declare i32 @H5FD_set_eoa(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3

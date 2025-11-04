@@ -193,9 +193,9 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
 23:                                               ; preds = %.lr.ph._crit_edge, %._crit_edge
   br label %24
 
-24:                                               ; preds = %23, %._crit_edge, %.lr.ph._crit_edge, %6
-  %.027 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
-  ret i32 %.027
+24:                                               ; preds = %6, %.lr.ph._crit_edge, %._crit_edge, %23
+  %.2 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
+  ret i32 %.2
 }
 
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
@@ -275,9 +275,9 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
 29:                                               ; preds = %27, %25
   br label %30
 
-30:                                               ; preds = %29, %25, %27, %5
-  %.032 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
-  ret i32 %.032
+30:                                               ; preds = %5, %27, %25, %29
+  %.2 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -350,9 +350,9 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
-36:                                               ; preds = %.loopexit, %6
-  %.034 = phi i32 [ %8, %6 ], [ %.233, %.loopexit ]
-  ret i32 %.034
+36:                                               ; preds = %6, %.loopexit
+  %.5 = phi i32 [ %8, %6 ], [ %.233, %.loopexit ]
+  ret i32 %.5
 }
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -737,7 +737,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %or.cond3 = or i1 %.167, %101
   %102 = icmp ne i32 %.069, 0
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %102
-  br i1 %or.cond5, label %select.unfold, label %103
+  br i1 %or.cond5, label %121, label %103
 
 103:                                              ; preds = %98
   br i1 %.061, label %104, label %109
@@ -747,7 +747,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %106 = icmp eq i8 %105, 111
   %107 = select i1 %106, ptr @.str.76, ptr @.str.66
   %108 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_toohard, ptr noundef nonnull @.str.75, ptr noundef %4, ptr noundef nonnull %107, ptr noundef nonnull %.060) #8
-  br label %select.unfold
+  br label %121
 
 109:                                              ; preds = %103
   br i1 %.073, label %110, label %119
@@ -765,19 +765,19 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %.058 = phi i64 [ %114, %112 ], [ -1, %110 ]
   %116 = call fastcc ptr @c_escape(ptr noundef %.060, i64 noundef %.058)
   %.not90 = icmp eq ptr %116, null
-  br i1 %.not90, label %select.unfold, label %117
+  br i1 %.not90, label %121, label %117
 
 117:                                              ; preds = %115
   %118 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.77, ptr noundef %4, ptr noundef nonnull %116) #8
-  br label %select.unfold
+  br label %121
 
 119:                                              ; preds = %109
   %120 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.78, ptr noundef %4, ptr noundef %.060) #8
-  br label %select.unfold
+  br label %121
 
-select.unfold:                                    ; preds = %117, %98, %104, %119, %115
-  %.072 = phi ptr [ null, %98 ], [ null, %104 ], [ null, %119 ], [ null, %115 ], [ %116, %117 ]
-  %.271 = phi i32 [ %.069, %98 ], [ %108, %104 ], [ %120, %119 ], [ 27, %115 ], [ %118, %117 ]
+121:                                              ; preds = %115, %117, %119, %104, %98
+  %.072 = phi ptr [ null, %98 ], [ null, %104 ], [ null, %119 ], [ %116, %117 ], [ null, %115 ]
+  %.271 = phi i32 [ %.069, %98 ], [ %108, %104 ], [ %120, %119 ], [ %118, %117 ], [ 27, %115 ]
   call void @free(ptr noundef %.072) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

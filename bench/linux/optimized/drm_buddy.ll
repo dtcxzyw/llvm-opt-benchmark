@@ -56,7 +56,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2), !range !5
   %8 = icmp samesign ult i64 %7, 2
   %9 = select i1 %6, i1 %8, i1 false
-  br i1 %9, label %10, label %.loopexit12
+  br i1 %9, label %10, label %.loopexit13
 
 10:                                               ; preds = %3
   %11 = sub i64 0, %2
@@ -87,10 +87,10 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %25, i32 noundef 3264) #9
   store ptr %26, ptr %0, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit12, label %.preheader13
+  br i1 %27, label %.loopexit13, label %.preheader14
 
-.preheader13:                                     ; preds = %22, %.preheader13
-  %28 = phi i32 [ %33, %.preheader13 ], [ 0, %22 ]
+.preheader14:                                     ; preds = %22, %.preheader14
+  %28 = phi i32 [ %33, %.preheader14 ], [ 0, %22 ]
   %29 = load ptr, ptr %0, align 8
   %30 = zext i32 %28 to i64
   %31 = getelementptr %struct.list_head, ptr %29, i64 %30
@@ -100,9 +100,9 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %33 = add i32 %28, 1
   %34 = load i32, ptr %19, align 4
   %35 = icmp ugt i32 %33, %34
-  br i1 %35, label %36, label %.preheader13, !llvm.loop !10
+  br i1 %35, label %36, label %.preheader14, !llvm.loop !10
 
-36:                                               ; preds = %.preheader13
+36:                                               ; preds = %.preheader14
   %37 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #10, !srcloc !13
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -241,7 +241,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
   %113 = sub i64 %45, %52
   %114 = add i32 %46, 1
   %115 = icmp eq i64 %113, 0
-  br i1 %115, label %.loopexit12, label %.preheader, !llvm.loop !24
+  br i1 %115, label %.loopexit13, label %.preheader, !llvm.loop !24
 
 116:                                              ; preds = %116, %106
   %117 = phi i64 [ %107, %106 ], [ %118, %116 ]
@@ -262,9 +262,9 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captu
 125:                                              ; preds = %.loopexit, %36
   %126 = load ptr, ptr %0, align 8
   tail call void @kfree(ptr noundef %126) #8
-  br label %.loopexit12
+  br label %.loopexit13
 
-.loopexit12:                                      ; preds = %108, %125, %22, %3
+.loopexit13:                                      ; preds = %108, %125, %22, %3
   %127 = phi i32 [ -12, %125 ], [ -22, %3 ], [ -12, %22 ], [ 0, %108 ]
   ret i32 %127
 }

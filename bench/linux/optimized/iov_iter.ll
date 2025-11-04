@@ -701,7 +701,7 @@ define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef 
   %279 = icmp eq ptr %278, null
   br i1 %279, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %260, %194, %227, %217
+.loopexit17:                                      ; preds = %.loopexit, %260, %217, %227, %194
   %280 = phi i64 [ 0, %194 ], [ %211, %217 ], [ %211, %227 ], [ %272, %260 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %281 = load i64, ptr %197, align 8
@@ -1139,7 +1139,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nound
   %288 = icmp eq ptr %287, null
   br i1 %288, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %264, %198, %231, %221
+.loopexit17:                                      ; preds = %.loopexit, %264, %221, %231, %198
   %289 = phi i64 [ 0, %198 ], [ %215, %221 ], [ %215, %231 ], [ %279, %264 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %290 = load i64, ptr %201, align 8
@@ -1587,7 +1587,7 @@ define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr nounde
   %285 = icmp eq ptr %284, null
   br i1 %285, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %266, %200, %233, %223
+.loopexit17:                                      ; preds = %.loopexit, %266, %223, %233, %200
   %286 = phi i64 [ 0, %200 ], [ %217, %223 ], [ %217, %233 ], [ %278, %266 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %287 = load i64, ptr %203, align 8
@@ -1996,7 +1996,7 @@ define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, pt
   %263 = icmp eq ptr %262, null
   br i1 %263, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %244, %178, %211, %201
+.loopexit17:                                      ; preds = %.loopexit, %244, %201, %211, %178
   %264 = phi i64 [ 0, %178 ], [ %195, %201 ], [ %195, %211 ], [ %256, %244 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %265 = load i64, ptr %181, align 8
@@ -2401,7 +2401,7 @@ define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1,
   %263 = icmp eq ptr %262, null
   br i1 %263, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %244, %178, %211, %201
+.loopexit17:                                      ; preds = %.loopexit, %244, %201, %211, %178
   %264 = phi i64 [ 0, %178 ], [ %195, %201 ], [ %195, %211 ], [ %256, %244 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %265 = load i64, ptr %181, align 8
@@ -3039,7 +3039,7 @@ define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, 
   %324 = icmp eq ptr %323, null
   br i1 %324, label %.loopexit19, label %.preheader, !llvm.loop !35
 
-.loopexit19:                                      ; preds = %.loopexit, %305, %246, %272, %262
+.loopexit19:                                      ; preds = %.loopexit, %305, %262, %272, %246
   %325 = phi i64 [ 0, %246 ], [ %256, %262 ], [ %256, %272 ], [ %317, %305 ], [ %.ph16, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %326 = load i64, ptr %70, align 8
@@ -3604,7 +3604,7 @@ define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr noundef captures(none) %
   %269 = icmp eq ptr %268, null
   br i1 %269, label %.loopexit17, label %.preheader, !llvm.loop !35
 
-.loopexit17:                                      ; preds = %.loopexit, %251, %185, %218, %208
+.loopexit17:                                      ; preds = %.loopexit, %251, %208, %218, %185
   %270 = phi i64 [ 0, %185 ], [ %202, %208 ], [ %202, %218 ], [ %262, %251 ], [ %.ph14, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %271 = load i64, ptr %188, align 8
@@ -4154,7 +4154,7 @@ define dso_local i64 @copy_page_from_iter_atomic(ptr noundef %0, i64 noundef %1,
   %352 = icmp eq ptr %351, null
   br i1 %352, label %.loopexit18, label %.preheader, !llvm.loop !35
 
-.loopexit18:                                      ; preds = %.loopexit, %333, %267, %300, %290
+.loopexit18:                                      ; preds = %.loopexit, %333, %290, %300, %267
   %353 = phi i64 [ 0, %267 ], [ %284, %290 ], [ %284, %300 ], [ %345, %333 ], [ %.ph15, %.loopexit ]
   call void @__rcu_read_unlock() #15
   %354 = load i64, ptr %270, align 8
@@ -5798,7 +5798,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
   store i64 %23, ptr %24, align 8
   br label %25
 
-25:                                               ; preds = %18, %20, %16, %13
+25:                                               ; preds = %20, %18, %16, %13
   %26 = phi i32 [ -14, %13 ], [ -14, %16 ], [ 0, %20 ], [ -22, %18 ]
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
   br label %40
@@ -5891,7 +5891,7 @@ define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef
   %70 = zext i32 %2 to i64
   %71 = load ptr, ptr %4, align 8
   %72 = icmp eq i32 %2, 0
-  br i1 %72, label %iovec_from_user.exit.thread26, label %73
+  br i1 %72, label %iovec_from_user.exit.thread27, label %73
 
 73:                                               ; preds = %69
   %74 = icmp ugt i32 %2, 1024
@@ -5985,12 +5985,12 @@ iovec_from_user.exit:                             ; preds = %112, %118
   %122 = icmp ugt ptr %121, inttoptr (i64 -4096 to ptr)
   br i1 %122, label %iovec_from_user.exit.thread, label %.preheader
 
-iovec_from_user.exit.thread26:                    ; preds = %69
+iovec_from_user.exit.thread27:                    ; preds = %69
   %123 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
   br i1 %123, label %iovec_from_user.exit.thread, label %.loopexit
 
-iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exit.thread26, %77, %73, %iovec_from_user.exit
-  %124 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread26 ]
+iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exit.thread27, %77, %73, %iovec_from_user.exit
+  %124 = phi ptr [ %121, %iovec_from_user.exit ], [ inttoptr (i64 -12 to ptr), %77 ], [ inttoptr (i64 -22 to ptr), %73 ], [ %71, %iovec_from_user.exit.thread27 ]
   store ptr null, ptr %4, align 8
   %125 = ptrtoint ptr %124 to i64
   br label %168
@@ -6038,9 +6038,9 @@ iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exi
   store ptr null, ptr %4, align 8
   br label %168
 
-.loopexit:                                        ; preds = %126, %iovec_from_user.exit.thread26
-  %151 = phi ptr [ %71, %iovec_from_user.exit.thread26 ], [ %121, %126 ]
-  %152 = phi i64 [ 0, %iovec_from_user.exit.thread26 ], [ %128, %126 ]
+.loopexit:                                        ; preds = %126, %iovec_from_user.exit.thread27
+  %151 = phi ptr [ %71, %iovec_from_user.exit.thread27 ], [ %121, %126 ]
+  %152 = phi i64 [ 0, %iovec_from_user.exit.thread27 ], [ %128, %126 ]
   %153 = icmp ult i32 %0, 2
   br i1 %153, label %155, label %154, !prof !11
 

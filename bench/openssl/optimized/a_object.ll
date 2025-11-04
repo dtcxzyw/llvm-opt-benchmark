@@ -131,9 +131,9 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
 
 18:                                               ; preds = %13
   %19 = icmp eq i32 %.0122, 2
-  br i1 %19, label %.sink.split, label %.lr.ph267
+  br i1 %19, label %.sink.split, label %.lr.ph268
 
-.lr.ph267:                                        ; preds = %18
+.lr.ph268:                                        ; preds = %18
   %20 = add nsw i32 %.0122, -2
   %21 = load i8, ptr %10, align 1, !tbaa !12
   %22 = sext i8 %21 to i32
@@ -145,15 +145,15 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %.not151 = icmp eq ptr %0, null
   br label %28
 
-28:                                               ; preds = %.lr.ph267, %105
-  %.197265 = phi ptr [ null, %.lr.ph267 ], [ %.2.lcssa.ph, %105 ]
-  %.0102264 = phi ptr [ %23, %.lr.ph267 ], [ %30, %105 ]
-  %.0105263 = phi i32 [ 24, %.lr.ph267 ], [ %.3108, %105 ]
-  %.1110262 = phi ptr [ %5, %.lr.ph267 ], [ %.4113, %105 ]
-  %.0116261 = phi i32 [ %22, %.lr.ph267 ], [ %32, %105 ]
-  %.0119260 = phi i32 [ 0, %.lr.ph267 ], [ %.2121, %105 ]
-  %.1123259 = phi i32 [ %20, %.lr.ph267 ], [ %.3125.ph, %105 ]
-  switch i32 %.0116261, label %.thread170.sink.split [
+28:                                               ; preds = %.lr.ph268, %105
+  %.197266 = phi ptr [ null, %.lr.ph268 ], [ %.2.lcssa.ph, %105 ]
+  %.0102265 = phi ptr [ %23, %.lr.ph268 ], [ %30, %105 ]
+  %.0105264 = phi i32 [ 24, %.lr.ph268 ], [ %.3108, %105 ]
+  %.1110263 = phi ptr [ %5, %.lr.ph268 ], [ %.4113, %105 ]
+  %.0116262 = phi i32 [ %22, %.lr.ph268 ], [ %32, %105 ]
+  %.0119261 = phi i32 [ 0, %.lr.ph268 ], [ %.2121, %105 ]
+  %.1123260 = phi i32 [ %20, %.lr.ph268 ], [ %.3125.ph, %105 ]
+  switch i32 %.0116262, label %.thread171.sink.split [
     i32 46, label %.lr.ph.preheader
     i32 32, label %.lr.ph.preheader
   ]
@@ -162,14 +162,14 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %.2229 = phi ptr [ %.3163, %55 ], [ %.197265, %.lr.ph.preheader ]
-  %.098228 = phi i64 [ %.199, %55 ], [ 0, %.lr.ph.preheader ]
-  %.1103227 = phi ptr [ %30, %55 ], [ %.0102264, %.lr.ph.preheader ]
-  %.0114226 = phi i32 [ %.1115160, %55 ], [ 0, %.lr.ph.preheader ]
-  %.2124225 = phi i32 [ %29, %55 ], [ %.1123259, %.lr.ph.preheader ]
-  %29 = add nsw i32 %.2124225, -1
-  %30 = getelementptr inbounds nuw i8, ptr %.1103227, i64 1
-  %31 = load i8, ptr %.1103227, align 1, !tbaa !12
+  %.2230 = phi ptr [ %.3164, %55 ], [ %.197266, %.lr.ph.preheader ]
+  %.098229 = phi i64 [ %.199, %55 ], [ 0, %.lr.ph.preheader ]
+  %.1103228 = phi ptr [ %30, %55 ], [ %.0102265, %.lr.ph.preheader ]
+  %.0114227 = phi i32 [ %.1115161, %55 ], [ 0, %.lr.ph.preheader ]
+  %.2124226 = phi i32 [ %29, %55 ], [ %.1123260, %.lr.ph.preheader ]
+  %29 = add nsw i32 %.2124226, -1
+  %30 = getelementptr inbounds nuw i8, ptr %.1103228, i64 1
+  %31 = load i8, ptr %.1103228, align 1, !tbaa !12
   %32 = sext i8 %31 to i32
   switch i8 %31, label %33 [
     i8 46, label %._crit_edge
@@ -179,106 +179,106 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
 33:                                               ; preds = %.lr.ph
   %34 = call i32 @ossl_isdigit(i32 noundef %32) #6
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %.thread170.sink.split, label %35
+  br i1 %.not, label %.thread171.sink.split, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp eq i32 %.0114226, 0
-  %37 = icmp ugt i64 %.098228, 1844674407370955152
+  %36 = icmp eq i32 %.0114227, 0
+  %37 = icmp ugt i64 %.098229, 1844674407370955152
   %or.cond7 = select i1 %36, i1 %37, i1 false
   br i1 %or.cond7, label %38, label %44
 
 38:                                               ; preds = %35
-  %39 = icmp eq ptr %.2229, null
+  %39 = icmp eq ptr %.2230, null
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %38
   %41 = call ptr @BN_new() #6
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread170, label %.thread
+  br i1 %42, label %.thread171, label %.thread
 
 .thread:                                          ; preds = %38, %40
-  %.4155 = phi ptr [ %41, %40 ], [ %.2229, %38 ]
-  %43 = call i32 @BN_set_word(ptr noundef nonnull %.4155, i64 noundef %.098228) #6
+  %.4156 = phi ptr [ %41, %40 ], [ %.2230, %38 ]
+  %43 = call i32 @BN_set_word(ptr noundef nonnull %.4156, i64 noundef %.098229) #6
   %.not141 = icmp eq i32 %43, 0
-  br i1 %.not141, label %.thread170, label %.thread156
+  br i1 %.not141, label %.thread171, label %.thread157
 
 44:                                               ; preds = %35
-  br i1 %36, label %50, label %.thread156
+  br i1 %36, label %50, label %.thread157
 
-.thread156:                                       ; preds = %.thread, %44
-  %.3162 = phi ptr [ %.2229, %44 ], [ %.4155, %.thread ]
-  %45 = call i32 @BN_mul_word(ptr noundef %.3162, i64 noundef 10) #6
+.thread157:                                       ; preds = %.thread, %44
+  %.3163 = phi ptr [ %.2230, %44 ], [ %.4156, %.thread ]
+  %45 = call i32 @BN_mul_word(ptr noundef %.3163, i64 noundef 10) #6
   %.not143 = icmp eq i32 %45, 0
-  br i1 %.not143, label %.thread170, label %46
+  br i1 %.not143, label %.thread171, label %46
 
-46:                                               ; preds = %.thread156
+46:                                               ; preds = %.thread157
   %47 = add nsw i32 %32, -48
   %48 = sext i32 %47 to i64
-  %49 = call i32 @BN_add_word(ptr noundef %.3162, i64 noundef %48) #6
+  %49 = call i32 @BN_add_word(ptr noundef %.3163, i64 noundef %48) #6
   %.not144 = icmp eq i32 %49, 0
-  br i1 %.not144, label %.thread170, label %55
+  br i1 %.not144, label %.thread171, label %55
 
 50:                                               ; preds = %44
-  %51 = mul i64 %.098228, 10
+  %51 = mul i64 %.098229, 10
   %52 = add nsw i32 %32, -48
   %53 = sext i32 %52 to i64
   %54 = add i64 %51, %53
   br label %55
 
 55:                                               ; preds = %46, %50
-  %.3163 = phi ptr [ %.3162, %46 ], [ %.2229, %50 ]
-  %.1115160 = phi i32 [ 1, %46 ], [ 0, %50 ]
-  %.199 = phi i64 [ %.098228, %46 ], [ %54, %50 ]
-  %56 = icmp samesign ult i32 %.2124225, 2
+  %.3164 = phi ptr [ %.3163, %46 ], [ %.2230, %50 ]
+  %.1115161 = phi i32 [ 1, %46 ], [ 0, %50 ]
+  %.199 = phi i64 [ %.098229, %46 ], [ %54, %50 ]
+  %56 = icmp samesign ult i32 %.2124226, 2
   br i1 %56, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %.lr.ph
-  %.0114.lcssa.ph = phi i32 [ %.1115160, %55 ], [ %.0114226, %.lr.ph ], [ %.0114226, %.lr.ph ]
-  %.098.lcssa.ph = phi i64 [ %.199, %55 ], [ %.098228, %.lr.ph ], [ %.098228, %.lr.ph ]
-  %.2.lcssa.ph = phi ptr [ %.3163, %55 ], [ %.2229, %.lr.ph ], [ %.2229, %.lr.ph ]
+  %.0114.lcssa.ph = phi i32 [ %.1115161, %55 ], [ %.0114227, %.lr.ph ], [ %.0114227, %.lr.ph ]
+  %.098.lcssa.ph = phi i64 [ %.199, %55 ], [ %.098229, %.lr.ph ], [ %.098229, %.lr.ph ]
+  %.2.lcssa.ph = phi ptr [ %.3164, %55 ], [ %.2230, %.lr.ph ], [ %.2230, %.lr.ph ]
   %.3125.ph = phi i32 [ 0, %55 ], [ %29, %.lr.ph ], [ %29, %.lr.ph ]
-  %57 = icmp eq i32 %.0119260, 0
+  %57 = icmp eq i32 %.0119261, 0
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %._crit_edge
   %59 = icmp ugt i64 %.098.lcssa.ph, 39
   %or.cond9 = select i1 %24, i1 %59, i1 false
-  br i1 %or.cond9, label %.thread170.sink.split, label %60
+  br i1 %or.cond9, label %.thread171.sink.split, label %60
 
 60:                                               ; preds = %58
   %.not145 = icmp eq i32 %.0114.lcssa.ph, 0
-  br i1 %.not145, label %.thread324, label %61
+  br i1 %.not145, label %.thread325, label %61
 
 61:                                               ; preds = %60
   %62 = call i32 @BN_add_word(ptr noundef %.2.lcssa.ph, i64 noundef %27) #6
   %.not146 = icmp eq i32 %62, 0
-  br i1 %.not146, label %.thread170, label %.thread164
+  br i1 %.not146, label %.thread171, label %.thread165
 
-.thread324:                                       ; preds = %60
+.thread325:                                       ; preds = %60
   %63 = add i64 %.098.lcssa.ph, %27
-  br label %.preheader186.preheader
+  br label %.preheader187.preheader
 
 64:                                               ; preds = %._crit_edge
   %.not147 = icmp eq i32 %.0114.lcssa.ph, 0
-  br i1 %.not147, label %.preheader186.preheader, label %.thread164
+  br i1 %.not147, label %.preheader187.preheader, label %.thread165
 
-.preheader186.preheader:                          ; preds = %.thread324, %64
-  %.3101.ph = phi i64 [ %.098.lcssa.ph, %64 ], [ %63, %.thread324 ]
-  br label %.preheader186
+.preheader187.preheader:                          ; preds = %.thread325, %64
+  %.3101.ph = phi i64 [ %.098.lcssa.ph, %64 ], [ %63, %.thread325 ]
+  br label %.preheader187
 
-.thread164:                                       ; preds = %61, %64
+.thread165:                                       ; preds = %61, %64
   %65 = call i32 @BN_num_bits(ptr noundef %.2.lcssa.ph) #6
   %66 = add nsw i32 %65, 6
   %67 = sdiv i32 %66, 7
-  %68 = icmp sgt i32 %67, %.0105263
+  %68 = icmp sgt i32 %67, %.0105264
   br i1 %68, label %69, label %76
 
-69:                                               ; preds = %.thread164
-  %.not148 = icmp eq ptr %.1110262, %5
+69:                                               ; preds = %.thread165
+  %.not148 = icmp eq ptr %.1110263, %5
   br i1 %.not148, label %71, label %70
 
 70:                                               ; preds = %69
-  call void @CRYPTO_free(ptr noundef %.1110262, ptr noundef nonnull @.str, i32 noundef 133) #6
+  call void @CRYPTO_free(ptr noundef %.1110263, ptr noundef nonnull @.str, i32 noundef 133) #6
   br label %71
 
 71:                                               ; preds = %70, %69
@@ -286,90 +286,90 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   %73 = zext nneg i32 %72 to i64
   %74 = call noalias ptr @CRYPTO_malloc(i64 noundef %73, ptr noundef nonnull @.str, i32 noundef 135) #6
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread170.thread, label %76
+  br i1 %75, label %.thread171.thread, label %76
 
-76:                                               ; preds = %71, %.thread164
-  %.2111 = phi ptr [ %74, %71 ], [ %.1110262, %.thread164 ]
-  %.1106 = phi i32 [ %72, %71 ], [ %.0105263, %.thread164 ]
+76:                                               ; preds = %71, %.thread165
+  %.2111 = phi ptr [ %74, %71 ], [ %.1110263, %.thread165 ]
+  %.1106 = phi i32 [ %72, %71 ], [ %.0105264, %.thread165 ]
   %.off = add i32 %65, 12
-  %.not149249 = icmp ult i32 %.off, 13
-  br i1 %.not149249, label %.loopexit, label %.lr.ph252
+  %.not149250 = icmp ult i32 %.off, 13
+  br i1 %.not149250, label %.loopexit, label %.lr.ph253
 
-.lr.ph252:                                        ; preds = %76, %78
+.lr.ph253:                                        ; preds = %76, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %76 ]
   %.in = phi i32 [ %79, %78 ], [ %67, %76 ]
   %77 = call i64 @BN_div_word(ptr noundef %.2.lcssa.ph, i64 noundef 128) #6
   %.not150 = icmp eq i64 %77, -1
-  br i1 %.not150, label %.thread170, label %78
+  br i1 %.not150, label %.thread171, label %78
 
-78:                                               ; preds = %.lr.ph252
+78:                                               ; preds = %.lr.ph253
   %79 = add nsw i32 %.in, -1
   %80 = trunc i64 %77 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = getelementptr inbounds nuw i8, ptr %.2111, i64 %indvars.iv
   store i8 %80, ptr %81, align 1, !tbaa !12
   %.not149 = icmp eq i32 %79, 0
-  br i1 %.not149, label %.loopexit.loopexit272, label %.lr.ph252, !llvm.loop !13
+  br i1 %.not149, label %.loopexit.loopexit273, label %.lr.ph253, !llvm.loop !13
 
-.preheader186:                                    ; preds = %.preheader186.preheader, %.preheader186
-  %indvars.iv308 = phi i64 [ %indvars.iv.next309, %.preheader186 ], [ 0, %.preheader186.preheader ]
-  %.3101 = phi i64 [ %85, %.preheader186 ], [ %.3101.ph, %.preheader186.preheader ]
+.preheader187:                                    ; preds = %.preheader187.preheader, %.preheader187
+  %indvars.iv309 = phi i64 [ %indvars.iv.next310, %.preheader187 ], [ 0, %.preheader187.preheader ]
+  %.3101 = phi i64 [ %85, %.preheader187 ], [ %.3101.ph, %.preheader187.preheader ]
   %82 = trunc i64 %.3101 to i8
   %83 = and i8 %82, 127
-  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
-  %84 = getelementptr inbounds nuw i8, ptr %.1110262, i64 %indvars.iv308
+  %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
+  %84 = getelementptr inbounds nuw i8, ptr %.1110263, i64 %indvars.iv309
   store i8 %83, ptr %84, align 1, !tbaa !12
   %85 = lshr i64 %.3101, 7
   %86 = icmp ult i64 %.3101, 128
-  br i1 %86, label %.loopexit.loopexit, label %.preheader186
+  br i1 %86, label %.loopexit.loopexit, label %.preheader187
 
-.loopexit.loopexit:                               ; preds = %.preheader186
-  %87 = trunc nuw nsw i64 %indvars.iv.next309 to i32
+.loopexit.loopexit:                               ; preds = %.preheader187
+  %87 = trunc nuw nsw i64 %indvars.iv.next310 to i32
   br label %.loopexit
 
-.loopexit.loopexit272:                            ; preds = %78
+.loopexit.loopexit273:                            ; preds = %78
   %88 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit272, %.loopexit.loopexit, %76
-  %.3129 = phi i32 [ 0, %76 ], [ %87, %.loopexit.loopexit ], [ %88, %.loopexit.loopexit272 ]
-  %.4113 = phi ptr [ %.2111, %76 ], [ %.1110262, %.loopexit.loopexit ], [ %.2111, %.loopexit.loopexit272 ]
-  %.3108 = phi i32 [ %.1106, %76 ], [ %.0105263, %.loopexit.loopexit ], [ %.1106, %.loopexit.loopexit272 ]
-  %89 = add nsw i32 %.3129, %.0119260
+.loopexit:                                        ; preds = %.loopexit.loopexit273, %.loopexit.loopexit, %76
+  %.3129 = phi i32 [ 0, %76 ], [ %87, %.loopexit.loopexit ], [ %88, %.loopexit.loopexit273 ]
+  %.4113 = phi ptr [ %.2111, %76 ], [ %.1110263, %.loopexit.loopexit ], [ %.2111, %.loopexit.loopexit273 ]
+  %.3108 = phi i32 [ %.1106, %76 ], [ %.0105264, %.loopexit.loopexit ], [ %.1106, %.loopexit.loopexit273 ]
+  %89 = add nsw i32 %.3129, %.0119261
   br i1 %.not151, label %105, label %90
 
 90:                                               ; preds = %.loopexit
   %91 = icmp sgt i32 %89, %1
-  br i1 %91, label %.thread170.sink.split, label %.preheader
+  br i1 %91, label %.thread171.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %90
   %92 = icmp sgt i32 %.3129, 1
-  br i1 %92, label %.lr.ph256.preheader, label %._crit_edge257
+  br i1 %92, label %.lr.ph257.preheader, label %._crit_edge258
 
-.lr.ph256.preheader:                              ; preds = %.preheader
-  %93 = sext i32 %.0119260 to i64
+.lr.ph257.preheader:                              ; preds = %.preheader
+  %93 = sext i32 %.0119261 to i64
   %94 = zext nneg i32 %.3129 to i64
-  br label %.lr.ph256
+  br label %.lr.ph257
 
-.lr.ph256:                                        ; preds = %.lr.ph256.preheader, %.lr.ph256
-  %indvars.iv313 = phi i64 [ %94, %.lr.ph256.preheader ], [ %indvars.iv.next314, %.lr.ph256 ]
-  %indvars.iv311 = phi i64 [ %93, %.lr.ph256.preheader ], [ %indvars.iv.next312, %.lr.ph256 ]
-  %indvars.iv.next314 = add nsw i64 %indvars.iv313, -1
-  %95 = getelementptr inbounds nuw i8, ptr %.4113, i64 %indvars.iv.next314
+.lr.ph257:                                        ; preds = %.lr.ph257.preheader, %.lr.ph257
+  %indvars.iv314 = phi i64 [ %94, %.lr.ph257.preheader ], [ %indvars.iv.next315, %.lr.ph257 ]
+  %indvars.iv312 = phi i64 [ %93, %.lr.ph257.preheader ], [ %indvars.iv.next313, %.lr.ph257 ]
+  %indvars.iv.next315 = add nsw i64 %indvars.iv314, -1
+  %95 = getelementptr inbounds nuw i8, ptr %.4113, i64 %indvars.iv.next315
   %96 = load i8, ptr %95, align 1, !tbaa !12
   %97 = or i8 %96, -128
-  %indvars.iv.next312 = add nsw i64 %indvars.iv311, 1
-  %98 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv311
+  %indvars.iv.next313 = add nsw i64 %indvars.iv312, 1
+  %98 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv312
   store i8 %97, ptr %98, align 1, !tbaa !12
-  %99 = icmp samesign ugt i64 %indvars.iv313, 2
-  br i1 %99, label %.lr.ph256, label %._crit_edge257.loopexit, !llvm.loop !15
+  %99 = icmp samesign ugt i64 %indvars.iv314, 2
+  br i1 %99, label %.lr.ph257, label %._crit_edge258.loopexit, !llvm.loop !15
 
-._crit_edge257.loopexit:                          ; preds = %.lr.ph256
-  %100 = trunc nsw i64 %indvars.iv.next312 to i32
-  br label %._crit_edge257
+._crit_edge258.loopexit:                          ; preds = %.lr.ph257
+  %100 = trunc nsw i64 %indvars.iv.next313 to i32
+  br label %._crit_edge258
 
-._crit_edge257:                                   ; preds = %._crit_edge257.loopexit, %.preheader
-  %.1120.lcssa = phi i32 [ %.0119260, %.preheader ], [ %100, %._crit_edge257.loopexit ]
+._crit_edge258:                                   ; preds = %._crit_edge258.loopexit, %.preheader
+  %.1120.lcssa = phi i32 [ %.0119261, %.preheader ], [ %100, %._crit_edge258.loopexit ]
   %101 = load i8, ptr %.4113, align 1, !tbaa !12
   %102 = add nsw i32 %.1120.lcssa, 1
   %103 = sext i32 %.1120.lcssa to i64
@@ -377,45 +377,45 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   store i8 %101, ptr %104, align 1, !tbaa !12
   br label %105
 
-105:                                              ; preds = %.loopexit, %._crit_edge257
-  %.2121 = phi i32 [ %102, %._crit_edge257 ], [ %89, %.loopexit ]
+105:                                              ; preds = %.loopexit, %._crit_edge258
+  %.2121 = phi i32 [ %102, %._crit_edge258 ], [ %89, %.loopexit ]
   %106 = icmp slt i32 %.3125.ph, 1
-  br i1 %106, label %._crit_edge268, label %28
+  br i1 %106, label %._crit_edge269, label %28
 
-._crit_edge268:                                   ; preds = %105
+._crit_edge269:                                   ; preds = %105
   %.not152 = icmp eq ptr %.4113, %5
   br i1 %.not152, label %.sink.split, label %107
 
-107:                                              ; preds = %._crit_edge268
+107:                                              ; preds = %._crit_edge269
   call void @CRYPTO_free(ptr noundef %.4113, ptr noundef nonnull @.str, i32 noundef 167) #6
   br label %.sink.split
 
-.thread170.sink.split:                            ; preds = %90, %58, %28, %33
-  %.sink365 = phi i32 [ 98, %33 ], [ 85, %28 ], [ 117, %58 ], [ 157, %90 ]
+.thread171.sink.split:                            ; preds = %90, %58, %28, %33
+  %.sink366 = phi i32 [ 98, %33 ], [ 85, %28 ], [ 117, %58 ], [ 157, %90 ]
   %.sink = phi i32 [ 130, %33 ], [ 131, %28 ], [ 147, %58 ], [ 107, %90 ]
-  %.0109.ph = phi ptr [ %.1110262, %33 ], [ %.1110262, %28 ], [ %.1110262, %58 ], [ %.4113, %90 ]
-  %.096.ph = phi ptr [ %.2229, %33 ], [ %.197265, %28 ], [ %.2.lcssa.ph, %58 ], [ %.2.lcssa.ph, %90 ]
+  %.0109.ph = phi ptr [ %.1110263, %33 ], [ %.1110263, %28 ], [ %.1110263, %58 ], [ %.4113, %90 ]
+  %.096.ph = phi ptr [ %.2230, %33 ], [ %.197266, %28 ], [ %.2.lcssa.ph, %58 ], [ %.2.lcssa.ph, %90 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink365, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink366, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #6
-  br label %.thread170
+  br label %.thread171
 
-.thread170:                                       ; preds = %61, %.thread156, %46, %40, %.thread, %.lr.ph252, %.thread170.sink.split
-  %.0109 = phi ptr [ %.0109.ph, %.thread170.sink.split ], [ %.2111, %.lr.ph252 ], [ %.1110262, %.thread ], [ %.1110262, %40 ], [ %.1110262, %46 ], [ %.1110262, %.thread156 ], [ %.1110262, %61 ]
-  %.096 = phi ptr [ %.096.ph, %.thread170.sink.split ], [ %.2.lcssa.ph, %.lr.ph252 ], [ %.3162, %.thread156 ], [ %.3162, %46 ], [ null, %40 ], [ %.4155, %.thread ], [ %.2.lcssa.ph, %61 ]
+.thread171:                                       ; preds = %61, %.thread157, %46, %40, %.thread, %.lr.ph253, %.thread171.sink.split
+  %.0109 = phi ptr [ %.0109.ph, %.thread171.sink.split ], [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %.thread157 ], [ %.1110263, %61 ]
+  %.096 = phi ptr [ %.096.ph, %.thread171.sink.split ], [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %.thread157 ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
   %.not153 = icmp eq ptr %.0109, %5
-  br i1 %.not153, label %.sink.split, label %.thread170.thread
+  br i1 %.not153, label %.sink.split, label %.thread171.thread
 
-.thread170.thread:                                ; preds = %71, %.thread170
-  %.096185 = phi ptr [ %.096, %.thread170 ], [ %.2.lcssa.ph, %71 ]
-  %.0109184 = phi ptr [ %.0109, %.thread170 ], [ null, %71 ]
-  call void @CRYPTO_free(ptr noundef %.0109184, ptr noundef nonnull @.str, i32 noundef 172) #6
+.thread171.thread:                                ; preds = %71, %.thread171
+  %.096186 = phi ptr [ %.096, %.thread171 ], [ %.2.lcssa.ph, %71 ]
+  %.0109185 = phi ptr [ %.0109, %.thread171 ], [ null, %71 ]
+  call void @CRYPTO_free(ptr noundef %.0109185, ptr noundef nonnull @.str, i32 noundef 172) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread170, %.thread170.thread, %17, %16, %._crit_edge268, %107, %18
-  %.096180.sink = phi ptr [ %.2.lcssa.ph, %107 ], [ %.2.lcssa.ph, %._crit_edge268 ], [ null, %18 ], [ %.096185, %.thread170.thread ], [ %.096, %.thread170 ], [ null, %17 ], [ null, %16 ]
-  %.0.ph = phi i32 [ %.2121, %107 ], [ %.2121, %._crit_edge268 ], [ 0, %18 ], [ 0, %.thread170.thread ], [ 0, %.thread170 ], [ 0, %17 ], [ 0, %16 ]
-  call void @BN_free(ptr noundef %.096180.sink) #6
+.sink.split:                                      ; preds = %.thread171, %.thread171.thread, %17, %16, %._crit_edge269, %107, %18
+  %.096181.sink = phi ptr [ %.2.lcssa.ph, %107 ], [ %.2.lcssa.ph, %._crit_edge269 ], [ null, %18 ], [ %.096186, %.thread171.thread ], [ %.096, %.thread171 ], [ null, %17 ], [ null, %16 ]
+  %.0.ph = phi i32 [ %.2121, %107 ], [ %.2121, %._crit_edge269 ], [ 0, %18 ], [ 0, %.thread171.thread ], [ 0, %.thread171 ], [ 0, %17 ], [ 0, %16 ]
+  call void @BN_free(ptr noundef %.096181.sink) #6
   br label %108
 
 108:                                              ; preds = %.sink.split, %4

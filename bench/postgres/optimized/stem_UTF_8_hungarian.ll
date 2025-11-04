@@ -237,12 +237,12 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_UTF_8_stem(ptr noundef %0
   %15 = add i32 %14, 1
   %16 = load i32, ptr %4, align 4
   %.not42.i = icmp slt i32 %15, %16
-  %.pre49.i = load ptr, ptr %0, align 8
+  %.pre50.i = load ptr, ptr %0, align 8
   br i1 %.not42.i, label %17, label %28
 
 17:                                               ; preds = %13
   %18 = sext i32 %15 to i64
-  %19 = getelementptr inbounds i8, ptr %.pre49.i, i64 %18
+  %19 = getelementptr inbounds i8, ptr %.pre50.i, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %.mask.i = and i32 %21, 224
@@ -259,20 +259,20 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_UTF_8_stem(ptr noundef %0
 26:                                               ; preds = %22
   %27 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 8) #3
   %.not45.i = icmp eq i32 %27, 0
-  br i1 %.not45.i, label %._crit_edge.i, label %._crit_edge51.i
+  br i1 %.not45.i, label %._crit_edge.i, label %._crit_edge52.i
 
-._crit_edge51.i:                                  ; preds = %26
-  %.pre52.i = load i32, ptr %2, align 8
+._crit_edge52.i:                                  ; preds = %26
+  %.pre53.i = load i32, ptr %2, align 8
   br label %.critedge.sink.split.i
 
 ._crit_edge.i:                                    ; preds = %26
   %.pre.i = load ptr, ptr %0, align 8
-  %.pre50.i = load i32, ptr %4, align 4
+  %.pre51.i = load i32, ptr %4, align 4
   br label %28
 
 28:                                               ; preds = %._crit_edge.i, %22, %17, %13
-  %29 = phi i32 [ %.pre50.i, %._crit_edge.i ], [ %16, %13 ], [ %16, %17 ], [ %16, %22 ]
-  %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre49.i, %13 ], [ %.pre49.i, %17 ], [ %.pre49.i, %22 ]
+  %29 = phi i32 [ %.pre51.i, %._crit_edge.i ], [ %16, %13 ], [ %16, %17 ], [ %16, %22 ]
+  %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre50.i, %13 ], [ %.pre50.i, %17 ], [ %.pre50.i, %22 ]
   store i32 %14, ptr %2, align 8
   %31 = tail call i32 @skip_utf8(ptr noundef %30, i32 noundef %14, i32 noundef %29, i32 noundef 1) #3
   %32 = icmp slt i32 %31, 0
@@ -294,8 +294,8 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_UTF_8_stem(ptr noundef %0
   %40 = add i32 %39, %36
   br label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %28, %38, %._crit_edge51.i
-  %.sink.i = phi i32 [ %40, %38 ], [ %.pre52.i, %._crit_edge51.i ], [ %31, %28 ]
+.critedge.sink.split.i:                           ; preds = %28, %38, %._crit_edge52.i
+  %.sink.i = phi i32 [ %40, %38 ], [ %.pre53.i, %._crit_edge52.i ], [ %31, %28 ]
   %41 = load ptr, ptr %6, align 8
   store i32 %.sink.i, ptr %41, align 4
   br label %r_mark_regions.exit

@@ -2567,7 +2567,7 @@ define internal i64 @csum_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr n
   %318 = icmp eq ptr %317, null
   br i1 %318, label %.loopexit19, label %.preheader, !llvm.loop !73
 
-.loopexit19:                                      ; preds = %.loopexit, %292, %224, %258, %248
+.loopexit19:                                      ; preds = %.loopexit, %292, %248, %258, %224
   %319 = phi i32 [ %31, %224 ], [ %242, %248 ], [ %242, %258 ], [ %310, %292 ], [ %.ph, %.loopexit ]
   %320 = phi i64 [ 0, %224 ], [ %241, %248 ], [ %241, %258 ], [ %311, %292 ], [ %.ph16, %.loopexit ]
   call void @__rcu_read_unlock() #10

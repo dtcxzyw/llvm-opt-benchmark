@@ -8074,18 +8074,18 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %71 = icmp ult i8 %70, 2
   call void @llvm.assume(i1 %71)
   %72 = icmp eq i8 %70, 0
-  br i1 %72, label %.preheader90, label %73, !prof !9
+  br i1 %72, label %.preheader91, label %73, !prof !9
 
 73:                                               ; preds = %.preheader
   %74 = call i64 @llvm.read_register.i64(metadata !0)
   %75 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %74) #18, !srcloc !275
   call void @llvm.write_register.i64(metadata !0, i64 %75)
-  br label %.preheader90
+  br label %.preheader91
 
-.preheader90:                                     ; preds = %73, %.preheader
+.preheader91:                                     ; preds = %73, %.preheader
   br label %76
 
-76:                                               ; preds = %.preheader90, %76
+76:                                               ; preds = %.preheader91, %76
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !276
   %77 = load volatile i64, ptr %63, align 8
   %78 = and i64 %77, 1
@@ -8107,7 +8107,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %86 = icmp eq ptr %85, null
   br i1 %86, label %100, label %87, !prof !9
 
-87:                                               ; preds = %203, %.split12.us, %.loopexit
+87:                                               ; preds = %203, %.split13.us, %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !284
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %63, i32 -2, ptr nonnull elementtype(i8) %63) #18, !srcloc !57
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !285
@@ -8169,7 +8169,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
   %126 = icmp eq i64 %125, 0
-  br i1 %126, label %.split.us, label %.split12.us, !llvm.loop !298
+  br i1 %126, label %.split.us, label %.split13.us, !llvm.loop !298
 
 .split:                                           ; preds = %110
   %127 = icmp eq ptr %20, null
@@ -8191,30 +8191,30 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %140 = getelementptr i8, ptr %139, i64 %134
   %141 = call i32 @bcmp(ptr %140, ptr %135, i64 %138)
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %.split14.us, label %.lr.ph23
+  br i1 %142, label %.split15.us, label %.lr.ph24
 
-143:                                              ; preds = %.lr.ph23
+143:                                              ; preds = %.lr.ph24
   %144 = add i32 %149, -1
   %145 = getelementptr i8, ptr %151, i64 %130
   %146 = getelementptr i8, ptr %145, i64 %134
   %147 = call i32 @bcmp(ptr %146, ptr %135, i64 %138)
   %148 = icmp eq i32 %147, 0
-  br i1 %148, label %.split14.us, label %.lr.ph23, !llvm.loop !298
+  br i1 %148, label %.split15.us, label %.lr.ph24, !llvm.loop !298
 
-.lr.ph23:                                         ; preds = %.split.split.us, %143
+.lr.ph24:                                         ; preds = %.split.split.us, %143
   %149 = phi i32 [ %144, %143 ], [ 15, %.split.split.us ]
   %150 = phi ptr [ %151, %143 ], [ %111, %.split.split.us ]
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = and i64 %152, 1
   %154 = icmp eq i64 %153, 0
-  br i1 %154, label %143, label %.split12.us, !llvm.loop !298
+  br i1 %154, label %143, label %.split13.us, !llvm.loop !298
 
 .split.split:                                     ; preds = %.split
   %155 = getelementptr i8, ptr %111, i64 %130
   %156 = call i32 %20(ptr noundef nonnull %5, ptr noundef %155) #18
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %.split14.us, label %.lr.ph
+  br i1 %157, label %.split15.us, label %.lr.ph
 
 158:                                              ; preds = %.lr.ph
   %159 = add i32 %186, -1
@@ -8224,20 +8224,20 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %163 = getelementptr i8, ptr %188, i64 %162
   %164 = call i32 %20(ptr noundef nonnull %5, ptr noundef %163) #18
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %.split14.us, label %.lr.ph, !llvm.loop !298
+  br i1 %165, label %.split15.us, label %.lr.ph, !llvm.loop !298
 
-.split14.us:                                      ; preds = %158, %143, %.split.split, %.split.split.us
-  %.us-phi15 = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ %150, %143 ], [ %187, %158 ]
-  %.us-phi16 = phi ptr [ %111, %.split.split.us ], [ %111, %.split.split ], [ %151, %143 ], [ %188, %158 ]
-  store volatile ptr %.us-phi16, ptr %113, align 8
-  %166 = load ptr, ptr %.us-phi16, align 8
+.split15.us:                                      ; preds = %158, %143, %.split.split, %.split.split.us
+  %.us-phi16 = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ %150, %143 ], [ %187, %158 ]
+  %.us-phi17 = phi ptr [ %111, %.split.split.us ], [ %111, %.split.split ], [ %151, %143 ], [ %188, %158 ]
+  store volatile ptr %.us-phi17, ptr %113, align 8
+  %166 = load ptr, ptr %.us-phi17, align 8
   store volatile ptr %166, ptr %1, align 8
-  %167 = icmp eq ptr %.us-phi15, null
+  %167 = icmp eq ptr %.us-phi16, null
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18
   br i1 %167, label %177, label %168
 
-168:                                              ; preds = %.split14.us
-  store volatile ptr %1, ptr %.us-phi15, align 8
+168:                                              ; preds = %.split15.us
+  store volatile ptr %1, ptr %.us-phi16, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !284
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %63, i32 -2, ptr nonnull elementtype(i8) %63) #18, !srcloc !57
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !285
@@ -8260,7 +8260,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !287
   br label %.thread
 
-177:                                              ; preds = %.split14.us
+177:                                              ; preds = %.split15.us
   store volatile ptr %119, ptr %63, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !289
   %178 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !71
@@ -8289,14 +8289,14 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   %189 = ptrtoint ptr %188 to i64
   %190 = and i64 %189, 1
   %191 = icmp eq i64 %190, 0
-  br i1 %191, label %158, label %.split12.us, !llvm.loop !298
+  br i1 %191, label %158, label %.split13.us, !llvm.loop !298
 
-.split12.us:                                      ; preds = %.lr.ph, %.lr.ph23, %.split.us
-  %.us-phi = phi i32 [ %122, %.split.us ], [ %149, %.lr.ph23 ], [ %186, %.lr.ph ]
+.split13.us:                                      ; preds = %.lr.ph, %.lr.ph24, %.split.us
+  %.us-phi = phi i32 [ %122, %.split.us ], [ %149, %.lr.ph24 ], [ %186, %.lr.ph ]
   %192 = icmp slt i32 %.us-phi, 1
   br i1 %192, label %87, label %193
 
-193:                                              ; preds = %.split12.us, %100
+193:                                              ; preds = %.split13.us, %100
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %195 = load volatile i32, ptr %194, align 4
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 12

@@ -1147,7 +1147,7 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EED2Ev.exit: ; preds = %.body, %415
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.thread199, label %5
+  br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %4
   %6 = icmp ult i32 %0, 257
@@ -1155,9 +1155,9 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
 
 .preheader:                                       ; preds = %5
   %7 = icmp samesign ugt i32 %0, 64
-  br i1 %7, label %.lr.ph220, label %._crit_edge221
+  br i1 %7, label %.lr.ph217, label %._crit_edge218
 
-.lr.ph220:                                        ; preds = %.preheader
+.lr.ph217:                                        ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = zext i32 %1 to i64
@@ -1167,18 +1167,18 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
   %14 = add nuw nsw i32 %13, 64
   br label %15
 
-15:                                               ; preds = %.lr.ph220, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %.0219 = phi i32 [ 0, %.lr.ph220 ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %.0109218 = phi i32 [ %0, %.lr.ph220 ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+15:                                               ; preds = %.lr.ph217, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+  %.0216 = phi i32 [ 0, %.lr.ph217 ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+  %.0109215 = phi i32 [ %0, %.lr.ph217 ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.not.i = icmp samesign ult i64 %indvars.iv, %11
   br i1 %.not.i, label %16, label %_ZL14get_flat_masksjjj.exit
 
 16:                                               ; preds = %15
   %17 = sub nuw nsw i64 %11, %indvars.iv
   %18 = icmp samesign ult i64 %17, 64
-  %notmask206 = shl nsw i64 -1, %17
-  %19 = xor i64 %notmask206, -1
+  %notmask203 = shl nsw i64 -1, %17
+  %19 = xor i64 %notmask203, -1
   %20 = select i1 %18, i64 %19, i64 -1
   %.not22.i = icmp samesign ugt i64 %indvars.iv, %10
   br i1 %.not22.i, label %_ZL14get_flat_masksjjj.exit, label %21
@@ -1186,8 +1186,8 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
 21:                                               ; preds = %16
   %22 = sub nuw nsw i64 %10, %indvars.iv
   %23 = icmp samesign ult i64 %22, 64
-  %notmask207 = shl nsw i64 -1, %22
-  %24 = select i1 %23, i64 %notmask207, i64 0
+  %notmask204 = shl nsw i64 -1, %22
+  %24 = select i1 %23, i64 %notmask204, i64 0
   %25 = and i64 %20, %24
   br label %_ZL14get_flat_masksjjj.exit
 
@@ -1257,54 +1257,54 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit: ; pred
   %51 = phi ptr [ %30, %28 ], [ %48, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ]
   %52 = getelementptr inbounds i8, ptr %51, i64 -16
   store i64 0, ptr %52, align 8
-  store i32 %.0219, ptr %52, align 8
+  store i32 %.0216, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 -8
   store i64 %.0.i, ptr %53, align 8
-  %54 = add nsw i32 %.0109218, -64
+  %54 = add nsw i32 %.0109215, -64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %55 = add nuw nsw i32 %.0219, 8
+  %55 = add nuw nsw i32 %.0216, 8
   %56 = icmp ugt i32 %54, 64
-  br i1 %56, label %15, label %._crit_edge221, !llvm.loop !15
+  br i1 %56, label %15, label %._crit_edge218, !llvm.loop !15
 
-._crit_edge221:                                   ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit, %.preheader
+._crit_edge218:                                   ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit, %.preheader
   %.0110.lcssa = phi i32 [ 0, %.preheader ], [ %14, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.0109.lcssa = phi i32 [ %0, %.preheader ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %.not.i128 = icmp ugt i32 %2, %.0110.lcssa
-  br i1 %.not.i128, label %57, label %_ZL14get_flat_masksjjj.exit131
+  %.not.i129 = icmp ugt i32 %2, %.0110.lcssa
+  br i1 %.not.i129, label %57, label %_ZL14get_flat_masksjjj.exit132
 
-57:                                               ; preds = %._crit_edge221
+57:                                               ; preds = %._crit_edge218
   %58 = sub nuw i32 %2, %.0110.lcssa
   %59 = icmp ult i32 %58, 64
   %60 = zext nneg i32 %58 to i64
-  %notmask204 = shl nsw i64 -1, %60
-  %61 = xor i64 %notmask204, -1
+  %notmask201 = shl nsw i64 -1, %60
+  %61 = xor i64 %notmask201, -1
   %62 = select i1 %59, i64 %61, i64 -1
-  %.not22.i130 = icmp ult i32 %1, %.0110.lcssa
-  br i1 %.not22.i130, label %_ZL14get_flat_masksjjj.exit131, label %63
+  %.not22.i131 = icmp ult i32 %1, %.0110.lcssa
+  br i1 %.not22.i131, label %_ZL14get_flat_masksjjj.exit132, label %63
 
 63:                                               ; preds = %57
   %64 = sub nuw i32 %1, %.0110.lcssa
   %65 = icmp ult i32 %64, 64
   %66 = zext nneg i32 %64 to i64
-  %notmask205 = shl nsw i64 -1, %66
-  %67 = select i1 %65, i64 %notmask205, i64 0
+  %notmask202 = shl nsw i64 -1, %66
+  %67 = select i1 %65, i64 %notmask202, i64 0
   %68 = and i64 %62, %67
-  br label %_ZL14get_flat_masksjjj.exit131
+  br label %_ZL14get_flat_masksjjj.exit132
 
-_ZL14get_flat_masksjjj.exit131:                   ; preds = %._crit_edge221, %57, %63
-  %.0.i129 = phi i64 [ 0, %._crit_edge221 ], [ %68, %63 ], [ %62, %57 ]
+_ZL14get_flat_masksjjj.exit132:                   ; preds = %._crit_edge218, %57, %63
+  %.0.i130 = phi i64 [ 0, %._crit_edge218 ], [ %68, %63 ], [ %62, %57 ]
   %69 = icmp samesign ult i32 %.0109.lcssa, 9
   br i1 %69, label %70, label %103
 
-70:                                               ; preds = %_ZL14get_flat_masksjjj.exit131
+70:                                               ; preds = %_ZL14get_flat_masksjjj.exit132
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %75 = load ptr, ptr %74, align 8
-  %.not.i.i132 = icmp eq ptr %73, %75
-  br i1 %.not.i.i132, label %79, label %76
+  %.not.i.i133 = icmp eq ptr %73, %75
+  br i1 %.not.i.i133, label %79, label %76
 
 76:                                               ; preds = %70
   store i64 0, ptr %73, align 4
@@ -1327,13 +1327,13 @@ _ZL14get_flat_masksjjj.exit131:                   ; preds = %._crit_edge221, %57
 
 _ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %79
   %86 = ashr exact i64 %83, 3
-  %.sroa.speculated.i.i.i.i133 = tail call i64 @llvm.umax.i64(i64 %86, i64 1)
-  %87 = add nsw i64 %.sroa.speculated.i.i.i.i133, %86
+  %.sroa.speculated.i.i.i.i134 = tail call i64 @llvm.umax.i64(i64 %86, i64 1)
+  %87 = add nsw i64 %.sroa.speculated.i.i.i.i134, %86
   %88 = icmp ult i64 %87, %86
   %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 1152921504606846975)
   %90 = select i1 %88, i64 1152921504606846975, i64 %89
-  %.not.i.i.i.i134 = icmp ne i64 %90, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i134)
+  %.not.i.i.i.i135 = icmp ne i64 %90, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i135)
   %91 = shl nuw nsw i64 %90, 3
   %92 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #20
   %93 = getelementptr inbounds i8, ptr %92, i64 %83
@@ -1347,8 +1347,8 @@ _ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds =
 
 _ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i: ; preds = %95, %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %.not.i16.i.i.i135 = icmp eq ptr %80, null
-  br i1 %.not.i16.i.i.i135, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %97
+  %.not.i16.i.i.i136 = icmp eq ptr %80, null
+  br i1 %.not.i16.i.i.i136, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %97
 
 97:                                               ; preds = %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %80) #22
@@ -1366,12 +1366,12 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds 
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   store i64 0, ptr %100, align 4
   store i32 %.0.lcssa, ptr %100, align 4
-  %101 = trunc i64 %.0.i129 to i8
+  %101 = trunc i64 %.0.i130 to i8
   %102 = getelementptr inbounds i8, ptr %99, i64 -4
   store i8 %101, ptr %102, align 4
-  br label %.thread199
+  br label %.loopexit
 
-103:                                              ; preds = %_ZL14get_flat_masksjjj.exit131
+103:                                              ; preds = %_ZL14get_flat_masksjjj.exit132
   %104 = icmp samesign ult i32 %.0109.lcssa, 17
   br i1 %104, label %105, label %138
 
@@ -1381,8 +1381,8 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds 
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %110 = load ptr, ptr %109, align 8
-  %.not.i.i136 = icmp eq ptr %108, %110
-  br i1 %.not.i.i136, label %114, label %111
+  %.not.i.i137 = icmp eq ptr %108, %110
+  br i1 %.not.i.i137, label %114, label %111
 
 111:                                              ; preds = %105
   store i64 0, ptr %108, align 4
@@ -1405,13 +1405,13 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds 
 
 _ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %114
   %121 = ashr exact i64 %118, 3
-  %.sroa.speculated.i.i.i.i137 = tail call i64 @llvm.umax.i64(i64 %121, i64 1)
-  %122 = add nsw i64 %.sroa.speculated.i.i.i.i137, %121
+  %.sroa.speculated.i.i.i.i138 = tail call i64 @llvm.umax.i64(i64 %121, i64 1)
+  %122 = add nsw i64 %.sroa.speculated.i.i.i.i138, %121
   %123 = icmp ult i64 %122, %121
   %124 = tail call i64 @llvm.umin.i64(i64 %122, i64 1152921504606846975)
   %125 = select i1 %123, i64 1152921504606846975, i64 %124
-  %.not.i.i.i.i138 = icmp ne i64 %125, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i138)
+  %.not.i.i.i.i139 = icmp ne i64 %125, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i139)
   %126 = shl nuw nsw i64 %125, 3
   %127 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %126) #20
   %128 = getelementptr inbounds i8, ptr %127, i64 %118
@@ -1425,8 +1425,8 @@ _ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds 
 
 _ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i: ; preds = %130, %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %.not.i16.i.i.i139 = icmp eq ptr %115, null
-  br i1 %.not.i16.i.i.i139, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %132
+  %.not.i16.i.i.i140 = icmp eq ptr %115, null
+  br i1 %.not.i16.i.i.i140, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %132
 
 132:                                              ; preds = %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %115) #22
@@ -1444,10 +1444,10 @@ _ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   store i64 0, ptr %135, align 4
   store i32 %.0.lcssa, ptr %135, align 4
-  %136 = trunc i64 %.0.i129 to i16
+  %136 = trunc i64 %.0.i130 to i16
   %137 = getelementptr inbounds i8, ptr %134, i64 -4
   store i16 %136, ptr %137, align 4
-  br label %.thread199
+  br label %.loopexit
 
 138:                                              ; preds = %103
   %139 = icmp samesign ult i32 %.0109.lcssa, 25
@@ -1459,15 +1459,15 @@ _ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %145 = load ptr, ptr %144, align 8
-  %.not.i.i140 = icmp eq ptr %143, %145
-  br i1 %.not.i.i140, label %149, label %146
+  %.not.i.i141 = icmp eq ptr %143, %145
+  br i1 %.not.i.i141, label %149, label %146
 
 146:                                              ; preds = %140
   store i64 0, ptr %143, align 4
   %147 = load ptr, ptr %142, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %148, ptr %142, align 8
-  br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit147
+  br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148
 
 149:                                              ; preds = %140
   %150 = load ptr, ptr %141, align 8
@@ -1475,130 +1475,130 @@ _ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %154 = icmp eq i64 %153, 9223372036854775800
-  br i1 %154, label %155, label %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i141
+  br i1 %154, label %155, label %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i142
 
 155:                                              ; preds = %149
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i141: ; preds = %149
+_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i142: ; preds = %149
   %156 = ashr exact i64 %153, 3
-  %.sroa.speculated.i.i.i.i142 = tail call i64 @llvm.umax.i64(i64 %156, i64 1)
-  %157 = add nsw i64 %.sroa.speculated.i.i.i.i142, %156
+  %.sroa.speculated.i.i.i.i143 = tail call i64 @llvm.umax.i64(i64 %156, i64 1)
+  %157 = add nsw i64 %.sroa.speculated.i.i.i.i143, %156
   %158 = icmp ult i64 %157, %156
   %159 = tail call i64 @llvm.umin.i64(i64 %157, i64 1152921504606846975)
   %160 = select i1 %158, i64 1152921504606846975, i64 %159
-  %.not.i.i.i.i143 = icmp ne i64 %160, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i143)
+  %.not.i.i.i.i144 = icmp ne i64 %160, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i144)
   %161 = shl nuw nsw i64 %160, 3
   %162 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %161) #20
   %163 = getelementptr inbounds i8, ptr %162, i64 %153
   store i64 0, ptr %163, align 4
   %164 = icmp sgt i64 %153, 0
-  br i1 %164, label %165, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i144
+  br i1 %164, label %165, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145
 
-165:                                              ; preds = %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i141
+165:                                              ; preds = %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i142
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %162, ptr align 4 %150, i64 %153, i1 false)
-  br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i144
+  br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145
 
-_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i144: ; preds = %165, %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i141
+_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145: ; preds = %165, %_ZNKSt6vectorI16scatter_unit_u16SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i142
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %.not.i16.i.i.i145 = icmp eq ptr %150, null
-  br i1 %.not.i16.i.i.i145, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i146, label %167
+  %.not.i16.i.i.i146 = icmp eq ptr %150, null
+  br i1 %.not.i16.i.i.i146, label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147, label %167
 
-167:                                              ; preds = %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i144
+167:                                              ; preds = %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145
   tail call void @_ZdlPv(ptr noundef nonnull %150) #22
-  br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i146
+  br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147
 
-_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i146: ; preds = %167, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i144
+_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147: ; preds = %167, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145
   store ptr %162, ptr %141, align 8
   store ptr %166, ptr %142, align 8
   %168 = getelementptr inbounds nuw %struct.scatter_unit_u16, ptr %162, i64 %160
   store ptr %168, ptr %144, align 8
-  br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit147
+  br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148
 
-_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit147: ; preds = %146, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i146
-  %169 = phi ptr [ %148, %146 ], [ %166, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i146 ]
+_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148: ; preds = %146, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147
+  %169 = phi ptr [ %148, %146 ], [ %166, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147 ]
   %170 = getelementptr inbounds i8, ptr %169, i64 -8
   store i64 0, ptr %170, align 4
   store i32 %.0.lcssa, ptr %170, align 4
-  %171 = trunc i64 %.0.i129 to i16
+  %171 = trunc i64 %.0.i130 to i16
   %172 = getelementptr inbounds i8, ptr %169, i64 -4
   store i16 %171, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %174 = or disjoint i32 %.0.lcssa, 2
-  %175 = lshr i64 %.0.i129, 16
+  %175 = lshr i64 %.0.i130, 16
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %179 = load ptr, ptr %178, align 8
-  %.not.i.i148 = icmp eq ptr %177, %179
-  br i1 %.not.i.i148, label %183, label %180
+  %.not.i.i149 = icmp eq ptr %177, %179
+  br i1 %.not.i.i149, label %183, label %180
 
-180:                                              ; preds = %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit147
+180:                                              ; preds = %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148
   store i64 0, ptr %177, align 4
   %181 = load ptr, ptr %176, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %182, ptr %176, align 8
-  br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155
+  br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit156
 
-183:                                              ; preds = %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit147
+183:                                              ; preds = %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148
   %184 = load ptr, ptr %173, align 8
   %185 = ptrtoint ptr %177 to i64
   %186 = ptrtoint ptr %184 to i64
   %187 = sub i64 %185, %186
   %188 = icmp eq i64 %187, 9223372036854775800
-  br i1 %188, label %189, label %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i149
+  br i1 %188, label %189, label %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150
 
 189:                                              ; preds = %183
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i149: ; preds = %183
+_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150: ; preds = %183
   %190 = ashr exact i64 %187, 3
-  %.sroa.speculated.i.i.i.i150 = tail call i64 @llvm.umax.i64(i64 %190, i64 1)
-  %191 = add nsw i64 %.sroa.speculated.i.i.i.i150, %190
+  %.sroa.speculated.i.i.i.i151 = tail call i64 @llvm.umax.i64(i64 %190, i64 1)
+  %191 = add nsw i64 %.sroa.speculated.i.i.i.i151, %190
   %192 = icmp ult i64 %191, %190
   %193 = tail call i64 @llvm.umin.i64(i64 %191, i64 1152921504606846975)
   %194 = select i1 %192, i64 1152921504606846975, i64 %193
-  %.not.i.i.i.i151 = icmp ne i64 %194, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i151)
+  %.not.i.i.i.i152 = icmp ne i64 %194, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i152)
   %195 = shl nuw nsw i64 %194, 3
   %196 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %195) #20
   %197 = getelementptr inbounds i8, ptr %196, i64 %187
   store i64 0, ptr %197, align 4
   %198 = icmp sgt i64 %187, 0
-  br i1 %198, label %199, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i152
+  br i1 %198, label %199, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153
 
-199:                                              ; preds = %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i149
+199:                                              ; preds = %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %196, ptr align 4 %184, i64 %187, i1 false)
-  br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i152
+  br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153
 
-_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i152: ; preds = %199, %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i149
+_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153: ; preds = %199, %_ZNKSt6vectorI15scatter_unit_u8SaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %.not.i16.i.i.i153 = icmp eq ptr %184, null
-  br i1 %.not.i16.i.i.i153, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i154, label %201
+  %.not.i16.i.i.i154 = icmp eq ptr %184, null
+  br i1 %.not.i16.i.i.i154, label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155, label %201
 
-201:                                              ; preds = %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i152
+201:                                              ; preds = %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153
   tail call void @_ZdlPv(ptr noundef nonnull %184) #22
-  br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i154
+  br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155
 
-_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i154: ; preds = %201, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i152
+_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155: ; preds = %201, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153
   store ptr %196, ptr %173, align 8
   store ptr %200, ptr %176, align 8
   %202 = getelementptr inbounds nuw %struct.scatter_unit_u8, ptr %196, i64 %194
   store ptr %202, ptr %178, align 8
-  br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155
+  br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit156
 
-_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; preds = %180, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i154
-  %203 = phi ptr [ %182, %180 ], [ %200, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i154 ]
+_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit156: ; preds = %180, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155
+  %203 = phi ptr [ %182, %180 ], [ %200, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155 ]
   %204 = getelementptr inbounds i8, ptr %203, i64 -8
   store i64 0, ptr %204, align 4
   store i32 %174, ptr %204, align 4
   %205 = trunc i64 %175 to i8
   %206 = getelementptr inbounds i8, ptr %203, i64 -4
   store i8 %205, ptr %206, align 4
-  br label %.thread199
+  br label %.loopexit
 
 207:                                              ; preds = %138
   %208 = icmp samesign ult i32 %.0109.lcssa, 33
@@ -1606,8 +1606,8 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
 
 209:                                              ; preds = %207
   %210 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %210, i32 noundef %.0.lcssa, i64 noundef %.0.i129)
-  br label %.thread199
+  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %210, i32 noundef %.0.lcssa, i64 noundef %.0.i130)
+  br label %.loopexit
 
 211:                                              ; preds = %207
   %212 = icmp samesign ult i32 %.0109.lcssa, 41
@@ -1615,12 +1615,12 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
 
 213:                                              ; preds = %211
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %214, i32 noundef %.0.lcssa, i64 noundef %.0.i129)
+  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %214, i32 noundef %.0.lcssa, i64 noundef %.0.i130)
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %216 = or disjoint i32 %.0.lcssa, 4
-  %217 = lshr i64 %.0.i129, 32
+  %217 = lshr i64 %.0.i130, 32
   tail call fastcc void @_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %215, i32 noundef %216, i64 noundef %217)
-  br label %.thread199
+  br label %.loopexit
 
 218:                                              ; preds = %211
   %219 = icmp samesign ult i32 %.0109.lcssa, 49
@@ -1628,12 +1628,12 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
 
 220:                                              ; preds = %218
   %221 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %221, i32 noundef %.0.lcssa, i64 noundef %.0.i129)
+  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %221, i32 noundef %.0.lcssa, i64 noundef %.0.i130)
   %222 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %223 = or disjoint i32 %.0.lcssa, 4
-  %224 = lshr i64 %.0.i129, 32
+  %224 = lshr i64 %.0.i130, 32
   tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %222, i32 noundef %223, i64 noundef %224)
-  br label %.thread199
+  br label %.loopexit
 
 225:                                              ; preds = %218
   %226 = icmp samesign ult i32 %.0109.lcssa, 57
@@ -1641,26 +1641,26 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
 
 227:                                              ; preds = %225
   %228 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %228, i32 noundef %.0.lcssa, i64 noundef %.0.i129)
+  tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u32EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %228, i32 noundef %.0.lcssa, i64 noundef %.0.i130)
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %230 = or disjoint i32 %.0.lcssa, 4
-  %231 = lshr i64 %.0.i129, 32
+  %231 = lshr i64 %.0.i130, 32
   tail call fastcc void @_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %229, i32 noundef %230, i64 noundef %231)
   %232 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %233 = or disjoint i32 %.0.lcssa, 6
-  %234 = lshr i64 %.0.i129, 48
+  %234 = lshr i64 %.0.i130, 48
   tail call fastcc void @_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy(ptr noundef nonnull %232, i32 noundef %233, i64 noundef %234)
-  br label %.thread199
+  br label %.loopexit
 
 235:                                              ; preds = %225
-  tail call fastcc void @_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy(ptr noundef %3, i32 noundef %.0.lcssa, i64 noundef %.0.i129)
-  br label %.thread199
+  tail call fastcc void @_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy(ptr noundef %3, i32 noundef %.0.lcssa, i64 noundef %.0.i130)
+  br label %.loopexit
 
 236:                                              ; preds = %5
   %237 = icmp eq i32 %1, %2
-  br i1 %237, label %246, label %.preheader208
+  br i1 %237, label %246, label %.preheader205
 
-.preheader208:                                    ; preds = %236
+.preheader205:                                    ; preds = %236
   %238 = add i32 %0, -1
   %239 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, -1) %238, i1 true)
   %240 = zext nneg i32 %239 to i64
@@ -1676,15 +1676,15 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %250 = load ptr, ptr %249, align 8
-  %.not.i.i156 = icmp eq ptr %248, %250
-  br i1 %.not.i.i156, label %254, label %251
+  %.not.i.i157 = icmp eq ptr %248, %250
+  br i1 %.not.i.i157, label %254, label %251
 
 251:                                              ; preds = %246
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
   %252 = load ptr, ptr %247, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   store ptr %253, ptr %247, align 8
-  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163
+  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164
 
 254:                                              ; preds = %246
   %255 = load ptr, ptr %3, align 8
@@ -1692,56 +1692,56 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
   %257 = ptrtoint ptr %255 to i64
   %258 = sub i64 %256, %257
   %259 = icmp eq i64 %258, 9223372036854775792
-  br i1 %259, label %260, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157
+  br i1 %259, label %260, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i158
 
 260:                                              ; preds = %254
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157: ; preds = %254
+_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i158: ; preds = %254
   %261 = ashr exact i64 %258, 4
-  %.sroa.speculated.i.i.i.i158 = tail call i64 @llvm.umax.i64(i64 %261, i64 1)
-  %262 = add nsw i64 %.sroa.speculated.i.i.i.i158, %261
+  %.sroa.speculated.i.i.i.i159 = tail call i64 @llvm.umax.i64(i64 %261, i64 1)
+  %262 = add nsw i64 %.sroa.speculated.i.i.i.i159, %261
   %263 = icmp ult i64 %262, %261
   %264 = tail call i64 @llvm.umin.i64(i64 %262, i64 576460752303423487)
   %265 = select i1 %263, i64 576460752303423487, i64 %264
-  %.not.i.i.i.i159 = icmp ne i64 %265, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i159)
+  %.not.i.i.i.i160 = icmp ne i64 %265, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i160)
   %266 = shl nuw nsw i64 %265, 4
   %267 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %266) #20
   %268 = getelementptr inbounds i8, ptr %267, i64 %258
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %268, i8 0, i64 16, i1 false)
   %269 = icmp sgt i64 %258, 0
-  br i1 %269, label %270, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i160
+  br i1 %269, label %270, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161
 
-270:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157
+270:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i158
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %267, ptr align 8 %255, i64 %258, i1 false)
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i160
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i160: ; preds = %270, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161: ; preds = %270, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i158
   %271 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %.not.i16.i.i.i161 = icmp eq ptr %255, null
-  br i1 %.not.i16.i.i.i161, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i162, label %272
+  %.not.i16.i.i.i162 = icmp eq ptr %255, null
+  br i1 %.not.i16.i.i.i162, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163, label %272
 
-272:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i160
+272:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161
   tail call void @_ZdlPv(ptr noundef nonnull %255) #22
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i162
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i162: ; preds = %272, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i160
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163: ; preds = %272, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161
   store ptr %267, ptr %3, align 8
   store ptr %271, ptr %247, align 8
   %273 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %267, i64 %265
   store ptr %273, ptr %249, align 8
-  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163
+  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164
 
-_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163: ; preds = %251, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i162
-  %274 = phi ptr [ %252, %251 ], [ %268, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i162 ]
+_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164: ; preds = %251, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163
+  %274 = phi ptr [ %252, %251 ], [ %268, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
-  br label %.thread199
+  br label %.loopexit
 
-275:                                              ; preds = %.preheader208, %422
-  %.0120 = phi i32 [ %423, %422 ], [ %243, %.preheader208 ]
-  %.0118 = phi i32 [ %424, %422 ], [ 0, %.preheader208 ]
+275:                                              ; preds = %.preheader205, %420
+  %.0120 = phi i32 [ %422, %420 ], [ %243, %.preheader205 ]
+  %.0118 = phi i32 [ %423, %420 ], [ 0, %.preheader205 ]
   %276 = zext i32 %.0118 to i64
   %277 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %276
   %278 = load i32, ptr %277, align 4
@@ -1775,8 +1775,8 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163: ; p
   %298 = and i64 %292, %297
   %299 = load ptr, ptr %244, align 8
   %300 = load ptr, ptr %245, align 8
-  %.not.i.i164 = icmp eq ptr %299, %300
-  br i1 %.not.i.i164, label %304, label %301
+  %.not.i.i165 = icmp eq ptr %299, %300
+  br i1 %.not.i.i165, label %304, label %301
 
 301:                                              ; preds = %294
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, i8 0, i64 16, i1 false)
@@ -1791,42 +1791,42 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163: ; p
   %307 = ptrtoint ptr %305 to i64
   %308 = sub i64 %306, %307
   %309 = icmp eq i64 %308, 9223372036854775792
-  br i1 %309, label %310, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i165
+  br i1 %309, label %310, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i166
 
 310:                                              ; preds = %304
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i165: ; preds = %304
+_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i166: ; preds = %304
   %311 = ashr exact i64 %308, 4
-  %.sroa.speculated.i.i.i.i166 = tail call i64 @llvm.umax.i64(i64 %311, i64 1)
-  %312 = add nsw i64 %.sroa.speculated.i.i.i.i166, %311
+  %.sroa.speculated.i.i.i.i167 = tail call i64 @llvm.umax.i64(i64 %311, i64 1)
+  %312 = add nsw i64 %.sroa.speculated.i.i.i.i167, %311
   %313 = icmp ult i64 %312, %311
   %314 = tail call i64 @llvm.umin.i64(i64 %312, i64 576460752303423487)
   %315 = select i1 %313, i64 576460752303423487, i64 %314
-  %.not.i.i.i.i167 = icmp ne i64 %315, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i167)
+  %.not.i.i.i.i168 = icmp ne i64 %315, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i168)
   %316 = shl nuw nsw i64 %315, 4
   %317 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %316) #20
   %318 = getelementptr inbounds i8, ptr %317, i64 %308
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %318, i8 0, i64 16, i1 false)
   %319 = icmp sgt i64 %308, 0
-  br i1 %319, label %320, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i168
+  br i1 %319, label %320, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169
 
-320:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i165
+320:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i166
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %317, ptr align 8 %305, i64 %308, i1 false)
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i168
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i168: ; preds = %320, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i165
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169: ; preds = %320, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i166
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 16
-  %.not.i16.i.i.i169 = icmp eq ptr %305, null
-  br i1 %.not.i16.i.i.i169, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170, label %322
+  %.not.i16.i.i.i170 = icmp eq ptr %305, null
+  br i1 %.not.i16.i.i.i170, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171, label %322
 
-322:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i168
+322:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169
   tail call void @_ZdlPv(ptr noundef nonnull %305) #22
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170: ; preds = %322, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i168
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171: ; preds = %322, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169
   store ptr %317, ptr %3, align 8
   store ptr %321, ptr %244, align 8
   %323 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %317, i64 %315
@@ -1836,8 +1836,8 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
 324:                                              ; preds = %288
   %325 = load ptr, ptr %244, align 8
   %326 = load ptr, ptr %245, align 8
-  %.not.i.i172 = icmp eq ptr %325, %326
-  br i1 %.not.i.i172, label %330, label %327
+  %.not.i.i173 = icmp eq ptr %325, %326
+  br i1 %.not.i.i173, label %330, label %327
 
 327:                                              ; preds = %324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %325, i8 0, i64 16, i1 false)
@@ -1852,50 +1852,50 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   %333 = ptrtoint ptr %331 to i64
   %334 = sub i64 %332, %333
   %335 = icmp eq i64 %334, 9223372036854775792
-  br i1 %335, label %336, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i173
+  br i1 %335, label %336, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i174
 
 336:                                              ; preds = %330
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i173: ; preds = %330
+_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i174: ; preds = %330
   %337 = ashr exact i64 %334, 4
-  %.sroa.speculated.i.i.i.i174 = tail call i64 @llvm.umax.i64(i64 %337, i64 1)
-  %338 = add nsw i64 %.sroa.speculated.i.i.i.i174, %337
+  %.sroa.speculated.i.i.i.i175 = tail call i64 @llvm.umax.i64(i64 %337, i64 1)
+  %338 = add nsw i64 %.sroa.speculated.i.i.i.i175, %337
   %339 = icmp ult i64 %338, %337
   %340 = tail call i64 @llvm.umin.i64(i64 %338, i64 576460752303423487)
   %341 = select i1 %339, i64 576460752303423487, i64 %340
-  %.not.i.i.i.i175 = icmp ne i64 %341, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i175)
+  %.not.i.i.i.i176 = icmp ne i64 %341, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i176)
   %342 = shl nuw nsw i64 %341, 4
   %343 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %342) #20
   %344 = getelementptr inbounds i8, ptr %343, i64 %334
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %344, i8 0, i64 16, i1 false)
   %345 = icmp sgt i64 %334, 0
-  br i1 %345, label %346, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i176
+  br i1 %345, label %346, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177
 
-346:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i173
+346:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i174
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %343, ptr align 8 %331, i64 %334, i1 false)
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i176
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i176: ; preds = %346, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i173
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177: ; preds = %346, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i174
   %347 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %.not.i16.i.i.i177 = icmp eq ptr %331, null
-  br i1 %.not.i16.i.i.i177, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i178, label %348
+  %.not.i16.i.i.i178 = icmp eq ptr %331, null
+  br i1 %.not.i16.i.i.i178, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179, label %348
 
-348:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i176
+348:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177
   tail call void @_ZdlPv(ptr noundef nonnull %331) #22
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i178
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i178: ; preds = %348, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i176
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179: ; preds = %348, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177
   store ptr %343, ptr %3, align 8
   store ptr %347, ptr %244, align 8
   %349 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %343, i64 %341
   store ptr %349, ptr %245, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i178, %327
-  %350 = phi ptr [ %329, %327 ], [ %347, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i178 ]
+.thread:                                          ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179, %327
+  %350 = phi ptr [ %329, %327 ], [ %347, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179 ]
   %351 = getelementptr inbounds i8, ptr %350, i64 -16
   store i64 0, ptr %351, align 8
   store i32 %286, ptr %351, align 8
@@ -1911,20 +1911,20 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   %356 = icmp ugt i32 %355, %.0112
   br i1 %356, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %354, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187
-  %.2215 = phi i32 [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0112, %354 ]
-  %.2115214 = phi i32 [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0113, %354 ]
+.lr.ph:                                           ; preds = %354, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188
+  %.2212 = phi i32 [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188 ], [ %.0112, %354 ]
+  %.2115211 = phi i32 [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188 ], [ %.0113, %354 ]
   %357 = load ptr, ptr %244, align 8
   %358 = load ptr, ptr %245, align 8
-  %.not.i.i180 = icmp eq ptr %357, %358
-  br i1 %.not.i.i180, label %362, label %359
+  %.not.i.i181 = icmp eq ptr %357, %358
+  br i1 %.not.i.i181, label %362, label %359
 
 359:                                              ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %357, i8 0, i64 16, i1 false)
   %360 = load ptr, ptr %244, align 8
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   store ptr %361, ptr %244, align 8
-  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187
+  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188
 
 362:                                              ; preds = %.lr.ph
   %363 = load ptr, ptr %3, align 8
@@ -1932,75 +1932,75 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   %365 = ptrtoint ptr %363 to i64
   %366 = sub i64 %364, %365
   %367 = icmp eq i64 %366, 9223372036854775792
-  br i1 %367, label %368, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i181
+  br i1 %367, label %368, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i182
 
 368:                                              ; preds = %362
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i181: ; preds = %362
+_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i182: ; preds = %362
   %369 = ashr exact i64 %366, 4
-  %.sroa.speculated.i.i.i.i182 = tail call i64 @llvm.umax.i64(i64 %369, i64 1)
-  %370 = add nsw i64 %.sroa.speculated.i.i.i.i182, %369
+  %.sroa.speculated.i.i.i.i183 = tail call i64 @llvm.umax.i64(i64 %369, i64 1)
+  %370 = add nsw i64 %.sroa.speculated.i.i.i.i183, %369
   %371 = icmp ult i64 %370, %369
   %372 = tail call i64 @llvm.umin.i64(i64 %370, i64 576460752303423487)
   %373 = select i1 %371, i64 576460752303423487, i64 %372
-  %.not.i.i.i.i183 = icmp ne i64 %373, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i183)
+  %.not.i.i.i.i184 = icmp ne i64 %373, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i184)
   %374 = shl nuw nsw i64 %373, 4
   %375 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %374) #20
   %376 = getelementptr inbounds i8, ptr %375, i64 %366
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, i8 0, i64 16, i1 false)
   %377 = icmp sgt i64 %366, 0
-  br i1 %377, label %378, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i184
+  br i1 %377, label %378, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185
 
-378:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i181
+378:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i182
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %375, ptr align 8 %363, i64 %366, i1 false)
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i184
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i184: ; preds = %378, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i181
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185: ; preds = %378, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i182
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  %.not.i16.i.i.i185 = icmp eq ptr %363, null
-  br i1 %.not.i16.i.i.i185, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186, label %380
+  %.not.i16.i.i.i186 = icmp eq ptr %363, null
+  br i1 %.not.i16.i.i.i186, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187, label %380
 
-380:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i184
+380:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185
   tail call void @_ZdlPv(ptr noundef nonnull %363) #22
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186: ; preds = %380, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i184
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187: ; preds = %380, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185
   store ptr %375, ptr %3, align 8
   store ptr %379, ptr %244, align 8
   %381 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %375, i64 %373
   store ptr %381, ptr %245, align 8
-  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187
+  br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188
 
-_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187: ; preds = %359, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186
-  %382 = phi ptr [ %361, %359 ], [ %379, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186 ]
+_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188: ; preds = %359, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187
+  %382 = phi ptr [ %361, %359 ], [ %379, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187 ]
   %383 = getelementptr inbounds i8, ptr %382, i64 -16
   store i64 0, ptr %383, align 8
-  store i32 %.2115214, ptr %383, align 8
+  store i32 %.2115211, ptr %383, align 8
   %384 = getelementptr inbounds i8, ptr %382, i64 -8
   store i64 -1, ptr %384, align 8
-  %385 = add i32 %.2115214, 8
-  %386 = add nuw i32 %.2215, 64
+  %385 = add i32 %.2115211, 8
+  %386 = add nuw i32 %.2212, 64
   %387 = icmp ugt i32 %355, %386
   br i1 %387, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187, %354
-  %.2115.lcssa = phi i32 [ %.0113, %354 ], [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ]
-  %.2.lcssa = phi i32 [ %.0112, %354 ], [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ]
+._crit_edge:                                      ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188, %354
+  %.2115.lcssa = phi i32 [ %.0113, %354 ], [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188 ]
+  %.2.lcssa = phi i32 [ %.0112, %354 ], [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188 ]
   %388 = icmp ult i32 %.2.lcssa, %spec.select
   br i1 %388, label %389, label %420, !prof !17
 
 389:                                              ; preds = %._crit_edge
   %390 = and i32 %spec.select, 63
   %391 = zext nneg i32 %390 to i64
-  %notmask203 = shl nsw i64 -1, %391
-  %392 = xor i64 %notmask203, -1
+  %notmask200 = shl nsw i64 -1, %391
+  %392 = xor i64 %notmask200, -1
   %393 = load ptr, ptr %244, align 8
   %394 = load ptr, ptr %245, align 8
-  %.not.i.i188 = icmp eq ptr %393, %394
-  br i1 %.not.i.i188, label %398, label %395
+  %.not.i.i189 = icmp eq ptr %393, %394
+  br i1 %.not.i.i189, label %398, label %395
 
 395:                                              ; preds = %389
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %393, i8 0, i64 16, i1 false)
@@ -2015,69 +2015,66 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187: ; p
   %401 = ptrtoint ptr %399 to i64
   %402 = sub i64 %400, %401
   %403 = icmp eq i64 %402, 9223372036854775792
-  br i1 %403, label %404, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i189
+  br i1 %403, label %404, label %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190
 
 404:                                              ; preds = %398
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #19
   unreachable
 
-_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i189: ; preds = %398
+_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190: ; preds = %398
   %405 = ashr exact i64 %402, 4
-  %.sroa.speculated.i.i.i.i190 = tail call i64 @llvm.umax.i64(i64 %405, i64 1)
-  %406 = add nsw i64 %.sroa.speculated.i.i.i.i190, %405
+  %.sroa.speculated.i.i.i.i191 = tail call i64 @llvm.umax.i64(i64 %405, i64 1)
+  %406 = add nsw i64 %.sroa.speculated.i.i.i.i191, %405
   %407 = icmp ult i64 %406, %405
   %408 = tail call i64 @llvm.umin.i64(i64 %406, i64 576460752303423487)
   %409 = select i1 %407, i64 576460752303423487, i64 %408
-  %.not.i.i.i.i191 = icmp ne i64 %409, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i191)
+  %.not.i.i.i.i192 = icmp ne i64 %409, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i192)
   %410 = shl nuw nsw i64 %409, 4
   %411 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %410) #20
   %412 = getelementptr inbounds i8, ptr %411, i64 %402
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %412, i8 0, i64 16, i1 false)
   %413 = icmp sgt i64 %402, 0
-  br i1 %413, label %414, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i192
+  br i1 %413, label %414, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193
 
-414:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i189
+414:                                              ; preds = %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %411, ptr align 8 %399, i64 %402, i1 false)
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i192
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i192: ; preds = %414, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i189
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193: ; preds = %414, %_ZNKSt6vectorI17scatter_unit_u64aSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190
   %415 = getelementptr inbounds nuw i8, ptr %412, i64 16
-  %.not.i16.i.i.i193 = icmp eq ptr %399, null
-  br i1 %.not.i16.i.i.i193, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194, label %416
+  %.not.i16.i.i.i194 = icmp eq ptr %399, null
+  br i1 %.not.i16.i.i.i194, label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195, label %416
 
-416:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i192
+416:                                              ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193
   tail call void @_ZdlPv(ptr noundef nonnull %399) #22
-  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194
+  br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195
 
-_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194: ; preds = %416, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i192
+_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195: ; preds = %416, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193
   store ptr %411, ptr %3, align 8
   store ptr %415, ptr %244, align 8
   %417 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %411, i64 %409
   store ptr %417, ptr %245, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194, %395, %301, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170
-  %.sink290 = phi ptr [ %303, %301 ], [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
-  %.sink287 = phi i32 [ %286, %301 ], [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
-  %.sink = phi i64 [ %298, %301 ], [ %298, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %392, %395 ], [ %392, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
-  %418 = getelementptr inbounds i8, ptr %.sink290, i64 -16
+.sink.split:                                      ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195, %395, %301, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171
+  %.sink287 = phi ptr [ %303, %301 ], [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
+  %.sink284 = phi i32 [ %286, %301 ], [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
+  %.sink = phi i64 [ %298, %301 ], [ %298, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %392, %395 ], [ %392, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
+  %418 = getelementptr inbounds i8, ptr %.sink287, i64 -16
   store i64 0, ptr %418, align 8
-  store i32 %.sink287, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %.sink290, i64 -8
+  store i32 %.sink284, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %.sink287, i64 -8
   store i64 %.sink, ptr %419, align 8
   br label %420
 
 420:                                              ; preds = %.sink.split, %._crit_edge
   %421 = icmp eq i32 %.0120, 0
-  br i1 %421, label %.thread199, label %422
+  %422 = add nsw i32 %.0120, -6
+  %423 = add i32 %.0118, 1
+  br i1 %421, label %.loopexit, label %275
 
-422:                                              ; preds = %420
-  %423 = add nsw i32 %.0120, -6
-  %424 = add i32 %.0118, 1
-  br label %275
-
-.thread199:                                       ; preds = %420, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163, %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit, %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155, %213, %227, %235, %220, %209, %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit, %4
+.loopexit:                                        ; preds = %420, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164, %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit, %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit156, %213, %227, %235, %220, %209, %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit, %4
   ret void
 }
 

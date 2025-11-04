@@ -86,7 +86,7 @@ define internal i32 @init(ptr noundef %0) #0 {
   %33 = call noalias ptr @av_strdup(ptr noundef nonnull %3) #7
   store ptr %33, ptr %4, align 8, !tbaa !28
   %.not38 = icmp eq ptr %33, null
-  br i1 %.not38, label %.thread41, label %34
+  br i1 %.not38, label %.thread42, label %34
 
 34:                                               ; preds = %29
   br i1 %.not.not, label %35, label %38
@@ -116,14 +116,14 @@ define internal i32 @init(ptr noundef %0) #0 {
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.10, ptr noundef %45, ptr noundef nonnull %5) #7
   call void @av_freep(ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread41
+  br label %.thread42
 
 46:                                               ; preds = %.thread, %35
   %47 = call i32 @ff_append_outpad(ptr noundef %0, ptr noundef nonnull %4) #7
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %.thread41, label %49
+  br i1 %48, label %.thread42, label %49
 
-.thread41:                                        ; preds = %29, %46, %44
+.thread42:                                        ; preds = %29, %46, %44
   %.3.ph = phi i32 [ %40, %44 ], [ %47, %46 ], [ -12, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -138,8 +138,8 @@ define internal i32 @init(ptr noundef %0) #0 {
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %29, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %49, %.preheader, %.thread41, %15, %11
-  %.027 = phi i32 [ %16, %15 ], [ %13, %11 ], [ %.3.ph, %.thread41 ], [ %.128, %.preheader ], [ %47, %49 ]
+.loopexit:                                        ; preds = %49, %.preheader, %.thread42, %15, %11
+  %.027 = phi i32 [ %16, %15 ], [ %13, %11 ], [ %.3.ph, %.thread42 ], [ %.128, %.preheader ], [ %47, %49 ]
   call void @av_channel_layout_uninit(ptr noundef nonnull %2) #7
   br label %53
 

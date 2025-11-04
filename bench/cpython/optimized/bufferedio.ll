@@ -2112,9 +2112,9 @@ define internal fastcc ptr @_buffered_readline(ptr noundef %0, i64 noundef %1) u
 buffered_closed.exit.thread.sink.split:           ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !58
-  %.not.i186 = icmp eq i32 %17, 0
+  %.not.i187 = icmp eq i32 %17, 0
   %18 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
-  %.str.25..str.24 = select i1 %.not.i186, ptr @.str.25, ptr @.str.24
+  %.str.25..str.24 = select i1 %.not.i187, ptr @.str.25, ptr @.str.24
   tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull %.str.25..str.24) #10
   br label %buffered_closed.exit.thread
 
@@ -2166,7 +2166,7 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
 .critedge:                                        ; preds = %33, %buffered_closed.exit.thread, %36
   %40 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
   tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.27) #10
-  br label %Py_XDECREF.exit192
+  br label %Py_XDECREF.exit193
 
 41:                                               ; preds = %36, %buffered_closed.exit, %8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2206,13 +2206,13 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
   %64 = add i64 %63, 1
   %65 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %58, i64 noundef %64) #10
   %.not169 = icmp eq ptr %65, null
-  br i1 %.not169, label %Py_XDECREF.exit192, label %66
+  br i1 %.not169, label %Py_XDECREF.exit193, label %66
 
 66:                                               ; preds = %60
   %67 = load i64, ptr %56, align 8, !tbaa !70
   %68 = add i64 %67, %64
   store i64 %68, ptr %56, align 8, !tbaa !70
-  br label %Py_XDECREF.exit192
+  br label %Py_XDECREF.exit193
 
 69:                                               ; preds = %51
   %70 = icmp eq i64 %.0114, %1
@@ -2221,13 +2221,13 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
 71:                                               ; preds = %69
   %72 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %58, i64 noundef %1) #10
   %.not168 = icmp eq ptr %72, null
-  br i1 %.not168, label %Py_XDECREF.exit192, label %73
+  br i1 %.not168, label %Py_XDECREF.exit193, label %73
 
 73:                                               ; preds = %71
   %74 = load i64, ptr %56, align 8, !tbaa !70
   %75 = add i64 %74, %1
   store i64 %75, ptr %56, align 8, !tbaa !70
-  br label %Py_XDECREF.exit192
+  br label %Py_XDECREF.exit193
 
 76:                                               ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2239,7 +2239,7 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
 80:                                               ; preds = %76
   %81 = tail call fastcc i32 @_enter_buffered_busy(ptr noundef nonnull %0)
   %.not165 = icmp eq i32 %81, 0
-  br i1 %.not165, label %Py_XDECREF.exit192, label %82
+  br i1 %.not165, label %Py_XDECREF.exit193, label %82
 
 82:                                               ; preds = %76, %80
   %83 = tail call i64 @PyThread_get_thread_ident() #10
@@ -2247,13 +2247,13 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
   store volatile i64 %83, ptr %84, align 8, !tbaa !71
   %85 = tail call ptr @PyList_New(i64 noundef 0) #10
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.loopexit.thread266, label %88
+  br i1 %86, label %.loopexit.thread267, label %88
 
-.loopexit.thread266:                              ; preds = %82
+.loopexit.thread267:                              ; preds = %82
   store volatile i64 0, ptr %84, align 8, !tbaa !71
   %87 = load ptr, ptr %77, align 8, !tbaa !53
   tail call void @PyThread_release_lock(ptr noundef %87) #10
-  br label %Py_XDECREF.exit192
+  br label %Py_XDECREF.exit193
 
 88:                                               ; preds = %82
   %89 = icmp sgt i64 %.0114, 0
@@ -2268,11 +2268,11 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
   %94 = tail call i32 @PyList_Append(ptr noundef nonnull %85, ptr noundef nonnull %91) #10
   %95 = icmp slt i32 %94, 0
   %96 = load i32, ptr %91, align 8, !tbaa !14
-  %.not.i179 = icmp sgt i32 %96, -1
+  %.not.i180 = icmp sgt i32 %96, -1
   br i1 %95, label %97, label %102
 
 97:                                               ; preds = %93
-  br i1 %.not.i179, label %98, label %.loopexit.thread
+  br i1 %.not.i180, label %98, label %.loopexit.thread
 
 98:                                               ; preds = %97
   %99 = add nsw i32 %96, -1
@@ -2285,19 +2285,19 @@ buffered_closed.exit.thread:                      ; preds = %buffered_closed.exi
   br label %.loopexit.thread
 
 102:                                              ; preds = %93
-  br i1 %.not.i179, label %103, label %Py_DECREF.exit178
+  br i1 %.not.i180, label %103, label %Py_DECREF.exit179
 
 103:                                              ; preds = %102
   %104 = add nsw i32 %96, -1
   store i32 %104, ptr %91, align 8, !tbaa !14
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %Py_DECREF.exit178
+  br i1 %105, label %106, label %Py_DECREF.exit179
 
 106:                                              ; preds = %103
   tail call void @_Py_Dealloc(ptr noundef nonnull %91) #10
-  br label %Py_DECREF.exit178
+  br label %Py_DECREF.exit179
 
-Py_DECREF.exit178:                                ; preds = %102, %103, %106
+Py_DECREF.exit179:                                ; preds = %102, %103, %106
   %107 = load i64, ptr %56, align 8, !tbaa !70
   %108 = add i64 %107, %.0114
   store i64 %108, ptr %56, align 8, !tbaa !70
@@ -2305,12 +2305,12 @@ Py_DECREF.exit178:                                ; preds = %102, %103, %106
   %spec.select = sub nsw i64 %1, %109
   br label %110
 
-110:                                              ; preds = %Py_DECREF.exit178, %88
-  %.0112 = phi i64 [ %1, %88 ], [ %spec.select, %Py_DECREF.exit178 ]
+110:                                              ; preds = %Py_DECREF.exit179, %88
+  %.0112 = phi i64 [ %1, %88 ], [ %spec.select, %Py_DECREF.exit179 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %112 = load i32, ptr %111, align 4, !tbaa !66
   %.not166 = icmp eq i32 %112, 0
-  br i1 %.not166, label %Py_DECREF.exit176.thread, label %113
+  br i1 %.not166, label %Py_DECREF.exit177.thread, label %113
 
 113:                                              ; preds = %110
   %114 = tail call fastcc ptr @buffered_flush_and_rewind_unlocked(ptr noundef nonnull %0)
@@ -2319,20 +2319,20 @@ Py_DECREF.exit178:                                ; preds = %102, %103, %106
 
 116:                                              ; preds = %113
   %117 = load i32, ptr %114, align 8, !tbaa !14
-  %.not.i175 = icmp sgt i32 %117, -1
-  br i1 %.not.i175, label %118, label %Py_DECREF.exit176.thread
+  %.not.i176 = icmp sgt i32 %117, -1
+  br i1 %.not.i176, label %118, label %Py_DECREF.exit177.thread
 
 118:                                              ; preds = %116
   %119 = add nsw i32 %117, -1
   store i32 %119, ptr %114, align 8, !tbaa !14
   %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %Py_DECREF.exit176.thread
+  br i1 %120, label %121, label %Py_DECREF.exit177.thread
 
 121:                                              ; preds = %118
   tail call void @_Py_Dealloc(ptr noundef nonnull %114) #10
-  br label %Py_DECREF.exit176.thread
+  br label %Py_DECREF.exit177.thread
 
-Py_DECREF.exit176.thread:                         ; preds = %121, %118, %116, %110
+Py_DECREF.exit177.thread:                         ; preds = %121, %118, %116, %110
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -1, ptr %122, align 8, !tbaa !67
@@ -2342,21 +2342,21 @@ Py_DECREF.exit176.thread:                         ; preds = %121, %118, %116, %1
   %127 = icmp slt i64 %126, 1
   br i1 %127, label %_bufferedreader_fill_buffer.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %Py_DECREF.exit176.thread
+.lr.ph:                                           ; preds = %Py_DECREF.exit177.thread
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %130
 
-_bufferedreader_fill_buffer.exit:                 ; preds = %Py_DECREF.exit172, %Py_DECREF.exit176.thread
-  %.lcssa211 = phi i64 [ %126, %Py_DECREF.exit176.thread ], [ %168, %Py_DECREF.exit172 ]
-  %129 = icmp eq i64 %.lcssa211, -1
+_bufferedreader_fill_buffer.exit:                 ; preds = %Py_DECREF.exit173, %Py_DECREF.exit177.thread
+  %.lcssa212 = phi i64 [ %126, %Py_DECREF.exit177.thread ], [ %168, %Py_DECREF.exit173 ]
+  %129 = icmp eq i64 %.lcssa212, -1
   br i1 %129, label %.loopexit.thread, label %.split136
 
-130:                                              ; preds = %.lr.ph, %Py_DECREF.exit172
-  %131 = phi i64 [ %126, %.lr.ph ], [ %168, %Py_DECREF.exit172 ]
-  %.1223 = phi i64 [ %.0112, %.lr.ph ], [ %.2, %Py_DECREF.exit172 ]
+130:                                              ; preds = %.lr.ph, %Py_DECREF.exit173
+  %131 = phi i64 [ %126, %.lr.ph ], [ %168, %Py_DECREF.exit173 ]
+  %.1224 = phi i64 [ %.0112, %.lr.ph ], [ %.2, %Py_DECREF.exit173 ]
   store i64 %131, ptr %122, align 8, !tbaa !67
   store i64 %131, ptr %128, align 8, !tbaa !72
-  %.1115 = tail call i64 @llvm.umin.i64(i64 %.1223, i64 %131)
+  %.1115 = tail call i64 @llvm.umin.i64(i64 %.1224, i64 %131)
   %132 = load ptr, ptr %3, align 8, !tbaa !52
   %133 = getelementptr i8, ptr %132, i64 %.1115
   br label %134
@@ -2378,7 +2378,7 @@ _bufferedreader_fill_buffer.exit:                 ; preds = %Py_DECREF.exit172, 
   %143 = sub i64 %141, %142
   %144 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %132, i64 noundef %143) #10
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.loopexit.thread, label %.loopexit207
+  br i1 %145, label %.loopexit.thread, label %.loopexit208
 
 146:                                              ; preds = %134
   %147 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %132, i64 noundef %.1115) #10
@@ -2386,18 +2386,18 @@ _bufferedreader_fill_buffer.exit:                 ; preds = %Py_DECREF.exit172, 
   br i1 %148, label %.loopexit.thread, label %149
 
 149:                                              ; preds = %146
-  %.not206 = icmp ugt i64 %.1223, %131
-  br i1 %.not206, label %150, label %.loopexit207
+  %.not207 = icmp ugt i64 %.1224, %131
+  br i1 %.not207, label %150, label %.loopexit208
 
 150:                                              ; preds = %149
   %151 = tail call i32 @PyList_Append(ptr noundef nonnull %85, ptr noundef nonnull %147) #10
   %152 = icmp slt i32 %151, 0
   %153 = load i32, ptr %147, align 8, !tbaa !14
-  %.not.i173 = icmp sgt i32 %153, -1
+  %.not.i174 = icmp sgt i32 %153, -1
   br i1 %152, label %154, label %159
 
 154:                                              ; preds = %150
-  br i1 %.not.i173, label %155, label %.loopexit.thread
+  br i1 %.not.i174, label %155, label %.loopexit.thread
 
 155:                                              ; preds = %154
   %156 = add nsw i32 %153, -1
@@ -2410,22 +2410,22 @@ _bufferedreader_fill_buffer.exit:                 ; preds = %Py_DECREF.exit172, 
   br label %.loopexit.thread
 
 159:                                              ; preds = %150
-  br i1 %.not.i173, label %160, label %Py_DECREF.exit172
+  br i1 %.not.i174, label %160, label %Py_DECREF.exit173
 
 160:                                              ; preds = %159
   %161 = add nsw i32 %153, -1
   store i32 %161, ptr %147, align 8, !tbaa !14
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %Py_DECREF.exit172
+  br i1 %162, label %163, label %Py_DECREF.exit173
 
 163:                                              ; preds = %160
   tail call void @_Py_Dealloc(ptr noundef nonnull %147) #10
-  br label %Py_DECREF.exit172
+  br label %Py_DECREF.exit173
 
-Py_DECREF.exit172:                                ; preds = %159, %160, %163
-  %164 = icmp slt i64 %.1223, 0
+Py_DECREF.exit173:                                ; preds = %159, %160, %163
+  %164 = icmp slt i64 %.1224, 0
   %165 = select i1 %164, i64 0, i64 %.1115
-  %.2 = sub nsw i64 %.1223, %165
+  %.2 = sub nsw i64 %.1224, %165
   store i64 -1, ptr %122, align 8, !tbaa !67
   %166 = load i64, ptr %123, align 8, !tbaa !64
   %167 = load ptr, ptr %3, align 8, !tbaa !52
@@ -2437,7 +2437,7 @@ Py_DECREF.exit172:                                ; preds = %159, %160, %163
   %170 = tail call ptr @PyBytes_Join(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 22296), ptr noundef nonnull %85) #10
   br label %.loopexit.thread
 
-.loopexit207:                                     ; preds = %149, %140
+.loopexit208:                                     ; preds = %149, %140
   %storemerge = phi i64 [ %143, %140 ], [ %.1115, %149 ]
   %.5.ph = phi ptr [ %144, %140 ], [ %147, %149 ]
   store i64 %storemerge, ptr %56, align 8, !tbaa !70
@@ -2445,11 +2445,11 @@ Py_DECREF.exit172:                                ; preds = %159, %160, %163
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %180, label %173
 
-173:                                              ; preds = %.loopexit207
+173:                                              ; preds = %.loopexit208
   %174 = tail call ptr @PyBytes_Join(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 22296), ptr noundef nonnull %85) #10
   %175 = load i32, ptr %.5.ph, align 8, !tbaa !14
-  %.not.i.i189 = icmp sgt i32 %175, -1
-  br i1 %.not.i.i189, label %176, label %.loopexit.thread
+  %.not.i.i190 = icmp sgt i32 %175, -1
+  br i1 %.not.i.i190, label %176, label %.loopexit.thread
 
 176:                                              ; preds = %173
   %177 = add nsw i32 %175, -1
@@ -2461,7 +2461,7 @@ Py_DECREF.exit172:                                ; preds = %159, %160, %163
   tail call void @_Py_Dealloc(ptr noundef nonnull %.5.ph) #10
   br label %.loopexit.thread
 
-180:                                              ; preds = %.loopexit207
+180:                                              ; preds = %.loopexit208
   %181 = load i32, ptr %.5.ph, align 8, !tbaa !14
   %.not.i = icmp sgt i32 %181, -1
   br i1 %.not.i, label %182, label %.loopexit.thread
@@ -2477,26 +2477,26 @@ Py_DECREF.exit172:                                ; preds = %159, %160, %163
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %146, %140, %185, %182, %180, %179, %176, %173, %158, %155, %154, %113, %101, %98, %97, %.split136, %90, %_bufferedreader_fill_buffer.exit
-  %.9265 = phi ptr [ null, %185 ], [ null, %182 ], [ null, %180 ], [ %174, %179 ], [ %174, %176 ], [ %174, %173 ], [ null, %158 ], [ null, %155 ], [ null, %154 ], [ null, %113 ], [ null, %101 ], [ null, %98 ], [ null, %97 ], [ %170, %.split136 ], [ null, %_bufferedreader_fill_buffer.exit ], [ null, %90 ], [ null, %140 ], [ null, %146 ]
+  %.9266 = phi ptr [ null, %185 ], [ null, %182 ], [ null, %180 ], [ %174, %179 ], [ %174, %176 ], [ %174, %173 ], [ null, %158 ], [ null, %155 ], [ null, %154 ], [ null, %113 ], [ null, %101 ], [ null, %98 ], [ null, %97 ], [ %170, %.split136 ], [ null, %_bufferedreader_fill_buffer.exit ], [ null, %90 ], [ null, %140 ], [ null, %146 ]
   store volatile i64 0, ptr %84, align 8, !tbaa !71
   %186 = load ptr, ptr %77, align 8, !tbaa !53
   tail call void @PyThread_release_lock(ptr noundef %186) #10
   %187 = load i32, ptr %85, align 8, !tbaa !14
-  %.not.i.i191 = icmp sgt i32 %187, -1
-  br i1 %.not.i.i191, label %188, label %Py_XDECREF.exit192
+  %.not.i.i192 = icmp sgt i32 %187, -1
+  br i1 %.not.i.i192, label %188, label %Py_XDECREF.exit193
 
 188:                                              ; preds = %.loopexit.thread
   %189 = add nsw i32 %187, -1
   store i32 %189, ptr %85, align 8, !tbaa !14
   %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %Py_XDECREF.exit192
+  br i1 %190, label %191, label %Py_XDECREF.exit193
 
 191:                                              ; preds = %188
   tail call void @_Py_Dealloc(ptr noundef nonnull %85) #10
-  br label %Py_XDECREF.exit192
+  br label %Py_XDECREF.exit193
 
-Py_XDECREF.exit192:                               ; preds = %.loopexit.thread266, %80, %71, %73, %60, %66, %191, %188, %.loopexit.thread, %.critedge
-  %.0 = phi ptr [ null, %.critedge ], [ %.9265, %.loopexit.thread ], [ %.9265, %188 ], [ %.9265, %191 ], [ null, %80 ], [ null, %71 ], [ %72, %73 ], [ null, %60 ], [ %65, %66 ], [ null, %.loopexit.thread266 ]
+Py_XDECREF.exit193:                               ; preds = %.loopexit.thread267, %80, %71, %73, %60, %66, %191, %188, %.loopexit.thread, %.critedge
+  %.0 = phi ptr [ null, %.critedge ], [ %.9266, %.loopexit.thread ], [ %.9266, %188 ], [ %.9266, %191 ], [ null, %80 ], [ null, %71 ], [ %72, %73 ], [ null, %60 ], [ %65, %66 ], [ null, %.loopexit.thread267 ]
   ret ptr %.0
 }
 
@@ -7128,9 +7128,9 @@ define internal ptr @_io_BufferedWriter_write(ptr noundef %0, ptr noundef %1) #0
 buffered_closed.exit.thread.sink.split.i:         ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !58
-  %.not.i214.i = icmp eq i32 %37, 0
+  %.not.i216.i = icmp eq i32 %37, 0
   %38 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !4
-  %.str.25..str.24.i = select i1 %.not.i214.i, ptr @.str.25, ptr @.str.24
+  %.str.25..str.24.i = select i1 %.not.i216.i, ptr @.str.25, ptr @.str.24
   call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull %.str.25..str.24.i) #10
   br label %buffered_closed.exit.thread.i
 
@@ -7219,30 +7219,30 @@ buffered_closed.exit.thread.i:                    ; preds = %buffered_closed.exi
   br i1 %.not206.i, label %._crit_edge.i, label %81
 
 ._crit_edge.i:                                    ; preds = %75
-  %.pre245.i = load i64, ptr %69, align 8, !tbaa !70
+  %.pre247.i = load i64, ptr %69, align 8, !tbaa !70
   br label %88
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %83 = load i64, ptr %82, align 8, !tbaa !86
   %.not207.i = icmp eq i64 %83, -1
-  %.pre246.i = load i64, ptr %69, align 8, !tbaa !70
+  %.pre248.i = load i64, ptr %69, align 8, !tbaa !70
   br i1 %.not207.i, label %88, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %86 = load i64, ptr %85, align 8, !tbaa !87
-  %87 = icmp sgt i64 %86, %.pre246.i
+  %87 = icmp sgt i64 %86, %.pre248.i
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %84, %81, %._crit_edge.i
-  %89 = phi i64 [ %.pre245.i, %._crit_edge.i ], [ %.pre246.i, %84 ], [ %.pre246.i, %81 ]
+  %89 = phi i64 [ %.pre247.i, %._crit_edge.i ], [ %.pre248.i, %84 ], [ %.pre248.i, %81 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %89, ptr %90, align 8, !tbaa !87
   br label %91
 
 91:                                               ; preds = %88, %84
-  %92 = phi i64 [ %.pre246.i, %84 ], [ %89, %88 ]
+  %92 = phi i64 [ %.pre248.i, %84 ], [ %89, %88 ]
   %93 = load i64, ptr %72, align 8, !tbaa !41
   %94 = add i64 %93, %92
   store i64 %94, ptr %69, align 8, !tbaa !70
@@ -7285,8 +7285,8 @@ buffered_closed.exit.thread.i:                    ; preds = %buffered_closed.exi
 112:                                              ; preds = %109
   %113 = load ptr, ptr @PyExc_BlockingIOError, align 8, !tbaa !4
   %114 = call i32 @PyErr_GivenExceptionMatches(ptr noundef nonnull %110, ptr noundef %113) #10
-  %.not.i215.i = icmp eq i32 %114, 0
-  br i1 %.not.i215.i, label %_buffered_check_blocking_error.exit.thread.i, label %115
+  %.not.i217.i = icmp eq i32 %114, 0
+  br i1 %.not.i217.i, label %_buffered_check_blocking_error.exit.thread.i, label %115
 
 _buffered_check_blocking_error.exit.thread.i:     ; preds = %112, %109
   call void @PyErr_SetRaisedException(ptr noundef %110) #10
@@ -7391,25 +7391,25 @@ Py_DECREF.exit.i:                                 ; preds = %162, %159, %157
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %169 = load i32, ptr %168, align 4, !tbaa !66
   %.not195.i = icmp eq i32 %169, 0
-  br i1 %.not195.i, label %.thread224.i, label %170
+  br i1 %.not195.i, label %.thread226.i, label %170
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %172 = load i64, ptr %171, align 8, !tbaa !86
   %.not196.i = icmp eq i64 %172, -1
-  br i1 %.not196.i, label %.thread224.i, label %173
+  br i1 %.not196.i, label %.thread226.i, label %173
 
 173:                                              ; preds = %170, %164
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %175 = load i64, ptr %174, align 8, !tbaa !72
   %176 = icmp sgt i64 %175, -1
-  br i1 %176, label %177, label %.thread224.i
+  br i1 %176, label %177, label %.thread226.i
 
 177:                                              ; preds = %173
   %178 = load i64, ptr %69, align 8, !tbaa !70
   %179 = sub i64 %175, %178
   %.not197.i = icmp eq i64 %175, %178
-  br i1 %.not197.i, label %.thread224.i, label %180
+  br i1 %.not197.i, label %.thread226.i, label %180
 
 180:                                              ; preds = %177
   %181 = sub i64 0, %179
@@ -7421,15 +7421,15 @@ Py_DECREF.exit.i:                                 ; preds = %162, %159, %157
   %185 = load i64, ptr %174, align 8, !tbaa !72
   %186 = sub i64 %185, %179
   store i64 %186, ptr %174, align 8, !tbaa !72
-  br label %.thread224.i
+  br label %.thread226.i
 
-.thread224.i:                                     ; preds = %184, %177, %173, %170, %167
+.thread226.i:                                     ; preds = %184, %177, %173, %170, %167
   %187 = load i64, ptr %72, align 8, !tbaa !41
   br label %_set_BlockingIOError.exit.i
 
-_set_BlockingIOError.exit.i:                      ; preds = %224, %.thread224.i
-  %.0160.i = phi i64 [ %187, %.thread224.i ], [ %226, %224 ]
-  %.2.i = phi i64 [ 0, %.thread224.i ], [ %225, %224 ]
+_set_BlockingIOError.exit.i:                      ; preds = %224, %.thread226.i
+  %.0160.i = phi i64 [ %187, %.thread226.i ], [ %226, %224 ]
+  %.2.i = phi i64 [ 0, %.thread226.i ], [ %225, %224 ]
   %188 = load i64, ptr %67, align 8, !tbaa !64
   %.not198.i = icmp slt i64 %.0160.i, %188
   br i1 %.not198.i, label %.loopexit.i, label %189
@@ -7448,7 +7448,7 @@ _set_BlockingIOError.exit.i:                      ; preds = %224, %.thread224.i
 195:                                              ; preds = %189
   %196 = load i64, ptr %67, align 8, !tbaa !64
   %197 = icmp sgt i64 %.0160.i, %196
-  br i1 %197, label %198, label %_set_BlockingIOError.exit.thread229.i
+  br i1 %197, label %198, label %_set_BlockingIOError.exit.thread231.i
 
 198:                                              ; preds = %195
   %199 = load ptr, ptr %24, align 8, !tbaa !52
@@ -7468,8 +7468,8 @@ _set_BlockingIOError.exit.i:                      ; preds = %224, %.thread224.i
   %207 = load i64, ptr %206, align 8, !tbaa !67
   %.not200.i = icmp ne i64 %207, -1
   %208 = icmp slt i64 %207, %203
-  %or.cond212.i = select i1 %.not200.i, i1 %208, i1 false
-  br i1 %or.cond212.i, label %209, label %210
+  %or.cond213.i = select i1 %.not200.i, i1 %208, i1 false
+  br i1 %or.cond213.i, label %209, label %210
 
 209:                                              ; preds = %205
   store i64 %203, ptr %206, align 8, !tbaa !67
@@ -7484,8 +7484,8 @@ _set_BlockingIOError.exit.i:                      ; preds = %224, %.thread224.i
   %214 = tail call ptr @__errno_location() #13
   %215 = load i32, ptr %214, align 4, !tbaa !88
   %216 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %213, ptr noundef nonnull @.str.33, i32 noundef %215, ptr noundef nonnull @.str.31, i64 noundef %212) #10
-  %.not.i217.i = icmp eq ptr %216, null
-  br i1 %.not.i217.i, label %.thread.i, label %217
+  %.not.i219.i = icmp eq ptr %216, null
+  br i1 %.not.i219.i, label %.thread.i, label %217
 
 217:                                              ; preds = %210
   %218 = load ptr, ptr @PyExc_BlockingIOError, align 8, !tbaa !4
@@ -7504,7 +7504,7 @@ _set_BlockingIOError.exit.i:                      ; preds = %224, %.thread224.i
   call void @_Py_Dealloc(ptr noundef nonnull %216) #10
   br label %.thread.i
 
-_set_BlockingIOError.exit.thread229.i:            ; preds = %195
+_set_BlockingIOError.exit.thread231.i:            ; preds = %195
   call void @PyErr_Clear() #10
   br label %.loopexit.i
 
@@ -7515,7 +7515,7 @@ _set_BlockingIOError.exit.thread229.i:            ; preds = %195
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %.thread.i, label %_set_BlockingIOError.exit.i
 
-.loopexit.i:                                      ; preds = %_set_BlockingIOError.exit.i, %_set_BlockingIOError.exit.thread229.i
+.loopexit.i:                                      ; preds = %_set_BlockingIOError.exit.i, %_set_BlockingIOError.exit.thread231.i
   %229 = load i32, ptr %53, align 8, !tbaa !65
   %.not201.i = icmp eq i32 %229, 0
   br i1 %.not201.i, label %232, label %230
@@ -7554,8 +7554,8 @@ _set_BlockingIOError.exit.thread229.i:            ; preds = %195
   %245 = load i64, ptr %244, align 8, !tbaa !67
   %.not203.i = icmp ne i64 %245, -1
   %246 = icmp slt i64 %245, %.0160.i
-  %or.cond213.i = and i1 %.not203.i, %246
-  br i1 %or.cond213.i, label %247, label %248
+  %or.cond215.i = and i1 %.not203.i, %246
+  br i1 %or.cond215.i, label %247, label %248
 
 247:                                              ; preds = %243
   store i64 %.0160.i, ptr %244, align 8, !tbaa !67

@@ -615,19 +615,19 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
-  %.not50 = icmp eq ptr %47, null
-  br i1 %.not50, label %.critedge, label %.lr.ph
+  %.not51 = icmp eq ptr %47, null
+  br i1 %.not51, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr @ProcGlobal, align 8
   %.pre = load i32, ptr %48, align 4
-  %.pre54 = load i32, ptr %49, align 8
-  %51 = icmp slt i32 %.pre, %.pre54
-  br i1 %51, label %.lr.ph61, label %.critedge
+  %.pre55 = load i32, ptr %49, align 8
+  %51 = icmp slt i32 %.pre, %.pre55
+  br i1 %51, label %.lr.ph62, label %.critedge
 
-.lr.ph61:                                         ; preds = %.lr.ph, %92
+.lr.ph62:                                         ; preds = %.lr.ph, %92
   %52 = phi i32 [ %53, %92 ], [ %.pre, %.lr.ph ]
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %48, align 4
@@ -644,7 +644,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %.thread, label %92, !llvm.loop !12
 
-.thread:                                          ; preds = %.lr.ph61
+.thread:                                          ; preds = %.lr.ph62
   %62 = sext i32 %58 to i64
   %63 = getelementptr inbounds %struct.PGPROC, ptr %56, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 52
@@ -687,11 +687,11 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %98
 
-92:                                               ; preds = %.lr.ph61
+92:                                               ; preds = %.lr.ph62
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %93 = icmp slt i32 %53, %.pre54
-  br i1 %93, label %.lr.ph61, label %.critedge
+  %93 = icmp slt i32 %53, %.pre55
+  br i1 %93, label %.lr.ph62, label %.critedge
 
 .critedge:                                        ; preds = %92, %.lr.ph, %43
   tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %44) #13

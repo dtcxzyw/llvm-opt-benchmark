@@ -673,8 +673,8 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   br label %18
 
 18:                                               ; preds = %2, %15
-  %.sink272 = phi ptr [ %17, %15 ], [ %14, %2 ]
-  %19 = tail call ptr @xstrdup(ptr noundef %.sink272) #15
+  %.sink273 = phi ptr [ %17, %15 ], [ %14, %2 ]
+  %19 = tail call ptr @xstrdup(ptr noundef %.sink273) #15
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -692,7 +692,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %29 = load ptr, ptr %28, align 8
   %.not144 = icmp eq ptr %29, null
-  br i1 %.not144, label %.thread166, label %30
+  br i1 %.not144, label %.thread167, label %30
 
 30:                                               ; preds = %27
   %31 = tail call ptr @hostlist_create(ptr noundef nonnull %29) #15
@@ -711,8 +711,8 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %.0124 = phi ptr [ %37, %36 ], [ null, %30 ]
   tail call void @hostlist_uniq(ptr noundef %33) #15
   %39 = tail call ptr @hostlist_shift(ptr noundef %31) #15
-  %.not146190 = icmp eq ptr %39, null
-  br i1 %.not146190, label %._crit_edge, label %.lr.ph
+  %.not146191 = icmp eq ptr %39, null
+  br i1 %.not146191, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38
   %.not152 = icmp eq ptr %.0124, null
@@ -753,7 +753,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %57 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4) #15
   tail call void @hostlist_destroy(ptr noundef %31) #15
   tail call void @hostlist_destroy(ptr noundef nonnull %.0124) #15
-  br label %.thread163
+  br label %.thread164
 
 58:                                               ; preds = %52, %53
   tail call void @free(ptr noundef nonnull %41) #15
@@ -825,7 +825,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 89:                                               ; preds = %87
   %90 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #15
   tail call void @hostlist_destroy(ptr noundef %33) #15
-  br label %.thread163
+  br label %.thread164
 
 91:                                               ; preds = %87
   %.not149 = icmp eq ptr %.0124, null
@@ -846,22 +846,22 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %101 = tail call i32 @hostlist_delete(ptr noundef %97, ptr noundef %100) #15
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   %102 = icmp sgt i32 %99, 0
-  br i1 %102, label %.lr.ph193, label %.critedge
+  br i1 %102, label %.lr.ph194, label %.critedge
 
-.lr.ph193:                                        ; preds = %96, %104
-  %.0121191 = phi i32 [ %106, %104 ], [ 0, %96 ]
+.lr.ph194:                                        ; preds = %96, %104
+  %.0121192 = phi i32 [ %106, %104 ], [ 0, %96 ]
   %103 = call ptr @hostlist_shift(ptr noundef %97) #15
   %.not151 = icmp eq ptr %103, null
   br i1 %.not151, label %.critedge, label %104
 
-104:                                              ; preds = %.lr.ph193
+104:                                              ; preds = %.lr.ph194
   %105 = call i32 @hostlist_push_host(ptr noundef nonnull %.0124, ptr noundef nonnull %103) #15
   call void @free(ptr noundef nonnull %103) #15
-  %106 = add nuw nsw i32 %.0121191, 1
+  %106 = add nuw nsw i32 %.0121192, 1
   %exitcond.not = icmp eq i32 %106, %99
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph193, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph194, !llvm.loop !14
 
-.critedge:                                        ; preds = %.lr.ph193, %104, %96
+.critedge:                                        ; preds = %.lr.ph194, %104, %96
   call void @hostlist_destroy(ptr noundef %97) #15
   br label %107
 
@@ -876,17 +876,17 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 110:                                              ; preds = %91
   %111 = load i32, ptr %24, align 8
   %112 = icmp ugt i32 %88, %111
-  br i1 %112, label %.lr.ph197, label %.loopexit
+  br i1 %112, label %.lr.ph198, label %.loopexit
 
-.lr.ph197:                                        ; preds = %110, %.lr.ph197
-  %.0196 = phi i32 [ %114, %.lr.ph197 ], [ %88, %110 ]
-  %113 = tail call i32 @hostlist_delete_nth(ptr noundef %33, i32 noundef %.0196) #15
-  %114 = add nsw i32 %.0196, -1
+.lr.ph198:                                        ; preds = %110, %.lr.ph198
+  %.0197 = phi i32 [ %114, %.lr.ph198 ], [ %88, %110 ]
+  %113 = tail call i32 @hostlist_delete_nth(ptr noundef %33, i32 noundef %.0197) #15
+  %114 = add nsw i32 %.0197, -1
   %115 = load i32, ptr %24, align 8
   %.not150 = icmp ult i32 %114, %115
-  br i1 %.not150, label %.loopexit, label %.lr.ph197, !llvm.loop !15
+  br i1 %.not150, label %.loopexit, label %.lr.ph198, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph197, %110
+.loopexit:                                        ; preds = %.lr.ph198, %110
   tail call void @slurm_xfree(ptr noundef nonnull %34) #15
   %116 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef %33) #15
   br label %117
@@ -904,13 +904,13 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %_set_min_node_count.exit, label %133
 
-.thread166:                                       ; preds = %27
+.thread167:                                       ; preds = %27
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %123 = load i8, ptr %122, align 8, !range !8, !noundef !9
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %_set_min_node_count.exit, label %125
 
-125:                                              ; preds = %.thread166
+125:                                              ; preds = %.thread167
   store i8 1, ptr %122, align 8
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %127 = load i8, ptr %126, align 4, !range !8, !noundef !9
@@ -1083,7 +1083,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   store i32 %.sink.i, ptr %209, align 8
   br label %_set_min_node_count.exit
 
-_set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i, %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.thread166, %118, %133, %.critedge.sink.split.i
+_set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i, %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.thread167, %118, %133, %.critedge.sink.split.i
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %211 = load i32, ptr %210, align 4
   %.not153 = icmp eq i32 %211, 0
@@ -1114,7 +1114,7 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %224 = load ptr, ptr %223, align 8
   %.not154 = icmp eq ptr %224, null
-  br i1 %.not154, label %225, label %.thread171
+  br i1 %.not154, label %225, label %.thread172
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 252
@@ -1123,27 +1123,27 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
   %229 = icmp eq i32 %228, 3
   %230 = icmp eq i32 %.2, 0
   %or.cond = and i1 %230, %229
-  br i1 %or.cond, label %231, label %.thread168
+  br i1 %or.cond, label %231, label %.thread169
 
 231:                                              ; preds = %225
   %232 = call ptr @getenv(ptr noundef nonnull @.str.6) #15
   %.not155 = icmp eq ptr %232, null
-  br i1 %.not155, label %.thread168, label %.thread171
+  br i1 %.not155, label %.thread169, label %.thread172
 
-.thread171:                                       ; preds = %222, %231
-  %.0125174 = phi ptr [ %232, %231 ], [ %224, %222 ]
-  %233 = call ptr @hostlist_create(ptr noundef nonnull %.0125174) #15
+.thread172:                                       ; preds = %222, %231
+  %.0125175 = phi ptr [ %232, %231 ], [ %224, %222 ]
+  %233 = call ptr @hostlist_create(ptr noundef nonnull %.0125175) #15
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %235 = load i32, ptr %234, align 4
   %236 = and i32 %235, 65535
   %.not156 = icmp eq i32 %236, 3
   br i1 %.not156, label %238, label %237
 
-237:                                              ; preds = %.thread171
+237:                                              ; preds = %.thread172
   call void @hostlist_uniq(ptr noundef %233) #15
   br label %238
 
-238:                                              ; preds = %237, %.thread171
+238:                                              ; preds = %237, %.thread172
   %239 = call i32 @hostlist_count(ptr noundef %233) #15
   %.not157 = icmp eq i32 %239, 0
   br i1 %.not157, label %240, label %242
@@ -1151,7 +1151,7 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
 240:                                              ; preds = %238
   %241 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #15
   call void @hostlist_destroy(ptr noundef %233) #15
-  br label %.thread163
+  br label %.thread164
 
 242:                                              ; preds = %238
   %243 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %233) #15
@@ -1161,17 +1161,17 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %223) #15
   %245 = load ptr, ptr %4, align 8
   store ptr %245, ptr %223, align 8
-  %.pre220 = load i32, ptr %234, align 4
-  br label %.thread168
+  %.pre221 = load i32, ptr %234, align 4
+  br label %.thread169
 
-.thread168:                                       ; preds = %225, %242, %231
-  %246 = phi i32 [ %.pre220, %242 ], [ %227, %231 ], [ %227, %225 ]
+.thread169:                                       ; preds = %225, %242, %231
+  %246 = phi i32 [ %.pre221, %242 ], [ %227, %231 ], [ %227, %225 ]
   %.3 = phi i32 [ %244, %242 ], [ 0, %231 ], [ %.2, %225 ]
   %247 = and i32 %246, 65535
   %248 = icmp eq i32 %247, 3
   br i1 %248, label %249, label %254
 
-249:                                              ; preds = %.thread168
+249:                                              ; preds = %.thread169
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %251 = load i32, ptr %250, align 8
   %.not158 = icmp eq i32 %.3, %251
@@ -1179,16 +1179,16 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
 
 252:                                              ; preds = %249
   %253 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, i32 noundef %251, i32 noundef %.3) #15
-  br label %.thread163
+  br label %.thread164
 
-254:                                              ; preds = %249, %.thread168
+254:                                              ; preds = %249, %.thread169
   %255 = load i32, ptr %24, align 8
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %254
   %258 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9) #15
-  br label %.thread163
+  br label %.thread164
 
 259:                                              ; preds = %254
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1247,9 +1247,9 @@ _set_min_node_count.exit:                         ; preds = %143, %._crit_edge.i
   %293 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %292, ptr %293, align 8
   %294 = call fastcc ptr @_job_create_structure(ptr noundef nonnull %9, ptr noundef nonnull %1)
-  br label %.thread163
+  br label %.thread164
 
-.thread163:                                       ; preds = %.thread, %89, %240, %252, %257, %288
+.thread164:                                       ; preds = %.thread, %89, %288, %257, %252, %240
   %.0122 = phi ptr [ null, %252 ], [ null, %257 ], [ %294, %288 ], [ null, %240 ], [ null, %89 ], [ null, %.thread ]
   call void @slurm_xfree(ptr noundef nonnull %21) #15
   call void @slurm_xfree(ptr noundef nonnull %3) #15

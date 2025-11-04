@@ -337,7 +337,7 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
 57:                                               ; preds = %54
   %58 = call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %56, i32 noundef %37) #10
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread93.i, label %60
+  br i1 %59, label %.thread94.i, label %60
 
 60:                                               ; preds = %57
   call void @ffio_init_context(ptr noundef nonnull %12, ptr noundef nonnull %56, i32 noundef %37, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #10
@@ -382,20 +382,20 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   %74 = load ptr, ptr %73, align 8, !tbaa !21
   %75 = load i32, ptr %74, align 8, !tbaa !23
   %76 = icmp eq i32 %75, %61
-  br i1 %76, label %.thread93.i, label %71
+  br i1 %76, label %.thread94.i, label %71
 
 ._crit_edge.i:                                    ; preds = %71, %68
   %77 = add nsw i32 %69, 1
   %78 = sext i32 %77 to i64
   %79 = call ptr @av_realloc_array(ptr noundef %.pre.i, i64 noundef %78, i64 noundef 8) #10
   %.not80.i = icmp eq ptr %79, null
-  br i1 %.not80.i, label %.thread93.i, label %80
+  br i1 %.not80.i, label %.thread94.i, label %80
 
 80:                                               ; preds = %._crit_edge.i
   store ptr %79, ptr %0, align 8, !tbaa !19
   %81 = call noalias ptr @av_mallocz(i64 noundef 40) #10
   %.not81.i = icmp eq ptr %81, null
-  br i1 %.not81.i, label %.thread93.i, label %82
+  br i1 %.not81.i, label %.thread94.i, label %82
 
 82:                                               ; preds = %80
   store i32 %61, ptr %81, align 8, !tbaa !23
@@ -470,19 +470,19 @@ define i32 @ff_iamfdec_read_descriptors(ptr noundef captures(none) %0, ptr nound
   call void @av_free(ptr noundef nonnull %56) #10
   %115 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !29
-  br label %.thread93.i
+  br label %.thread94.i
 
-.thread93.i:                                      ; preds = %72, %114, %80, %._crit_edge.i, %57
+.thread94.i:                                      ; preds = %72, %114, %80, %._crit_edge.i, %57
   %.sink.i = phi ptr [ %116, %114 ], [ %56, %80 ], [ %56, %._crit_edge.i ], [ %56, %57 ], [ %56, %72 ]
-  %.068.ph98.i = phi i32 [ %.068.ph.i, %114 ], [ -12, %80 ], [ -12, %._crit_edge.i ], [ %58, %57 ], [ -1094995529, %72 ]
-  %.070.ph97.i = phi ptr [ %81, %114 ], [ null, %80 ], [ null, %._crit_edge.i ], [ null, %57 ], [ null, %72 ]
+  %.068.ph99.i = phi i32 [ %.068.ph.i, %114 ], [ -12, %80 ], [ -12, %._crit_edge.i ], [ %58, %57 ], [ -1094995529, %72 ]
+  %.070.ph98.i = phi ptr [ %81, %114 ], [ null, %80 ], [ null, %._crit_edge.i ], [ null, %57 ], [ null, %72 ]
   call void @av_free(ptr noundef %.sink.i) #10
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread93.i, %112, %104
-  %.sink111.i = phi ptr [ %.070.ph97.i, %.thread93.i ], [ %56, %104 ], [ %56, %112 ]
-  %.069.ph.i = phi i32 [ %.068.ph98.i, %.thread93.i ], [ 0, %104 ], [ 0, %112 ]
-  call void @av_free(ptr noundef %.sink111.i) #10
+.sink.split.i:                                    ; preds = %.thread94.i, %112, %104
+  %.sink112.i = phi ptr [ %.070.ph98.i, %.thread94.i ], [ %56, %104 ], [ %56, %112 ]
+  %.069.ph.i = phi i32 [ %.068.ph99.i, %.thread94.i ], [ 0, %104 ], [ 0, %112 ]
+  call void @av_free(ptr noundef %.sink112.i) #10
   br label %codec_config_obu.exit
 
 codec_config_obu.exit:                            ; preds = %54, %.sink.split.i

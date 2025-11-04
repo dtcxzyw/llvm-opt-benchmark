@@ -7674,10 +7674,10 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
 
 122:                                              ; preds = %114
   %123 = getelementptr inbounds nuw i8, ptr %.073160, i64 8
-  %.sroa.6.0.insert.ext118 = zext i32 %112 to i64
-  %.sroa.6.0.insert.shift119 = shl nuw i64 %.sroa.6.0.insert.ext118, 32
-  %.sroa.0108.0.insert.insert112 = or disjoint i64 %.sroa.6.0.insert.shift119, %103
-  store i64 %.sroa.0108.0.insert.insert112, ptr %.073160, align 4
+  %.sroa.6.0.insert.ext119 = zext i32 %112 to i64
+  %.sroa.6.0.insert.shift120 = shl nuw i64 %.sroa.6.0.insert.ext119, 32
+  %.sroa.0109.0.insert.insert113 = or disjoint i64 %.sroa.6.0.insert.shift120, %103
+  store i64 %.sroa.0109.0.insert.insert113, ptr %.073160, align 4
   br label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit, !llvm.loop !433
 
 .critedge:                                        ; preds = %111, %114
@@ -7728,7 +7728,7 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
   br i1 %148, label %149, label %._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i
 
 ._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i: ; preds = %137
-  %.pre.i100 = load ptr, ptr %143, align 8, !tbaa !120
+  %.pre.i101 = load ptr, ptr %143, align 8, !tbaa !120
   br label %164
 
 149:                                              ; preds = %137
@@ -7762,23 +7762,23 @@ _ZN4cvc58internal7Minisat8OccListsINS1_3LitENS1_3vecINS1_6Solver7WatcherEEENS5_1
 
 164:                                              ; preds = %._crit_edge184, %._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i
   %165 = phi i32 [ %145, %._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._crit_edge184 ]
-  %166 = phi ptr [ %.pre.i100, %._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %161, %._crit_edge184 ]
+  %166 = phi ptr [ %.pre.i101, %._ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %161, %._crit_edge184 ]
   %167 = add nsw i32 %165, 1
   store i32 %167, ptr %144, align 8, !tbaa !123
   %168 = sext i32 %165 to i64
   %169 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::Watcher", ptr %166, i64 %168
-  %.sroa.6.0.insert.ext123 = zext i32 %112 to i64
-  %.sroa.6.0.insert.shift124 = shl nuw i64 %.sroa.6.0.insert.ext123, 32
-  %.sroa.0108.0.insert.insert116 = or disjoint i64 %.sroa.6.0.insert.shift124, %103
-  store i64 %.sroa.0108.0.insert.insert116, ptr %169, align 4
+  %.sroa.6.0.insert.ext124 = zext i32 %112 to i64
+  %.sroa.6.0.insert.shift125 = shl nuw i64 %.sroa.6.0.insert.ext124, 32
+  %.sroa.0109.0.insert.insert117 = or disjoint i64 %.sroa.6.0.insert.shift125, %103
+  store i64 %.sroa.0109.0.insert.insert117, ptr %169, align 4
   br label %_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit
 
 ._crit_edge:                                      ; preds = %128, %.critedge
   %170 = getelementptr inbounds nuw i8, ptr %.073160, i64 8
   %.sroa.6.0.insert.ext = zext i32 %112 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
-  %.sroa.0108.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %103
-  store i64 %.sroa.0108.0.insert.insert, ptr %.073160, align 4
+  %.sroa.0109.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %103
+  store i64 %.sroa.0109.0.insert.insert, ptr %.073160, align 4
   %171 = ashr i32 %112, 1
   %172 = load ptr, ptr %62, align 8, !tbaa !90
   %173 = sext i32 %171 to i64
@@ -7859,15 +7859,15 @@ _ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj.exit: ; preds = %.
   %208 = lshr exact i64 %207, 3
   %209 = trunc i64 %208 to i32
   %210 = icmp sgt i32 %209, 0
-  br i1 %210, label %.lr.ph.i101, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE6shrinkEi.exit
+  br i1 %210, label %.lr.ph.i102, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE6shrinkEi.exit
 
-.lr.ph.i101:                                      ; preds = %._crit_edge165
+.lr.ph.i102:                                      ; preds = %._crit_edge165
   %.promoted.i = load i32, ptr %81, align 8, !tbaa !123
   %211 = sub i32 %.promoted.i, %209
   store i32 %211, ptr %81, align 8, !tbaa !123
   br label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE6shrinkEi.exit
 
-_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE6shrinkEi.exit: ; preds = %._crit_edge165, %.lr.ph.i101
+_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE6shrinkEi.exit: ; preds = %._crit_edge165, %.lr.ph.i102
   %212 = load i32, ptr %56, align 8, !tbaa !378
   %213 = load i32, ptr %58, align 8, !tbaa !94
   %214 = icmp slt i32 %212, %213

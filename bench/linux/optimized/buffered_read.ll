@@ -928,7 +928,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %87 = load volatile i64, ptr %1, align 8
   %88 = and i64 %87, 16
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %.thread9, label %90
+  br i1 %89, label %.thread10, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1068,7 +1068,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   store i32 %103, ptr %175, align 4
   br label %181
 
-.thread9:                                         ; preds = %86
+.thread10:                                        ; preds = %86
   %176 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %178 = load i64, ptr %62, align 8
@@ -1095,8 +1095,8 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   tail call void @__folio_put(ptr noundef nonnull %120) #9
   br label %192
 
-192:                                              ; preds = %.thread9, %191, %181
-  %193 = phi i32 [ %180, %.thread9 ], [ %186, %191 ], [ %186, %181 ]
+192:                                              ; preds = %.thread10, %191, %181
+  %193 = phi i32 [ %180, %.thread10 ], [ %186, %191 ], [ %186, %181 ]
   tail call void @netfs_put_request(ptr noundef %56, i1 noundef zeroext false, i8 noundef signext 6) #9
   %194 = tail call i32 @llvm.smin.i32(i32 %193, i32 0)
   br label %198

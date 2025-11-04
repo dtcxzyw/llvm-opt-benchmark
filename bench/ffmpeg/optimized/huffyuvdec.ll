@@ -2611,37 +2611,37 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 65664
-  %wide.trip.count217 = zext nneg i32 %21 to i64
+  %wide.trip.count218 = zext nneg i32 %21 to i64
   br label %28
 
 27:                                               ; preds = %._crit_edge.split.us
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.thread, label %28, !llvm.loop !97
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
+  br i1 %exitcond219.not, label %.thread, label %28, !llvm.loop !97
 
 28:                                               ; preds = %.lr.ph, %27
-  %indvars.iv214 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next215, %27 ]
+  %indvars.iv215 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next216, %27 ]
   %29 = load i32, ptr %24, align 4, !tbaa !44
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph201, label %._crit_edge.split.us
+  br i1 %30, label %.lr.ph202, label %._crit_edge.split.us
 
-.lr.ph201:                                        ; preds = %28
+.lr.ph202:                                        ; preds = %28
   %31 = load i32, ptr %23, align 8, !tbaa !41
   %32 = icmp sgt i32 %31, 2
-  %33 = and i64 %indvars.iv214, 4294967295
+  %33 = and i64 %indvars.iv215, 4294967295
   %34 = select i1 %32, i64 %33, i64 0
   %35 = getelementptr inbounds nuw [16384 x i8], ptr %25, i64 %34
   %36 = add nsw i32 %29, -1
-  %37 = getelementptr inbounds nuw [16384 x i8], ptr %25, i64 %indvars.iv214
+  %37 = getelementptr inbounds nuw [16384 x i8], ptr %25, i64 %indvars.iv215
   %38 = getelementptr inbounds nuw [16384 x i32], ptr %26, i64 %34
-  %39 = getelementptr inbounds nuw [16384 x i32], ptr %26, i64 %indvars.iv214
-  %wide.trip.count212 = zext nneg i32 %29 to i64
+  %39 = getelementptr inbounds nuw [16384 x i32], ptr %26, i64 %indvars.iv215
+  %wide.trip.count213 = zext nneg i32 %29 to i64
   br label %40
 
-40:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph201
-  %indvars.iv209 = phi i64 [ %indvars.iv.next210, %..loopexit_crit_edge.us ], [ 0, %.lr.ph201 ]
-  %.0150200.us = phi i32 [ %.1151.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph201 ]
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv209
+40:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph202
+  %indvars.iv210 = phi i64 [ %indvars.iv.next211, %..loopexit_crit_edge.us ], [ 0, %.lr.ph202 ]
+  %.0150201.us = phi i32 [ %.1151.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph202 ]
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv210
   %42 = load i8, ptr %41, align 1, !tbaa !47
   %43 = zext i8 %42 to i32
   %44 = sub nsw i32 12, %43
@@ -2650,23 +2650,23 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br i1 %or.cond.us, label %46, label %..loopexit_crit_edge.us
 
 46:                                               ; preds = %40
-  %47 = trunc nuw nsw i64 %indvars.iv209 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv210 to i32
   %48 = shl i32 %47, 24
   %49 = ashr exact i32 %48, 24
   %50 = and i32 %36, %49
   %51 = zext nneg i32 %50 to i64
-  %.not175.us = icmp eq i64 %indvars.iv209, %51
+  %.not175.us = icmp eq i64 %indvars.iv210, %51
   br i1 %.not175.us, label %.preheader.us, label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %82, %46, %40
-  %.1151.us = phi i32 [ %.0150200.us, %40 ], [ %.0150200.us, %46 ], [ %.3.us, %82 ]
-  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
-  br i1 %exitcond213.not, label %._crit_edge.split.us, label %40, !llvm.loop !98
+  %.1151.us = phi i32 [ %.0150201.us, %40 ], [ %.0150201.us, %46 ], [ %.3.us, %82 ]
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
+  %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
+  br i1 %exitcond214.not, label %._crit_edge.split.us, label %40, !llvm.loop !98
 
 52:                                               ; preds = %.preheader.us, %82
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %82 ]
-  %.2152197.us = phi i32 [ %.0150200.us, %.preheader.us ], [ %.3.us, %82 ]
+  %.2152198.us = phi i32 [ %.0150201.us, %.preheader.us ], [ %.3.us, %82 ]
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !47
   %55 = zext i8 %54 to i32
@@ -2685,12 +2685,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br i1 %.not176.us, label %64, label %82
 
 64:                                               ; preds = %58
-  %65 = icmp slt i32 %.2152197.us, 4096
+  %65 = icmp slt i32 %.2152198.us, 4096
   br i1 %65, label %66, label %.split.us
 
 66:                                               ; preds = %64
   %67 = add i8 %54, %42
-  %68 = sext i32 %.2152197.us to i64
+  %68 = sext i32 %.2152198.us to i64
   %69 = getelementptr inbounds i8, ptr %6, i64 %68
   store i8 %67, ptr %69, align 1, !tbaa !47
   %70 = load i32, ptr %83, align 4, !tbaa !58
@@ -2706,17 +2706,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %79 = trunc i32 %78 to i16
   %80 = getelementptr inbounds i16, ptr %3, i64 %68
   store i16 %79, ptr %80, align 2, !tbaa !99
-  %81 = add nsw i32 %.2152197.us, 1
+  %81 = add nsw i32 %.2152198.us, 1
   br label %82
 
 82:                                               ; preds = %66, %58, %52
-  %.3.us = phi i32 [ %81, %66 ], [ %.2152197.us, %52 ], [ %.2152197.us, %58 ]
+  %.3.us = phi i32 [ %81, %66 ], [ %.2152198.us, %52 ], [ %.2152198.us, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond208.not = icmp eq i64 %indvars.iv.next, %wide.trip.count212
-  br i1 %exitcond208.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !101
+  %exitcond209.not = icmp eq i64 %indvars.iv.next, %wide.trip.count213
+  br i1 %exitcond209.not, label %..loopexit_crit_edge.us, label %52, !llvm.loop !101
 
 .preheader.us:                                    ; preds = %46
-  %83 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv209
+  %83 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv210
   %84 = shl i32 %47, 8
   br label %52
 
@@ -2727,12 +2727,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
 
 ._crit_edge.split.us:                             ; preds = %..loopexit_crit_edge.us, %28
   %.0150.lcssa = phi i32 [ 0, %28 ], [ %.1151.us, %..loopexit_crit_edge.us ]
-  %85 = getelementptr inbounds nuw %struct.VLC, ptr %0, i64 %indvars.iv214
+  %85 = getelementptr inbounds nuw %struct.VLC, ptr %0, i64 %indvars.iv215
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 344288
   tail call void @ff_vlc_free(ptr noundef nonnull %86) #9
   %87 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %86, i32 noundef 12, i32 noundef %.0150.lcssa, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %27, label %.loopexit180
+  br i1 %88, label %27, label %.loopexit181
 
 89:                                               ; preds = %10
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 327808
@@ -2751,27 +2751,27 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 196736
   br label %103
 
-103:                                              ; preds = %89, %.loopexit183
-  %.0155195 = phi i32 [ 0, %89 ], [ %.1156, %.loopexit183 ]
-  %.0160194 = phi i32 [ -16, %89 ], [ %167, %.loopexit183 ]
-  %104 = and i32 %.0160194, 255
+103:                                              ; preds = %89, %.loopexit184
+  %.0155196 = phi i32 [ 0, %89 ], [ %.1156, %.loopexit184 ]
+  %.0160195 = phi i32 [ -16, %89 ], [ %167, %.loopexit184 ]
+  %104 = and i32 %.0160195, 255
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !47
   %108 = zext i8 %107 to i32
   %109 = add i8 %107, -1
   %or.cond5 = icmp ult i8 %109, 10
-  br i1 %or.cond5, label %.preheader182, label %.loopexit183
+  br i1 %or.cond5, label %.preheader183, label %.loopexit184
 
-.preheader182:                                    ; preds = %103
+.preheader183:                                    ; preds = %103
   %110 = getelementptr inbounds nuw i32, ptr %99, i64 %105
-  %111 = trunc i32 %.0160194 to i8
+  %111 = trunc i32 %.0160195 to i8
   br label %112
 
-112:                                              ; preds = %.preheader182, %.loopexit181
-  %.2157193 = phi i32 [ %.0155195, %.preheader182 ], [ %.3158, %.loopexit181 ]
-  %.0161192 = phi i32 [ -16, %.preheader182 ], [ %166, %.loopexit181 ]
-  %113 = and i32 %.0161192, 255
+112:                                              ; preds = %.preheader183, %.loopexit182
+  %.2157194 = phi i32 [ %.0155196, %.preheader183 ], [ %.3158, %.loopexit182 ]
+  %.0161193 = phi i32 [ -16, %.preheader183 ], [ %166, %.loopexit182 ]
+  %113 = and i32 %.0161193, 255
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !47
@@ -2781,7 +2781,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %120 = icmp samesign ult i32 %118, 12
   %121 = icmp ne i8 %116, 0
   %or.cond7 = and i1 %121, %120
-  br i1 %or.cond7, label %122, label %.loopexit181
+  br i1 %or.cond7, label %122, label %.loopexit182
 
 122:                                              ; preds = %112
   %123 = load i32, ptr %110, align 4, !tbaa !58
@@ -2790,15 +2790,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %126 = load i32, ptr %125, align 4, !tbaa !58
   %127 = add i32 %124, %126
   %128 = add i8 %116, %107
-  %129 = add nsw i32 %.0161192, %.0160194
+  %129 = add nsw i32 %.0161193, %.0160195
   %130 = trunc i32 %129 to i8
-  %131 = trunc i32 %.0161192 to i8
+  %131 = trunc i32 %.0161193 to i8
   br label %132
 
 132:                                              ; preds = %122, %164
-  %.4191 = phi i32 [ %.2157193, %122 ], [ %.5, %164 ]
-  %.0159189 = phi i32 [ -16, %122 ], [ %165, %164 ]
-  %133 = and i32 %.0159189, 255
+  %.4192 = phi i32 [ %.2157194, %122 ], [ %.5, %164 ]
+  %.0159190 = phi i32 [ -16, %122 ], [ %165, %164 ]
+  %133 = and i32 %.0159190, 255
   %134 = zext nneg i32 %133 to i64
   %135 = getelementptr inbounds nuw i8, ptr %101, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !47
@@ -2809,7 +2809,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br i1 %or.cond9, label %140, label %164
 
 140:                                              ; preds = %132
-  %141 = icmp slt i32 %.4191, 4096
+  %141 = icmp slt i32 %.4192, 4096
   br i1 %141, label %143, label %142
 
 142:                                              ; preds = %140
@@ -2819,7 +2819,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
 
 143:                                              ; preds = %140
   %144 = add i8 %128, %136
-  %145 = sext i32 %.4191 to i64
+  %145 = sext i32 %.4192 to i64
   %146 = getelementptr inbounds i8, ptr %6, i64 %145
   store i8 %144, ptr %146, align 1, !tbaa !47
   %147 = shl i32 %127, %137
@@ -2838,7 +2838,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 1
   store i8 %111, ptr %156, align 1, !tbaa !47
   store i8 %130, ptr %154, align 1, !tbaa !47
-  %157 = add nsw i32 %.0159189, %.0160194
+  %157 = add nsw i32 %.0159190, %.0160195
   br label %160
 
 158:                                              ; preds = %143
@@ -2848,48 +2848,48 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_joint_tables(ptr 
   br label %160
 
 160:                                              ; preds = %158, %155
-  %.0159189.sink = phi i32 [ %.0159189, %158 ], [ %157, %155 ]
-  %161 = trunc i32 %.0159189.sink to i8
+  %.0159190.sink = phi i32 [ %.0159190, %158 ], [ %157, %155 ]
+  %161 = trunc i32 %.0159190.sink to i8
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 2
   store i8 %161, ptr %162, align 1, !tbaa !47
-  %163 = add nsw i32 %.4191, 1
+  %163 = add nsw i32 %.4192, 1
   br label %164
 
 164:                                              ; preds = %132, %160
-  %.5 = phi i32 [ %163, %160 ], [ %.4191, %132 ]
-  %165 = add nsw i32 %.0159189, 1
+  %.5 = phi i32 [ %163, %160 ], [ %.4192, %132 ]
+  %165 = add nsw i32 %.0159190, 1
   %exitcond.not = icmp eq i32 %165, 16
-  br i1 %exitcond.not, label %.loopexit181, label %132, !llvm.loop !102
+  br i1 %exitcond.not, label %.loopexit182, label %132, !llvm.loop !102
 
-.loopexit181:                                     ; preds = %164, %112
-  %.3158 = phi i32 [ %.2157193, %112 ], [ %.5, %164 ]
-  %166 = add nsw i32 %.0161192, 1
-  %exitcond205.not = icmp eq i32 %166, 16
-  br i1 %exitcond205.not, label %.loopexit183, label %112, !llvm.loop !103
+.loopexit182:                                     ; preds = %164, %112
+  %.3158 = phi i32 [ %.2157194, %112 ], [ %.5, %164 ]
+  %166 = add nsw i32 %.0161193, 1
+  %exitcond206.not = icmp eq i32 %166, 16
+  br i1 %exitcond206.not, label %.loopexit184, label %112, !llvm.loop !103
 
-.loopexit183:                                     ; preds = %.loopexit181, %103
-  %.1156 = phi i32 [ %.0155195, %103 ], [ %.3158, %.loopexit181 ]
-  %167 = add nsw i32 %.0160194, 1
-  %exitcond206.not = icmp eq i32 %167, 16
-  br i1 %exitcond206.not, label %168, label %103, !llvm.loop !104
+.loopexit184:                                     ; preds = %.loopexit182, %103
+  %.1156 = phi i32 [ %.0155196, %103 ], [ %.3158, %.loopexit182 ]
+  %167 = add nsw i32 %.0160195, 1
+  %exitcond207.not = icmp eq i32 %167, 16
+  br i1 %exitcond207.not, label %168, label %103, !llvm.loop !104
 
-168:                                              ; preds = %.loopexit183
+168:                                              ; preds = %.loopexit184
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 344288
   tail call void @ff_vlc_free(ptr noundef nonnull %169) #9
   %170 = tail call i32 @ff_vlc_init_sparse(ptr noundef nonnull %169, i32 noundef 12, i32 noundef %.1156, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %171 = icmp slt i32 %170, 0
-  br i1 %171, label %.loopexit180, label %.thread
+  br i1 %171, label %.loopexit181, label %.thread
 
 .thread:                                          ; preds = %27, %14, %168
-  br label %.loopexit180
+  br label %.loopexit181
 
-.loopexit180:                                     ; preds = %._crit_edge.split.us, %168, %.thread
+.loopexit181:                                     ; preds = %._crit_edge.split.us, %168, %.thread
   %.2 = phi i32 [ 0, %.thread ], [ %170, %168 ], [ %87, %._crit_edge.split.us ]
   call void @av_freep(ptr noundef nonnull %2) #9
   br label %172
 
-172:                                              ; preds = %1, %.loopexit180
-  %.0 = phi i32 [ %.2, %.loopexit180 ], [ -12, %1 ]
+172:                                              ; preds = %1, %.loopexit181
+  %.0 = phi i32 [ %.2, %.loopexit181 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -577,7 +577,7 @@ define dso_local range(i32 -1, 2) i32 @hostlist_delete_nth(ptr noundef %0, i32 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph, label %.thread52
+  br i1 %9, label %.lr.ph, label %.thread53
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -593,7 +593,7 @@ define dso_local range(i32 -1, 2) i32 @hostlist_delete_nth(ptr noundef %0, i32 n
 
 14:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.03763 = phi i32 [ 0, %.lr.ph ], [ %47, %45 ]
+  %.03764 = phi i32 [ 0, %.lr.ph ], [ %47, %45 ]
   %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
@@ -602,7 +602,7 @@ define dso_local range(i32 -1, 2) i32 @hostlist_delete_nth(ptr noundef %0, i32 n
   br i1 %19, label %hostrange_count.exit, label %hostrange_count.exit.thread
 
 hostrange_count.exit:                             ; preds = %14
-  %.not45 = icmp sgt i32 %1, %.03763
+  %.not45 = icmp sgt i32 %1, %.03764
   br i1 %.not45, label %45, label %29
 
 hostrange_count.exit.thread:                      ; preds = %14
@@ -613,20 +613,20 @@ hostrange_count.exit.thread:                      ; preds = %14
   %24 = add i64 %21, 1
   %25 = sub i64 %24, %23
   %26 = trunc i64 %25 to i32
-  %27 = add i32 %.03763, -1
+  %27 = add i32 %.03764, -1
   %28 = add i32 %27, %26
-  %.not4551 = icmp sgt i32 %1, %28
-  br i1 %.not4551, label %45, label %31
+  %.not4552 = icmp sgt i32 %1, %28
+  br i1 %.not4552, label %45, label %31
 
 29:                                               ; preds = %hostrange_count.exit
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @hostlist_delete_range(ptr noundef nonnull %0, i32 noundef %30)
-  br label %.thread52
+  br label %.thread53
 
 31:                                               ; preds = %hostrange_count.exit.thread
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = sext i32 %1 to i64
-  %34 = sext i32 %.03763 to i64
+  %34 = sext i32 %.03764 to i64
   %35 = sub nsw i64 %33, %34
   %36 = add i64 %35, %23
   %37 = tail call fastcc ptr @hostrange_delete_host(ptr noundef nonnull %16, i64 noundef %36)
@@ -641,41 +641,41 @@ hostrange_destroy.exit:                           ; preds = %31
   tail call void @slurm_xfree(ptr noundef nonnull %37) #22
   call void @slurm_xfree(ptr noundef nonnull %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread52
+  br label %.thread53
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %41 = getelementptr i8, ptr %16, i64 16
   %.val = load i64, ptr %40, align 8
-  %.val49 = load i64, ptr %41, align 8
-  %42 = icmp uge i64 %.val49, %.val
-  %43 = icmp ne i64 %.val49, -1
+  %.val50 = load i64, ptr %41, align 8
+  %42 = icmp uge i64 %.val50, %.val
+  %43 = icmp ne i64 %.val50, -1
   %narrow.i.not = and i1 %42, %43
-  br i1 %narrow.i.not, label %.thread52, label %44
+  br i1 %narrow.i.not, label %.thread53, label %44
 
 44:                                               ; preds = %39
   tail call fastcc void @hostlist_delete_range(ptr noundef nonnull %0, i32 noundef %32)
-  br label %.thread52
+  br label %.thread53
 
 45:                                               ; preds = %hostrange_count.exit.thread, %hostrange_count.exit
   %46 = phi i32 [ %26, %hostrange_count.exit.thread ], [ 1, %hostrange_count.exit ]
-  %47 = add nsw i32 %46, %.03763
+  %47 = add nsw i32 %46, %.03764
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread52, label %14, !llvm.loop !18
+  br i1 %exitcond.not, label %.thread53, label %14, !llvm.loop !18
 
-.thread52:                                        ; preds = %45, %.preheader, %29, %39, %44, %hostrange_destroy.exit
+.thread53:                                        ; preds = %45, %.preheader, %29, %39, %44, %hostrange_destroy.exit
   %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #22
   %.not48 = icmp eq i32 %48, 0
   br i1 %.not48, label %51, label %49
 
-49:                                               ; preds = %.thread52
+49:                                               ; preds = %.thread53
   %50 = tail call ptr @__errno_location() #24
   store i32 %48, ptr %50, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.hostlist_delete_nth) #25
   unreachable
 
-51:                                               ; preds = %.thread52
+51:                                               ; preds = %.thread53
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i32, ptr %52, align 8
   %54 = add nsw i32 %53, -1

@@ -863,19 +863,19 @@ getFileSetDescriptor.exit:                        ; preds = %346
   %377 = shl nuw nsw i64 %376, 3
   %378 = call ptr @cli_safer_realloc(ptr noundef %.pre.i.i, i64 noundef %377) #7
   %.not.i.i315 = icmp eq ptr %378, null
-  br i1 %.not.i.i315, label %findFileIdentifiers.exit, label %.thread23.i.i
+  br i1 %.not.i.i315, label %findFileIdentifiers.exit, label %.thread24.i.i
 
-.thread23.i.i:                                    ; preds = %374
+.thread24.i.i:                                    ; preds = %374
   %.sroa.10364.12.insert.shift = shl nuw i64 %376, 32
   %.sroa.10364.8.extract.trunc369 = trunc i64 %.sroa.10364.6 to i32
   br label %379
 
-379:                                              ; preds = %.thread23.i.i, %369
-  %.sroa.0361.6 = phi ptr [ %378, %.thread23.i.i ], [ %.sroa.0361.5, %369 ]
-  %.sroa.10364.7 = phi i64 [ %.sroa.10364.12.insert.shift, %.thread23.i.i ], [ %.sroa.10364.6, %369 ]
-  %.pre.i27.i = phi ptr [ %378, %.thread23.i.i ], [ %.pre.i.i, %369 ]
-  %380 = phi i32 [ %375, %.thread23.i.i ], [ %370, %369 ]
-  %381 = phi i32 [ %.sroa.10364.8.extract.trunc369, %.thread23.i.i ], [ %371, %369 ]
+379:                                              ; preds = %.thread24.i.i, %369
+  %.sroa.0361.6 = phi ptr [ %378, %.thread24.i.i ], [ %.sroa.0361.5, %369 ]
+  %.sroa.10364.7 = phi i64 [ %.sroa.10364.12.insert.shift, %.thread24.i.i ], [ %.sroa.10364.6, %369 ]
+  %.pre.i27.i = phi ptr [ %378, %.thread24.i.i ], [ %.pre.i.i, %369 ]
+  %380 = phi i32 [ %375, %.thread24.i.i ], [ %370, %369 ]
+  %381 = phi i32 [ %.sroa.10364.8.extract.trunc369, %.thread24.i.i ], [ %371, %369 ]
   %382 = add i32 %381, 1
   %.sroa.10364.8.insert.ext = zext i32 %382 to i64
   %.sroa.10364.8.insert.mask = and i64 %.sroa.10364.7, -4294967296
@@ -946,19 +946,19 @@ findFileIdentifiers.exit:                         ; preds = %374
   %417 = shl nuw nsw i64 %416, 3
   %418 = call ptr @cli_safer_realloc(ptr noundef %.pre.i.i320, i64 noundef %417) #7
   %.not.i.i325 = icmp eq ptr %418, null
-  br i1 %.not.i.i325, label %findFileEntries.exit, label %.thread23.i.i326
+  br i1 %.not.i.i325, label %findFileEntries.exit, label %.thread24.i.i326
 
-.thread23.i.i326:                                 ; preds = %414
+.thread24.i.i326:                                 ; preds = %414
   %.sroa.10.12.insert.shift = shl nuw i64 %416, 32
   %.sroa.10.8.extract.trunc356 = trunc i64 %.sroa.10.6 to i32
   br label %419
 
-419:                                              ; preds = %.thread23.i.i326, %409
-  %.sroa.0.6 = phi ptr [ %418, %.thread23.i.i326 ], [ %.sroa.0.5, %409 ]
-  %.sroa.10.7 = phi i64 [ %.sroa.10.12.insert.shift, %.thread23.i.i326 ], [ %.sroa.10.6, %409 ]
-  %.pre.i25.i = phi ptr [ %418, %.thread23.i.i326 ], [ %.pre.i.i320, %409 ]
-  %420 = phi i32 [ %415, %.thread23.i.i326 ], [ %410, %409 ]
-  %421 = phi i32 [ %.sroa.10.8.extract.trunc356, %.thread23.i.i326 ], [ %411, %409 ]
+419:                                              ; preds = %.thread24.i.i326, %409
+  %.sroa.0.6 = phi ptr [ %418, %.thread24.i.i326 ], [ %.sroa.0.5, %409 ]
+  %.sroa.10.7 = phi i64 [ %.sroa.10.12.insert.shift, %.thread24.i.i326 ], [ %.sroa.10.6, %409 ]
+  %.pre.i25.i = phi ptr [ %418, %.thread24.i.i326 ], [ %.pre.i.i320, %409 ]
+  %420 = phi i32 [ %415, %.thread24.i.i326 ], [ %410, %409 ]
+  %421 = phi i32 [ %.sroa.10.8.extract.trunc356, %.thread24.i.i326 ], [ %411, %409 ]
   %422 = add i32 %421, 1
   %.sroa.10.8.insert.ext = zext i32 %422 to i64
   %.sroa.10.8.insert.mask = and i64 %.sroa.10.7, -4294967296

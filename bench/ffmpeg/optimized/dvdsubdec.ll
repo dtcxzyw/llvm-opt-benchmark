@@ -407,10 +407,10 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
 33:                                               ; preds = %29
   %34 = load i16, ptr %.038, align 1, !tbaa !29
   %.not.i49 = icmp eq i16 %34, 0
-  %..neg303.i = select i1 %.not.i49, i32 -4, i32 -2
-  br i1 %.not.i49, label %41, label %.thread259.i
+  %..neg304.i = select i1 %.not.i49, i32 -4, i32 -2
+  br i1 %.not.i49, label %41, label %.thread260.i
 
-.thread259.i:                                     ; preds = %33
+.thread260.i:                                     ; preds = %33
   %35 = tail call i16 @llvm.bswap.i16(i16 %34)
   %36 = zext i16 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %.038, i64 2
@@ -429,15 +429,15 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %70, label %49
 
-49:                                               ; preds = %41, %.thread259.i
-  %50 = phi i32 [ %40, %.thread259.i ], [ %47, %41 ]
-  %51 = phi i32 [ %36, %.thread259.i ], [ %44, %41 ]
+49:                                               ; preds = %41, %.thread260.i
+  %50 = phi i32 [ %40, %.thread260.i ], [ %47, %41 ]
+  %51 = phi i32 [ %36, %.thread260.i ], [ %44, %41 ]
   %52 = add nsw i32 %.042, -2
-  %53 = add nsw i32 %52, %..neg303.i
+  %53 = add nsw i32 %52, %..neg304.i
   %54 = icmp samesign ugt i32 %50, %53
-  br i1 %54, label %70, label %.preheader262.i
+  br i1 %54, label %70, label %.preheader263.i
 
-.preheader262.i:                                  ; preds = %49
+.preheader263.i:                                  ; preds = %49
   %55 = select i1 %.not.i49, i32 6, i32 4
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 99
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 98
@@ -461,11 +461,11 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %73 = icmp ugt i32 %71, %72
   br i1 %73, label %459, label %decode_dvd_subtitles.exit.thread91
 
-74:                                               ; preds = %407, %.preheader262.i
-  %.0222.i = phi i32 [ %.1223.lcssa.i, %407 ], [ 0, %.preheader262.i ]
-  %.0219.i = phi ptr [ %.1220.lcssa.i, %407 ], [ null, %.preheader262.i ]
-  %.0210.i = phi i32 [ %.2.lcssa.i, %407 ], [ 0, %.preheader262.i ]
-  %.1209.i = phi i32 [ %92, %407 ], [ %50, %.preheader262.i ]
+74:                                               ; preds = %407, %.preheader263.i
+  %.0222.i = phi i32 [ %.1223.lcssa.i, %407 ], [ 0, %.preheader263.i ]
+  %.0219.i = phi ptr [ %.1220.lcssa.i, %407 ], [ null, %.preheader263.i ]
+  %.0210.i = phi i32 [ %.2.lcssa.i, %407 ], [ 0, %.preheader263.i ]
+  %.1209.i = phi i32 [ %92, %407 ], [ %50, %.preheader263.i ]
   %75 = icmp sgt i32 %.1209.i, 0
   %76 = icmp slt i32 %.1209.i, %53
   %or.cond249.i = and i1 %75, %76
@@ -503,18 +503,18 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   br label %97
 
 97:                                               ; preds = %216, %.lr.ph.i
-  %.0205284.i = phi i64 [ -1, %.lr.ph.i ], [ %.1.i, %216 ]
-  %.0206283.i = phi i64 [ -1, %.lr.ph.i ], [ %.1207.i, %216 ]
-  %.2282.i = phi i32 [ %.0210.i, %.lr.ph.i ], [ %.3.i, %216 ]
-  %.0213281.i = phi i32 [ %93, %.lr.ph.i ], [ %.1214.i, %216 ]
-  %.0215280.i = phi i32 [ 0, %.lr.ph.i ], [ %.1216.i, %216 ]
-  %.0217279.i = phi i32 [ 0, %.lr.ph.i ], [ %.1218.i, %216 ]
-  %.1220278.i = phi ptr [ %.0219.i, %.lr.ph.i ], [ %.2221.i, %216 ]
-  %.1223277.i = phi i32 [ %.0222.i, %.lr.ph.i ], [ %.2224.i, %216 ]
-  %.0228276.i = phi i32 [ 0, %.lr.ph.i ], [ %.1229.i, %216 ]
-  %.0230275.i = phi i32 [ 0, %.lr.ph.i ], [ %.1231.i, %216 ]
-  %98 = add nsw i32 %.0213281.i, 1
-  %99 = sext i32 %.0213281.i to i64
+  %.0205285.i = phi i64 [ -1, %.lr.ph.i ], [ %.1.i, %216 ]
+  %.0206284.i = phi i64 [ -1, %.lr.ph.i ], [ %.1207.i, %216 ]
+  %.2283.i = phi i32 [ %.0210.i, %.lr.ph.i ], [ %.3.i, %216 ]
+  %.0213282.i = phi i32 [ %93, %.lr.ph.i ], [ %.1214.i, %216 ]
+  %.0215281.i = phi i32 [ 0, %.lr.ph.i ], [ %.1216.i, %216 ]
+  %.0217280.i = phi i32 [ 0, %.lr.ph.i ], [ %.1218.i, %216 ]
+  %.1220279.i = phi ptr [ %.0219.i, %.lr.ph.i ], [ %.2221.i, %216 ]
+  %.1223278.i = phi i32 [ %.0222.i, %.lr.ph.i ], [ %.2224.i, %216 ]
+  %.0228277.i = phi i32 [ 0, %.lr.ph.i ], [ %.1229.i, %216 ]
+  %.0230276.i = phi i32 [ 0, %.lr.ph.i ], [ %.1231.i, %216 ]
+  %98 = add nsw i32 %.0213282.i, 1
+  %99 = sext i32 %.0213282.i to i64
   %100 = getelementptr inbounds i8, ptr %.038, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !29
   switch i8 %101, label %._crit_edge.i [
@@ -542,7 +542,7 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
 104:                                              ; preds = %97
   %105 = sub nsw i32 %.042, %98
   %106 = icmp slt i32 %105, 2
-  br i1 %106, label %.thread260.i, label %107
+  br i1 %106, label %.thread261.i, label %107
 
 107:                                              ; preds = %104
   %108 = sext i32 %98 to i64
@@ -560,13 +560,13 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %117 = load i8, ptr %114, align 1, !tbaa !29
   %118 = and i8 %117, 15
   store i8 %118, ptr %30, align 1, !tbaa !29
-  %119 = add nsw i32 %.0213281.i, 3
+  %119 = add nsw i32 %.0213282.i, 3
   br label %216
 
 120:                                              ; preds = %97
   %121 = sub nsw i32 %.042, %98
   %122 = icmp slt i32 %121, 2
-  br i1 %122, label %.thread260.i, label %123
+  br i1 %122, label %.thread261.i, label %123
 
 123:                                              ; preds = %120
   %124 = sext i32 %98 to i64
@@ -584,13 +584,13 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %133 = load i8, ptr %130, align 1, !tbaa !29
   %134 = and i8 %133, 15
   store i8 %134, ptr %31, align 1, !tbaa !29
-  %135 = add nsw i32 %.0213281.i, 3
+  %135 = add nsw i32 %.0213282.i, 3
   br label %216
 
 136:                                              ; preds = %97, %97
   %137 = sub nsw i32 %.042, %98
   %138 = icmp slt i32 %137, 6
-  br i1 %138, label %.thread260.i, label %139
+  br i1 %138, label %.thread261.i, label %139
 
 139:                                              ; preds = %136
   %140 = sext i32 %98 to i64
@@ -625,14 +625,14 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %169 = zext i8 %168 to i32
   %170 = or disjoint i32 %166, %169
   %.not237.i = icmp sgt i8 %101, -1
-  %spec.select.i = select i1 %.not237.i, i32 %.1223277.i, i32 1
-  %171 = add nsw i32 %.0213281.i, 7
+  %spec.select.i = select i1 %.not237.i, i32 %.1223278.i, i32 1
+  %171 = add nsw i32 %.0213282.i, 7
   br label %216
 
 172:                                              ; preds = %97
   %173 = sub nsw i32 %.042, %98
   %174 = icmp slt i32 %173, 4
-  br i1 %174, label %.thread260.i, label %175
+  br i1 %174, label %.thread261.i, label %175
 
 175:                                              ; preds = %172
   %176 = sext i32 %98 to i64
@@ -644,13 +644,13 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %182 = load i16, ptr %181, align 1, !tbaa !29
   %183 = tail call i16 @llvm.bswap.i16(i16 %182)
   %184 = zext i16 %183 to i64
-  %185 = add nsw i32 %.0213281.i, 5
+  %185 = add nsw i32 %.0213282.i, 5
   br label %216
 
 186:                                              ; preds = %97
   %187 = sub nsw i32 %.042, %98
   %188 = icmp slt i32 %187, 8
-  br i1 %188, label %.thread260.i, label %189
+  br i1 %188, label %.thread261.i, label %189
 
 189:                                              ; preds = %186
   %190 = sext i32 %98 to i64
@@ -662,24 +662,24 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %196 = load i32, ptr %195, align 1, !tbaa !29
   %197 = tail call i32 @llvm.bswap.i32(i32 %196)
   %198 = zext i32 %197 to i64
-  %199 = add nsw i32 %.0213281.i, 9
+  %199 = add nsw i32 %.0213282.i, 9
   br label %216
 
 200:                                              ; preds = %97
   %201 = sub nsw i32 %.042, %98
   %202 = icmp slt i32 %201, 768
-  br i1 %202, label %.thread260.i, label %203
+  br i1 %202, label %.thread261.i, label %203
 
 203:                                              ; preds = %200
   %204 = sext i32 %98 to i64
   %205 = getelementptr inbounds i8, ptr %.038, i64 %204
-  %206 = add nsw i32 %.0213281.i, 769
+  %206 = add nsw i32 %.0213282.i, 769
   br label %216
 
 207:                                              ; preds = %97
   %208 = sub nsw i32 %.042, %98
   %209 = icmp slt i32 %208, 256
-  br i1 %209, label %.thread260.i, label %.preheader.preheader.i
+  br i1 %209, label %.thread261.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %207
   %210 = sext i32 %98 to i64
@@ -698,37 +698,37 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   br i1 %exitcond.not.i, label %214, label %.preheader.i, !llvm.loop !47
 
 214:                                              ; preds = %.preheader.i
-  %215 = add nsw i32 %.0213281.i, 257
+  %215 = add nsw i32 %.0213282.i, 257
   br label %216
 
 216:                                              ; preds = %214, %203, %189, %175, %139, %123, %107, %103, %102, %97
-  %.1231.i = phi i32 [ %.0230275.i, %102 ], [ %.0230275.i, %103 ], [ %.0230275.i, %107 ], [ %.0230275.i, %123 ], [ %170, %139 ], [ %.0230275.i, %175 ], [ %.0230275.i, %189 ], [ %.0230275.i, %203 ], [ %.0230275.i, %214 ], [ %.0230275.i, %97 ]
-  %.1229.i = phi i32 [ %.0228276.i, %102 ], [ %.0228276.i, %103 ], [ %.0228276.i, %107 ], [ %.0228276.i, %123 ], [ %155, %139 ], [ %.0228276.i, %175 ], [ %.0228276.i, %189 ], [ %.0228276.i, %203 ], [ %.0228276.i, %214 ], [ %.0228276.i, %97 ]
-  %.2224.i = phi i32 [ %.1223277.i, %102 ], [ %.1223277.i, %103 ], [ %.1223277.i, %107 ], [ %.1223277.i, %123 ], [ %spec.select.i, %139 ], [ %.1223277.i, %175 ], [ %.1223277.i, %189 ], [ %.1223277.i, %203 ], [ %.1223277.i, %214 ], [ %.1223277.i, %97 ]
-  %.2221.i = phi ptr [ %.1220278.i, %102 ], [ %.1220278.i, %103 ], [ %.1220278.i, %107 ], [ %.1220278.i, %123 ], [ %.1220278.i, %139 ], [ %.1220278.i, %175 ], [ %.1220278.i, %189 ], [ %205, %203 ], [ %.1220278.i, %214 ], [ %.1220278.i, %97 ]
-  %.1218.i = phi i32 [ %.0217279.i, %102 ], [ %.0217279.i, %103 ], [ %.0217279.i, %107 ], [ %.0217279.i, %123 ], [ %164, %139 ], [ %.0217279.i, %175 ], [ %.0217279.i, %189 ], [ %.0217279.i, %203 ], [ %.0217279.i, %214 ], [ %.0217279.i, %97 ]
-  %.1216.i = phi i32 [ %.0215280.i, %102 ], [ %.0215280.i, %103 ], [ %.0215280.i, %107 ], [ %.0215280.i, %123 ], [ %149, %139 ], [ %.0215280.i, %175 ], [ %.0215280.i, %189 ], [ %.0215280.i, %203 ], [ %.0215280.i, %214 ], [ %.0215280.i, %97 ]
+  %.1231.i = phi i32 [ %.0230276.i, %102 ], [ %.0230276.i, %103 ], [ %.0230276.i, %107 ], [ %.0230276.i, %123 ], [ %170, %139 ], [ %.0230276.i, %175 ], [ %.0230276.i, %189 ], [ %.0230276.i, %203 ], [ %.0230276.i, %214 ], [ %.0230276.i, %97 ]
+  %.1229.i = phi i32 [ %.0228277.i, %102 ], [ %.0228277.i, %103 ], [ %.0228277.i, %107 ], [ %.0228277.i, %123 ], [ %155, %139 ], [ %.0228277.i, %175 ], [ %.0228277.i, %189 ], [ %.0228277.i, %203 ], [ %.0228277.i, %214 ], [ %.0228277.i, %97 ]
+  %.2224.i = phi i32 [ %.1223278.i, %102 ], [ %.1223278.i, %103 ], [ %.1223278.i, %107 ], [ %.1223278.i, %123 ], [ %spec.select.i, %139 ], [ %.1223278.i, %175 ], [ %.1223278.i, %189 ], [ %.1223278.i, %203 ], [ %.1223278.i, %214 ], [ %.1223278.i, %97 ]
+  %.2221.i = phi ptr [ %.1220279.i, %102 ], [ %.1220279.i, %103 ], [ %.1220279.i, %107 ], [ %.1220279.i, %123 ], [ %.1220279.i, %139 ], [ %.1220279.i, %175 ], [ %.1220279.i, %189 ], [ %205, %203 ], [ %.1220279.i, %214 ], [ %.1220279.i, %97 ]
+  %.1218.i = phi i32 [ %.0217280.i, %102 ], [ %.0217280.i, %103 ], [ %.0217280.i, %107 ], [ %.0217280.i, %123 ], [ %164, %139 ], [ %.0217280.i, %175 ], [ %.0217280.i, %189 ], [ %.0217280.i, %203 ], [ %.0217280.i, %214 ], [ %.0217280.i, %97 ]
+  %.1216.i = phi i32 [ %.0215281.i, %102 ], [ %.0215281.i, %103 ], [ %.0215281.i, %107 ], [ %.0215281.i, %123 ], [ %149, %139 ], [ %.0215281.i, %175 ], [ %.0215281.i, %189 ], [ %.0215281.i, %203 ], [ %.0215281.i, %214 ], [ %.0215281.i, %97 ]
   %.1214.i = phi i32 [ %98, %102 ], [ %98, %103 ], [ %119, %107 ], [ %135, %123 ], [ %171, %139 ], [ %185, %175 ], [ %199, %189 ], [ %206, %203 ], [ %215, %214 ], [ %98, %97 ]
-  %.3.i = phi i32 [ %.2282.i, %102 ], [ %.2282.i, %103 ], [ %.2282.i, %107 ], [ %.2282.i, %123 ], [ %.2282.i, %139 ], [ %.2282.i, %175 ], [ %.2282.i, %189 ], [ %.2282.i, %203 ], [ %.2282.i, %214 ], [ 1, %97 ]
-  %.1207.i = phi i64 [ %.0206283.i, %102 ], [ %.0206283.i, %103 ], [ %.0206283.i, %107 ], [ %.0206283.i, %123 ], [ %.0206283.i, %139 ], [ %180, %175 ], [ %194, %189 ], [ %.0206283.i, %203 ], [ %.0206283.i, %214 ], [ %.0206283.i, %97 ]
-  %.1.i = phi i64 [ %.0205284.i, %102 ], [ %.0205284.i, %103 ], [ %.0205284.i, %107 ], [ %.0205284.i, %123 ], [ %.0205284.i, %139 ], [ %184, %175 ], [ %198, %189 ], [ %.0205284.i, %203 ], [ %.0205284.i, %214 ], [ %.0205284.i, %97 ]
+  %.3.i = phi i32 [ %.2283.i, %102 ], [ %.2283.i, %103 ], [ %.2283.i, %107 ], [ %.2283.i, %123 ], [ %.2283.i, %139 ], [ %.2283.i, %175 ], [ %.2283.i, %189 ], [ %.2283.i, %203 ], [ %.2283.i, %214 ], [ 1, %97 ]
+  %.1207.i = phi i64 [ %.0206284.i, %102 ], [ %.0206284.i, %103 ], [ %.0206284.i, %107 ], [ %.0206284.i, %123 ], [ %.0206284.i, %139 ], [ %180, %175 ], [ %194, %189 ], [ %.0206284.i, %203 ], [ %.0206284.i, %214 ], [ %.0206284.i, %97 ]
+  %.1.i = phi i64 [ %.0205285.i, %102 ], [ %.0205285.i, %103 ], [ %.0205285.i, %107 ], [ %.0205285.i, %123 ], [ %.0205285.i, %139 ], [ %184, %175 ], [ %198, %189 ], [ %.0205285.i, %203 ], [ %.0205285.i, %214 ], [ %.0205285.i, %97 ]
   %217 = icmp slt i32 %.1214.i, %.042
   br i1 %217, label %97, label %._crit_edge.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %216, %97, %91
-  %.0230.lcssa.i = phi i32 [ 0, %91 ], [ %.0230275.i, %97 ], [ %.1231.i, %216 ]
-  %.0228.lcssa.i = phi i32 [ 0, %91 ], [ %.0228276.i, %97 ], [ %.1229.i, %216 ]
-  %.1223.lcssa.i = phi i32 [ %.0222.i, %91 ], [ %.1223277.i, %97 ], [ %.2224.i, %216 ]
-  %.1220.lcssa.i = phi ptr [ %.0219.i, %91 ], [ %.1220278.i, %97 ], [ %.2221.i, %216 ]
-  %.0217.lcssa.i = phi i32 [ 0, %91 ], [ %.0217279.i, %97 ], [ %.1218.i, %216 ]
-  %.0215.lcssa.i = phi i32 [ 0, %91 ], [ %.0215280.i, %97 ], [ %.1216.i, %216 ]
-  %.2.lcssa.i = phi i32 [ %.0210.i, %91 ], [ %.2282.i, %97 ], [ %.3.i, %216 ]
-  %.0206.lcssa.i = phi i64 [ -1, %91 ], [ %.0206283.i, %97 ], [ %.1207.i, %216 ]
-  %.0205.lcssa.i = phi i64 [ -1, %91 ], [ %.0205284.i, %97 ], [ %.1.i, %216 ]
+  %.0230.lcssa.i = phi i32 [ 0, %91 ], [ %.0230276.i, %97 ], [ %.1231.i, %216 ]
+  %.0228.lcssa.i = phi i32 [ 0, %91 ], [ %.0228277.i, %97 ], [ %.1229.i, %216 ]
+  %.1223.lcssa.i = phi i32 [ %.0222.i, %91 ], [ %.1223278.i, %97 ], [ %.2224.i, %216 ]
+  %.1220.lcssa.i = phi ptr [ %.0219.i, %91 ], [ %.1220279.i, %97 ], [ %.2221.i, %216 ]
+  %.0217.lcssa.i = phi i32 [ 0, %91 ], [ %.0217280.i, %97 ], [ %.1218.i, %216 ]
+  %.0215.lcssa.i = phi i32 [ 0, %91 ], [ %.0215281.i, %97 ], [ %.1216.i, %216 ]
+  %.2.lcssa.i = phi i32 [ %.0210.i, %91 ], [ %.2283.i, %97 ], [ %.3.i, %216 ]
+  %.0206.lcssa.i = phi i64 [ -1, %91 ], [ %.0206284.i, %97 ], [ %.1207.i, %216 ]
+  %.0205.lcssa.i = phi i64 [ -1, %91 ], [ %.0205285.i, %97 ], [ %.1.i, %216 ]
   %.not238.i = icmp slt i64 %.0206.lcssa.i, %64
   %.not239.i = icmp slt i64 %.0205.lcssa.i, %64
   %or.cond250.i = select i1 %.not238.i, i1 %.not239.i, i1 false
-  br i1 %or.cond250.i, label %218, label %.thread260.i
+  br i1 %or.cond250.i, label %218, label %.thread261.i
 
 218:                                              ; preds = %._crit_edge.i
   %219 = icmp sgt i64 %.0206.lcssa.i, -1
@@ -796,7 +796,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %247 = load ptr, ptr %65, align 8, !tbaa !49
   store ptr %246, ptr %247, align 8, !tbaa !51
   %.not241.i = icmp eq ptr %246, null
-  br i1 %.not241.i, label %.preheader.i252.i, label %248
+  br i1 %.not241.i, label %.preheader.i253.i, label %248
 
 248:                                              ; preds = %245
   store i32 1, ptr %66, align 4, !tbaa !50
@@ -808,7 +808,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   store ptr %251, ptr %254, align 8, !tbaa !54
   %.not242.i = icmp eq ptr %251, null
-  br i1 %.not242.i, label %.preheader.i252.i, label %255
+  br i1 %.not242.i, label %.preheader.i253.i, label %255
 
 255:                                              ; preds = %248
   %256 = shl nuw nsw i32 %spec.store.select.i, 1
@@ -817,7 +817,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %259 = trunc nuw nsw i64 %.0206.lcssa.i to i32
   %260 = tail call fastcc i32 @decode_rle(ptr noundef %251, i32 noundef %256, i32 noundef %spec.store.select.i, i32 noundef %258, ptr noundef nonnull %67, ptr noundef nonnull readonly %.038, i32 noundef %259, i32 noundef %.042, i32 noundef %.1223.lcssa.i)
   %261 = icmp slt i32 %260, 0
-  br i1 %261, label %.thread260.i, label %262
+  br i1 %261, label %.thread261.i, label %262
 
 262:                                              ; preds = %255
   %263 = zext nneg i32 %spec.store.select.i to i64
@@ -826,7 +826,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %266 = trunc nuw nsw i64 %.0205.lcssa.i to i32
   %267 = tail call fastcc i32 @decode_rle(ptr noundef %264, i32 noundef %256, i32 noundef %spec.store.select.i, i32 noundef %265, ptr noundef nonnull %67, ptr noundef nonnull readonly %.038, i32 noundef %266, i32 noundef %.042, i32 noundef %.1223.lcssa.i)
   %268 = icmp slt i32 %267, 0
-  br i1 %268, label %.thread260.i, label %269
+  br i1 %268, label %.thread261.i, label %269
 
 269:                                              ; preds = %262
   %270 = tail call noalias ptr @av_mallocz(i64 noundef 1024) #14
@@ -835,7 +835,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 32
   store ptr %270, ptr %273, align 8, !tbaa !54
   %.not243.i = icmp eq ptr %270, null
-  br i1 %.not243.i, label %.preheader.i252.i, label %274
+  br i1 %.not243.i, label %.preheader.i253.i, label %274
 
 274:                                              ; preds = %269
   %.not244.i = icmp eq i32 %.1223.lcssa.i, 0
@@ -843,7 +843,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
 
 275:                                              ; preds = %274
   %.not245.i = icmp eq ptr %.1220.lcssa.i, null
-  br i1 %.not245.i, label %.thread260.i, label %276
+  br i1 %.not245.i, label %.thread261.i, label %276
 
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
@@ -1074,40 +1074,40 @@ yuv_a_to_rgba.exit:                               ; preds = %278, %guess_palette
   %.1211.i = phi i32 [ %.2.lcssa.i, %406 ], [ %.2.lcssa.i, %407 ], [ %.0210.i, %74 ]
   %409 = load i32, ptr %66, align 4, !tbaa !50
   %.not247.i = icmp eq i32 %409, 0
-  br i1 %.not247.i, label %.thread260.i, label %decode_dvd_subtitles.exit.thread
+  br i1 %.not247.i, label %.thread261.i, label %decode_dvd_subtitles.exit.thread
 
-.thread260.i:                                     ; preds = %._crit_edge.i, %255, %262, %275, %104, %120, %136, %172, %186, %200, %207, %.critedge.i
+.thread261.i:                                     ; preds = %._crit_edge.i, %255, %262, %275, %104, %120, %136, %172, %186, %200, %207, %.critedge.i
   %.pr.i = load ptr, ptr %65, align 8, !tbaa !49
   %410 = icmp eq ptr %.pr.i, null
-  br i1 %410, label %decode_dvd_subtitles.exit.thread.thread, label %.preheader.i252.i
+  br i1 %410, label %decode_dvd_subtitles.exit.thread.thread, label %.preheader.i253.i
 
-.preheader.i252.i:                                ; preds = %269, %248, %245, %.thread260.i
+.preheader.i253.i:                                ; preds = %269, %248, %245, %.thread261.i
   %411 = load i32, ptr %66, align 4, !tbaa !50
-  %.not12.i253.i = icmp eq i32 %411, 0
-  br i1 %.not12.i253.i, label %._crit_edge.i257.i, label %.lr.ph.i254.i
+  %.not12.i254.i = icmp eq i32 %411, 0
+  br i1 %.not12.i254.i, label %._crit_edge.i258.i, label %.lr.ph.i255.i
 
-.lr.ph.i254.i:                                    ; preds = %.preheader.i252.i, %.lr.ph.i254.i
-  %indvars.iv.i255.i = phi i64 [ %indvars.iv.next.i256.i, %.lr.ph.i254.i ], [ 0, %.preheader.i252.i ]
+.lr.ph.i255.i:                                    ; preds = %.preheader.i253.i, %.lr.ph.i255.i
+  %indvars.iv.i256.i = phi i64 [ %indvars.iv.next.i257.i, %.lr.ph.i255.i ], [ 0, %.preheader.i253.i ]
   %412 = load ptr, ptr %65, align 8, !tbaa !49
-  %413 = getelementptr inbounds nuw ptr, ptr %412, i64 %indvars.iv.i255.i
+  %413 = getelementptr inbounds nuw ptr, ptr %412, i64 %indvars.iv.i256.i
   %414 = load ptr, ptr %413, align 8, !tbaa !51
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 24
   tail call void @av_freep(ptr noundef nonnull %415) #14
   %416 = load ptr, ptr %65, align 8, !tbaa !49
-  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv.i255.i
+  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv.i256.i
   %418 = load ptr, ptr %417, align 8, !tbaa !51
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   tail call void @av_freep(ptr noundef nonnull %419) #14
   %420 = load ptr, ptr %65, align 8, !tbaa !49
-  %421 = getelementptr inbounds nuw ptr, ptr %420, i64 %indvars.iv.i255.i
+  %421 = getelementptr inbounds nuw ptr, ptr %420, i64 %indvars.iv.i256.i
   tail call void @av_freep(ptr noundef %421) #14
-  %indvars.iv.next.i256.i = add nuw nsw i64 %indvars.iv.i255.i, 1
+  %indvars.iv.next.i257.i = add nuw nsw i64 %indvars.iv.i256.i, 1
   %422 = load i32, ptr %66, align 4, !tbaa !50
   %423 = zext i32 %422 to i64
-  %424 = icmp samesign ult i64 %indvars.iv.next.i256.i, %423
-  br i1 %424, label %.lr.ph.i254.i, label %._crit_edge.i257.i, !llvm.loop !53
+  %424 = icmp samesign ult i64 %indvars.iv.next.i257.i, %423
+  br i1 %424, label %.lr.ph.i255.i, label %._crit_edge.i258.i, !llvm.loop !53
 
-._crit_edge.i257.i:                               ; preds = %.lr.ph.i254.i, %.preheader.i252.i
+._crit_edge.i258.i:                               ; preds = %.lr.ph.i255.i, %.preheader.i253.i
   tail call void @av_freep(ptr noundef nonnull %65) #14
   store i32 0, ptr %66, align 4, !tbaa !50
   br label %decode_dvd_subtitles.exit.thread.thread
@@ -1153,7 +1153,7 @@ append_to_cached_buf.exit54:                      ; preds = %435, %436
   store i32 %storemerge.i52, ptr %427, align 8, !tbaa !41
   br label %594
 
-decode_dvd_subtitles.exit.thread.thread:          ; preds = %reset_rects.exit.i, %29, %.thread260.i, %._crit_edge.i257.i
+decode_dvd_subtitles.exit.thread.thread:          ; preds = %reset_rects.exit.i, %29, %.thread261.i, %._crit_edge.i258.i
   store i32 0, ptr %13, align 8, !tbaa !41
   br label %441
 

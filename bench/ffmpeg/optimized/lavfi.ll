@@ -627,8 +627,8 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
 
 23:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %.070113 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.1.ph, %48 ]
-  %.071112 = phi i32 [ 0, %.lr.ph ], [ %.172.ph, %48 ]
+  %.070118 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph ], [ %.1.ph, %48 ]
+  %.071117 = phi i32 [ 0, %.lr.ph ], [ %.172.ph, %48 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !58
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !68
@@ -662,15 +662,15 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %44 = tail call i64 @av_rescale_q_rnd(i64 noundef %43, i64 %27, i64 4294967296000001, i32 noundef 8197) #13
   %45 = sitofp i64 %44 to double
   tail call void @av_frame_unref(ptr noundef nonnull %15) #10
-  %46 = fcmp nsz ogt double %.070113, %45
+  %46 = fcmp nsz ogt double %.070118, %45
   %47 = trunc nuw nsw i64 %indvars.iv to i32
-  %.273 = select i1 %46, i32 %47, i32 %.071112
-  %.2 = select nsz i1 %46, double %45, double %.070113
+  %.273 = select i1 %46, i32 %47, i32 %.071117
+  %.2 = select nsz i1 %46, double %45, double %.070118
   br label %48
 
 48:                                               ; preds = %37, %42, %23
-  %.172.ph = phi i32 [ %.071112, %23 ], [ %.273, %42 ], [ %.071112, %37 ]
-  %.1.ph = phi double [ %.070113, %23 ], [ %.2, %42 ], [ %.070113, %37 ]
+  %.172.ph = phi i32 [ %.071117, %23 ], [ %.273, %42 ], [ %.071117, %37 ]
+  %.1.ph = phi double [ %.070118, %23 ], [ %.2, %42 ], [ %.070118, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %17, align 8, !tbaa !43
   %50 = sext i32 %49 to i64
@@ -740,9 +740,9 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %94 = mul nsw i32 %91, %93
   %95 = tail call i32 @av_new_packet(ptr noundef %1, i32 noundef %94) #10
   %96 = icmp slt i32 %95, 0
-  br i1 %96, label %.loopexit, label %.thread103
+  br i1 %96, label %.loopexit, label %.thread108
 
-.thread103:                                       ; preds = %85
+.thread108:                                       ; preds = %85
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !101
   %99 = load ptr, ptr %15, align 8, !tbaa !107
@@ -750,7 +750,7 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %99, i64 %100, i1 false)
   br label %101
 
-101:                                              ; preds = %.thread103, %53, %74
+101:                                              ; preds = %.thread108, %53, %74
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %103 = load ptr, ptr %102, align 8, !tbaa !108
   %.not93 = icmp eq ptr %103, null
@@ -762,7 +762,7 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %105 = call ptr @av_packet_pack_dictionary(ptr noundef nonnull %103, ptr noundef nonnull %4) #10
   store ptr %105, ptr %5, align 8, !tbaa !107
   %.not94 = icmp eq ptr %105, null
-  br i1 %.not94, label %.thread106, label %106
+  br i1 %.not94, label %.thread111, label %106
 
 106:                                              ; preds = %104
   %107 = load i64, ptr %4, align 8, !tbaa !109
@@ -772,9 +772,9 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
 
 110:                                              ; preds = %106
   call void @av_freep(ptr noundef nonnull %5) #10
-  br label %.thread106
+  br label %.thread111
 
-.thread106:                                       ; preds = %110, %104
+.thread111:                                       ; preds = %110, %104
   %.3.ph = phi i32 [ -12, %104 ], [ %108, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -803,8 +803,8 @@ define internal i32 @lavfi_read_packet(ptr noundef readonly captures(none) %0, p
   %121 = load i32, ptr %120, align 8, !tbaa !88
   br label %122
 
-.loopexit:                                        ; preds = %40, %16, %.thread106, %85, %72, %._crit_edge, %112
-  %.276 = phi i32 [ %113, %112 ], [ -541478725, %._crit_edge ], [ -12, %72 ], [ %95, %85 ], [ %.3.ph, %.thread106 ], [ -541478725, %16 ], [ %35, %40 ]
+.loopexit:                                        ; preds = %40, %16, %.thread111, %85, %72, %._crit_edge, %112
+  %.276 = phi i32 [ %113, %112 ], [ -541478725, %._crit_edge ], [ -12, %72 ], [ %95, %85 ], [ %.3.ph, %.thread111 ], [ -541478725, %16 ], [ %35, %40 ]
   call void @av_frame_free(ptr noundef nonnull %3) #10
   br label %122
 

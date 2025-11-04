@@ -1286,7 +1286,7 @@ check_for_new_database_version.exit:              ; preds = %172, %173
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %215 = load i16, ptr @mprintf_quiet, align 2, !tbaa !26
   %.not210.us = icmp eq i16 %215, 0
-  br i1 %.not210.us, label %216, label %.thread.i234.us
+  br i1 %.not210.us, label %216, label %.thread.i235.us
 
 216:                                              ; preds = %.lr.ph.split.us
   %217 = load i16, ptr @mprintf_progress, align 2, !tbaa !26
@@ -1298,13 +1298,13 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %220 = call i32 @fileno(ptr noundef %219) #24
   %221 = call i32 @isatty(i32 noundef %220) #24
   %.not212.us = icmp eq i32 %221, 0
-  br i1 %.not212.us, label %.thread.i234.us, label %222
+  br i1 %.not212.us, label %.thread.i235.us, label %222
 
 222:                                              ; preds = %218, %216
   call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.37, i32 noundef 0) #24
-  br label %.thread.i234.us
+  br label %.thread.i235.us
 
-.thread.i234.us:                                  ; preds = %222, %218, %.lr.ph.split.us
+.thread.i235.us:                                  ; preds = %222, %218, %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 16, !tbaa !16
@@ -1407,8 +1407,8 @@ check_for_new_database_version.exit:              ; preds = %172, %173
 
 268:                                              ; preds = %263
   %269 = call i32 @cl_cvdunpack(ptr noundef nonnull %11, ptr noundef nonnull %195, i1 noundef zeroext %251) #24
-  %.not.i.i233 = icmp eq i32 %269, 0
-  br i1 %.not.i.i233, label %273, label %270
+  %.not.i.i234 = icmp eq i32 %269, 0
+  br i1 %.not.i.i234, label %273, label %270
 
 270:                                              ; preds = %268
   %271 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.209, ptr noundef nonnull %11, ptr noundef nonnull %195) #24
@@ -1477,7 +1477,7 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %276, %270, %266, %2
 
 305:                                              ; preds = %303, %300, %298, %292, %290
   %.037.i = phi i32 [ 4, %298 ], [ 14, %303 ], [ %289, %292 ], [ 6, %290 ], [ 0, %300 ]
-  %.0.i231 = phi i32 [ -1, %298 ], [ %296, %303 ], [ -1, %292 ], [ -1, %290 ], [ %296, %300 ]
+  %.0.i232 = phi i32 [ -1, %298 ], [ %296, %303 ], [ -1, %292 ], [ -1, %290 ], [ %296, %300 ]
   %.not49.i = icmp eq ptr %287, null
   br i1 %.not49.i, label %307, label %306
 
@@ -1486,11 +1486,11 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %276, %270, %266, %2
   br label %307
 
 307:                                              ; preds = %306, %305
-  %.not50.i = icmp eq i32 %.0.i231, -1
+  %.not50.i = icmp eq i32 %.0.i232, -1
   br i1 %.not50.i, label %310, label %308
 
 308:                                              ; preds = %307
-  %309 = call i32 @close(i32 noundef %.0.i231) #24
+  %309 = call i32 @close(i32 noundef %.0.i232) #24
   br label %310
 
 310:                                              ; preds = %308, %307
@@ -1548,7 +1548,7 @@ downloadPatch.exit._crit_edge.thread449:          ; preds = %downloadPatch.exit,
   %or.cond396 = select i1 %323, i1 %325, i1 false
   br i1 %or.cond396, label %329, label %339
 
-.thread:                                          ; preds = %.thread.i234.us, %downloadPatch.exit.thread
+.thread:                                          ; preds = %.thread.i235.us, %downloadPatch.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %326 = icmp eq i32 %.0150405, 0

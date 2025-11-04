@@ -40608,11 +40608,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 17:                                               ; preds = %14
   %18 = and i8 %16, -33
   %19 = icmp eq i8 %18, 69
-  br i1 %19, label %.thread310, label %250
+  br i1 %19, label %.thread311, label %254
 
-.thread310:                                       ; preds = %17
+.thread311:                                       ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %178
+  br label %182
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -40623,11 +40623,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 false)
   %28 = zext nneg i16 %27 to i32
   %29 = icmp eq i16 %27, 0
-  br i1 %29, label %.thread294, label %31
+  br i1 %29, label %.thread295, label %31
 
-.thread294:                                       ; preds = %21
+.thread295:                                       ; preds = %21
   %30 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %279
+  br label %283
 
 31:                                               ; preds = %21
   %32 = zext nneg i16 %27 to i64
@@ -40728,398 +40728,405 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
   %95 = load i8, ptr %94, align 1, !tbaa !15
   %96 = and i8 %95, -33
   %97 = icmp eq i8 %96, 69
-  br i1 %97, label %.thread302, label %99
+  br i1 %97, label %.thread303, label %99
 
-.thread302:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
+.thread303:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  br label %178
+  br label %182
 
 99:                                               ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %100 = add i8 %95, -48
   %or.cond = icmp ult i8 %100, 10
-  br i1 %or.cond, label %.thread298, label %.thread306.thread
+  br i1 %or.cond, label %.thread299, label %.thread307.thread
 
 101:                                              ; preds = %2
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i64 0, ptr %3, align 8, !tbaa !683
   %103 = icmp ult ptr %102, %5
-  br i1 %103, label %125, label %119, !prof !244
+  br i1 %103, label %124, label %118, !prof !244
 
-._crit_edge:                                      ; preds = %116, %.preheader
-  %.8290.lcssa = phi ptr [ %161, %.preheader ], [ %scevgep, %116 ]
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
+  %.8291.lcssa = phi ptr [ %167, %.critedge.preheader ], [ %scevgep415, %.critedge ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %105 = load i8, ptr %104, align 8, !tbaa !176, !range !181, !noundef !182
   %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %.thread306.thread, !prof !245
+  br i1 %106, label %107, label %.thread307.thread, !prof !245
 
-107:                                              ; preds = %._crit_edge
-  %108 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8290.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+107:                                              ; preds = %.critedge._crit_edge
+  %108 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8291.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %116
-  %.8290370 = phi ptr [ %117, %116 ], [ %161, %.lr.ph.preheader ]
-  %109 = load i8, ptr %.8290370, align 1, !tbaa !15
+.lr.ph376:                                        ; preds = %.critedge.preheader, %.critedge
+  %.8291375 = phi ptr [ %116, %.critedge ], [ %167, %.critedge.preheader ]
+  %109 = load i8, ptr %.8291375, align 1, !tbaa !15
   %110 = add i8 %109, -48
   %111 = icmp ult i8 %110, 10
-  br i1 %111, label %116, label %112, !prof !244
+  br i1 %111, label %.critedge, label %112, !prof !244
 
-112:                                              ; preds = %.lr.ph
+112:                                              ; preds = %.lr.ph376
   %113 = and i8 %109, -33
   %114 = icmp eq i8 %113, 69
-  br i1 %114, label %.thread313, label %.thread306.thread
+  br i1 %114, label %.thread314, label %.thread307.thread
 
-.thread313:                                       ; preds = %112
-  %115 = getelementptr inbounds nuw i8, ptr %.8290370, i64 1
-  br label %178
+.thread314:                                       ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %.8291375, i64 1
+  br label %182
 
-116:                                              ; preds = %.lr.ph
-  %117 = getelementptr inbounds nuw i8, ptr %.8290370, i64 1
-  %118 = icmp ult ptr %117, %5
-  br i1 %118, label %.lr.ph, label %._crit_edge, !prof !361
+.critedge:                                        ; preds = %.lr.ph376
+  %116 = getelementptr inbounds nuw i8, ptr %.8291375, i64 1
+  %117 = icmp ult ptr %116, %5
+  br i1 %117, label %.lr.ph376, label %.critedge._crit_edge, !prof !361
 
-119:                                              ; preds = %101
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %121 = load i8, ptr %120, align 8, !tbaa !176, !range !181, !noundef !182
-  %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %250, !prof !245
+118:                                              ; preds = %101
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %120 = load i8, ptr %119, align 8, !tbaa !176, !range !181, !noundef !182
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %254, !prof !245
 
-123:                                              ; preds = %119
-  %124 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %102, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+122:                                              ; preds = %118
+  %123 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %102, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-125:                                              ; preds = %101
-  %126 = load i8, ptr %102, align 1, !tbaa !15
-  %127 = icmp eq i8 %126, 46
-  br i1 %127, label %132, label %128, !prof !244
+124:                                              ; preds = %101
+  %125 = load i8, ptr %102, align 1, !tbaa !15
+  %126 = icmp eq i8 %125, 46
+  br i1 %126, label %131, label %127, !prof !244
 
-128:                                              ; preds = %125
-  %129 = and i8 %126, -33
-  %130 = icmp eq i8 %129, 69
-  br i1 %130, label %.thread323, label %250
+127:                                              ; preds = %124
+  %128 = and i8 %125, -33
+  %129 = icmp eq i8 %128, 69
+  br i1 %129, label %.thread324, label %254
 
-.thread323:                                       ; preds = %128
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %178
+.thread324:                                       ; preds = %127
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  br label %182
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %134 = icmp ult ptr %133, %5
-  br i1 %134, label %143, label %135, !prof !244
+131:                                              ; preds = %124
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %133 = icmp ult ptr %132, %5
+  br i1 %133, label %142, label %134, !prof !244
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %137 = load i8, ptr %136, align 8, !tbaa !176, !range !181, !noundef !182
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %139, label %141, !prof !245
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %136 = load i8, ptr %135, align 8, !tbaa !176, !range !181, !noundef !182
+  %137 = trunc nuw i8 %136 to i1
+  br i1 %137, label %138, label %140, !prof !245
 
-139:                                              ; preds = %135
-  %140 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %133, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+138:                                              ; preds = %134
+  %139 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %132, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-141:                                              ; preds = %135
-  %142 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %133, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %279
+140:                                              ; preds = %134
+  %141 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %132, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %283
 
-143:                                              ; preds = %132
-  %144 = load i8, ptr %133, align 1, !tbaa !15
-  %145 = add i8 %144, -48
-  %146 = icmp ult i8 %145, 10
-  br i1 %146, label %.thread298, label %147, !prof !244
+142:                                              ; preds = %131
+  %143 = load i8, ptr %132, align 1, !tbaa !15
+  %144 = add i8 %143, -48
+  %145 = icmp ult i8 %144, 10
+  br i1 %145, label %.thread299, label %146, !prof !244
 
-147:                                              ; preds = %143
-  %148 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %133, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %279
+146:                                              ; preds = %142
+  %147 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %132, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %283
 
-.thread298:                                       ; preds = %143, %99
-  %.promoted365 = phi i32 [ %93, %99 ], [ 0, %143 ]
-  %.promoted = phi i64 [ %.1.i, %99 ], [ 0, %143 ]
-  %.3285 = phi ptr [ %94, %99 ], [ %133, %143 ]
-  %.3285405 = ptrtoint ptr %.3285 to i64
-  %149 = icmp ult ptr %.3285, %5
-  br i1 %149, label %.lr.ph480, label %._crit_edge481, !prof !360
+.thread299:                                       ; preds = %142, %99
+  %.promoted367 = phi i32 [ %93, %99 ], [ 0, %142 ]
+  %.promoted = phi i64 [ %.1.i, %99 ], [ 0, %142 ]
+  %.3286 = phi ptr [ %94, %99 ], [ %132, %142 ]
+  %148 = icmp ult ptr %.3286, %5
+  br i1 %148, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-._crit_edge481:                                   ; preds = %170, %.thread298
-  %.lcssa467 = phi i32 [ %.promoted365, %.thread298 ], [ %171, %170 ]
-  %.lcssa463 = phi i64 [ %.promoted, %.thread298 ], [ %174, %170 ]
-  %.11.lcssa = phi ptr [ %.3285, %.thread298 ], [ %161, %170 ]
-  store i64 %.lcssa463, ptr %3, align 8
-  store i32 %.lcssa467, ptr %6, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %151 = load i8, ptr %150, align 8, !tbaa !176, !range !181, !noundef !182
-  %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %153, label %.thread306.thread, !prof !245
-
-153:                                              ; preds = %._crit_edge481
-  %154 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
-
-.lr.ph480:                                        ; preds = %.thread298, %170
-  %.11479 = phi ptr [ %161, %170 ], [ %.3285, %.thread298 ]
-  %155 = phi i64 [ %174, %170 ], [ %.promoted, %.thread298 ]
-  %156 = phi i32 [ %171, %170 ], [ %.promoted365, %.thread298 ]
-  %157 = load i8, ptr %.11479, align 1, !tbaa !15
-  %158 = add i8 %157, -48
-  %159 = icmp ult i8 %158, 10
-  br i1 %159, label %160, label %166, !prof !244
-
-160:                                              ; preds = %.lr.ph480
-  %161 = getelementptr inbounds nuw i8, ptr %.11479, i64 1
-  %162 = icmp ult i64 %155, 9007199254740992
-  br i1 %162, label %163, label %.preheader, !prof !244
-
-163:                                              ; preds = %160
-  %164 = icmp eq i32 %156, -2147483647
-  br i1 %164, label %.thread328, label %170, !prof !245
-
-.thread328:                                       ; preds = %163
-  %165 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %161, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %279
-
-166:                                              ; preds = %.lr.ph480
-  store i64 %155, ptr %3, align 8
-  store i32 %156, ptr %6, align 8
-  %167 = and i8 %157, -33
-  %168 = icmp eq i8 %167, 69
-  br i1 %168, label %.thread332, label %.thread306.thread
-
-.thread332:                                       ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %.11479, i64 1
-  br label %178
-
-170:                                              ; preds = %163
-  %171 = add nsw i32 %156, -1
-  %172 = mul nuw nsw i64 %155, 10
-  %173 = zext nneg i8 %158 to i64
-  %174 = add nuw nsw i64 %172, %173
-  %175 = icmp ult ptr %161, %5
-  br i1 %175, label %.lr.ph480, label %._crit_edge481, !prof !361
-
-.preheader:                                       ; preds = %160
-  store i64 %155, ptr %3, align 8
-  store i32 %156, ptr %6, align 8
-  %176 = icmp ult ptr %161, %5
-  br i1 %176, label %.lr.ph.preheader, label %._crit_edge, !prof !360
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %177 = sub i64 %10, %.3285405
-  %scevgep = getelementptr i8, ptr %.3285, i64 %177
+.lr.ph.preheader:                                 ; preds = %.thread299
+  %.3286414 = ptrtoint ptr %.3286 to i64
+  %149 = sext i32 %.promoted367 to i64
+  %150 = getelementptr i8, ptr %.3286, i64 %149
+  %scevgep = getelementptr i8, ptr %150, i64 2147483648
+  %151 = trunc i64 %.3286414 to i32
+  %152 = add i32 %.promoted367, %151
+  %153 = trunc i64 %10 to i32
+  %154 = sub i32 %152, %153
+  %155 = sub i64 %10, %.3286414
+  %scevgep415 = getelementptr i8, ptr %.3286, i64 %155
   br label %.lr.ph
 
-178:                                              ; preds = %.thread332, %.thread323, %.thread313, %.thread310, %.thread302
-  %179 = phi i64 [ %.1.i, %.thread302 ], [ 0, %.thread310 ], [ %155, %.thread313 ], [ 0, %.thread323 ], [ %155, %.thread332 ]
-  %180 = phi i32 [ %93, %.thread302 ], [ 0, %.thread310 ], [ %156, %.thread313 ], [ 0, %.thread323 ], [ %156, %.thread332 ]
-  %.4286 = phi ptr [ %98, %.thread302 ], [ %20, %.thread310 ], [ %115, %.thread313 ], [ %131, %.thread323 ], [ %169, %.thread332 ]
-  %181 = icmp ult ptr %.4286, %5
-  br i1 %181, label %184, label %182, !prof !244
+._crit_edge:                                      ; preds = %173, %.thread299
+  %.lcssa368 = phi i32 [ %.promoted367, %.thread299 ], [ %154, %173 ]
+  %.lcssa363 = phi i64 [ %.promoted, %.thread299 ], [ %177, %173 ]
+  %.11.lcssa = phi ptr [ %.3286, %.thread299 ], [ %scevgep415, %173 ]
+  store i64 %.lcssa363, ptr %3, align 8
+  store i32 %.lcssa368, ptr %6, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %157 = load i8, ptr %156, align 8, !tbaa !176, !range !181, !noundef !182
+  %158 = trunc nuw i8 %157 to i1
+  br i1 %158, label %159, label %.thread307.thread, !prof !245
 
-182:                                              ; preds = %178
-  %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4286, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+159:                                              ; preds = %._crit_edge
+  %160 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-184:                                              ; preds = %178
-  %185 = load i8, ptr %.4286, align 1, !tbaa !15
-  switch i8 %185, label %190 [
-    i8 43, label %186
-    i8 45, label %188
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %173
+  %.11372 = phi ptr [ %167, %173 ], [ %.3286, %.lr.ph.preheader ]
+  %161 = phi i64 [ %177, %173 ], [ %.promoted, %.lr.ph.preheader ]
+  %162 = phi i32 [ %174, %173 ], [ %.promoted367, %.lr.ph.preheader ]
+  %163 = load i8, ptr %.11372, align 1, !tbaa !15
+  %164 = add i8 %163, -48
+  %165 = icmp ult i8 %164, 10
+  br i1 %165, label %166, label %178, !prof !244
+
+166:                                              ; preds = %.lr.ph
+  %167 = getelementptr inbounds nuw i8, ptr %.11372, i64 1
+  %168 = icmp ult i64 %161, 9007199254740992
+  br i1 %168, label %170, label %.critedge.preheader, !prof !244
+
+.critedge.preheader:                              ; preds = %166
+  store i64 %161, ptr %3, align 8
+  store i32 %162, ptr %6, align 8
+  %169 = icmp ult ptr %167, %5
+  br i1 %169, label %.lr.ph376, label %.critedge._crit_edge, !prof !360
+
+170:                                              ; preds = %166
+  %171 = icmp eq i32 %162, -2147483647
+  br i1 %171, label %.thread329, label %173, !prof !245
+
+.thread329:                                       ; preds = %170
+  %172 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
+  br label %283
+
+173:                                              ; preds = %170
+  %174 = add nsw i32 %162, -1
+  %175 = mul nuw nsw i64 %161, 10
+  %176 = zext nneg i8 %164 to i64
+  %177 = add nuw nsw i64 %175, %176
+  %exitcond.not = icmp eq ptr %167, %5
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
+
+178:                                              ; preds = %.lr.ph
+  store i64 %161, ptr %3, align 8
+  store i32 %162, ptr %6, align 8
+  %179 = and i8 %163, -33
+  %180 = icmp eq i8 %179, 69
+  br i1 %180, label %.thread333, label %.thread307.thread
+
+.thread333:                                       ; preds = %178
+  %181 = getelementptr inbounds nuw i8, ptr %.11372, i64 1
+  br label %182
+
+182:                                              ; preds = %.thread333, %.thread324, %.thread314, %.thread311, %.thread303
+  %183 = phi i64 [ %.1.i, %.thread303 ], [ 0, %.thread311 ], [ %161, %.thread314 ], [ 0, %.thread324 ], [ %161, %.thread333 ]
+  %184 = phi i32 [ %93, %.thread303 ], [ 0, %.thread311 ], [ %162, %.thread314 ], [ 0, %.thread324 ], [ %162, %.thread333 ]
+  %.4287 = phi ptr [ %98, %.thread303 ], [ %20, %.thread311 ], [ %115, %.thread314 ], [ %130, %.thread324 ], [ %181, %.thread333 ]
+  %185 = icmp ult ptr %.4287, %5
+  br i1 %185, label %188, label %186, !prof !244
+
+186:                                              ; preds = %182
+  %187 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4287, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
+
+188:                                              ; preds = %182
+  %189 = load i8, ptr %.4287, align 1, !tbaa !15
+  switch i8 %189, label %194 [
+    i8 43, label %190
+    i8 45, label %192
   ]
 
-186:                                              ; preds = %184
-  %187 = getelementptr inbounds nuw i8, ptr %.4286, i64 1
-  br label %190
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %.4287, i64 1
+  br label %194
 
-188:                                              ; preds = %184
-  %189 = getelementptr inbounds nuw i8, ptr %.4286, i64 1
-  store i8 1, ptr %8, align 8, !tbaa !686
-  br label %190
+192:                                              ; preds = %188
+  %193 = getelementptr inbounds nuw i8, ptr %.4287, i64 1
+  store i8 1, ptr %8, align 8, !tbaa !687
+  br label %194
 
-190:                                              ; preds = %184, %186, %188
-  %191 = phi i1 [ false, %186 ], [ true, %188 ], [ false, %184 ]
-  %.13 = phi ptr [ %187, %186 ], [ %189, %188 ], [ %.4286, %184 ]
-  %.13406 = ptrtoint ptr %.13 to i64
-  %192 = icmp ult ptr %.13, %5
-  br i1 %192, label %201, label %193, !prof !244
+194:                                              ; preds = %188, %190, %192
+  %195 = phi i1 [ false, %190 ], [ true, %192 ], [ false, %188 ]
+  %.13 = phi ptr [ %191, %190 ], [ %193, %192 ], [ %.4287, %188 ]
+  %.13417 = ptrtoint ptr %.13 to i64
+  %196 = icmp ult ptr %.13, %5
+  br i1 %196, label %205, label %197, !prof !244
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %195 = load i8, ptr %194, align 8, !tbaa !176, !range !181, !noundef !182
-  %196 = trunc nuw i8 %195 to i1
-  br i1 %196, label %197, label %199, !prof !245
+197:                                              ; preds = %194
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %199 = load i8, ptr %198, align 8, !tbaa !176, !range !181, !noundef !182
+  %200 = trunc nuw i8 %199 to i1
+  br i1 %200, label %201, label %203, !prof !245
 
-197:                                              ; preds = %193
-  %198 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+201:                                              ; preds = %197
+  %202 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-199:                                              ; preds = %193
-  %200 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %279
+203:                                              ; preds = %197
+  %204 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+  br label %283
 
-201:                                              ; preds = %190
-  %202 = load i8, ptr %.13, align 1, !tbaa !15
-  %203 = add i8 %202, -48
-  %204 = icmp ult i8 %203, 10
-  br i1 %204, label %206, label %.thread340, !prof !244
+205:                                              ; preds = %194
+  %206 = load i8, ptr %.13, align 1, !tbaa !15
+  %207 = add i8 %206, -48
+  %208 = icmp ult i8 %207, 10
+  br i1 %208, label %210, label %.thread341, !prof !244
 
-.thread340:                                       ; preds = %201
-  %205 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %279
+.thread341:                                       ; preds = %205
+  %209 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
+  br label %283
 
-206:                                              ; preds = %201
-  %207 = zext nneg i8 %202 to i32
-  %208 = add nsw i32 %207, -48
-  store i32 %208, ptr %7, align 4, !tbaa !687
-  %.15372 = getelementptr inbounds nuw i8, ptr %.13, i64 1
-  %209 = icmp ult ptr %.15372, %5
-  br i1 %209, label %.lr.ph376.preheader, label %._crit_edge377, !prof !360
+210:                                              ; preds = %205
+  %211 = zext nneg i8 %206 to i32
+  %212 = add nsw i32 %211, -48
+  store i32 %212, ptr %7, align 4, !tbaa !688
+  %.15379 = getelementptr inbounds nuw i8, ptr %.13, i64 1
+  %213 = icmp ult ptr %.15379, %5
+  br i1 %213, label %.lr.ph383.preheader, label %._crit_edge384, !prof !360
 
-.lr.ph376.preheader:                              ; preds = %206
-  %210 = sub i64 %10, %.13406
-  %scevgep407 = getelementptr i8, ptr %.13, i64 %210
-  br label %.lr.ph376
+.lr.ph383.preheader:                              ; preds = %210
+  %214 = sub i64 %10, %.13417
+  %scevgep418 = getelementptr i8, ptr %.13, i64 %214
+  br label %.lr.ph383
 
-._crit_edge377:                                   ; preds = %230, %206
-  %211 = phi i32 [ %208, %206 ], [ %storemerge, %230 ]
-  %.15.lcssa = phi ptr [ %.15372, %206 ], [ %scevgep407, %230 ]
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %213 = load i8, ptr %212, align 8, !tbaa !176, !range !181, !noundef !182
-  %214 = trunc nuw i8 %213 to i1
-  br i1 %214, label %215, label %.thread343, !prof !245
+._crit_edge384:                                   ; preds = %234, %210
+  %215 = phi i32 [ %212, %210 ], [ %storemerge, %234 ]
+  %.15.lcssa = phi ptr [ %.15379, %210 ], [ %scevgep418, %234 ]
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %217 = load i8, ptr %216, align 8, !tbaa !176, !range !181, !noundef !182
+  %218 = trunc nuw i8 %217 to i1
+  br i1 %218, label %219, label %.thread344, !prof !245
 
-215:                                              ; preds = %._crit_edge377
-  %216 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %279
+219:                                              ; preds = %._crit_edge384
+  %220 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %283
 
-.lr.ph376:                                        ; preds = %.lr.ph376.preheader, %230
-  %.15374 = phi ptr [ %.15, %230 ], [ %.15372, %.lr.ph376.preheader ]
-  %storemerge346373 = phi i32 [ %storemerge, %230 ], [ %208, %.lr.ph376.preheader ]
-  %217 = load i8, ptr %.15374, align 1, !tbaa !15
-  %218 = add i8 %217, -48
-  %219 = icmp ult i8 %218, 10
-  br i1 %219, label %220, label %.thread343, !prof !244
+.lr.ph383:                                        ; preds = %.lr.ph383.preheader, %234
+  %.15381 = phi ptr [ %.15, %234 ], [ %.15379, %.lr.ph383.preheader ]
+  %storemerge348380 = phi i32 [ %storemerge, %234 ], [ %212, %.lr.ph383.preheader ]
+  %221 = load i8, ptr %.15381, align 1, !tbaa !15
+  %222 = add i8 %221, -48
+  %223 = icmp ult i8 %222, 10
+  br i1 %223, label %224, label %.thread344, !prof !244
 
-220:                                              ; preds = %.lr.ph376
-  %221 = icmp sgt i32 %storemerge346373, 214748364
-  br i1 %221, label %230, label %222, !prof !245
+224:                                              ; preds = %.lr.ph383
+  %225 = icmp sgt i32 %storemerge348380, 214748364
+  br i1 %225, label %234, label %226, !prof !245
 
-222:                                              ; preds = %220
-  %223 = icmp eq i32 %storemerge346373, 214748364
-  %224 = icmp samesign ugt i8 %217, 55
-  %225 = and i1 %224, %223
-  br i1 %225, label %230, label %226, !prof !245
+226:                                              ; preds = %224
+  %227 = icmp eq i32 %storemerge348380, 214748364
+  %228 = icmp samesign ugt i8 %221, 55
+  %229 = and i1 %228, %227
+  br i1 %229, label %234, label %230, !prof !245
 
-226:                                              ; preds = %222
-  %227 = mul nsw i32 %storemerge346373, 10
-  %228 = zext nneg i8 %218 to i32
-  %229 = add nsw i32 %227, %228
-  br label %230
+230:                                              ; preds = %226
+  %231 = mul nsw i32 %storemerge348380, 10
+  %232 = zext nneg i8 %222 to i32
+  %233 = add nsw i32 %231, %232
+  br label %234
 
-230:                                              ; preds = %226, %222, %220
-  %storemerge = phi i32 [ %229, %226 ], [ 2147483647, %222 ], [ 2147483647, %220 ]
-  store i32 %storemerge, ptr %7, align 4, !tbaa !687
-  %.15 = getelementptr inbounds nuw i8, ptr %.15374, i64 1
-  %exitcond.not = icmp eq ptr %.15, %5
-  br i1 %exitcond.not, label %._crit_edge377, label %.lr.ph376, !prof !688
+234:                                              ; preds = %230, %226, %224
+  %storemerge = phi i32 [ %233, %230 ], [ 2147483647, %226 ], [ 2147483647, %224 ]
+  store i32 %storemerge, ptr %7, align 4, !tbaa !688
+  %.15 = getelementptr inbounds nuw i8, ptr %.15381, i64 1
+  %exitcond419.not = icmp eq ptr %.15, %5
+  br i1 %exitcond419.not, label %._crit_edge384, label %.lr.ph383, !prof !686
 
-.thread343:                                       ; preds = %.lr.ph376, %._crit_edge377
-  %231 = phi i32 [ %211, %._crit_edge377 ], [ %storemerge346373, %.lr.ph376 ]
-  %.15348 = phi ptr [ %.15.lcssa, %._crit_edge377 ], [ %.15374, %.lr.ph376 ]
-  br i1 %191, label %232, label %241
+.thread344:                                       ; preds = %.lr.ph383, %._crit_edge384
+  %235 = phi i32 [ %215, %._crit_edge384 ], [ %storemerge348380, %.lr.ph383 ]
+  %.15350 = phi ptr [ %.15.lcssa, %._crit_edge384 ], [ %.15381, %.lr.ph383 ]
+  br i1 %195, label %236, label %245
 
-232:                                              ; preds = %.thread343
-  %233 = or i32 %231, -2147483648
-  %234 = icmp slt i32 %180, %233
-  br i1 %234, label %235, label %.critedge98, !prof !245
+236:                                              ; preds = %.thread344
+  %237 = or i32 %235, -2147483648
+  %238 = icmp slt i32 %184, %237
+  br i1 %238, label %239, label %.critedge99, !prof !245
 
-235:                                              ; preds = %232
-  %236 = icmp eq i32 %231, 2147483647
-  %237 = icmp samesign ult i32 %180, -2147483339
-  %or.cond96 = and i1 %237, %236
-  %238 = icmp ne i64 %179, 0
-  %or.cond103 = select i1 %or.cond96, i1 %238, i1 false, !prof !689
-  br i1 %or.cond103, label %239, label %.critedge98, !prof !689
+239:                                              ; preds = %236
+  %240 = icmp eq i32 %235, 2147483647
+  %241 = icmp samesign ult i32 %184, -2147483339
+  %or.cond97 = and i1 %241, %240
+  %242 = icmp ne i64 %183, 0
+  %or.cond104 = select i1 %or.cond97, i1 %242, i1 false, !prof !689
+  br i1 %or.cond104, label %243, label %.critedge99, !prof !689
 
-239:                                              ; preds = %235
-  %240 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15348, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %279
+243:                                              ; preds = %239
+  %244 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15350, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %283
 
-241:                                              ; preds = %.thread343
-  %242 = sub nsw i32 2147483647, %231
-  %243 = icmp sgt i32 %180, %242
-  br i1 %243, label %244, label %.thread306.thread, !prof !245
+245:                                              ; preds = %.thread344
+  %246 = sub nsw i32 2147483647, %235
+  %247 = icmp sgt i32 %184, %246
+  br i1 %247, label %248, label %.thread307.thread, !prof !245
 
-244:                                              ; preds = %241
-  %245 = icmp eq i32 %231, 2147483647
-  %246 = icmp samesign ugt i32 %180, 2147483339
-  %or.cond99 = and i1 %246, %245
-  %247 = icmp ne i64 %179, 0
-  %or.cond105 = select i1 %or.cond99, i1 %247, i1 false, !prof !689
-  br i1 %or.cond105, label %248, label %.thread306.thread, !prof !689
+248:                                              ; preds = %245
+  %249 = icmp eq i32 %235, 2147483647
+  %250 = icmp samesign ugt i32 %184, 2147483339
+  %or.cond100 = and i1 %250, %249
+  %251 = icmp ne i64 %183, 0
+  %or.cond106 = select i1 %or.cond100, i1 %251, i1 false, !prof !689
+  br i1 %or.cond106, label %252, label %.thread307.thread, !prof !689
 
-248:                                              ; preds = %244
-  %249 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15348, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %279
+252:                                              ; preds = %248
+  %253 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15350, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %283
 
-250:                                              ; preds = %119, %128, %17
-  %.5287 = phi ptr [ %15, %17 ], [ %102, %119 ], [ %102, %128 ]
+254:                                              ; preds = %118, %127, %17
+  %.5288 = phi ptr [ %15, %17 ], [ %102, %118 ], [ %102, %127 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
-  br label %279
+  br label %283
 
-.critedge98:                                      ; preds = %235, %232
-  %251 = phi i32 [ %231, %232 ], [ 2147483647, %235 ]
-  %252 = phi i32 [ %180, %232 ], [ 0, %235 ]
-  %253 = sub nsw i32 0, %251
-  br label %.thread306.thread
+.critedge99:                                      ; preds = %239, %236
+  %255 = phi i32 [ %235, %236 ], [ 2147483647, %239 ]
+  %256 = phi i32 [ %184, %236 ], [ 0, %239 ]
+  %257 = sub nsw i32 0, %255
+  br label %.thread307.thread
 
-.thread306.thread:                                ; preds = %244, %166, %112, %99, %._crit_edge481, %._crit_edge, %241, %.critedge98
-  %.6288432 = phi ptr [ %.15348, %.critedge98 ], [ %.11479, %166 ], [ %.8290370, %112 ], [ %94, %99 ], [ %.11.lcssa, %._crit_edge481 ], [ %.8290.lcssa, %._crit_edge ], [ %.15348, %241 ], [ %.15348, %244 ]
-  %254 = phi i64 [ %179, %.critedge98 ], [ %155, %166 ], [ %155, %112 ], [ %.1.i, %99 ], [ %.lcssa463, %._crit_edge481 ], [ %155, %._crit_edge ], [ %179, %241 ], [ %179, %244 ]
-  %255 = phi i32 [ %252, %.critedge98 ], [ %156, %166 ], [ %156, %112 ], [ %93, %99 ], [ %.lcssa467, %._crit_edge481 ], [ %156, %._crit_edge ], [ %180, %241 ], [ 0, %244 ]
-  %256 = phi i32 [ %253, %.critedge98 ], [ 0, %166 ], [ 0, %112 ], [ 0, %99 ], [ 0, %._crit_edge481 ], [ 0, %._crit_edge ], [ %231, %241 ], [ 2147483647, %244 ]
-  %257 = add nsw i32 %256, %255
-  %258 = uitofp i64 %254 to double
-  %259 = icmp slt i32 %257, -305
-  %260 = fmul double %258, 1.000000e-305
-  %261 = add nuw nsw i32 %257, 305
-  %.014.i = select i1 %259, i32 %261, i32 %257
-  %.1.i106 = select i1 %259, double %260, double %258
+.thread307.thread:                                ; preds = %248, %178, %112, %99, %._crit_edge, %.critedge._crit_edge, %245, %.critedge99
+  %.6289445 = phi ptr [ %.15350, %.critedge99 ], [ %.11372, %178 ], [ %.8291375, %112 ], [ %94, %99 ], [ %.11.lcssa, %._crit_edge ], [ %.8291.lcssa, %.critedge._crit_edge ], [ %.15350, %245 ], [ %.15350, %248 ]
+  %258 = phi i64 [ %183, %.critedge99 ], [ %161, %178 ], [ %161, %112 ], [ %.1.i, %99 ], [ %.lcssa363, %._crit_edge ], [ %161, %.critedge._crit_edge ], [ %183, %245 ], [ %183, %248 ]
+  %259 = phi i32 [ %256, %.critedge99 ], [ %162, %178 ], [ %162, %112 ], [ %93, %99 ], [ %.lcssa368, %._crit_edge ], [ %162, %.critedge._crit_edge ], [ %184, %245 ], [ 0, %248 ]
+  %260 = phi i32 [ %257, %.critedge99 ], [ 0, %178 ], [ 0, %112 ], [ 0, %99 ], [ 0, %._crit_edge ], [ 0, %.critedge._crit_edge ], [ %235, %245 ], [ 2147483647, %248 ]
+  %261 = add nsw i32 %260, %259
+  %262 = uitofp i64 %258 to double
+  %263 = icmp slt i32 %261, -305
+  %264 = fmul double %262, 1.000000e-305
+  %265 = add nuw nsw i32 %261, 305
+  %.014.i = select i1 %263, i32 %265, i32 %261
+  %.1.i107 = select i1 %263, double %264, double %262
   %or.cond.i = icmp ugt i32 %.014.i, -23
-  br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %268
+  br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %272
 
-_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread306.thread
-  %262 = sub nsw i32 0, %.014.i
-  %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %263
-  %265 = getelementptr i8, ptr %264, i64 2464
-  %266 = load double, ptr %265, align 8, !tbaa !460
-  %267 = fdiv double %.1.i106, %266
-  br label %278
+_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread307.thread
+  %266 = sub nsw i32 0, %.014.i
+  %267 = zext nneg i32 %266 to i64
+  %268 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %267
+  %269 = getelementptr i8, ptr %268, i64 2464
+  %270 = load double, ptr %269, align 8, !tbaa !460
+  %271 = fdiv double %.1.i107, %270
+  br label %282
 
-268:                                              ; preds = %.thread306.thread
-  %269 = icmp sgt i32 %.014.i, 308
-  br i1 %269, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %270
+272:                                              ; preds = %.thread307.thread
+  %273 = icmp sgt i32 %.014.i, 308
+  br i1 %273, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %274
 
-270:                                              ; preds = %268
-  %271 = icmp slt i32 %.014.i, -308
-  br i1 %271, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %272
+274:                                              ; preds = %272
+  %275 = icmp slt i32 %.014.i, -308
+  br i1 %275, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %276
 
-272:                                              ; preds = %270
-  %273 = sext i32 %.014.i to i64
-  %274 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %273
-  %275 = getelementptr i8, ptr %274, i64 2464
-  %276 = load double, ptr %275, align 8, !tbaa !460
+276:                                              ; preds = %274
+  %277 = sext i32 %.014.i to i64
+  %278 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %277
+  %279 = getelementptr i8, ptr %278, i64 2464
+  %280 = load double, ptr %279, align 8, !tbaa !460
   br label %_ZN5boost4json6detail5pow10Ei.exit18.i
 
-_ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %272, %270, %268
-  %.0.i17.i = phi double [ %276, %272 ], [ 0.000000e+00, %270 ], [ 0x7FF0000000000000, %268 ]
-  %277 = fmul double %.1.i106, %.0.i17.i
-  br label %278
+_ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %276, %274, %272
+  %.0.i17.i = phi double [ %280, %276 ], [ 0.000000e+00, %274 ], [ 0x7FF0000000000000, %272 ]
+  %281 = fmul double %.1.i107, %.0.i17.i
+  br label %282
 
-278:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
-  %.013.i = phi double [ %267, %_ZN5boost4json6detail5pow10Ei.exit.i ], [ %277, %_ZN5boost4json6detail5pow10Ei.exit18.i ]
+282:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
+  %.013.i = phi double [ %271, %_ZN5boost4json6detail5pow10Ei.exit.i ], [ %281, %_ZN5boost4json6detail5pow10Ei.exit18.i ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %.013.i)
-  br label %279
+  br label %283
 
-279:                                              ; preds = %.thread340, %.thread328, %147, %.thread294, %278, %250, %248, %239, %215, %199, %197, %182, %153, %141, %139, %123, %107
-  %.2 = phi ptr [ %140, %139 ], [ %142, %141 ], [ %154, %153 ], [ %108, %107 ], [ %183, %182 ], [ %198, %197 ], [ %200, %199 ], [ %216, %215 ], [ %240, %239 ], [ %249, %248 ], [ %148, %147 ], [ %.5287, %250 ], [ %124, %123 ], [ %.6288432, %278 ], [ %30, %.thread294 ], [ %165, %.thread328 ], [ %205, %.thread340 ]
+283:                                              ; preds = %.thread341, %.thread329, %146, %.thread295, %282, %254, %252, %243, %219, %203, %201, %186, %159, %140, %138, %122, %107
+  %.2 = phi ptr [ %139, %138 ], [ %141, %140 ], [ %160, %159 ], [ %108, %107 ], [ %187, %186 ], [ %202, %201 ], [ %204, %203 ], [ %220, %219 ], [ %244, %243 ], [ %253, %252 ], [ %147, %146 ], [ %.5288, %254 ], [ %123, %122 ], [ %.6289445, %282 ], [ %30, %.thread295 ], [ %172, %.thread329 ], [ %209, %.thread341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -41237,11 +41244,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 19:                                               ; preds = %16
   %20 = and i8 %18, -33
   %21 = icmp eq i8 %20, 69
-  br i1 %21, label %.thread347, label %268
+  br i1 %21, label %.thread348, label %272
 
-.thread347:                                       ; preds = %19
+.thread348:                                       ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %188
+  br label %192
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -41252,11 +41259,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %28, i1 false)
   %30 = zext nneg i16 %29 to i32
   %31 = icmp eq i16 %29, 0
-  br i1 %31, label %.thread331, label %33
+  br i1 %31, label %.thread332, label %33
 
-.thread331:                                       ; preds = %23
+.thread332:                                       ; preds = %23
   %32 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %275
+  br label %279
 
 33:                                               ; preds = %23
   %34 = zext nneg i16 %29 to i64
@@ -41357,376 +41364,383 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
   %97 = load i8, ptr %96, align 1, !tbaa !15
   %98 = and i8 %97, -33
   %99 = icmp eq i8 %98, 69
-  br i1 %99, label %.thread339, label %101
+  br i1 %99, label %.thread340, label %101
 
-.thread339:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
+.thread340:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
-  br label %188
+  br label %192
 
 101:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %102 = add i8 %97, -48
   %or.cond = icmp ult i8 %102, 10
-  br i1 %or.cond, label %.thread335, label %269
+  br i1 %or.cond, label %.thread336, label %273
 
 103:                                              ; preds = %2
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i64 0, ptr %3, align 8, !tbaa !683
   %105 = icmp ult ptr %104, %6
-  br i1 %105, label %131, label %124, !prof !244
+  br i1 %105, label %130, label %123, !prof !244
 
-._crit_edge:                                      ; preds = %121, %.preheader
-  %.8326.lcssa = phi ptr [ %171, %.preheader ], [ %scevgep, %121 ]
+.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
+  %.8327.lcssa = phi ptr [ %177, %.critedge.preheader ], [ %scevgep452, %.critedge ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %107 = load i8, ptr %106, align 8, !tbaa !176, !range !181, !noundef !182
   %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %109, label %269, !prof !245
+  br i1 %108, label %109, label %273, !prof !245
 
-109:                                              ; preds = %._crit_edge
-  %110 = ptrtoint ptr %.8326.lcssa to i64
+109:                                              ; preds = %.critedge._crit_edge
+  %110 = ptrtoint ptr %.8327.lcssa to i64
   %111 = sub i64 %110, %13
   %112 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %111)
-  %113 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8326.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+  %113 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8327.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %121
-  %.8326407 = phi ptr [ %122, %121 ], [ %171, %.lr.ph.preheader ]
-  %114 = load i8, ptr %.8326407, align 1, !tbaa !15
+.lr.ph413:                                        ; preds = %.critedge.preheader, %.critedge
+  %.8327412 = phi ptr [ %121, %.critedge ], [ %177, %.critedge.preheader ]
+  %114 = load i8, ptr %.8327412, align 1, !tbaa !15
   %115 = add i8 %114, -48
   %116 = icmp ult i8 %115, 10
-  br i1 %116, label %121, label %117, !prof !244
+  br i1 %116, label %.critedge, label %117, !prof !244
 
-117:                                              ; preds = %.lr.ph
+117:                                              ; preds = %.lr.ph413
   %118 = and i8 %114, -33
   %119 = icmp eq i8 %118, 69
-  br i1 %119, label %.thread350, label %269
+  br i1 %119, label %.thread351, label %273
 
-.thread350:                                       ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %.8326407, i64 1
-  br label %188
+.thread351:                                       ; preds = %117
+  %120 = getelementptr inbounds nuw i8, ptr %.8327412, i64 1
+  br label %192
 
-121:                                              ; preds = %.lr.ph
-  %122 = getelementptr inbounds nuw i8, ptr %.8326407, i64 1
-  %123 = icmp ult ptr %122, %6
-  br i1 %123, label %.lr.ph, label %._crit_edge, !prof !361
+.critedge:                                        ; preds = %.lr.ph413
+  %121 = getelementptr inbounds nuw i8, ptr %.8327412, i64 1
+  %122 = icmp ult ptr %121, %6
+  br i1 %122, label %.lr.ph413, label %.critedge._crit_edge, !prof !361
 
-124:                                              ; preds = %103
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %126 = load i8, ptr %125, align 8, !tbaa !176, !range !181, !noundef !182
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %268, !prof !245
+123:                                              ; preds = %103
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %125 = load i8, ptr %124, align 8, !tbaa !176, !range !181, !noundef !182
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %127, label %272, !prof !245
 
-128:                                              ; preds = %124
-  %129 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef 1)
-  %130 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %104, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+127:                                              ; preds = %123
+  %128 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef 1)
+  %129 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %104, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-131:                                              ; preds = %103
-  %132 = load i8, ptr %104, align 1, !tbaa !15
-  %133 = icmp eq i8 %132, 46
-  br i1 %133, label %138, label %134, !prof !244
+130:                                              ; preds = %103
+  %131 = load i8, ptr %104, align 1, !tbaa !15
+  %132 = icmp eq i8 %131, 46
+  br i1 %132, label %137, label %133, !prof !244
 
-134:                                              ; preds = %131
-  %135 = and i8 %132, -33
-  %136 = icmp eq i8 %135, 69
-  br i1 %136, label %.thread360, label %268
+133:                                              ; preds = %130
+  %134 = and i8 %131, -33
+  %135 = icmp eq i8 %134, 69
+  br i1 %135, label %.thread361, label %272
 
-.thread360:                                       ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %188
+.thread361:                                       ; preds = %133
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  br label %192
 
-138:                                              ; preds = %131
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %140 = icmp ult ptr %139, %6
-  br i1 %140, label %150, label %141, !prof !244
+137:                                              ; preds = %130
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %139 = icmp ult ptr %138, %6
+  br i1 %139, label %149, label %140, !prof !244
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %143 = load i8, ptr %142, align 8, !tbaa !176, !range !181, !noundef !182
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %148, !prof !245
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %142 = load i8, ptr %141, align 8, !tbaa !176, !range !181, !noundef !182
+  %143 = trunc nuw i8 %142 to i1
+  br i1 %143, label %144, label %147, !prof !245
 
-145:                                              ; preds = %141
-  %146 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %1, i64 noundef 2)
-  %147 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %139, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+144:                                              ; preds = %140
+  %145 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %1, i64 noundef 2)
+  %146 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %138, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-148:                                              ; preds = %141
-  %149 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %139, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %275
+147:                                              ; preds = %140
+  %148 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %138, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %279
 
-150:                                              ; preds = %138
-  %151 = load i8, ptr %139, align 1, !tbaa !15
-  %152 = add i8 %151, -48
-  %153 = icmp ult i8 %152, 10
-  br i1 %153, label %.thread335, label %154, !prof !244
+149:                                              ; preds = %137
+  %150 = load i8, ptr %138, align 1, !tbaa !15
+  %151 = add i8 %150, -48
+  %152 = icmp ult i8 %151, 10
+  br i1 %152, label %.thread336, label %153, !prof !244
 
-154:                                              ; preds = %150
-  %155 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %139, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %275
+153:                                              ; preds = %149
+  %154 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %138, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %279
 
-.thread335:                                       ; preds = %150, %101
-  %.promoted402 = phi i32 [ %95, %101 ], [ 0, %150 ]
-  %.promoted = phi i64 [ %.1.i, %101 ], [ 0, %150 ]
-  %.3321 = phi ptr [ %96, %101 ], [ %139, %150 ]
-  %.3321442 = ptrtoint ptr %.3321 to i64
-  %156 = icmp ult ptr %.3321, %6
-  br i1 %156, label %.lr.ph512, label %._crit_edge513, !prof !360
+.thread336:                                       ; preds = %149, %101
+  %.promoted404 = phi i32 [ %95, %101 ], [ 0, %149 ]
+  %.promoted = phi i64 [ %.1.i, %101 ], [ 0, %149 ]
+  %.3322 = phi ptr [ %96, %101 ], [ %138, %149 ]
+  %155 = icmp ult ptr %.3322, %6
+  br i1 %155, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-._crit_edge513:                                   ; preds = %180, %.thread335
-  %.lcssa499 = phi i32 [ %.promoted402, %.thread335 ], [ %181, %180 ]
-  %.lcssa495 = phi i64 [ %.promoted, %.thread335 ], [ %184, %180 ]
-  %.11.lcssa = phi ptr [ %.3321, %.thread335 ], [ %171, %180 ]
-  store i64 %.lcssa495, ptr %3, align 8
-  store i32 %.lcssa499, ptr %7, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %158 = load i8, ptr %157, align 8, !tbaa !176, !range !181, !noundef !182
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %269, !prof !245
-
-160:                                              ; preds = %._crit_edge513
-  %161 = ptrtoint ptr %.11.lcssa to i64
-  %162 = sub i64 %161, %13
-  %163 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %162)
-  %164 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
-
-.lr.ph512:                                        ; preds = %.thread335, %180
-  %.11511 = phi ptr [ %171, %180 ], [ %.3321, %.thread335 ]
-  %165 = phi i64 [ %184, %180 ], [ %.promoted, %.thread335 ]
-  %166 = phi i32 [ %181, %180 ], [ %.promoted402, %.thread335 ]
-  %167 = load i8, ptr %.11511, align 1, !tbaa !15
-  %168 = add i8 %167, -48
-  %169 = icmp ult i8 %168, 10
-  br i1 %169, label %170, label %176, !prof !244
-
-170:                                              ; preds = %.lr.ph512
-  %171 = getelementptr inbounds nuw i8, ptr %.11511, i64 1
-  %172 = icmp ult i64 %165, 9007199254740992
-  br i1 %172, label %173, label %.preheader, !prof !244
-
-173:                                              ; preds = %170
-  %174 = icmp eq i32 %166, -2147483647
-  br i1 %174, label %.thread365, label %180, !prof !245
-
-.thread365:                                       ; preds = %173
-  %175 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %171, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %275
-
-176:                                              ; preds = %.lr.ph512
-  store i64 %165, ptr %3, align 8
-  store i32 %166, ptr %7, align 8
-  %177 = and i8 %167, -33
-  %178 = icmp eq i8 %177, 69
-  br i1 %178, label %.thread369, label %269
-
-.thread369:                                       ; preds = %176
-  %179 = getelementptr inbounds nuw i8, ptr %.11511, i64 1
-  br label %188
-
-180:                                              ; preds = %173
-  %181 = add nsw i32 %166, -1
-  %182 = mul nuw nsw i64 %165, 10
-  %183 = zext nneg i8 %168 to i64
-  %184 = add nuw nsw i64 %182, %183
-  %185 = icmp ult ptr %171, %6
-  br i1 %185, label %.lr.ph512, label %._crit_edge513, !prof !361
-
-.preheader:                                       ; preds = %170
-  store i64 %165, ptr %3, align 8
-  store i32 %166, ptr %7, align 8
-  %186 = icmp ult ptr %171, %6
-  br i1 %186, label %.lr.ph.preheader, label %._crit_edge, !prof !360
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %187 = sub i64 %12, %.3321442
-  %scevgep = getelementptr i8, ptr %.3321, i64 %187
+.lr.ph.preheader:                                 ; preds = %.thread336
+  %.3322451 = ptrtoint ptr %.3322 to i64
+  %156 = sext i32 %.promoted404 to i64
+  %157 = getelementptr i8, ptr %.3322, i64 %156
+  %scevgep = getelementptr i8, ptr %157, i64 2147483648
+  %158 = trunc i64 %.3322451 to i32
+  %159 = add i32 %.promoted404, %158
+  %160 = trunc i64 %12 to i32
+  %161 = sub i32 %159, %160
+  %162 = sub i64 %12, %.3322451
+  %scevgep452 = getelementptr i8, ptr %.3322, i64 %162
   br label %.lr.ph
 
-188:                                              ; preds = %.thread369, %.thread360, %.thread350, %.thread347, %.thread339
-  %189 = phi i64 [ %.1.i, %.thread339 ], [ 0, %.thread347 ], [ 1, %.thread350 ], [ 0, %.thread360 ], [ %165, %.thread369 ]
-  %190 = phi i32 [ %95, %.thread339 ], [ 0, %.thread347 ], [ %166, %.thread350 ], [ 0, %.thread360 ], [ %166, %.thread369 ]
-  %.4322 = phi ptr [ %100, %.thread339 ], [ %22, %.thread347 ], [ %120, %.thread350 ], [ %137, %.thread360 ], [ %179, %.thread369 ]
-  %191 = icmp ult ptr %.4322, %6
-  br i1 %191, label %197, label %192, !prof !244
+._crit_edge:                                      ; preds = %183, %.thread336
+  %.lcssa405 = phi i32 [ %.promoted404, %.thread336 ], [ %161, %183 ]
+  %.lcssa400 = phi i64 [ %.promoted, %.thread336 ], [ %187, %183 ]
+  %.11.lcssa = phi ptr [ %.3322, %.thread336 ], [ %scevgep452, %183 ]
+  store i64 %.lcssa400, ptr %3, align 8
+  store i32 %.lcssa405, ptr %7, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %164 = load i8, ptr %163, align 8, !tbaa !176, !range !181, !noundef !182
+  %165 = trunc nuw i8 %164 to i1
+  br i1 %165, label %166, label %273, !prof !245
 
-192:                                              ; preds = %188
-  %193 = ptrtoint ptr %.4322 to i64
-  %194 = sub i64 %193, %13
-  %195 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %194)
-  %196 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4322, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+166:                                              ; preds = %._crit_edge
+  %167 = ptrtoint ptr %.11.lcssa to i64
+  %168 = sub i64 %167, %13
+  %169 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %168)
+  %170 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-197:                                              ; preds = %188
-  %198 = load i8, ptr %.4322, align 1, !tbaa !15
-  switch i8 %198, label %203 [
-    i8 43, label %199
-    i8 45, label %201
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %183
+  %.11409 = phi ptr [ %177, %183 ], [ %.3322, %.lr.ph.preheader ]
+  %171 = phi i64 [ %187, %183 ], [ %.promoted, %.lr.ph.preheader ]
+  %172 = phi i32 [ %184, %183 ], [ %.promoted404, %.lr.ph.preheader ]
+  %173 = load i8, ptr %.11409, align 1, !tbaa !15
+  %174 = add i8 %173, -48
+  %175 = icmp ult i8 %174, 10
+  br i1 %175, label %176, label %188, !prof !244
+
+176:                                              ; preds = %.lr.ph
+  %177 = getelementptr inbounds nuw i8, ptr %.11409, i64 1
+  %178 = icmp ult i64 %171, 9007199254740992
+  br i1 %178, label %180, label %.critedge.preheader, !prof !244
+
+.critedge.preheader:                              ; preds = %176
+  store i64 %171, ptr %3, align 8
+  store i32 %172, ptr %7, align 8
+  %179 = icmp ult ptr %177, %6
+  br i1 %179, label %.lr.ph413, label %.critedge._crit_edge, !prof !360
+
+180:                                              ; preds = %176
+  %181 = icmp eq i32 %172, -2147483647
+  br i1 %181, label %.thread366, label %183, !prof !245
+
+.thread366:                                       ; preds = %180
+  %182 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
+  br label %279
+
+183:                                              ; preds = %180
+  %184 = add nsw i32 %172, -1
+  %185 = mul nuw nsw i64 %171, 10
+  %186 = zext nneg i8 %174 to i64
+  %187 = add nuw nsw i64 %185, %186
+  %exitcond.not = icmp eq ptr %177, %6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
+
+188:                                              ; preds = %.lr.ph
+  store i64 %171, ptr %3, align 8
+  store i32 %172, ptr %7, align 8
+  %189 = and i8 %173, -33
+  %190 = icmp eq i8 %189, 69
+  br i1 %190, label %.thread370, label %273
+
+.thread370:                                       ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %.11409, i64 1
+  br label %192
+
+192:                                              ; preds = %.thread370, %.thread361, %.thread351, %.thread348, %.thread340
+  %193 = phi i64 [ %.1.i, %.thread340 ], [ 0, %.thread348 ], [ 1, %.thread351 ], [ 0, %.thread361 ], [ %171, %.thread370 ]
+  %194 = phi i32 [ %95, %.thread340 ], [ 0, %.thread348 ], [ %172, %.thread351 ], [ 0, %.thread361 ], [ %172, %.thread370 ]
+  %.4323 = phi ptr [ %100, %.thread340 ], [ %22, %.thread348 ], [ %120, %.thread351 ], [ %136, %.thread361 ], [ %191, %.thread370 ]
+  %195 = icmp ult ptr %.4323, %6
+  br i1 %195, label %201, label %196, !prof !244
+
+196:                                              ; preds = %192
+  %197 = ptrtoint ptr %.4323 to i64
+  %198 = sub i64 %197, %13
+  %199 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %198)
+  %200 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4323, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
+
+201:                                              ; preds = %192
+  %202 = load i8, ptr %.4323, align 1, !tbaa !15
+  switch i8 %202, label %207 [
+    i8 43, label %203
+    i8 45, label %205
   ]
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %.4322, i64 1
-  br label %203
+203:                                              ; preds = %201
+  %204 = getelementptr inbounds nuw i8, ptr %.4323, i64 1
+  br label %207
 
-201:                                              ; preds = %197
-  %202 = getelementptr inbounds nuw i8, ptr %.4322, i64 1
-  store i8 1, ptr %9, align 8, !tbaa !686
-  br label %203
+205:                                              ; preds = %201
+  %206 = getelementptr inbounds nuw i8, ptr %.4323, i64 1
+  store i8 1, ptr %9, align 8, !tbaa !687
+  br label %207
 
-203:                                              ; preds = %197, %199, %201
-  %204 = phi i1 [ false, %199 ], [ true, %201 ], [ false, %197 ]
-  %.13 = phi ptr [ %200, %199 ], [ %202, %201 ], [ %.4322, %197 ]
-  %.13443 = ptrtoint ptr %.13 to i64
-  %205 = icmp ult ptr %.13, %6
-  br i1 %205, label %216, label %206, !prof !244
+207:                                              ; preds = %201, %203, %205
+  %208 = phi i1 [ false, %203 ], [ true, %205 ], [ false, %201 ]
+  %.13 = phi ptr [ %204, %203 ], [ %206, %205 ], [ %.4323, %201 ]
+  %.13454 = ptrtoint ptr %.13 to i64
+  %209 = icmp ult ptr %.13, %6
+  br i1 %209, label %220, label %210, !prof !244
 
-206:                                              ; preds = %203
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %208 = load i8, ptr %207, align 8, !tbaa !176, !range !181, !noundef !182
-  %209 = trunc nuw i8 %208 to i1
-  br i1 %209, label %210, label %214, !prof !245
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %212 = load i8, ptr %211, align 8, !tbaa !176, !range !181, !noundef !182
+  %213 = trunc nuw i8 %212 to i1
+  br i1 %213, label %214, label %218, !prof !245
 
-210:                                              ; preds = %206
-  %211 = sub i64 %.13443, %13
-  %212 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %211)
-  %213 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+214:                                              ; preds = %210
+  %215 = sub i64 %.13454, %13
+  %216 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %215)
+  %217 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-214:                                              ; preds = %206
-  %215 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %275
+218:                                              ; preds = %210
+  %219 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+  br label %279
 
-216:                                              ; preds = %203
-  %217 = load i8, ptr %.13, align 1, !tbaa !15
-  %218 = add i8 %217, -48
-  %219 = icmp ult i8 %218, 10
-  br i1 %219, label %221, label %.thread377, !prof !244
+220:                                              ; preds = %207
+  %221 = load i8, ptr %.13, align 1, !tbaa !15
+  %222 = add i8 %221, -48
+  %223 = icmp ult i8 %222, 10
+  br i1 %223, label %225, label %.thread378, !prof !244
 
-.thread377:                                       ; preds = %216
-  %220 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %275
+.thread378:                                       ; preds = %220
+  %224 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
+  br label %279
 
-221:                                              ; preds = %216
-  %222 = zext nneg i8 %217 to i32
-  %223 = add nsw i32 %222, -48
-  store i32 %223, ptr %8, align 4, !tbaa !687
-  %.15409 = getelementptr inbounds nuw i8, ptr %.13, i64 1
-  %224 = icmp ult ptr %.15409, %6
-  br i1 %224, label %.lr.ph413.preheader, label %._crit_edge414, !prof !360
+225:                                              ; preds = %220
+  %226 = zext nneg i8 %221 to i32
+  %227 = add nsw i32 %226, -48
+  store i32 %227, ptr %8, align 4, !tbaa !688
+  %.15416 = getelementptr inbounds nuw i8, ptr %.13, i64 1
+  %228 = icmp ult ptr %.15416, %6
+  br i1 %228, label %.lr.ph420.preheader, label %._crit_edge421, !prof !360
 
-.lr.ph413.preheader:                              ; preds = %221
-  %225 = sub i64 %12, %.13443
-  %scevgep444 = getelementptr i8, ptr %.13, i64 %225
-  br label %.lr.ph413
+.lr.ph420.preheader:                              ; preds = %225
+  %229 = sub i64 %12, %.13454
+  %scevgep455 = getelementptr i8, ptr %.13, i64 %229
+  br label %.lr.ph420
 
-._crit_edge414:                                   ; preds = %248, %221
-  %226 = phi i32 [ %223, %221 ], [ %storemerge, %248 ]
-  %.15.lcssa = phi ptr [ %.15409, %221 ], [ %scevgep444, %248 ]
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %228 = load i8, ptr %227, align 8, !tbaa !176, !range !181, !noundef !182
-  %229 = trunc nuw i8 %228 to i1
-  br i1 %229, label %230, label %.thread380, !prof !245
+._crit_edge421:                                   ; preds = %252, %225
+  %230 = phi i32 [ %227, %225 ], [ %storemerge, %252 ]
+  %.15.lcssa = phi ptr [ %.15416, %225 ], [ %scevgep455, %252 ]
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %232 = load i8, ptr %231, align 8, !tbaa !176, !range !181, !noundef !182
+  %233 = trunc nuw i8 %232 to i1
+  br i1 %233, label %234, label %.thread381, !prof !245
 
-230:                                              ; preds = %._crit_edge414
-  %231 = ptrtoint ptr %.15.lcssa to i64
-  %232 = sub i64 %231, %13
-  %233 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %232)
-  %234 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %275
+234:                                              ; preds = %._crit_edge421
+  %235 = ptrtoint ptr %.15.lcssa to i64
+  %236 = sub i64 %235, %13
+  %237 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %236)
+  %238 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %279
 
-.lr.ph413:                                        ; preds = %.lr.ph413.preheader, %248
-  %.15411 = phi ptr [ %.15, %248 ], [ %.15409, %.lr.ph413.preheader ]
-  %storemerge383410 = phi i32 [ %storemerge, %248 ], [ %223, %.lr.ph413.preheader ]
-  %235 = load i8, ptr %.15411, align 1, !tbaa !15
-  %236 = add i8 %235, -48
-  %237 = icmp ult i8 %236, 10
-  br i1 %237, label %238, label %.thread380, !prof !244
+.lr.ph420:                                        ; preds = %.lr.ph420.preheader, %252
+  %.15418 = phi ptr [ %.15, %252 ], [ %.15416, %.lr.ph420.preheader ]
+  %storemerge385417 = phi i32 [ %storemerge, %252 ], [ %227, %.lr.ph420.preheader ]
+  %239 = load i8, ptr %.15418, align 1, !tbaa !15
+  %240 = add i8 %239, -48
+  %241 = icmp ult i8 %240, 10
+  br i1 %241, label %242, label %.thread381, !prof !244
 
-238:                                              ; preds = %.lr.ph413
-  %239 = icmp sgt i32 %storemerge383410, 214748364
-  br i1 %239, label %248, label %240, !prof !245
+242:                                              ; preds = %.lr.ph420
+  %243 = icmp sgt i32 %storemerge385417, 214748364
+  br i1 %243, label %252, label %244, !prof !245
 
-240:                                              ; preds = %238
-  %241 = icmp eq i32 %storemerge383410, 214748364
-  %242 = icmp samesign ugt i8 %235, 55
-  %243 = and i1 %242, %241
-  br i1 %243, label %248, label %244, !prof !245
+244:                                              ; preds = %242
+  %245 = icmp eq i32 %storemerge385417, 214748364
+  %246 = icmp samesign ugt i8 %239, 55
+  %247 = and i1 %246, %245
+  br i1 %247, label %252, label %248, !prof !245
 
-244:                                              ; preds = %240
-  %245 = mul nsw i32 %storemerge383410, 10
-  %246 = zext nneg i8 %236 to i32
-  %247 = add nsw i32 %245, %246
-  br label %248
+248:                                              ; preds = %244
+  %249 = mul nsw i32 %storemerge385417, 10
+  %250 = zext nneg i8 %240 to i32
+  %251 = add nsw i32 %249, %250
+  br label %252
 
-248:                                              ; preds = %244, %240, %238
-  %storemerge = phi i32 [ %247, %244 ], [ 2147483647, %240 ], [ 2147483647, %238 ]
-  store i32 %storemerge, ptr %8, align 4, !tbaa !687
-  %.15 = getelementptr inbounds nuw i8, ptr %.15411, i64 1
-  %exitcond.not = icmp eq ptr %.15, %6
-  br i1 %exitcond.not, label %._crit_edge414, label %.lr.ph413, !prof !688
+252:                                              ; preds = %248, %244, %242
+  %storemerge = phi i32 [ %251, %248 ], [ 2147483647, %244 ], [ 2147483647, %242 ]
+  store i32 %storemerge, ptr %8, align 4, !tbaa !688
+  %.15 = getelementptr inbounds nuw i8, ptr %.15418, i64 1
+  %exitcond456.not = icmp eq ptr %.15, %6
+  br i1 %exitcond456.not, label %._crit_edge421, label %.lr.ph420, !prof !686
 
-.thread380:                                       ; preds = %.lr.ph413, %._crit_edge414
-  %249 = phi i32 [ %226, %._crit_edge414 ], [ %storemerge383410, %.lr.ph413 ]
-  %.15385 = phi ptr [ %.15.lcssa, %._crit_edge414 ], [ %.15411, %.lr.ph413 ]
-  br i1 %204, label %250, label %259
+.thread381:                                       ; preds = %.lr.ph420, %._crit_edge421
+  %253 = phi i32 [ %230, %._crit_edge421 ], [ %storemerge385417, %.lr.ph420 ]
+  %.15387 = phi ptr [ %.15.lcssa, %._crit_edge421 ], [ %.15418, %.lr.ph420 ]
+  br i1 %208, label %254, label %263
 
-250:                                              ; preds = %.thread380
-  %251 = or i32 %249, -2147483648
-  %252 = icmp slt i32 %190, %251
-  br i1 %252, label %253, label %269, !prof !245
+254:                                              ; preds = %.thread381
+  %255 = or i32 %253, -2147483648
+  %256 = icmp slt i32 %194, %255
+  br i1 %256, label %257, label %273, !prof !245
 
-253:                                              ; preds = %250
-  %254 = icmp eq i32 %249, 2147483647
-  %255 = icmp samesign ult i32 %190, -2147483339
-  %or.cond119 = and i1 %255, %254
-  %256 = icmp ne i64 %189, 0
-  %or.cond126 = select i1 %or.cond119, i1 %256, i1 false, !prof !689
-  br i1 %or.cond126, label %257, label %.sink.split, !prof !689
+257:                                              ; preds = %254
+  %258 = icmp eq i32 %253, 2147483647
+  %259 = icmp samesign ult i32 %194, -2147483339
+  %or.cond120 = and i1 %259, %258
+  %260 = icmp ne i64 %193, 0
+  %or.cond127 = select i1 %or.cond120, i1 %260, i1 false, !prof !689
+  br i1 %or.cond127, label %261, label %.sink.split, !prof !689
 
-257:                                              ; preds = %253
-  %258 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15385, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %275
+261:                                              ; preds = %257
+  %262 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15387, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %279
 
-259:                                              ; preds = %.thread380
-  %260 = sub nsw i32 2147483647, %249
-  %261 = icmp sgt i32 %190, %260
-  br i1 %261, label %262, label %269, !prof !245
+263:                                              ; preds = %.thread381
+  %264 = sub nsw i32 2147483647, %253
+  %265 = icmp sgt i32 %194, %264
+  br i1 %265, label %266, label %273, !prof !245
 
-262:                                              ; preds = %259
-  %263 = icmp eq i32 %249, 2147483647
-  %264 = icmp samesign ugt i32 %190, 2147483339
-  %or.cond122 = and i1 %264, %263
-  %265 = icmp ne i64 %189, 0
-  %or.cond128 = select i1 %or.cond122, i1 %265, i1 false, !prof !689
-  br i1 %or.cond128, label %266, label %.sink.split, !prof !689
+266:                                              ; preds = %263
+  %267 = icmp eq i32 %253, 2147483647
+  %268 = icmp samesign ugt i32 %194, 2147483339
+  %or.cond123 = and i1 %268, %267
+  %269 = icmp ne i64 %193, 0
+  %or.cond129 = select i1 %or.cond123, i1 %269, i1 false, !prof !689
+  br i1 %or.cond129, label %270, label %.sink.split, !prof !689
 
-266:                                              ; preds = %262
-  %267 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15385, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %275
+270:                                              ; preds = %266
+  %271 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15387, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %279
 
-268:                                              ; preds = %124, %134, %19
-  %.5323 = phi ptr [ %17, %19 ], [ %104, %124 ], [ %104, %134 ]
+272:                                              ; preds = %123, %133, %19
+  %.5324 = phi ptr [ %17, %19 ], [ %104, %123 ], [ %104, %133 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
-  br label %275
+  br label %279
 
-.sink.split:                                      ; preds = %262, %253
+.sink.split:                                      ; preds = %266, %257
   store i32 0, ptr %7, align 8, !tbaa !685
-  store i32 2147483647, ptr %8, align 4, !tbaa !687
-  br label %269
+  store i32 2147483647, ptr %8, align 4, !tbaa !688
+  br label %273
 
-269:                                              ; preds = %.sink.split, %._crit_edge, %._crit_edge513, %259, %250, %101, %117, %176
-  %.6324 = phi ptr [ %.15385, %250 ], [ %.15385, %259 ], [ %.8326.lcssa, %._crit_edge ], [ %.11.lcssa, %._crit_edge513 ], [ %96, %101 ], [ %.8326407, %117 ], [ %.11511, %176 ], [ %.15385, %.sink.split ]
+273:                                              ; preds = %.sink.split, %.critedge._crit_edge, %._crit_edge, %263, %254, %101, %117, %188
+  %.6325 = phi ptr [ %.15387, %254 ], [ %.15387, %263 ], [ %.8327.lcssa, %.critedge._crit_edge ], [ %.11.lcssa, %._crit_edge ], [ %96, %101 ], [ %.8327412, %117 ], [ %.11409, %188 ], [ %.15387, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %270 = ptrtoint ptr %.6324 to i64
-  %271 = sub i64 %270, %13
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 %271
-  %273 = call { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10fast_float19from_chars_advancedIdcEENS2_19from_chars_result_tIT0_EEPKS7_SA_RT_NS4_15parse_options_tIS7_EE(ptr noundef %1, ptr noundef %272, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 197568495619) #50
-  %274 = load double, ptr %4, align 8, !tbaa !460
-  call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %274)
+  %274 = ptrtoint ptr %.6325 to i64
+  %275 = sub i64 %274, %13
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %275
+  %277 = call { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10fast_float19from_chars_advancedIdcEENS2_19from_chars_result_tIT0_EEPKS7_SA_RT_NS4_15parse_options_tIS7_EE(ptr noundef %1, ptr noundef %276, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 197568495619) #50
+  %278 = load double, ptr %4, align 8, !tbaa !460
+  call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %275
+  br label %279
 
-275:                                              ; preds = %.thread377, %.thread365, %154, %.thread331, %269, %268, %266, %257, %230, %214, %210, %192, %160, %148, %145, %128, %109
-  %.2 = phi ptr [ %147, %145 ], [ %149, %148 ], [ %164, %160 ], [ %.6324, %269 ], [ %113, %109 ], [ %196, %192 ], [ %213, %210 ], [ %215, %214 ], [ %234, %230 ], [ %258, %257 ], [ %267, %266 ], [ %155, %154 ], [ %.5323, %268 ], [ %130, %128 ], [ %32, %.thread331 ], [ %175, %.thread365 ], [ %220, %.thread377 ]
+279:                                              ; preds = %.thread378, %.thread366, %153, %.thread332, %273, %272, %270, %261, %234, %218, %214, %196, %166, %147, %144, %127, %109
+  %.2 = phi ptr [ %146, %144 ], [ %148, %147 ], [ %170, %166 ], [ %.6325, %273 ], [ %113, %109 ], [ %200, %196 ], [ %217, %214 ], [ %219, %218 ], [ %238, %234 ], [ %262, %261 ], [ %271, %270 ], [ %154, %153 ], [ %.5324, %272 ], [ %129, %127 ], [ %32, %.thread332 ], [ %182, %.thread366 ], [ %224, %.thread378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -41831,9 +41845,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 17:                                               ; preds = %14
   %18 = and i8 %16, -33
   %19 = icmp eq i8 %18, 69
-  br i1 %19, label %.thread298, label %136
+  br i1 %19, label %.thread300, label %136
 
-.thread298:                                       ; preds = %17
+.thread300:                                       ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %97
 
@@ -41845,9 +41859,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %26 = bitcast <16 x i1> %25 to i16
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 false)
   %28 = icmp eq i16 %27, 0
-  br i1 %28, label %.thread282, label %30
+  br i1 %28, label %.thread284, label %30
 
-.thread282:                                       ; preds = %21
+.thread284:                                       ; preds = %21
   %29 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
   br label %137
 
@@ -41860,16 +41874,16 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = and i8 %35, -33
   %37 = icmp eq i8 %36, 69
-  br i1 %37, label %.thread290, label %39
+  br i1 %37, label %.thread292, label %39
 
-.thread290:                                       ; preds = %30
+.thread292:                                       ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %97
 
 39:                                               ; preds = %30
   %40 = add i8 %35, -48
   %or.cond = icmp ult i8 %40, 10
-  br i1 %or.cond, label %.thread286, label %.thread294
+  br i1 %or.cond, label %.thread288, label %.thread296
 
 41:                                               ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -41878,23 +41892,23 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   br i1 %43, label %65, label %59, !prof !244
 
 .preheader:                                       ; preds = %.preheader.preheader, %51
-  %.10.pn = phi ptr [ %.7278, %51 ], [ %.10, %.preheader.preheader ]
-  %.7278 = getelementptr inbounds nuw i8, ptr %.10.pn, i64 1
-  %44 = icmp ult ptr %.7278, %5
+  %.10.pn = phi ptr [ %.7280, %51 ], [ %.10, %.preheader.preheader ]
+  %.7280 = getelementptr inbounds nuw i8, ptr %.10.pn, i64 1
+  %44 = icmp ult ptr %.7280, %5
   br i1 %44, label %51, label %45, !prof !244
 
 45:                                               ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %47 = load i8, ptr %46, align 8, !tbaa !176, !range !181, !noundef !182
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %.thread294, !prof !245
+  br i1 %48, label %49, label %.thread296, !prof !245
 
 49:                                               ; preds = %45
   %50 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %137
 
 51:                                               ; preds = %.preheader
-  %52 = load i8, ptr %.7278, align 1, !tbaa !15
+  %52 = load i8, ptr %.7280, align 1, !tbaa !15
   %53 = add i8 %52, -48
   %54 = icmp ult i8 %53, 10
   br i1 %54, label %.preheader, label %55, !prof !244
@@ -41902,9 +41916,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 55:                                               ; preds = %51
   %56 = and i8 %52, -33
   %57 = icmp eq i8 %56, 69
-  br i1 %57, label %.thread301, label %.thread294
+  br i1 %57, label %.thread303, label %.thread296
 
-.thread301:                                       ; preds = %55
+.thread303:                                       ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %.10.pn, i64 2
   br label %97
 
@@ -41926,9 +41940,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 68:                                               ; preds = %65
   %69 = and i8 %66, -33
   %70 = icmp eq i8 %69, 69
-  br i1 %70, label %.thread311, label %136
+  br i1 %70, label %.thread313, label %136
 
-.thread311:                                       ; preds = %68
+.thread313:                                       ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %97
 
@@ -41955,61 +41969,61 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %84 = load i8, ptr %73, align 1, !tbaa !15
   %85 = add i8 %84, -48
   %86 = icmp ult i8 %85, 10
-  br i1 %86, label %.thread286, label %87, !prof !244
+  br i1 %86, label %.thread288, label %87, !prof !244
 
 87:                                               ; preds = %83
   %88 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %73, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
   br label %137
 
-.thread286:                                       ; preds = %83, %39
+.thread288:                                       ; preds = %83, %39
   %.10 = phi ptr [ %34, %39 ], [ %73, %83 ]
   %89 = icmp ult ptr %.10, %5
   br i1 %89, label %.preheader.preheader, label %90, !prof !244
 
-90:                                               ; preds = %.thread286
+90:                                               ; preds = %.thread288
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %92 = load i8, ptr %91, align 8, !tbaa !176, !range !181, !noundef !182
   %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %94, label %.thread294, !prof !245
+  br i1 %93, label %94, label %.thread296, !prof !245
 
 94:                                               ; preds = %90
   %95 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %137
 
-.preheader.preheader:                             ; preds = %.thread286
-  %.10338 = ptrtoint ptr %.10 to i64
-  %96 = sub i64 %6, %.10338
+.preheader.preheader:                             ; preds = %.thread288
+  %.10340 = ptrtoint ptr %.10 to i64
+  %96 = sub i64 %6, %.10340
   %scevgep = getelementptr i8, ptr %.10, i64 %96
   br label %.preheader
 
-97:                                               ; preds = %.thread311, %.thread301, %.thread298, %.thread290
-  %.3274 = phi ptr [ %38, %.thread290 ], [ %20, %.thread298 ], [ %58, %.thread301 ], [ %71, %.thread311 ]
-  %98 = icmp ult ptr %.3274, %5
+97:                                               ; preds = %.thread313, %.thread303, %.thread300, %.thread292
+  %.3276 = phi ptr [ %38, %.thread292 ], [ %20, %.thread300 ], [ %58, %.thread303 ], [ %71, %.thread313 ]
+  %98 = icmp ult ptr %.3276, %5
   br i1 %98, label %101, label %99, !prof !244
 
 99:                                               ; preds = %97
-  %100 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3274, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %100 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3276, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %137
 
 101:                                              ; preds = %97
-  %102 = load i8, ptr %.3274, align 1, !tbaa !15
+  %102 = load i8, ptr %.3276, align 1, !tbaa !15
   switch i8 %102, label %107 [
     i8 43, label %103
     i8 45, label %105
   ]
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %.3274, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.3276, i64 1
   br label %107
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %.3274, i64 1
-  store i8 1, ptr %9, align 8, !tbaa !686
+  %106 = getelementptr inbounds nuw i8, ptr %.3276, i64 1
+  store i8 1, ptr %9, align 8, !tbaa !687
   br label %107
 
 107:                                              ; preds = %101, %103, %105
-  %.12 = phi ptr [ %104, %103 ], [ %106, %105 ], [ %.3274, %101 ]
-  %.12339 = ptrtoint ptr %.12 to i64
+  %.12 = phi ptr [ %104, %103 ], [ %106, %105 ], [ %.3276, %101 ]
+  %.12341 = ptrtoint ptr %.12 to i64
   %108 = icmp ult ptr %.12, %5
   br i1 %108, label %117, label %109, !prof !244
 
@@ -42031,60 +42045,60 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %118 = load i8, ptr %.12, align 1, !tbaa !15
   %119 = add i8 %118, -48
   %120 = icmp ult i8 %119, 10
-  br i1 %120, label %122, label %.thread322, !prof !244
+  br i1 %120, label %122, label %.thread324, !prof !244
 
-.thread322:                                       ; preds = %117
+.thread324:                                       ; preds = %117
   %121 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.12, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc48ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
   br label %137
 
 122:                                              ; preds = %117
   %123 = zext nneg i8 %118 to i32
   %124 = add nsw i32 %123, -48
-  store i32 %124, ptr %8, align 4, !tbaa !687
-  %.14332 = getelementptr inbounds nuw i8, ptr %.12, i64 1
-  %125 = icmp ult ptr %.14332, %5
+  store i32 %124, ptr %8, align 4, !tbaa !688
+  %.14334 = getelementptr inbounds nuw i8, ptr %.12, i64 1
+  %125 = icmp ult ptr %.14334, %5
   br i1 %125, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
 .lr.ph.preheader:                                 ; preds = %122
-  %126 = sub i64 %6, %.12339
-  %scevgep340 = getelementptr i8, ptr %.12, i64 %126
+  %126 = sub i64 %6, %.12341
+  %scevgep342 = getelementptr i8, ptr %.12, i64 %126
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %135, %122
-  %.14.lcssa = phi ptr [ %.14332, %122 ], [ %scevgep340, %135 ]
+  %.14.lcssa = phi ptr [ %.14334, %122 ], [ %scevgep342, %135 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %128 = load i8, ptr %127, align 8, !tbaa !176, !range !181, !noundef !182
   %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %130, label %.thread294, !prof !245
+  br i1 %129, label %130, label %.thread296, !prof !245
 
 130:                                              ; preds = %._crit_edge
   %131 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.14.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %137
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %135
-  %.14333 = phi ptr [ %.14, %135 ], [ %.14332, %.lr.ph.preheader ]
-  %132 = load i8, ptr %.14333, align 1, !tbaa !15
+  %.14335 = phi ptr [ %.14, %135 ], [ %.14334, %.lr.ph.preheader ]
+  %132 = load i8, ptr %.14335, align 1, !tbaa !15
   %133 = add i8 %132, -48
   %134 = icmp ult i8 %133, 10
-  br i1 %134, label %135, label %.thread294, !prof !244
+  br i1 %134, label %135, label %.thread296, !prof !244
 
 135:                                              ; preds = %.lr.ph
-  %.14 = getelementptr inbounds nuw i8, ptr %.14333, i64 1
+  %.14 = getelementptr inbounds nuw i8, ptr %.14335, i64 1
   %exitcond.not = icmp eq ptr %.14, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
 136:                                              ; preds = %59, %68, %17
-  %.4275 = phi ptr [ %15, %17 ], [ %42, %59 ], [ %42, %68 ]
+  %.4277 = phi ptr [ %15, %17 ], [ %42, %59 ], [ %42, %68 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
   br label %137
 
-.thread294:                                       ; preds = %.lr.ph, %._crit_edge, %55, %39, %45, %90
-  %.5276 = phi ptr [ %scevgep, %45 ], [ %.10, %90 ], [ %34, %39 ], [ %.7278, %55 ], [ %.14.lcssa, %._crit_edge ], [ %.14333, %.lr.ph ]
+.thread296:                                       ; preds = %.lr.ph, %._crit_edge, %55, %39, %45, %90
+  %.5278 = phi ptr [ %scevgep, %45 ], [ %.10, %90 ], [ %34, %39 ], [ %.7280, %55 ], [ %.14.lcssa, %._crit_edge ], [ %.14335, %.lr.ph ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef 0.000000e+00)
   br label %137
 
-137:                                              ; preds = %.thread322, %87, %.thread282, %.thread294, %136, %130, %115, %113, %99, %94, %81, %79, %63, %49
-  %.2 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %95, %94 ], [ %50, %49 ], [ %100, %99 ], [ %114, %113 ], [ %116, %115 ], [ %131, %130 ], [ %88, %87 ], [ %.4275, %136 ], [ %64, %63 ], [ %.5276, %.thread294 ], [ %29, %.thread282 ], [ %121, %.thread322 ]
+137:                                              ; preds = %.thread324, %87, %.thread284, %.thread296, %136, %130, %115, %113, %99, %94, %81, %79, %63, %49
+  %.2 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %95, %94 ], [ %50, %49 ], [ %100, %99 ], [ %114, %113 ], [ %116, %115 ], [ %131, %130 ], [ %88, %87 ], [ %.4277, %136 ], [ %64, %63 ], [ %.5278, %.thread296 ], [ %29, %.thread284 ], [ %121, %.thread324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -42132,14 +42146,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 30:                                               ; preds = %19
   %31 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_4EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread442
+  br label %.thread444
 
 32:                                               ; preds = %19
   br i1 %26, label %33, label %35
 
 33:                                               ; preds = %32
   %34 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc) #50
-  br label %.thread442
+  br label %.thread444
 
 35:                                               ; preds = %32
   %36 = zext nneg i16 %24 to i64
@@ -42236,7 +42250,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   store i64 %.1.i, ptr %3, align 8, !tbaa !683
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 %36
   %98 = icmp eq i16 %23, 0
-  br i1 %98, label %.thread446, label %101
+  br i1 %98, label %.thread448, label %101
 
 99:                                               ; preds = %17
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -42254,7 +42268,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 104:                                              ; preds = %101
   %105 = and i8 %103, -33
   %106 = icmp eq i8 %105, 69
-  br i1 %106, label %.thread466, label %421
+  br i1 %106, label %.thread468, label %421
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -42269,118 +42283,118 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 116:                                              ; preds = %107
   %117 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %108, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread442
+  br label %.thread444
 
 118:                                              ; preds = %107
   %119 = add nuw nsw i32 %.0105, %114
   %120 = icmp samesign ugt i32 %119, 18
-  br i1 %120, label %.thread450, label %121
+  br i1 %120, label %.thread452, label %121
 
 121:                                              ; preds = %118
   %122 = zext nneg i16 %113 to i64
   %123 = icmp samesign ugt i16 %113, 3
-  br i1 %123, label %.lr.ph.i158, label %._crit_edge.i152
+  br i1 %123, label %.lr.ph.i160, label %._crit_edge.i154
 
-.lr.ph.i158:                                      ; preds = %121, %.lr.ph.i158
-  %.028.i159 = phi i64 [ %147, %.lr.ph.i158 ], [ %122, %121 ]
-  %.02427.i160 = phi ptr [ %146, %.lr.ph.i158 ], [ %108, %121 ]
-  %.02526.i161 = phi i64 [ %145, %.lr.ph.i158 ], [ %102, %121 ]
-  %124 = mul i64 %.02526.i161, 10
-  %125 = load i8, ptr %.02427.i160, align 1, !tbaa !15
+.lr.ph.i160:                                      ; preds = %121, %.lr.ph.i160
+  %.028.i161 = phi i64 [ %147, %.lr.ph.i160 ], [ %122, %121 ]
+  %.02427.i162 = phi ptr [ %146, %.lr.ph.i160 ], [ %108, %121 ]
+  %.02526.i163 = phi i64 [ %145, %.lr.ph.i160 ], [ %102, %121 ]
+  %124 = mul i64 %.02526.i163, 10
+  %125 = load i8, ptr %.02427.i162, align 1, !tbaa !15
   %126 = sext i8 %125 to i64
   %127 = add i64 %124, %126
   %128 = mul i64 %127, 10
-  %129 = getelementptr inbounds nuw i8, ptr %.02427.i160, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.02427.i162, i64 1
   %130 = load i8, ptr %129, align 1, !tbaa !15
   %131 = sext i8 %130 to i64
   %132 = add nsw i64 %131, -480
   %133 = add i64 %132, %128
   %134 = mul i64 %133, 10
-  %135 = getelementptr inbounds nuw i8, ptr %.02427.i160, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.02427.i162, i64 2
   %136 = load i8, ptr %135, align 1, !tbaa !15
   %137 = sext i8 %136 to i64
   %138 = add nsw i64 %137, -480
   %139 = add i64 %138, %134
   %140 = mul i64 %139, 10
-  %141 = getelementptr inbounds nuw i8, ptr %.02427.i160, i64 3
+  %141 = getelementptr inbounds nuw i8, ptr %.02427.i162, i64 3
   %142 = load i8, ptr %141, align 1, !tbaa !15
   %143 = sext i8 %142 to i64
   %144 = add nsw i64 %143, -528
   %145 = add i64 %144, %140
-  %146 = getelementptr inbounds nuw i8, ptr %.02427.i160, i64 4
-  %147 = add i64 %.028.i159, -4
+  %146 = getelementptr inbounds nuw i8, ptr %.02427.i162, i64 4
+  %147 = add i64 %.028.i161, -4
   %148 = icmp ugt i64 %147, 3
-  br i1 %148, label %.lr.ph.i158, label %._crit_edge.i152, !llvm.loop !684
+  br i1 %148, label %.lr.ph.i160, label %._crit_edge.i154, !llvm.loop !684
 
-._crit_edge.i152:                                 ; preds = %.lr.ph.i158, %121
-  %.025.lcssa.i153 = phi i64 [ %102, %121 ], [ %145, %.lr.ph.i158 ]
-  %.024.lcssa.i154 = phi ptr [ %108, %121 ], [ %146, %.lr.ph.i158 ]
-  %.0.lcssa.i155 = phi i64 [ %122, %121 ], [ %147, %.lr.ph.i158 ]
-  switch i64 %.0.lcssa.i155, label %default.unreachable.i157 [
+._crit_edge.i154:                                 ; preds = %.lr.ph.i160, %121
+  %.025.lcssa.i155 = phi i64 [ %102, %121 ], [ %145, %.lr.ph.i160 ]
+  %.024.lcssa.i156 = phi ptr [ %108, %121 ], [ %146, %.lr.ph.i160 ]
+  %.0.lcssa.i157 = phi i64 [ %122, %121 ], [ %147, %.lr.ph.i160 ]
+  switch i64 %.0.lcssa.i157, label %default.unreachable.i159 [
     i64 3, label %166
     i64 1, label %149
     i64 2, label %155
-    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162
+    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164
   ]
 
-149:                                              ; preds = %._crit_edge.i152
-  %150 = mul i64 %.025.lcssa.i153, 10
-  %151 = load i8, ptr %.024.lcssa.i154, align 1, !tbaa !15
+149:                                              ; preds = %._crit_edge.i154
+  %150 = mul i64 %.025.lcssa.i155, 10
+  %151 = load i8, ptr %.024.lcssa.i156, align 1, !tbaa !15
   %152 = sext i8 %151 to i64
   %153 = add i64 %150, -48
   %154 = add i64 %153, %152
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164
 
-155:                                              ; preds = %._crit_edge.i152
-  %156 = mul i64 %.025.lcssa.i153, 10
-  %157 = load i8, ptr %.024.lcssa.i154, align 1, !tbaa !15
+155:                                              ; preds = %._crit_edge.i154
+  %156 = mul i64 %.025.lcssa.i155, 10
+  %157 = load i8, ptr %.024.lcssa.i156, align 1, !tbaa !15
   %158 = sext i8 %157 to i64
   %159 = add i64 %156, %158
   %160 = mul i64 %159, 10
-  %161 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i154, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i156, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !15
   %163 = sext i8 %162 to i64
   %164 = add nsw i64 %163, -528
   %165 = add i64 %164, %160
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164
 
-166:                                              ; preds = %._crit_edge.i152
-  %167 = mul i64 %.025.lcssa.i153, 10
-  %168 = load i8, ptr %.024.lcssa.i154, align 1, !tbaa !15
+166:                                              ; preds = %._crit_edge.i154
+  %167 = mul i64 %.025.lcssa.i155, 10
+  %168 = load i8, ptr %.024.lcssa.i156, align 1, !tbaa !15
   %169 = sext i8 %168 to i64
   %170 = add i64 %167, %169
   %171 = mul i64 %170, 10
-  %172 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i154, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i156, i64 1
   %173 = load i8, ptr %172, align 1, !tbaa !15
   %174 = sext i8 %173 to i64
   %175 = add nsw i64 %174, -480
   %176 = add i64 %175, %171
   %177 = mul i64 %176, 10
-  %178 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i154, i64 2
+  %178 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i156, i64 2
   %179 = load i8, ptr %178, align 1, !tbaa !15
   %180 = sext i8 %179 to i64
   %181 = add nsw i64 %180, -528
   %182 = add i64 %181, %177
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164
 
-default.unreachable.i157:                         ; preds = %._crit_edge.i152
+default.unreachable.i159:                         ; preds = %._crit_edge.i154
   unreachable
 
-_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152, %149, %155, %166
-  %.1.i156 = phi i64 [ %.025.lcssa.i153, %._crit_edge.i152 ], [ %182, %166 ], [ %154, %149 ], [ %165, %155 ]
-  store i64 %.1.i156, ptr %3, align 8, !tbaa !683
+_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164: ; preds = %._crit_edge.i154, %149, %155, %166
+  %.1.i158 = phi i64 [ %.025.lcssa.i155, %._crit_edge.i154 ], [ %182, %166 ], [ %154, %149 ], [ %165, %155 ]
+  store i64 %.1.i158, ptr %3, align 8, !tbaa !683
   %183 = sub nsw i32 0, %114
   store i32 %183, ptr %7, align 8, !tbaa !685
   %184 = getelementptr inbounds nuw i8, ptr %108, i64 %122
   %185 = load i8, ptr %184, align 1, !tbaa !15
   %186 = and i8 %185, -33
   %187 = icmp eq i8 %186, 69
-  br i1 %187, label %.thread466, label %188
+  br i1 %187, label %.thread468, label %188
 
-188:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162
+188:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164
   %189 = add i8 %185, -48
   %or.cond = icmp ult i8 %189, 10
-  br i1 %or.cond, label %.thread454, label %.thread462.thread
+  br i1 %or.cond, label %.thread456, label %.thread464.thread
 
 190:                                              ; preds = %2
   %191 = icmp ult ptr %11, %6
@@ -42390,13 +42404,13 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %193 = load i8, ptr %11, align 1, !tbaa !15
   %194 = add i8 %193, -49
   %195 = icmp ult i8 %194, 9
-  br i1 %195, label %.thread474, label %199, !prof !244
+  br i1 %195, label %.thread476, label %199, !prof !244
 
-.thread474:                                       ; preds = %192
+.thread476:                                       ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %197 = and i8 %193, 15
   %198 = zext nneg i8 %197 to i64
-  br label %.thread446
+  br label %.thread448
 
 199:                                              ; preds = %192
   %200 = icmp eq i8 %193, 48
@@ -42419,59 +42433,59 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %208, align 1, !tbaa !173
   %209 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11)
-  br label %.thread442
+  br label %.thread444
 
 210:                                              ; preds = %201
   %211 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread442
+  br label %.thread444
 
 212:                                              ; preds = %199
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %.thread483
+  br label %.thread485
 
 214:                                              ; preds = %190
   %215 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %11, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
-.thread446:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %.thread474
-  %.promoted = phi i64 [ %198, %.thread474 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %.3425 = phi ptr [ %196, %.thread474 ], [ %97, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %216 = icmp ult ptr %.3425, %6
+.thread448:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %.thread476
+  %.promoted = phi i64 [ %198, %.thread476 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %.3427 = phi ptr [ %196, %.thread476 ], [ %97, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %216 = icmp ult ptr %.3427, %6
   br i1 %216, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread446
-  %.3425641 = ptrtoint ptr %.3425 to i64
-  %217 = sub i64 %13, %.3425641
-  %scevgep = getelementptr i8, ptr %.3425, i64 %217
+.lr.ph.preheader:                                 ; preds = %.thread448
+  %.3427643 = ptrtoint ptr %.3427 to i64
+  %217 = sub i64 %13, %.3427643
+  %scevgep = getelementptr i8, ptr %.3427, i64 %217
   %218 = trunc i64 %13 to i32
-  %219 = trunc i64 %.3425641 to i32
+  %219 = trunc i64 %.3427643 to i32
   %220 = sub i32 %218, %219
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %236, %.thread446
-  %.lcssa569 = phi i64 [ %.promoted, %.thread446 ], [ %239, %236 ]
-  %.10432.lcssa = phi ptr [ %.3425, %.thread446 ], [ %scevgep, %236 ]
-  store i64 %.lcssa569, ptr %3, align 8
+._crit_edge:                                      ; preds = %236, %.thread448
+  %.lcssa571 = phi i64 [ %.promoted, %.thread448 ], [ %239, %236 ]
+  %.10434.lcssa = phi ptr [ %.3427, %.thread448 ], [ %scevgep, %236 ]
+  store i64 %.lcssa571, ptr %3, align 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %222 = load i8, ptr %221, align 8, !tbaa !176, !range !181, !noundef !182
   %223 = trunc nuw i8 %222 to i1
   br i1 %223, label %224, label %418, !prof !245
 
 224:                                              ; preds = %._crit_edge
-  %225 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10432.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  %225 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10434.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread444
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %236
   %indvars.iv = phi i32 [ %220, %.lr.ph.preheader ], [ %indvars.iv.next, %236 ]
-  %.10432572 = phi ptr [ %.3425, %.lr.ph.preheader ], [ %231, %236 ]
+  %.10434574 = phi ptr [ %.3427, %.lr.ph.preheader ], [ %231, %236 ]
   %226 = phi i64 [ %.promoted, %.lr.ph.preheader ], [ %239, %236 ]
-  %227 = load i8, ptr %.10432572, align 1, !tbaa !15
+  %227 = load i8, ptr %.10434574, align 1, !tbaa !15
   %228 = add i8 %227, -48
   %229 = icmp ult i8 %228, 10
-  br i1 %229, label %230, label %.thread483, !prof !244
+  br i1 %229, label %230, label %.thread485, !prof !244
 
 230:                                              ; preds = %.lr.ph
-  %231 = getelementptr inbounds nuw i8, ptr %.10432572, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %.10434574, i64 1
   %232 = icmp ugt i64 %226, 922337203685477580
   br i1 %232, label %240, label %233
 
@@ -42487,229 +42501,229 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %239 = add nuw i64 %237, %238
   %exitcond.not = icmp eq ptr %231, %6
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
 240:                                              ; preds = %233, %230
   store i64 %226, ptr %3, align 8
   %241 = icmp ult ptr %231, %6
-  br i1 %241, label %.lr.ph581, label %._crit_edge582, !prof !360
+  br i1 %241, label %.lr.ph583, label %._crit_edge584, !prof !360
 
-._crit_edge582:                                   ; preds = %258, %240
-  %storemerge543.lcssa = phi i32 [ 1, %240 ], [ %indvars.iv, %258 ]
-  %.13435.lcssa = phi ptr [ %231, %240 ], [ %scevgep, %258 ]
-  store i32 %storemerge543.lcssa, ptr %7, align 8, !tbaa !685
+._crit_edge584:                                   ; preds = %258, %240
+  %storemerge545.lcssa = phi i32 [ 1, %240 ], [ %indvars.iv, %258 ]
+  %.13437.lcssa = phi ptr [ %231, %240 ], [ %scevgep, %258 ]
+  store i32 %storemerge545.lcssa, ptr %7, align 8, !tbaa !685
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %243 = load i8, ptr %242, align 8, !tbaa !176, !range !181, !noundef !182
   %244 = trunc nuw i8 %243 to i1
-  br i1 %244, label %245, label %.thread462.thread, !prof !245
+  br i1 %244, label %245, label %.thread464.thread, !prof !245
 
-245:                                              ; preds = %._crit_edge582
-  %246 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13435.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+245:                                              ; preds = %._crit_edge584
+  %246 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13437.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread444
 
-.lr.ph581:                                        ; preds = %240, %258
-  %storemerge543579 = phi i32 [ %storemerge543, %258 ], [ 1, %240 ]
-  %.13435578 = phi ptr [ %259, %258 ], [ %231, %240 ]
-  %247 = load i8, ptr %.13435578, align 1, !tbaa !15
+.lr.ph583:                                        ; preds = %240, %258
+  %storemerge545581 = phi i32 [ %storemerge545, %258 ], [ 1, %240 ]
+  %.13437580 = phi ptr [ %259, %258 ], [ %231, %240 ]
+  %247 = load i8, ptr %.13437580, align 1, !tbaa !15
   %248 = add i8 %247, -48
   %249 = icmp ult i8 %248, 10
   br i1 %249, label %250, label %253, !prof !245
 
-250:                                              ; preds = %.lr.ph581
-  %251 = icmp eq i32 %storemerge543579, 2147483646
-  br i1 %251, label %.thread486, label %258, !prof !245
+250:                                              ; preds = %.lr.ph583
+  %251 = icmp eq i32 %storemerge545581, 2147483646
+  br i1 %251, label %.thread488, label %258, !prof !245
 
-.thread486:                                       ; preds = %250
-  %252 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13435578, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
-  br label %.thread442
+.thread488:                                       ; preds = %250
+  %252 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13437580, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+  br label %.thread444
 
-253:                                              ; preds = %.lr.ph581
-  store i32 %storemerge543579, ptr %7, align 8, !tbaa !685
+253:                                              ; preds = %.lr.ph583
+  store i32 %storemerge545581, ptr %7, align 8, !tbaa !685
   %254 = icmp eq i8 %247, 46
   br i1 %254, label %261, label %255, !prof !244
 
 255:                                              ; preds = %253
   %256 = and i8 %247, -33
   %257 = icmp eq i8 %256, 69
-  br i1 %257, label %.thread466, label %.thread462.thread
+  br i1 %257, label %.thread468, label %.thread464.thread
 
 258:                                              ; preds = %250
-  %259 = getelementptr inbounds nuw i8, ptr %.13435578, i64 1
-  %storemerge543 = add nuw nsw i32 %storemerge543579, 1
+  %259 = getelementptr inbounds nuw i8, ptr %.13437580, i64 1
+  %storemerge545 = add nuw nsw i32 %storemerge545581, 1
   %260 = icmp ult ptr %259, %6
-  br i1 %260, label %.lr.ph581, label %._crit_edge582, !prof !361
+  br i1 %260, label %.lr.ph583, label %._crit_edge584, !prof !361
 
 261:                                              ; preds = %253
-  %262 = getelementptr inbounds nuw i8, ptr %.13435578, i64 1
+  %262 = getelementptr inbounds nuw i8, ptr %.13437580, i64 1
   %263 = icmp ult ptr %262, %6
   br i1 %263, label %266, label %264, !prof !244
 
 264:                                              ; preds = %261
   %265 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %262, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
 266:                                              ; preds = %261
   %267 = load i8, ptr %262, align 1, !tbaa !15
   %268 = add i8 %267, -48
   %269 = icmp ult i8 %268, 10
-  br i1 %269, label %.thread504, label %271, !prof !244
+  br i1 %269, label %.thread506, label %271, !prof !244
 
-.thread504:                                       ; preds = %266
-  %270 = getelementptr inbounds nuw i8, ptr %.13435578, i64 2
-  br label %.thread525
+.thread506:                                       ; preds = %266
+  %270 = getelementptr inbounds nuw i8, ptr %.13437580, i64 2
+  br label %.thread527
 
 271:                                              ; preds = %266
   %272 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %262, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
-  br label %.thread442
+  br label %.thread444
 
-.thread525:                                       ; preds = %333, %.thread504
-  %273 = phi i64 [ %226, %.thread504 ], [ %328, %333 ]
-  %274 = phi i32 [ %storemerge543579, %.thread504 ], [ %329, %333 ]
-  %.16438 = phi ptr [ %270, %.thread504 ], [ %334, %333 ]
-  %275 = icmp ult ptr %.16438, %6
-  br i1 %275, label %.lr.ph592.preheader, label %._crit_edge593, !prof !360
+.thread527:                                       ; preds = %333, %.thread506
+  %273 = phi i64 [ %226, %.thread506 ], [ %328, %333 ]
+  %274 = phi i32 [ %storemerge545581, %.thread506 ], [ %329, %333 ]
+  %.16440 = phi ptr [ %270, %.thread506 ], [ %334, %333 ]
+  %275 = icmp ult ptr %.16440, %6
+  br i1 %275, label %.lr.ph594.preheader, label %._crit_edge595, !prof !360
 
-.lr.ph592.preheader:                              ; preds = %.thread525
-  %.16438648 = ptrtoint ptr %.16438 to i64
-  %276 = sub i64 %13, %.16438648
-  %scevgep649 = getelementptr i8, ptr %.16438, i64 %276
-  br label %.lr.ph592
+.lr.ph594.preheader:                              ; preds = %.thread527
+  %.16440650 = ptrtoint ptr %.16440 to i64
+  %276 = sub i64 %13, %.16440650
+  %scevgep651 = getelementptr i8, ptr %.16440, i64 %276
+  br label %.lr.ph594
 
-._crit_edge593:                                   ; preds = %288, %.thread525
-  %.17.lcssa = phi ptr [ %.16438, %.thread525 ], [ %scevgep649, %288 ]
+._crit_edge595:                                   ; preds = %288, %.thread527
+  %.17.lcssa = phi ptr [ %.16440, %.thread527 ], [ %scevgep651, %288 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %278 = load i8, ptr %277, align 8, !tbaa !176, !range !181, !noundef !182
   %279 = trunc nuw i8 %278 to i1
-  br i1 %279, label %280, label %.thread462.thread, !prof !245
+  br i1 %279, label %280, label %.thread464.thread, !prof !245
 
-280:                                              ; preds = %._crit_edge593
+280:                                              ; preds = %._crit_edge595
   %281 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.17.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
-.lr.ph592:                                        ; preds = %.lr.ph592.preheader, %288
-  %.17591 = phi ptr [ %289, %288 ], [ %.16438, %.lr.ph592.preheader ]
-  %282 = load i8, ptr %.17591, align 1, !tbaa !15
+.lr.ph594:                                        ; preds = %.lr.ph594.preheader, %288
+  %.17593 = phi ptr [ %289, %288 ], [ %.16440, %.lr.ph594.preheader ]
+  %282 = load i8, ptr %.17593, align 1, !tbaa !15
   %283 = add i8 %282, -48
   %284 = icmp ult i8 %283, 10
   br i1 %284, label %288, label %285, !prof !244
 
-285:                                              ; preds = %.lr.ph592
+285:                                              ; preds = %.lr.ph594
   %286 = and i8 %282, -33
   %287 = icmp eq i8 %286, 69
-  br i1 %287, label %.thread466, label %.thread462.thread
+  br i1 %287, label %.thread468, label %.thread464.thread
 
-288:                                              ; preds = %.lr.ph592
-  %289 = getelementptr inbounds nuw i8, ptr %.17591, i64 1
-  %exitcond650.not = icmp eq ptr %289, %6
-  br i1 %exitcond650.not, label %._crit_edge593, label %.lr.ph592, !prof !688
+288:                                              ; preds = %.lr.ph594
+  %289 = getelementptr inbounds nuw i8, ptr %.17593, i64 1
+  %exitcond652.not = icmp eq ptr %289, %6
+  br i1 %exitcond652.not, label %._crit_edge595, label %.lr.ph594, !prof !686
 
-.thread483:                                       ; preds = %.lr.ph, %212
+.thread485:                                       ; preds = %.lr.ph, %212
   %290 = phi i64 [ 0, %212 ], [ %226, %.lr.ph ]
-  %.9431 = phi ptr [ %213, %212 ], [ %.10432572, %.lr.ph ]
+  %.9433 = phi ptr [ %213, %212 ], [ %.10434574, %.lr.ph ]
   store i64 %290, ptr %3, align 8
-  %291 = icmp ult ptr %.9431, %6
+  %291 = icmp ult ptr %.9433, %6
   br i1 %291, label %298, label %292, !prof !244
 
-292:                                              ; preds = %.thread483
+292:                                              ; preds = %.thread485
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %294 = load i8, ptr %293, align 8, !tbaa !176, !range !181, !noundef !182
   %295 = trunc nuw i8 %294 to i1
   br i1 %295, label %296, label %418, !prof !245
 
 296:                                              ; preds = %292
-  %297 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9431, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  %297 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9433, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread444
 
-298:                                              ; preds = %.thread483
-  %299 = load i8, ptr %.9431, align 1, !tbaa !15
+298:                                              ; preds = %.thread485
+  %299 = load i8, ptr %.9433, align 1, !tbaa !15
   %300 = icmp eq i8 %299, 46
-  br i1 %300, label %.thread513, label %302, !prof !244
+  br i1 %300, label %.thread515, label %302, !prof !244
 
-.thread513:                                       ; preds = %298
-  %301 = getelementptr inbounds nuw i8, ptr %.9431, i64 1
-  br label %.thread450
+.thread515:                                       ; preds = %298
+  %301 = getelementptr inbounds nuw i8, ptr %.9433, i64 1
+  br label %.thread452
 
 302:                                              ; preds = %298
   %303 = and i8 %299, -33
   %304 = icmp eq i8 %303, 69
-  br i1 %304, label %.thread466, label %418
+  br i1 %304, label %.thread468, label %418
 
-.thread450:                                       ; preds = %118, %.thread513
-  %.promoted585656 = phi i64 [ %290, %.thread513 ], [ %102, %118 ]
-  %.4426 = phi ptr [ %301, %.thread513 ], [ %108, %118 ]
-  %305 = icmp ult ptr %.4426, %6
+.thread452:                                       ; preds = %118, %.thread515
+  %.promoted587658 = phi i64 [ %290, %.thread515 ], [ %102, %118 ]
+  %.4428 = phi ptr [ %301, %.thread515 ], [ %108, %118 ]
+  %305 = icmp ult ptr %.4428, %6
   br i1 %305, label %314, label %306, !prof !244
 
-306:                                              ; preds = %.thread450
+306:                                              ; preds = %.thread452
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %308 = load i8, ptr %307, align 8, !tbaa !176, !range !181, !noundef !182
   %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %310, label %312, !prof !245
 
 310:                                              ; preds = %306
-  %311 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4426, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  %311 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4428, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread444
 
 312:                                              ; preds = %306
-  %313 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4426, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread442
+  %313 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4428, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread444
 
-314:                                              ; preds = %.thread450
-  %315 = load i8, ptr %.4426, align 1, !tbaa !15
+314:                                              ; preds = %.thread452
+  %315 = load i8, ptr %.4428, align 1, !tbaa !15
   %316 = add i8 %315, -48
   %317 = icmp ult i8 %316, 10
-  br i1 %317, label %.thread454, label %318, !prof !244
+  br i1 %317, label %.thread456, label %318, !prof !244
 
 318:                                              ; preds = %314
-  %319 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4426, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread442
+  %319 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4428, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread444
 
-.thread454:                                       ; preds = %314, %188
-  %.promoted586 = phi i32 [ %183, %188 ], [ 0, %314 ]
-  %.promoted585 = phi i64 [ %.1.i156, %188 ], [ %.promoted585656, %314 ]
-  %.5427 = phi ptr [ %184, %188 ], [ %.4426, %314 ]
-  %320 = icmp ult ptr %.5427, %6
-  br i1 %320, label %.lr.ph588, label %._crit_edge589, !prof !360
+.thread456:                                       ; preds = %314, %188
+  %.promoted588 = phi i32 [ %183, %188 ], [ 0, %314 ]
+  %.promoted587 = phi i64 [ %.1.i158, %188 ], [ %.promoted587658, %314 ]
+  %.5429 = phi ptr [ %184, %188 ], [ %.4428, %314 ]
+  %320 = icmp ult ptr %.5429, %6
+  br i1 %320, label %.lr.ph590, label %._crit_edge591, !prof !360
 
-._crit_edge589:                                   ; preds = %342, %.thread454
-  %321 = phi i32 [ %.promoted586, %.thread454 ], [ %343, %342 ]
-  %322 = phi i64 [ %.promoted585, %.thread454 ], [ %346, %342 ]
-  %.20.lcssa = phi ptr [ %.5427, %.thread454 ], [ %334, %342 ]
+._crit_edge591:                                   ; preds = %342, %.thread456
+  %321 = phi i32 [ %.promoted588, %.thread456 ], [ %343, %342 ]
+  %322 = phi i64 [ %.promoted587, %.thread456 ], [ %346, %342 ]
+  %.20.lcssa = phi ptr [ %.5429, %.thread456 ], [ %334, %342 ]
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %324 = load i8, ptr %323, align 8, !tbaa !176, !range !181, !noundef !182
   %325 = trunc nuw i8 %324 to i1
-  br i1 %325, label %326, label %.thread462.thread, !prof !245
+  br i1 %325, label %326, label %.thread464.thread, !prof !245
 
-326:                                              ; preds = %._crit_edge589
+326:                                              ; preds = %._crit_edge591
   %327 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.20.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
-.lr.ph588:                                        ; preds = %.thread454, %342
-  %.20587 = phi ptr [ %334, %342 ], [ %.5427, %.thread454 ]
-  %328 = phi i64 [ %346, %342 ], [ %.promoted585, %.thread454 ]
-  %329 = phi i32 [ %343, %342 ], [ %.promoted586, %.thread454 ]
-  %330 = load i8, ptr %.20587, align 1, !tbaa !15
+.lr.ph590:                                        ; preds = %.thread456, %342
+  %.20589 = phi ptr [ %334, %342 ], [ %.5429, %.thread456 ]
+  %328 = phi i64 [ %346, %342 ], [ %.promoted587, %.thread456 ]
+  %329 = phi i32 [ %343, %342 ], [ %.promoted588, %.thread456 ]
+  %330 = load i8, ptr %.20589, align 1, !tbaa !15
   %331 = add i8 %330, -48
   %332 = icmp ult i8 %331, 10
   br i1 %332, label %333, label %339, !prof !244
 
-333:                                              ; preds = %.lr.ph588
-  %334 = getelementptr inbounds nuw i8, ptr %.20587, i64 1
+333:                                              ; preds = %.lr.ph590
+  %334 = getelementptr inbounds nuw i8, ptr %.20589, i64 1
   %335 = icmp ult i64 %328, 9007199254740992
-  br i1 %335, label %336, label %.thread525, !prof !244
+  br i1 %335, label %336, label %.thread527, !prof !244
 
 336:                                              ; preds = %333
   %337 = icmp eq i32 %329, -2147483647
-  br i1 %337, label %.thread521, label %342, !prof !245
+  br i1 %337, label %.thread523, label %342, !prof !245
 
-.thread521:                                       ; preds = %336
+.thread523:                                       ; preds = %336
   %338 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %334, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %.thread442
+  br label %.thread444
 
-339:                                              ; preds = %.lr.ph588
+339:                                              ; preds = %.lr.ph590
   %340 = and i8 %330, -33
   %341 = icmp eq i8 %340, 69
-  br i1 %341, label %.thread466, label %.thread462.thread
+  br i1 %341, label %.thread468, label %.thread464.thread
 
 342:                                              ; preds = %336
   %343 = add nsw i32 %329, -1
@@ -42718,22 +42732,22 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %345 = zext nneg i8 %331 to i64
   %346 = add nuw nsw i64 %344, %345
   store i64 %346, ptr %3, align 8, !tbaa !683
-  %exitcond647.not = icmp eq ptr %334, %6
-  br i1 %exitcond647.not, label %._crit_edge589, label %.lr.ph588, !prof !688
+  %exitcond649.not = icmp eq ptr %334, %6
+  br i1 %exitcond649.not, label %._crit_edge591, label %.lr.ph590, !prof !686
 
-.thread466:                                       ; preds = %339, %302, %285, %255, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162, %104
-  %.20587.lcssa.sink = phi ptr [ %.1, %104 ], [ %184, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162 ], [ %.13435578, %255 ], [ %.17591, %285 ], [ %.9431, %302 ], [ %.20587, %339 ]
-  %347 = phi i64 [ %102, %104 ], [ %.1.i156, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162 ], [ %226, %255 ], [ %273, %285 ], [ %290, %302 ], [ %328, %339 ]
-  %348 = phi i32 [ 0, %104 ], [ %183, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit162 ], [ %storemerge543579, %255 ], [ %274, %285 ], [ 0, %302 ], [ %329, %339 ]
-  %349 = getelementptr inbounds nuw i8, ptr %.20587.lcssa.sink, i64 1
+.thread468:                                       ; preds = %339, %302, %285, %255, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164, %104
+  %.20589.lcssa.sink = phi ptr [ %.1, %104 ], [ %184, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164 ], [ %.13437580, %255 ], [ %.17593, %285 ], [ %.9433, %302 ], [ %.20589, %339 ]
+  %347 = phi i64 [ %102, %104 ], [ %.1.i158, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164 ], [ %226, %255 ], [ %273, %285 ], [ %290, %302 ], [ %328, %339 ]
+  %348 = phi i32 [ 0, %104 ], [ %183, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit164 ], [ %storemerge545581, %255 ], [ %274, %285 ], [ 0, %302 ], [ %329, %339 ]
+  %349 = getelementptr inbounds nuw i8, ptr %.20589.lcssa.sink, i64 1
   %350 = icmp ult ptr %349, %6
   br i1 %350, label %353, label %351, !prof !244
 
-351:                                              ; preds = %.thread466
+351:                                              ; preds = %.thread468
   %352 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %349, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
-353:                                              ; preds = %.thread466
+353:                                              ; preds = %.thread468
   %354 = load i8, ptr %349, align 1, !tbaa !15
   switch i8 %354, label %359 [
     i8 43, label %355
@@ -42741,12 +42755,12 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   ]
 
 355:                                              ; preds = %353
-  %356 = getelementptr inbounds nuw i8, ptr %.20587.lcssa.sink, i64 2
+  %356 = getelementptr inbounds nuw i8, ptr %.20589.lcssa.sink, i64 2
   br label %359
 
 357:                                              ; preds = %353
-  %358 = getelementptr inbounds nuw i8, ptr %.20587.lcssa.sink, i64 2
-  store i8 1, ptr %9, align 8, !tbaa !686
+  %358 = getelementptr inbounds nuw i8, ptr %.20589.lcssa.sink, i64 2
+  store i8 1, ptr %9, align 8, !tbaa !687
   br label %359
 
 359:                                              ; preds = %353, %355, %357
@@ -42763,135 +42777,135 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
 
 366:                                              ; preds = %362
   %367 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
 368:                                              ; preds = %362
   %369 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %.thread442
+  br label %.thread444
 
 370:                                              ; preds = %359
   %371 = load i8, ptr %.22, align 1, !tbaa !15
   %372 = add i8 %371, -48
   %373 = icmp ult i8 %372, 10
-  br i1 %373, label %375, label %.thread537, !prof !244
+  br i1 %373, label %375, label %.thread539, !prof !244
 
-.thread537:                                       ; preds = %370
+.thread539:                                       ; preds = %370
   %374 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread442
+  br label %.thread444
 
 375:                                              ; preds = %370
   %376 = zext nneg i8 %371 to i32
   %377 = add nsw i32 %376, -48
-  store i32 %377, ptr %8, align 4, !tbaa !687
-  %.24596 = getelementptr inbounds nuw i8, ptr %.22, i64 1
-  %378 = icmp ult ptr %.24596, %6
-  br i1 %378, label %.lr.ph600, label %._crit_edge601, !prof !360
+  store i32 %377, ptr %8, align 4, !tbaa !688
+  %.24598 = getelementptr inbounds nuw i8, ptr %.22, i64 1
+  %378 = icmp ult ptr %.24598, %6
+  br i1 %378, label %.lr.ph602, label %._crit_edge603, !prof !360
 
-._crit_edge601:                                   ; preds = %398, %375
+._crit_edge603:                                   ; preds = %398, %375
   %379 = phi i32 [ %377, %375 ], [ %storemerge, %398 ]
-  %.24.lcssa = phi ptr [ %.24596, %375 ], [ %.24, %398 ]
+  %.24.lcssa = phi ptr [ %.24598, %375 ], [ %.24, %398 ]
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %381 = load i8, ptr %380, align 8, !tbaa !176, !range !181, !noundef !182
   %382 = trunc nuw i8 %381 to i1
-  br i1 %382, label %383, label %.thread540, !prof !245
+  br i1 %382, label %383, label %.thread542, !prof !245
 
-383:                                              ; preds = %._crit_edge601
+383:                                              ; preds = %._crit_edge603
   %384 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread442
+  br label %.thread444
 
-.lr.ph600:                                        ; preds = %375, %398
-  %.24598 = phi ptr [ %.24, %398 ], [ %.24596, %375 ]
-  %storemerge544597 = phi i32 [ %storemerge, %398 ], [ %377, %375 ]
-  %385 = load i8, ptr %.24598, align 1, !tbaa !15
+.lr.ph602:                                        ; preds = %375, %398
+  %.24600 = phi ptr [ %.24, %398 ], [ %.24598, %375 ]
+  %storemerge546599 = phi i32 [ %storemerge, %398 ], [ %377, %375 ]
+  %385 = load i8, ptr %.24600, align 1, !tbaa !15
   %386 = add i8 %385, -48
   %387 = icmp ult i8 %386, 10
-  br i1 %387, label %388, label %.thread540, !prof !244
+  br i1 %387, label %388, label %.thread542, !prof !244
 
-388:                                              ; preds = %.lr.ph600
-  %389 = icmp sgt i32 %storemerge544597, 214748364
+388:                                              ; preds = %.lr.ph602
+  %389 = icmp sgt i32 %storemerge546599, 214748364
   br i1 %389, label %398, label %390, !prof !245
 
 390:                                              ; preds = %388
-  %391 = icmp eq i32 %storemerge544597, 214748364
+  %391 = icmp eq i32 %storemerge546599, 214748364
   %392 = icmp samesign ugt i8 %385, 55
   %393 = and i1 %392, %391
   br i1 %393, label %398, label %394, !prof !245
 
 394:                                              ; preds = %390
-  %395 = mul nsw i32 %storemerge544597, 10
+  %395 = mul nsw i32 %storemerge546599, 10
   %396 = zext nneg i8 %386 to i32
   %397 = add nsw i32 %395, %396
   br label %398
 
 398:                                              ; preds = %394, %390, %388
   %storemerge = phi i32 [ %397, %394 ], [ 2147483647, %390 ], [ 2147483647, %388 ]
-  store i32 %storemerge, ptr %8, align 4, !tbaa !687
-  %.24 = getelementptr inbounds nuw i8, ptr %.24598, i64 1
-  %exitcond653.not = icmp eq ptr %.24, %6
-  br i1 %exitcond653.not, label %._crit_edge601, label %.lr.ph600, !prof !688
+  store i32 %storemerge, ptr %8, align 4, !tbaa !688
+  %.24 = getelementptr inbounds nuw i8, ptr %.24600, i64 1
+  %exitcond655.not = icmp eq ptr %.24, %6
+  br i1 %exitcond655.not, label %._crit_edge603, label %.lr.ph602, !prof !686
 
-.thread540:                                       ; preds = %.lr.ph600, %._crit_edge601
-  %399 = phi i32 [ %379, %._crit_edge601 ], [ %storemerge544597, %.lr.ph600 ]
-  %.24546 = phi ptr [ %.24.lcssa, %._crit_edge601 ], [ %.24598, %.lr.ph600 ]
+.thread542:                                       ; preds = %.lr.ph602, %._crit_edge603
+  %399 = phi i32 [ %379, %._crit_edge603 ], [ %storemerge546599, %.lr.ph602 ]
+  %.24548 = phi ptr [ %.24.lcssa, %._crit_edge603 ], [ %.24600, %.lr.ph602 ]
   br i1 %360, label %400, label %409
 
-400:                                              ; preds = %.thread540
+400:                                              ; preds = %.thread542
   %401 = or i32 %399, -2147483648
   %402 = icmp slt i32 %348, %401
-  br i1 %402, label %403, label %.critedge144, !prof !245
+  br i1 %402, label %403, label %.critedge146, !prof !245
 
 403:                                              ; preds = %400
   %404 = icmp eq i32 %399, 2147483647
   %405 = icmp samesign ult i32 %348, -2147483339
-  %or.cond142 = and i1 %405, %404
+  %or.cond144 = and i1 %405, %404
   %406 = icmp ne i64 %347, 0
-  %or.cond149 = select i1 %or.cond142, i1 %406, i1 false, !prof !689
-  br i1 %or.cond149, label %407, label %.critedge144, !prof !689
+  %or.cond151 = select i1 %or.cond144, i1 %406, i1 false, !prof !689
+  br i1 %or.cond151, label %407, label %.critedge146, !prof !689
 
 407:                                              ; preds = %403
-  %408 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24546, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %.thread442
+  %408 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24548, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %.thread444
 
-409:                                              ; preds = %.thread540
+409:                                              ; preds = %.thread542
   %410 = sub nsw i32 2147483647, %399
   %411 = icmp sgt i32 %348, %410
-  br i1 %411, label %412, label %.thread462.thread, !prof !245
+  br i1 %411, label %412, label %.thread464.thread, !prof !245
 
 412:                                              ; preds = %409
   %413 = icmp eq i32 %399, 2147483647
   %414 = icmp samesign ugt i32 %348, 2147483339
-  %or.cond145 = and i1 %414, %413
+  %or.cond147 = and i1 %414, %413
   %415 = icmp ne i64 %347, 0
-  %or.cond151 = select i1 %or.cond145, i1 %415, i1 false, !prof !689
-  br i1 %or.cond151, label %416, label %.thread462.thread, !prof !689
+  %or.cond153 = select i1 %or.cond147, i1 %415, i1 false, !prof !689
+  br i1 %or.cond153, label %416, label %.thread464.thread, !prof !689
 
 416:                                              ; preds = %412
-  %417 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24546, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %.thread442
+  %417 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24548, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %.thread444
 
 418:                                              ; preds = %._crit_edge, %292, %302
-  %419 = phi i64 [ %290, %292 ], [ %.lcssa569, %._crit_edge ], [ %290, %302 ]
-  %.11433 = phi ptr [ %.9431, %292 ], [ %.10432.lcssa, %._crit_edge ], [ %.9431, %302 ]
+  %419 = phi i64 [ %290, %292 ], [ %.lcssa571, %._crit_edge ], [ %290, %302 ]
+  %.11435 = phi ptr [ %.9433, %292 ], [ %.10434.lcssa, %._crit_edge ], [ %.9433, %302 ]
   %420 = sub i64 0, %419
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %420)
-  br label %.thread442
+  br label %.thread444
 
 421:                                              ; preds = %104
   %422 = sub i64 0, %102
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %422)
-  br label %.thread442
+  br label %.thread444
 
-.critedge144:                                     ; preds = %403, %400
+.critedge146:                                     ; preds = %403, %400
   %423 = phi i32 [ %399, %400 ], [ 2147483647, %403 ]
   %424 = phi i32 [ %348, %400 ], [ 0, %403 ]
   %425 = sub nsw i32 0, %423
-  br label %.thread462.thread
+  br label %.thread464.thread
 
-.thread462.thread:                                ; preds = %412, %339, %285, %255, %188, %._crit_edge589, %._crit_edge582, %._crit_edge593, %409, %.critedge144
-  %.7429691 = phi ptr [ %.24546, %.critedge144 ], [ %.20587, %339 ], [ %.17591, %285 ], [ %.13435578, %255 ], [ %184, %188 ], [ %.20.lcssa, %._crit_edge589 ], [ %.13435.lcssa, %._crit_edge582 ], [ %.17.lcssa, %._crit_edge593 ], [ %.24546, %409 ], [ %.24546, %412 ]
-  %426 = phi i64 [ %347, %.critedge144 ], [ %328, %339 ], [ %273, %285 ], [ %226, %255 ], [ %.1.i156, %188 ], [ %322, %._crit_edge589 ], [ %226, %._crit_edge582 ], [ %273, %._crit_edge593 ], [ %347, %409 ], [ %347, %412 ]
-  %427 = phi i32 [ %424, %.critedge144 ], [ %329, %339 ], [ %274, %285 ], [ %storemerge543579, %255 ], [ %183, %188 ], [ %321, %._crit_edge589 ], [ %storemerge543.lcssa, %._crit_edge582 ], [ %274, %._crit_edge593 ], [ %348, %409 ], [ 0, %412 ]
-  %428 = phi i32 [ %425, %.critedge144 ], [ 0, %339 ], [ 0, %285 ], [ 0, %255 ], [ 0, %188 ], [ 0, %._crit_edge589 ], [ 0, %._crit_edge582 ], [ 0, %._crit_edge593 ], [ %399, %409 ], [ 2147483647, %412 ]
+.thread464.thread:                                ; preds = %412, %339, %285, %255, %188, %._crit_edge591, %._crit_edge584, %._crit_edge595, %409, %.critedge146
+  %.7431693 = phi ptr [ %.24548, %.critedge146 ], [ %.20589, %339 ], [ %.17593, %285 ], [ %.13437580, %255 ], [ %184, %188 ], [ %.20.lcssa, %._crit_edge591 ], [ %.13437.lcssa, %._crit_edge584 ], [ %.17.lcssa, %._crit_edge595 ], [ %.24548, %409 ], [ %.24548, %412 ]
+  %426 = phi i64 [ %347, %.critedge146 ], [ %328, %339 ], [ %273, %285 ], [ %226, %255 ], [ %.1.i158, %188 ], [ %322, %._crit_edge591 ], [ %226, %._crit_edge584 ], [ %273, %._crit_edge595 ], [ %347, %409 ], [ %347, %412 ]
+  %427 = phi i32 [ %424, %.critedge146 ], [ %329, %339 ], [ %274, %285 ], [ %storemerge545581, %255 ], [ %183, %188 ], [ %321, %._crit_edge591 ], [ %storemerge545.lcssa, %._crit_edge584 ], [ %274, %._crit_edge595 ], [ %348, %409 ], [ 0, %412 ]
+  %428 = phi i32 [ %425, %.critedge146 ], [ 0, %339 ], [ 0, %285 ], [ 0, %255 ], [ 0, %188 ], [ 0, %._crit_edge591 ], [ 0, %._crit_edge584 ], [ 0, %._crit_edge595 ], [ %399, %409 ], [ 2147483647, %412 ]
   %429 = add nsw i32 %428, %427
   %430 = uitofp i64 %426 to double
   %431 = fneg double %430
@@ -42899,20 +42913,20 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit162: ; preds = %._crit_edge.i152
   %433 = fmul double %430, -1.000000e-305
   %434 = add nuw nsw i32 %429, 305
   %.014.i = select i1 %432, i32 %434, i32 %429
-  %.1.i163 = select i1 %432, double %433, double %431
+  %.1.i165 = select i1 %432, double %433, double %431
   %or.cond.i = icmp ugt i32 %.014.i, -23
   br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %441
 
-_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread462.thread
+_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread464.thread
   %435 = sub nsw i32 0, %.014.i
   %436 = zext nneg i32 %435 to i64
   %437 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %436
   %438 = getelementptr i8, ptr %437, i64 2464
   %439 = load double, ptr %438, align 8, !tbaa !460
-  %440 = fdiv double %.1.i163, %439
+  %440 = fdiv double %.1.i165, %439
   br label %451
 
-441:                                              ; preds = %.thread462.thread
+441:                                              ; preds = %.thread464.thread
   %442 = icmp sgt i32 %.014.i, 308
   br i1 %442, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %443
 
@@ -42929,16 +42943,16 @@ _ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread462.thread
 
 _ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %445, %443, %441
   %.0.i17.i = phi double [ %449, %445 ], [ 0.000000e+00, %443 ], [ 0x7FF0000000000000, %441 ]
-  %450 = fmul double %.1.i163, %.0.i17.i
+  %450 = fmul double %.1.i165, %.0.i17.i
   br label %451
 
 451:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
   %.013.i = phi double [ %440, %_ZN5boost4json6detail5pow10Ei.exit.i ], [ %450, %_ZN5boost4json6detail5pow10Ei.exit18.i ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %.013.i)
-  br label %.thread442
+  br label %.thread444
 
-.thread442:                                       ; preds = %210, %205, %116, %33, %30, %.thread537, %.thread521, %318, %271, %.thread486, %451, %421, %418, %416, %407, %383, %368, %366, %351, %326, %312, %310, %296, %280, %264, %245, %224, %214
-  %.2 = phi ptr [ %225, %224 ], [ %.11433, %418 ], [ %246, %245 ], [ %265, %264 ], [ %281, %280 ], [ %352, %351 ], [ %367, %366 ], [ %369, %368 ], [ %384, %383 ], [ %408, %407 ], [ %417, %416 ], [ %272, %271 ], [ %297, %296 ], [ %311, %310 ], [ %313, %312 ], [ %327, %326 ], [ %319, %318 ], [ %.1, %421 ], [ %215, %214 ], [ %.7429691, %451 ], [ %252, %.thread486 ], [ %338, %.thread521 ], [ %374, %.thread537 ], [ %117, %116 ], [ %34, %33 ], [ %31, %30 ], [ %211, %210 ], [ %209, %205 ]
+.thread444:                                       ; preds = %210, %205, %116, %33, %30, %.thread539, %.thread523, %318, %271, %.thread488, %451, %421, %418, %416, %407, %383, %368, %366, %351, %326, %312, %310, %296, %280, %264, %245, %224, %214
+  %.2 = phi ptr [ %225, %224 ], [ %.11435, %418 ], [ %246, %245 ], [ %265, %264 ], [ %281, %280 ], [ %352, %351 ], [ %367, %366 ], [ %369, %368 ], [ %384, %383 ], [ %408, %407 ], [ %417, %416 ], [ %272, %271 ], [ %297, %296 ], [ %311, %310 ], [ %313, %312 ], [ %327, %326 ], [ %319, %318 ], [ %.1, %421 ], [ %215, %214 ], [ %.7431693, %451 ], [ %252, %.thread488 ], [ %338, %.thread523 ], [ %374, %.thread539 ], [ %117, %116 ], [ %34, %33 ], [ %31, %30 ], [ %211, %210 ], [ %209, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -43236,14 +43250,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 32:                                               ; preds = %21
   %33 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_4EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread495
+  br label %.thread497
 
 34:                                               ; preds = %21
   br i1 %28, label %35, label %37
 
 35:                                               ; preds = %34
   %36 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc) #50
-  br label %.thread495
+  br label %.thread497
 
 37:                                               ; preds = %34
   %38 = zext nneg i16 %26 to i64
@@ -43340,7 +43354,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %65,
   store i64 %.1.i, ptr %3, align 8, !tbaa !683
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 %38
   %100 = icmp eq i16 %25, 0
-  br i1 %100, label %.thread499, label %103
+  br i1 %100, label %.thread501, label %103
 
 101:                                              ; preds = %19
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -43358,7 +43372,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %65,
 106:                                              ; preds = %103
   %107 = and i8 %105, -33
   %108 = icmp eq i8 %107, 69
-  br i1 %108, label %.thread519, label %460
+  br i1 %108, label %.thread521, label %460
 
 109:                                              ; preds = %103
   %110 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -43373,118 +43387,118 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %65,
 
 118:                                              ; preds = %109
   %119 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %110, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread495
+  br label %.thread497
 
 120:                                              ; preds = %109
   %121 = add nuw nsw i32 %.0133, %116
   %122 = icmp samesign ugt i32 %121, 18
-  br i1 %122, label %.thread503, label %123
+  br i1 %122, label %.thread505, label %123
 
 123:                                              ; preds = %120
   %124 = zext nneg i16 %115 to i64
   %125 = icmp samesign ugt i16 %115, 3
-  br i1 %125, label %.lr.ph.i189, label %._crit_edge.i183
+  br i1 %125, label %.lr.ph.i191, label %._crit_edge.i185
 
-.lr.ph.i189:                                      ; preds = %123, %.lr.ph.i189
-  %.028.i190 = phi i64 [ %149, %.lr.ph.i189 ], [ %124, %123 ]
-  %.02427.i191 = phi ptr [ %148, %.lr.ph.i189 ], [ %110, %123 ]
-  %.02526.i192 = phi i64 [ %147, %.lr.ph.i189 ], [ %104, %123 ]
-  %126 = mul i64 %.02526.i192, 10
-  %127 = load i8, ptr %.02427.i191, align 1, !tbaa !15
+.lr.ph.i191:                                      ; preds = %123, %.lr.ph.i191
+  %.028.i192 = phi i64 [ %149, %.lr.ph.i191 ], [ %124, %123 ]
+  %.02427.i193 = phi ptr [ %148, %.lr.ph.i191 ], [ %110, %123 ]
+  %.02526.i194 = phi i64 [ %147, %.lr.ph.i191 ], [ %104, %123 ]
+  %126 = mul i64 %.02526.i194, 10
+  %127 = load i8, ptr %.02427.i193, align 1, !tbaa !15
   %128 = sext i8 %127 to i64
   %129 = add i64 %126, %128
   %130 = mul i64 %129, 10
-  %131 = getelementptr inbounds nuw i8, ptr %.02427.i191, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.02427.i193, i64 1
   %132 = load i8, ptr %131, align 1, !tbaa !15
   %133 = sext i8 %132 to i64
   %134 = add nsw i64 %133, -480
   %135 = add i64 %134, %130
   %136 = mul i64 %135, 10
-  %137 = getelementptr inbounds nuw i8, ptr %.02427.i191, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %.02427.i193, i64 2
   %138 = load i8, ptr %137, align 1, !tbaa !15
   %139 = sext i8 %138 to i64
   %140 = add nsw i64 %139, -480
   %141 = add i64 %140, %136
   %142 = mul i64 %141, 10
-  %143 = getelementptr inbounds nuw i8, ptr %.02427.i191, i64 3
+  %143 = getelementptr inbounds nuw i8, ptr %.02427.i193, i64 3
   %144 = load i8, ptr %143, align 1, !tbaa !15
   %145 = sext i8 %144 to i64
   %146 = add nsw i64 %145, -528
   %147 = add i64 %146, %142
-  %148 = getelementptr inbounds nuw i8, ptr %.02427.i191, i64 4
-  %149 = add i64 %.028.i190, -4
+  %148 = getelementptr inbounds nuw i8, ptr %.02427.i193, i64 4
+  %149 = add i64 %.028.i192, -4
   %150 = icmp ugt i64 %149, 3
-  br i1 %150, label %.lr.ph.i189, label %._crit_edge.i183, !llvm.loop !684
+  br i1 %150, label %.lr.ph.i191, label %._crit_edge.i185, !llvm.loop !684
 
-._crit_edge.i183:                                 ; preds = %.lr.ph.i189, %123
-  %.025.lcssa.i184 = phi i64 [ %104, %123 ], [ %147, %.lr.ph.i189 ]
-  %.024.lcssa.i185 = phi ptr [ %110, %123 ], [ %148, %.lr.ph.i189 ]
-  %.0.lcssa.i186 = phi i64 [ %124, %123 ], [ %149, %.lr.ph.i189 ]
-  switch i64 %.0.lcssa.i186, label %default.unreachable.i188 [
+._crit_edge.i185:                                 ; preds = %.lr.ph.i191, %123
+  %.025.lcssa.i186 = phi i64 [ %104, %123 ], [ %147, %.lr.ph.i191 ]
+  %.024.lcssa.i187 = phi ptr [ %110, %123 ], [ %148, %.lr.ph.i191 ]
+  %.0.lcssa.i188 = phi i64 [ %124, %123 ], [ %149, %.lr.ph.i191 ]
+  switch i64 %.0.lcssa.i188, label %default.unreachable.i190 [
     i64 3, label %168
     i64 1, label %151
     i64 2, label %157
-    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193
+    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195
   ]
 
-151:                                              ; preds = %._crit_edge.i183
-  %152 = mul i64 %.025.lcssa.i184, 10
-  %153 = load i8, ptr %.024.lcssa.i185, align 1, !tbaa !15
+151:                                              ; preds = %._crit_edge.i185
+  %152 = mul i64 %.025.lcssa.i186, 10
+  %153 = load i8, ptr %.024.lcssa.i187, align 1, !tbaa !15
   %154 = sext i8 %153 to i64
   %155 = add i64 %152, -48
   %156 = add i64 %155, %154
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195
 
-157:                                              ; preds = %._crit_edge.i183
-  %158 = mul i64 %.025.lcssa.i184, 10
-  %159 = load i8, ptr %.024.lcssa.i185, align 1, !tbaa !15
+157:                                              ; preds = %._crit_edge.i185
+  %158 = mul i64 %.025.lcssa.i186, 10
+  %159 = load i8, ptr %.024.lcssa.i187, align 1, !tbaa !15
   %160 = sext i8 %159 to i64
   %161 = add i64 %158, %160
   %162 = mul i64 %161, 10
-  %163 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i185, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i187, i64 1
   %164 = load i8, ptr %163, align 1, !tbaa !15
   %165 = sext i8 %164 to i64
   %166 = add nsw i64 %165, -528
   %167 = add i64 %166, %162
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195
 
-168:                                              ; preds = %._crit_edge.i183
-  %169 = mul i64 %.025.lcssa.i184, 10
-  %170 = load i8, ptr %.024.lcssa.i185, align 1, !tbaa !15
+168:                                              ; preds = %._crit_edge.i185
+  %169 = mul i64 %.025.lcssa.i186, 10
+  %170 = load i8, ptr %.024.lcssa.i187, align 1, !tbaa !15
   %171 = sext i8 %170 to i64
   %172 = add i64 %169, %171
   %173 = mul i64 %172, 10
-  %174 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i185, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i187, i64 1
   %175 = load i8, ptr %174, align 1, !tbaa !15
   %176 = sext i8 %175 to i64
   %177 = add nsw i64 %176, -480
   %178 = add i64 %177, %173
   %179 = mul i64 %178, 10
-  %180 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i185, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i187, i64 2
   %181 = load i8, ptr %180, align 1, !tbaa !15
   %182 = sext i8 %181 to i64
   %183 = add nsw i64 %182, -528
   %184 = add i64 %183, %179
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195
 
-default.unreachable.i188:                         ; preds = %._crit_edge.i183
+default.unreachable.i190:                         ; preds = %._crit_edge.i185
   unreachable
 
-_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183, %151, %157, %168
-  %.1.i187 = phi i64 [ %.025.lcssa.i184, %._crit_edge.i183 ], [ %184, %168 ], [ %156, %151 ], [ %167, %157 ]
-  store i64 %.1.i187, ptr %3, align 8, !tbaa !683
+_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195: ; preds = %._crit_edge.i185, %151, %157, %168
+  %.1.i189 = phi i64 [ %.025.lcssa.i186, %._crit_edge.i185 ], [ %184, %168 ], [ %156, %151 ], [ %167, %157 ]
+  store i64 %.1.i189, ptr %3, align 8, !tbaa !683
   %185 = sub nsw i32 0, %116
   store i32 %185, ptr %8, align 8, !tbaa !685
   %186 = getelementptr inbounds nuw i8, ptr %110, i64 %124
   %187 = load i8, ptr %186, align 1, !tbaa !15
   %188 = and i8 %187, -33
   %189 = icmp eq i8 %188, 69
-  br i1 %189, label %.thread519, label %190
+  br i1 %189, label %.thread521, label %190
 
-190:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193
+190:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195
   %191 = add i8 %187, -48
   %or.cond = icmp ult i8 %191, 10
-  br i1 %or.cond, label %.thread507, label %462
+  br i1 %or.cond, label %.thread509, label %462
 
 192:                                              ; preds = %2
   %193 = icmp ult ptr %13, %7
@@ -43494,13 +43508,13 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %195 = load i8, ptr %13, align 1, !tbaa !15
   %196 = add i8 %195, -49
   %197 = icmp ult i8 %196, 9
-  br i1 %197, label %.thread527, label %201, !prof !244
+  br i1 %197, label %.thread529, label %201, !prof !244
 
-.thread527:                                       ; preds = %194
+.thread529:                                       ; preds = %194
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %199 = and i8 %195, 15
   %200 = zext nneg i8 %199 to i64
-  br label %.thread499
+  br label %.thread501
 
 201:                                              ; preds = %194
   %202 = icmp eq i8 %195, 48
@@ -43523,64 +43537,64 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %210, align 1, !tbaa !173
   %211 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %13)
-  br label %.thread495
+  br label %.thread497
 
 212:                                              ; preds = %203
   %213 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread495
+  br label %.thread497
 
 214:                                              ; preds = %201
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %.thread536
+  br label %.thread538
 
 216:                                              ; preds = %192
   %217 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef 1)
   %218 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %13, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
-.thread499:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %.thread527
-  %.promoted = phi i64 [ %200, %.thread527 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %.3477 = phi ptr [ %198, %.thread527 ], [ %99, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %219 = icmp ult ptr %.3477, %7
+.thread501:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %.thread529
+  %.promoted = phi i64 [ %200, %.thread529 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %.3479 = phi ptr [ %198, %.thread529 ], [ %99, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %219 = icmp ult ptr %.3479, %7
   br i1 %219, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread499
-  %.3477694 = ptrtoint ptr %.3477 to i64
-  %220 = sub i64 %15, %.3477694
-  %scevgep = getelementptr i8, ptr %.3477, i64 %220
+.lr.ph.preheader:                                 ; preds = %.thread501
+  %.3479696 = ptrtoint ptr %.3479 to i64
+  %220 = sub i64 %15, %.3479696
+  %scevgep = getelementptr i8, ptr %.3479, i64 %220
   %221 = trunc i64 %15 to i32
-  %222 = trunc i64 %.3477694 to i32
+  %222 = trunc i64 %.3479696 to i32
   %223 = sub i32 %221, %222
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %243, %.thread499
-  %.lcssa622 = phi i64 [ %.promoted, %.thread499 ], [ %246, %243 ]
-  %.10484.lcssa = phi ptr [ %.3477, %.thread499 ], [ %scevgep, %243 ]
-  store i64 %.lcssa622, ptr %3, align 8
+._crit_edge:                                      ; preds = %243, %.thread501
+  %.lcssa624 = phi i64 [ %.promoted, %.thread501 ], [ %246, %243 ]
+  %.10486.lcssa = phi ptr [ %.3479, %.thread501 ], [ %scevgep, %243 ]
+  store i64 %.lcssa624, ptr %3, align 8
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %225 = load i8, ptr %224, align 8, !tbaa !176, !range !181, !noundef !182
   %226 = trunc nuw i8 %225 to i1
   br i1 %226, label %227, label %457, !prof !245
 
 227:                                              ; preds = %._crit_edge
-  %228 = ptrtoint ptr %.10484.lcssa to i64
+  %228 = ptrtoint ptr %.10486.lcssa to i64
   %229 = ptrtoint ptr %1 to i64
   %230 = sub i64 %228, %229
   %231 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %230)
-  %232 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10484.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  %232 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10486.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread497
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %243
   %indvars.iv = phi i32 [ %223, %.lr.ph.preheader ], [ %indvars.iv.next, %243 ]
-  %.10484625 = phi ptr [ %.3477, %.lr.ph.preheader ], [ %238, %243 ]
+  %.10486627 = phi ptr [ %.3479, %.lr.ph.preheader ], [ %238, %243 ]
   %233 = phi i64 [ %.promoted, %.lr.ph.preheader ], [ %246, %243 ]
-  %234 = load i8, ptr %.10484625, align 1, !tbaa !15
+  %234 = load i8, ptr %.10486627, align 1, !tbaa !15
   %235 = add i8 %234, -48
   %236 = icmp ult i8 %235, 10
-  br i1 %236, label %237, label %.thread536, !prof !244
+  br i1 %236, label %237, label %.thread538, !prof !244
 
 237:                                              ; preds = %.lr.ph
-  %238 = getelementptr inbounds nuw i8, ptr %.10484625, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %.10486627, i64 1
   %239 = icmp ugt i64 %233, 922337203685477580
   br i1 %239, label %247, label %240
 
@@ -43596,64 +43610,64 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %246 = add nuw i64 %244, %245
   %exitcond.not = icmp eq ptr %238, %7
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
 247:                                              ; preds = %240, %237
   store i64 %233, ptr %3, align 8
   %248 = icmp ult ptr %238, %7
-  br i1 %248, label %.lr.ph634, label %._crit_edge635, !prof !360
+  br i1 %248, label %.lr.ph636, label %._crit_edge637, !prof !360
 
-._crit_edge635:                                   ; preds = %269, %247
-  %storemerge596.lcssa = phi i32 [ 1, %247 ], [ %indvars.iv, %269 ]
-  %.13487.lcssa = phi ptr [ %238, %247 ], [ %scevgep, %269 ]
-  store i32 %storemerge596.lcssa, ptr %8, align 8, !tbaa !685
+._crit_edge637:                                   ; preds = %269, %247
+  %storemerge598.lcssa = phi i32 [ 1, %247 ], [ %indvars.iv, %269 ]
+  %.13489.lcssa = phi ptr [ %238, %247 ], [ %scevgep, %269 ]
+  store i32 %storemerge598.lcssa, ptr %8, align 8, !tbaa !685
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %250 = load i8, ptr %249, align 8, !tbaa !176, !range !181, !noundef !182
   %251 = trunc nuw i8 %250 to i1
   br i1 %251, label %252, label %462, !prof !245
 
-252:                                              ; preds = %._crit_edge635
-  %253 = ptrtoint ptr %.13487.lcssa to i64
+252:                                              ; preds = %._crit_edge637
+  %253 = ptrtoint ptr %.13489.lcssa to i64
   %254 = ptrtoint ptr %1 to i64
   %255 = sub i64 %253, %254
   %256 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %255)
-  %257 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13487.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  %257 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13489.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread497
 
-.lr.ph634:                                        ; preds = %247, %269
-  %storemerge596632 = phi i32 [ %storemerge596, %269 ], [ 1, %247 ]
-  %.13487631 = phi ptr [ %270, %269 ], [ %238, %247 ]
-  %258 = load i8, ptr %.13487631, align 1, !tbaa !15
+.lr.ph636:                                        ; preds = %247, %269
+  %storemerge598634 = phi i32 [ %storemerge598, %269 ], [ 1, %247 ]
+  %.13489633 = phi ptr [ %270, %269 ], [ %238, %247 ]
+  %258 = load i8, ptr %.13489633, align 1, !tbaa !15
   %259 = add i8 %258, -48
   %260 = icmp ult i8 %259, 10
   br i1 %260, label %261, label %264, !prof !245
 
-261:                                              ; preds = %.lr.ph634
-  %262 = icmp eq i32 %storemerge596632, 2147483646
-  br i1 %262, label %.thread539, label %269, !prof !245
+261:                                              ; preds = %.lr.ph636
+  %262 = icmp eq i32 %storemerge598634, 2147483646
+  br i1 %262, label %.thread541, label %269, !prof !245
 
-.thread539:                                       ; preds = %261
-  %263 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13487631, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
-  br label %.thread495
+.thread541:                                       ; preds = %261
+  %263 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.13489633, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+  br label %.thread497
 
-264:                                              ; preds = %.lr.ph634
-  store i32 %storemerge596632, ptr %8, align 8, !tbaa !685
+264:                                              ; preds = %.lr.ph636
+  store i32 %storemerge598634, ptr %8, align 8, !tbaa !685
   %265 = icmp eq i8 %258, 46
   br i1 %265, label %272, label %266, !prof !244
 
 266:                                              ; preds = %264
   %267 = and i8 %258, -33
   %268 = icmp eq i8 %267, 69
-  br i1 %268, label %.thread519, label %462
+  br i1 %268, label %.thread521, label %462
 
 269:                                              ; preds = %261
-  %270 = getelementptr inbounds nuw i8, ptr %.13487631, i64 1
-  %storemerge596 = add nuw nsw i32 %storemerge596632, 1
+  %270 = getelementptr inbounds nuw i8, ptr %.13489633, i64 1
+  %storemerge598 = add nuw nsw i32 %storemerge598634, 1
   %271 = icmp ult ptr %270, %7
-  br i1 %271, label %.lr.ph634, label %._crit_edge635, !prof !361
+  br i1 %271, label %.lr.ph636, label %._crit_edge637, !prof !361
 
 272:                                              ; preds = %264
-  %273 = getelementptr inbounds nuw i8, ptr %.13487631, i64 1
+  %273 = getelementptr inbounds nuw i8, ptr %.13489633, i64 1
   %274 = icmp ult ptr %273, %7
   br i1 %274, label %281, label %275, !prof !244
 
@@ -43663,183 +43677,183 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %278 = sub i64 %276, %277
   %279 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %278)
   %280 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %273, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
 281:                                              ; preds = %272
   %282 = load i8, ptr %273, align 1, !tbaa !15
   %283 = add i8 %282, -48
   %284 = icmp ult i8 %283, 10
-  br i1 %284, label %.thread557, label %286, !prof !244
+  br i1 %284, label %.thread559, label %286, !prof !244
 
-.thread557:                                       ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %.13487631, i64 2
-  br label %.thread578
+.thread559:                                       ; preds = %281
+  %285 = getelementptr inbounds nuw i8, ptr %.13489633, i64 2
+  br label %.thread580
 
 286:                                              ; preds = %281
   %287 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %273, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
-  br label %.thread495
+  br label %.thread497
 
-.thread578:                                       ; preds = %361, %.thread557
-  %288 = phi i32 [ %storemerge596632, %.thread557 ], [ %357, %361 ]
-  %.16490 = phi ptr [ %285, %.thread557 ], [ %362, %361 ]
-  %289 = icmp ult ptr %.16490, %7
-  br i1 %289, label %.lr.ph645.preheader, label %._crit_edge646, !prof !360
+.thread580:                                       ; preds = %361, %.thread559
+  %288 = phi i32 [ %storemerge598634, %.thread559 ], [ %357, %361 ]
+  %.16492 = phi ptr [ %285, %.thread559 ], [ %362, %361 ]
+  %289 = icmp ult ptr %.16492, %7
+  br i1 %289, label %.lr.ph647.preheader, label %._crit_edge648, !prof !360
 
-.lr.ph645.preheader:                              ; preds = %.thread578
-  %.16490701 = ptrtoint ptr %.16490 to i64
-  %290 = sub i64 %15, %.16490701
-  %scevgep702 = getelementptr i8, ptr %.16490, i64 %290
-  br label %.lr.ph645
+.lr.ph647.preheader:                              ; preds = %.thread580
+  %.16492703 = ptrtoint ptr %.16492 to i64
+  %290 = sub i64 %15, %.16492703
+  %scevgep704 = getelementptr i8, ptr %.16492, i64 %290
+  br label %.lr.ph647
 
-._crit_edge646:                                   ; preds = %306, %.thread578
-  %.17491.lcssa = phi ptr [ %.16490, %.thread578 ], [ %scevgep702, %306 ]
+._crit_edge648:                                   ; preds = %306, %.thread580
+  %.17493.lcssa = phi ptr [ %.16492, %.thread580 ], [ %scevgep704, %306 ]
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %292 = load i8, ptr %291, align 8, !tbaa !176, !range !181, !noundef !182
   %293 = trunc nuw i8 %292 to i1
   br i1 %293, label %294, label %462, !prof !245
 
-294:                                              ; preds = %._crit_edge646
-  %295 = ptrtoint ptr %.17491.lcssa to i64
+294:                                              ; preds = %._crit_edge648
+  %295 = ptrtoint ptr %.17493.lcssa to i64
   %296 = ptrtoint ptr %1 to i64
   %297 = sub i64 %295, %296
   %298 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %297)
-  %299 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.17491.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  %299 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.17493.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread497
 
-.lr.ph645:                                        ; preds = %.lr.ph645.preheader, %306
-  %.17491644 = phi ptr [ %307, %306 ], [ %.16490, %.lr.ph645.preheader ]
-  %300 = load i8, ptr %.17491644, align 1, !tbaa !15
+.lr.ph647:                                        ; preds = %.lr.ph647.preheader, %306
+  %.17493646 = phi ptr [ %307, %306 ], [ %.16492, %.lr.ph647.preheader ]
+  %300 = load i8, ptr %.17493646, align 1, !tbaa !15
   %301 = add i8 %300, -48
   %302 = icmp ult i8 %301, 10
   br i1 %302, label %306, label %303, !prof !244
 
-303:                                              ; preds = %.lr.ph645
+303:                                              ; preds = %.lr.ph647
   %304 = and i8 %300, -33
   %305 = icmp eq i8 %304, 69
-  br i1 %305, label %.thread519, label %462
+  br i1 %305, label %.thread521, label %462
 
-306:                                              ; preds = %.lr.ph645
-  %307 = getelementptr inbounds nuw i8, ptr %.17491644, i64 1
-  %exitcond703.not = icmp eq ptr %307, %7
-  br i1 %exitcond703.not, label %._crit_edge646, label %.lr.ph645, !prof !688
+306:                                              ; preds = %.lr.ph647
+  %307 = getelementptr inbounds nuw i8, ptr %.17493646, i64 1
+  %exitcond705.not = icmp eq ptr %307, %7
+  br i1 %exitcond705.not, label %._crit_edge648, label %.lr.ph647, !prof !686
 
-.thread536:                                       ; preds = %.lr.ph, %214
+.thread538:                                       ; preds = %.lr.ph, %214
   %308 = phi i64 [ 0, %214 ], [ %233, %.lr.ph ]
-  %.9483 = phi ptr [ %215, %214 ], [ %.10484625, %.lr.ph ]
+  %.9485 = phi ptr [ %215, %214 ], [ %.10486627, %.lr.ph ]
   store i64 %308, ptr %3, align 8
-  %309 = icmp ult ptr %.9483, %7
+  %309 = icmp ult ptr %.9485, %7
   br i1 %309, label %320, label %310, !prof !244
 
-310:                                              ; preds = %.thread536
+310:                                              ; preds = %.thread538
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %312 = load i8, ptr %311, align 8, !tbaa !176, !range !181, !noundef !182
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %314, label %457, !prof !245
 
 314:                                              ; preds = %310
-  %315 = ptrtoint ptr %.9483 to i64
+  %315 = ptrtoint ptr %.9485 to i64
   %316 = ptrtoint ptr %1 to i64
   %317 = sub i64 %315, %316
   %318 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %317)
-  %319 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9483, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  %319 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9485, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread497
 
-320:                                              ; preds = %.thread536
-  %321 = load i8, ptr %.9483, align 1, !tbaa !15
+320:                                              ; preds = %.thread538
+  %321 = load i8, ptr %.9485, align 1, !tbaa !15
   %322 = icmp eq i8 %321, 46
-  br i1 %322, label %.thread566, label %324, !prof !244
+  br i1 %322, label %.thread568, label %324, !prof !244
 
-.thread566:                                       ; preds = %320
-  %323 = getelementptr inbounds nuw i8, ptr %.9483, i64 1
-  br label %.thread503
+.thread568:                                       ; preds = %320
+  %323 = getelementptr inbounds nuw i8, ptr %.9485, i64 1
+  br label %.thread505
 
 324:                                              ; preds = %320
   %325 = and i8 %321, -33
   %326 = icmp eq i8 %325, 69
-  br i1 %326, label %.thread519, label %457
+  br i1 %326, label %.thread521, label %457
 
-.thread503:                                       ; preds = %120, %.thread566
-  %.promoted638709 = phi i64 [ %308, %.thread566 ], [ %104, %120 ]
-  %.4478 = phi ptr [ %323, %.thread566 ], [ %110, %120 ]
-  %327 = icmp ult ptr %.4478, %7
+.thread505:                                       ; preds = %120, %.thread568
+  %.promoted640711 = phi i64 [ %308, %.thread568 ], [ %104, %120 ]
+  %.4480 = phi ptr [ %323, %.thread568 ], [ %110, %120 ]
+  %327 = icmp ult ptr %.4480, %7
   br i1 %327, label %340, label %328, !prof !244
 
-328:                                              ; preds = %.thread503
+328:                                              ; preds = %.thread505
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %330 = load i8, ptr %329, align 8, !tbaa !176, !range !181, !noundef !182
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %338, !prof !245
 
 332:                                              ; preds = %328
-  %333 = ptrtoint ptr %.4478 to i64
+  %333 = ptrtoint ptr %.4480 to i64
   %334 = ptrtoint ptr %1 to i64
   %335 = sub i64 %333, %334
   %336 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %335)
-  %337 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4478, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  %337 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4480, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread497
 
 338:                                              ; preds = %328
-  %339 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4478, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread495
+  %339 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4480, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread497
 
-340:                                              ; preds = %.thread503
-  %341 = load i8, ptr %.4478, align 1, !tbaa !15
+340:                                              ; preds = %.thread505
+  %341 = load i8, ptr %.4480, align 1, !tbaa !15
   %342 = add i8 %341, -48
   %343 = icmp ult i8 %342, 10
-  br i1 %343, label %.thread507, label %344, !prof !244
+  br i1 %343, label %.thread509, label %344, !prof !244
 
 344:                                              ; preds = %340
-  %345 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4478, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread495
+  %345 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4480, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread497
 
-.thread507:                                       ; preds = %340, %190
-  %.promoted639 = phi i32 [ %185, %190 ], [ 0, %340 ]
-  %.promoted638 = phi i64 [ %.1.i187, %190 ], [ %.promoted638709, %340 ]
-  %.5479 = phi ptr [ %186, %190 ], [ %.4478, %340 ]
-  %346 = icmp ult ptr %.5479, %7
-  br i1 %346, label %.lr.ph641, label %._crit_edge642, !prof !360
+.thread509:                                       ; preds = %340, %190
+  %.promoted641 = phi i32 [ %185, %190 ], [ 0, %340 ]
+  %.promoted640 = phi i64 [ %.1.i189, %190 ], [ %.promoted640711, %340 ]
+  %.5481 = phi ptr [ %186, %190 ], [ %.4480, %340 ]
+  %346 = icmp ult ptr %.5481, %7
+  br i1 %346, label %.lr.ph643, label %._crit_edge644, !prof !360
 
-._crit_edge642:                                   ; preds = %370, %.thread507
-  %.20.lcssa = phi ptr [ %.5479, %.thread507 ], [ %362, %370 ]
+._crit_edge644:                                   ; preds = %370, %.thread509
+  %.20.lcssa = phi ptr [ %.5481, %.thread509 ], [ %362, %370 ]
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %348 = load i8, ptr %347, align 8, !tbaa !176, !range !181, !noundef !182
   %349 = trunc nuw i8 %348 to i1
   br i1 %349, label %350, label %462, !prof !245
 
-350:                                              ; preds = %._crit_edge642
+350:                                              ; preds = %._crit_edge644
   %351 = ptrtoint ptr %.20.lcssa to i64
   %352 = ptrtoint ptr %1 to i64
   %353 = sub i64 %351, %352
   %354 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %353)
   %355 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.20.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
-.lr.ph641:                                        ; preds = %.thread507, %370
-  %.20640 = phi ptr [ %362, %370 ], [ %.5479, %.thread507 ]
-  %356 = phi i64 [ %374, %370 ], [ %.promoted638, %.thread507 ]
-  %357 = phi i32 [ %371, %370 ], [ %.promoted639, %.thread507 ]
-  %358 = load i8, ptr %.20640, align 1, !tbaa !15
+.lr.ph643:                                        ; preds = %.thread509, %370
+  %.20642 = phi ptr [ %362, %370 ], [ %.5481, %.thread509 ]
+  %356 = phi i64 [ %374, %370 ], [ %.promoted640, %.thread509 ]
+  %357 = phi i32 [ %371, %370 ], [ %.promoted641, %.thread509 ]
+  %358 = load i8, ptr %.20642, align 1, !tbaa !15
   %359 = add i8 %358, -48
   %360 = icmp ult i8 %359, 10
   br i1 %360, label %361, label %367, !prof !244
 
-361:                                              ; preds = %.lr.ph641
-  %362 = getelementptr inbounds nuw i8, ptr %.20640, i64 1
+361:                                              ; preds = %.lr.ph643
+  %362 = getelementptr inbounds nuw i8, ptr %.20642, i64 1
   %363 = icmp ult i64 %356, 9007199254740992
-  br i1 %363, label %364, label %.thread578, !prof !244
+  br i1 %363, label %364, label %.thread580, !prof !244
 
 364:                                              ; preds = %361
   %365 = icmp eq i32 %357, -2147483647
-  br i1 %365, label %.thread574, label %370, !prof !245
+  br i1 %365, label %.thread576, label %370, !prof !245
 
-.thread574:                                       ; preds = %364
+.thread576:                                       ; preds = %364
   %366 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %362, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %.thread495
+  br label %.thread497
 
-367:                                              ; preds = %.lr.ph641
+367:                                              ; preds = %.lr.ph643
   %368 = and i8 %358, -33
   %369 = icmp eq i8 %368, 69
-  br i1 %369, label %.thread519, label %462
+  br i1 %369, label %.thread521, label %462
 
 370:                                              ; preds = %364
   %371 = add nsw i32 %357, -1
@@ -43848,26 +43862,26 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %373 = zext nneg i8 %359 to i64
   %374 = add nuw nsw i64 %372, %373
   store i64 %374, ptr %3, align 8, !tbaa !683
-  %exitcond700.not = icmp eq ptr %362, %7
-  br i1 %exitcond700.not, label %._crit_edge642, label %.lr.ph641, !prof !688
+  %exitcond702.not = icmp eq ptr %362, %7
+  br i1 %exitcond702.not, label %._crit_edge644, label %.lr.ph643, !prof !686
 
-.thread519:                                       ; preds = %367, %324, %303, %266, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193, %106
-  %.20640.lcssa.sink = phi ptr [ %.1, %106 ], [ %186, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193 ], [ %.13487631, %266 ], [ %.17491644, %303 ], [ %.9483, %324 ], [ %.20640, %367 ]
-  %375 = phi i64 [ %104, %106 ], [ %.1.i187, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193 ], [ 1, %266 ], [ 1, %303 ], [ %308, %324 ], [ %356, %367 ]
-  %376 = phi i32 [ 0, %106 ], [ %185, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit193 ], [ %storemerge596632, %266 ], [ %288, %303 ], [ 0, %324 ], [ %357, %367 ]
-  %377 = getelementptr inbounds nuw i8, ptr %.20640.lcssa.sink, i64 1
+.thread521:                                       ; preds = %367, %324, %303, %266, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195, %106
+  %.20642.lcssa.sink = phi ptr [ %.1, %106 ], [ %186, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195 ], [ %.13489633, %266 ], [ %.17493646, %303 ], [ %.9485, %324 ], [ %.20642, %367 ]
+  %375 = phi i64 [ %104, %106 ], [ %.1.i189, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195 ], [ 1, %266 ], [ 1, %303 ], [ %308, %324 ], [ %356, %367 ]
+  %376 = phi i32 [ 0, %106 ], [ %185, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit195 ], [ %storemerge598634, %266 ], [ %288, %303 ], [ 0, %324 ], [ %357, %367 ]
+  %377 = getelementptr inbounds nuw i8, ptr %.20642.lcssa.sink, i64 1
   %378 = icmp ult ptr %377, %7
   br i1 %378, label %385, label %379, !prof !244
 
-379:                                              ; preds = %.thread519
+379:                                              ; preds = %.thread521
   %380 = ptrtoint ptr %377 to i64
   %381 = ptrtoint ptr %1 to i64
   %382 = sub i64 %380, %381
   %383 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %382)
   %384 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %377, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
-385:                                              ; preds = %.thread519
+385:                                              ; preds = %.thread521
   %386 = load i8, ptr %377, align 1, !tbaa !15
   switch i8 %386, label %391 [
     i8 43, label %387
@@ -43875,18 +43889,18 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   ]
 
 387:                                              ; preds = %385
-  %388 = getelementptr inbounds nuw i8, ptr %.20640.lcssa.sink, i64 2
+  %388 = getelementptr inbounds nuw i8, ptr %.20642.lcssa.sink, i64 2
   br label %391
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds nuw i8, ptr %.20640.lcssa.sink, i64 2
-  store i8 1, ptr %10, align 8, !tbaa !686
+  %390 = getelementptr inbounds nuw i8, ptr %.20642.lcssa.sink, i64 2
+  store i8 1, ptr %10, align 8, !tbaa !687
   br label %391
 
 391:                                              ; preds = %385, %387, %389
   %392 = phi i1 [ false, %387 ], [ true, %389 ], [ false, %385 ]
   %.22 = phi ptr [ %388, %387 ], [ %390, %389 ], [ %377, %385 ]
-  %.22704 = ptrtoint ptr %.22 to i64
+  %.22706 = ptrtoint ptr %.22 to i64
   %393 = icmp ult ptr %.22, %7
   br i1 %393, label %405, label %394, !prof !244
 
@@ -43898,86 +43912,86 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
 
 398:                                              ; preds = %394
   %399 = ptrtoint ptr %1 to i64
-  %400 = sub i64 %.22704, %399
+  %400 = sub i64 %.22706, %399
   %401 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %400)
   %402 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
 403:                                              ; preds = %394
   %404 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %.thread495
+  br label %.thread497
 
 405:                                              ; preds = %391
   %406 = load i8, ptr %.22, align 1, !tbaa !15
   %407 = add i8 %406, -48
   %408 = icmp ult i8 %407, 10
-  br i1 %408, label %410, label %.thread590, !prof !244
+  br i1 %408, label %410, label %.thread592, !prof !244
 
-.thread590:                                       ; preds = %405
+.thread592:                                       ; preds = %405
   %409 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread495
+  br label %.thread497
 
 410:                                              ; preds = %405
   %411 = zext nneg i8 %406 to i32
   %412 = add nsw i32 %411, -48
-  store i32 %412, ptr %9, align 4, !tbaa !687
-  %.24649 = getelementptr inbounds nuw i8, ptr %.22, i64 1
-  %413 = icmp ult ptr %.24649, %7
-  br i1 %413, label %.lr.ph653, label %._crit_edge654, !prof !360
+  store i32 %412, ptr %9, align 4, !tbaa !688
+  %.24651 = getelementptr inbounds nuw i8, ptr %.22, i64 1
+  %413 = icmp ult ptr %.24651, %7
+  br i1 %413, label %.lr.ph655, label %._crit_edge656, !prof !360
 
-._crit_edge654:                                   ; preds = %437, %410
+._crit_edge656:                                   ; preds = %437, %410
   %414 = phi i32 [ %412, %410 ], [ %storemerge, %437 ]
-  %.24.lcssa = phi ptr [ %.24649, %410 ], [ %.24, %437 ]
+  %.24.lcssa = phi ptr [ %.24651, %410 ], [ %.24, %437 ]
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %416 = load i8, ptr %415, align 8, !tbaa !176, !range !181, !noundef !182
   %417 = trunc nuw i8 %416 to i1
-  br i1 %417, label %418, label %.thread593, !prof !245
+  br i1 %417, label %418, label %.thread595, !prof !245
 
-418:                                              ; preds = %._crit_edge654
+418:                                              ; preds = %._crit_edge656
   %419 = ptrtoint ptr %.24.lcssa to i64
   %420 = ptrtoint ptr %1 to i64
   %421 = sub i64 %419, %420
   %422 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %1, i64 noundef %421)
   %423 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread495
+  br label %.thread497
 
-.lr.ph653:                                        ; preds = %410, %437
-  %.24651 = phi ptr [ %.24, %437 ], [ %.24649, %410 ]
-  %storemerge597650 = phi i32 [ %storemerge, %437 ], [ %412, %410 ]
-  %424 = load i8, ptr %.24651, align 1, !tbaa !15
+.lr.ph655:                                        ; preds = %410, %437
+  %.24653 = phi ptr [ %.24, %437 ], [ %.24651, %410 ]
+  %storemerge599652 = phi i32 [ %storemerge, %437 ], [ %412, %410 ]
+  %424 = load i8, ptr %.24653, align 1, !tbaa !15
   %425 = add i8 %424, -48
   %426 = icmp ult i8 %425, 10
-  br i1 %426, label %427, label %.thread593, !prof !244
+  br i1 %426, label %427, label %.thread595, !prof !244
 
-427:                                              ; preds = %.lr.ph653
-  %428 = icmp sgt i32 %storemerge597650, 214748364
+427:                                              ; preds = %.lr.ph655
+  %428 = icmp sgt i32 %storemerge599652, 214748364
   br i1 %428, label %437, label %429, !prof !245
 
 429:                                              ; preds = %427
-  %430 = icmp eq i32 %storemerge597650, 214748364
+  %430 = icmp eq i32 %storemerge599652, 214748364
   %431 = icmp samesign ugt i8 %424, 55
   %432 = and i1 %431, %430
   br i1 %432, label %437, label %433, !prof !245
 
 433:                                              ; preds = %429
-  %434 = mul nsw i32 %storemerge597650, 10
+  %434 = mul nsw i32 %storemerge599652, 10
   %435 = zext nneg i8 %425 to i32
   %436 = add nsw i32 %434, %435
   br label %437
 
 437:                                              ; preds = %433, %429, %427
   %storemerge = phi i32 [ %436, %433 ], [ 2147483647, %429 ], [ 2147483647, %427 ]
-  store i32 %storemerge, ptr %9, align 4, !tbaa !687
-  %.24 = getelementptr inbounds nuw i8, ptr %.24651, i64 1
-  %exitcond706.not = icmp eq ptr %.24, %7
-  br i1 %exitcond706.not, label %._crit_edge654, label %.lr.ph653, !prof !688
+  store i32 %storemerge, ptr %9, align 4, !tbaa !688
+  %.24 = getelementptr inbounds nuw i8, ptr %.24653, i64 1
+  %exitcond708.not = icmp eq ptr %.24, %7
+  br i1 %exitcond708.not, label %._crit_edge656, label %.lr.ph655, !prof !686
 
-.thread593:                                       ; preds = %.lr.ph653, %._crit_edge654
-  %438 = phi i32 [ %414, %._crit_edge654 ], [ %storemerge597650, %.lr.ph653 ]
-  %.24599 = phi ptr [ %.24.lcssa, %._crit_edge654 ], [ %.24651, %.lr.ph653 ]
+.thread595:                                       ; preds = %.lr.ph655, %._crit_edge656
+  %438 = phi i32 [ %414, %._crit_edge656 ], [ %storemerge599652, %.lr.ph655 ]
+  %.24601 = phi ptr [ %.24.lcssa, %._crit_edge656 ], [ %.24653, %.lr.ph655 ]
   br i1 %392, label %439, label %448
 
-439:                                              ; preds = %.thread593
+439:                                              ; preds = %.thread595
   %440 = or i32 %438, -2147483648
   %441 = icmp slt i32 %376, %440
   br i1 %441, label %442, label %462, !prof !245
@@ -43985,16 +43999,16 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
 442:                                              ; preds = %439
   %443 = icmp eq i32 %438, 2147483647
   %444 = icmp samesign ult i32 %376, -2147483339
-  %or.cond173 = and i1 %444, %443
+  %or.cond175 = and i1 %444, %443
   %445 = icmp ne i64 %375, 0
-  %or.cond180 = select i1 %or.cond173, i1 %445, i1 false, !prof !689
-  br i1 %or.cond180, label %446, label %.sink.split, !prof !689
+  %or.cond182 = select i1 %or.cond175, i1 %445, i1 false, !prof !689
+  br i1 %or.cond182, label %446, label %.sink.split, !prof !689
 
 446:                                              ; preds = %442
-  %447 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24599, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %.thread495
+  %447 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24601, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %.thread497
 
-448:                                              ; preds = %.thread593
+448:                                              ; preds = %.thread595
   %449 = sub nsw i32 2147483647, %438
   %450 = icmp sgt i32 %376, %449
   br i1 %450, label %451, label %462, !prof !245
@@ -44002,36 +44016,36 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
 451:                                              ; preds = %448
   %452 = icmp eq i32 %438, 2147483647
   %453 = icmp samesign ugt i32 %376, 2147483339
-  %or.cond176 = and i1 %453, %452
+  %or.cond178 = and i1 %453, %452
   %454 = icmp ne i64 %375, 0
-  %or.cond182 = select i1 %or.cond176, i1 %454, i1 false, !prof !689
-  br i1 %or.cond182, label %455, label %.sink.split, !prof !689
+  %or.cond184 = select i1 %or.cond178, i1 %454, i1 false, !prof !689
+  br i1 %or.cond184, label %455, label %.sink.split, !prof !689
 
 455:                                              ; preds = %451
-  %456 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24599, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %.thread495
+  %456 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.24601, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %.thread497
 
 457:                                              ; preds = %._crit_edge, %310, %324
-  %458 = phi i64 [ %308, %310 ], [ %.lcssa622, %._crit_edge ], [ %308, %324 ]
-  %.11485 = phi ptr [ %.9483, %310 ], [ %.10484.lcssa, %._crit_edge ], [ %.9483, %324 ]
+  %458 = phi i64 [ %308, %310 ], [ %.lcssa624, %._crit_edge ], [ %308, %324 ]
+  %.11487 = phi ptr [ %.9485, %310 ], [ %.10486.lcssa, %._crit_edge ], [ %.9485, %324 ]
   %459 = sub i64 0, %458
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %459)
-  br label %.thread495
+  br label %.thread497
 
 460:                                              ; preds = %106
   %461 = sub i64 0, %104
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %461)
-  br label %.thread495
+  br label %.thread497
 
 .sink.split:                                      ; preds = %451, %442
   store i32 0, ptr %8, align 8, !tbaa !685
-  store i32 2147483647, ptr %9, align 4, !tbaa !687
+  store i32 2147483647, ptr %9, align 4, !tbaa !688
   br label %462
 
-462:                                              ; preds = %.sink.split, %._crit_edge635, %._crit_edge646, %._crit_edge642, %448, %439, %190, %266, %303, %367
-  %.7481 = phi ptr [ %.24599, %439 ], [ %.24599, %448 ], [ %.17491.lcssa, %._crit_edge646 ], [ %.13487.lcssa, %._crit_edge635 ], [ %.20.lcssa, %._crit_edge642 ], [ %186, %190 ], [ %.13487631, %266 ], [ %.17491644, %303 ], [ %.20640, %367 ], [ %.24599, %.sink.split ]
+462:                                              ; preds = %.sink.split, %._crit_edge637, %._crit_edge648, %._crit_edge644, %448, %439, %190, %266, %303, %367
+  %.7483 = phi ptr [ %.24601, %439 ], [ %.24601, %448 ], [ %.17493.lcssa, %._crit_edge648 ], [ %.13489.lcssa, %._crit_edge637 ], [ %.20.lcssa, %._crit_edge644 ], [ %186, %190 ], [ %.13489633, %266 ], [ %.17493646, %303 ], [ %.20642, %367 ], [ %.24601, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %463 = ptrtoint ptr %.7481 to i64
+  %463 = ptrtoint ptr %.7483 to i64
   %464 = ptrtoint ptr %1 to i64
   %465 = sub i64 %463, %464
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 %465
@@ -44039,10 +44053,10 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit193: ; preds = %._crit_edge.i183
   %468 = load double, ptr %5, align 8, !tbaa !460
   call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %468)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread495
+  br label %.thread497
 
-.thread495:                                       ; preds = %212, %207, %118, %35, %32, %.thread590, %.thread574, %344, %286, %.thread539, %462, %460, %457, %455, %446, %418, %403, %398, %379, %350, %338, %332, %314, %294, %275, %252, %227, %216
-  %.2 = phi ptr [ %232, %227 ], [ %.11485, %457 ], [ %257, %252 ], [ %.7481, %462 ], [ %280, %275 ], [ %299, %294 ], [ %384, %379 ], [ %402, %398 ], [ %404, %403 ], [ %423, %418 ], [ %447, %446 ], [ %456, %455 ], [ %287, %286 ], [ %319, %314 ], [ %337, %332 ], [ %339, %338 ], [ %355, %350 ], [ %345, %344 ], [ %.1, %460 ], [ %218, %216 ], [ %263, %.thread539 ], [ %366, %.thread574 ], [ %409, %.thread590 ], [ %119, %118 ], [ %36, %35 ], [ %33, %32 ], [ %213, %212 ], [ %211, %207 ]
+.thread497:                                       ; preds = %212, %207, %118, %35, %32, %.thread592, %.thread576, %344, %286, %.thread541, %462, %460, %457, %455, %446, %418, %403, %398, %379, %350, %338, %332, %314, %294, %275, %252, %227, %216
+  %.2 = phi ptr [ %232, %227 ], [ %.11487, %457 ], [ %257, %252 ], [ %.7483, %462 ], [ %280, %275 ], [ %299, %294 ], [ %384, %379 ], [ %402, %398 ], [ %404, %403 ], [ %423, %418 ], [ %447, %446 ], [ %456, %455 ], [ %287, %286 ], [ %319, %314 ], [ %337, %332 ], [ %339, %338 ], [ %355, %350 ], [ %345, %344 ], [ %.1, %460 ], [ %218, %216 ], [ %263, %.thread541 ], [ %366, %.thread576 ], [ %409, %.thread592 ], [ %119, %118 ], [ %36, %35 ], [ %33, %32 ], [ %213, %212 ], [ %211, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -44090,21 +44104,21 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 30:                                               ; preds = %19
   %31 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_4EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread414
+  br label %.thread417
 
 32:                                               ; preds = %19
   br i1 %26, label %33, label %35
 
 33:                                               ; preds = %32
   %34 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc) #50
-  br label %.thread414
+  br label %.thread417
 
 35:                                               ; preds = %32
   store i64 0, ptr %3, align 8, !tbaa !683
   %36 = zext nneg i16 %24 to i64
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 %36
   %38 = icmp eq i16 %23, 0
-  br i1 %38, label %.thread418.split.split.us, label %41
+  br i1 %38, label %.thread421.split.split.us, label %41
 
 39:                                               ; preds = %17
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -44121,7 +44135,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 43:                                               ; preds = %41
   %44 = and i8 %42, -33
   %45 = icmp eq i8 %44, 69
-  br i1 %45, label %.thread438, label %203
+  br i1 %45, label %.thread441, label %203
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %.1, i64 1
@@ -44136,12 +44150,12 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 55:                                               ; preds = %46
   %56 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %47, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread414
+  br label %.thread417
 
 57:                                               ; preds = %46
   %58 = add nuw nsw i32 %.0100, %53
   %59 = icmp samesign ugt i32 %58, 18
-  br i1 %59, label %.thread422, label %60
+  br i1 %59, label %.thread425, label %60
 
 60:                                               ; preds = %57
   %61 = sub nsw i32 0, %53
@@ -44151,12 +44165,12 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %64 = load i8, ptr %63, align 1, !tbaa !15
   %65 = and i8 %64, -33
   %66 = icmp eq i8 %65, 69
-  br i1 %66, label %.thread438, label %67
+  br i1 %66, label %.thread441, label %67
 
 67:                                               ; preds = %60
   %68 = add i8 %64, -48
   %or.cond = icmp ult i8 %68, 10
-  br i1 %or.cond, label %.thread426, label %.thread434
+  br i1 %or.cond, label %.thread429, label %.thread437
 
 69:                                               ; preds = %2
   %70 = icmp ult ptr %12, %6
@@ -44167,14 +44181,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %.fr = freeze i8 %72
   %73 = add i8 %.fr, -49
   %74 = icmp ult i8 %73, 9
-  br i1 %74, label %.thread446, label %78, !prof !244
+  br i1 %74, label %.thread449, label %78, !prof !244
 
-.thread446:                                       ; preds = %71
+.thread449:                                       ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %76 = and i8 %.fr, 15
   %77 = zext nneg i8 %76 to i64
   store i64 %77, ptr %3, align 8, !tbaa !683
-  br label %.thread418.split.split.us
+  br label %.thread421.split.split.us
 
 78:                                               ; preds = %71
   %79 = icmp eq i8 %.fr, 48
@@ -44197,47 +44211,47 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %87, align 1, !tbaa !173
   %88 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12)
-  br label %.thread414
+  br label %.thread417
 
 89:                                               ; preds = %80
   %90 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread414
+  br label %.thread417
 
 91:                                               ; preds = %78
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i64 0, ptr %3, align 8, !tbaa !683
-  br label %.thread456
+  br label %.thread459
 
 93:                                               ; preds = %69
   %94 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %12, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-.thread418.split.split.us:                        ; preds = %35, %.thread446
-  %.fr541 = phi i64 [ %77, %.thread446 ], [ 0, %35 ]
-  %.3399 = phi ptr [ %75, %.thread446 ], [ %37, %35 ]
-  %95 = icmp ult ptr %.3399, %6
+.thread421.split.split.us:                        ; preds = %35, %.thread449
+  %.fr544 = phi i64 [ %77, %.thread449 ], [ 0, %35 ]
+  %.3402 = phi ptr [ %75, %.thread449 ], [ %37, %35 ]
+  %95 = icmp ult ptr %.3402, %6
   br i1 %95, label %.lr.ph.preheader, label %.split.us, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread418.split.split.us
-  %.3399560 = ptrtoint ptr %.3399 to i64
-  %96 = sub i64 %7, %.3399560
-  %scevgep = getelementptr i8, ptr %.3399, i64 %96
+.lr.ph.preheader:                                 ; preds = %.thread421.split.split.us
+  %.3402563 = ptrtoint ptr %.3402 to i64
+  %96 = sub i64 %7, %.3402563
+  %scevgep = getelementptr i8, ptr %.3402, i64 %96
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %100
-  %.9405.us518524 = phi ptr [ %101, %100 ], [ %.3399, %.lr.ph.preheader ]
-  %97 = load i8, ptr %.9405.us518524, align 1, !tbaa !15
+  %.9408.us521527 = phi ptr [ %101, %100 ], [ %.3402, %.lr.ph.preheader ]
+  %97 = load i8, ptr %.9408.us521527, align 1, !tbaa !15
   %98 = add i8 %97, -48
   %99 = icmp ult i8 %98, 10
-  br i1 %99, label %100, label %.thread456, !prof !244
+  br i1 %99, label %100, label %.thread459, !prof !244
 
 100:                                              ; preds = %.lr.ph
-  %101 = getelementptr inbounds nuw i8, ptr %.9405.us518524, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.9408.us521527, i64 1
   %exitcond.not = icmp eq ptr %101, %6
-  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !686
 
-.split.us:                                        ; preds = %100, %.thread418.split.split.us
-  %.us-phi = phi ptr [ %.3399, %.thread418.split.split.us ], [ %scevgep, %100 ]
+.split.us:                                        ; preds = %100, %.thread421.split.split.us
+  %.us-phi = phi ptr [ %.3402, %.thread421.split.split.us ], [ %scevgep, %100 ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %103 = load i8, ptr %102, align 8, !tbaa !176, !range !181, !noundef !182
   %104 = trunc nuw i8 %103 to i1
@@ -44245,132 +44259,132 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 105:                                              ; preds = %.split.us
   %106 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.us-phi, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-107:                                              ; preds = %.thread426
+107:                                              ; preds = %.thread429
   %108 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %109 = icmp ult ptr %108, %6
-  br i1 %109, label %.lr.ph532.preheader, label %._crit_edge533, !prof !360
+  br i1 %109, label %.lr.ph535.preheader, label %._crit_edge536, !prof !360
 
-.lr.ph532.preheader:                              ; preds = %107
-  %.15565 = ptrtoint ptr %108 to i64
-  %110 = sub i64 %7, %.15565
-  %scevgep566 = getelementptr i8, ptr %108, i64 %110
-  br label %.lr.ph532
+.lr.ph535.preheader:                              ; preds = %107
+  %.15568 = ptrtoint ptr %108 to i64
+  %110 = sub i64 %7, %.15568
+  %scevgep569 = getelementptr i8, ptr %108, i64 %110
+  br label %.lr.ph535
 
-._crit_edge533:                                   ; preds = %122, %107
-  %.16.lcssa = phi ptr [ %108, %107 ], [ %scevgep566, %122 ]
+._crit_edge536:                                   ; preds = %122, %107
+  %.16.lcssa = phi ptr [ %108, %107 ], [ %scevgep569, %122 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %112 = load i8, ptr %111, align 8, !tbaa !176, !range !181, !noundef !182
   %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %114, label %.thread434, !prof !245
+  br i1 %113, label %114, label %.thread437, !prof !245
 
-114:                                              ; preds = %._crit_edge533
+114:                                              ; preds = %._crit_edge536
   %115 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.16.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-.lr.ph532:                                        ; preds = %.lr.ph532.preheader, %122
-  %.16530 = phi ptr [ %123, %122 ], [ %108, %.lr.ph532.preheader ]
-  %116 = load i8, ptr %.16530, align 1, !tbaa !15
+.lr.ph535:                                        ; preds = %.lr.ph535.preheader, %122
+  %.16533 = phi ptr [ %123, %122 ], [ %108, %.lr.ph535.preheader ]
+  %116 = load i8, ptr %.16533, align 1, !tbaa !15
   %117 = add i8 %116, -48
   %118 = icmp ult i8 %117, 10
   br i1 %118, label %122, label %119, !prof !244
 
-119:                                              ; preds = %.lr.ph532
+119:                                              ; preds = %.lr.ph535
   %120 = and i8 %116, -33
   %121 = icmp eq i8 %120, 69
-  br i1 %121, label %.thread438, label %.thread434
+  br i1 %121, label %.thread441, label %.thread437
 
-122:                                              ; preds = %.lr.ph532
-  %123 = getelementptr inbounds nuw i8, ptr %.16530, i64 1
-  %exitcond567.not = icmp eq ptr %123, %6
-  br i1 %exitcond567.not, label %._crit_edge533, label %.lr.ph532, !prof !688
+122:                                              ; preds = %.lr.ph535
+  %123 = getelementptr inbounds nuw i8, ptr %.16533, i64 1
+  %exitcond570.not = icmp eq ptr %123, %6
+  br i1 %exitcond570.not, label %._crit_edge536, label %.lr.ph535, !prof !686
 
-.thread456:                                       ; preds = %.lr.ph, %91
-  %124 = phi i64 [ 0, %91 ], [ %.fr541, %.lr.ph ]
-  %.8404 = phi ptr [ %92, %91 ], [ %.9405.us518524, %.lr.ph ]
-  %125 = icmp ult ptr %.8404, %6
+.thread459:                                       ; preds = %.lr.ph, %91
+  %124 = phi i64 [ 0, %91 ], [ %.fr544, %.lr.ph ]
+  %.8407 = phi ptr [ %92, %91 ], [ %.9408.us521527, %.lr.ph ]
+  %125 = icmp ult ptr %.8407, %6
   br i1 %125, label %132, label %126, !prof !244
 
-126:                                              ; preds = %.thread456
+126:                                              ; preds = %.thread459
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %128 = load i8, ptr %127, align 8, !tbaa !176, !range !181, !noundef !182
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %200, !prof !245
 
 130:                                              ; preds = %126
-  %131 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8404, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  %131 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8407, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread417
 
-132:                                              ; preds = %.thread456
-  %133 = load i8, ptr %.8404, align 1, !tbaa !15
+132:                                              ; preds = %.thread459
+  %133 = load i8, ptr %.8407, align 1, !tbaa !15
   %134 = icmp eq i8 %133, 46
-  br i1 %134, label %.thread486, label %136, !prof !244
+  br i1 %134, label %.thread489, label %136, !prof !244
 
-.thread486:                                       ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %.8404, i64 1
-  br label %.thread422
+.thread489:                                       ; preds = %132
+  %135 = getelementptr inbounds nuw i8, ptr %.8407, i64 1
+  br label %.thread425
 
 136:                                              ; preds = %132
   %137 = and i8 %133, -33
   %138 = icmp eq i8 %137, 69
-  br i1 %138, label %.thread438, label %200
+  br i1 %138, label %.thread441, label %200
 
-.thread422:                                       ; preds = %57, %.thread486
-  %.4400 = phi ptr [ %135, %.thread486 ], [ %47, %57 ]
-  %139 = icmp ult ptr %.4400, %6
+.thread425:                                       ; preds = %57, %.thread489
+  %.4403 = phi ptr [ %135, %.thread489 ], [ %47, %57 ]
+  %139 = icmp ult ptr %.4403, %6
   br i1 %139, label %148, label %140, !prof !244
 
-140:                                              ; preds = %.thread422
+140:                                              ; preds = %.thread425
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %142 = load i8, ptr %141, align 8, !tbaa !176, !range !181, !noundef !182
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %146, !prof !245
 
 144:                                              ; preds = %140
-  %145 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4400, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  %145 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4403, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread417
 
 146:                                              ; preds = %140
-  %147 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4400, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread414
+  %147 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4403, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread417
 
-148:                                              ; preds = %.thread422
-  %149 = load i8, ptr %.4400, align 1, !tbaa !15
+148:                                              ; preds = %.thread425
+  %149 = load i8, ptr %.4403, align 1, !tbaa !15
   %150 = add i8 %149, -48
   %151 = icmp ult i8 %150, 10
-  br i1 %151, label %.thread426, label %152, !prof !244
+  br i1 %151, label %.thread429, label %152, !prof !244
 
 152:                                              ; preds = %148
-  %153 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4400, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread414
+  %153 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.4403, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread417
 
-.thread426:                                       ; preds = %148, %67
-  %.19 = phi ptr [ %63, %67 ], [ %.4400, %148 ]
+.thread429:                                       ; preds = %148, %67
+  %.19 = phi ptr [ %63, %67 ], [ %.4403, %148 ]
   %154 = icmp ult ptr %.19, %6
   br i1 %154, label %107, label %155, !prof !244
 
-155:                                              ; preds = %.thread426
+155:                                              ; preds = %.thread429
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %157 = load i8, ptr %156, align 8, !tbaa !176, !range !181, !noundef !182
   %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %159, label %.thread434, !prof !245
+  br i1 %158, label %159, label %.thread437, !prof !245
 
 159:                                              ; preds = %155
   %160 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.19, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-.thread438:                                       ; preds = %136, %119, %60, %43
-  %.8404.sink = phi ptr [ %.1, %43 ], [ %63, %60 ], [ %.16530, %119 ], [ %.8404, %136 ]
-  %161 = getelementptr inbounds nuw i8, ptr %.8404.sink, i64 1
+.thread441:                                       ; preds = %136, %119, %60, %43
+  %.8407.sink = phi ptr [ %.1, %43 ], [ %63, %60 ], [ %.16533, %119 ], [ %.8407, %136 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.8407.sink, i64 1
   %162 = icmp ult ptr %161, %6
   br i1 %162, label %165, label %163, !prof !244
 
-163:                                              ; preds = %.thread438
+163:                                              ; preds = %.thread441
   %164 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %161, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-165:                                              ; preds = %.thread438
+165:                                              ; preds = %.thread441
   %166 = load i8, ptr %161, align 1, !tbaa !15
   switch i8 %166, label %171 [
     i8 43, label %167
@@ -44378,17 +44392,17 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   ]
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %.8404.sink, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %.8407.sink, i64 2
   br label %171
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds nuw i8, ptr %.8404.sink, i64 2
-  store i8 1, ptr %10, align 8, !tbaa !686
+  %170 = getelementptr inbounds nuw i8, ptr %.8407.sink, i64 2
+  store i8 1, ptr %10, align 8, !tbaa !687
   br label %171
 
 171:                                              ; preds = %165, %167, %169
   %.21 = phi ptr [ %168, %167 ], [ %170, %169 ], [ %161, %165 ]
-  %.21568 = ptrtoint ptr %.21 to i64
+  %.21571 = ptrtoint ptr %.21 to i64
   %172 = icmp ult ptr %.21, %6
   br i1 %172, label %181, label %173, !prof !244
 
@@ -44400,76 +44414,76 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 177:                                              ; preds = %173
   %178 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.21, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
 179:                                              ; preds = %173
   %180 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.21, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %.thread414
+  br label %.thread417
 
 181:                                              ; preds = %171
   %182 = load i8, ptr %.21, align 1, !tbaa !15
   %183 = add i8 %182, -48
   %184 = icmp ult i8 %183, 10
-  br i1 %184, label %186, label %.thread500, !prof !244
+  br i1 %184, label %186, label %.thread503, !prof !244
 
-.thread500:                                       ; preds = %181
+.thread503:                                       ; preds = %181
   %185 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.21, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc45ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread414
+  br label %.thread417
 
 186:                                              ; preds = %181
   %187 = zext nneg i8 %182 to i32
   %188 = add nsw i32 %187, -48
-  store i32 %188, ptr %9, align 4, !tbaa !687
-  %.23535 = getelementptr inbounds nuw i8, ptr %.21, i64 1
-  %189 = icmp ult ptr %.23535, %6
-  br i1 %189, label %.lr.ph538.preheader, label %._crit_edge539, !prof !360
+  store i32 %188, ptr %9, align 4, !tbaa !688
+  %.23538 = getelementptr inbounds nuw i8, ptr %.21, i64 1
+  %189 = icmp ult ptr %.23538, %6
+  br i1 %189, label %.lr.ph541.preheader, label %._crit_edge542, !prof !360
 
-.lr.ph538.preheader:                              ; preds = %186
-  %190 = sub i64 %7, %.21568
-  %scevgep569 = getelementptr i8, ptr %.21, i64 %190
-  br label %.lr.ph538
+.lr.ph541.preheader:                              ; preds = %186
+  %190 = sub i64 %7, %.21571
+  %scevgep572 = getelementptr i8, ptr %.21, i64 %190
+  br label %.lr.ph541
 
-._crit_edge539:                                   ; preds = %199, %186
-  %.23.lcssa = phi ptr [ %.23535, %186 ], [ %scevgep569, %199 ]
+._crit_edge542:                                   ; preds = %199, %186
+  %.23.lcssa = phi ptr [ %.23538, %186 ], [ %scevgep572, %199 ]
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %192 = load i8, ptr %191, align 8, !tbaa !176, !range !181, !noundef !182
   %193 = trunc nuw i8 %192 to i1
-  br i1 %193, label %194, label %.thread434, !prof !245
+  br i1 %193, label %194, label %.thread437, !prof !245
 
-194:                                              ; preds = %._crit_edge539
+194:                                              ; preds = %._crit_edge542
   %195 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.23.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread414
+  br label %.thread417
 
-.lr.ph538:                                        ; preds = %.lr.ph538.preheader, %199
-  %.23536 = phi ptr [ %.23, %199 ], [ %.23535, %.lr.ph538.preheader ]
-  %196 = load i8, ptr %.23536, align 1, !tbaa !15
+.lr.ph541:                                        ; preds = %.lr.ph541.preheader, %199
+  %.23539 = phi ptr [ %.23, %199 ], [ %.23538, %.lr.ph541.preheader ]
+  %196 = load i8, ptr %.23539, align 1, !tbaa !15
   %197 = add i8 %196, -48
   %198 = icmp ult i8 %197, 10
-  br i1 %198, label %199, label %.thread434, !prof !244
+  br i1 %198, label %199, label %.thread437, !prof !244
 
-199:                                              ; preds = %.lr.ph538
-  %.23 = getelementptr inbounds nuw i8, ptr %.23536, i64 1
-  %exitcond570.not = icmp eq ptr %.23, %6
-  br i1 %exitcond570.not, label %._crit_edge539, label %.lr.ph538, !prof !688
+199:                                              ; preds = %.lr.ph541
+  %.23 = getelementptr inbounds nuw i8, ptr %.23539, i64 1
+  %exitcond573.not = icmp eq ptr %.23, %6
+  br i1 %exitcond573.not, label %._crit_edge542, label %.lr.ph541, !prof !686
 
 200:                                              ; preds = %.split.us, %126, %136
-  %201 = phi i64 [ %124, %126 ], [ %.fr541, %.split.us ], [ %124, %136 ]
-  %.10406 = phi ptr [ %.8404, %126 ], [ %.us-phi, %.split.us ], [ %.8404, %136 ]
+  %201 = phi i64 [ %124, %126 ], [ %.fr544, %.split.us ], [ %124, %136 ]
+  %.10409 = phi ptr [ %.8407, %126 ], [ %.us-phi, %.split.us ], [ %.8407, %136 ]
   %202 = sub nsw i64 0, %201
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %202)
-  br label %.thread414
+  br label %.thread417
 
 203:                                              ; preds = %43
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0)
-  br label %.thread414
+  br label %.thread417
 
-.thread434:                                       ; preds = %.lr.ph538, %._crit_edge539, %119, %67, %._crit_edge533, %155
-  %.6402 = phi ptr [ %.16.lcssa, %._crit_edge533 ], [ %.19, %155 ], [ %63, %67 ], [ %.16530, %119 ], [ %.23.lcssa, %._crit_edge539 ], [ %.23536, %.lr.ph538 ]
+.thread437:                                       ; preds = %.lr.ph541, %._crit_edge542, %119, %67, %._crit_edge536, %155
+  %.6405 = phi ptr [ %.16.lcssa, %._crit_edge536 ], [ %.19, %155 ], [ %63, %67 ], [ %.16533, %119 ], [ %.23.lcssa, %._crit_edge542 ], [ %.23539, %.lr.ph541 ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef 0.000000e+00)
-  br label %.thread414
+  br label %.thread417
 
-.thread414:                                       ; preds = %89, %84, %55, %33, %30, %.thread500, %152, %.thread434, %203, %200, %194, %179, %177, %163, %159, %146, %144, %130, %114, %105, %93
-  %.2 = phi ptr [ %106, %105 ], [ %.10406, %200 ], [ %115, %114 ], [ %164, %163 ], [ %178, %177 ], [ %180, %179 ], [ %195, %194 ], [ %131, %130 ], [ %145, %144 ], [ %147, %146 ], [ %160, %159 ], [ %153, %152 ], [ %.1, %203 ], [ %94, %93 ], [ %.6402, %.thread434 ], [ %185, %.thread500 ], [ %56, %55 ], [ %34, %33 ], [ %31, %30 ], [ %90, %89 ], [ %88, %84 ]
+.thread417:                                       ; preds = %89, %84, %55, %33, %30, %.thread503, %152, %.thread437, %203, %200, %194, %179, %177, %163, %159, %146, %144, %130, %114, %105, %93
+  %.2 = phi ptr [ %106, %105 ], [ %.10409, %200 ], [ %115, %114 ], [ %164, %163 ], [ %178, %177 ], [ %180, %179 ], [ %195, %194 ], [ %131, %130 ], [ %145, %144 ], [ %147, %146 ], [ %160, %159 ], [ %153, %152 ], [ %.1, %203 ], [ %94, %93 ], [ %.6405, %.thread437 ], [ %185, %.thread503 ], [ %56, %55 ], [ %34, %33 ], [ %31, %30 ], [ %90, %89 ], [ %88, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -44592,7 +44606,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %47,
   store i64 %.1.i, ptr %3, align 8, !tbaa !683
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %82 = icmp eq i16 %18, 0
-  br i1 %82, label %.thread403, label %83
+  br i1 %82, label %.thread406, label %83
 
 83:                                               ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %84 = load i8, ptr %81, align 1, !tbaa !15
@@ -44602,7 +44616,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %47,
 85:                                               ; preds = %83
   %86 = and i8 %84, -33
   %87 = icmp eq i8 %86, 69
-  br i1 %87, label %.thread423, label %371
+  br i1 %87, label %.thread426, label %371
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 1
@@ -44613,169 +44627,169 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %47,
   %94 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %93, i1 false)
   %95 = zext nneg i16 %94 to i32
   %96 = icmp eq i16 %94, 0
-  br i1 %96, label %.thread399, label %98
+  br i1 %96, label %.thread402, label %98
 
-.thread399:                                       ; preds = %88
+.thread402:                                       ; preds = %88
   %97 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %89, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
   br label %402
 
 98:                                               ; preds = %88
   %narrow = add nuw nsw i16 %94, %19
   %99 = icmp samesign ugt i16 %narrow, 18
-  br i1 %99, label %.thread407, label %100
+  br i1 %99, label %.thread410, label %100
 
 100:                                              ; preds = %98
   %101 = zext nneg i16 %94 to i64
   %102 = icmp samesign ugt i16 %94, 3
-  br i1 %102, label %.lr.ph.i144, label %._crit_edge.i138
+  br i1 %102, label %.lr.ph.i147, label %._crit_edge.i141
 
-.lr.ph.i144:                                      ; preds = %100, %.lr.ph.i144
-  %.028.i145 = phi i64 [ %126, %.lr.ph.i144 ], [ %101, %100 ]
-  %.02427.i146 = phi ptr [ %125, %.lr.ph.i144 ], [ %89, %100 ]
-  %.02526.i147 = phi i64 [ %124, %.lr.ph.i144 ], [ %.1.i, %100 ]
-  %103 = mul i64 %.02526.i147, 10
-  %104 = load i8, ptr %.02427.i146, align 1, !tbaa !15
+.lr.ph.i147:                                      ; preds = %100, %.lr.ph.i147
+  %.028.i148 = phi i64 [ %126, %.lr.ph.i147 ], [ %101, %100 ]
+  %.02427.i149 = phi ptr [ %125, %.lr.ph.i147 ], [ %89, %100 ]
+  %.02526.i150 = phi i64 [ %124, %.lr.ph.i147 ], [ %.1.i, %100 ]
+  %103 = mul i64 %.02526.i150, 10
+  %104 = load i8, ptr %.02427.i149, align 1, !tbaa !15
   %105 = sext i8 %104 to i64
   %106 = add i64 %103, %105
   %107 = mul i64 %106, 10
-  %108 = getelementptr inbounds nuw i8, ptr %.02427.i146, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.02427.i149, i64 1
   %109 = load i8, ptr %108, align 1, !tbaa !15
   %110 = sext i8 %109 to i64
   %111 = add nsw i64 %110, -480
   %112 = add i64 %111, %107
   %113 = mul i64 %112, 10
-  %114 = getelementptr inbounds nuw i8, ptr %.02427.i146, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.02427.i149, i64 2
   %115 = load i8, ptr %114, align 1, !tbaa !15
   %116 = sext i8 %115 to i64
   %117 = add nsw i64 %116, -480
   %118 = add i64 %117, %113
   %119 = mul i64 %118, 10
-  %120 = getelementptr inbounds nuw i8, ptr %.02427.i146, i64 3
+  %120 = getelementptr inbounds nuw i8, ptr %.02427.i149, i64 3
   %121 = load i8, ptr %120, align 1, !tbaa !15
   %122 = sext i8 %121 to i64
   %123 = add nsw i64 %122, -528
   %124 = add i64 %123, %119
-  %125 = getelementptr inbounds nuw i8, ptr %.02427.i146, i64 4
-  %126 = add i64 %.028.i145, -4
+  %125 = getelementptr inbounds nuw i8, ptr %.02427.i149, i64 4
+  %126 = add i64 %.028.i148, -4
   %127 = icmp ugt i64 %126, 3
-  br i1 %127, label %.lr.ph.i144, label %._crit_edge.i138, !llvm.loop !684
+  br i1 %127, label %.lr.ph.i147, label %._crit_edge.i141, !llvm.loop !684
 
-._crit_edge.i138:                                 ; preds = %.lr.ph.i144, %100
-  %.025.lcssa.i139 = phi i64 [ %.1.i, %100 ], [ %124, %.lr.ph.i144 ]
-  %.024.lcssa.i140 = phi ptr [ %89, %100 ], [ %125, %.lr.ph.i144 ]
-  %.0.lcssa.i141 = phi i64 [ %101, %100 ], [ %126, %.lr.ph.i144 ]
-  switch i64 %.0.lcssa.i141, label %default.unreachable.i143 [
+._crit_edge.i141:                                 ; preds = %.lr.ph.i147, %100
+  %.025.lcssa.i142 = phi i64 [ %.1.i, %100 ], [ %124, %.lr.ph.i147 ]
+  %.024.lcssa.i143 = phi ptr [ %89, %100 ], [ %125, %.lr.ph.i147 ]
+  %.0.lcssa.i144 = phi i64 [ %101, %100 ], [ %126, %.lr.ph.i147 ]
+  switch i64 %.0.lcssa.i144, label %default.unreachable.i146 [
     i64 3, label %145
     i64 1, label %128
     i64 2, label %134
-    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148
+    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151
   ]
 
-128:                                              ; preds = %._crit_edge.i138
-  %129 = mul i64 %.025.lcssa.i139, 10
-  %130 = load i8, ptr %.024.lcssa.i140, align 1, !tbaa !15
+128:                                              ; preds = %._crit_edge.i141
+  %129 = mul i64 %.025.lcssa.i142, 10
+  %130 = load i8, ptr %.024.lcssa.i143, align 1, !tbaa !15
   %131 = sext i8 %130 to i64
   %132 = add i64 %129, -48
   %133 = add i64 %132, %131
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151
 
-134:                                              ; preds = %._crit_edge.i138
-  %135 = mul i64 %.025.lcssa.i139, 10
-  %136 = load i8, ptr %.024.lcssa.i140, align 1, !tbaa !15
+134:                                              ; preds = %._crit_edge.i141
+  %135 = mul i64 %.025.lcssa.i142, 10
+  %136 = load i8, ptr %.024.lcssa.i143, align 1, !tbaa !15
   %137 = sext i8 %136 to i64
   %138 = add i64 %135, %137
   %139 = mul i64 %138, 10
-  %140 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i140, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i143, i64 1
   %141 = load i8, ptr %140, align 1, !tbaa !15
   %142 = sext i8 %141 to i64
   %143 = add nsw i64 %142, -528
   %144 = add i64 %143, %139
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151
 
-145:                                              ; preds = %._crit_edge.i138
-  %146 = mul i64 %.025.lcssa.i139, 10
-  %147 = load i8, ptr %.024.lcssa.i140, align 1, !tbaa !15
+145:                                              ; preds = %._crit_edge.i141
+  %146 = mul i64 %.025.lcssa.i142, 10
+  %147 = load i8, ptr %.024.lcssa.i143, align 1, !tbaa !15
   %148 = sext i8 %147 to i64
   %149 = add i64 %146, %148
   %150 = mul i64 %149, 10
-  %151 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i140, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i143, i64 1
   %152 = load i8, ptr %151, align 1, !tbaa !15
   %153 = sext i8 %152 to i64
   %154 = add nsw i64 %153, -480
   %155 = add i64 %154, %150
   %156 = mul i64 %155, 10
-  %157 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i140, i64 2
+  %157 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i143, i64 2
   %158 = load i8, ptr %157, align 1, !tbaa !15
   %159 = sext i8 %158 to i64
   %160 = add nsw i64 %159, -528
   %161 = add i64 %160, %156
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151
 
-default.unreachable.i143:                         ; preds = %._crit_edge.i138
+default.unreachable.i146:                         ; preds = %._crit_edge.i141
   unreachable
 
-_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138, %128, %134, %145
-  %.1.i142 = phi i64 [ %.025.lcssa.i139, %._crit_edge.i138 ], [ %161, %145 ], [ %133, %128 ], [ %144, %134 ]
-  store i64 %.1.i142, ptr %3, align 8, !tbaa !683
+_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151: ; preds = %._crit_edge.i141, %128, %134, %145
+  %.1.i145 = phi i64 [ %.025.lcssa.i142, %._crit_edge.i141 ], [ %161, %145 ], [ %133, %128 ], [ %144, %134 ]
+  store i64 %.1.i145, ptr %3, align 8, !tbaa !683
   %162 = sub nsw i32 0, %95
   store i32 %162, ptr %6, align 8, !tbaa !685
   %163 = getelementptr inbounds nuw i8, ptr %89, i64 %101
   %164 = load i8, ptr %163, align 1, !tbaa !15
   %165 = and i8 %164, -33
   %166 = icmp eq i8 %165, 69
-  br i1 %166, label %.thread423, label %167
+  br i1 %166, label %.thread426, label %167
 
-167:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148
+167:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151
   %168 = add i8 %164, -48
   %or.cond = icmp ult i8 %168, 10
-  br i1 %or.cond, label %.thread411, label %.thread419.thread
+  br i1 %or.cond, label %.thread414, label %.thread422.thread
 
 169:                                              ; preds = %2
   %170 = load i8, ptr %1, align 1, !tbaa !15
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %172 = sext i8 %170 to i64
   %173 = add nsw i64 %172, -48
-  br label %.thread403
+  br label %.thread406
 
-.thread403:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %169
+.thread406:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %169
   %.promoted = phi i64 [ %173, %169 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %.2384 = phi ptr [ %171, %169 ], [ %81, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %174 = icmp ult ptr %.2384, %5
+  %.2387 = phi ptr [ %171, %169 ], [ %81, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %174 = icmp ult ptr %.2387, %5
   br i1 %174, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread403
-  %.2384591 = ptrtoint ptr %.2384 to i64
-  %175 = sub i64 %10, %.2384591
-  %scevgep = getelementptr i8, ptr %.2384, i64 %175
+.lr.ph.preheader:                                 ; preds = %.thread406
+  %.2387594 = ptrtoint ptr %.2387 to i64
+  %175 = sub i64 %10, %.2387594
+  %scevgep = getelementptr i8, ptr %.2387, i64 %175
   %176 = trunc i64 %10 to i32
-  %177 = trunc i64 %.2384591 to i32
+  %177 = trunc i64 %.2387594 to i32
   %178 = sub i32 %176, %177
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %194, %.thread403
-  %.lcssa519 = phi i64 [ %.promoted, %.thread403 ], [ %197, %194 ]
-  %.8390.lcssa = phi ptr [ %.2384, %.thread403 ], [ %scevgep, %194 ]
-  store i64 %.lcssa519, ptr %3, align 8
+._crit_edge:                                      ; preds = %194, %.thread406
+  %.lcssa522 = phi i64 [ %.promoted, %.thread406 ], [ %197, %194 ]
+  %.8393.lcssa = phi ptr [ %.2387, %.thread406 ], [ %scevgep, %194 ]
+  store i64 %.lcssa522, ptr %3, align 8
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %180 = load i8, ptr %179, align 8, !tbaa !176, !range !181, !noundef !182
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %182, label %368, !prof !245
 
 182:                                              ; preds = %._crit_edge
-  %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8390.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8393.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %194
   %indvars.iv = phi i32 [ %178, %.lr.ph.preheader ], [ %indvars.iv.next, %194 ]
-  %.8390522 = phi ptr [ %.2384, %.lr.ph.preheader ], [ %189, %194 ]
+  %.8393525 = phi ptr [ %.2387, %.lr.ph.preheader ], [ %189, %194 ]
   %184 = phi i64 [ %.promoted, %.lr.ph.preheader ], [ %197, %194 ]
-  %185 = load i8, ptr %.8390522, align 1, !tbaa !15
+  %185 = load i8, ptr %.8393525, align 1, !tbaa !15
   %186 = add i8 %185, -48
   %187 = icmp ult i8 %186, 10
   br i1 %187, label %188, label %248, !prof !244
 
 188:                                              ; preds = %.lr.ph
-  %189 = getelementptr inbounds nuw i8, ptr %.8390522, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %.8393525, i64 1
   %190 = icmp ugt i64 %184, 1844674407370955161
   br i1 %190, label %198, label %191
 
@@ -44791,60 +44805,60 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %197 = add i64 %195, %196
   %exitcond.not = icmp eq ptr %189, %5
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
 198:                                              ; preds = %191, %188
   store i64 %184, ptr %3, align 8
   %199 = icmp ult ptr %189, %5
-  br i1 %199, label %.lr.ph537, label %._crit_edge538, !prof !360
+  br i1 %199, label %.lr.ph540, label %._crit_edge541, !prof !360
 
-._crit_edge538:                                   ; preds = %216, %198
-  %storemerge492.lcssa = phi i32 [ 1, %198 ], [ %indvars.iv, %216 ]
-  %.11393.lcssa = phi ptr [ %189, %198 ], [ %scevgep, %216 ]
-  store i32 %storemerge492.lcssa, ptr %6, align 8, !tbaa !685
+._crit_edge541:                                   ; preds = %216, %198
+  %storemerge495.lcssa = phi i32 [ 1, %198 ], [ %indvars.iv, %216 ]
+  %.11396.lcssa = phi ptr [ %189, %198 ], [ %scevgep, %216 ]
+  store i32 %storemerge495.lcssa, ptr %6, align 8, !tbaa !685
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %201 = load i8, ptr %200, align 8, !tbaa !176, !range !181, !noundef !182
   %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %203, label %.thread419.thread, !prof !245
+  br i1 %202, label %203, label %.thread422.thread, !prof !245
 
-203:                                              ; preds = %._crit_edge538
-  %204 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11393.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
+203:                                              ; preds = %._crit_edge541
+  %204 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11396.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
-.lr.ph537:                                        ; preds = %198, %216
-  %storemerge492535 = phi i32 [ %storemerge492, %216 ], [ 1, %198 ]
-  %.11393534 = phi ptr [ %217, %216 ], [ %189, %198 ]
-  %205 = load i8, ptr %.11393534, align 1, !tbaa !15
+.lr.ph540:                                        ; preds = %198, %216
+  %storemerge495538 = phi i32 [ %storemerge495, %216 ], [ 1, %198 ]
+  %.11396537 = phi ptr [ %217, %216 ], [ %189, %198 ]
+  %205 = load i8, ptr %.11396537, align 1, !tbaa !15
   %206 = add i8 %205, -48
   %207 = icmp ult i8 %206, 10
   br i1 %207, label %208, label %211, !prof !245
 
-208:                                              ; preds = %.lr.ph537
-  %209 = icmp eq i32 %storemerge492535, 2147483646
-  br i1 %209, label %.thread435, label %216, !prof !245
+208:                                              ; preds = %.lr.ph540
+  %209 = icmp eq i32 %storemerge495538, 2147483646
+  br i1 %209, label %.thread438, label %216, !prof !245
 
-.thread435:                                       ; preds = %208
-  %210 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11393534, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+.thread438:                                       ; preds = %208
+  %210 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11396537, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
   br label %402
 
-211:                                              ; preds = %.lr.ph537
-  store i32 %storemerge492535, ptr %6, align 8, !tbaa !685
+211:                                              ; preds = %.lr.ph540
+  store i32 %storemerge495538, ptr %6, align 8, !tbaa !685
   %212 = icmp eq i8 %205, 46
   br i1 %212, label %219, label %213, !prof !244
 
 213:                                              ; preds = %211
   %214 = and i8 %205, -33
   %215 = icmp eq i8 %214, 69
-  br i1 %215, label %.thread423, label %.thread419.thread
+  br i1 %215, label %.thread426, label %.thread422.thread
 
 216:                                              ; preds = %208
-  %217 = getelementptr inbounds nuw i8, ptr %.11393534, i64 1
-  %storemerge492 = add nuw nsw i32 %storemerge492535, 1
+  %217 = getelementptr inbounds nuw i8, ptr %.11396537, i64 1
+  %storemerge495 = add nuw nsw i32 %storemerge495538, 1
   %218 = icmp ult ptr %217, %5
-  br i1 %218, label %.lr.ph537, label %._crit_edge538, !prof !361
+  br i1 %218, label %.lr.ph540, label %._crit_edge541, !prof !361
 
 219:                                              ; preds = %211
-  %220 = getelementptr inbounds nuw i8, ptr %.11393534, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %.11396537, i64 1
   %221 = icmp ult ptr %220, %5
   br i1 %221, label %224, label %222, !prof !244
 
@@ -44856,153 +44870,153 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %225 = load i8, ptr %220, align 1, !tbaa !15
   %226 = add i8 %225, -48
   %227 = icmp ult i8 %226, 10
-  br i1 %227, label %.thread453, label %229, !prof !244
+  br i1 %227, label %.thread456, label %229, !prof !244
 
-.thread453:                                       ; preds = %224
-  %228 = getelementptr inbounds nuw i8, ptr %.11393534, i64 2
-  br label %.thread474
+.thread456:                                       ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %.11396537, i64 2
+  br label %.thread477
 
 229:                                              ; preds = %224
   %230 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %220, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
   br label %402
 
-.thread474:                                       ; preds = %283, %.thread453
-  %231 = phi i64 [ %184, %.thread453 ], [ %278, %283 ]
-  %232 = phi i32 [ %storemerge492535, %.thread453 ], [ %279, %283 ]
-  %.14396 = phi ptr [ %228, %.thread453 ], [ %284, %283 ]
-  %233 = icmp ult ptr %.14396, %5
-  br i1 %233, label %.lr.ph542.preheader, label %._crit_edge543, !prof !360
+.thread477:                                       ; preds = %283, %.thread456
+  %231 = phi i64 [ %184, %.thread456 ], [ %278, %283 ]
+  %232 = phi i32 [ %storemerge495538, %.thread456 ], [ %279, %283 ]
+  %.14399 = phi ptr [ %228, %.thread456 ], [ %284, %283 ]
+  %233 = icmp ult ptr %.14399, %5
+  br i1 %233, label %.lr.ph545.preheader, label %._crit_edge546, !prof !360
 
-.lr.ph542.preheader:                              ; preds = %.thread474
-  %.14396598 = ptrtoint ptr %.14396 to i64
-  %234 = sub i64 %10, %.14396598
-  %scevgep599 = getelementptr i8, ptr %.14396, i64 %234
-  br label %.lr.ph542
+.lr.ph545.preheader:                              ; preds = %.thread477
+  %.14399601 = ptrtoint ptr %.14399 to i64
+  %234 = sub i64 %10, %.14399601
+  %scevgep602 = getelementptr i8, ptr %.14399, i64 %234
+  br label %.lr.ph545
 
-._crit_edge543:                                   ; preds = %246, %.thread474
-  %.15.lcssa = phi ptr [ %.14396, %.thread474 ], [ %scevgep599, %246 ]
+._crit_edge546:                                   ; preds = %246, %.thread477
+  %.15.lcssa = phi ptr [ %.14399, %.thread477 ], [ %scevgep602, %246 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %236 = load i8, ptr %235, align 8, !tbaa !176, !range !181, !noundef !182
   %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %.thread419.thread, !prof !245
+  br i1 %237, label %238, label %.thread422.thread, !prof !245
 
-238:                                              ; preds = %._crit_edge543
+238:                                              ; preds = %._crit_edge546
   %239 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
-.lr.ph542:                                        ; preds = %.lr.ph542.preheader, %246
-  %.15541 = phi ptr [ %247, %246 ], [ %.14396, %.lr.ph542.preheader ]
-  %240 = load i8, ptr %.15541, align 1, !tbaa !15
+.lr.ph545:                                        ; preds = %.lr.ph545.preheader, %246
+  %.15544 = phi ptr [ %247, %246 ], [ %.14399, %.lr.ph545.preheader ]
+  %240 = load i8, ptr %.15544, align 1, !tbaa !15
   %241 = add i8 %240, -48
   %242 = icmp ult i8 %241, 10
   br i1 %242, label %246, label %243, !prof !244
 
-243:                                              ; preds = %.lr.ph542
+243:                                              ; preds = %.lr.ph545
   %244 = and i8 %240, -33
   %245 = icmp eq i8 %244, 69
-  br i1 %245, label %.thread423, label %.thread419.thread
+  br i1 %245, label %.thread426, label %.thread422.thread
 
-246:                                              ; preds = %.lr.ph542
-  %247 = getelementptr inbounds nuw i8, ptr %.15541, i64 1
-  %exitcond600.not = icmp eq ptr %247, %5
-  br i1 %exitcond600.not, label %._crit_edge543, label %.lr.ph542, !prof !688
+246:                                              ; preds = %.lr.ph545
+  %247 = getelementptr inbounds nuw i8, ptr %.15544, i64 1
+  %exitcond603.not = icmp eq ptr %247, %5
+  br i1 %exitcond603.not, label %._crit_edge546, label %.lr.ph545, !prof !686
 
 248:                                              ; preds = %.lr.ph
   store i64 %184, ptr %3, align 8
   %249 = icmp eq i8 %185, 46
-  br i1 %249, label %.thread462, label %251, !prof !244
+  br i1 %249, label %.thread465, label %251, !prof !244
 
-.thread462:                                       ; preds = %248
-  %250 = getelementptr inbounds nuw i8, ptr %.8390522, i64 1
-  br label %.thread407
+.thread465:                                       ; preds = %248
+  %250 = getelementptr inbounds nuw i8, ptr %.8393525, i64 1
+  br label %.thread410
 
 251:                                              ; preds = %248
   %252 = and i8 %185, -33
   %253 = icmp eq i8 %252, 69
-  br i1 %253, label %.thread423, label %368
+  br i1 %253, label %.thread426, label %368
 
-.thread407:                                       ; preds = %98, %.thread462
-  %.promoted524606 = phi i64 [ %184, %.thread462 ], [ %.1.i, %98 ]
-  %.3385 = phi ptr [ %250, %.thread462 ], [ %89, %98 ]
-  %254 = icmp ult ptr %.3385, %5
+.thread410:                                       ; preds = %98, %.thread465
+  %.promoted527609 = phi i64 [ %184, %.thread465 ], [ %.1.i, %98 ]
+  %.3388 = phi ptr [ %250, %.thread465 ], [ %89, %98 ]
+  %254 = icmp ult ptr %.3388, %5
   br i1 %254, label %263, label %255, !prof !244
 
-255:                                              ; preds = %.thread407
+255:                                              ; preds = %.thread410
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %257 = load i8, ptr %256, align 8, !tbaa !176, !range !181, !noundef !182
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %261, !prof !245
 
 259:                                              ; preds = %255
-  %260 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3385, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %260 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3388, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
 261:                                              ; preds = %255
-  %262 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3385, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  %262 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3388, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
   br label %402
 
-263:                                              ; preds = %.thread407
-  %264 = load i8, ptr %.3385, align 1, !tbaa !15
+263:                                              ; preds = %.thread410
+  %264 = load i8, ptr %.3388, align 1, !tbaa !15
   %265 = add i8 %264, -48
   %266 = icmp ult i8 %265, 10
-  br i1 %266, label %.thread411, label %267, !prof !244
+  br i1 %266, label %.thread414, label %267, !prof !244
 
 267:                                              ; preds = %263
-  %268 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3385, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  %268 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3388, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
   br label %402
 
-.thread411:                                       ; preds = %263, %167
-  %.promoted525 = phi i32 [ %162, %167 ], [ 0, %263 ]
-  %.promoted524 = phi i64 [ %.1.i142, %167 ], [ %.promoted524606, %263 ]
-  %.4386 = phi ptr [ %163, %167 ], [ %.3385, %263 ]
-  %269 = icmp ult ptr %.4386, %5
-  br i1 %269, label %.lr.ph527.preheader, label %._crit_edge528, !prof !360
+.thread414:                                       ; preds = %263, %167
+  %.promoted528 = phi i32 [ %162, %167 ], [ 0, %263 ]
+  %.promoted527 = phi i64 [ %.1.i145, %167 ], [ %.promoted527609, %263 ]
+  %.4389 = phi ptr [ %163, %167 ], [ %.3388, %263 ]
+  %269 = icmp ult ptr %.4389, %5
+  br i1 %269, label %.lr.ph530.preheader, label %._crit_edge531, !prof !360
 
-.lr.ph527.preheader:                              ; preds = %.thread411
-  %.4386592 = ptrtoint ptr %.4386 to i64
-  %270 = sub i64 %10, %.4386592
-  %scevgep593 = getelementptr i8, ptr %.4386, i64 %270
-  br label %.lr.ph527
+.lr.ph530.preheader:                              ; preds = %.thread414
+  %.4389595 = ptrtoint ptr %.4389 to i64
+  %270 = sub i64 %10, %.4389595
+  %scevgep596 = getelementptr i8, ptr %.4389, i64 %270
+  br label %.lr.ph530
 
-._crit_edge528:                                   ; preds = %292, %.thread411
-  %271 = phi i32 [ %.promoted525, %.thread411 ], [ %293, %292 ]
-  %272 = phi i64 [ %.promoted524, %.thread411 ], [ %296, %292 ]
-  %.18.lcssa = phi ptr [ %.4386, %.thread411 ], [ %scevgep593, %292 ]
+._crit_edge531:                                   ; preds = %292, %.thread414
+  %271 = phi i32 [ %.promoted528, %.thread414 ], [ %293, %292 ]
+  %272 = phi i64 [ %.promoted527, %.thread414 ], [ %296, %292 ]
+  %.18.lcssa = phi ptr [ %.4389, %.thread414 ], [ %scevgep596, %292 ]
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %274 = load i8, ptr %273, align 8, !tbaa !176, !range !181, !noundef !182
   %275 = trunc nuw i8 %274 to i1
-  br i1 %275, label %276, label %.thread419.thread, !prof !245
+  br i1 %275, label %276, label %.thread422.thread, !prof !245
 
-276:                                              ; preds = %._crit_edge528
+276:                                              ; preds = %._crit_edge531
   %277 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.18.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
-.lr.ph527:                                        ; preds = %.lr.ph527.preheader, %292
-  %.18526 = phi ptr [ %284, %292 ], [ %.4386, %.lr.ph527.preheader ]
-  %278 = phi i64 [ %296, %292 ], [ %.promoted524, %.lr.ph527.preheader ]
-  %279 = phi i32 [ %293, %292 ], [ %.promoted525, %.lr.ph527.preheader ]
-  %280 = load i8, ptr %.18526, align 1, !tbaa !15
+.lr.ph530:                                        ; preds = %.lr.ph530.preheader, %292
+  %.18529 = phi ptr [ %284, %292 ], [ %.4389, %.lr.ph530.preheader ]
+  %278 = phi i64 [ %296, %292 ], [ %.promoted527, %.lr.ph530.preheader ]
+  %279 = phi i32 [ %293, %292 ], [ %.promoted528, %.lr.ph530.preheader ]
+  %280 = load i8, ptr %.18529, align 1, !tbaa !15
   %281 = add i8 %280, -48
   %282 = icmp ult i8 %281, 10
   br i1 %282, label %283, label %289, !prof !244
 
-283:                                              ; preds = %.lr.ph527
-  %284 = getelementptr inbounds nuw i8, ptr %.18526, i64 1
+283:                                              ; preds = %.lr.ph530
+  %284 = getelementptr inbounds nuw i8, ptr %.18529, i64 1
   %285 = icmp ult i64 %278, 9007199254740992
-  br i1 %285, label %286, label %.thread474, !prof !244
+  br i1 %285, label %286, label %.thread477, !prof !244
 
 286:                                              ; preds = %283
   %287 = icmp eq i32 %279, -2147483647
-  br i1 %287, label %.thread470, label %292, !prof !245
+  br i1 %287, label %.thread473, label %292, !prof !245
 
-.thread470:                                       ; preds = %286
+.thread473:                                       ; preds = %286
   %288 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %284, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
   br label %402
 
-289:                                              ; preds = %.lr.ph527
+289:                                              ; preds = %.lr.ph530
   %290 = and i8 %280, -33
   %291 = icmp eq i8 %290, 69
-  br i1 %291, label %.thread423, label %.thread419.thread
+  br i1 %291, label %.thread426, label %.thread422.thread
 
 292:                                              ; preds = %286
   %293 = add nsw i32 %279, -1
@@ -45011,22 +45025,22 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %295 = zext nneg i8 %281 to i64
   %296 = add nuw nsw i64 %294, %295
   store i64 %296, ptr %3, align 8, !tbaa !683
-  %exitcond594.not = icmp eq ptr %284, %5
-  br i1 %exitcond594.not, label %._crit_edge528, label %.lr.ph527, !prof !688
+  %exitcond597.not = icmp eq ptr %284, %5
+  br i1 %exitcond597.not, label %._crit_edge531, label %.lr.ph530, !prof !686
 
-.thread423:                                       ; preds = %289, %251, %243, %213, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148, %85
-  %.18526.lcssa.sink = phi ptr [ %81, %85 ], [ %163, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148 ], [ %.11393534, %213 ], [ %.15541, %243 ], [ %.8390522, %251 ], [ %.18526, %289 ]
-  %297 = phi i64 [ %.1.i, %85 ], [ %.1.i142, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148 ], [ %184, %213 ], [ %231, %243 ], [ %184, %251 ], [ %278, %289 ]
-  %298 = phi i32 [ 0, %85 ], [ %162, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit148 ], [ %storemerge492535, %213 ], [ %232, %243 ], [ 0, %251 ], [ %279, %289 ]
-  %299 = getelementptr inbounds nuw i8, ptr %.18526.lcssa.sink, i64 1
+.thread426:                                       ; preds = %289, %251, %243, %213, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151, %85
+  %.18529.lcssa.sink = phi ptr [ %81, %85 ], [ %163, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151 ], [ %.11396537, %213 ], [ %.15544, %243 ], [ %.8393525, %251 ], [ %.18529, %289 ]
+  %297 = phi i64 [ %.1.i, %85 ], [ %.1.i145, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151 ], [ %184, %213 ], [ %231, %243 ], [ %184, %251 ], [ %278, %289 ]
+  %298 = phi i32 [ 0, %85 ], [ %162, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit151 ], [ %storemerge495538, %213 ], [ %232, %243 ], [ 0, %251 ], [ %279, %289 ]
+  %299 = getelementptr inbounds nuw i8, ptr %.18529.lcssa.sink, i64 1
   %300 = icmp ult ptr %299, %5
   br i1 %300, label %303, label %301, !prof !244
 
-301:                                              ; preds = %.thread423
+301:                                              ; preds = %.thread426
   %302 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %299, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
-303:                                              ; preds = %.thread423
+303:                                              ; preds = %.thread426
   %304 = load i8, ptr %299, align 1, !tbaa !15
   switch i8 %304, label %309 [
     i8 43, label %305
@@ -45034,12 +45048,12 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   ]
 
 305:                                              ; preds = %303
-  %306 = getelementptr inbounds nuw i8, ptr %.18526.lcssa.sink, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %.18529.lcssa.sink, i64 2
   br label %309
 
 307:                                              ; preds = %303
-  %308 = getelementptr inbounds nuw i8, ptr %.18526.lcssa.sink, i64 2
-  store i8 1, ptr %8, align 8, !tbaa !686
+  %308 = getelementptr inbounds nuw i8, ptr %.18529.lcssa.sink, i64 2
+  store i8 1, ptr %8, align 8, !tbaa !687
   br label %309
 
 309:                                              ; preds = %303, %305, %307
@@ -45066,111 +45080,111 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   %321 = load i8, ptr %.20, align 1, !tbaa !15
   %322 = add i8 %321, -48
   %323 = icmp ult i8 %322, 10
-  br i1 %323, label %325, label %.thread486, !prof !244
+  br i1 %323, label %325, label %.thread489, !prof !244
 
-.thread486:                                       ; preds = %320
+.thread489:                                       ; preds = %320
   %324 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.20, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
   br label %402
 
 325:                                              ; preds = %320
   %326 = zext nneg i8 %321 to i32
   %327 = add nsw i32 %326, -48
-  store i32 %327, ptr %7, align 4, !tbaa !687
-  %.22546 = getelementptr inbounds nuw i8, ptr %.20, i64 1
-  %328 = icmp ult ptr %.22546, %5
-  br i1 %328, label %.lr.ph550, label %._crit_edge551, !prof !360
+  store i32 %327, ptr %7, align 4, !tbaa !688
+  %.22549 = getelementptr inbounds nuw i8, ptr %.20, i64 1
+  %328 = icmp ult ptr %.22549, %5
+  br i1 %328, label %.lr.ph553, label %._crit_edge554, !prof !360
 
-._crit_edge551:                                   ; preds = %348, %325
+._crit_edge554:                                   ; preds = %348, %325
   %329 = phi i32 [ %327, %325 ], [ %storemerge, %348 ]
-  %.22.lcssa = phi ptr [ %.22546, %325 ], [ %.22, %348 ]
+  %.22.lcssa = phi ptr [ %.22549, %325 ], [ %.22, %348 ]
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %331 = load i8, ptr %330, align 8, !tbaa !176, !range !181, !noundef !182
   %332 = trunc nuw i8 %331 to i1
-  br i1 %332, label %333, label %.thread489, !prof !245
+  br i1 %332, label %333, label %.thread492, !prof !245
 
-333:                                              ; preds = %._crit_edge551
+333:                                              ; preds = %._crit_edge554
   %334 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %402
 
-.lr.ph550:                                        ; preds = %325, %348
-  %.22548 = phi ptr [ %.22, %348 ], [ %.22546, %325 ]
-  %storemerge493547 = phi i32 [ %storemerge, %348 ], [ %327, %325 ]
-  %335 = load i8, ptr %.22548, align 1, !tbaa !15
+.lr.ph553:                                        ; preds = %325, %348
+  %.22551 = phi ptr [ %.22, %348 ], [ %.22549, %325 ]
+  %storemerge496550 = phi i32 [ %storemerge, %348 ], [ %327, %325 ]
+  %335 = load i8, ptr %.22551, align 1, !tbaa !15
   %336 = add i8 %335, -48
   %337 = icmp ult i8 %336, 10
-  br i1 %337, label %338, label %.thread489, !prof !244
+  br i1 %337, label %338, label %.thread492, !prof !244
 
-338:                                              ; preds = %.lr.ph550
-  %339 = icmp sgt i32 %storemerge493547, 214748364
+338:                                              ; preds = %.lr.ph553
+  %339 = icmp sgt i32 %storemerge496550, 214748364
   br i1 %339, label %348, label %340, !prof !245
 
 340:                                              ; preds = %338
-  %341 = icmp eq i32 %storemerge493547, 214748364
+  %341 = icmp eq i32 %storemerge496550, 214748364
   %342 = icmp samesign ugt i8 %335, 55
   %343 = and i1 %342, %341
   br i1 %343, label %348, label %344, !prof !245
 
 344:                                              ; preds = %340
-  %345 = mul nsw i32 %storemerge493547, 10
+  %345 = mul nsw i32 %storemerge496550, 10
   %346 = zext nneg i8 %336 to i32
   %347 = add nsw i32 %345, %346
   br label %348
 
 348:                                              ; preds = %344, %340, %338
   %storemerge = phi i32 [ %347, %344 ], [ 2147483647, %340 ], [ 2147483647, %338 ]
-  store i32 %storemerge, ptr %7, align 4, !tbaa !687
-  %.22 = getelementptr inbounds nuw i8, ptr %.22548, i64 1
-  %exitcond603.not = icmp eq ptr %.22, %5
-  br i1 %exitcond603.not, label %._crit_edge551, label %.lr.ph550, !prof !688
+  store i32 %storemerge, ptr %7, align 4, !tbaa !688
+  %.22 = getelementptr inbounds nuw i8, ptr %.22551, i64 1
+  %exitcond606.not = icmp eq ptr %.22, %5
+  br i1 %exitcond606.not, label %._crit_edge554, label %.lr.ph553, !prof !686
 
-.thread489:                                       ; preds = %.lr.ph550, %._crit_edge551
-  %349 = phi i32 [ %329, %._crit_edge551 ], [ %storemerge493547, %.lr.ph550 ]
-  %.22495 = phi ptr [ %.22.lcssa, %._crit_edge551 ], [ %.22548, %.lr.ph550 ]
+.thread492:                                       ; preds = %.lr.ph553, %._crit_edge554
+  %349 = phi i32 [ %329, %._crit_edge554 ], [ %storemerge496550, %.lr.ph553 ]
+  %.22498 = phi ptr [ %.22.lcssa, %._crit_edge554 ], [ %.22551, %.lr.ph553 ]
   br i1 %310, label %350, label %359
 
-350:                                              ; preds = %.thread489
+350:                                              ; preds = %.thread492
   %351 = or i32 %349, -2147483648
   %352 = icmp slt i32 %298, %351
-  br i1 %352, label %353, label %.critedge130, !prof !245
+  br i1 %352, label %353, label %.critedge133, !prof !245
 
 353:                                              ; preds = %350
   %354 = icmp eq i32 %349, 2147483647
   %355 = icmp samesign ult i32 %298, -2147483339
-  %or.cond128 = and i1 %355, %354
+  %or.cond131 = and i1 %355, %354
   %356 = icmp ne i64 %297, 0
-  %or.cond135 = select i1 %or.cond128, i1 %356, i1 false, !prof !689
-  br i1 %or.cond135, label %357, label %.critedge130, !prof !689
+  %or.cond138 = select i1 %or.cond131, i1 %356, i1 false, !prof !689
+  br i1 %or.cond138, label %357, label %.critedge133, !prof !689
 
 357:                                              ; preds = %353
-  %358 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22495, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  %358 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22498, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
   br label %402
 
-359:                                              ; preds = %.thread489
+359:                                              ; preds = %.thread492
   %360 = sub nsw i32 2147483647, %349
   %361 = icmp sgt i32 %298, %360
-  br i1 %361, label %362, label %.thread419.thread, !prof !245
+  br i1 %361, label %362, label %.thread422.thread, !prof !245
 
 362:                                              ; preds = %359
   %363 = icmp eq i32 %349, 2147483647
   %364 = icmp samesign ugt i32 %298, 2147483339
-  %or.cond131 = and i1 %364, %363
+  %or.cond134 = and i1 %364, %363
   %365 = icmp ne i64 %297, 0
-  %or.cond137 = select i1 %or.cond131, i1 %365, i1 false, !prof !689
-  br i1 %or.cond137, label %366, label %.thread419.thread, !prof !689
+  %or.cond140 = select i1 %or.cond134, i1 %365, i1 false, !prof !689
+  br i1 %or.cond140, label %366, label %.thread422.thread, !prof !689
 
 366:                                              ; preds = %362
-  %367 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22495, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  %367 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22498, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
   br label %402
 
 368:                                              ; preds = %251, %._crit_edge
-  %369 = phi i64 [ %184, %251 ], [ %.lcssa519, %._crit_edge ]
-  %.8390511 = phi ptr [ %.8390522, %251 ], [ %.8390.lcssa, %._crit_edge ]
+  %369 = phi i64 [ %184, %251 ], [ %.lcssa522, %._crit_edge ]
+  %.8393514 = phi ptr [ %.8393525, %251 ], [ %.8393.lcssa, %._crit_edge ]
   %370 = icmp sgt i64 %369, -1
   br i1 %370, label %371, label %373
 
 371:                                              ; preds = %368, %85
   %372 = phi i64 [ %369, %368 ], [ %.1.i, %85 ]
-  %.6388 = phi ptr [ %.8390511, %368 ], [ %81, %85 ]
+  %.6391 = phi ptr [ %.8393514, %368 ], [ %81, %85 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %372)
   br label %402
 
@@ -45178,37 +45192,37 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit148: ; preds = %._crit_edge.i138
   tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %369)
   br label %402
 
-.critedge130:                                     ; preds = %353, %350
+.critedge133:                                     ; preds = %353, %350
   %374 = phi i32 [ %349, %350 ], [ 2147483647, %353 ]
   %375 = phi i32 [ %298, %350 ], [ 0, %353 ]
   %376 = sub nsw i32 0, %374
-  br label %.thread419.thread
+  br label %.thread422.thread
 
-.thread419.thread:                                ; preds = %362, %289, %243, %213, %167, %._crit_edge528, %._crit_edge538, %._crit_edge543, %359, %.critedge130
-  %.7389638 = phi ptr [ %.22495, %.critedge130 ], [ %.18526, %289 ], [ %.15541, %243 ], [ %.11393534, %213 ], [ %163, %167 ], [ %.18.lcssa, %._crit_edge528 ], [ %.11393.lcssa, %._crit_edge538 ], [ %.15.lcssa, %._crit_edge543 ], [ %.22495, %359 ], [ %.22495, %362 ]
-  %377 = phi i64 [ %297, %.critedge130 ], [ %278, %289 ], [ %231, %243 ], [ %184, %213 ], [ %.1.i142, %167 ], [ %272, %._crit_edge528 ], [ %184, %._crit_edge538 ], [ %231, %._crit_edge543 ], [ %297, %359 ], [ %297, %362 ]
-  %378 = phi i32 [ %375, %.critedge130 ], [ %279, %289 ], [ %232, %243 ], [ %storemerge492535, %213 ], [ %162, %167 ], [ %271, %._crit_edge528 ], [ %storemerge492.lcssa, %._crit_edge538 ], [ %232, %._crit_edge543 ], [ %298, %359 ], [ 0, %362 ]
-  %379 = phi i32 [ %376, %.critedge130 ], [ 0, %289 ], [ 0, %243 ], [ 0, %213 ], [ 0, %167 ], [ 0, %._crit_edge528 ], [ 0, %._crit_edge538 ], [ 0, %._crit_edge543 ], [ %349, %359 ], [ 2147483647, %362 ]
+.thread422.thread:                                ; preds = %362, %289, %243, %213, %167, %._crit_edge531, %._crit_edge541, %._crit_edge546, %359, %.critedge133
+  %.7392641 = phi ptr [ %.22498, %.critedge133 ], [ %.18529, %289 ], [ %.15544, %243 ], [ %.11396537, %213 ], [ %163, %167 ], [ %.18.lcssa, %._crit_edge531 ], [ %.11396.lcssa, %._crit_edge541 ], [ %.15.lcssa, %._crit_edge546 ], [ %.22498, %359 ], [ %.22498, %362 ]
+  %377 = phi i64 [ %297, %.critedge133 ], [ %278, %289 ], [ %231, %243 ], [ %184, %213 ], [ %.1.i145, %167 ], [ %272, %._crit_edge531 ], [ %184, %._crit_edge541 ], [ %231, %._crit_edge546 ], [ %297, %359 ], [ %297, %362 ]
+  %378 = phi i32 [ %375, %.critedge133 ], [ %279, %289 ], [ %232, %243 ], [ %storemerge495538, %213 ], [ %162, %167 ], [ %271, %._crit_edge531 ], [ %storemerge495.lcssa, %._crit_edge541 ], [ %232, %._crit_edge546 ], [ %298, %359 ], [ 0, %362 ]
+  %379 = phi i32 [ %376, %.critedge133 ], [ 0, %289 ], [ 0, %243 ], [ 0, %213 ], [ 0, %167 ], [ 0, %._crit_edge531 ], [ 0, %._crit_edge541 ], [ 0, %._crit_edge546 ], [ %349, %359 ], [ 2147483647, %362 ]
   %380 = add nsw i32 %379, %378
   %381 = uitofp i64 %377 to double
   %382 = icmp slt i32 %380, -305
   %383 = fmul double %381, 1.000000e-305
   %384 = add nuw nsw i32 %380, 305
   %.014.i = select i1 %382, i32 %384, i32 %380
-  %.1.i149 = select i1 %382, double %383, double %381
+  %.1.i152 = select i1 %382, double %383, double %381
   %or.cond.i = icmp ugt i32 %.014.i, -23
   br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %391
 
-_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread419.thread
+_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread422.thread
   %385 = sub nsw i32 0, %.014.i
   %386 = zext nneg i32 %385 to i64
   %387 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %386
   %388 = getelementptr i8, ptr %387, i64 2464
   %389 = load double, ptr %388, align 8, !tbaa !460
-  %390 = fdiv double %.1.i149, %389
+  %390 = fdiv double %.1.i152, %389
   br label %401
 
-391:                                              ; preds = %.thread419.thread
+391:                                              ; preds = %.thread422.thread
   %392 = icmp sgt i32 %.014.i, 308
   br i1 %392, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %393
 
@@ -45225,7 +45239,7 @@ _ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread419.thread
 
 _ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %395, %393, %391
   %.0.i17.i = phi double [ %399, %395 ], [ 0.000000e+00, %393 ], [ 0x7FF0000000000000, %391 ]
-  %400 = fmul double %.1.i149, %.0.i17.i
+  %400 = fmul double %.1.i152, %.0.i17.i
   br label %401
 
 401:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
@@ -45233,8 +45247,8 @@ _ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %395, %393, %391
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %.013.i)
   br label %402
 
-402:                                              ; preds = %.thread486, %.thread470, %267, %229, %.thread435, %.thread399, %401, %373, %371, %366, %357, %333, %318, %316, %301, %276, %261, %259, %238, %222, %203, %182
-  %.2 = phi ptr [ %183, %182 ], [ %.6388, %371 ], [ %.8390511, %373 ], [ %204, %203 ], [ %223, %222 ], [ %239, %238 ], [ %302, %301 ], [ %317, %316 ], [ %319, %318 ], [ %334, %333 ], [ %358, %357 ], [ %367, %366 ], [ %230, %229 ], [ %260, %259 ], [ %262, %261 ], [ %277, %276 ], [ %268, %267 ], [ %.7389638, %401 ], [ %97, %.thread399 ], [ %210, %.thread435 ], [ %288, %.thread470 ], [ %324, %.thread486 ]
+402:                                              ; preds = %.thread489, %.thread473, %267, %229, %.thread438, %.thread402, %401, %373, %371, %366, %357, %333, %318, %316, %301, %276, %261, %259, %238, %222, %203, %182
+  %.2 = phi ptr [ %183, %182 ], [ %.6391, %371 ], [ %.8393514, %373 ], [ %204, %203 ], [ %223, %222 ], [ %239, %238 ], [ %302, %301 ], [ %317, %316 ], [ %319, %318 ], [ %334, %333 ], [ %358, %357 ], [ %367, %366 ], [ %230, %229 ], [ %260, %259 ], [ %262, %261 ], [ %277, %276 ], [ %268, %267 ], [ %.7392641, %401 ], [ %97, %.thread402 ], [ %210, %.thread438 ], [ %288, %.thread473 ], [ %324, %.thread489 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -45359,7 +45373,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %49,
   store i64 %.1.i, ptr %3, align 8, !tbaa !683
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 %22
   %84 = icmp eq i16 %20, 0
-  br i1 %84, label %.thread452, label %85
+  br i1 %84, label %.thread455, label %85
 
 85:                                               ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %86 = load i8, ptr %83, align 1, !tbaa !15
@@ -45369,7 +45383,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %49,
 87:                                               ; preds = %85
   %88 = and i8 %86, -33
   %89 = icmp eq i8 %88, 69
-  br i1 %89, label %.thread472, label %396
+  br i1 %89, label %.thread475, label %396
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 1
@@ -45380,172 +45394,172 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %49,
   %96 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %95, i1 false)
   %97 = zext nneg i16 %96 to i32
   %98 = icmp eq i16 %96, 0
-  br i1 %98, label %.thread448, label %100
+  br i1 %98, label %.thread451, label %100
 
-.thread448:                                       ; preds = %90
+.thread451:                                       ; preds = %90
   %99 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %91, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
   br label %405
 
 100:                                              ; preds = %90
   %narrow = add nuw nsw i16 %96, %21
   %101 = icmp samesign ugt i16 %narrow, 18
-  br i1 %101, label %.thread456, label %102
+  br i1 %101, label %.thread459, label %102
 
 102:                                              ; preds = %100
   %103 = zext nneg i16 %96 to i64
   %104 = icmp samesign ugt i16 %96, 3
-  br i1 %104, label %.lr.ph.i173, label %._crit_edge.i167
+  br i1 %104, label %.lr.ph.i176, label %._crit_edge.i170
 
-.lr.ph.i173:                                      ; preds = %102, %.lr.ph.i173
-  %.028.i174 = phi i64 [ %128, %.lr.ph.i173 ], [ %103, %102 ]
-  %.02427.i175 = phi ptr [ %127, %.lr.ph.i173 ], [ %91, %102 ]
-  %.02526.i176 = phi i64 [ %126, %.lr.ph.i173 ], [ %.1.i, %102 ]
-  %105 = mul i64 %.02526.i176, 10
-  %106 = load i8, ptr %.02427.i175, align 1, !tbaa !15
+.lr.ph.i176:                                      ; preds = %102, %.lr.ph.i176
+  %.028.i177 = phi i64 [ %128, %.lr.ph.i176 ], [ %103, %102 ]
+  %.02427.i178 = phi ptr [ %127, %.lr.ph.i176 ], [ %91, %102 ]
+  %.02526.i179 = phi i64 [ %126, %.lr.ph.i176 ], [ %.1.i, %102 ]
+  %105 = mul i64 %.02526.i179, 10
+  %106 = load i8, ptr %.02427.i178, align 1, !tbaa !15
   %107 = sext i8 %106 to i64
   %108 = add i64 %105, %107
   %109 = mul i64 %108, 10
-  %110 = getelementptr inbounds nuw i8, ptr %.02427.i175, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.02427.i178, i64 1
   %111 = load i8, ptr %110, align 1, !tbaa !15
   %112 = sext i8 %111 to i64
   %113 = add nsw i64 %112, -480
   %114 = add i64 %113, %109
   %115 = mul i64 %114, 10
-  %116 = getelementptr inbounds nuw i8, ptr %.02427.i175, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %.02427.i178, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !15
   %118 = sext i8 %117 to i64
   %119 = add nsw i64 %118, -480
   %120 = add i64 %119, %115
   %121 = mul i64 %120, 10
-  %122 = getelementptr inbounds nuw i8, ptr %.02427.i175, i64 3
+  %122 = getelementptr inbounds nuw i8, ptr %.02427.i178, i64 3
   %123 = load i8, ptr %122, align 1, !tbaa !15
   %124 = sext i8 %123 to i64
   %125 = add nsw i64 %124, -528
   %126 = add i64 %125, %121
-  %127 = getelementptr inbounds nuw i8, ptr %.02427.i175, i64 4
-  %128 = add i64 %.028.i174, -4
+  %127 = getelementptr inbounds nuw i8, ptr %.02427.i178, i64 4
+  %128 = add i64 %.028.i177, -4
   %129 = icmp ugt i64 %128, 3
-  br i1 %129, label %.lr.ph.i173, label %._crit_edge.i167, !llvm.loop !684
+  br i1 %129, label %.lr.ph.i176, label %._crit_edge.i170, !llvm.loop !684
 
-._crit_edge.i167:                                 ; preds = %.lr.ph.i173, %102
-  %.025.lcssa.i168 = phi i64 [ %.1.i, %102 ], [ %126, %.lr.ph.i173 ]
-  %.024.lcssa.i169 = phi ptr [ %91, %102 ], [ %127, %.lr.ph.i173 ]
-  %.0.lcssa.i170 = phi i64 [ %103, %102 ], [ %128, %.lr.ph.i173 ]
-  switch i64 %.0.lcssa.i170, label %default.unreachable.i172 [
+._crit_edge.i170:                                 ; preds = %.lr.ph.i176, %102
+  %.025.lcssa.i171 = phi i64 [ %.1.i, %102 ], [ %126, %.lr.ph.i176 ]
+  %.024.lcssa.i172 = phi ptr [ %91, %102 ], [ %127, %.lr.ph.i176 ]
+  %.0.lcssa.i173 = phi i64 [ %103, %102 ], [ %128, %.lr.ph.i176 ]
+  switch i64 %.0.lcssa.i173, label %default.unreachable.i175 [
     i64 3, label %147
     i64 1, label %130
     i64 2, label %136
-    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177
+    i64 0, label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180
   ]
 
-130:                                              ; preds = %._crit_edge.i167
-  %131 = mul i64 %.025.lcssa.i168, 10
-  %132 = load i8, ptr %.024.lcssa.i169, align 1, !tbaa !15
+130:                                              ; preds = %._crit_edge.i170
+  %131 = mul i64 %.025.lcssa.i171, 10
+  %132 = load i8, ptr %.024.lcssa.i172, align 1, !tbaa !15
   %133 = sext i8 %132 to i64
   %134 = add i64 %131, -48
   %135 = add i64 %134, %133
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180
 
-136:                                              ; preds = %._crit_edge.i167
-  %137 = mul i64 %.025.lcssa.i168, 10
-  %138 = load i8, ptr %.024.lcssa.i169, align 1, !tbaa !15
+136:                                              ; preds = %._crit_edge.i170
+  %137 = mul i64 %.025.lcssa.i171, 10
+  %138 = load i8, ptr %.024.lcssa.i172, align 1, !tbaa !15
   %139 = sext i8 %138 to i64
   %140 = add i64 %137, %139
   %141 = mul i64 %140, 10
-  %142 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i169, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i172, i64 1
   %143 = load i8, ptr %142, align 1, !tbaa !15
   %144 = sext i8 %143 to i64
   %145 = add nsw i64 %144, -528
   %146 = add i64 %145, %141
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180
 
-147:                                              ; preds = %._crit_edge.i167
-  %148 = mul i64 %.025.lcssa.i168, 10
-  %149 = load i8, ptr %.024.lcssa.i169, align 1, !tbaa !15
+147:                                              ; preds = %._crit_edge.i170
+  %148 = mul i64 %.025.lcssa.i171, 10
+  %149 = load i8, ptr %.024.lcssa.i172, align 1, !tbaa !15
   %150 = sext i8 %149 to i64
   %151 = add i64 %148, %150
   %152 = mul i64 %151, 10
-  %153 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i169, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i172, i64 1
   %154 = load i8, ptr %153, align 1, !tbaa !15
   %155 = sext i8 %154 to i64
   %156 = add nsw i64 %155, -480
   %157 = add i64 %156, %152
   %158 = mul i64 %157, 10
-  %159 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i169, i64 2
+  %159 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i172, i64 2
   %160 = load i8, ptr %159, align 1, !tbaa !15
   %161 = sext i8 %160 to i64
   %162 = add nsw i64 %161, -528
   %163 = add i64 %162, %158
-  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177
+  br label %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180
 
-default.unreachable.i172:                         ; preds = %._crit_edge.i167
+default.unreachable.i175:                         ; preds = %._crit_edge.i170
   unreachable
 
-_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167, %130, %136, %147
-  %.1.i171 = phi i64 [ %.025.lcssa.i168, %._crit_edge.i167 ], [ %163, %147 ], [ %135, %130 ], [ %146, %136 ]
-  store i64 %.1.i171, ptr %3, align 8, !tbaa !683
+_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180: ; preds = %._crit_edge.i170, %130, %136, %147
+  %.1.i174 = phi i64 [ %.025.lcssa.i171, %._crit_edge.i170 ], [ %163, %147 ], [ %135, %130 ], [ %146, %136 ]
+  store i64 %.1.i174, ptr %3, align 8, !tbaa !683
   %164 = sub nsw i32 0, %97
   store i32 %164, ptr %7, align 8, !tbaa !685
   %165 = getelementptr inbounds nuw i8, ptr %91, i64 %103
   %166 = load i8, ptr %165, align 1, !tbaa !15
   %167 = and i8 %166, -33
   %168 = icmp eq i8 %167, 69
-  br i1 %168, label %.thread472, label %169
+  br i1 %168, label %.thread475, label %169
 
-169:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177
+169:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180
   %170 = add i8 %166, -48
   %or.cond = icmp ult i8 %170, 10
-  br i1 %or.cond, label %.thread460, label %399
+  br i1 %or.cond, label %.thread463, label %399
 
 171:                                              ; preds = %2
   %172 = load i8, ptr %1, align 1, !tbaa !15
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %174 = sext i8 %172 to i64
   %175 = add nsw i64 %174, -48
-  br label %.thread452
+  br label %.thread455
 
-.thread452:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %171
+.thread455:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit, %171
   %.promoted = phi i64 [ %175, %171 ], [ %.1.i, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %.2432 = phi ptr [ %173, %171 ], [ %83, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
-  %176 = icmp ult ptr %.2432, %6
+  %.2435 = phi ptr [ %173, %171 ], [ %83, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit ]
+  %176 = icmp ult ptr %.2435, %6
   br i1 %176, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread452
-  %.2432640 = ptrtoint ptr %.2432 to i64
-  %177 = sub i64 %12, %.2432640
-  %scevgep = getelementptr i8, ptr %.2432, i64 %177
+.lr.ph.preheader:                                 ; preds = %.thread455
+  %.2435643 = ptrtoint ptr %.2435 to i64
+  %177 = sub i64 %12, %.2435643
+  %scevgep = getelementptr i8, ptr %.2435, i64 %177
   %178 = trunc i64 %12 to i32
-  %179 = trunc i64 %.2432640 to i32
+  %179 = trunc i64 %.2435643 to i32
   %180 = sub i32 %178, %179
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %199, %.thread452
-  %.lcssa568 = phi i64 [ %.promoted, %.thread452 ], [ %202, %199 ]
-  %.8438.lcssa = phi ptr [ %.2432, %.thread452 ], [ %scevgep, %199 ]
-  store i64 %.lcssa568, ptr %3, align 8
+._crit_edge:                                      ; preds = %199, %.thread455
+  %.lcssa571 = phi i64 [ %.promoted, %.thread455 ], [ %202, %199 ]
+  %.8441.lcssa = phi ptr [ %.2435, %.thread455 ], [ %scevgep, %199 ]
+  store i64 %.lcssa571, ptr %3, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %182 = load i8, ptr %181, align 8, !tbaa !176, !range !181, !noundef !182
   %183 = trunc nuw i8 %182 to i1
   br i1 %183, label %184, label %393, !prof !245
 
 184:                                              ; preds = %._crit_edge
-  %185 = ptrtoint ptr %.8438.lcssa to i64
+  %185 = ptrtoint ptr %.8441.lcssa to i64
   %186 = sub i64 %185, %13
   %187 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %186)
-  %188 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8438.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %188 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8441.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %199
   %indvars.iv = phi i32 [ %180, %.lr.ph.preheader ], [ %indvars.iv.next, %199 ]
-  %.8438571 = phi ptr [ %.2432, %.lr.ph.preheader ], [ %194, %199 ]
+  %.8441574 = phi ptr [ %.2435, %.lr.ph.preheader ], [ %194, %199 ]
   %189 = phi i64 [ %.promoted, %.lr.ph.preheader ], [ %202, %199 ]
-  %190 = load i8, ptr %.8438571, align 1, !tbaa !15
+  %190 = load i8, ptr %.8441574, align 1, !tbaa !15
   %191 = add i8 %190, -48
   %192 = icmp ult i8 %191, 10
   br i1 %192, label %193, label %261, !prof !244
 
 193:                                              ; preds = %.lr.ph
-  %194 = getelementptr inbounds nuw i8, ptr %.8438571, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %.8441574, i64 1
   %195 = icmp ugt i64 %189, 1844674407370955161
   br i1 %195, label %203, label %196
 
@@ -45561,63 +45575,63 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %202 = add i64 %200, %201
   %exitcond.not = icmp eq ptr %194, %6
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
 203:                                              ; preds = %196, %193
   store i64 %189, ptr %3, align 8
   %204 = icmp ult ptr %194, %6
-  br i1 %204, label %.lr.ph586, label %._crit_edge587, !prof !360
+  br i1 %204, label %.lr.ph589, label %._crit_edge590, !prof !360
 
-._crit_edge587:                                   ; preds = %224, %203
-  %storemerge541.lcssa = phi i32 [ 1, %203 ], [ %indvars.iv, %224 ]
-  %.11441.lcssa = phi ptr [ %194, %203 ], [ %scevgep, %224 ]
-  store i32 %storemerge541.lcssa, ptr %7, align 8, !tbaa !685
+._crit_edge590:                                   ; preds = %224, %203
+  %storemerge544.lcssa = phi i32 [ 1, %203 ], [ %indvars.iv, %224 ]
+  %.11444.lcssa = phi ptr [ %194, %203 ], [ %scevgep, %224 ]
+  store i32 %storemerge544.lcssa, ptr %7, align 8, !tbaa !685
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %206 = load i8, ptr %205, align 8, !tbaa !176, !range !181, !noundef !182
   %207 = trunc nuw i8 %206 to i1
   br i1 %207, label %208, label %399, !prof !245
 
-208:                                              ; preds = %._crit_edge587
-  %209 = ptrtoint ptr %.11441.lcssa to i64
+208:                                              ; preds = %._crit_edge590
+  %209 = ptrtoint ptr %.11444.lcssa to i64
   %210 = sub i64 %209, %13
   %211 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %210)
-  %212 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11441.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %212 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11444.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
-.lr.ph586:                                        ; preds = %203, %224
-  %storemerge541584 = phi i32 [ %storemerge541, %224 ], [ 1, %203 ]
-  %.11441583 = phi ptr [ %225, %224 ], [ %194, %203 ]
-  %213 = load i8, ptr %.11441583, align 1, !tbaa !15
+.lr.ph589:                                        ; preds = %203, %224
+  %storemerge544587 = phi i32 [ %storemerge544, %224 ], [ 1, %203 ]
+  %.11444586 = phi ptr [ %225, %224 ], [ %194, %203 ]
+  %213 = load i8, ptr %.11444586, align 1, !tbaa !15
   %214 = add i8 %213, -48
   %215 = icmp ult i8 %214, 10
   br i1 %215, label %216, label %219, !prof !245
 
-216:                                              ; preds = %.lr.ph586
-  %217 = icmp eq i32 %storemerge541584, 2147483646
-  br i1 %217, label %.thread484, label %224, !prof !245
+216:                                              ; preds = %.lr.ph589
+  %217 = icmp eq i32 %storemerge544587, 2147483646
+  br i1 %217, label %.thread487, label %224, !prof !245
 
-.thread484:                                       ; preds = %216
-  %218 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11441583, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+.thread487:                                       ; preds = %216
+  %218 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11444586, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
   br label %405
 
-219:                                              ; preds = %.lr.ph586
-  store i32 %storemerge541584, ptr %7, align 8, !tbaa !685
+219:                                              ; preds = %.lr.ph589
+  store i32 %storemerge544587, ptr %7, align 8, !tbaa !685
   %220 = icmp eq i8 %213, 46
   br i1 %220, label %227, label %221, !prof !244
 
 221:                                              ; preds = %219
   %222 = and i8 %213, -33
   %223 = icmp eq i8 %222, 69
-  br i1 %223, label %.thread472, label %399
+  br i1 %223, label %.thread475, label %399
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds nuw i8, ptr %.11441583, i64 1
-  %storemerge541 = add nuw nsw i32 %storemerge541584, 1
+  %225 = getelementptr inbounds nuw i8, ptr %.11444586, i64 1
+  %storemerge544 = add nuw nsw i32 %storemerge544587, 1
   %226 = icmp ult ptr %225, %6
-  br i1 %226, label %.lr.ph586, label %._crit_edge587, !prof !361
+  br i1 %226, label %.lr.ph589, label %._crit_edge590, !prof !361
 
 227:                                              ; preds = %219
-  %228 = getelementptr inbounds nuw i8, ptr %.11441583, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %.11444586, i64 1
   %229 = icmp ult ptr %228, %6
   br i1 %229, label %235, label %230, !prof !244
 
@@ -45632,159 +45646,159 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %236 = load i8, ptr %228, align 1, !tbaa !15
   %237 = add i8 %236, -48
   %238 = icmp ult i8 %237, 10
-  br i1 %238, label %.thread502, label %240, !prof !244
+  br i1 %238, label %.thread505, label %240, !prof !244
 
-.thread502:                                       ; preds = %235
-  %239 = getelementptr inbounds nuw i8, ptr %.11441583, i64 2
-  br label %.thread523
+.thread505:                                       ; preds = %235
+  %239 = getelementptr inbounds nuw i8, ptr %.11444586, i64 2
+  br label %.thread526
 
 240:                                              ; preds = %235
   %241 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %228, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
   br label %405
 
-.thread523:                                       ; preds = %300, %.thread502
-  %242 = phi i32 [ %storemerge541584, %.thread502 ], [ %296, %300 ]
-  %.14444 = phi ptr [ %239, %.thread502 ], [ %301, %300 ]
-  %243 = icmp ult ptr %.14444, %6
-  br i1 %243, label %.lr.ph591.preheader, label %._crit_edge592, !prof !360
+.thread526:                                       ; preds = %300, %.thread505
+  %242 = phi i32 [ %storemerge544587, %.thread505 ], [ %296, %300 ]
+  %.14447 = phi ptr [ %239, %.thread505 ], [ %301, %300 ]
+  %243 = icmp ult ptr %.14447, %6
+  br i1 %243, label %.lr.ph594.preheader, label %._crit_edge595, !prof !360
 
-.lr.ph591.preheader:                              ; preds = %.thread523
-  %.14444647 = ptrtoint ptr %.14444 to i64
-  %244 = sub i64 %12, %.14444647
-  %scevgep648 = getelementptr i8, ptr %.14444, i64 %244
-  br label %.lr.ph591
+.lr.ph594.preheader:                              ; preds = %.thread526
+  %.14447650 = ptrtoint ptr %.14447 to i64
+  %244 = sub i64 %12, %.14447650
+  %scevgep651 = getelementptr i8, ptr %.14447, i64 %244
+  br label %.lr.ph594
 
-._crit_edge592:                                   ; preds = %259, %.thread523
-  %.15445.lcssa = phi ptr [ %.14444, %.thread523 ], [ %scevgep648, %259 ]
+._crit_edge595:                                   ; preds = %259, %.thread526
+  %.15448.lcssa = phi ptr [ %.14447, %.thread526 ], [ %scevgep651, %259 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %246 = load i8, ptr %245, align 8, !tbaa !176, !range !181, !noundef !182
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %399, !prof !245
 
-248:                                              ; preds = %._crit_edge592
-  %249 = ptrtoint ptr %.15445.lcssa to i64
+248:                                              ; preds = %._crit_edge595
+  %249 = ptrtoint ptr %.15448.lcssa to i64
   %250 = sub i64 %249, %13
   %251 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %250)
-  %252 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15445.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %252 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.15448.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
-.lr.ph591:                                        ; preds = %.lr.ph591.preheader, %259
-  %.15445590 = phi ptr [ %260, %259 ], [ %.14444, %.lr.ph591.preheader ]
-  %253 = load i8, ptr %.15445590, align 1, !tbaa !15
+.lr.ph594:                                        ; preds = %.lr.ph594.preheader, %259
+  %.15448593 = phi ptr [ %260, %259 ], [ %.14447, %.lr.ph594.preheader ]
+  %253 = load i8, ptr %.15448593, align 1, !tbaa !15
   %254 = add i8 %253, -48
   %255 = icmp ult i8 %254, 10
   br i1 %255, label %259, label %256, !prof !244
 
-256:                                              ; preds = %.lr.ph591
+256:                                              ; preds = %.lr.ph594
   %257 = and i8 %253, -33
   %258 = icmp eq i8 %257, 69
-  br i1 %258, label %.thread472, label %399
+  br i1 %258, label %.thread475, label %399
 
-259:                                              ; preds = %.lr.ph591
-  %260 = getelementptr inbounds nuw i8, ptr %.15445590, i64 1
-  %exitcond649.not = icmp eq ptr %260, %6
-  br i1 %exitcond649.not, label %._crit_edge592, label %.lr.ph591, !prof !688
+259:                                              ; preds = %.lr.ph594
+  %260 = getelementptr inbounds nuw i8, ptr %.15448593, i64 1
+  %exitcond652.not = icmp eq ptr %260, %6
+  br i1 %exitcond652.not, label %._crit_edge595, label %.lr.ph594, !prof !686
 
 261:                                              ; preds = %.lr.ph
   store i64 %189, ptr %3, align 8
   %262 = icmp eq i8 %190, 46
-  br i1 %262, label %.thread511, label %264, !prof !244
+  br i1 %262, label %.thread514, label %264, !prof !244
 
-.thread511:                                       ; preds = %261
-  %263 = getelementptr inbounds nuw i8, ptr %.8438571, i64 1
-  br label %.thread456
+.thread514:                                       ; preds = %261
+  %263 = getelementptr inbounds nuw i8, ptr %.8441574, i64 1
+  br label %.thread459
 
 264:                                              ; preds = %261
   %265 = and i8 %190, -33
   %266 = icmp eq i8 %265, 69
-  br i1 %266, label %.thread472, label %393
+  br i1 %266, label %.thread475, label %393
 
-.thread456:                                       ; preds = %100, %.thread511
-  %.promoted573655 = phi i64 [ %189, %.thread511 ], [ %.1.i, %100 ]
-  %.3433 = phi ptr [ %263, %.thread511 ], [ %91, %100 ]
-  %267 = icmp ult ptr %.3433, %6
+.thread459:                                       ; preds = %100, %.thread514
+  %.promoted576658 = phi i64 [ %189, %.thread514 ], [ %.1.i, %100 ]
+  %.3436 = phi ptr [ %263, %.thread514 ], [ %91, %100 ]
+  %267 = icmp ult ptr %.3436, %6
   br i1 %267, label %279, label %268, !prof !244
 
-268:                                              ; preds = %.thread456
+268:                                              ; preds = %.thread459
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %270 = load i8, ptr %269, align 8, !tbaa !176, !range !181, !noundef !182
   %271 = trunc nuw i8 %270 to i1
   br i1 %271, label %272, label %277, !prof !245
 
 272:                                              ; preds = %268
-  %273 = ptrtoint ptr %.3433 to i64
+  %273 = ptrtoint ptr %.3436 to i64
   %274 = sub i64 %273, %13
   %275 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %274)
-  %276 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3433, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %276 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3436, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
 277:                                              ; preds = %268
-  %278 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3433, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  %278 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3436, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
   br label %405
 
-279:                                              ; preds = %.thread456
-  %280 = load i8, ptr %.3433, align 1, !tbaa !15
+279:                                              ; preds = %.thread459
+  %280 = load i8, ptr %.3436, align 1, !tbaa !15
   %281 = add i8 %280, -48
   %282 = icmp ult i8 %281, 10
-  br i1 %282, label %.thread460, label %283, !prof !244
+  br i1 %282, label %.thread463, label %283, !prof !244
 
 283:                                              ; preds = %279
-  %284 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3433, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  %284 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3436, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
   br label %405
 
-.thread460:                                       ; preds = %279, %169
-  %.promoted574 = phi i32 [ %164, %169 ], [ 0, %279 ]
-  %.promoted573 = phi i64 [ %.1.i171, %169 ], [ %.promoted573655, %279 ]
-  %.4434 = phi ptr [ %165, %169 ], [ %.3433, %279 ]
-  %285 = icmp ult ptr %.4434, %6
-  br i1 %285, label %.lr.ph576.preheader, label %._crit_edge577, !prof !360
+.thread463:                                       ; preds = %279, %169
+  %.promoted577 = phi i32 [ %164, %169 ], [ 0, %279 ]
+  %.promoted576 = phi i64 [ %.1.i174, %169 ], [ %.promoted576658, %279 ]
+  %.4437 = phi ptr [ %165, %169 ], [ %.3436, %279 ]
+  %285 = icmp ult ptr %.4437, %6
+  br i1 %285, label %.lr.ph579.preheader, label %._crit_edge580, !prof !360
 
-.lr.ph576.preheader:                              ; preds = %.thread460
-  %.4434641 = ptrtoint ptr %.4434 to i64
-  %286 = sub i64 %12, %.4434641
-  %scevgep642 = getelementptr i8, ptr %.4434, i64 %286
-  br label %.lr.ph576
+.lr.ph579.preheader:                              ; preds = %.thread463
+  %.4437644 = ptrtoint ptr %.4437 to i64
+  %286 = sub i64 %12, %.4437644
+  %scevgep645 = getelementptr i8, ptr %.4437, i64 %286
+  br label %.lr.ph579
 
-._crit_edge577:                                   ; preds = %309, %.thread460
-  %.18.lcssa = phi ptr [ %.4434, %.thread460 ], [ %scevgep642, %309 ]
+._crit_edge580:                                   ; preds = %309, %.thread463
+  %.18.lcssa = phi ptr [ %.4437, %.thread463 ], [ %scevgep645, %309 ]
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %288 = load i8, ptr %287, align 8, !tbaa !176, !range !181, !noundef !182
   %289 = trunc nuw i8 %288 to i1
   br i1 %289, label %290, label %399, !prof !245
 
-290:                                              ; preds = %._crit_edge577
+290:                                              ; preds = %._crit_edge580
   %291 = ptrtoint ptr %.18.lcssa to i64
   %292 = sub i64 %291, %13
   %293 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %292)
   %294 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.18.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
-.lr.ph576:                                        ; preds = %.lr.ph576.preheader, %309
-  %.18575 = phi ptr [ %301, %309 ], [ %.4434, %.lr.ph576.preheader ]
-  %295 = phi i64 [ %313, %309 ], [ %.promoted573, %.lr.ph576.preheader ]
-  %296 = phi i32 [ %310, %309 ], [ %.promoted574, %.lr.ph576.preheader ]
-  %297 = load i8, ptr %.18575, align 1, !tbaa !15
+.lr.ph579:                                        ; preds = %.lr.ph579.preheader, %309
+  %.18578 = phi ptr [ %301, %309 ], [ %.4437, %.lr.ph579.preheader ]
+  %295 = phi i64 [ %313, %309 ], [ %.promoted576, %.lr.ph579.preheader ]
+  %296 = phi i32 [ %310, %309 ], [ %.promoted577, %.lr.ph579.preheader ]
+  %297 = load i8, ptr %.18578, align 1, !tbaa !15
   %298 = add i8 %297, -48
   %299 = icmp ult i8 %298, 10
   br i1 %299, label %300, label %306, !prof !244
 
-300:                                              ; preds = %.lr.ph576
-  %301 = getelementptr inbounds nuw i8, ptr %.18575, i64 1
+300:                                              ; preds = %.lr.ph579
+  %301 = getelementptr inbounds nuw i8, ptr %.18578, i64 1
   %302 = icmp ult i64 %295, 9007199254740992
-  br i1 %302, label %303, label %.thread523, !prof !244
+  br i1 %302, label %303, label %.thread526, !prof !244
 
 303:                                              ; preds = %300
   %304 = icmp eq i32 %296, -2147483647
-  br i1 %304, label %.thread519, label %309, !prof !245
+  br i1 %304, label %.thread522, label %309, !prof !245
 
-.thread519:                                       ; preds = %303
+.thread522:                                       ; preds = %303
   %305 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %301, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
   br label %405
 
-306:                                              ; preds = %.lr.ph576
+306:                                              ; preds = %.lr.ph579
   %307 = and i8 %297, -33
   %308 = icmp eq i8 %307, 69
-  br i1 %308, label %.thread472, label %399
+  br i1 %308, label %.thread475, label %399
 
 309:                                              ; preds = %303
   %310 = add nsw i32 %296, -1
@@ -45793,25 +45807,25 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %312 = zext nneg i8 %298 to i64
   %313 = add nuw nsw i64 %311, %312
   store i64 %313, ptr %3, align 8, !tbaa !683
-  %exitcond643.not = icmp eq ptr %301, %6
-  br i1 %exitcond643.not, label %._crit_edge577, label %.lr.ph576, !prof !688
+  %exitcond646.not = icmp eq ptr %301, %6
+  br i1 %exitcond646.not, label %._crit_edge580, label %.lr.ph579, !prof !686
 
-.thread472:                                       ; preds = %306, %264, %256, %221, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177, %87
-  %.18575.lcssa.sink = phi ptr [ %83, %87 ], [ %165, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177 ], [ %.11441583, %221 ], [ %.15445590, %256 ], [ %.8438571, %264 ], [ %.18575, %306 ]
-  %314 = phi i64 [ %.1.i, %87 ], [ %.1.i171, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177 ], [ 1, %221 ], [ 1, %256 ], [ %189, %264 ], [ %295, %306 ]
-  %315 = phi i32 [ 0, %87 ], [ %164, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit177 ], [ %storemerge541584, %221 ], [ %242, %256 ], [ 0, %264 ], [ %296, %306 ]
-  %316 = getelementptr inbounds nuw i8, ptr %.18575.lcssa.sink, i64 1
+.thread475:                                       ; preds = %306, %264, %256, %221, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180, %87
+  %.18578.lcssa.sink = phi ptr [ %83, %87 ], [ %165, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180 ], [ %.11444586, %221 ], [ %.15448593, %256 ], [ %.8441574, %264 ], [ %.18578, %306 ]
+  %314 = phi i64 [ %.1.i, %87 ], [ %.1.i174, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180 ], [ 1, %221 ], [ 1, %256 ], [ %189, %264 ], [ %295, %306 ]
+  %315 = phi i32 [ 0, %87 ], [ %164, %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit180 ], [ %storemerge544587, %221 ], [ %242, %256 ], [ 0, %264 ], [ %296, %306 ]
+  %316 = getelementptr inbounds nuw i8, ptr %.18578.lcssa.sink, i64 1
   %317 = icmp ult ptr %316, %6
   br i1 %317, label %323, label %318, !prof !244
 
-318:                                              ; preds = %.thread472
+318:                                              ; preds = %.thread475
   %319 = ptrtoint ptr %316 to i64
   %320 = sub i64 %319, %13
   %321 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %320)
   %322 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %316, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
-323:                                              ; preds = %.thread472
+323:                                              ; preds = %.thread475
   %324 = load i8, ptr %316, align 1, !tbaa !15
   switch i8 %324, label %329 [
     i8 43, label %325
@@ -45819,18 +45833,18 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   ]
 
 325:                                              ; preds = %323
-  %326 = getelementptr inbounds nuw i8, ptr %.18575.lcssa.sink, i64 2
+  %326 = getelementptr inbounds nuw i8, ptr %.18578.lcssa.sink, i64 2
   br label %329
 
 327:                                              ; preds = %323
-  %328 = getelementptr inbounds nuw i8, ptr %.18575.lcssa.sink, i64 2
-  store i8 1, ptr %9, align 8, !tbaa !686
+  %328 = getelementptr inbounds nuw i8, ptr %.18578.lcssa.sink, i64 2
+  store i8 1, ptr %9, align 8, !tbaa !687
   br label %329
 
 329:                                              ; preds = %323, %325, %327
   %330 = phi i1 [ false, %325 ], [ true, %327 ], [ false, %323 ]
   %.20 = phi ptr [ %326, %325 ], [ %328, %327 ], [ %316, %323 ]
-  %.20650 = ptrtoint ptr %.20 to i64
+  %.20653 = ptrtoint ptr %.20 to i64
   %331 = icmp ult ptr %.20, %6
   br i1 %331, label %342, label %332, !prof !244
 
@@ -45841,7 +45855,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   br i1 %335, label %336, label %340, !prof !245
 
 336:                                              ; preds = %332
-  %337 = sub i64 %.20650, %13
+  %337 = sub i64 %.20653, %13
   %338 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %337)
   %339 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.20, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
@@ -45854,72 +45868,72 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   %343 = load i8, ptr %.20, align 1, !tbaa !15
   %344 = add i8 %343, -48
   %345 = icmp ult i8 %344, 10
-  br i1 %345, label %347, label %.thread535, !prof !244
+  br i1 %345, label %347, label %.thread538, !prof !244
 
-.thread535:                                       ; preds = %342
+.thread538:                                       ; preds = %342
   %346 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.20, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
   br label %405
 
 347:                                              ; preds = %342
   %348 = zext nneg i8 %343 to i32
   %349 = add nsw i32 %348, -48
-  store i32 %349, ptr %8, align 4, !tbaa !687
-  %.22595 = getelementptr inbounds nuw i8, ptr %.20, i64 1
-  %350 = icmp ult ptr %.22595, %6
-  br i1 %350, label %.lr.ph599, label %._crit_edge600, !prof !360
+  store i32 %349, ptr %8, align 4, !tbaa !688
+  %.22598 = getelementptr inbounds nuw i8, ptr %.20, i64 1
+  %350 = icmp ult ptr %.22598, %6
+  br i1 %350, label %.lr.ph602, label %._crit_edge603, !prof !360
 
-._crit_edge600:                                   ; preds = %373, %347
+._crit_edge603:                                   ; preds = %373, %347
   %351 = phi i32 [ %349, %347 ], [ %storemerge, %373 ]
-  %.22.lcssa = phi ptr [ %.22595, %347 ], [ %.22, %373 ]
+  %.22.lcssa = phi ptr [ %.22598, %347 ], [ %.22, %373 ]
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %353 = load i8, ptr %352, align 8, !tbaa !176, !range !181, !noundef !182
   %354 = trunc nuw i8 %353 to i1
-  br i1 %354, label %355, label %.thread538, !prof !245
+  br i1 %354, label %355, label %.thread541, !prof !245
 
-355:                                              ; preds = %._crit_edge600
+355:                                              ; preds = %._crit_edge603
   %356 = ptrtoint ptr %.22.lcssa to i64
   %357 = sub i64 %356, %13
   %358 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %1, i64 noundef %357)
   %359 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %405
 
-.lr.ph599:                                        ; preds = %347, %373
-  %.22597 = phi ptr [ %.22, %373 ], [ %.22595, %347 ]
-  %storemerge542596 = phi i32 [ %storemerge, %373 ], [ %349, %347 ]
-  %360 = load i8, ptr %.22597, align 1, !tbaa !15
+.lr.ph602:                                        ; preds = %347, %373
+  %.22600 = phi ptr [ %.22, %373 ], [ %.22598, %347 ]
+  %storemerge545599 = phi i32 [ %storemerge, %373 ], [ %349, %347 ]
+  %360 = load i8, ptr %.22600, align 1, !tbaa !15
   %361 = add i8 %360, -48
   %362 = icmp ult i8 %361, 10
-  br i1 %362, label %363, label %.thread538, !prof !244
+  br i1 %362, label %363, label %.thread541, !prof !244
 
-363:                                              ; preds = %.lr.ph599
-  %364 = icmp sgt i32 %storemerge542596, 214748364
+363:                                              ; preds = %.lr.ph602
+  %364 = icmp sgt i32 %storemerge545599, 214748364
   br i1 %364, label %373, label %365, !prof !245
 
 365:                                              ; preds = %363
-  %366 = icmp eq i32 %storemerge542596, 214748364
+  %366 = icmp eq i32 %storemerge545599, 214748364
   %367 = icmp samesign ugt i8 %360, 55
   %368 = and i1 %367, %366
   br i1 %368, label %373, label %369, !prof !245
 
 369:                                              ; preds = %365
-  %370 = mul nsw i32 %storemerge542596, 10
+  %370 = mul nsw i32 %storemerge545599, 10
   %371 = zext nneg i8 %361 to i32
   %372 = add nsw i32 %370, %371
   br label %373
 
 373:                                              ; preds = %369, %365, %363
   %storemerge = phi i32 [ %372, %369 ], [ 2147483647, %365 ], [ 2147483647, %363 ]
-  store i32 %storemerge, ptr %8, align 4, !tbaa !687
-  %.22 = getelementptr inbounds nuw i8, ptr %.22597, i64 1
-  %exitcond652.not = icmp eq ptr %.22, %6
-  br i1 %exitcond652.not, label %._crit_edge600, label %.lr.ph599, !prof !688
+  store i32 %storemerge, ptr %8, align 4, !tbaa !688
+  %.22 = getelementptr inbounds nuw i8, ptr %.22600, i64 1
+  %exitcond655.not = icmp eq ptr %.22, %6
+  br i1 %exitcond655.not, label %._crit_edge603, label %.lr.ph602, !prof !686
 
-.thread538:                                       ; preds = %.lr.ph599, %._crit_edge600
-  %374 = phi i32 [ %351, %._crit_edge600 ], [ %storemerge542596, %.lr.ph599 ]
-  %.22544 = phi ptr [ %.22.lcssa, %._crit_edge600 ], [ %.22597, %.lr.ph599 ]
+.thread541:                                       ; preds = %.lr.ph602, %._crit_edge603
+  %374 = phi i32 [ %351, %._crit_edge603 ], [ %storemerge545599, %.lr.ph602 ]
+  %.22547 = phi ptr [ %.22.lcssa, %._crit_edge603 ], [ %.22600, %.lr.ph602 ]
   br i1 %330, label %375, label %384
 
-375:                                              ; preds = %.thread538
+375:                                              ; preds = %.thread541
   %376 = or i32 %374, -2147483648
   %377 = icmp slt i32 %315, %376
   br i1 %377, label %378, label %399, !prof !245
@@ -45927,16 +45941,16 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 378:                                              ; preds = %375
   %379 = icmp eq i32 %374, 2147483647
   %380 = icmp samesign ult i32 %315, -2147483339
-  %or.cond157 = and i1 %380, %379
+  %or.cond160 = and i1 %380, %379
   %381 = icmp ne i64 %314, 0
-  %or.cond164 = select i1 %or.cond157, i1 %381, i1 false, !prof !689
-  br i1 %or.cond164, label %382, label %.sink.split, !prof !689
+  %or.cond167 = select i1 %or.cond160, i1 %381, i1 false, !prof !689
+  br i1 %or.cond167, label %382, label %.sink.split, !prof !689
 
 382:                                              ; preds = %378
-  %383 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22544, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  %383 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22547, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
   br label %405
 
-384:                                              ; preds = %.thread538
+384:                                              ; preds = %.thread541
   %385 = sub nsw i32 2147483647, %374
   %386 = icmp sgt i32 %315, %385
   br i1 %386, label %387, label %399, !prof !245
@@ -45944,24 +45958,24 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 387:                                              ; preds = %384
   %388 = icmp eq i32 %374, 2147483647
   %389 = icmp samesign ugt i32 %315, 2147483339
-  %or.cond160 = and i1 %389, %388
+  %or.cond163 = and i1 %389, %388
   %390 = icmp ne i64 %314, 0
-  %or.cond166 = select i1 %or.cond160, i1 %390, i1 false, !prof !689
-  br i1 %or.cond166, label %391, label %.sink.split, !prof !689
+  %or.cond169 = select i1 %or.cond163, i1 %390, i1 false, !prof !689
+  br i1 %or.cond169, label %391, label %.sink.split, !prof !689
 
 391:                                              ; preds = %387
-  %392 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22544, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  %392 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.22547, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
   br label %405
 
 393:                                              ; preds = %264, %._crit_edge
-  %394 = phi i64 [ %189, %264 ], [ %.lcssa568, %._crit_edge ]
-  %.8438560 = phi ptr [ %.8438571, %264 ], [ %.8438.lcssa, %._crit_edge ]
+  %394 = phi i64 [ %189, %264 ], [ %.lcssa571, %._crit_edge ]
+  %.8441563 = phi ptr [ %.8441574, %264 ], [ %.8441.lcssa, %._crit_edge ]
   %395 = icmp sgt i64 %394, -1
   br i1 %395, label %396, label %398
 
 396:                                              ; preds = %393, %87
   %397 = phi i64 [ %394, %393 ], [ %.1.i, %87 ]
-  %.6436 = phi ptr [ %.8438560, %393 ], [ %83, %87 ]
+  %.6439 = phi ptr [ %.8441563, %393 ], [ %83, %87 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %397)
   br label %405
 
@@ -45971,13 +45985,13 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
 
 .sink.split:                                      ; preds = %387, %378
   store i32 0, ptr %7, align 8, !tbaa !685
-  store i32 2147483647, ptr %8, align 4, !tbaa !687
+  store i32 2147483647, ptr %8, align 4, !tbaa !688
   br label %399
 
-399:                                              ; preds = %.sink.split, %._crit_edge587, %._crit_edge592, %._crit_edge577, %384, %375, %169, %221, %256, %306
-  %.7437 = phi ptr [ %.22544, %375 ], [ %.22544, %384 ], [ %.15445.lcssa, %._crit_edge592 ], [ %.11441.lcssa, %._crit_edge587 ], [ %.18.lcssa, %._crit_edge577 ], [ %165, %169 ], [ %.11441583, %221 ], [ %.15445590, %256 ], [ %.18575, %306 ], [ %.22544, %.sink.split ]
+399:                                              ; preds = %.sink.split, %._crit_edge590, %._crit_edge595, %._crit_edge580, %384, %375, %169, %221, %256, %306
+  %.7440 = phi ptr [ %.22547, %375 ], [ %.22547, %384 ], [ %.15448.lcssa, %._crit_edge595 ], [ %.11444.lcssa, %._crit_edge590 ], [ %.18.lcssa, %._crit_edge580 ], [ %165, %169 ], [ %.11444586, %221 ], [ %.15448593, %256 ], [ %.18578, %306 ], [ %.22547, %.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %400 = ptrtoint ptr %.7437 to i64
+  %400 = ptrtoint ptr %.7440 to i64
   %401 = sub i64 %400, %13
   %402 = getelementptr inbounds nuw i8, ptr %1, i64 %401
   %403 = call { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10fast_float19from_chars_advancedIdcEENS2_19from_chars_result_tIT0_EEPKS7_SA_RT_NS4_15parse_options_tIS7_EE(ptr noundef %1, ptr noundef %402, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 197568495619) #50
@@ -45986,8 +46000,8 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit177: ; preds = %._crit_edge.i167
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %405
 
-405:                                              ; preds = %.thread535, %.thread519, %283, %240, %.thread484, %.thread448, %399, %398, %396, %391, %382, %355, %340, %336, %318, %290, %277, %272, %248, %230, %208, %184
-  %.2 = phi ptr [ %188, %184 ], [ %.6436, %396 ], [ %.8438560, %398 ], [ %212, %208 ], [ %.7437, %399 ], [ %234, %230 ], [ %252, %248 ], [ %322, %318 ], [ %339, %336 ], [ %341, %340 ], [ %359, %355 ], [ %383, %382 ], [ %392, %391 ], [ %241, %240 ], [ %276, %272 ], [ %278, %277 ], [ %294, %290 ], [ %284, %283 ], [ %99, %.thread448 ], [ %218, %.thread484 ], [ %305, %.thread519 ], [ %346, %.thread535 ]
+405:                                              ; preds = %.thread538, %.thread522, %283, %240, %.thread487, %.thread451, %399, %398, %396, %391, %382, %355, %340, %336, %318, %290, %277, %272, %248, %230, %208, %184
+  %.2 = phi ptr [ %188, %184 ], [ %.6439, %396 ], [ %.8441563, %398 ], [ %212, %208 ], [ %.7440, %399 ], [ %234, %230 ], [ %252, %248 ], [ %322, %318 ], [ %339, %336 ], [ %341, %340 ], [ %359, %355 ], [ %383, %382 ], [ %392, %391 ], [ %241, %240 ], [ %276, %272 ], [ %278, %277 ], [ %294, %290 ], [ %284, %283 ], [ %99, %.thread451 ], [ %218, %.thread487 ], [ %305, %.thread522 ], [ %346, %.thread538 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -46008,7 +46022,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, i8 0, i64 10, i1 false)
-  br i1 %13, label %14, label %.thread375
+  br i1 %13, label %14, label %.thread379
 
 14:                                               ; preds = %2
   %15 = load <16 x i8>, ptr %1, align 1, !tbaa !15
@@ -46020,7 +46034,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %20 = zext nneg i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %22 = icmp eq i16 %18, 0
-  br i1 %22, label %.thread375.split.split.us, label %23
+  br i1 %22, label %.thread379.split.split.us, label %23
 
 23:                                               ; preds = %14
   %24 = load i8, ptr %21, align 1, !tbaa !15
@@ -46030,7 +46044,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 25:                                               ; preds = %23
   %26 = and i8 %24, -33
   %27 = icmp eq i8 %26, 69
-  br i1 %27, label %.thread395, label %190
+  br i1 %27, label %.thread399, label %190
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -46041,16 +46055,16 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %33, i1 false)
   %35 = zext nneg i16 %34 to i32
   %36 = icmp eq i16 %34, 0
-  br i1 %36, label %.thread371, label %38
+  br i1 %36, label %.thread375, label %38
 
-.thread371:                                       ; preds = %28
+.thread375:                                       ; preds = %28
   %37 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
   br label %193
 
 38:                                               ; preds = %28
   %narrow = add nuw nsw i16 %34, %19
   %39 = icmp samesign ugt i16 %narrow, 18
-  br i1 %39, label %.thread379, label %40
+  br i1 %39, label %.thread383, label %40
 
 40:                                               ; preds = %38
   %41 = sub nsw i32 0, %35
@@ -46060,14 +46074,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = and i8 %44, -33
   %46 = icmp eq i8 %45, 69
-  br i1 %46, label %.thread395, label %47
+  br i1 %46, label %.thread399, label %47
 
 47:                                               ; preds = %40
   %48 = add i8 %44, -48
   %or.cond = icmp ult i8 %48, 10
-  br i1 %or.cond, label %.thread383, label %.thread391
+  br i1 %or.cond, label %.thread387, label %.thread395
 
-.thread375:                                       ; preds = %2
+.thread379:                                       ; preds = %2
   %49 = load i8, ptr %1, align 1, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.fr = freeze i8 %49
@@ -46075,45 +46089,45 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %52 = add nsw i64 %51, -48
   store i64 %52, ptr %3, align 8, !tbaa !683
   %53 = icmp ugt i64 %52, 1844674407370955161
-  br i1 %53, label %.thread375.split.us, label %.thread375.split.split.us
+  br i1 %53, label %.thread379.split.us, label %.thread379.split.split.us
 
-.thread375.split.us:                              ; preds = %.thread375
+.thread379.split.us:                              ; preds = %.thread379
   %54 = icmp ult ptr %50, %5
   br i1 %54, label %55, label %.split.us, !prof !244
 
-55:                                               ; preds = %.thread375.split.us
+55:                                               ; preds = %.thread379.split.us
   %56 = load i8, ptr %50, align 1, !tbaa !15
   %57 = add i8 %56, -48
   %58 = icmp ult i8 %57, 10
-  br i1 %58, label %select.unfold398, label %.split467.us, !prof !244
+  br i1 %58, label %select.unfold402, label %.split471.us, !prof !244
 
-.thread375.split.split.us:                        ; preds = %14, %.thread375
-  %.2358544 = phi ptr [ %50, %.thread375 ], [ %21, %14 ]
-  %.fr493543 = phi i64 [ %52, %.thread375 ], [ 0, %14 ]
-  %59 = icmp ult ptr %.2358544, %5
+.thread379.split.split.us:                        ; preds = %14, %.thread379
+  %.2362548 = phi ptr [ %50, %.thread379 ], [ %21, %14 ]
+  %.fr497547 = phi i64 [ %52, %.thread379 ], [ 0, %14 ]
+  %59 = icmp ult ptr %.2362548, %5
   br i1 %59, label %.lr.ph.preheader, label %.split.us, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.thread375.split.split.us
-  %.2358512545 = ptrtoint ptr %.2358544 to i64
-  %60 = sub i64 %10, %.2358512545
-  %scevgep = getelementptr i8, ptr %.2358544, i64 %60
+.lr.ph.preheader:                                 ; preds = %.thread379.split.split.us
+  %.2362516549 = ptrtoint ptr %.2362548 to i64
+  %60 = sub i64 %10, %.2362516549
+  %scevgep = getelementptr i8, ptr %.2362548, i64 %60
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.7363.us470476 = phi ptr [ %65, %64 ], [ %.2358544, %.lr.ph.preheader ]
-  %61 = load i8, ptr %.7363.us470476, align 1, !tbaa !15
+  %.7367.us474480 = phi ptr [ %65, %64 ], [ %.2362548, %.lr.ph.preheader ]
+  %61 = load i8, ptr %.7367.us474480, align 1, !tbaa !15
   %62 = add i8 %61, -48
   %63 = icmp ult i8 %62, 10
-  br i1 %63, label %64, label %.split467.us, !prof !244
+  br i1 %63, label %64, label %.split471.us, !prof !244
 
 64:                                               ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw i8, ptr %.7363.us470476, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.7367.us474480, i64 1
   %exitcond.not = icmp eq ptr %65, %5
-  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !686
 
-.split.us:                                        ; preds = %64, %.thread375.split.split.us, %.thread375.split.us
-  %.fr493541 = phi i64 [ %52, %.thread375.split.us ], [ %.fr493543, %.thread375.split.split.us ], [ %.fr493543, %64 ]
-  %.us-phi = phi ptr [ %50, %.thread375.split.us ], [ %.2358544, %.thread375.split.split.us ], [ %scevgep, %64 ]
+.split.us:                                        ; preds = %64, %.thread379.split.split.us, %.thread379.split.us
+  %.fr497545 = phi i64 [ %52, %.thread379.split.us ], [ %.fr497547, %.thread379.split.split.us ], [ %.fr497547, %64 ]
+  %.us-phi = phi ptr [ %50, %.thread379.split.us ], [ %.2362548, %.thread379.split.split.us ], [ %scevgep, %64 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %67 = load i8, ptr %66, align 8, !tbaa !176, !range !181, !noundef !182
   %68 = trunc nuw i8 %67 to i1
@@ -46123,71 +46137,71 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %70 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.us-phi, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-select.unfold398:                                 ; preds = %55
+select.unfold402:                                 ; preds = %55
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i32 1, ptr %6, align 8, !tbaa !685
   %72 = icmp ult ptr %71, %5
-  br i1 %72, label %.lr.ph480.preheader, label %._crit_edge, !prof !360
+  br i1 %72, label %.lr.ph484.preheader, label %._crit_edge, !prof !360
 
-.lr.ph480.preheader:                              ; preds = %select.unfold398
-  %.us-phi469514 = ptrtoint ptr %71 to i64
-  %scevgep513 = getelementptr i8, ptr %1, i64 2147483647
-  %73 = sub i64 %10, %.us-phi469514
-  %scevgep515 = getelementptr i8, ptr %71, i64 %73
+.lr.ph484.preheader:                              ; preds = %select.unfold402
+  %.us-phi473518 = ptrtoint ptr %71 to i64
+  %scevgep517 = getelementptr i8, ptr %1, i64 2147483647
+  %73 = sub i64 %10, %.us-phi473518
+  %scevgep519 = getelementptr i8, ptr %71, i64 %73
   %.promoted = load i32, ptr %6, align 8
-  br label %.lr.ph480
+  br label %.lr.ph484
 
 ._crit_edge.loopexit:                             ; preds = %90
   store i32 %storemerge, ptr %6, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold398
-  %.10366.lcssa = phi ptr [ %71, %select.unfold398 ], [ %scevgep515, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %select.unfold402
+  %.10370.lcssa = phi ptr [ %71, %select.unfold402 ], [ %scevgep519, %._crit_edge.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load i8, ptr %74, align 8, !tbaa !176, !range !181, !noundef !182
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %.thread391, !prof !245
+  br i1 %76, label %77, label %.thread395, !prof !245
 
 77:                                               ; preds = %._crit_edge
-  %78 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10366.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %78 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.10370.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-.lr.ph480:                                        ; preds = %.lr.ph480.preheader, %90
-  %storemerge559 = phi i32 [ %storemerge, %90 ], [ %.promoted, %.lr.ph480.preheader ]
-  %storemerge479 = phi i32 [ %storemerge, %90 ], [ 1, %.lr.ph480.preheader ]
-  %.10366478 = phi ptr [ %91, %90 ], [ %71, %.lr.ph480.preheader ]
-  %79 = load i8, ptr %.10366478, align 1, !tbaa !15
+.lr.ph484:                                        ; preds = %.lr.ph484.preheader, %90
+  %storemerge563 = phi i32 [ %storemerge, %90 ], [ %.promoted, %.lr.ph484.preheader ]
+  %storemerge483 = phi i32 [ %storemerge, %90 ], [ 1, %.lr.ph484.preheader ]
+  %.10370482 = phi ptr [ %91, %90 ], [ %71, %.lr.ph484.preheader ]
+  %79 = load i8, ptr %.10370482, align 1, !tbaa !15
   %80 = add i8 %79, -48
   %81 = icmp ult i8 %80, 10
   br i1 %81, label %82, label %85, !prof !245
 
-82:                                               ; preds = %.lr.ph480
-  %83 = icmp eq i32 %storemerge479, 2147483646
-  br i1 %83, label %.thread408, label %90, !prof !245
+82:                                               ; preds = %.lr.ph484
+  %83 = icmp eq i32 %storemerge483, 2147483646
+  br i1 %83, label %.thread412, label %90, !prof !245
 
-.thread408:                                       ; preds = %82
-  store i32 %storemerge559, ptr %6, align 8
-  %84 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep513, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+.thread412:                                       ; preds = %82
+  store i32 %storemerge563, ptr %6, align 8
+  %84 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep517, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
   br label %193
 
-85:                                               ; preds = %.lr.ph480
-  store i32 %storemerge559, ptr %6, align 8
+85:                                               ; preds = %.lr.ph484
+  store i32 %storemerge563, ptr %6, align 8
   %86 = icmp eq i8 %79, 46
   br i1 %86, label %92, label %87, !prof !244
 
 87:                                               ; preds = %85
   %88 = and i8 %79, -33
   %89 = icmp eq i8 %88, 69
-  br i1 %89, label %.thread395, label %.thread391
+  br i1 %89, label %.thread399, label %.thread395
 
 90:                                               ; preds = %82
-  %91 = getelementptr inbounds nuw i8, ptr %.10366478, i64 1
-  %storemerge = add nuw nsw i32 %storemerge479, 1
-  %exitcond516.not = icmp eq ptr %91, %5
-  br i1 %exitcond516.not, label %._crit_edge.loopexit, label %.lr.ph480, !prof !688
+  %91 = getelementptr inbounds nuw i8, ptr %.10370482, i64 1
+  %storemerge = add nuw nsw i32 %storemerge483, 1
+  %exitcond520.not = icmp eq ptr %91, %5
+  br i1 %exitcond520.not, label %._crit_edge.loopexit, label %.lr.ph484, !prof !686
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds nuw i8, ptr %.10366478, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.10370482, i64 1
   %94 = icmp ult ptr %93, %5
   br i1 %94, label %97, label %95, !prof !244
 
@@ -46199,130 +46213,130 @@ select.unfold398:                                 ; preds = %55
   %98 = load i8, ptr %93, align 1, !tbaa !15
   %99 = add i8 %98, -48
   %100 = icmp ult i8 %99, 10
-  br i1 %100, label %.thread426, label %102, !prof !244
+  br i1 %100, label %.thread430, label %102, !prof !244
 
-.thread426:                                       ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %.10366478, i64 2
+.thread430:                                       ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %.10370482, i64 2
   br label %104
 
 102:                                              ; preds = %97
   %103 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %93, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
   br label %193
 
-104:                                              ; preds = %.thread443, %.thread426
-  %.13 = phi ptr [ %101, %.thread426 ], [ %148, %.thread443 ]
+104:                                              ; preds = %.thread447, %.thread430
+  %.13 = phi ptr [ %101, %.thread430 ], [ %148, %.thread447 ]
   %105 = icmp ult ptr %.13, %5
-  br i1 %105, label %.lr.ph484.preheader, label %._crit_edge485, !prof !360
+  br i1 %105, label %.lr.ph488.preheader, label %._crit_edge489, !prof !360
 
-.lr.ph484.preheader:                              ; preds = %104
-  %.13517 = ptrtoint ptr %.13 to i64
-  %106 = sub i64 %10, %.13517
-  %scevgep518 = getelementptr i8, ptr %.13, i64 %106
-  br label %.lr.ph484
+.lr.ph488.preheader:                              ; preds = %104
+  %.13521 = ptrtoint ptr %.13 to i64
+  %106 = sub i64 %10, %.13521
+  %scevgep522 = getelementptr i8, ptr %.13, i64 %106
+  br label %.lr.ph488
 
-._crit_edge485:                                   ; preds = %118, %104
-  %.14.lcssa = phi ptr [ %.13, %104 ], [ %scevgep518, %118 ]
+._crit_edge489:                                   ; preds = %118, %104
+  %.14.lcssa = phi ptr [ %.13, %104 ], [ %scevgep522, %118 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %108 = load i8, ptr %107, align 8, !tbaa !176, !range !181, !noundef !182
   %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %.thread391, !prof !245
+  br i1 %109, label %110, label %.thread395, !prof !245
 
-110:                                              ; preds = %._crit_edge485
+110:                                              ; preds = %._crit_edge489
   %111 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.14.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-.lr.ph484:                                        ; preds = %.lr.ph484.preheader, %118
-  %.14482 = phi ptr [ %119, %118 ], [ %.13, %.lr.ph484.preheader ]
-  %112 = load i8, ptr %.14482, align 1, !tbaa !15
+.lr.ph488:                                        ; preds = %.lr.ph488.preheader, %118
+  %.14486 = phi ptr [ %119, %118 ], [ %.13, %.lr.ph488.preheader ]
+  %112 = load i8, ptr %.14486, align 1, !tbaa !15
   %113 = add i8 %112, -48
   %114 = icmp ult i8 %113, 10
   br i1 %114, label %118, label %115, !prof !244
 
-115:                                              ; preds = %.lr.ph484
+115:                                              ; preds = %.lr.ph488
   %116 = and i8 %112, -33
   %117 = icmp eq i8 %116, 69
-  br i1 %117, label %.thread395, label %.thread391
+  br i1 %117, label %.thread399, label %.thread395
 
-118:                                              ; preds = %.lr.ph484
-  %119 = getelementptr inbounds nuw i8, ptr %.14482, i64 1
-  %exitcond519.not = icmp eq ptr %119, %5
-  br i1 %exitcond519.not, label %._crit_edge485, label %.lr.ph484, !prof !688
+118:                                              ; preds = %.lr.ph488
+  %119 = getelementptr inbounds nuw i8, ptr %.14486, i64 1
+  %exitcond523.not = icmp eq ptr %119, %5
+  br i1 %exitcond523.not, label %._crit_edge489, label %.lr.ph488, !prof !686
 
-.split467.us:                                     ; preds = %.lr.ph, %55
-  %.fr493542 = phi i64 [ %52, %55 ], [ %.fr493543, %.lr.ph ]
+.split471.us:                                     ; preds = %.lr.ph, %55
+  %.fr497546 = phi i64 [ %52, %55 ], [ %.fr497547, %.lr.ph ]
   %120 = phi i8 [ %56, %55 ], [ %61, %.lr.ph ]
-  %.us-phi468 = phi ptr [ %50, %55 ], [ %.7363.us470476, %.lr.ph ]
+  %.us-phi472 = phi ptr [ %50, %55 ], [ %.7367.us474480, %.lr.ph ]
   %121 = icmp eq i8 %120, 46
-  br i1 %121, label %.thread435, label %123, !prof !244
+  br i1 %121, label %.thread439, label %123, !prof !244
 
-.thread435:                                       ; preds = %.split467.us
-  %122 = getelementptr inbounds nuw i8, ptr %.us-phi468, i64 1
-  br label %.thread379
+.thread439:                                       ; preds = %.split471.us
+  %122 = getelementptr inbounds nuw i8, ptr %.us-phi472, i64 1
+  br label %.thread383
 
-123:                                              ; preds = %.split467.us
+123:                                              ; preds = %.split471.us
   %124 = and i8 %120, -33
   %125 = icmp eq i8 %124, 69
-  br i1 %125, label %.thread395, label %188
+  br i1 %125, label %.thread399, label %188
 
-.thread379:                                       ; preds = %38, %.thread435
-  %.3359 = phi ptr [ %122, %.thread435 ], [ %29, %38 ]
-  %126 = icmp ult ptr %.3359, %5
+.thread383:                                       ; preds = %38, %.thread439
+  %.3363 = phi ptr [ %122, %.thread439 ], [ %29, %38 ]
+  %126 = icmp ult ptr %.3363, %5
   br i1 %126, label %135, label %127, !prof !244
 
-127:                                              ; preds = %.thread379
+127:                                              ; preds = %.thread383
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %129 = load i8, ptr %128, align 8, !tbaa !176, !range !181, !noundef !182
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %133, !prof !245
 
 131:                                              ; preds = %127
-  %132 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3359, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %132 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3363, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
 133:                                              ; preds = %127
-  %134 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3359, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  %134 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3363, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
   br label %193
 
-135:                                              ; preds = %.thread379
-  %136 = load i8, ptr %.3359, align 1, !tbaa !15
+135:                                              ; preds = %.thread383
+  %136 = load i8, ptr %.3363, align 1, !tbaa !15
   %137 = add i8 %136, -48
   %138 = icmp ult i8 %137, 10
-  br i1 %138, label %.thread383, label %139, !prof !244
+  br i1 %138, label %.thread387, label %139, !prof !244
 
 139:                                              ; preds = %135
-  %140 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3359, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  %140 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.3363, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
   br label %193
 
-.thread383:                                       ; preds = %135, %47
-  %.17 = phi ptr [ %43, %47 ], [ %.3359, %135 ]
+.thread387:                                       ; preds = %135, %47
+  %.17 = phi ptr [ %43, %47 ], [ %.3363, %135 ]
   %141 = icmp ult ptr %.17, %5
-  br i1 %141, label %.thread443, label %142, !prof !244
+  br i1 %141, label %.thread447, label %142, !prof !244
 
-142:                                              ; preds = %.thread383
+142:                                              ; preds = %.thread387
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %144 = load i8, ptr %143, align 8, !tbaa !176, !range !181, !noundef !182
   %145 = trunc nuw i8 %144 to i1
-  br i1 %145, label %146, label %.thread391, !prof !245
+  br i1 %145, label %146, label %.thread395, !prof !245
 
 146:                                              ; preds = %142
   %147 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.17, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-.thread443:                                       ; preds = %.thread383
+.thread447:                                       ; preds = %.thread387
   %148 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   br label %104
 
-.thread395:                                       ; preds = %123, %115, %87, %40, %25
-  %.us-phi468.sink = phi ptr [ %21, %25 ], [ %43, %40 ], [ %.10366478, %87 ], [ %.14482, %115 ], [ %.us-phi468, %123 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.us-phi468.sink, i64 1
+.thread399:                                       ; preds = %123, %115, %87, %40, %25
+  %.us-phi472.sink = phi ptr [ %21, %25 ], [ %43, %40 ], [ %.10370482, %87 ], [ %.14486, %115 ], [ %.us-phi472, %123 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.us-phi472.sink, i64 1
   %150 = icmp ult ptr %149, %5
   br i1 %150, label %153, label %151, !prof !244
 
-151:                                              ; preds = %.thread395
+151:                                              ; preds = %.thread399
   %152 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %149, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-153:                                              ; preds = %.thread395
+153:                                              ; preds = %.thread399
   %154 = load i8, ptr %149, align 1, !tbaa !15
   switch i8 %154, label %159 [
     i8 43, label %155
@@ -46330,17 +46344,17 @@ select.unfold398:                                 ; preds = %55
   ]
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i8, ptr %.us-phi468.sink, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %.us-phi472.sink, i64 2
   br label %159
 
 157:                                              ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %.us-phi468.sink, i64 2
-  store i8 1, ptr %8, align 8, !tbaa !686
+  %158 = getelementptr inbounds nuw i8, ptr %.us-phi472.sink, i64 2
+  store i8 1, ptr %8, align 8, !tbaa !687
   br label %159
 
 159:                                              ; preds = %153, %155, %157
   %.19 = phi ptr [ %156, %155 ], [ %158, %157 ], [ %149, %153 ]
-  %.19520 = ptrtoint ptr %.19 to i64
+  %.19524 = ptrtoint ptr %.19 to i64
   %160 = icmp ult ptr %.19, %5
   br i1 %160, label %169, label %161, !prof !244
 
@@ -46362,71 +46376,71 @@ select.unfold398:                                 ; preds = %55
   %170 = load i8, ptr %.19, align 1, !tbaa !15
   %171 = add i8 %170, -48
   %172 = icmp ult i8 %171, 10
-  br i1 %172, label %174, label %.thread449, !prof !244
+  br i1 %172, label %174, label %.thread453, !prof !244
 
-.thread449:                                       ; preds = %169
+.thread453:                                       ; preds = %169
   %173 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.19, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb1ELc43ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
   br label %193
 
 174:                                              ; preds = %169
   %175 = zext nneg i8 %170 to i32
   %176 = add nsw i32 %175, -48
-  store i32 %176, ptr %7, align 4, !tbaa !687
-  %.21487 = getelementptr inbounds nuw i8, ptr %.19, i64 1
-  %177 = icmp ult ptr %.21487, %5
-  br i1 %177, label %.lr.ph490.preheader, label %._crit_edge491, !prof !360
+  store i32 %176, ptr %7, align 4, !tbaa !688
+  %.21491 = getelementptr inbounds nuw i8, ptr %.19, i64 1
+  %177 = icmp ult ptr %.21491, %5
+  br i1 %177, label %.lr.ph494.preheader, label %._crit_edge495, !prof !360
 
-.lr.ph490.preheader:                              ; preds = %174
-  %178 = sub i64 %10, %.19520
-  %scevgep521 = getelementptr i8, ptr %.19, i64 %178
-  br label %.lr.ph490
+.lr.ph494.preheader:                              ; preds = %174
+  %178 = sub i64 %10, %.19524
+  %scevgep525 = getelementptr i8, ptr %.19, i64 %178
+  br label %.lr.ph494
 
-._crit_edge491:                                   ; preds = %187, %174
-  %.21.lcssa = phi ptr [ %.21487, %174 ], [ %scevgep521, %187 ]
+._crit_edge495:                                   ; preds = %187, %174
+  %.21.lcssa = phi ptr [ %.21491, %174 ], [ %scevgep525, %187 ]
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %180 = load i8, ptr %179, align 8, !tbaa !176, !range !181, !noundef !182
   %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %182, label %.thread391, !prof !245
+  br i1 %181, label %182, label %.thread395, !prof !245
 
-182:                                              ; preds = %._crit_edge491
+182:                                              ; preds = %._crit_edge495
   %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.21.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %193
 
-.lr.ph490:                                        ; preds = %.lr.ph490.preheader, %187
-  %.21488 = phi ptr [ %.21, %187 ], [ %.21487, %.lr.ph490.preheader ]
-  %184 = load i8, ptr %.21488, align 1, !tbaa !15
+.lr.ph494:                                        ; preds = %.lr.ph494.preheader, %187
+  %.21492 = phi ptr [ %.21, %187 ], [ %.21491, %.lr.ph494.preheader ]
+  %184 = load i8, ptr %.21492, align 1, !tbaa !15
   %185 = add i8 %184, -48
   %186 = icmp ult i8 %185, 10
-  br i1 %186, label %187, label %.thread391, !prof !244
+  br i1 %186, label %187, label %.thread395, !prof !244
 
-187:                                              ; preds = %.lr.ph490
-  %.21 = getelementptr inbounds nuw i8, ptr %.21488, i64 1
-  %exitcond522.not = icmp eq ptr %.21, %5
-  br i1 %exitcond522.not, label %._crit_edge491, label %.lr.ph490, !prof !688
+187:                                              ; preds = %.lr.ph494
+  %.21 = getelementptr inbounds nuw i8, ptr %.21492, i64 1
+  %exitcond526.not = icmp eq ptr %.21, %5
+  br i1 %exitcond526.not, label %._crit_edge495, label %.lr.ph494, !prof !686
 
 188:                                              ; preds = %123, %.split.us
-  %.fr493540 = phi i64 [ %.fr493542, %123 ], [ %.fr493541, %.split.us ]
-  %.7363464 = phi ptr [ %.us-phi468, %123 ], [ %.us-phi, %.split.us ]
-  %189 = icmp sgt i64 %.fr493540, -1
+  %.fr497544 = phi i64 [ %.fr497546, %123 ], [ %.fr497545, %.split.us ]
+  %.7367468 = phi ptr [ %.us-phi472, %123 ], [ %.us-phi, %.split.us ]
+  %189 = icmp sgt i64 %.fr497544, -1
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %188, %25
-  %191 = phi i64 [ %.fr493540, %188 ], [ 0, %25 ]
-  %.5361 = phi ptr [ %.7363464, %188 ], [ %21, %25 ]
+  %191 = phi i64 [ %.fr497544, %188 ], [ 0, %25 ]
+  %.5365 = phi ptr [ %.7367468, %188 ], [ %21, %25 ]
   tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %191)
   br label %193
 
 192:                                              ; preds = %188
-  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.fr493540)
+  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.fr497544)
   br label %193
 
-.thread391:                                       ; preds = %.lr.ph490, %._crit_edge491, %115, %87, %47, %._crit_edge, %._crit_edge485, %142
-  %.6362 = phi ptr [ %.14.lcssa, %._crit_edge485 ], [ %.10366.lcssa, %._crit_edge ], [ %.17, %142 ], [ %43, %47 ], [ %.10366478, %87 ], [ %.14482, %115 ], [ %.21.lcssa, %._crit_edge491 ], [ %.21488, %.lr.ph490 ]
+.thread395:                                       ; preds = %.lr.ph494, %._crit_edge495, %115, %87, %47, %._crit_edge, %._crit_edge489, %142
+  %.6366 = phi ptr [ %.14.lcssa, %._crit_edge489 ], [ %.10370.lcssa, %._crit_edge ], [ %.17, %142 ], [ %43, %47 ], [ %.10370482, %87 ], [ %.14486, %115 ], [ %.21.lcssa, %._crit_edge495 ], [ %.21492, %.lr.ph494 ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef 0.000000e+00)
   br label %193
 
-193:                                              ; preds = %.thread449, %139, %102, %.thread408, %.thread371, %.thread391, %192, %190, %182, %167, %165, %151, %146, %133, %131, %110, %95, %77, %69
-  %.2 = phi ptr [ %70, %69 ], [ %.5361, %190 ], [ %.7363464, %192 ], [ %78, %77 ], [ %96, %95 ], [ %111, %110 ], [ %152, %151 ], [ %166, %165 ], [ %168, %167 ], [ %183, %182 ], [ %103, %102 ], [ %132, %131 ], [ %134, %133 ], [ %147, %146 ], [ %140, %139 ], [ %.6362, %.thread391 ], [ %37, %.thread371 ], [ %84, %.thread408 ], [ %173, %.thread449 ]
+193:                                              ; preds = %.thread453, %139, %102, %.thread412, %.thread375, %.thread395, %192, %190, %182, %167, %165, %151, %146, %133, %131, %110, %95, %77, %69
+  %.2 = phi ptr [ %70, %69 ], [ %.5365, %190 ], [ %.7367468, %192 ], [ %78, %77 ], [ %96, %95 ], [ %111, %110 ], [ %152, %151 ], [ %166, %165 ], [ %168, %167 ], [ %183, %182 ], [ %103, %102 ], [ %132, %131 ], [ %134, %133 ], [ %147, %146 ], [ %140, %139 ], [ %.6366, %.thread395 ], [ %37, %.thread375 ], [ %84, %.thread412 ], [ %173, %.thread453 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -51796,10 +51810,10 @@ _ZN5boost4json6detail9hex_digitEh.exit157:        ; preds = %129, %132, %135
   br i1 %or.cond5.i159, label %_ZN5boost4json6detail9hex_digitEh.exit161, label %.thread488
 
 _ZN5boost4json6detail9hex_digitEh.exit161:        ; preds = %140, %_ZN5boost4json6detail9hex_digitEh.exit157
-  %.sink917 = phi i32 [ 255, %_ZN5boost4json6detail9hex_digitEh.exit157 ], [ 223, %140 ]
-  %.sink916 = phi i32 [ -48, %_ZN5boost4json6detail9hex_digitEh.exit157 ], [ -55, %140 ]
-  %143 = and i32 %102, %.sink917
-  %144 = add nsw i32 %143, %.sink916
+  %.sink919 = phi i32 [ 255, %_ZN5boost4json6detail9hex_digitEh.exit157 ], [ 223, %140 ]
+  %.sink918 = phi i32 [ -48, %_ZN5boost4json6detail9hex_digitEh.exit157 ], [ -55, %140 ]
+  %143 = and i32 %102, %.sink919
+  %144 = add nsw i32 %143, %.sink918
   %145 = or i32 %.0.i152, %.0.i
   %146 = or i32 %145, %.0.i156
   %147 = or i32 %146, %144
@@ -52065,10 +52079,10 @@ _ZN5boost4json6detail9hex_digitEh.exit176:        ; preds = %273, %276, %279
   br i1 %or.cond5.i178, label %_ZN5boost4json6detail9hex_digitEh.exit180, label %.thread494
 
 _ZN5boost4json6detail9hex_digitEh.exit180:        ; preds = %284, %_ZN5boost4json6detail9hex_digitEh.exit176
-  %.sink919 = phi i32 [ 255, %_ZN5boost4json6detail9hex_digitEh.exit176 ], [ 223, %284 ]
-  %.sink918 = phi i32 [ -48, %_ZN5boost4json6detail9hex_digitEh.exit176 ], [ -55, %284 ]
-  %287 = and i32 %246, %.sink919
-  %288 = add nsw i32 %287, %.sink918
+  %.sink921 = phi i32 [ 255, %_ZN5boost4json6detail9hex_digitEh.exit176 ], [ 223, %284 ]
+  %.sink920 = phi i32 [ -48, %_ZN5boost4json6detail9hex_digitEh.exit176 ], [ -55, %284 ]
+  %287 = and i32 %246, %.sink921
+  %288 = add nsw i32 %287, %.sink920
   %289 = or i32 %.0.i171, %.0.i167
   %290 = or i32 %289, %.0.i175
   %291 = or i32 %290, %288
@@ -52211,10 +52225,10 @@ _ZN5boost4json6detail9hex_digitEh.exit190:        ; preds = %355
   br label %.thread497
 
 359:                                              ; preds = %355, %352
-  %.sink921 = phi i8 [ %353, %352 ], [ %356, %355 ]
-  %.sink920 = phi i32 [ -48, %352 ], [ -55, %355 ]
-  %360 = zext nneg i8 %.sink921 to i32
-  %361 = add nsw i32 %.sink920, %360
+  %.sink923 = phi i8 [ %353, %352 ], [ %356, %355 ]
+  %.sink922 = phi i32 [ -48, %352 ], [ -55, %355 ]
+  %360 = zext nneg i8 %.sink923 to i32
+  %361 = add nsw i32 %.sink922, %360
   %362 = getelementptr inbounds nuw i8, ptr %.1451, i64 1
   %363 = shl nuw nsw i32 %361, 12
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -52248,10 +52262,10 @@ _ZN5boost4json6detail9hex_digitEh.exit194:        ; preds = %371
   br label %.thread497
 
 375:                                              ; preds = %371, %368
-  %.sink923 = phi i8 [ %369, %368 ], [ %372, %371 ]
-  %.sink922 = phi i32 [ -48, %368 ], [ -55, %371 ]
-  %376 = zext nneg i8 %.sink923 to i32
-  %377 = add nsw i32 %.sink922, %376
+  %.sink925 = phi i8 [ %369, %368 ], [ %372, %371 ]
+  %.sink924 = phi i32 [ -48, %368 ], [ -55, %371 ]
+  %376 = zext nneg i8 %.sink925 to i32
+  %377 = add nsw i32 %.sink924, %376
   %378 = getelementptr inbounds nuw i8, ptr %.2452, i64 1
   %379 = shl nuw nsw i32 %377, 8
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -52287,10 +52301,10 @@ _ZN5boost4json6detail9hex_digitEh.exit198:        ; preds = %389
   br label %.thread497
 
 393:                                              ; preds = %389, %386
-  %.sink925 = phi i8 [ %387, %386 ], [ %390, %389 ]
-  %.sink924 = phi i32 [ -48, %386 ], [ -55, %389 ]
-  %394 = zext nneg i8 %.sink925 to i32
-  %395 = add nsw i32 %.sink924, %394
+  %.sink927 = phi i8 [ %387, %386 ], [ %390, %389 ]
+  %.sink926 = phi i32 [ -48, %386 ], [ -55, %389 ]
+  %394 = zext nneg i8 %.sink927 to i32
+  %395 = add nsw i32 %.sink926, %394
   %396 = getelementptr inbounds nuw i8, ptr %.3453, i64 1
   %397 = shl nuw nsw i32 %395, 4
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -52326,10 +52340,10 @@ _ZN5boost4json6detail9hex_digitEh.exit202:        ; preds = %407
   br label %.thread497
 
 411:                                              ; preds = %407, %404
-  %.sink927 = phi i8 [ %405, %404 ], [ %408, %407 ]
-  %.sink926 = phi i32 [ -48, %404 ], [ -55, %407 ]
-  %412 = zext nneg i8 %.sink927 to i32
-  %413 = add nsw i32 %.sink926, %412
+  %.sink929 = phi i8 [ %405, %404 ], [ %408, %407 ]
+  %.sink928 = phi i32 [ -48, %404 ], [ -55, %407 ]
+  %412 = zext nneg i8 %.sink929 to i32
+  %413 = add nsw i32 %.sink928, %412
   %414 = getelementptr inbounds nuw i8, ptr %.4454, i64 1
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %416 = load i32, ptr %415, align 8, !tbaa !696
@@ -52548,10 +52562,10 @@ _ZN5boost4json6detail9hex_digitEh.exit211:        ; preds = %518
   br label %.thread497
 
 522:                                              ; preds = %518, %515
-  %.sink929 = phi i8 [ %516, %515 ], [ %519, %518 ]
-  %.sink928 = phi i32 [ -48, %515 ], [ -55, %518 ]
-  %523 = zext nneg i8 %.sink929 to i32
-  %524 = add nsw i32 %.sink928, %523
+  %.sink931 = phi i8 [ %516, %515 ], [ %519, %518 ]
+  %.sink930 = phi i32 [ -48, %515 ], [ -55, %518 ]
+  %523 = zext nneg i8 %.sink931 to i32
+  %524 = add nsw i32 %.sink930, %523
   %525 = getelementptr inbounds nuw i8, ptr %.7457, i64 1
   %526 = shl nuw nsw i32 %524, 12
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -52586,10 +52600,10 @@ _ZN5boost4json6detail9hex_digitEh.exit215:        ; preds = %535
   br label %.thread497
 
 539:                                              ; preds = %535, %532
-  %.sink931 = phi i8 [ %533, %532 ], [ %536, %535 ]
-  %.sink930 = phi i32 [ -48, %532 ], [ -55, %535 ]
-  %540 = zext nneg i8 %.sink931 to i32
-  %541 = add nsw i32 %.sink930, %540
+  %.sink933 = phi i8 [ %533, %532 ], [ %536, %535 ]
+  %.sink932 = phi i32 [ -48, %532 ], [ -55, %535 ]
+  %540 = zext nneg i8 %.sink933 to i32
+  %541 = add nsw i32 %.sink932, %540
   %542 = getelementptr inbounds nuw i8, ptr %.8458, i64 1
   %543 = shl nuw nsw i32 %541, 8
   %544 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -52626,10 +52640,10 @@ _ZN5boost4json6detail9hex_digitEh.exit219:        ; preds = %554
   br label %.thread497
 
 558:                                              ; preds = %554, %551
-  %.sink933 = phi i8 [ %552, %551 ], [ %555, %554 ]
-  %.sink932 = phi i32 [ -48, %551 ], [ -55, %554 ]
-  %559 = zext nneg i8 %.sink933 to i32
-  %560 = add nsw i32 %.sink932, %559
+  %.sink935 = phi i8 [ %552, %551 ], [ %555, %554 ]
+  %.sink934 = phi i32 [ -48, %551 ], [ -55, %554 ]
+  %559 = zext nneg i8 %.sink935 to i32
+  %560 = add nsw i32 %.sink934, %559
   %561 = getelementptr inbounds nuw i8, ptr %.9459, i64 1
   %562 = shl nuw nsw i32 %560, 4
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -52666,10 +52680,10 @@ _ZN5boost4json6detail9hex_digitEh.exit223:        ; preds = %573
   br label %.thread497
 
 577:                                              ; preds = %573, %570
-  %.sink935 = phi i8 [ %571, %570 ], [ %574, %573 ]
-  %.sink934 = phi i32 [ -48, %570 ], [ -55, %573 ]
-  %578 = zext nneg i8 %.sink935 to i32
-  %579 = add nsw i32 %.sink934, %578
+  %.sink937 = phi i8 [ %571, %570 ], [ %574, %573 ]
+  %.sink936 = phi i32 [ -48, %570 ], [ -55, %573 ]
+  %578 = zext nneg i8 %.sink937 to i32
+  %579 = add nsw i32 %.sink936, %578
   %580 = getelementptr inbounds nuw i8, ptr %.10460, i64 1
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %582 = load i32, ptr %581, align 4, !tbaa !697
@@ -53355,7 +53369,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %16 = sub i64 %7, %15
   %17 = icmp ugt i64 %16, 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %13, i8 0, i64 10, i1 false)
-  br i1 %17, label %18, label %.thread475
+  br i1 %17, label %18, label %.thread477
 
 18:                                               ; preds = %12
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -53367,11 +53381,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 21:                                               ; preds = %18
   %22 = and i8 %20, -33
   %23 = icmp eq i8 %22, 69
-  br i1 %23, label %.thread472, label %388
+  br i1 %23, label %.thread474, label %389
 
-.thread472:                                       ; preds = %21
+.thread474:                                       ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %.thread491
+  br label %.thread493
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -53382,11 +53396,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %30, i1 false)
   %32 = zext nneg i16 %31 to i32
   %33 = icmp eq i16 %31, 0
-  br i1 %33, label %.thread456, label %35
+  br i1 %33, label %.thread458, label %35
 
-.thread456:                                       ; preds = %25
+.thread458:                                       ; preds = %25
   %34 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread496
+  br label %.thread498
 
 35:                                               ; preds = %25
   %36 = zext nneg i16 %31 to i64
@@ -53487,16 +53501,16 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %99 = load i8, ptr %98, align 1, !tbaa !15
   %100 = and i8 %99, -33
   %101 = icmp eq i8 %100, 69
-  br i1 %101, label %.thread464, label %103
+  br i1 %101, label %.thread466, label %103
 
-.thread464:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
+.thread466:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  br label %.thread491
+  br label %.thread493
 
 103:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %104 = add i8 %99, -48
   %or.cond = icmp ult i8 %104, 10
-  br i1 %or.cond, label %.thread460, label %.thread468
+  br i1 %or.cond, label %.thread462, label %.thread470
 
 105:                                              ; preds = %2
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -53509,38 +53523,38 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %112 = add i64 %10, -1
   store i64 %112, ptr %9, align 8, !tbaa !190
   switch i8 %111, label %113 [
-    i8 38, label %.thread475
-    i8 39, label %.thread477
-    i8 40, label %.thread479
-    i8 41, label %.thread481
-    i8 42, label %.thread483
-    i8 43, label %.thread485
-    i8 44, label %.thread487
-    i8 45, label %.thread460
-    i8 46, label %.thread491
-    i8 47, label %.thread493
-    i8 48, label %328
+    i8 38, label %.thread477
+    i8 39, label %.thread479
+    i8 40, label %.thread481
+    i8 41, label %.thread483
+    i8 42, label %.thread485
+    i8 43, label %.thread487
+    i8 44, label %.thread489
+    i8 45, label %.thread462
+    i8 46, label %.thread493
+    i8 47, label %.thread495
+    i8 48, label %329
   ]
 
 113:                                              ; preds = %105
   unreachable
 
-.thread475:                                       ; preds = %105, %12
+.thread477:                                       ; preds = %105, %12
   %114 = icmp ult ptr %1, %6
   br i1 %114, label %115, label %139, !prof !244
 
-115:                                              ; preds = %.thread475
+115:                                              ; preds = %.thread477
   %116 = load i8, ptr %1, align 1, !tbaa !15
   %117 = add i8 %116, -49
   %118 = icmp ult i8 %117, 9
-  br i1 %118, label %.thread500, label %122, !prof !244
+  br i1 %118, label %.thread502, label %122, !prof !244
 
-.thread500:                                       ; preds = %115
+.thread502:                                       ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %120 = and i8 %116, 15
   %121 = zext nneg i8 %120 to i64
   store i64 %121, ptr %3, align 8, !tbaa !683
-  br label %.thread477
+  br label %.thread479
 
 122:                                              ; preds = %115
   %123 = icmp eq i8 %116, 48
@@ -53566,653 +53580,655 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %133, align 1, !tbaa !173
   %134 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread496
+  br label %.thread498
 
 135:                                              ; preds = %124
   %136 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread496
+  br label %.thread498
 
 137:                                              ; preds = %122
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %.thread485.sink.split
+  br label %.thread487.sink.split
 
-139:                                              ; preds = %.thread475
+139:                                              ; preds = %.thread477
   %140 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %1, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+  br label %.thread498
 
-.thread477:                                       ; preds = %105, %.thread500
-  %.7441 = phi ptr [ %119, %.thread500 ], [ %1, %105 ]
-  %.7441672 = ptrtoint ptr %.7441 to i64
+.thread479:                                       ; preds = %105, %.thread502
+  %.7443 = phi ptr [ %119, %.thread502 ], [ %1, %105 ]
+  %.7443679 = ptrtoint ptr %.7443 to i64
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %142 = load i8, ptr %141, align 1, !tbaa !691, !range !181, !noundef !182
   %143 = trunc nuw i8 %142 to i1
-  %.promoted600 = load i64, ptr %3, align 8
-  %144 = icmp ult ptr %.7441, %6
-  br i1 %143, label %.preheader, label %.preheader568
+  %.promoted607 = load i64, ptr %3, align 8
+  %144 = icmp ult ptr %.7443, %6
+  br i1 %143, label %.preheader, label %.preheader575
 
-.preheader568:                                    ; preds = %.thread477
+.preheader575:                                    ; preds = %.thread479
   br i1 %144, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.preheader568
-  %145 = sub i64 %7, %.7441672
-  %scevgep = getelementptr i8, ptr %.7441, i64 %145
+.lr.ph.preheader:                                 ; preds = %.preheader575
+  %145 = sub i64 %7, %.7443679
+  %scevgep = getelementptr i8, ptr %.7443, i64 %145
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.thread477
-  br i1 %144, label %.lr.ph605.preheader, label %._crit_edge606, !prof !360
+.preheader:                                       ; preds = %.thread479
+  br i1 %144, label %.lr.ph612.preheader, label %._crit_edge613, !prof !360
 
-.lr.ph605.preheader:                              ; preds = %.preheader
-  %146 = sub i64 %7, %.7441672
-  %scevgep673 = getelementptr i8, ptr %.7441, i64 %146
-  br label %.lr.ph605
+.lr.ph612.preheader:                              ; preds = %.preheader
+  %146 = sub i64 %7, %.7443679
+  %scevgep680 = getelementptr i8, ptr %.7443, i64 %146
+  br label %.lr.ph612
 
-._crit_edge606:                                   ; preds = %162, %.preheader
-  %.lcssa601 = phi i64 [ %.promoted600, %.preheader ], [ %165, %162 ]
-  %.15449.lcssa = phi ptr [ %.7441, %.preheader ], [ %scevgep673, %162 ]
-  store i64 %.lcssa601, ptr %3, align 8
+._crit_edge613:                                   ; preds = %162, %.preheader
+  %.lcssa608 = phi i64 [ %.promoted607, %.preheader ], [ %165, %162 ]
+  %.15451.lcssa = phi ptr [ %.7443, %.preheader ], [ %scevgep680, %162 ]
+  store i64 %.lcssa608, ptr %3, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %148 = load i8, ptr %147, align 8, !tbaa !176, !range !181, !noundef !182
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %379, !prof !245
+  br i1 %149, label %150, label %380, !prof !245
 
-150:                                              ; preds = %._crit_edge606
-  %151 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.15449.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+150:                                              ; preds = %._crit_edge613
+  %151 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.15451.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-.lr.ph605:                                        ; preds = %.lr.ph605.preheader, %162
-  %.15449604 = phi ptr [ %157, %162 ], [ %.7441, %.lr.ph605.preheader ]
-  %152 = phi i64 [ %165, %162 ], [ %.promoted600, %.lr.ph605.preheader ]
-  %153 = load i8, ptr %.15449604, align 1, !tbaa !15
+.lr.ph612:                                        ; preds = %.lr.ph612.preheader, %162
+  %.15451611 = phi ptr [ %157, %162 ], [ %.7443, %.lr.ph612.preheader ]
+  %152 = phi i64 [ %165, %162 ], [ %.promoted607, %.lr.ph612.preheader ]
+  %153 = load i8, ptr %.15451611, align 1, !tbaa !15
   %154 = add i8 %153, -48
   %155 = icmp ult i8 %154, 10
-  br i1 %155, label %156, label %.thread485.sink.split, !prof !244
+  br i1 %155, label %156, label %.thread487.sink.split, !prof !244
 
-156:                                              ; preds = %.lr.ph605
-  %157 = getelementptr inbounds nuw i8, ptr %.15449604, i64 1
+156:                                              ; preds = %.lr.ph612
+  %157 = getelementptr inbounds nuw i8, ptr %.15451611, i64 1
   %158 = icmp ugt i64 %152, 922337203685477580
-  br i1 %158, label %.thread505, label %159
+  br i1 %158, label %.thread507, label %159
 
 159:                                              ; preds = %156
   %160 = icmp eq i64 %152, 922337203685477580
   %161 = icmp samesign ugt i8 %153, 56
   %or.cond8 = and i1 %161, %160
-  br i1 %or.cond8, label %.thread505, label %162
+  br i1 %or.cond8, label %.thread507, label %162
 
 162:                                              ; preds = %159
   %163 = mul nuw nsw i64 %152, 10
   %164 = zext nneg i8 %154 to i64
   %165 = add nuw i64 %163, %164
-  %exitcond674.not = icmp eq ptr %157, %6
-  br i1 %exitcond674.not, label %._crit_edge606, label %.lr.ph605, !prof !688
+  %exitcond681.not = icmp eq ptr %157, %6
+  br i1 %exitcond681.not, label %._crit_edge613, label %.lr.ph612, !prof !686
 
-._crit_edge:                                      ; preds = %181, %.preheader568
-  %.lcssa595 = phi i64 [ %.promoted600, %.preheader568 ], [ %184, %181 ]
-  %.19453.lcssa = phi ptr [ %.7441, %.preheader568 ], [ %scevgep, %181 ]
-  store i64 %.lcssa595, ptr %3, align 8
+._crit_edge:                                      ; preds = %181, %.preheader575
+  %.lcssa602 = phi i64 [ %.promoted607, %.preheader575 ], [ %184, %181 ]
+  %.19455.lcssa = phi ptr [ %.7443, %.preheader575 ], [ %scevgep, %181 ]
+  store i64 %.lcssa602, ptr %3, align 8
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %167 = load i8, ptr %166, align 8, !tbaa !176, !range !181, !noundef !182
   %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %169, label %379, !prof !245
+  br i1 %168, label %169, label %380, !prof !245
 
 169:                                              ; preds = %._crit_edge
-  %170 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.19453.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+  %170 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.19455.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %181
-  %.19453598 = phi ptr [ %176, %181 ], [ %.7441, %.lr.ph.preheader ]
-  %171 = phi i64 [ %184, %181 ], [ %.promoted600, %.lr.ph.preheader ]
-  %172 = load i8, ptr %.19453598, align 1, !tbaa !15
+  %.19455605 = phi ptr [ %176, %181 ], [ %.7443, %.lr.ph.preheader ]
+  %171 = phi i64 [ %184, %181 ], [ %.promoted607, %.lr.ph.preheader ]
+  %172 = load i8, ptr %.19455605, align 1, !tbaa !15
   %173 = add i8 %172, -48
   %174 = icmp ult i8 %173, 10
-  br i1 %174, label %175, label %.thread485.sink.split, !prof !244
+  br i1 %174, label %175, label %.thread487.sink.split, !prof !244
 
 175:                                              ; preds = %.lr.ph
-  %176 = getelementptr inbounds nuw i8, ptr %.19453598, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %.19455605, i64 1
   %177 = icmp ugt i64 %171, 1844674407370955161
-  br i1 %177, label %.thread505, label %178
+  br i1 %177, label %.thread507, label %178
 
 178:                                              ; preds = %175
   %179 = icmp eq i64 %171, 1844674407370955161
   %180 = icmp samesign ugt i8 %172, 53
   %or.cond11 = and i1 %180, %179
-  br i1 %or.cond11, label %.thread505, label %181
+  br i1 %or.cond11, label %.thread507, label %181
 
 181:                                              ; preds = %178
   %182 = mul nuw i64 %171, 10
   %183 = zext nneg i8 %173 to i64
   %184 = add i64 %182, %183
   %exitcond.not = icmp eq ptr %176, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
-.thread505:                                       ; preds = %175, %178, %156, %159
-  %storemerge631 = phi i64 [ %152, %156 ], [ 922337203685477580, %159 ], [ %171, %175 ], [ 1844674407370955161, %178 ]
-  %.18452 = phi ptr [ %157, %159 ], [ %157, %156 ], [ %176, %178 ], [ %176, %175 ]
-  store i64 %storemerge631, ptr %3, align 8
+.thread507:                                       ; preds = %175, %178, %156, %159
+  %storemerge638 = phi i64 [ %152, %156 ], [ 922337203685477580, %159 ], [ %171, %175 ], [ 1844674407370955161, %178 ]
+  %.18454 = phi ptr [ %157, %159 ], [ %157, %156 ], [ %176, %178 ], [ %176, %175 ]
+  store i64 %storemerge638, ptr %3, align 8
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %186 = load i32, ptr %185, align 8, !tbaa !685
   %187 = add nsw i32 %186, 1
   store i32 %187, ptr %185, align 8, !tbaa !685
-  br label %.thread479
+  br label %.thread481
 
-.thread479:                                       ; preds = %105, %.thread505
-  %.8442 = phi ptr [ %.18452, %.thread505 ], [ %1, %105 ]
-  %188 = icmp ult ptr %.8442, %6
-  br i1 %188, label %.lr.ph610, label %._crit_edge611, !prof !360
+.thread481:                                       ; preds = %105, %.thread507
+  %.8444 = phi ptr [ %.18454, %.thread507 ], [ %1, %105 ]
+  %188 = icmp ult ptr %.8444, %6
+  br i1 %188, label %.lr.ph617, label %._crit_edge618, !prof !360
 
-.lr.ph610:                                        ; preds = %.thread479
-  %.8442676 = ptrtoint ptr %.8442 to i64
+.lr.ph617:                                        ; preds = %.thread481
+  %.8444683 = ptrtoint ptr %.8444 to i64
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.promoted613 = load i32, ptr %189, align 8
-  %190 = sub i32 2147483646, %.promoted613
+  %.promoted620 = load i32, ptr %189, align 8
+  %190 = sub i32 2147483646, %.promoted620
   %191 = zext i32 %190 to i64
-  %scevgep675 = getelementptr i8, ptr %.8442, i64 %191
-  %192 = sub i64 %7, %.8442676
-  %scevgep677 = getelementptr i8, ptr %.8442, i64 %192
+  %scevgep682 = getelementptr i8, ptr %.8444, i64 %191
+  %192 = sub i64 %7, %.8444683
+  %scevgep684 = getelementptr i8, ptr %.8444, i64 %192
   br label %198
 
-._crit_edge611:                                   ; preds = %213, %.thread479
-  %.21.lcssa = phi ptr [ %.8442, %.thread479 ], [ %scevgep677, %213 ]
+._crit_edge618:                                   ; preds = %213, %.thread481
+  %.21.lcssa = phi ptr [ %.8444, %.thread481 ], [ %scevgep684, %213 ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %194 = load i8, ptr %193, align 8, !tbaa !176, !range !181, !noundef !182
   %195 = trunc nuw i8 %194 to i1
-  br i1 %195, label %196, label %.thread468, !prof !245
+  br i1 %195, label %196, label %.thread470, !prof !245
 
-196:                                              ; preds = %._crit_edge611
+196:                                              ; preds = %._crit_edge618
   %197 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.21.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+  br label %.thread498
 
-198:                                              ; preds = %.lr.ph610, %213
-  %199 = phi i32 [ %.promoted613, %.lr.ph610 ], [ %215, %213 ]
-  %.21609 = phi ptr [ %.8442, %.lr.ph610 ], [ %214, %213 ]
-  %200 = load i8, ptr %.21609, align 1, !tbaa !15
+198:                                              ; preds = %.lr.ph617, %213
+  %199 = phi i32 [ %.promoted620, %.lr.ph617 ], [ %215, %213 ]
+  %.21616 = phi ptr [ %.8444, %.lr.ph617 ], [ %214, %213 ]
+  %200 = load i8, ptr %.21616, align 1, !tbaa !15
   %201 = add i8 %200, -48
   %202 = icmp ult i8 %201, 10
   br i1 %202, label %203, label %206, !prof !245
 
 203:                                              ; preds = %198
   %204 = icmp eq i32 %199, 2147483646
-  br i1 %204, label %.thread518, label %213, !prof !245
+  br i1 %204, label %.thread520, label %213, !prof !245
 
-.thread518:                                       ; preds = %203
-  %205 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep675, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
-  br label %.thread496
+.thread520:                                       ; preds = %203
+  %205 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep682, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+  br label %.thread498
 
 206:                                              ; preds = %198
   %207 = icmp eq i8 %200, 46
-  br i1 %207, label %.thread522, label %209, !prof !244
+  br i1 %207, label %.thread524, label %209, !prof !244
 
-.thread522:                                       ; preds = %206
-  %208 = getelementptr inbounds nuw i8, ptr %.21609, i64 1
-  br label %.thread481
+.thread524:                                       ; preds = %206
+  %208 = getelementptr inbounds nuw i8, ptr %.21616, i64 1
+  br label %.thread483
 
 209:                                              ; preds = %206
   %210 = and i8 %200, -33
   %211 = icmp eq i8 %210, 69
-  br i1 %211, label %.thread526, label %.thread468
+  br i1 %211, label %.thread528, label %.thread470
 
-.thread526:                                       ; preds = %209
-  %212 = getelementptr inbounds nuw i8, ptr %.21609, i64 1
-  br label %.thread491
+.thread528:                                       ; preds = %209
+  %212 = getelementptr inbounds nuw i8, ptr %.21616, i64 1
+  br label %.thread493
 
 213:                                              ; preds = %203
-  %214 = getelementptr inbounds nuw i8, ptr %.21609, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %.21616, i64 1
   %215 = add nsw i32 %199, 1
   store i32 %215, ptr %189, align 8, !tbaa !685
-  %exitcond678.not = icmp eq ptr %214, %6
-  br i1 %exitcond678.not, label %._crit_edge611, label %198, !prof !688
+  %exitcond685.not = icmp eq ptr %214, %6
+  br i1 %exitcond685.not, label %._crit_edge618, label %198, !prof !686
 
-.thread481:                                       ; preds = %105, %.thread522
-  %.9443 = phi ptr [ %208, %.thread522 ], [ %1, %105 ]
-  %216 = icmp ult ptr %.9443, %6
+.thread483:                                       ; preds = %105, %.thread524
+  %.9445 = phi ptr [ %208, %.thread524 ], [ %1, %105 ]
+  %216 = icmp ult ptr %.9445, %6
   br i1 %216, label %219, label %217, !prof !244
 
-217:                                              ; preds = %.thread481
-  %218 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.9443, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+217:                                              ; preds = %.thread483
+  %218 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.9445, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-219:                                              ; preds = %.thread481
-  %220 = load i8, ptr %.9443, align 1, !tbaa !15
+219:                                              ; preds = %.thread483
+  %220 = load i8, ptr %.9445, align 1, !tbaa !15
   %221 = add i8 %220, -48
   %222 = icmp ult i8 %221, 10
-  br i1 %222, label %.thread534, label %224, !prof !244
+  br i1 %222, label %.thread536, label %224, !prof !244
 
-.thread534:                                       ; preds = %219
-  %223 = getelementptr inbounds nuw i8, ptr %.9443, i64 1
-  br label %.thread483
+.thread536:                                       ; preds = %219
+  %223 = getelementptr inbounds nuw i8, ptr %.9445, i64 1
+  br label %.thread485
 
 224:                                              ; preds = %219
-  %225 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9443, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
-  br label %.thread496
+  %225 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9445, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
+  br label %.thread498
 
-.thread483:                                       ; preds = %284, %105, %.thread534
-  %.10444 = phi ptr [ %223, %.thread534 ], [ %1, %105 ], [ %285, %284 ]
-  %226 = icmp ult ptr %.10444, %6
-  br i1 %226, label %.lr.ph621.preheader, label %._crit_edge622, !prof !360
+.thread485:                                       ; preds = %285, %105, %.thread536
+  %.10446 = phi ptr [ %223, %.thread536 ], [ %1, %105 ], [ %286, %285 ]
+  %226 = icmp ult ptr %.10446, %6
+  br i1 %226, label %.lr.ph628.preheader, label %._crit_edge629, !prof !360
 
-.lr.ph621.preheader:                              ; preds = %.thread483
-  %.10444682 = ptrtoint ptr %.10444 to i64
-  %227 = sub i64 %7, %.10444682
-  %scevgep683 = getelementptr i8, ptr %.10444, i64 %227
-  br label %.lr.ph621
+.lr.ph628.preheader:                              ; preds = %.thread485
+  %.10446689 = ptrtoint ptr %.10446 to i64
+  %227 = sub i64 %7, %.10446689
+  %scevgep690 = getelementptr i8, ptr %.10446, i64 %227
+  br label %.lr.ph628
 
-._crit_edge622:                                   ; preds = %240, %.thread483
-  %.24.lcssa = phi ptr [ %.10444, %.thread483 ], [ %scevgep683, %240 ]
+._crit_edge629:                                   ; preds = %240, %.thread485
+  %.24.lcssa = phi ptr [ %.10446, %.thread485 ], [ %scevgep690, %240 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %229 = load i8, ptr %228, align 8, !tbaa !176, !range !181, !noundef !182
   %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %231, label %.thread468, !prof !245
+  br i1 %230, label %231, label %.thread470, !prof !245
 
-231:                                              ; preds = %._crit_edge622
+231:                                              ; preds = %._crit_edge629
   %232 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.24.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+  br label %.thread498
 
-.lr.ph621:                                        ; preds = %.lr.ph621.preheader, %240
-  %.24620 = phi ptr [ %241, %240 ], [ %.10444, %.lr.ph621.preheader ]
-  %233 = load i8, ptr %.24620, align 1, !tbaa !15
+.lr.ph628:                                        ; preds = %.lr.ph628.preheader, %240
+  %.24627 = phi ptr [ %241, %240 ], [ %.10446, %.lr.ph628.preheader ]
+  %233 = load i8, ptr %.24627, align 1, !tbaa !15
   %234 = add i8 %233, -48
   %235 = icmp ult i8 %234, 10
   br i1 %235, label %240, label %236, !prof !244
 
-236:                                              ; preds = %.lr.ph621
+236:                                              ; preds = %.lr.ph628
   %237 = and i8 %233, -33
   %238 = icmp eq i8 %237, 69
-  br i1 %238, label %.thread537, label %.thread468
+  br i1 %238, label %.thread539, label %.thread470
 
-.thread537:                                       ; preds = %236
-  %239 = getelementptr inbounds nuw i8, ptr %.24620, i64 1
-  br label %.thread491
+.thread539:                                       ; preds = %236
+  %239 = getelementptr inbounds nuw i8, ptr %.24627, i64 1
+  br label %.thread493
 
-240:                                              ; preds = %.lr.ph621
-  %241 = getelementptr inbounds nuw i8, ptr %.24620, i64 1
-  %exitcond684.not = icmp eq ptr %241, %6
-  br i1 %exitcond684.not, label %._crit_edge622, label %.lr.ph621, !prof !688
+240:                                              ; preds = %.lr.ph628
+  %241 = getelementptr inbounds nuw i8, ptr %.24627, i64 1
+  %exitcond691.not = icmp eq ptr %241, %6
+  br i1 %exitcond691.not, label %._crit_edge629, label %.lr.ph628, !prof !686
 
-.thread485.sink.split:                            ; preds = %.lr.ph, %.lr.ph605, %137
-  %.sink = phi i64 [ 0, %137 ], [ %152, %.lr.ph605 ], [ %171, %.lr.ph ]
-  %.11445.ph = phi ptr [ %138, %137 ], [ %.15449604, %.lr.ph605 ], [ %.19453598, %.lr.ph ]
+.thread487.sink.split:                            ; preds = %.lr.ph, %.lr.ph612, %137
+  %.sink = phi i64 [ 0, %137 ], [ %152, %.lr.ph612 ], [ %171, %.lr.ph ]
+  %.11447.ph = phi ptr [ %138, %137 ], [ %.15451611, %.lr.ph612 ], [ %.19455605, %.lr.ph ]
   store i64 %.sink, ptr %3, align 8
-  br label %.thread485
+  br label %.thread487
 
-.thread485:                                       ; preds = %.thread485.sink.split, %105
-  %.11445 = phi ptr [ %1, %105 ], [ %.11445.ph, %.thread485.sink.split ]
-  %242 = icmp ult ptr %.11445, %6
+.thread487:                                       ; preds = %.thread487.sink.split, %105
+  %.11447 = phi ptr [ %1, %105 ], [ %.11447.ph, %.thread487.sink.split ]
+  %242 = icmp ult ptr %.11447, %6
   br i1 %242, label %249, label %243, !prof !244
 
-243:                                              ; preds = %.thread485
+243:                                              ; preds = %.thread487
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %245 = load i8, ptr %244, align 8, !tbaa !176, !range !181, !noundef !182
   %246 = trunc nuw i8 %245 to i1
-  br i1 %246, label %247, label %379, !prof !245
+  br i1 %246, label %247, label %380, !prof !245
 
 247:                                              ; preds = %243
-  %248 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11445, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+  %248 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11447, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-249:                                              ; preds = %.thread485
-  %250 = load i8, ptr %.11445, align 1, !tbaa !15
+249:                                              ; preds = %.thread487
+  %250 = load i8, ptr %.11447, align 1, !tbaa !15
   %251 = icmp eq i8 %250, 46
-  br i1 %251, label %.thread, label %253, !prof !244
+  br i1 %251, label %.thread545, label %253, !prof !244
 
-.thread:                                          ; preds = %249
-  %252 = getelementptr inbounds nuw i8, ptr %.11445, i64 1
-  br label %.thread487
+.thread545:                                       ; preds = %249
+  %252 = getelementptr inbounds nuw i8, ptr %.11447, i64 1
+  br label %.thread489
 
 253:                                              ; preds = %249
   %254 = and i8 %250, -33
   %255 = icmp eq i8 %254, 69
-  %spec.select.idx = zext i1 %255 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.11445, i64 %spec.select.idx
-  br i1 %255, label %.thread491, label %379
+  br i1 %255, label %.thread548, label %380
 
-.thread487:                                       ; preds = %.thread, %105
-  %.2436 = phi ptr [ %1, %105 ], [ %252, %.thread ]
-  %256 = icmp ult ptr %.2436, %6
-  br i1 %256, label %265, label %257, !prof !244
+.thread548:                                       ; preds = %253
+  %256 = getelementptr inbounds nuw i8, ptr %.11447, i64 1
+  br label %.thread493
 
-257:                                              ; preds = %.thread487
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %259 = load i8, ptr %258, align 8, !tbaa !176, !range !181, !noundef !182
-  %260 = trunc nuw i8 %259 to i1
-  br i1 %260, label %261, label %263, !prof !245
+.thread489:                                       ; preds = %105, %.thread545
+  %.2438 = phi ptr [ %252, %.thread545 ], [ %1, %105 ]
+  %257 = icmp ult ptr %.2438, %6
+  br i1 %257, label %266, label %258, !prof !244
 
-261:                                              ; preds = %257
-  %262 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2436, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+258:                                              ; preds = %.thread489
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %260 = load i8, ptr %259, align 8, !tbaa !176, !range !181, !noundef !182
+  %261 = trunc nuw i8 %260 to i1
+  br i1 %261, label %262, label %264, !prof !245
 
-263:                                              ; preds = %257
-  %264 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2436, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread496
+262:                                              ; preds = %258
+  %263 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2438, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-265:                                              ; preds = %.thread487
-  %266 = load i8, ptr %.2436, align 1, !tbaa !15
-  %267 = add i8 %266, -48
-  %268 = icmp ult i8 %267, 10
-  br i1 %268, label %.thread460, label %269, !prof !244
+264:                                              ; preds = %258
+  %265 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2438, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread498
 
-269:                                              ; preds = %265
-  %270 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2436, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread496
+266:                                              ; preds = %.thread489
+  %267 = load i8, ptr %.2438, align 1, !tbaa !15
+  %268 = add i8 %267, -48
+  %269 = icmp ult i8 %268, 10
+  br i1 %269, label %.thread462, label %270, !prof !244
 
-.thread460:                                       ; preds = %265, %105, %103
-  %.3437 = phi ptr [ %98, %103 ], [ %1, %105 ], [ %.2436, %265 ]
-  %271 = icmp ult ptr %.3437, %6
-  br i1 %271, label %.lr.ph616, label %._crit_edge617, !prof !360
+270:                                              ; preds = %266
+  %271 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2438, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread498
 
-.lr.ph616:                                        ; preds = %.thread460
-  %.promoted614 = load i64, ptr %3, align 8
-  %272 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.promoted619 = load i32, ptr %272, align 8
-  br label %278
+.thread462:                                       ; preds = %266, %105, %103
+  %.3439 = phi ptr [ %98, %103 ], [ %1, %105 ], [ %.2438, %266 ]
+  %272 = icmp ult ptr %.3439, %6
+  br i1 %272, label %.lr.ph623, label %._crit_edge624, !prof !360
 
-._crit_edge617:                                   ; preds = %294, %.thread460
-  %.27.lcssa = phi ptr [ %.3437, %.thread460 ], [ %285, %294 ]
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %274 = load i8, ptr %273, align 8, !tbaa !176, !range !181, !noundef !182
-  %275 = trunc nuw i8 %274 to i1
-  br i1 %275, label %276, label %.thread468, !prof !245
+.lr.ph623:                                        ; preds = %.thread462
+  %.promoted621 = load i64, ptr %3, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.promoted626 = load i32, ptr %273, align 8
+  br label %279
 
-276:                                              ; preds = %._crit_edge617
-  %277 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.27.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+._crit_edge624:                                   ; preds = %295, %.thread462
+  %.27.lcssa = phi ptr [ %.3439, %.thread462 ], [ %286, %295 ]
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %275 = load i8, ptr %274, align 8, !tbaa !176, !range !181, !noundef !182
+  %276 = trunc nuw i8 %275 to i1
+  br i1 %276, label %277, label %.thread470, !prof !245
 
-278:                                              ; preds = %.lr.ph616, %294
-  %279 = phi i32 [ %.promoted619, %.lr.ph616 ], [ %295, %294 ]
-  %.27615 = phi ptr [ %.3437, %.lr.ph616 ], [ %285, %294 ]
-  %280 = phi i64 [ %.promoted614, %.lr.ph616 ], [ %298, %294 ]
-  %281 = load i8, ptr %.27615, align 1, !tbaa !15
-  %282 = add i8 %281, -48
-  %283 = icmp ult i8 %282, 10
-  br i1 %283, label %284, label %290, !prof !244
+277:                                              ; preds = %._crit_edge624
+  %278 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.27.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-284:                                              ; preds = %278
-  %285 = getelementptr inbounds nuw i8, ptr %.27615, i64 1
-  %286 = icmp ult i64 %280, 9007199254740992
-  br i1 %286, label %287, label %.thread483, !prof !244
+279:                                              ; preds = %.lr.ph623, %295
+  %280 = phi i32 [ %.promoted626, %.lr.ph623 ], [ %296, %295 ]
+  %.27622 = phi ptr [ %.3439, %.lr.ph623 ], [ %286, %295 ]
+  %281 = phi i64 [ %.promoted621, %.lr.ph623 ], [ %299, %295 ]
+  %282 = load i8, ptr %.27622, align 1, !tbaa !15
+  %283 = add i8 %282, -48
+  %284 = icmp ult i8 %283, 10
+  br i1 %284, label %285, label %291, !prof !244
 
-287:                                              ; preds = %284
-  %288 = icmp eq i32 %279, -2147483647
-  br i1 %288, label %.thread545, label %294, !prof !245
+285:                                              ; preds = %279
+  %286 = getelementptr inbounds nuw i8, ptr %.27622, i64 1
+  %287 = icmp ult i64 %281, 9007199254740992
+  br i1 %287, label %288, label %.thread485, !prof !244
 
-.thread545:                                       ; preds = %287
-  %289 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %285, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %.thread496
+288:                                              ; preds = %285
+  %289 = icmp eq i32 %280, -2147483647
+  br i1 %289, label %.thread553, label %295, !prof !245
 
-290:                                              ; preds = %278
-  %291 = and i8 %281, -33
-  %292 = icmp eq i8 %291, 69
-  br i1 %292, label %.thread553, label %.thread468
+.thread553:                                       ; preds = %288
+  %290 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %286, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
+  br label %.thread498
 
-.thread553:                                       ; preds = %290
-  %293 = getelementptr inbounds nuw i8, ptr %.27615, i64 1
-  br label %.thread491
+291:                                              ; preds = %279
+  %292 = and i8 %282, -33
+  %293 = icmp eq i8 %292, 69
+  br i1 %293, label %.thread561, label %.thread470
 
-294:                                              ; preds = %287
-  %295 = add nsw i32 %279, -1
-  store i32 %295, ptr %272, align 8, !tbaa !685
-  %296 = mul nuw nsw i64 %280, 10
-  %297 = zext nneg i8 %282 to i64
-  %298 = add nuw nsw i64 %296, %297
-  store i64 %298, ptr %3, align 8, !tbaa !683
-  %exitcond681.not = icmp eq ptr %285, %6
-  br i1 %exitcond681.not, label %._crit_edge617, label %278, !prof !688
+.thread561:                                       ; preds = %291
+  %294 = getelementptr inbounds nuw i8, ptr %.27622, i64 1
+  br label %.thread493
 
-.thread491:                                       ; preds = %253, %105, %.thread553, %.thread537, %.thread526, %.thread472, %.thread464
-  %.4438 = phi ptr [ %102, %.thread464 ], [ %24, %.thread472 ], [ %212, %.thread526 ], [ %239, %.thread537 ], [ %293, %.thread553 ], [ %1, %105 ], [ %spec.select, %253 ]
-  %299 = icmp ult ptr %.4438, %6
-  br i1 %299, label %302, label %300, !prof !244
+295:                                              ; preds = %288
+  %296 = add nsw i32 %280, -1
+  store i32 %296, ptr %273, align 8, !tbaa !685
+  %297 = mul nuw nsw i64 %281, 10
+  %298 = zext nneg i8 %283 to i64
+  %299 = add nuw nsw i64 %297, %298
+  store i64 %299, ptr %3, align 8, !tbaa !683
+  %exitcond688.not = icmp eq ptr %286, %6
+  br i1 %exitcond688.not, label %._crit_edge624, label %279, !prof !686
 
-300:                                              ; preds = %.thread491
-  %301 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.4438, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+.thread493:                                       ; preds = %105, %.thread561, %.thread548, %.thread539, %.thread528, %.thread474, %.thread466
+  %.4440 = phi ptr [ %102, %.thread466 ], [ %24, %.thread474 ], [ %212, %.thread528 ], [ %239, %.thread539 ], [ %256, %.thread548 ], [ %294, %.thread561 ], [ %1, %105 ]
+  %300 = icmp ult ptr %.4440, %6
+  br i1 %300, label %303, label %301, !prof !244
 
-302:                                              ; preds = %.thread491
-  %303 = load i8, ptr %.4438, align 1, !tbaa !15
-  switch i8 %303, label %.thread493 [
-    i8 43, label %304
-    i8 45, label %306
+301:                                              ; preds = %.thread493
+  %302 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.4440, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
+
+303:                                              ; preds = %.thread493
+  %304 = load i8, ptr %.4440, align 1, !tbaa !15
+  switch i8 %304, label %.thread495 [
+    i8 43, label %305
+    i8 45, label %307
   ]
 
-304:                                              ; preds = %302
-  %305 = getelementptr inbounds nuw i8, ptr %.4438, i64 1
-  br label %.thread493
+305:                                              ; preds = %303
+  %306 = getelementptr inbounds nuw i8, ptr %.4440, i64 1
+  br label %.thread495
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds nuw i8, ptr %.4438, i64 1
-  %308 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %308, align 8, !tbaa !686
-  br label %.thread493
+307:                                              ; preds = %303
+  %308 = getelementptr inbounds nuw i8, ptr %.4440, i64 1
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %309, align 8, !tbaa !687
+  br label %.thread495
 
-.thread493:                                       ; preds = %302, %105, %304, %306
-  %.12446 = phi ptr [ %305, %304 ], [ %307, %306 ], [ %1, %105 ], [ %.4438, %302 ]
-  %309 = icmp ult ptr %.12446, %6
-  br i1 %309, label %318, label %310, !prof !244
+.thread495:                                       ; preds = %303, %105, %305, %307
+  %.12448 = phi ptr [ %306, %305 ], [ %308, %307 ], [ %1, %105 ], [ %.4440, %303 ]
+  %310 = icmp ult ptr %.12448, %6
+  br i1 %310, label %319, label %311, !prof !244
 
-310:                                              ; preds = %.thread493
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %312 = load i8, ptr %311, align 8, !tbaa !176, !range !181, !noundef !182
-  %313 = trunc nuw i8 %312 to i1
-  br i1 %313, label %314, label %316, !prof !245
+311:                                              ; preds = %.thread495
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %313 = load i8, ptr %312, align 8, !tbaa !176, !range !181, !noundef !182
+  %314 = trunc nuw i8 %313 to i1
+  br i1 %314, label %315, label %317, !prof !245
 
-314:                                              ; preds = %310
-  %315 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12446, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+315:                                              ; preds = %311
+  %316 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12448, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-316:                                              ; preds = %310
-  %317 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12446, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %.thread496
+317:                                              ; preds = %311
+  %318 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12448, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+  br label %.thread498
 
-318:                                              ; preds = %.thread493
-  %319 = load i8, ptr %.12446, align 1, !tbaa !15
-  %320 = add i8 %319, -48
-  %321 = icmp ult i8 %320, 10
-  br i1 %321, label %.thread561, label %326, !prof !244
+319:                                              ; preds = %.thread495
+  %320 = load i8, ptr %.12448, align 1, !tbaa !15
+  %321 = add i8 %320, -48
+  %322 = icmp ult i8 %321, 10
+  br i1 %322, label %.thread569, label %327, !prof !244
 
-.thread561:                                       ; preds = %318
-  %322 = zext nneg i8 %319 to i32
-  %323 = getelementptr inbounds nuw i8, ptr %.12446, i64 1
-  %324 = add nsw i32 %322, -48
-  %325 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %324, ptr %325, align 4, !tbaa !687
-  br label %328
+.thread569:                                       ; preds = %319
+  %323 = zext nneg i8 %320 to i32
+  %324 = getelementptr inbounds nuw i8, ptr %.12448, i64 1
+  %325 = add nsw i32 %323, -48
+  %326 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %325, ptr %326, align 4, !tbaa !688
+  br label %329
 
-326:                                              ; preds = %318
-  %327 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.12446, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread496
+327:                                              ; preds = %319
+  %328 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.12448, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
+  br label %.thread498
 
-328:                                              ; preds = %.thread561, %105
-  %.13447 = phi ptr [ %1, %105 ], [ %323, %.thread561 ]
-  %329 = icmp ult ptr %.13447, %6
-  br i1 %329, label %.lr.ph626, label %._crit_edge627, !prof !360
+329:                                              ; preds = %.thread569, %105
+  %.13449 = phi ptr [ %1, %105 ], [ %324, %.thread569 ]
+  %330 = icmp ult ptr %.13449, %6
+  br i1 %330, label %.lr.ph633, label %._crit_edge634, !prof !360
 
-.lr.ph626:                                        ; preds = %328
-  %330 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.promoted629 = load i32, ptr %330, align 4
-  br label %336
+.lr.ph633:                                        ; preds = %329
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.promoted636 = load i32, ptr %331, align 4
+  br label %337
 
-._crit_edge627:                                   ; preds = %350, %328
-  %.30.lcssa = phi ptr [ %.13447, %328 ], [ %351, %350 ]
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %332 = load i8, ptr %331, align 8, !tbaa !176, !range !181, !noundef !182
-  %333 = trunc nuw i8 %332 to i1
-  br i1 %333, label %334, label %.thread564, !prof !245
+._crit_edge634:                                   ; preds = %351, %329
+  %.30.lcssa = phi ptr [ %.13449, %329 ], [ %352, %351 ]
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %333 = load i8, ptr %332, align 8, !tbaa !176, !range !181, !noundef !182
+  %334 = trunc nuw i8 %333 to i1
+  br i1 %334, label %335, label %.thread572, !prof !245
 
-334:                                              ; preds = %._crit_edge627
-  %335 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread496
+335:                                              ; preds = %._crit_edge634
+  %336 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread498
 
-336:                                              ; preds = %.lr.ph626, %350
-  %storemerge630 = phi i32 [ %.promoted629, %.lr.ph626 ], [ %storemerge, %350 ]
-  %.30624 = phi ptr [ %.13447, %.lr.ph626 ], [ %351, %350 ]
-  %337 = load i8, ptr %.30624, align 1, !tbaa !15
-  %338 = add i8 %337, -48
-  %339 = icmp ult i8 %338, 10
-  br i1 %339, label %340, label %.thread564, !prof !244
+337:                                              ; preds = %.lr.ph633, %351
+  %storemerge637 = phi i32 [ %.promoted636, %.lr.ph633 ], [ %storemerge, %351 ]
+  %.30631 = phi ptr [ %.13449, %.lr.ph633 ], [ %352, %351 ]
+  %338 = load i8, ptr %.30631, align 1, !tbaa !15
+  %339 = add i8 %338, -48
+  %340 = icmp ult i8 %339, 10
+  br i1 %340, label %341, label %.thread572, !prof !244
 
-340:                                              ; preds = %336
-  %341 = icmp sgt i32 %storemerge630, 214748364
-  br i1 %341, label %350, label %342, !prof !245
+341:                                              ; preds = %337
+  %342 = icmp sgt i32 %storemerge637, 214748364
+  br i1 %342, label %351, label %343, !prof !245
 
-342:                                              ; preds = %340
-  %343 = icmp eq i32 %storemerge630, 214748364
-  %344 = icmp samesign ugt i8 %337, 55
-  %345 = and i1 %344, %343
-  br i1 %345, label %350, label %346, !prof !245
+343:                                              ; preds = %341
+  %344 = icmp eq i32 %storemerge637, 214748364
+  %345 = icmp samesign ugt i8 %338, 55
+  %346 = and i1 %345, %344
+  br i1 %346, label %351, label %347, !prof !245
 
-346:                                              ; preds = %342
-  %347 = mul nsw i32 %storemerge630, 10
-  %348 = zext nneg i8 %338 to i32
-  %349 = add nsw i32 %347, %348
-  br label %350
+347:                                              ; preds = %343
+  %348 = mul nsw i32 %storemerge637, 10
+  %349 = zext nneg i8 %339 to i32
+  %350 = add nsw i32 %348, %349
+  br label %351
 
-350:                                              ; preds = %346, %342, %340
-  %storemerge = phi i32 [ %349, %346 ], [ 2147483647, %342 ], [ 2147483647, %340 ]
-  store i32 %storemerge, ptr %330, align 4, !tbaa !687
-  %351 = getelementptr inbounds nuw i8, ptr %.30624, i64 1
-  %exitcond687.not = icmp eq ptr %351, %6
-  br i1 %exitcond687.not, label %._crit_edge627, label %336, !prof !688
+351:                                              ; preds = %347, %343, %341
+  %storemerge = phi i32 [ %350, %347 ], [ 2147483647, %343 ], [ 2147483647, %341 ]
+  store i32 %storemerge, ptr %331, align 4, !tbaa !688
+  %352 = getelementptr inbounds nuw i8, ptr %.30631, i64 1
+  %exitcond694.not = icmp eq ptr %352, %6
+  br i1 %exitcond694.not, label %._crit_edge634, label %337, !prof !686
 
-.thread564:                                       ; preds = %336, %._crit_edge627
-  %.30572 = phi ptr [ %.30.lcssa, %._crit_edge627 ], [ %.30624, %336 ]
-  %352 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %353 = load i8, ptr %352, align 8, !tbaa !686, !range !181, !noundef !182
-  %354 = trunc nuw i8 %353 to i1
-  %355 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %356 = load i32, ptr %355, align 8, !tbaa !685
-  %357 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %358 = load i32, ptr %357, align 4, !tbaa !687
-  br i1 %354, label %359, label %369
+.thread572:                                       ; preds = %337, %._crit_edge634
+  %.30579 = phi ptr [ %.30.lcssa, %._crit_edge634 ], [ %.30631, %337 ]
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %354 = load i8, ptr %353, align 8, !tbaa !687, !range !181, !noundef !182
+  %355 = trunc nuw i8 %354 to i1
+  %356 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %357 = load i32, ptr %356, align 8, !tbaa !685
+  %358 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %359 = load i32, ptr %358, align 4, !tbaa !688
+  br i1 %355, label %360, label %370
 
-359:                                              ; preds = %.thread564
-  %360 = or i32 %358, -2147483648
-  %361 = icmp slt i32 %356, %360
-  br i1 %361, label %362, label %.thread468, !prof !245
+360:                                              ; preds = %.thread572
+  %361 = or i32 %359, -2147483648
+  %362 = icmp slt i32 %357, %361
+  br i1 %362, label %363, label %.thread470, !prof !245
 
-362:                                              ; preds = %359
-  %363 = icmp eq i32 %358, 2147483647
-  %364 = icmp samesign ult i32 %356, -2147483339
-  %or.cond155 = and i1 %364, %363
-  %365 = load i64, ptr %3, align 8
-  %366 = icmp ne i64 %365, 0
-  %or.cond162 = select i1 %or.cond155, i1 %366, i1 false, !prof !689
-  br i1 %or.cond162, label %367, label %.thread468.sink.split, !prof !689
+363:                                              ; preds = %360
+  %364 = icmp eq i32 %359, 2147483647
+  %365 = icmp samesign ult i32 %357, -2147483339
+  %or.cond157 = and i1 %365, %364
+  %366 = load i64, ptr %3, align 8
+  %367 = icmp ne i64 %366, 0
+  %or.cond164 = select i1 %or.cond157, i1 %367, i1 false, !prof !689
+  br i1 %or.cond164, label %368, label %.thread470.sink.split, !prof !689
 
-367:                                              ; preds = %362
-  %368 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30572, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %.thread496
+368:                                              ; preds = %363
+  %369 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30579, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %.thread498
 
-369:                                              ; preds = %.thread564
-  %370 = sub nsw i32 2147483647, %358
-  %371 = icmp sgt i32 %356, %370
-  br i1 %371, label %372, label %.thread468, !prof !245
+370:                                              ; preds = %.thread572
+  %371 = sub nsw i32 2147483647, %359
+  %372 = icmp sgt i32 %357, %371
+  br i1 %372, label %373, label %.thread470, !prof !245
 
-372:                                              ; preds = %369
-  %373 = icmp eq i32 %358, 2147483647
-  %374 = icmp samesign ugt i32 %356, 2147483339
-  %or.cond158 = and i1 %374, %373
-  %375 = load i64, ptr %3, align 8
-  %376 = icmp ne i64 %375, 0
-  %or.cond164 = select i1 %or.cond158, i1 %376, i1 false, !prof !689
-  br i1 %or.cond164, label %377, label %.thread468.sink.split, !prof !689
+373:                                              ; preds = %370
+  %374 = icmp eq i32 %359, 2147483647
+  %375 = icmp samesign ugt i32 %357, 2147483339
+  %or.cond160 = and i1 %375, %374
+  %376 = load i64, ptr %3, align 8
+  %377 = icmp ne i64 %376, 0
+  %or.cond166 = select i1 %or.cond160, i1 %377, i1 false, !prof !689
+  br i1 %or.cond166, label %378, label %.thread470.sink.split, !prof !689
 
-377:                                              ; preds = %372
-  %378 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30572, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %.thread496
+378:                                              ; preds = %373
+  %379 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30579, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE0EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %.thread498
 
-379:                                              ; preds = %253, %243, %._crit_edge, %._crit_edge606
-  %.16450 = phi ptr [ %.11445, %243 ], [ %.15449.lcssa, %._crit_edge606 ], [ %.19453.lcssa, %._crit_edge ], [ %spec.select, %253 ]
-  %380 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %381 = load i8, ptr %380, align 1, !tbaa !691, !range !181, !noundef !182
-  %382 = trunc nuw i8 %381 to i1
-  %383 = load i64, ptr %3, align 8, !tbaa !683
-  br i1 %382, label %384, label %386
+380:                                              ; preds = %253, %243, %._crit_edge, %._crit_edge613
+  %.16452 = phi ptr [ %.11447, %243 ], [ %.15451.lcssa, %._crit_edge613 ], [ %.19455.lcssa, %._crit_edge ], [ %.11447, %253 ]
+  %381 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %382 = load i8, ptr %381, align 1, !tbaa !691, !range !181, !noundef !182
+  %383 = trunc nuw i8 %382 to i1
+  %384 = load i64, ptr %3, align 8, !tbaa !683
+  br i1 %383, label %385, label %387
 
-384:                                              ; preds = %379
-  %385 = sub i64 0, %383
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %385)
-  br label %.thread496
+385:                                              ; preds = %380
+  %386 = sub i64 0, %384
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %386)
+  br label %.thread498
 
-386:                                              ; preds = %379
-  %387 = icmp sgt i64 %383, -1
-  br i1 %387, label %388, label %390
+387:                                              ; preds = %380
+  %388 = icmp sgt i64 %384, -1
+  br i1 %388, label %389, label %391
 
-388:                                              ; preds = %386, %21
-  %389 = phi i64 [ %383, %386 ], [ 0, %21 ]
-  %.5439 = phi ptr [ %.16450, %386 ], [ %19, %21 ]
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %389)
-  br label %.thread496
+389:                                              ; preds = %387, %21
+  %390 = phi i64 [ %384, %387 ], [ 0, %21 ]
+  %.5441 = phi ptr [ %.16452, %387 ], [ %19, %21 ]
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %390)
+  br label %.thread498
 
-390:                                              ; preds = %386
-  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %383)
-  br label %.thread496
+391:                                              ; preds = %387
+  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %384)
+  br label %.thread498
 
-.thread468.sink.split:                            ; preds = %372, %362
-  store i32 0, ptr %355, align 8, !tbaa !685
-  store i32 2147483647, ptr %357, align 4, !tbaa !687
-  br label %.thread468
+.thread470.sink.split:                            ; preds = %373, %363
+  store i32 0, ptr %356, align 8, !tbaa !685
+  store i32 2147483647, ptr %358, align 4, !tbaa !688
+  br label %.thread470
 
-.thread468:                                       ; preds = %.thread468.sink.split, %290, %236, %209, %103, %359, %369, %._crit_edge617, %._crit_edge622, %._crit_edge611
-  %.6440 = phi ptr [ %.30572, %359 ], [ %.30572, %369 ], [ %.24.lcssa, %._crit_edge622 ], [ %.27.lcssa, %._crit_edge617 ], [ %.21.lcssa, %._crit_edge611 ], [ %98, %103 ], [ %.21609, %209 ], [ %.24620, %236 ], [ %.27615, %290 ], [ %.30572, %.thread468.sink.split ]
-  %391 = load i64, ptr %3, align 8, !tbaa !683
-  %392 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %393 = load i32, ptr %392, align 8, !tbaa !685
-  %394 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %395 = load i8, ptr %394, align 8, !tbaa !686, !range !181, !noundef !182
-  %396 = trunc nuw i8 %395 to i1
-  %397 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %398 = load i32, ptr %397, align 4
-  %399 = sub nsw i32 0, %398
-  %400 = select i1 %396, i32 %399, i32 %398
-  %401 = add nsw i32 %400, %393
-  %402 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %403 = load i8, ptr %402, align 1, !tbaa !691, !range !181, !noundef !182
-  %404 = trunc nuw i8 %403 to i1
-  %405 = uitofp i64 %391 to double
-  %406 = fneg double %405
-  %.0.i = select i1 %404, double %406, double %405
-  %407 = icmp slt i32 %401, -305
-  %408 = fmul double %.0.i, 1.000000e-305
-  %409 = add nuw nsw i32 %401, 305
-  %.014.i = select i1 %407, i32 %409, i32 %401
-  %.1.i165 = select i1 %407, double %408, double %.0.i
+.thread470:                                       ; preds = %.thread470.sink.split, %291, %236, %209, %103, %360, %370, %._crit_edge624, %._crit_edge629, %._crit_edge618
+  %.6442 = phi ptr [ %.30579, %360 ], [ %.30579, %370 ], [ %.24.lcssa, %._crit_edge629 ], [ %.27.lcssa, %._crit_edge624 ], [ %.21.lcssa, %._crit_edge618 ], [ %98, %103 ], [ %.21616, %209 ], [ %.24627, %236 ], [ %.27622, %291 ], [ %.30579, %.thread470.sink.split ]
+  %392 = load i64, ptr %3, align 8, !tbaa !683
+  %393 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %394 = load i32, ptr %393, align 8, !tbaa !685
+  %395 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %396 = load i8, ptr %395, align 8, !tbaa !687, !range !181, !noundef !182
+  %397 = trunc nuw i8 %396 to i1
+  %398 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %399 = load i32, ptr %398, align 4
+  %400 = sub nsw i32 0, %399
+  %401 = select i1 %397, i32 %400, i32 %399
+  %402 = add nsw i32 %401, %394
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %404 = load i8, ptr %403, align 1, !tbaa !691, !range !181, !noundef !182
+  %405 = trunc nuw i8 %404 to i1
+  %406 = uitofp i64 %392 to double
+  %407 = fneg double %406
+  %.0.i = select i1 %405, double %407, double %406
+  %408 = icmp slt i32 %402, -305
+  %409 = fmul double %.0.i, 1.000000e-305
+  %410 = add nuw nsw i32 %402, 305
+  %.014.i = select i1 %408, i32 %410, i32 %402
+  %.1.i167 = select i1 %408, double %409, double %.0.i
   %or.cond.i = icmp ugt i32 %.014.i, -23
-  br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %416
+  br i1 %or.cond.i, label %_ZN5boost4json6detail5pow10Ei.exit.i, label %417
 
-_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread468
-  %410 = sub nsw i32 0, %.014.i
-  %411 = zext nneg i32 %410 to i64
-  %412 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %411
-  %413 = getelementptr i8, ptr %412, i64 2464
-  %414 = load double, ptr %413, align 8, !tbaa !460
-  %415 = fdiv double %.1.i165, %414
-  br label %426
+_ZN5boost4json6detail5pow10Ei.exit.i:             ; preds = %.thread470
+  %411 = sub nsw i32 0, %.014.i
+  %412 = zext nneg i32 %411 to i64
+  %413 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %412
+  %414 = getelementptr i8, ptr %413, i64 2464
+  %415 = load double, ptr %414, align 8, !tbaa !460
+  %416 = fdiv double %.1.i167, %415
+  br label %427
 
-416:                                              ; preds = %.thread468
-  %417 = icmp sgt i32 %.014.i, 308
-  br i1 %417, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %418
+417:                                              ; preds = %.thread470
+  %418 = icmp sgt i32 %.014.i, 308
+  br i1 %418, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %419
 
-418:                                              ; preds = %416
-  %419 = icmp slt i32 %.014.i, -308
-  br i1 %419, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %420
+419:                                              ; preds = %417
+  %420 = icmp slt i32 %.014.i, -308
+  br i1 %420, label %_ZN5boost4json6detail5pow10Ei.exit18.i, label %421
 
-420:                                              ; preds = %418
-  %421 = sext i32 %.014.i to i64
-  %422 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %421
-  %423 = getelementptr i8, ptr %422, i64 2464
-  %424 = load double, ptr %423, align 8, !tbaa !460
+421:                                              ; preds = %419
+  %422 = sext i32 %.014.i to i64
+  %423 = getelementptr double, ptr @_ZZN5boost4json6detail5pow10EiE3tab, i64 %422
+  %424 = getelementptr i8, ptr %423, i64 2464
+  %425 = load double, ptr %424, align 8, !tbaa !460
   br label %_ZN5boost4json6detail5pow10Ei.exit18.i
 
-_ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %420, %418, %416
-  %.0.i17.i = phi double [ %424, %420 ], [ 0.000000e+00, %418 ], [ 0x7FF0000000000000, %416 ]
-  %425 = fmul double %.1.i165, %.0.i17.i
-  br label %426
+_ZN5boost4json6detail5pow10Ei.exit18.i:           ; preds = %421, %419, %417
+  %.0.i17.i = phi double [ %425, %421 ], [ 0.000000e+00, %419 ], [ 0x7FF0000000000000, %417 ]
+  %426 = fmul double %.1.i167, %.0.i17.i
+  br label %427
 
-426:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
-  %.013.i = phi double [ %415, %_ZN5boost4json6detail5pow10Ei.exit.i ], [ %425, %_ZN5boost4json6detail5pow10Ei.exit18.i ]
+427:                                              ; preds = %_ZN5boost4json6detail5pow10Ei.exit18.i, %_ZN5boost4json6detail5pow10Ei.exit.i
+  %.013.i = phi double [ %416, %_ZN5boost4json6detail5pow10Ei.exit.i ], [ %426, %_ZN5boost4json6detail5pow10Ei.exit18.i ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %.013.i)
-  br label %.thread496
+  br label %.thread498
 
-.thread496:                                       ; preds = %135, %131, %326, %.thread545, %269, %224, %.thread518, %.thread456, %426, %390, %388, %384, %377, %367, %334, %316, %314, %300, %276, %263, %261, %247, %231, %217, %196, %169, %150, %139
-  %.2 = phi ptr [ %262, %261 ], [ %264, %263 ], [ %277, %276 ], [ %232, %231 ], [ %301, %300 ], [ %315, %314 ], [ %317, %316 ], [ %335, %334 ], [ %368, %367 ], [ %378, %377 ], [ %327, %326 ], [ %270, %269 ], [ %.5439, %388 ], [ %151, %150 ], [ %.16450, %384 ], [ %.16450, %390 ], [ %197, %196 ], [ %218, %217 ], [ %225, %224 ], [ %248, %247 ], [ %170, %169 ], [ %140, %139 ], [ %.6440, %426 ], [ %34, %.thread456 ], [ %205, %.thread518 ], [ %289, %.thread545 ], [ %136, %135 ], [ %134, %131 ]
+.thread498:                                       ; preds = %135, %131, %327, %.thread553, %270, %224, %.thread520, %.thread458, %427, %391, %389, %385, %378, %368, %335, %317, %315, %301, %277, %264, %262, %247, %231, %217, %196, %169, %150, %139
+  %.2 = phi ptr [ %263, %262 ], [ %265, %264 ], [ %278, %277 ], [ %232, %231 ], [ %302, %301 ], [ %316, %315 ], [ %318, %317 ], [ %336, %335 ], [ %369, %368 ], [ %379, %378 ], [ %328, %327 ], [ %271, %270 ], [ %.5441, %389 ], [ %151, %150 ], [ %.16452, %385 ], [ %.16452, %391 ], [ %197, %196 ], [ %218, %217 ], [ %225, %224 ], [ %248, %247 ], [ %170, %169 ], [ %140, %139 ], [ %.6442, %427 ], [ %34, %.thread458 ], [ %205, %.thread520 ], [ %290, %.thread553 ], [ %136, %135 ], [ %134, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -54240,7 +54256,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %17 = sub i64 %8, %16
   %18 = icmp ugt i64 %17, 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %14, i8 0, i64 10, i1 false)
-  br i1 %18, label %19, label %.thread532
+  br i1 %18, label %19, label %.thread534
 
 19:                                               ; preds = %13
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -54252,11 +54268,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 22:                                               ; preds = %19
   %23 = and i8 %21, -33
   %24 = icmp eq i8 %23, 69
-  br i1 %24, label %.thread529, label %446
+  br i1 %24, label %.thread531, label %447
 
-.thread529:                                       ; preds = %22
+.thread531:                                       ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %.thread548
+  br label %.thread550
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -54267,11 +54283,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %32 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %31, i1 false)
   %33 = zext nneg i16 %32 to i32
   %34 = icmp eq i16 %32, 0
-  br i1 %34, label %.thread513, label %36
+  br i1 %34, label %.thread515, label %36
 
-.thread513:                                       ; preds = %26
+.thread515:                                       ; preds = %26
   %35 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread553
+  br label %.thread555
 
 36:                                               ; preds = %26
   %37 = zext nneg i16 %32 to i64
@@ -54372,16 +54388,16 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %100 = load i8, ptr %99, align 1, !tbaa !15
   %101 = and i8 %100, -33
   %102 = icmp eq i8 %101, 69
-  br i1 %102, label %.thread521, label %104
+  br i1 %102, label %.thread523, label %104
 
-.thread521:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
+.thread523:                                       ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  br label %.thread548
+  br label %.thread550
 
 104:                                              ; preds = %_ZN5boost4json6detail14parse_unsignedEmPKcm.exit
   %105 = add i8 %100, -48
   %or.cond = icmp ult i8 %105, 10
-  br i1 %or.cond, label %.thread517, label %.thread525
+  br i1 %or.cond, label %.thread519, label %.thread527
 
 106:                                              ; preds = %2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -54394,38 +54410,38 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %113 = add i64 %11, -1
   store i64 %113, ptr %10, align 8, !tbaa !190
   switch i8 %112, label %114 [
-    i8 38, label %.thread532
-    i8 39, label %.thread534
-    i8 40, label %.thread536
-    i8 41, label %.thread538
-    i8 42, label %.thread540
-    i8 43, label %.thread542
-    i8 44, label %.thread544
-    i8 45, label %.thread517
-    i8 46, label %.thread548
-    i8 47, label %.thread550
-    i8 48, label %381
+    i8 38, label %.thread534
+    i8 39, label %.thread536
+    i8 40, label %.thread538
+    i8 41, label %.thread540
+    i8 42, label %.thread542
+    i8 43, label %.thread544
+    i8 44, label %.thread546
+    i8 45, label %.thread519
+    i8 46, label %.thread550
+    i8 47, label %.thread552
+    i8 48, label %382
   ]
 
 114:                                              ; preds = %106
   unreachable
 
-.thread532:                                       ; preds = %106, %13
+.thread534:                                       ; preds = %106, %13
   %115 = icmp ult ptr %1, %7
   br i1 %115, label %116, label %140, !prof !244
 
-116:                                              ; preds = %.thread532
+116:                                              ; preds = %.thread534
   %117 = load i8, ptr %1, align 1, !tbaa !15
   %118 = add i8 %117, -49
   %119 = icmp ult i8 %118, 9
-  br i1 %119, label %.thread557, label %123, !prof !244
+  br i1 %119, label %.thread559, label %123, !prof !244
 
-.thread557:                                       ; preds = %116
+.thread559:                                       ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %121 = and i8 %117, 15
   %122 = zext nneg i8 %121 to i64
   store i64 %122, ptr %3, align 8, !tbaa !683
-  br label %.thread534
+  br label %.thread536
 
 123:                                              ; preds = %116
   %124 = icmp eq i8 %117, 48
@@ -54451,676 +54467,678 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %134, align 1, !tbaa !173
   %135 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread553
+  br label %.thread555
 
 136:                                              ; preds = %125
   %137 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread553
+  br label %.thread555
 
 138:                                              ; preds = %123
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %.thread542.sink.split
+  br label %.thread544.sink.split
 
-140:                                              ; preds = %.thread532
+140:                                              ; preds = %.thread534
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %142 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %141, ptr noundef %1, i64 noundef 0)
   %143 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %1, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  br label %.thread555
 
-.thread534:                                       ; preds = %106, %.thread557
-  %.7497 = phi ptr [ %120, %.thread557 ], [ %1, %106 ]
-  %.7497729 = ptrtoint ptr %.7497 to i64
+.thread536:                                       ; preds = %106, %.thread559
+  %.7499 = phi ptr [ %120, %.thread559 ], [ %1, %106 ]
+  %.7499736 = ptrtoint ptr %.7499 to i64
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %145 = load i8, ptr %144, align 1, !tbaa !691, !range !181, !noundef !182
   %146 = trunc nuw i8 %145 to i1
-  %.promoted657 = load i64, ptr %3, align 8
-  %147 = icmp ult ptr %.7497, %7
-  br i1 %146, label %.preheader, label %.preheader625
+  %.promoted664 = load i64, ptr %3, align 8
+  %147 = icmp ult ptr %.7499, %7
+  br i1 %146, label %.preheader, label %.preheader632
 
-.preheader625:                                    ; preds = %.thread534
+.preheader632:                                    ; preds = %.thread536
   br i1 %147, label %.lr.ph.preheader, label %._crit_edge, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.preheader625
-  %148 = sub i64 %8, %.7497729
-  %scevgep = getelementptr i8, ptr %.7497, i64 %148
+.lr.ph.preheader:                                 ; preds = %.preheader632
+  %148 = sub i64 %8, %.7499736
+  %scevgep = getelementptr i8, ptr %.7499, i64 %148
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.thread534
-  br i1 %147, label %.lr.ph662.preheader, label %._crit_edge663, !prof !360
+.preheader:                                       ; preds = %.thread536
+  br i1 %147, label %.lr.ph669.preheader, label %._crit_edge670, !prof !360
 
-.lr.ph662.preheader:                              ; preds = %.preheader
-  %149 = sub i64 %8, %.7497729
-  %scevgep730 = getelementptr i8, ptr %.7497, i64 %149
-  br label %.lr.ph662
+.lr.ph669.preheader:                              ; preds = %.preheader
+  %149 = sub i64 %8, %.7499736
+  %scevgep737 = getelementptr i8, ptr %.7499, i64 %149
+  br label %.lr.ph669
 
-._crit_edge663:                                   ; preds = %170, %.preheader
-  %.lcssa658 = phi i64 [ %.promoted657, %.preheader ], [ %173, %170 ]
-  %.15505.lcssa = phi ptr [ %.7497, %.preheader ], [ %scevgep730, %170 ]
-  store i64 %.lcssa658, ptr %3, align 8
+._crit_edge670:                                   ; preds = %170, %.preheader
+  %.lcssa665 = phi i64 [ %.promoted664, %.preheader ], [ %173, %170 ]
+  %.15507.lcssa = phi ptr [ %.7499, %.preheader ], [ %scevgep737, %170 ]
+  store i64 %.lcssa665, ptr %3, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %151 = load i8, ptr %150, align 8, !tbaa !176, !range !181, !noundef !182
   %152 = trunc nuw i8 %151 to i1
-  br i1 %152, label %153, label %437, !prof !245
+  br i1 %152, label %153, label %438, !prof !245
 
-153:                                              ; preds = %._crit_edge663
-  %154 = ptrtoint ptr %.15505.lcssa to i64
+153:                                              ; preds = %._crit_edge670
+  %154 = ptrtoint ptr %.15507.lcssa to i64
   %155 = ptrtoint ptr %1 to i64
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %157 = sub i64 %154, %155
   %158 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %156, ptr noundef %1, i64 noundef %157)
-  %159 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.15505.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  %159 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.15507.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-.lr.ph662:                                        ; preds = %.lr.ph662.preheader, %170
-  %.15505661 = phi ptr [ %165, %170 ], [ %.7497, %.lr.ph662.preheader ]
-  %160 = phi i64 [ %173, %170 ], [ %.promoted657, %.lr.ph662.preheader ]
-  %161 = load i8, ptr %.15505661, align 1, !tbaa !15
+.lr.ph669:                                        ; preds = %.lr.ph669.preheader, %170
+  %.15507668 = phi ptr [ %165, %170 ], [ %.7499, %.lr.ph669.preheader ]
+  %160 = phi i64 [ %173, %170 ], [ %.promoted664, %.lr.ph669.preheader ]
+  %161 = load i8, ptr %.15507668, align 1, !tbaa !15
   %162 = add i8 %161, -48
   %163 = icmp ult i8 %162, 10
-  br i1 %163, label %164, label %.thread542.sink.split, !prof !244
+  br i1 %163, label %164, label %.thread544.sink.split, !prof !244
 
-164:                                              ; preds = %.lr.ph662
-  %165 = getelementptr inbounds nuw i8, ptr %.15505661, i64 1
+164:                                              ; preds = %.lr.ph669
+  %165 = getelementptr inbounds nuw i8, ptr %.15507668, i64 1
   %166 = icmp ugt i64 %160, 922337203685477580
-  br i1 %166, label %.thread562, label %167
+  br i1 %166, label %.thread564, label %167
 
 167:                                              ; preds = %164
   %168 = icmp eq i64 %160, 922337203685477580
   %169 = icmp samesign ugt i8 %161, 56
   %or.cond8 = and i1 %169, %168
-  br i1 %or.cond8, label %.thread562, label %170
+  br i1 %or.cond8, label %.thread564, label %170
 
 170:                                              ; preds = %167
   %171 = mul nuw nsw i64 %160, 10
   %172 = zext nneg i8 %162 to i64
   %173 = add nuw i64 %171, %172
-  %exitcond731.not = icmp eq ptr %165, %7
-  br i1 %exitcond731.not, label %._crit_edge663, label %.lr.ph662, !prof !688
+  %exitcond738.not = icmp eq ptr %165, %7
+  br i1 %exitcond738.not, label %._crit_edge670, label %.lr.ph669, !prof !686
 
-._crit_edge:                                      ; preds = %194, %.preheader625
-  %.lcssa652 = phi i64 [ %.promoted657, %.preheader625 ], [ %197, %194 ]
-  %.19509.lcssa = phi ptr [ %.7497, %.preheader625 ], [ %scevgep, %194 ]
-  store i64 %.lcssa652, ptr %3, align 8
+._crit_edge:                                      ; preds = %194, %.preheader632
+  %.lcssa659 = phi i64 [ %.promoted664, %.preheader632 ], [ %197, %194 ]
+  %.19511.lcssa = phi ptr [ %.7499, %.preheader632 ], [ %scevgep, %194 ]
+  store i64 %.lcssa659, ptr %3, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %175 = load i8, ptr %174, align 8, !tbaa !176, !range !181, !noundef !182
   %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %177, label %437, !prof !245
+  br i1 %176, label %177, label %438, !prof !245
 
 177:                                              ; preds = %._crit_edge
-  %178 = ptrtoint ptr %.19509.lcssa to i64
+  %178 = ptrtoint ptr %.19511.lcssa to i64
   %179 = ptrtoint ptr %1 to i64
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %181 = sub i64 %178, %179
   %182 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %180, ptr noundef %1, i64 noundef %181)
-  %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.19509.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  %183 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.19511.lcssa, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %194
-  %.19509655 = phi ptr [ %189, %194 ], [ %.7497, %.lr.ph.preheader ]
-  %184 = phi i64 [ %197, %194 ], [ %.promoted657, %.lr.ph.preheader ]
-  %185 = load i8, ptr %.19509655, align 1, !tbaa !15
+  %.19511662 = phi ptr [ %189, %194 ], [ %.7499, %.lr.ph.preheader ]
+  %184 = phi i64 [ %197, %194 ], [ %.promoted664, %.lr.ph.preheader ]
+  %185 = load i8, ptr %.19511662, align 1, !tbaa !15
   %186 = add i8 %185, -48
   %187 = icmp ult i8 %186, 10
-  br i1 %187, label %188, label %.thread542.sink.split, !prof !244
+  br i1 %187, label %188, label %.thread544.sink.split, !prof !244
 
 188:                                              ; preds = %.lr.ph
-  %189 = getelementptr inbounds nuw i8, ptr %.19509655, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %.19511662, i64 1
   %190 = icmp ugt i64 %184, 1844674407370955161
-  br i1 %190, label %.thread562, label %191
+  br i1 %190, label %.thread564, label %191
 
 191:                                              ; preds = %188
   %192 = icmp eq i64 %184, 1844674407370955161
   %193 = icmp samesign ugt i8 %185, 53
   %or.cond11 = and i1 %193, %192
-  br i1 %or.cond11, label %.thread562, label %194
+  br i1 %or.cond11, label %.thread564, label %194
 
 194:                                              ; preds = %191
   %195 = mul nuw i64 %184, 10
   %196 = zext nneg i8 %186 to i64
   %197 = add i64 %195, %196
   %exitcond.not = icmp eq ptr %189, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !prof !686
 
-.thread562:                                       ; preds = %188, %191, %164, %167
-  %storemerge688 = phi i64 [ %160, %164 ], [ 922337203685477580, %167 ], [ %184, %188 ], [ 1844674407370955161, %191 ]
-  %.18508 = phi ptr [ %165, %167 ], [ %165, %164 ], [ %189, %191 ], [ %189, %188 ]
-  store i64 %storemerge688, ptr %3, align 8
+.thread564:                                       ; preds = %188, %191, %164, %167
+  %storemerge695 = phi i64 [ %160, %164 ], [ 922337203685477580, %167 ], [ %184, %188 ], [ 1844674407370955161, %191 ]
+  %.18510 = phi ptr [ %165, %167 ], [ %165, %164 ], [ %189, %191 ], [ %189, %188 ]
+  store i64 %storemerge695, ptr %3, align 8
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %199 = load i32, ptr %198, align 8, !tbaa !685
   %200 = add nsw i32 %199, 1
   store i32 %200, ptr %198, align 8, !tbaa !685
-  br label %.thread536
+  br label %.thread538
 
-.thread536:                                       ; preds = %106, %.thread562
-  %.8498 = phi ptr [ %.18508, %.thread562 ], [ %1, %106 ]
-  %201 = icmp ult ptr %.8498, %7
-  br i1 %201, label %.lr.ph667, label %._crit_edge668, !prof !360
+.thread538:                                       ; preds = %106, %.thread564
+  %.8500 = phi ptr [ %.18510, %.thread564 ], [ %1, %106 ]
+  %201 = icmp ult ptr %.8500, %7
+  br i1 %201, label %.lr.ph674, label %._crit_edge675, !prof !360
 
-.lr.ph667:                                        ; preds = %.thread536
-  %.8498733 = ptrtoint ptr %.8498 to i64
+.lr.ph674:                                        ; preds = %.thread538
+  %.8500740 = ptrtoint ptr %.8500 to i64
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.promoted670 = load i32, ptr %202, align 8
-  %203 = sub i32 2147483646, %.promoted670
+  %.promoted677 = load i32, ptr %202, align 8
+  %203 = sub i32 2147483646, %.promoted677
   %204 = zext i32 %203 to i64
-  %scevgep732 = getelementptr i8, ptr %.8498, i64 %204
-  %205 = sub i64 %8, %.8498733
-  %scevgep734 = getelementptr i8, ptr %.8498, i64 %205
+  %scevgep739 = getelementptr i8, ptr %.8500, i64 %204
+  %205 = sub i64 %8, %.8500740
+  %scevgep741 = getelementptr i8, ptr %.8500, i64 %205
   br label %216
 
-._crit_edge668:                                   ; preds = %231, %.thread536
-  %.21.lcssa = phi ptr [ %.8498, %.thread536 ], [ %scevgep734, %231 ]
+._crit_edge675:                                   ; preds = %231, %.thread538
+  %.21.lcssa = phi ptr [ %.8500, %.thread538 ], [ %scevgep741, %231 ]
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %207 = load i8, ptr %206, align 8, !tbaa !176, !range !181, !noundef !182
   %208 = trunc nuw i8 %207 to i1
-  br i1 %208, label %209, label %.thread525, !prof !245
+  br i1 %208, label %209, label %.thread527, !prof !245
 
-209:                                              ; preds = %._crit_edge668
+209:                                              ; preds = %._crit_edge675
   %210 = ptrtoint ptr %.21.lcssa to i64
   %211 = ptrtoint ptr %1 to i64
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %213 = sub i64 %210, %211
   %214 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %212, ptr noundef %1, i64 noundef %213)
   %215 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.21.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  br label %.thread555
 
-216:                                              ; preds = %.lr.ph667, %231
-  %217 = phi i32 [ %.promoted670, %.lr.ph667 ], [ %233, %231 ]
-  %.21666 = phi ptr [ %.8498, %.lr.ph667 ], [ %232, %231 ]
-  %218 = load i8, ptr %.21666, align 1, !tbaa !15
+216:                                              ; preds = %.lr.ph674, %231
+  %217 = phi i32 [ %.promoted677, %.lr.ph674 ], [ %233, %231 ]
+  %.21673 = phi ptr [ %.8500, %.lr.ph674 ], [ %232, %231 ]
+  %218 = load i8, ptr %.21673, align 1, !tbaa !15
   %219 = add i8 %218, -48
   %220 = icmp ult i8 %219, 10
   br i1 %220, label %221, label %224, !prof !245
 
 221:                                              ; preds = %216
   %222 = icmp eq i32 %217, 2147483646
-  br i1 %222, label %.thread575, label %231, !prof !245
+  br i1 %222, label %.thread577, label %231, !prof !245
 
-.thread575:                                       ; preds = %221
-  %223 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep732, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
-  br label %.thread553
+.thread577:                                       ; preds = %221
+  %223 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep739, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+  br label %.thread555
 
 224:                                              ; preds = %216
   %225 = icmp eq i8 %218, 46
-  br i1 %225, label %.thread579, label %227, !prof !244
+  br i1 %225, label %.thread581, label %227, !prof !244
 
-.thread579:                                       ; preds = %224
-  %226 = getelementptr inbounds nuw i8, ptr %.21666, i64 1
-  br label %.thread538
+.thread581:                                       ; preds = %224
+  %226 = getelementptr inbounds nuw i8, ptr %.21673, i64 1
+  br label %.thread540
 
 227:                                              ; preds = %224
   %228 = and i8 %218, -33
   %229 = icmp eq i8 %228, 69
-  br i1 %229, label %.thread583, label %.thread525
+  br i1 %229, label %.thread585, label %.thread527
 
-.thread583:                                       ; preds = %227
-  %230 = getelementptr inbounds nuw i8, ptr %.21666, i64 1
-  br label %.thread548
+.thread585:                                       ; preds = %227
+  %230 = getelementptr inbounds nuw i8, ptr %.21673, i64 1
+  br label %.thread550
 
 231:                                              ; preds = %221
-  %232 = getelementptr inbounds nuw i8, ptr %.21666, i64 1
+  %232 = getelementptr inbounds nuw i8, ptr %.21673, i64 1
   %233 = add nsw i32 %217, 1
   store i32 %233, ptr %202, align 8, !tbaa !685
-  %exitcond735.not = icmp eq ptr %232, %7
-  br i1 %exitcond735.not, label %._crit_edge668, label %216, !prof !688
+  %exitcond742.not = icmp eq ptr %232, %7
+  br i1 %exitcond742.not, label %._crit_edge675, label %216, !prof !686
 
-.thread538:                                       ; preds = %106, %.thread579
-  %.9499 = phi ptr [ %226, %.thread579 ], [ %1, %106 ]
-  %234 = icmp ult ptr %.9499, %7
+.thread540:                                       ; preds = %106, %.thread581
+  %.9501 = phi ptr [ %226, %.thread581 ], [ %1, %106 ]
+  %234 = icmp ult ptr %.9501, %7
   br i1 %234, label %242, label %235, !prof !244
 
-235:                                              ; preds = %.thread538
-  %236 = ptrtoint ptr %.9499 to i64
+235:                                              ; preds = %.thread540
+  %236 = ptrtoint ptr %.9501 to i64
   %237 = ptrtoint ptr %1 to i64
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %239 = sub i64 %236, %237
   %240 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %238, ptr noundef %1, i64 noundef %239)
-  %241 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.9499, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  %241 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.9501, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-242:                                              ; preds = %.thread538
-  %243 = load i8, ptr %.9499, align 1, !tbaa !15
+242:                                              ; preds = %.thread540
+  %243 = load i8, ptr %.9501, align 1, !tbaa !15
   %244 = add i8 %243, -48
   %245 = icmp ult i8 %244, 10
-  br i1 %245, label %.thread591, label %247, !prof !244
+  br i1 %245, label %.thread593, label %247, !prof !244
 
-.thread591:                                       ; preds = %242
-  %246 = getelementptr inbounds nuw i8, ptr %.9499, i64 1
-  br label %.thread540
+.thread593:                                       ; preds = %242
+  %246 = getelementptr inbounds nuw i8, ptr %.9501, i64 1
+  br label %.thread542
 
 247:                                              ; preds = %242
-  %248 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9499, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
-  br label %.thread553
+  %248 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.9501, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
+  br label %.thread555
 
-.thread540:                                       ; preds = %327, %106, %.thread591
-  %.10500 = phi ptr [ %246, %.thread591 ], [ %1, %106 ], [ %328, %327 ]
-  %249 = icmp ult ptr %.10500, %7
-  br i1 %249, label %.lr.ph678.preheader, label %._crit_edge679, !prof !360
+.thread542:                                       ; preds = %328, %106, %.thread593
+  %.10502 = phi ptr [ %246, %.thread593 ], [ %1, %106 ], [ %329, %328 ]
+  %249 = icmp ult ptr %.10502, %7
+  br i1 %249, label %.lr.ph685.preheader, label %._crit_edge686, !prof !360
 
-.lr.ph678.preheader:                              ; preds = %.thread540
-  %.10500739 = ptrtoint ptr %.10500 to i64
-  %250 = sub i64 %8, %.10500739
-  %scevgep740 = getelementptr i8, ptr %.10500, i64 %250
-  br label %.lr.ph678
+.lr.ph685.preheader:                              ; preds = %.thread542
+  %.10502746 = ptrtoint ptr %.10502 to i64
+  %250 = sub i64 %8, %.10502746
+  %scevgep747 = getelementptr i8, ptr %.10502, i64 %250
+  br label %.lr.ph685
 
-._crit_edge679:                                   ; preds = %268, %.thread540
-  %.24.lcssa = phi ptr [ %.10500, %.thread540 ], [ %scevgep740, %268 ]
+._crit_edge686:                                   ; preds = %268, %.thread542
+  %.24.lcssa = phi ptr [ %.10502, %.thread542 ], [ %scevgep747, %268 ]
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %252 = load i8, ptr %251, align 8, !tbaa !176, !range !181, !noundef !182
   %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %254, label %.thread525, !prof !245
+  br i1 %253, label %254, label %.thread527, !prof !245
 
-254:                                              ; preds = %._crit_edge679
+254:                                              ; preds = %._crit_edge686
   %255 = ptrtoint ptr %.24.lcssa to i64
   %256 = ptrtoint ptr %1 to i64
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %258 = sub i64 %255, %256
   %259 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %257, ptr noundef %1, i64 noundef %258)
   %260 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.24.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  br label %.thread555
 
-.lr.ph678:                                        ; preds = %.lr.ph678.preheader, %268
-  %.24677 = phi ptr [ %269, %268 ], [ %.10500, %.lr.ph678.preheader ]
-  %261 = load i8, ptr %.24677, align 1, !tbaa !15
+.lr.ph685:                                        ; preds = %.lr.ph685.preheader, %268
+  %.24684 = phi ptr [ %269, %268 ], [ %.10502, %.lr.ph685.preheader ]
+  %261 = load i8, ptr %.24684, align 1, !tbaa !15
   %262 = add i8 %261, -48
   %263 = icmp ult i8 %262, 10
   br i1 %263, label %268, label %264, !prof !244
 
-264:                                              ; preds = %.lr.ph678
+264:                                              ; preds = %.lr.ph685
   %265 = and i8 %261, -33
   %266 = icmp eq i8 %265, 69
-  br i1 %266, label %.thread594, label %.thread525
+  br i1 %266, label %.thread596, label %.thread527
 
-.thread594:                                       ; preds = %264
-  %267 = getelementptr inbounds nuw i8, ptr %.24677, i64 1
-  br label %.thread548
+.thread596:                                       ; preds = %264
+  %267 = getelementptr inbounds nuw i8, ptr %.24684, i64 1
+  br label %.thread550
 
-268:                                              ; preds = %.lr.ph678
-  %269 = getelementptr inbounds nuw i8, ptr %.24677, i64 1
-  %exitcond741.not = icmp eq ptr %269, %7
-  br i1 %exitcond741.not, label %._crit_edge679, label %.lr.ph678, !prof !688
+268:                                              ; preds = %.lr.ph685
+  %269 = getelementptr inbounds nuw i8, ptr %.24684, i64 1
+  %exitcond748.not = icmp eq ptr %269, %7
+  br i1 %exitcond748.not, label %._crit_edge686, label %.lr.ph685, !prof !686
 
-.thread542.sink.split:                            ; preds = %.lr.ph, %.lr.ph662, %138
-  %.sink = phi i64 [ 0, %138 ], [ %160, %.lr.ph662 ], [ %184, %.lr.ph ]
-  %.11501.ph = phi ptr [ %139, %138 ], [ %.15505661, %.lr.ph662 ], [ %.19509655, %.lr.ph ]
+.thread544.sink.split:                            ; preds = %.lr.ph, %.lr.ph669, %138
+  %.sink = phi i64 [ 0, %138 ], [ %160, %.lr.ph669 ], [ %184, %.lr.ph ]
+  %.11503.ph = phi ptr [ %139, %138 ], [ %.15507668, %.lr.ph669 ], [ %.19511662, %.lr.ph ]
   store i64 %.sink, ptr %3, align 8
-  br label %.thread542
+  br label %.thread544
 
-.thread542:                                       ; preds = %.thread542.sink.split, %106
-  %.11501 = phi ptr [ %1, %106 ], [ %.11501.ph, %.thread542.sink.split ]
-  %270 = icmp ult ptr %.11501, %7
+.thread544:                                       ; preds = %.thread544.sink.split, %106
+  %.11503 = phi ptr [ %1, %106 ], [ %.11503.ph, %.thread544.sink.split ]
+  %270 = icmp ult ptr %.11503, %7
   br i1 %270, label %282, label %271, !prof !244
 
-271:                                              ; preds = %.thread542
+271:                                              ; preds = %.thread544
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %273 = load i8, ptr %272, align 8, !tbaa !176, !range !181, !noundef !182
   %274 = trunc nuw i8 %273 to i1
-  br i1 %274, label %275, label %437, !prof !245
+  br i1 %274, label %275, label %438, !prof !245
 
 275:                                              ; preds = %271
-  %276 = ptrtoint ptr %.11501 to i64
+  %276 = ptrtoint ptr %.11503 to i64
   %277 = ptrtoint ptr %1 to i64
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %279 = sub i64 %276, %277
   %280 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %278, ptr noundef %1, i64 noundef %279)
-  %281 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11501, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+  %281 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11503, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-282:                                              ; preds = %.thread542
-  %283 = load i8, ptr %.11501, align 1, !tbaa !15
+282:                                              ; preds = %.thread544
+  %283 = load i8, ptr %.11503, align 1, !tbaa !15
   %284 = icmp eq i8 %283, 46
-  br i1 %284, label %.thread, label %286, !prof !244
+  br i1 %284, label %.thread602, label %286, !prof !244
 
-.thread:                                          ; preds = %282
-  %285 = getelementptr inbounds nuw i8, ptr %.11501, i64 1
-  br label %.thread544
+.thread602:                                       ; preds = %282
+  %285 = getelementptr inbounds nuw i8, ptr %.11503, i64 1
+  br label %.thread546
 
 286:                                              ; preds = %282
   %287 = and i8 %283, -33
   %288 = icmp eq i8 %287, 69
-  %spec.select.idx = zext i1 %288 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.11501, i64 %spec.select.idx
-  br i1 %288, label %.thread548, label %437
+  br i1 %288, label %.thread605, label %438
 
-.thread544:                                       ; preds = %.thread, %106
-  %.2492 = phi ptr [ %1, %106 ], [ %285, %.thread ]
-  %289 = icmp ult ptr %.2492, %7
-  br i1 %289, label %303, label %290, !prof !244
+.thread605:                                       ; preds = %286
+  %289 = getelementptr inbounds nuw i8, ptr %.11503, i64 1
+  br label %.thread550
 
-290:                                              ; preds = %.thread544
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %292 = load i8, ptr %291, align 8, !tbaa !176, !range !181, !noundef !182
-  %293 = trunc nuw i8 %292 to i1
-  br i1 %293, label %294, label %301, !prof !245
+.thread546:                                       ; preds = %106, %.thread602
+  %.2494 = phi ptr [ %285, %.thread602 ], [ %1, %106 ]
+  %290 = icmp ult ptr %.2494, %7
+  br i1 %290, label %304, label %291, !prof !244
 
-294:                                              ; preds = %290
-  %295 = ptrtoint ptr %.2492 to i64
-  %296 = ptrtoint ptr %1 to i64
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %298 = sub i64 %295, %296
-  %299 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %297, ptr noundef %1, i64 noundef %298)
-  %300 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2492, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+291:                                              ; preds = %.thread546
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %293 = load i8, ptr %292, align 8, !tbaa !176, !range !181, !noundef !182
+  %294 = trunc nuw i8 %293 to i1
+  br i1 %294, label %295, label %302, !prof !245
 
-301:                                              ; preds = %290
-  %302 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2492, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread553
+295:                                              ; preds = %291
+  %296 = ptrtoint ptr %.2494 to i64
+  %297 = ptrtoint ptr %1 to i64
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %299 = sub i64 %296, %297
+  %300 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %298, ptr noundef %1, i64 noundef %299)
+  %301 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2494, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-303:                                              ; preds = %.thread544
-  %304 = load i8, ptr %.2492, align 1, !tbaa !15
-  %305 = add i8 %304, -48
-  %306 = icmp ult i8 %305, 10
-  br i1 %306, label %.thread517, label %307, !prof !244
+302:                                              ; preds = %291
+  %303 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2494, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread555
 
-307:                                              ; preds = %303
-  %308 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2492, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread553
+304:                                              ; preds = %.thread546
+  %305 = load i8, ptr %.2494, align 1, !tbaa !15
+  %306 = add i8 %305, -48
+  %307 = icmp ult i8 %306, 10
+  br i1 %307, label %.thread519, label %308, !prof !244
 
-.thread517:                                       ; preds = %303, %106, %104
-  %.3493 = phi ptr [ %99, %104 ], [ %1, %106 ], [ %.2492, %303 ]
-  %309 = icmp ult ptr %.3493, %7
-  br i1 %309, label %.lr.ph673, label %._crit_edge674, !prof !360
+308:                                              ; preds = %304
+  %309 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2494, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread555
 
-.lr.ph673:                                        ; preds = %.thread517
-  %.promoted671 = load i64, ptr %3, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.promoted676 = load i32, ptr %310, align 8
-  br label %321
+.thread519:                                       ; preds = %304, %106, %104
+  %.3495 = phi ptr [ %99, %104 ], [ %1, %106 ], [ %.2494, %304 ]
+  %310 = icmp ult ptr %.3495, %7
+  br i1 %310, label %.lr.ph680, label %._crit_edge681, !prof !360
 
-._crit_edge674:                                   ; preds = %337, %.thread517
-  %.27.lcssa = phi ptr [ %.3493, %.thread517 ], [ %328, %337 ]
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %312 = load i8, ptr %311, align 8, !tbaa !176, !range !181, !noundef !182
-  %313 = trunc nuw i8 %312 to i1
-  br i1 %313, label %314, label %.thread525, !prof !245
+.lr.ph680:                                        ; preds = %.thread519
+  %.promoted678 = load i64, ptr %3, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.promoted683 = load i32, ptr %311, align 8
+  br label %322
 
-314:                                              ; preds = %._crit_edge674
-  %315 = ptrtoint ptr %.27.lcssa to i64
-  %316 = ptrtoint ptr %1 to i64
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %318 = sub i64 %315, %316
-  %319 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %317, ptr noundef %1, i64 noundef %318)
-  %320 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.27.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+._crit_edge681:                                   ; preds = %338, %.thread519
+  %.27.lcssa = phi ptr [ %.3495, %.thread519 ], [ %329, %338 ]
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %313 = load i8, ptr %312, align 8, !tbaa !176, !range !181, !noundef !182
+  %314 = trunc nuw i8 %313 to i1
+  br i1 %314, label %315, label %.thread527, !prof !245
 
-321:                                              ; preds = %.lr.ph673, %337
-  %322 = phi i32 [ %.promoted676, %.lr.ph673 ], [ %338, %337 ]
-  %.27672 = phi ptr [ %.3493, %.lr.ph673 ], [ %328, %337 ]
-  %323 = phi i64 [ %.promoted671, %.lr.ph673 ], [ %341, %337 ]
-  %324 = load i8, ptr %.27672, align 1, !tbaa !15
-  %325 = add i8 %324, -48
-  %326 = icmp ult i8 %325, 10
-  br i1 %326, label %327, label %333, !prof !244
+315:                                              ; preds = %._crit_edge681
+  %316 = ptrtoint ptr %.27.lcssa to i64
+  %317 = ptrtoint ptr %1 to i64
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %319 = sub i64 %316, %317
+  %320 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %318, ptr noundef %1, i64 noundef %319)
+  %321 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.27.lcssa, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-327:                                              ; preds = %321
-  %328 = getelementptr inbounds nuw i8, ptr %.27672, i64 1
-  %329 = icmp ult i64 %323, 9007199254740992
-  br i1 %329, label %330, label %.thread540, !prof !244
+322:                                              ; preds = %.lr.ph680, %338
+  %323 = phi i32 [ %.promoted683, %.lr.ph680 ], [ %339, %338 ]
+  %.27679 = phi ptr [ %.3495, %.lr.ph680 ], [ %329, %338 ]
+  %324 = phi i64 [ %.promoted678, %.lr.ph680 ], [ %342, %338 ]
+  %325 = load i8, ptr %.27679, align 1, !tbaa !15
+  %326 = add i8 %325, -48
+  %327 = icmp ult i8 %326, 10
+  br i1 %327, label %328, label %334, !prof !244
 
-330:                                              ; preds = %327
-  %331 = icmp eq i32 %322, -2147483647
-  br i1 %331, label %.thread602, label %337, !prof !245
+328:                                              ; preds = %322
+  %329 = getelementptr inbounds nuw i8, ptr %.27679, i64 1
+  %330 = icmp ult i64 %324, 9007199254740992
+  br i1 %330, label %331, label %.thread542, !prof !244
 
-.thread602:                                       ; preds = %330
-  %332 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %328, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
-  br label %.thread553
+331:                                              ; preds = %328
+  %332 = icmp eq i32 %323, -2147483647
+  br i1 %332, label %.thread610, label %338, !prof !245
 
-333:                                              ; preds = %321
-  %334 = and i8 %324, -33
-  %335 = icmp eq i8 %334, 69
-  br i1 %335, label %.thread610, label %.thread525
+.thread610:                                       ; preds = %331
+  %333 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %329, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_6) #50
+  br label %.thread555
 
-.thread610:                                       ; preds = %333
-  %336 = getelementptr inbounds nuw i8, ptr %.27672, i64 1
-  br label %.thread548
+334:                                              ; preds = %322
+  %335 = and i8 %325, -33
+  %336 = icmp eq i8 %335, 69
+  br i1 %336, label %.thread618, label %.thread527
 
-337:                                              ; preds = %330
-  %338 = add nsw i32 %322, -1
-  store i32 %338, ptr %310, align 8, !tbaa !685
-  %339 = mul nuw nsw i64 %323, 10
-  %340 = zext nneg i8 %325 to i64
-  %341 = add nuw nsw i64 %339, %340
-  store i64 %341, ptr %3, align 8, !tbaa !683
-  %exitcond738.not = icmp eq ptr %328, %7
-  br i1 %exitcond738.not, label %._crit_edge674, label %321, !prof !688
+.thread618:                                       ; preds = %334
+  %337 = getelementptr inbounds nuw i8, ptr %.27679, i64 1
+  br label %.thread550
 
-.thread548:                                       ; preds = %286, %106, %.thread610, %.thread594, %.thread583, %.thread529, %.thread521
-  %.4494 = phi ptr [ %103, %.thread521 ], [ %25, %.thread529 ], [ %230, %.thread583 ], [ %267, %.thread594 ], [ %336, %.thread610 ], [ %1, %106 ], [ %spec.select, %286 ]
-  %342 = icmp ult ptr %.4494, %7
-  br i1 %342, label %350, label %343, !prof !244
+338:                                              ; preds = %331
+  %339 = add nsw i32 %323, -1
+  store i32 %339, ptr %311, align 8, !tbaa !685
+  %340 = mul nuw nsw i64 %324, 10
+  %341 = zext nneg i8 %326 to i64
+  %342 = add nuw nsw i64 %340, %341
+  store i64 %342, ptr %3, align 8, !tbaa !683
+  %exitcond745.not = icmp eq ptr %329, %7
+  br i1 %exitcond745.not, label %._crit_edge681, label %322, !prof !686
 
-343:                                              ; preds = %.thread548
-  %344 = ptrtoint ptr %.4494 to i64
-  %345 = ptrtoint ptr %1 to i64
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %347 = sub i64 %344, %345
-  %348 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef %1, i64 noundef %347)
-  %349 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.4494, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+.thread550:                                       ; preds = %106, %.thread618, %.thread605, %.thread596, %.thread585, %.thread531, %.thread523
+  %.4496 = phi ptr [ %103, %.thread523 ], [ %25, %.thread531 ], [ %230, %.thread585 ], [ %267, %.thread596 ], [ %289, %.thread605 ], [ %337, %.thread618 ], [ %1, %106 ]
+  %343 = icmp ult ptr %.4496, %7
+  br i1 %343, label %351, label %344, !prof !244
 
-350:                                              ; preds = %.thread548
-  %351 = load i8, ptr %.4494, align 1, !tbaa !15
-  switch i8 %351, label %.thread550 [
-    i8 43, label %352
-    i8 45, label %354
+344:                                              ; preds = %.thread550
+  %345 = ptrtoint ptr %.4496 to i64
+  %346 = ptrtoint ptr %1 to i64
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %348 = sub i64 %345, %346
+  %349 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %347, ptr noundef %1, i64 noundef %348)
+  %350 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.4496, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
+
+351:                                              ; preds = %.thread550
+  %352 = load i8, ptr %.4496, align 1, !tbaa !15
+  switch i8 %352, label %.thread552 [
+    i8 43, label %353
+    i8 45, label %355
   ]
 
-352:                                              ; preds = %350
-  %353 = getelementptr inbounds nuw i8, ptr %.4494, i64 1
-  br label %.thread550
+353:                                              ; preds = %351
+  %354 = getelementptr inbounds nuw i8, ptr %.4496, i64 1
+  br label %.thread552
 
-354:                                              ; preds = %350
-  %355 = getelementptr inbounds nuw i8, ptr %.4494, i64 1
-  %356 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %356, align 8, !tbaa !686
-  br label %.thread550
+355:                                              ; preds = %351
+  %356 = getelementptr inbounds nuw i8, ptr %.4496, i64 1
+  %357 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %357, align 8, !tbaa !687
+  br label %.thread552
 
-.thread550:                                       ; preds = %350, %106, %352, %354
-  %.12502 = phi ptr [ %353, %352 ], [ %355, %354 ], [ %1, %106 ], [ %.4494, %350 ]
-  %357 = icmp ult ptr %.12502, %7
-  br i1 %357, label %371, label %358, !prof !244
+.thread552:                                       ; preds = %351, %106, %353, %355
+  %.12504 = phi ptr [ %354, %353 ], [ %356, %355 ], [ %1, %106 ], [ %.4496, %351 ]
+  %358 = icmp ult ptr %.12504, %7
+  br i1 %358, label %372, label %359, !prof !244
 
-358:                                              ; preds = %.thread550
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %360 = load i8, ptr %359, align 8, !tbaa !176, !range !181, !noundef !182
-  %361 = trunc nuw i8 %360 to i1
-  br i1 %361, label %362, label %369, !prof !245
+359:                                              ; preds = %.thread552
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %361 = load i8, ptr %360, align 8, !tbaa !176, !range !181, !noundef !182
+  %362 = trunc nuw i8 %361 to i1
+  br i1 %362, label %363, label %370, !prof !245
 
-362:                                              ; preds = %358
-  %363 = ptrtoint ptr %.12502 to i64
-  %364 = ptrtoint ptr %1 to i64
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %366 = sub i64 %363, %364
-  %367 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %365, ptr noundef %1, i64 noundef %366)
-  %368 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12502, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+363:                                              ; preds = %359
+  %364 = ptrtoint ptr %.12504 to i64
+  %365 = ptrtoint ptr %1 to i64
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %367 = sub i64 %364, %365
+  %368 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %366, ptr noundef %1, i64 noundef %367)
+  %369 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12504, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-369:                                              ; preds = %358
-  %370 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12502, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
-  br label %.thread553
+370:                                              ; preds = %359
+  %371 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.12504, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+  br label %.thread555
 
-371:                                              ; preds = %.thread550
-  %372 = load i8, ptr %.12502, align 1, !tbaa !15
-  %373 = add i8 %372, -48
-  %374 = icmp ult i8 %373, 10
-  br i1 %374, label %.thread618, label %379, !prof !244
+372:                                              ; preds = %.thread552
+  %373 = load i8, ptr %.12504, align 1, !tbaa !15
+  %374 = add i8 %373, -48
+  %375 = icmp ult i8 %374, 10
+  br i1 %375, label %.thread626, label %380, !prof !244
 
-.thread618:                                       ; preds = %371
-  %375 = zext nneg i8 %372 to i32
-  %376 = getelementptr inbounds nuw i8, ptr %.12502, i64 1
-  %377 = add nsw i32 %375, -48
-  %378 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %377, ptr %378, align 4, !tbaa !687
-  br label %381
+.thread626:                                       ; preds = %372
+  %376 = zext nneg i8 %373 to i32
+  %377 = getelementptr inbounds nuw i8, ptr %.12504, i64 1
+  %378 = add nsw i32 %376, -48
+  %379 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %378, ptr %379, align 4, !tbaa !688
+  br label %382
 
-379:                                              ; preds = %371
-  %380 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.12502, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread553
+380:                                              ; preds = %372
+  %381 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.12504, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
+  br label %.thread555
 
-381:                                              ; preds = %.thread618, %106
-  %.13503 = phi ptr [ %1, %106 ], [ %376, %.thread618 ]
-  %382 = icmp ult ptr %.13503, %7
-  br i1 %382, label %.lr.ph683, label %._crit_edge684, !prof !360
+382:                                              ; preds = %.thread626, %106
+  %.13505 = phi ptr [ %1, %106 ], [ %377, %.thread626 ]
+  %383 = icmp ult ptr %.13505, %7
+  br i1 %383, label %.lr.ph690, label %._crit_edge691, !prof !360
 
-.lr.ph683:                                        ; preds = %381
-  %383 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.promoted686 = load i32, ptr %383, align 4
-  br label %394
+.lr.ph690:                                        ; preds = %382
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.promoted693 = load i32, ptr %384, align 4
+  br label %395
 
-._crit_edge684:                                   ; preds = %408, %381
-  %.30.lcssa = phi ptr [ %.13503, %381 ], [ %409, %408 ]
-  %384 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %385 = load i8, ptr %384, align 8, !tbaa !176, !range !181, !noundef !182
-  %386 = trunc nuw i8 %385 to i1
-  br i1 %386, label %387, label %.thread621, !prof !245
+._crit_edge691:                                   ; preds = %409, %382
+  %.30.lcssa = phi ptr [ %.13505, %382 ], [ %410, %409 ]
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %386 = load i8, ptr %385, align 8, !tbaa !176, !range !181, !noundef !182
+  %387 = trunc nuw i8 %386 to i1
+  br i1 %387, label %388, label %.thread629, !prof !245
 
-387:                                              ; preds = %._crit_edge684
-  %388 = ptrtoint ptr %.30.lcssa to i64
-  %389 = ptrtoint ptr %1 to i64
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %391 = sub i64 %388, %389
-  %392 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %390, ptr noundef %1, i64 noundef %391)
-  %393 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread553
+388:                                              ; preds = %._crit_edge691
+  %389 = ptrtoint ptr %.30.lcssa to i64
+  %390 = ptrtoint ptr %1 to i64
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %392 = sub i64 %389, %390
+  %393 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %391, ptr noundef %1, i64 noundef %392)
+  %394 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread555
 
-394:                                              ; preds = %.lr.ph683, %408
-  %storemerge687 = phi i32 [ %.promoted686, %.lr.ph683 ], [ %storemerge, %408 ]
-  %.30681 = phi ptr [ %.13503, %.lr.ph683 ], [ %409, %408 ]
-  %395 = load i8, ptr %.30681, align 1, !tbaa !15
-  %396 = add i8 %395, -48
-  %397 = icmp ult i8 %396, 10
-  br i1 %397, label %398, label %.thread621, !prof !244
+395:                                              ; preds = %.lr.ph690, %409
+  %storemerge694 = phi i32 [ %.promoted693, %.lr.ph690 ], [ %storemerge, %409 ]
+  %.30688 = phi ptr [ %.13505, %.lr.ph690 ], [ %410, %409 ]
+  %396 = load i8, ptr %.30688, align 1, !tbaa !15
+  %397 = add i8 %396, -48
+  %398 = icmp ult i8 %397, 10
+  br i1 %398, label %399, label %.thread629, !prof !244
 
-398:                                              ; preds = %394
-  %399 = icmp sgt i32 %storemerge687, 214748364
-  br i1 %399, label %408, label %400, !prof !245
+399:                                              ; preds = %395
+  %400 = icmp sgt i32 %storemerge694, 214748364
+  br i1 %400, label %409, label %401, !prof !245
 
-400:                                              ; preds = %398
-  %401 = icmp eq i32 %storemerge687, 214748364
-  %402 = icmp samesign ugt i8 %395, 55
-  %403 = and i1 %402, %401
-  br i1 %403, label %408, label %404, !prof !245
+401:                                              ; preds = %399
+  %402 = icmp eq i32 %storemerge694, 214748364
+  %403 = icmp samesign ugt i8 %396, 55
+  %404 = and i1 %403, %402
+  br i1 %404, label %409, label %405, !prof !245
 
-404:                                              ; preds = %400
-  %405 = mul nsw i32 %storemerge687, 10
-  %406 = zext nneg i8 %396 to i32
-  %407 = add nsw i32 %405, %406
-  br label %408
+405:                                              ; preds = %401
+  %406 = mul nsw i32 %storemerge694, 10
+  %407 = zext nneg i8 %397 to i32
+  %408 = add nsw i32 %406, %407
+  br label %409
 
-408:                                              ; preds = %404, %400, %398
-  %storemerge = phi i32 [ %407, %404 ], [ 2147483647, %400 ], [ 2147483647, %398 ]
-  store i32 %storemerge, ptr %383, align 4, !tbaa !687
-  %409 = getelementptr inbounds nuw i8, ptr %.30681, i64 1
-  %exitcond744.not = icmp eq ptr %409, %7
-  br i1 %exitcond744.not, label %._crit_edge684, label %394, !prof !688
+409:                                              ; preds = %405, %401, %399
+  %storemerge = phi i32 [ %408, %405 ], [ 2147483647, %401 ], [ 2147483647, %399 ]
+  store i32 %storemerge, ptr %384, align 4, !tbaa !688
+  %410 = getelementptr inbounds nuw i8, ptr %.30688, i64 1
+  %exitcond751.not = icmp eq ptr %410, %7
+  br i1 %exitcond751.not, label %._crit_edge691, label %395, !prof !686
 
-.thread621:                                       ; preds = %394, %._crit_edge684
-  %.30629 = phi ptr [ %.30.lcssa, %._crit_edge684 ], [ %.30681, %394 ]
-  %410 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %411 = load i8, ptr %410, align 8, !tbaa !686, !range !181, !noundef !182
-  %412 = trunc nuw i8 %411 to i1
-  %413 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %414 = load i32, ptr %413, align 8, !tbaa !685
-  %415 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %416 = load i32, ptr %415, align 4, !tbaa !687
-  br i1 %412, label %417, label %427
+.thread629:                                       ; preds = %395, %._crit_edge691
+  %.30636 = phi ptr [ %.30.lcssa, %._crit_edge691 ], [ %.30688, %395 ]
+  %411 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %412 = load i8, ptr %411, align 8, !tbaa !687, !range !181, !noundef !182
+  %413 = trunc nuw i8 %412 to i1
+  %414 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %415 = load i32, ptr %414, align 8, !tbaa !685
+  %416 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %417 = load i32, ptr %416, align 4, !tbaa !688
+  br i1 %413, label %418, label %428
 
-417:                                              ; preds = %.thread621
-  %418 = or i32 %416, -2147483648
-  %419 = icmp slt i32 %414, %418
-  br i1 %419, label %420, label %.thread525, !prof !245
+418:                                              ; preds = %.thread629
+  %419 = or i32 %417, -2147483648
+  %420 = icmp slt i32 %415, %419
+  br i1 %420, label %421, label %.thread527, !prof !245
 
-420:                                              ; preds = %417
-  %421 = icmp eq i32 %416, 2147483647
-  %422 = icmp samesign ult i32 %414, -2147483339
-  %or.cond188 = and i1 %422, %421
-  %423 = load i64, ptr %3, align 8
-  %424 = icmp ne i64 %423, 0
-  %or.cond195 = select i1 %or.cond188, i1 %424, i1 false, !prof !689
-  br i1 %or.cond195, label %425, label %.thread525.sink.split, !prof !689
+421:                                              ; preds = %418
+  %422 = icmp eq i32 %417, 2147483647
+  %423 = icmp samesign ult i32 %415, -2147483339
+  %or.cond190 = and i1 %423, %422
+  %424 = load i64, ptr %3, align 8
+  %425 = icmp ne i64 %424, 0
+  %or.cond197 = select i1 %or.cond190, i1 %425, i1 false, !prof !689
+  br i1 %or.cond197, label %426, label %.thread527.sink.split, !prof !689
 
-425:                                              ; preds = %420
-  %426 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30629, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %.thread553
+426:                                              ; preds = %421
+  %427 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30636, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %.thread555
 
-427:                                              ; preds = %.thread621
-  %428 = sub nsw i32 2147483647, %416
-  %429 = icmp sgt i32 %414, %428
-  br i1 %429, label %430, label %.thread525, !prof !245
+428:                                              ; preds = %.thread629
+  %429 = sub nsw i32 2147483647, %417
+  %430 = icmp sgt i32 %415, %429
+  br i1 %430, label %431, label %.thread527, !prof !245
 
-430:                                              ; preds = %427
-  %431 = icmp eq i32 %416, 2147483647
-  %432 = icmp samesign ugt i32 %414, 2147483339
-  %or.cond191 = and i1 %432, %431
-  %433 = load i64, ptr %3, align 8
-  %434 = icmp ne i64 %433, 0
-  %or.cond197 = select i1 %or.cond191, i1 %434, i1 false, !prof !689
-  br i1 %or.cond197, label %435, label %.thread525.sink.split, !prof !689
+431:                                              ; preds = %428
+  %432 = icmp eq i32 %417, 2147483647
+  %433 = icmp samesign ugt i32 %415, 2147483339
+  %or.cond193 = and i1 %433, %432
+  %434 = load i64, ptr %3, align 8
+  %435 = icmp ne i64 %434, 0
+  %or.cond199 = select i1 %or.cond193, i1 %435, i1 false, !prof !689
+  br i1 %or.cond199, label %436, label %.thread527.sink.split, !prof !689
 
-435:                                              ; preds = %430
-  %436 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30629, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %.thread553
+436:                                              ; preds = %431
+  %437 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.30636, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE1EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %.thread555
 
-437:                                              ; preds = %286, %271, %._crit_edge, %._crit_edge663
-  %.16506 = phi ptr [ %.11501, %271 ], [ %.15505.lcssa, %._crit_edge663 ], [ %.19509.lcssa, %._crit_edge ], [ %spec.select, %286 ]
-  %438 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %439 = load i8, ptr %438, align 1, !tbaa !691, !range !181, !noundef !182
-  %440 = trunc nuw i8 %439 to i1
-  %441 = load i64, ptr %3, align 8, !tbaa !683
-  br i1 %440, label %442, label %444
+438:                                              ; preds = %286, %271, %._crit_edge, %._crit_edge670
+  %.16508 = phi ptr [ %.11503, %271 ], [ %.15507.lcssa, %._crit_edge670 ], [ %.19511.lcssa, %._crit_edge ], [ %.11503, %286 ]
+  %439 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %440 = load i8, ptr %439, align 1, !tbaa !691, !range !181, !noundef !182
+  %441 = trunc nuw i8 %440 to i1
+  %442 = load i64, ptr %3, align 8, !tbaa !683
+  br i1 %441, label %443, label %445
 
-442:                                              ; preds = %437
-  %443 = sub i64 0, %441
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %443)
-  br label %.thread553
+443:                                              ; preds = %438
+  %444 = sub i64 0, %442
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %444)
+  br label %.thread555
 
-444:                                              ; preds = %437
-  %445 = icmp sgt i64 %441, -1
-  br i1 %445, label %446, label %448
+445:                                              ; preds = %438
+  %446 = icmp sgt i64 %442, -1
+  br i1 %446, label %447, label %449
 
-446:                                              ; preds = %444, %22
-  %447 = phi i64 [ %441, %444 ], [ 0, %22 ]
-  %.5495 = phi ptr [ %.16506, %444 ], [ %20, %22 ]
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %447)
-  br label %.thread553
+447:                                              ; preds = %445, %22
+  %448 = phi i64 [ %442, %445 ], [ 0, %22 ]
+  %.5497 = phi ptr [ %.16508, %445 ], [ %20, %22 ]
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %448)
+  br label %.thread555
 
-448:                                              ; preds = %444
-  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %441)
-  br label %.thread553
+449:                                              ; preds = %445
+  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %442)
+  br label %.thread555
 
-.thread525.sink.split:                            ; preds = %430, %420
-  store i32 0, ptr %413, align 8, !tbaa !685
-  store i32 2147483647, ptr %415, align 4, !tbaa !687
-  br label %.thread525
+.thread527.sink.split:                            ; preds = %431, %421
+  store i32 0, ptr %414, align 8, !tbaa !685
+  store i32 2147483647, ptr %416, align 4, !tbaa !688
+  br label %.thread527
 
-.thread525:                                       ; preds = %.thread525.sink.split, %333, %264, %227, %104, %417, %427, %._crit_edge674, %._crit_edge679, %._crit_edge668
-  %.6496 = phi ptr [ %.30629, %417 ], [ %.30629, %427 ], [ %.24.lcssa, %._crit_edge679 ], [ %.27.lcssa, %._crit_edge674 ], [ %.21.lcssa, %._crit_edge668 ], [ %99, %104 ], [ %.21666, %227 ], [ %.24677, %264 ], [ %.27672, %333 ], [ %.30629, %.thread525.sink.split ]
+.thread527:                                       ; preds = %.thread527.sink.split, %334, %264, %227, %104, %418, %428, %._crit_edge681, %._crit_edge686, %._crit_edge675
+  %.6498 = phi ptr [ %.30636, %418 ], [ %.30636, %428 ], [ %.24.lcssa, %._crit_edge686 ], [ %.27.lcssa, %._crit_edge681 ], [ %.21.lcssa, %._crit_edge675 ], [ %99, %104 ], [ %.21673, %227 ], [ %.24684, %264 ], [ %.27679, %334 ], [ %.30636, %.thread527.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %449 = ptrtoint ptr %.6496 to i64
-  %450 = ptrtoint ptr %1 to i64
-  %451 = sub i64 %449, %450
-  %452 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %453 = load i64, ptr %452, align 8, !tbaa !179
-  %.not182 = icmp eq i64 %453, 0
-  br i1 %.not182, label %458, label %454, !prof !244
+  %450 = ptrtoint ptr %.6498 to i64
+  %451 = ptrtoint ptr %1 to i64
+  %452 = sub i64 %450, %451
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %454 = load i64, ptr %453, align 8, !tbaa !179
+  %.not182 = icmp eq i64 %454, 0
+  br i1 %.not182, label %459, label %455, !prof !244
 
-454:                                              ; preds = %.thread525
-  %455 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %456 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %455, ptr noundef %1, i64 noundef %451)
-  %457 = load i64, ptr %452, align 8, !tbaa !179
-  br label %458
+455:                                              ; preds = %.thread527
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %457 = tail call noundef ptr @_ZN5boost4json6detail10sbo_bufferILm34EE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %456, ptr noundef %1, i64 noundef %452)
+  %458 = load i64, ptr %453, align 8, !tbaa !179
+  br label %459
 
-458:                                              ; preds = %454, %.thread525
-  %.0160 = phi i64 [ %457, %454 ], [ %451, %.thread525 ]
-  %.0159 = phi ptr [ %456, %454 ], [ %1, %.thread525 ]
-  %459 = getelementptr inbounds nuw i8, ptr %.0159, i64 %.0160
-  %460 = call { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10fast_float19from_chars_advancedIdcEENS2_19from_chars_result_tIT0_EEPKS7_SA_RT_NS4_15parse_options_tIS7_EE(ptr noundef %.0159, ptr noundef %459, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 197568495619) #50
-  %461 = load double, ptr %5, align 8, !tbaa !460
-  call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %461)
+459:                                              ; preds = %455, %.thread527
+  %.0160 = phi i64 [ %458, %455 ], [ %452, %.thread527 ]
+  %.0159 = phi ptr [ %457, %455 ], [ %1, %.thread527 ]
+  %460 = getelementptr inbounds nuw i8, ptr %.0159, i64 %.0160
+  %461 = call { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10fast_float19from_chars_advancedIdcEENS2_19from_chars_result_tIT0_EEPKS7_SA_RT_NS4_15parse_options_tIS7_EE(ptr noundef %.0159, ptr noundef %460, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 197568495619) #50
+  %462 = load double, ptr %5, align 8, !tbaa !460
+  call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef %462)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread553
+  br label %.thread555
 
-.thread553:                                       ; preds = %136, %132, %379, %.thread602, %307, %247, %.thread575, %.thread513, %458, %448, %446, %442, %435, %425, %387, %369, %362, %343, %314, %301, %294, %275, %254, %235, %209, %177, %153, %140
-  %.2 = phi ptr [ %300, %294 ], [ %302, %301 ], [ %320, %314 ], [ %.6496, %458 ], [ %260, %254 ], [ %349, %343 ], [ %368, %362 ], [ %370, %369 ], [ %393, %387 ], [ %426, %425 ], [ %436, %435 ], [ %380, %379 ], [ %308, %307 ], [ %.5495, %446 ], [ %159, %153 ], [ %.16506, %442 ], [ %.16506, %448 ], [ %215, %209 ], [ %241, %235 ], [ %248, %247 ], [ %281, %275 ], [ %183, %177 ], [ %143, %140 ], [ %35, %.thread513 ], [ %223, %.thread575 ], [ %332, %.thread602 ], [ %137, %136 ], [ %135, %132 ]
+.thread555:                                       ; preds = %136, %132, %380, %.thread610, %308, %247, %.thread577, %.thread515, %459, %449, %447, %443, %436, %426, %388, %370, %363, %344, %315, %302, %295, %275, %254, %235, %209, %177, %153, %140
+  %.2 = phi ptr [ %301, %295 ], [ %303, %302 ], [ %321, %315 ], [ %.6498, %459 ], [ %260, %254 ], [ %350, %344 ], [ %369, %363 ], [ %371, %370 ], [ %394, %388 ], [ %427, %426 ], [ %437, %436 ], [ %381, %380 ], [ %309, %308 ], [ %.5497, %447 ], [ %159, %153 ], [ %.16508, %443 ], [ %.16508, %449 ], [ %215, %209 ], [ %241, %235 ], [ %248, %247 ], [ %281, %275 ], [ %183, %177 ], [ %143, %140 ], [ %35, %.thread515 ], [ %223, %.thread577 ], [ %333, %.thread610 ], [ %137, %136 ], [ %135, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -55147,7 +55165,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %16 = sub i64 %7, %15
   %17 = icmp ugt i64 %16, 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %13, i8 0, i64 10, i1 false)
-  br i1 %17, label %18, label %.thread460
+  br i1 %17, label %18, label %.thread463
 
 18:                                               ; preds = %12
   store i64 0, ptr %3, align 8, !tbaa !683
@@ -55159,11 +55177,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 21:                                               ; preds = %18
   %22 = and i8 %20, -33
   %23 = icmp eq i8 %22, 69
-  br i1 %23, label %.thread457, label %331
+  br i1 %23, label %.thread460, label %332
 
-.thread457:                                       ; preds = %21
+.thread460:                                       ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %.thread476
+  br label %.thread479
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -55173,11 +55191,11 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %30 = bitcast <16 x i1> %29 to i16
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %30, i1 false)
   %32 = icmp eq i16 %31, 0
-  br i1 %32, label %.thread441, label %34
+  br i1 %32, label %.thread444, label %34
 
-.thread441:                                       ; preds = %25
+.thread444:                                       ; preds = %25
   %33 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_0) #50
-  br label %.thread481
+  br label %.thread484
 
 34:                                               ; preds = %25
   %35 = zext nneg i16 %31 to i32
@@ -55188,16 +55206,16 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = and i8 %39, -33
   %41 = icmp eq i8 %40, 69
-  br i1 %41, label %.thread449, label %43
+  br i1 %41, label %.thread452, label %43
 
-.thread449:                                       ; preds = %34
+.thread452:                                       ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  br label %.thread476
+  br label %.thread479
 
 43:                                               ; preds = %34
   %44 = add i8 %39, -48
   %or.cond = icmp ult i8 %44, 10
-  br i1 %or.cond, label %.thread445, label %.thread453
+  br i1 %or.cond, label %.thread448, label %.thread456
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -55210,38 +55228,38 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %52 = add i64 %10, -1
   store i64 %52, ptr %9, align 8, !tbaa !190
   switch i8 %51, label %53 [
-    i8 38, label %.thread460
-    i8 39, label %.thread462
-    i8 40, label %.thread464
-    i8 41, label %.thread466
-    i8 42, label %.thread468
-    i8 43, label %.thread470
-    i8 44, label %.thread472
-    i8 45, label %.thread445
-    i8 46, label %.thread476
-    i8 47, label %.thread478
-    i8 48, label %272
+    i8 38, label %.thread463
+    i8 39, label %.thread465
+    i8 40, label %.thread467
+    i8 41, label %.thread469
+    i8 42, label %.thread471
+    i8 43, label %.thread473
+    i8 44, label %.thread475
+    i8 45, label %.thread448
+    i8 46, label %.thread479
+    i8 47, label %.thread481
+    i8 48, label %273
   ]
 
 53:                                               ; preds = %45
   unreachable
 
-.thread460:                                       ; preds = %45, %12
+.thread463:                                       ; preds = %45, %12
   %54 = icmp ult ptr %1, %6
   br i1 %54, label %55, label %79, !prof !244
 
-55:                                               ; preds = %.thread460
+55:                                               ; preds = %.thread463
   %56 = load i8, ptr %1, align 1, !tbaa !15
   %57 = add i8 %56, -49
   %58 = icmp ult i8 %57, 9
-  br i1 %58, label %.thread485, label %62, !prof !244
+  br i1 %58, label %.thread488, label %62, !prof !244
 
-.thread485:                                       ; preds = %55
+.thread488:                                       ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %60 = and i8 %56, 15
   %61 = zext nneg i8 %60 to i64
   store i64 %61, ptr %3, align 8, !tbaa !683
-  br label %.thread462
+  br label %.thread465
 
 62:                                               ; preds = %55
   %63 = icmp eq i8 %56, 48
@@ -55267,602 +55285,604 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 273
   store i8 1, ptr %73, align 1, !tbaa !173
   %74 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13parse_literalISt17integral_constantINS2_8literalsELS7_6EEEEPKcSA_T_(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1)
-  br label %.thread481
+  br label %.thread484
 
 75:                                               ; preds = %64
   %76 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_1) #50
-  br label %.thread481
+  br label %.thread484
 
 77:                                               ; preds = %62
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i64 0, ptr %3, align 8, !tbaa !683
-  br label %.thread470
+  br label %.thread473
 
-79:                                               ; preds = %.thread460
+79:                                               ; preds = %.thread463
   %80 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %1, i8 noundef signext 38, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+  br label %.thread484
 
-.thread462:                                       ; preds = %45, %.thread485
-  %.6427 = phi ptr [ %59, %.thread485 ], [ %1, %45 ]
-  %.6427626 = ptrtoint ptr %.6427 to i64
+.thread465:                                       ; preds = %45, %.thread488
+  %.6430 = phi ptr [ %59, %.thread488 ], [ %1, %45 ]
+  %.6430634 = ptrtoint ptr %.6430 to i64
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %82 = load i8, ptr %81, align 1, !tbaa !691, !range !181, !noundef !182
   %83 = trunc nuw i8 %82 to i1
   %84 = load i64, ptr %3, align 8
   %.fr = freeze i64 %84
-  br i1 %83, label %.preheader, label %.preheader545
+  br i1 %83, label %.preheader, label %.preheader553
 
-.preheader545:                                    ; preds = %.thread462
+.preheader553:                                    ; preds = %.thread465
   %85 = icmp ugt i64 %.fr, 1844674407370955161
-  br i1 %85, label %.preheader545.split.us, label %.preheader545.split
+  br i1 %85, label %.preheader553.split.us, label %.preheader553.split
 
-.preheader545.split.us:                           ; preds = %.preheader545
-  %86 = icmp ult ptr %.6427, %6
+.preheader553.split.us:                           ; preds = %.preheader553
+  %86 = icmp ult ptr %.6430, %6
   br i1 %86, label %87, label %.split.us, !prof !244
 
-87:                                               ; preds = %.preheader545.split.us
-  %88 = load i8, ptr %.6427, align 1, !tbaa !15
+87:                                               ; preds = %.preheader553.split.us
+  %88 = load i8, ptr %.6430, align 1, !tbaa !15
   %89 = add i8 %88, -48
   %90 = icmp ult i8 %89, 10
-  br i1 %90, label %.thread491.loopexit547.split.us, label %.thread470, !prof !244
+  br i1 %90, label %.thread494.loopexit555.split.us, label %.thread473, !prof !244
 
-.thread491.loopexit547.split.us:                  ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %.6427, i64 1
-  br label %.thread491
+.thread494.loopexit555.split.us:                  ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %.6430, i64 1
+  br label %.thread494
 
-.preheader545.split:                              ; preds = %.preheader545
+.preheader553.split:                              ; preds = %.preheader553
   %92 = icmp eq i64 %.fr, 1844674407370955161
-  br i1 %92, label %.preheader545.split.split, label %.preheader545.split.split.us
+  br i1 %92, label %.preheader553.split.split, label %.preheader553.split.split.us
 
-.preheader545.split.split.us:                     ; preds = %.preheader545.split
-  %93 = icmp ult ptr %.6427, %6
+.preheader553.split.split.us:                     ; preds = %.preheader553.split
+  %93 = icmp ult ptr %.6430, %6
   br i1 %93, label %.lr.ph.preheader, label %.split.us, !prof !360
 
-.lr.ph.preheader:                                 ; preds = %.preheader545.split.split.us
-  %94 = sub i64 %7, %.6427626
-  %scevgep = getelementptr i8, ptr %.6427, i64 %94
+.lr.ph.preheader:                                 ; preds = %.preheader553.split.split.us
+  %94 = sub i64 %7, %.6430634
+  %scevgep = getelementptr i8, ptr %.6430, i64 %94
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %98
-  %.18.us563569 = phi ptr [ %99, %98 ], [ %.6427, %.lr.ph.preheader ]
-  %95 = load i8, ptr %.18.us563569, align 1, !tbaa !15
+  %.18.us571577 = phi ptr [ %99, %98 ], [ %.6430, %.lr.ph.preheader ]
+  %95 = load i8, ptr %.18.us571577, align 1, !tbaa !15
   %96 = add i8 %95, -48
   %97 = icmp ult i8 %96, 10
-  br i1 %97, label %98, label %.thread470, !prof !244
+  br i1 %97, label %98, label %.thread473, !prof !244
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw i8, ptr %.18.us563569, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.18.us571577, i64 1
   %exitcond.not = icmp eq ptr %99, %6
-  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !688
+  br i1 %exitcond.not, label %.split.us, label %.lr.ph, !prof !686
 
-.preheader:                                       ; preds = %.thread462
+.preheader:                                       ; preds = %.thread465
   %100 = icmp ugt i64 %.fr, 922337203685477580
   br i1 %100, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
-  %101 = icmp ult ptr %.6427, %6
-  br i1 %101, label %102, label %.split571.us, !prof !244
+  %101 = icmp ult ptr %.6430, %6
+  br i1 %101, label %102, label %.split579.us, !prof !244
 
 102:                                              ; preds = %.preheader.split.us
-  %103 = load i8, ptr %.6427, align 1, !tbaa !15
+  %103 = load i8, ptr %.6430, align 1, !tbaa !15
   %104 = add i8 %103, -48
   %105 = icmp ult i8 %104, 10
-  br i1 %105, label %.thread491.loopexit.split.us, label %.thread470, !prof !244
+  br i1 %105, label %.thread494.loopexit.split.us, label %.thread473, !prof !244
 
-.thread491.loopexit.split.us:                     ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %.6427, i64 1
-  br label %.thread491
+.thread494.loopexit.split.us:                     ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %.6430, i64 1
+  br label %.thread494
 
 .preheader.split:                                 ; preds = %.preheader
   %107 = icmp eq i64 %.fr, 922337203685477580
   br i1 %107, label %.preheader.split.split, label %.preheader.split.split.us
 
 .preheader.split.split.us:                        ; preds = %.preheader.split
-  %108 = icmp ult ptr %.6427, %6
-  br i1 %108, label %.lr.ph583.preheader, label %.split571.us, !prof !360
+  %108 = icmp ult ptr %.6430, %6
+  br i1 %108, label %.lr.ph591.preheader, label %.split579.us, !prof !360
 
-.lr.ph583.preheader:                              ; preds = %.preheader.split.split.us
-  %109 = sub i64 %7, %.6427626
-  %scevgep627 = getelementptr i8, ptr %.6427, i64 %109
-  br label %.lr.ph583
+.lr.ph591.preheader:                              ; preds = %.preheader.split.split.us
+  %109 = sub i64 %7, %.6430634
+  %scevgep635 = getelementptr i8, ptr %.6430, i64 %109
+  br label %.lr.ph591
 
-.lr.ph583:                                        ; preds = %.lr.ph583.preheader, %113
-  %.14435.us576582 = phi ptr [ %114, %113 ], [ %.6427, %.lr.ph583.preheader ]
-  %110 = load i8, ptr %.14435.us576582, align 1, !tbaa !15
+.lr.ph591:                                        ; preds = %.lr.ph591.preheader, %113
+  %.14438.us584590 = phi ptr [ %114, %113 ], [ %.6430, %.lr.ph591.preheader ]
+  %110 = load i8, ptr %.14438.us584590, align 1, !tbaa !15
   %111 = add i8 %110, -48
   %112 = icmp ult i8 %111, 10
-  br i1 %112, label %113, label %.thread470, !prof !244
+  br i1 %112, label %113, label %.thread473, !prof !244
 
-113:                                              ; preds = %.lr.ph583
-  %114 = getelementptr inbounds nuw i8, ptr %.14435.us576582, i64 1
-  %exitcond628.not = icmp eq ptr %114, %6
-  br i1 %exitcond628.not, label %.split571.us, label %.lr.ph583, !prof !688
+113:                                              ; preds = %.lr.ph591
+  %114 = getelementptr inbounds nuw i8, ptr %.14438.us584590, i64 1
+  %exitcond636.not = icmp eq ptr %114, %6
+  br i1 %exitcond636.not, label %.split579.us, label %.lr.ph591, !prof !686
 
 .preheader.split.split:                           ; preds = %.preheader.split, %125
-  %.14435 = phi ptr [ %126, %125 ], [ %.6427, %.preheader.split ]
-  %115 = icmp ult ptr %.14435, %6
-  br i1 %115, label %121, label %.split571.us, !prof !244
+  %.14438 = phi ptr [ %126, %125 ], [ %.6430, %.preheader.split ]
+  %115 = icmp ult ptr %.14438, %6
+  br i1 %115, label %121, label %.split579.us, !prof !244
 
-.split571.us:                                     ; preds = %113, %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us
-  %.us-phi572 = phi ptr [ %.6427, %.preheader.split.us ], [ %.6427, %.preheader.split.split.us ], [ %.14435, %.preheader.split.split ], [ %scevgep627, %113 ]
+.split579.us:                                     ; preds = %113, %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us
+  %.us-phi580 = phi ptr [ %.6430, %.preheader.split.us ], [ %.6430, %.preheader.split.split.us ], [ %.14438, %.preheader.split.split ], [ %scevgep635, %113 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %117 = load i8, ptr %116, align 8, !tbaa !176, !range !181, !noundef !182
   %118 = trunc nuw i8 %117 to i1
-  br i1 %118, label %119, label %322, !prof !245
+  br i1 %118, label %119, label %323, !prof !245
 
-119:                                              ; preds = %.split571.us
-  %120 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.us-phi572, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+119:                                              ; preds = %.split579.us
+  %120 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.us-phi580, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
 121:                                              ; preds = %.preheader.split.split
-  %122 = load i8, ptr %.14435, align 1, !tbaa !15
+  %122 = load i8, ptr %.14438, align 1, !tbaa !15
   %123 = add i8 %122, -48
   %124 = icmp ult i8 %123, 10
-  br i1 %124, label %125, label %.thread470, !prof !244
+  br i1 %124, label %125, label %.thread473, !prof !244
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %.14435, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %.14438, i64 1
   %127 = icmp samesign ugt i8 %122, 56
-  br i1 %127, label %.thread491, label %.preheader.split.split
+  br i1 %127, label %.thread494, label %.preheader.split.split
 
-.preheader545.split.split:                        ; preds = %.preheader545.split, %138
-  %.18 = phi ptr [ %139, %138 ], [ %.6427, %.preheader545.split ]
+.preheader553.split.split:                        ; preds = %.preheader553.split, %138
+  %.18 = phi ptr [ %139, %138 ], [ %.6430, %.preheader553.split ]
   %128 = icmp ult ptr %.18, %6
   br i1 %128, label %134, label %.split.us, !prof !244
 
-.split.us:                                        ; preds = %98, %.preheader545.split.split, %.preheader545.split.split.us, %.preheader545.split.us
-  %.us-phi = phi ptr [ %.6427, %.preheader545.split.us ], [ %.6427, %.preheader545.split.split.us ], [ %.18, %.preheader545.split.split ], [ %scevgep, %98 ]
+.split.us:                                        ; preds = %98, %.preheader553.split.split, %.preheader553.split.split.us, %.preheader553.split.us
+  %.us-phi = phi ptr [ %.6430, %.preheader553.split.us ], [ %.6430, %.preheader553.split.split.us ], [ %.18, %.preheader553.split.split ], [ %scevgep, %98 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %130 = load i8, ptr %129, align 8, !tbaa !176, !range !181, !noundef !182
   %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %132, label %322, !prof !245
+  br i1 %131, label %132, label %323, !prof !245
 
 132:                                              ; preds = %.split.us
   %133 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.us-phi, i8 noundef signext 39, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+  br label %.thread484
 
-134:                                              ; preds = %.preheader545.split.split
+134:                                              ; preds = %.preheader553.split.split
   %135 = load i8, ptr %.18, align 1, !tbaa !15
   %136 = add i8 %135, -48
   %137 = icmp ult i8 %136, 10
-  br i1 %137, label %138, label %.thread470, !prof !244
+  br i1 %137, label %138, label %.thread473, !prof !244
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %.18, i64 1
   %140 = icmp samesign ugt i8 %135, 53
-  br i1 %140, label %.thread491, label %.preheader545.split.split
+  br i1 %140, label %.thread494, label %.preheader553.split.split
 
-.thread491:                                       ; preds = %138, %125, %.thread491.loopexit547.split.us, %.thread491.loopexit.split.us
-  %.17438 = phi ptr [ %106, %.thread491.loopexit.split.us ], [ %91, %.thread491.loopexit547.split.us ], [ %126, %125 ], [ %139, %138 ]
+.thread494:                                       ; preds = %138, %125, %.thread494.loopexit555.split.us, %.thread494.loopexit.split.us
+  %.17441 = phi ptr [ %106, %.thread494.loopexit.split.us ], [ %91, %.thread494.loopexit555.split.us ], [ %126, %125 ], [ %139, %138 ]
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %142 = load i32, ptr %141, align 8, !tbaa !685
   %143 = add nsw i32 %142, 1
   store i32 %143, ptr %141, align 8, !tbaa !685
-  br label %.thread464
+  br label %.thread467
 
-.thread464:                                       ; preds = %45, %.thread491
-  %.7428 = phi ptr [ %.17438, %.thread491 ], [ %1, %45 ]
-  %144 = icmp ult ptr %.7428, %6
-  br i1 %144, label %.lr.ph586, label %._crit_edge, !prof !360
+.thread467:                                       ; preds = %45, %.thread494
+  %.7431 = phi ptr [ %.17441, %.thread494 ], [ %1, %45 ]
+  %144 = icmp ult ptr %.7431, %6
+  br i1 %144, label %.lr.ph594, label %._crit_edge, !prof !360
 
-.lr.ph586:                                        ; preds = %.thread464
-  %.7428630 = ptrtoint ptr %.7428 to i64
+.lr.ph594:                                        ; preds = %.thread467
+  %.7431638 = ptrtoint ptr %.7431 to i64
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.promoted = load i32, ptr %145, align 8
   %146 = sub i32 2147483646, %.promoted
   %147 = zext i32 %146 to i64
-  %scevgep629 = getelementptr i8, ptr %.7428, i64 %147
-  %148 = sub i64 %7, %.7428630
-  %scevgep631 = getelementptr i8, ptr %.7428, i64 %148
+  %scevgep637 = getelementptr i8, ptr %.7431, i64 %147
+  %148 = sub i64 %7, %.7431638
+  %scevgep639 = getelementptr i8, ptr %.7431, i64 %148
   br label %154
 
-._crit_edge:                                      ; preds = %169, %.thread464
-  %.20.lcssa = phi ptr [ %.7428, %.thread464 ], [ %scevgep631, %169 ]
+._crit_edge:                                      ; preds = %169, %.thread467
+  %.20.lcssa = phi ptr [ %.7431, %.thread467 ], [ %scevgep639, %169 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %150 = load i8, ptr %149, align 8, !tbaa !176, !range !181, !noundef !182
   %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread453, !prof !245
+  br i1 %151, label %152, label %.thread456, !prof !245
 
 152:                                              ; preds = %._crit_edge
   %153 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.20.lcssa, i8 noundef signext 40, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+  br label %.thread484
 
-154:                                              ; preds = %.lr.ph586, %169
-  %155 = phi i32 [ %.promoted, %.lr.ph586 ], [ %171, %169 ]
-  %.20585 = phi ptr [ %.7428, %.lr.ph586 ], [ %170, %169 ]
-  %156 = load i8, ptr %.20585, align 1, !tbaa !15
+154:                                              ; preds = %.lr.ph594, %169
+  %155 = phi i32 [ %.promoted, %.lr.ph594 ], [ %171, %169 ]
+  %.20593 = phi ptr [ %.7431, %.lr.ph594 ], [ %170, %169 ]
+  %156 = load i8, ptr %.20593, align 1, !tbaa !15
   %157 = add i8 %156, -48
   %158 = icmp ult i8 %157, 10
   br i1 %158, label %159, label %162, !prof !245
 
 159:                                              ; preds = %154
   %160 = icmp eq i32 %155, 2147483646
-  br i1 %160, label %.thread505, label %169, !prof !245
+  br i1 %160, label %.thread508, label %169, !prof !245
 
-.thread505:                                       ; preds = %159
-  %161 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep629, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
-  br label %.thread481
+.thread508:                                       ; preds = %159
+  %161 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %scevgep637, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_2) #50
+  br label %.thread484
 
 162:                                              ; preds = %154
   %163 = icmp eq i8 %156, 46
-  br i1 %163, label %.thread509, label %165, !prof !244
+  br i1 %163, label %.thread512, label %165, !prof !244
 
-.thread509:                                       ; preds = %162
-  %164 = getelementptr inbounds nuw i8, ptr %.20585, i64 1
-  br label %.thread466
+.thread512:                                       ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %.20593, i64 1
+  br label %.thread469
 
 165:                                              ; preds = %162
   %166 = and i8 %156, -33
   %167 = icmp eq i8 %166, 69
-  br i1 %167, label %.thread513, label %.thread453
+  br i1 %167, label %.thread516, label %.thread456
 
-.thread513:                                       ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %.20585, i64 1
-  br label %.thread476
+.thread516:                                       ; preds = %165
+  %168 = getelementptr inbounds nuw i8, ptr %.20593, i64 1
+  br label %.thread479
 
 169:                                              ; preds = %159
-  %170 = getelementptr inbounds nuw i8, ptr %.20585, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.20593, i64 1
   %171 = add nsw i32 %155, 1
   store i32 %171, ptr %145, align 8, !tbaa !685
-  %exitcond632.not = icmp eq ptr %170, %6
-  br i1 %exitcond632.not, label %._crit_edge, label %154, !prof !688
+  %exitcond640.not = icmp eq ptr %170, %6
+  br i1 %exitcond640.not, label %._crit_edge, label %154, !prof !686
 
-.thread466:                                       ; preds = %45, %.thread509
-  %.8429 = phi ptr [ %164, %.thread509 ], [ %1, %45 ]
-  %172 = icmp ult ptr %.8429, %6
+.thread469:                                       ; preds = %45, %.thread512
+  %.8432 = phi ptr [ %164, %.thread512 ], [ %1, %45 ]
+  %172 = icmp ult ptr %.8432, %6
   br i1 %172, label %175, label %173, !prof !244
 
-173:                                              ; preds = %.thread466
-  %174 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8429, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+173:                                              ; preds = %.thread469
+  %174 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.8432, i8 noundef signext 41, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-175:                                              ; preds = %.thread466
-  %176 = load i8, ptr %.8429, align 1, !tbaa !15
+175:                                              ; preds = %.thread469
+  %176 = load i8, ptr %.8432, align 1, !tbaa !15
   %177 = add i8 %176, -48
   %178 = icmp ult i8 %177, 10
-  br i1 %178, label %.thread521, label %180, !prof !244
+  br i1 %178, label %.thread524, label %180, !prof !244
 
-.thread521:                                       ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr %.8429, i64 1
-  br label %.thread468
+.thread524:                                       ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %.8432, i64 1
+  br label %.thread471
 
 180:                                              ; preds = %175
-  %181 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8429, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
-  br label %.thread481
+  %181 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.8432, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_3) #50
+  br label %.thread484
 
-.thread468:                                       ; preds = %45, %.thread532, %.thread521
-  %.9430 = phi ptr [ %179, %.thread521 ], [ %238, %.thread532 ], [ %1, %45 ]
-  %182 = icmp ult ptr %.9430, %6
-  br i1 %182, label %.lr.ph589.preheader, label %._crit_edge590, !prof !360
+.thread471:                                       ; preds = %45, %.thread541, %.thread524
+  %.9433 = phi ptr [ %179, %.thread524 ], [ %239, %.thread541 ], [ %1, %45 ]
+  %182 = icmp ult ptr %.9433, %6
+  br i1 %182, label %.lr.ph597.preheader, label %._crit_edge598, !prof !360
 
-.lr.ph589.preheader:                              ; preds = %.thread468
-  %.9430633 = ptrtoint ptr %.9430 to i64
-  %183 = sub i64 %7, %.9430633
-  %scevgep634 = getelementptr i8, ptr %.9430, i64 %183
-  br label %.lr.ph589
+.lr.ph597.preheader:                              ; preds = %.thread471
+  %.9433641 = ptrtoint ptr %.9433 to i64
+  %183 = sub i64 %7, %.9433641
+  %scevgep642 = getelementptr i8, ptr %.9433, i64 %183
+  br label %.lr.ph597
 
-._crit_edge590:                                   ; preds = %196, %.thread468
-  %.23.lcssa = phi ptr [ %.9430, %.thread468 ], [ %scevgep634, %196 ]
+._crit_edge598:                                   ; preds = %196, %.thread471
+  %.23.lcssa = phi ptr [ %.9433, %.thread471 ], [ %scevgep642, %196 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %185 = load i8, ptr %184, align 8, !tbaa !176, !range !181, !noundef !182
   %186 = trunc nuw i8 %185 to i1
-  br i1 %186, label %187, label %.thread453, !prof !245
+  br i1 %186, label %187, label %.thread456, !prof !245
 
-187:                                              ; preds = %._crit_edge590
+187:                                              ; preds = %._crit_edge598
   %188 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.23.lcssa, i8 noundef signext 42, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+  br label %.thread484
 
-.lr.ph589:                                        ; preds = %.lr.ph589.preheader, %196
-  %.23588 = phi ptr [ %197, %196 ], [ %.9430, %.lr.ph589.preheader ]
-  %189 = load i8, ptr %.23588, align 1, !tbaa !15
+.lr.ph597:                                        ; preds = %.lr.ph597.preheader, %196
+  %.23596 = phi ptr [ %197, %196 ], [ %.9433, %.lr.ph597.preheader ]
+  %189 = load i8, ptr %.23596, align 1, !tbaa !15
   %190 = add i8 %189, -48
   %191 = icmp ult i8 %190, 10
   br i1 %191, label %196, label %192, !prof !244
 
-192:                                              ; preds = %.lr.ph589
+192:                                              ; preds = %.lr.ph597
   %193 = and i8 %189, -33
   %194 = icmp eq i8 %193, 69
-  br i1 %194, label %.thread524, label %.thread453
+  br i1 %194, label %.thread527, label %.thread456
 
-.thread524:                                       ; preds = %192
-  %195 = getelementptr inbounds nuw i8, ptr %.23588, i64 1
-  br label %.thread476
+.thread527:                                       ; preds = %192
+  %195 = getelementptr inbounds nuw i8, ptr %.23596, i64 1
+  br label %.thread479
 
-196:                                              ; preds = %.lr.ph589
-  %197 = getelementptr inbounds nuw i8, ptr %.23588, i64 1
-  %exitcond635.not = icmp eq ptr %197, %6
-  br i1 %exitcond635.not, label %._crit_edge590, label %.lr.ph589, !prof !688
+196:                                              ; preds = %.lr.ph597
+  %197 = getelementptr inbounds nuw i8, ptr %.23596, i64 1
+  %exitcond643.not = icmp eq ptr %197, %6
+  br i1 %exitcond643.not, label %._crit_edge598, label %.lr.ph597, !prof !686
 
-.thread470:                                       ; preds = %.lr.ph, %134, %.lr.ph583, %121, %87, %102, %45, %77
-  %.10431 = phi ptr [ %78, %77 ], [ %1, %45 ], [ %.6427, %102 ], [ %.6427, %87 ], [ %.14435, %121 ], [ %.14435.us576582, %.lr.ph583 ], [ %.18, %134 ], [ %.18.us563569, %.lr.ph ]
-  %198 = icmp ult ptr %.10431, %6
+.thread473:                                       ; preds = %.lr.ph, %134, %.lr.ph591, %121, %87, %102, %45, %77
+  %.10434 = phi ptr [ %78, %77 ], [ %1, %45 ], [ %.6430, %102 ], [ %.6430, %87 ], [ %.14438, %121 ], [ %.14438.us584590, %.lr.ph591 ], [ %.18, %134 ], [ %.18.us571577, %.lr.ph ]
+  %198 = icmp ult ptr %.10434, %6
   br i1 %198, label %205, label %199, !prof !244
 
-199:                                              ; preds = %.thread470
+199:                                              ; preds = %.thread473
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %201 = load i8, ptr %200, align 8, !tbaa !176, !range !181, !noundef !182
   %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %203, label %322, !prof !245
+  br i1 %202, label %203, label %323, !prof !245
 
 203:                                              ; preds = %199
-  %204 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.10431, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+  %204 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.10434, i8 noundef signext 43, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-205:                                              ; preds = %.thread470
-  %206 = load i8, ptr %.10431, align 1, !tbaa !15
+205:                                              ; preds = %.thread473
+  %206 = load i8, ptr %.10434, align 1, !tbaa !15
   %207 = icmp eq i8 %206, 46
-  br i1 %207, label %.thread, label %209, !prof !244
+  br i1 %207, label %.thread533, label %209, !prof !244
 
-.thread:                                          ; preds = %205
-  %208 = getelementptr inbounds nuw i8, ptr %.10431, i64 1
-  br label %.thread472
+.thread533:                                       ; preds = %205
+  %208 = getelementptr inbounds nuw i8, ptr %.10434, i64 1
+  br label %.thread475
 
 209:                                              ; preds = %205
   %210 = and i8 %206, -33
   %211 = icmp eq i8 %210, 69
-  %spec.select.idx = zext i1 %211 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.10431, i64 %spec.select.idx
-  br i1 %211, label %.thread476, label %322
+  br i1 %211, label %.thread536, label %323
 
-.thread472:                                       ; preds = %.thread, %45
-  %.2423 = phi ptr [ %1, %45 ], [ %208, %.thread ]
-  %212 = icmp ult ptr %.2423, %6
-  br i1 %212, label %221, label %213, !prof !244
+.thread536:                                       ; preds = %209
+  %212 = getelementptr inbounds nuw i8, ptr %.10434, i64 1
+  br label %.thread479
 
-213:                                              ; preds = %.thread472
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %215 = load i8, ptr %214, align 8, !tbaa !176, !range !181, !noundef !182
-  %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %217, label %219, !prof !245
+.thread475:                                       ; preds = %45, %.thread533
+  %.2426 = phi ptr [ %208, %.thread533 ], [ %1, %45 ]
+  %213 = icmp ult ptr %.2426, %6
+  br i1 %213, label %222, label %214, !prof !244
 
-217:                                              ; preds = %213
-  %218 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2423, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+214:                                              ; preds = %.thread475
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %216 = load i8, ptr %215, align 8, !tbaa !176, !range !181, !noundef !182
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %218, label %220, !prof !245
 
-219:                                              ; preds = %213
-  %220 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2423, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
-  br label %.thread481
+218:                                              ; preds = %214
+  %219 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2426, i8 noundef signext 44, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-221:                                              ; preds = %.thread472
-  %222 = load i8, ptr %.2423, align 1, !tbaa !15
-  %223 = add i8 %222, -48
-  %224 = icmp ult i8 %223, 10
-  br i1 %224, label %.thread445, label %225, !prof !244
+220:                                              ; preds = %214
+  %221 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.2426, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_4) #50
+  br label %.thread484
 
-225:                                              ; preds = %221
-  %226 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2423, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
-  br label %.thread481
+222:                                              ; preds = %.thread475
+  %223 = load i8, ptr %.2426, align 1, !tbaa !15
+  %224 = add i8 %223, -48
+  %225 = icmp ult i8 %224, 10
+  br i1 %225, label %.thread448, label %226, !prof !244
 
-.thread445:                                       ; preds = %221, %45, %43
-  %.26 = phi ptr [ %38, %43 ], [ %1, %45 ], [ %.2423, %221 ]
-  %227 = icmp ult ptr %.26, %6
-  br i1 %227, label %234, label %228, !prof !244
+226:                                              ; preds = %222
+  %227 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.2426, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_5) #50
+  br label %.thread484
 
-228:                                              ; preds = %.thread445
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %230 = load i8, ptr %229, align 8, !tbaa !176, !range !181, !noundef !182
-  %231 = trunc nuw i8 %230 to i1
-  br i1 %231, label %232, label %.thread453, !prof !245
+.thread448:                                       ; preds = %222, %45, %43
+  %.26 = phi ptr [ %38, %43 ], [ %1, %45 ], [ %.2426, %222 ]
+  %228 = icmp ult ptr %.26, %6
+  br i1 %228, label %235, label %229, !prof !244
 
-232:                                              ; preds = %228
-  %233 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.26, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+229:                                              ; preds = %.thread448
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %231 = load i8, ptr %230, align 8, !tbaa !176, !range !181, !noundef !182
+  %232 = trunc nuw i8 %231 to i1
+  br i1 %232, label %233, label %.thread456, !prof !245
 
-234:                                              ; preds = %.thread445
-  %235 = load i8, ptr %.26, align 1, !tbaa !15
-  %236 = add i8 %235, -48
-  %237 = icmp ult i8 %236, 10
-  br i1 %237, label %.thread532, label %239, !prof !244
+233:                                              ; preds = %229
+  %234 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.26, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-.thread532:                                       ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %.26, i64 1
-  br label %.thread468
+235:                                              ; preds = %.thread448
+  %236 = load i8, ptr %.26, align 1, !tbaa !15
+  %237 = add i8 %236, -48
+  %238 = icmp ult i8 %237, 10
+  br i1 %238, label %.thread541, label %240, !prof !244
 
-239:                                              ; preds = %234
-  %240 = and i8 %235, -33
-  %241 = icmp eq i8 %240, 69
-  br i1 %241, label %.thread535, label %.thread453
+.thread541:                                       ; preds = %235
+  %239 = getelementptr inbounds nuw i8, ptr %.26, i64 1
+  br label %.thread471
 
-.thread535:                                       ; preds = %239
-  %242 = getelementptr inbounds nuw i8, ptr %.26, i64 1
-  br label %.thread476
+240:                                              ; preds = %235
+  %241 = and i8 %236, -33
+  %242 = icmp eq i8 %241, 69
+  br i1 %242, label %.thread544, label %.thread456
 
-.thread476:                                       ; preds = %209, %45, %.thread535, %.thread524, %.thread513, %.thread457, %.thread449
-  %.3424 = phi ptr [ %42, %.thread449 ], [ %24, %.thread457 ], [ %168, %.thread513 ], [ %195, %.thread524 ], [ %242, %.thread535 ], [ %1, %45 ], [ %spec.select, %209 ]
-  %243 = icmp ult ptr %.3424, %6
-  br i1 %243, label %246, label %244, !prof !244
+.thread544:                                       ; preds = %240
+  %243 = getelementptr inbounds nuw i8, ptr %.26, i64 1
+  br label %.thread479
 
-244:                                              ; preds = %.thread476
-  %245 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.3424, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+.thread479:                                       ; preds = %45, %.thread544, %.thread536, %.thread527, %.thread516, %.thread460, %.thread452
+  %.3427 = phi ptr [ %42, %.thread452 ], [ %24, %.thread460 ], [ %168, %.thread516 ], [ %195, %.thread527 ], [ %212, %.thread536 ], [ %243, %.thread544 ], [ %1, %45 ]
+  %244 = icmp ult ptr %.3427, %6
+  br i1 %244, label %247, label %245, !prof !244
 
-246:                                              ; preds = %.thread476
-  %247 = load i8, ptr %.3424, align 1, !tbaa !15
-  switch i8 %247, label %.thread478 [
-    i8 43, label %248
-    i8 45, label %250
+245:                                              ; preds = %.thread479
+  %246 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE13maybe_suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.3427, i8 noundef signext 46, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
+
+247:                                              ; preds = %.thread479
+  %248 = load i8, ptr %.3427, align 1, !tbaa !15
+  switch i8 %248, label %.thread481 [
+    i8 43, label %249
+    i8 45, label %251
   ]
 
-248:                                              ; preds = %246
-  %249 = getelementptr inbounds nuw i8, ptr %.3424, i64 1
-  br label %.thread478
-
-250:                                              ; preds = %246
-  %251 = getelementptr inbounds nuw i8, ptr %.3424, i64 1
-  %252 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %252, align 8, !tbaa !686
-  br label %.thread478
-
-.thread478:                                       ; preds = %246, %45, %248, %250
-  %.11432 = phi ptr [ %249, %248 ], [ %251, %250 ], [ %1, %45 ], [ %.3424, %246 ]
-  %253 = icmp ult ptr %.11432, %6
-  br i1 %253, label %262, label %254, !prof !244
-
-254:                                              ; preds = %.thread478
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %256 = load i8, ptr %255, align 8, !tbaa !176, !range !181, !noundef !182
-  %257 = trunc nuw i8 %256 to i1
-  br i1 %257, label %258, label %260, !prof !245
-
-258:                                              ; preds = %254
-  %259 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11432, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+249:                                              ; preds = %247
+  %250 = getelementptr inbounds nuw i8, ptr %.3427, i64 1
   br label %.thread481
 
-260:                                              ; preds = %254
-  %261 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11432, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+251:                                              ; preds = %247
+  %252 = getelementptr inbounds nuw i8, ptr %.3427, i64 1
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %253, align 8, !tbaa !687
   br label %.thread481
 
-262:                                              ; preds = %.thread478
-  %263 = load i8, ptr %.11432, align 1, !tbaa !15
-  %264 = add i8 %263, -48
-  %265 = icmp ult i8 %264, 10
-  br i1 %265, label %.thread538, label %270, !prof !244
+.thread481:                                       ; preds = %247, %45, %249, %251
+  %.11435 = phi ptr [ %250, %249 ], [ %252, %251 ], [ %1, %45 ], [ %.3427, %247 ]
+  %254 = icmp ult ptr %.11435, %6
+  br i1 %254, label %263, label %255, !prof !244
 
-.thread538:                                       ; preds = %262
-  %266 = zext nneg i8 %263 to i32
-  %267 = getelementptr inbounds nuw i8, ptr %.11432, i64 1
-  %268 = add nsw i32 %266, -48
-  %269 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %268, ptr %269, align 4, !tbaa !687
-  br label %272
+255:                                              ; preds = %.thread481
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %257 = load i8, ptr %256, align 8, !tbaa !176, !range !181, !noundef !182
+  %258 = trunc nuw i8 %257 to i1
+  br i1 %258, label %259, label %261, !prof !245
 
-270:                                              ; preds = %262
-  %271 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11432, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
-  br label %.thread481
+259:                                              ; preds = %255
+  %260 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11435, i8 noundef signext 47, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-272:                                              ; preds = %.thread538, %45
-  %.12433 = phi ptr [ %1, %45 ], [ %267, %.thread538 ]
-  %273 = icmp ult ptr %.12433, %6
-  br i1 %273, label %.lr.ph594, label %._crit_edge595, !prof !360
+261:                                              ; preds = %255
+  %262 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.11435, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_7) #50
+  br label %.thread484
 
-.lr.ph594:                                        ; preds = %272
-  %.12433636 = ptrtoint ptr %.12433 to i64
-  %274 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.promoted597 = load i32, ptr %274, align 4
-  %275 = sub i64 %7, %.12433636
-  %scevgep637 = getelementptr i8, ptr %.12433, i64 %275
-  br label %281
+263:                                              ; preds = %.thread481
+  %264 = load i8, ptr %.11435, align 1, !tbaa !15
+  %265 = add i8 %264, -48
+  %266 = icmp ult i8 %265, 10
+  br i1 %266, label %.thread547, label %271, !prof !244
 
-._crit_edge595:                                   ; preds = %292, %272
-  %.29.lcssa = phi ptr [ %.12433, %272 ], [ %scevgep637, %292 ]
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %277 = load i8, ptr %276, align 8, !tbaa !176, !range !181, !noundef !182
-  %278 = trunc nuw i8 %277 to i1
-  br i1 %278, label %279, label %.thread541, !prof !245
+.thread547:                                       ; preds = %263
+  %267 = zext nneg i8 %264 to i32
+  %268 = getelementptr inbounds nuw i8, ptr %.11435, i64 1
+  %269 = add nsw i32 %267, -48
+  %270 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %269, ptr %270, align 4, !tbaa !688
+  br label %273
 
-279:                                              ; preds = %._crit_edge595
-  %280 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  br label %.thread481
+271:                                              ; preds = %263
+  %272 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef nonnull %.11435, i32 noundef 1, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_8) #50
+  br label %.thread484
 
-281:                                              ; preds = %.lr.ph594, %292
-  %282 = phi i32 [ %.promoted597, %.lr.ph594 ], [ %293, %292 ]
-  %.29592 = phi ptr [ %.12433, %.lr.ph594 ], [ %294, %292 ]
-  %283 = load i8, ptr %.29592, align 1, !tbaa !15
-  %284 = add i8 %283, -48
-  %285 = icmp ult i8 %284, 10
-  br i1 %285, label %286, label %.thread541, !prof !244
+273:                                              ; preds = %.thread547, %45
+  %.12436 = phi ptr [ %1, %45 ], [ %268, %.thread547 ]
+  %274 = icmp ult ptr %.12436, %6
+  br i1 %274, label %.lr.ph602, label %._crit_edge603, !prof !360
 
-286:                                              ; preds = %281
-  %287 = icmp sgt i32 %282, 214748364
-  br i1 %287, label %.critedge, label %288, !prof !245
+.lr.ph602:                                        ; preds = %273
+  %.12436644 = ptrtoint ptr %.12436 to i64
+  %275 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.promoted605 = load i32, ptr %275, align 4
+  %276 = sub i64 %7, %.12436644
+  %scevgep645 = getelementptr i8, ptr %.12436, i64 %276
+  br label %282
 
-288:                                              ; preds = %286
-  %289 = icmp eq i32 %282, 214748364
-  %290 = icmp samesign ugt i8 %283, 55
-  %291 = and i1 %290, %289
-  br i1 %291, label %.critedge, label %292, !prof !245
+._crit_edge603:                                   ; preds = %293, %273
+  %.29.lcssa = phi ptr [ %.12436, %273 ], [ %scevgep645, %293 ]
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %278 = load i8, ptr %277, align 8, !tbaa !176, !range !181, !noundef !182
+  %279 = trunc nuw i8 %278 to i1
+  br i1 %279, label %280, label %.thread550, !prof !245
 
-.critedge:                                        ; preds = %286, %288
-  store i32 2147483647, ptr %274, align 4, !tbaa !687
-  br label %292
+280:                                              ; preds = %._crit_edge603
+  %281 = call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE7suspendEPKcNS4_5stateERKNS4_6numberE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29.lcssa, i8 noundef signext 48, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %.thread484
 
-292:                                              ; preds = %.critedge, %288
-  %293 = phi i32 [ 2147483647, %.critedge ], [ %282, %288 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.29592, i64 1
-  %exitcond638.not = icmp eq ptr %294, %6
-  br i1 %exitcond638.not, label %._crit_edge595, label %281, !prof !688
+282:                                              ; preds = %.lr.ph602, %293
+  %283 = phi i32 [ %.promoted605, %.lr.ph602 ], [ %294, %293 ]
+  %.29600 = phi ptr [ %.12436, %.lr.ph602 ], [ %295, %293 ]
+  %284 = load i8, ptr %.29600, align 1, !tbaa !15
+  %285 = add i8 %284, -48
+  %286 = icmp ult i8 %285, 10
+  br i1 %286, label %287, label %.thread550, !prof !244
 
-.thread541:                                       ; preds = %281, %._crit_edge595
-  %.29549 = phi ptr [ %.29.lcssa, %._crit_edge595 ], [ %.29592, %281 ]
-  %295 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %296 = load i8, ptr %295, align 8, !tbaa !686, !range !181, !noundef !182
-  %297 = trunc nuw i8 %296 to i1
-  %298 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %299 = load i32, ptr %298, align 8, !tbaa !685
-  %300 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %301 = load i32, ptr %300, align 4, !tbaa !687
-  br i1 %297, label %302, label %312
+287:                                              ; preds = %282
+  %288 = icmp sgt i32 %283, 214748364
+  br i1 %288, label %.critedge, label %289, !prof !245
 
-302:                                              ; preds = %.thread541
-  %303 = or i32 %301, -2147483648
-  %304 = icmp slt i32 %299, %303
-  br i1 %304, label %305, label %.thread453, !prof !245
+289:                                              ; preds = %287
+  %290 = icmp eq i32 %283, 214748364
+  %291 = icmp samesign ugt i8 %284, 55
+  %292 = and i1 %291, %290
+  br i1 %292, label %.critedge, label %293, !prof !245
 
-305:                                              ; preds = %302
-  %306 = icmp eq i32 %301, 2147483647
-  %307 = icmp samesign ult i32 %299, -2147483339
-  %or.cond146 = and i1 %307, %306
-  %308 = load i64, ptr %3, align 8
-  %309 = icmp ne i64 %308, 0
-  %or.cond154 = select i1 %or.cond146, i1 %309, i1 false, !prof !689
-  br i1 %or.cond154, label %310, label %.thread453, !prof !689
+.critedge:                                        ; preds = %287, %289
+  store i32 2147483647, ptr %275, align 4, !tbaa !688
+  br label %293
 
-310:                                              ; preds = %305
-  %311 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29549, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
-  br label %.thread481
+293:                                              ; preds = %.critedge, %289
+  %294 = phi i32 [ 2147483647, %.critedge ], [ %283, %289 ]
+  %295 = getelementptr inbounds nuw i8, ptr %.29600, i64 1
+  %exitcond646.not = icmp eq ptr %295, %6
+  br i1 %exitcond646.not, label %._crit_edge603, label %282, !prof !686
 
-312:                                              ; preds = %.thread541
-  %313 = sub nsw i32 2147483647, %301
-  %314 = icmp sgt i32 %299, %313
-  br i1 %314, label %315, label %.thread453, !prof !245
+.thread550:                                       ; preds = %282, %._crit_edge603
+  %.29557 = phi ptr [ %.29.lcssa, %._crit_edge603 ], [ %.29600, %282 ]
+  %296 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %297 = load i8, ptr %296, align 8, !tbaa !687, !range !181, !noundef !182
+  %298 = trunc nuw i8 %297 to i1
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %300 = load i32, ptr %299, align 8, !tbaa !685
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %302 = load i32, ptr %301, align 4, !tbaa !688
+  br i1 %298, label %303, label %313
 
-315:                                              ; preds = %312
-  %316 = icmp eq i32 %301, 2147483647
-  %317 = icmp samesign ugt i32 %299, 2147483339
-  %or.cond149 = and i1 %317, %316
-  %318 = load i64, ptr %3, align 8
-  %319 = icmp ne i64 %318, 0
-  %or.cond156 = select i1 %or.cond149, i1 %319, i1 false, !prof !689
-  br i1 %or.cond156, label %320, label %.thread453, !prof !689
+303:                                              ; preds = %.thread550
+  %304 = or i32 %302, -2147483648
+  %305 = icmp slt i32 %300, %304
+  br i1 %305, label %306, label %.thread456, !prof !245
 
-320:                                              ; preds = %315
-  %321 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29549, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
-  br label %.thread481
+306:                                              ; preds = %303
+  %307 = icmp eq i32 %302, 2147483647
+  %308 = icmp samesign ult i32 %300, -2147483339
+  %or.cond149 = and i1 %308, %307
+  %309 = load i64, ptr %3, align 8
+  %310 = icmp ne i64 %309, 0
+  %or.cond157 = select i1 %or.cond149, i1 %310, i1 false, !prof !689
+  br i1 %or.cond157, label %311, label %.thread456, !prof !689
 
-322:                                              ; preds = %209, %199, %.split.us, %.split571.us
-  %.15436 = phi ptr [ %.10431, %199 ], [ %.us-phi572, %.split571.us ], [ %.us-phi, %.split.us ], [ %spec.select, %209 ]
-  %323 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  %324 = load i8, ptr %323, align 1, !tbaa !691, !range !181, !noundef !182
-  %325 = trunc nuw i8 %324 to i1
-  %326 = load i64, ptr %3, align 8, !tbaa !683
-  br i1 %325, label %327, label %329
+311:                                              ; preds = %306
+  %312 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29557, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc_9) #50
+  br label %.thread484
 
-327:                                              ; preds = %322
-  %328 = sub i64 0, %326
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %328)
-  br label %.thread481
+313:                                              ; preds = %.thread550
+  %314 = sub nsw i32 2147483647, %302
+  %315 = icmp sgt i32 %300, %314
+  br i1 %315, label %316, label %.thread456, !prof !245
 
-329:                                              ; preds = %322
-  %330 = icmp sgt i64 %326, -1
-  br i1 %330, label %331, label %333
+316:                                              ; preds = %313
+  %317 = icmp eq i32 %302, 2147483647
+  %318 = icmp samesign ugt i32 %300, 2147483339
+  %or.cond152 = and i1 %318, %317
+  %319 = load i64, ptr %3, align 8
+  %320 = icmp ne i64 %319, 0
+  %or.cond159 = select i1 %or.cond152, i1 %320, i1 false, !prof !689
+  br i1 %or.cond159, label %321, label %.thread456, !prof !689
 
-331:                                              ; preds = %329, %21
-  %332 = phi i64 [ %326, %329 ], [ 0, %21 ]
-  %.4425 = phi ptr [ %.15436, %329 ], [ %19, %21 ]
-  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %332)
-  br label %.thread481
+321:                                              ; preds = %316
+  %322 = tail call noundef ptr @_ZN5boost4json12basic_parserINS0_6detail7handlerEE4failEPKcNS0_5errorEPKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(274) %0, ptr noundef %.29557, i32 noundef 4, ptr noundef nonnull @_ZZN5boost4json12basic_parserINS0_6detail7handlerEE12parse_numberILb0ELc0ELNS0_16number_precisionE2EEEPKcS8_St17integral_constantIbXT_EES9_IcXT0_EES9_IS6_XT1_EEE3loc__10_) #50
+  br label %.thread484
 
-333:                                              ; preds = %329
-  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %326)
-  br label %.thread481
+323:                                              ; preds = %209, %199, %.split.us, %.split579.us
+  %.15439 = phi ptr [ %.10434, %199 ], [ %.us-phi580, %.split579.us ], [ %.us-phi, %.split.us ], [ %.10434, %209 ]
+  %324 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  %325 = load i8, ptr %324, align 1, !tbaa !691, !range !181, !noundef !182
+  %326 = trunc nuw i8 %325 to i1
+  %327 = load i64, ptr %3, align 8, !tbaa !683
+  br i1 %326, label %328, label %330
 
-.thread453:                                       ; preds = %315, %305, %192, %165, %43, %._crit_edge, %._crit_edge590, %228, %312, %302, %239
-  %.5426 = phi ptr [ %.29549, %302 ], [ %.29549, %312 ], [ %.23.lcssa, %._crit_edge590 ], [ %.26, %228 ], [ %.20.lcssa, %._crit_edge ], [ %.26, %239 ], [ %38, %43 ], [ %.20585, %165 ], [ %.23588, %192 ], [ %.29549, %305 ], [ %.29549, %315 ]
+328:                                              ; preds = %323
+  %329 = sub i64 0, %327
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %329)
+  br label %.thread484
+
+330:                                              ; preds = %323
+  %331 = icmp sgt i64 %327, -1
+  br i1 %331, label %332, label %334
+
+332:                                              ; preds = %330, %21
+  %333 = phi i64 [ %327, %330 ], [ 0, %21 ]
+  %.4428 = phi ptr [ %.15439, %330 ], [ %19, %21 ]
+  tail call void @_ZN5boost4json11value_stack10push_int64El(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %333)
+  br label %.thread484
+
+334:                                              ; preds = %330
+  tail call void @_ZN5boost4json11value_stack11push_uint64Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %327)
+  br label %.thread484
+
+.thread456:                                       ; preds = %316, %306, %192, %165, %43, %._crit_edge, %._crit_edge598, %229, %313, %303, %240
+  %.5429 = phi ptr [ %.29557, %303 ], [ %.29557, %313 ], [ %.23.lcssa, %._crit_edge598 ], [ %.26, %229 ], [ %.20.lcssa, %._crit_edge ], [ %.26, %240 ], [ %38, %43 ], [ %.20593, %165 ], [ %.23596, %192 ], [ %.29557, %306 ], [ %.29557, %316 ]
   tail call void @_ZN5boost4json11value_stack11push_doubleEd(ptr noundef nonnull align 8 dereferenceable(64) %0, double noundef 0.000000e+00)
-  br label %.thread481
+  br label %.thread484
 
-.thread481:                                       ; preds = %75, %71, %270, %225, %180, %.thread505, %.thread441, %.thread453, %333, %331, %327, %320, %310, %279, %260, %258, %244, %232, %219, %217, %203, %187, %173, %152, %132, %119, %79
-  %.2 = phi ptr [ %218, %217 ], [ %220, %219 ], [ %233, %232 ], [ %188, %187 ], [ %245, %244 ], [ %259, %258 ], [ %261, %260 ], [ %280, %279 ], [ %311, %310 ], [ %321, %320 ], [ %271, %270 ], [ %226, %225 ], [ %.4425, %331 ], [ %120, %119 ], [ %.15436, %327 ], [ %.15436, %333 ], [ %153, %152 ], [ %174, %173 ], [ %181, %180 ], [ %204, %203 ], [ %133, %132 ], [ %80, %79 ], [ %.5426, %.thread453 ], [ %33, %.thread441 ], [ %161, %.thread505 ], [ %76, %75 ], [ %74, %71 ]
+.thread484:                                       ; preds = %75, %71, %271, %226, %180, %.thread508, %.thread444, %.thread456, %334, %332, %328, %321, %311, %280, %261, %259, %245, %233, %220, %218, %203, %187, %173, %152, %132, %119, %79
+  %.2 = phi ptr [ %219, %218 ], [ %221, %220 ], [ %234, %233 ], [ %188, %187 ], [ %246, %245 ], [ %260, %259 ], [ %262, %261 ], [ %281, %280 ], [ %312, %311 ], [ %322, %321 ], [ %272, %271 ], [ %227, %226 ], [ %.4428, %332 ], [ %120, %119 ], [ %.15439, %328 ], [ %.15439, %334 ], [ %153, %152 ], [ %174, %173 ], [ %181, %180 ], [ %204, %203 ], [ %133, %132 ], [ %80, %79 ], [ %.5429, %.thread456 ], [ %33, %.thread444 ], [ %161, %.thread508 ], [ %76, %75 ], [ %74, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.2
 }
@@ -63268,9 +63288,9 @@ attributes #58 = { nounwind allocsize(0) }
 !683 = !{!165, !12, i64 0}
 !684 = distinct !{!684, !44}
 !685 = !{!165, !23, i64 8}
-!686 = !{!165, !159, i64 16}
-!687 = !{!165, !23, i64 12}
-!688 = !{!"branch_weights", i32 127, i32 255873}
+!686 = !{!"branch_weights", i32 127, i32 255873}
+!687 = !{!165, !159, i64 16}
+!688 = !{!165, !23, i64 12}
 !689 = !{!"branch_weights", i32 1, i32 4001}
 !690 = !{i64 0, i64 8, !11, i64 8, i64 4, !114, i64 12, i64 4, !114, i64 16, i64 1, !158, i64 17, i64 1, !158}
 !691 = !{!165, !159, i64 17}

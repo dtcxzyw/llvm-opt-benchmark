@@ -210,8 +210,8 @@ define internal fastcc i32 @pkcs7_digest(ptr noundef readonly captures(none) %0,
   %96 = call i32 @crypto_shash_finup(ptr noundef nonnull %34, ptr noundef %92, i32 noundef %94, ptr noundef %95) #7
   br label %.thread
 
-.thread:                                          ; preds = %91, %75, %88, %81, %71, %62, %53
-  %97 = phi i32 [ -74, %62 ], [ -129, %71 ], [ -129, %53 ], [ %86, %81 ], [ %89, %88 ], [ -126, %75 ], [ %96, %91 ]
+.thread:                                          ; preds = %75, %91, %88, %81, %71, %62, %53
+  %97 = phi i32 [ -74, %62 ], [ -129, %71 ], [ -129, %53 ], [ %86, %81 ], [ %89, %88 ], [ %96, %91 ], [ -126, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %98
 

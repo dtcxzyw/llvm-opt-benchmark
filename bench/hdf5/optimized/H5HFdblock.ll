@@ -864,10 +864,10 @@ H5VM_log2_gen.exit:                               ; preds = %23, %29, %35, %41, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %162
 
-162:                                              ; preds = %161, %3, %106, %112, %94
-  %.045 = phi i32 [ %.1, %161 ], [ -1, %94 ], [ -1, %112 ], [ 0, %106 ], [ 0, %3 ]
+162:                                              ; preds = %3, %106, %112, %94, %161
+  %.046 = phi i32 [ %.1, %161 ], [ -1, %94 ], [ -1, %112 ], [ 0, %106 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.045
+  ret i32 %.046
 }
 
 declare i32 @H5HF__hdr_adjust_heap(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -1229,12 +1229,12 @@ H5VM_log2_gen.exit:                               ; preds = %52, %58, %64, %70, 
   br label %157
 
 157:                                              ; preds = %.thread, %6, %155, %38, %22
-  %.044 = phi i32 [ -1, %22 ], [ -1, %38 ], [ 0, %155 ], [ 0, %6 ], [ -1, %.thread ]
+  %.046 = phi i32 [ -1, %22 ], [ -1, %38 ], [ 0, %155 ], [ 0, %6 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.044
+  ret i32 %.046
 }
 
 declare i32 @H5HF__dtable_lookup(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

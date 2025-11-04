@@ -71,14 +71,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !41
-  %.fr129 = freeze ptr %30
-  %31 = getelementptr inbounds nuw i8, ptr %.fr129, i64 24
+  %.fr130 = freeze ptr %30
+  %31 = getelementptr inbounds nuw i8, ptr %.fr130, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !42
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %34, label %46
 
 34:                                               ; preds = %28
-  %35 = load i32, ptr %.fr129, align 8, !tbaa !44
+  %35 = load i32, ptr %.fr130, align 8, !tbaa !44
   %.fr = freeze i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 276
   %37 = load i32, ptr %36, align 4, !tbaa !45
@@ -91,9 +91,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %or.cond97, label %42, label %46
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds nuw i8, ptr %.fr129, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %.fr130, i64 28
   %44 = load i32, ptr %43, align 4, !tbaa !47
-  %spec.store.select = select i1 %.not89, ptr null, ptr %.fr129
+  %spec.store.select = select i1 %.not89, ptr null, ptr %.fr130
   %sext = shl i32 %44, 24
   %45 = ashr exact i32 %sext, 24
   br label %46
@@ -130,15 +130,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 61:                                               ; preds = %58
   %62 = load i32, ptr %49, align 4, !tbaa !48
   %.not93 = icmp eq i32 %62, 0
-  br i1 %.not93, label %156, label %.preheader107
+  br i1 %.not93, label %156, label %.preheader108
 
-.preheader107:                                    ; preds = %61
+.preheader108:                                    ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 276
   %64 = load i32, ptr %63, align 4, !tbaa !45
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.preheader106.lr.ph, label %.thread102
+  br i1 %65, label %.preheader107.lr.ph, label %.thread103
 
-.preheader106.lr.ph:                              ; preds = %.preheader107
+.preheader107.lr.ph:                              ; preds = %.preheader108
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -154,23 +154,23 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %78 = load i32, ptr %66, align 8, !tbaa !46
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.preheader106, label %.thread102
+  br i1 %79, label %.preheader107, label %.thread103
 
-.preheader106:                                    ; preds = %.preheader106.lr.ph, %._crit_edge
-  %80 = phi i32 [ %152, %._crit_edge ], [ %78, %.preheader106.lr.ph ]
-  %.081114 = phi i32 [ %153, %._crit_edge ], [ 0, %.preheader106.lr.ph ]
+.preheader107:                                    ; preds = %.preheader107.lr.ph, %._crit_edge
+  %80 = phi i32 [ %152, %._crit_edge ], [ %78, %.preheader107.lr.ph ]
+  %.081115 = phi i32 [ %153, %._crit_edge ], [ 0, %.preheader107.lr.ph ]
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader106
-  %82 = uitofp nneg i32 %.081114 to double
+.lr.ph:                                           ; preds = %.preheader107
+  %82 = uitofp nneg i32 %.081115 to double
   br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %116
   %83 = phi i32 [ %123, %116 ], [ %80, %.lr.ph ]
-  %.080109.us = phi i32 [ %122, %116 ], [ 0, %.lr.ph ]
-  %84 = mul nsw i32 %83, %.081114
-  %85 = add nsw i32 %84, %.080109.us
+  %.080110.us = phi i32 [ %122, %116 ], [ 0, %.lr.ph ]
+  %84 = mul nsw i32 %83, %.081115
+  %85 = add nsw i32 %84, %.080110.us
   %86 = load i32, ptr %60, align 8, !tbaa !44
   %87 = icmp ult i32 %85, %86
   br i1 %87, label %av_video_enc_params_block.exit.us, label %.split.us
@@ -187,9 +187,9 @@ av_video_enc_params_block.exit.us:                ; preds = %.lr.ph.split.us
 94:                                               ; preds = %av_video_enc_params_block.exit.us
   %95 = load i32, ptr %.076, align 8, !tbaa !44
   %96 = icmp ult i32 %85, %95
-  br i1 %96, label %av_video_enc_params_block.exit98.us, label %.split111.us
+  br i1 %96, label %av_video_enc_params_block.exit99.us, label %.split112.us
 
-av_video_enc_params_block.exit98.us:              ; preds = %94
+av_video_enc_params_block.exit99.us:              ; preds = %94
   %97 = load i64, ptr %69, align 8, !tbaa !49
   %98 = getelementptr inbounds nuw i8, ptr %.076, i64 %97
   %99 = load i64, ptr %70, align 8, !tbaa !50
@@ -199,15 +199,15 @@ av_video_enc_params_block.exit98.us:              ; preds = %94
   %103 = load i32, ptr %102, align 4, !tbaa !51
   br label %104
 
-104:                                              ; preds = %av_video_enc_params_block.exit98.us, %av_video_enc_params_block.exit.us
-  %105 = phi i32 [ %103, %av_video_enc_params_block.exit98.us ], [ 0, %av_video_enc_params_block.exit.us ]
+104:                                              ; preds = %av_video_enc_params_block.exit99.us, %av_video_enc_params_block.exit.us
+  %105 = phi i32 [ %103, %av_video_enc_params_block.exit99.us ], [ 0, %av_video_enc_params_block.exit.us ]
   %106 = add nsw i32 %105, %.077
   %107 = sitofp i32 %106 to float
   %108 = fpext nsz float %107 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %71, ptr %5, align 16, !tbaa !53
   store double %108, ptr %72, align 8, !tbaa !53
-  %109 = uitofp nneg i32 %.080109.us to double
+  %109 = uitofp nneg i32 %.080110.us to double
   store double %109, ptr %73, align 16, !tbaa !53
   store double %82, ptr %74, align 8, !tbaa !53
   %110 = sitofp i32 %83 to double
@@ -220,7 +220,7 @@ av_video_enc_params_block.exit98.us:              ; preds = %94
   %113 = load ptr, ptr %14, align 8, !tbaa !34
   %114 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %6, ptr noundef %113, ptr noundef nonnull @var_names, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %8) #6
   %115 = icmp sgt i32 %114, -1
-  br i1 %115, label %116, label %.split113.us
+  br i1 %115, label %116, label %.split114.us
 
 116:                                              ; preds = %104
   %117 = load double, ptr %6, align 8, !tbaa !53
@@ -231,16 +231,16 @@ av_video_enc_params_block.exit98.us:              ; preds = %94
   store i32 %120, ptr %121, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %122 = add nuw nsw i32 %.080109.us, 1
+  %122 = add nuw nsw i32 %.080110.us, 1
   %123 = load i32, ptr %66, align 8, !tbaa !46
   %124 = icmp slt i32 %122, %123
   br i1 %124, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %139
   %125 = phi i32 [ %150, %139 ], [ %80, %.lr.ph ]
-  %.080109 = phi i32 [ %149, %139 ], [ 0, %.lr.ph ]
-  %126 = mul nsw i32 %125, %.081114
-  %127 = add nsw i32 %126, %.080109
+  %.080110 = phi i32 [ %149, %139 ], [ 0, %.lr.ph ]
+  %126 = mul nsw i32 %125, %.081115
+  %127 = add nsw i32 %126, %.080110
   %128 = load i32, ptr %60, align 8, !tbaa !44
   %129 = icmp ult i32 %127, %128
   br i1 %129, label %av_video_enc_params_block.exit, label %.split.us
@@ -256,7 +256,7 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %71, ptr %5, align 16, !tbaa !53
   store double 0x7FF8000000000000, ptr %72, align 8, !tbaa !53
-  %132 = uitofp nneg i32 %.080109 to double
+  %132 = uitofp nneg i32 %.080110 to double
   store double %132, ptr %73, align 16, !tbaa !53
   store double %82, ptr %74, align 8, !tbaa !53
   %133 = sitofp i32 %125 to double
@@ -269,9 +269,9 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   %136 = load ptr, ptr %14, align 8, !tbaa !34
   %137 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %6, ptr noundef %136, ptr noundef nonnull @var_names, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %8) #6
   %138 = icmp sgt i32 %137, -1
-  br i1 %138, label %139, label %.split113.us
+  br i1 %138, label %139, label %.split114.us
 
-.split111.us:                                     ; preds = %94
+.split112.us:                                     ; preds = %94
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 145) #6
   call void @abort() #7
   unreachable
@@ -289,34 +289,34 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   store i32 %147, ptr %148, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %149 = add nuw nsw i32 %.080109, 1
+  %149 = add nuw nsw i32 %.080110, 1
   %150 = load i32, ptr %66, align 8, !tbaa !46
   %151 = icmp slt i32 %149, %150
   br i1 %151, label %.lr.ph.split, label %._crit_edge, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %139, %116, %.preheader106
-  %152 = phi i32 [ %80, %.preheader106 ], [ %123, %116 ], [ %150, %139 ]
-  %153 = add nuw nsw i32 %.081114, 1
+._crit_edge:                                      ; preds = %139, %116, %.preheader107
+  %152 = phi i32 [ %80, %.preheader107 ], [ %123, %116 ], [ %150, %139 ]
+  %153 = add nuw nsw i32 %.081115, 1
   %154 = load i32, ptr %63, align 4, !tbaa !45
   %155 = icmp slt i32 %153, %154
-  br i1 %155, label %.preheader106, label %.thread102, !llvm.loop !57
+  br i1 %155, label %.preheader107, label %.thread103, !llvm.loop !57
 
-.split113.us:                                     ; preds = %av_video_enc_params_block.exit, %104
+.split114.us:                                     ; preds = %av_video_enc_params_block.exit, %104
   %.us-phi = phi i32 [ %114, %104 ], [ %137, %av_video_enc_params_block.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %218
 
 156:                                              ; preds = %61
-  br i1 %23, label %.preheader105, label %212
+  br i1 %23, label %.preheader106, label %212
 
-.preheader105:                                    ; preds = %156
+.preheader106:                                    ; preds = %156
   %157 = getelementptr inbounds nuw i8, ptr %13, i64 276
   %158 = load i32, ptr %157, align 4, !tbaa !45
   %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %.preheader.lr.ph, label %.thread102
+  br i1 %159, label %.preheader.lr.ph, label %.thread103
 
-.preheader.lr.ph:                                 ; preds = %.preheader105
+.preheader.lr.ph:                                 ; preds = %.preheader106
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %161 = load i32, ptr %160, align 8, !tbaa !46
   %162 = icmp sgt i32 %161, 0
@@ -327,28 +327,28 @@ av_video_enc_params_block.exit:                   ; preds = %.lr.ph.split
   %167 = sext i32 %.077 to i64
   %168 = getelementptr i8, ptr %13, i64 %167
   %169 = getelementptr i8, ptr %168, i64 145
-  br i1 %162, label %.preheader.lr.ph.split.us, label %.thread102
+  br i1 %162, label %.preheader.lr.ph.split.us, label %.thread103
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %.not94 = icmp eq ptr %.076, null
   %170 = load i32, ptr %60, align 8, !tbaa !44
   %171 = zext i32 %170 to i64
   %172 = zext nneg i32 %161 to i64
-  %wide.trip.count155 = zext nneg i32 %158 to i64
+  %wide.trip.count156 = zext nneg i32 %158 to i64
   br i1 %.not94, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge118.split.us.us.us
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %._crit_edge118.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %173 = mul nuw nsw i64 %indvars.iv152, %172
+.preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge119.split.us.us.us
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge119.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %173 = mul nuw nsw i64 %indvars.iv153, %172
   br label %174
 
-174:                                              ; preds = %av_video_enc_params_block.exit99.us.us.us, %.preheader.us.us
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %av_video_enc_params_block.exit99.us.us.us ], [ 0, %.preheader.us.us ]
-  %175 = add nuw nsw i64 %173, %indvars.iv147
+174:                                              ; preds = %av_video_enc_params_block.exit100.us.us.us, %.preheader.us.us
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %av_video_enc_params_block.exit100.us.us.us ], [ 0, %.preheader.us.us ]
+  %175 = add nuw nsw i64 %173, %indvars.iv148
   %176 = icmp samesign ult i64 %175, %171
-  br i1 %176, label %av_video_enc_params_block.exit99.us.us.us, label %.split120.us
+  br i1 %176, label %av_video_enc_params_block.exit100.us.us.us, label %.split121.us
 
-av_video_enc_params_block.exit99.us.us.us:        ; preds = %174
+av_video_enc_params_block.exit100.us.us.us:       ; preds = %174
   %177 = load i64, ptr %163, align 8, !tbaa !49
   %178 = getelementptr inbounds nuw i8, ptr %60, i64 %177
   %179 = load i64, ptr %164, align 8, !tbaa !50
@@ -358,33 +358,33 @@ av_video_enc_params_block.exit99.us.us.us:        ; preds = %174
   %183 = sext i8 %182 to i32
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i32 %183, ptr %184, align 4, !tbaa !51
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %172
-  br i1 %exitcond151.not, label %._crit_edge118.split.us.us.us, label %174, !llvm.loop !60
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %172
+  br i1 %exitcond152.not, label %._crit_edge119.split.us.us.us, label %174, !llvm.loop !60
 
-._crit_edge118.split.us.us.us:                    ; preds = %av_video_enc_params_block.exit99.us.us.us
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.thread102, label %.preheader.us.us, !llvm.loop !61
+._crit_edge119.split.us.us.us:                    ; preds = %av_video_enc_params_block.exit100.us.us.us
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
+  br i1 %exitcond157.not, label %.thread103, label %.preheader.us.us, !llvm.loop !61
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge118.split.us125
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %._crit_edge118.split.us125 ], [ 0, %.preheader.lr.ph.split.us ]
-  %185 = mul nuw nsw i64 %indvars.iv142, %172
+.preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge119.split.us126
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %._crit_edge119.split.us126 ], [ 0, %.preheader.lr.ph.split.us ]
+  %185 = mul nuw nsw i64 %indvars.iv143, %172
   br label %186
 
-186:                                              ; preds = %.preheader.us, %av_video_enc_params_block.exit100.us
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %av_video_enc_params_block.exit100.us ]
+186:                                              ; preds = %.preheader.us, %av_video_enc_params_block.exit101.us
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %av_video_enc_params_block.exit101.us ]
   %187 = add nuw nsw i64 %185, %indvars.iv
   %188 = icmp samesign ult i64 %187, %171
-  br i1 %188, label %av_video_enc_params_block.exit99.us123, label %.split120.us
+  br i1 %188, label %av_video_enc_params_block.exit100.us124, label %.split121.us
 
-av_video_enc_params_block.exit99.us123:           ; preds = %186
+av_video_enc_params_block.exit100.us124:          ; preds = %186
   %189 = load i32, ptr %.076, align 8, !tbaa !44
   %190 = zext i32 %189 to i64
   %191 = icmp samesign ult i64 %187, %190
-  br i1 %191, label %av_video_enc_params_block.exit100.us, label %.split128.us
+  br i1 %191, label %av_video_enc_params_block.exit101.us, label %.split129.us
 
-av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params_block.exit99.us123
+av_video_enc_params_block.exit101.us:             ; preds = %av_video_enc_params_block.exit100.us124
   %192 = load i64, ptr %163, align 8, !tbaa !49
   %193 = getelementptr inbounds nuw i8, ptr %60, i64 %192
   %194 = load i64, ptr %164, align 8, !tbaa !50
@@ -398,8 +398,8 @@ av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load i32, ptr %202, align 4, !tbaa !51
   %204 = add nsw i32 %203, %.077
-  %sext95.us124 = shl i32 %204, 24
-  %205 = ashr exact i32 %sext95.us124, 24
+  %sext95.us125 = shl i32 %204, 24
+  %205 = ashr exact i32 %sext95.us125, 24
   %206 = sext i32 %205 to i64
   %207 = getelementptr i8, ptr %13, i64 %206
   %208 = getelementptr i8, ptr %207, i64 145
@@ -409,19 +409,19 @@ av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params
   store i32 %210, ptr %211, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %172
-  br i1 %exitcond.not, label %._crit_edge118.split.us125, label %186, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge119.split.us126, label %186, !llvm.loop !60
 
-._crit_edge118.split.us125:                       ; preds = %av_video_enc_params_block.exit100.us
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count155
-  br i1 %exitcond146.not, label %.thread102, label %.preheader.us, !llvm.loop !61
+._crit_edge119.split.us126:                       ; preds = %av_video_enc_params_block.exit101.us
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count156
+  br i1 %exitcond147.not, label %.thread103, label %.preheader.us, !llvm.loop !61
 
-.split120.us:                                     ; preds = %186, %174
+.split121.us:                                     ; preds = %186, %174
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 145) #6
   tail call void @abort() #7
   unreachable
 
-.split128.us:                                     ; preds = %av_video_enc_params_block.exit99.us123
+.split129.us:                                     ; preds = %av_video_enc_params_block.exit100.us124
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 145) #6
   tail call void @abort() #7
   unreachable
@@ -432,15 +432,15 @@ av_video_enc_params_block.exit100.us:             ; preds = %av_video_enc_params
   %215 = sext i8 %214 to i32
   %216 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %215, ptr %216, align 4, !tbaa !47
-  br label %.thread102
+  br label %.thread103
 
-.thread102:                                       ; preds = %._crit_edge, %._crit_edge118.split.us125, %._crit_edge118.split.us.us.us, %.preheader.lr.ph, %.preheader106.lr.ph, %.preheader107, %.preheader105, %212
+.thread103:                                       ; preds = %._crit_edge, %._crit_edge119.split.us126, %._crit_edge119.split.us.us.us, %.preheader.lr.ph, %.preheader107.lr.ph, %.preheader108, %.preheader106, %212
   %217 = call i32 @ff_filter_frame(ptr noundef %11, ptr noundef nonnull %47) #6
   store ptr null, ptr %4, align 8, !tbaa !4
   br label %218
 
-218:                                              ; preds = %.split113.us, %58, %46, %.thread102
-  %.073 = phi i32 [ %217, %.thread102 ], [ %.us-phi, %.split113.us ], [ -12, %46 ], [ -12, %58 ]
+218:                                              ; preds = %.split114.us, %58, %46, %.thread103
+  %.073 = phi i32 [ %217, %.thread103 ], [ %.us-phi, %.split114.us ], [ -12, %46 ], [ -12, %58 ]
   call void @av_frame_free(ptr noundef nonnull %3) #6
   call void @av_frame_free(ptr noundef nonnull %4) #6
   br label %219

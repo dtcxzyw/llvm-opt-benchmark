@@ -482,11 +482,11 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #7, !srcloc !18
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1062, i32 2305, i64 12) #7, !srcloc !19
   tail call void asm sideeffect "435: nop\0A\09.pushsection .discard.instr_end\0A\09.long 435b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 435) #7, !srcloc !20
-  %.pre7 = load ptr, ptr %40, align 8
+  %.pre8 = load ptr, ptr %40, align 8
   br label %44
 
 44:                                               ; preds = %43, %39
-  %45 = phi ptr [ %.pre7, %43 ], [ %41, %39 ]
+  %45 = phi ptr [ %.pre8, %43 ], [ %41, %39 ]
   %46 = ptrtoint ptr %32 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
@@ -597,11 +597,11 @@ netlink_policy_dump_attr_size_estimate.exit:      ; preds = %4, %21, %22, %23, %
   br i1 %99, label %100, label %163
 
 100:                                              ; preds = %96
-  %switch.tableidx16 = add i8 %38, -12
-  %101 = icmp ult i8 %switch.tableidx16, 4
-  %switch.idx.cast18 = zext i8 %switch.tableidx16 to i32
-  %switch.offset19 = add nuw nsw i32 %switch.idx.cast18, 6
-  %102 = select i1 %101, i32 %switch.offset19, i32 16
+  %switch.tableidx17 = add i8 %38, -12
+  %101 = icmp ult i8 %switch.tableidx17, 4
+  %switch.idx.cast19 = zext i8 %switch.tableidx17 to i32
+  %switch.offset20 = add nuw nsw i32 %switch.idx.cast19, 6
+  %102 = select i1 %101, i32 %switch.offset20, i32 16
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %104 = load i64, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

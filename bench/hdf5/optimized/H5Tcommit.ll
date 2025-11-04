@@ -1954,7 +1954,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %13 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %15 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 763, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.1) #9
-  br label %.thread38
+  br label %.thread39
 
 16:                                               ; preds = %._crit_edge, %1
   %17 = phi i8 [ %.pre, %._crit_edge ], [ %6, %1 ]
@@ -1975,7 +1975,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %26 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %27 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 763, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.2) #9
-  br label %.thread38
+  br label %.thread39
 
 29:                                               ; preds = %16, %22
   %30 = call i32 @H5CX_push(ptr noundef nonnull %2) #9
@@ -1986,7 +1986,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %33 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %34 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 763, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.3) #9
-  br label %.thread38
+  br label %.thread39
 
 36:                                               ; preds = %29
   %37 = call i32 @H5E_clear_stack() #9
@@ -1998,7 +1998,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %42 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 767, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.24) #9
-  br label %.thread43
+  br label %.thread45
 
 44:                                               ; preds = %36
   %45 = call i32 @H5T_is_named(ptr noundef nonnull %38) #9
@@ -2011,7 +2011,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %47 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %48 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 771, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.55) #9
-  br label %.thread43
+  br label %.thread45
 
 50:                                               ; preds = %44
   %51 = load i64, ptr @H5P_LST_DATATYPE_CREATE_ID_g, align 8, !tbaa !11
@@ -2023,14 +2023,14 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %55 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %56 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 781, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.56) #9
-  br label %.thread43
+  br label %.thread45
 
 58:                                               ; preds = %50
   %59 = call i64 @H5P_copy_plist(ptr noundef nonnull %52, i1 noundef zeroext true) #9
   %60 = icmp slt i64 %59, 0
-  br i1 %60, label %62, label %.thread46
+  br i1 %60, label %62, label %.thread48
 
-.thread46:                                        ; preds = %58
+.thread48:                                        ; preds = %58
   %61 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %82
 
@@ -2038,7 +2038,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %63 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %64 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %65 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 784, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.57) #9
-  br label %.thread43
+  br label %.thread45
 
 66:                                               ; preds = %44
   %67 = getelementptr inbounds nuw i8, ptr %38, i64 96
@@ -2050,19 +2050,19 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %70 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %71 = call i32 @H5VL_datatype_get(ptr noundef %68, ptr noundef nonnull %3, i64 noundef %70, ptr noundef null) #9
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.thread49, label %78
+  br i1 %72, label %.thread51, label %78
 
-.thread49:                                        ; preds = %66
+.thread51:                                        ; preds = %66
   %73 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %74 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_create_plist, i32 noundef 797, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.58) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %76 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
-  br label %.thread38
+  br label %.thread39
 
-.thread43:                                        ; preds = %62, %54, %46, %40
+.thread45:                                        ; preds = %62, %54, %46, %40
   %77 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
-  br label %.thread38
+  br label %.thread39
 
 78:                                               ; preds = %66
   %79 = load i64, ptr %69, align 8, !tbaa !18
@@ -2070,14 +2070,14 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %80 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %82
 
-.thread38:                                        ; preds = %32, %25, %12, %.thread49, %.thread43
+.thread39:                                        ; preds = %32, %25, %12, %.thread51, %.thread45
   %81 = call i32 @H5E_dump_api_stack() #9
   br label %82
 
-82:                                               ; preds = %78, %.thread46, %.thread38
-  %.0 = phi i64 [ -1, %.thread38 ], [ %79, %78 ], [ %59, %.thread46 ]
+82:                                               ; preds = %78, %.thread48, %.thread39
+  %.0233442 = phi i64 [ %79, %78 ], [ -1, %.thread39 ], [ %59, %.thread48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.0
+  ret i64 %.0233442
 }
 
 declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
@@ -2156,7 +2156,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %42 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tflush, i32 noundef 826, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.24) #9
-  br label %.thread37
+  br label %.thread38
 
 44:                                               ; preds = %36
   %45 = call i32 @H5T_is_named(ptr noundef nonnull %38) #9
@@ -2167,15 +2167,15 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %47 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %48 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tflush, i32 noundef 828, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.59) #9
-  br label %.thread37
+  br label %.thread38
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %.not23 = icmp eq ptr %52, null
-  br i1 %.not23, label %.thread40, label %54
+  br i1 %.not23, label %.thread41, label %54
 
-.thread40:                                        ; preds = %50
+.thread41:                                        ; preds = %50
   %53 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %76
 
@@ -2189,7 +2189,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %58 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %59 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %60 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tflush, i32 noundef 836, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.28) #9
-  br label %.thread44
+  br label %.thread45
 
 61:                                               ; preds = %54
   store i32 0, ptr %3, align 8, !tbaa !53
@@ -2205,13 +2205,13 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %68 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %69 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !11
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tflush, i32 noundef 843, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.60) #9
-  br label %.thread44
+  br label %.thread45
 
-.thread37:                                        ; preds = %46, %40
+.thread38:                                        ; preds = %46, %40
   %71 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %.thread32
 
-.thread44:                                        ; preds = %57, %67
+.thread45:                                        ; preds = %57, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %.thread32
@@ -2221,14 +2221,14 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %74 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %76
 
-.thread32:                                        ; preds = %32, %25, %12, %.thread44, %.thread37
+.thread32:                                        ; preds = %32, %25, %12, %.thread45, %.thread38
   %75 = call i32 @H5E_dump_api_stack() #9
   br label %76
 
-76:                                               ; preds = %73, %.thread40, %.thread32
-  %.021 = phi i32 [ -1, %.thread32 ], [ 0, %73 ], [ 0, %.thread40 ]
+76:                                               ; preds = %73, %.thread41, %.thread32
+  %.0192735 = phi i32 [ 0, %73 ], [ -1, %.thread32 ], [ 0, %.thread41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.021
+  ret i32 %.0192735
 }
 
 declare i32 @H5CX_set_loc(i64 noundef) local_unnamed_addr #2
@@ -2305,7 +2305,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %42 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Trefresh, i32 noundef 869, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.24) #9
-  br label %.thread37
+  br label %.thread38
 
 44:                                               ; preds = %36
   %45 = call i32 @H5T_is_named(ptr noundef nonnull %38) #9
@@ -2316,15 +2316,15 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %47 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %48 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Trefresh, i32 noundef 871, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.59) #9
-  br label %.thread37
+  br label %.thread38
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %.not23 = icmp eq ptr %52, null
-  br i1 %.not23, label %.thread40, label %54
+  br i1 %.not23, label %.thread41, label %54
 
-.thread40:                                        ; preds = %50
+.thread41:                                        ; preds = %50
   %53 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %76
 
@@ -2338,7 +2338,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %58 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %59 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %60 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Trefresh, i32 noundef 879, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.28) #9
-  br label %.thread44
+  br label %.thread45
 
 61:                                               ; preds = %54
   store i32 1, ptr %3, align 8, !tbaa !53
@@ -2354,13 +2354,13 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %68 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %69 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Trefresh, i32 noundef 886, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.61) #9
-  br label %.thread44
+  br label %.thread45
 
-.thread37:                                        ; preds = %46, %40
+.thread38:                                        ; preds = %46, %40
   %71 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %.thread32
 
-.thread44:                                        ; preds = %57, %67
+.thread45:                                        ; preds = %57, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %.thread32
@@ -2370,14 +2370,14 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %74 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
   br label %76
 
-.thread32:                                        ; preds = %32, %25, %12, %.thread44, %.thread37
+.thread32:                                        ; preds = %32, %25, %12, %.thread45, %.thread38
   %75 = call i32 @H5E_dump_api_stack() #9
   br label %76
 
-76:                                               ; preds = %73, %.thread40, %.thread32
-  %.021 = phi i32 [ -1, %.thread32 ], [ 0, %73 ], [ 0, %.thread40 ]
+76:                                               ; preds = %73, %.thread41, %.thread32
+  %.0192735 = phi i32 [ 0, %73 ], [ -1, %.thread32 ], [ 0, %.thread41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.021
+  ret i32 %.0192735
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1225,8 +1225,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @PKCS12_handle_content_infos(
 
 .preheader:                                       ; preds = %40
   %42 = call i64 @CBS_len(ptr noundef nonnull %26) #12
-  %.not1430 = icmp eq i64 %42, 0
-  br i1 %.not1430, label %.loopexit, label %.lr.ph
+  %.not1426 = icmp eq i64 %42, 0
+  br i1 %.not1426, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1247,7 +1247,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @PKCS12_handle_content_infos(
 
 50:                                               ; preds = %48
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 704) #12
-  br label %.thread28
+  br label %.thread
 
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1274,18 +1274,18 @@ PKCS12_handle_content_info.exit.thread:           ; preds = %51, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread28
+  br label %.thread
 
 56:                                               ; preds = %53
   %57 = call i32 @OBJ_cbs2nid(ptr noundef nonnull %4) #12
-  switch i32 %57, label %PKCS12_handle_content_info.exit.thread23 [
+  switch i32 %57, label %PKCS12_handle_content_info.exit.thread21 [
     i32 26, label %59
     i32 21, label %100
     i32 151, label %106
     i32 152, label %137
   ]
 
-PKCS12_handle_content_info.exit.thread23:         ; preds = %56
+PKCS12_handle_content_info.exit.thread21:         ; preds = %56
   %58 = load ptr, ptr %8, align 8, !tbaa !6
   call void @free(ptr noundef %58) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1543,7 +1543,7 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
 
 157:                                              ; preds = %153
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 869) #12
-  br label %.thread
+  br label %.critedge.i
 
 158:                                              ; preds = %153
   %159 = load ptr, ptr %23, align 8, !tbaa !6
@@ -1556,7 +1556,7 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
 163:                                              ; preds = %158
   call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 873) #12
   call void @X509_free(ptr noundef nonnull %156) #12
-  br label %.thread
+  br label %.critedge.i
 
 164:                                              ; preds = %158
   %165 = load ptr, ptr %43, align 8, !tbaa !38
@@ -1566,18 +1566,18 @@ PKCS12_handle_content_info.exit.thread23:         ; preds = %56
 
 168:                                              ; preds = %164
   call void @X509_free(ptr noundef nonnull %156) #12
-  br label %.thread
-
-.thread:                                          ; preds = %163, %168, %157
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %170
+  br label %.critedge.i
 
 169:                                              ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %170
 
-170:                                              ; preds = %146, %169, %.thread, %152, %145
-  %.445.i = phi i32 [ 0, %152 ], [ 0, %145 ], [ 0, %.thread ], [ 1, %169 ], [ 1, %146 ]
+.critedge.i:                                      ; preds = %168, %163, %157
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  br label %170
+
+170:                                              ; preds = %.critedge.i, %169, %152, %146, %145
+  %.445.i = phi i32 [ 0, %152 ], [ 0, %145 ], [ 0, %.critedge.i ], [ 1, %169 ], [ 1, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1594,20 +1594,20 @@ PKCS12_handle_content_info.exit:                  ; preds = %99, %105, %136, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not16 = icmp eq i32 %.041.i, 0
-  br i1 %.not16, label %.thread28, label %172
+  br i1 %.not16, label %.thread, label %172
 
-.thread28:                                        ; preds = %PKCS12_handle_content_info.exit, %50, %PKCS12_handle_content_info.exit.thread
+.thread:                                          ; preds = %PKCS12_handle_content_info.exit, %50, %PKCS12_handle_content_info.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit
 
-172:                                              ; preds = %PKCS12_handle_content_info.exit, %PKCS12_handle_content_info.exit.thread23
+172:                                              ; preds = %PKCS12_handle_content_info.exit, %PKCS12_handle_content_info.exit.thread21
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %173 = call i64 @CBS_len(ptr noundef nonnull %26) #12
   %.not14 = icmp eq i64 %173, 0
   br i1 %.not14, label %.loopexit, label %48
 
-.loopexit:                                        ; preds = %172, %.preheader, %.thread28, %47
-  %.08 = phi i32 [ 0, %47 ], [ 0, %.thread28 ], [ 1, %.preheader ], [ 1, %172 ]
+.loopexit:                                        ; preds = %172, %.preheader, %.thread, %47
+  %.08 = phi i32 [ 0, %47 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %172 ]
   %174 = load ptr, ptr %24, align 8, !tbaa !6
   call void @free(ptr noundef %174) #12
   br label %175

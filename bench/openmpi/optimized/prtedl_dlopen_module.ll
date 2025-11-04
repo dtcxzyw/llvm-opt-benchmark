@@ -201,29 +201,29 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 58) #8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread154, label %.lr.ph114
+  br i1 %.not, label %.thread155, label %.lr.ph115
 
-.lr.ph114:                                        ; preds = %3
+.lr.ph115:                                        ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not65164 = icmp eq ptr %9, null
-  br i1 %.not65164, label %._crit_edge115, label %.lr.ph166
+  %.not65165 = icmp eq ptr %9, null
+  br i1 %.not65165, label %._crit_edge116, label %.lr.ph167
 
-.lr.ph166:                                        ; preds = %.lr.ph114, %._crit_edge
-  %10 = phi ptr [ %52, %._crit_edge ], [ %9, %.lr.ph114 ]
-  %indvars.iv127165 = phi i64 [ %indvars.iv.next128, %._crit_edge ], [ 0, %.lr.ph114 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv127165
+.lr.ph167:                                        ; preds = %.lr.ph115, %._crit_edge
+  %10 = phi ptr [ %52, %._crit_edge ], [ %9, %.lr.ph115 ]
+  %indvars.iv128166 = phi i64 [ %indvars.iv.next129, %._crit_edge ], [ 0, %.lr.ph115 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv128166
   %12 = call ptr @opendir(ptr noundef nonnull %10)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread97, label %.preheader99
+  br i1 %13, label %.thread98, label %.preheader100
 
-.preheader99:                                     ; preds = %.lr.ph166
+.preheader100:                                    ; preds = %.lr.ph167
   %14 = call ptr @readdir(ptr noundef nonnull %12) #8
-  %.not66110 = icmp eq ptr %14, null
-  br i1 %.not66110, label %._crit_edge, label %.lr.ph111
+  %.not66111 = icmp eq ptr %14, null
+  br i1 %.not66111, label %._crit_edge, label %.lr.ph112
 
-.lr.ph111:                                        ; preds = %.preheader99, %.critedge2
-  %15 = phi ptr [ %49, %.critedge2 ], [ %14, %.preheader99 ]
+.lr.ph112:                                        ; preds = %.preheader100, %.critedge2
+  %15 = phi ptr [ %49, %.critedge2 ], [ %14, %.preheader100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !15
   %16 = load ptr, ptr %11, align 8, !tbaa !15
@@ -231,19 +231,19 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   %18 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef nonnull %17) #8
   %19 = load ptr, ptr %5, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread93, label %21
+  br i1 %20, label %.thread94, label %21
 
-21:                                               ; preds = %.lr.ph111
+21:                                               ; preds = %.lr.ph112
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @stat(ptr noundef nonnull %19, ptr noundef nonnull %6) #8
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.thread77, label %25
+  br i1 %23, label %.thread78, label %25
 
-.thread77:                                        ; preds = %21
+.thread78:                                        ; preds = %21
   %24 = load ptr, ptr %5, align 8, !tbaa !15
   call void @free(ptr noundef %24) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread93
+  br label %.thread94
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %8, align 8, !tbaa !22
@@ -280,17 +280,17 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %39
   %41 = load ptr, ptr %40, align 8, !tbaa !15
-  %.not69107 = icmp eq ptr %41, null
-  br i1 %.not69107, label %.critedge75, label %.lr.ph109
+  %.not69108 = icmp eq ptr %41, null
+  br i1 %.not69108, label %.critedge75, label %.lr.ph110
 
-42:                                               ; preds = %.lr.ph109
+42:                                               ; preds = %.lr.ph110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8, !tbaa !15
   %.not69 = icmp eq ptr %44, null
-  br i1 %.not69, label %.critedge75, label %.lr.ph109
+  br i1 %.not69, label %.critedge75, label %.lr.ph110
 
-.lr.ph109:                                        ; preds = %.lr.ph, %42
+.lr.ph110:                                        ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
   %45 = phi ptr [ %44, %42 ], [ %41, %.lr.ph ]
   %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %.pre) #10
@@ -299,71 +299,71 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 .critedge75:                                      ; preds = %42, %.lr.ph, %39
   %48 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef %.pre) #8
-  %.pre133 = load ptr, ptr %5, align 8, !tbaa !15
+  %.pre134 = load ptr, ptr %5, align 8, !tbaa !15
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.lr.ph109, %.critedge75, %32, %35, %25
-  %.sink = phi ptr [ %29, %25 ], [ %29, %35 ], [ %29, %32 ], [ %.pre133, %.critedge75 ], [ %.pre, %.lr.ph109 ]
+.critedge2:                                       ; preds = %.lr.ph110, %.critedge75, %32, %35, %25
+  %.sink = phi ptr [ %29, %25 ], [ %29, %35 ], [ %29, %32 ], [ %.pre134, %.critedge75 ], [ %.pre, %.lr.ph110 ]
   call void @free(ptr noundef %.sink) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = call ptr @readdir(ptr noundef nonnull %12) #8
   %.not66 = icmp eq ptr %49, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph111
+  br i1 %.not66, label %._crit_edge, label %.lr.ph112
 
-._crit_edge:                                      ; preds = %.critedge2, %.preheader99
+._crit_edge:                                      ; preds = %.critedge2, %.preheader100
   %50 = call i32 @closedir(ptr noundef nonnull %12)
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127165, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next128
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128166, 1
+  %51 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next129
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not65 = icmp eq ptr %52, null
-  br i1 %.not65, label %._crit_edge115, label %.lr.ph166
+  br i1 %.not65, label %._crit_edge116, label %.lr.ph167
 
-._crit_edge115:                                   ; preds = %._crit_edge, %.lr.ph114
-  %.pre134 = load ptr, ptr %4, align 8, !tbaa !21
-  %.not70 = icmp eq ptr %.pre134, null
-  br i1 %.not70, label %.thread97, label %.preheader
+._crit_edge116:                                   ; preds = %._crit_edge, %.lr.ph115
+  %.pre135 = load ptr, ptr %4, align 8, !tbaa !21
+  %.not70 = icmp eq ptr %.pre135, null
+  br i1 %.not70, label %.thread98, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge115
-  %53 = load ptr, ptr %.pre134, align 8, !tbaa !15
-  %.not71118 = icmp eq ptr %53, null
-  br i1 %.not71118, label %.thread97, label %.lr.ph120
+.preheader:                                       ; preds = %._crit_edge116
+  %53 = load ptr, ptr %.pre135, align 8, !tbaa !15
+  %.not71119 = icmp eq ptr %53, null
+  br i1 %.not71119, label %.thread98, label %.lr.ph121
 
-54:                                               ; preds = %.lr.ph120
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+54:                                               ; preds = %.lr.ph121
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %55 = load ptr, ptr %4, align 8, !tbaa !21
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.next131
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.next132
   %57 = load ptr, ptr %56, align 8, !tbaa !15
   %.not71 = icmp eq ptr %57, null
-  br i1 %.not71, label %.thread97, label %.lr.ph120, !llvm.loop !28
+  br i1 %.not71, label %.thread98, label %.lr.ph121, !llvm.loop !28
 
-.lr.ph120:                                        ; preds = %.preheader, %54
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %54 ], [ 0, %.preheader ]
+.lr.ph121:                                        ; preds = %.preheader, %54
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %54 ], [ 0, %.preheader ]
   %58 = phi ptr [ %57, %54 ], [ %53, %.preheader ]
   %59 = call i32 %1(ptr noundef nonnull %58, ptr noundef %2) #8
   %.not72 = icmp eq i32 %59, 0
-  br i1 %.not72, label %54, label %.thread97
+  br i1 %.not72, label %54, label %.thread98
 
-.thread93:                                        ; preds = %.lr.ph111, %.thread77
+.thread94:                                        ; preds = %.lr.ph112, %.thread78
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = call i32 @closedir(ptr noundef nonnull %12)
-  br label %.thread97
+  br label %.thread98
 
-.thread97:                                        ; preds = %.lr.ph166, %54, %.lr.ph120, %._crit_edge115, %.preheader, %.thread93
-  %.69295 = phi i32 [ -11, %.thread93 ], [ 0, %.preheader ], [ 0, %._crit_edge115 ], [ %59, %.lr.ph120 ], [ %59, %54 ], [ -11, %.lr.ph166 ]
+.thread98:                                        ; preds = %.lr.ph167, %54, %.lr.ph121, %._crit_edge116, %.preheader, %.thread94
+  %.69396 = phi i32 [ -11, %.thread94 ], [ 0, %.preheader ], [ 0, %._crit_edge116 ], [ %59, %.lr.ph121 ], [ %59, %54 ], [ -11, %.lr.ph167 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
   %.pr = load ptr, ptr %4, align 8, !tbaa !21
   %.not74 = icmp eq ptr %.pr, null
-  br i1 %.not74, label %.thread154, label %61
+  br i1 %.not74, label %.thread155, label %61
 
-61:                                               ; preds = %.thread97
+61:                                               ; preds = %.thread98
   call void @PMIx_Argv_free(ptr noundef nonnull %.pr) #8
-  br label %.thread154
+  br label %.thread155
 
-.thread154:                                       ; preds = %3, %.thread97, %61
-  %.69296157 = phi i32 [ %.69295, %.thread97 ], [ %.69295, %61 ], [ 0, %3 ]
+.thread155:                                       ; preds = %3, %.thread98, %61
+  %.69397158 = phi i32 [ %.69396, %.thread98 ], [ %.69396, %61 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.69296157
+  ret i32 %.69397158
 }
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

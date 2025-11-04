@@ -3725,7 +3725,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %13 = getelementptr i8, ptr %2, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread27, label %16
+  br i1 %15, label %.thread29, label %16
 
 16:                                               ; preds = %12
   tail call void @__rcu_read_lock() #16
@@ -3754,7 +3754,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
 .thread:                                          ; preds = %20, %27
   %.ph = phi i32 [ -22, %27 ], [ %25, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread25
+  br label %.thread27
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %29, i64 4
@@ -3773,7 +3773,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   call void @__rcu_read_unlock() #16
   %42 = call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.2, ptr noundef %32) #16
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread27, label %44
+  br i1 %43, label %.thread29, label %44
 
 44:                                               ; preds = %41
   call void @__rcu_read_lock() #16
@@ -3781,16 +3781,16 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %46 = load i8, ptr %37, align 2
   %47 = call ptr @__nf_conntrack_helper_find(ptr noundef %32, i16 noundef zeroext %45, i8 noundef zeroext %46) #16
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.thread25
+  br i1 %48, label %49, label %.thread27
 
 49:                                               ; preds = %44
   call void @__rcu_read_unlock() #16
-  br label %.thread27
+  br label %.thread29
 
 50:                                               ; preds = %31
   %51 = call ptr @nf_ct_helper_ext_add(ptr noundef %10, i32 noundef 2080) #16
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread25, label %53
+  br i1 %52, label %.thread27, label %53
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 112
@@ -3820,22 +3820,22 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %68 = getelementptr i8, ptr %2, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread29, label %.split
+  br i1 %70, label %.thread31, label %.split
 
 .split:                                           ; preds = %67, %63
   %.sink = phi ptr [ %65, %63 ], [ null, %67 ]
   %71 = call fastcc i32 @ctnetlink_parse_nat_setup(ptr noundef %10, i32 noundef 1, ptr noundef %.sink)
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.thread25, label %73
+  br i1 %72, label %.thread27, label %73
 
 73:                                               ; preds = %.split
   %74 = getelementptr i8, ptr %2, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = call fastcc i32 @ctnetlink_parse_nat_setup(ptr noundef %10, i32 noundef 0, ptr noundef %75)
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %.thread25, label %.thread29
+  br i1 %77, label %.thread27, label %.thread31
 
-.thread29:                                        ; preds = %67, %73
+.thread31:                                        ; preds = %67, %73
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2434
@@ -3843,11 +3843,11 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
 
-83:                                               ; preds = %.thread29
+83:                                               ; preds = %.thread31
   %84 = call ptr @nf_ct_ext_add(ptr noundef %10, i32 noundef 3, i32 noundef 2080) #16
   br label %85
 
-85:                                               ; preds = %83, %.thread29
+85:                                               ; preds = %83, %.thread31
   %86 = call ptr @nf_ct_ext_add(ptr noundef %10, i32 noundef 2, i32 noundef 2080) #16
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %88 = load i64, ptr %87, align 8
@@ -3892,7 +3892,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %116 = call i32 @llvm.bswap.i32(i32 %115)
   %117 = call i32 @nf_ct_change_status_common(ptr noundef %10, i32 noundef %116) #16
   %118 = icmp slt i32 %117, 0
-  br i1 %118, label %.thread25, label %119
+  br i1 %118, label %.thread27, label %119
 
 119:                                              ; preds = %113, %109
   %120 = getelementptr i8, ptr %2, i64 120
@@ -3909,7 +3909,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
 127:                                              ; preds = %123, %119
   %128 = call fastcc i32 @ctnetlink_change_seq_adj(ptr noundef %10, ptr noundef %2), !range !6
   %129 = icmp slt i32 %128, 0
-  br i1 %129, label %.thread25, label %130
+  br i1 %129, label %.thread27, label %130
 
 130:                                              ; preds = %127, %123
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 184
@@ -3928,11 +3928,11 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %139 = zext i16 %138 to i32
   %140 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 3, ptr noundef %136, i32 noundef %139, ptr noundef nonnull @protoinfo_policy, i32 noundef 0, ptr noundef null) #16
   %141 = icmp slt i32 %140, 0
-  br i1 %141, label %.thread30, label %142
+  br i1 %141, label %.thread32, label %142
 
-.thread30:                                        ; preds = %135
+.thread32:                                        ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread25
+  br label %.thread27
 
 142:                                              ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 70
@@ -3941,9 +3941,9 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.thread31, label %149
+  br i1 %148, label %.thread33, label %149
 
-.thread31:                                        ; preds = %142
+.thread33:                                        ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
@@ -3951,9 +3951,9 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %150 = call i32 %147(ptr noundef nonnull %7, ptr noundef %10) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %151 = icmp slt i32 %150, 0
-  br i1 %151, label %.thread25, label %152
+  br i1 %151, label %.thread27, label %152
 
-152:                                              ; preds = %.thread31, %149, %130
+152:                                              ; preds = %.thread33, %149, %130
   %153 = getelementptr i8, ptr %2, i64 112
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
@@ -3964,17 +3964,17 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !5
   %157 = call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %2, ptr noundef nonnull %9, i32 noundef 14, i8 noundef zeroext %5, ptr noundef null, i32 noundef 4095), !range !6
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %.thread34, label %159
+  br i1 %158, label %.thread36, label %159
 
 159:                                              ; preds = %156
   %160 = call ptr @nf_conntrack_find_get(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9) #16
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %.thread34, label %162
+  br i1 %161, label %.thread36, label %162
 
-.thread34:                                        ; preds = %156, %159
-  %.ph33 = phi i32 [ -2, %159 ], [ %157, %156 ]
+.thread36:                                        ; preds = %156, %159
+  %.ph35 = phi i32 [ -2, %159 ], [ %157, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread25
+  br label %.thread27
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 55
@@ -4002,26 +4002,26 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %.thread25, label %178
+  br i1 %177, label %.thread27, label %178
 
 178:                                              ; preds = %174
   call fastcc void @nf_ct_put(ptr noundef nonnull %176)
-  br label %.thread25
-
-.thread25:                                        ; preds = %.split, %.thread, %50, %44, %.thread34, %.thread30, %178, %174, %149, %127, %113, %73
-  %179 = phi i32 [ %76, %73 ], [ %117, %113 ], [ %128, %127 ], [ %150, %149 ], [ %171, %178 ], [ %171, %174 ], [ %140, %.thread30 ], [ %.ph33, %.thread34 ], [ %.ph, %.thread ], [ -12, %50 ], [ -11, %44 ], [ %71, %.split ]
-  call void @__rcu_read_unlock() #16
-  %180 = sext i32 %179 to i64
   br label %.thread27
 
-.thread27:                                        ; preds = %41, %49, %.thread25, %12
-  %181 = phi i64 [ %180, %.thread25 ], [ -22, %12 ], [ -95, %49 ], [ -95, %41 ]
+.thread27:                                        ; preds = %.split, %.thread, %50, %44, %.thread36, %.thread32, %178, %174, %149, %127, %113, %73
+  %179 = phi i32 [ %76, %73 ], [ %117, %113 ], [ %128, %127 ], [ %150, %149 ], [ %171, %178 ], [ %171, %174 ], [ %140, %.thread32 ], [ %.ph35, %.thread36 ], [ %.ph, %.thread ], [ -12, %50 ], [ -11, %44 ], [ %71, %.split ]
+  call void @__rcu_read_unlock() #16
+  %180 = sext i32 %179 to i64
+  br label %.thread29
+
+.thread29:                                        ; preds = %41, %49, %.thread27, %12
+  %181 = phi i64 [ %180, %.thread27 ], [ -22, %12 ], [ -95, %49 ], [ -95, %41 ]
   call void @nf_conntrack_free(ptr noundef %10) #16
   %182 = inttoptr i64 %181 to ptr
   br label %183
 
-183:                                              ; preds = %.thread27, %173, %6
-  %184 = phi ptr [ %182, %.thread27 ], [ %10, %173 ], [ inttoptr (i64 -12 to ptr), %6 ]
+183:                                              ; preds = %.thread29, %173, %6
+  %184 = phi ptr [ %182, %.thread29 ], [ %10, %173 ], [ inttoptr (i64 -12 to ptr), %6 ]
   ret ptr %184
 }
 

@@ -6320,9 +6320,9 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   br label %15
 
 15:                                               ; preds = %154, %.lr.ph.i
-  %.0151 = phi i32 [ 0, %.lr.ph.i ], [ %.1152, %154 ]
-  %.0145 = phi i32 [ -1, %.lr.ph.i ], [ %.1146, %154 ]
-  %.0143 = phi i64 [ 281474976710656, %.lr.ph.i ], [ %.1144, %154 ]
+  %.0152 = phi i32 [ 0, %.lr.ph.i ], [ %.1153, %154 ]
+  %.0146 = phi i32 [ -1, %.lr.ph.i ], [ %.1147, %154 ]
+  %.0144 = phi i64 [ 281474976710656, %.lr.ph.i ], [ %.1145, %154 ]
   %16 = phi i32 [ %12, %.lr.ph.i ], [ %156, %154 ]
   %.097249.i = phi i32 [ 2, %.lr.ph.i ], [ %155, %154 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !132
@@ -6339,7 +6339,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = add nsw i32 %16, -3
   %.not100.i = icmp slt i32 %.097249.i, %25
-  br i1 %.not100.i, label %26, label %hsetexParseArgs.exit.thread159.sink.split
+  br i1 %.not100.i, label %26, label %hsetexParseArgs.exit.thread160.sink.split
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -6347,14 +6347,14 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   %29 = load ptr, ptr %28, align 8, !tbaa !64
   %30 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %29, i64 noundef 1, i64 noundef 2147483647, ptr noundef nonnull %9, ptr noundef nonnull @.str.67) #17
   %.not101.i = icmp eq i32 %30, 0
-  br i1 %.not101.i, label %31, label %hsetexParseArgs.exit.thread159
+  br i1 %.not101.i, label %31, label %hsetexParseArgs.exit.thread160
 
 31:                                               ; preds = %26
   %32 = load i32, ptr %11, align 8, !tbaa !136
   %33 = sub nsw i32 %32, %.097249.i
   %34 = and i32 %33, 1
   %.not102.i = icmp eq i32 %34, 0
-  br i1 %.not102.i, label %35, label %hsetexParseArgs.exit.thread159.sink.split
+  br i1 %.not102.i, label %35, label %hsetexParseArgs.exit.thread160.sink.split
 
 35:                                               ; preds = %31
   %36 = add nsw i32 %33, -2
@@ -6362,7 +6362,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   %38 = ashr exact i32 %36, 1
   %39 = sext i32 %38 to i64
   %.not103.i = icmp eq i64 %37, %39
-  br i1 %.not103.i, label %161, label %hsetexParseArgs.exit.thread159.sink.split
+  br i1 %.not103.i, label %161, label %hsetexParseArgs.exit.thread160.sink.split
 
 40:                                               ; preds = %15
   %41 = call i32 @strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.68) #20
@@ -6370,7 +6370,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not104.i, label %42, label %68
 
 42:                                               ; preds = %40
-  %43 = and i32 %.0151, 47
+  %43 = and i32 %.0152, 47
   %.not105.i = icmp eq i32 %43, 0
   br i1 %.not105.i, label %44, label %160
 
@@ -6380,7 +6380,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not106.i, label %46, label %158
 
 46:                                               ; preds = %44
-  %47 = or disjoint i32 %.0151, 1
+  %47 = or disjoint i32 %.0152, 1
   %48 = add nsw i32 %.097249.i, 1
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %17, i64 %49
@@ -6434,7 +6434,7 @@ parseExpireTime.exit.thread.i:                    ; preds = %46, %65, %60, %57
   br i1 %.not108.i, label %70, label %92
 
 70:                                               ; preds = %68
-  %71 = and i32 %.0151, 47
+  %71 = and i32 %.0152, 47
   %.not109.i = icmp eq i32 %71, 0
   br i1 %.not109.i, label %72, label %160
 
@@ -6444,7 +6444,7 @@ parseExpireTime.exit.thread.i:                    ; preds = %46, %65, %60, %57
   br i1 %.not110.i, label %74, label %158
 
 74:                                               ; preds = %72
-  %75 = or disjoint i32 %.0151, 2
+  %75 = or disjoint i32 %.0152, 2
   %76 = add nsw i32 %.097249.i, 1
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds ptr, ptr %17, i64 %77
@@ -6488,7 +6488,7 @@ parseExpireTime.exit128.thread.i:                 ; preds = %74, %89, %85
   br i1 %.not112.i, label %94, label %114
 
 94:                                               ; preds = %92
-  %95 = and i32 %.0151, 47
+  %95 = and i32 %.0152, 47
   %.not113.i = icmp eq i32 %95, 0
   br i1 %.not113.i, label %96, label %160
 
@@ -6498,7 +6498,7 @@ parseExpireTime.exit128.thread.i:                 ; preds = %74, %89, %85
   br i1 %.not114.i, label %98, label %158
 
 98:                                               ; preds = %96
-  %99 = or disjoint i32 %.0151, 4
+  %99 = or disjoint i32 %.0152, 4
   %100 = add nsw i32 %.097249.i, 1
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %17, i64 %101
@@ -6540,7 +6540,7 @@ parseExpireTime.exit131.thread.i:                 ; preds = %98, %111, %108
   br i1 %.not116.i, label %116, label %135
 
 116:                                              ; preds = %114
-  %117 = and i32 %.0151, 47
+  %117 = and i32 %.0152, 47
   %.not117.i = icmp eq i32 %117, 0
   br i1 %.not117.i, label %118, label %160
 
@@ -6550,7 +6550,7 @@ parseExpireTime.exit131.thread.i:                 ; preds = %98, %111, %108
   br i1 %.not118.i, label %120, label %158
 
 120:                                              ; preds = %118
-  %121 = or disjoint i32 %.0151, 8
+  %121 = or disjoint i32 %.0152, 8
   %122 = add nsw i32 %.097249.i, 1
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds ptr, ptr %17, i64 %123
@@ -6591,12 +6591,12 @@ parseExpireTime.exit134.thread.i:                 ; preds = %120, %133, %130
   br i1 %.not120.i, label %137, label %141
 
 137:                                              ; preds = %135
-  %138 = and i32 %.0151, 47
+  %138 = and i32 %.0152, 47
   %.not121.i = icmp eq i32 %138, 0
   br i1 %.not121.i, label %139, label %160
 
 139:                                              ; preds = %137
-  %140 = or disjoint i32 %.0151, 32
+  %140 = or disjoint i32 %.0152, 32
   br label %154
 
 141:                                              ; preds = %135
@@ -6605,12 +6605,12 @@ parseExpireTime.exit134.thread.i:                 ; preds = %120, %133, %130
   br i1 %.not122.i, label %143, label %147
 
 143:                                              ; preds = %141
-  %144 = and i32 %.0151, 192
+  %144 = and i32 %.0152, 192
   %.not123.i = icmp eq i32 %144, 0
   br i1 %.not123.i, label %145, label %159
 
 145:                                              ; preds = %143
-  %146 = or disjoint i32 %.0151, 64
+  %146 = or disjoint i32 %.0152, 64
   br label %154
 
 147:                                              ; preds = %141
@@ -6619,12 +6619,12 @@ parseExpireTime.exit134.thread.i:                 ; preds = %120, %133, %130
   br i1 %.not124.i, label %149, label %153
 
 149:                                              ; preds = %147
-  %150 = and i32 %.0151, 192
+  %150 = and i32 %.0152, 192
   %.not125.i = icmp eq i32 %150, 0
   br i1 %.not125.i, label %151, label %159
 
 151:                                              ; preds = %149
-  %152 = or disjoint i32 %.0151, 128
+  %152 = or disjoint i32 %.0152, 128
   br label %154
 
 153:                                              ; preds = %147
@@ -6632,9 +6632,9 @@ parseExpireTime.exit134.thread.i:                 ; preds = %120, %133, %130
   br label %hsetexParseArgs.exit.thread
 
 154:                                              ; preds = %151, %145, %139, %134, %112, %90, %66
-  %.1152 = phi i32 [ %47, %66 ], [ %75, %90 ], [ %99, %112 ], [ %121, %134 ], [ %140, %139 ], [ %146, %145 ], [ %152, %151 ]
-  %.1146 = phi i32 [ %48, %66 ], [ %76, %90 ], [ %100, %112 ], [ %122, %134 ], [ %.0145, %139 ], [ %.0145, %145 ], [ %.0145, %151 ]
-  %.1144 = phi i64 [ %67, %66 ], [ %91, %90 ], [ %113, %112 ], [ %128, %134 ], [ %.0143, %139 ], [ %.0143, %145 ], [ %.0143, %151 ]
+  %.1153 = phi i32 [ %47, %66 ], [ %75, %90 ], [ %99, %112 ], [ %121, %134 ], [ %140, %139 ], [ %146, %145 ], [ %152, %151 ]
+  %.1147 = phi i32 [ %48, %66 ], [ %76, %90 ], [ %100, %112 ], [ %122, %134 ], [ %.0146, %139 ], [ %.0146, %145 ], [ %.0146, %151 ]
+  %.1145 = phi i64 [ %67, %66 ], [ %91, %90 ], [ %113, %112 ], [ %128, %134 ], [ %.0144, %139 ], [ %.0144, %145 ], [ %.0144, %151 ]
   %.198.i = phi i32 [ %48, %66 ], [ %76, %90 ], [ %100, %112 ], [ %122, %134 ], [ %.097249.i, %139 ], [ %.097249.i, %145 ], [ %.097249.i, %151 ]
   %155 = add nsw i32 %.198.i, 1
   %156 = load i32, ptr %11, align 8, !tbaa !136
@@ -6658,11 +6658,11 @@ parseExpireTime.exit134.thread.i:                 ; preds = %120, %133, %130
   call void @addReplyError(ptr noundef %0, ptr noundef nonnull @.str.79) #17
   br label %hsetexParseArgs.exit.thread
 
-hsetexParseArgs.exit.thread159.sink.split:        ; preds = %31, %35, %24
+hsetexParseArgs.exit.thread160.sink.split:        ; preds = %31, %35, %24
   call void @addReplyErrorArity(ptr noundef nonnull %0) #17
-  br label %hsetexParseArgs.exit.thread159
+  br label %hsetexParseArgs.exit.thread160
 
-hsetexParseArgs.exit.thread159:                   ; preds = %hsetexParseArgs.exit.thread159.sink.split, %26
+hsetexParseArgs.exit.thread160:                   ; preds = %hsetexParseArgs.exit.thread160.sink.split, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %hsetexParseArgs.exit.thread
 
@@ -6685,7 +6685,7 @@ hsetexParseArgs.exit.thread159:                   ; preds = %hsetexParseArgs.exi
   br i1 %.not110, label %172, label %182
 
 172:                                              ; preds = %171
-  %173 = and i32 %.0151, 64
+  %173 = and i32 %.0152, 64
   %.not111 = icmp eq i32 %173, 0
   br i1 %.not111, label %175, label %174
 
@@ -6746,7 +6746,7 @@ hsetexParseArgs.exit.thread159:                   ; preds = %hsetexParseArgs.exi
 
 hashTypeLength.exit:                              ; preds = %186, %191, %198
   %.0.i = phi i64 [ %190, %186 ], [ %205, %198 ], [ %197, %191 ]
-  %207 = and i32 %.0151, 192
+  %207 = and i32 %.0152, 192
   %.not112 = icmp eq i32 %207, 0
   br i1 %.not112, label %.thread, label %.preheader
 
@@ -6755,15 +6755,15 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %208, label %.lr.ph, label %.critedge._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %209 = and i32 %.0151, 64
+  %209 = and i32 %.0152, 64
   %210 = icmp eq i32 %209, 0
-  %211 = and i32 %.0151, 128
-  %.not324 = icmp eq i32 %211, 0
+  %211 = and i32 %.0152, 128
+  %.not325 = icmp eq i32 %211, 0
   br i1 %210, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %212 = sext i32 %162 to i64
-  br i1 %.not324, label %.critedge.us.us.preheader, label %.critedge.us
+  br i1 %.not325, label %.critedge.us.us.preheader, label %.critedge.us
 
 .critedge.us.us.preheader:                        ; preds = %.lr.ph.split.us
   %smax = call i32 @llvm.smax.i32(i32 %163, i32 1)
@@ -6771,11 +6771,11 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.critedge.us.us.preheader, %.critedge.us.us
-  %indvars.iv483 = phi i64 [ 0, %.critedge.us.us.preheader ], [ %indvars.iv.next484, %.critedge.us.us ]
-  %.0103299.us.us = phi i32 [ 0, %.critedge.us.us.preheader ], [ %223, %.critedge.us.us ]
+  %indvars.iv484 = phi i64 [ 0, %.critedge.us.us.preheader ], [ %indvars.iv.next485, %.critedge.us.us ]
+  %.0103300.us.us = phi i32 [ 0, %.critedge.us.us.preheader ], [ %223, %.critedge.us.us ]
   %213 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx506 = shl i64 %indvars.iv483, 4
-  %214 = getelementptr i8, ptr %213, i64 %.idx506
+  %.idx507 = shl i64 %indvars.iv484, 4
+  %214 = getelementptr i8, ptr %213, i64 %.idx507
   %215 = getelementptr ptr, ptr %214, i64 %212
   %216 = load ptr, ptr %215, align 8, !tbaa !64
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
@@ -6792,17 +6792,17 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %223 = add nuw nsw i32 %.0103299.us.us, %222
-  %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next484, %wide.trip.count
+  %223 = add nuw nsw i32 %.0103300.us.us, %222
+  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count
   br i1 %exitcond.not, label %.critedge._crit_edge.thread, label %.critedge.us.us, !llvm.loop !140
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us, %.critedge.us
-  %indvars.iv480 = phi i64 [ %indvars.iv.next481, %.critedge.us ], [ 0, %.lr.ph.split.us ]
-  %.0103299.us = phi i32 [ %234, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv481 = phi i64 [ %indvars.iv.next482, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %.0103300.us = phi i32 [ %234, %.critedge.us ], [ 0, %.lr.ph.split.us ]
   %224 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx505 = shl i64 %indvars.iv480, 4
-  %225 = getelementptr i8, ptr %224, i64 %.idx505
+  %.idx506 = shl i64 %indvars.iv481, 4
+  %225 = getelementptr i8, ptr %224, i64 %.idx506
   %226 = getelementptr ptr, ptr %225, i64 %212
   %227 = load ptr, ptr %226, align 8, !tbaa !64
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -6819,14 +6819,14 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %234 = add nuw nsw i32 %.0103299.us, %233
-  %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
-  %235 = icmp sge i64 %indvars.iv.next481, %37
+  %234 = add nuw nsw i32 %.0103300.us, %233
+  %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
+  %235 = icmp sge i64 %indvars.iv.next482, %37
   %or.cond.not = select i1 %232, i1 true, i1 %235
   br i1 %or.cond.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !140
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not324, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
+  br i1 %.not325, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
   %236 = sext i32 %162 to i64
@@ -6834,7 +6834,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.lr.ph.split.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.split.us ]
-  %.0103299.us304 = phi i32 [ 0, %.lr.ph.split.split.us.preheader ], [ %247, %.lr.ph.split.split.us ]
+  %.0103300.us305 = phi i32 [ 0, %.lr.ph.split.split.us.preheader ], [ %247, %.lr.ph.split.split.us ]
   %237 = load ptr, ptr %14, align 8, !tbaa !132
   %.idx = shl i64 %indvars.iv, 4
   %238 = getelementptr i8, ptr %237, i64 %.idx
@@ -6854,11 +6854,11 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %247 = add nuw nsw i32 %.0103299.us304, %246
+  %247 = add nuw nsw i32 %.0103300.us305, %246
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %248 = icmp slt i64 %indvars.iv.next, %37
-  %or.cond323 = select i1 %245, i1 %248, i1 false
-  br i1 %or.cond323, label %.lr.ph.split.split.us, label %.critedge._crit_edge.thread, !llvm.loop !140
+  %or.cond324 = select i1 %245, i1 %248, i1 false
+  br i1 %or.cond324, label %.lr.ph.split.split.us, label %.critedge._crit_edge.thread, !llvm.loop !140
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %249 = load ptr, ptr %14, align 8, !tbaa !132
@@ -6887,9 +6887,9 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %259, label %.critedge._crit_edge.thread, label %330
 
 .critedge._crit_edge.thread:                      ; preds = %.lr.ph.split.split.us, %.critedge.us.us, %.preheader, %.critedge._crit_edge
-  %.1104511 = phi i32 [ %.1104, %.critedge._crit_edge ], [ 0, %.preheader ], [ %223, %.critedge.us.us ], [ %247, %.lr.ph.split.split.us ]
-  %260 = icmp eq i32 %.1104511, %163
-  %261 = and i32 %.0151, 64
+  %.1104512 = phi i32 [ %.1104, %.critedge._crit_edge ], [ 0, %.preheader ], [ %223, %.critedge.us.us ], [ %247, %.lr.ph.split.split.us ]
+  %260 = icmp eq i32 %.1104512, %163
+  %261 = and i32 %.0152, 64
   %262 = icmp eq i32 %261, 0
   %or.cond7 = select i1 %262, i1 true, i1 %260
   br i1 %or.cond7, label %.thread, label %330
@@ -6900,7 +6900,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %265 = load i32, ptr %11, align 8, !tbaa !136
   %266 = add nsw i32 %265, -1
   call void @hashTypeTryConversion(ptr noundef %263, ptr noundef nonnull %.099, ptr noundef %264, i32 noundef %162, i32 noundef %266)
-  %267 = and i32 %.0151, 15
+  %267 = and i32 %.0152, 15
   %.not113 = icmp ne i32 %267, 0
   br i1 %.not113, label %268, label %274
 
@@ -6914,34 +6914,34 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
 
 274:                                              ; preds = %268, %.thread
   %275 = icmp sgt i64 %37, 0
-  br i1 %275, label %.lr.ph318, label %._crit_edge319
+  br i1 %275, label %.lr.ph319, label %._crit_edge320
 
-.lr.ph318:                                        ; preds = %274
-  %276 = and i32 %.0151, 47
+.lr.ph319:                                        ; preds = %274
+  %276 = and i32 %.0152, 47
   %.not116 = icmp eq i32 %276, 0
   %spec.select = select i1 %.not116, i32 0, i32 4
   %277 = sext i32 %162 to i64
-  %smax489 = call i32 @llvm.smax.i32(i32 %163, i32 1)
-  %wide.trip.count490 = zext nneg i32 %smax489 to i64
+  %smax490 = call i32 @llvm.smax.i32(i32 %163, i32 1)
+  %wide.trip.count491 = zext nneg i32 %smax490 to i64
   br label %280
 
-._crit_edge319.loopexit:                          ; preds = %301
+._crit_edge320.loopexit:                          ; preds = %301
   %278 = icmp ne i32 %.197, 0
   %279 = icmp ne i32 %.1, 0
-  br label %._crit_edge319
+  br label %._crit_edge320
 
-._crit_edge319:                                   ; preds = %._crit_edge319.loopexit, %274
-  %.096.lcssa = phi i1 [ false, %274 ], [ %278, %._crit_edge319.loopexit ]
-  %.0.lcssa = phi i1 [ false, %274 ], [ %279, %._crit_edge319.loopexit ]
+._crit_edge320:                                   ; preds = %._crit_edge320.loopexit, %274
+  %.096.lcssa = phi i1 [ false, %274 ], [ %278, %._crit_edge320.loopexit ]
+  %.0.lcssa = phi i1 [ false, %274 ], [ %279, %._crit_edge320.loopexit ]
   br i1 %.not113, label %302, label %303
 
-280:                                              ; preds = %.lr.ph318, %301
-  %indvars.iv486 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next487, %301 ]
-  %.0316 = phi i32 [ 0, %.lr.ph318 ], [ %.1, %301 ]
-  %.096315 = phi i32 [ 0, %.lr.ph318 ], [ %.197, %301 ]
+280:                                              ; preds = %.lr.ph319, %301
+  %indvars.iv487 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next488, %301 ]
+  %.0317 = phi i32 [ 0, %.lr.ph319 ], [ %.1, %301 ]
+  %.096316 = phi i32 [ 0, %.lr.ph319 ], [ %.197, %301 ]
   %281 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx507 = shl i64 %indvars.iv486, 4
-  %282 = getelementptr i8, ptr %281, i64 %.idx507
+  %.idx508 = shl i64 %indvars.iv487, 4
+  %282 = getelementptr i8, ptr %281, i64 %.idx508
   %283 = getelementptr ptr, ptr %282, i64 %277
   %284 = load ptr, ptr %283, align 8, !tbaa !64
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
@@ -6955,27 +6955,27 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %.not113, label %293, label %301
 
 293:                                              ; preds = %280
-  %294 = call i32 @hashTypeSetEx(ptr noundef nonnull %.099, ptr noundef %286, i64 noundef %.0143, ptr noundef nonnull %10)
+  %294 = call i32 @hashTypeSetEx(ptr noundef nonnull %.099, ptr noundef %286, i64 noundef %.0144, ptr noundef nonnull %10)
   %295 = icmp eq i32 %294, 1
   %296 = zext i1 %295 to i32
-  %297 = add nsw i32 %.0316, %296
+  %297 = add nsw i32 %.0317, %296
   %298 = icmp eq i32 %294, 2
   %299 = zext i1 %298 to i32
-  %300 = add nsw i32 %.096315, %299
+  %300 = add nsw i32 %.096316, %299
   br label %301
 
 301:                                              ; preds = %293, %280
-  %.197 = phi i32 [ %300, %293 ], [ %.096315, %280 ]
-  %.1 = phi i32 [ %297, %293 ], [ %.0316, %280 ]
-  %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
-  %exitcond491.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count490
-  br i1 %exitcond491.not, label %._crit_edge319.loopexit, label %280, !llvm.loop !141
+  %.197 = phi i32 [ %300, %293 ], [ %.096316, %280 ]
+  %.1 = phi i32 [ %297, %293 ], [ %.0317, %280 ]
+  %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
+  %exitcond492.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count491
+  br i1 %exitcond492.not, label %._crit_edge320.loopexit, label %280, !llvm.loop !141
 
-302:                                              ; preds = %._crit_edge319
+302:                                              ; preds = %._crit_edge320
   call void @hashTypeSetExDone(ptr noundef nonnull %10)
   br label %303
 
-303:                                              ; preds = %302, %._crit_edge319
+303:                                              ; preds = %302, %._crit_edge320
   %304 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !135
   %305 = add nsw i64 %304, %37
   store i64 %305, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !135
@@ -6992,7 +6992,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %315 = load i32, ptr %314, align 8, !tbaa !67
   call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.33, ptr noundef %312, i32 noundef %315) #17
   %or.cond9 = select i1 %.096.lcssa, i1 true, i1 %.0.lcssa
-  br i1 %or.cond9, label %316, label %.thread167
+  br i1 %or.cond9, label %316, label %.thread168
 
 316:                                              ; preds = %303
   %317 = select i1 %.096.lcssa, ptr @.str.34, ptr @.str.35
@@ -7003,29 +7003,29 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 56
   %323 = load i32, ptr %322, align 8, !tbaa !67
   call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull %317, ptr noundef %320, i32 noundef %323) #17
-  br i1 %.096.lcssa, label %324, label %.thread167
+  br i1 %.096.lcssa, label %324, label %.thread168
 
 324:                                              ; preds = %316
   call void @preventCommandPropagation(ptr noundef nonnull %0) #17
   br label %330
 
-.thread167:                                       ; preds = %303, %316
-  %325 = and i32 %.0151, 8
+.thread168:                                       ; preds = %303, %316
+  %325 = and i32 %.0152, 8
   %.not114 = icmp eq i32 %325, 0
-  %or.cond168 = and i1 %.not113, %.not114
-  br i1 %or.cond168, label %326, label %330
+  %or.cond169 = and i1 %.not113, %.not114
+  br i1 %or.cond169, label %326, label %330
 
-326:                                              ; preds = %.thread167
-  %327 = add nsw i32 %.0145, -1
+326:                                              ; preds = %.thread168
+  %327 = add nsw i32 %.0146, -1
   %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 640), align 8, !tbaa !142
   call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef %327, ptr noundef %328) #17
-  %329 = call ptr @createStringObjectFromLongLong(i64 noundef %.0143) #17
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0145, ptr noundef %329) #17
+  %329 = call ptr @createStringObjectFromLongLong(i64 noundef %.0144) #17
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef %.0146, ptr noundef %329) #17
   call void @decrRefCount(ptr noundef %329) #17
   br label %330
 
-330:                                              ; preds = %324, %326, %.thread167, %.critedge._crit_edge.thread, %.critedge._crit_edge
-  %.sink = phi i64 [ 0, %.critedge._crit_edge ], [ 0, %.critedge._crit_edge.thread ], [ 1, %.thread167 ], [ 1, %326 ], [ 1, %324 ]
+330:                                              ; preds = %324, %326, %.thread168, %.critedge._crit_edge.thread, %.critedge._crit_edge
+  %.sink = phi i64 [ 0, %.critedge._crit_edge ], [ 0, %.critedge._crit_edge.thread ], [ 1, %.thread168 ], [ 1, %326 ], [ 1, %324 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.sink) #17
   %331 = load i32, ptr %.099, align 8
   %332 = lshr i32 %331, 4
@@ -7041,7 +7041,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %336 = load ptr, ptr %335, align 8, !tbaa !10
   %337 = call i64 @lpLength(ptr noundef %336) #17
   %338 = lshr i64 %337, 1
-  br label %hashTypeLength.exit118
+  br label %hashTypeLength.exit119
 
 339:                                              ; preds = %330
   %340 = getelementptr inbounds nuw i8, ptr %.099, i64 8
@@ -7050,7 +7050,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %343 = load ptr, ptr %342, align 8, !tbaa !15
   %344 = call i64 @lpLength(ptr noundef %343) #17
   %345 = udiv i64 %344, 3
-  br label %hashTypeLength.exit118
+  br label %hashTypeLength.exit119
 
 346:                                              ; preds = %330
   %347 = getelementptr inbounds nuw i8, ptr %.099, i64 8
@@ -7060,19 +7060,19 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 32
   %352 = load i64, ptr %351, align 8, !tbaa !28
   %353 = add i64 %352, %350
-  br label %hashTypeLength.exit118
+  br label %hashTypeLength.exit119
 
 354:                                              ; preds = %330
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1325, ptr noundef nonnull @.str.11) #17
   call void @abort() #18
   unreachable
 
-hashTypeLength.exit118:                           ; preds = %334, %339, %346
-  %.0.i117 = phi i64 [ %338, %334 ], [ %353, %346 ], [ %345, %339 ]
-  %355 = icmp eq i64 %.0.i117, 0
+hashTypeLength.exit119:                           ; preds = %334, %339, %346
+  %.0.i118 = phi i64 [ %338, %334 ], [ %353, %346 ], [ %345, %339 ]
+  %355 = icmp eq i64 %.0.i118, 0
   br i1 %355, label %356, label %368
 
-356:                                              ; preds = %hashTypeLength.exit118
+356:                                              ; preds = %hashTypeLength.exit119
   %357 = load ptr, ptr %164, align 8, !tbaa !109
   %358 = load ptr, ptr %14, align 8, !tbaa !132
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
@@ -7087,8 +7087,8 @@ hashTypeLength.exit118:                           ; preds = %334, %339, %346
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef %364, i32 noundef %367) #17
   br label %368
 
-368:                                              ; preds = %356, %hashTypeLength.exit118
-  %.not115 = icmp eq i64 %.0.i, %.0.i117
+368:                                              ; preds = %356, %hashTypeLength.exit119
+  %.not115 = icmp eq i64 %.0.i, %.0.i118
   br i1 %.not115, label %hsetexParseArgs.exit.thread, label %369
 
 369:                                              ; preds = %368
@@ -7099,10 +7099,10 @@ hashTypeLength.exit118:                           ; preds = %334, %339, %346
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8, !tbaa !10
   %376 = call i32 @getKeySlot(ptr noundef %375) #17
-  call void @updateKeysizesHist(ptr noundef %370, i32 noundef %376, i32 noundef 4, i64 noundef %.0.i, i64 noundef %.0.i117) #17
+  call void @updateKeysizesHist(ptr noundef %370, i32 noundef %376, i32 noundef 4, i64 noundef %.0.i, i64 noundef %.0.i118) #17
   br label %hsetexParseArgs.exit.thread
 
-hsetexParseArgs.exit.thread:                      ; preds = %153, %parseExpireTime.exit.thread.i, %parseExpireTime.exit128.thread.i, %parseExpireTime.exit131.thread.i, %parseExpireTime.exit134.thread.i, %159, %158, %160, %hsetexParseArgs.exit.thread159, %368, %369, %161, %174
+hsetexParseArgs.exit.thread:                      ; preds = %153, %parseExpireTime.exit.thread.i, %parseExpireTime.exit128.thread.i, %parseExpireTime.exit131.thread.i, %parseExpireTime.exit134.thread.i, %159, %158, %160, %hsetexParseArgs.exit.thread160, %368, %369, %161, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

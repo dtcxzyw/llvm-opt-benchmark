@@ -1084,13 +1084,13 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
   %29 = trunc i64 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %31 = load ptr, ptr %30, align 8
-  %.05462 = trunc i64 %26 to i32
-  %32 = icmp slt i32 %.05462, %29
+  %.05463 = trunc i64 %26 to i32
+  %32 = icmp slt i32 %.05463, %29
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %203
-  %.054.in63 = phi i64 [ %205, %203 ], [ %26, %22 ]
-  %sext = shl i64 %.054.in63, 32
+  %.054.in64 = phi i64 [ %205, %203 ], [ %26, %22 ]
+  %sext = shl i64 %.054.in64, 32
   %33 = ashr exact i64 %sext, 29
   %34 = getelementptr inbounds i8, ptr %25, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -1109,9 +1109,9 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
 41:                                               ; preds = %39
   %42 = call i32 @GetUserId() #6
   %43 = call zeroext i1 @has_privs_of_role(i32 noundef %42, i32 noundef 3374) #6
-  br i1 %43, label %44, label %._crit_edge65
+  br i1 %43, label %44, label %._crit_edge66
 
-._crit_edge65:                                    ; preds = %41
+._crit_edge66:                                    ; preds = %41
   %.pre = load i64, ptr %23, align 8
   br label %203
 
@@ -1356,8 +1356,8 @@ define dso_local i64 @show_all_settings(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %211
 
-203:                                              ; preds = %._crit_edge65, %.lr.ph
-  %204 = phi i64 [ %.pre, %._crit_edge65 ], [ %.054.in63, %.lr.ph ]
+203:                                              ; preds = %._crit_edge66, %.lr.ph
+  %204 = phi i64 [ %.pre, %._crit_edge66 ], [ %.054.in64, %.lr.ph ]
   %205 = add i64 %204, 1
   store i64 %205, ptr %23, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

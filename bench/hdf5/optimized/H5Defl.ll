@@ -471,8 +471,8 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   store ptr null, ptr %5, align 8, !tbaa !83
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !84
-  %.not125.i = icmp eq i64 %19, 0
-  br i1 %.not125.i, label %.loopexit98.i, label %.lr.ph.i
+  %.not126.i = icmp eq i64 %19, 0
+  br i1 %.not126.i, label %.loopexit99.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -480,46 +480,46 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   br label %22
 
 22:                                               ; preds = %32, %.lr.ph.i
-  %.069112.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
-  %.071111.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
-  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.069112.i
+  %.069113.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
+  %.071112.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
+  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.069113.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !86
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = add i64 %25, %.071111.i
+  %28 = add i64 %25, %.071112.i
   %29 = icmp ult i64 %0, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27, %22
-  %31 = sub i64 %0, %.071111.i
-  br label %.loopexit98.i
+  %31 = sub i64 %0, %.071112.i
+  br label %.loopexit99.i
 
 32:                                               ; preds = %27
-  %33 = add nuw i64 %.069112.i, 1
+  %33 = add nuw i64 %.069113.i, 1
   %exitcond.not.i = icmp eq i64 %33, %19
-  br i1 %exitcond.not.i, label %.loopexit98.i, label %22, !llvm.loop !88
+  br i1 %exitcond.not.i, label %.loopexit99.i, label %22, !llvm.loop !88
 
-.loopexit98.i:                                    ; preds = %32, %30, %.preheader.i
-  %.069109.i = phi i64 [ %.069112.i, %30 ], [ 0, %.preheader.i ], [ %19, %32 ]
+.loopexit99.i:                                    ; preds = %32, %30, %.preheader.i
+  %.069110.i = phi i64 [ %.069113.i, %30 ], [ 0, %.preheader.i ], [ %19, %32 ]
   %.072.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i ], [ 0, %32 ]
-  %.not118.i = icmp eq i64 %2, 0
-  br i1 %.not118.i, label %.loopexit.i, label %.lr.ph124.i
+  %.not119.i = icmp eq i64 %2, 0
+  br i1 %.not119.i, label %.loopexit.i, label %.lr.ph125.i
 
-.lr.ph124.i:                                      ; preds = %.loopexit98.i
+.lr.ph125.i:                                      ; preds = %.loopexit99.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 48
   br label %36
 
-36:                                               ; preds = %._crit_edge.i, %.lr.ph124.i
-  %.170122.i = phi i64 [ %.069109.i, %.lr.ph124.i ], [ %112, %._crit_edge.i ]
-  %.173121.i = phi i64 [ %.072.i, %.lr.ph124.i ], [ 0, %._crit_edge.i ]
-  %.079120.i = phi ptr [ %17, %.lr.ph124.i ], [ %.180.lcssa.i, %._crit_edge.i ]
-  %.082119.i = phi i64 [ %2, %.lr.ph124.i ], [ %111, %._crit_edge.i ]
+36:                                               ; preds = %._crit_edge.i, %.lr.ph125.i
+  %.170123.i = phi i64 [ %.069110.i, %.lr.ph125.i ], [ %112, %._crit_edge.i ]
+  %.173122.i = phi i64 [ %.072.i, %.lr.ph125.i ], [ 0, %._crit_edge.i ]
+  %.079121.i = phi ptr [ %17, %.lr.ph125.i ], [ %.180.lcssa.i, %._crit_edge.i ]
+  %.082120.i = phi i64 [ %2, %.lr.ph125.i ], [ %111, %._crit_edge.i ]
   %37 = load i64, ptr %18, align 8, !tbaa !84
-  %.not90.i = icmp ult i64 %.170122.i, %37
+  %.not90.i = icmp ult i64 %.170123.i, %37
   br i1 %.not90.i, label %42, label %38
 
 38:                                               ; preds = %36
@@ -530,10 +530,10 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8, !tbaa !85
-  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.170122.i
+  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.170123.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !89
-  %47 = add i64 %46, %.173121.i
+  %47 = add i64 %46, %.173122.i
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %49, label %53
 
@@ -573,10 +573,10 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 73:                                               ; preds = %65
   %74 = load ptr, ptr %34, align 8, !tbaa !85
-  %75 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %74, i64 %.170122.i
+  %75 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %74, i64 %.170123.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !89
-  %78 = add nsw i64 %77, %.173121.i
+  %78 = add nsw i64 %77, %.173122.i
   %79 = call i64 @lseek64(i32 noundef %67, i64 noundef %78, i32 noundef 0) #12
   %80 = icmp slt i64 %79, 0
   br i1 %80, label %81, label %85
@@ -589,22 +589,22 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 85:                                               ; preds = %73
   %86 = load ptr, ptr %34, align 8, !tbaa !85
-  %87 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %86, i64 %.170122.i
+  %87 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %86, i64 %.170123.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i64, ptr %88, align 8, !tbaa !86
-  %90 = sub i64 %89, %.173121.i
-  %..082.i = call i64 @llvm.umin.i64(i64 %90, i64 %.082119.i)
-  %.not91113.i = icmp eq i64 %89, %.173121.i
-  br i1 %.not91113.i, label %._crit_edge.i, label %.lr.ph116.i
+  %90 = sub i64 %89, %.173122.i
+  %..082.i = call i64 @llvm.umin.i64(i64 %90, i64 %.082120.i)
+  %.not91114.i = icmp eq i64 %89, %.173122.i
+  br i1 %.not91114.i, label %._crit_edge.i, label %.lr.ph117.i
 
-.lr.ph116.i:                                      ; preds = %85, %105
-  %.074115.i = phi i64 [ %106, %105 ], [ %..082.i, %85 ]
-  %.180114.i = phi ptr [ %107, %105 ], [ %.079120.i, %85 ]
-  %..074.i = call i64 @llvm.umin.i64(i64 %.074115.i, i64 9223372036854775807)
+.lr.ph117.i:                                      ; preds = %85, %105
+  %.074116.i = phi i64 [ %106, %105 ], [ %..082.i, %85 ]
+  %.180115.i = phi ptr [ %107, %105 ], [ %.079121.i, %85 ]
+  %..074.i = call i64 @llvm.umin.i64(i64 %.074116.i, i64 9223372036854775807)
   br label %91
 
-91:                                               ; preds = %94, %.lr.ph116.i
-  %92 = call i64 @read(i32 noundef %67, ptr noundef %.180114.i, i64 noundef %..074.i) #12
+91:                                               ; preds = %94, %.lr.ph117.i
+  %92 = call i64 @read(i32 noundef %67, ptr noundef %.180115.i, i64 noundef %..074.i) #12
   %93 = icmp eq i64 %92, -1
   br i1 %93, label %94, label %.critedge.i
 
@@ -629,30 +629,30 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %102
-  call void @llvm.memset.p0.i64(ptr align 1 %.180114.i, i8 0, i64 %.074115.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.180115.i, i8 0, i64 %.074116.i, i1 false)
   br label %105
 
 105:                                              ; preds = %104, %102
-  %.066.i = phi i64 [ %.074115.i, %104 ], [ %92, %102 ]
-  %106 = sub i64 %.074115.i, %.066.i
-  %107 = getelementptr inbounds i8, ptr %.180114.i, i64 %.066.i
+  %.066.i = phi i64 [ %.074116.i, %104 ], [ %92, %102 ]
+  %106 = sub i64 %.074116.i, %.066.i
+  %107 = getelementptr inbounds i8, ptr %.180115.i, i64 %.066.i
   %.not91.i = icmp eq i64 %106, 0
-  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph116.i
+  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph117.i
 
 ._crit_edge.i:                                    ; preds = %105, %85
-  %.180.lcssa.i = phi ptr [ %.079120.i, %85 ], [ %107, %105 ]
+  %.180.lcssa.i = phi ptr [ %.079121.i, %85 ], [ %107, %105 ]
   %108 = load ptr, ptr %5, align 8, !tbaa !83
   %109 = call ptr @H5MM_xfree(ptr noundef %108) #12
   store ptr %109, ptr %5, align 8, !tbaa !83
   %110 = call i32 @close(i32 noundef %67) #12
-  %111 = sub i64 %.082119.i, %..082.i
-  %112 = add i64 %.170122.i, 1
+  %111 = sub i64 %.082120.i, %..082.i
+  %112 = add i64 %.170123.i, 1
   %.not.i = icmp eq i64 %111, 0
   br i1 %.not.i, label %.loopexit.i, label %36, !llvm.loop !94
 
-.loopexit.i:                                      ; preds = %._crit_edge.i, %.thread.i, %81, %69, %61, %49, %38, %.loopexit98.i
-  %.178.i = phi i32 [ -1, %38 ], [ -1, %49 ], [ -1, %61 ], [ %67, %69 ], [ %67, %81 ], [ %67, %.thread.i ], [ -1, %.loopexit98.i ], [ -1, %._crit_edge.i ]
-  %113 = phi i1 [ true, %38 ], [ true, %49 ], [ true, %61 ], [ true, %69 ], [ true, %81 ], [ true, %.thread.i ], [ false, %.loopexit98.i ], [ false, %._crit_edge.i ]
+.loopexit.i:                                      ; preds = %._crit_edge.i, %.thread.i, %81, %69, %61, %49, %38, %.loopexit99.i
+  %.178.i = phi i32 [ -1, %38 ], [ -1, %49 ], [ -1, %61 ], [ %67, %69 ], [ %67, %81 ], [ %67, %.thread.i ], [ -1, %.loopexit99.i ], [ -1, %._crit_edge.i ]
+  %113 = phi i1 [ true, %38 ], [ true, %49 ], [ true, %61 ], [ true, %69 ], [ true, %81 ], [ true, %.thread.i ], [ false, %.loopexit99.i ], [ false, %._crit_edge.i ]
   %114 = load ptr, ptr %5, align 8, !tbaa !83
   %.not92.i = icmp eq ptr %114, null
   br i1 %.not92.i, label %117, label %115
@@ -728,8 +728,8 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   store ptr null, ptr %5, align 8, !tbaa !83
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !84
-  %.not124.i = icmp eq i64 %19, 0
-  br i1 %.not124.i, label %.loopexit.i, label %.lr.ph.i
+  %.not125.i = icmp eq i64 %19, 0
+  br i1 %.not125.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -737,46 +737,46 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   br label %22
 
 22:                                               ; preds = %32, %.lr.ph.i
-  %.067111.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
-  %.071110.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
-  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.067111.i
+  %.067112.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
+  %.071111.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
+  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.067112.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !86
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = add i64 %25, %.071110.i
+  %28 = add i64 %25, %.071111.i
   %29 = icmp ult i64 %0, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27, %22
-  %31 = sub i64 %0, %.071110.i
+  %31 = sub i64 %0, %.071111.i
   br label %.loopexit.i
 
 32:                                               ; preds = %27
-  %33 = add nuw i64 %.067111.i, 1
+  %33 = add nuw i64 %.067112.i, 1
   %exitcond.not.i = icmp eq i64 %33, %19
   br i1 %exitcond.not.i, label %.loopexit.i, label %22, !llvm.loop !95
 
 .loopexit.i:                                      ; preds = %32, %30, %.preheader.i
-  %.067108.i = phi i64 [ %.067111.i, %30 ], [ 0, %.preheader.i ], [ %19, %32 ]
+  %.067109.i = phi i64 [ %.067112.i, %30 ], [ 0, %.preheader.i ], [ %19, %32 ]
   %.069.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i ], [ 0, %32 ]
-  %.not117.i = icmp eq i64 %2, 0
-  br i1 %.not117.i, label %.thread.i, label %.lr.ph123.i
+  %.not118.i = icmp eq i64 %2, 0
+  br i1 %.not118.i, label %.thread.i, label %.lr.ph124.i
 
-.lr.ph123.i:                                      ; preds = %.loopexit.i
+.lr.ph124.i:                                      ; preds = %.loopexit.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 48
   br label %36
 
-36:                                               ; preds = %._crit_edge.i, %.lr.ph123.i
-  %.168121.i = phi i64 [ %.067108.i, %.lr.ph123.i ], [ %121, %._crit_edge.i ]
-  %.170120.i = phi i64 [ %.069.i, %.lr.ph123.i ], [ 0, %._crit_edge.i ]
-  %.077119.i = phi ptr [ %17, %.lr.ph123.i ], [ %.178.lcssa.i, %._crit_edge.i ]
-  %.080118.i = phi i64 [ %2, %.lr.ph123.i ], [ %120, %._crit_edge.i ]
+36:                                               ; preds = %._crit_edge.i, %.lr.ph124.i
+  %.168122.i = phi i64 [ %.067109.i, %.lr.ph124.i ], [ %121, %._crit_edge.i ]
+  %.170121.i = phi i64 [ %.069.i, %.lr.ph124.i ], [ 0, %._crit_edge.i ]
+  %.077120.i = phi ptr [ %17, %.lr.ph124.i ], [ %.178.lcssa.i, %._crit_edge.i ]
+  %.080119.i = phi i64 [ %2, %.lr.ph124.i ], [ %120, %._crit_edge.i ]
   %37 = load i64, ptr %18, align 8, !tbaa !84
-  %.not88.i = icmp ult i64 %.168121.i, %37
+  %.not88.i = icmp ult i64 %.168122.i, %37
   br i1 %.not88.i, label %42, label %38
 
 38:                                               ; preds = %36
@@ -787,10 +787,10 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8, !tbaa !85
-  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.168121.i
+  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.168122.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !89
-  %47 = add i64 %46, %.170120.i
+  %47 = add i64 %46, %.170121.i
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %49, label %53
 
@@ -840,10 +840,10 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 79:                                               ; preds = %65
   %80 = load ptr, ptr %34, align 8, !tbaa !85
-  %81 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %80, i64 %.168121.i
+  %81 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %80, i64 %.168122.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !89
-  %84 = add nsw i64 %83, %.170120.i
+  %84 = add nsw i64 %83, %.170121.i
   %85 = call i64 @lseek64(i32 noundef %67, i64 noundef %84, i32 noundef 0) #12
   %86 = icmp slt i64 %85, 0
   br i1 %86, label %87, label %91
@@ -856,22 +856,22 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 91:                                               ; preds = %79
   %92 = load ptr, ptr %34, align 8, !tbaa !85
-  %93 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %92, i64 %.168121.i
+  %93 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %92, i64 %.168122.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load i64, ptr %94, align 8, !tbaa !86
-  %96 = sub i64 %95, %.170120.i
-  %..080.i = call i64 @llvm.umin.i64(i64 %96, i64 %.080118.i)
-  %.not89112.i = icmp eq i64 %95, %.170120.i
-  br i1 %.not89112.i, label %._crit_edge.i, label %.lr.ph115.i
+  %96 = sub i64 %95, %.170121.i
+  %..080.i = call i64 @llvm.umin.i64(i64 %96, i64 %.080119.i)
+  %.not89113.i = icmp eq i64 %95, %.170121.i
+  br i1 %.not89113.i, label %._crit_edge.i, label %.lr.ph116.i
 
-.lr.ph115.i:                                      ; preds = %91, %114
-  %.072114.i = phi i64 [ %115, %114 ], [ %..080.i, %91 ]
-  %.178113.i = phi ptr [ %116, %114 ], [ %.077119.i, %91 ]
-  %..072.i = call i64 @llvm.umin.i64(i64 %.072114.i, i64 9223372036854775807)
+.lr.ph116.i:                                      ; preds = %91, %114
+  %.072115.i = phi i64 [ %115, %114 ], [ %..080.i, %91 ]
+  %.178114.i = phi ptr [ %116, %114 ], [ %.077120.i, %91 ]
+  %..072.i = call i64 @llvm.umin.i64(i64 %.072115.i, i64 9223372036854775807)
   br label %97
 
-97:                                               ; preds = %100, %.lr.ph115.i
-  %98 = call i64 @write(i32 noundef %67, ptr noundef %.178113.i, i64 noundef %..072.i) #12
+97:                                               ; preds = %100, %.lr.ph116.i
+  %98 = call i64 @write(i32 noundef %67, ptr noundef %.178114.i, i64 noundef %..072.i) #12
   %99 = icmp eq i64 %98, -1
   br i1 %99, label %100, label %.critedge.i
 
@@ -902,19 +902,19 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   br label %.thread.i
 
 114:                                              ; preds = %108
-  %115 = sub i64 %.072114.i, %98
-  %116 = getelementptr inbounds nuw i8, ptr %.178113.i, i64 %98
+  %115 = sub i64 %.072115.i, %98
+  %116 = getelementptr inbounds nuw i8, ptr %.178114.i, i64 %98
   %.not89.i = icmp eq i64 %115, 0
-  br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph115.i
+  br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph116.i
 
 ._crit_edge.i:                                    ; preds = %114, %91
-  %.178.lcssa.i = phi ptr [ %.077119.i, %91 ], [ %116, %114 ]
+  %.178.lcssa.i = phi ptr [ %.077120.i, %91 ], [ %116, %114 ]
   %117 = load ptr, ptr %5, align 8, !tbaa !83
   %118 = call ptr @H5MM_xfree(ptr noundef %117) #12
   store ptr %118, ptr %5, align 8, !tbaa !83
   %119 = call i32 @close(i32 noundef %67) #12
-  %120 = sub i64 %.080118.i, %..080.i
-  %121 = add i64 %.168121.i, 1
+  %120 = sub i64 %.080119.i, %..080.i
+  %121 = add i64 %.168122.i, 1
   %.not.i = icmp eq i64 %120, 0
   br i1 %.not.i, label %.thread.i, label %36, !llvm.loop !97
 

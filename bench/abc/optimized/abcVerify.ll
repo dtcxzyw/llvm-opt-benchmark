@@ -908,7 +908,7 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 11:                                               ; preds = %5
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %94
+  br label %95
 
 12:                                               ; preds = %5
   %13 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %9) #15
@@ -940,176 +940,174 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 22:                                               ; preds = %14, %21
   call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
-  br label %94
+  br label %95
 
 23:                                               ; preds = %12
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
   call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
-  br label %94
+  br label %95
 
 24:                                               ; preds = %12
   %25 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
   %26 = call i32 @Cmd_CommandExecute(ptr noundef %25, ptr noundef nonnull @.str.18) #15
   %27 = getelementptr i8, ptr %9, i64 48
-  %.val6979 = load ptr, ptr %27, align 8, !tbaa !60
-  %28 = getelementptr i8, ptr %.val6979, i64 4
-  %.val69.val80 = load i32, ptr %28, align 4, !tbaa !24
-  %29 = icmp sgt i32 %.val69.val80, 0
-  br i1 %29, label %.lr.ph, label %.critedge.thread89
+  %.val6980 = load ptr, ptr %27, align 8, !tbaa !60
+  %28 = getelementptr i8, ptr %.val6980, i64 4
+  %.val69.val81 = load i32, ptr %28, align 4, !tbaa !24
+  %29 = icmp sgt i32 %.val69.val81, 0
+  br i1 %29, label %.lr.ph, label %.critedge90
 
-.critedge.thread89:                               ; preds = %24
-  %30 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %31 = call i32 @Cmd_CommandExecute(ptr noundef %30, ptr noundef nonnull @.str.22) #15
-  br label %88
-
-.lr.ph:                                           ; preds = %24, %82
-  %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %24 ]
-  %.val6984 = phi ptr [ %.val69, %82 ], [ %.val6979, %24 ]
-  %.083 = phi i32 [ %.1, %82 ], [ 0, %24 ]
-  %.04582 = phi i32 [ %.2, %82 ], [ 1, %24 ]
-  %32 = getelementptr i8, ptr %.val6984, i64 8
-  %.val71.val = load ptr, ptr %32, align 8, !tbaa !31
-  %33 = getelementptr inbounds nuw ptr, ptr %.val71.val, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8, !tbaa !32
-  %.val = load ptr, ptr %34, align 8, !tbaa !55
-  %35 = getelementptr i8, ptr %34, i64 32
-  %.val63 = load ptr, ptr %35, align 8, !tbaa !57
-  %36 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %36, align 8, !tbaa !49
+.lr.ph:                                           ; preds = %24, %80
+  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %24 ]
+  %.val6985 = phi ptr [ %.val69, %80 ], [ %.val6980, %24 ]
+  %.084 = phi i32 [ %.1, %80 ], [ 0, %24 ]
+  %.04583 = phi i32 [ %.2, %80 ], [ 1, %24 ]
+  %30 = getelementptr i8, ptr %.val6985, i64 8
+  %.val71.val = load ptr, ptr %30, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw ptr, ptr %.val71.val, i64 %indvars.iv
+  %32 = load ptr, ptr %31, align 8, !tbaa !32
+  %.val = load ptr, ptr %32, align 8, !tbaa !55
+  %33 = getelementptr i8, ptr %32, i64 32
+  %.val63 = load ptr, ptr %33, align 8, !tbaa !57
+  %34 = getelementptr i8, ptr %.val, i64 32
+  %.val.val = load ptr, ptr %34, align 8, !tbaa !49
   %.val63.val = load i32, ptr %.val63, align 4, !tbaa !28
-  %37 = getelementptr i8, ptr %.val.val, i64 8
-  %.val.val.val = load ptr, ptr %37, align 8, !tbaa !31
-  %38 = sext i32 %.val63.val to i64
-  %39 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !32
-  %41 = call ptr @Abc_AigConst1(ptr noundef nonnull %9) #15
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %43, label %46
+  %35 = getelementptr i8, ptr %.val.val, i64 8
+  %.val.val.val = load ptr, ptr %35, align 8, !tbaa !31
+  %36 = sext i32 %.val63.val to i64
+  %37 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !32
+  %39 = call ptr @Abc_AigConst1(ptr noundef nonnull %9) #15
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %41, label %44
 
-43:                                               ; preds = %.lr.ph
-  %44 = getelementptr i8, ptr %34, i64 20
-  %.val66 = load i32, ptr %44, align 4
-  %45 = and i32 %.val66, 1024
-  %.not54 = icmp eq i32 %45, 0
+41:                                               ; preds = %.lr.ph
+  %42 = getelementptr i8, ptr %32, i64 20
+  %.val66 = load i32, ptr %42, align 4
+  %43 = and i32 %.val66, 1024
+  %.not54 = icmp eq i32 %43, 0
   store ptr null, ptr %7, align 8, !tbaa !44
   br i1 %.not54, label %.thread74, label %.thread
 
-46:                                               ; preds = %.lr.ph
-  %.val64 = load ptr, ptr %34, align 8, !tbaa !55
-  %.val65 = load ptr, ptr %35, align 8, !tbaa !57
-  %47 = getelementptr i8, ptr %.val64, i64 32
-  %.val64.val = load ptr, ptr %47, align 8, !tbaa !49
+44:                                               ; preds = %.lr.ph
+  %.val64 = load ptr, ptr %32, align 8, !tbaa !55
+  %.val65 = load ptr, ptr %33, align 8, !tbaa !57
+  %45 = getelementptr i8, ptr %.val64, i64 32
+  %.val64.val = load ptr, ptr %45, align 8, !tbaa !49
   %.val65.val = load i32, ptr %.val65, align 4, !tbaa !28
-  %48 = getelementptr i8, ptr %.val64.val, i64 8
-  %.val64.val.val = load ptr, ptr %48, align 8, !tbaa !31
-  %49 = sext i32 %.val65.val to i64
-  %50 = getelementptr inbounds ptr, ptr %.val64.val.val, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !32
-  %52 = call ptr @Abc_ObjName(ptr noundef nonnull %34) #15
-  %53 = call ptr @Abc_NtkCreateCone(ptr noundef nonnull %9, ptr noundef %51, ptr noundef %52, i32 noundef 0) #15
-  store ptr %53, ptr %7, align 8, !tbaa !44
-  %54 = getelementptr i8, ptr %34, i64 20
-  %.val67 = load i32, ptr %54, align 4
-  %55 = and i32 %.val67, 1024
-  %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %63, label %56
+  %46 = getelementptr i8, ptr %.val64.val, i64 8
+  %.val64.val.val = load ptr, ptr %46, align 8, !tbaa !31
+  %47 = sext i32 %.val65.val to i64
+  %48 = getelementptr inbounds ptr, ptr %.val64.val.val, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !32
+  %50 = call ptr @Abc_ObjName(ptr noundef nonnull %32) #15
+  %51 = call ptr @Abc_NtkCreateCone(ptr noundef nonnull %9, ptr noundef %49, ptr noundef %50, i32 noundef 0) #15
+  store ptr %51, ptr %7, align 8, !tbaa !44
+  %52 = getelementptr i8, ptr %32, i64 20
+  %.val67 = load i32, ptr %52, align 4
+  %53 = and i32 %.val67, 1024
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %61, label %54
 
-56:                                               ; preds = %46
-  %57 = getelementptr i8, ptr %53, i64 48
-  %.val72 = load ptr, ptr %57, align 8, !tbaa !60
-  %58 = getelementptr i8, ptr %.val72, i64 8
-  %.val72.val = load ptr, ptr %58, align 8, !tbaa !31
-  %59 = load ptr, ptr %.val72.val, align 8, !tbaa !32
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %61 = load i32, ptr %60, align 4
-  %62 = xor i32 %61, 1024
-  store i32 %62, ptr %60, align 4
-  br label %63
+54:                                               ; preds = %44
+  %55 = getelementptr i8, ptr %51, i64 48
+  %.val72 = load ptr, ptr %55, align 8, !tbaa !60
+  %56 = getelementptr i8, ptr %.val72, i64 8
+  %.val72.val = load ptr, ptr %56, align 8, !tbaa !31
+  %57 = load ptr, ptr %.val72.val, align 8, !tbaa !32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  %59 = load i32, ptr %58, align 4
+  %60 = xor i32 %59, 1024
+  store i32 %60, ptr %58, align 4
+  br label %61
 
-63:                                               ; preds = %46, %56
-  %64 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %7, ptr noundef nonnull %6) #15
-  switch i32 %64, label %.thread [
-    i32 -1, label %65
+61:                                               ; preds = %44, %54
+  %62 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %7, ptr noundef nonnull %6) #15
+  switch i32 %62, label %.thread [
+    i32 -1, label %63
     i32 0, label %..thread74_crit_edge
   ]
 
-..thread74_crit_edge:                             ; preds = %63
+..thread74_crit_edge:                             ; preds = %61
   %.pre = load ptr, ptr %7, align 8, !tbaa !44
   br label %.thread74
 
-65:                                               ; preds = %63
-  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  br label %79
+63:                                               ; preds = %61
+  %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
+  br label %77
 
-.thread74:                                        ; preds = %43, %..thread74_crit_edge
-  %67 = phi ptr [ %.pre, %..thread74_crit_edge ], [ null, %43 ]
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 304
-  %69 = load ptr, ptr %68, align 8, !tbaa !26
-  %70 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %67, ptr noundef %69)
-  %71 = load i32, ptr %70, align 4, !tbaa !28
-  %.not55 = icmp eq i32 %71, 1
+.thread74:                                        ; preds = %41, %..thread74_crit_edge
+  %65 = phi ptr [ %.pre, %..thread74_crit_edge ], [ null, %41 ]
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 304
+  %67 = load ptr, ptr %66, align 8, !tbaa !26
+  %68 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %65, ptr noundef %67)
+  %69 = load i32, ptr %68, align 4, !tbaa !28
+  %.not55 = icmp eq i32 %69, 1
   %str.13.str.14 = select i1 %.not55, ptr @str.19, ptr @str.20
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.13.str.14)
-  call void @free(ptr noundef nonnull %70) #15
-  %72 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %73 = call i32 @Cmd_CommandExecute(ptr noundef %72, ptr noundef nonnull @.str.22) #15
-  br label %93
-
-.thread:                                          ; preds = %43, %63
-  %.val70 = load ptr, ptr %27, align 8, !tbaa !60
-  %74 = getelementptr i8, ptr %.val70, i64 4
-  %.val70.val = load i32, ptr %74, align 4, !tbaa !24
-  %75 = trunc i64 %indvars.iv to i32
-  %76 = add i32 %75, 1
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %76, i32 noundef %.val70.val)
-  %78 = add nsw i32 %.083, %3
-  br label %79
-
-79:                                               ; preds = %.thread, %65
-  %.2 = phi i32 [ -1, %65 ], [ %.04582, %.thread ]
-  %.1 = phi i32 [ %.083, %65 ], [ %78, %.thread ]
-  %80 = load ptr, ptr %7, align 8, !tbaa !44
-  %.not58 = icmp eq ptr %80, null
-  br i1 %.not58, label %82, label %81
-
-81:                                               ; preds = %79
-  call void @Abc_NtkDelete(ptr noundef nonnull %80) #15
-  br label %82
-
-82:                                               ; preds = %79, %81
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val69 = load ptr, ptr %27, align 8, !tbaa !60
-  %83 = getelementptr i8, ptr %.val69, i64 4
-  %.val69.val = load i32, ptr %83, align 4, !tbaa !24
-  %84 = sext i32 %.val69.val to i64
-  %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph, label %.critedge, !llvm.loop !61
-
-.critedge:                                        ; preds = %82
-  %86 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %87 = call i32 @Cmd_CommandExecute(ptr noundef %86, ptr noundef nonnull @.str.22) #15
-  switch i32 %.2, label %93 [
-    i32 1, label %88
-    i32 -1, label %89
-  ]
-
-88:                                               ; preds = %.critedge.thread89, %.critedge
-  %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
-  br label %93
-
-89:                                               ; preds = %.critedge
-  %90 = getelementptr i8, ptr %0, i64 64
-  %.val68 = load ptr, ptr %90, align 8, !tbaa !27
-  %91 = getelementptr i8, ptr %.val68, i64 4
-  %.val68.val = load i32, ptr %91, align 4, !tbaa !24
-  %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.1, i32 noundef %.val68.val)
-  br label %93
-
-93:                                               ; preds = %.thread74, %.critedge, %89, %88
-  call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
+  call void @free(ptr noundef nonnull %68) #15
+  %70 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
+  %71 = call i32 @Cmd_CommandExecute(ptr noundef %70, ptr noundef nonnull @.str.22) #15
   br label %94
 
-94:                                               ; preds = %93, %23, %22, %11
+.thread:                                          ; preds = %41, %61
+  %.val70 = load ptr, ptr %27, align 8, !tbaa !60
+  %72 = getelementptr i8, ptr %.val70, i64 4
+  %.val70.val = load i32, ptr %72, align 4, !tbaa !24
+  %73 = trunc i64 %indvars.iv to i32
+  %74 = add i32 %73, 1
+  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %74, i32 noundef %.val70.val)
+  %76 = add nsw i32 %.084, %3
+  br label %77
+
+77:                                               ; preds = %.thread, %63
+  %.2 = phi i32 [ -1, %63 ], [ %.04583, %.thread ]
+  %.1 = phi i32 [ %.084, %63 ], [ %76, %.thread ]
+  %78 = load ptr, ptr %7, align 8, !tbaa !44
+  %.not58 = icmp eq ptr %78, null
+  br i1 %.not58, label %80, label %79
+
+79:                                               ; preds = %77
+  call void @Abc_NtkDelete(ptr noundef nonnull %78) #15
+  br label %80
+
+80:                                               ; preds = %77, %79
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.val69 = load ptr, ptr %27, align 8, !tbaa !60
+  %81 = getelementptr i8, ptr %.val69, i64 4
+  %.val69.val = load i32, ptr %81, align 4, !tbaa !24
+  %82 = sext i32 %.val69.val to i64
+  %83 = icmp slt i64 %indvars.iv.next, %82
+  br i1 %83, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !61
+
+.critedge.loopexit:                               ; preds = %80
+  %84 = icmp eq i32 %.2, 1
+  %85 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
+  %86 = call i32 @Cmd_CommandExecute(ptr noundef %85, ptr noundef nonnull @.str.22) #15
+  br i1 %84, label %89, label %90
+
+.critedge90:                                      ; preds = %24
+  %87 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
+  %88 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.22) #15
+  br label %89
+
+89:                                               ; preds = %.critedge90, %.critedge.loopexit
+  %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
+  br label %94
+
+90:                                               ; preds = %.critedge.loopexit
+  %91 = getelementptr i8, ptr %0, i64 64
+  %.val68 = load ptr, ptr %91, align 8, !tbaa !27
+  %92 = getelementptr i8, ptr %.val68, i64 4
+  %.val68.val = load i32, ptr %92, align 4, !tbaa !24
+  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.1, i32 noundef %.val68.val)
+  br label %94
+
+94:                                               ; preds = %.thread74, %90, %89
+  call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
+  br label %95
+
+95:                                               ; preds = %94, %23, %22, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

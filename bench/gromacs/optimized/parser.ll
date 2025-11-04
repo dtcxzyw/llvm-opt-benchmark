@@ -7037,8 +7037,8 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2631 = add nsw i32 %2630, %2627
   %2632 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2631, ptr %2632, align 4, !tbaa !15
-  %or.cond1295 = icmp ult i32 %2631, 368
-  br i1 %or.cond1295, label %2633, label %2642
+  %or.cond1321 = icmp ult i32 %2631, 368
+  br i1 %or.cond1321, label %2633, label %2642
 
 2633:                                             ; preds = %2614
   %2634 = zext nneg i32 %2631 to i64

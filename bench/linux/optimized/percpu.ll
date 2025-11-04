@@ -1257,14 +1257,14 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %86 = phi i32 [ %79, %78 ], [ %83, %80 ]
   %.fr = freeze i32 %86
   %87 = icmp sgt i32 %.fr, %85
-  br i1 %87, label %.loopexit23, label %.preheader.preheader
+  br i1 %87, label %.loopexit24, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %84
-  %.pre47 = load ptr, ptr @pcpu_chunk_lists, align 8
+  %.pre48 = load ptr, ptr @pcpu_chunk_lists, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
-  %88 = phi ptr [ %179, %.loopexit ], [ %.pre47, %.preheader.preheader ]
+  %88 = phi ptr [ %179, %.loopexit ], [ %.pre48, %.preheader.preheader ]
   %89 = phi i32 [ %180, %.loopexit ], [ %.fr, %.preheader.preheader ]
   %90 = sext i32 %89 to i64
   %91 = getelementptr %struct.list_head, ptr %88, i64 %90
@@ -1286,7 +1286,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
 100:                                              ; preds = %.split.us
   %101 = tail call fastcc i32 @pcpu_alloc_area(ptr noundef %96, i32 noundef %66, i64 noundef %41, i32 noundef %98)
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.split31.us, label %103
+  br i1 %102, label %.split32.us, label %103
 
 103:                                              ; preds = %.split.us, %100
   %104 = load ptr, ptr @pcpu_chunk_lists, align 8
@@ -1325,30 +1325,30 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
 122:                                              ; preds = %.split
   %123 = tail call fastcc i32 @pcpu_alloc_area(ptr noundef %107, i32 noundef %66, i64 noundef %41, i32 noundef %109)
   %124 = icmp sgt i32 %123, -1
-  br i1 %124, label %.split31.us, label %175
+  br i1 %124, label %.split32.us, label %175
 
-.split31.us:                                      ; preds = %122, %100
-  %.us-phi32 = phi ptr [ %96, %100 ], [ %107, %122 ]
-  %.us-phi33 = phi i32 [ %101, %100 ], [ %123, %122 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.us-phi32, i64 97
+.split32.us:                                      ; preds = %122, %100
+  %.us-phi33 = phi ptr [ %96, %100 ], [ %107, %122 ]
+  %.us-phi34 = phi i32 [ %101, %100 ], [ %123, %122 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 97
   %126 = load i8, ptr %125, align 1, !range !31, !noundef !32
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %pcpu_reintegrate_chunk.exit, label %128
 
-128:                                              ; preds = %.split31.us
+128:                                              ; preds = %.split32.us
   store i8 0, ptr %125, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %.us-phi32, i64 116
+  %129 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 116
   %130 = load i32, ptr %129, align 4
   %131 = load i32, ptr @pcpu_nr_empty_pop_pages, align 4
   %132 = add i32 %131, %130
   store i32 %132, ptr @pcpu_nr_empty_pop_pages, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.us-phi32, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 16
   %134 = load i32, ptr %133, align 16
   %135 = icmp slt i32 %134, 4
   br i1 %135, label %150, label %136
 
 136:                                              ; preds = %128
-  %137 = getelementptr inbounds nuw i8, ptr %.us-phi32, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 28
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %150, label %140
@@ -1372,15 +1372,15 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
 150:                                              ; preds = %146, %144, %136, %128
   %151 = phi i32 [ 0, %136 ], [ 0, %128 ], [ %145, %144 ], [ %149, %146 ]
   %152 = load ptr, ptr @pcpu_reserved_chunk, align 8
-  %153 = icmp eq ptr %152, %.us-phi32
+  %153 = icmp eq ptr %152, %.us-phi33
   br i1 %153, label %pcpu_reintegrate_chunk.exit, label %154
 
 154:                                              ; preds = %150
   %155 = icmp sgt i32 %151, -1
   %156 = load ptr, ptr @pcpu_chunk_lists, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.us-phi32, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.us-phi33, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = load ptr, ptr %.us-phi32, align 8
+  %159 = load ptr, ptr %.us-phi33, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr %158, ptr %160, align 8
   store volatile ptr %159, ptr %158, align 8
@@ -1404,10 +1404,10 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %172 = phi ptr [ %169, %166 ], [ %165, %161 ]
   %173 = phi ptr [ %168, %166 ], [ %164, %161 ]
   %174 = phi ptr [ %170, %166 ], [ %163, %161 ]
-  store ptr %.us-phi32, ptr %172, align 8
-  store ptr %173, ptr %.us-phi32, align 8
+  store ptr %.us-phi33, ptr %172, align 8
+  store ptr %173, ptr %.us-phi33, align 8
   store ptr %174, ptr %157, align 8
-  store volatile ptr %.us-phi32, ptr %174, align 8
+  store volatile ptr %.us-phi33, ptr %174, align 8
   br label %pcpu_reintegrate_chunk.exit
 
 175:                                              ; preds = %122, %114, %111
@@ -1421,13 +1421,13 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %180 = add i32 %89, 1
   %181 = load i32, ptr @pcpu_free_slot, align 4
   %182 = icmp sgt i32 %180, %181
-  br i1 %182, label %.loopexit23, label %.preheader, !llvm.loop !33
+  br i1 %182, label %.loopexit24, label %.preheader, !llvm.loop !33
 
-.loopexit23:                                      ; preds = %.loopexit, %84
+.loopexit24:                                      ; preds = %.loopexit, %84
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcpu_lock, i64 noundef %75) #23
-  br i1 %31, label %.loopexit24, label %183
+  br i1 %31, label %.loopexit25, label %183
 
-183:                                              ; preds = %.loopexit23
+183:                                              ; preds = %.loopexit24
   %184 = load ptr, ptr @pcpu_chunk_lists, align 8
   %185 = load i32, ptr @pcpu_free_slot, align 4
   %186 = sext i32 %185 to i64
@@ -1439,7 +1439,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
 190:                                              ; preds = %183
   %191 = tail call fastcc ptr @pcpu_create_chunk(i32 noundef %29)
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %.loopexit24, label %193
+  br i1 %192, label %.loopexit25, label %193
 
 193:                                              ; preds = %190
   %194 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcpu_lock) #23
@@ -1521,10 +1521,10 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %.be = phi i64 [ %238, %237 ], [ %194, %212 ], [ %194, %227 ], [ %194, %232 ]
   br label %74
 
-pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split31.us, %71
-  %239 = phi i64 [ %60, %71 ], [ %75, %.split31.us ], [ %75, %150 ], [ %75, %171 ]
-  %240 = phi i32 [ %72, %71 ], [ %.us-phi33, %.split31.us ], [ %.us-phi33, %150 ], [ %.us-phi33, %171 ]
-  %241 = phi ptr [ %61, %71 ], [ %.us-phi32, %.split31.us ], [ %.us-phi32, %150 ], [ %.us-phi32, %171 ]
+pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split32.us, %71
+  %239 = phi i64 [ %60, %71 ], [ %75, %.split32.us ], [ %75, %150 ], [ %75, %171 ]
+  %240 = phi i32 [ %72, %71 ], [ %.us-phi34, %.split32.us ], [ %.us-phi34, %150 ], [ %.us-phi34, %171 ]
+  %241 = phi ptr [ %61, %71 ], [ %.us-phi33, %.split32.us ], [ %.us-phi33, %150 ], [ %.us-phi33, %171 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcpu_lock, i64 noundef %239) #23
   br i1 %31, label %297, label %242
 
@@ -1642,13 +1642,13 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   %311 = shl nsw i64 -1, %309
   %312 = and i64 %310, %311
   %313 = icmp eq i64 %312, 0
-  br i1 %313, label %.thread22, label %314
+  br i1 %313, label %.thread23, label %314
 
 314:                                              ; preds = %308
   %315 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %312) #24, !srcloc !39
   %316 = and i64 %315, 4294967232
   %317 = icmp eq i64 %316, 0
-  br i1 %317, label %318, label %.thread22
+  br i1 %317, label %318, label %.thread23
 
 318:                                              ; preds = %314
   %319 = load ptr, ptr %306, align 64
@@ -1664,14 +1664,14 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   %328 = add nuw nsw i64 %315, 1
   %329 = and i64 %328, 127
   %330 = icmp samesign ult i64 %329, 64
-  br i1 %330, label %308, label %..thread22_crit_edge, !prof !40, !llvm.loop !41
+  br i1 %330, label %308, label %..thread23_crit_edge, !prof !40, !llvm.loop !41
 
-..thread22_crit_edge:                             ; preds = %318
-  %.pre48 = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.thread22, !llvm.loop !41
+..thread23_crit_edge:                             ; preds = %318
+  %.pre49 = load i64, ptr @__cpu_possible_mask, align 8
+  br label %.thread23, !llvm.loop !41
 
-.thread22:                                        ; preds = %308, %314, %..thread22_crit_edge
-  %331 = phi i64 [ %.pre48, %..thread22_crit_edge ], [ %310, %314 ], [ %310, %308 ]
+.thread23:                                        ; preds = %308, %314, %..thread23_crit_edge
+  %331 = phi i64 [ %.pre49, %..thread23_crit_edge ], [ %310, %314 ], [ %310, %308 ]
   %332 = load ptr, ptr %306, align 64
   %333 = getelementptr i8, ptr %332, i64 %307
   %334 = ptrtoint ptr %333 to i64
@@ -1688,7 +1688,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_alloc_percpu, i64 8), i32 2) #23
           to label %410 [label %345], !srcloc !43
 
-345:                                              ; preds = %.thread22
+345:                                              ; preds = %.thread23
   %346 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !44
   %347 = zext i32 %346 to i64
   %348 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %347) #23, !srcloc !45
@@ -1728,14 +1728,14 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   %366 = phi i64 [ %268, %296 ], [ %60, %67 ], [ %60, %71 ]
   %367 = phi ptr [ @.str.113, %296 ], [ @.str.110, %67 ], [ @.str.110, %71 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @pcpu_lock, i64 noundef %366) #23
-  br label %.loopexit24
+  br label %.loopexit25
 
-.loopexit24:                                      ; preds = %190, %.loopexit23, %365
-  %368 = phi ptr [ %367, %365 ], [ @.str.112, %190 ], [ @.str.111, %.loopexit23 ]
+.loopexit25:                                      ; preds = %190, %.loopexit24, %365
+  %368 = phi ptr [ %367, %365 ], [ @.str.112, %190 ], [ @.str.111, %.loopexit24 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_percpu_alloc_percpu_fail, i64 8), i32 2) #23
           to label %389 [label %369], !srcloc !43
 
-369:                                              ; preds = %.loopexit24
+369:                                              ; preds = %.loopexit25
   %370 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #23, !srcloc !51
   %371 = zext i32 %370 to i64
   %372 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %371) #23, !srcloc !45
@@ -1771,7 +1771,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   tail call void @llvm.write_register.i64(metadata !0, i64 %388)
   br label %389
 
-389:                                              ; preds = %386, %382, %369, %.loopexit24
+389:                                              ; preds = %386, %382, %369, %.loopexit25
   %390 = load i32, ptr @pcpu_alloc.warn_limit, align 4
   %391 = icmp ne i32 %390, 0
   %392 = select i1 %33, i1 %391, i1 false
@@ -1814,8 +1814,8 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   tail call void @mutex_unlock(ptr noundef nonnull @pcpu_alloc_mutex) #23
   br label %410
 
-410:                                              ; preds = %409, %406, %404, %362, %358, %345, %.thread22, %56, %50, %49
-  %411 = phi ptr [ null, %50 ], [ null, %49 ], [ null, %56 ], [ %339, %.thread22 ], [ %339, %345 ], [ %339, %358 ], [ %339, %362 ], [ null, %406 ], [ null, %404 ], [ null, %409 ]
+410:                                              ; preds = %409, %406, %404, %362, %358, %345, %.thread23, %56, %50, %49
+  %411 = phi ptr [ null, %50 ], [ null, %49 ], [ null, %56 ], [ %339, %.thread23 ], [ %339, %345 ], [ %339, %358 ], [ %339, %362 ], [ null, %406 ], [ null, %404 ], [ null, %409 ]
   ret ptr %411
 }
 
@@ -4006,9 +4006,9 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %24 = and i64 %23, -4096
   %25 = tail call ptr @memblock_alloc_try_nid(i64 noundef %24, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef -1) #23
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread13, label %29
+  br i1 %26, label %.thread14, label %29
 
-.thread13:                                        ; preds = %11
+.thread14:                                        ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %28 = load i64, ptr %27, align 8
   tail call void @memblock_free(ptr noundef %6, i64 noundef %28) #23
@@ -4063,7 +4063,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %56 = mul i64 %55, %54
   %57 = tail call fastcc ptr @pcpu_fc_alloc(i32 noundef %48, i64 noundef %56, i64 noundef %2, ptr noundef %4) #28
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit16, label %59
+  br i1 %58, label %.loopexit17, label %59
 
 59:                                               ; preds = %53
   %60 = getelementptr ptr, ptr %25, i64 %36
@@ -4123,7 +4123,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
 102:                                              ; preds = %93
   %103 = load i32, ptr %19, align 8
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.preheader15, label %.thread12
+  br i1 %104, label %.preheader16, label %.thread13
 
 105:                                              ; preds = %93
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #23
@@ -4139,21 +4139,21 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %111 = xor i64 %110, -1
   %112 = add i64 %109, %111
   %113 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i64 noundef %90, i64 noundef %112) #26
-  br label %.loopexit16
+  br label %.loopexit17
 
-114:                                              ; preds = %.loopexit14
+114:                                              ; preds = %.loopexit15
   %115 = icmp sgt i32 %146, 0
-  br i1 %115, label %.preheader, label %.thread12
+  br i1 %115, label %.preheader, label %.thread13
 
-.preheader15:                                     ; preds = %102, %.loopexit14
-  %116 = phi i32 [ %146, %.loopexit14 ], [ %103, %102 ]
-  %117 = phi i64 [ %147, %.loopexit14 ], [ 0, %102 ]
+.preheader16:                                     ; preds = %102, %.loopexit15
+  %116 = phi i32 [ %146, %.loopexit15 ], [ %103, %102 ]
+  %117 = phi i64 [ %147, %.loopexit15 ], [ 0, %102 ]
   %118 = getelementptr %struct.pcpu_group_info, ptr %85, i64 %117
   %119 = load i32, ptr %118, align 8
   %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %121, label %.loopexit14
+  br i1 %120, label %121, label %.loopexit15
 
-121:                                              ; preds = %.preheader15
+121:                                              ; preds = %.preheader16
   %122 = getelementptr ptr, ptr %25, i64 %117
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -4189,18 +4189,18 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %143 = load i32, ptr %118, align 8
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %140, %144
-  br i1 %145, label %125, label %.loopexit14.loopexit, !llvm.loop !118
+  br i1 %145, label %125, label %.loopexit15.loopexit, !llvm.loop !118
 
-.loopexit14.loopexit:                             ; preds = %139
+.loopexit15.loopexit:                             ; preds = %139
   %.pre = load i32, ptr %19, align 8
-  br label %.loopexit14
+  br label %.loopexit15
 
-.loopexit14:                                      ; preds = %.loopexit14.loopexit, %.preheader15
-  %146 = phi i32 [ %.pre, %.loopexit14.loopexit ], [ %116, %.preheader15 ]
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %.preheader16
+  %146 = phi i32 [ %.pre, %.loopexit15.loopexit ], [ %116, %.preheader16 ]
   %147 = add nuw nsw i64 %117, 1
   %148 = sext i32 %146 to i64
   %149 = icmp slt i64 %147, %148
-  br i1 %149, label %.preheader15, label %114, !llvm.loop !119
+  br i1 %149, label %.preheader16, label %114, !llvm.loop !119
 
 .preheader:                                       ; preds = %114, %.preheader
   %150 = phi i64 [ %157, %.preheader ], [ 0, %114 ]
@@ -4214,9 +4214,9 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   store i64 %154, ptr %156, align 8
   %157 = add nuw nsw i64 %150, 1
   %158 = icmp slt i64 %157, %148
-  br i1 %158, label %.preheader, label %.thread12, !llvm.loop !120
+  br i1 %158, label %.preheader, label %.thread13, !llvm.loop !120
 
-.thread12:                                        ; preds = %.preheader, %102, %114
+.thread13:                                        ; preds = %.preheader, %102, %114
   %159 = lshr i64 %18, 12
   %160 = load i64, ptr %6, align 8
   %161 = load i64, ptr %13, align 8
@@ -4226,13 +4226,13 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   tail call void @pcpu_setup_first_chunk(ptr noundef %6, ptr noundef %77) #28
   br label %.loopexit
 
-.loopexit16:                                      ; preds = %53, %107
+.loopexit17:                                      ; preds = %53, %107
   %165 = phi i32 [ -22, %107 ], [ -12, %53 ]
   %166 = load i32, ptr %19, align 8
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %.loopexit
 
-168:                                              ; preds = %.loopexit16
+168:                                              ; preds = %.loopexit17
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %170 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %171
@@ -4252,26 +4252,26 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %181 = load i64, ptr %170, align 8
   %182 = mul i64 %181, %180
   tail call void @memblock_free(ptr noundef nonnull %175, i64 noundef %182) #23
-  %.pre26 = load i32, ptr %19, align 8
+  %.pre27 = load i32, ptr %19, align 8
   br label %183
 
 183:                                              ; preds = %177, %171
-  %184 = phi i32 [ %.pre26, %177 ], [ %172, %171 ]
+  %184 = phi i32 [ %.pre27, %177 ], [ %172, %171 ]
   %185 = add nuw nsw i64 %173, 1
   %186 = sext i32 %184 to i64
   %187 = icmp slt i64 %185, %186
   br i1 %187, label %171, label %.loopexit, !llvm.loop !121
 
-.loopexit:                                        ; preds = %183, %.loopexit16, %.thread12
-  %188 = phi i32 [ 0, %.thread12 ], [ %165, %.loopexit16 ], [ %165, %183 ]
+.loopexit:                                        ; preds = %183, %.loopexit17, %.thread13
+  %188 = phi i32 [ 0, %.thread13 ], [ %165, %.loopexit17 ], [ %165, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %190 = load i64, ptr %189, align 8
   tail call void @memblock_free(ptr noundef %6, i64 noundef %190) #23
   tail call void @memblock_free(ptr noundef nonnull %25, i64 noundef %24) #23
   br label %191
 
-191:                                              ; preds = %.thread13, %.loopexit, %8
-  %192 = phi i32 [ %10, %8 ], [ %188, %.loopexit ], [ -12, %.thread13 ]
+191:                                              ; preds = %.thread14, %.loopexit, %8
+  %192 = phi i32 [ %10, %8 ], [ %188, %.loopexit ], [ -12, %.thread14 ]
   ret i32 %192
 }
 
@@ -4995,24 +4995,24 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %48 = load i64, ptr @__cpu_possible_mask, align 8
   %49 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %48) #25, !srcloc !42
   %50 = and i64 %49, 4294967295
-  %.not27 = icmp eq i64 %50, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i64 %50, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 51:                                               ; preds = %35
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.pcpu_page_first_chunk, i64 noundef %42) #27
   unreachable
 
-.lr.ph:                                           ; preds = %45, %.loopexit14
-  %52 = phi i64 [ %87, %.loopexit14 ], [ %48, %45 ]
-  %53 = phi i32 [ %88, %.loopexit14 ], [ 0, %45 ]
-  %54 = phi i32 [ %.ph, %.loopexit14 ], [ 0, %45 ]
+.lr.ph:                                           ; preds = %45, %.loopexit15
+  %52 = phi i64 [ %87, %.loopexit15 ], [ %48, %45 ]
+  %53 = phi i32 [ %88, %.loopexit15 ], [ 0, %45 ]
+  %54 = phi i32 [ %.ph, %.loopexit15 ], [ 0, %45 ]
   %55 = load ptr, ptr %46, align 8
   %56 = sext i32 %53 to i64
   %57 = getelementptr i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
-  br i1 %47, label %.preheader13, label %.loopexit14
+  br i1 %47, label %.preheader14, label %.loopexit15
 
-59:                                               ; preds = %.preheader13
+59:                                               ; preds = %.preheader14
   %60 = ptrtoint ptr %79 to i64
   %61 = add i64 %60, 2147483648
   %62 = icmp ugt ptr %79, inttoptr (i64 -2147483649 to ptr)
@@ -5031,16 +5031,16 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   store ptr %71, ptr %74, align 8
   %75 = add nuw nsw i32 %78, 1
   %76 = icmp eq i32 %75, %37
-  br i1 %76, label %.loopexit14.loopexit, label %.preheader13, !llvm.loop !142
+  br i1 %76, label %.loopexit15.loopexit, label %.preheader14, !llvm.loop !142
 
-.preheader13:                                     ; preds = %.lr.ph, %59
+.preheader14:                                     ; preds = %.lr.ph, %59
   %77 = phi i32 [ %72, %59 ], [ %54, %.lr.ph ]
   %78 = phi i32 [ %75, %59 ], [ 0, %.lr.ph ]
   %79 = tail call fastcc ptr @pcpu_fc_alloc(i32 noundef %58, i64 noundef 4096, i64 noundef 4096, ptr noundef %1) #28
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %59
 
-81:                                               ; preds = %.preheader13
+81:                                               ; preds = %.preheader14
   %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, ptr noundef nonnull %3, i32 noundef %58) #26
   %83 = add i32 %77, -1
   %84 = icmp sgt i32 %83, -1
@@ -5050,25 +5050,25 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %86 = zext nneg i32 %83 to i64
   br label %138
 
-.loopexit14.loopexit:                             ; preds = %59
+.loopexit15.loopexit:                             ; preds = %59
   %.pre = load i64, ptr @__cpu_possible_mask, align 8
-  br label %.loopexit14
+  br label %.loopexit15
 
-.loopexit14:                                      ; preds = %.loopexit14.loopexit, %.lr.ph
-  %87 = phi i64 [ %52, %.lr.ph ], [ %.pre, %.loopexit14.loopexit ]
-  %.ph = phi i32 [ %54, %.lr.ph ], [ %72, %.loopexit14.loopexit ]
+.loopexit15:                                      ; preds = %.loopexit15.loopexit, %.lr.ph
+  %87 = phi i64 [ %52, %.lr.ph ], [ %.pre, %.loopexit15.loopexit ]
+  %.ph = phi i32 [ %54, %.lr.ph ], [ %72, %.loopexit15.loopexit ]
   %88 = add nuw i32 %53, 1
   %89 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %87) #25, !srcloc !42
   %90 = trunc i64 %89 to i32
   %91 = icmp ult i32 %88, %90
   br i1 %91, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !143
 
-._crit_edge.loopexit:                             ; preds = %.loopexit14
-  %.pre37 = and i64 %89, 4294967295
+._crit_edge.loopexit:                             ; preds = %.loopexit15
+  %.pre38 = and i64 %89, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %45
-  %.pre-phi = phi i64 [ %.pre37, %._crit_edge.loopexit ], [ 0, %45 ]
+  %.pre-phi = phi i64 [ %.pre38, %._crit_edge.loopexit ], [ 0, %45 ]
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @pcpu_page_first_chunk.vm, i64 24), align 8
   %92 = load i64, ptr %18, align 8
   %93 = mul i64 %92, %.pre-phi
@@ -5080,10 +5080,10 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %97 = load i64, ptr @__cpu_possible_mask, align 8
   %98 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %97) #25, !srcloc !42
   %99 = and i64 %98, 4294967295
-  %.not28 = icmp eq i64 %99, 0
-  br i1 %.not28, label %._crit_edge25, label %.lr.ph24
+  %.not29 = icmp eq i64 %99, 0
+  br i1 %.not29, label %._crit_edge26, label %.lr.ph25
 
-.lr.ph24:                                         ; preds = %._crit_edge, %123
+.lr.ph25:                                         ; preds = %._crit_edge, %123
   %100 = phi i32 [ %126, %123 ], [ 0, %._crit_edge ]
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcpu_page_first_chunk.vm, i64 8), align 8
   %102 = ptrtoint ptr %101 to i64
@@ -5091,10 +5091,10 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %104 = load i64, ptr %18, align 8
   %105 = mul i64 %104, %103
   %106 = add i64 %105, %102
-  br i1 %47, label %.preheader, label %.loopexit12
+  br i1 %47, label %.preheader, label %.loopexit13
 
-.preheader:                                       ; preds = %.lr.ph24, %.preheader
-  %107 = phi i64 [ %112, %.preheader ], [ 0, %.lr.ph24 ]
+.preheader:                                       ; preds = %.lr.ph25, %.preheader
+  %107 = phi i64 [ %112, %.preheader ], [ 0, %.lr.ph25 ]
   %108 = trunc i64 %107 to i32
   %109 = shl i32 %108, 12
   %110 = sext i32 %109 to i64
@@ -5102,9 +5102,9 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   tail call void @pcpu_populate_pte(i64 noundef %111) #28
   %112 = add nuw nsw i64 %107, 1
   %113 = icmp eq i64 %112, %96
-  br i1 %113, label %.loopexit12, label %.preheader, !llvm.loop !144
+  br i1 %113, label %.loopexit13, label %.preheader, !llvm.loop !144
 
-.loopexit12:                                      ; preds = %.preheader, %.lr.ph24
+.loopexit13:                                      ; preds = %.preheader, %.lr.ph25
   %114 = mul i32 %100, %37
   %115 = sext i32 %114 to i64
   %116 = getelementptr ptr, ptr %43, i64 %115
@@ -5115,11 +5115,11 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %122, label %123
 
-122:                                              ; preds = %.loopexit12
+122:                                              ; preds = %.loopexit13
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.51, i32 noundef %120) #27
   unreachable
 
-123:                                              ; preds = %.loopexit12
+123:                                              ; preds = %.loopexit13
   %124 = inttoptr i64 %106 to ptr
   %125 = load i64, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr nonnull align 1 @__per_cpu_load, i64 %125, i1 false)
@@ -5128,9 +5128,9 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %128 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %127) #25, !srcloc !42
   %129 = trunc i64 %128 to i32
   %130 = icmp ult i32 %126, %129
-  br i1 %130, label %.lr.ph24, label %._crit_edge25, !llvm.loop !145
+  br i1 %130, label %.lr.ph25, label %._crit_edge26, !llvm.loop !145
 
-._crit_edge25:                                    ; preds = %123, %._crit_edge
+._crit_edge26:                                    ; preds = %123, %._crit_edge
   %.lcssa = phi i32 [ 0, %._crit_edge ], [ %120, %123 ]
   %131 = load i64, ptr %5, align 8
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5158,8 +5158,8 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %.not = icmp eq i64 %139, 0
   br i1 %.not, label %.loopexit, label %138, !llvm.loop !146
 
-.loopexit:                                        ; preds = %138, %._crit_edge25, %81
-  %150 = phi i32 [ %.lcssa, %._crit_edge25 ], [ -12, %81 ], [ -12, %138 ]
+.loopexit:                                        ; preds = %138, %._crit_edge26, %81
+  %150 = phi i32 [ %.lcssa, %._crit_edge26 ], [ -12, %81 ], [ -12, %138 ]
   call void @memblock_free(ptr noundef nonnull %43, i64 noundef %42) #23
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %152 = load i64, ptr %151, align 8

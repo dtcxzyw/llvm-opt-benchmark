@@ -238,7 +238,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = xor i1 %5, true
   %9 = select i1 %3, i1 true, i1 %8
-  br i1 %9, label %10, label %.thread27, !prof !10
+  br i1 %9, label %10, label %.thread28, !prof !10
 
 10:                                               ; preds = %.thread, %7
   %11 = load ptr, ptr %0, align 8, !tbaa !29
@@ -272,7 +272,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %28 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %29 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !11
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 563, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.13) #5
-  br label %.thread27
+  br label %.thread28
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %16, align 8, !tbaa !32
@@ -287,7 +287,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %39 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
   %40 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 574, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.14) #5
-  br label %.thread27
+  br label %.thread28
 
 41:                                               ; preds = %31
   %42 = tail call i32 @H5FA__hdr_delete(ptr noundef nonnull %25) #5
@@ -298,7 +298,7 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %45 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %46 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 578, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.15) #5
-  br label %.thread27
+  br label %.thread28
 
 .critedge:                                        ; preds = %15, %12
   %48 = tail call i32 @H5FA__hdr_decr(ptr noundef %.pre) #5
@@ -309,15 +309,15 @@ define range(i32 -1, 1) i32 @H5FA_close(ptr noundef %0) local_unnamed_addr #0 {
   %51 = load i64, ptr @H5E_FARRAY_g, align 8, !tbaa !11
   %52 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !11
   %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA_close, i32 noundef 587, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.14) #5
-  br label %.thread27
+  br label %.thread28
 
 54:                                               ; preds = %41, %.critedge, %10
   %55 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FA_t_reg_free_list, ptr noundef nonnull %0) #5
-  br label %.thread27
+  br label %.thread28
 
-.thread27:                                        ; preds = %44, %37, %27, %7, %54, %50
-  %.021 = phi i32 [ 0, %54 ], [ -1, %50 ], [ 0, %7 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
-  ret i32 %.021
+.thread28:                                        ; preds = %44, %37, %27, %7, %54, %50
+  %.022 = phi i32 [ 0, %54 ], [ -1, %50 ], [ 0, %7 ], [ -1, %27 ], [ -1, %37 ], [ -1, %44 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
@@ -627,9 +627,9 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr noundef readonly captures(none) %0, i6
   br label %136
 
 136:                                              ; preds = %11, %132, %129, %128
-  %.064 = phi i32 [ -1, %132 ], [ %.4, %129 ], [ %.4, %128 ], [ 0, %11 ]
+  %.068 = phi i32 [ -1, %132 ], [ %.4, %129 ], [ %.4, %128 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.064
+  ret i32 %.068
 }
 
 declare i64 @H5FA__dblock_create(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -834,8 +834,8 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr noundef readonly captures(none) %0, i6
   br label %.thread78
 
 .thread78:                                        ; preds = %19, %26, %33, %10, %123, %120, %119
-  %.054 = phi i32 [ -1, %123 ], [ %.4, %120 ], [ %.4, %119 ], [ 0, %10 ], [ 0, %19 ], [ -1, %26 ], [ -1, %33 ]
-  ret i32 %.054
+  %.059 = phi i32 [ -1, %123 ], [ %.4, %120 ], [ %.4, %119 ], [ 0, %10 ], [ 0, %19 ], [ -1, %26 ], [ -1, %33 ]
+  ret i32 %.059
 }
 
 declare i64 @H5FA__hdr_fuse_decr(ptr noundef) local_unnamed_addr #1

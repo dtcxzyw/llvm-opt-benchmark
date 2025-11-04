@@ -1157,9 +1157,9 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   store i64 %255, ptr %250, align 8, !tbaa !94
   %256 = getelementptr inbounds nuw i8, ptr %.0332.i, i64 8
   store ptr %256, ptr %2, align 8, !tbaa !71
-  br i1 %221, label %257, label %.thread109.i.i
+  br i1 %221, label %257, label %.thread110.i.i
 
-.thread109.i.i:                                   ; preds = %220
+.thread110.i.i:                                   ; preds = %220
   store i64 0, ptr %250, align 8, !tbaa !94
   br label %263
 
@@ -1173,7 +1173,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   %262 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__reconstruct_cache_entry, i32 noundef 2643, i64 noundef %260, i64 noundef %261, ptr noundef nonnull @.str.54) #15
   br label %.thread.i.i
 
-263:                                              ; preds = %257, %.thread109.i.i
+263:                                              ; preds = %257, %.thread110.i.i
   %264 = load i16, ptr %256, align 1
   %265 = zext i16 %264 to i64
   %266 = getelementptr inbounds nuw i8, ptr %214, i64 168
@@ -1248,7 +1248,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   br label %304
 
 304:                                              ; preds = %304, %300
-  %.083103.i.i = phi i64 [ 0, %300 ], [ %312, %304 ]
+  %.083104.i.i = phi i64 [ 0, %300 ], [ %312, %304 ]
   %305 = phi i64 [ 0, %300 ], [ %311, %304 ]
   %306 = phi ptr [ %303, %300 ], [ %308, %304 ]
   %307 = shl i64 %305, 8
@@ -1258,7 +1258,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   %310 = zext i8 %309 to i64
   %311 = or disjoint i64 %307, %310
   store i64 %311, ptr %301, align 8, !tbaa !98
-  %312 = add nuw nsw i64 %.083103.i.i, 1
+  %312 = add nuw nsw i64 %.083104.i.i, 1
   %exitcond.not.i295.i = icmp eq i64 %312, 8
   br i1 %exitcond.not.i295.i, label %313, label %304, !llvm.loop !99
 
@@ -1356,7 +1356,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   br label %.thread.i.i
 
 370:                                              ; preds = %.lr.ph.i.i
-  %371 = add i32 %.082104.i.i, 1
+  %371 = add i32 %.082105.i.i, 1
   %372 = zext i32 %371 to i64
   %373 = load i64, ptr %266, align 8, !tbaa !95
   %374 = icmp ugt i64 %373, %372
@@ -1365,7 +1365,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %370
   %375 = phi ptr [ %378, %370 ], [ %362, %.preheader.i.i ]
   %376 = phi i64 [ %372, %370 ], [ 0, %.preheader.i.i ]
-  %.082104.i.i = phi i32 [ %371, %370 ], [ 0, %.preheader.i.i ]
+  %.082105.i.i = phi i32 [ %371, %370 ], [ 0, %.preheader.i.i ]
   %377 = getelementptr inbounds nuw i64, ptr %375, i64 %376
   call void @H5F_addr_decode(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %377) #15
   %378 = load ptr, ptr %363, align 8, !tbaa !100
@@ -2500,13 +2500,13 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   %.not97.i.i = icmp eq ptr %.085.i.i, null
   br i1 %.not97.i.i, label %.lr.ph126.i.i, label %.lr.ph118.i.i, !llvm.loop !169
 
-.preheader103.i.i:                                ; preds = %.thread99.i.i
+.preheader103.i.i:                                ; preds = %.thread100.i.i
   %.287129.pre.i.i = load ptr, ptr %104, align 8, !tbaa !108
   %.not92130.i.i = icmp eq ptr %.287129.pre.i.i, null
   br i1 %.not92130.i.i, label %._crit_edge107.i, label %.lr.ph133.i.i
 
-.lr.ph126.i.i:                                    ; preds = %.loopexit110.i.i, %.thread99.i.i
-  %.186125.i.i = phi ptr [ %.186.i.i, %.thread99.i.i ], [ %.1101.pre120.pre.i, %.loopexit110.i.i ]
+.lr.ph126.i.i:                                    ; preds = %.loopexit110.i.i, %.thread100.i.i
+  %.186125.i.i = phi ptr [ %.186.i.i, %.thread100.i.i ], [ %.1101.pre120.pre.i, %.loopexit110.i.i ]
   %211 = getelementptr inbounds nuw i8, ptr %.186125.i.i, i64 152
   %212 = load i8, ptr %211, align 8, !tbaa !159, !range !7, !noundef !8
   %213 = trunc nuw i8 %212 to i1
@@ -2516,7 +2516,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   br i1 %213, label %237, label %216
 
 216:                                              ; preds = %.lr.ph126.i.i
-  br i1 %.not95.i.i, label %.thread99.i.i, label %.preheader107.i.i
+  br i1 %.not95.i.i, label %.thread100.i.i, label %.preheader107.i.i
 
 .preheader107.i.i:                                ; preds = %216
   %217 = getelementptr inbounds nuw i8, ptr %.186125.i.i, i64 72
@@ -2553,10 +2553,10 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 236:                                              ; preds = %232, %226, %220
   %indvars.iv.next139.i.i = add nuw nsw i64 %indvars.iv138.i.i, 1
   %exitcond142.not.i.i = icmp eq i64 %indvars.iv.next139.i.i, %wide.trip.count141.i.i
-  br i1 %exitcond142.not.i.i, label %.thread99.i.i, label %220, !llvm.loop !170
+  br i1 %exitcond142.not.i.i, label %.thread100.i.i, label %220, !llvm.loop !170
 
 237:                                              ; preds = %.lr.ph126.i.i
-  br i1 %.not95.i.i, label %.thread99.i.i, label %.preheader106.i.i
+  br i1 %.not95.i.i, label %.thread100.i.i, label %.preheader106.i.i
 
 .preheader106.i.i:                                ; preds = %237
   %238 = getelementptr inbounds nuw i8, ptr %.186125.i.i, i64 72
@@ -2599,11 +2599,11 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   %259 = load ptr, ptr %240, align 8, !tbaa !100
   %260 = call ptr @H5MM_xfree(ptr noundef %259) #15
   store ptr null, ptr %240, align 8, !tbaa !100
-  br label %.thread99.i.i
+  br label %.thread100.i.i
 
 261:                                              ; preds = %254
   %262 = icmp ult i64 %256, %wide.trip.count146.i.i
-  br i1 %262, label %263, label %.thread99.i.i
+  br i1 %262, label %263, label %.thread100.i.i
 
 263:                                              ; preds = %261
   %264 = load ptr, ptr %240, align 8, !tbaa !100
@@ -2633,9 +2633,9 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   %.1.i.i = phi i32 [ %274, %271 ], [ %.076122.i.i, %.preheader105.i.i ]
   %indvars.iv.next149.i.i = add nuw nsw i64 %indvars.iv148.i.i, 1
   %exitcond152.not.i.i = icmp eq i64 %indvars.iv.next149.i.i, %wide.trip.count146.i.i
-  br i1 %exitcond152.not.i.i, label %.thread99.i.i, label %.preheader105.i.i, !llvm.loop !172
+  br i1 %exitcond152.not.i.i, label %.thread100.i.i, label %.preheader105.i.i, !llvm.loop !172
 
-.thread99.i.i:                                    ; preds = %236, %275, %261, %258, %237, %216
+.thread100.i.i:                                   ; preds = %236, %275, %261, %258, %237, %216
   %276 = getelementptr inbounds nuw i8, ptr %.186125.i.i, i64 120
   %.186.i.i = load ptr, ptr %276, align 8, !tbaa !108
   %.not.i.i = icmp eq ptr %.186.i.i, null

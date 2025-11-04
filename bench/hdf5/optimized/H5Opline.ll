@@ -910,8 +910,8 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
 .preheader:                                       ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %26, align 8, !tbaa !21
-  %.not85 = icmp eq i64 %27, 0
-  br i1 %.not85, label %H5O__pline_free.exit, label %.lr.ph
+  %.not86 = icmp eq i64 %27, 0
+  br i1 %.not86, label %H5O__pline_free.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -926,13 +926,13 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
 
 33:                                               ; preds = %.lr.ph, %86
   %34 = phi ptr [ %.pre, %.lr.ph ], [ %61, %86 ]
-  %.06684 = phi i64 [ 0, %.lr.ph ], [ %87, %86 ]
+  %.06685 = phi i64 [ 0, %.lr.ph ], [ %87, %86 ]
   %35 = load ptr, ptr %24, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %35, i64 %.06684
-  %37 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %34, i64 %.06684
+  %36 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %35, i64 %.06685
+  %37 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %34, i64 %.06685
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %37, i64 64, i1 false), !tbaa.struct !47
   %38 = load ptr, ptr %28, align 8, !tbaa !23
-  %39 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %38, i64 %.06684
+  %39 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %38, i64 %.06685
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !30
   %.not76 = icmp eq ptr %41, null
@@ -947,19 +947,19 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
 46:                                               ; preds = %42
   %47 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull %41) #12
   %48 = load ptr, ptr %24, align 8, !tbaa !23
-  %49 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %48, i64 %.06684
+  %49 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %48, i64 %.06685
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %47, ptr %50, align 8, !tbaa !30
   %51 = icmp eq ptr %47, null
   br i1 %51, label %57, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %46
-  %.pre86 = load ptr, ptr %28, align 8, !tbaa !23
+  %.pre87 = load ptr, ptr %28, align 8, !tbaa !23
   br label %.thread
 
 52:                                               ; preds = %42
   %53 = load ptr, ptr %24, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %53, i64 %.06684
+  %54 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %53, i64 %.06685
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %55, ptr %56, align 8, !tbaa !30
@@ -972,8 +972,8 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
   br label %92
 
 .thread:                                          ; preds = %..thread_crit_edge, %52, %33
-  %61 = phi ptr [ %.pre86, %..thread_crit_edge ], [ %38, %52 ], [ %38, %33 ]
-  %62 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %61, i64 %.06684
+  %61 = phi ptr [ %.pre87, %..thread_crit_edge ], [ %38, %52 ], [ %38, %33 ]
+  %62 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %61, i64 %.06685
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load i64, ptr %63, align 8, !tbaa !29
   %.not77 = icmp eq i64 %64, 0
@@ -987,7 +987,7 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
   %68 = shl i64 %64, 2
   %69 = tail call noalias ptr @malloc(i64 noundef %68) #15
   %70 = load ptr, ptr %24, align 8, !tbaa !23
-  %71 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %70, i64 %.06684
+  %71 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %70, i64 %.06685
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
   store ptr %69, ptr %72, align 8, !tbaa !31
   %73 = icmp eq ptr %69, null
@@ -1007,14 +1007,14 @@ define internal noundef ptr @H5O__pline_copy(ptr noundef readonly captures(none)
 
 81:                                               ; preds = %65
   %82 = load ptr, ptr %24, align 8, !tbaa !23
-  %83 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %82, i64 %.06684
+  %83 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %82, i64 %.06685
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %84, ptr %85, align 8, !tbaa !31
   br label %86
 
 86:                                               ; preds = %.thread, %81, %78
-  %87 = add nuw i64 %.06684, 1
+  %87 = add nuw i64 %.06685, 1
   %88 = load i64, ptr %26, align 8, !tbaa !21
   %89 = icmp ult i64 %87, %88
   br i1 %89, label %33, label %H5O__pline_free.exit, !llvm.loop !50
@@ -1114,8 +1114,8 @@ H5O__pline_reset.exit:                            ; preds = %92, %130
   br label %H5O__pline_free.exit
 
 H5O__pline_free.exit:                             ; preds = %86, %.preheader, %13, %90, %139, %132, %2, %H5O__pline_reset.exit
-  %.064 = phi ptr [ null, %H5O__pline_reset.exit ], [ null, %2 ], [ null, %132 ], [ null, %139 ], [ %.067, %90 ], [ null, %13 ], [ %.067, %.preheader ], [ %.067, %86 ]
-  ret ptr %.064
+  %.065 = phi ptr [ null, %H5O__pline_reset.exit ], [ null, %2 ], [ null, %132 ], [ null, %139 ], [ %.067, %90 ], [ null, %13 ], [ %.067, %.preheader ], [ %.067, %86 ]
+  ret ptr %.065
 }
 
 ; Function Attrs: inlinehint nounwind uwtable

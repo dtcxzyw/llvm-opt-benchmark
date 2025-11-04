@@ -149,7 +149,7 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
 27:                                               ; preds = %26, %17
   %28 = tail call ptr @BN_CTX_new() #9
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit.thread329, label %30
+  br i1 %29, label %.loopexit.thread328, label %30
 
 30:                                               ; preds = %27
   tail call void @BN_CTX_start(ptr noundef nonnull %28) #9
@@ -174,28 +174,28 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
   %45 = add i32 %22, -1
   %46 = tail call i32 @BN_lshift(ptr noundef nonnull %41, ptr noundef %44, i32 noundef %45) #9
   %.not192 = icmp eq i32 %46, 0
-  br i1 %.not192, label %.loopexit.thread, label %.preheader243
+  br i1 %.not192, label %.loopexit.thread, label %.preheader242
 
-.preheader243:                                    ; preds = %43
+.preheader242:                                    ; preds = %43
   %47 = and i64 %19, 4294967295
   %48 = add i32 %20, -1
-  %.not278 = icmp eq i32 %20, 0
+  %.not277 = icmp eq i32 %20, 0
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 %49
   %51 = udiv i32 %45, 160
   %52 = shl i32 %20, 3
   %wide.trip.count = and i64 %19, 4294967295
-  br label %.loopexit241
+  br label %.loopexit240
 
-.loopexit241:                                     ; preds = %.loopexit241.backedge, %.preheader243
-  %.1170 = phi i32 [ 0, %.preheader243 ], [ %53, %.loopexit241.backedge ]
-  %.1 = phi i1 [ %.not, %.preheader243 ], [ true, %.loopexit241.backedge ]
+.loopexit240:                                     ; preds = %.loopexit240.backedge, %.preheader242
+  %.1170 = phi i32 [ 0, %.preheader242 ], [ %53, %.loopexit240.backedge ]
+  %.1 = phi i1 [ %.not, %.preheader242 ], [ true, %.loopexit240.backedge ]
   %53 = add nuw nsw i32 %.1170, 1
   %54 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 0, i32 noundef %.1170) #9
   %.not193 = icmp eq i32 %54, 0
   br i1 %.not193, label %.loopexit.thread, label %55
 
-55:                                               ; preds = %.loopexit241
+55:                                               ; preds = %.loopexit240
   %56 = zext i1 %.1 to i32
   br i1 %.1, label %57, label %59
 
@@ -207,20 +207,20 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
 59:                                               ; preds = %55, %57
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %8, i64 %47, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %8, i64 %47, i1 false)
-  br i1 %.not278, label %._crit_edge, label %.lr.ph
+  br i1 %.not277, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
-  %.0166263 = phi i32 [ %64, %.lr.ph ], [ %48, %59 ]
-  %60 = zext i32 %.0166263 to i64
+  %.0166262 = phi i32 [ %64, %.lr.ph ], [ %48, %59 ]
+  %60 = zext i32 %.0166262 to i64
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = add i8 %62, 1
   store i8 %63, ptr %61, align 1, !tbaa !25
   %.not195 = icmp eq i8 %63, 0
-  %64 = add i32 %.0166263, -1
+  %64 = add i32 %.0166262, -1
   %65 = icmp ult i32 %64, %20
-  %or.cond277 = select i1 %.not195, i1 %65, i1 false
-  br i1 %or.cond277, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  %or.cond276 = select i1 %.not195, i1 %65, i1 false
+  br i1 %or.cond276, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
   %66 = call i32 @EVP_Digest(ptr noundef nonnull %8, i64 noundef %47, ptr noundef nonnull %9, ptr noundef null, ptr noundef %18, ptr noundef null) #9
@@ -230,13 +230,13 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
 67:                                               ; preds = %._crit_edge
   %68 = call i32 @EVP_Digest(ptr noundef nonnull %10, i64 noundef %47, ptr noundef nonnull %11, ptr noundef null, ptr noundef %18, ptr noundef null) #9
   %.not197 = icmp eq i32 %68, 0
-  br i1 %.not197, label %.loopexit.thread, label %.preheader239
+  br i1 %.not197, label %.loopexit.thread, label %.preheader238
 
-.preheader239:                                    ; preds = %67
-  br i1 %.not278, label %._crit_edge267, label %.lr.ph266
+.preheader238:                                    ; preds = %67
+  br i1 %.not277, label %._crit_edge266, label %.lr.ph265
 
-.lr.ph266:                                        ; preds = %.preheader239, %.lr.ph266
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph266 ], [ 0, %.preheader239 ]
+.lr.ph265:                                        ; preds = %.preheader238, %.lr.ph265
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph265 ], [ 0, %.preheader238 ]
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1, !tbaa !25
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
@@ -245,9 +245,9 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
   store i8 %73, ptr %71, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge267, label %.lr.ph266, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge266, label %.lr.ph265, !llvm.loop !28
 
-._crit_edge267:                                   ; preds = %.lr.ph266, %.preheader239
+._crit_edge266:                                   ; preds = %.lr.ph265, %.preheader238
   %74 = load i8, ptr %9, align 16, !tbaa !25
   %75 = or i8 %74, -128
   store i8 %75, ptr %9, align 16, !tbaa !25
@@ -258,17 +258,17 @@ define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captur
   %.not198 = icmp eq ptr %78, null
   br i1 %.not198, label %.loopexit.thread, label %79
 
-79:                                               ; preds = %._crit_edge267
+79:                                               ; preds = %._crit_edge266
   %80 = call i32 @BN_is_prime_fasttest_ex(ptr noundef %37, i32 noundef 50, ptr noundef nonnull %28, i32 noundef %56, ptr noundef %6) #9
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.thread, label %select.unfold
 
 select.unfold:                                    ; preds = %79
   %.not199 = icmp eq i32 %80, 0
-  br i1 %.not199, label %.loopexit241.backedge, label %.loopexit.thread
+  br i1 %.not199, label %.loopexit240.backedge, label %.loopexit.thread
 
-.loopexit241.backedge:                            ; preds = %128, %select.unfold
-  br label %.loopexit241
+.loopexit240.backedge:                            ; preds = %128, %select.unfold
+  br label %.loopexit240
 
 .thread:                                          ; preds = %79
   %82 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 2, i32 noundef 0) #9
@@ -278,33 +278,33 @@ select.unfold:                                    ; preds = %79
 83:                                               ; preds = %.thread
   %84 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 3, i32 noundef 0) #9
   %.not201 = icmp eq i32 %84, 0
-  br i1 %.not201, label %.loopexit.thread, label %.preheader281
+  br i1 %.not201, label %.loopexit.thread, label %.preheader280
 
-.preheader281:                                    ; preds = %83, %128
+.preheader280:                                    ; preds = %83, %128
   %.2165 = phi i32 [ %129, %128 ], [ 0, %83 ]
   %.not202 = icmp eq i32 %.2165, 0
   br i1 %.not202, label %87, label %85
 
-85:                                               ; preds = %.preheader281
+85:                                               ; preds = %.preheader280
   %86 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 0, i32 noundef %.2165) #9
   %.not203 = icmp eq i32 %86, 0
   br i1 %.not203, label %.loopexit.thread, label %87
 
-87:                                               ; preds = %85, %.preheader281
+87:                                               ; preds = %85, %.preheader280
   call void @BN_zero(ptr noundef %36) #9
-  br label %.preheader237
+  br label %.preheader236
 
 88:                                               ; preds = %104
-  %89 = add nuw nsw i32 %.0171268, 1
-  %exitcond295.not = icmp eq i32 %.0171268, %51
-  br i1 %exitcond295.not, label %106, label %.preheader237, !llvm.loop !29
+  %89 = add nuw nsw i32 %.0171267, 1
+  %exitcond294.not = icmp eq i32 %.0171267, %51
+  br i1 %exitcond294.not, label %106, label %.preheader236, !llvm.loop !29
 
-.preheader237:                                    ; preds = %87, %88
-  %.0171268 = phi i32 [ 0, %87 ], [ %89, %88 ]
+.preheader236:                                    ; preds = %87, %88
+  %.0171267 = phi i32 [ 0, %87 ], [ %89, %88 ]
   br label %90
 
-90:                                               ; preds = %.preheader237, %92
-  %.2168.in = phi i32 [ %.2168, %92 ], [ %20, %.preheader237 ]
+90:                                               ; preds = %.preheader236, %92
+  %.2168.in = phi i32 [ %.2168, %92 ], [ %20, %.preheader236 ]
   %.2168 = add i32 %.2168.in, -1
   %91 = icmp ult i32 %.2168, %20
   br i1 %91, label %92, label %97
@@ -329,7 +329,7 @@ select.unfold:                                    ; preds = %79
   br i1 %.not224, label %.loopexit.thread, label %101
 
 101:                                              ; preds = %99
-  %102 = mul i32 %52, %.0171268
+  %102 = mul i32 %52, %.0171267
   %103 = call i32 @BN_lshift(ptr noundef %34, ptr noundef %34, i32 noundef %102) #9
   %.not225 = icmp eq i32 %103, 0
   br i1 %.not225, label %.loopexit.thread, label %104
@@ -391,8 +391,8 @@ select.unfold:                                    ; preds = %79
 
 128:                                              ; preds = %127, %121
   %129 = add nuw nsw i32 %.2165, 1
-  %exitcond296 = icmp eq i32 %129, 4096
-  br i1 %exitcond296, label %.loopexit241.backedge, label %.preheader281
+  %exitcond295 = icmp eq i32 %129, 4096
+  br i1 %exitcond295, label %.loopexit240.backedge, label %.preheader280
 
 130:                                              ; preds = %124
   %131 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 2, i32 noundef 1) #9
@@ -418,37 +418,37 @@ select.unfold:                                    ; preds = %79
 139:                                              ; preds = %137
   %140 = call i32 @BN_MONT_CTX_set(ptr noundef nonnull %31, ptr noundef %40, ptr noundef nonnull %28) #9
   %.not217 = icmp eq i32 %140, 0
-  br i1 %.not217, label %.loopexit.thread, label %.preheader236
+  br i1 %.not217, label %.loopexit.thread, label %.preheader235
 
-.preheader236:                                    ; preds = %139
+.preheader235:                                    ; preds = %139
   %141 = call i32 @BN_mod_exp_mont(ptr noundef %35, ptr noundef nonnull %41, ptr noundef %34, ptr noundef %40, ptr noundef nonnull %28, ptr noundef nonnull %31) #9
-  %.not218269 = icmp eq i32 %141, 0
-  br i1 %.not218269, label %.loopexit.thread, label %.lr.ph271
+  %.not218268 = icmp eq i32 %141, 0
+  br i1 %.not218268, label %.loopexit.thread, label %.lr.ph270
 
-.lr.ph271:                                        ; preds = %.preheader236, %146
-  %.1162270 = phi i32 [ %147, %146 ], [ 2, %.preheader236 ]
+.lr.ph270:                                        ; preds = %.preheader235, %146
+  %.1162269 = phi i32 [ %147, %146 ], [ 2, %.preheader235 ]
   %142 = call i32 @BN_is_one(ptr noundef %35) #9
   %.not219 = icmp eq i32 %142, 0
   br i1 %.not219, label %.preheader, label %143
 
-143:                                              ; preds = %.lr.ph271
+143:                                              ; preds = %.lr.ph270
   %144 = call ptr @BN_value_one() #9
   %145 = call i32 @BN_add(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef %144) #9
   %.not221 = icmp eq i32 %145, 0
   br i1 %.not221, label %.loopexit.thread, label %146
 
 146:                                              ; preds = %143
-  %147 = add i32 %.1162270, 1
+  %147 = add i32 %.1162269, 1
   %148 = call i32 @BN_mod_exp_mont(ptr noundef %35, ptr noundef nonnull %41, ptr noundef %34, ptr noundef %40, ptr noundef nonnull %28, ptr noundef nonnull %31) #9
   %.not218 = icmp eq i32 %148, 0
-  br i1 %.not218, label %.loopexit.thread, label %.lr.ph271
+  br i1 %.not218, label %.loopexit.thread, label %.lr.ph270
 
-.preheader:                                       ; preds = %.lr.ph271
+.preheader:                                       ; preds = %.lr.ph270
   %149 = call i32 @BN_GENCB_call(ptr noundef %6, i32 noundef 3, i32 noundef 1) #9
   %.not220.not = icmp eq i32 %149, 0
-  br i1 %.not220.not, label %.loopexit.thread, label %.lr.ph275
+  br i1 %.not220.not, label %.loopexit.thread, label %.lr.ph274
 
-.lr.ph275:                                        ; preds = %.preheader
+.lr.ph274:                                        ; preds = %.preheader
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -468,7 +468,7 @@ select.unfold:                                    ; preds = %79
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.loopexit.thread, label %161
 
-161:                                              ; preds = %.lr.ph275
+161:                                              ; preds = %.lr.ph274
   %162 = load ptr, ptr %151, align 8, !tbaa !18
   %163 = icmp eq ptr %162, null
   %164 = icmp eq ptr %158, null
@@ -488,25 +488,25 @@ select.unfold:                                    ; preds = %79
   br i1 %.not229, label %.loopexit.thread, label %168
 
 168:                                              ; preds = %167
-  %169 = zext i32 %.1162270 to i64
+  %169 = zext i32 %.1162269 to i64
   store i64 %169, ptr %5, align 8, !tbaa !32
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.thread, %83, %.loopexit241, %select.unfold, %57, %67, %._crit_edge, %._crit_edge267, %114, %116, %119, %85, %127, %112, %106, %108, %110, %97, %99, %101, %104, %146, %143, %.preheader236, %137, %139, %132, %135, %33, %43, %30, %130, %168, %167, %161, %.lr.ph275, %.preheader
-  %.0177245324.shrunk = phi i32 [ 0, %.lr.ph275 ], [ 0, %161 ], [ 0, %.preheader ], [ 1, %168 ], [ 1, %167 ], [ 0, %130 ], [ 0, %30 ], [ 0, %43 ], [ 0, %33 ], [ 0, %135 ], [ 0, %132 ], [ 0, %139 ], [ 0, %137 ], [ 0, %.preheader236 ], [ 0, %143 ], [ 0, %146 ], [ 0, %104 ], [ 0, %101 ], [ 0, %99 ], [ 0, %97 ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ 0, %112 ], [ 0, %127 ], [ 0, %85 ], [ 0, %119 ], [ 0, %116 ], [ 0, %114 ], [ 0, %._crit_edge267 ], [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %57 ], [ 0, %select.unfold ], [ 0, %.loopexit241 ], [ 0, %83 ], [ 0, %.thread ]
-  %.0172.ph319322 = phi ptr [ %31, %.lr.ph275 ], [ %31, %161 ], [ %31, %.preheader ], [ %31, %168 ], [ %31, %167 ], [ %31, %130 ], [ null, %30 ], [ %31, %43 ], [ %31, %33 ], [ %31, %135 ], [ %31, %132 ], [ %31, %139 ], [ %31, %137 ], [ %31, %.preheader236 ], [ %31, %143 ], [ %31, %146 ], [ %31, %104 ], [ %31, %101 ], [ %31, %99 ], [ %31, %97 ], [ %31, %110 ], [ %31, %108 ], [ %31, %106 ], [ %31, %112 ], [ %31, %127 ], [ %31, %85 ], [ %31, %119 ], [ %31, %116 ], [ %31, %114 ], [ %31, %._crit_edge267 ], [ %31, %._crit_edge ], [ %31, %67 ], [ %31, %57 ], [ %31, %select.unfold ], [ %31, %.loopexit241 ], [ %31, %83 ], [ %31, %.thread ]
+.loopexit.thread:                                 ; preds = %.thread, %83, %.loopexit240, %select.unfold, %57, %67, %._crit_edge, %._crit_edge266, %114, %116, %119, %85, %127, %112, %106, %108, %110, %97, %99, %101, %104, %146, %143, %.preheader235, %137, %139, %132, %135, %33, %43, %30, %130, %168, %167, %161, %.lr.ph274, %.preheader
+  %.0177244323.shrunk = phi i32 [ 0, %.lr.ph274 ], [ 0, %161 ], [ 0, %.preheader ], [ 1, %168 ], [ 1, %167 ], [ 0, %130 ], [ 0, %30 ], [ 0, %43 ], [ 0, %33 ], [ 0, %135 ], [ 0, %132 ], [ 0, %139 ], [ 0, %137 ], [ 0, %.preheader235 ], [ 0, %143 ], [ 0, %146 ], [ 0, %104 ], [ 0, %101 ], [ 0, %99 ], [ 0, %97 ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ 0, %112 ], [ 0, %127 ], [ 0, %85 ], [ 0, %119 ], [ 0, %116 ], [ 0, %114 ], [ 0, %._crit_edge266 ], [ 0, %._crit_edge ], [ 0, %67 ], [ 0, %57 ], [ 0, %select.unfold ], [ 0, %.loopexit240 ], [ 0, %83 ], [ 0, %.thread ]
+  %.0172.ph318321 = phi ptr [ %31, %.lr.ph274 ], [ %31, %161 ], [ %31, %.preheader ], [ %31, %168 ], [ %31, %167 ], [ %31, %130 ], [ null, %30 ], [ %31, %43 ], [ %31, %33 ], [ %31, %135 ], [ %31, %132 ], [ %31, %139 ], [ %31, %137 ], [ %31, %.preheader235 ], [ %31, %143 ], [ %31, %146 ], [ %31, %104 ], [ %31, %101 ], [ %31, %99 ], [ %31, %97 ], [ %31, %110 ], [ %31, %108 ], [ %31, %106 ], [ %31, %112 ], [ %31, %127 ], [ %31, %85 ], [ %31, %119 ], [ %31, %116 ], [ %31, %114 ], [ %31, %._crit_edge266 ], [ %31, %._crit_edge ], [ %31, %67 ], [ %31, %57 ], [ %31, %select.unfold ], [ %31, %.loopexit240 ], [ %31, %83 ], [ %31, %.thread ]
   call void @BN_CTX_end(ptr noundef nonnull %28) #9
   call void @BN_CTX_free(ptr noundef nonnull %28) #9
-  br label %.loopexit.thread329
+  br label %.loopexit.thread328
 
-.loopexit.thread329:                              ; preds = %27, %.loopexit.thread
-  %.0177245325 = phi i32 [ %.0177245324.shrunk, %.loopexit.thread ], [ 0, %27 ]
-  %.0172.ph319323 = phi ptr [ %.0172.ph319322, %.loopexit.thread ], [ null, %27 ]
-  call void @BN_MONT_CTX_free(ptr noundef %.0172.ph319323) #9
+.loopexit.thread328:                              ; preds = %27, %.loopexit.thread
+  %.0177244324 = phi i32 [ %.0177244323.shrunk, %.loopexit.thread ], [ 0, %27 ]
+  %.0172.ph318322 = phi ptr [ %.0172.ph318321, %.loopexit.thread ], [ null, %27 ]
+  call void @BN_MONT_CTX_free(ptr noundef %.0172.ph318322) #9
   br label %170
 
-170:                                              ; preds = %23, %.loopexit.thread329
-  %.0 = phi i32 [ %.0177245325, %.loopexit.thread329 ], [ 0, %23 ]
+170:                                              ; preds = %23, %.loopexit.thread328
+  %.0 = phi i32 [ %.0177244324, %.loopexit.thread328 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

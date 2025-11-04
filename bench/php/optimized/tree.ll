@@ -461,7 +461,7 @@ dom_add_child_without_merging.exit:               ; preds = %62, %63
 
 71:                                               ; preds = %68
   store ptr %40, ptr %29, align 8, !tbaa !19
-  br label %dom_add_child_without_merging.exit58
+  br label %dom_add_child_without_merging.exit59
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %30, align 8, !tbaa !34
@@ -469,9 +469,9 @@ dom_add_child_without_merging.exit:               ; preds = %62, %63
   store ptr %40, ptr %74, align 8, !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store ptr %73, ptr %75, align 8, !tbaa !35
-  br label %dom_add_child_without_merging.exit58
+  br label %dom_add_child_without_merging.exit59
 
-dom_add_child_without_merging.exit58:             ; preds = %71, %72
+dom_add_child_without_merging.exit59:             ; preds = %71, %72
   store ptr %40, ptr %30, align 8, !tbaa !34
   store ptr %28, ptr %45, align 8, !tbaa !26
   br label %.loopexit
@@ -496,7 +496,7 @@ dom_add_child_without_merging.exit58:             ; preds = %71, %72
 
 87:                                               ; preds = %84
   store ptr %81, ptr %29, align 8, !tbaa !19
-  br label %dom_add_child_without_merging.exit59
+  br label %dom_add_child_without_merging.exit60
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %30, align 8, !tbaa !34
@@ -504,15 +504,15 @@ dom_add_child_without_merging.exit58:             ; preds = %71, %72
   store ptr %81, ptr %90, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 56
   store ptr %89, ptr %91, align 8, !tbaa !35
-  br label %dom_add_child_without_merging.exit59
+  br label %dom_add_child_without_merging.exit60
 
-dom_add_child_without_merging.exit59:             ; preds = %87, %88
+dom_add_child_without_merging.exit60:             ; preds = %87, %88
   store ptr %81, ptr %30, align 8, !tbaa !34
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 40
   store ptr %28, ptr %92, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dom_add_child_without_merging.exit, %55, %dom_add_child_without_merging.exit59, %dom_add_child_without_merging.exit58
+.loopexit:                                        ; preds = %dom_add_child_without_merging.exit, %55, %dom_add_child_without_merging.exit60, %dom_add_child_without_merging.exit59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit62, label %32

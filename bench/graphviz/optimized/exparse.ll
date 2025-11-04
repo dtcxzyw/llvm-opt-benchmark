@@ -6681,8 +6681,8 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %.fr = freeze ptr %21
   %22 = load i8, ptr %19, align 1, !tbaa !27
-  %.not134220 = icmp eq i8 %22, 0
-  br i1 %.not134220, label %._crit_edge.preheader, label %.lr.ph
+  %.not134223 = icmp eq i8 %22, 0
+  br i1 %.not134223, label %._crit_edge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %.not137 = icmp eq ptr %.fr, null
@@ -6690,16 +6690,16 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %23 = phi i8 [ %36, %34 ], [ %22, %.lr.ph ]
-  %.0116221.us = phi ptr [ %35, %34 ], [ %19, %.lr.ph ]
+  %.0116224.us = phi ptr [ %35, %34 ], [ %19, %.lr.ph ]
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %25, i8 noundef signext %23)
-  %26 = load i8, ptr %.0116221.us, align 1, !tbaa !27
+  %26 = load i8, ptr %.0116224.us, align 1, !tbaa !27
   %27 = icmp eq i8 %26, 37
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %.lr.ph.split.us
-  %29 = getelementptr inbounds nuw i8, ptr %.0116221.us, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0116224.us, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !27
   %.not135.us = icmp eq i8 %30, 0
   br i1 %.not135.us, label %31, label %32
@@ -6715,7 +6715,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not136.us, label %34, label %._crit_edge.preheader
 
 34:                                               ; preds = %32, %.lr.ph.split.us
-  %.2118.us = phi ptr [ %.0116221.us, %.lr.ph.split.us ], [ %29, %32 ]
+  %.2118.us = phi ptr [ %.0116224.us, %.lr.ph.split.us ], [ %29, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %.2118.us, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !27
   %.not134.us = icmp eq i8 %36, 0
@@ -6723,16 +6723,16 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %37 = phi i8 [ %53, %51 ], [ %22, %.lr.ph ]
-  %.0116221 = phi ptr [ %52, %51 ], [ %19, %.lr.ph ]
+  %.0116224 = phi ptr [ %52, %51 ], [ %19, %.lr.ph ]
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %39, i8 noundef signext %37)
-  %40 = load i8, ptr %.0116221, align 1, !tbaa !27
+  %40 = load i8, ptr %.0116224, align 1, !tbaa !27
   %41 = icmp eq i8 %40, 37
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds nuw i8, ptr %.0116221, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0116224, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !27
   %.not135 = icmp eq i8 %44, 0
   br i1 %.not135, label %45, label %46
@@ -6754,7 +6754,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %.lr.ph.split, %48
-  %.2118 = phi ptr [ %43, %48 ], [ %.0116221, %.lr.ph.split ]
+  %.2118 = phi ptr [ %43, %48 ], [ %.0116224, %.lr.ph.split ]
   %52 = getelementptr inbounds nuw i8, ptr %.2118, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %.not134 = icmp eq i8 %53, 0
@@ -6809,12 +6809,12 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
     i8 103, label %.loopexit164
     i8 104, label %130
     i8 108, label %.loopexit
-    i8 111, label %.loopexit304
-    i8 117, label %.loopexit304
-    i8 120, label %.loopexit304
-    i8 84, label %.loopexit304
-    i8 115, label %.loopexit366
-    i8 83, label %.loopexit366
+    i8 111, label %.loopexit310
+    i8 117, label %.loopexit310
+    i8 120, label %.loopexit310
+    i8 84, label %.loopexit310
+    i8 115, label %.loopexit375
+    i8 83, label %.loopexit375
   ]
 
 65:                                               ; preds = %62
@@ -7011,17 +7011,17 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %.pr161 = load i8, ptr %.6, align 1, !tbaa !27
   br label %62
 
-.loopexit304:                                     ; preds = %62, %62, %62, %62
+.loopexit310:                                     ; preds = %62, %62, %62, %62
   br label %.loopexit164
 
-.loopexit366:                                     ; preds = %62, %62
+.loopexit375:                                     ; preds = %62, %62
   br label %.loopexit164
 
 .loopexit164.loopexit:                            ; preds = %62, %62, %131
   br label %.loopexit164
 
-.loopexit164:                                     ; preds = %62, %62, %62, %.loopexit164.loopexit, %.loopexit366, %.loopexit304
-  %.2113 = phi i32 [ 260, %.loopexit304 ], [ 263, %.loopexit366 ], [ 259, %.loopexit164.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
+.loopexit164:                                     ; preds = %62, %62, %62, %.loopexit164.loopexit, %.loopexit375, %.loopexit310
+  %.2113 = phi i32 [ 260, %.loopexit310 ], [ 263, %.loopexit375 ], [ 259, %.loopexit164.loopexit ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)
@@ -7070,7 +7070,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %154 = load ptr, ptr %153, align 8, !tbaa !27
   %155 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store ptr %154, ptr %155, align 8, !tbaa !37
-  switch i32 %.2113, label %248 [
+  switch i32 %.2113, label %.unreachabledefault [
     i32 262, label %156
     i32 259, label %175
     i32 260, label %175
@@ -7154,21 +7154,21 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   %201 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %202 = load i64, ptr %201, align 8, !tbaa !22
   %203 = icmp eq i64 %202, 270
-  br i1 %203, label %204, label %._crit_edge287
+  br i1 %203, label %204, label %._crit_edge293
 
-._crit_edge287:                                   ; preds = %200
-  %.pre288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
+._crit_edge293:                                   ; preds = %200
+  %.pre294 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   br label %226
 
 204:                                              ; preds = %200
   %205 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %206 = load ptr, ptr %205, align 8, !tbaa !27
   %.not146 = icmp eq ptr %206, null
-  %.pre289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
+  %.pre295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   br i1 %.not146, label %226, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %.pre289, i64 120
+  %208 = getelementptr inbounds nuw i8, ptr %.pre295, i64 120
   %209 = load ptr, ptr %208, align 8, !tbaa !43
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
   %211 = load ptr, ptr %210, align 8, !tbaa !50
@@ -7197,8 +7197,8 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   store ptr %223, ptr %225, align 8, !tbaa !27
   br label %248
 
-226:                                              ; preds = %._crit_edge287, %207, %204
-  %227 = phi ptr [ %.pre288, %._crit_edge287 ], [ %.pre289, %207 ], [ %.pre289, %204 ]
+226:                                              ; preds = %._crit_edge293, %207, %204
+  %227 = phi ptr [ %.pre294, %._crit_edge293 ], [ %.pre295, %207 ], [ %.pre295, %204 ]
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 120
   %229 = load ptr, ptr %228, align 8, !tbaa !43
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 40
@@ -7242,7 +7242,10 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   store ptr %243, ptr %155, align 8, !tbaa !37
   br label %248
 
-248:                                              ; preds = %198, %233, %234, %215, %216, %156, %158, %195, %152
+.unreachabledefault:                              ; preds = %152
+  unreachable
+
+248:                                              ; preds = %198, %233, %234, %215, %216, %156, %158, %195
   %249 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %250 = load ptr, ptr %249, align 8, !tbaa !27
   br label %251

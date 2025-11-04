@@ -9770,7 +9770,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
-  %.fr36 = freeze ptr %18
+  %.fr37 = freeze ptr %18
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = load i32, ptr %1, align 4
   %20 = icmp ult i32 %19, 20
@@ -9857,7 +9857,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %69 = zext i16 %68 to i32
   %70 = call i32 @__nla_parse(ptr noundef nonnull %14, i32 noundef 19, ptr noundef %66, i32 noundef %69, ptr noundef nonnull @nl_ntbl_parm_policy, i32 noundef 0, ptr noundef %2) #21
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %.thread24, label %72
+  br i1 %71, label %.thread25, label %72
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9872,20 +9872,20 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   br label %80
 
 80:                                               ; preds = %76, %72
-  %.fr37 = phi i32 [ %79, %76 ], [ 0, %72 ]
+  %.fr38 = phi i32 [ %79, %76 ], [ 0, %72 ]
   %81 = getelementptr inbounds nuw i8, ptr %39, i64 240
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, %81
-  br i1 %83, label %.thread24, label %.preheader
+  br i1 %83, label %.thread25, label %.preheader
 
 .preheader:                                       ; preds = %80
-  %84 = icmp eq ptr %.fr36, @init_net
-  %85 = icmp eq i32 %.fr37, 0
+  %84 = icmp eq ptr %.fr37, @init_net
+  %85 = icmp eq i32 %.fr38, 0
   %86 = and i1 %84, %85
   br i1 %86, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %.thread20.us
-  %87 = phi ptr [ %99, %.thread20.us ], [ %82, %.preheader ]
+.preheader.split.us:                              ; preds = %.preheader, %.thread21.us
+  %87 = phi ptr [ %99, %.thread21.us ], [ %82, %.preheader ]
   %88 = getelementptr i8, ptr %87, i64 -16
   %89 = getelementptr i8, ptr %87, i64 -8
   %90 = load ptr, ptr %89, align 8
@@ -9896,47 +9896,47 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 216
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.thread20.us
+  br i1 %95, label %96, label %.thread21.us
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %88, align 8
   %98 = icmp eq ptr %97, @init_net
-  br i1 %98, label %.split.us, label %.thread20.us
+  br i1 %98, label %.split.us, label %.thread21.us
 
-.thread20.us:                                     ; preds = %96, %92
+.thread21.us:                                     ; preds = %96, %92
   %99 = load ptr, ptr %87, align 8
   %100 = icmp eq ptr %99, %81
-  br i1 %100, label %.thread24, label %.preheader.split.us, !llvm.loop !181
+  br i1 %100, label %.thread25, label %.preheader.split.us, !llvm.loop !181
 
-.preheader.split:                                 ; preds = %.preheader, %.thread20
-  %101 = phi ptr [ %113, %.thread20 ], [ %82, %.preheader ]
+.preheader.split:                                 ; preds = %.preheader, %.thread21
+  %101 = phi ptr [ %113, %.thread21 ], [ %82, %.preheader ]
   %102 = getelementptr i8, ptr %101, i64 -16
   %103 = getelementptr i8, ptr %101, i64 -8
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread20, label %106
+  br i1 %105, label %.thread21, label %106
 
 106:                                              ; preds = %.preheader.split
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 216
   %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, %.fr37
-  br i1 %109, label %110, label %.thread20
+  %109 = icmp eq i32 %108, %.fr38
+  br i1 %109, label %110, label %.thread21
 
 110:                                              ; preds = %106
   %111 = load ptr, ptr %102, align 8
-  %112 = icmp eq ptr %111, %.fr36
-  br i1 %112, label %.split.us, label %.thread20
+  %112 = icmp eq ptr %111, %.fr37
+  br i1 %112, label %.split.us, label %.thread21
 
-.thread20:                                        ; preds = %.preheader.split, %106, %110
+.thread21:                                        ; preds = %.preheader.split, %106, %110
   %113 = load ptr, ptr %101, align 8
   %114 = icmp eq ptr %113, %81
-  br i1 %114, label %.thread24, label %.preheader.split, !llvm.loop !181
+  br i1 %114, label %.thread25, label %.preheader.split, !llvm.loop !181
 
 .split.us:                                        ; preds = %110, %.preheader.split.us, %96
   %.us-phi = phi ptr [ %87, %96 ], [ %87, %.preheader.split.us ], [ %101, %110 ]
-  %.us-phi29 = phi ptr [ %88, %96 ], [ %88, %.preheader.split.us ], [ %102, %110 ]
-  %115 = icmp eq ptr %.us-phi29, null
-  br i1 %115, label %.thread24, label %116
+  %.us-phi30 = phi ptr [ %88, %96 ], [ %88, %.preheader.split.us ], [ %102, %110 ]
+  %115 = icmp eq ptr %.us-phi30, null
+  br i1 %115, label %.thread25, label %116
 
 116:                                              ; preds = %.split.us
   %117 = getelementptr i8, ptr %.us-phi, i64 129
@@ -10087,7 +10087,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %190 = trunc i64 %189 to i32
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %121, i32 64, ptr nonnull elementtype(i8) %121) #21, !srcloc !182
   store i32 %190, ptr %124, align 4
-  %191 = call i32 @call_netevent_notifiers(i64 noundef 3, ptr noundef nonnull %.us-phi29) #21
+  %191 = call i32 @call_netevent_notifiers(i64 noundef 3, ptr noundef nonnull %.us-phi30) #21
   br label %222
 
 192:                                              ; preds = %139
@@ -10160,8 +10160,8 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %224 = icmp eq i64 %223, 20
   br i1 %224, label %225, label %134, !llvm.loop !183
 
-.thread24:                                        ; preds = %.thread20, %.thread20.us, %65, %.split.us, %80
-  %.ph = phi i32 [ -2, %.split.us ], [ %70, %65 ], [ -2, %80 ], [ -2, %.thread20.us ], [ -2, %.thread20 ]
+.thread25:                                        ; preds = %.thread21, %.thread21.us, %65, %.split.us, %80
+  %.ph = phi i32 [ -2, %.split.us ], [ %70, %65 ], [ -2, %80 ], [ -2, %.thread21.us ], [ -2, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %267
 
@@ -10185,7 +10185,7 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   %239 = load ptr, ptr %238, align 16
   %240 = icmp eq ptr %239, null
   %241 = select i1 %237, i1 %240, i1 false
-  %242 = icmp eq ptr %.fr36, @init_net
+  %242 = icmp eq ptr %.fr37, @init_net
   %243 = or i1 %241, %242
   br i1 %243, label %244, label %267
 
@@ -10235,8 +10235,8 @@ define internal range(i32 -2147483648, 1) i32 @neightbl_set(ptr noundef readonly
   store volatile i32 %265, ptr %266, align 8
   br label %267
 
-267:                                              ; preds = %.thread24, %260, %259, %226
-  %268 = phi i32 [ 0, %260 ], [ 0, %259 ], [ -2, %226 ], [ %.ph, %.thread24 ]
+267:                                              ; preds = %.thread25, %260, %259, %226
+  %268 = phi i32 [ 0, %260 ], [ 0, %259 ], [ -2, %226 ], [ %.ph, %.thread25 ]
   call void @_raw_write_unlock_bh(ptr noundef nonnull %61) #21
   br label %.thread
 

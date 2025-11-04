@@ -1472,7 +1472,7 @@ pick_next_pushable_task.exit:                     ; preds = %33
 93:                                               ; preds = %90
   %94 = load volatile ptr, ptr %7, align 8
   %95 = icmp eq ptr %94, %7
-  br i1 %95, label %.thread11, label %96
+  br i1 %95, label %.thread12, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr i8, ptr %94, i64 -1152
@@ -1523,20 +1523,20 @@ pick_next_pushable_task.exit:                     ; preds = %33
   %118 = getelementptr i8, ptr %94, i64 -1044
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, 99
-  br i1 %120, label %121, label %pick_next_pushable_task.exit9, !prof !7
+  br i1 %120, label %121, label %pick_next_pushable_task.exit10, !prof !7
 
 121:                                              ; preds = %117
   tail call void asm sideeffect "1418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1418) #29, !srcloc !95
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 1992, i32 0, i64 12) #29, !srcloc !96
   unreachable
 
-pick_next_pushable_task.exit9:                    ; preds = %117
+pick_next_pushable_task.exit10:                   ; preds = %117
   %122 = icmp eq ptr %97, %44
   %123 = icmp eq ptr %97, null
   %124 = or i1 %122, %123
-  br i1 %124, label %.thread11, label %125
+  br i1 %124, label %.thread12, label %125
 
-125:                                              ; preds = %pick_next_pushable_task.exit9
+125:                                              ; preds = %pick_next_pushable_task.exit10
   %126 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 -1, ptr nonnull elementtype(i32) %81) #29, !srcloc !105
   %127 = icmp eq i32 %126, 1
   br i1 %127, label %131, label %128
@@ -1570,19 +1570,19 @@ pick_next_pushable_task.exit9:                    ; preds = %117
   tail call void @activate_task(ptr noundef nonnull %91, ptr noundef nonnull %44, i32 noundef 0) #29
   tail call void @resched_curr(ptr noundef nonnull %91) #29
   %140 = icmp eq ptr %91, %0
-  br i1 %140, label %.thread11, label %141
+  br i1 %140, label %.thread12, label %141
 
 141:                                              ; preds = %137
   tail call void @raw_spin_rq_unlock(ptr noundef nonnull %91) #29
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %93, %pick_next_pushable_task.exit9, %141, %137
-  %142 = phi i32 [ 1, %137 ], [ 1, %141 ], [ 0, %pick_next_pushable_task.exit9 ], [ 0, %93 ]
+.thread12:                                        ; preds = %93, %pick_next_pushable_task.exit10, %141, %137
+  %142 = phi i32 [ 1, %137 ], [ 1, %141 ], [ 0, %pick_next_pushable_task.exit10 ], [ 0, %93 ]
   %143 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 -1, ptr nonnull elementtype(i32) %81) #29, !srcloc !105
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %148, label %145
 
-145:                                              ; preds = %.thread11
+145:                                              ; preds = %.thread12
   %146 = icmp sgt i32 %143, 0
   br i1 %146, label %pick_next_pushable_task.exit.thread, label %147, !prof !29
 
@@ -1590,7 +1590,7 @@ pick_next_pushable_task.exit9:                    ; preds = %117
   tail call void @refcount_warn_saturate(ptr noundef nonnull %81, i32 noundef 3) #29
   br label %pick_next_pushable_task.exit.thread
 
-148:                                              ; preds = %.thread11
+148:                                              ; preds = %.thread12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !106
   tail call void @__put_task_struct(ptr noundef nonnull %44) #29
   br label %pick_next_pushable_task.exit.thread
@@ -12937,7 +12937,7 @@ define internal void @push_dl_tasks(ptr noundef %0) #1 align 16 {
 define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = tail call fastcc ptr @pick_next_pushable_dl_task(ptr noundef %0)
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %.thread9, label %4
+  br i1 %3, label %.thread10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2336
@@ -12968,13 +12968,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
 
 22:                                               ; preds = %18
   tail call void @resched_curr(ptr noundef %0) #29
-  br label %.thread9
+  br label %.thread10
 
 23:                                               ; preds = %18, %11, %.thread
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 1008
   %25 = load i16, ptr %24, align 16
   %26 = icmp eq i16 %25, 0
-  br i1 %26, label %27, label %.thread9
+  br i1 %26, label %27, label %.thread10
 
 27:                                               ; preds = %23
   %28 = icmp eq ptr %6, %7
@@ -12984,7 +12984,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
   tail call void asm sideeffect "1522: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1522) #29, !srcloc !264
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 2412, i32 2305, i64 12) #29, !srcloc !265
   tail call void asm sideeffect "1523: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1523b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1523) #29, !srcloc !266
-  br label %.thread9
+  br label %.thread10
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -13013,7 +13013,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
   %45 = icmp eq ptr %44, %6
   %46 = icmp eq ptr %44, null
   %47 = or i1 %45, %46
-  br i1 %47, label %.thread7, label %48
+  br i1 %47, label %.thread8, label %48
 
 48:                                               ; preds = %43
   %49 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 -1, ptr nonnull elementtype(i32) %31) #29, !srcloc !105
@@ -13044,32 +13044,32 @@ define internal fastcc noundef range(i32 0, 2) i32 @push_dl_task(ptr noundef %0)
   tail call void @activate_task(ptr noundef nonnull %41, ptr noundef nonnull %6, i32 noundef 0) #29
   tail call void @resched_curr(ptr noundef nonnull %41) #29
   %58 = icmp eq ptr %41, %0
-  br i1 %58, label %.thread7, label %59
+  br i1 %58, label %.thread8, label %59
 
 59:                                               ; preds = %55
   tail call void @raw_spin_rq_unlock(ptr noundef nonnull %41) #29
-  br label %.thread7
+  br label %.thread8
 
-.thread7:                                         ; preds = %43, %59, %55
+.thread8:                                         ; preds = %43, %59, %55
   %60 = phi i32 [ 1, %55 ], [ 1, %59 ], [ 0, %43 ]
   %61 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 -1, ptr nonnull elementtype(i32) %31) #29, !srcloc !105
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %66, label %63
 
-63:                                               ; preds = %.thread7
+63:                                               ; preds = %.thread8
   %64 = icmp sgt i32 %61, 0
-  br i1 %64, label %.thread9, label %65, !prof !29
+  br i1 %64, label %.thread10, label %65, !prof !29
 
 65:                                               ; preds = %63
   tail call void @refcount_warn_saturate(ptr noundef nonnull %31, i32 noundef 3) #29
-  br label %.thread9
+  br label %.thread10
 
-66:                                               ; preds = %.thread7
+66:                                               ; preds = %.thread8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !106
   tail call void @__put_task_struct(ptr noundef nonnull %6) #29
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %23, %63, %65, %66, %29, %22, %1
+.thread10:                                        ; preds = %23, %63, %65, %66, %29, %22, %1
   %67 = phi i32 [ 0, %22 ], [ 0, %1 ], [ 0, %29 ], [ %60, %66 ], [ %60, %65 ], [ %60, %63 ], [ 0, %23 ]
   ret i32 %67
 }

@@ -2422,13 +2422,13 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   store ptr %68, ptr %53, align 8
   br label %69
 
-69:                                               ; preds = %.thread22, %59
-  %70 = phi i32 [ 0, %59 ], [ %304, %.thread22 ]
-  %71 = phi ptr [ %68, %59 ], [ %282, %.thread22 ]
-  %72 = phi ptr [ %57, %59 ], [ %283, %.thread22 ]
-  %73 = phi ptr [ %62, %59 ], [ %303, %.thread22 ]
+69:                                               ; preds = %.thread25, %59
+  %70 = phi i32 [ 0, %59 ], [ %304, %.thread25 ]
+  %71 = phi ptr [ %68, %59 ], [ %282, %.thread25 ]
+  %72 = phi ptr [ %57, %59 ], [ %283, %.thread25 ]
+  %73 = phi ptr [ %62, %59 ], [ %303, %.thread25 ]
   %74 = icmp slt i32 %70, 16
-  br i1 %74, label %75, label %.loopexit29
+  br i1 %74, label %75, label %.loopexit32
 
 75:                                               ; preds = %69
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -2436,7 +2436,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %78 = sext i32 %70 to i64
   br label %81
 
-.loopexit29:                                      ; preds = %96, %69
+.loopexit32:                                      ; preds = %96, %69
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 16
   br label %100
@@ -2471,9 +2471,9 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %97 = add nsw i64 %82, 1
   %98 = and i64 %97, 4294967295
   %99 = icmp eq i64 %98, 16
-  br i1 %99, label %.loopexit29, label %81, !llvm.loop !94
+  br i1 %99, label %.loopexit32, label %81, !llvm.loop !94
 
-100:                                              ; preds = %.thread19, %.loopexit29
+100:                                              ; preds = %.thread22, %.loopexit32
   store i64 0, ptr %79, align 8
   br label %101
 
@@ -2511,14 +2511,14 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 .outer:                                           ; preds = %116, %.thread
   %.ph = phi i64 [ %195, %.thread ], [ 0, %116 ]
   %121 = phi i1 [ false, %.thread ], [ true, %116 ]
-  %.ph26 = phi i32 [ %124, %.thread ], [ 0, %116 ]
-  %.ph27 = phi i32 [ %125, %.thread ], [ %118, %116 ]
+  %.ph29 = phi i32 [ %124, %.thread ], [ 0, %116 ]
+  %.ph30 = phi i32 [ %125, %.thread ], [ %118, %116 ]
   br label %122
 
 122:                                              ; preds = %.outer, %190
   %123 = phi i64 [ %193, %190 ], [ %.ph, %.outer ]
-  %124 = phi i32 [ %192, %190 ], [ %.ph26, %.outer ]
-  %125 = phi i32 [ %191, %190 ], [ %.ph27, %.outer ]
+  %124 = phi i32 [ %192, %190 ], [ %.ph29, %.outer ]
+  %125 = phi i32 [ %191, %190 ], [ %.ph30, %.outer ]
   %126 = getelementptr ptr, ptr %80, i64 %123
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
@@ -2541,11 +2541,11 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq i64 %137, 0
-  %.pre154 = ptrtoint ptr %140 to i64
+  %.pre157 = ptrtoint ptr %140 to i64
   br label %142
 
 142:                                              ; preds = %136, %133
-  %.pre-phi = phi i64 [ %.pre154, %136 ], [ %130, %133 ]
+  %.pre-phi = phi i64 [ %.pre157, %136 ], [ %130, %133 ]
   %143 = phi i1 [ %141, %136 ], [ true, %133 ]
   %144 = and i64 %.pre-phi, -4
   %145 = inttoptr i64 %144 to ptr
@@ -2640,35 +2640,35 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 .thread:                                          ; preds = %142
   %195 = add nuw nsw i64 %123, 1
   %196 = icmp eq i64 %195, 16
-  br i1 %196, label %.thread19, label %.outer, !llvm.loop !104
+  br i1 %196, label %.thread22, label %.outer, !llvm.loop !104
 
 197:                                              ; preds = %190
   %.pre = load i64, ptr %79, align 8
-  br i1 %121, label %.loopexit, label %.thread19
+  br i1 %121, label %.loopexit, label %.thread22
 
-.thread19:                                        ; preds = %.thread, %197
+.thread22:                                        ; preds = %.thread, %197
   %198 = phi i64 [ %.pre, %197 ], [ %149, %.thread ]
   %199 = phi i32 [ %191, %197 ], [ %125, %.thread ]
   %200 = icmp ult i64 %198, 17
   br i1 %200, label %100, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread19, %197
-  %201 = phi i64 [ %.pre, %197 ], [ %198, %.thread19 ]
-  %202 = phi i32 [ %191, %197 ], [ %199, %.thread19 ]
+.loopexit:                                        ; preds = %.thread22, %197
+  %201 = phi i64 [ %.pre, %197 ], [ %198, %.thread22 ]
+  %202 = phi i32 [ %191, %197 ], [ %199, %.thread22 ]
   %203 = icmp eq i32 %202, 15
-  br i1 %203, label %.preheader28, label %246
+  br i1 %203, label %.preheader31, label %246
 
-.preheader28:                                     ; preds = %.loopexit, %.preheader28
-  %204 = phi i64 [ %208, %.preheader28 ], [ 0, %.loopexit ]
+.preheader31:                                     ; preds = %.loopexit, %.preheader31
+  %204 = phi i64 [ %208, %.preheader31 ], [ 0, %.loopexit ]
   %205 = getelementptr ptr, ptr %80, i64 %204
   %206 = load ptr, ptr %205, align 8
   %207 = icmp ne ptr %206, null
   %208 = add nuw nsw i64 %204, 1
   %209 = icmp eq i64 %208, 16
   %or.cond = select i1 %207, i1 true, i1 %209
-  br i1 %or.cond, label %210, label %.preheader28, !llvm.loop !105
+  br i1 %or.cond, label %210, label %.preheader31, !llvm.loop !105
 
-210:                                              ; preds = %.preheader28
+210:                                              ; preds = %.preheader31
   %211 = ptrtoint ptr %206 to i64
   %212 = and i64 %211, 3
   %213 = icmp eq i64 %212, 3
@@ -2688,14 +2688,14 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   store ptr null, ptr %216, align 8
   %222 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i32 0, ptr %222, align 8
-  br label %.loopexit30
+  br label %.loopexit33
 
 223:                                              ; preds = %214
   %224 = zext i8 %219 to i32
   %225 = ptrtoint ptr %217 to i64
   %226 = and i64 %225, 2
   %227 = icmp eq i64 %226, 0
-  br i1 %227, label %.thread20, label %228
+  br i1 %227, label %.thread23, label %228
 
 228:                                              ; preds = %223
   %229 = and i64 %225, -4
@@ -2708,26 +2708,26 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   store i32 %233, ptr %234, align 8
   tail call void @kfree(ptr noundef %230) #8
   %235 = icmp eq ptr %231, null
-  br i1 %235, label %236, label %..thread20_crit_edge
+  br i1 %235, label %236, label %..thread23_crit_edge
 
-..thread20_crit_edge:                             ; preds = %228
-  %.pre155 = ptrtoint ptr %231 to i64
-  br label %.thread20
+..thread23_crit_edge:                             ; preds = %228
+  %.pre158 = ptrtoint ptr %231 to i64
+  br label %.thread23
 
 236:                                              ; preds = %228
   %237 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store ptr null, ptr %216, align 8
   store i32 0, ptr %237, align 8
-  br label %.loopexit30
+  br label %.loopexit33
 
-.thread20:                                        ; preds = %..thread20_crit_edge, %223
-  %.pre-phi156 = phi i64 [ %.pre155, %..thread20_crit_edge ], [ %225, %223 ]
-  %238 = phi i32 [ %233, %..thread20_crit_edge ], [ %224, %223 ]
-  %239 = phi ptr [ %231, %..thread20_crit_edge ], [ %217, %223 ]
+.thread23:                                        ; preds = %..thread23_crit_edge, %223
+  %.pre-phi159 = phi i64 [ %.pre158, %..thread23_crit_edge ], [ %225, %223 ]
+  %238 = phi i32 [ %233, %..thread23_crit_edge ], [ %224, %223 ]
+  %239 = phi ptr [ %231, %..thread23_crit_edge ], [ %217, %223 ]
   store ptr %239, ptr %216, align 8
   %240 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store i32 %238, ptr %240, align 8
-  %241 = and i64 %.pre-phi156, -4
+  %241 = and i64 %.pre-phi159, -4
   %242 = inttoptr i64 %241 to ptr
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = sext i32 %238 to i64
@@ -2738,7 +2738,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 246:                                              ; preds = %210, %.loopexit
   %247 = load ptr, ptr %72, align 8
   %248 = icmp eq ptr %247, null
-  br i1 %248, label %.loopexit30.loopexit, label %249
+  br i1 %248, label %.loopexit33.loopexit, label %249
 
 249:                                              ; preds = %246
   %250 = ptrtoint ptr %247 to i64
@@ -2756,7 +2756,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br i1 %259, label %260, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %253
-  %.pre159 = ptrtoint ptr %256 to i64
+  %.pre162 = ptrtoint ptr %256 to i64
   br label %277
 
 260:                                              ; preds = %253
@@ -2766,9 +2766,9 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   store i8 %261, ptr %262, align 8
   tail call void @kfree(ptr noundef %255) #8
   %263 = icmp eq ptr %256, null
-  br i1 %263, label %273, label %.thread21
+  br i1 %263, label %273, label %.thread24
 
-.thread21:                                        ; preds = %260
+.thread24:                                        ; preds = %260
   %264 = ptrtoint ptr %256 to i64
   %265 = and i64 %264, -4
   %266 = inttoptr i64 %265 to ptr
@@ -2785,18 +2785,18 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %274 = ptrtoint ptr %72 to i64
   %275 = or i64 %274, 1
   %276 = inttoptr i64 %275 to ptr
-  br label %.loopexit30
+  br label %.loopexit33
 
-277:                                              ; preds = %._crit_edge, %.thread21, %249
-  %.pre-phi160 = phi i64 [ %.pre159, %._crit_edge ], [ %264, %.thread21 ], [ %250, %249 ]
-  %278 = phi ptr [ %256, %._crit_edge ], [ %256, %.thread21 ], [ %247, %249 ]
-  %279 = and i64 %.pre-phi160, -4
+277:                                              ; preds = %._crit_edge, %.thread24, %249
+  %.pre-phi163 = phi i64 [ %.pre162, %._crit_edge ], [ %264, %.thread24 ], [ %250, %249 ]
+  %278 = phi ptr [ %256, %._crit_edge ], [ %256, %.thread24 ], [ %247, %249 ]
+  %279 = and i64 %.pre-phi163, -4
   %280 = inttoptr i64 %279 to ptr
   br label %281
 
-281:                                              ; preds = %277, %.thread20
-  %282 = phi ptr [ %239, %.thread20 ], [ %278, %277 ]
-  %283 = phi ptr [ %242, %.thread20 ], [ %280, %277 ]
+281:                                              ; preds = %277, %.thread23
+  %282 = phi ptr [ %239, %.thread23 ], [ %278, %277 ]
+  %283 = phi ptr [ %242, %.thread23 ], [ %280, %277 ]
   %284 = load ptr, ptr %73, align 8
   %285 = ptrtoint ptr %284 to i64
   %286 = and i64 %285, 2
@@ -2808,40 +2808,40 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %290 = inttoptr i64 %289 to ptr
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
-  br i1 %292, label %.loopexit30.loopexit, label %..thread22_crit_edge
+  br i1 %292, label %.loopexit33.loopexit, label %..thread25_crit_edge
 
-..thread22_crit_edge:                             ; preds = %288
+..thread25_crit_edge:                             ; preds = %288
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %294 = load i32, ptr %293, align 8
-  %.pre157 = ptrtoint ptr %291 to i64
-  br label %.thread22
+  %.pre160 = ptrtoint ptr %291 to i64
+  br label %.thread25
 
 295:                                              ; preds = %281
   %296 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %297 = load i8, ptr %296, align 8
   %298 = zext i8 %297 to i32
   %299 = icmp eq ptr %284, null
-  br i1 %299, label %300, label %.thread22, !prof !106
+  br i1 %299, label %300, label %.thread25, !prof !106
 
 300:                                              ; preds = %295
   tail call void asm sideeffect "185: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 185b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 185) #8, !srcloc !107
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1710, i32 0, i64 12) #8, !srcloc !108
   unreachable
 
-.thread22:                                        ; preds = %..thread22_crit_edge, %295
-  %.pre-phi158 = phi i64 [ %.pre157, %..thread22_crit_edge ], [ %285, %295 ]
-  %301 = phi i32 [ %294, %..thread22_crit_edge ], [ %298, %295 ]
-  %302 = and i64 %.pre-phi158, -4
+.thread25:                                        ; preds = %..thread25_crit_edge, %295
+  %.pre-phi161 = phi i64 [ %.pre160, %..thread25_crit_edge ], [ %285, %295 ]
+  %301 = phi i32 [ %294, %..thread25_crit_edge ], [ %298, %295 ]
+  %302 = and i64 %.pre-phi161, -4
   %303 = inttoptr i64 %302 to ptr
   %304 = add i32 %301, 1
   br label %69
 
-.loopexit30.loopexit:                             ; preds = %246, %288
+.loopexit33.loopexit:                             ; preds = %246, %288
   %.0..0..0..0..pre = load ptr, ptr %5, align 8
-  br label %.loopexit30
+  br label %.loopexit33
 
-.loopexit30:                                      ; preds = %.loopexit30.loopexit, %273, %236, %221
-  %.0..0..0. = phi ptr [ %.0..0..0..0..pre, %.loopexit30.loopexit ], [ %276, %273 ], [ %206, %236 ], [ %206, %221 ]
+.loopexit33:                                      ; preds = %.loopexit33.loopexit, %273, %236, %221
+  %.0..0..0. = phi ptr [ %.0..0..0..0..pre, %.loopexit33.loopexit ], [ %276, %273 ], [ %206, %236 ], [ %206, %221 ]
   %305 = getelementptr inbounds nuw i8, ptr %10, i64 264
   store ptr %.0..0..0., ptr %305, align 8
   tail call void @assoc_array_apply_edit(ptr noundef nonnull %10)
@@ -2850,14 +2850,14 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br label %309
 
 307:                                              ; preds = %52, %26
-  %.0..0..0..0.1 = load ptr, ptr %5, align 8
+  %.0..0..0..0.2 = load ptr, ptr %5, align 8
   %308 = load ptr, ptr %14, align 8
-  tail call fastcc void @assoc_array_destroy_subtree(ptr noundef %.0..0..0..0.1, ptr noundef %308)
+  tail call fastcc void @assoc_array_destroy_subtree(ptr noundef %.0..0..0..0.2, ptr noundef %308)
   tail call void @kfree(ptr noundef nonnull %10) #8
   br label %309
 
-309:                                              ; preds = %307, %.loopexit30, %8, %4
-  %310 = phi i32 [ 0, %.loopexit30 ], [ -12, %307 ], [ 0, %4 ], [ -12, %8 ]
+309:                                              ; preds = %307, %.loopexit33, %8, %4
+  %310 = phi i32 [ 0, %.loopexit33 ], [ -12, %307 ], [ 0, %4 ], [ -12, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %310
 }

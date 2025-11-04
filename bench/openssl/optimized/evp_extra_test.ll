@@ -9368,20 +9368,20 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %22 = call ptr @EVP_CIPHER_fetch(ptr noundef %21, ptr noundef nonnull @.str.699, ptr noundef nonnull @.str.811) #9
   %23 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6347, ptr noundef nonnull @.str.810, ptr noundef %22) #9
   %.not164 = icmp eq i32 %23, 0
-  br i1 %.not164, label %.loopexit215, label %24
+  br i1 %.not164, label %.loopexit216, label %24
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @testctx, align 8, !tbaa !6
   %26 = call ptr @EVP_CIPHER_fetch(ptr noundef %25, ptr noundef nonnull @.str.699, ptr noundef nonnull @.str.813) #9
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6349, ptr noundef nonnull @.str.812, ptr noundef %26) #9
   %.not165 = icmp eq i32 %27, 0
-  br i1 %.not165, label %.loopexit215, label %28
+  br i1 %.not165, label %.loopexit216, label %28
 
 28:                                               ; preds = %24
   %29 = call ptr @EVP_CIPHER_CTX_new() #9
   %30 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6350, ptr noundef nonnull @.str.197, ptr noundef %29) #9
   %.not166 = icmp eq i32 %30, 0
-  br i1 %.not166, label %.loopexit215, label %31
+  br i1 %.not166, label %.loopexit216, label %31
 
 31:                                               ; preds = %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 1, i64 32, i1 false)
@@ -9390,7 +9390,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %34 = zext i1 %33 to i32
   %35 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 6355, ptr noundef nonnull @.str.814, i32 noundef %34) #9
   %.not167 = icmp eq i32 %35, 0
-  br i1 %.not167, label %.loopexit215, label %36
+  br i1 %.not167, label %.loopexit216, label %36
 
 36:                                               ; preds = %31
   %37 = call ptr @EVP_aes_256_gcm() #9
@@ -9399,7 +9399,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %40 = zext i1 %39 to i32
   %41 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 6357, ptr noundef nonnull @.str.815, i32 noundef %40) #9
   %.not168 = icmp eq i32 %41, 0
-  br i1 %.not168, label %.loopexit215, label %42
+  br i1 %.not168, label %.loopexit216, label %42
 
 42:                                               ; preds = %36
   %43 = call i32 @EVP_CipherPipelineEncryptInit(ptr noundef %29, ptr noundef %22, ptr noundef nonnull %1, i64 noundef 32, i64 noundef 33, ptr noundef null, i64 noundef 0) #9
@@ -9407,38 +9407,38 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %45 = zext i1 %44 to i32
   %46 = call i32 @test_false(ptr noundef nonnull @.str.18, i32 noundef 6361, ptr noundef nonnull @.str.816, i32 noundef %45) #9
   %.not169 = icmp eq i32 %46, 0
-  br i1 %.not169, label %.loopexit215, label %.preheader212
+  br i1 %.not169, label %.loopexit216, label %.preheader213
 
-.preheader212:                                    ; preds = %42, %256
+.preheader213:                                    ; preds = %42, %256
   %indvar = phi i64 [ %indvar.next, %256 ], [ 0, %42 ]
-  %.0154235 = phi i64 [ %257, %256 ], [ 1, %42 ]
+  %.0154236 = phi i64 [ %257, %256 ], [ 1, %42 ]
   %47 = shl nuw nsw i64 %indvar, 3
   %48 = add nuw nsw i64 %47, 8
   br label %49
 
-49:                                               ; preds = %.preheader212, %254
-  %.0153234 = phi i64 [ 1, %.preheader212 ], [ %255, %254 ]
+49:                                               ; preds = %.preheader213, %254
+  %.0153235 = phi i64 [ 1, %.preheader213 ], [ %255, %254 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
-  %50 = add nuw nsw i64 %.0153234, 32
+  %50 = add nuw nsw i64 %.0153235, 32
   br label %51
 
 51:                                               ; preds = %49, %67
-  %.0152227 = phi i64 [ 0, %49 ], [ %72, %67 ]
+  %.0152228 = phi i64 [ 0, %49 ], [ %72, %67 ]
   %52 = call noalias ptr @CRYPTO_malloc(i64 noundef 12, ptr noundef nonnull @.str.18, i32 noundef 6381) #9
-  %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0152227
+  %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0152228
   store ptr %52, ptr %53, align 8, !tbaa !19
   %54 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6381, ptr noundef nonnull @.str.817, ptr noundef %52) #9
   %.not196 = icmp eq i32 %54, 0
   br i1 %.not196, label %.loopexit, label %55
 
 55:                                               ; preds = %51
-  %56 = call noalias ptr @CRYPTO_malloc(i64 noundef %.0153234, ptr noundef nonnull @.str.18, i32 noundef 6382) #9
-  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0152227
+  %56 = call noalias ptr @CRYPTO_malloc(i64 noundef %.0153235, ptr noundef nonnull @.str.18, i32 noundef 6382) #9
+  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0152228
   store ptr %56, ptr %57, align 8, !tbaa !19
   %58 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6382, ptr noundef nonnull @.str.818, ptr noundef %56) #9
   %.not197 = icmp eq i32 %58, 0
@@ -9446,7 +9446,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 59:                                               ; preds = %55
   %60 = call noalias ptr @CRYPTO_malloc(i64 noundef %50, ptr noundef nonnull @.str.18, i32 noundef 6384) #9
-  %61 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0152227
+  %61 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0152228
   store ptr %60, ptr %61, align 8, !tbaa !19
   %62 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6384, ptr noundef nonnull @.str.819, ptr noundef %60) #9
   %.not198 = icmp eq i32 %62, 0
@@ -9454,7 +9454,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 63:                                               ; preds = %59
   %64 = call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.18, i32 noundef 6385) #9
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0152227
+  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0152228
   store ptr %64, ptr %65, align 8, !tbaa !19
   %66 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6385, ptr noundef nonnull @.str.820, ptr noundef %64) #9
   %.not199 = icmp eq i32 %66, 0
@@ -9462,22 +9462,22 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %53, align 8, !tbaa !19
-  %69 = trunc i64 %.0152227 to i8
+  %69 = trunc i64 %.0152228 to i8
   %70 = add i8 %69, 33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %68, i8 %70, i64 12, i1 false)
   %71 = load ptr, ptr %57, align 8, !tbaa !19
-  %72 = add nuw nsw i64 %.0152227, 1
+  %72 = add nuw nsw i64 %.0152228, 1
   %73 = trunc i64 %72 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, i8 %73, i64 %.0153234, i1 false)
-  %74 = getelementptr inbounds nuw i64, ptr %11, i64 %.0152227
-  store i64 %.0153234, ptr %74, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw i64, ptr %9, i64 %.0152227
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, i8 %73, i64 %.0153235, i1 false)
+  %74 = getelementptr inbounds nuw i64, ptr %11, i64 %.0152228
+  store i64 %.0153235, ptr %74, align 8, !tbaa !15
+  %75 = getelementptr inbounds nuw i64, ptr %9, i64 %.0152228
   store i64 0, ptr %75, align 8, !tbaa !15
-  %76 = getelementptr inbounds nuw i64, ptr %10, i64 %.0152227
+  %76 = getelementptr inbounds nuw i64, ptr %10, i64 %.0152228
   store i64 0, ptr %76, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw i64, ptr %8, i64 %.0152227
+  %77 = getelementptr inbounds nuw i64, ptr %8, i64 %.0152228
   store i64 %50, ptr %77, align 8, !tbaa !15
-  %exitcond.not = icmp eq i64 %72, %.0154235
+  %exitcond.not = icmp eq i64 %72, %.0154236
   br i1 %exitcond.not, label %78, label %51, !llvm.loop !92
 
 78:                                               ; preds = %67
@@ -9493,7 +9493,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   br i1 %.not171, label %.loopexit, label %84
 
 84:                                               ; preds = %81
-  %85 = call noalias ptr @CRYPTO_malloc(i64 noundef %.0153234, ptr noundef nonnull @.str.18, i32 noundef 6398) #9
+  %85 = call noalias ptr @CRYPTO_malloc(i64 noundef %.0153235, ptr noundef nonnull @.str.18, i32 noundef 6398) #9
   %86 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6398, ptr noundef nonnull @.str.823, ptr noundef %85) #9
   %.not172 = icmp eq i32 %86, 0
   br i1 %.not172, label %.loopexit, label %87
@@ -9515,7 +9515,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   br i1 %.not174, label %.loopexit, label %97
 
 97:                                               ; preds = %92
-  %98 = call i32 @EVP_CipherPipelineEncryptInit(ptr noundef %29, ptr noundef %22, ptr noundef nonnull %1, i64 noundef 32, i64 noundef %.0154235, ptr noundef nonnull %2, i64 noundef 12) #9
+  %98 = call i32 @EVP_CipherPipelineEncryptInit(ptr noundef %29, ptr noundef %22, ptr noundef nonnull %1, i64 noundef 32, i64 noundef %.0154236, ptr noundef nonnull %2, i64 noundef 12) #9
   %99 = icmp ne i32 %98, 0
   %100 = zext i1 %99 to i32
   %101 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6407, ptr noundef nonnull @.str.826, i32 noundef %100) #9
@@ -9536,50 +9536,50 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %110 = zext i1 %109 to i32
   %111 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6415, ptr noundef nonnull @.str.828, i32 noundef %110) #9
   %.not177 = icmp eq i32 %111, 0
-  br i1 %.not177, label %.loopexit, label %.preheader210.preheader
+  br i1 %.not177, label %.loopexit, label %.preheader211.preheader
 
-.preheader210.preheader:                          ; preds = %107
+.preheader211.preheader:                          ; preds = %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %10, ptr noundef nonnull align 16 dereferenceable(1) %9, i64 %48, i1 false), !tbaa !15
-  br label %.preheader210
+  br label %.preheader211
 
-.preheader210:                                    ; preds = %.preheader210.preheader, %.preheader210
-  %.1228 = phi i64 [ %121, %.preheader210 ], [ 0, %.preheader210.preheader ]
-  %112 = getelementptr inbounds nuw i64, ptr %9, i64 %.1228
+.preheader211:                                    ; preds = %.preheader211.preheader, %.preheader211
+  %.1229 = phi i64 [ %121, %.preheader211 ], [ 0, %.preheader211.preheader ]
+  %112 = getelementptr inbounds nuw i64, ptr %9, i64 %.1229
   %113 = load i64, ptr %112, align 8, !tbaa !15
-  %114 = getelementptr inbounds nuw ptr, ptr %5, i64 %.1228
+  %114 = getelementptr inbounds nuw ptr, ptr %5, i64 %.1229
   %115 = load ptr, ptr %114, align 8, !tbaa !19
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %113
-  %117 = getelementptr inbounds nuw ptr, ptr %7, i64 %.1228
+  %117 = getelementptr inbounds nuw ptr, ptr %7, i64 %.1229
   store ptr %116, ptr %117, align 8, !tbaa !19
-  %118 = getelementptr inbounds nuw i64, ptr %8, i64 %.1228
+  %118 = getelementptr inbounds nuw i64, ptr %8, i64 %.1229
   %119 = load i64, ptr %118, align 8, !tbaa !15
   %120 = sub i64 %119, %113
   store i64 %120, ptr %118, align 8, !tbaa !15
-  %121 = add nuw nsw i64 %.1228, 1
-  %exitcond254.not = icmp eq i64 %121, %.0154235
-  br i1 %exitcond254.not, label %122, label %.preheader210, !llvm.loop !93
+  %121 = add nuw nsw i64 %.1229, 1
+  %exitcond255.not = icmp eq i64 %121, %.0154236
+  br i1 %exitcond255.not, label %122, label %.preheader211, !llvm.loop !93
 
-122:                                              ; preds = %.preheader210
+122:                                              ; preds = %.preheader211
   %123 = call i32 @EVP_CipherPipelineFinal(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
   %124 = icmp ne i32 %123, 0
   %125 = zext i1 %124 to i32
   %126 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6424, ptr noundef nonnull @.str.829, i32 noundef %125) #9
   %.not178 = icmp eq i32 %126, 0
-  br i1 %.not178, label %.loopexit, label %.preheader209
+  br i1 %.not178, label %.loopexit, label %.preheader210
 
-.preheader209:                                    ; preds = %122, %.preheader209
-  %.2229 = phi i64 [ %132, %.preheader209 ], [ 0, %122 ]
-  %127 = getelementptr inbounds nuw i64, ptr %9, i64 %.2229
+.preheader210:                                    ; preds = %122, %.preheader210
+  %.2230 = phi i64 [ %132, %.preheader210 ], [ 0, %122 ]
+  %127 = getelementptr inbounds nuw i64, ptr %9, i64 %.2230
   %128 = load i64, ptr %127, align 8, !tbaa !15
-  %129 = getelementptr inbounds nuw i64, ptr %10, i64 %.2229
+  %129 = getelementptr inbounds nuw i64, ptr %10, i64 %.2230
   %130 = load i64, ptr %129, align 8, !tbaa !15
   %131 = add i64 %130, %128
   store i64 %131, ptr %129, align 8, !tbaa !15
-  %132 = add nuw nsw i64 %.2229, 1
-  %exitcond255.not = icmp eq i64 %132, %.0154235
-  br i1 %exitcond255.not, label %133, label %.preheader209, !llvm.loop !94
+  %132 = add nuw nsw i64 %.2230, 1
+  %exitcond256.not = icmp eq i64 %132, %.0154236
+  br i1 %exitcond256.not, label %133, label %.preheader210, !llvm.loop !94
 
-133:                                              ; preds = %.preheader209
+133:                                              ; preds = %.preheader210
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.830, ptr noundef nonnull %6, i64 noundef 16) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !33
@@ -9597,20 +9597,20 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %141 = zext i1 %140 to i32
   %142 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6436, ptr noundef nonnull @.str.824, i32 noundef %141) #9
   %.not180 = icmp eq i32 %142, 0
-  br i1 %.not180, label %.loopexit, label %.preheader207
+  br i1 %.not180, label %.loopexit, label %.preheader208
 
-.preheader207:                                    ; preds = %138
-  %143 = trunc nuw nsw i64 %.0153234 to i32
+.preheader208:                                    ; preds = %138
+  %143 = trunc nuw nsw i64 %.0153235 to i32
   br label %146
 
 144:                                              ; preds = %188
-  %145 = add nuw nsw i64 %.3230, 1
-  %exitcond256.not = icmp eq i64 %145, %.0154235
-  br i1 %exitcond256.not, label %.preheader206, label %146, !llvm.loop !95
+  %145 = add nuw nsw i64 %.3231, 1
+  %exitcond257.not = icmp eq i64 %145, %.0154236
+  br i1 %exitcond257.not, label %.preheader207, label %146, !llvm.loop !95
 
-146:                                              ; preds = %.preheader207, %144
-  %.3230 = phi i64 [ 0, %.preheader207 ], [ %145, %144 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3230
+146:                                              ; preds = %.preheader208, %144
+  %.3231 = phi i64 [ 0, %.preheader208 ], [ %145, %144 ]
+  %147 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3231
   %148 = load ptr, ptr %147, align 8, !tbaa !19
   %149 = call i32 @EVP_EncryptInit(ptr noundef %29, ptr noundef %26, ptr noundef nonnull %1, ptr noundef %148) #9
   %150 = icmp ne i32 %149, 0
@@ -9620,7 +9620,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   br i1 %.not189, label %.loopexit, label %153
 
 153:                                              ; preds = %146
-  %154 = getelementptr inbounds nuw ptr, ptr %4, i64 %.3230
+  %154 = getelementptr inbounds nuw ptr, ptr %4, i64 %.3231
   %155 = load ptr, ptr %154, align 8, !tbaa !19
   %156 = call i32 @EVP_EncryptUpdate(ptr noundef %29, ptr noundef null, ptr noundef nonnull %13, ptr noundef %155, i32 noundef %143) #9
   %157 = icmp ne i32 %156, 0
@@ -9665,30 +9665,30 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 180:                                              ; preds = %174
   %181 = sext i32 %175 to i64
   %182 = add nsw i64 %181, %168
-  %183 = getelementptr inbounds nuw ptr, ptr %5, i64 %.3230
+  %183 = getelementptr inbounds nuw ptr, ptr %5, i64 %.3231
   %184 = load ptr, ptr %183, align 8, !tbaa !19
-  %185 = getelementptr inbounds nuw i64, ptr %10, i64 %.3230
+  %185 = getelementptr inbounds nuw i64, ptr %10, i64 %.3231
   %186 = load i64, ptr %185, align 8, !tbaa !15
   %187 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6460, ptr noundef nonnull @.str.835, ptr noundef nonnull @.str.836, ptr noundef %184, i64 noundef %186, ptr noundef %79, i64 noundef %182) #9
   %.not194 = icmp eq i32 %187, 0
   br i1 %.not194, label %.loopexit, label %188
 
 188:                                              ; preds = %180
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %.3230
+  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %.3231
   %190 = load ptr, ptr %189, align 8, !tbaa !19
   %191 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6461, ptr noundef nonnull @.str.837, ptr noundef nonnull @.str.626, ptr noundef %190, i64 noundef 16, ptr noundef %82, i64 noundef 16) #9
   %.not195 = icmp eq i32 %191, 0
   br i1 %.not195, label %.loopexit, label %144
 
-.preheader206:                                    ; preds = %144, %.preheader206
-  %.4231 = phi i64 [ %193, %.preheader206 ], [ 0, %144 ]
-  %192 = getelementptr inbounds nuw i64, ptr %8, i64 %.4231
-  store i64 %.0153234, ptr %192, align 8, !tbaa !15
-  %193 = add nuw nsw i64 %.4231, 1
-  %exitcond257.not = icmp eq i64 %193, %.0154235
-  br i1 %exitcond257.not, label %194, label %.preheader206, !llvm.loop !96
+.preheader207:                                    ; preds = %144, %.preheader207
+  %.4232 = phi i64 [ %193, %.preheader207 ], [ 0, %144 ]
+  %192 = getelementptr inbounds nuw i64, ptr %8, i64 %.4232
+  store i64 %.0153235, ptr %192, align 8, !tbaa !15
+  %193 = add nuw nsw i64 %.4232, 1
+  %exitcond258.not = icmp eq i64 %193, %.0154236
+  br i1 %exitcond258.not, label %194, label %.preheader207, !llvm.loop !96
 
-194:                                              ; preds = %.preheader206
+194:                                              ; preds = %.preheader207
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.830, ptr noundef nonnull %6, i64 noundef 16) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !33
@@ -9709,7 +9709,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   br i1 %.not182, label %.loopexit, label %204
 
 204:                                              ; preds = %199
-  %205 = call i32 @EVP_CipherPipelineDecryptInit(ptr noundef %29, ptr noundef %22, ptr noundef nonnull %1, i64 noundef 32, i64 noundef %.0154235, ptr noundef nonnull %2, i64 noundef 12) #9
+  %205 = call i32 @EVP_CipherPipelineDecryptInit(ptr noundef %29, ptr noundef %22, ptr noundef nonnull %1, i64 noundef 32, i64 noundef %.0154236, ptr noundef nonnull %2, i64 noundef 12) #9
   %206 = icmp ne i32 %205, 0
   %207 = zext i1 %206 to i32
   %208 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6476, ptr noundef nonnull @.str.839, i32 noundef %207) #9
@@ -9738,65 +9738,65 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %222 = zext i1 %221 to i32
   %223 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6484, ptr noundef nonnull @.str.840, i32 noundef %222) #9
   %.not186 = icmp eq i32 %223, 0
-  br i1 %.not186, label %.loopexit, label %.preheader205
+  br i1 %.not186, label %.loopexit, label %.preheader206
 
-.preheader205:                                    ; preds = %219, %.preheader205
-  %.5232 = phi i64 [ %233, %.preheader205 ], [ 0, %219 ]
-  %224 = getelementptr inbounds nuw ptr, ptr %4, i64 %.5232
+.preheader206:                                    ; preds = %219, %.preheader206
+  %.5233 = phi i64 [ %233, %.preheader206 ], [ 0, %219 ]
+  %224 = getelementptr inbounds nuw ptr, ptr %4, i64 %.5233
   %225 = load ptr, ptr %224, align 8, !tbaa !19
-  %226 = getelementptr inbounds nuw i64, ptr %9, i64 %.5232
+  %226 = getelementptr inbounds nuw i64, ptr %9, i64 %.5233
   %227 = load i64, ptr %226, align 8, !tbaa !15
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 %227
-  %229 = getelementptr inbounds nuw ptr, ptr %7, i64 %.5232
+  %229 = getelementptr inbounds nuw ptr, ptr %7, i64 %.5233
   store ptr %228, ptr %229, align 8, !tbaa !19
-  %230 = getelementptr inbounds nuw i64, ptr %8, i64 %.5232
+  %230 = getelementptr inbounds nuw i64, ptr %8, i64 %.5233
   %231 = load i64, ptr %230, align 8, !tbaa !15
   %232 = sub i64 %231, %227
   store i64 %232, ptr %230, align 8, !tbaa !15
-  %233 = add nuw nsw i64 %.5232, 1
-  %exitcond258.not = icmp eq i64 %233, %.0154235
-  br i1 %exitcond258.not, label %234, label %.preheader205, !llvm.loop !97
+  %233 = add nuw nsw i64 %.5233, 1
+  %exitcond259.not = icmp eq i64 %233, %.0154236
+  br i1 %exitcond259.not, label %234, label %.preheader206, !llvm.loop !97
 
-234:                                              ; preds = %.preheader205
+234:                                              ; preds = %.preheader206
   %235 = call i32 @EVP_CipherPipelineFinal(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
   %236 = icmp ne i32 %235, 0
   %237 = zext i1 %236 to i32
   %238 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 6492, ptr noundef nonnull @.str.829, i32 noundef %237) #9
   %.not187 = icmp eq i32 %238, 0
-  br i1 %.not187, label %.loopexit, label %.preheader204
+  br i1 %.not187, label %.loopexit, label %.preheader205
 
-.preheader204:                                    ; preds = %234, %239
+.preheader205:                                    ; preds = %234, %239
   %.6 = phi i64 [ %240, %239 ], [ 0, %234 ]
-  %exitcond259.not = icmp eq i64 %.6, %.0154235
-  br i1 %exitcond259.not, label %.preheader, label %239
+  %exitcond260.not = icmp eq i64 %.6, %.0154236
+  br i1 %exitcond260.not, label %.preheader, label %239
 
-239:                                              ; preds = %.preheader204
+239:                                              ; preds = %.preheader205
   %240 = add nuw nsw i64 %.6, 1
   %241 = trunc i64 %240 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %85, i8 %241, i64 %.0153234, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %85, i8 %241, i64 %.0153235, i1 false)
   %242 = getelementptr inbounds nuw ptr, ptr %4, i64 %.6
   %243 = load ptr, ptr %242, align 8, !tbaa !19
-  %244 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6498, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.842, ptr noundef %243, i64 noundef %.0153234, ptr noundef nonnull %85, i64 noundef %.0153234) #9
+  %244 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6498, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.842, ptr noundef %243, i64 noundef %.0153235, ptr noundef nonnull %85, i64 noundef %.0153235) #9
   %.not188 = icmp eq i32 %244, 0
-  br i1 %.not188, label %.loopexit, label %.preheader204, !llvm.loop !98
+  br i1 %.not188, label %.loopexit, label %.preheader205, !llvm.loop !98
 
-.preheader:                                       ; preds = %.preheader204, %.preheader
-  %.7233 = phi i64 [ %253, %.preheader ], [ 0, %.preheader204 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %2, i64 %.7233
+.preheader:                                       ; preds = %.preheader205, %.preheader
+  %.7234 = phi i64 [ %253, %.preheader ], [ 0, %.preheader205 ]
+  %245 = getelementptr inbounds nuw ptr, ptr %2, i64 %.7234
   %246 = load ptr, ptr %245, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %246, ptr noundef nonnull @.str.18, i32 noundef 6503) #9
-  %247 = getelementptr inbounds nuw ptr, ptr %4, i64 %.7233
+  %247 = getelementptr inbounds nuw ptr, ptr %4, i64 %.7234
   %248 = load ptr, ptr %247, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %248, ptr noundef nonnull @.str.18, i32 noundef 6504) #9
-  %249 = getelementptr inbounds nuw ptr, ptr %5, i64 %.7233
+  %249 = getelementptr inbounds nuw ptr, ptr %5, i64 %.7234
   %250 = load ptr, ptr %249, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %250, ptr noundef nonnull @.str.18, i32 noundef 6505) #9
-  %251 = getelementptr inbounds nuw ptr, ptr %3, i64 %.7233
+  %251 = getelementptr inbounds nuw ptr, ptr %3, i64 %.7234
   %252 = load ptr, ptr %251, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %252, ptr noundef nonnull @.str.18, i32 noundef 6506) #9
-  %253 = add nuw nsw i64 %.7233, 1
-  %exitcond260.not = icmp eq i64 %253, %.0154235
-  br i1 %exitcond260.not, label %254, label %.preheader, !llvm.loop !99
+  %253 = add nuw nsw i64 %.7234, 1
+  %exitcond261.not = icmp eq i64 %253, %.0154236
+  br i1 %exitcond261.not, label %254, label %.preheader, !llvm.loop !99
 
 .loopexit:                                        ; preds = %234, %194, %199, %204, %209, %214, %219, %138, %133, %122, %87, %92, %97, %102, %107, %78, %81, %84, %51, %55, %59, %63, %180, %188, %174, %166, %146, %153, %160, %239
   %.0159 = phi ptr [ %79, %239 ], [ %79, %160 ], [ %79, %153 ], [ %79, %146 ], [ %79, %166 ], [ %79, %174 ], [ %79, %188 ], [ %79, %180 ], [ null, %63 ], [ null, %59 ], [ null, %55 ], [ null, %51 ], [ %79, %84 ], [ %79, %81 ], [ %79, %78 ], [ %79, %107 ], [ %79, %102 ], [ %79, %97 ], [ %79, %92 ], [ %79, %87 ], [ %79, %122 ], [ %79, %133 ], [ %79, %138 ], [ %79, %219 ], [ %79, %214 ], [ %79, %209 ], [ %79, %204 ], [ %79, %199 ], [ %79, %194 ], [ %79, %234 ]
@@ -9810,41 +9810,41 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   call void @CRYPTO_free(ptr noundef %79, ptr noundef nonnull @.str.18, i32 noundef 6509) #9
   call void @CRYPTO_free(ptr noundef %82, ptr noundef nonnull @.str.18, i32 noundef 6510) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %255 = add nuw nsw i64 %.0153234, 1
-  %exitcond261.not = icmp eq i64 %255, 257
-  br i1 %exitcond261.not, label %256, label %49, !llvm.loop !100
+  %255 = add nuw nsw i64 %.0153235, 1
+  %exitcond262.not = icmp eq i64 %255, 257
+  br i1 %exitcond262.not, label %256, label %49, !llvm.loop !100
 
 256:                                              ; preds = %254
-  %257 = add nuw nsw i64 %.0154235, 1
+  %257 = add nuw nsw i64 %.0154236, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
-  %exitcond262.not = icmp eq i64 %indvar.next, 32
-  br i1 %exitcond262.not, label %.loopexit215, label %.preheader212, !llvm.loop !101
+  %exitcond263.not = icmp eq i64 %indvar.next, 32
+  br i1 %exitcond263.not, label %.loopexit216, label %.preheader213, !llvm.loop !101
 
 258:                                              ; preds = %.loopexit, %258
-  %.8236 = phi i64 [ 0, %.loopexit ], [ %267, %258 ]
-  %259 = getelementptr inbounds nuw ptr, ptr %2, i64 %.8236
+  %.8237 = phi i64 [ 0, %.loopexit ], [ %267, %258 ]
+  %259 = getelementptr inbounds nuw ptr, ptr %2, i64 %.8237
   %260 = load ptr, ptr %259, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %260, ptr noundef nonnull @.str.18, i32 noundef 6519) #9
-  %261 = getelementptr inbounds nuw ptr, ptr %4, i64 %.8236
+  %261 = getelementptr inbounds nuw ptr, ptr %4, i64 %.8237
   %262 = load ptr, ptr %261, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %262, ptr noundef nonnull @.str.18, i32 noundef 6520) #9
-  %263 = getelementptr inbounds nuw ptr, ptr %5, i64 %.8236
+  %263 = getelementptr inbounds nuw ptr, ptr %5, i64 %.8237
   %264 = load ptr, ptr %263, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %264, ptr noundef nonnull @.str.18, i32 noundef 6521) #9
-  %265 = getelementptr inbounds nuw ptr, ptr %3, i64 %.8236
+  %265 = getelementptr inbounds nuw ptr, ptr %3, i64 %.8237
   %266 = load ptr, ptr %265, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %266, ptr noundef nonnull @.str.18, i32 noundef 6522) #9
-  %267 = add nuw nsw i64 %.8236, 1
-  %exitcond263.not = icmp eq i64 %267, %.0154235
-  br i1 %exitcond263.not, label %268, label %258, !llvm.loop !102
+  %267 = add nuw nsw i64 %.8237, 1
+  %exitcond264.not = icmp eq i64 %267, %.0154236
+  br i1 %exitcond264.not, label %268, label %258, !llvm.loop !102
 
 268:                                              ; preds = %258
   call void @CRYPTO_free(ptr noundef %.0157, ptr noundef nonnull @.str.18, i32 noundef 6524) #9
   call void @CRYPTO_free(ptr noundef %.0159, ptr noundef nonnull @.str.18, i32 noundef 6525) #9
   call void @CRYPTO_free(ptr noundef %.0155, ptr noundef nonnull @.str.18, i32 noundef 6526) #9
-  br label %.loopexit215
+  br label %.loopexit216
 
-.loopexit215:                                     ; preds = %256, %42, %36, %31, %20, %24, %28, %268
+.loopexit216:                                     ; preds = %256, %42, %36, %31, %20, %24, %28, %268
   %.0163 = phi ptr [ %26, %268 ], [ %26, %42 ], [ %26, %36 ], [ %26, %31 ], [ %26, %28 ], [ %26, %24 ], [ null, %20 ], [ %26, %256 ]
   %.0162 = phi ptr [ %29, %268 ], [ %29, %42 ], [ %29, %36 ], [ %29, %31 ], [ %29, %28 ], [ null, %24 ], [ null, %20 ], [ %29, %256 ]
   %.0161 = phi i32 [ 0, %268 ], [ 0, %42 ], [ 0, %36 ], [ 0, %31 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 1, %256 ]
@@ -9854,8 +9854,8 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   call void @fake_pipeline_finish(ptr noundef %18) #9
   br label %269
 
-269:                                              ; preds = %0, %.loopexit215
-  %.0160 = phi i32 [ %.0161, %.loopexit215 ], [ 0, %0 ]
+269:                                              ; preds = %0, %.loopexit216
+  %.0160 = phi i32 [ %.0161, %.loopexit216 ], [ 0, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

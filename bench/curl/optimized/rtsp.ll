@@ -138,7 +138,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %33 = or i32 %31, 131072
   store i32 %33, ptr %30, align 1
   switch i32 %7, label %34 [
-    i32 1, label %.thread271
+    i32 1, label %.thread272
     i32 2, label %35
     i32 3, label %36
     i32 4, label %37
@@ -158,22 +158,22 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 35:                                               ; preds = %29
   store i32 %32, ptr %30, align 1
-  br label %.thread271
+  br label %.thread272
 
 36:                                               ; preds = %29
-  br label %.thread271
+  br label %.thread272
 
 37:                                               ; preds = %29
-  br label %.thread271
+  br label %.thread272
 
 38:                                               ; preds = %29
-  br label %.thread271
+  br label %.thread272
 
 39:                                               ; preds = %29
-  br label %.thread271
+  br label %.thread272
 
 40:                                               ; preds = %29
-  br label %.thread271
+  br label %.thread272
 
 41:                                               ; preds = %29
   store i32 %32, ptr %30, align 1
@@ -189,13 +189,13 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 44:                                               ; preds = %29
   store i32 %32, ptr %30, align 1
   call void @Curl_xfer_setup1(ptr noundef nonnull %0, i32 noundef 1, i64 noundef -1, i1 noundef zeroext true) #7
-  br label %.thread283
+  br label %.thread284
 
-.thread271:                                       ; preds = %29, %40, %39, %38, %37, %36, %35
+.thread272:                                       ; preds = %29, %40, %39, %38, %37, %36, %35
   %.0186.ph.ph = phi ptr [ @.str.12, %35 ], [ @.str.13, %36 ], [ @.str.14, %37 ], [ @.str.15, %38 ], [ @.str.16, %39 ], [ @.str.17, %40 ], [ @.str.11, %29 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %46 = load ptr, ptr %45, align 8, !tbaa !100
-  %.not217273 = icmp eq ptr %46, null
+  %.not217274 = icmp eq ptr %46, null
   br label %51
 
 47:                                               ; preds = %29, %42, %41
@@ -207,12 +207,12 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 50:                                               ; preds = %47
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0186.ph) #7
-  br label %.thread283
+  br label %.thread284
 
-51:                                               ; preds = %.thread271, %47
-  %.not217276 = phi i1 [ %.not217273, %.thread271 ], [ false, %47 ]
-  %52 = phi ptr [ %46, %.thread271 ], [ %49, %47 ]
-  %.0186.ph275 = phi ptr [ %.0186.ph.ph, %.thread271 ], [ %.0186.ph, %47 ]
+51:                                               ; preds = %.thread272, %47
+  %.not217277 = phi i1 [ %.not217274, %.thread272 ], [ false, %47 ]
+  %52 = phi ptr [ %46, %.thread272 ], [ %49, %47 ]
+  %.0186.ph276 = phi ptr [ %.0186.ph.ph, %.thread272 ], [ %.0186.ph, %47 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %54 = load ptr, ptr %53, align 8, !tbaa !100
   %.not218 = icmp eq ptr %54, null
@@ -239,15 +239,15 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %66 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.26, ptr noundef %65) #7
   store ptr %66, ptr %63, align 8, !tbaa !101
   %.not220 = icmp eq ptr %66, null
-  br i1 %.not220, label %220, label %.thread277
+  br i1 %.not220, label %220, label %.thread278
 
 67:                                               ; preds = %58
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #7
-  br label %.thread283
+  br label %.thread284
 
 68:                                               ; preds = %51
   %69 = icmp eq i32 %7, 2
-  br i1 %69, label %70, label %.thread277
+  br i1 %69, label %70, label %.thread278
 
 70:                                               ; preds = %68
   %71 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, i64 noundef 6) #7
@@ -255,13 +255,13 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %72 = select i1 %.not221, ptr @.str.29, ptr null
   %73 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, i64 noundef 15) #7
   %.not222 = icmp eq ptr %73, null
-  br i1 %.not222, label %74, label %.thread277
+  br i1 %.not222, label %74, label %.thread278
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %76 = load ptr, ptr %75, align 8, !tbaa !100
   %.not223 = icmp eq ptr %76, null
-  br i1 %.not223, label %.thread277, label %77
+  br i1 %.not223, label %.thread278, label %77
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -273,17 +273,17 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %82 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.31, ptr noundef %81) #7
   store ptr %82, ptr %79, align 8, !tbaa !102
   %.not224 = icmp eq ptr %82, null
-  br i1 %.not224, label %.thread283, label %.thread277
+  br i1 %.not224, label %.thread284, label %.thread278
 
-.thread277:                                       ; preds = %61, %77, %70, %74, %68
-  %.0181279 = phi ptr [ %55, %70 ], [ %55, %74 ], [ %55, %68 ], [ %55, %77 ], [ %66, %61 ]
+.thread278:                                       ; preds = %61, %77, %70, %74, %68
+  %.0181280 = phi ptr [ %55, %70 ], [ %55, %74 ], [ %55, %68 ], [ %55, %77 ], [ %66, %61 ]
   %.0185 = phi ptr [ %72, %70 ], [ %72, %74 ], [ null, %68 ], [ %72, %77 ], [ null, %61 ]
   %.0184 = phi ptr [ null, %70 ], [ null, %74 ], [ null, %68 ], [ %82, %77 ], [ null, %61 ]
   %83 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef 10) #7
   %.not225 = icmp eq ptr %83, null
   br i1 %.not225, label %89, label %84
 
-84:                                               ; preds = %.thread277
+84:                                               ; preds = %.thread278
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 4920
   %86 = load ptr, ptr %85, align 8, !tbaa !103
   %.not226 = icmp eq ptr %86, null
@@ -295,7 +295,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   store ptr null, ptr %85, align 8, !tbaa !103
   br label %97
 
-89:                                               ; preds = %84, %.thread277
+89:                                               ; preds = %84, %.thread278
   %90 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef 10) #7
   %.not227 = icmp eq ptr %90, null
   br i1 %.not227, label %91, label %97
@@ -313,9 +313,9 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 97:                                               ; preds = %89, %91, %94, %87
   %.0180 = phi ptr [ null, %87 ], [ null, %89 ], [ %96, %94 ], [ null, %91 ]
-  %98 = call i32 @Curl_http_output_auth(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.0186.ph275, i32 noundef 0, ptr noundef nonnull %.str.24., i1 noundef zeroext false) #7
+  %98 = call i32 @Curl_http_output_auth(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %.0186.ph276, i32 noundef 0, ptr noundef nonnull %.str.24., i1 noundef zeroext false) #7
   %.not229 = icmp eq i32 %98, 0
-  br i1 %.not229, label %99, label %.thread283
+  br i1 %.not229, label %99, label %.thread284
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 5008
@@ -385,7 +385,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 132:                                              ; preds = %130
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.38) #7
-  br label %.thread283
+  br label %.thread284
 
 133:                                              ; preds = %130
   %134 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, i64 noundef 7) #7
@@ -394,25 +394,25 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 135:                                              ; preds = %133
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40) #7
-  br label %.thread283
+  br label %.thread284
 
 136:                                              ; preds = %133
   %137 = load i64, ptr %9, align 8, !tbaa !81
-  %138 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0186.ph275, ptr noundef nonnull %.str.24., i64 noundef %137) #7
+  %138 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0186.ph276, ptr noundef nonnull %.str.24., i64 noundef %137) #7
   %.not238 = icmp eq i32 %138, 0
-  br i1 %.not238, label %139, label %.thread283
+  br i1 %.not238, label %139, label %.thread284
 
 139:                                              ; preds = %136
-  br i1 %.not217276, label %142, label %140
+  br i1 %.not217277, label %142, label %140
 
 140:                                              ; preds = %139
   %141 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.42, ptr noundef nonnull %52) #7
   %.not239 = icmp eq i32 %141, 0
-  br i1 %.not239, label %142, label %.thread283
+  br i1 %.not239, label %142, label %.thread284
 
 142:                                              ; preds = %140, %139
-  %.not240 = icmp eq ptr %.0181279, null
-  %143 = select i1 %.not240, ptr @.str.21, ptr %.0181279
+  %.not240 = icmp eq ptr %.0181280, null
+  %143 = select i1 %.not240, ptr @.str.21, ptr %.0181280
   %.not241 = icmp eq ptr %.0185, null
   %144 = select i1 %.not241, ptr @.str.21, ptr %.0185
   %.not242 = icmp eq ptr %.0184, null
@@ -433,7 +433,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   call void %152(ptr noundef %153) #7
   store ptr null, ptr %102, align 8, !tbaa !105
   %.not248 = icmp eq i32 %151, 0
-  br i1 %.not248, label %154, label %.thread283
+  br i1 %.not248, label %154, label %.thread284
 
 154:                                              ; preds = %142
   switch i32 %7, label %157 [
@@ -444,12 +444,12 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 155:                                              ; preds = %154, %154
   %156 = call i32 @Curl_add_timecondition(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
   %.not249 = icmp eq i32 %156, 0
-  br i1 %.not249, label %157, label %.thread283
+  br i1 %.not249, label %157, label %.thread284
 
 157:                                              ; preds = %154, %155
   %158 = call i32 @Curl_add_custom_headers(ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef 11, ptr noundef nonnull %3) #7
   %.not250 = icmp eq i32 %158, 0
-  br i1 %.not250, label %159, label %.thread283
+  br i1 %.not250, label %159, label %.thread284
 
 159:                                              ; preds = %157
   %160 = icmp eq i32 %7, 3
@@ -473,7 +473,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   store i8 4, ptr %168, align 2, !tbaa !111
   %169 = call i32 @Curl_creader_set_fread(ptr noundef nonnull %0, i64 noundef %167) #7
   %.not255 = icmp eq i32 %169, 0
-  br i1 %.not255, label %185, label %.thread283
+  br i1 %.not255, label %185, label %.thread284
 
 170:                                              ; preds = %162
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -504,7 +504,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %.3 = phi i32 [ %175, %173 ], [ %181, %180 ], [ %183, %182 ]
   %.1 = phi i64 [ %174, %173 ], [ %178, %180 ], [ 0, %182 ]
   %.not254 = icmp eq i32 %.3, 0
-  br i1 %.not254, label %185, label %.thread283
+  br i1 %.not254, label %185, label %.thread284
 
 185:                                              ; preds = %184, %165
   %.0178 = phi i64 [ %167, %165 ], [ %.1, %184 ]
@@ -519,7 +519,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 189:                                              ; preds = %187
   %190 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i64 noundef %.0178) #7
   %.not257 = icmp eq i32 %190, 0
-  br i1 %.not257, label %191, label %.thread283
+  br i1 %.not257, label %191, label %.thread284
 
 191:                                              ; preds = %189, %187
   %192 = and i32 %7, 10
@@ -529,28 +529,28 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 193:                                              ; preds = %191
   %194 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, i64 noundef 12) #7
   %.not258 = icmp eq ptr %194, null
-  br i1 %.not258, label %195, label %.thread281
+  br i1 %.not258, label %195, label %.thread282
 
 195:                                              ; preds = %193
   %196 = call i32 @Curl_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, i64 noundef 31) #7
   %.not259 = icmp eq i32 %196, 0
-  br i1 %.not259, label %.thread281, label %.thread283
+  br i1 %.not259, label %.thread282, label %.thread284
 
 197:                                              ; preds = %191
-  br i1 %160, label %198, label %.thread281
+  br i1 %160, label %198, label %.thread282
 
 198:                                              ; preds = %197
   %199 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, i64 noundef 12) #7
   %.not260 = icmp eq ptr %199, null
-  br i1 %.not260, label %200, label %.thread281
+  br i1 %.not260, label %200, label %.thread282
 
 200:                                              ; preds = %198
   %201 = call i32 @Curl_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, i64 noundef 31) #7
   %.not261 = icmp eq i32 %201, 0
-  br i1 %.not261, label %.thread281, label %.thread283
+  br i1 %.not261, label %.thread282, label %.thread284
 
 202:                                              ; preds = %185
-  br i1 %161, label %203, label %.thread281
+  br i1 %161, label %203, label %.thread282
 
 203:                                              ; preds = %202
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 5034
@@ -558,19 +558,19 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %205 = load i32, ptr %30, align 1
   %206 = or i32 %205, 131072
   store i32 %206, ptr %30, align 1
-  br label %.thread281
+  br label %.thread282
 
 207:                                              ; preds = %159
   %208 = call i32 @Curl_creader_set_null(ptr noundef nonnull %0) #7
   %.not251 = icmp eq i32 %208, 0
-  br i1 %.not251, label %.thread281, label %.thread283
+  br i1 %.not251, label %.thread282, label %.thread284
 
-.thread281:                                       ; preds = %195, %193, %202, %203, %197, %200, %198, %207
+.thread282:                                       ; preds = %195, %193, %202, %203, %197, %200, %198, %207
   %209 = call i32 @Curl_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.49, i64 noundef 2) #7
   %.not262 = icmp eq i32 %209, 0
-  br i1 %.not262, label %210, label %.thread283
+  br i1 %.not262, label %210, label %.thread284
 
-210:                                              ; preds = %.thread281
+210:                                              ; preds = %.thread282
   call void @Curl_xfer_setup1(ptr noundef nonnull %0, i32 noundef 3, i64 noundef -1, i1 noundef zeroext true) #7
   %211 = call i32 @Curl_req_send(ptr noundef nonnull %0, ptr noundef nonnull %3, i8 noundef zeroext 11) #7
   %.not263 = icmp eq i32 %211, 0
@@ -578,7 +578,7 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
 
 212:                                              ; preds = %210
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #7
-  br label %.thread283
+  br label %.thread284
 
 213:                                              ; preds = %210
   %214 = load i64, ptr %10, align 8, !tbaa !80
@@ -587,22 +587,22 @@ define internal i32 @rtsp_do(ptr noundef %0, ptr noundef writeonly captures(none
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %217 = load i64, ptr %216, align 8, !tbaa !113
   %.not264 = icmp eq i64 %217, 0
-  br i1 %.not264, label %.thread283, label %218
+  br i1 %.not264, label %.thread284, label %218
 
 218:                                              ; preds = %213
   call void @Curl_pgrsSetUploadCounter(ptr noundef nonnull %0, i64 noundef %217) #7
   %219 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %0) #7
   %.not265 = icmp eq i32 %219, 0
   %spec.select = select i1 %.not265, i32 0, i32 42
-  br label %.thread283
+  br label %.thread284
 
-.thread283:                                       ; preds = %200, %195, %189, %184, %165, %218, %77, %213, %.thread281, %207, %157, %155, %142, %140, %136, %97, %212, %135, %132, %67, %50, %44
-  %.0187 = phi i32 [ 0, %44 ], [ %98, %97 ], [ 85, %132 ], [ 43, %135 ], [ %138, %136 ], [ %141, %140 ], [ %151, %142 ], [ %156, %155 ], [ %158, %157 ], [ %209, %.thread281 ], [ %211, %212 ], [ 0, %213 ], [ %208, %207 ], [ 43, %67 ], [ 43, %50 ], [ 27, %77 ], [ %spec.select, %218 ], [ %201, %200 ], [ %196, %195 ], [ %190, %189 ], [ %.3, %184 ], [ %169, %165 ]
+.thread284:                                       ; preds = %200, %195, %189, %184, %165, %218, %77, %213, %.thread282, %207, %157, %155, %142, %140, %136, %97, %212, %135, %132, %67, %50, %44
+  %.0187 = phi i32 [ 0, %44 ], [ %98, %97 ], [ 85, %132 ], [ 43, %135 ], [ %138, %136 ], [ %141, %140 ], [ %151, %142 ], [ %156, %155 ], [ %158, %157 ], [ %209, %.thread282 ], [ %211, %212 ], [ 0, %213 ], [ %208, %207 ], [ 43, %67 ], [ 43, %50 ], [ 27, %77 ], [ %spec.select, %218 ], [ %201, %200 ], [ %196, %195 ], [ %190, %189 ], [ %.3, %184 ], [ %169, %165 ]
   call void @Curl_dyn_free(ptr noundef nonnull %3) #7
   br label %220
 
-220:                                              ; preds = %61, %15, %.thread283, %43, %34
-  %.0 = phi i32 [ 43, %34 ], [ %.0187, %.thread283 ], [ 43, %43 ], [ 27, %15 ], [ 27, %61 ]
+220:                                              ; preds = %61, %15, %.thread284, %43, %34
+  %.0 = phi i32 [ 43, %34 ], [ %.0187, %.thread284 ], [ 43, %43 ], [ 27, %15 ], [ 27, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

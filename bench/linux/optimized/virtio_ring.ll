@@ -222,7 +222,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %24 = load i8, ptr %23, align 1, !range !9, !noundef !10
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %.loopexit93, !prof !14
+  br i1 %25, label %26, label %.loopexit99, !prof !14
 
 26:                                               ; preds = %22
   %27 = icmp eq i32 %2, 0
@@ -239,13 +239,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %32 = icmp ne i8 %31, 0
   %33 = icmp ne i32 %2, 1
   %34 = and i1 %33, %32
-  br i1 %34, label %35, label %.thread61
+  br i1 %34, label %35, label %.thread67
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.thread61, label %39
+  br i1 %38, label %.thread67, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -256,7 +256,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %45 = and i32 %7, -3
   %46 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %44, i32 noundef %45) #18
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread61, label %48
+  br i1 %47, label %.thread67, label %48
 
 48:                                               ; preds = %39
   %49 = load i32, ptr %36, align 4
@@ -265,7 +265,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 
 51:                                               ; preds = %48
   tail call void @kfree(ptr noundef nonnull %46) #17
-  br label %.loopexit93
+  br label %.loopexit99
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -279,7 +279,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 59:                                               ; preds = %52
   %60 = add i32 %4, %3
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.loopexit98, label %62
+  br i1 %61, label %.loopexit104, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 70
@@ -294,13 +294,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1311, i32 0, i64 12) #17, !srcloc !20
   unreachable
 
-69:                                               ; preds = %.loopexit97, %62
-  %70 = phi i64 [ 0, %62 ], [ %123, %.loopexit97 ]
-  %71 = phi i32 [ 0, %62 ], [ %122, %.loopexit97 ]
+69:                                               ; preds = %.loopexit103, %62
+  %70 = phi i64 [ 0, %62 ], [ %123, %.loopexit103 ]
+  %71 = phi i32 [ 0, %62 ], [ %122, %.loopexit103 ]
   %72 = getelementptr ptr, ptr %1, i64 %70
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.loopexit97, label %75
+  br i1 %74, label %.loopexit103, label %75
 
 75:                                               ; preds = %69
   %76 = icmp samesign ult i64 %70, %66
@@ -350,7 +350,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %110 = zext i32 %109 to i64
   %111 = tail call i64 @dma_map_page_attrs(ptr noundef %101, ptr noundef %104, i64 noundef %107, i64 noundef %110, i32 noundef %77, i64 noundef 0) #17
   %.not = icmp eq i64 %111, -1
-  br i1 %.not, label %.loopexit96, label %.thread
+  br i1 %.not, label %.loopexit102, label %.thread
 
 .thread:                                          ; preds = %84, %90, %100
   %112 = phi i64 [ %111, %100 ], [ %86, %84 ], [ %99, %90 ]
@@ -366,16 +366,16 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %119 = add i32 %80, 1
   %120 = tail call ptr @sg_next(ptr noundef nonnull %81) #17
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.loopexit97, label %79, !llvm.loop !21
+  br i1 %121, label %.loopexit103, label %79, !llvm.loop !21
 
-.loopexit97:                                      ; preds = %.thread, %69
+.loopexit103:                                     ; preds = %.thread, %69
   %122 = phi i32 [ %71, %69 ], [ %119, %.thread ]
   %123 = add nuw nsw i64 %70, 1
   %124 = icmp eq i64 %123, %67
-  br i1 %124, label %.loopexit98, label %69, !llvm.loop !22
+  br i1 %124, label %.loopexit104, label %69, !llvm.loop !22
 
-.loopexit98:                                      ; preds = %.loopexit97, %59
-  %125 = phi i32 [ 0, %59 ], [ %122, %.loopexit97 ]
+.loopexit104:                                     ; preds = %.loopexit103, %59
+  %125 = phi i32 [ 0, %59 ], [ %122, %.loopexit103 ]
   %126 = tail call fastcc i64 @vring_map_single(ptr noundef %0, ptr noundef nonnull %46, i64 noundef %44)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %128 = load i8, ptr %127, align 1, !range !9, !noundef !10
@@ -384,13 +384,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %131 = select i1 %129, i1 true, i1 %130
   br i1 %131, label %136, label %132
 
-132:                                              ; preds = %.loopexit98
+132:                                              ; preds = %.loopexit104
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %134 = load i8, ptr %133, align 2, !range !9, !noundef !10
   %135 = icmp eq i8 %134, 0
-  br i1 %135, label %.loopexit96, label %.loopexit95
+  br i1 %135, label %.loopexit102, label %.loopexit101
 
-136:                                              ; preds = %.loopexit98
+136:                                              ; preds = %.loopexit104
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %138 = load ptr, ptr %137, align 8
   %139 = zext i16 %42 to i64
@@ -402,8 +402,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %143 = getelementptr i8, ptr %.split, i64 8
   store i32 %141, ptr %143, align 8
   %144 = load ptr, ptr %137, align 8
-  %.split38 = getelementptr %struct.vring_packed_desc, ptr %144, i64 %139
-  %145 = getelementptr i8, ptr %.split38, i64 12
+  %.split41 = getelementptr %struct.vring_packed_desc, ptr %144, i64 %139
+  %145 = getelementptr i8, ptr %.split41, i64 12
   store i16 %55, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %147 = load i8, ptr %146, align 1, !range !9, !noundef !10
@@ -417,15 +417,15 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %153 = getelementptr %struct.vring_desc_extra, ptr %151, i64 %152
   store i64 %126, ptr %153, align 8
   %154 = load ptr, ptr %150, align 8
-  %.split39 = getelementptr %struct.vring_desc_extra, ptr %154, i64 %152
-  %155 = getelementptr i8, ptr %.split39, i64 8
+  %.split42 = getelementptr %struct.vring_desc_extra, ptr %154, i64 %152
+  %155 = getelementptr i8, ptr %.split42, i64 8
   store i32 %141, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %157 = load i16, ptr %156, align 2
   %158 = or i16 %157, 4
   %159 = load ptr, ptr %150, align 8
-  %.split40 = getelementptr %struct.vring_desc_extra, ptr %159, i64 %152
-  %160 = getelementptr i8, ptr %.split40, i64 12
+  %.split43 = getelementptr %struct.vring_desc_extra, ptr %159, i64 %152
+  %160 = getelementptr i8, ptr %.split43, i64 12
   store i16 %158, ptr %160, align 4
   br label %161
 
@@ -435,8 +435,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %163 = load i16, ptr %162, align 2
   %164 = or i16 %163, 4
   %165 = load ptr, ptr %137, align 8
-  %.split41 = getelementptr %struct.vring_packed_desc, ptr %165, i64 %139
-  %166 = getelementptr i8, ptr %.split41, i64 14
+  %.split44 = getelementptr %struct.vring_packed_desc, ptr %165, i64 %139
+  %166 = getelementptr i8, ptr %.split44, i64 14
   store i16 %164, ptr %166, align 2
   %167 = load i32, ptr %36, align 4
   %168 = add i32 %167, -1
@@ -464,57 +464,57 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %183 = load ptr, ptr %182, align 8
   %184 = zext nneg i32 %56 to i64
-  %.split42 = getelementptr %struct.vring_desc_extra, ptr %183, i64 %184
-  %185 = getelementptr i8, ptr %.split42, i64 14
+  %.split45 = getelementptr %struct.vring_desc_extra, ptr %183, i64 %184
+  %185 = getelementptr i8, ptr %.split45, i64 14
   %186 = load i16, ptr %185, align 2
   %187 = zext i16 %186 to i32
   store i32 %187, ptr %53, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %189 = load ptr, ptr %188, align 8
-  %.split43 = getelementptr %struct.vring_desc_state_packed, ptr %189, i64 %184
-  %190 = getelementptr i8, ptr %.split43, i64 16
+  %.split46 = getelementptr %struct.vring_desc_state_packed, ptr %189, i64 %184
+  %190 = getelementptr i8, ptr %.split46, i64 16
   store i16 1, ptr %190, align 8
   %191 = load ptr, ptr %188, align 8
   %192 = getelementptr %struct.vring_desc_state_packed, ptr %191, i64 %184
   store ptr %5, ptr %192, align 8
   %193 = load ptr, ptr %188, align 8
-  %.split44 = getelementptr %struct.vring_desc_state_packed, ptr %193, i64 %184
-  %194 = getelementptr i8, ptr %.split44, i64 8
+  %.split47 = getelementptr %struct.vring_desc_state_packed, ptr %193, i64 %184
+  %194 = getelementptr i8, ptr %.split47, i64 8
   store ptr %46, ptr %194, align 8
   %195 = load ptr, ptr %188, align 8
-  %.split45 = getelementptr %struct.vring_desc_state_packed, ptr %195, i64 %184
-  %196 = getelementptr i8, ptr %.split45, i64 18
+  %.split48 = getelementptr %struct.vring_desc_state_packed, ptr %195, i64 %184
+  %196 = getelementptr i8, ptr %.split48, i64 18
   store i16 %55, ptr %196, align 2
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %198 = load i32, ptr %197, align 4
   %199 = add i32 %198, 1
   store i32 %199, ptr %197, align 4
-  br label %.loopexit93
+  br label %.loopexit99
 
-.loopexit96:                                      ; preds = %100, %132
+.loopexit102:                                     ; preds = %100, %132
   %200 = phi i32 [ %125, %132 ], [ %80, %100 ]
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %.loopexit95, label %202
+  br i1 %201, label %.loopexit101, label %202
 
-202:                                              ; preds = %.loopexit96
+202:                                              ; preds = %.loopexit102
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %205 = zext i32 %200 to i64
   %206 = load i8, ptr %203, align 1, !range !9, !noundef !10
   %207 = icmp eq i8 %206, 0
-  br i1 %207, label %.loopexit95, label %.split124
+  br i1 %207, label %.loopexit101, label %.split130
 
-.split124thread-pre-split:                        ; preds = %223
+.split130thread-pre-split:                        ; preds = %223
   %.pr = load i8, ptr %203, align 1
-  br label %.split124
+  br label %.split130
 
-.split124:                                        ; preds = %202, %.split124thread-pre-split
-  %208 = phi i8 [ %.pr, %.split124thread-pre-split ], [ 1, %202 ]
-  %209 = phi i64 [ %224, %.split124thread-pre-split ], [ 0, %202 ]
+.split130:                                        ; preds = %202, %.split130thread-pre-split
+  %208 = phi i8 [ %.pr, %.split130thread-pre-split ], [ 1, %202 ]
+  %209 = phi i64 [ %224, %.split130thread-pre-split ], [ 0, %202 ]
   %210 = icmp eq i8 %208, 0
   br i1 %210, label %223, label %211
 
-211:                                              ; preds = %.split124
+211:                                              ; preds = %.split130
   %212 = getelementptr %struct.vring_packed_desc, ptr %46, i64 %209
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 14
   %214 = load i16, ptr %213, align 2
@@ -529,16 +529,16 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   tail call void @dma_unmap_page_attrs(ptr noundef %215, i64 noundef %216, i64 noundef %219, i32 noundef %222, i64 noundef 0) #17
   br label %223
 
-223:                                              ; preds = %211, %.split124
+223:                                              ; preds = %211, %.split130
   %224 = add nuw nsw i64 %209, 1
   %225 = icmp eq i64 %224, %205
-  br i1 %225, label %.loopexit95, label %.split124thread-pre-split, !llvm.loop !23
+  br i1 %225, label %.loopexit101, label %.split130thread-pre-split, !llvm.loop !23
 
-.loopexit95:                                      ; preds = %223, %202, %.loopexit96, %132
+.loopexit101:                                     ; preds = %223, %202, %.loopexit102, %132
   tail call void @kfree(ptr noundef nonnull %46) #17
-  br label %.thread61
+  br label %.thread67
 
-.thread61:                                        ; preds = %39, %.loopexit95, %35, %29
+.thread67:                                        ; preds = %39, %.loopexit101, %35, %29
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %228 = load i16, ptr %227, align 4
@@ -548,7 +548,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %232 = icmp ult i32 %231, %2
   br i1 %232, label %233, label %237
 
-233:                                              ; preds = %.thread61
+233:                                              ; preds = %.thread67
   %234 = load i8, ptr %30, align 4, !range !9, !noundef !10
   %235 = icmp eq i8 %234, 0
   br i1 %235, label %236, label %237, !prof !11
@@ -559,14 +559,14 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_end\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #17, !srcloc !27
   br label %237
 
-237:                                              ; preds = %236, %233, %.thread61
+237:                                              ; preds = %236, %233, %.thread67
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %239 = load ptr, ptr %238, align 8
   %240 = zext i16 %228 to i32
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %242 = load i32, ptr %241, align 4
   %243 = icmp ult i32 %242, %2
-  br i1 %243, label %.loopexit93, label %244, !prof !11
+  br i1 %243, label %.loopexit99, label %244, !prof !11
 
 244:                                              ; preds = %237
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -580,7 +580,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 251:                                              ; preds = %244
   %252 = add i32 %4, %3
   %253 = icmp eq i32 %252, 0
-  br i1 %253, label %.thread68, label %254
+  br i1 %253, label %.thread74, label %254
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 70
@@ -597,17 +597,17 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1460, i32 0, i64 12) #17, !srcloc !29
   unreachable
 
-263:                                              ; preds = %.loopexit94, %254
-  %264 = phi i64 [ 0, %254 ], [ %358, %.loopexit94 ]
-  %265 = phi i16 [ %247, %254 ], [ %357, %.loopexit94 ]
-  %266 = phi i16 [ 0, %254 ], [ %356, %.loopexit94 ]
-  %267 = phi i16 [ 0, %254 ], [ %355, %.loopexit94 ]
-  %268 = phi i32 [ 0, %254 ], [ %354, %.loopexit94 ]
-  %269 = phi i32 [ %240, %254 ], [ %353, %.loopexit94 ]
+263:                                              ; preds = %.loopexit100, %254
+  %264 = phi i64 [ 0, %254 ], [ %358, %.loopexit100 ]
+  %265 = phi i16 [ %247, %254 ], [ %357, %.loopexit100 ]
+  %266 = phi i16 [ 0, %254 ], [ %356, %.loopexit100 ]
+  %267 = phi i16 [ 0, %254 ], [ %355, %.loopexit100 ]
+  %268 = phi i32 [ 0, %254 ], [ %354, %.loopexit100 ]
+  %269 = phi i32 [ %240, %254 ], [ %353, %.loopexit100 ]
   %270 = getelementptr ptr, ptr %1, i64 %264
   %271 = load ptr, ptr %270, align 8
   %272 = icmp eq ptr %271, null
-  br i1 %272, label %.loopexit94, label %273
+  br i1 %272, label %.loopexit100, label %273
 
 273:                                              ; preds = %263
   %274 = icmp samesign ult i64 %264, %260
@@ -620,7 +620,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %279 = phi i16 [ %265, %273 ], [ %343, %350 ]
   %280 = phi i16 [ %267, %273 ], [ %323, %350 ]
   %281 = phi i32 [ %268, %273 ], [ %315, %350 ]
-  %282 = phi i32 [ %269, %273 ], [ %.ph66, %350 ]
+  %282 = phi i32 [ %269, %273 ], [ %.ph72, %350 ]
   %283 = load i8, ptr %255, align 2, !range !9, !noundef !10
   %284 = icmp eq i8 %283, 0
   br i1 %284, label %288, label %285
@@ -628,7 +628,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 285:                                              ; preds = %277
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %287 = load i64, ptr %286, align 8
-  br label %.thread64
+  br label %.thread70
 
 288:                                              ; preds = %277
   %289 = load i8, ptr %256, align 1, !range !9, !noundef !10
@@ -645,7 +645,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %298 = shl i64 %297, 6
   %299 = zext i32 %294 to i64
   %300 = add i64 %298, %299
-  br label %.thread64
+  br label %.thread70
 
 301:                                              ; preds = %288
   %302 = load ptr, ptr %257, align 8
@@ -659,10 +659,10 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %310 = load i32, ptr %309, align 4
   %311 = zext i32 %310 to i64
   %312 = tail call i64 @dma_map_page_attrs(ptr noundef %302, ptr noundef %305, i64 noundef %308, i64 noundef %311, i32 noundef %275, i64 noundef 0) #17
-  %.not83 = icmp eq i64 %312, -1
-  br i1 %.not83, label %395, label %.thread64
+  %.not89 = icmp eq i64 %312, -1
+  br i1 %.not89, label %395, label %.thread70
 
-.thread64:                                        ; preds = %285, %291, %301
+.thread70:                                        ; preds = %285, %291, %301
   %313 = phi i64 [ %312, %301 ], [ %287, %285 ], [ %300, %291 ]
   %314 = load i16, ptr %229, align 2
   %315 = add i32 %281, 1
@@ -671,18 +671,18 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %318 = or disjoint i16 %276, %317
   %319 = or i16 %318, %314
   %320 = icmp eq i32 %282, %240
-  %.pre187 = zext i32 %282 to i64
-  br i1 %320, label %.thread64._crit_edge, label %321
+  %.pre193 = zext i32 %282 to i64
+  br i1 %320, label %.thread70._crit_edge, label %321
 
-321:                                              ; preds = %.thread64
-  %.split46 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre187
-  %322 = getelementptr i8, ptr %.split46, i64 14
+321:                                              ; preds = %.thread70
+  %.split49 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre193
+  %322 = getelementptr i8, ptr %.split49, i64 14
   store i16 %319, ptr %322, align 2
-  br label %.thread64._crit_edge
+  br label %.thread70._crit_edge
 
-.thread64._crit_edge:                             ; preds = %.thread64, %321
-  %323 = phi i16 [ %280, %321 ], [ %319, %.thread64 ]
-  %324 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre187
+.thread70._crit_edge:                             ; preds = %.thread70, %321
+  %323 = phi i16 [ %280, %321 ], [ %319, %.thread70 ]
+  %324 = getelementptr %struct.vring_packed_desc, ptr %239, i64 %.pre193
   store i64 %313, ptr %324, align 8
   %325 = getelementptr inbounds nuw i8, ptr %278, i64 12
   %326 = load i32, ptr %325, align 4
@@ -694,31 +694,31 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %330 = icmp eq i8 %329, 0
   br i1 %330, label %._crit_edge, label %331, !prof !14
 
-._crit_edge:                                      ; preds = %.thread64._crit_edge
-  %.pre189 = zext i16 %279 to i64
+._crit_edge:                                      ; preds = %.thread70._crit_edge
+  %.pre195 = zext i16 %279 to i64
   br label %340
 
-331:                                              ; preds = %.thread64._crit_edge
+331:                                              ; preds = %.thread70._crit_edge
   %332 = load ptr, ptr %259, align 8
   %333 = zext i16 %279 to i64
   %334 = getelementptr %struct.vring_desc_extra, ptr %332, i64 %333
   store i64 %313, ptr %334, align 8
   %335 = load i32, ptr %325, align 4
   %336 = load ptr, ptr %259, align 8
-  %.split47 = getelementptr %struct.vring_desc_extra, ptr %336, i64 %333
-  %337 = getelementptr i8, ptr %.split47, i64 8
+  %.split50 = getelementptr %struct.vring_desc_extra, ptr %336, i64 %333
+  %337 = getelementptr i8, ptr %.split50, i64 8
   store i32 %335, ptr %337, align 8
   %338 = load ptr, ptr %259, align 8
-  %.split48 = getelementptr %struct.vring_desc_extra, ptr %338, i64 %333
-  %339 = getelementptr i8, ptr %.split48, i64 12
+  %.split51 = getelementptr %struct.vring_desc_extra, ptr %338, i64 %333
+  %339 = getelementptr i8, ptr %.split51, i64 12
   store i16 %319, ptr %339, align 4
   br label %340
 
 340:                                              ; preds = %._crit_edge, %331
-  %.pre-phi190 = phi i64 [ %.pre189, %._crit_edge ], [ %333, %331 ]
+  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge ], [ %333, %331 ]
   %341 = load ptr, ptr %259, align 8
-  %.split49 = getelementptr %struct.vring_desc_extra, ptr %341, i64 %.pre-phi190
-  %342 = getelementptr i8, ptr %.split49, i64 14
+  %.split52 = getelementptr %struct.vring_desc_extra, ptr %341, i64 %.pre-phi196
+  %342 = getelementptr i8, ptr %.split52, i64 14
   %343 = load i16, ptr %342, align 2
   %344 = add i32 %282, 1
   %345 = load i32, ptr %226, align 8
@@ -732,13 +732,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %350
 
 350:                                              ; preds = %347, %340
-  %.ph66 = phi i32 [ %344, %340 ], [ 0, %347 ]
+  %.ph72 = phi i32 [ %344, %340 ], [ 0, %347 ]
   %351 = tail call ptr @sg_next(ptr noundef nonnull %278) #17
   %352 = icmp eq ptr %351, null
-  br i1 %352, label %.loopexit94, label %277, !llvm.loop !30
+  br i1 %352, label %.loopexit100, label %277, !llvm.loop !30
 
-.loopexit94:                                      ; preds = %350, %263
-  %353 = phi i32 [ %269, %263 ], [ %.ph66, %350 ]
+.loopexit100:                                     ; preds = %350, %263
+  %353 = phi i32 [ %269, %263 ], [ %.ph72, %350 ]
   %354 = phi i32 [ %268, %263 ], [ %315, %350 ]
   %355 = phi i16 [ %267, %263 ], [ %323, %350 ]
   %356 = phi i16 [ %266, %263 ], [ %279, %350 ]
@@ -747,11 +747,11 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %359 = icmp eq i64 %358, %261
   br i1 %359, label %360, label %263, !llvm.loop !31
 
-360:                                              ; preds = %.loopexit94
+360:                                              ; preds = %.loopexit100
   %361 = icmp ugt i32 %353, %240
-  br i1 %361, label %369, label %.thread68
+  br i1 %361, label %369, label %.thread74
 
-.thread68:                                        ; preds = %251, %360
+.thread74:                                        ; preds = %251, %360
   %362 = phi i16 [ %357, %360 ], [ %247, %251 ]
   %363 = phi i16 [ %356, %360 ], [ 0, %251 ]
   %364 = phi i16 [ %355, %360 ], [ 0, %251 ]
@@ -762,11 +762,11 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   store i8 %368, ptr %366, align 8
   br label %369
 
-369:                                              ; preds = %.thread68, %360
-  %370 = phi i16 [ %362, %.thread68 ], [ %357, %360 ]
-  %371 = phi i16 [ %363, %.thread68 ], [ %356, %360 ]
-  %372 = phi i16 [ %364, %.thread68 ], [ %355, %360 ]
-  %373 = phi i32 [ %365, %.thread68 ], [ %353, %360 ]
+369:                                              ; preds = %.thread74, %360
+  %370 = phi i16 [ %362, %.thread74 ], [ %357, %360 ]
+  %371 = phi i16 [ %363, %.thread74 ], [ %356, %360 ]
+  %372 = phi i16 [ %364, %.thread74 ], [ %355, %360 ]
+  %373 = phi i32 [ %365, %.thread74 ], [ %353, %360 ]
   %374 = load i32, ptr %241, align 4
   %375 = sub i32 %374, %2
   store i32 %375, ptr %241, align 4
@@ -778,37 +778,37 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %380 = load ptr, ptr %379, align 8
   %381 = zext nneg i32 %248 to i64
-  %.split51 = getelementptr %struct.vring_desc_state_packed, ptr %380, i64 %381
-  %382 = getelementptr i8, ptr %.split51, i64 16
+  %.split54 = getelementptr %struct.vring_desc_state_packed, ptr %380, i64 %381
+  %382 = getelementptr i8, ptr %.split54, i64 16
   store i16 %378, ptr %382, align 8
   %383 = load ptr, ptr %379, align 8
   %384 = getelementptr %struct.vring_desc_state_packed, ptr %383, i64 %381
   store ptr %5, ptr %384, align 8
   %385 = load ptr, ptr %379, align 8
-  %.split52 = getelementptr %struct.vring_desc_state_packed, ptr %385, i64 %381
-  %386 = getelementptr i8, ptr %.split52, i64 8
+  %.split55 = getelementptr %struct.vring_desc_state_packed, ptr %385, i64 %381
+  %386 = getelementptr i8, ptr %.split55, i64 8
   store ptr %6, ptr %386, align 8
   %387 = load ptr, ptr %379, align 8
-  %.split53 = getelementptr %struct.vring_desc_state_packed, ptr %387, i64 %381
-  %388 = getelementptr i8, ptr %.split53, i64 18
+  %.split56 = getelementptr %struct.vring_desc_state_packed, ptr %387, i64 %381
+  %388 = getelementptr i8, ptr %.split56, i64 18
   store i16 %371, ptr %388, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17
   %389 = load ptr, ptr %238, align 8
   %390 = zext i16 %228 to i64
-  %.split54 = getelementptr %struct.vring_packed_desc, ptr %389, i64 %390
-  %391 = getelementptr i8, ptr %.split54, i64 14
+  %.split57 = getelementptr %struct.vring_packed_desc, ptr %389, i64 %390
+  %391 = getelementptr i8, ptr %.split57, i64 14
   store i16 %372, ptr %391, align 2
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %393 = load i32, ptr %392, align 4
   %394 = add i32 %393, %2
   store i32 %394, ptr %392, align 4
-  br label %.loopexit93
+  br label %.loopexit99
 
 395:                                              ; preds = %301
   %396 = load i32, ptr %245, align 8
   store i16 %230, ptr %229, align 2
   %397 = icmp eq i32 %282, %240
-  br i1 %397, label %.loopexit93, label %398
+  br i1 %397, label %.loopexit99, label %398
 
 398:                                              ; preds = %395
   %399 = trunc i32 %396 to i16
@@ -849,13 +849,13 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %425 = icmp eq i32 %424, 0
   %426 = select i1 %425, i32 1, i32 2
   tail call void @dma_unmap_page_attrs(ptr noundef %419, i64 noundef %420, i64 noundef %423, i32 noundef %426, i64 noundef 0) #17
-  %.pre185 = load ptr, ptr %259, align 8
+  %.pre191 = load ptr, ptr %259, align 8
   br label %427
 
 427:                                              ; preds = %418, %415, %412
-  %428 = phi ptr [ %.pre185, %418 ], [ %401, %415 ], [ %401, %412 ]
-  %.split50 = getelementptr %struct.vring_desc_extra, ptr %428, i64 %405
-  %429 = getelementptr i8, ptr %.split50, i64 14
+  %428 = phi ptr [ %.pre191, %418 ], [ %401, %415 ], [ %401, %412 ]
+  %.split53 = getelementptr %struct.vring_desc_extra, ptr %428, i64 %405
+  %429 = getelementptr i8, ptr %.split53, i64 14
   %430 = load i16, ptr %429, align 2
   %431 = add i32 %404, 1
   %432 = load i32, ptr %226, align 8
@@ -865,7 +865,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %436 = icmp uge i32 %435, %2
   %437 = icmp eq i32 %434, %282
   %438 = select i1 %436, i1 true, i1 %437
-  br i1 %438, label %.loopexit93, label %400, !llvm.loop !32
+  br i1 %438, label %.loopexit99, label %400, !llvm.loop !32
 
 439:                                              ; preds = %8
   br i1 %12, label %440, label %441, !prof !11
@@ -894,7 +894,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %450 = load i8, ptr %449, align 1, !range !9, !noundef !10
   %451 = icmp eq i8 %450, 0
-  br i1 %451, label %452, label %.loopexit93, !prof !14
+  br i1 %451, label %452, label %.loopexit99, !prof !14
 
 452:                                              ; preds = %448
   %453 = icmp eq i32 %2, 0
@@ -919,7 +919,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %465 = load i32, ptr %464, align 4
   %466 = icmp eq i32 %465, 0
-  br i1 %466, label %.thread69, label %467
+  br i1 %466, label %.thread75, label %467
 
 467:                                              ; preds = %463
   %468 = zext i32 %2 to i64
@@ -927,17 +927,17 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %470 = and i32 %7, -3
   %471 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %469, i32 noundef %470) #18
   %472 = icmp eq ptr %471, null
-  br i1 %472, label %.thread69, label %.preheader91
+  br i1 %472, label %.thread75, label %.preheader97
 
-.preheader91:                                     ; preds = %467, %.preheader91
-  %473 = phi i64 [ %474, %.preheader91 ], [ 0, %467 ]
+.preheader97:                                     ; preds = %467, %.preheader97
+  %473 = phi i64 [ %474, %.preheader97 ], [ 0, %467 ]
   %474 = add nuw nsw i64 %473, 1
   %475 = trunc i64 %474 to i16
-  %.split55 = getelementptr %struct.vring_desc, ptr %471, i64 %473
-  %476 = getelementptr i8, ptr %.split55, i64 14
+  %.split58 = getelementptr %struct.vring_desc, ptr %471, i64 %473
+  %476 = getelementptr i8, ptr %.split58, i64 14
   store i16 %475, ptr %476, align 2
   %477 = icmp eq i64 %474, %468
-  br i1 %477, label %.loopexit92, label %.preheader91, !llvm.loop !39
+  br i1 %477, label %.loopexit98, label %.preheader97, !llvm.loop !39
 
 478:                                              ; preds = %455
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -945,32 +945,32 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %481 = icmp ult i32 %480, %2
   %482 = icmp eq i8 %459, 0
   %483 = and i1 %482, %481
-  br i1 %483, label %484, label %.thread69, !prof !40
+  br i1 %483, label %484, label %.thread75, !prof !40
 
 484:                                              ; preds = %478
   tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #17, !srcloc !41
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 580, i32 2307, i64 12) #17, !srcloc !42
   tail call void asm sideeffect "366: nop\0A\09.pushsection .discard.instr_end\0A\09.long 366b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 366) #17, !srcloc !43
-  br label %.thread69
+  br label %.thread75
 
-.thread69:                                        ; preds = %463, %478, %484, %467
+.thread75:                                        ; preds = %463, %478, %484, %467
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %486 = load ptr, ptr %485, align 8
-  br label %.loopexit92
+  br label %.loopexit98
 
-.loopexit92:                                      ; preds = %.preheader91, %.thread69
-  %487 = phi i1 [ true, %.thread69 ], [ false, %.preheader91 ]
-  %488 = phi i32 [ %457, %.thread69 ], [ 0, %.preheader91 ]
-  %489 = phi i32 [ %2, %.thread69 ], [ 1, %.preheader91 ]
-  %490 = phi ptr [ %486, %.thread69 ], [ %471, %.preheader91 ]
+.loopexit98:                                      ; preds = %.preheader97, %.thread75
+  %487 = phi i1 [ true, %.thread75 ], [ false, %.preheader97 ]
+  %488 = phi i32 [ %457, %.thread75 ], [ 0, %.preheader97 ]
+  %489 = phi i32 [ %2, %.thread75 ], [ 1, %.preheader97 ]
+  %490 = phi ptr [ %486, %.thread75 ], [ %471, %.preheader97 ]
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %492 = load i32, ptr %491, align 4
   %493 = icmp ult i32 %492, %489
   %494 = icmp eq i32 %3, 0
   br i1 %493, label %561, label %495, !prof !11
 
-495:                                              ; preds = %.loopexit92
-  br i1 %494, label %.split129.us, label %496
+495:                                              ; preds = %.loopexit98
+  br i1 %494, label %.split135.us, label %496
 
 496:                                              ; preds = %495
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 70
@@ -978,37 +978,37 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %501 = zext i32 %3 to i64
-  br i1 %487, label %.split127.us, label %.split127
+  br i1 %487, label %.split133.us, label %.split133
 
-.split127.us:                                     ; preds = %496, %.loopexit90.split.us.us
-  %502 = phi i64 [ %510, %.loopexit90.split.us.us ], [ 0, %496 ]
-  %503 = phi i32 [ %509, %.loopexit90.split.us.us ], [ 0, %496 ]
-  %504 = phi i32 [ %508, %.loopexit90.split.us.us ], [ %488, %496 ]
+.split133.us:                                     ; preds = %496, %.loopexit96.split.us.us
+  %502 = phi i64 [ %510, %.loopexit96.split.us.us ], [ 0, %496 ]
+  %503 = phi i32 [ %509, %.loopexit96.split.us.us ], [ 0, %496 ]
+  %504 = phi i32 [ %508, %.loopexit96.split.us.us ], [ %488, %496 ]
   %505 = getelementptr ptr, ptr %1, i64 %502
   %506 = load ptr, ptr %505, align 8
   %507 = icmp eq ptr %506, null
-  br i1 %507, label %.loopexit90.split.us.us, label %.preheader88.us
+  br i1 %507, label %.loopexit96.split.us.us, label %.preheader94.us
 
-.loopexit90.split.us.us:                          ; preds = %.thread74.us.us, %.split127.us
-  %508 = phi i32 [ %504, %.split127.us ], [ %558, %.thread74.us.us ]
-  %509 = phi i32 [ %503, %.split127.us ], [ %513, %.thread74.us.us ]
+.loopexit96.split.us.us:                          ; preds = %.thread80.us.us, %.split133.us
+  %508 = phi i32 [ %504, %.split133.us ], [ %558, %.thread80.us.us ]
+  %509 = phi i32 [ %503, %.split133.us ], [ %513, %.thread80.us.us ]
   %510 = add nuw nsw i64 %502, 1
   %511 = icmp eq i64 %510, %501
-  br i1 %511, label %.split129.us, label %.split127.us, !llvm.loop !44
+  br i1 %511, label %.split135.us, label %.split133.us, !llvm.loop !44
 
-.preheader88.us:                                  ; preds = %.split127.us, %.thread74.us.us
-  %512 = phi ptr [ %559, %.thread74.us.us ], [ %506, %.split127.us ]
-  %513 = phi i32 [ %558, %.thread74.us.us ], [ %504, %.split127.us ]
+.preheader94.us:                                  ; preds = %.split133.us, %.thread80.us.us
+  %512 = phi ptr [ %559, %.thread80.us.us ], [ %506, %.split133.us ]
+  %513 = phi i32 [ %558, %.thread80.us.us ], [ %504, %.split133.us ]
   %514 = load i8, ptr %497, align 2, !range !9, !noundef !10
   %515 = icmp eq i8 %514, 0
   br i1 %515, label %519, label %516
 
-516:                                              ; preds = %.preheader88.us
+516:                                              ; preds = %.preheader94.us
   %517 = getelementptr inbounds nuw i8, ptr %512, i64 16
   %518 = load i64, ptr %517, align 8
-  br label %.thread74.us.us
+  br label %.thread80.us.us
 
-519:                                              ; preds = %.preheader88.us
+519:                                              ; preds = %.preheader94.us
   %520 = load i8, ptr %498, align 1, !range !9, !noundef !10
   %521 = icmp eq i8 %520, 0
   br i1 %521, label %534, label %522
@@ -1025,8 +1025,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %531 = load i32, ptr %530, align 4
   %532 = zext i32 %531 to i64
   %533 = tail call i64 @dma_map_page_attrs(ptr noundef %523, ptr noundef %526, i64 noundef %529, i64 noundef %532, i32 noundef 1, i64 noundef 0) #17
-  %.not84.us.us = icmp eq i64 %533, -1
-  br i1 %.not84.us.us, label %.thread81, label %.thread74.us.us
+  %.not90.us.us = icmp eq i64 %533, -1
+  br i1 %.not90.us.us, label %.thread87, label %.thread80.us.us
 
 534:                                              ; preds = %519
   %535 = load i64, ptr %512, align 8
@@ -1038,9 +1038,9 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %541 = shl i64 %540, 6
   %542 = zext i32 %537 to i64
   %543 = add i64 %541, %542
-  br label %.thread74.us.us
+  br label %.thread80.us.us
 
-.thread74.us.us:                                  ; preds = %534, %522, %516
+.thread80.us.us:                                  ; preds = %534, %522, %516
   %544 = phi i64 [ %533, %522 ], [ %518, %516 ], [ %543, %534 ]
   %545 = getelementptr inbounds nuw i8, ptr %512, i64 12
   %546 = load i32, ptr %545, align 4
@@ -1065,9 +1065,9 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %558 = zext i16 %554 to i32
   %559 = tail call ptr @sg_next(ptr noundef nonnull %512) #17
   %560 = icmp eq ptr %559, null
-  br i1 %560, label %.loopexit90.split.us.us, label %.preheader88.us, !llvm.loop !45
+  br i1 %560, label %.loopexit96.split.us.us, label %.preheader94.us, !llvm.loop !45
 
-561:                                              ; preds = %.loopexit92
+561:                                              ; preds = %.loopexit98
   br i1 %494, label %566, label %562
 
 562:                                              ; preds = %561
@@ -1077,47 +1077,47 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   br label %566
 
 566:                                              ; preds = %562, %561
-  br i1 %487, label %.loopexit93, label %567
+  br i1 %487, label %.loopexit99, label %567
 
 567:                                              ; preds = %566
   tail call void @kfree(ptr noundef %490) #17
-  br label %.loopexit93
+  br label %.loopexit99
 
-.split129.us:                                     ; preds = %.loopexit90.split, %.loopexit90.split.us.us, %495
-  %568 = phi i32 [ %488, %495 ], [ %508, %.loopexit90.split.us.us ], [ %688, %.loopexit90.split ]
-  %569 = phi i32 [ 0, %495 ], [ %509, %.loopexit90.split.us.us ], [ %689, %.loopexit90.split ]
+.split135.us:                                     ; preds = %.loopexit96.split, %.loopexit96.split.us.us, %495
+  %568 = phi i32 [ %488, %495 ], [ %508, %.loopexit96.split.us.us ], [ %688, %.loopexit96.split ]
+  %569 = phi i32 [ 0, %495 ], [ %509, %.loopexit96.split.us.us ], [ %689, %.loopexit96.split ]
   %570 = add i32 %4, %3
   %571 = icmp ult i32 %3, %570
-  br i1 %571, label %572, label %.loopexit87
+  br i1 %571, label %572, label %.loopexit93
 
-572:                                              ; preds = %.split129.us
+572:                                              ; preds = %.split135.us
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %577 = zext i32 %3 to i64
   %578 = zext i32 %570 to i64
-  br i1 %487, label %.split137.us, label %.split137
+  br i1 %487, label %.split143.us, label %.split143
 
-.split137.us:                                     ; preds = %572, %.loopexit86.split.us.us
-  %579 = phi i64 [ %587, %.loopexit86.split.us.us ], [ %577, %572 ]
-  %580 = phi i32 [ %586, %.loopexit86.split.us.us ], [ %569, %572 ]
-  %581 = phi i32 [ %585, %.loopexit86.split.us.us ], [ %568, %572 ]
+.split143.us:                                     ; preds = %572, %.loopexit92.split.us.us
+  %579 = phi i64 [ %587, %.loopexit92.split.us.us ], [ %577, %572 ]
+  %580 = phi i32 [ %586, %.loopexit92.split.us.us ], [ %569, %572 ]
+  %581 = phi i32 [ %585, %.loopexit92.split.us.us ], [ %568, %572 ]
   %582 = getelementptr ptr, ptr %1, i64 %579
   %583 = load ptr, ptr %582, align 8
   %584 = icmp eq ptr %583, null
-  br i1 %584, label %.loopexit86.split.us.us, label %.preheader.us
+  br i1 %584, label %.loopexit92.split.us.us, label %.preheader.us
 
-.loopexit86.split.us.us:                          ; preds = %.thread78.us.us, %.split137.us
-  %585 = phi i32 [ %581, %.split137.us ], [ %635, %.thread78.us.us ]
-  %586 = phi i32 [ %580, %.split137.us ], [ %590, %.thread78.us.us ]
+.loopexit92.split.us.us:                          ; preds = %.thread84.us.us, %.split143.us
+  %585 = phi i32 [ %581, %.split143.us ], [ %635, %.thread84.us.us ]
+  %586 = phi i32 [ %580, %.split143.us ], [ %590, %.thread84.us.us ]
   %587 = add nuw nsw i64 %579, 1
   %588 = icmp eq i64 %587, %578
-  br i1 %588, label %.loopexit87, label %.split137.us, !llvm.loop !46
+  br i1 %588, label %.loopexit93, label %.split143.us, !llvm.loop !46
 
-.preheader.us:                                    ; preds = %.split137.us, %.thread78.us.us
-  %589 = phi ptr [ %636, %.thread78.us.us ], [ %583, %.split137.us ]
-  %590 = phi i32 [ %635, %.thread78.us.us ], [ %581, %.split137.us ]
+.preheader.us:                                    ; preds = %.split143.us, %.thread84.us.us
+  %589 = phi ptr [ %636, %.thread84.us.us ], [ %583, %.split143.us ]
+  %590 = phi i32 [ %635, %.thread84.us.us ], [ %581, %.split143.us ]
   %591 = load i8, ptr %573, align 2, !range !9, !noundef !10
   %592 = icmp eq i8 %591, 0
   br i1 %592, label %596, label %593
@@ -1125,7 +1125,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 593:                                              ; preds = %.preheader.us
   %594 = getelementptr inbounds nuw i8, ptr %589, i64 16
   %595 = load i64, ptr %594, align 8
-  br label %.thread78.us.us
+  br label %.thread84.us.us
 
 596:                                              ; preds = %.preheader.us
   %597 = load i8, ptr %574, align 1, !range !9, !noundef !10
@@ -1144,8 +1144,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %608 = load i32, ptr %607, align 4
   %609 = zext i32 %608 to i64
   %610 = tail call i64 @dma_map_page_attrs(ptr noundef %600, ptr noundef %603, i64 noundef %606, i64 noundef %609, i32 noundef 2, i64 noundef 0) #17
-  %.not85.us.us = icmp eq i64 %610, -1
-  br i1 %.not85.us.us, label %.thread81, label %.thread78.us.us
+  %.not91.us.us = icmp eq i64 %610, -1
+  br i1 %.not91.us.us, label %.thread87, label %.thread84.us.us
 
 611:                                              ; preds = %596
   %612 = load i64, ptr %589, align 8
@@ -1157,9 +1157,9 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %618 = shl i64 %617, 6
   %619 = zext i32 %614 to i64
   %620 = add i64 %618, %619
-  br label %.thread78.us.us
+  br label %.thread84.us.us
 
-.thread78.us.us:                                  ; preds = %611, %599, %593
+.thread84.us.us:                                  ; preds = %611, %599, %593
   %621 = phi i64 [ %610, %599 ], [ %595, %593 ], [ %620, %611 ]
   %622 = getelementptr inbounds nuw i8, ptr %589, i64 12
   %623 = load i32, ptr %622, align 4
@@ -1184,30 +1184,30 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %635 = zext i16 %631 to i32
   %636 = tail call ptr @sg_next(ptr noundef nonnull %589) #17
   %637 = icmp eq ptr %636, null
-  br i1 %637, label %.loopexit86.split.us.us, label %.preheader.us, !llvm.loop !47
+  br i1 %637, label %.loopexit92.split.us.us, label %.preheader.us, !llvm.loop !47
 
-.split127:                                        ; preds = %496, %.loopexit90.split
-  %638 = phi i64 [ %690, %.loopexit90.split ], [ 0, %496 ]
-  %639 = phi i32 [ %689, %.loopexit90.split ], [ 0, %496 ]
-  %640 = phi i32 [ %688, %.loopexit90.split ], [ %488, %496 ]
+.split133:                                        ; preds = %496, %.loopexit96.split
+  %638 = phi i64 [ %690, %.loopexit96.split ], [ 0, %496 ]
+  %639 = phi i32 [ %689, %.loopexit96.split ], [ 0, %496 ]
+  %640 = phi i32 [ %688, %.loopexit96.split ], [ %488, %496 ]
   %641 = getelementptr ptr, ptr %1, i64 %638
   %642 = load ptr, ptr %641, align 8
   %643 = icmp eq ptr %642, null
-  br i1 %643, label %.loopexit90.split, label %.preheader88
+  br i1 %643, label %.loopexit96.split, label %.preheader94
 
-.preheader88:                                     ; preds = %.split127, %.thread74
-  %644 = phi ptr [ %686, %.thread74 ], [ %642, %.split127 ]
-  %645 = phi i32 [ %685, %.thread74 ], [ %640, %.split127 ]
+.preheader94:                                     ; preds = %.split133, %.thread80
+  %644 = phi ptr [ %686, %.thread80 ], [ %642, %.split133 ]
+  %645 = phi i32 [ %685, %.thread80 ], [ %640, %.split133 ]
   %646 = load i8, ptr %497, align 2, !range !9, !noundef !10
   %647 = icmp eq i8 %646, 0
   br i1 %647, label %651, label %648
 
-648:                                              ; preds = %.preheader88
+648:                                              ; preds = %.preheader94
   %649 = getelementptr inbounds nuw i8, ptr %644, i64 16
   %650 = load i64, ptr %649, align 8
-  br label %.thread74
+  br label %.thread80
 
-651:                                              ; preds = %.preheader88
+651:                                              ; preds = %.preheader94
   %652 = load i8, ptr %498, align 1, !range !9, !noundef !10
   %653 = icmp eq i8 %652, 0
   br i1 %653, label %654, label %664
@@ -1222,7 +1222,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %661 = shl i64 %660, 6
   %662 = zext i32 %657 to i64
   %663 = add i64 %661, %662
-  br label %.thread74
+  br label %.thread80
 
 664:                                              ; preds = %651
   %665 = load ptr, ptr %499, align 8
@@ -1236,10 +1236,10 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %673 = load i32, ptr %672, align 4
   %674 = zext i32 %673 to i64
   %675 = tail call i64 @dma_map_page_attrs(ptr noundef %665, ptr noundef %668, i64 noundef %671, i64 noundef %674, i32 noundef 1, i64 noundef 0) #17
-  %.not84 = icmp eq i64 %675, -1
-  br i1 %.not84, label %.thread81, label %.thread74
+  %.not90 = icmp eq i64 %675, -1
+  br i1 %.not90, label %.thread87, label %.thread80
 
-.thread74:                                        ; preds = %648, %654, %664
+.thread80:                                        ; preds = %648, %654, %664
   %676 = phi i64 [ %675, %664 ], [ %650, %648 ], [ %663, %654 ]
   %677 = getelementptr inbounds nuw i8, ptr %644, i64 12
   %678 = load i32, ptr %677, align 4
@@ -1255,27 +1255,27 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %685 = zext i16 %684 to i32
   %686 = tail call ptr @sg_next(ptr noundef nonnull %644) #17
   %687 = icmp eq ptr %686, null
-  br i1 %687, label %.loopexit90.split, label %.preheader88, !llvm.loop !45
+  br i1 %687, label %.loopexit96.split, label %.preheader94, !llvm.loop !45
 
-.loopexit90.split:                                ; preds = %.thread74, %.split127
-  %688 = phi i32 [ %640, %.split127 ], [ %685, %.thread74 ]
-  %689 = phi i32 [ %639, %.split127 ], [ %645, %.thread74 ]
+.loopexit96.split:                                ; preds = %.thread80, %.split133
+  %688 = phi i32 [ %640, %.split133 ], [ %685, %.thread80 ]
+  %689 = phi i32 [ %639, %.split133 ], [ %645, %.thread80 ]
   %690 = add nuw nsw i64 %638, 1
   %691 = icmp eq i64 %690, %501
-  br i1 %691, label %.split129.us, label %.split127, !llvm.loop !44
+  br i1 %691, label %.split135.us, label %.split133, !llvm.loop !44
 
-.split137:                                        ; preds = %572, %.loopexit86.split
-  %692 = phi i64 [ %744, %.loopexit86.split ], [ %577, %572 ]
-  %693 = phi i32 [ %743, %.loopexit86.split ], [ %569, %572 ]
-  %694 = phi i32 [ %742, %.loopexit86.split ], [ %568, %572 ]
+.split143:                                        ; preds = %572, %.loopexit92.split
+  %692 = phi i64 [ %744, %.loopexit92.split ], [ %577, %572 ]
+  %693 = phi i32 [ %743, %.loopexit92.split ], [ %569, %572 ]
+  %694 = phi i32 [ %742, %.loopexit92.split ], [ %568, %572 ]
   %695 = getelementptr ptr, ptr %1, i64 %692
   %696 = load ptr, ptr %695, align 8
   %697 = icmp eq ptr %696, null
-  br i1 %697, label %.loopexit86.split, label %.preheader
+  br i1 %697, label %.loopexit92.split, label %.preheader
 
-.preheader:                                       ; preds = %.split137, %.thread78
-  %698 = phi ptr [ %740, %.thread78 ], [ %696, %.split137 ]
-  %699 = phi i32 [ %739, %.thread78 ], [ %694, %.split137 ]
+.preheader:                                       ; preds = %.split143, %.thread84
+  %698 = phi ptr [ %740, %.thread84 ], [ %696, %.split143 ]
+  %699 = phi i32 [ %739, %.thread84 ], [ %694, %.split143 ]
   %700 = load i8, ptr %573, align 2, !range !9, !noundef !10
   %701 = icmp eq i8 %700, 0
   br i1 %701, label %705, label %702
@@ -1283,7 +1283,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
 702:                                              ; preds = %.preheader
   %703 = getelementptr inbounds nuw i8, ptr %698, i64 16
   %704 = load i64, ptr %703, align 8
-  br label %.thread78
+  br label %.thread84
 
 705:                                              ; preds = %.preheader
   %706 = load i8, ptr %574, align 1, !range !9, !noundef !10
@@ -1300,7 +1300,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %715 = shl i64 %714, 6
   %716 = zext i32 %711 to i64
   %717 = add i64 %715, %716
-  br label %.thread78
+  br label %.thread84
 
 718:                                              ; preds = %705
   %719 = load ptr, ptr %575, align 8
@@ -1314,10 +1314,10 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %727 = load i32, ptr %726, align 4
   %728 = zext i32 %727 to i64
   %729 = tail call i64 @dma_map_page_attrs(ptr noundef %719, ptr noundef %722, i64 noundef %725, i64 noundef %728, i32 noundef 2, i64 noundef 0) #17
-  %.not85 = icmp eq i64 %729, -1
-  br i1 %.not85, label %.thread81, label %.thread78
+  %.not91 = icmp eq i64 %729, -1
+  br i1 %.not91, label %.thread87, label %.thread84
 
-.thread78:                                        ; preds = %702, %708, %718
+.thread84:                                        ; preds = %702, %708, %718
   %730 = phi i64 [ %729, %718 ], [ %704, %702 ], [ %717, %708 ]
   %731 = getelementptr inbounds nuw i8, ptr %698, i64 12
   %732 = load i32, ptr %731, align 4
@@ -1333,27 +1333,27 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %739 = zext i16 %738 to i32
   %740 = tail call ptr @sg_next(ptr noundef nonnull %698) #17
   %741 = icmp eq ptr %740, null
-  br i1 %741, label %.loopexit86.split, label %.preheader, !llvm.loop !47
+  br i1 %741, label %.loopexit92.split, label %.preheader, !llvm.loop !47
 
-.loopexit86.split:                                ; preds = %.thread78, %.split137
-  %742 = phi i32 [ %694, %.split137 ], [ %739, %.thread78 ]
-  %743 = phi i32 [ %693, %.split137 ], [ %699, %.thread78 ]
+.loopexit92.split:                                ; preds = %.thread84, %.split143
+  %742 = phi i32 [ %694, %.split143 ], [ %739, %.thread84 ]
+  %743 = phi i32 [ %693, %.split143 ], [ %699, %.thread84 ]
   %744 = add nuw nsw i64 %692, 1
   %745 = icmp eq i64 %744, %578
-  br i1 %745, label %.loopexit87, label %.split137, !llvm.loop !46
+  br i1 %745, label %.loopexit93, label %.split143, !llvm.loop !46
 
-.loopexit87:                                      ; preds = %.loopexit86.split, %.loopexit86.split.us.us, %.split129.us
-  %746 = phi i32 [ %568, %.split129.us ], [ %585, %.loopexit86.split.us.us ], [ %742, %.loopexit86.split ]
-  %747 = phi i32 [ %569, %.split129.us ], [ %586, %.loopexit86.split.us.us ], [ %743, %.loopexit86.split ]
+.loopexit93:                                      ; preds = %.loopexit92.split, %.loopexit92.split.us.us, %.split135.us
+  %746 = phi i32 [ %568, %.split135.us ], [ %585, %.loopexit92.split.us.us ], [ %742, %.loopexit92.split ]
+  %747 = phi i32 [ %569, %.split135.us ], [ %586, %.loopexit92.split.us.us ], [ %743, %.loopexit92.split ]
   %748 = zext i32 %747 to i64
-  %.split56 = getelementptr %struct.vring_desc, ptr %490, i64 %748
-  %749 = getelementptr i8, ptr %.split56, i64 12
+  %.split59 = getelementptr %struct.vring_desc, ptr %490, i64 %748
+  %749 = getelementptr i8, ptr %.split59, i64 12
   %750 = load i16, ptr %749, align 4
   %751 = and i16 %750, -2
   store i16 %751, ptr %749, align 4
   br i1 %487, label %752, label %767
 
-752:                                              ; preds = %.loopexit87
+752:                                              ; preds = %.loopexit93
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %754 = load i8, ptr %753, align 1, !range !9, !noundef !10
   %755 = icmp eq i8 %754, 0
@@ -1367,14 +1367,14 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %761 = add i32 %760, -1
   %762 = and i32 %761, %747
   %763 = zext i32 %762 to i64
-  %.split58 = getelementptr %struct.vring_desc_extra, ptr %759, i64 %763
-  %764 = getelementptr i8, ptr %.split58, i64 12
+  %.split61 = getelementptr %struct.vring_desc_extra, ptr %759, i64 %763
+  %764 = getelementptr i8, ptr %.split61, i64 12
   %765 = load i16, ptr %764, align 4
   %766 = and i16 %765, -2
   store i16 %766, ptr %764, align 4
   br label %804
 
-767:                                              ; preds = %.loopexit87
+767:                                              ; preds = %.loopexit93
   %768 = zext i32 %2 to i64
   %769 = shl nuw nsw i64 %768, 4
   %770 = tail call fastcc i64 @vring_map_single(ptr noundef %0, ptr noundef %490, i64 noundef %769)
@@ -1391,7 +1391,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %779 = icmp ne i8 %778, 0
   %780 = icmp eq i32 %746, 0
   %or.cond = select i1 %779, i1 true, i1 %780
-  br i1 %or.cond, label %.thread82, label %.thread244
+  br i1 %or.cond, label %.thread88, label %.thread250
 
 781:                                              ; preds = %767
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1421,8 +1421,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   store i32 %798, ptr %491, align 4
   %799 = load ptr, ptr %785, align 8
   %800 = sext i32 %457 to i64
-  %.split57 = getelementptr %struct.vring_desc_extra, ptr %799, i64 %800
-  %801 = getelementptr i8, ptr %.split57, i64 14
+  %.split60 = getelementptr %struct.vring_desc_extra, ptr %799, i64 %800
+  %801 = getelementptr i8, ptr %.split60, i64 14
   %802 = load i16, ptr %801, align 2
   %803 = zext i16 %802 to i32
   br label %807
@@ -1431,11 +1431,11 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %805 = load i32, ptr %491, align 4
   %806 = sub i32 %805, %489
   store i32 %806, ptr %491, align 4
-  %.pre186 = sext i32 %457 to i64
+  %.pre192 = sext i32 %457 to i64
   br label %807
 
 807:                                              ; preds = %804, %781
-  %.pre-phi = phi i64 [ %.pre186, %804 ], [ %800, %781 ]
+  %.pre-phi = phi i64 [ %.pre192, %804 ], [ %800, %781 ]
   %808 = phi ptr [ %6, %804 ], [ %490, %781 ]
   %809 = phi i32 [ %746, %804 ], [ %803, %781 ]
   store i32 %809, ptr %456, align 8
@@ -1445,8 +1445,8 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %813 = getelementptr %struct.vring_desc_state_split, ptr %812, i64 %.pre-phi
   store ptr %5, ptr %813, align 8
   %814 = load ptr, ptr %811, align 8
-  %.split59 = getelementptr %struct.vring_desc_state_split, ptr %814, i64 %.pre-phi
-  %815 = getelementptr i8, ptr %.split59, i64 8
+  %.split62 = getelementptr %struct.vring_desc_state_split, ptr %814, i64 %.pre-phi
+  %815 = getelementptr i8, ptr %.split62, i64 8
   store ptr %808, ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %817 = load i16, ptr %816, align 2
@@ -1473,38 +1473,38 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %834 = add i32 %833, 1
   store i32 %834, ptr %832, align 4
   %835 = icmp eq i32 %834, 65535
-  br i1 %835, label %836, label %.loopexit93, !prof !11
+  br i1 %835, label %836, label %.loopexit99, !prof !11
 
 836:                                              ; preds = %807
   %837 = tail call zeroext i1 @virtqueue_kick(ptr noundef %0)
-  br label %.loopexit93
+  br label %.loopexit99
 
-.thread81:                                        ; preds = %664, %522, %718, %599
+.thread87:                                        ; preds = %664, %522, %718, %599
   %838 = phi i32 [ %590, %599 ], [ %699, %718 ], [ %513, %522 ], [ %645, %664 ]
   %839 = select i1 %487, i32 %457, i32 0
   %840 = icmp eq i32 %839, %838
   br i1 %840, label %.loopexit, label %843
 
-.thread244:                                       ; preds = %776
+.thread250:                                       ; preds = %776
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  br label %.split141.preheader
+  br label %.split147.preheader
 
-843:                                              ; preds = %.thread81
+843:                                              ; preds = %.thread87
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %845 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %846 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  br i1 %487, label %.split141.us, label %.split141.preheader
+  br i1 %487, label %.split147.us, label %.split147.preheader
 
-.split141.preheader:                              ; preds = %.thread244, %843
-  %848 = phi ptr [ %842, %.thread244 ], [ %845, %843 ]
-  %849 = phi ptr [ %841, %.thread244 ], [ %844, %843 ]
-  %850 = phi i32 [ %746, %.thread244 ], [ %838, %843 ]
-  %851 = phi i32 [ 0, %.thread244 ], [ %839, %843 ]
-  br label %.split141
+.split147.preheader:                              ; preds = %.thread250, %843
+  %848 = phi ptr [ %842, %.thread250 ], [ %845, %843 ]
+  %849 = phi ptr [ %841, %.thread250 ], [ %844, %843 ]
+  %850 = phi i32 [ %746, %.thread250 ], [ %838, %843 ]
+  %851 = phi i32 [ 0, %.thread250 ], [ %839, %843 ]
+  br label %.split147
 
-.split141.us:                                     ; preds = %843, %876
+.split147.us:                                     ; preds = %843, %876
   %852 = phi i32 [ %880, %876 ], [ 0, %843 ]
   %853 = phi i32 [ %879, %876 ], [ %457, %843 ]
   %854 = load ptr, ptr %846, align 8
@@ -1517,12 +1517,12 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %861 = icmp eq i32 %860, 0
   br i1 %861, label %865, label %862
 
-862:                                              ; preds = %.split141.us
+862:                                              ; preds = %.split147.us
   %863 = load i8, ptr %847, align 1, !range !9, !noundef !10
   %864 = icmp eq i8 %863, 0
   br i1 %864, label %876, label %.sink.split
 
-865:                                              ; preds = %.split141.us
+865:                                              ; preds = %.split147.us
   %866 = load i8, ptr %844, align 1, !range !9, !noundef !10
   %867 = icmp eq i8 %866, 0
   br i1 %867, label %876, label %.sink.split
@@ -1547,18 +1547,18 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %881 = icmp uge i32 %880, %2
   %882 = icmp eq i32 %838, %879
   %883 = select i1 %881, i1 true, i1 %882
-  br i1 %883, label %.loopexit, label %.split141.us, !llvm.loop !48
+  br i1 %883, label %.loopexit, label %.split147.us, !llvm.loop !48
 
-.split141:                                        ; preds = %.split141.preheader, %901
-  %884 = phi i32 [ %905, %901 ], [ 0, %.split141.preheader ]
-  %885 = phi i32 [ %904, %901 ], [ %851, %.split141.preheader ]
+.split147:                                        ; preds = %.split147.preheader, %901
+  %884 = phi i32 [ %905, %901 ], [ 0, %.split147.preheader ]
+  %885 = phi i32 [ %904, %901 ], [ %851, %.split147.preheader ]
   %886 = zext i32 %885 to i64
   %887 = getelementptr %struct.vring_desc, ptr %490, i64 %886
   %888 = load i8, ptr %849, align 1, !range !9, !noundef !10
   %889 = icmp eq i8 %888, 0
   br i1 %889, label %901, label %890
 
-890:                                              ; preds = %.split141
+890:                                              ; preds = %.split147
   %891 = getelementptr inbounds nuw i8, ptr %887, i64 12
   %892 = load i16, ptr %891, align 4
   %893 = load ptr, ptr %848, align 8
@@ -1572,7 +1572,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   tail call void @dma_unmap_page_attrs(ptr noundef %893, i64 noundef %894, i64 noundef %897, i32 noundef %900, i64 noundef 0) #17
   br label %901
 
-901:                                              ; preds = %890, %.split141
+901:                                              ; preds = %890, %.split147
   %902 = getelementptr inbounds nuw i8, ptr %887, i64 14
   %903 = load i16, ptr %902, align 2
   %904 = zext i16 %903 to i32
@@ -1580,17 +1580,17 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %906 = icmp uge i32 %905, %2
   %907 = icmp eq i32 %850, %904
   %908 = select i1 %906, i1 true, i1 %907
-  br i1 %908, label %.loopexit, label %.split141, !llvm.loop !48
+  br i1 %908, label %.loopexit, label %.split147, !llvm.loop !48
 
-.loopexit:                                        ; preds = %876, %901, %.thread81
-  br i1 %487, label %.loopexit93, label %.thread82
+.loopexit:                                        ; preds = %876, %901, %.thread87
+  br i1 %487, label %.loopexit99, label %.thread88
 
-.thread82:                                        ; preds = %776, %.loopexit
+.thread88:                                        ; preds = %776, %.loopexit
   tail call void @kfree(ptr noundef %490) #17
-  br label %.loopexit93
+  br label %.loopexit99
 
-.loopexit93:                                      ; preds = %427, %51, %179, %.thread82, %.loopexit, %836, %807, %567, %566, %448, %395, %369, %237, %22
-  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -28, %237 ], [ -5, %395 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread82 ], [ -12, %.loopexit ], [ -28, %51 ], [ 0, %179 ], [ -5, %427 ]
+.loopexit99:                                      ; preds = %427, %51, %179, %.thread88, %.loopexit, %836, %807, %567, %566, %448, %395, %369, %237, %22
+  %909 = phi i32 [ 0, %369 ], [ -5, %22 ], [ -28, %237 ], [ -5, %395 ], [ -5, %448 ], [ -28, %567 ], [ -28, %566 ], [ 0, %836 ], [ 0, %807 ], [ -12, %.thread88 ], [ -12, %.loopexit ], [ -28, %51 ], [ 0, %179 ], [ -5, %427 ]
   ret i32 %909
 }
 

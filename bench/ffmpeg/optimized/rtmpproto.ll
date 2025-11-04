@@ -554,7 +554,7 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_open(ptr noundef %0, ptr rea
   br label %188
 
 ._crit_edge:                                      ; preds = %free_tracked_methods.exit, %110
-  %.lcssa443 = phi i32 [ %117, %110 ], [ %838, %free_tracked_methods.exit ]
+  %.lcssa444 = phi i32 [ %117, %110 ], [ %838, %free_tracked_methods.exit ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17, ptr noundef nonnull %37) #11
   br label %.loopexit
 
@@ -630,34 +630,34 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_open(ptr noundef %0, ptr rea
   store i32 %219, ptr %120, align 8, !tbaa !33
   store ptr %218, ptr %6, align 8, !tbaa !36
   %220 = call i32 @inflateInit_(ptr noundef nonnull %6, ptr noundef nonnull @.str.36, i32 noundef 112) #11
-  %.not.i295 = icmp eq i32 %220, 0
-  br i1 %.not.i295, label %.preheader.i296, label %rtmp_uncompress_swfplayer.exit.thread
+  %.not.i296 = icmp eq i32 %220, 0
+  br i1 %.not.i296, label %.preheader.i297, label %rtmp_uncompress_swfplayer.exit.thread
 
 rtmp_uncompress_swfplayer.exit.thread:            ; preds = %216
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rtmp_calc_swfhash.exit
 
-.preheader.i296:                                  ; preds = %216, %230
-  %.0309 = phi i64 [ %227, %230 ], [ 8, %216 ]
+.preheader.i297:                                  ; preds = %216, %230
+  %.0310 = phi i64 [ %227, %230 ], [ 8, %216 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 16384, ptr %121, align 8, !tbaa !37
   store ptr %7, ptr %122, align 8, !tbaa !38
   %221 = call i32 @inflate(ptr noundef nonnull %6, i32 noundef 0) #11
-  %or.cond.i297 = icmp ugt i32 %221, 1
-  br i1 %or.cond.i297, label %rtmp_uncompress_swfplayer.exit.thread314, label %222
+  %or.cond.i298 = icmp ugt i32 %221, 1
+  br i1 %or.cond.i298, label %rtmp_uncompress_swfplayer.exit.thread315, label %222
 
-222:                                              ; preds = %.preheader.i296
+222:                                              ; preds = %.preheader.i297
   %223 = load i32, ptr %121, align 8, !tbaa !37
   %224 = sub i32 16384, %223
   %225 = load ptr, ptr %29, align 8, !tbaa !31
   %226 = sext i32 %224 to i64
-  %227 = add nsw i64 %.0309, %226
+  %227 = add nsw i64 %.0310, %226
   %228 = call ptr @av_realloc(ptr noundef %225, i64 noundef %227) #11
   %.not21.i = icmp eq ptr %228, null
-  br i1 %.not21.i, label %rtmp_uncompress_swfplayer.exit.thread314, label %230
+  br i1 %.not21.i, label %rtmp_uncompress_swfplayer.exit.thread315, label %230
 
-rtmp_uncompress_swfplayer.exit.thread314:         ; preds = %.preheader.i296, %222
-  %.018.ph.i = phi i32 [ -12, %222 ], [ -1313558101, %.preheader.i296 ]
+rtmp_uncompress_swfplayer.exit.thread315:         ; preds = %.preheader.i297, %222
+  %.018.ph.i = phi i32 [ -12, %222 ], [ -1313558101, %.preheader.i297 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %229 = call i32 @inflateEnd(ptr noundef nonnull %6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -665,12 +665,12 @@ rtmp_uncompress_swfplayer.exit.thread314:         ; preds = %.preheader.i296, %2
 
 230:                                              ; preds = %222
   store ptr %228, ptr %29, align 8, !tbaa !31
-  %231 = getelementptr inbounds i8, ptr %228, i64 %.0309
+  %231 = getelementptr inbounds i8, ptr %228, i64 %.0310
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %231, ptr nonnull align 16 %7, i64 %226, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %232 = load i32, ptr %121, align 8
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %.preheader.i296, label %234, !llvm.loop !39
+  br i1 %233, label %.preheader.i297, label %234, !llvm.loop !39
 
 234:                                              ; preds = %230
   %235 = call i32 @inflateEnd(ptr noundef nonnull %6) #11
@@ -692,8 +692,8 @@ rtmp_uncompress_swfplayer.exit.thread314:         ; preds = %.preheader.i296, %2
   store i32 %.122.i, ptr %243, align 4, !tbaa !41
   br label %rtmp_calc_swfhash.exit
 
-rtmp_calc_swfhash.exit:                           ; preds = %214, %rtmp_uncompress_swfplayer.exit.thread, %rtmp_uncompress_swfplayer.exit.thread314, %198, %200, %204, %206, %211, %238, %241
-  %.020.i = phi i32 [ %196, %198 ], [ %209, %206 ], [ %239, %238 ], [ %239, %241 ], [ -5, %200 ], [ -12, %204 ], [ -1094995529, %211 ], [ -12, %214 ], [ -1313558101, %rtmp_uncompress_swfplayer.exit.thread ], [ %.018.ph.i, %rtmp_uncompress_swfplayer.exit.thread314 ]
+rtmp_calc_swfhash.exit:                           ; preds = %214, %rtmp_uncompress_swfplayer.exit.thread, %rtmp_uncompress_swfplayer.exit.thread315, %198, %200, %204, %206, %211, %238, %241
+  %.020.i = phi i32 [ %196, %198 ], [ %209, %206 ], [ %239, %238 ], [ %239, %241 ], [ -5, %200 ], [ -12, %204 ], [ -1094995529, %211 ], [ -12, %214 ], [ -1313558101, %rtmp_uncompress_swfplayer.exit.thread ], [ %.018.ph.i, %rtmp_uncompress_swfplayer.exit.thread315 ]
   call void @av_freep(ptr noundef nonnull %28) #11
   call void @av_freep(ptr noundef nonnull %29) #11
   %244 = load ptr, ptr %30, align 8, !tbaa !32
@@ -709,7 +709,7 @@ rtmp_calc_swfhash.exit:                           ; preds = %214, %rtmp_uncompre
   store i32 0, ptr %123, align 8, !tbaa !42
   %248 = load i32, ptr %65, align 8, !tbaa !21
   %.not232 = icmp eq i32 %248, 0
-  br i1 %.not232, label %249, label %.thread324
+  br i1 %.not232, label %249, label %.thread325
 
 249:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -846,34 +846,34 @@ rtmp_validate_digest.exit.thread.i:               ; preds = %311
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %21, ptr noundef nonnull dereferenceable(32) %317, i64 32)
   %.not.i72.i = icmp eq i32 %bcmp.i.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.not.i72.i, label %rtmp_validate_digest.exit.i, label %.thread.i267
+  br i1 %.not.i72.i, label %rtmp_validate_digest.exit.i, label %.thread.i268
 
 rtmp_validate_digest.exit.i:                      ; preds = %315
   %318 = icmp slt i32 %312, 0
   br i1 %318, label %rtmp_handshake.exit.thread, label %319
 
 319:                                              ; preds = %rtmp_validate_digest.exit.i
-  %.not.i269 = icmp eq i32 %312, 0
-  br i1 %.not.i269, label %.thread.i267, label %328
+  %.not.i270 = icmp eq i32 %312, 0
+  br i1 %.not.i270, label %.thread.i268, label %328
 
-.thread.i267:                                     ; preds = %319, %315
+.thread.i268:                                     ; preds = %319, %315
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %320 = call i32 @ff_rtmp_calc_digest_pos(ptr noundef nonnull %134, i32 noundef 8, i32 noundef 728, i32 noundef 12) #11
   %321 = call i32 @ff_rtmp_calc_digest(ptr noundef nonnull %134, i32 noundef 1536, i32 noundef %320, ptr noundef nonnull @rtmp_server_key, i32 noundef 36, ptr noundef nonnull %5) #11
   %322 = icmp slt i32 %321, 0
   br i1 %322, label %rtmp_validate_digest.exit.thread, label %323
 
-rtmp_validate_digest.exit.thread:                 ; preds = %.thread.i267
+rtmp_validate_digest.exit.thread:                 ; preds = %.thread.i268
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rtmp_handshake.exit.thread
 
-323:                                              ; preds = %.thread.i267
+323:                                              ; preds = %.thread.i268
   %324 = sext i32 %320 to i64
   %325 = getelementptr inbounds i8, ptr %134, i64 %324
-  %bcmp.i300 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %5, ptr noundef nonnull dereferenceable(32) %325, i64 32)
-  %.not.i301 = icmp eq i32 %bcmp.i300, 0
+  %bcmp.i301 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %5, ptr noundef nonnull dereferenceable(32) %325, i64 32)
+  %.not.i302 = icmp eq i32 %bcmp.i301, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not.i301, label %rtmp_validate_digest.exit, label %.loopexit380
+  br i1 %.not.i302, label %rtmp_validate_digest.exit, label %.loopexit381
 
 rtmp_validate_digest.exit:                        ; preds = %323
   %326 = icmp slt i32 %320, 0
@@ -881,9 +881,9 @@ rtmp_validate_digest.exit:                        ; preds = %323
 
 327:                                              ; preds = %rtmp_validate_digest.exit
   %.not69.i = icmp eq i32 %320, 0
-  br i1 %.not69.i, label %.loopexit380, label %328
+  br i1 %.not69.i, label %.loopexit381, label %328
 
-.loopexit380:                                     ; preds = %327, %323
+.loopexit381:                                     ; preds = %327, %323
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.42) #11
   br label %rtmp_handshake.exit.thread
 
@@ -926,8 +926,8 @@ rtmp_calc_swf_verification.exit.i:                ; preds = %330
   br i1 %343, label %rtmp_handshake.exit.thread, label %344
 
 344:                                              ; preds = %341
-  %bcmp.i268 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %27, ptr noundef nonnull dereferenceable(32) %144, i64 32)
-  %.not71.i = icmp eq i32 %bcmp.i268, 0
+  %bcmp.i269 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %27, ptr noundef nonnull dereferenceable(32) %144, i64 32)
+  %.not71.i = icmp eq i32 %bcmp.i269, 0
   br i1 %.not71.i, label %.preheader.i, label %345
 
 .preheader.i:                                     ; preds = %344
@@ -990,8 +990,8 @@ rtmp_calc_swf_verification.exit.i:                ; preds = %330
   %381 = icmp slt i32 %380, 0
   br i1 %381, label %rtmp_handshake.exit.thread, label %382
 
-rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_imprint_with_digest.exit.i, %rtmp_validate_digest.exit.i, %rtmp_validate_digest.exit, %rtmp_calc_swf_verification.exit.i, %336, %341, %366, %371, %374, %378, %285, %290, %295, %345, %.loopexit380, %rtmp_validate_digest.exit.thread.i, %rtmp_calc_swf_verification.exit.thread.i, %rtmp_validate_digest.exit.thread
-  %.0.i.ph = phi i32 [ %321, %rtmp_validate_digest.exit.thread ], [ -22, %rtmp_calc_swf_verification.exit.thread.i ], [ %313, %rtmp_validate_digest.exit.thread.i ], [ -5, %.loopexit380 ], [ -5, %345 ], [ %293, %295 ], [ %288, %290 ], [ %283, %285 ], [ %..0.i.i, %rtmp_handshake_imprint_with_digest.exit.i ], [ %312, %rtmp_validate_digest.exit.i ], [ %320, %rtmp_validate_digest.exit ], [ %334, %rtmp_calc_swf_verification.exit.i ], [ %339, %336 ], [ %342, %341 ], [ %369, %366 ], [ %372, %371 ], [ %376, %374 ], [ %380, %378 ]
+rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_imprint_with_digest.exit.i, %rtmp_validate_digest.exit.i, %rtmp_validate_digest.exit, %rtmp_calc_swf_verification.exit.i, %336, %341, %366, %371, %374, %378, %285, %290, %295, %345, %.loopexit381, %rtmp_validate_digest.exit.thread.i, %rtmp_calc_swf_verification.exit.thread.i, %rtmp_validate_digest.exit.thread
+  %.0.i.ph = phi i32 [ %321, %rtmp_validate_digest.exit.thread ], [ -22, %rtmp_calc_swf_verification.exit.thread.i ], [ %313, %rtmp_validate_digest.exit.thread.i ], [ -5, %.loopexit381 ], [ -5, %345 ], [ %293, %295 ], [ %288, %290 ], [ %283, %285 ], [ %..0.i.i, %rtmp_handshake_imprint_with_digest.exit.i ], [ %312, %rtmp_validate_digest.exit.i ], [ %320, %rtmp_validate_digest.exit ], [ %334, %rtmp_calc_swf_verification.exit.i ], [ %339, %336 ], [ %342, %341 ], [ %369, %366 ], [ %372, %371 ], [ %376, %374 ], [ %380, %378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -1009,9 +1009,9 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.pr = load i32, ptr %65, align 8, !tbaa !21
   %.not233 = icmp eq i32 %.pr, 0
-  br i1 %.not233, label %424, label %.thread324
+  br i1 %.not233, label %424, label %.thread325
 
-.thread324:                                       ; preds = %247, %382
+.thread325:                                       ; preds = %247, %382
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1020,10 +1020,10 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   %385 = icmp slt i32 %384, 1
   br i1 %385, label %rtmp_server_handshake.exit.thread, label %386
 
-386:                                              ; preds = %.thread324
+386:                                              ; preds = %.thread325
   %387 = load i8, ptr %18, align 16, !tbaa !24
-  %.not.i270 = icmp eq i8 %387, 3
-  br i1 %.not.i270, label %388, label %rtmp_server_handshake.exit.thread
+  %.not.i271 = icmp eq i8 %387, 3
+  br i1 %.not.i271, label %388, label %rtmp_server_handshake.exit.thread
 
 388:                                              ; preds = %386
   %389 = load ptr, ptr %111, align 8, !tbaa !46
@@ -1038,8 +1038,8 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   br i1 %395, label %rtmp_server_handshake.exit.thread, label %396
 
 396:                                              ; preds = %392
-  %.not.i.i272 = icmp eq i32 %394, 1536
-  br i1 %.not.i.i272, label %398, label %397
+  %.not.i.i273 = icmp eq i32 %394, 1536
+  br i1 %.not.i.i273, label %398, label %397
 
 397:                                              ; preds = %396
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %40, i32 noundef 16, ptr noundef nonnull @.str.54, i32 noundef %394) #11
@@ -1050,13 +1050,13 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   br label %400
 
 400:                                              ; preds = %400, %398
-  %indvars.iv.i273 = phi i64 [ 8, %398 ], [ %indvars.iv.next.i274, %400 ]
+  %indvars.iv.i274 = phi i64 [ 8, %398 ], [ %indvars.iv.next.i275, %400 ]
   %401 = call i32 @av_get_random_seed() #11
   %402 = call i32 @llvm.bswap.i32(i32 %401)
-  %403 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i273
+  %403 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i274
   store i32 %402, ptr %403, align 4, !tbaa !24
-  %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i273, 4
-  %404 = icmp samesign ult i64 %indvars.iv.i273, 1532
+  %indvars.iv.next.i275 = add nuw nsw i64 %indvars.iv.i274, 4
+  %404 = icmp samesign ult i64 %indvars.iv.i274, 1532
   br i1 %404, label %400, label %405, !llvm.loop !50
 
 405:                                              ; preds = %400
@@ -1090,8 +1090,8 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   br i1 %416, label %rtmp_server_handshake.exit.thread, label %417
 
 417:                                              ; preds = %413
-  %.not.i303 = icmp eq i32 %415, 1536
-  br i1 %.not.i303, label %419, label %418
+  %.not.i304 = icmp eq i32 %415, 1536
+  br i1 %.not.i304, label %419, label %418
 
 418:                                              ; preds = %417
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %40, i32 noundef 16, ptr noundef nonnull @.str.54, i32 noundef %415) #11
@@ -1107,17 +1107,17 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
   br label %422
 
 422:                                              ; preds = %421, %419
-  %bcmp.i275 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1528) %148, ptr noundef nonnull dereferenceable(1528) %149, i64 1528)
-  %.not39.i = icmp eq i32 %bcmp.i275, 0
+  %bcmp.i276 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1528) %148, ptr noundef nonnull dereferenceable(1528) %149, i64 1528)
+  %.not39.i = icmp eq i32 %bcmp.i276, 0
   br i1 %.not39.i, label %rtmp_server_handshake.exit, label %423
 
 423:                                              ; preds = %422
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.53) #11
   br label %rtmp_server_handshake.exit
 
-rtmp_server_handshake.exit.thread:                ; preds = %413, %392, %388, %386, %.thread324, %418, %397, %408, %412
-  %.str.45.sink = phi ptr [ @.str.49, %408 ], [ @.str.50, %412 ], [ @.str.48, %397 ], [ @.str.51, %418 ], [ @.str.45, %.thread324 ], [ @.str.46, %386 ], [ @.str.47, %388 ], [ @.str.48, %392 ], [ @.str.51, %413 ]
-  %.0.i271.ph = phi i32 [ -5, %408 ], [ -5, %412 ], [ -22, %397 ], [ -22, %418 ], [ -5, %.thread324 ], [ -5, %386 ], [ -5, %388 ], [ -5, %392 ], [ -5, %413 ]
+rtmp_server_handshake.exit.thread:                ; preds = %413, %392, %388, %386, %.thread325, %418, %397, %408, %412
+  %.str.45.sink = phi ptr [ @.str.49, %408 ], [ @.str.50, %412 ], [ @.str.48, %397 ], [ @.str.51, %418 ], [ @.str.45, %.thread325 ], [ @.str.46, %386 ], [ @.str.47, %388 ], [ @.str.48, %392 ], [ @.str.51, %413 ]
+  %.0.i272.ph = phi i32 [ -5, %408 ], [ -5, %412 ], [ -22, %397 ], [ -22, %418 ], [ -5, %.thread325 ], [ -5, %386 ], [ -5, %388 ], [ -5, %392 ], [ -5, %413 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.45.sink) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1186,7 +1186,7 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 
 448:                                              ; preds = %444
   %.not241 = icmp eq ptr %425, null
-  br i1 %.not241, label %.thread340, label %.thread336
+  br i1 %.not241, label %.thread341, label %.thread337
 
 449:                                              ; preds = %444
   %450 = getelementptr inbounds nuw i8, ptr %447, i64 1
@@ -1219,52 +1219,52 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 466:                                              ; preds = %460, %455, %431, %436, %443
   %.1 = phi ptr [ %157, %443 ], [ %36, %436 ], [ %434, %431 ], [ %450, %455 ], [ %461, %460 ]
   %.not245 = icmp eq ptr %425, null
-  br i1 %.not245, label %471, label %.thread336
+  br i1 %.not245, label %471, label %.thread337
 
-.thread336:                                       ; preds = %448, %466
-  %.1339 = phi ptr [ %.1, %466 ], [ %446, %448 ]
+.thread337:                                       ; preds = %448, %466
+  %.1340 = phi ptr [ %.1, %466 ], [ %446, %448 ]
   %467 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %425) #12
   %468 = icmp ugt i64 %467, 1023
   br i1 %468, label %.loopexit, label %469
 
-469:                                              ; preds = %.thread336
+469:                                              ; preds = %.thread337
   %470 = load ptr, ptr %152, align 8, !tbaa !53
   call void @av_free(ptr noundef %470) #11
   store ptr %425, ptr %152, align 8, !tbaa !53
   br label %471
 
 471:                                              ; preds = %469, %466
-  %.1335 = phi ptr [ %.1339, %469 ], [ %.1, %466 ]
+  %.1336 = phi ptr [ %.1340, %469 ], [ %.1, %466 ]
   %472 = load ptr, ptr %156, align 8, !tbaa !54
   %.not246 = icmp eq ptr %472, null
-  br i1 %.not246, label %.thread349, label %.thread364
+  br i1 %.not246, label %.thread350, label %.thread365
 
-.thread340:                                       ; preds = %448
+.thread341:                                       ; preds = %448
   %473 = call i64 @av_strlcpy(ptr noundef nonnull %426, ptr noundef nonnull %446, i64 noundef 1024) #11
   %474 = load ptr, ptr %156, align 8, !tbaa !54
-  %.not246342 = icmp eq ptr %474, null
-  br i1 %.not246342, label %.thread344, label %.thread364
+  %.not246343 = icmp eq ptr %474, null
+  br i1 %.not246343, label %.thread345, label %.thread365
 
-.thread344:                                       ; preds = %.thread340
+.thread345:                                       ; preds = %.thread341
   %475 = call noalias ptr @av_malloc(i64 noundef 1) #11
   store ptr %475, ptr %156, align 8, !tbaa !54
   %.not248 = icmp eq ptr %475, null
   br i1 %.not248, label %.loopexit, label %507
 
-.thread349:                                       ; preds = %471
-  %476 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1335) #12
+.thread350:                                       ; preds = %471
+  %476 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1336) #12
   %477 = shl i64 %476, 32
   %sext = add i64 %477, 21474836480
   %478 = ashr exact i64 %sext, 32
   %479 = call noalias ptr @av_malloc(i64 noundef %478) #11
   store ptr %479, ptr %156, align 8, !tbaa !54
-  %.not248353 = icmp eq ptr %479, null
-  br i1 %.not248353, label %.loopexit, label %480
+  %.not248354 = icmp eq ptr %479, null
+  br i1 %.not248354, label %.loopexit, label %480
 
-480:                                              ; preds = %.thread349
-  %481 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1335) #12
+480:                                              ; preds = %.thread350
+  %481 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1336) #12
   %482 = trunc i64 %481 to i32
-  %483 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1335, i32 noundef 58) #12
+  %483 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1336, i32 noundef 58) #12
   %484 = icmp eq ptr %483, null
   %485 = icmp sgt i32 %482, 3
   %or.cond = select i1 %484, i1 %485, i1 false
@@ -1272,7 +1272,7 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 
 486:                                              ; preds = %480
   %487 = and i64 %481, 2147483647
-  %488 = getelementptr inbounds nuw i8, ptr %.1335, i64 %487
+  %488 = getelementptr inbounds nuw i8, ptr %.1336, i64 %487
   %489 = getelementptr inbounds i8, ptr %488, i64 -4
   %490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %489, ptr noundef nonnull dereferenceable(5) @.str.21) #12
   %.not249 = icmp eq i32 %490, 0
@@ -1281,56 +1281,56 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 491:                                              ; preds = %486
   %492 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %489, ptr noundef nonnull dereferenceable(5) @.str.22) #12
   %.not250 = icmp eq i32 %492, 0
-  br i1 %.not250, label %493, label %.thread363
+  br i1 %.not250, label %493, label %.thread364
 
 493:                                              ; preds = %491, %486
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %479, ptr noundef nonnull align 1 dereferenceable(5) @.str.23, i64 5, i1 false)
   br label %504
 
 494:                                              ; preds = %480
-  br i1 %485, label %..thread363_crit_edge, label %502
+  br i1 %485, label %..thread364_crit_edge, label %502
 
-..thread363_crit_edge:                            ; preds = %494
-  %.pre646 = and i64 %481, 2147483647
-  br label %.thread363
+..thread364_crit_edge:                            ; preds = %494
+  %.pre647 = and i64 %481, 2147483647
+  br label %.thread364
 
-.thread363:                                       ; preds = %..thread363_crit_edge, %491
-  %.pre-phi = phi i64 [ %.pre646, %..thread363_crit_edge ], [ %487, %491 ]
-  %495 = getelementptr inbounds nuw i8, ptr %.1335, i64 %.pre-phi
+.thread364:                                       ; preds = %..thread364_crit_edge, %491
+  %.pre-phi = phi i64 [ %.pre647, %..thread364_crit_edge ], [ %487, %491 ]
+  %495 = getelementptr inbounds nuw i8, ptr %.1336, i64 %.pre-phi
   %496 = getelementptr inbounds i8, ptr %495, i64 -4
   %497 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %496, ptr noundef nonnull dereferenceable(5) @.str.24) #12
   %.not251 = icmp eq i32 %497, 0
   br i1 %.not251, label %498, label %502
 
-498:                                              ; preds = %.thread363
+498:                                              ; preds = %.thread364
   %499 = add i64 %481, 4294967292
   %500 = and i64 %499, 4294967295
-  %501 = getelementptr inbounds nuw i8, ptr %.1335, i64 %500
+  %501 = getelementptr inbounds nuw i8, ptr %.1336, i64 %500
   store i8 0, ptr %501, align 1, !tbaa !24
   %.pre = load ptr, ptr %156, align 8, !tbaa !54
   br label %502
 
-502:                                              ; preds = %498, %.thread363, %494
-  %503 = phi ptr [ %.pre, %498 ], [ %479, %.thread363 ], [ %479, %494 ]
+502:                                              ; preds = %498, %.thread364, %494
+  %503 = phi ptr [ %.pre, %498 ], [ %479, %.thread364 ], [ %479, %494 ]
   store i8 0, ptr %503, align 1, !tbaa !24
-  %.pre645 = load ptr, ptr %156, align 8, !tbaa !54
+  %.pre646 = load ptr, ptr %156, align 8, !tbaa !54
   br label %504
 
 504:                                              ; preds = %502, %493
-  %505 = phi ptr [ %.pre645, %502 ], [ %479, %493 ]
-  %506 = call i64 @av_strlcat(ptr noundef %505, ptr noundef nonnull %.1335, i64 noundef %478) #11
-  br label %.thread364
+  %505 = phi ptr [ %.pre646, %502 ], [ %479, %493 ]
+  %506 = call i64 @av_strlcat(ptr noundef %505, ptr noundef nonnull %.1336, i64 noundef %478) #11
+  br label %.thread365
 
-507:                                              ; preds = %.thread344
+507:                                              ; preds = %.thread345
   store i8 0, ptr %475, align 1, !tbaa !24
-  br label %.thread364
+  br label %.thread365
 
-.thread364:                                       ; preds = %504, %507, %.thread340, %471
+.thread365:                                       ; preds = %504, %507, %.thread341, %471
   %508 = load ptr, ptr %158, align 8, !tbaa !55
   %.not252 = icmp eq ptr %508, null
   br i1 %.not252, label %509, label %515
 
-509:                                              ; preds = %.thread364
+509:                                              ; preds = %.thread365
   %510 = call noalias ptr @av_malloc(i64 noundef 1024) #11
   store ptr %510, ptr %158, align 8, !tbaa !55
   %.not253 = icmp eq ptr %510, null
@@ -1342,7 +1342,7 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
   %514 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %510, i32 noundef 1024, ptr noundef nonnull %32, ptr noundef null, ptr noundef nonnull %33, i32 noundef %512, ptr noundef nonnull @.str.25, ptr noundef %513) #11
   br label %515
 
-515:                                              ; preds = %511, %.thread364
+515:                                              ; preds = %511, %.thread365
   %516 = load ptr, ptr %159, align 8, !tbaa !56
   %.not254 = icmp eq ptr %516, null
   br i1 %.not254, label %517, label %525
@@ -1402,8 +1402,8 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
   %537 = load ptr, ptr %152, align 8, !tbaa !53
   call void @ff_amf_write_string2(ptr noundef nonnull %16, ptr noundef %537, ptr noundef nonnull %174) #11
   %538 = load ptr, ptr %175, align 8, !tbaa !65
-  %.not.i276 = icmp eq ptr %538, null
-  br i1 %.not.i276, label %.loopexit.i, label %539
+  %.not.i277 = icmp eq ptr %538, null
+  br i1 %.not.i277, label %.loopexit.i, label %539
 
 539:                                              ; preds = %532
   %540 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %538) #12
@@ -1570,9 +1570,9 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
   call void @ff_amf_write_object_end(ptr noundef nonnull %16) #11
   %599 = load ptr, ptr %178, align 8, !tbaa !69
   %.not93.i = icmp eq ptr %599, null
-  br i1 %.not93.i, label %gen_connect.exit, label %.preheader.i279
+  br i1 %.not93.i, label %gen_connect.exit, label %.preheader.i280
 
-.preheader.i279:                                  ; preds = %598, %636
+.preheader.i280:                                  ; preds = %598, %636
   %.061.i = phi ptr [ %637, %636 ], [ %599, %598 ]
   %600 = call i64 @strspn(ptr noundef nonnull %.061.i, ptr noundef nonnull @.str.82) #12
   %601 = getelementptr inbounds nuw i8, ptr %.061.i, i64 %600
@@ -1580,7 +1580,7 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
   %.not94.i = icmp eq i8 %602, 0
   br i1 %.not94.i, label %gen_connect.exit, label %603
 
-603:                                              ; preds = %.preheader.i279
+603:                                              ; preds = %.preheader.i280
   %604 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %601, i32 noundef 32) #12
   %.not95.i = icmp eq ptr %604, null
   br i1 %.not95.i, label %.thread99.i, label %605
@@ -1588,8 +1588,8 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 605:                                              ; preds = %603
   store i8 0, ptr %604, align 1, !tbaa !24
   %.pr.i = load i8, ptr %601, align 1, !tbaa !24
-  %.not.i.i280 = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i280, label %638, label %.thread99.i
+  %.not.i.i281 = icmp eq i8 %.pr.i, 0
+  br i1 %.not.i.i281, label %638, label %.thread99.i
 
 .thread99.i:                                      ; preds = %605, %603
   %606 = phi i8 [ %.pr.i, %605 ], [ %602, %603 ]
@@ -1628,8 +1628,8 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 
 623:                                              ; preds = %621, %610
   %.028.i.i = phi ptr [ %611, %610 ], [ %622, %621 ]
-  %.0.i.i281 = phi i8 [ %606, %610 ], [ %608, %621 ]
-  switch i8 %.0.i.i281, label %638 [
+  %.0.i.i282 = phi i8 [ %606, %610 ], [ %608, %621 ]
+  switch i8 %.0.i.i282, label %638 [
     i8 66, label %624
     i8 83, label %628
     i8 78, label %629
@@ -1672,7 +1672,7 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
 
 636:                                              ; preds = %635, %634, %631, %629, %628, %624
   %637 = getelementptr inbounds nuw i8, ptr %604, i64 1
-  br i1 %.not95.i, label %gen_connect.exit, label %.preheader.i279
+  br i1 %.not95.i, label %gen_connect.exit, label %.preheader.i280
 
 638:                                              ; preds = %623, %618, %614, %612, %605
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.83, ptr noundef nonnull %601) #11
@@ -1680,12 +1680,12 @@ rtmp_server_handshake.exit:                       ; preds = %422, %423
   br label %gen_connect.exit.thread
 
 gen_connect.exit.thread:                          ; preds = %529, %638, %.critedge.i, %545
-  %.0.i278.ph = phi i32 [ -22, %545 ], [ -1163346256, %.critedge.i ], [ -22, %638 ], [ %530, %529 ]
+  %.0.i279.ph = phi i32 [ -22, %545 ], [ -1163346256, %.critedge.i ], [ -22, %638 ], [ %530, %529 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
-gen_connect.exit:                                 ; preds = %.preheader.i279, %636, %598
+gen_connect.exit:                                 ; preds = %.preheader.i280, %636, %598
   %639 = load ptr, ptr %16, align 8, !tbaa !31
   %640 = load ptr, ptr %172, align 8, !tbaa !63
   %641 = ptrtoint ptr %639 to i64
@@ -1717,9 +1717,9 @@ gen_connect.exit:                                 ; preds = %.preheader.i279, %6
   %654 = load i32, ptr %650, align 8, !tbaa !52
   %655 = call i32 @ff_rtmp_packet_read(ptr noundef %653, ptr noundef nonnull %8, i32 noundef %654, ptr noundef nonnull %651, ptr noundef nonnull %652) #11
   %656 = icmp slt i32 %655, 0
-  br i1 %656, label %read_connect.exit.thread, label %.lr.ph.i282
+  br i1 %656, label %read_connect.exit.thread, label %.lr.ph.i283
 
-.lr.ph.i282:                                      ; preds = %647, %690
+.lr.ph.i283:                                      ; preds = %647, %690
   %657 = load i32, ptr %167, align 4, !tbaa !71
   switch i32 %657, label %689 [
     i32 1, label %658
@@ -1730,27 +1730,27 @@ gen_connect.exit:                                 ; preds = %.preheader.i279, %6
     i32 20, label %695
   ]
 
-658:                                              ; preds = %.lr.ph.i282
+658:                                              ; preds = %.lr.ph.i283
   %659 = call fastcc i32 @handle_chunk_size(ptr noundef nonnull %0, ptr noundef %8)
   %660 = icmp slt i32 %659, 0
-  br i1 %660, label %read_connect.exit.thread370, label %690
+  br i1 %660, label %read_connect.exit.thread371, label %690
 
-661:                                              ; preds = %.lr.ph.i282
+661:                                              ; preds = %.lr.ph.i283
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.87) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
-662:                                              ; preds = %.lr.ph.i282
+662:                                              ; preds = %.lr.ph.i283
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.88) #11
   br label %690
 
-663:                                              ; preds = %.lr.ph.i282
+663:                                              ; preds = %.lr.ph.i283
   %664 = load i32, ptr %168, align 8, !tbaa !70
   %665 = icmp slt i32 %664, 4
   br i1 %665, label %666, label %667
 
 666:                                              ; preds = %663
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.109, i32 noundef %664) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 667:                                              ; preds = %663
   %668 = load ptr, ptr %39, align 8, !tbaa !4
@@ -1764,7 +1764,7 @@ gen_connect.exit:                                 ; preds = %.preheader.i279, %6
 
 674:                                              ; preds = %667
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.110, i32 noundef 0) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 handle_window_ack_size.exit.i:                    ; preds = %667
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.111, i32 noundef %671) #11
@@ -1773,14 +1773,14 @@ handle_window_ack_size.exit.i:                    ; preds = %667
   store i32 %676, ptr %672, align 8, !tbaa !57
   br label %690
 
-677:                                              ; preds = %.lr.ph.i282
+677:                                              ; preds = %.lr.ph.i283
   %678 = load i32, ptr %168, align 8, !tbaa !70
   %679 = icmp slt i32 %678, 4
   br i1 %679, label %680, label %681
 
 680:                                              ; preds = %677
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.112, i32 noundef %678) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 681:                                              ; preds = %677
   %682 = load ptr, ptr %39, align 8, !tbaa !4
@@ -1794,13 +1794,13 @@ handle_window_ack_size.exit.i:                    ; preds = %667
 
 688:                                              ; preds = %681
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.113, i32 noundef %685) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 handle_set_peer_bw.exit.i:                        ; preds = %681
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.114, i32 noundef %685) #11
   br label %690
 
-689:                                              ; preds = %.lr.ph.i282
+689:                                              ; preds = %.lr.ph.i283
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.89, i32 noundef %657) #11
   br label %690
 
@@ -1810,9 +1810,9 @@ handle_set_peer_bw.exit.i:                        ; preds = %681
   %692 = load i32, ptr %650, align 8, !tbaa !52
   %693 = call i32 @ff_rtmp_packet_read(ptr noundef %691, ptr noundef nonnull %8, i32 noundef %692, ptr noundef nonnull %651, ptr noundef nonnull %652) #11
   %694 = icmp slt i32 %693, 0
-  br i1 %694, label %read_connect.exit.thread, label %.lr.ph.i282
+  br i1 %694, label %read_connect.exit.thread, label %.lr.ph.i283
 
-695:                                              ; preds = %.lr.ph.i282
+695:                                              ; preds = %.lr.ph.i283
   %696 = load i32, ptr %168, align 8, !tbaa !70
   %697 = icmp sgt i32 %696, -1
   br i1 %697, label %bytestream2_init.exit.i, label %698
@@ -1830,26 +1830,26 @@ bytestream2_init.exit.i:                          ; preds = %695
   %701 = getelementptr inbounds nuw i8, ptr %699, i64 %700
   store ptr %701, ptr %171, align 8, !tbaa !75
   %702 = call i32 @ff_amf_read_string(ptr noundef nonnull %14, ptr noundef nonnull %10, i32 noundef 64, ptr noundef nonnull %11) #11
-  %.not.i283 = icmp eq i32 %702, 0
-  br i1 %.not.i283, label %704, label %703
+  %.not.i284 = icmp eq i32 %702, 0
+  br i1 %.not.i284, label %704, label %703
 
 703:                                              ; preds = %bytestream2_init.exit.i
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.90) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 704:                                              ; preds = %bytestream2_init.exit.i
   %lhsv.i = load i64, ptr %10, align 16
-  %.not86.i286 = icmp eq i64 %lhsv.i, 32760384594014051
-  br i1 %.not86.i286, label %706, label %705
+  %.not86.i287 = icmp eq i64 %lhsv.i, 32760384594014051
+  br i1 %.not86.i287, label %706, label %705
 
 705:                                              ; preds = %704
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.91, ptr noundef nonnull %10) #11
-  br label %read_connect.exit.thread370
+  br label %read_connect.exit.thread371
 
 706:                                              ; preds = %704
   %707 = call i32 @ff_amf_read_number(ptr noundef nonnull %14, ptr noundef nonnull %12) #11
-  %.not87.i287 = icmp eq i32 %707, 0
-  br i1 %.not87.i287, label %709, label %708
+  %.not87.i288 = icmp eq i32 %707, 0
+  br i1 %.not87.i288, label %709, label %708
 
 708:                                              ; preds = %706
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.92) #11
@@ -1861,29 +1861,29 @@ bytestream2_init.exit.i:                          ; preds = %695
   %712 = ptrtoint ptr %711 to i64
   %713 = ptrtoint ptr %710 to i64
   %714 = sub i64 %712, %713
-  %sext.i288 = shl i64 %714, 32
-  %715 = ashr exact i64 %sext.i288, 32
+  %sext.i289 = shl i64 %714, 32
+  %715 = ashr exact i64 %sext.i289, 32
   %716 = getelementptr inbounds i8, ptr %710, i64 %715
   %717 = call i32 @ff_amf_get_field_value(ptr noundef %710, ptr noundef %716, ptr noundef nonnull @.str.57, ptr noundef nonnull %13, i32 noundef 256) #11
-  %.not88.i289 = icmp eq i32 %717, 0
-  br i1 %.not88.i289, label %.critedge.i290, label %718
+  %.not88.i290 = icmp eq i32 %717, 0
+  br i1 %.not88.i290, label %.critedge.i291, label %718
 
 718:                                              ; preds = %709
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.93) #11
   br label %723
 
-.critedge.i290:                                   ; preds = %709
+.critedge.i291:                                   ; preds = %709
   %719 = getelementptr inbounds nuw i8, ptr %648, i64 72
   %720 = load ptr, ptr %719, align 8, !tbaa !53
   %721 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %720) #12
-  %.not89.i291 = icmp eq i32 %721, 0
-  br i1 %.not89.i291, label %723, label %722
+  %.not89.i292 = icmp eq i32 %721, 0
+  br i1 %.not89.i292, label %723, label %722
 
-722:                                              ; preds = %.critedge.i290
+722:                                              ; preds = %.critedge.i291
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.94, ptr noundef nonnull %13, ptr noundef nonnull %720) #11
   br label %723
 
-723:                                              ; preds = %722, %.critedge.i290, %718
+723:                                              ; preds = %722, %.critedge.i291, %718
   call void @ff_rtmp_packet_destroy(ptr noundef nonnull %8) #11
   %724 = call i32 @ff_rtmp_packet_create(ptr noundef nonnull %8, i32 noundef 2, i32 noundef 5, i32 noundef 0, i32 noundef 4) #11
   %725 = icmp slt i32 %724, 0
@@ -2020,7 +2020,7 @@ bytestream2_init.exit.i:                          ; preds = %695
   br i1 %801, label %read_connect.exit.thread, label %read_connect.exit
 
 read_connect.exit.thread:                         ; preds = %723, %726, %744, %747, %762, %765, %772, %775, %783, %786, %799, %647, %690
-  %.0.i285.ph = phi i32 [ %693, %690 ], [ %724, %723 ], [ %742, %726 ], [ %745, %744 ], [ %760, %747 ], [ %763, %762 ], [ %770, %765 ], [ %773, %772 ], [ %781, %775 ], [ %784, %783 ], [ %797, %786 ], [ %800, %799 ], [ %655, %647 ]
+  %.0.i286.ph = phi i32 [ %693, %690 ], [ %724, %723 ], [ %742, %726 ], [ %745, %744 ], [ %760, %747 ], [ %763, %762 ], [ %770, %765 ], [ %773, %772 ], [ %781, %775 ], [ %784, %783 ], [ %797, %786 ], [ %800, %799 ], [ %655, %647 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2030,7 +2030,7 @@ read_connect.exit.thread:                         ; preds = %723, %726, %744, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-read_connect.exit.thread370:                      ; preds = %658, %705, %703, %661, %666, %674, %680, %688
+read_connect.exit.thread371:                      ; preds = %658, %705, %703, %661, %666, %674, %680, %688
   %.0.ph.i.ph = phi i32 [ -1094995529, %688 ], [ -1094995529, %680 ], [ -1094995529, %674 ], [ -1094995529, %666 ], [ -1313558101, %661 ], [ -1094995529, %703 ], [ -1094995529, %705 ], [ %659, %658 ]
   call void @ff_rtmp_packet_destroy(ptr noundef nonnull %8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2103,20 +2103,20 @@ read_connect.exit:                                ; preds = %799
   call void @llvm.memset.p0.i64(ptr align 8 %825, i8 0, i64 %828, i1 false)
   %829 = load i32, ptr %183, align 8, !tbaa !81
   %830 = icmp sgt i32 %829, 0
-  br i1 %830, label %.lr.ph.i292, label %free_tracked_methods.exit
+  br i1 %830, label %.lr.ph.i293, label %free_tracked_methods.exit
 
-.lr.ph.i292:                                      ; preds = %.critedge, %.lr.ph.i292
-  %indvars.iv.i293 = phi i64 [ %indvars.iv.next.i294, %.lr.ph.i292 ], [ 0, %.critedge ]
+.lr.ph.i293:                                      ; preds = %.critedge, %.lr.ph.i293
+  %indvars.iv.i294 = phi i64 [ %indvars.iv.next.i295, %.lr.ph.i293 ], [ 0, %.critedge ]
   %831 = load ptr, ptr %184, align 8, !tbaa !82
-  %832 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %831, i64 %indvars.iv.i293
+  %832 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %831, i64 %indvars.iv.i294
   call void @av_freep(ptr noundef %832) #11
-  %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i293, 1
+  %indvars.iv.next.i295 = add nuw nsw i64 %indvars.iv.i294, 1
   %833 = load i32, ptr %183, align 8, !tbaa !81
   %834 = sext i32 %833 to i64
-  %835 = icmp slt i64 %indvars.iv.next.i294, %834
-  br i1 %835, label %.lr.ph.i292, label %free_tracked_methods.exit, !llvm.loop !83
+  %835 = icmp slt i64 %indvars.iv.next.i295, %834
+  br i1 %835, label %.lr.ph.i293, label %free_tracked_methods.exit, !llvm.loop !83
 
-free_tracked_methods.exit:                        ; preds = %.lr.ph.i292, %.critedge
+free_tracked_methods.exit:                        ; preds = %.lr.ph.i293, %.critedge
   call void @av_freep(ptr noundef nonnull %184) #11
   store i32 0, ptr %185, align 4, !tbaa !84
   store i32 0, ptr %183, align 8, !tbaa !81
@@ -2156,12 +2156,12 @@ free_tracked_methods.exit:                        ; preds = %.lr.ph.i292, %.crit
 854:                                              ; preds = %852
   %855 = load i32, ptr %163, align 4, !tbaa !59
   %.not261 = icmp eq i32 %855, 0
-  br i1 %.not261, label %856, label %.critedge.thread.thread374
+  br i1 %.not261, label %856, label %.critedge.thread.thread375
 
 856:                                              ; preds = %854
   %857 = load i32, ptr %164, align 8, !tbaa !60
   %.not262 = icmp eq i32 %857, 0
-  br i1 %.not262, label %858, label %.thread377
+  br i1 %.not262, label %858, label %.thread378
 
 858:                                              ; preds = %856
   %859 = call fastcc i32 @get_packet(ptr noundef nonnull %0, i32 noundef 0)
@@ -2174,11 +2174,11 @@ free_tracked_methods.exit:                        ; preds = %.lr.ph.i292, %.crit
   %863 = load i8, ptr %862, align 1, !tbaa !24
   %864 = or i8 %863, 4
   store i8 %864, ptr %862, align 1, !tbaa !24
-  %.pr372 = load i32, ptr %163, align 4, !tbaa !59
-  %.not264 = icmp eq i32 %.pr372, 0
-  br i1 %.not264, label %869, label %.critedge.thread.thread374
+  %.pr373 = load i32, ptr %163, align 4, !tbaa !59
+  %.not264 = icmp eq i32 %.pr373, 0
+  br i1 %.not264, label %869, label %.critedge.thread.thread375
 
-.critedge.thread.thread374:                       ; preds = %854, %.critedge.thread
+.critedge.thread.thread375:                       ; preds = %854, %.critedge.thread
   %865 = load ptr, ptr %844, align 8, !tbaa !87
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 4
   %867 = load i8, ptr %866, align 1, !tbaa !24
@@ -2186,29 +2186,29 @@ free_tracked_methods.exit:                        ; preds = %.lr.ph.i292, %.crit
   store i8 %868, ptr %866, align 1, !tbaa !24
   br label %869
 
-869:                                              ; preds = %.critedge.thread.thread374, %.critedge.thread
-  %.pr376 = load i32, ptr %164, align 8, !tbaa !60
-  %.not265 = icmp eq i32 %.pr376, 0
-  br i1 %.not265, label %870, label %.thread377
+869:                                              ; preds = %.critedge.thread.thread375, %.critedge.thread
+  %.pr377 = load i32, ptr %164, align 8, !tbaa !60
+  %.not265 = icmp eq i32 %.pr377, 0
+  br i1 %.not265, label %870, label %.thread378
 
 870:                                              ; preds = %869
   %871 = load double, ptr %166, align 8, !tbaa !62
   %872 = fcmp nsz ogt double %871, 0.000000e+00
-  br i1 %872, label %873, label %.thread377
+  br i1 %872, label %873, label %.thread378
 
 873:                                              ; preds = %870
   %874 = call fastcc i32 @inject_fake_duration_metadata(ptr noundef nonnull %40)
   %875 = icmp slt i32 %874, 0
-  br i1 %875, label %.loopexit, label %.thread377
+  br i1 %875, label %.loopexit, label %.thread378
 
 876:                                              ; preds = %840
   %877 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %878 = getelementptr inbounds nuw i8, ptr %40, i64 196
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %877, i8 0, i64 16, i1 false)
   store i32 13, ptr %878, align 4, !tbaa !89
-  br label %.thread377
+  br label %.thread378
 
-.thread377:                                       ; preds = %856, %869, %870, %873, %876
+.thread378:                                       ; preds = %856, %869, %870, %873, %876
   %879 = load ptr, ptr %111, align 8, !tbaa !46
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 36
   %881 = load i32, ptr %880, align 4, !tbaa !90
@@ -2218,13 +2218,13 @@ free_tracked_methods.exit:                        ; preds = %.lr.ph.i292, %.crit
   store i32 1, ptr %883, align 8, !tbaa !91
   br label %885
 
-.loopexit:                                        ; preds = %.thread344, %.thread349, %517, %509, %.thread336, %424, %816, %read_connect.exit, %gen_connect.exit, %rtmp_calc_swfhash.exit, %858, %read_connect.exit.thread370, %read_connect.exit.thread, %gen_connect.exit.thread, %rtmp_server_handshake.exit.thread, %rtmp_handshake.exit.thread, %873, %843, %._crit_edge
-  %.0179 = phi i32 [ %.lcssa443, %._crit_edge ], [ %845, %843 ], [ %874, %873 ], [ %.0.i.ph, %rtmp_handshake.exit.thread ], [ %.0.i271.ph, %rtmp_server_handshake.exit.thread ], [ %.0.i278.ph, %gen_connect.exit.thread ], [ %.0.i285.ph, %read_connect.exit.thread ], [ %.0.ph.i.ph, %read_connect.exit.thread370 ], [ %859, %858 ], [ -12, %.thread349 ], [ -12, %.thread344 ], [ -12, %517 ], [ -12, %509 ], [ -22, %.thread336 ], [ -12, %424 ], [ %645, %gen_connect.exit ], [ %814, %816 ], [ %811, %read_connect.exit ], [ %.020.i, %rtmp_calc_swfhash.exit ]
+.loopexit:                                        ; preds = %.thread345, %.thread350, %517, %509, %.thread337, %424, %816, %read_connect.exit, %gen_connect.exit, %rtmp_calc_swfhash.exit, %858, %read_connect.exit.thread371, %read_connect.exit.thread, %gen_connect.exit.thread, %rtmp_server_handshake.exit.thread, %rtmp_handshake.exit.thread, %873, %843, %._crit_edge
+  %.0179 = phi i32 [ %.lcssa444, %._crit_edge ], [ %845, %843 ], [ %874, %873 ], [ %.0.i.ph, %rtmp_handshake.exit.thread ], [ %.0.i272.ph, %rtmp_server_handshake.exit.thread ], [ %.0.i279.ph, %gen_connect.exit.thread ], [ %.0.i286.ph, %read_connect.exit.thread ], [ %.0.ph.i.ph, %read_connect.exit.thread371 ], [ %859, %858 ], [ -12, %.thread350 ], [ -12, %.thread345 ], [ -12, %517 ], [ -12, %509 ], [ -22, %.thread337 ], [ -12, %424 ], [ %645, %gen_connect.exit ], [ %814, %816 ], [ %811, %read_connect.exit ], [ %.020.i, %rtmp_calc_swfhash.exit ]
   %884 = call i32 @rtmp_close(ptr noundef nonnull %0)
   br label %885
 
-885:                                              ; preds = %.loopexit, %.thread377, %68
-  %.0176 = phi i32 [ -22, %68 ], [ %.0179, %.loopexit ], [ 0, %.thread377 ]
+885:                                              ; preds = %.loopexit, %.thread378, %68
+  %.0176 = phi i32 [ -22, %68 ], [ %.0179, %.loopexit ], [ 0, %.thread378 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)

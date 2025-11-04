@@ -176,8 +176,8 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %6, align 1
-  switch i8 %7, label %187 [
-    i8 2, label %185
+  switch i8 %7, label %171 [
+    i8 2, label %169
     i8 1, label %8
     i8 3, label %27
   ]
@@ -190,7 +190,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %13 = select i1 %9, i64 20, i64 %12
   %14 = tail call ptr @acpi_ut_create_string_object(i64 noundef %13) #6
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %187, label %16
+  br i1 %15, label %171, label %16
 
 16:                                               ; preds = %8
   %17 = select i1 %9, i16 10, i16 16
@@ -204,10 +204,10 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i32 %23, ptr %24, align 8
   %25 = zext i32 %23 to i64
   %26 = getelementptr i8, ptr %19, i64 %25
-  br label %182
+  br label %166
 
 27:                                               ; preds = %3
-  switch i32 %2, label %187 [
+  switch i32 %2, label %171 [
     i32 3, label %28
     i32 2, label %49
     i32 1, label %48
@@ -252,13 +252,13 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
 .loopexit:                                        ; preds = %36, %49, %28
   %54 = phi i32 [ 0, %28 ], [ %53, %49 ], [ %45, %36 ]
   %55 = phi i1 [ false, %28 ], [ true, %49 ], [ false, %36 ]
-  %56 = phi i16 [ 10, %28 ], [ 16, %49 ], [ 10, %36 ]
+  %56 = phi i1 [ true, %28 ], [ false, %49 ], [ true, %36 ]
   %57 = phi i8 [ 44, %28 ], [ %50, %49 ], [ 44, %36 ]
   %58 = tail call i32 @llvm.usub.sat.i32(i32 %54, i32 1)
   %59 = zext i32 %58 to i64
   %60 = tail call ptr @acpi_ut_create_string_object(i64 noundef %59) #6
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %187, label %62
+  br i1 %61, label %171, label %62
 
 62:                                               ; preds = %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -266,14 +266,11 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %178, label %68
+  br i1 %67, label %162, label %68
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i16 %56, label %.split [
-    i16 10, label %.split.us
-    i16 16, label %.split.us10
-  ]
+  br i1 %56, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %68, %.thread4.i.us
   %70 = phi i64 [ %112, %.thread4.i.us ], [ 0, %68 ]
@@ -355,14 +352,14 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %113 = load i32, ptr %65, align 8
   %114 = zext i32 %113 to i64
   %115 = icmp samesign ult i64 %112, %114
-  br i1 %115, label %.split.us, label %.split8.us, !llvm.loop !11
+  br i1 %115, label %.split.us, label %.split9.us, !llvm.loop !11
 
-.split.us10:                                      ; preds = %68
-  br i1 %55, label %.preheader.us.us, label %.preheader.us
+.split:                                           ; preds = %68
+  br i1 %55, label %.preheader.us, label %.preheader
 
-.preheader.us.us:                                 ; preds = %.split.us10, %.thread4.i.loopexit.us.us
-  %116 = phi i64 [ %135, %.thread4.i.loopexit.us.us ], [ 0, %.split.us10 ]
-  %117 = phi ptr [ %134, %.thread4.i.loopexit.us.us ], [ %64, %.split.us10 ]
+.preheader.us:                                    ; preds = %.split, %.thread4.i.loopexit.us
+  %116 = phi i64 [ %135, %.thread4.i.loopexit.us ], [ 0, %.split ]
+  %117 = phi ptr [ %134, %.thread4.i.loopexit.us ], [ %64, %.split ]
   %118 = getelementptr i8, ptr %117, i64 1
   store i8 48, ptr %117, align 1
   %119 = getelementptr i8, ptr %117, i64 2
@@ -375,9 +372,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %124
 
-124:                                              ; preds = %124, %.preheader.us.us
-  %125 = phi i64 [ %131, %124 ], [ 0, %.preheader.us.us ]
-  %126 = phi i32 [ %127, %124 ], [ 2, %.preheader.us.us ]
+124:                                              ; preds = %124, %.preheader.us
+  %125 = phi i64 [ %131, %124 ], [ 0, %.preheader.us ]
+  %126 = phi i32 [ %127, %124 ], [ 2, %.preheader.us ]
   %127 = add nsw i32 %126, -1
   %128 = shl i32 %127, 2
   %129 = tail call zeroext i8 @acpi_ut_hex_to_ascii_char(i64 noundef %123, i32 noundef %128) #6
@@ -385,9 +382,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i8 %129, ptr %130, align 1
   %131 = add nuw nsw i64 %125, 1
   %132 = icmp eq i64 %131, 2
-  br i1 %132, label %.thread4.i.loopexit.us.us, label %124, !llvm.loop !12
+  br i1 %132, label %.thread4.i.loopexit.us, label %124, !llvm.loop !12
 
-.thread4.i.loopexit.us.us:                        ; preds = %124
+.thread4.i.loopexit.us:                           ; preds = %124
   %133 = getelementptr i8, ptr %117, i64 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -397,11 +394,11 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %136 = load i32, ptr %65, align 8
   %137 = zext i32 %136 to i64
   %138 = icmp samesign ult i64 %135, %137
-  br i1 %138, label %.preheader.us.us, label %.split8.us, !llvm.loop !11
+  br i1 %138, label %.preheader.us, label %.split9.us, !llvm.loop !11
 
-.preheader.us:                                    ; preds = %.split.us10, %.thread4.i.loopexit.us
-  %139 = phi i64 [ %156, %.thread4.i.loopexit.us ], [ 0, %.split.us10 ]
-  %140 = phi ptr [ %155, %.thread4.i.loopexit.us ], [ %64, %.split.us10 ]
+.preheader:                                       ; preds = %.split, %.thread4.i.loopexit
+  %139 = phi i64 [ %156, %.thread4.i.loopexit ], [ 0, %.split ]
+  %140 = phi ptr [ %155, %.thread4.i.loopexit ], [ %64, %.split ]
   %141 = load ptr, ptr %69, align 8
   %142 = getelementptr i8, ptr %141, i64 %139
   %143 = load i8, ptr %142, align 1
@@ -410,9 +407,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %145
 
-145:                                              ; preds = %.preheader.us, %145
-  %146 = phi i64 [ %152, %145 ], [ 0, %.preheader.us ]
-  %147 = phi i32 [ %148, %145 ], [ 2, %.preheader.us ]
+145:                                              ; preds = %.preheader, %145
+  %146 = phi i64 [ %152, %145 ], [ 0, %.preheader ]
+  %147 = phi i32 [ %148, %145 ], [ 2, %.preheader ]
   %148 = add nsw i32 %147, -1
   %149 = shl i32 %148, 2
   %150 = tail call zeroext i8 @acpi_ut_hex_to_ascii_char(i64 noundef %144, i32 noundef %149) #6
@@ -420,9 +417,9 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   store i8 %150, ptr %151, align 1
   %152 = add nuw nsw i64 %146, 1
   %153 = icmp eq i64 %152, 2
-  br i1 %153, label %.thread4.i.loopexit.us, label %145, !llvm.loop !12
+  br i1 %153, label %.thread4.i.loopexit, label %145, !llvm.loop !12
 
-.thread4.i.loopexit.us:                           ; preds = %145
+.thread4.i.loopexit:                              ; preds = %145
   %154 = getelementptr i8, ptr %140, i64 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -432,64 +429,35 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ex_convert_to_string(ptr n
   %157 = load i32, ptr %65, align 8
   %158 = zext i32 %157 to i64
   %159 = icmp samesign ult i64 %156, %158
-  br i1 %159, label %.preheader.us, label %.split8.us, !llvm.loop !11
+  br i1 %159, label %.preheader, label %.split9.us, !llvm.loop !11
 
-.split:                                           ; preds = %68
-  br i1 %55, label %acpi_ex_convert_to_ascii.exit.us17, label %acpi_ex_convert_to_ascii.exit
+.split9.us:                                       ; preds = %.thread4.i.loopexit, %.thread4.i.loopexit.us, %.thread4.i.us
+  %.us-phi = phi ptr [ %111, %.thread4.i.us ], [ %134, %.thread4.i.loopexit.us ], [ %155, %.thread4.i.loopexit ]
+  %.us-phi10 = phi i32 [ %113, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us ], [ %157, %.thread4.i.loopexit ]
+  %160 = icmp ne i32 %.us-phi10, 0
+  %161 = sext i1 %160 to i64
+  br label %162
 
-acpi_ex_convert_to_ascii.exit.us17:               ; preds = %.split, %acpi_ex_convert_to_ascii.exit.us17
-  %160 = phi i64 [ %165, %acpi_ex_convert_to_ascii.exit.us17 ], [ 0, %.split ]
-  %161 = phi ptr [ %164, %acpi_ex_convert_to_ascii.exit.us17 ], [ %64, %.split ]
-  %162 = getelementptr i8, ptr %161, i64 1
-  store i8 48, ptr %161, align 1
-  %163 = getelementptr i8, ptr %161, i64 2
-  store i8 120, ptr %162, align 1
-  %164 = getelementptr i8, ptr %161, i64 3
-  store i8 %57, ptr %163, align 1
-  %165 = add nuw nsw i64 %160, 1
-  %166 = load i32, ptr %65, align 8
-  %167 = zext i32 %166 to i64
-  %168 = icmp samesign ult i64 %165, %167
-  br i1 %168, label %acpi_ex_convert_to_ascii.exit.us17, label %.split8.us, !llvm.loop !11
+162:                                              ; preds = %.split9.us, %62
+  %163 = phi ptr [ %64, %62 ], [ %.us-phi, %.split9.us ]
+  %164 = phi i64 [ 0, %62 ], [ %161, %.split9.us ]
+  %165 = getelementptr i8, ptr %163, i64 %164
+  br label %166
 
-acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_convert_to_ascii.exit
-  %169 = phi i64 [ %172, %acpi_ex_convert_to_ascii.exit ], [ 0, %.split ]
-  %170 = phi ptr [ %171, %acpi_ex_convert_to_ascii.exit ], [ %64, %.split ]
-  %171 = getelementptr i8, ptr %170, i64 1
-  store i8 %57, ptr %170, align 1
-  %172 = add nuw nsw i64 %169, 1
-  %173 = load i32, ptr %65, align 8
-  %174 = zext i32 %173 to i64
-  %175 = icmp samesign ult i64 %172, %174
-  br i1 %175, label %acpi_ex_convert_to_ascii.exit, label %.split8.us, !llvm.loop !11
+166:                                              ; preds = %162, %16
+  %167 = phi ptr [ %165, %162 ], [ %26, %16 ]
+  %168 = phi ptr [ %60, %162 ], [ %14, %16 ]
+  store i8 0, ptr %167, align 1
+  br label %169
 
-.split8.us:                                       ; preds = %.thread4.i.loopexit.us, %.thread4.i.loopexit.us.us, %.thread4.i.us, %acpi_ex_convert_to_ascii.exit, %acpi_ex_convert_to_ascii.exit.us17
-  %.us-phi = phi ptr [ %164, %acpi_ex_convert_to_ascii.exit.us17 ], [ %171, %acpi_ex_convert_to_ascii.exit ], [ %111, %.thread4.i.us ], [ %134, %.thread4.i.loopexit.us.us ], [ %155, %.thread4.i.loopexit.us ]
-  %.us-phi9 = phi i32 [ %166, %acpi_ex_convert_to_ascii.exit.us17 ], [ %173, %acpi_ex_convert_to_ascii.exit ], [ %113, %.thread4.i.us ], [ %136, %.thread4.i.loopexit.us.us ], [ %157, %.thread4.i.loopexit.us ]
-  %176 = icmp ne i32 %.us-phi9, 0
-  %177 = sext i1 %176 to i64
-  br label %178
+169:                                              ; preds = %166, %3
+  %170 = phi ptr [ %168, %166 ], [ %0, %3 ]
+  store ptr %170, ptr %1, align 8
+  br label %171
 
-178:                                              ; preds = %.split8.us, %62
-  %179 = phi ptr [ %64, %62 ], [ %.us-phi, %.split8.us ]
-  %180 = phi i64 [ 0, %62 ], [ %177, %.split8.us ]
-  %181 = getelementptr i8, ptr %179, i64 %180
-  br label %182
-
-182:                                              ; preds = %178, %16
-  %183 = phi ptr [ %181, %178 ], [ %26, %16 ]
-  %184 = phi ptr [ %60, %178 ], [ %14, %16 ]
-  store i8 0, ptr %183, align 1
-  br label %185
-
-185:                                              ; preds = %182, %3
-  %186 = phi ptr [ %184, %182 ], [ %0, %3 ]
-  store ptr %186, ptr %1, align 8
-  br label %187
-
-187:                                              ; preds = %185, %.loopexit, %27, %8, %3
-  %188 = phi i32 [ 4, %8 ], [ 4097, %27 ], [ 4, %.loopexit ], [ 8, %3 ], [ 0, %185 ]
-  ret i32 %188
+171:                                              ; preds = %169, %.loopexit, %27, %8, %3
+  %172 = phi i32 [ 4, %8 ], [ 4097, %27 ], [ 4, %.loopexit ], [ 8, %3 ], [ 0, %169 ]
+  ret i32 %172
 }
 
 ; Function Attrs: null_pointer_is_valid

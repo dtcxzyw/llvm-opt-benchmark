@@ -3058,7 +3058,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %76 = phi i1 [ true, %68 ], [ false, %65 ], [ false, %60 ]
   %77 = phi i64 [ %74, %68 ], [ 0, %65 ], [ 0, %60 ]
   %78 = icmp ult i64 %1, %2
-  br i1 %78, label %79, label %.thread73
+  br i1 %78, label %79, label %.thread74
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3074,12 +3074,12 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 
 89:                                               ; preds = %628, %79
   %90 = phi i64 [ %1, %79 ], [ %629, %628 ]
-  %91 = phi i32 [ 0, %79 ], [ %.ph59, %628 ]
-  %92 = phi i8 [ 0, %79 ], [ %.ph58, %628 ]
-  %93 = phi i64 [ %77, %79 ], [ %.ph57, %628 ]
+  %91 = phi i32 [ 0, %79 ], [ %.ph60, %628 ]
+  %92 = phi i8 [ 0, %79 ], [ %.ph59, %628 ]
+  %93 = phi i64 [ %77, %79 ], [ %.ph58, %628 ]
   %94 = phi ptr [ null, %79 ], [ %154, %628 ]
-  %95 = phi ptr [ null, %79 ], [ %.ph55, %628 ]
-  %96 = phi i64 [ 0, %79 ], [ %.ph54, %628 ]
+  %95 = phi ptr [ null, %79 ], [ %.ph56, %628 ]
+  %96 = phi i64 [ 0, %79 ], [ %.ph55, %628 ]
   %97 = phi i64 [ 0, %79 ], [ %.ph, %628 ]
   %98 = icmp uge i64 %90, %93
   %99 = select i1 %76, i1 %98, i1 false
@@ -3087,7 +3087,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 
 100:                                              ; preds = %89
   %101 = icmp eq i64 %96, 0
-  br i1 %101, label %102, label %.thread73
+  br i1 %101, label %102, label %.thread74
 
 102:                                              ; preds = %100
   %103 = load i32, ptr %80, align 8
@@ -3164,7 +3164,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %150 = ashr exact i64 %149, 6
   %151 = tail call i64 @get_pfnblock_flags_mask(ptr noundef %134, i64 noundef %150, i64 noundef 8) #16
   %152 = icmp eq i64 %151, 0
-  br i1 %152, label %153, label %.thread80
+  br i1 %152, label %153, label %.thread81
 
 153:                                              ; preds = %147, %144, %139, %129
   %154 = phi ptr [ %94, %129 ], [ null, %139 ], [ %134, %147 ], [ %134, %144 ]
@@ -3213,14 +3213,14 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %182 = load volatile i64, ptr %134, align 8
   %183 = and i64 %182, 64
   %184 = icmp eq i64 %183, 0
-  br i1 %184, label %.thread44, label %185
+  br i1 %184, label %.thread45, label %185
 
 185:                                              ; preds = %178
   %186 = getelementptr inbounds nuw i8, ptr %134, i64 100
   %187 = load i32, ptr %186, align 4
   %188 = zext i32 %187 to i64
-  %.pre166 = add i64 %97, %188
-  br label %.thread44
+  %.pre167 = add i64 %97, %188
+  br label %.thread45
 
 189:                                              ; preds = %165
   %190 = tail call i32 @PageHuge(ptr noundef %134) #16
@@ -3349,7 +3349,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %275 = select i1 %270, i64 %274, i64 %131, !prof !23
   %276 = select i1 %270, i64 %273, i64 0, !prof !23
   %277 = add i64 %276, %90
-  br label %.thread44
+  br label %.thread45
 
 278:                                              ; preds = %.critedge41, %252
   %279 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -3404,13 +3404,13 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %311 = ptrtoint ptr %310 to i64
   %312 = and i64 %311, 3
   %313 = icmp eq i64 %312, 2
-  br i1 %313, label %314, label %.thread44, !prof !24
+  br i1 %313, label %314, label %.thread45, !prof !24
 
 314:                                              ; preds = %308
   %315 = load volatile i64, ptr %134, align 8
   %316 = and i64 %315, 262144
   %317 = icmp eq i64 %316, 0
-  br i1 %317, label %318, label %.thread44
+  br i1 %317, label %318, label %.thread45
 
 318:                                              ; preds = %314
   %319 = icmp eq ptr %231, null
@@ -3424,7 +3424,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 
 323:                                              ; preds = %320, %318
   %324 = tail call zeroext i1 @isolate_movable_page(ptr noundef %134, i32 noundef %3) #16
-  br i1 %324, label %325, label %.thread44
+  br i1 %324, label %325, label %.thread45
 
 325:                                              ; preds = %323
   %326 = tail call fastcc i64 @_compound_head(ptr noundef %134)
@@ -3435,7 +3435,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %329 = getelementptr inbounds nuw i8, ptr %134, i64 52
   %330 = load volatile i32, ptr %329, align 4
   %331 = icmp eq i32 %330, 0
-  br i1 %331, label %.thread44, label %.lr.ph, !prof !64
+  br i1 %331, label %.thread45, label %.lr.ph, !prof !64
 
 .lr.ph:                                           ; preds = %328, %338
   %332 = phi i32 [ %339, %338 ], [ %330, %328 ]
@@ -3450,11 +3450,11 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 338:                                              ; preds = %.lr.ph
   %339 = extractvalue { i8, i32 } %334, 1
   %340 = icmp eq i32 %339, 0
-  br i1 %340, label %.thread44, label %.lr.ph, !prof !66, !llvm.loop !67
+  br i1 %340, label %.thread45, label %.lr.ph, !prof !66, !llvm.loop !67
 
 341:                                              ; preds = %.lr.ph
   %342 = icmp eq ptr %134, null
-  br i1 %342, label %.thread44, label %343, !prof !68
+  br i1 %342, label %.thread45, label %343, !prof !68
 
 343:                                              ; preds = %341
   %344 = tail call ptr @folio_mapping(ptr noundef nonnull %134) #16
@@ -3481,26 +3481,26 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 356:                                              ; preds = %354, %351
   %357 = phi i32 [ %353, %351 ], [ %355, %354 ]
   %358 = icmp sgt i32 %347, %357
-  br i1 %358, label %.thread47, label %.thread45
+  br i1 %358, label %.thread48, label %.thread46
 
 359:                                              ; preds = %343
   %360 = load i32, ptr %11, align 4
   %361 = and i32 %360, 128
   %362 = icmp eq i32 %361, 0
-  br i1 %362, label %.thread47, label %.thread45
+  br i1 %362, label %.thread48, label %.thread46
 
-.thread45:                                        ; preds = %356, %359
+.thread46:                                        ; preds = %356, %359
   %363 = load volatile i64, ptr %134, align 8
   %364 = and i64 %363, 32
   %365 = icmp eq i64 %364, 0
-  br i1 %365, label %.thread47, label %366
+  br i1 %365, label %.thread48, label %366
 
-366:                                              ; preds = %.thread45
+366:                                              ; preds = %.thread46
   %367 = load volatile i64, ptr %134, align 8
   %368 = and i64 %367, 1048576
   %369 = icmp eq i64 %368, 0
   %370 = select i1 %85, i1 true, i1 %369
-  br i1 %370, label %371, label %.thread47
+  br i1 %370, label %371, label %.thread48
 
 371:                                              ; preds = %366
   br i1 %87, label %376, label %372
@@ -3509,7 +3509,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %373 = load volatile i64, ptr %134, align 8
   %374 = and i64 %373, 2
   %375 = icmp eq i64 %374, 0
-  br i1 %375, label %376, label %.thread47
+  br i1 %375, label %376, label %.thread48
 
 376:                                              ; preds = %372, %371
   %377 = load volatile i64, ptr %134, align 8
@@ -3525,15 +3525,15 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %385 = icmp ult i8 %384, 2
   tail call void @llvm.assume(i1 %385)
   %386 = icmp eq i8 %384, 0
-  br i1 %386, label %387, label %.thread47
+  br i1 %386, label %387, label %.thread48
 
 387:                                              ; preds = %383
   %388 = tail call ptr @folio_mapping(ptr noundef nonnull %134) #16
   %389 = icmp eq ptr %388, null
   %390 = select i1 %380, i1 true, i1 %389
-  br i1 %390, label %396, label %.thread46
+  br i1 %390, label %396, label %.thread47
 
-.thread46:                                        ; preds = %387
+.thread47:                                        ; preds = %387
   %391 = getelementptr inbounds nuw i8, ptr %388, i64 104
   %392 = load ptr, ptr %391, align 8
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 96
@@ -3542,28 +3542,28 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   br label %397
 
 396:                                              ; preds = %387
-  br i1 %389, label %.critedge86, label %397
+  br i1 %389, label %.critedge87, label %397
 
-397:                                              ; preds = %.thread46, %396
-  %398 = phi i1 [ %395, %.thread46 ], [ false, %396 ]
+397:                                              ; preds = %.thread47, %396
+  %398 = phi i1 [ %395, %.thread47 ], [ false, %396 ]
   %399 = getelementptr inbounds nuw i8, ptr %388, i64 112
   %400 = load volatile i64, ptr %399, align 8
   %401 = and i64 %400, 512
   %402 = icmp ne i64 %401, 0
   %403 = select i1 %398, i1 true, i1 %402
   tail call void @folio_unlock(ptr noundef nonnull %134) #16
-  br i1 %403, label %.thread47, label %404
+  br i1 %403, label %.thread48, label %404
 
-.critedge86:                                      ; preds = %396
+.critedge87:                                      ; preds = %396
   tail call void @folio_unlock(ptr noundef nonnull %134) #16
   br label %404
 
-404:                                              ; preds = %.critedge86, %397, %376
+404:                                              ; preds = %.critedge87, %397, %376
   %405 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %134, i64 5, ptr nonnull elementtype(i64) %134) #16, !srcloc !70
   %406 = icmp ult i8 %405, 2
   tail call void @llvm.assume(i1 %406)
   %407 = icmp eq i8 %405, 0
-  br i1 %407, label %.thread47, label %408
+  br i1 %407, label %.thread48, label %408
 
 408:                                              ; preds = %404
   %409 = load i64, ptr %134, align 16
@@ -3633,17 +3633,17 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %451 = load volatile i64, ptr %134, align 8
   %452 = and i64 %451, 64
   %453 = icmp eq i64 %452, 0
-  br i1 %453, label %.thread50, label %454
+  br i1 %453, label %.thread51, label %454
 
 454:                                              ; preds = %447
   %455 = getelementptr inbounds nuw i8, ptr %134, i64 100
   %456 = load i32, ptr %455, align 4
   %457 = zext i32 %456 to i64
-  %.pre164 = add i64 %97, %457
-  br label %.thread50
+  %.pre165 = add i64 %97, %457
+  br label %.thread51
 
-.thread50:                                        ; preds = %447, %454
-  %.pre-phi165 = phi i64 [ %131, %447 ], [ %.pre164, %454 ]
+.thread51:                                        ; preds = %447, %454
+  %.pre-phi166 = phi i64 [ %131, %447 ], [ %.pre165, %454 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %134, i32 32, ptr nonnull elementtype(i8) %134) #16, !srcloc !71
   br label %585
 
@@ -3678,7 +3678,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %478 = load volatile i64, ptr %134, align 8
   %479 = and i64 %478, 1048576
   %480 = icmp eq i64 %479, 0
-  br i1 %480, label %481, label %.thread48
+  br i1 %480, label %481, label %.thread49
 
 481:                                              ; preds = %476
   %482 = load volatile i64, ptr %134, align 8
@@ -3699,35 +3699,35 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   store volatile ptr %494, ptr %493, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %279, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %492, align 8
-  %.pre161 = load i64, ptr %134, align 16
-  br label %.thread48
+  %.pre162 = load i64, ptr %134, align 16
+  br label %.thread49
 
-.thread48:                                        ; preds = %476, %481
-  %496 = phi i64 [ %.pre161, %481 ], [ %478, %476 ]
+.thread49:                                        ; preds = %476, %481
+  %496 = phi i64 [ %.pre162, %481 ], [ %478, %476 ]
   %497 = phi i32 [ %491, %481 ], [ 4, %476 ]
   %498 = lshr i64 %496, 56
   %499 = and i64 %498, 3
   %500 = load volatile i64, ptr %134, align 8
   %501 = and i64 %500, 64
   %502 = icmp eq i64 %501, 0
-  br i1 %502, label %.thread49, label %503
+  br i1 %502, label %.thread50, label %503
 
-503:                                              ; preds = %.thread48
+503:                                              ; preds = %.thread49
   %504 = getelementptr inbounds nuw i8, ptr %134, i64 100
   %505 = load i32, ptr %504, align 4
   %506 = zext i32 %505 to i64
   %507 = sub nsw i64 0, %506
   %508 = icmp ult i32 %505, -2147483647
-  br i1 %508, label %.thread49, label %509, !prof !72
+  br i1 %508, label %.thread50, label %509, !prof !72
 
 509:                                              ; preds = %503
   tail call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #16, !srcloc !73
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.113, i32 45, i32 2307, i64 12) #16, !srcloc !74
   tail call void asm sideeffect "413: nop\0A\09.pushsection .discard.instr_end\0A\09.long 413b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 413) #16, !srcloc !75
-  br label %.thread49
+  br label %.thread50
 
-.thread49:                                        ; preds = %.thread48, %509, %503
-  %510 = phi i64 [ %507, %509 ], [ %507, %503 ], [ -1, %.thread48 ]
+.thread50:                                        ; preds = %.thread49, %509, %503
+  %510 = phi i64 [ %507, %509 ], [ %507, %503 ], [ -1, %.thread49 ]
   %511 = shl i64 %510, 32
   %512 = ashr exact i64 %511, 32
   tail call void @__mod_node_page_state(ptr noundef %412, i32 noundef %497, i64 noundef %512) #16
@@ -3743,14 +3743,14 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %521 = icmp eq i64 %520, 0
   br i1 %521, label %526, label %522
 
-522:                                              ; preds = %.thread49
+522:                                              ; preds = %.thread50
   %523 = getelementptr inbounds nuw i8, ptr %134, i64 100
   %524 = load i32, ptr %523, align 4
   %525 = zext i32 %524 to i64
   br label %526
 
-526:                                              ; preds = %522, %.thread49
-  %527 = phi i64 [ %525, %522 ], [ 1, %.thread49 ]
+526:                                              ; preds = %522, %.thread50
+  %527 = phi i64 [ %525, %522 ], [ 1, %.thread50 ]
   %528 = lshr i64 %519, 58
   %529 = getelementptr ptr, ptr @node_data, i64 %528
   %530 = load ptr, ptr %529, align 8
@@ -3816,11 +3816,11 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %570 = getelementptr inbounds nuw i8, ptr %542, i64 100
   %571 = load i32, ptr %570, align 4
   %572 = zext i32 %571 to i64
-  %.pre163 = add i64 %97, %572
+  %.pre164 = add i64 %97, %572
   br label %573
 
 573:                                              ; preds = %569, %563
-  %.pre-phi = phi i64 [ %.pre163, %569 ], [ %131, %563 ]
+  %.pre-phi = phi i64 [ %.pre164, %569 ], [ %131, %563 ]
   %574 = icmp ugt i32 %555, 31
   br i1 %574, label %575, label %628
 
@@ -3835,38 +3835,38 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %581 = xor i8 %579, 1
   %582 = zext nneg i8 %581 to i64
   %583 = add i64 %545, %582
-  br i1 %580, label %.thread73, label %628
+  br i1 %580, label %.thread74, label %628
 
-.thread47:                                        ; preds = %397, %383, %404, %372, %366, %.thread45, %359, %356
+.thread48:                                        ; preds = %397, %383, %404, %372, %366, %.thread46, %359, %356
   %584 = icmp eq ptr %231, null
   br i1 %584, label %592, label %585
 
-585:                                              ; preds = %.thread50, %.thread47
-  %586 = phi i64 [ %450, %.thread50 ], [ %90, %.thread47 ]
-  %587 = phi i8 [ %432, %.thread50 ], [ %92, %.thread47 ]
-  %588 = phi ptr [ %413, %.thread50 ], [ %231, %.thread47 ]
-  %589 = phi i64 [ %.pre-phi165, %.thread50 ], [ %131, %.thread47 ]
+585:                                              ; preds = %.thread51, %.thread48
+  %586 = phi i64 [ %450, %.thread51 ], [ %90, %.thread48 ]
+  %587 = phi i8 [ %432, %.thread51 ], [ %92, %.thread48 ]
+  %588 = phi ptr [ %413, %.thread51 ], [ %231, %.thread48 ]
+  %589 = phi i64 [ %.pre-phi166, %.thread51 ], [ %131, %.thread48 ]
   %590 = load i64, ptr %5, align 8
   %591 = getelementptr inbounds nuw i8, ptr %588, i64 80
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %591, i64 noundef %590) #16
   br label %592
 
-592:                                              ; preds = %585, %.thread47
-  %593 = phi i64 [ %586, %585 ], [ %90, %.thread47 ]
-  %594 = phi i8 [ %587, %585 ], [ %92, %.thread47 ]
-  %595 = phi i64 [ %589, %585 ], [ %131, %.thread47 ]
+592:                                              ; preds = %585, %.thread48
+  %593 = phi i64 [ %586, %585 ], [ %90, %.thread48 ]
+  %594 = phi i8 [ %587, %585 ], [ %92, %.thread48 ]
+  %595 = phi i64 [ %589, %585 ], [ %131, %.thread48 ]
   %596 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %329, ptr nonnull elementtype(i32) %329) #16, !srcloc !76
   %597 = icmp ult i8 %596, 2
   tail call void @llvm.assume(i1 %597)
   %598 = icmp eq i8 %596, 0
-  br i1 %598, label %.thread44, label %599
+  br i1 %598, label %.thread45, label %599
 
 599:                                              ; preds = %592
   tail call void @__folio_put(ptr noundef nonnull %134) #16
-  br label %.thread44
+  br label %.thread45
 
-.thread44:                                        ; preds = %338, %178, %185, %328, %599, %592, %341, %323, %314, %308, %268
-  %600 = phi i64 [ %131, %341 ], [ %131, %314 ], [ %131, %323 ], [ %131, %308 ], [ %275, %268 ], [ %595, %592 ], [ %595, %599 ], [ %131, %328 ], [ %.pre166, %185 ], [ %131, %178 ], [ %131, %338 ]
+.thread45:                                        ; preds = %338, %178, %185, %328, %599, %592, %341, %323, %314, %308, %268
+  %600 = phi i64 [ %131, %341 ], [ %131, %314 ], [ %131, %323 ], [ %131, %308 ], [ %275, %268 ], [ %595, %592 ], [ %595, %599 ], [ %131, %328 ], [ %.pre167, %185 ], [ %131, %178 ], [ %131, %338 ]
   %601 = phi ptr [ %231, %341 ], [ %231, %314 ], [ null, %323 ], [ %231, %308 ], [ %231, %268 ], [ null, %592 ], [ null, %599 ], [ %231, %328 ], [ null, %185 ], [ null, %178 ], [ %231, %338 ]
   %602 = phi i8 [ %92, %341 ], [ %92, %314 ], [ %92, %323 ], [ %92, %308 ], [ %92, %268 ], [ %594, %592 ], [ %594, %599 ], [ %92, %328 ], [ %92, %185 ], [ %92, %178 ], [ %92, %338 ]
   %603 = phi i32 [ %232, %341 ], [ %232, %314 ], [ %232, %323 ], [ %232, %308 ], [ %232, %268 ], [ %232, %592 ], [ %232, %599 ], [ %232, %328 ], [ %170, %185 ], [ %170, %178 ], [ %232, %338 ]
@@ -3875,7 +3875,7 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %606 = select i1 %76, i1 true, i1 %605
   br i1 %606, label %607, label %628
 
-607:                                              ; preds = %.thread44
+607:                                              ; preds = %.thread45
   %608 = icmp eq i64 %96, 0
   br i1 %608, label %615, label %609
 
@@ -3910,54 +3910,54 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
 624:                                              ; preds = %618, %615
   %625 = phi i64 [ %623, %618 ], [ %109, %615 ]
   %626 = phi i64 [ %619, %618 ], [ %604, %615 ]
-  br i1 %605, label %.thread73, label %628
+  br i1 %605, label %.thread74, label %628
 
 627:                                              ; preds = %123
   store i8 1, ptr %81, align 2
   br label %725
 
-628:                                              ; preds = %237, %575, %573, %.thread44, %624, %578
-  %.ph = phi i64 [ %.pre-phi, %578 ], [ %600, %624 ], [ %600, %.thread44 ], [ %.pre-phi, %573 ], [ %.pre-phi, %575 ], [ %245, %237 ]
-  %.ph54 = phi i64 [ %565, %578 ], [ 0, %624 ], [ %96, %.thread44 ], [ %565, %573 ], [ %565, %575 ], [ %96, %237 ]
-  %.ph55 = phi ptr [ %541, %578 ], [ %616, %624 ], [ %601, %.thread44 ], [ %541, %573 ], [ %541, %575 ], [ %231, %237 ]
-  %.ph57 = phi i64 [ %109, %578 ], [ %625, %624 ], [ %109, %.thread44 ], [ %109, %573 ], [ %109, %575 ], [ %109, %237 ]
-  %.ph58 = phi i8 [ %543, %578 ], [ %602, %624 ], [ %602, %.thread44 ], [ %543, %573 ], [ %543, %575 ], [ %92, %237 ]
-  %.ph59 = phi i32 [ %544, %578 ], [ %603, %624 ], [ %603, %.thread44 ], [ %544, %573 ], [ %544, %575 ], [ %232, %237 ]
-  %.ph61 = phi i64 [ %583, %578 ], [ %626, %624 ], [ %604, %.thread44 ], [ %545, %573 ], [ %545, %575 ], [ %247, %237 ]
-  %629 = add i64 %.ph61, 1
+628:                                              ; preds = %237, %575, %573, %.thread45, %624, %578
+  %.ph = phi i64 [ %.pre-phi, %578 ], [ %600, %624 ], [ %600, %.thread45 ], [ %.pre-phi, %573 ], [ %.pre-phi, %575 ], [ %245, %237 ]
+  %.ph55 = phi i64 [ %565, %578 ], [ 0, %624 ], [ %96, %.thread45 ], [ %565, %573 ], [ %565, %575 ], [ %96, %237 ]
+  %.ph56 = phi ptr [ %541, %578 ], [ %616, %624 ], [ %601, %.thread45 ], [ %541, %573 ], [ %541, %575 ], [ %231, %237 ]
+  %.ph58 = phi i64 [ %109, %578 ], [ %625, %624 ], [ %109, %.thread45 ], [ %109, %573 ], [ %109, %575 ], [ %109, %237 ]
+  %.ph59 = phi i8 [ %543, %578 ], [ %602, %624 ], [ %602, %.thread45 ], [ %543, %573 ], [ %543, %575 ], [ %92, %237 ]
+  %.ph60 = phi i32 [ %544, %578 ], [ %603, %624 ], [ %603, %.thread45 ], [ %544, %573 ], [ %544, %575 ], [ %232, %237 ]
+  %.ph62 = phi i64 [ %583, %578 ], [ %626, %624 ], [ %604, %.thread45 ], [ %545, %573 ], [ %545, %575 ], [ %247, %237 ]
+  %629 = add i64 %.ph62, 1
   %630 = icmp ult i64 %629, %2
-  br i1 %630, label %89, label %.thread73, !llvm.loop !77
+  br i1 %630, label %89, label %.thread74, !llvm.loop !77
 
-.thread73:                                        ; preds = %578, %624, %100, %628, %75
+.thread74:                                        ; preds = %578, %624, %100, %628, %75
   %631 = phi i64 [ 0, %75 ], [ %.pre-phi, %578 ], [ %600, %624 ], [ %97, %100 ], [ %.ph, %628 ]
-  %632 = phi i64 [ 0, %75 ], [ %565, %578 ], [ 0, %624 ], [ %96, %100 ], [ %.ph54, %628 ]
-  %633 = phi ptr [ null, %75 ], [ %541, %578 ], [ %616, %624 ], [ %95, %100 ], [ %.ph55, %628 ]
+  %632 = phi i64 [ 0, %75 ], [ %565, %578 ], [ 0, %624 ], [ %96, %100 ], [ %.ph55, %628 ]
+  %633 = phi ptr [ null, %75 ], [ %541, %578 ], [ %616, %624 ], [ %95, %100 ], [ %.ph56, %628 ]
   %634 = phi ptr [ null, %75 ], [ %154, %578 ], [ %154, %624 ], [ %94, %100 ], [ %154, %628 ]
-  %635 = phi i8 [ 0, %75 ], [ %543, %578 ], [ %602, %624 ], [ %92, %100 ], [ %.ph58, %628 ]
-  %636 = phi i32 [ 0, %75 ], [ %544, %578 ], [ -12, %624 ], [ %91, %100 ], [ %.ph59, %628 ]
+  %635 = phi i8 [ 0, %75 ], [ %543, %578 ], [ %602, %624 ], [ %92, %100 ], [ %.ph59, %628 ]
+  %636 = phi i32 [ 0, %75 ], [ %544, %578 ], [ -12, %624 ], [ %91, %100 ], [ %.ph60, %628 ]
   %637 = phi i64 [ %1, %75 ], [ %583, %578 ], [ %626, %624 ], [ %90, %100 ], [ %629, %628 ]
   %638 = icmp ugt i64 %637, %2
-  br i1 %638, label %639, label %.thread80, !prof !24
+  br i1 %638, label %639, label %.thread81, !prof !24
 
-639:                                              ; preds = %.thread73
-  br label %.thread80
+639:                                              ; preds = %.thread74
+  br label %.thread81
 
-.thread80:                                        ; preds = %147, %639, %.thread73
-  %640 = phi i64 [ %631, %639 ], [ %631, %.thread73 ], [ %131, %147 ]
-  %641 = phi i64 [ %632, %639 ], [ %632, %.thread73 ], [ %96, %147 ]
-  %642 = phi ptr [ %633, %639 ], [ %633, %.thread73 ], [ %130, %147 ]
-  %643 = phi ptr [ %634, %639 ], [ %634, %.thread73 ], [ null, %147 ]
-  %644 = phi i8 [ %635, %639 ], [ %635, %.thread73 ], [ %92, %147 ]
-  %645 = phi i32 [ %636, %639 ], [ %636, %.thread73 ], [ %91, %147 ]
-  %646 = phi i64 [ %2, %639 ], [ %637, %.thread73 ], [ %2, %147 ]
+.thread81:                                        ; preds = %147, %639, %.thread74
+  %640 = phi i64 [ %631, %639 ], [ %631, %.thread74 ], [ %131, %147 ]
+  %641 = phi i64 [ %632, %639 ], [ %632, %.thread74 ], [ %96, %147 ]
+  %642 = phi ptr [ %633, %639 ], [ %633, %.thread74 ], [ %130, %147 ]
+  %643 = phi ptr [ %634, %639 ], [ %634, %.thread74 ], [ null, %147 ]
+  %644 = phi i8 [ %635, %639 ], [ %635, %.thread74 ], [ %92, %147 ]
+  %645 = phi i32 [ %636, %639 ], [ %636, %.thread74 ], [ %91, %147 ]
+  %646 = phi i64 [ %2, %639 ], [ %637, %.thread74 ], [ %2, %147 ]
   %647 = icmp eq ptr %642, null
-  br i1 %647, label %.thread81, label %.thread82
+  br i1 %647, label %.thread82, label %.thread83
 
-.thread82:                                        ; preds = %.thread80
+.thread83:                                        ; preds = %.thread81
   %648 = load i64, ptr %5, align 8
   %649 = getelementptr inbounds nuw i8, ptr %642, i64 80
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %649, i64 noundef %648) #16
-  br label %.thread81
+  br label %.thread82
 
 650:                                              ; preds = %428
   %651 = load i64, ptr %5, align 8
@@ -3967,32 +3967,32 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %653 = icmp ult i8 %652, 2
   tail call void @llvm.assume(i1 %653)
   %654 = icmp eq i8 %652, 0
-  br i1 %654, label %.thread84, label %655
+  br i1 %654, label %.thread85, label %655
 
 655:                                              ; preds = %650
   tail call void @__folio_put(ptr noundef nonnull %134) #16
-  br label %.thread84
+  br label %.thread85
 
-.thread81:                                        ; preds = %.thread80, %.thread82
+.thread82:                                        ; preds = %.thread81, %.thread83
   %656 = icmp eq i64 %646, %2
-  br i1 %656, label %.thread84, label %700
+  br i1 %656, label %.thread85, label %700
 
-.thread84:                                        ; preds = %650, %655, %.thread81
-  %657 = phi i32 [ %645, %.thread81 ], [ %232, %655 ], [ %232, %650 ]
-  %658 = phi i8 [ %644, %.thread81 ], [ 1, %655 ], [ 1, %650 ]
-  %659 = phi ptr [ %643, %.thread81 ], [ %154, %655 ], [ %154, %650 ]
-  %660 = phi i64 [ %641, %.thread81 ], [ %96, %655 ], [ %96, %650 ]
-  %661 = phi i64 [ %640, %.thread81 ], [ %131, %655 ], [ %131, %650 ]
+.thread85:                                        ; preds = %650, %655, %.thread82
+  %657 = phi i32 [ %645, %.thread82 ], [ %232, %655 ], [ %232, %650 ]
+  %658 = phi i8 [ %644, %.thread82 ], [ 1, %655 ], [ 1, %650 ]
+  %659 = phi ptr [ %643, %.thread82 ], [ %154, %655 ], [ %154, %650 ]
+  %660 = phi i64 [ %641, %.thread82 ], [ %96, %655 ], [ %96, %650 ]
+  %661 = phi i64 [ %640, %.thread82 ], [ %131, %655 ], [ %131, %650 ]
   %662 = icmp eq i64 %660, 0
   br i1 %662, label %667, label %663
 
-663:                                              ; preds = %.thread84
+663:                                              ; preds = %.thread85
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %665 = load i8, ptr %664, align 1, !range !44, !noundef !45
   %666 = icmp eq i8 %665, 0
   br i1 %666, label %700, label %667
 
-667:                                              ; preds = %663, %.thread84
+667:                                              ; preds = %663, %.thread85
   %668 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %669 = load i8, ptr %668, align 1, !range !44, !noundef !45
   %670 = icmp eq i8 %669, 0
@@ -4009,11 +4009,11 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   %679 = sub i64 %678, %677
   %680 = ashr exact i64 %679, 6
   tail call void @set_pfnblock_flags_mask(ptr noundef nonnull %659, i64 noundef 8, i64 noundef %680, i64 noundef 8) #16
-  %.pre162 = load i8, ptr %668, align 1, !range !44
+  %.pre163 = load i8, ptr %668, align 1, !range !44
   br label %681
 
 681:                                              ; preds = %676, %667
-  %682 = phi i8 [ %.pre162, %676 ], [ %669, %667 ]
+  %682 = phi i8 [ %.pre163, %676 ], [ %669, %667 ]
   %683 = icmp eq i8 %682, 0
   br i1 %683, label %684, label %700
 
@@ -4045,11 +4045,11 @@ define internal fastcc i32 @isolate_migratepages_block(ptr noundef initializes((
   store i64 %687, ptr %696, align 8
   br label %700
 
-700:                                              ; preds = %699, %695, %692, %681, %663, %.thread81
-  %701 = phi i64 [ %2, %699 ], [ %2, %695 ], [ %2, %692 ], [ %2, %681 ], [ %2, %663 ], [ %646, %.thread81 ]
-  %702 = phi i32 [ %657, %699 ], [ %657, %695 ], [ %657, %692 ], [ %657, %681 ], [ %657, %663 ], [ %645, %.thread81 ]
-  %703 = phi i64 [ %660, %699 ], [ %660, %695 ], [ %660, %692 ], [ %660, %681 ], [ %660, %663 ], [ %641, %.thread81 ]
-  %704 = phi i64 [ %661, %699 ], [ %661, %695 ], [ %661, %692 ], [ %661, %681 ], [ %661, %663 ], [ %640, %.thread81 ]
+700:                                              ; preds = %699, %695, %692, %681, %663, %.thread82
+  %701 = phi i64 [ %2, %699 ], [ %2, %695 ], [ %2, %692 ], [ %2, %681 ], [ %2, %663 ], [ %646, %.thread82 ]
+  %702 = phi i32 [ %657, %699 ], [ %657, %695 ], [ %657, %692 ], [ %657, %681 ], [ %657, %663 ], [ %645, %.thread82 ]
+  %703 = phi i64 [ %660, %699 ], [ %660, %695 ], [ %660, %692 ], [ %660, %681 ], [ %660, %663 ], [ %641, %.thread82 ]
+  %704 = phi i64 [ %661, %699 ], [ %661, %695 ], [ %661, %692 ], [ %661, %681 ], [ %661, %663 ], [ %640, %.thread82 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_compaction_isolate_migratepages, i64 8), i32 2) #16
           to label %725 [label %705], !srcloc !35
 
@@ -6825,11 +6825,11 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 ._crit_edge:                                      ; preds = %48
   %.pre = load ptr, ptr %7, align 8
-  %.pre121 = load i32, ptr %32, align 8
+  %.pre122 = load i32, ptr %32, align 8
   br label %50
 
 50:                                               ; preds = %._crit_edge, %2
-  %51 = phi i32 [ %.pre121, %._crit_edge ], [ -1, %2 ]
+  %51 = phi i32 [ %.pre122, %._crit_edge ], [ -1, %2 ]
   %52 = phi ptr [ %.pre, %._crit_edge ], [ %8, %2 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1080
   %54 = load i32, ptr %53, align 8
@@ -6891,13 +6891,13 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %90 = and i64 %89, -512
   store i64 %90, ptr %84, align 8
   store i64 %90, ptr %82, align 8
-  %.pre122 = load i64, ptr %81, align 8
-  %.pre124.pre = load ptr, ptr %7, align 8
+  %.pre123 = load i64, ptr %81, align 8
+  %.pre125.pre = load ptr, ptr %7, align 8
   br label %91
 
 91:                                               ; preds = %88, %75
-  %.pre124 = phi ptr [ %.pre124.pre, %88 ], [ %76, %75 ]
-  %92 = phi i64 [ %.pre122, %88 ], [ %80, %75 ]
+  %.pre125 = phi ptr [ %.pre125.pre, %88 ], [ %76, %75 ]
+  %92 = phi i64 [ %.pre123, %88 ], [ %80, %75 ]
   %93 = icmp uge i64 %92, %10
   %94 = icmp ult i64 %92, %13
   %95 = select i1 %93, i1 %94, i1 false
@@ -6905,17 +6905,17 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 96:                                               ; preds = %91
   store i64 %10, ptr %81, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.pre124, i64 1040
+  %97 = getelementptr inbounds nuw i8, ptr %.pre125, i64 1040
   store i64 %10, ptr %97, align 16
   %98 = load i64, ptr %81, align 8
   %99 = load ptr, ptr %7, align 8
   %100 = getelementptr i8, ptr %99, i64 1048
   store i64 %98, ptr %100, align 8
-  %.pre123 = load ptr, ptr %7, align 8
+  %.pre124 = load ptr, ptr %7, align 8
   br label %101
 
 101:                                              ; preds = %96, %91
-  %102 = phi ptr [ %.pre123, %96 ], [ %.pre124, %91 ]
+  %102 = phi ptr [ %.pre124, %96 ], [ %.pre125, %91 ]
   %103 = phi i64 [ %98, %96 ], [ %92, %91 ]
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 1056
   %105 = load i64, ptr %104, align 32
@@ -7038,7 +7038,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %181 = load i8, ptr %67, align 1, !range !44, !noundef !45
   %182 = icmp eq i8 %181, 0
   %183 = select i1 %182, i32 6, i32 5
-  br label %.thread42
+  br label %.thread43
 
 184:                                              ; preds = %154
   %185 = load i8, ptr %143, align 8, !range !44, !noundef !45
@@ -7052,22 +7052,22 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 13288
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
-  br i1 %193, label %.thread41, label %194
+  br i1 %193, label %.thread42, label %194
 
 194:                                              ; preds = %187
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %196 = load volatile i32, ptr %195, align 8
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %.thread42, label %.thread41
+  br i1 %197, label %.thread43, label %.thread42
 
-.thread41:                                        ; preds = %187, %194
+.thread42:                                        ; preds = %187, %194
   %198 = call i32 @extfrag_for_order(ptr noundef %188, i32 noundef 9) #16
   %199 = load i32, ptr @sysctl_compaction_proactiveness, align 4
   %200 = sub i32 100, %199
   %201 = call i32 @llvm.umax.i32(i32 %200, i32 5)
   %202 = icmp sgt i32 %198, %201
   %203 = select i1 %202, i32 4, i32 8
-  br label %.loopexit62
+  br label %.loopexit63
 
 204:                                              ; preds = %184
   %205 = load i32, ptr %32, align 8
@@ -7075,11 +7075,11 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %207 = and i64 %160, 511
   %208 = icmp eq i64 %207, 0
   %209 = and i1 %208, %206
-  br i1 %209, label %210, label %.thread42
+  br i1 %209, label %210, label %.thread43
 
 210:                                              ; preds = %204
   %211 = icmp ult i32 %205, 11
-  br i1 %211, label %212, label %.loopexit62
+  br i1 %211, label %212, label %.loopexit63
 
 212:                                              ; preds = %210
   %213 = sext i32 %157 to i64
@@ -7089,7 +7089,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 215:                                              ; preds = %226
   %216 = add nuw nsw i64 %219, 1
   %217 = icmp eq i64 %216, 11
-  br i1 %217, label %.loopexit62, label %218, !llvm.loop !133
+  br i1 %217, label %.loopexit63, label %218, !llvm.loop !133
 
 218:                                              ; preds = %215, %212
   %219 = phi i64 [ %214, %212 ], [ %216, %215 ]
@@ -7108,44 +7108,44 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %228 = call i32 @find_suitable_fallback(ptr noundef %222, i32 noundef %227, i32 noundef %157, i1 noundef zeroext true, ptr noundef nonnull %5) #16
   %229 = icmp eq i32 %228, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %229, label %215, label %.thread42
+  br i1 %229, label %215, label %.thread43
 
-.loopexit62:                                      ; preds = %215, %.thread41, %210
-  %230 = phi i32 [ %203, %.thread41 ], [ 3, %210 ], [ 3, %215 ]
+.loopexit63:                                      ; preds = %215, %.thread42, %210
+  %230 = phi i32 [ %203, %.thread42 ], [ 3, %210 ], [ 3, %215 ]
   %231 = load i8, ptr %144, align 2, !range !44, !noundef !45
   %232 = icmp eq i8 %231, 0
   br i1 %232, label %233, label %244
 
-233:                                              ; preds = %.loopexit62
+233:                                              ; preds = %.loopexit63
   %234 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !52
   %235 = inttoptr i64 %234 to ptr
   %236 = load volatile i64, ptr %235, align 8
   %237 = and i64 %236, 4
   %238 = icmp eq i64 %237, 0
-  br i1 %238, label %.thread42, label %239
+  br i1 %238, label %.thread43, label %239
 
 239:                                              ; preds = %233
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 1936
   %241 = load i64, ptr %240, align 8
   %242 = and i64 %241, 256
   %243 = icmp eq i64 %242, 0
-  br i1 %243, label %.thread42, label %244
+  br i1 %243, label %.thread43, label %244
 
-244:                                              ; preds = %239, %.loopexit62
-  br label %.thread42
+244:                                              ; preds = %239, %.loopexit63
+  br label %.thread43
 
 245:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread42
+  br label %.thread43
 
-.thread42:                                        ; preds = %226, %194, %245, %244, %239, %233, %204, %180
+.thread43:                                        ; preds = %226, %194, %245, %244, %239, %233, %204, %180
   %246 = phi i32 [ %183, %180 ], [ 4, %204 ], [ 8, %245 ], [ 7, %244 ], [ %230, %239 ], [ %230, %233 ], [ 6, %194 ], [ 8, %226 ]
   %247 = load ptr, ptr %7, align 8
   %248 = load i32, ptr %32, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_compaction_finished, i64 8), i32 2) #16
           to label %269 [label %249], !srcloc !35
 
-249:                                              ; preds = %.thread42
+249:                                              ; preds = %.thread43
   %250 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #16, !srcloc !134
   %251 = zext i32 %250 to i64
   %252 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %251) #16, !srcloc !37
@@ -7181,11 +7181,11 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   call void @llvm.write_register.i64(metadata !0, i64 %268)
   br label %269
 
-269:                                              ; preds = %266, %262, %249, %.thread42
+269:                                              ; preds = %266, %262, %249, %.thread43
   %270 = icmp eq i32 %246, 3
   %271 = select i1 %270, i32 4, i32 %246
   %272 = icmp eq i32 %271, 4
-  br i1 %272, label %273, label %.thread59
+  br i1 %272, label %273, label %.thread60
 
 273:                                              ; preds = %269
   %274 = load i64, ptr %141, align 8
@@ -7193,18 +7193,18 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %276 = icmp ult i64 %275, 512
   %277 = zext i1 %276 to i8
   store i8 %277, ptr %145, align 1
-  %.pre125 = load i32, ptr %14, align 8
-  %.pre126 = load i8, ptr %147, align 4, !range !44
-  %278 = icmp eq i32 %.pre125, 2
+  %.pre126 = load i32, ptr %14, align 8
+  %.pre127 = load i8, ptr %147, align 4, !range !44
+  %278 = icmp eq i32 %.pre126, 2
   %279 = select i1 %278, i32 0, i32 4
-  %280 = icmp ne i8 %.pre126, 0
+  %280 = icmp ne i8 %.pre127, 0
   %281 = icmp eq i8 %155, 0
   %282 = select i1 %280, i1 true, i1 %276
   br label %283
 
 283:                                              ; preds = %712, %273
-  %.not207 = phi i1 [ %282, %273 ], [ true, %712 ]
-  %284 = phi i64 [ %274, %273 ], [ %.pre129, %712 ]
+  %.not208 = phi i1 [ %282, %273 ], [ true, %712 ]
+  %284 = phi i64 [ %274, %273 ], [ %.pre130, %712 ]
   %285 = phi i32 [ %279, %273 ], [ 4, %712 ]
   %286 = phi i1 [ %281, %273 ], [ true, %712 ]
   %287 = phi i64 [ %156, %273 ], [ %715, %712 ]
@@ -7217,7 +7217,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %294 = zext nneg i16 %293 to i64
   %295 = lshr i64 32, %294
   %296 = trunc nuw nsw i64 %295 to i32
-  br i1 %.not207, label %.thread176, label %297
+  br i1 %.not208, label %.thread177, label %297
 
 297:                                              ; preds = %283
   %298 = load ptr, ptr %7, align 8
@@ -7227,12 +7227,12 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %302 = and i64 %284, 511
   %303 = icmp eq i64 %302, 0
   %304 = or i1 %303, %301
-  br i1 %304, label %305, label %.thread176
+  br i1 %304, label %305, label %.thread177
 
 305:                                              ; preds = %297
   %306 = load i32, ptr %32, align 8
   %307 = icmp slt i32 %306, 4
-  br i1 %307, label %.thread176, label %308
+  br i1 %307, label %.thread177, label %308
 
 308:                                              ; preds = %305
   %309 = load i8, ptr %142, align 1, !range !44, !noundef !45
@@ -7242,7 +7242,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 311:                                              ; preds = %308
   %312 = load i32, ptr %31, align 4
   %313 = icmp eq i32 %312, 1
-  br i1 %313, label %314, label %.thread176
+  br i1 %313, label %314, label %.thread177
 
 314:                                              ; preds = %311, %308
   %315 = load i64, ptr %140, align 8
@@ -7275,7 +7275,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %338 = getelementptr i8, ptr %330, i64 24
   %339 = load ptr, ptr %337, align 8
   %340 = icmp eq ptr %339, %337
-  br i1 %340, label %.thread46, label %.lr.ph.preheader
+  br i1 %340, label %.thread47, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %334
   %umax = call i32 @llvm.umax.i32(i32 %326, i32 %323)
@@ -7343,7 +7343,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 371:                                              ; preds = %367, %364, %347
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread46
+  br label %.thread47
 
 372:                                              ; preds = %.lr.ph
   %373 = load i64, ptr @vmemmap_base, align 8
@@ -7433,14 +7433,14 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %415 = load i64, ptr %414, align 64
   %416 = call i64 @llvm.umax.i64(i64 %412, i64 %415)
   store i16 0, ptr %146, align 8
-  br label %.thread46
+  br label %.thread47
 
 417:                                              ; preds = %378, %372
   %418 = load ptr, ptr %342, align 8
   %419 = icmp eq ptr %418, %337
-  br i1 %419, label %.thread46, label %.lr.ph, !llvm.loop !138
+  br i1 %419, label %.thread47, label %.lr.ph, !llvm.loop !138
 
-.thread46:                                        ; preds = %417, %334, %411, %371
+.thread47:                                        ; preds = %417, %334, %411, %371
   %420 = phi i1 [ false, %411 ], [ true, %371 ], [ true, %334 ], [ true, %417 ]
   %421 = phi i64 [ %416, %411 ], [ %327, %371 ], [ %327, %334 ], [ %327, %417 ]
   %422 = phi i32 [ %345, %411 ], [ %341, %371 ], [ %326, %334 ], [ %345, %417 ]
@@ -7449,10 +7449,10 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %424, i64 noundef %336) #16
   br label %425
 
-425:                                              ; preds = %.thread46, %324
-  %426 = phi i1 [ %420, %.thread46 ], [ true, %324 ]
-  %427 = phi i64 [ %421, %.thread46 ], [ %327, %324 ]
-  %428 = phi i32 [ %422, %.thread46 ], [ %326, %324 ]
+425:                                              ; preds = %.thread47, %324
+  %426 = phi i1 [ %420, %.thread47 ], [ true, %324 ]
+  %427 = phi i64 [ %421, %.thread47 ], [ %327, %324 ]
+  %428 = phi i32 [ %422, %.thread47 ], [ %326, %324 ]
   %429 = trunc i64 %325 to i32
   %430 = add i32 %429, -1
   %431 = icmp sgt i32 %430, 2
@@ -7480,16 +7480,16 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 
 444:                                              ; preds = %440
   %445 = load i64, ptr %141, align 8
-  br label %.thread176
+  br label %.thread177
 
 446:                                              ; preds = %440
   store i64 %443, ptr %141, align 8
   store i64 -1, ptr %66, align 8
-  br label %.thread176
+  br label %.thread177
 
-.thread176:                                       ; preds = %283, %297, %305, %311, %444, %446
-  %.ph175 = phi i64 [ %443, %446 ], [ %445, %444 ], [ %284, %311 ], [ %284, %305 ], [ %284, %297 ], [ %284, %283 ]
-  %447 = and i64 %.ph175, -512
+.thread177:                                       ; preds = %283, %297, %305, %311, %444, %446
+  %.ph176 = phi i64 [ %443, %446 ], [ %445, %444 ], [ %284, %311 ], [ %284, %305 ], [ %284, %297 ], [ %284, %283 ]
+  %447 = and i64 %.ph176, -512
   %448 = load ptr, ptr %7, align 8
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 128
   %450 = load i64, ptr %449, align 64
@@ -7497,8 +7497,8 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   br label %462
 
 452:                                              ; preds = %436
-  %.pre128 = load i64, ptr %141, align 8
-  %453 = icmp eq i64 %427, %.pre128
+  %.pre129 = load i64, ptr %141, align 8
+  %453 = icmp eq i64 %427, %.pre129
   %454 = and i64 %427, -512
   %455 = load ptr, ptr %7, align 8
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 128
@@ -7511,30 +7511,30 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %461 = icmp eq i16 %460, 0
   br label %462
 
-462:                                              ; preds = %.thread176, %459, %452
-  %463 = phi i64 [ %458, %452 ], [ %458, %459 ], [ %451, %.thread176 ]
-  %464 = phi i64 [ %454, %452 ], [ %454, %459 ], [ %447, %.thread176 ]
-  %465 = phi i64 [ %427, %452 ], [ %427, %459 ], [ %.ph175, %.thread176 ]
-  %466 = phi i1 [ false, %452 ], [ %461, %459 ], [ false, %.thread176 ]
+462:                                              ; preds = %.thread177, %459, %452
+  %463 = phi i64 [ %458, %452 ], [ %458, %459 ], [ %451, %.thread177 ]
+  %464 = phi i64 [ %454, %452 ], [ %454, %459 ], [ %447, %.thread177 ]
+  %465 = phi i64 [ %427, %452 ], [ %427, %459 ], [ %.ph176, %.thread177 ]
+  %466 = phi i1 [ false, %452 ], [ %461, %459 ], [ false, %.thread177 ]
   %467 = add i64 %464, 512
   %468 = load i64, ptr %140, align 8
   %469 = icmp ugt i64 %467, %468
-  br i1 %469, label %.loopexit, label %.preheader61
+  br i1 %469, label %.loopexit, label %.preheader62
 
-.preheader61:                                     ; preds = %462, %.thread50
-  %470 = phi i64 [ %648, %.thread50 ], [ %467, %462 ]
-  %471 = phi i64 [ %647, %.thread50 ], [ %463, %462 ]
-  %472 = phi i64 [ %647, %.thread50 ], [ %465, %462 ]
-  %473 = phi i1 [ false, %.thread50 ], [ %466, %462 ]
+.preheader62:                                     ; preds = %462, %.thread51
+  %470 = phi i64 [ %648, %.thread51 ], [ %467, %462 ]
+  %471 = phi i64 [ %647, %.thread51 ], [ %463, %462 ]
+  %472 = phi i64 [ %647, %.thread51 ], [ %465, %462 ]
+  %473 = phi i1 [ false, %.thread51 ], [ %466, %462 ]
   %474 = and i64 %472, 16383
   %475 = icmp eq i64 %474, 0
   br i1 %475, label %476, label %478
 
-476:                                              ; preds = %.preheader61
+476:                                              ; preds = %.preheader62
   %477 = call i32 @__SCT__cond_resched() #16
   br label %478
 
-478:                                              ; preds = %476, %.preheader61
+478:                                              ; preds = %476, %.preheader62
   %479 = load ptr, ptr %7, align 8
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 1085
   %481 = load i8, ptr %480, align 1, !range !44, !noundef !45
@@ -7568,24 +7568,24 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 496:                                              ; preds = %495, %492, %492
   %497 = phi i64 [ 2048, %495 ], [ 131072, %492 ], [ 131072, %492 ]
   %498 = icmp samesign ult i64 %494, %497
-  br i1 %498, label %499, label %.thread48, !prof !23
+  br i1 %498, label %499, label %.thread49, !prof !23
 
 499:                                              ; preds = %496
   %500 = load ptr, ptr @mem_section, align 8
   %501 = icmp eq ptr %500, null
-  br i1 %501, label %.thread48, label %502
+  br i1 %501, label %.thread49, label %502
 
 502:                                              ; preds = %499
   %503 = getelementptr ptr, ptr %500, i64 %494
   %504 = load ptr, ptr %503, align 8
   %505 = icmp eq ptr %504, null
-  br i1 %505, label %.thread48, label %506
+  br i1 %505, label %.thread49, label %506
 
 506:                                              ; preds = %502
   %507 = and i64 %493, 255
   %508 = getelementptr %struct.mem_section, ptr %504, i64 %507
   %509 = icmp eq ptr %508, null
-  br i1 %509, label %.thread48, label %510
+  br i1 %509, label %.thread49, label %510
 
 510:                                              ; preds = %506
   %511 = load i64, ptr %508, align 8
@@ -7594,28 +7594,28 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %514 = load i64, ptr @__highest_present_section_nr, align 8
   %.not = icmp ult i64 %493, %514
   %or.cond = select i1 %513, i1 %.not, i1 false
-  br i1 %or.cond, label %.lr.ph92.preheader, label %.thread50
+  br i1 %or.cond, label %.lr.ph93.preheader, label %.thread51
 
-.thread48:                                        ; preds = %499, %502, %496, %506
+.thread49:                                        ; preds = %499, %502, %496, %506
   %.old = load i64, ptr @__highest_present_section_nr, align 8
   %.not.old = icmp ult i64 %493, %.old
-  br i1 %.not.old, label %.lr.ph92.preheader, label %.thread50
+  br i1 %.not.old, label %.lr.ph93.preheader, label %.thread51
 
-.lr.ph92.preheader:                               ; preds = %510, %.thread48
+.lr.ph93.preheader:                               ; preds = %510, %.thread49
   %515 = add nuw nsw i64 %493, 1
-  br label %.lr.ph92
+  br label %.lr.ph93
 
-.lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.critedge.backedge
-  %516 = phi i64 [ %537, %.critedge.backedge ], [ %515, %.lr.ph92.preheader ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.critedge.backedge
+  %516 = phi i64 [ %537, %.critedge.backedge ], [ %515, %.lr.ph93.preheader ]
   %517 = lshr i64 %516, 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #16
           to label %519 [label %519, label %518], !srcloc !124
 
-518:                                              ; preds = %.lr.ph92
+518:                                              ; preds = %.lr.ph93
   br label %519
 
-519:                                              ; preds = %518, %.lr.ph92, %.lr.ph92
-  %520 = phi i64 [ 2048, %518 ], [ 131072, %.lr.ph92 ], [ 131072, %.lr.ph92 ]
+519:                                              ; preds = %518, %.lr.ph93, %.lr.ph93
+  %520 = phi i64 [ 2048, %518 ], [ 131072, %.lr.ph93 ], [ 131072, %.lr.ph93 ]
   %521 = icmp samesign ult i64 %517, %520
   br i1 %521, label %522, label %.critedge.backedge, !prof !23
 
@@ -7646,17 +7646,17 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %537 = add i64 %516, 1
   %538 = load i64, ptr @__highest_present_section_nr, align 8
   %539 = icmp ugt i64 %537, %538
-  br i1 %539, label %.thread50, label %.lr.ph92, !llvm.loop !140
+  br i1 %539, label %.thread51, label %.lr.ph93, !llvm.loop !140
 
 540:                                              ; preds = %533
   %541 = shl i64 %516, 15
   %542 = icmp eq i64 %541, 0
-  br i1 %542, label %.thread50, label %543
+  br i1 %542, label %.thread51, label %543
 
 543:                                              ; preds = %540
   %544 = load i64, ptr %140, align 8
   %545 = call i64 @llvm.umin.i64(i64 %541, i64 %544)
-  br label %.thread50
+  br label %.thread51
 
 546:                                              ; preds = %489
   %547 = and i64 %472, 511
@@ -7686,7 +7686,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %563 = ashr exact i64 %562, 6
   %564 = call i64 @get_pfnblock_flags_mask(ptr noundef nonnull %490, i64 noundef %563, i64 noundef 8) #16
   %565 = icmp eq i64 %564, 0
-  br i1 %565, label %566, label %.thread50
+  br i1 %565, label %566, label %.thread51
 
 566:                                              ; preds = %559, %556, %555, %549
   %567 = load volatile i64, ptr %490, align 8
@@ -7779,7 +7779,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 625:                                              ; preds = %616, %605
   %626 = load i8, ptr %150, align 1, !range !44, !noundef !45
   %627 = icmp eq i8 %626, 0
-  br i1 %627, label %628, label %.thread50
+  br i1 %627, label %628, label %.thread51
 
 628:                                              ; preds = %625
   %629 = load ptr, ptr %7, align 8
@@ -7797,32 +7797,32 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 636:                                              ; preds = %635, %628
   %637 = load i32, ptr %14, align 8
   %638 = icmp eq i32 %637, 0
-  br i1 %638, label %.thread50, label %639
+  br i1 %638, label %.thread51, label %639
 
 639:                                              ; preds = %636
   %640 = getelementptr i8, ptr %629, i64 1048
   %641 = load i64, ptr %640, align 8
   %642 = icmp ugt i64 %631, %641
-  br i1 %642, label %643, label %.thread50
+  br i1 %642, label %643, label %.thread51
 
 643:                                              ; preds = %639
   store i64 %631, ptr %640, align 8
-  br label %.thread50
+  br label %.thread51
 
 644:                                              ; preds = %616, %613, %610
   %645 = call fastcc i32 @isolate_migratepages_block(ptr noundef %0, i64 noundef %472, i64 noundef %470, i32 noundef %291)
   %646 = icmp eq i32 %645, 0
   br i1 %646, label %.loopexit, label %653
 
-.thread50:                                        ; preds = %.critedge.backedge, %.thread48, %510, %643, %639, %636, %625, %559, %543, %540
-  %647 = phi i64 [ %470, %559 ], [ %545, %543 ], [ %470, %540 ], [ %470, %625 ], [ %470, %636 ], [ %470, %639 ], [ %470, %643 ], [ %470, %510 ], [ %470, %.thread48 ], [ %470, %.critedge.backedge ]
+.thread51:                                        ; preds = %.critedge.backedge, %.thread49, %510, %643, %639, %636, %625, %559, %543, %540
+  %647 = phi i64 [ %470, %559 ], [ %545, %543 ], [ %470, %540 ], [ %470, %625 ], [ %470, %636 ], [ %470, %639 ], [ %470, %643 ], [ %470, %510 ], [ %470, %.thread49 ], [ %470, %.critedge.backedge ]
   store i64 %647, ptr %141, align 8
   %648 = add i64 %647, 512
   %649 = load i64, ptr %140, align 8
   %650 = icmp ugt i64 %648, %649
-  br i1 %650, label %.loopexit, label %.preheader61, !llvm.loop !141
+  br i1 %650, label %.loopexit, label %.preheader62, !llvm.loop !141
 
-.loopexit:                                        ; preds = %.thread50, %644, %462
+.loopexit:                                        ; preds = %.thread51, %644, %462
   %651 = load i32, ptr %19, align 4
   %652 = icmp eq i32 %651, 0
   br i1 %652, label %654, label %660
@@ -7830,7 +7830,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 653:                                              ; preds = %644
   call void @putback_movable_pages(ptr noundef nonnull %22) #16
   store i32 0, ptr %19, align 4
-  br label %.thread59
+  br label %.thread60
 
 654:                                              ; preds = %.loopexit
   br i1 %286, label %720, label %655
@@ -7901,18 +7901,18 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 693:                                              ; preds = %691
   call void @putback_movable_pages(ptr noundef nonnull %22) #16
   %694 = icmp eq i32 %669, -12
-  %.pre129 = load i64, ptr %141, align 8
+  %.pre130 = load i64, ptr %141, align 8
   br i1 %694, label %695, label %700
 
 695:                                              ; preds = %693
   %696 = load i64, ptr %140, align 8
   %697 = lshr i64 %696, 9
-  %698 = lshr i64 %.pre129, 9
+  %698 = lshr i64 %.pre130, 9
   %699 = icmp samesign ugt i64 %697, %698
-  br i1 %699, label %.thread59, label %700
+  br i1 %699, label %.thread60, label %700
 
 700:                                              ; preds = %695, %693
-  %701 = and i64 %.pre129, 511
+  %701 = and i64 %.pre130, 511
   %702 = icmp eq i64 %701, 0
   br i1 %702, label %716, label %703
 
@@ -7944,7 +7944,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
 717:                                              ; preds = %716
   %718 = load ptr, ptr %153, align 8
   %719 = icmp eq ptr %718, null
-  br i1 %719, label %720, label %.thread59
+  br i1 %719, label %720, label %.thread60
 
 720:                                              ; preds = %717, %716, %655, %654
   %721 = phi i8 [ 0, %717 ], [ 0, %716 ], [ 1, %655 ], [ 0, %654 ]
@@ -7972,18 +7972,18 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %.be = phi i64 [ 0, %733 ], [ %722, %727 ], [ %722, %720 ]
   br label %154
 
-.thread59:                                        ; preds = %717, %269, %695, %653
+.thread60:                                        ; preds = %717, %269, %695, %653
   %735 = phi i32 [ 7, %653 ], [ 7, %695 ], [ 8, %717 ], [ %271, %269 ]
   %736 = load i32, ptr %20, align 8
   %737 = icmp eq i32 %736, 0
   br i1 %737, label %761, label %738
 
-738:                                              ; preds = %.thread59
+738:                                              ; preds = %.thread60
   %739 = load ptr, ptr %0, align 8
   %740 = icmp eq ptr %739, %0
-  br i1 %740, label %.thread60, label %.preheader
+  br i1 %740, label %.thread61, label %.preheader
 
-.thread60:                                        ; preds = %738
+.thread61:                                        ; preds = %738
   store i32 0, ptr %20, align 8
   br label %761
 
@@ -8021,7 +8021,7 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   store i64 %755, ptr %757, align 8
   br label %761
 
-761:                                              ; preds = %.thread60, %760, %754, %.thread59
+761:                                              ; preds = %.thread61, %760, %754, %.thread60
   %762 = load i64, ptr %17, align 8
   call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 416), i64 %762, ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @vm_event_states, i64 416)) #16, !srcloc !61
   %763 = load i64, ptr %18, align 8

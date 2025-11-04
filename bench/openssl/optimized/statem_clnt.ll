@@ -4728,7 +4728,7 @@ PACKET_get_length_prefixed_2.exit.thread:         ; preds = %336, %334, %346
   %388 = load ptr, ptr %6, align 8, !tbaa !168
   call void @CRYPTO_free(ptr noundef %388, ptr noundef nonnull @.str, i32 noundef 2543) #8
   %389 = icmp slt i32 %387, 1
-  br i1 %389, label %390, label %.thread158
+  br i1 %389, label %390, label %.thread157
 
 390:                                              ; preds = %385
   call void @ERR_new() #8
@@ -4736,7 +4736,7 @@ PACKET_get_length_prefixed_2.exit.thread:         ; preds = %336, %334, %346
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 51, i32 noundef 123, ptr noundef null) #8
   br label %.thread154
 
-.thread158:                                       ; preds = %385
+.thread157:                                       ; preds = %385
   call void @EVP_MD_CTX_free(ptr noundef nonnull %351) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4789,8 +4789,8 @@ tls_process_ske_psk_preamble.exit.thread:         ; preds = %391, %PACKET_get_1.
   call void @EVP_MD_CTX_free(ptr noundef %.061) #8
   br label %401
 
-401:                                              ; preds = %.thread158, %399, %tls_process_ske_psk_preamble.exit.thread
-  %.060 = phi i32 [ 0, %tls_process_ske_psk_preamble.exit.thread ], [ 3, %399 ], [ 3, %.thread158 ]
+401:                                              ; preds = %.thread157, %399, %tls_process_ske_psk_preamble.exit.thread
+  %.060 = phi i32 [ 0, %tls_process_ske_psk_preamble.exit.thread ], [ 3, %399 ], [ 3, %.thread157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.060
 }

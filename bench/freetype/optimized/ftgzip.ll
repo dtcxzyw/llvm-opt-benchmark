@@ -101,10 +101,10 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %44 = load i64, ptr %43, align 8, !tbaa !31
   %45 = add i64 %44, -4
   %46 = call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef %45) #6
-  %.not.i63 = icmp eq i32 %46, 0
-  br i1 %.not.i63, label %ft_gzip_get_uncompressed_size.exit, label %.thread76
+  %.not.i64 = icmp eq i32 %46, 0
+  br i1 %.not.i64, label %ft_gzip_get_uncompressed_size.exit, label %.thread77
 
-.thread76:                                        ; preds = %40
+.thread77:                                        ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
@@ -124,7 +124,7 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   %52 = call ptr @ft_mem_qalloc(ptr noundef %10, i64 noundef %spec.store.select.i, ptr noundef nonnull %4) #6
   %53 = load i32, ptr %4, align 4, !tbaa !3
   %.not61 = icmp eq i32 %53, 0
-  br i1 %.not61, label %54, label %.thread73
+  br i1 %.not61, label %54, label %.thread74
 
 54:                                               ; preds = %51
   %55 = call fastcc i64 @ft_gzip_file_io(ptr noundef %14, i64 noundef 0, ptr noundef %52, i64 noundef %spec.store.select.i)
@@ -134,9 +134,9 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
 56:                                               ; preds = %54
   %57 = call fastcc i64 @ft_gzip_file_io(ptr noundef %14, i64 noundef 0, ptr noundef null, i64 noundef 0)
   call void @ft_mem_free(ptr noundef %10, ptr noundef %52) #6
-  br label %.thread73
+  br label %.thread74
 
-.thread73:                                        ; preds = %51, %56
+.thread74:                                        ; preds = %51, %56
   store i32 0, ptr %4, align 4, !tbaa !3
   br label %71
 
@@ -144,7 +144,7 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   %.not60 = icmp eq i32 %narrow.i, 0
   br i1 %.not60, label %59, label %71
 
-59:                                               ; preds = %.thread76, %58
+59:                                               ; preds = %.thread77, %58
   br label %71
 
 60:                                               ; preds = %54
@@ -171,8 +171,8 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   store ptr @ft_gzip_stream_close, ptr %70, align 8, !tbaa !36
   br label %76
 
-71:                                               ; preds = %58, %.thread73, %59
-  %.sink = phi i64 [ 2147483647, %59 ], [ %spec.store.select.i, %.thread73 ], [ %spec.store.select.i, %58 ]
+71:                                               ; preds = %58, %.thread74, %59
+  %.sink = phi i64 [ 2147483647, %59 ], [ %spec.store.select.i, %.thread74 ], [ %spec.store.select.i, %58 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %72, align 8, !tbaa !31
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -184,7 +184,7 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
   store ptr @ft_gzip_stream_close, ptr %75, align 8, !tbaa !36
   br label %76
 
-76:                                               ; preds = %7, %37, %71, %8, %60
+76:                                               ; preds = %60, %8, %71, %37, %7
   %77 = load i32, ptr %4, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %77
@@ -198,12 +198,12 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @FT_Stream_Seek(ptr noundef nonnull %0, i64 noundef 0) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %.loopexit
+  br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %1
   %6 = call i32 @FT_Stream_Read(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #6
   %.not22 = icmp eq i32 %6, 0
-  br i1 %.not22, label %7, label %.loopexit
+  br i1 %.not22, label %7, label %.thread
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %3, align 1, !tbaa !29
@@ -216,13 +216,13 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %14 = load i8, ptr %13, align 1
   %15 = icmp ne i8 %14, 8
   %or.cond7 = select i1 %or.cond, i1 true, i1 %15
-  br i1 %or.cond7, label %.loopexit, label %16
+  br i1 %or.cond7, label %.thread, label %16
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %18 = load i8, ptr %17, align 1, !tbaa !29
   %.not23 = icmp ult i8 %18, 32
-  br i1 %.not23, label %19, label %.loopexit
+  br i1 %.not23, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 6) #6
@@ -236,14 +236,14 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %24 = call zeroext i16 @FT_Stream_ReadUShortLE(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %25 = load i32, ptr %2, align 4, !tbaa !3
   %.not25 = icmp eq i32 %25, 0
-  br i1 %.not25, label %26, label %.loopexit
+  br i1 %.not25, label %26, label %.thread
 
 26:                                               ; preds = %23
   %27 = zext i16 %24 to i64
   %28 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %27) #6
   store i32 %28, ptr %2, align 4, !tbaa !3
   %.not26 = icmp eq i32 %28, 0
-  br i1 %.not26, label %._crit_edge, label %.loopexit
+  br i1 %.not26, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i8, ptr %17, align 1, !tbaa !29
@@ -263,23 +263,22 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %35 = icmp eq i8 %33, 0
   %. = select i1 %35, i32 3, i32 0
   %.1 = select i1 %.not28, i32 %., i32 2
-  switch i32 %.1, label %default.unreachable [
+  switch i32 %.1, label %.unreachabledefault [
     i32 0, label %.preheader36
     i32 3, label %.loopexit37.loopexit
-    i32 2, label %.loopexit
-    i32 1, label %.loopexit
+    i32 2, label %.thread
   ]
 
 .loopexit37.loopexit:                             ; preds = %.preheader36
-  %.pre42 = load i8, ptr %17, align 1, !tbaa !29
+  %.pre40 = load i8, ptr %17, align 1, !tbaa !29
   br label %.loopexit37
 
 .loopexit37:                                      ; preds = %.loopexit37.loopexit, %29
   %36 = phi i32 [ %34, %.loopexit37.loopexit ], [ %30, %29 ]
-  %37 = phi i8 [ %.pre42, %.loopexit37.loopexit ], [ %31, %29 ]
+  %37 = phi i8 [ %.pre40, %.loopexit37.loopexit ], [ %31, %29 ]
   %38 = and i8 %37, 16
   %.not29 = icmp eq i8 %38, 0
-  br i1 %.not29, label %.loopexit35, label %.preheader
+  br i1 %.not29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit37, %.preheader
   %39 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
@@ -288,34 +287,38 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %41 = icmp eq i8 %39, 0
   %.33 = select i1 %41, i32 5, i32 0
   %.2 = select i1 %.not30, i32 %.33, i32 2
-  switch i32 %.2, label %.loopexit [
+  switch i32 %.2, label %.unreachabledefault34 [
     i32 0, label %.preheader
-    i32 5, label %.loopexit35.loopexit
+    i32 5, label %.loopexit.loopexit
+    i32 2, label %.thread
   ]
 
-.loopexit35.loopexit:                             ; preds = %.preheader
-  %.pre43 = load i8, ptr %17, align 1, !tbaa !29
-  br label %.loopexit35
-
-.loopexit35:                                      ; preds = %.loopexit35.loopexit, %.loopexit37
-  %42 = phi i32 [ %40, %.loopexit35.loopexit ], [ %36, %.loopexit37 ]
-  %43 = phi i8 [ %.pre43, %.loopexit35.loopexit ], [ %37, %.loopexit37 ]
-  %44 = and i8 %43, 2
-  %.not31 = icmp eq i8 %44, 0
-  br i1 %.not31, label %.loopexit, label %45
-
-45:                                               ; preds = %.loopexit35
-  %46 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 2) #6
+.loopexit.loopexit:                               ; preds = %.preheader
+  %.pre41 = load i8, ptr %17, align 1, !tbaa !29
   br label %.loopexit
 
-default.unreachable:                              ; preds = %.preheader36
-  unreachable
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit37
+  %42 = phi i32 [ %40, %.loopexit.loopexit ], [ %36, %.loopexit37 ]
+  %43 = phi i8 [ %.pre41, %.loopexit.loopexit ], [ %37, %.loopexit37 ]
+  %44 = and i8 %43, 2
+  %.not31 = icmp eq i8 %44, 0
+  br i1 %.not31, label %.thread, label %45
 
-.loopexit:                                        ; preds = %.preheader36, %.preheader36, %.preheader, %7, %16, %5, %1, %.loopexit35, %45, %23, %26
-  %.0 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit35 ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ 3, %7 ], [ %40, %.preheader ], [ %34, %.preheader36 ], [ %34, %.preheader36 ]
+45:                                               ; preds = %.loopexit
+  %46 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 2) #6
+  br label %.thread
+
+.thread:                                          ; preds = %.preheader36, %.preheader, %7, %16, %26, %23, %45, %.loopexit, %1, %5
+  %47 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ 3, %7 ], [ %40, %.preheader ], [ %34, %.preheader36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0
+  ret i32 %47
+
+.unreachabledefault:                              ; preds = %.preheader36
+  unreachable
+
+.unreachabledefault34:                            ; preds = %.preheader
+  unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

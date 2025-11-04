@@ -844,9 +844,9 @@ define internal range(i32 0, 2) i32 @xfrm_timer_handler(ptr noundef %0) #0 align
   %81 = sub i64 %74, %5
   %82 = add i64 %80, %81
   %83 = icmp slt i64 %82, 1
-  br i1 %83, label %.thread15, label %84
+  br i1 %83, label %.thread16, label %84
 
-.thread15:                                        ; preds = %76
+.thread16:                                        ; preds = %76
   store i8 1, ptr %45, align 1
   br label %88
 
@@ -859,8 +859,8 @@ define internal range(i32 0, 2) i32 @xfrm_timer_handler(ptr noundef %0) #0 align
   store i8 %72, ptr %45, align 1
   br i1 %71, label %102, label %88
 
-88:                                               ; preds = %.thread15, %86
-  %89 = phi i64 [ %70, %.thread15 ], [ %87, %86 ]
+88:                                               ; preds = %.thread16, %86
+  %89 = phi i64 [ %70, %.thread16 ], [ %87, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -936,35 +936,35 @@ define internal range(i32 0, 2) i32 @xfrm_timer_handler(ptr noundef %0) #0 align
   tail call void @__rcu_read_lock() #15
   %127 = load volatile ptr, ptr @xfrm_km_list, align 8
   %128 = icmp eq ptr %127, @xfrm_km_list
-  br i1 %128, label %.loopexit17, label %.preheader16
+  br i1 %128, label %.loopexit18, label %.preheader17
 
-.preheader16:                                     ; preds = %125, %135
+.preheader17:                                     ; preds = %125, %135
   %129 = phi ptr [ %136, %135 ], [ %127, %125 ]
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %135, label %133
 
-133:                                              ; preds = %.preheader16
+133:                                              ; preds = %.preheader17
   %134 = call i32 %131(ptr noundef %4, ptr noundef nonnull %2) #15
   br label %135
 
-135:                                              ; preds = %133, %.preheader16
+135:                                              ; preds = %133, %.preheader17
   %136 = load volatile ptr, ptr %129, align 8
   %137 = icmp eq ptr %136, @xfrm_km_list
-  br i1 %137, label %.loopexit17, label %.preheader16, !llvm.loop !69
+  br i1 %137, label %.loopexit18, label %.preheader17, !llvm.loop !69
 
-.loopexit17:                                      ; preds = %135, %125
+.loopexit18:                                      ; preds = %135, %125
   call void @__rcu_read_unlock() #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %138
 
-138:                                              ; preds = %.loopexit17, %122
+138:                                              ; preds = %.loopexit18, %122
   %139 = zext i1 %124 to i32
   call void @xfrm_audit_state_delete(ptr noundef %4, i32 noundef %139, i1 noundef zeroext true)
   br label %140
 
-140:                                              ; preds = %1, %102, %105, %138
+140:                                              ; preds = %138, %105, %102, %1
   %141 = phi i32 [ 0, %1 ], [ 0, %138 ], [ 1, %105 ], [ 0, %102 ]
   call void @_raw_spin_unlock(ptr noundef %6) #15
   ret i32 %141

@@ -91,9 +91,9 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, %23
-  br i1 %.not, label %._crit_edge233, label %31
+  br i1 %.not, label %._crit_edge234, label %31
 
-._crit_edge233:                                   ; preds = %28
+._crit_edge234:                                   ; preds = %28
   %.pre = load i32, ptr %26, align 8
   br label %44
 
@@ -115,9 +115,9 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   store i32 0, ptr %43, align 4
   br label %44
 
-44:                                               ; preds = %._crit_edge233, %31
-  %45 = phi i32 [ 0, %31 ], [ %.pre, %._crit_edge233 ]
-  %.0164 = phi ptr [ %42, %31 ], [ %26, %._crit_edge233 ]
+44:                                               ; preds = %._crit_edge234, %31
+  %45 = phi i32 [ 0, %31 ], [ %.pre, %._crit_edge234 ]
+  %.0164 = phi ptr [ %42, %31 ], [ %26, %._crit_edge234 ]
   %.not186 = icmp eq i32 %45, %8
   br i1 %.not186, label %46, label %49
 
@@ -125,10 +125,10 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %47 = getelementptr inbounds nuw i8, ptr %.0164, i64 4
   %48 = load i32, ptr %47, align 4
   %.not187 = icmp eq i32 %48, %11
-  br i1 %.not187, label %._crit_edge234, label %49
+  br i1 %.not187, label %._crit_edge235, label %49
 
-._crit_edge234:                                   ; preds = %46
-  %.pre235 = sext i32 %23 to i64
+._crit_edge235:                                   ; preds = %46
+  %.pre236 = sext i32 %23 to i64
   br label %67
 
 49:                                               ; preds = %44, %46
@@ -166,23 +166,23 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   store i32 %23, ptr %66, align 8
   br label %67
 
-67:                                               ; preds = %._crit_edge234, %.loopexit
-  %.pre-phi = phi i64 [ %.pre235, %._crit_edge234 ], [ %50, %.loopexit ]
+67:                                               ; preds = %._crit_edge235, %.loopexit
+  %.pre-phi = phi i64 [ %.pre236, %._crit_edge235 ], [ %50, %.loopexit ]
   %68 = shl nsw i64 %.pre-phi, 3
   %69 = tail call ptr @palloc(i64 noundef %68) #11
   %70 = tail call ptr @palloc(i64 noundef %.pre-phi) #11
   %71 = load i8, ptr %5, align 1
-  %.not188222 = icmp eq i8 %71, 0
-  br i1 %.not188222, label %.critedge.thread, label %.lr.ph224
+  %.not188223 = icmp eq i8 %71, 0
+  br i1 %.not188223, label %.critedge.thread, label %.lr.ph225
 
-.lr.ph224:                                        ; preds = %67
+.lr.ph225:                                        ; preds = %67
   %72 = tail call ptr @__ctype_b_loc() #12
   %73 = load ptr, ptr %72, align 8
   br label %74
 
-74:                                               ; preds = %.lr.ph224, %80
-  %75 = phi i8 [ %71, %.lr.ph224 ], [ %82, %80 ]
-  %.0167223 = phi ptr [ %5, %.lr.ph224 ], [ %81, %80 ]
+74:                                               ; preds = %.lr.ph225, %80
+  %75 = phi i8 [ %71, %.lr.ph225 ], [ %82, %80 ]
+  %.0167224 = phi ptr [ %5, %.lr.ph225 ], [ %81, %80 ]
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw i16, ptr %73, i64 %76
   %78 = load i16, ptr %77, align 2
@@ -191,7 +191,7 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not189, label %.critedge, label %80
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds nuw i8, ptr %.0167223, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.0167224, i64 1
   %82 = load i8, ptr %81, align 1
   %.not188 = icmp eq i8 %82, 0
   br i1 %.not188, label %.critedge.thread, label %74, !llvm.loop !4
@@ -202,30 +202,30 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
 
 .critedge.thread:                                 ; preds = %80, %67, %.critedge
   %83 = tail call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %83, label %84, label %.thread208
+  br i1 %83, label %84, label %.thread209
 
 84:                                               ; preds = %.critedge.thread
   %85 = tail call i32 @errcode(i32 noundef 33685634) #11
   %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %87 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #11
   tail call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 88:                                               ; preds = %.critedge
-  %89 = getelementptr inbounds nuw i8, ptr %.0167223, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.0167224, i64 1
   call void @initStringInfo(ptr noundef nonnull %2) #11
   %90 = icmp sgt i32 %23, 0
-  br i1 %90, label %.lr.ph228, label %._crit_edge
+  br i1 %90, label %.lr.ph229, label %._crit_edge
 
-.lr.ph228:                                        ; preds = %88
+.lr.ph229:                                        ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %.0164, i64 16
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %92
 
-92:                                               ; preds = %.lr.ph228, %select.unfold
-  %indvars.iv = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next, %select.unfold ]
-  %.0165227 = phi i1 [ false, %.lr.ph228 ], [ %.1, %select.unfold ]
-  %.1168225 = phi ptr [ %89, %.lr.ph228 ], [ %.2, %select.unfold ]
+92:                                               ; preds = %.lr.ph229, %select.unfold
+  %indvars.iv = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next, %select.unfold ]
+  %.0165228 = phi i1 [ false, %.lr.ph229 ], [ %.1, %select.unfold ]
+  %.1168226 = phi ptr [ %89, %.lr.ph229 ], [ %.2, %select.unfold ]
   %93 = load i32, ptr %22, align 8
   %94 = sext i32 %93 to i64
   %95 = shl nsw i64 %94, 4
@@ -248,30 +248,30 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   br label %select.unfold
 
 108:                                              ; preds = %92
-  br i1 %.0165227, label %109, label %120
+  br i1 %.0165228, label %109, label %120
 
 109:                                              ; preds = %108
-  %110 = load i8, ptr %.1168225, align 1
+  %110 = load i8, ptr %.1168226, align 1
   %111 = icmp eq i8 %110, 44
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %.1168225, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.1168226, i64 1
   br label %120
 
 114:                                              ; preds = %109
   %115 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %115, label %116, label %.thread208
+  br i1 %115, label %116, label %.thread209
 
 116:                                              ; preds = %114
   %117 = call i32 @errcode(i32 noundef 33685634) #11
   %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %119 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 120:                                              ; preds = %112, %108
-  %.3 = phi ptr [ %113, %112 ], [ %.1168225, %108 ]
+  %.3 = phi ptr [ %113, %112 ], [ %.1168226, %108 ]
   %121 = load i8, ptr %.3, align 1
   switch i8 %121, label %122 [
     i8 44, label %150
@@ -290,8 +290,8 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
 
 124:                                              ; preds = %123
   switch i8 %.pr, label %.critedge8 [
-    i8 44, label %.thread202
-    i8 41, label %.thread202
+    i8 44, label %.thread203
+    i8 41, label %.thread203
   ]
 
 .critedge8:                                       ; preds = %123, %124
@@ -304,14 +304,14 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
 
 126:                                              ; preds = %.critedge8
   %127 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %127, label %128, label %.thread208
+  br i1 %127, label %128, label %.thread209
 
 128:                                              ; preds = %126
   %129 = call i32 @errcode(i32 noundef 33685634) #11
   %130 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %131 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 132:                                              ; preds = %.critedge8
   %133 = load i8, ptr %125, align 1
@@ -320,14 +320,14 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
 
 135:                                              ; preds = %132
   %136 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %136, label %137, label %.thread208
+  br i1 %136, label %137, label %.thread209
 
 137:                                              ; preds = %135
   %138 = call i32 @errcode(i32 noundef 33685634) #11
   %139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %140 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 141:                                              ; preds = %132
   %142 = getelementptr inbounds nuw i8, ptr %.5, i64 2
@@ -357,16 +357,16 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %.5.be = phi ptr [ %125, %143 ], [ %125, %144 ], [ %.6.ph, %.sink.split ]
   br label %123, !llvm.loop !8
 
-.thread202:                                       ; preds = %124, %124
+.thread203:                                       ; preds = %124, %124
   %149 = load ptr, ptr %2, align 8
   br label %150
 
-150:                                              ; preds = %120, %120, %.thread202
-  %.sink247 = phi i8 [ 0, %.thread202 ], [ 1, %120 ], [ 1, %120 ]
-  %.2177 = phi ptr [ %149, %.thread202 ], [ null, %120 ], [ null, %120 ]
-  %.4 = phi ptr [ %.5, %.thread202 ], [ %.3, %120 ], [ %.3, %120 ]
+150:                                              ; preds = %120, %120, %.thread203
+  %.sink248 = phi i8 [ 0, %.thread203 ], [ 1, %120 ], [ 1, %120 ]
+  %.2177 = phi ptr [ %149, %.thread203 ], [ null, %120 ], [ null, %120 ]
+  %.4 = phi ptr [ %.5, %.thread203 ], [ %.3, %120 ], [ %.3, %120 ]
   %151 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
-  store i8 %.sink247, ptr %151, align 1
+  store i8 %.sink248, ptr %151, align 1
   %152 = load i32, ptr %99, align 8
   %.not195 = icmp eq i32 %152, %101
   br i1 %.not195, label %161, label %153
@@ -392,11 +392,11 @@ define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_add
   %166 = load i32, ptr %165, align 4
   %167 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv
   %168 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %162, ptr noundef %.2177, i32 noundef %164, i32 noundef %166, ptr noundef %13, ptr noundef %167) #11
-  br i1 %168, label %select.unfold, label %.thread208
+  br i1 %168, label %select.unfold, label %.thread209
 
 select.unfold:                                    ; preds = %161, %105
-  %.2 = phi ptr [ %.1168225, %105 ], [ %.4, %161 ]
-  %.1 = phi i1 [ %.0165227, %105 ], [ true, %161 ]
+  %.2 = phi ptr [ %.1168226, %105 ], [ %.4, %161 ]
+  %.1 = phi i1 [ %.0165228, %105 ], [ true, %161 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !9
@@ -409,14 +409,14 @@ select.unfold:                                    ; preds = %161, %105
 
 170:                                              ; preds = %._crit_edge
   %171 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %171, label %172, label %.thread208
+  br i1 %171, label %172, label %.thread209
 
 172:                                              ; preds = %170
   %173 = call i32 @errcode(i32 noundef 33685634) #11
   %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %175 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 .preheader:                                       ; preds = %._crit_edge, %177
   %.1168.pn = phi ptr [ %.9, %177 ], [ %.1168.lcssa, %._crit_edge ]
@@ -436,14 +436,14 @@ select.unfold:                                    ; preds = %161, %105
 
 .critedge10:                                      ; preds = %177
   %183 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
-  br i1 %183, label %184, label %.thread208
+  br i1 %183, label %184, label %.thread209
 
 184:                                              ; preds = %.critedge10
   %185 = call i32 @errcode(i32 noundef 33685634) #11
   %186 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   %187 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.7) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__func__.record_in) #11
-  br label %.thread208
+  br label %.thread209
 
 188:                                              ; preds = %.preheader
   %189 = call ptr @heap_form_tuple(ptr noundef nonnull %22, ptr noundef %69, ptr noundef %70) #11
@@ -473,17 +473,17 @@ select.unfold:                                    ; preds = %161, %105
   %203 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %192) #11
   br label %210
 
-.thread208:                                       ; preds = %161, %135, %137, %126, %128, %114, %116, %.critedge10, %184, %170, %172, %.critedge.thread, %84
+.thread209:                                       ; preds = %161, %135, %137, %126, %128, %114, %116, %.critedge10, %184, %170, %172, %.critedge.thread, %84
   %204 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, -1
   br i1 %206, label %207, label %208
 
-207:                                              ; preds = %.thread208
+207:                                              ; preds = %.thread209
   call void @DecrTupleDescRefCount(ptr noundef nonnull %22) #11
   br label %208
 
-208:                                              ; preds = %.thread208, %207
+208:                                              ; preds = %.thread209, %207
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %209, align 4
   br label %210

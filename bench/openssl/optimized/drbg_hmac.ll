@@ -419,7 +419,7 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
   br label %12
 
 9:                                                ; preds = %12
-  %10 = add nuw nsw i64 %.01731, 1
+  %10 = add nuw nsw i64 %.01734, 1
   %exitcond.not = icmp eq i64 %10, 64
   br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !21
 
@@ -428,25 +428,25 @@ define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef re
   br label %17
 
 12:                                               ; preds = %7, %9
-  %.01731 = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.01731
+  %.01734 = phi i64 [ 0, %7 ], [ %10, %9 ]
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.01734
   %14 = load i8, ptr %13, align 1, !tbaa !23
   %.not24 = icmp eq i8 %14, 0
   br i1 %.not24, label %9, label %.thread
 
 15:                                               ; preds = %17
-  %16 = add nuw nsw i64 %.032, 1
-  %exitcond34.not = icmp eq i64 %16, 64
-  br i1 %exitcond34.not, label %.thread, label %17, !llvm.loop !24
+  %16 = add nuw nsw i64 %.035, 1
+  %exitcond37.not = icmp eq i64 %16, 64
+  br i1 %exitcond37.not, label %.thread, label %17, !llvm.loop !24
 
 17:                                               ; preds = %.preheader, %15
-  %.032 = phi i64 [ 0, %.preheader ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.032
+  %.035 = phi i64 [ 0, %.preheader ], [ %16, %15 ]
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.035
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %.not25 = icmp eq i8 %19, 0
   br i1 %.not25, label %15, label %.thread
 
-.thread:                                          ; preds = %12, %15, %17
+.thread:                                          ; preds = %12, %17, %15
   %.019 = phi i32 [ 1, %15 ], [ 0, %17 ], [ 0, %12 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !19
   %.not26 = icmp eq ptr %20, null

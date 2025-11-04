@@ -540,9 +540,9 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
 41:                                               ; preds = %38, %22
   %42 = phi i32 [ %40, %38 ], [ 64, %22 ]
   %43 = icmp eq i32 %2, %42
-  br i1 %43, label %51, label %.thread6
+  br i1 %43, label %51, label %.thread7
 
-.thread6:                                         ; preds = %41
+.thread7:                                         ; preds = %41
   %44 = shl nuw nsw i32 %31, 1
   %45 = or disjoint i32 %44, %33
   %46 = xor i32 %45, 3
@@ -569,10 +569,10 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   store i64 %62, ptr %63, align 8
   br i1 %4, label %64, label %80
 
-64:                                               ; preds = %.thread6, %51
-  %65 = phi ptr [ %50, %.thread6 ], [ %63, %51 ]
-  %66 = phi i64 [ %49, %.thread6 ], [ %62, %51 ]
-  %67 = phi ptr [ %26, %.thread6 ], [ %54, %51 ]
+64:                                               ; preds = %.thread7, %51
+  %65 = phi ptr [ %50, %.thread7 ], [ %63, %51 ]
+  %66 = phi i64 [ %49, %.thread7 ], [ %62, %51 ]
+  %67 = phi ptr [ %26, %.thread7 ], [ %54, %51 ]
   %68 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
   %69 = inttoptr i64 %68 to ptr
   %70 = load i64, ptr %69, align 8
@@ -608,7 +608,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   store i64 %88, ptr %86, align 8
   %89 = lshr i64 %88, 57
   %90 = icmp samesign ugt i64 %88, 6629298651489370111
-  br i1 %90, label %.thread11, label %91
+  br i1 %90, label %.thread12, label %91
 
 91:                                               ; preds = %85
   %92 = icmp eq i64 %89, 45
@@ -616,7 +616,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
 
 93:                                               ; preds = %91
   %94 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 2), align 2
-  switch i8 %94, label %.thread11 [
+  switch i8 %94, label %.thread12 [
     i8 6, label %95
     i8 4, label %95
     i8 3, label %95
@@ -643,12 +643,12 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
 
 106:                                              ; preds = %104
   %107 = tail call zeroext i1 @capable(i32 noundef 21) #13
-  br i1 %107, label %108, label %.thread11
+  br i1 %107, label %108, label %.thread12
 
 108:                                              ; preds = %101, %104, %106
   %109 = tail call i32 @security_perf_event_open(ptr noundef nonnull %82, i32 noundef 1) #13
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %._crit_edge, label %.thread11
+  br i1 %110, label %._crit_edge, label %.thread12
 
 ._crit_edge:                                      ; preds = %108
   %.pre = load i64, ptr %86, align 8
@@ -668,11 +668,11 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %121 = icmp ne i32 %120, 0
   %122 = and i64 %112, 128
   %123 = icmp ne i64 %122, 0
-  %.not15 = or i1 %123, %121
+  %.not16 = or i1 %123, %121
   %124 = and i64 %112, 62
   %125 = icmp samesign ugt i64 %124, 9
-  %or.cond = select i1 %.not15, i1 true, i1 %125
-  br i1 %or.cond, label %.thread11, label %126
+  %or.cond = select i1 %.not16, i1 true, i1 %125
+  br i1 %or.cond, label %.thread12, label %126
 
 126:                                              ; preds = %111
   %127 = load i64, ptr %81, align 8
@@ -684,7 +684,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %132 = getelementptr %struct.p4_event_bind, ptr @p4_event_bind_map, i64 %130
   %133 = icmp eq ptr %132, null
   %134 = or i1 %131, %133
-  br i1 %134, label %.thread11, label %135
+  br i1 %134, label %.thread12, label %135
 
 135:                                              ; preds = %126
   %136 = load i32, ptr %132, align 4
@@ -697,9 +697,9 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
 
 141:                                              ; preds = %135, %80
   %142 = tail call i32 @x86_setup_perfctr(ptr noundef %0) #13
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %106, %93, %111, %108, %85, %126, %141
+.thread12:                                        ; preds = %106, %93, %111, %108, %85, %126, %141
   %143 = phi i32 [ %142, %141 ], [ -22, %126 ], [ -22, %93 ], [ -22, %111 ], [ %109, %108 ], [ -22, %85 ], [ -13, %106 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %144 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !37
@@ -708,13 +708,13 @@ define internal i32 @p4_hw_config(ptr noundef %0) #4 align 16 {
   %146 = icmp eq i8 %144, 0
   br i1 %146, label %150, label %147, !prof !17
 
-147:                                              ; preds = %.thread11
+147:                                              ; preds = %.thread12
   %148 = tail call i64 @llvm.read_register.i64(metadata !0)
   %149 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %148) #13, !srcloc !38
   tail call void @llvm.write_register.i64(metadata !0, i64 %149)
   br label %150
 
-150:                                              ; preds = %147, %.thread11
+150:                                              ; preds = %147, %.thread12
   ret i32 %143
 }
 

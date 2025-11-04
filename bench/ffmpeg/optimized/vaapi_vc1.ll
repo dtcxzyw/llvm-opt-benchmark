@@ -246,7 +246,7 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
 
 178:                                              ; preds = %151, %159
   %.0.shrunk.i.ph.ph = phi i8 [ %161, %159 ], [ 0, %151 ]
-  switch i32 %130, label %.thread321 [
+  switch i32 %130, label %.thread322 [
     i32 0, label %.thread401
     i32 1, label %.thread405
   ]
@@ -256,14 +256,14 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   %179 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %180 = load i8, ptr %179, align 8, !tbaa !98
   %181 = icmp eq i8 %180, 4
-  br i1 %181, label %.thread14.sink.split.i, label %.thread321
+  br i1 %181, label %.thread14.sink.split.i, label %.thread322
 
 .thread405:                                       ; preds = %156, %178
   %.0.shrunk.i.ph.ph407 = phi i8 [ %.0.shrunk.i.ph.ph, %178 ], [ 0, %156 ]
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 10200
   %183 = load i32, ptr %182, align 8, !tbaa !99
-  %.not13.i266 = icmp eq i32 %183, 0
-  br i1 %.not13.i266, label %.thread321, label %.thread14.sink.split.i
+  %.not13.i267 = icmp eq i32 %183, 0
+  br i1 %.not13.i267, label %.thread322, label %.thread14.sink.split.i
 
 .thread397:                                       ; preds = %175, %172, %169, %166, %162
   %.0.shrunk.i.ph.ph399 = phi i8 [ 0, %162 ], [ 0, %166 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ]
@@ -291,7 +291,7 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   %192 = load i8, ptr %191, align 1, !tbaa !103
   br label %vc1_get_LUMSHIFT.exit
 
-.thread321:                                       ; preds = %.thread405, %.thread401, %178
+.thread322:                                       ; preds = %.thread405, %.thread401, %178
   %.0.shrunk.i.ph.ph404 = phi i8 [ %.0.shrunk.i.ph.ph407, %.thread405 ], [ %.0.shrunk.i.ph.ph403, %.thread401 ], [ %.0.shrunk.i.ph.ph, %178 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.62, i8 0, i64 3, i1 false)
   br label %vc1_get_FPTYPE.exit
@@ -301,8 +301,8 @@ define internal i32 @vaapi_vc1_start_frame(ptr noundef %0, ptr readnone captures
   br label %vc1_get_FPTYPE.exit
 
 vc1_get_LUMSHIFT.exit:                            ; preds = %148, %4, %.thread14.sink.split.i
-  %.0.shrunk.i308 = phi i8 [ %.0.shrunk.i.ph.ph400, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
-  %.0.shrunk.i264 = phi i8 [ %192, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
+  %.0.shrunk.i309 = phi i8 [ %.0.shrunk.i.ph.ph400, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
+  %.0.shrunk.i265 = phi i8 [ %192, %.thread14.sink.split.i ], [ 0, %4 ], [ 0, %148 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.62, i8 0, i64 3, i1 false)
   %193 = icmp eq i32 %130, 2
   br i1 %193, label %194, label %200
@@ -316,8 +316,8 @@ vc1_get_LUMSHIFT.exit:                            ; preds = %148, %4, %.thread14
 195:                                              ; preds = %194
   %196 = getelementptr inbounds nuw i8, ptr %7, i64 10548
   %197 = load i32, ptr %196, align 4, !tbaa !104
-  %.not.i268 = icmp eq i32 %197, 0
-  %198 = select i1 %.not.i268, i16 4, i16 7
+  %.not.i269 = icmp eq i32 %197, 0
+  %198 = select i1 %.not.i269, i16 4, i16 7
   br label %vc1_get_FPTYPE.exit
 
 199:                                              ; preds = %194
@@ -339,15 +339,15 @@ vc1_get_LUMSHIFT.exit:                            ; preds = %148, %4, %.thread14
 203:                                              ; preds = %200
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 10548
   %205 = load i32, ptr %204, align 4, !tbaa !104
-  %.not.i270 = icmp eq i32 %205, 0
-  %206 = select i1 %.not.i270, i16 2, i16 3
+  %.not.i271 = icmp eq i32 %205, 0
+  %206 = select i1 %.not.i271, i16 2, i16 3
   br label %vc1_get_FPTYPE.exit
 
-vc1_get_FPTYPE.exit:                              ; preds = %.thread321, %._crit_edge371, %203, %200, %199, %195, %194, %.thread
-  %207 = phi i1 [ true, %199 ], [ true, %195 ], [ true, %194 ], [ true, %.thread ], [ false, %203 ], [ false, %200 ], [ false, %._crit_edge371 ], [ false, %.thread321 ]
-  %208 = phi i8 [ %.0.shrunk.i264, %199 ], [ %.0.shrunk.i264, %195 ], [ %.0.shrunk.i264, %194 ], [ 0, %.thread ], [ %.0.shrunk.i264, %203 ], [ %.0.shrunk.i264, %200 ], [ %.0.shrunk.i264, %._crit_edge371 ], [ 0, %.thread321 ]
-  %.0.shrunk.i308312 = phi i8 [ %.0.shrunk.i308, %199 ], [ %.0.shrunk.i308, %195 ], [ %.0.shrunk.i308, %194 ], [ %.0.shrunk.i.ph.ph399, %.thread ], [ %.0.shrunk.i308, %203 ], [ %.0.shrunk.i308, %200 ], [ %.0.shrunk.i308, %._crit_edge371 ], [ %.0.shrunk.i.ph.ph404, %.thread321 ]
-  %209 = phi i16 [ 0, %199 ], [ %198, %195 ], [ 3, %194 ], [ 3, %.thread ], [ %206, %203 ], [ 0, %200 ], [ %202, %._crit_edge371 ], [ 1, %.thread321 ]
+vc1_get_FPTYPE.exit:                              ; preds = %.thread322, %._crit_edge371, %203, %200, %199, %195, %194, %.thread
+  %207 = phi i1 [ true, %199 ], [ true, %195 ], [ true, %194 ], [ true, %.thread ], [ false, %203 ], [ false, %200 ], [ false, %._crit_edge371 ], [ false, %.thread322 ]
+  %208 = phi i8 [ %.0.shrunk.i265, %199 ], [ %.0.shrunk.i265, %195 ], [ %.0.shrunk.i265, %194 ], [ 0, %.thread ], [ %.0.shrunk.i265, %203 ], [ %.0.shrunk.i265, %200 ], [ %.0.shrunk.i265, %._crit_edge371 ], [ 0, %.thread322 ]
+  %.0.shrunk.i309313 = phi i8 [ %.0.shrunk.i309, %199 ], [ %.0.shrunk.i309, %195 ], [ %.0.shrunk.i309, %194 ], [ %.0.shrunk.i.ph.ph399, %.thread ], [ %.0.shrunk.i309, %203 ], [ %.0.shrunk.i309, %200 ], [ %.0.shrunk.i309, %._crit_edge371 ], [ %.0.shrunk.i.ph.ph404, %.thread322 ]
+  %209 = phi i16 [ 0, %199 ], [ %198, %195 ], [ 3, %194 ], [ 3, %.thread ], [ %206, %203 ], [ 0, %200 ], [ %202, %._crit_edge371 ], [ 1, %.thread322 ]
   %210 = trunc i32 %130 to i16
   %211 = shl i16 %210, 3
   %212 = and i16 %211, 56
@@ -439,14 +439,14 @@ vc1_get_FPTYPE.exit:                              ; preds = %.thread321, %._crit
   br label %vc1_has_MVTYPEMB_bitplane.exit.thread
 
 vc1_has_MVTYPEMB_bitplane.exit.thread:            ; preds = %270, %273, %276, %.fold.split.i
-  %.0.i272.ph = phi i8 [ 0, %.fold.split.i ], [ %280, %276 ], [ 1, %273 ], [ 0, %270 ]
+  %.0.i273.ph = phi i8 [ 0, %.fold.split.i ], [ %280, %276 ], [ 1, %273 ], [ 0, %270 ]
   %switch.i410 = icmp ult i32 %130, 2
   br label %vc1_has_DIRECTMB_bitplane.exit
 
 vc1_has_MVTYPEMB_bitplane.exit:                   ; preds = %vc1_get_FPTYPE.exit
-  %.not.i273 = icmp eq i32 %234, 0
+  %.not.i274 = icmp eq i32 %234, 0
   %switch.i = icmp ult i32 %130, 2
-  %or.cond = and i1 %switch.i, %.not.i273
+  %or.cond = and i1 %switch.i, %.not.i274
   %281 = icmp eq i32 %146, 3
   %or.cond339 = and i1 %281, %or.cond
   br i1 %or.cond339, label %282, label %vc1_has_DIRECTMB_bitplane.exit
@@ -461,9 +461,9 @@ vc1_has_MVTYPEMB_bitplane.exit:                   ; preds = %vc1_get_FPTYPE.exit
 vc1_has_DIRECTMB_bitplane.exit:                   ; preds = %vc1_has_MVTYPEMB_bitplane.exit.thread, %vc1_has_MVTYPEMB_bitplane.exit, %282
   %286 = phi i1 [ %281, %vc1_has_MVTYPEMB_bitplane.exit ], [ %281, %282 ], [ false, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
   %switch.i414 = phi i1 [ %switch.i, %vc1_has_MVTYPEMB_bitplane.exit ], [ %switch.i, %282 ], [ %switch.i410, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
-  %287 = phi i8 [ 0, %vc1_has_MVTYPEMB_bitplane.exit ], [ %285, %282 ], [ %.0.i272.ph, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
-  %.not.i275 = icmp eq i32 %240, 0
-  %or.cond340 = and i1 %switch.i414, %.not.i275
+  %287 = phi i8 [ 0, %vc1_has_MVTYPEMB_bitplane.exit ], [ %285, %282 ], [ %.0.i273.ph, %vc1_has_MVTYPEMB_bitplane.exit.thread ]
+  %.not.i276 = icmp eq i32 %240, 0
+  %or.cond340 = and i1 %switch.i414, %.not.i276
   br i1 %or.cond340, label %288, label %vc1_has_SKIPMB_bitplane.exit.thread
 
 288:                                              ; preds = %vc1_has_DIRECTMB_bitplane.exit
@@ -483,8 +483,8 @@ vc1_has_SKIPMB_bitplane.exit:                     ; preds = %288
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %293 = load i32, ptr %292, align 8, !tbaa !97
   %.fr435 = freeze i32 %293
-  %.not8.i279 = icmp eq i32 %.fr435, 0
-  br i1 %.not8.i279, label %294, label %vc1_has_SKIPMB_bitplane.exit.thread
+  %.not8.i280 = icmp eq i32 %.fr435, 0
+  br i1 %.not8.i280, label %294, label %vc1_has_SKIPMB_bitplane.exit.thread
 
 294:                                              ; preds = %289, %vc1_has_SKIPMB_bitplane.exit
   br label %vc1_has_SKIPMB_bitplane.exit.thread
@@ -492,13 +492,13 @@ vc1_has_SKIPMB_bitplane.exit:                     ; preds = %288
 vc1_has_SKIPMB_bitplane.exit.thread:              ; preds = %288, %vc1_has_DIRECTMB_bitplane.exit, %289, %vc1_has_SKIPMB_bitplane.exit, %294
   %295 = phi i8 [ 4, %294 ], [ 0, %vc1_has_SKIPMB_bitplane.exit ], [ 0, %289 ], [ 0, %vc1_has_DIRECTMB_bitplane.exit ], [ 0, %288 ]
   %296 = or disjoint i8 %287, %295
-  %.not.i280 = icmp eq i32 %246, 0
+  %.not.i281 = icmp eq i32 %246, 0
   %297 = icmp eq i32 %130, 1
-  %or.cond341 = and i1 %297, %.not.i280
+  %or.cond341 = and i1 %297, %.not.i281
   br i1 %or.cond341, label %298, label %vc1_has_FIELDTX_bitplane.exit
 
 298:                                              ; preds = %vc1_has_SKIPMB_bitplane.exit.thread
-  switch i32 %146, label %.fold.split.i282 [
+  switch i32 %146, label %.fold.split.i283 [
     i32 1, label %vc1_has_FIELDTX_bitplane.exit
     i32 3, label %299
   ]
@@ -510,33 +510,33 @@ vc1_has_SKIPMB_bitplane.exit.thread:              ; preds = %288, %vc1_has_DIREC
   %302 = select i1 %.not353, i8 0, i8 8
   br label %vc1_has_FIELDTX_bitplane.exit
 
-.fold.split.i282:                                 ; preds = %298
+.fold.split.i283:                                 ; preds = %298
   br label %vc1_has_FIELDTX_bitplane.exit
 
-vc1_has_FIELDTX_bitplane.exit:                    ; preds = %vc1_has_SKIPMB_bitplane.exit.thread, %298, %299, %.fold.split.i282
-  %.0.i281 = phi i8 [ 0, %vc1_has_SKIPMB_bitplane.exit.thread ], [ 8, %298 ], [ %302, %299 ], [ 0, %.fold.split.i282 ]
-  %.not.i283 = icmp eq i32 %252, 0
-  %303 = and i1 %286, %.not.i283
+vc1_has_FIELDTX_bitplane.exit:                    ; preds = %vc1_has_SKIPMB_bitplane.exit.thread, %298, %299, %.fold.split.i283
+  %.0.i282 = phi i8 [ 0, %vc1_has_SKIPMB_bitplane.exit.thread ], [ 8, %298 ], [ %302, %299 ], [ 0, %.fold.split.i283 ]
+  %.not.i284 = icmp eq i32 %252, 0
+  %303 = and i1 %286, %.not.i284
   %or.cond344 = and i1 %207, %303
   br i1 %or.cond344, label %304, label %vc1_has_FORWARDMB_bitplane.exit
 
 304:                                              ; preds = %vc1_has_FIELDTX_bitplane.exit
   %305 = getelementptr inbounds nuw i8, ptr %7, i64 10548
   %306 = load i32, ptr %305, align 4, !tbaa !104
-  %.not4.i285 = icmp eq i32 %306, 0
-  %307 = select i1 %.not4.i285, i8 16, i8 0
+  %.not4.i286 = icmp eq i32 %306, 0
+  %307 = select i1 %.not4.i286, i8 16, i8 0
   br label %vc1_has_FORWARDMB_bitplane.exit
 
 vc1_has_FORWARDMB_bitplane.exit:                  ; preds = %vc1_has_FIELDTX_bitplane.exit, %304
-  %.0.i284 = phi i8 [ 0, %vc1_has_FIELDTX_bitplane.exit ], [ %307, %304 ]
-  %308 = or disjoint i8 %296, %.0.i281
-  %.not.i286 = icmp eq i32 %258, 0
+  %.0.i285 = phi i8 [ 0, %vc1_has_FIELDTX_bitplane.exit ], [ %307, %304 ]
+  %308 = or disjoint i8 %296, %.0.i282
+  %.not.i287 = icmp eq i32 %258, 0
   %309 = icmp eq i32 %73, 3
-  %or.cond345 = select i1 %.not.i286, i1 %309, i1 false
+  %or.cond345 = select i1 %.not.i287, i1 %309, i1 false
   br i1 %or.cond345, label %310, label %vc1_has_ACPRED_bitplane.exit
 
 310:                                              ; preds = %vc1_has_FORWARDMB_bitplane.exit
-  switch i32 %146, label %.fold.split.i288 [
+  switch i32 %146, label %.fold.split.i289 [
     i32 1, label %vc1_has_ACPRED_bitplane.exit
     i32 3, label %311
   ]
@@ -548,13 +548,13 @@ vc1_has_FORWARDMB_bitplane.exit:                  ; preds = %vc1_has_FIELDTX_bit
   %314 = select i1 %.not355, i8 0, i8 32
   br label %vc1_has_ACPRED_bitplane.exit
 
-.fold.split.i288:                                 ; preds = %310
+.fold.split.i289:                                 ; preds = %310
   br label %vc1_has_ACPRED_bitplane.exit
 
-vc1_has_ACPRED_bitplane.exit:                     ; preds = %vc1_has_FORWARDMB_bitplane.exit, %310, %311, %.fold.split.i288
-  %.0.i287 = phi i8 [ 0, %vc1_has_FORWARDMB_bitplane.exit ], [ 32, %310 ], [ %314, %311 ], [ 0, %.fold.split.i288 ]
-  %.not.i289 = icmp eq i32 %263, 0
-  %or.cond346 = select i1 %.not.i289, i1 %309, i1 false
+vc1_has_ACPRED_bitplane.exit:                     ; preds = %vc1_has_FORWARDMB_bitplane.exit, %310, %311, %.fold.split.i289
+  %.0.i288 = phi i8 [ 0, %vc1_has_FORWARDMB_bitplane.exit ], [ 32, %310 ], [ %314, %311 ], [ 0, %.fold.split.i289 ]
+  %.not.i290 = icmp eq i32 %263, 0
+  %or.cond346 = select i1 %.not.i290, i1 %309, i1 false
   br i1 %or.cond346, label %315, label %vc1_has_OVERFLAGS_bitplane.exit
 
 315:                                              ; preds = %vc1_has_ACPRED_bitplane.exit
@@ -566,9 +566,9 @@ vc1_has_ACPRED_bitplane.exit:                     ; preds = %vc1_has_FORWARDMB_b
 316:                                              ; preds = %315
   %317 = getelementptr inbounds nuw i8, ptr %7, i64 10548
   %318 = load i32, ptr %317, align 4, !tbaa !104
-  %.not9.i291 = icmp eq i32 %318, 0
+  %.not9.i292 = icmp eq i32 %318, 0
   %.not10.i = icmp eq i32 %50, 0
-  %or.cond347 = select i1 %.not9.i291, i1 true, i1 %.not10.i
+  %or.cond347 = select i1 %.not9.i292, i1 true, i1 %.not10.i
   br i1 %or.cond347, label %vc1_has_OVERFLAGS_bitplane.exit, label %320
 
 319:                                              ; preds = %315
@@ -587,10 +587,10 @@ vc1_has_ACPRED_bitplane.exit:                     ; preds = %vc1_has_FORWARDMB_b
   br label %vc1_has_OVERFLAGS_bitplane.exit
 
 vc1_has_OVERFLAGS_bitplane.exit:                  ; preds = %vc1_has_ACPRED_bitplane.exit, %315, %316, %319, %320, %324
-  %.0.i290 = phi i8 [ 0, %vc1_has_ACPRED_bitplane.exit ], [ 0, %320 ], [ 0, %319 ], [ 0, %316 ], [ %326, %324 ], [ 0, %315 ]
-  %.masked226 = or disjoint i8 %308, %.0.i284
-  %327 = or i8 %.masked226, %.0.i287
-  %328 = or i8 %327, %.0.i290
+  %.0.i291 = phi i8 [ 0, %vc1_has_ACPRED_bitplane.exit ], [ 0, %320 ], [ 0, %319 ], [ 0, %316 ], [ %326, %324 ], [ 0, %315 ]
+  %.masked226 = or disjoint i8 %308, %.0.i285
+  %327 = or i8 %.masked226, %.0.i288
+  %328 = or i8 %327, %.0.i291
   %329 = getelementptr inbounds nuw i8, ptr %7, i64 6448
   %330 = load i32, ptr %329, align 8, !tbaa !116
   %331 = trunc i32 %330 to i8
@@ -626,14 +626,14 @@ vc1_has_OVERFLAGS_bitplane.exit:                  ; preds = %vc1_has_ACPRED_bitp
 351:                                              ; preds = %350
   %352 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %353 = load i32, ptr %352, align 8, !tbaa !97
-  %.not.i294 = icmp eq i32 %353, 0
-  br i1 %.not.i294, label %357, label %vc1_get_MVMODE.exit
+  %.not.i295 = icmp eq i32 %353, 0
+  br i1 %.not.i295, label %357, label %vc1_get_MVMODE.exit
 
 354:                                              ; preds = %350
   %355 = getelementptr inbounds nuw i8, ptr %7, i64 10548
   %356 = load i32, ptr %355, align 4, !tbaa !104
-  %.not8.i292 = icmp eq i32 %356, 0
-  br i1 %.not8.i292, label %357, label %vc1_get_MVMODE.exit
+  %.not8.i293 = icmp eq i32 %356, 0
+  br i1 %.not8.i293, label %357, label %vc1_get_MVMODE.exit
 
 357:                                              ; preds = %354, %351
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 6528
@@ -648,7 +648,7 @@ switch.lookup:                                    ; preds = %357
   br label %vc1_get_MVMODE.exit
 
 vc1_get_MVMODE.exit:                              ; preds = %357, %switch.lookup, %vc1_has_OVERFLAGS_bitplane.exit, %350, %351, %354
-  %.0.i293 = phi i32 [ 0, %vc1_has_OVERFLAGS_bitplane.exit ], [ 0, %354 ], [ 0, %351 ], [ 0, %350 ], [ %switch.load, %switch.lookup ], [ 0, %357 ]
+  %.0.i294 = phi i32 [ 0, %vc1_has_OVERFLAGS_bitplane.exit ], [ 0, %354 ], [ 0, %351 ], [ 0, %350 ], [ %switch.load, %switch.lookup ], [ 0, %357 ]
   switch i32 %130, label %vc1_get_MVMODE2.exit [
     i32 0, label %362
     i32 2, label %362
@@ -660,8 +660,8 @@ vc1_get_MVMODE.exit:                              ; preds = %357, %switch.lookup
 363:                                              ; preds = %362
   %364 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %365 = load i32, ptr %364, align 8, !tbaa !97
-  %.not.i296 = icmp eq i32 %365, 0
-  br i1 %.not.i296, label %366, label %vc1_get_MVMODE2.exit
+  %.not.i297 = icmp eq i32 %365, 0
+  br i1 %.not.i297, label %366, label %vc1_get_MVMODE2.exit
 
 366:                                              ; preds = %363
   %367 = getelementptr inbounds nuw i8, ptr %7, i64 6528
@@ -682,8 +682,8 @@ switch.lookup440:                                 ; preds = %370
   br label %vc1_get_MVMODE2.exit
 
 vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup440, %vc1_get_MVMODE.exit, %362, %363, %366
-  %.0.i295 = phi i32 [ 0, %vc1_get_MVMODE.exit ], [ 0, %366 ], [ 0, %363 ], [ 0, %362 ], [ %switch.load442, %switch.lookup440 ], [ 0, %370 ]
-  %375 = or disjoint i32 %.0.i295, %.0.i293
+  %.0.i296 = phi i32 [ 0, %vc1_get_MVMODE.exit ], [ 0, %366 ], [ 0, %363 ], [ 0, %362 ], [ %switch.load442, %switch.lookup440 ], [ 0, %370 ]
+  %375 = or disjoint i32 %.0.i296, %.0.i294
   %.in228.v = select i1 %.not352, i64 6964, i64 10468
   %.in228 = getelementptr inbounds nuw i8, ptr %7, i64 %.in228.v
   %376 = load i32, ptr %.in228, align 4, !tbaa !90
@@ -762,9 +762,9 @@ vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup
   %445 = load i8, ptr %444, align 1, !tbaa !132
   %446 = or disjoint i32 %438, %443
   %447 = icmp eq i8 %445, 2
-  br i1 %447, label %.thread325, label %454
+  br i1 %447, label %.thread326, label %454
 
-.thread325:                                       ; preds = %vc1_get_MVMODE2.exit
+.thread326:                                       ; preds = %vc1_get_MVMODE2.exit
   %448 = getelementptr inbounds nuw i8, ptr %7, i64 6834
   %449 = load i8, ptr %448, align 2, !tbaa !133
   %450 = zext i8 %449 to i32
@@ -789,9 +789,9 @@ vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup
   %465 = shl nuw nsw i32 %464, 16
   br label %466
 
-466:                                              ; preds = %.thread325, %454, %460
-  %467 = phi i32 [ %458, %460 ], [ %458, %454 ], [ %453, %.thread325 ]
-  %.masked240 = phi i32 [ %465, %460 ], [ 0, %454 ], [ 0, %.thread325 ]
+466:                                              ; preds = %.thread326, %454, %460
+  %467 = phi i32 [ %458, %460 ], [ %458, %454 ], [ %453, %.thread326 ]
+  %.masked240 = phi i32 [ %465, %460 ], [ 0, %454 ], [ 0, %.thread326 ]
   %468 = and i32 %467, -16711681
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 6835
   %470 = load i8, ptr %469, align 1, !tbaa !134
@@ -817,8 +817,8 @@ vc1_get_MVMODE2.exit:                             ; preds = %370, %switch.lookup
   %489 = zext nneg i8 %488 to i16
   %490 = or disjoint i16 %484, %489
   %491 = getelementptr i8, ptr %7, i64 6856
-  %.val263 = load i32, ptr %491, align 8, !tbaa !138
-  %switch.tableidx = add i32 %.val263, -3
+  %.val264 = load i32, ptr %491, align 8, !tbaa !138
+  %switch.tableidx = add i32 %.val264, -3
   %492 = icmp ult i32 %switch.tableidx, 5
   br i1 %492, label %switch.lookup443, label %vc1_get_TTFRM.exit
 
@@ -829,8 +829,8 @@ switch.lookup443:                                 ; preds = %466
   br label %vc1_get_TTFRM.exit
 
 vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup443
-  %.0.i297 = phi i16 [ %switch.load445, %switch.lookup443 ], [ 0, %466 ]
-  %494 = or disjoint i16 %490, %.0.i297
+  %.0.i298 = phi i16 [ %switch.load445, %switch.lookup443 ], [ 0, %466 ]
+  %494 = or disjoint i16 %490, %.0.i298
   %495 = getelementptr inbounds nuw i8, ptr %7, i64 6840
   %496 = load i32, ptr %495, align 8, !tbaa !139
   %497 = trunc i32 %496 to i16
@@ -854,8 +854,8 @@ vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup
 513:                                              ; preds = %vc1_get_TTFRM.exit
   %514 = getelementptr inbounds nuw i8, ptr %7, i64 10544
   %515 = load i32, ptr %514, align 8, !tbaa !97
-  %.not.i299 = icmp eq i32 %515, 0
-  %brmerge433.demorgan = and i1 %.not.i299, %207
+  %.not.i300 = icmp eq i32 %515, 0
+  %brmerge433.demorgan = and i1 %.not.i300, %207
   br i1 %brmerge433.demorgan, label %516, label %vc1_get_INTCOMPFIELD.exit
 
 516:                                              ; preds = %513
@@ -876,8 +876,8 @@ vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup
   br label %527
 
 527:                                              ; preds = %516, %520, %524
-  %.0.i298.ph = phi i8 [ 0, %516 ], [ 0, %520 ], [ %526, %524 ]
-  %brmerge349.not = and i1 %207, %.not.i299
+  %.0.i299.ph = phi i8 [ 0, %516 ], [ 0, %520 ], [ %526, %524 ]
+  %brmerge349.not = and i1 %207, %.not.i300
   br i1 %brmerge349.not, label %528, label %vc1_get_INTCOMPFIELD.exit
 
 528:                                              ; preds = %527
@@ -898,7 +898,7 @@ vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup
   br label %539
 
 539:                                              ; preds = %528, %532, %536
-  %.0.i300.ph.ph = phi i8 [ %538, %536 ], [ 0, %532 ], [ 0, %528 ]
+  %.0.i301.ph.ph = phi i8 [ %538, %536 ], [ 0, %532 ], [ 0, %528 ]
   %540 = getelementptr inbounds nuw i8, ptr %7, i64 6528
   %541 = load i8, ptr %540, align 8, !tbaa !98
   %542 = icmp eq i8 %541, 4
@@ -919,9 +919,9 @@ vc1_get_TTFRM.exit:                               ; preds = %466, %switch.lookup
   br label %vc1_get_INTCOMPFIELD.exit
 
 vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get_TTFRM.exit, %539, %543, %546, %547
-  %548 = phi i8 [ %.0.i300.ph.ph, %546 ], [ %.0.i300.ph.ph, %543 ], [ %.0.i300.ph.ph, %539 ], [ %.0.i300.ph.ph, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %527 ], [ 0, %513 ]
-  %549 = phi i8 [ %.0.i298.ph, %546 ], [ %.0.i298.ph, %543 ], [ %.0.i298.ph, %539 ], [ %.0.i298.ph, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ %.0.i298.ph, %527 ], [ 0, %513 ]
-  %.0.i302 = phi i8 [ 2, %546 ], [ 1, %543 ], [ 0, %539 ], [ 0, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %527 ], [ 0, %513 ]
+  %548 = phi i8 [ %.0.i301.ph.ph, %546 ], [ %.0.i301.ph.ph, %543 ], [ %.0.i301.ph.ph, %539 ], [ %.0.i301.ph.ph, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %527 ], [ 0, %513 ]
+  %549 = phi i8 [ %.0.i299.ph, %546 ], [ %.0.i299.ph, %543 ], [ %.0.i299.ph, %539 ], [ %.0.i299.ph, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ %.0.i299.ph, %527 ], [ 0, %513 ]
+  %.0.i303 = phi i8 [ 2, %546 ], [ 1, %543 ], [ 0, %539 ], [ 0, %547 ], [ 0, %vc1_get_TTFRM.exit ], [ 0, %527 ], [ 0, %513 ]
   %.sroa.179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.179.0..sroa_idx, i8 0, i64 28, i1 false)
   store i32 -1, ptr %5, align 4, !tbaa !90
@@ -966,7 +966,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i8 %144, ptr %.sroa.59.0..sroa_idx, align 2, !tbaa !103
   %.sroa.60.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 39
-  store i8 %.0.shrunk.i308312, ptr %.sroa.60.0..sroa_idx, align 1, !tbaa !103
+  store i8 %.0.shrunk.i309313, ptr %.sroa.60.0..sroa_idx, align 1, !tbaa !103
   %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 %208, ptr %.sroa.61.0..sroa_idx, align 4, !tbaa !103
   %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 41
@@ -1000,7 +1000,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
   %.sroa.176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 73
   store i8 %548, ptr %.sroa.176.0..sroa_idx, align 1, !tbaa !103
   %.sroa.177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 74
-  store i8 %.0.i302, ptr %.sroa.177.0..sroa_idx, align 2, !tbaa !103
+  store i8 %.0.i303, ptr %.sroa.177.0..sroa_idx, align 2, !tbaa !103
   %.sroa.178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 75
   store i8 0, ptr %.sroa.178.0..sroa_idx, align 1
   switch i32 %146, label %566 [
@@ -1017,8 +1017,8 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
 553:                                              ; preds = %550
   %554 = load ptr, ptr %552, align 8, !tbaa !53
   %555 = getelementptr i8, ptr %554, i64 24
-  %.val261 = load ptr, ptr %555, align 8, !tbaa !54
-  %556 = ptrtoint ptr %.val261 to i64
+  %.val262 = load ptr, ptr %555, align 8, !tbaa !54
+  %556 = ptrtoint ptr %.val262 to i64
   %557 = trunc i64 %556 to i32
   store i32 %557, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !146
   br label %558
@@ -1032,8 +1032,8 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
 561:                                              ; preds = %558
   %562 = load ptr, ptr %560, align 8, !tbaa !53
   %563 = getelementptr i8, ptr %562, i64 24
-  %.val262 = load ptr, ptr %563, align 8, !tbaa !54
-  %564 = ptrtoint ptr %.val262 to i64
+  %.val263 = load ptr, ptr %563, align 8, !tbaa !54
+  %564 = ptrtoint ptr %.val263 to i64
   %565 = trunc i64 %564 to i32
   store i32 %565, ptr %5, align 4, !tbaa !149
   br label %566
@@ -1041,7 +1041,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
 566:                                              ; preds = %558, %561, %vc1_get_INTCOMPFIELD.exit
   %567 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 104) #5
   %.not245 = icmp eq i32 %567, 0
-  br i1 %.not245, label %568, label %.thread332
+  br i1 %.not245, label %568, label %.thread333
 
 568:                                              ; preds = %566
   %569 = load i32, ptr %.sroa.91.0..sroa_idx, align 4, !tbaa !103
@@ -1060,7 +1060,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
   %579 = sext i32 %578 to i64
   %580 = call noalias ptr @av_mallocz(i64 noundef %579) #5
   %.not247 = icmp eq ptr %580, null
-  br i1 %.not247, label %.thread332, label %581
+  br i1 %.not247, label %.thread333, label %581
 
 581:                                              ; preds = %571
   %582 = load i32, ptr %145, align 8, !tbaa !152
@@ -1178,7 +1178,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
 
 .preheader.lr.ph:                                 ; preds = %633
   %636 = getelementptr inbounds nuw i8, ptr %7, i64 548
-  %.not.i304 = icmp eq ptr %.sroa.0.0, null
+  %.not.i305 = icmp eq ptr %.sroa.0.0, null
   %.not22.i = icmp eq ptr %.sroa.7.0, null
   %.not23.i = icmp eq ptr %.sroa.12.0, null
   %637 = load i32, ptr %572, align 4, !tbaa !150
@@ -1206,7 +1206,7 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %vc1_pack_bitplanes.exit.us.us
   %.1357.us.us = phi i32 [ %655, %vc1_pack_bitplanes.exit.us.us ], [ %.0206362, %.lr.ph.split.us ]
   %.0208356.us.us = phi i32 [ %654, %vc1_pack_bitplanes.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  br i1 %.not.i304, label %vc1_pack_bitplanes.exit.us.us, label %641
+  br i1 %.not.i305, label %vc1_pack_bitplanes.exit.us.us, label %641
 
 641:                                              ; preds = %.lr.ph.split.us.split.us
   %642 = load i32, ptr %636, align 4, !tbaa !157
@@ -1218,13 +1218,13 @@ vc1_get_INTCOMPFIELD.exit:                        ; preds = %513, %527, %vc1_get
   br label %vc1_pack_bitplanes.exit.us.us
 
 vc1_pack_bitplanes.exit.us.us:                    ; preds = %641, %.lr.ph.split.us.split.us
-  %.0.i305.us.us = phi i8 [ %647, %641 ], [ 0, %.lr.ph.split.us.split.us ]
+  %.0.i306.us.us = phi i8 [ %647, %641 ], [ 0, %.lr.ph.split.us.split.us ]
   %648 = sdiv i32 %.1357.us.us, 2
   %649 = sext i32 %648 to i64
   %650 = getelementptr inbounds i8, ptr %580, i64 %649
   %651 = load i8, ptr %650, align 1, !tbaa !103
   %652 = shl i8 %651, 4
-  %653 = or i8 %652, %.0.i305.us.us
+  %653 = or i8 %652, %.0.i306.us.us
   store i8 %653, ptr %650, align 1, !tbaa !103
   %654 = add nuw nsw i32 %.0208356.us.us, 1
   %655 = add nsw i32 %.1357.us.us, 1
@@ -1236,7 +1236,7 @@ vc1_pack_bitplanes.exit.us.us:                    ; preds = %641, %.lr.ph.split.
   %.0208356.us = phi i32 [ %671, %vc1_pack_bitplanes.exit.us ], [ 0, %.lr.ph.split.us.split.preheader ]
   %657 = add nsw i32 %640, %.0208356.us
   %.pre374 = sext i32 %657 to i64
-  br i1 %.not.i304, label %vc1_pack_bitplanes.exit.us, label %658
+  br i1 %.not.i305, label %vc1_pack_bitplanes.exit.us, label %658
 
 658:                                              ; preds = %.lr.ph.split.us.split
   %659 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.pre374
@@ -1244,11 +1244,11 @@ vc1_pack_bitplanes.exit.us.us:                    ; preds = %641, %.lr.ph.split.
   br label %vc1_pack_bitplanes.exit.us
 
 vc1_pack_bitplanes.exit.us:                       ; preds = %.lr.ph.split.us.split, %658
-  %.0.i305.us = phi i8 [ %660, %658 ], [ 0, %.lr.ph.split.us.split ]
+  %.0.i306.us = phi i8 [ %660, %658 ], [ 0, %.lr.ph.split.us.split ]
   %661 = getelementptr inbounds i8, ptr %.sroa.12.0, i64 %.pre374
   %662 = load i8, ptr %661, align 1, !tbaa !103
   %663 = shl i8 %662, 2
-  %664 = or i8 %663, %.0.i305.us
+  %664 = or i8 %663, %.0.i306.us
   %665 = sdiv i32 %.1357.us, 2
   %666 = sext i32 %665 to i64
   %667 = getelementptr inbounds i8, ptr %580, i64 %666
@@ -1266,7 +1266,7 @@ vc1_pack_bitplanes.exit.us:                       ; preds = %.lr.ph.split.us.spl
   %.0208356 = phi i32 [ %693, %vc1_pack_bitplanes.exit ], [ 0, %.lr.ph.split.preheader ]
   %674 = add nsw i32 %639, %.0208356
   %.pre375 = sext i32 %674 to i64
-  br i1 %.not.i304, label %.lr.ph.split._crit_edge, label %675
+  br i1 %.not.i305, label %.lr.ph.split._crit_edge, label %675
 
 675:                                              ; preds = %.lr.ph.split
   %676 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.pre375
@@ -1274,11 +1274,11 @@ vc1_pack_bitplanes.exit.us:                       ; preds = %.lr.ph.split.us.spl
   br label %.lr.ph.split._crit_edge
 
 .lr.ph.split._crit_edge:                          ; preds = %.lr.ph.split, %675
-  %.0.i305 = phi i8 [ %677, %675 ], [ 0, %.lr.ph.split ]
+  %.0.i306 = phi i8 [ %677, %675 ], [ 0, %.lr.ph.split ]
   %678 = getelementptr inbounds i8, ptr %.sroa.7.0, i64 %.pre375
   %679 = load i8, ptr %678, align 1, !tbaa !103
   %680 = shl i8 %679, 1
-  %681 = or i8 %680, %.0.i305
+  %681 = or i8 %680, %.0.i306
   br i1 %.not23.i, label %vc1_pack_bitplanes.exit, label %682
 
 682:                                              ; preds = %.lr.ph.split._crit_edge
@@ -1326,15 +1326,15 @@ vc1_pack_bitplanes.exit:                          ; preds = %.lr.ph.split._crit_
   %705 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 2, ptr noundef nonnull %580, i64 noundef %579) #5
   call void @av_free(ptr noundef nonnull %580) #5
   %.not259 = icmp eq i32 %705, 0
-  br i1 %.not259, label %707, label %.thread332
+  br i1 %.not259, label %707, label %.thread333
 
-.thread332:                                       ; preds = %._crit_edge363.thread, %571, %566
+.thread333:                                       ; preds = %._crit_edge363.thread, %571, %566
   %.0209 = phi i32 [ %567, %566 ], [ %705, %._crit_edge363.thread ], [ -12, %571 ]
   %706 = call i32 @ff_vaapi_decode_cancel(ptr noundef nonnull %0, ptr noundef nonnull %11) #5
   br label %707
 
-707:                                              ; preds = %._crit_edge363.thread, %568, %.thread332
-  %.0205 = phi i32 [ %.0209, %.thread332 ], [ 0, %568 ], [ 0, %._crit_edge363.thread ]
+707:                                              ; preds = %._crit_edge363.thread, %568, %.thread333
+  %.0205 = phi i32 [ %.0209, %.thread333 ], [ 0, %568 ], [ 0, %._crit_edge363.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0205
 }

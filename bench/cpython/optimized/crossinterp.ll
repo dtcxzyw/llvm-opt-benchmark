@@ -4030,56 +4030,56 @@ define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr noundef nonnull 
   br label %52
 
 22:                                               ; preds = %17
-  %.val54 = load ptr, ptr %5, align 8, !tbaa !95
-  %.not64 = icmp eq ptr %.val54, @PyDict_Type
-  br i1 %.not64, label %.lr.ph70.preheader, label %31
+  %.val57 = load ptr, ptr %5, align 8, !tbaa !95
+  %.not67 = icmp eq ptr %.val57, @PyDict_Type
+  br i1 %.not67, label %.lr.ph73.preheader, label %31
 
-.lr.ph70.preheader:                               ; preds = %22
+.lr.ph73.preheader:                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !119
-  br label %.lr.ph70
+  br label %.lr.ph73
 
-.thread58:                                        ; preds = %29
+.thread61:                                        ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %29
-  %.04369 = phi i64 [ %30, %29 ], [ 0, %.lr.ph70.preheader ]
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %29
+  %.04372 = phi i64 [ %30, %29 ], [ 0, %.lr.ph73.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = call i32 @PyDict_Next(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null) #11
   %.not51 = icmp eq i32 %23, 0
-  br i1 %.not51, label %.thread60, label %24
+  br i1 %.not51, label %.thread63, label %24
 
-.thread60:                                        ; preds = %.lr.ph70
+.thread63:                                        ; preds = %.lr.ph73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread62.sink.split
+  br label %.thread65.sink.split
 
-24:                                               ; preds = %.lr.ph70
-  %25 = getelementptr %struct._sharednsitem, ptr %18, i64 %.04369
+24:                                               ; preds = %.lr.ph73
+  %25 = getelementptr %struct._sharednsitem, ptr %18, i64 %.04372
   %26 = load ptr, ptr %4, align 8, !tbaa !94
   %27 = call fastcc i32 @_sharednsitem_init(ptr noundef %25, ptr noundef %26)
   %28 = icmp sgt i32 %27, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %28, label %29, label %.thread62.sink.split
+  br i1 %28, label %29, label %.thread65.sink.split
 
 29:                                               ; preds = %24
-  %30 = add nuw nsw i64 %.04369, 1
-  %exitcond76.not = icmp eq i64 %30, %11
-  br i1 %exitcond76.not, label %.thread58, label %.lr.ph70, !llvm.loop !155
+  %30 = add nuw nsw i64 %.04372, 1
+  %exitcond79.not = icmp eq i64 %30, %11
+  br i1 %exitcond79.not, label %.thread61, label %.lr.ph73, !llvm.loop !155
 
 31:                                               ; preds = %22
   %32 = tail call i32 @PySequence_Check(ptr noundef nonnull %1) #11
   %.not50 = icmp eq i32 %32, 0
-  br i1 %.not50, label %.thread62.thread, label %.lr.ph
+  br i1 %.not50, label %.thread65.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %44
-  %.24568 = phi i64 [ %45, %44 ], [ 0, %31 ]
-  %33 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %1, i64 noundef %.24568) #11
+  %.24571 = phi i64 [ %45, %44 ], [ 0, %31 ]
+  %33 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %1, i64 noundef %.24571) #11
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread62, label %35
+  br i1 %34, label %.thread65, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr %struct._sharednsitem, ptr %18, i64 %.24568
+  %36 = getelementptr %struct._sharednsitem, ptr %18, i64 %.24571
   %37 = tail call fastcc i32 @_sharednsitem_init(ptr noundef %36, ptr noundef nonnull %33)
   %38 = load i32, ptr %33, align 8, !tbaa !110
   %.not.i = icmp sgt i32 %38, -1
@@ -4097,54 +4097,54 @@ define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr noundef nonnull 
 
 Py_DECREF.exit:                                   ; preds = %35, %39, %42
   %43 = icmp slt i32 %37, 0
-  br i1 %43, label %.thread62, label %44
+  br i1 %43, label %.thread65, label %44
 
 44:                                               ; preds = %Py_DECREF.exit
-  %45 = add nuw nsw i64 %.24568, 1
+  %45 = add nuw nsw i64 %.24571, 1
   %exitcond.not = icmp eq i64 %45, %11
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !156
 
-.thread62.thread:                                 ; preds = %31
+.thread65.thread:                                 ; preds = %31
   %46 = load ptr, ptr @PyExc_NotImplementedError, align 8, !tbaa !94
   tail call void @PyErr_SetString(ptr noundef %46, ptr noundef nonnull @.str.50) #11
   br label %._crit_edge
 
-.loopexit:                                        ; preds = %44, %.thread58
+.loopexit:                                        ; preds = %44, %.thread61
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %47, align 8, !tbaa !149
   store i64 %11, ptr %0, align 8, !tbaa !146
   br label %52
 
-.thread62.sink.split:                             ; preds = %24, %.thread60
+.thread65.sink.split:                             ; preds = %24, %.thread63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread62
+  br label %.thread65
 
-.thread62:                                        ; preds = %Py_DECREF.exit, %.lr.ph, %.thread62.sink.split
-  %.144 = phi i64 [ %.04369, %.thread62.sink.split ], [ %.24568, %.lr.ph ], [ %.24568, %Py_DECREF.exit ]
-  %.not89 = icmp eq i64 %.144, 0
-  br i1 %.not89, label %._crit_edge, label %.lr.ph72
+.thread65:                                        ; preds = %Py_DECREF.exit, %.lr.ph, %.thread65.sink.split
+  %.144 = phi i64 [ %.04372, %.thread65.sink.split ], [ %.24571, %.lr.ph ], [ %.24571, %Py_DECREF.exit ]
+  %.not92 = icmp eq i64 %.144, 0
+  br i1 %.not92, label %._crit_edge, label %.lr.ph75
 
-._crit_edge:                                      ; preds = %_sharednsitem_clear.exit, %.thread62.thread, %.thread62
+._crit_edge:                                      ; preds = %_sharednsitem_clear.exit, %.thread65.thread, %.thread65
   call void @PyMem_RawFree(ptr noundef nonnull %18) #11
   br label %52
 
-.lr.ph72:                                         ; preds = %.thread62, %_sharednsitem_clear.exit
-  %.071 = phi i64 [ %51, %_sharednsitem_clear.exit ], [ 0, %.thread62 ]
-  %48 = getelementptr %struct._sharednsitem, ptr %18, i64 %.071
+.lr.ph75:                                         ; preds = %.thread65, %_sharednsitem_clear.exit
+  %.074 = phi i64 [ %51, %_sharednsitem_clear.exit ], [ 0, %.thread65 ]
+  %48 = getelementptr %struct._sharednsitem, ptr %18, i64 %.074
   %49 = load ptr, ptr %48, align 8, !tbaa !150
-  %.not.i55 = icmp eq ptr %49, null
-  br i1 %.not.i55, label %_sharednsitem_clear.exit, label %50
+  %.not.i58 = icmp eq ptr %49, null
+  br i1 %.not.i58, label %_sharednsitem_clear.exit, label %50
 
-50:                                               ; preds = %.lr.ph72
+50:                                               ; preds = %.lr.ph75
   call void @PyMem_RawFree(ptr noundef nonnull %49) #11
   store ptr null, ptr %48, align 8, !tbaa !150
   br label %_sharednsitem_clear.exit
 
-_sharednsitem_clear.exit:                         ; preds = %.lr.ph72, %50
+_sharednsitem_clear.exit:                         ; preds = %.lr.ph75, %50
   call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %48)
-  %51 = add nuw nsw i64 %.071, 1
-  %exitcond77.not = icmp eq i64 %51, %.144
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph72, !llvm.loop !157
+  %51 = add nuw nsw i64 %.074, 1
+  %exitcond80.not = icmp eq i64 %51, %.144
+  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph75, !llvm.loop !157
 
 52:                                               ; preds = %20, %._crit_edge, %.loopexit, %10, %15
   %.039 = phi i32 [ -1, %15 ], [ -1, %10 ], [ -1, %20 ], [ 0, %.loopexit ], [ -1, %._crit_edge ]

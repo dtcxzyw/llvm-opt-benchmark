@@ -267,12 +267,12 @@ define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef i
 20:                                               ; preds = %18
   %21 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_0) #2
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %32, label %.thread211
+  br i1 %22, label %32, label %.thread213
 
 23:                                               ; preds = %18
   %24 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_1) #2
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %32, label %.thread211
+  br i1 %25, label %32, label %.thread213
 
 26:                                               ; preds = %._crit_edge.i, %.thread51.i
   %27 = phi i32 [ %10, %.thread51.i ], [ %.pre.i, %._crit_edge.i ]
@@ -305,8 +305,8 @@ define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef i
   store i32 %40, ptr %41, align 4
   %42 = load i32, ptr %2, align 8
   %43 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not.i153 = icmp eq i32 %43, 0
-  br i1 %.not.i153, label %44, label %55
+  %.not.i155 = icmp eq i32 %43, 0
+  br i1 %.not.i155, label %44, label %.thread101.i
 
 44:                                               ; preds = %33
   %45 = load i32, ptr %2, align 8
@@ -323,699 +323,699 @@ define hidden range(i32 -2147483648, 2) i32 @portuguese_UTF_8_stem(ptr noundef i
   store i32 %45, ptr %2, align 8
   %51 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
   %.not88.i = icmp eq i32 %51, 0
-  br i1 %.not88.i, label %52, label %55
+  br i1 %.not88.i, label %52, label %.thread101.i
 
 52:                                               ; preds = %50
   %53 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %.sink.split.i
+  br i1 %54, label %.thread101.i, label %.sink.split.i
 
-55:                                               ; preds = %52, %50, %33
+.thread101.i:                                     ; preds = %52, %50, %33
   store i32 %42, ptr %2, align 8
-  %56 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not89.i = icmp eq i32 %56, 0
-  br i1 %.not89.i, label %57, label %.thread102.i
+  %55 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not89.i = icmp eq i32 %55, 0
+  br i1 %.not89.i, label %56, label %.thread106.i
 
-57:                                               ; preds = %55
-  %58 = load i32, ptr %2, align 8
-  %59 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not90.i = icmp eq i32 %59, 0
-  br i1 %.not90.i, label %60, label %63
+56:                                               ; preds = %.thread101.i
+  %57 = load i32, ptr %2, align 8
+  %58 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not90.i = icmp eq i32 %58, 0
+  br i1 %.not90.i, label %59, label %62
 
-60:                                               ; preds = %57
-  %61 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %.sink.split.i
+59:                                               ; preds = %56
+  %60 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %62, label %.sink.split.i
 
-63:                                               ; preds = %60, %57
-  store i32 %58, ptr %2, align 8
-  %64 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
-  %.not91.i = icmp eq i32 %64, 0
-  br i1 %.not91.i, label %65, label %.thread102.i
+62:                                               ; preds = %59, %56
+  store i32 %57, ptr %2, align 8
+  %63 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 0) #2
+  %.not91.i = icmp eq i32 %63, 0
+  br i1 %.not91.i, label %64, label %.thread106.i
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %0, align 8
-  %67 = load i32, ptr %2, align 8
-  %68 = load i32, ptr %5, align 4
-  %69 = tail call i32 @skip_utf8(ptr noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef 1) #2
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.thread102.i, label %73
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %0, align 8
+  %66 = load i32, ptr %2, align 8
+  %67 = load i32, ptr %5, align 4
+  %68 = tail call i32 @skip_utf8(ptr noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef 1) #2
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %.thread106.i, label %72
 
-.sink.split.i:                                    ; preds = %60, %52, %47
-  %.sink122.i = phi i32 [ %48, %47 ], [ %53, %52 ], [ %61, %60 ]
-  %71 = load i32, ptr %2, align 8
-  %72 = add i32 %71, %.sink122.i
-  br label %73
+.sink.split.i:                                    ; preds = %59, %52, %47
+  %.sink126.i = phi i32 [ %48, %47 ], [ %53, %52 ], [ %60, %59 ]
+  %70 = load i32, ptr %2, align 8
+  %71 = add i32 %70, %.sink126.i
+  br label %72
 
-73:                                               ; preds = %.sink.split.i, %65
-  %74 = phi i32 [ %69, %65 ], [ %72, %.sink.split.i ]
-  %75 = load ptr, ptr %35, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i32 %74, ptr %76, align 4
-  br label %.thread102.i
+72:                                               ; preds = %.sink.split.i, %64
+  %73 = phi i32 [ %68, %64 ], [ %71, %.sink.split.i ]
+  %74 = load ptr, ptr %35, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %73, ptr %75, align 4
+  br label %.thread106.i
 
-.thread102.i:                                     ; preds = %73, %65, %63, %55
+.thread106.i:                                     ; preds = %72, %64, %62, %.thread101.i
   store i32 %42, ptr %2, align 8
-  %77 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %r_mark_regions.exit, label %79
+  %76 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %r_mark_regions.exit, label %78
 
-79:                                               ; preds = %.thread102.i
-  %80 = load i32, ptr %2, align 8
-  %81 = add i32 %80, %77
-  store i32 %81, ptr %2, align 8
-  %82 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %r_mark_regions.exit, label %84
+78:                                               ; preds = %.thread106.i
+  %79 = load i32, ptr %2, align 8
+  %80 = add i32 %79, %76
+  store i32 %80, ptr %2, align 8
+  %81 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %r_mark_regions.exit, label %83
 
-84:                                               ; preds = %79
-  %85 = load i32, ptr %2, align 8
-  %86 = add i32 %85, %82
-  store i32 %86, ptr %2, align 8
-  %87 = load ptr, ptr %35, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store i32 %86, ptr %88, align 4
-  %89 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %r_mark_regions.exit, label %91
+83:                                               ; preds = %78
+  %84 = load i32, ptr %2, align 8
+  %85 = add i32 %84, %81
+  store i32 %85, ptr %2, align 8
+  %86 = load ptr, ptr %35, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  store i32 %85, ptr %87, align 4
+  %88 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %r_mark_regions.exit, label %90
 
-91:                                               ; preds = %84
-  %92 = load i32, ptr %2, align 8
-  %93 = add i32 %92, %89
-  store i32 %93, ptr %2, align 8
-  %94 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %r_mark_regions.exit, label %96
+90:                                               ; preds = %83
+  %91 = load i32, ptr %2, align 8
+  %92 = add i32 %91, %88
+  store i32 %92, ptr %2, align 8
+  %93 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 250, i32 noundef 1) #2
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %r_mark_regions.exit, label %95
 
-96:                                               ; preds = %91
-  %97 = load i32, ptr %2, align 8
-  %98 = add i32 %97, %94
-  %99 = load ptr, ptr %35, align 8
-  store i32 %98, ptr %99, align 4
+95:                                               ; preds = %90
+  %96 = load i32, ptr %2, align 8
+  %97 = add i32 %96, %93
+  %98 = load ptr, ptr %35, align 8
+  store i32 %97, ptr %98, align 4
   br label %r_mark_regions.exit
 
-r_mark_regions.exit:                              ; preds = %.thread102.i, %79, %84, %91, %96
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %42, ptr %100, align 8
-  %101 = load i32, ptr %5, align 4
-  store i32 %101, ptr %2, align 8
-  store i32 %101, ptr %6, align 8
-  %102 = add i32 %101, -2
-  %.not.i154 = icmp sgt i32 %102, %42
-  br i1 %.not.i154, label %103, label %r_standard_suffix.exit.thread
+r_mark_regions.exit:                              ; preds = %.thread106.i, %78, %83, %90, %95
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %42, ptr %99, align 8
+  %100 = load i32, ptr %5, align 4
+  store i32 %100, ptr %2, align 8
+  store i32 %100, ptr %6, align 8
+  %101 = add i32 %100, -2
+  %.not.i156 = icmp sgt i32 %101, %42
+  br i1 %.not.i156, label %102, label %r_standard_suffix.exit.thread
 
-103:                                              ; preds = %r_mark_regions.exit
-  %104 = load ptr, ptr %0, align 8
-  %105 = add i32 %101, -1
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %104, i64 %106
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  %.mask.i = and i32 %109, 224
+102:                                              ; preds = %r_mark_regions.exit
+  %103 = load ptr, ptr %0, align 8
+  %104 = add i32 %100, -1
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %103, i64 %105
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %.mask.i = and i32 %108, 224
   %.not315.i = icmp eq i32 %.mask.i, 96
-  br i1 %.not315.i, label %110, label %r_standard_suffix.exit.thread
+  br i1 %.not315.i, label %109, label %r_standard_suffix.exit.thread
 
-110:                                              ; preds = %103
-  %111 = and i32 %109, 31
-  %112 = shl nuw i32 1, %111
-  %113 = and i32 %112, 823330
-  %.not316.i = icmp eq i32 %113, 0
-  br i1 %.not316.i, label %r_standard_suffix.exit.thread, label %114
+109:                                              ; preds = %102
+  %110 = and i32 %108, 31
+  %111 = shl nuw i32 1, %110
+  %112 = and i32 %111, 823330
+  %.not316.i = icmp eq i32 %112, 0
+  br i1 %.not316.i, label %r_standard_suffix.exit.thread, label %113
 
-114:                                              ; preds = %110
-  %115 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_5, i32 noundef 45) #2
-  %.not317.i = icmp eq i32 %115, 0
-  br i1 %.not317.i, label %r_standard_suffix.exit.thread, label %116
+113:                                              ; preds = %109
+  %114 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_5, i32 noundef 45) #2
+  %.not317.i = icmp eq i32 %114, 0
+  br i1 %.not317.i, label %r_standard_suffix.exit.thread, label %115
 
-116:                                              ; preds = %114
-  %117 = load i32, ptr %2, align 8
-  store i32 %117, ptr %4, align 4
-  switch i32 %115, label %.thread180 [
-    i32 1, label %118
-    i32 2, label %122
-    i32 3, label %126
-    i32 4, label %130
-    i32 5, label %134
-    i32 6, label %169
-    i32 7, label %190
-    i32 8, label %215
-    i32 9, label %227
+115:                                              ; preds = %113
+  %116 = load i32, ptr %2, align 8
+  store i32 %116, ptr %4, align 4
+  switch i32 %114, label %.thread182 [
+    i32 1, label %117
+    i32 2, label %121
+    i32 3, label %125
+    i32 4, label %129
+    i32 5, label %133
+    i32 6, label %168
+    i32 7, label %189
+    i32 8, label %214
+    i32 9, label %226
   ]
 
-118:                                              ; preds = %116
-  %.val353.i = load ptr, ptr %35, align 8
-  %.val353.val.i = load i32, ptr %.val353.i, align 4
-  %.not.i.not.i = icmp sgt i32 %.val353.val.i, %117
-  br i1 %.not.i.not.i, label %r_standard_suffix.exit.thread, label %119
+117:                                              ; preds = %115
+  %.val362.i = load ptr, ptr %35, align 8
+  %.val362.val.i = load i32, ptr %.val362.i, align 4
+  %.not.i.not.i = icmp sgt i32 %.val362.val.i, %116
+  br i1 %.not.i.not.i, label %r_standard_suffix.exit.thread, label %118
 
-119:                                              ; preds = %118
-  %120 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %121 = icmp sgt i32 %120, -1
-  br i1 %121, label %.thread180, label %.thread211
+118:                                              ; preds = %117
+  %119 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %120 = icmp sgt i32 %119, -1
+  br i1 %120, label %.thread182, label %.thread213
 
-122:                                              ; preds = %116
-  %.val355.i = load ptr, ptr %35, align 8
-  %.val355.val.i = load i32, ptr %.val355.i, align 4
-  %.not.i380.not.i = icmp sgt i32 %.val355.val.i, %117
-  br i1 %.not.i380.not.i, label %r_standard_suffix.exit.thread, label %123
+121:                                              ; preds = %115
+  %.val364.i = load ptr, ptr %35, align 8
+  %.val364.val.i = load i32, ptr %.val364.i, align 4
+  %.not.i389.not.i = icmp sgt i32 %.val364.val.i, %116
+  br i1 %.not.i389.not.i, label %r_standard_suffix.exit.thread, label %122
 
-123:                                              ; preds = %122
-  %124 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_4) #2
-  %125 = icmp sgt i32 %124, -1
-  br i1 %125, label %.thread180, label %.thread211
+122:                                              ; preds = %121
+  %123 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_4) #2
+  %124 = icmp sgt i32 %123, -1
+  br i1 %124, label %.thread182, label %.thread213
 
-126:                                              ; preds = %116
-  %.val357.i = load ptr, ptr %35, align 8
-  %.val357.val.i = load i32, ptr %.val357.i, align 4
-  %.not.i382.not.i = icmp sgt i32 %.val357.val.i, %117
-  br i1 %.not.i382.not.i, label %r_standard_suffix.exit.thread, label %127
+125:                                              ; preds = %115
+  %.val366.i = load ptr, ptr %35, align 8
+  %.val366.val.i = load i32, ptr %.val366.i, align 4
+  %.not.i391.not.i = icmp sgt i32 %.val366.val.i, %116
+  br i1 %.not.i391.not.i, label %r_standard_suffix.exit.thread, label %126
 
-127:                                              ; preds = %126
-  %128 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_5) #2
-  %129 = icmp sgt i32 %128, -1
-  br i1 %129, label %.thread180, label %.thread211
+126:                                              ; preds = %125
+  %127 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_5) #2
+  %128 = icmp sgt i32 %127, -1
+  br i1 %128, label %.thread182, label %.thread213
 
-130:                                              ; preds = %116
-  %.val359.i = load ptr, ptr %35, align 8
-  %.val359.val.i = load i32, ptr %.val359.i, align 4
-  %.not.i384.not.i = icmp sgt i32 %.val359.val.i, %117
-  br i1 %.not.i384.not.i, label %r_standard_suffix.exit.thread, label %131
+129:                                              ; preds = %115
+  %.val368.i = load ptr, ptr %35, align 8
+  %.val368.val.i = load i32, ptr %.val368.i, align 4
+  %.not.i393.not.i = icmp sgt i32 %.val368.val.i, %116
+  br i1 %.not.i393.not.i, label %r_standard_suffix.exit.thread, label %130
 
-131:                                              ; preds = %130
-  %132 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_6) #2
-  %133 = icmp sgt i32 %132, -1
-  br i1 %133, label %.thread180, label %.thread211
+130:                                              ; preds = %129
+  %131 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_6) #2
+  %132 = icmp sgt i32 %131, -1
+  br i1 %132, label %.thread182, label %.thread213
 
-134:                                              ; preds = %116
-  %.val377.i = load ptr, ptr %35, align 8
-  %135 = getelementptr i8, ptr %.val377.i, i64 4
-  %.val377.val.i = load i32, ptr %135, align 4
-  %.not.i386.not.i = icmp sgt i32 %.val377.val.i, %117
-  br i1 %.not.i386.not.i, label %r_standard_suffix.exit.thread, label %136
+133:                                              ; preds = %115
+  %.val386.i = load ptr, ptr %35, align 8
+  %134 = getelementptr i8, ptr %.val386.i, i64 4
+  %.val386.val.i = load i32, ptr %134, align 4
+  %.not.i395.not.i = icmp sgt i32 %.val386.val.i, %116
+  br i1 %.not.i395.not.i, label %r_standard_suffix.exit.thread, label %135
 
-136:                                              ; preds = %134
-  %137 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %138 = icmp sgt i32 %137, -1
-  br i1 %138, label %139, label %.thread211
+135:                                              ; preds = %133
+  %136 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %137 = icmp sgt i32 %136, -1
+  br i1 %137, label %138, label %.thread213
 
-139:                                              ; preds = %136
-  %140 = load i32, ptr %2, align 8
-  store i32 %140, ptr %6, align 8
-  %141 = add i32 %140, -1
-  %142 = load i32, ptr %100, align 8
-  %.not335.i = icmp sgt i32 %141, %142
-  br i1 %.not335.i, label %143, label %.thread180
+138:                                              ; preds = %135
+  %139 = load i32, ptr %2, align 8
+  store i32 %139, ptr %6, align 8
+  %140 = add i32 %139, -1
+  %141 = load i32, ptr %99, align 8
+  %.not335.i = icmp sgt i32 %140, %141
+  br i1 %.not335.i, label %142, label %.thread182
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %0, align 8
-  %145 = sext i32 %141 to i64
-  %146 = getelementptr inbounds i8, ptr %144, i64 %145
-  %147 = load i8, ptr %146, align 1
-  %148 = zext i8 %147 to i32
-  %.mask337.i = and i32 %148, 224
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %0, align 8
+  %144 = sext i32 %140 to i64
+  %145 = getelementptr inbounds i8, ptr %143, i64 %144
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %.mask337.i = and i32 %147, 224
   %.not336.i = icmp eq i32 %.mask337.i, 96
-  br i1 %.not336.i, label %149, label %.thread180
+  br i1 %.not336.i, label %148, label %.thread182
 
-149:                                              ; preds = %143
-  %150 = and i32 %148, 31
-  %151 = shl nuw i32 1, %150
-  %152 = and i32 %151, 4718616
-  %.not338.i = icmp eq i32 %152, 0
-  br i1 %.not338.i, label %.thread180, label %153
+148:                                              ; preds = %142
+  %149 = and i32 %147, 31
+  %150 = shl nuw i32 1, %149
+  %151 = and i32 %150, 4718616
+  %.not338.i = icmp eq i32 %151, 0
+  br i1 %.not338.i, label %.thread182, label %152
 
-153:                                              ; preds = %149
-  %154 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 4) #2
-  %.not339.i = icmp eq i32 %154, 0
-  br i1 %.not339.i, label %.thread180, label %155
+152:                                              ; preds = %148
+  %153 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 4) #2
+  %.not339.i = icmp eq i32 %153, 0
+  br i1 %.not339.i, label %.thread182, label %154
 
-155:                                              ; preds = %153
-  %156 = load i32, ptr %2, align 8
-  store i32 %156, ptr %4, align 4
-  %.val361.i = load ptr, ptr %35, align 8
-  %.val361.val.i = load i32, ptr %.val361.i, align 4
-  %.not.i388.not.i = icmp sgt i32 %.val361.val.i, %156
-  br i1 %.not.i388.not.i, label %.thread180, label %157
+154:                                              ; preds = %152
+  %155 = load i32, ptr %2, align 8
+  store i32 %155, ptr %4, align 4
+  %.val370.i = load ptr, ptr %35, align 8
+  %.val370.val.i = load i32, ptr %.val370.i, align 4
+  %.not.i397.not.i = icmp sgt i32 %.val370.val.i, %155
+  br i1 %.not.i397.not.i, label %.thread182, label %156
 
-157:                                              ; preds = %155
-  %158 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %159 = icmp sgt i32 %158, -1
-  br i1 %159, label %160, label %.thread211
+156:                                              ; preds = %154
+  %157 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %158 = icmp sgt i32 %157, -1
+  br i1 %158, label %159, label %.thread213
 
-160:                                              ; preds = %157
-  %cond18.i = icmp eq i32 %154, 1
-  br i1 %cond18.i, label %161, label %.thread180
+159:                                              ; preds = %156
+  %cond18.i = icmp eq i32 %153, 1
+  br i1 %cond18.i, label %160, label %.thread182
 
-161:                                              ; preds = %160
-  %162 = load i32, ptr %2, align 8
-  store i32 %162, ptr %6, align 8
-  %163 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_7) #2
-  %.not340.i = icmp eq i32 %163, 0
-  br i1 %.not340.i, label %.thread180, label %164
+160:                                              ; preds = %159
+  %161 = load i32, ptr %2, align 8
+  store i32 %161, ptr %6, align 8
+  %162 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_7) #2
+  %.not340.i = icmp eq i32 %162, 0
+  br i1 %.not340.i, label %.thread182, label %163
 
-164:                                              ; preds = %161
-  %165 = load i32, ptr %2, align 8
-  store i32 %165, ptr %4, align 4
-  %.val363.i = load ptr, ptr %35, align 8
-  %.val363.val.i = load i32, ptr %.val363.i, align 4
-  %.not.i390.not.i = icmp sgt i32 %.val363.val.i, %165
-  br i1 %.not.i390.not.i, label %.thread180, label %166
+163:                                              ; preds = %160
+  %164 = load i32, ptr %2, align 8
+  store i32 %164, ptr %4, align 4
+  %.val372.i = load ptr, ptr %35, align 8
+  %.val372.val.i = load i32, ptr %.val372.i, align 4
+  %.not.i399.not.i = icmp sgt i32 %.val372.val.i, %164
+  br i1 %.not.i399.not.i, label %.thread182, label %165
 
-166:                                              ; preds = %164
-  %167 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %168 = icmp sgt i32 %167, -1
-  br i1 %168, label %.thread180, label %.thread211
+165:                                              ; preds = %163
+  %166 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %167 = icmp sgt i32 %166, -1
+  br i1 %167, label %.thread182, label %.thread213
 
-169:                                              ; preds = %116
-  %.val365.i = load ptr, ptr %35, align 8
-  %.val365.val.i = load i32, ptr %.val365.i, align 4
-  %.not.i392.not.i = icmp sgt i32 %.val365.val.i, %117
-  br i1 %.not.i392.not.i, label %r_standard_suffix.exit.thread, label %170
+168:                                              ; preds = %115
+  %.val374.i = load ptr, ptr %35, align 8
+  %.val374.val.i = load i32, ptr %.val374.i, align 4
+  %.not.i401.not.i = icmp sgt i32 %.val374.val.i, %116
+  br i1 %.not.i401.not.i, label %r_standard_suffix.exit.thread, label %169
 
-170:                                              ; preds = %169
-  %171 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %172 = icmp sgt i32 %171, -1
-  br i1 %172, label %173, label %.thread211
+169:                                              ; preds = %168
+  %170 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %171 = icmp sgt i32 %170, -1
+  br i1 %171, label %172, label %.thread213
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %2, align 8
-  store i32 %174, ptr %6, align 8
-  %175 = add i32 %174, -3
-  %176 = load i32, ptr %100, align 8
-  %.not330.i = icmp sgt i32 %175, %176
-  br i1 %.not330.i, label %177, label %.thread180
+172:                                              ; preds = %169
+  %173 = load i32, ptr %2, align 8
+  store i32 %173, ptr %6, align 8
+  %174 = add i32 %173, -3
+  %175 = load i32, ptr %99, align 8
+  %.not330.i = icmp sgt i32 %174, %175
+  br i1 %.not330.i, label %176, label %.thread182
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %0, align 8
-  %179 = add i32 %174, -1
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %178, i64 %180
-  %182 = load i8, ptr %181, align 1
-  switch i8 %182, label %.thread180 [
-    i8 101, label %183
-    i8 108, label %183
+176:                                              ; preds = %172
+  %177 = load ptr, ptr %0, align 8
+  %178 = add i32 %173, -1
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds i8, ptr %177, i64 %179
+  %181 = load i8, ptr %180, align 1
+  switch i8 %181, label %.thread182 [
+    i8 101, label %182
+    i8 108, label %182
   ]
 
-183:                                              ; preds = %177, %177
-  %184 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 3) #2
-  %.not333.i = icmp eq i32 %184, 0
-  br i1 %.not333.i, label %.thread180, label %185
+182:                                              ; preds = %176, %176
+  %183 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 3) #2
+  %.not333.i = icmp eq i32 %183, 0
+  br i1 %.not333.i, label %.thread182, label %184
 
-185:                                              ; preds = %183
-  %186 = load i32, ptr %2, align 8
-  store i32 %186, ptr %4, align 4
-  %.val367.i = load ptr, ptr %35, align 8
-  %.val367.val.i = load i32, ptr %.val367.i, align 4
-  %.not.i394.not.i = icmp sgt i32 %.val367.val.i, %186
-  br i1 %.not.i394.not.i, label %.thread180, label %187
+184:                                              ; preds = %182
+  %185 = load i32, ptr %2, align 8
+  store i32 %185, ptr %4, align 4
+  %.val376.i = load ptr, ptr %35, align 8
+  %.val376.val.i = load i32, ptr %.val376.i, align 4
+  %.not.i403.not.i = icmp sgt i32 %.val376.val.i, %185
+  br i1 %.not.i403.not.i, label %.thread182, label %186
 
-187:                                              ; preds = %185
-  %188 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %189 = icmp sgt i32 %188, -1
-  br i1 %189, label %.thread180, label %.thread211
+186:                                              ; preds = %184
+  %187 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %188 = icmp sgt i32 %187, -1
+  br i1 %188, label %.thread182, label %.thread213
 
-190:                                              ; preds = %116
-  %.val369.i = load ptr, ptr %35, align 8
-  %.val369.val.i = load i32, ptr %.val369.i, align 4
-  %.not.i396.not.i = icmp sgt i32 %.val369.val.i, %117
-  br i1 %.not.i396.not.i, label %r_standard_suffix.exit.thread, label %191
+189:                                              ; preds = %115
+  %.val378.i = load ptr, ptr %35, align 8
+  %.val378.val.i = load i32, ptr %.val378.i, align 4
+  %.not.i405.not.i = icmp sgt i32 %.val378.val.i, %116
+  br i1 %.not.i405.not.i, label %r_standard_suffix.exit.thread, label %190
 
-191:                                              ; preds = %190
-  %192 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %193 = icmp sgt i32 %192, -1
-  br i1 %193, label %194, label %.thread211
+190:                                              ; preds = %189
+  %191 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %192 = icmp sgt i32 %191, -1
+  br i1 %192, label %193, label %.thread213
 
-194:                                              ; preds = %191
-  %195 = load i32, ptr %2, align 8
-  store i32 %195, ptr %6, align 8
-  %196 = add i32 %195, -1
-  %197 = load i32, ptr %100, align 8
-  %.not324.i = icmp sgt i32 %196, %197
-  br i1 %.not324.i, label %198, label %.thread180
+193:                                              ; preds = %190
+  %194 = load i32, ptr %2, align 8
+  store i32 %194, ptr %6, align 8
+  %195 = add i32 %194, -1
+  %196 = load i32, ptr %99, align 8
+  %.not324.i = icmp sgt i32 %195, %196
+  br i1 %.not324.i, label %197, label %.thread182
 
-198:                                              ; preds = %194
-  %199 = load ptr, ptr %0, align 8
-  %200 = sext i32 %196 to i64
-  %201 = getelementptr inbounds i8, ptr %199, i64 %200
-  %202 = load i8, ptr %201, align 1
-  %203 = zext i8 %202 to i32
-  %.mask326.i = and i32 %203, 224
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %0, align 8
+  %199 = sext i32 %195 to i64
+  %200 = getelementptr inbounds i8, ptr %198, i64 %199
+  %201 = load i8, ptr %200, align 1
+  %202 = zext i8 %201 to i32
+  %.mask326.i = and i32 %202, 224
   %.not325.i = icmp eq i32 %.mask326.i, 96
-  br i1 %.not325.i, label %204, label %.thread180
+  br i1 %.not325.i, label %203, label %.thread182
 
-204:                                              ; preds = %198
-  %205 = and i32 %203, 31
-  %206 = shl nuw i32 1, %205
-  %207 = and i32 %206, 4198408
-  %.not327.i = icmp eq i32 %207, 0
-  br i1 %.not327.i, label %.thread180, label %208
+203:                                              ; preds = %197
+  %204 = and i32 %202, 31
+  %205 = shl nuw i32 1, %204
+  %206 = and i32 %205, 4198408
+  %.not327.i = icmp eq i32 %206, 0
+  br i1 %.not327.i, label %.thread182, label %207
 
-208:                                              ; preds = %204
-  %209 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 3) #2
-  %.not328.i = icmp eq i32 %209, 0
-  br i1 %.not328.i, label %.thread180, label %210
+207:                                              ; preds = %203
+  %208 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_4, i32 noundef 3) #2
+  %.not328.i = icmp eq i32 %208, 0
+  br i1 %.not328.i, label %.thread182, label %209
 
-210:                                              ; preds = %208
-  %211 = load i32, ptr %2, align 8
-  store i32 %211, ptr %4, align 4
-  %.val371.i = load ptr, ptr %35, align 8
-  %.val371.val.i = load i32, ptr %.val371.i, align 4
-  %.not.i398.not.i = icmp sgt i32 %.val371.val.i, %211
-  br i1 %.not.i398.not.i, label %.thread180, label %212
+209:                                              ; preds = %207
+  %210 = load i32, ptr %2, align 8
+  store i32 %210, ptr %4, align 4
+  %.val380.i = load ptr, ptr %35, align 8
+  %.val380.val.i = load i32, ptr %.val380.i, align 4
+  %.not.i407.not.i = icmp sgt i32 %.val380.val.i, %210
+  br i1 %.not.i407.not.i, label %.thread182, label %211
 
-212:                                              ; preds = %210
-  %213 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %214 = icmp sgt i32 %213, -1
-  br i1 %214, label %.thread180, label %.thread211
+211:                                              ; preds = %209
+  %212 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %213 = icmp sgt i32 %212, -1
+  br i1 %213, label %.thread182, label %.thread213
 
-215:                                              ; preds = %116
-  %.val373.i = load ptr, ptr %35, align 8
-  %.val373.val.i = load i32, ptr %.val373.i, align 4
-  %.not.i400.not.i = icmp sgt i32 %.val373.val.i, %117
-  br i1 %.not.i400.not.i, label %r_standard_suffix.exit.thread, label %216
+214:                                              ; preds = %115
+  %.val382.i = load ptr, ptr %35, align 8
+  %.val382.val.i = load i32, ptr %.val382.i, align 4
+  %.not.i409.not.i = icmp sgt i32 %.val382.val.i, %116
+  br i1 %.not.i409.not.i, label %r_standard_suffix.exit.thread, label %215
 
-216:                                              ; preds = %215
-  %217 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %218 = icmp sgt i32 %217, -1
-  br i1 %218, label %219, label %.thread211
+215:                                              ; preds = %214
+  %216 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %217 = icmp sgt i32 %216, -1
+  br i1 %217, label %218, label %.thread213
 
-219:                                              ; preds = %216
-  %220 = load i32, ptr %2, align 8
-  store i32 %220, ptr %6, align 8
-  %221 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_8) #2
-  %.not322.i = icmp eq i32 %221, 0
-  br i1 %.not322.i, label %.thread180, label %222
+218:                                              ; preds = %215
+  %219 = load i32, ptr %2, align 8
+  store i32 %219, ptr %6, align 8
+  %220 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_8) #2
+  %.not322.i = icmp eq i32 %220, 0
+  br i1 %.not322.i, label %.thread182, label %221
 
-222:                                              ; preds = %219
-  %223 = load i32, ptr %2, align 8
-  store i32 %223, ptr %4, align 4
-  %.val375.i = load ptr, ptr %35, align 8
-  %.val375.val.i = load i32, ptr %.val375.i, align 4
-  %.not.i402.not.i = icmp sgt i32 %.val375.val.i, %223
-  br i1 %.not.i402.not.i, label %.thread180, label %224
+221:                                              ; preds = %218
+  %222 = load i32, ptr %2, align 8
+  store i32 %222, ptr %4, align 4
+  %.val384.i = load ptr, ptr %35, align 8
+  %.val384.val.i = load i32, ptr %.val384.i, align 4
+  %.not.i411.not.i = icmp sgt i32 %.val384.val.i, %222
+  br i1 %.not.i411.not.i, label %.thread182, label %223
 
-224:                                              ; preds = %222
-  %225 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %226 = icmp sgt i32 %225, -1
-  br i1 %226, label %.thread180, label %.thread211
+223:                                              ; preds = %221
+  %224 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %225 = icmp sgt i32 %224, -1
+  br i1 %225, label %.thread182, label %.thread213
 
-227:                                              ; preds = %116
-  %.val379.i = load ptr, ptr %35, align 8
-  %228 = getelementptr i8, ptr %.val379.i, i64 8
-  %.val379.val.i = load i32, ptr %228, align 4
-  %.not.i404.not.i = icmp sgt i32 %.val379.val.i, %117
-  br i1 %.not.i404.not.i, label %r_standard_suffix.exit.thread, label %229
+226:                                              ; preds = %115
+  %.val388.i = load ptr, ptr %35, align 8
+  %227 = getelementptr i8, ptr %.val388.i, i64 8
+  %.val388.val.i = load i32, ptr %227, align 4
+  %.not.i413.not.i = icmp sgt i32 %.val388.val.i, %116
+  br i1 %.not.i413.not.i, label %r_standard_suffix.exit.thread, label %228
 
-229:                                              ; preds = %227
-  %230 = load i32, ptr %100, align 8
-  %.not319.i = icmp sgt i32 %117, %230
-  br i1 %.not319.i, label %231, label %r_standard_suffix.exit.thread
+228:                                              ; preds = %226
+  %229 = load i32, ptr %99, align 8
+  %.not319.i = icmp sgt i32 %116, %229
+  br i1 %.not319.i, label %230, label %r_standard_suffix.exit.thread
 
-231:                                              ; preds = %229
-  %232 = load ptr, ptr %0, align 8
-  %233 = add nsw i32 %117, -1
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i8, ptr %232, i64 %234
-  %236 = load i8, ptr %235, align 1
-  %.not320.i = icmp eq i8 %236, 101
-  br i1 %.not320.i, label %237, label %r_standard_suffix.exit.thread
+230:                                              ; preds = %228
+  %231 = load ptr, ptr %0, align 8
+  %232 = add nsw i32 %116, -1
+  %233 = sext i32 %232 to i64
+  %234 = getelementptr inbounds i8, ptr %231, i64 %233
+  %235 = load i8, ptr %234, align 1
+  %.not320.i = icmp eq i8 %235, 101
+  br i1 %.not320.i, label %236, label %r_standard_suffix.exit.thread
 
-237:                                              ; preds = %231
-  store i32 %233, ptr %2, align 8
-  %238 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_9) #2
-  %239 = icmp sgt i32 %238, -1
-  br i1 %239, label %.thread180, label %.thread211
+236:                                              ; preds = %230
+  store i32 %232, ptr %2, align 8
+  %237 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_9) #2
+  %238 = icmp sgt i32 %237, -1
+  br i1 %238, label %.thread182, label %.thread213
 
-r_standard_suffix.exit.thread:                    ; preds = %229, %231, %114, %r_mark_regions.exit, %103, %110, %227, %215, %190, %169, %134, %130, %126, %122, %118
-  %240 = load i32, ptr %5, align 4
-  store i32 %240, ptr %2, align 8
-  %241 = load ptr, ptr %35, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %243 = load i32, ptr %242, align 4
-  %244 = icmp slt i32 %240, %243
-  br i1 %244, label %.thread193, label %245
+r_standard_suffix.exit.thread:                    ; preds = %228, %230, %113, %r_mark_regions.exit, %102, %109, %226, %214, %189, %168, %133, %129, %125, %121, %117
+  %239 = load i32, ptr %5, align 4
+  store i32 %239, ptr %2, align 8
+  %240 = load ptr, ptr %35, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load i32, ptr %241, align 4
+  %243 = icmp slt i32 %239, %242
+  br i1 %243, label %.thread195, label %244
 
-245:                                              ; preds = %r_standard_suffix.exit.thread
-  %246 = load i32, ptr %100, align 8
-  store i32 %243, ptr %100, align 8
-  store i32 %240, ptr %6, align 8
-  %247 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_6, i32 noundef 120) #2
-  %.not.i155 = icmp eq i32 %247, 0
-  br i1 %.not.i155, label %r_verb_suffix.exit.thread234, label %248
+244:                                              ; preds = %r_standard_suffix.exit.thread
+  %245 = load i32, ptr %99, align 8
+  store i32 %242, ptr %99, align 8
+  store i32 %239, ptr %6, align 8
+  %246 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_6, i32 noundef 120) #2
+  %.not.i157 = icmp eq i32 %246, 0
+  br i1 %.not.i157, label %r_verb_suffix.exit.thread236, label %247
 
-r_verb_suffix.exit.thread234:                     ; preds = %245
-  store i32 %246, ptr %100, align 8
-  %.pre278 = load i32, ptr %5, align 4
-  br label %.thread193
-
-248:                                              ; preds = %245
-  %249 = load i32, ptr %2, align 8
-  store i32 %249, ptr %4, align 4
-  %250 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %251 = icmp sgt i32 %250, -1
-  br i1 %251, label %.thread244, label %.thread211
-
-.thread244:                                       ; preds = %248
-  store i32 %246, ptr %100, align 8
-  br label %.thread180
-
-.thread180:                                       ; preds = %153, %155, %161, %164, %183, %185, %208, %210, %219, %222, %237, %224, %212, %204, %198, %194, %187, %177, %173, %166, %160, %149, %143, %139, %131, %127, %123, %119, %116, %.thread244
-  %252 = load i32, ptr %5, align 4
-  store i32 %252, ptr %2, align 8
-  store i32 %252, ptr %6, align 8
-  %253 = load i32, ptr %100, align 8
-  %.not = icmp sgt i32 %252, %253
-  br i1 %.not, label %254, label %.thread207
-
-254:                                              ; preds = %.thread180
-  %255 = load ptr, ptr %0, align 8
-  %256 = add nsw i32 %252, -1
-  %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds i8, ptr %255, i64 %257
-  %259 = load i8, ptr %258, align 1
-  %.not142 = icmp eq i8 %259, 105
-  br i1 %.not142, label %260, label %.thread207
-
-260:                                              ; preds = %254
-  store i32 %256, ptr %2, align 8
-  store i32 %256, ptr %4, align 4
-  %.not143 = icmp sgt i32 %256, %253
-  br i1 %.not143, label %261, label %.thread207
-
-261:                                              ; preds = %260
-  %262 = sext i32 %252 to i64
-  %263 = getelementptr i8, ptr %255, i64 %262
-  %264 = getelementptr i8, ptr %263, i64 -2
-  %265 = load i8, ptr %264, align 1
-  %.not144 = icmp eq i8 %265, 99
-  br i1 %.not144, label %266, label %.thread207
-
-266:                                              ; preds = %261
-  %.val152 = load ptr, ptr %35, align 8
-  %267 = getelementptr i8, ptr %.val152, i64 8
-  %.val152.val = load i32, ptr %267, align 4
-  %.not.i156.not = icmp slt i32 %.val152.val, %252
-  br i1 %.not.i156.not, label %268, label %.thread207
-
-268:                                              ; preds = %266
-  %269 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %270 = icmp sgt i32 %269, -1
-  br i1 %270, label %.thread207, label %.thread211
-
-.thread193:                                       ; preds = %r_standard_suffix.exit.thread, %r_verb_suffix.exit.thread234
-  %271 = phi i32 [ %240, %r_standard_suffix.exit.thread ], [ %.pre278, %r_verb_suffix.exit.thread234 ]
-  store i32 %271, ptr %2, align 8
-  store i32 %271, ptr %6, align 8
-  %272 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_7, i32 noundef 7) #2
-  %.not.i157 = icmp eq i32 %272, 0
-  br i1 %.not.i157, label %.thread207, label %273
-
-273:                                              ; preds = %.thread193
-  %274 = load i32, ptr %2, align 8
-  store i32 %274, ptr %4, align 4
-  %.val18.i = load ptr, ptr %35, align 8
-  %275 = getelementptr i8, ptr %.val18.i, i64 8
-  %.val18.val.i = load i32, ptr %275, align 4
-  %.not.i.not.i158 = icmp sgt i32 %.val18.val.i, %274
-  br i1 %.not.i.not.i158, label %.thread207, label %276
-
-276:                                              ; preds = %273
-  %277 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %278 = icmp sgt i32 %277, -1
-  br i1 %278, label %.thread207, label %.thread211
-
-.thread207:                                       ; preds = %260, %261, %266, %.thread180, %254, %268, %276, %273, %.thread193
-  %279 = load i32, ptr %5, align 4
-  store i32 %279, ptr %2, align 8
-  store i32 %279, ptr %6, align 8
-  %280 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_8, i32 noundef 4) #2
-  %.not.i160 = icmp eq i32 %280, 0
-  br i1 %.not.i160, label %318, label %281
-
-281:                                              ; preds = %.thread207
-  %282 = load i32, ptr %2, align 8
-  store i32 %282, ptr %4, align 4
-  switch i32 %280, label %318 [
-    i32 1, label %283
-    i32 2, label %315
-  ]
-
-283:                                              ; preds = %281
-  %.val106.i = load ptr, ptr %35, align 8
-  %284 = getelementptr i8, ptr %.val106.i, i64 8
-  %.val106.val.i = load i32, ptr %284, align 4
-  %.not.i.not.i162 = icmp sgt i32 %.val106.val.i, %282
-  br i1 %.not.i.not.i162, label %318, label %285
-
-285:                                              ; preds = %283
-  %286 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %287 = icmp sgt i32 %286, -1
-  br i1 %287, label %288, label %.thread211
-
-288:                                              ; preds = %285
-  %289 = load i32, ptr %2, align 8
-  store i32 %289, ptr %6, align 8
-  %290 = load i32, ptr %100, align 8
-  %.not93.i = icmp sgt i32 %289, %290
-  br i1 %.not93.i, label %291, label %318
-
-291:                                              ; preds = %288
-  %292 = load ptr, ptr %0, align 8
-  %293 = add nsw i32 %289, -1
-  %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds i8, ptr %292, i64 %294
-  %296 = load i8, ptr %295, align 1
-  %.not94.i = icmp eq i8 %296, 117
-  br i1 %.not94.i, label %297, label %.thread.i
-
-297:                                              ; preds = %291
-  store i32 %293, ptr %2, align 8
-  store i32 %293, ptr %4, align 4
-  %.not95.i = icmp sgt i32 %293, %290
-  br i1 %.not95.i, label %298, label %.thread.i
-
-298:                                              ; preds = %297
-  %299 = sext i32 %289 to i64
-  %300 = getelementptr i8, ptr %292, i64 %299
-  %301 = getelementptr i8, ptr %300, i64 -2
-  %302 = load i8, ptr %301, align 1
-  %.not96.i = icmp eq i8 %302, 103
-  br i1 %.not96.i, label %310, label %.thread.i
-
-.thread.i:                                        ; preds = %298, %297, %291
-  store i32 %289, ptr %2, align 8
-  %303 = load i8, ptr %295, align 1
-  %.not99.i = icmp eq i8 %303, 105
-  br i1 %.not99.i, label %304, label %318
-
-304:                                              ; preds = %.thread.i
-  store i32 %293, ptr %2, align 8
-  store i32 %293, ptr %4, align 4
-  %.not100.i = icmp sgt i32 %293, %290
-  br i1 %.not100.i, label %305, label %318
-
-305:                                              ; preds = %304
-  %306 = sext i32 %289 to i64
-  %307 = getelementptr i8, ptr %292, i64 %306
-  %308 = getelementptr i8, ptr %307, i64 -2
-  %309 = load i8, ptr %308, align 1
-  %.not101.i = icmp eq i8 %309, 99
-  br i1 %.not101.i, label %310, label %318
-
-310:                                              ; preds = %305, %298
-  store i32 %293, ptr %2, align 8
-  %.val104.i = load ptr, ptr %35, align 8
-  %311 = getelementptr i8, ptr %.val104.i, i64 8
-  %.val104.val.i = load i32, ptr %311, align 4
-  %.not.i107.not.not.i = icmp slt i32 %.val104.val.i, %289
-  br i1 %.not.i107.not.not.i, label %312, label %318
-
-312:                                              ; preds = %310
-  %313 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
-  %314 = icmp sgt i32 %313, -1
-  br i1 %314, label %318, label %.thread211
-
-315:                                              ; preds = %281
-  %316 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
-  %317 = icmp sgt i32 %316, -1
-  br i1 %317, label %318, label %.thread211
-
-318:                                              ; preds = %281, %312, %315, %288, %304, %305, %.thread.i, %.thread207, %283, %310
-  %319 = load i32, ptr %5, align 4
-  %320 = load i32, ptr %100, align 8
-  store i32 %320, ptr %2, align 8
-  br label %321
-
-321:                                              ; preds = %346, %318
-  %322 = phi i32 [ %.pre280, %346 ], [ %319, %318 ]
-  %323 = phi i32 [ %.pre279, %346 ], [ %320, %318 ]
-  store i32 %323, ptr %4, align 4
-  %324 = add i32 %323, 1
-  %.not.i163 = icmp slt i32 %324, %322
-  br i1 %.not.i163, label %325, label %.thread47.i
-
-325:                                              ; preds = %321
-  %326 = load ptr, ptr %0, align 8
-  %327 = sext i32 %324 to i64
-  %328 = getelementptr inbounds i8, ptr %326, i64 %327
-  %329 = load i8, ptr %328, align 1
-  %.not40.i = icmp eq i8 %329, 126
-  br i1 %.not40.i, label %330, label %.thread47.i
-
-.thread47.i:                                      ; preds = %325, %321
-  store i32 %323, ptr %6, align 8
-  br label %340
-
-330:                                              ; preds = %325
-  %331 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
-  %.not41.i = icmp eq i32 %331, 0
-  br i1 %.not41.i, label %347, label %332
-
-332:                                              ; preds = %330
-  %333 = load i32, ptr %2, align 8
-  store i32 %333, ptr %6, align 8
-  switch i32 %331, label %346 [
-    i32 1, label %334
-    i32 2, label %337
-    i32 3, label %._crit_edge.i165
-  ]
-
-._crit_edge.i165:                                 ; preds = %332
-  %.pre.i166 = load i32, ptr %5, align 4
-  br label %340
-
-334:                                              ; preds = %332
-  %335 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #2
-  %336 = icmp sgt i32 %335, -1
-  br i1 %336, label %346, label %.thread211
-
-337:                                              ; preds = %332
-  %338 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_3) #2
-  %339 = icmp sgt i32 %338, -1
-  br i1 %339, label %346, label %.thread211
-
-340:                                              ; preds = %._crit_edge.i165, %.thread47.i
-  %341 = phi i32 [ %322, %.thread47.i ], [ %.pre.i166, %._crit_edge.i165 ]
-  %342 = phi i32 [ %323, %.thread47.i ], [ %333, %._crit_edge.i165 ]
-  %343 = load ptr, ptr %0, align 8
-  %344 = tail call i32 @skip_utf8(ptr noundef %343, i32 noundef %342, i32 noundef %341, i32 noundef 1) #2
-  %345 = icmp slt i32 %344, 0
-  br i1 %345, label %347, label %.thread49.i
-
-.thread49.i:                                      ; preds = %340
-  store i32 %344, ptr %2, align 8
-  br label %346
-
-346:                                              ; preds = %.thread49.i, %337, %334, %332
-  %.pre279 = load i32, ptr %2, align 8
+r_verb_suffix.exit.thread236:                     ; preds = %244
+  store i32 %245, ptr %99, align 8
   %.pre280 = load i32, ptr %5, align 4
-  br label %321
+  br label %.thread195
 
-347:                                              ; preds = %330, %340
-  store i32 %320, ptr %2, align 8
-  br label %.thread211
+247:                                              ; preds = %244
+  %248 = load i32, ptr %2, align 8
+  store i32 %248, ptr %4, align 4
+  %249 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %250 = icmp sgt i32 %249, -1
+  br i1 %250, label %.thread246, label %.thread213
 
-.thread211:                                       ; preds = %23, %20, %334, %337, %224, %212, %187, %157, %166, %237, %216, %191, %170, %136, %131, %127, %123, %119, %285, %312, %315, %248, %276, %268, %347
-  %.1 = phi i32 [ 1, %347 ], [ %269, %268 ], [ %250, %248 ], [ %277, %276 ], [ %313, %312 ], [ %286, %285 ], [ %316, %315 ], [ %225, %224 ], [ %213, %212 ], [ %188, %187 ], [ %158, %157 ], [ %167, %166 ], [ %238, %237 ], [ %217, %216 ], [ %192, %191 ], [ %171, %170 ], [ %137, %136 ], [ %132, %131 ], [ %128, %127 ], [ %124, %123 ], [ %120, %119 ], [ %335, %334 ], [ %338, %337 ], [ %21, %20 ], [ %24, %23 ]
+.thread246:                                       ; preds = %247
+  store i32 %245, ptr %99, align 8
+  br label %.thread182
+
+.thread182:                                       ; preds = %152, %154, %160, %163, %182, %184, %207, %209, %218, %221, %236, %223, %211, %203, %197, %193, %186, %176, %172, %165, %159, %148, %142, %138, %130, %126, %122, %118, %115, %.thread246
+  %251 = load i32, ptr %5, align 4
+  store i32 %251, ptr %2, align 8
+  store i32 %251, ptr %6, align 8
+  %252 = load i32, ptr %99, align 8
+  %.not = icmp sgt i32 %251, %252
+  br i1 %.not, label %253, label %.thread209
+
+253:                                              ; preds = %.thread182
+  %254 = load ptr, ptr %0, align 8
+  %255 = add nsw i32 %251, -1
+  %256 = sext i32 %255 to i64
+  %257 = getelementptr inbounds i8, ptr %254, i64 %256
+  %258 = load i8, ptr %257, align 1
+  %.not142 = icmp eq i8 %258, 105
+  br i1 %.not142, label %259, label %.thread209
+
+259:                                              ; preds = %253
+  store i32 %255, ptr %2, align 8
+  store i32 %255, ptr %4, align 4
+  %.not143 = icmp sgt i32 %255, %252
+  br i1 %.not143, label %260, label %.thread209
+
+260:                                              ; preds = %259
+  %261 = sext i32 %251 to i64
+  %262 = getelementptr i8, ptr %254, i64 %261
+  %263 = getelementptr i8, ptr %262, i64 -2
+  %264 = load i8, ptr %263, align 1
+  %.not144 = icmp eq i8 %264, 99
+  br i1 %.not144, label %265, label %.thread209
+
+265:                                              ; preds = %260
+  %.val154 = load ptr, ptr %35, align 8
+  %266 = getelementptr i8, ptr %.val154, i64 8
+  %.val154.val = load i32, ptr %266, align 4
+  %.not.i158.not = icmp slt i32 %.val154.val, %251
+  br i1 %.not.i158.not, label %267, label %.thread209
+
+267:                                              ; preds = %265
+  %268 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %269 = icmp sgt i32 %268, -1
+  br i1 %269, label %.thread209, label %.thread213
+
+.thread195:                                       ; preds = %r_standard_suffix.exit.thread, %r_verb_suffix.exit.thread236
+  %270 = phi i32 [ %239, %r_standard_suffix.exit.thread ], [ %.pre280, %r_verb_suffix.exit.thread236 ]
+  store i32 %270, ptr %2, align 8
+  store i32 %270, ptr %6, align 8
+  %271 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_7, i32 noundef 7) #2
+  %.not.i159 = icmp eq i32 %271, 0
+  br i1 %.not.i159, label %.thread209, label %272
+
+272:                                              ; preds = %.thread195
+  %273 = load i32, ptr %2, align 8
+  store i32 %273, ptr %4, align 4
+  %.val18.i = load ptr, ptr %35, align 8
+  %274 = getelementptr i8, ptr %.val18.i, i64 8
+  %.val18.val.i = load i32, ptr %274, align 4
+  %.not.i.not.i160 = icmp sgt i32 %.val18.val.i, %273
+  br i1 %.not.i.not.i160, label %.thread209, label %275
+
+275:                                              ; preds = %272
+  %276 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %277 = icmp sgt i32 %276, -1
+  br i1 %277, label %.thread209, label %.thread213
+
+.thread209:                                       ; preds = %259, %260, %265, %.thread182, %253, %267, %275, %272, %.thread195
+  %278 = load i32, ptr %5, align 4
+  store i32 %278, ptr %2, align 8
+  store i32 %278, ptr %6, align 8
+  %279 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_8, i32 noundef 4) #2
+  %.not.i162 = icmp eq i32 %279, 0
+  br i1 %.not.i162, label %317, label %280
+
+280:                                              ; preds = %.thread209
+  %281 = load i32, ptr %2, align 8
+  store i32 %281, ptr %4, align 4
+  switch i32 %279, label %317 [
+    i32 1, label %282
+    i32 2, label %314
+  ]
+
+282:                                              ; preds = %280
+  %.val107.i = load ptr, ptr %35, align 8
+  %283 = getelementptr i8, ptr %.val107.i, i64 8
+  %.val107.val.i = load i32, ptr %283, align 4
+  %.not.i.not.i164 = icmp sgt i32 %.val107.val.i, %281
+  br i1 %.not.i.not.i164, label %317, label %284
+
+284:                                              ; preds = %282
+  %285 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %286 = icmp sgt i32 %285, -1
+  br i1 %286, label %287, label %.thread213
+
+287:                                              ; preds = %284
+  %288 = load i32, ptr %2, align 8
+  store i32 %288, ptr %6, align 8
+  %289 = load i32, ptr %99, align 8
+  %.not93.i = icmp sgt i32 %288, %289
+  br i1 %.not93.i, label %290, label %317
+
+290:                                              ; preds = %287
+  %291 = load ptr, ptr %0, align 8
+  %292 = add nsw i32 %288, -1
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds i8, ptr %291, i64 %293
+  %295 = load i8, ptr %294, align 1
+  %.not94.i = icmp eq i8 %295, 117
+  br i1 %.not94.i, label %296, label %.thread.i
+
+296:                                              ; preds = %290
+  store i32 %292, ptr %2, align 8
+  store i32 %292, ptr %4, align 4
+  %.not95.i = icmp sgt i32 %292, %289
+  br i1 %.not95.i, label %297, label %.thread.i
+
+297:                                              ; preds = %296
+  %298 = sext i32 %288 to i64
+  %299 = getelementptr i8, ptr %291, i64 %298
+  %300 = getelementptr i8, ptr %299, i64 -2
+  %301 = load i8, ptr %300, align 1
+  %.not96.i = icmp eq i8 %301, 103
+  br i1 %.not96.i, label %309, label %.thread.i
+
+.thread.i:                                        ; preds = %297, %296, %290
+  store i32 %288, ptr %2, align 8
+  %302 = load i8, ptr %294, align 1
+  %.not99.i = icmp eq i8 %302, 105
+  br i1 %.not99.i, label %303, label %317
+
+303:                                              ; preds = %.thread.i
+  store i32 %292, ptr %2, align 8
+  store i32 %292, ptr %4, align 4
+  %.not100.i = icmp sgt i32 %292, %289
+  br i1 %.not100.i, label %304, label %317
+
+304:                                              ; preds = %303
+  %305 = sext i32 %288 to i64
+  %306 = getelementptr i8, ptr %291, i64 %305
+  %307 = getelementptr i8, ptr %306, i64 -2
+  %308 = load i8, ptr %307, align 1
+  %.not101.i = icmp eq i8 %308, 99
+  br i1 %.not101.i, label %309, label %317
+
+309:                                              ; preds = %304, %297
+  store i32 %292, ptr %2, align 8
+  %.val105.i = load ptr, ptr %35, align 8
+  %310 = getelementptr i8, ptr %.val105.i, i64 8
+  %.val105.val.i = load i32, ptr %310, align 4
+  %.not.i108.not.not.i = icmp slt i32 %.val105.val.i, %288
+  br i1 %.not.i108.not.not.i, label %311, label %317
+
+311:                                              ; preds = %309
+  %312 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
+  %313 = icmp sgt i32 %312, -1
+  br i1 %313, label %317, label %.thread213
+
+314:                                              ; preds = %280
+  %315 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_10) #2
+  %316 = icmp sgt i32 %315, -1
+  br i1 %316, label %317, label %.thread213
+
+317:                                              ; preds = %280, %311, %314, %287, %303, %304, %.thread.i, %.thread209, %282, %309
+  %318 = load i32, ptr %5, align 4
+  %319 = load i32, ptr %99, align 8
+  store i32 %319, ptr %2, align 8
+  br label %320
+
+320:                                              ; preds = %345, %317
+  %321 = phi i32 [ %.pre282, %345 ], [ %318, %317 ]
+  %322 = phi i32 [ %.pre281, %345 ], [ %319, %317 ]
+  store i32 %322, ptr %4, align 4
+  %323 = add i32 %322, 1
+  %.not.i165 = icmp slt i32 %323, %321
+  br i1 %.not.i165, label %324, label %.thread47.i
+
+324:                                              ; preds = %320
+  %325 = load ptr, ptr %0, align 8
+  %326 = sext i32 %323 to i64
+  %327 = getelementptr inbounds i8, ptr %325, i64 %326
+  %328 = load i8, ptr %327, align 1
+  %.not40.i = icmp eq i8 %328, 126
+  br i1 %.not40.i, label %329, label %.thread47.i
+
+.thread47.i:                                      ; preds = %324, %320
+  store i32 %322, ptr %6, align 8
+  br label %339
+
+329:                                              ; preds = %324
+  %330 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
+  %.not41.i = icmp eq i32 %330, 0
+  br i1 %.not41.i, label %346, label %331
+
+331:                                              ; preds = %329
+  %332 = load i32, ptr %2, align 8
+  store i32 %332, ptr %6, align 8
+  switch i32 %330, label %345 [
+    i32 1, label %333
+    i32 2, label %336
+    i32 3, label %._crit_edge.i167
+  ]
+
+._crit_edge.i167:                                 ; preds = %331
+  %.pre.i168 = load i32, ptr %5, align 4
+  br label %339
+
+333:                                              ; preds = %331
+  %334 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_2) #2
+  %335 = icmp sgt i32 %334, -1
+  br i1 %335, label %345, label %.thread213
+
+336:                                              ; preds = %331
+  %337 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @s_3) #2
+  %338 = icmp sgt i32 %337, -1
+  br i1 %338, label %345, label %.thread213
+
+339:                                              ; preds = %._crit_edge.i167, %.thread47.i
+  %340 = phi i32 [ %321, %.thread47.i ], [ %.pre.i168, %._crit_edge.i167 ]
+  %341 = phi i32 [ %322, %.thread47.i ], [ %332, %._crit_edge.i167 ]
+  %342 = load ptr, ptr %0, align 8
+  %343 = tail call i32 @skip_utf8(ptr noundef %342, i32 noundef %341, i32 noundef %340, i32 noundef 1) #2
+  %344 = icmp slt i32 %343, 0
+  br i1 %344, label %346, label %.thread49.i
+
+.thread49.i:                                      ; preds = %339
+  store i32 %343, ptr %2, align 8
+  br label %345
+
+345:                                              ; preds = %.thread49.i, %336, %333, %331
+  %.pre281 = load i32, ptr %2, align 8
+  %.pre282 = load i32, ptr %5, align 4
+  br label %320
+
+346:                                              ; preds = %329, %339
+  store i32 %319, ptr %2, align 8
+  br label %.thread213
+
+.thread213:                                       ; preds = %23, %20, %333, %336, %223, %211, %186, %165, %156, %236, %215, %190, %169, %135, %130, %126, %122, %118, %284, %311, %314, %247, %275, %267, %346
+  %.1 = phi i32 [ 1, %346 ], [ %268, %267 ], [ %249, %247 ], [ %276, %275 ], [ %312, %311 ], [ %285, %284 ], [ %315, %314 ], [ %224, %223 ], [ %212, %211 ], [ %187, %186 ], [ %166, %165 ], [ %157, %156 ], [ %237, %236 ], [ %216, %215 ], [ %191, %190 ], [ %170, %169 ], [ %136, %135 ], [ %131, %130 ], [ %127, %126 ], [ %123, %122 ], [ %119, %118 ], [ %334, %333 ], [ %337, %336 ], [ %21, %20 ], [ %24, %23 ]
   ret i32 %.1
 }
 

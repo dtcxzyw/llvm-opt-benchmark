@@ -178,13 +178,13 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %6, align 8
   %7 = icmp eq i64 %1, 0
-  br i1 %7, label %.loopexit36, label %8
+  br i1 %7, label %.loopexit37, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3336
   %10 = load volatile i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %.loopexit36, label %12
+  br i1 %11, label %.loopexit37, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4040
@@ -214,30 +214,30 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 30:                                               ; preds = %19, %14
   %31 = add nuw nsw i64 %15, 1
   %32 = icmp eq i64 %31, 27
-  br i1 %32, label %.loopexit36, label %14, !llvm.loop !22
+  br i1 %32, label %.loopexit37, label %14, !llvm.loop !22
 
-.loopexit36:                                      ; preds = %30, %8, %3
+.loopexit37:                                      ; preds = %30, %8, %3
   call void @_raw_spin_lock(ptr noundef nonnull %5) #6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3152
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %33
-  br i1 %35, label %.loopexit35, label %.preheader34
+  br i1 %35, label %.loopexit36, label %.preheader35
 
-.preheader34:                                     ; preds = %.loopexit36, %.thread31
-  %36 = phi i64 [ %147, %.thread31 ], [ %1, %.loopexit36 ]
-  %37 = phi ptr [ %146, %.thread31 ], [ %34, %.loopexit36 ]
-  %38 = phi i64 [ %145, %.thread31 ], [ 0, %.loopexit36 ]
+.preheader35:                                     ; preds = %.loopexit37, %.thread32
+  %36 = phi i64 [ %147, %.thread32 ], [ %1, %.loopexit37 ]
+  %37 = phi ptr [ %146, %.thread32 ], [ %34, %.loopexit37 ]
+  %38 = phi i64 [ %145, %.thread32 ], [ 0, %.loopexit37 ]
   %39 = load ptr, ptr %37, align 8
   %40 = getelementptr i8, ptr %37, i64 -296
   %41 = call i32 @mutex_trylock(ptr noundef %40) #6
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %45
 
-43:                                               ; preds = %.preheader34
+43:                                               ; preds = %.preheader35
   %44 = add i64 %38, 1
-  br label %.thread31
+  br label %.thread32
 
-45:                                               ; preds = %.preheader34
+45:                                               ; preds = %.preheader35
   %46 = getelementptr i8, ptr %37, i64 40
   %47 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %46, i32 1, ptr elementtype(i32) %46) #6, !srcloc !6
   %48 = icmp eq i32 %47, 0
@@ -259,27 +259,27 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56, ptr elementtype(i32) %56) #6, !srcloc !23
   call void @_raw_spin_unlock(ptr noundef nonnull %5) #6
   %57 = icmp sgt i64 %36, 0
-  br i1 %57, label %58, label %.thread29
+  br i1 %57, label %58, label %.thread30
 
 58:                                               ; preds = %55
   %59 = getelementptr i8, ptr %37, i64 -208
   call void @__rcu_read_lock() #6
   %60 = load volatile ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread22, label %.lr.ph
+  br i1 %61, label %.thread23, label %.lr.ph
 
-.thread22:                                        ; preds = %.thread19, %58
+.thread23:                                        ; preds = %.thread20, %58
   call void @__rcu_read_unlock() #6
-  br label %.thread29
+  br label %.thread30
 
-.lr.ph:                                           ; preds = %58, %.thread19
-  %62 = phi ptr [ %91, %.thread19 ], [ %60, %58 ]
+.lr.ph:                                           ; preds = %58, %.thread20
+  %62 = phi ptr [ %91, %.thread20 ], [ %60, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load volatile i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.thread, label %.preheader32
+  br i1 %65, label %.thread, label %.preheader33
 
-.preheader32:                                     ; preds = %.lr.ph, %71
+.preheader33:                                     ; preds = %.lr.ph, %71
   %66 = phi i32 [ %72, %71 ], [ %64, %.lr.ph ]
   %67 = add i32 %66, 1
   %68 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 %67, ptr nonnull elementtype(i32) %63, i32 %66) #6, !srcloc !24
@@ -289,13 +289,13 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %.not = icmp eq i8 %69, 0
   br i1 %.not, label %71, label %.thread, !prof !7
 
-71:                                               ; preds = %.preheader32
+71:                                               ; preds = %.preheader33
   %72 = extractvalue { i8, i32 } %68, 1
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread, label %.preheader32, !llvm.loop !25
+  br i1 %73, label %.thread, label %.preheader33, !llvm.loop !25
 
-.thread:                                          ; preds = %.preheader32, %71, %.lr.ph
-  %74 = phi i32 [ 0, %.lr.ph ], [ %66, %.preheader32 ], [ 0, %71 ]
+.thread:                                          ; preds = %.preheader33, %71, %.lr.ph
+  %74 = phi i32 [ 0, %.lr.ph ], [ %66, %.preheader33 ], [ 0, %71 ]
   %75 = add i32 %74, 1
   %76 = or i32 %75, %74
   %77 = icmp sgt i32 %76, -1
@@ -307,7 +307,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 79:                                               ; preds = %78, %.thread
   %80 = icmp eq i32 %74, 0
-  br i1 %80, label %.thread19, label %81
+  br i1 %80, label %.thread20, label %81
 
 81:                                               ; preds = %79
   %82 = load volatile ptr, ptr %59, align 8
@@ -321,21 +321,21 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 87:                                               ; preds = %84
   %88 = icmp sgt i32 %85, 0
-  br i1 %88, label %.thread19, label %89, !prof !8
+  br i1 %88, label %.thread20, label %89, !prof !8
 
 89:                                               ; preds = %87
   call void @refcount_warn_saturate(ptr noundef nonnull %63, i32 noundef 3) #6
-  br label %.thread19
+  br label %.thread20
 
 90:                                               ; preds = %84
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   call void @dma_fence_release(ptr noundef nonnull %63) #6, !callees !20
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %87, %89, %90, %79
+.thread20:                                        ; preds = %87, %89, %90, %79
   %91 = load volatile ptr, ptr %59, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread22, label %.lr.ph, !llvm.loop !26
+  br i1 %92, label %.thread23, label %.lr.ph, !llvm.loop !26
 
 93:                                               ; preds = %81
   call void @__rcu_read_unlock() #6
@@ -347,33 +347,33 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 97:                                               ; preds = %93
   %98 = icmp sgt i32 %95, 0
-  br i1 %98, label %.thread25, label %99, !prof !8
+  br i1 %98, label %.thread26, label %99, !prof !8
 
 99:                                               ; preds = %97
   call void @refcount_warn_saturate(ptr noundef nonnull %63, i32 noundef 3) #6
-  br label %.thread25
+  br label %.thread26
 
 100:                                              ; preds = %93
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   call void @dma_fence_release(ptr noundef nonnull %63) #6, !callees !20
-  br label %.thread25
+  br label %.thread26
 
-.thread25:                                        ; preds = %97, %99, %100
+.thread26:                                        ; preds = %97, %99, %100
   %101 = call i32 @mutex_trylock(ptr noundef %40) #6
   %102 = icmp eq i32 %101, 0
   %103 = zext i1 %102 to i64
   %104 = add i64 %38, %103
-  br i1 %102, label %123, label %.thread29
+  br i1 %102, label %123, label %.thread30
 
-.thread29:                                        ; preds = %.thread22, %.thread25, %55
-  %105 = phi i64 [ %38, %55 ], [ %38, %.thread22 ], [ %104, %.thread25 ]
-  %106 = phi i64 [ %36, %55 ], [ %36, %.thread22 ], [ %94, %.thread25 ]
+.thread30:                                        ; preds = %.thread23, %.thread26, %55
+  %105 = phi i64 [ %38, %55 ], [ %38, %.thread23 ], [ %104, %.thread26 ]
+  %106 = phi i64 [ %36, %55 ], [ %36, %.thread23 ], [ %94, %.thread26 ]
   %107 = getelementptr i8, ptr %37, i64 -224
   %108 = load ptr, ptr %107, align 8
   br label %109
 
-109:                                              ; preds = %112, %.thread29
-  %110 = phi ptr [ %108, %.thread29 ], [ %113, %112 ]
+109:                                              ; preds = %112, %.thread30
+  %110 = phi ptr [ %108, %.thread30 ], [ %113, %112 ]
   %111 = icmp eq ptr %110, %107
   br i1 %111, label %116, label %112
 
@@ -381,24 +381,24 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %113 = load ptr, ptr %110, align 8
   %114 = getelementptr i8, ptr %110, i64 -504
   %115 = call zeroext i1 @i915_request_retire(ptr noundef %114) #6
-  br i1 %115, label %109, label %.loopexit33, !llvm.loop !17
+  br i1 %115, label %109, label %.loopexit34, !llvm.loop !17
 
 116:                                              ; preds = %109
   %117 = getelementptr i8, ptr %37, i64 -208
   %118 = load volatile ptr, ptr %117, align 8
   %119 = icmp ne ptr %118, null
   %120 = zext i1 %119 to i64
-  br label %.loopexit33
+  br label %.loopexit34
 
-.loopexit33:                                      ; preds = %112, %116
+.loopexit34:                                      ; preds = %112, %116
   %121 = phi i64 [ %120, %116 ], [ 1, %112 ]
   %122 = add i64 %121, %105
   call void @mutex_unlock(ptr noundef %40) #6
   br label %123
 
-123:                                              ; preds = %.thread25, %.loopexit33
-  %124 = phi i64 [ %122, %.loopexit33 ], [ %104, %.thread25 ]
-  %125 = phi i64 [ %106, %.loopexit33 ], [ %94, %.thread25 ]
+123:                                              ; preds = %.thread26, %.loopexit34
+  %124 = phi i64 [ %122, %.loopexit34 ], [ %104, %.thread26 ]
+  %125 = phi i64 [ %106, %.loopexit34 ], [ %94, %.thread26 ]
   call void @_raw_spin_lock(ptr noundef nonnull %5) #6
   %126 = load ptr, ptr %37, align 8
   %127 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %56, ptr elementtype(i32) %56) #6, !srcloc !27
@@ -425,11 +425,11 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 138:                                              ; preds = %135
   %139 = icmp sgt i32 %136, 0
-  br i1 %139, label %.thread31, label %140, !prof !8
+  br i1 %139, label %.thread32, label %140, !prof !8
 
 140:                                              ; preds = %138
   call void @refcount_warn_saturate(ptr noundef %46, i32 noundef 3) #6
-  br label %.thread31
+  br label %.thread32
 
 141:                                              ; preds = %135
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
@@ -440,32 +440,32 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   %144 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %4, ptr %144, align 8
   store volatile ptr %37, ptr %4, align 8
-  br label %.thread31
+  br label %.thread32
 
-.thread31:                                        ; preds = %138, %140, %141, %43
+.thread32:                                        ; preds = %138, %140, %141, %43
   %145 = phi i64 [ %124, %141 ], [ %44, %43 ], [ %124, %140 ], [ %124, %138 ]
   %146 = phi ptr [ %126, %141 ], [ %39, %43 ], [ %126, %140 ], [ %126, %138 ]
   %147 = phi i64 [ %125, %141 ], [ %36, %43 ], [ %125, %140 ], [ %125, %138 ]
   %148 = icmp eq ptr %146, %33
-  br i1 %148, label %.loopexit35, label %.preheader34, !llvm.loop !28
+  br i1 %148, label %.loopexit36, label %.preheader35, !llvm.loop !28
 
-.loopexit35:                                      ; preds = %.thread31, %.loopexit36
-  %149 = phi i64 [ 0, %.loopexit36 ], [ %145, %.thread31 ]
-  %150 = phi i64 [ %1, %.loopexit36 ], [ %147, %.thread31 ]
+.loopexit36:                                      ; preds = %.thread32, %.loopexit37
+  %149 = phi i64 [ 0, %.loopexit37 ], [ %145, %.thread32 ]
+  %150 = phi i64 [ %1, %.loopexit37 ], [ %147, %.thread32 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %5) #6
   %151 = load ptr, ptr %4, align 8
   %152 = icmp eq ptr %151, %4
   br i1 %152, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit35, %.preheader
-  %153 = phi ptr [ %154, %.preheader ], [ %151, %.loopexit35 ]
+.preheader:                                       ; preds = %.loopexit36, %.preheader
+  %153 = phi ptr [ %154, %.preheader ], [ %151, %.loopexit36 ]
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr i8, ptr %153, i64 40
   call void @__intel_timeline_free(ptr noundef %155) #6
   %156 = icmp eq ptr %154, %4
   br i1 %156, label %.loopexit, label %.preheader, !llvm.loop !29
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit35
+.loopexit:                                        ; preds = %.preheader, %.loopexit36
   %157 = icmp eq i64 %150, 0
   br i1 %157, label %190, label %158
 
@@ -523,7 +523,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
   store i64 %150, ptr %2, align 8
   br label %194
 
-194:                                              ; preds = %190, %193
+194:                                              ; preds = %193, %190
   %195 = sub nsw i64 0, %191
   %196 = icmp eq i64 %149, %195
   %197 = select i1 %157, i64 -62, i64 %150

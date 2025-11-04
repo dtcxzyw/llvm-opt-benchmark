@@ -9232,13 +9232,13 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   %.2143.i = phi ptr [ %199, %206 ], [ %218, %232 ]
   %235 = add nsw i32 %.0140.i, -1
   %.not190.i = icmp eq i32 %.0140.i, 0
-  br i1 %.not190.i, label %.loopexit219.i, label %236
+  br i1 %.not190.i, label %.loopexit.i, label %236
 
 236:                                              ; preds = %234
   %237 = load ptr, ptr @libctx, align 8, !tbaa !13
   %238 = call i32 @fips_provider_version_gt(ptr noundef %237, i32 noundef 3, i32 noundef 0, i32 noundef 0) #10
   %.not191.i = icmp eq i32 %238, 0
-  br i1 %.not191.i, label %.loopexit219.i, label %239
+  br i1 %.not191.i, label %.loopexit.i, label %239
 
 239:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -9276,7 +9276,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 .thread214.i:                                     ; preds = %247
   %249 = call i32 @ERR_pop_to_mark() #10
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.loopexit219.i
+  br label %.loopexit.i
 
 .thread211.i:                                     ; preds = %248, %247
   %.str.395.sink.i = phi ptr [ @.str.395, %247 ], [ @.str.396, %248 ]
@@ -9292,12 +9292,12 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %180
 
-.loopexit219.i:                                   ; preds = %236, %234, %.thread214.i
+.loopexit.i:                                      ; preds = %236, %234, %.thread214.i
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 35240
   store ptr null, ptr %254, align 8, !tbaa !64
   br i1 %.not181.i, label %255, label %.critedge.i
 
-255:                                              ; preds = %.loopexit219.i
+255:                                              ; preds = %.loopexit.i
   %256 = load i64, ptr %4, align 8, !tbaa !35
   call void @OPENSSL_cleanse(ptr noundef %.2143.i, i64 noundef %256) #10
   %257 = load ptr, ptr @libctx, align 8, !tbaa !13
@@ -9327,10 +9327,10 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   store ptr @.str.398, ptr %254, align 8, !tbaa !64
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %232, %274, %269, %.loopexit219.i, %.thread211.i, %230, %220, %214, %210, %201, %190, %169, %161, %153, %133, %128, %120, %111, %96, %90, %82, %53, %51
-  %.0145.i = phi i64 [ %83, %96 ], [ %83, %.loopexit219.i ], [ %83, %269 ], [ %83, %274 ], [ %83, %210 ], [ %83, %201 ], [ %83, %230 ], [ %83, %220 ], [ %83, %214 ], [ %83, %190 ], [ %83, %169 ], [ %83, %161 ], [ %83, %153 ], [ %83, %133 ], [ %83, %128 ], [ %83, %120 ], [ %83, %111 ], [ %83, %90 ], [ %83, %82 ], [ 0, %53 ], [ 0, %51 ], [ %83, %.thread211.i ], [ %83, %232 ]
-  %.0141.i = phi ptr [ null, %96 ], [ %.2143.i, %.loopexit219.i ], [ %.2143.i, %269 ], [ %.2143.i, %274 ], [ %199, %210 ], [ %199, %201 ], [ %218, %230 ], [ %218, %220 ], [ null, %214 ], [ null, %190 ], [ null, %169 ], [ null, %161 ], [ null, %153 ], [ null, %133 ], [ null, %128 ], [ null, %120 ], [ null, %111 ], [ null, %90 ], [ null, %82 ], [ null, %53 ], [ null, %51 ], [ %.2143.i, %.thread211.i ], [ %218, %232 ]
-  %.0.i = phi ptr [ null, %96 ], [ %94, %.loopexit219.i ], [ %94, %269 ], [ %94, %274 ], [ %94, %210 ], [ %94, %201 ], [ %94, %230 ], [ %94, %220 ], [ %94, %214 ], [ %94, %190 ], [ %94, %169 ], [ %94, %161 ], [ %94, %153 ], [ %94, %133 ], [ %94, %128 ], [ %94, %120 ], [ %94, %111 ], [ null, %90 ], [ null, %82 ], [ null, %53 ], [ null, %51 ], [ %94, %.thread211.i ], [ %94, %232 ]
+.critedge.i:                                      ; preds = %232, %274, %269, %.loopexit.i, %.thread211.i, %230, %220, %214, %210, %201, %190, %169, %161, %153, %133, %128, %120, %111, %96, %90, %82, %53, %51
+  %.0145.i = phi i64 [ %83, %96 ], [ %83, %.loopexit.i ], [ %83, %269 ], [ %83, %274 ], [ %83, %210 ], [ %83, %201 ], [ %83, %230 ], [ %83, %220 ], [ %83, %214 ], [ %83, %190 ], [ %83, %169 ], [ %83, %161 ], [ %83, %153 ], [ %83, %133 ], [ %83, %128 ], [ %83, %120 ], [ %83, %111 ], [ %83, %90 ], [ %83, %82 ], [ 0, %53 ], [ 0, %51 ], [ %83, %.thread211.i ], [ %83, %232 ]
+  %.0141.i = phi ptr [ null, %96 ], [ %.2143.i, %.loopexit.i ], [ %.2143.i, %269 ], [ %.2143.i, %274 ], [ %199, %210 ], [ %199, %201 ], [ %218, %230 ], [ %218, %220 ], [ null, %214 ], [ null, %190 ], [ null, %169 ], [ null, %161 ], [ null, %153 ], [ null, %133 ], [ null, %128 ], [ null, %120 ], [ null, %111 ], [ null, %90 ], [ null, %82 ], [ null, %53 ], [ null, %51 ], [ %.2143.i, %.thread211.i ], [ %218, %232 ]
+  %.0.i = phi ptr [ null, %96 ], [ %94, %.loopexit.i ], [ %94, %269 ], [ %94, %274 ], [ %94, %210 ], [ %94, %201 ], [ %94, %230 ], [ %94, %220 ], [ %94, %214 ], [ %94, %190 ], [ %94, %169 ], [ %94, %161 ], [ %94, %153 ], [ %94, %133 ], [ %94, %128 ], [ %94, %120 ], [ %94, %111 ], [ null, %90 ], [ null, %82 ], [ null, %53 ], [ null, %51 ], [ %94, %.thread211.i ], [ %94, %232 ]
   %275 = load i64, ptr %11, align 8, !tbaa !35
   %276 = icmp ugt i64 %275, %.0145.i
   br i1 %276, label %.lr.ph.i.i, label %mac_test_run_mac.exit
@@ -11467,7 +11467,7 @@ find_key.exit:                                    ; preds = %.lr.ph.i
   br i1 %22, label %find_key.exit.thread, label %53
 
 find_key.exit.thread:                             ; preds = %17, %12, %find_key.exit
-  %.07.i78 = phi i32 [ 1, %find_key.exit ], [ 0, %12 ], [ 0, %17 ]
+  %.07.i79 = phi i32 [ 1, %find_key.exit ], [ 0, %12 ], [ 0, %17 ]
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 2369, ptr noundef nonnull @.str.335, ptr noundef nonnull %11) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 35224
   store i32 1, ptr %23, align 8, !tbaa !26
@@ -11493,7 +11493,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 35240
   store ptr @.str.462, ptr %37, align 8, !tbaa !64
-  br label %.thread82
+  br label %.thread83
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -11515,18 +11515,18 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 35240
   store ptr @.str.463, ptr %51, align 8, !tbaa !64
-  br label %.thread82
+  br label %.thread83
 
 52:                                               ; preds = %38
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 2392, ptr noundef nonnull @.str.464) #10
-  br label %.thread82
+  br label %.thread83
 
 53:                                               ; preds = %27, %41, %find_key.exit
-  %.071 = phi ptr [ %48, %41 ], [ %34, %27 ], [ %21, %find_key.exit ]
+  %.072 = phi ptr [ %48, %41 ], [ %34, %27 ], [ %21, %find_key.exit ]
   %.1 = phi i32 [ 0, %41 ], [ 0, %27 ], [ 1, %find_key.exit ]
   %54 = load ptr, ptr @libctx, align 8, !tbaa !13
   %55 = load ptr, ptr @propquery, align 8, !tbaa !10
-  %56 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %54, ptr noundef nonnull %.071, ptr noundef %55) #10
+  %56 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %54, ptr noundef nonnull %.072, ptr noundef %55) #10
   store ptr %56, ptr %9, align 8, !tbaa !310
   %57 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 2396, ptr noundef nonnull @.str.434, ptr noundef %56) #10
   %.not52 = icmp eq i32 %57, 0
@@ -11552,8 +11552,8 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   store i64 0, ptr %5, align 8, !tbaa !35
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = load ptr, ptr %67, align 8, !tbaa !308
-  %.not.i57 = icmp eq ptr %68, null
-  %69 = select i1 %.not.i57, i64 9, i64 8
+  %.not.i58 = icmp eq ptr %68, null
+  %69 = select i1 %.not.i58, i64 9, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !302
   %72 = tail call i32 @OPENSSL_sk_num(ptr noundef %71) #10
@@ -11713,10 +11713,10 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   br label %146
 
 146:                                              ; preds = %145, %141
-  %.170 = phi ptr [ null, %145 ], [ %106, %141 ]
-  %.168 = phi ptr [ null, %145 ], [ %108, %141 ]
-  %.066 = phi i64 [ 0, %145 ], [ %143, %141 ]
-  %.065 = phi i64 [ 0, %145 ], [ %144, %141 ]
+  %.171 = phi ptr [ null, %145 ], [ %106, %141 ]
+  %.169 = phi ptr [ null, %145 ], [ %108, %141 ]
+  %.067 = phi i64 [ 0, %145 ], [ %143, %141 ]
+  %.066 = phi i64 [ 0, %145 ], [ %144, %141 ]
   %147 = phi i64 [ %.pre70.i, %145 ], [ %87, %141 ]
   %.1.i = phi i1 [ %.0.i, %145 ], [ false, %141 ]
   %148 = load ptr, ptr %70, align 8, !tbaa !302
@@ -11756,12 +11756,12 @@ encapsulate.exit:                                 ; preds = %.lr.ph.i.i, %146
   %161 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %162 = load ptr, ptr %161, align 8, !tbaa !307
   %.not55 = icmp eq ptr %162, null
-  br i1 %.not55, label %.thread82, label %163
+  br i1 %.not55, label %.thread83, label %163
 
 163:                                              ; preds = %160, %159
   %164 = load ptr, ptr %9, align 8, !tbaa !310
   %165 = load ptr, ptr %63, align 8, !tbaa !311
-  call fastcc void @decapsulate(ptr noundef nonnull %0, ptr noundef %164, ptr noundef %165, ptr noundef %.170, i64 noundef %.066, ptr noundef %.168, i64 noundef %.065)
+  call fastcc void @decapsulate(ptr noundef nonnull %0, ptr noundef %164, ptr noundef %165, ptr noundef %.171, i64 noundef %.067, ptr noundef %.169, i64 noundef %.066)
   br label %173
 
 166:                                              ; preds = %58
@@ -11774,30 +11774,30 @@ encapsulate.exit:                                 ; preds = %.lr.ph.i.i, %146
   tail call fastcc void @decapsulate(ptr noundef %0, ptr noundef %62, ptr noundef %64, ptr noundef nonnull %60, i64 noundef %168, ptr noundef %170, i64 noundef %172)
   br label %173
 
-173:                                              ; preds = %163, %156, %encapsulate.exit, %find_key.exit.thread, %166, %53
-  %.172 = phi ptr [ %.071, %53 ], [ %.071, %166 ], [ null, %find_key.exit.thread ], [ %.071, %encapsulate.exit ], [ %.071, %156 ], [ %.071, %163 ]
-  %.069 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.170, %encapsulate.exit ], [ %.170, %156 ], [ %.170, %163 ]
-  %.067 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.168, %encapsulate.exit ], [ %.168, %156 ], [ %.168, %163 ]
-  %.041 = phi i32 [ 0, %53 ], [ 1, %166 ], [ 1, %find_key.exit.thread ], [ 0, %encapsulate.exit ], [ 1, %156 ], [ 1, %163 ]
-  %.2 = phi i32 [ %.1, %53 ], [ %.1, %166 ], [ %.07.i78, %find_key.exit.thread ], [ %.1, %encapsulate.exit ], [ %.1, %156 ], [ %.1, %163 ]
+173:                                              ; preds = %encapsulate.exit, %156, %163, %find_key.exit.thread, %166, %53
+  %.173 = phi ptr [ %.072, %53 ], [ %.072, %166 ], [ null, %find_key.exit.thread ], [ %.072, %163 ], [ %.072, %156 ], [ %.072, %encapsulate.exit ]
+  %.070 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.171, %163 ], [ %.171, %156 ], [ %.171, %encapsulate.exit ]
+  %.068 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.169, %163 ], [ %.169, %156 ], [ %.169, %encapsulate.exit ]
+  %.041 = phi i32 [ 0, %53 ], [ 1, %166 ], [ 1, %find_key.exit.thread ], [ 1, %163 ], [ 1, %156 ], [ 0, %encapsulate.exit ]
+  %.2 = phi i32 [ %.1, %53 ], [ %.1, %166 ], [ %.07.i79, %find_key.exit.thread ], [ %.1, %163 ], [ %.1, %156 ], [ %.1, %encapsulate.exit ]
   %.not56 = icmp eq i32 %.2, 0
-  br i1 %.not56, label %.thread82, label %174
+  br i1 %.not56, label %.thread83, label %174
 
-.thread82:                                        ; preds = %160, %50, %36, %52, %173
-  %.04195 = phi i32 [ %.041, %173 ], [ 1, %160 ], [ 1, %36 ], [ 1, %50 ], [ 0, %52 ]
-  %.06793 = phi ptr [ %.067, %173 ], [ %.168, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
-  %.06991 = phi ptr [ %.069, %173 ], [ %.170, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
-  %.17289 = phi ptr [ %.172, %173 ], [ %.071, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
-  call void @EVP_PKEY_free(ptr noundef %.17289) #10
+.thread83:                                        ; preds = %160, %50, %36, %52, %173
+  %.04196 = phi i32 [ %.041, %173 ], [ 1, %160 ], [ 1, %36 ], [ 1, %50 ], [ 0, %52 ]
+  %.06894 = phi ptr [ %.068, %173 ], [ %.169, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+  %.07092 = phi ptr [ %.070, %173 ], [ %.171, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+  %.17390 = phi ptr [ %.173, %173 ], [ %.072, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+  call void @EVP_PKEY_free(ptr noundef %.17390) #10
   br label %174
 
-174:                                              ; preds = %173, %.thread82
-  %.04194 = phi i32 [ %.04195, %.thread82 ], [ %.041, %173 ]
-  %.06792 = phi ptr [ %.06793, %.thread82 ], [ %.067, %173 ]
-  %.06990 = phi ptr [ %.06991, %.thread82 ], [ %.069, %173 ]
-  call void @CRYPTO_free(ptr noundef %.06990, ptr noundef nonnull @.str.29, i32 noundef 2421) #10
-  call void @CRYPTO_free(ptr noundef %.06792, ptr noundef nonnull @.str.29, i32 noundef 2422) #10
-  ret i32 %.04194
+174:                                              ; preds = %.thread83, %173
+  %.04195 = phi i32 [ %.04196, %.thread83 ], [ %.041, %173 ]
+  %.06893 = phi ptr [ %.06894, %.thread83 ], [ %.068, %173 ]
+  %.07091 = phi ptr [ %.07092, %.thread83 ], [ %.070, %173 ]
+  call void @CRYPTO_free(ptr noundef %.07091, ptr noundef nonnull @.str.29, i32 noundef 2421) #10
+  call void @CRYPTO_free(ptr noundef %.06893, ptr noundef nonnull @.str.29, i32 noundef 2422) #10
+  ret i32 %.04195
 }
 
 ; Function Attrs: nounwind uwtable

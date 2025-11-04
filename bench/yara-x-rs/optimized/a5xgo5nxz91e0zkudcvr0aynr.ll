@@ -10163,21 +10163,21 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   %.sroa.14.2 = phi i64 [ %.sroa.14.1, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf60e9da5afb080deE.exit.i" ], [ %.sroa.14.0, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h662d5f0832e39527E.exit.i" ]
   %.sroa.8.2.in = phi ptr [ %.sroa.8.1.in, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf60e9da5afb080deE.exit.i" ], [ %.sroa.8.0.in, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h662d5f0832e39527E.exit.i" ]
   %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf60e9da5afb080deE.exit.i" ], [ %.sroa.0.0, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h662d5f0832e39527E.exit.i" ]
-  %cond = icmp eq i64 %.sroa.0.2, 3
-  br i1 %cond, label %50, label %52
+  %50 = icmp eq i64 %.sroa.0.2, 3
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %"_ZN3nom6number8complete3u6428_$u7b$$u7b$closure$u7d$$u7d$17h2bb8da8b2eef3918E.exit"
-  %51 = icmp ne ptr %.sroa.8.2.in, null
-  call void @llvm.assume(i1 %51)
-  br label %52
+51:                                               ; preds = %"_ZN3nom6number8complete3u6428_$u7b$$u7b$closure$u7d$$u7d$17h2bb8da8b2eef3918E.exit"
+  %52 = icmp ne ptr %.sroa.8.2.in, null
+  call void @llvm.assume(i1 %52)
+  br label %53
 
-52:                                               ; preds = %"_ZN3nom6number8complete3u6428_$u7b$$u7b$closure$u7d$$u7d$17h2bb8da8b2eef3918E.exit", %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.2.in, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.14.2, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.20.2, ptr %55, align 8
+53:                                               ; preds = %"_ZN3nom6number8complete3u6428_$u7b$$u7b$closure$u7d$$u7d$17h2bb8da8b2eef3918E.exit", %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.8.2.in, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.14.2, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.20.2, ptr %56, align 8
   store i64 %.sroa.0.2, ptr %0, align 8
   ret void
 }
@@ -10306,21 +10306,21 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   %.sroa.14.2 = phi i64 [ %.sroa.14.1, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf911792f8ff4a661E.exit.i" ], [ %.sroa.14.0, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h7c24ff3d216b35faE.exit.i" ]
   %.sroa.8.2.in = phi ptr [ %.sroa.8.1.in, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf911792f8ff4a661E.exit.i" ], [ %.sroa.8.0.in, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h7c24ff3d216b35faE.exit.i" ]
   %.sroa.0.2 = phi i64 [ %.sroa.0.1, %"_ZN86_$LT$nom..number..BeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17hf911792f8ff4a661E.exit.i" ], [ %.sroa.0.0, %"_ZN86_$LT$nom..number..LeUint$LT$Uint$C$E$GT$$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7process17h7c24ff3d216b35faE.exit.i" ]
-  %cond = icmp eq i64 %.sroa.0.2, 3
-  br i1 %cond, label %51, label %53
+  %51 = icmp eq i64 %.sroa.0.2, 3
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %"_ZN3nom6number8complete3u3228_$u7b$$u7b$closure$u7d$$u7d$17hd56db7bcc5fb8c04E.exit"
-  %52 = icmp ne ptr %.sroa.8.2.in, null
-  call void @llvm.assume(i1 %52)
-  br label %53
+52:                                               ; preds = %"_ZN3nom6number8complete3u3228_$u7b$$u7b$closure$u7d$$u7d$17hd56db7bcc5fb8c04E.exit"
+  %53 = icmp ne ptr %.sroa.8.2.in, null
+  call void @llvm.assume(i1 %53)
+  br label %54
 
-53:                                               ; preds = %"_ZN3nom6number8complete3u3228_$u7b$$u7b$closure$u7d$$u7d$17hd56db7bcc5fb8c04E.exit", %51
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.8.2.in, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.14.2, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.20.2, ptr %56, align 8
+54:                                               ; preds = %"_ZN3nom6number8complete3u3228_$u7b$$u7b$closure$u7d$$u7d$17hd56db7bcc5fb8c04E.exit", %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.8.2.in, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.14.2, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.sroa.20.2, ptr %57, align 8
   store i64 %.sroa.0.2, ptr %0, align 8
   ret void
 }

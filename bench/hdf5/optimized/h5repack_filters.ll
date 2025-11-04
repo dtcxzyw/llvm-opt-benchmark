@@ -51,7 +51,7 @@ define dso_local range(i32 -1, 1) i32 @apply_filters(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %6, align 4, !tbaa !4
   %15 = icmp eq i32 %1, 0
-  br i1 %15, label %.thread273, label %16
+  br i1 %15, label %.thread274, label %16
 
 16:                                               ; preds = %7
   call void @init_packobject(ptr noundef nonnull %12) #9
@@ -269,7 +269,7 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
 120:                                              ; preds = %aux_assign_obj.exit
   %121 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %123, label %.thread273
+  br i1 %122, label %123, label %.thread274
 
 123:                                              ; preds = %120
   %124 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -283,14 +283,14 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
   %129 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %130 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %131 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %124, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 275, i64 noundef %126, i64 noundef %129, i64 noundef %130, ptr noundef nonnull @.str.1) #9
-  br label %.thread273
+  br label %.thread274
 
 132:                                              ; preds = %123
   %133 = load ptr, ptr @stderr, align 8, !tbaa !36
   %134 = call i64 @fwrite(ptr nonnull @.str.1, i64 22, i64 1, ptr %133) #11
   %135 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc251 = call i32 @fputc(i32 10, ptr %135)
-  br label %.thread273
+  br label %.thread274
 
 136:                                              ; preds = %aux_assign_obj.exit
   %137 = icmp ne i32 %118, 0
@@ -309,7 +309,7 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
 144:                                              ; preds = %141
   %145 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %147, label %.thread273
+  br i1 %146, label %147, label %.thread274
 
 147:                                              ; preds = %144
   %148 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -323,14 +323,14 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
   %153 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %154 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %155 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %148, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 286, i64 noundef %150, i64 noundef %153, i64 noundef %154, ptr noundef nonnull @.str.3) #9
-  br label %.thread273
+  br label %.thread274
 
 156:                                              ; preds = %147
   %157 = load ptr, ptr @stderr, align 8, !tbaa !36
   %158 = call i64 @fwrite(ptr nonnull @.str.3, i64 23, i64 1, ptr %157) #11
   %159 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc250 = call i32 @fputc(i32 10, ptr %159)
-  br label %.thread273
+  br label %.thread274
 
 160:                                              ; preds = %136
   br i1 %137, label %161, label %268
@@ -344,12 +344,12 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
   br i1 %163, label %165, label %.preheader.i
 
 .preheader.i:                                     ; preds = %161
-  %.not.i257 = icmp eq i32 %162, 0
-  br i1 %.not.i257, label %._crit_edge.i, label %.lr.ph.i
+  %.not.i259 = icmp eq i32 %162, 0
+  br i1 %.not.i259, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %164 = getelementptr inbounds nuw i8, ptr %13, i64 256
-  %wide.trip.count.i258 = zext nneg i32 %162 to i64
+  %wide.trip.count.i260 = zext nneg i32 %162 to i64
   br label %182
 
 165:                                              ; preds = %161
@@ -379,17 +379,17 @@ aux_assign_obj.exit:                              ; preds = %83, %71, %75, %.loo
   br label %253
 
 181:                                              ; preds = %182
-  %indvars.iv.next.i260 = add nuw nsw i64 %indvars.iv.i259, 1
-  %exitcond.not.i261 = icmp eq i64 %indvars.iv.next.i260, %wide.trip.count.i258
-  br i1 %exitcond.not.i261, label %._crit_edge.i, label %182, !llvm.loop !38
+  %indvars.iv.next.i262 = add nuw nsw i64 %indvars.iv.i261, 1
+  %exitcond.not.i263 = icmp eq i64 %indvars.iv.next.i262, %wide.trip.count.i260
+  br i1 %exitcond.not.i263, label %._crit_edge.i, label %182, !llvm.loop !38
 
 182:                                              ; preds = %181, %.lr.ph.i
-  %indvars.iv.i259 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i260, %181 ]
-  %183 = getelementptr inbounds nuw %struct.filter_info_t, ptr %164, i64 %indvars.iv.i259
+  %indvars.iv.i261 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i262, %181 ]
+  %183 = getelementptr inbounds nuw %struct.filter_info_t, ptr %164, i64 %indvars.iv.i261
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 88
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %187 = trunc nuw nsw i64 %indvars.iv.i259 to i32
+  %187 = trunc nuw nsw i64 %indvars.iv.i261 to i32
   %188 = call i32 @H5Pget_filter2(i64 noundef %4, i32 noundef %187, ptr noundef nonnull %184, ptr noundef nonnull %185, ptr noundef nonnull %186, i64 noundef 256, ptr noundef nonnull %8, ptr noundef null) #9
   store i32 %188, ptr %183, align 8, !tbaa !39
   %189 = icmp slt i32 %188, 0
@@ -513,14 +513,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 .thread:                                          ; preds = %165, %190, %210, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread273
+  br label %.thread274
 
 253:                                              ; preds = %177, %173, %202, %198, %222, %218, %244, %240
   %.pr = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %254 = icmp sgt i32 %.pr, 0
-  br i1 %254, label %255, label %.thread273
+  br i1 %254, label %255, label %.thread274
 
 255:                                              ; preds = %253
   %256 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -534,20 +534,20 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %261 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %262 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %263 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %256, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 291, i64 noundef %258, i64 noundef %261, i64 noundef %262, ptr noundef nonnull @.str.4) #9
-  br label %.thread273
+  br label %.thread274
 
 264:                                              ; preds = %255
   %265 = load ptr, ptr @stderr, align 8, !tbaa !36
   %266 = call i64 @fwrite(ptr nonnull @.str.4, i64 19, i64 1, ptr %265) #11
   %267 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc = call i32 @fputc(i32 10, ptr %267)
-  br label %.thread273
+  br label %.thread274
 
 268:                                              ; preds = %aux_copy_obj.exit, %160, %141
   %269 = getelementptr inbounds nuw i8, ptr %12, i64 836
   %270 = load i32, ptr %269, align 4, !tbaa !24
   %271 = icmp eq i32 %270, -1
-  br i1 %271, label %272, label %.loopexit286
+  br i1 %271, label %272, label %.loopexit287
 
 272:                                              ; preds = %268
   %273 = call i32 @H5Pget_layout(i64 noundef %4) #9
@@ -557,7 +557,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 275:                                              ; preds = %272
   %276 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %278, label %.thread273
+  br i1 %277, label %278, label %.thread274
 
 278:                                              ; preds = %275
   %279 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -571,18 +571,18 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %284 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %285 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %286 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %279, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 301, i64 noundef %281, i64 noundef %284, i64 noundef %285, ptr noundef nonnull @.str.5) #9
-  br label %.thread273
+  br label %.thread274
 
 287:                                              ; preds = %278
   %288 = load ptr, ptr @stderr, align 8, !tbaa !36
   %289 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %288) #11
   %290 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc249 = call i32 @fputc(i32 10, ptr %290)
-  br label %.thread273
+  br label %.thread274
 
 291:                                              ; preds = %272
   %292 = icmp eq i32 %273, 2
-  br i1 %292, label %293, label %.loopexit286
+  br i1 %292, label %293, label %.loopexit287
 
 293:                                              ; preds = %291
   %294 = call i32 @H5Pget_chunk(i64 noundef %4, i32 noundef 64, ptr noundef nonnull %11) #9
@@ -592,7 +592,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 296:                                              ; preds = %293
   %297 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %.thread273
+  br i1 %298, label %299, label %.thread274
 
 299:                                              ; preds = %296
   %300 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -606,36 +606,36 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %305 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %306 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %307 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %300, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 305, i64 noundef %302, i64 noundef %305, i64 noundef %306, ptr noundef nonnull @.str.6) #9
-  br label %.thread273
+  br label %.thread274
 
 308:                                              ; preds = %299
   %309 = load ptr, ptr @stderr, align 8, !tbaa !36
   %310 = call i64 @fwrite(ptr nonnull @.str.6, i64 19, i64 1, ptr %309) #11
   %311 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc248 = call i32 @fputc(i32 10, ptr %311)
-  br label %.thread273
+  br label %.thread274
 
 312:                                              ; preds = %293
   store i32 2, ptr %269, align 4, !tbaa !24
   %313 = getelementptr inbounds nuw i8, ptr %12, i64 1096
   store i32 %294, ptr %313, align 8, !tbaa !27
-  %.not302 = icmp eq i32 %294, 0
-  br i1 %.not302, label %.loopexit286, label %.lr.ph.preheader
+  %.not303 = icmp eq i32 %294, 0
+  br i1 %.not303, label %.loopexit287, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %312
   %314 = getelementptr inbounds nuw i8, ptr %12, i64 840
   %315 = zext nneg i32 %294 to i64
   %316 = shl nuw nsw i64 %315, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %314, ptr nonnull align 16 %11, i64 %316, i1 false), !tbaa !28
-  br label %.loopexit286
+  br label %.loopexit287
 
-.loopexit286:                                     ; preds = %.lr.ph.preheader, %312, %291, %268
+.loopexit287:                                     ; preds = %.lr.ph.preheader, %312, %291, %268
   %.0147 = phi i32 [ %1, %291 ], [ %1, %268 ], [ 0, %312 ], [ %294, %.lr.ph.preheader ]
   %317 = load i32, ptr %138, align 8, !tbaa !31
   %.not = icmp eq i32 %317, 0
-  br i1 %.not, label %.loopexit284, label %318
+  br i1 %.not, label %.loopexit285, label %318
 
-318:                                              ; preds = %.loopexit286
+318:                                              ; preds = %.loopexit287
   %319 = load i32, ptr %269, align 4, !tbaa !24
   %320 = icmp eq i32 %319, -1
   br i1 %320, label %321, label %355
@@ -646,23 +646,23 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %323 = getelementptr inbounds nuw i8, ptr %12, i64 1096
   store i32 %.0147, ptr %323, align 8, !tbaa !27
   %324 = icmp sgt i32 %.0147, 0
-  br i1 %324, label %.lr.ph293, label %.thread268
+  br i1 %324, label %.lr.ph294, label %.thread270
 
-.lr.ph293:                                        ; preds = %321
+.lr.ph294:                                        ; preds = %321
   %325 = load i64, ptr @H5TOOLS_BUFSIZE, align 8
   %326 = zext nneg i32 %.0147 to i64
   br label %329
 
-.lr.ph295.preheader:                              ; preds = %346
+.lr.ph296.preheader:                              ; preds = %346
   %327 = zext nneg i32 %.0147 to i64
   %328 = shl nuw nsw i64 %327, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %322, ptr nonnull align 16 %14, i64 %328, i1 false), !tbaa !28
-  br label %.thread268
+  br label %.thread270
 
-329:                                              ; preds = %.lr.ph293, %346
-  %indvars.iv = phi i64 [ %326, %.lr.ph293 ], [ %indvars.iv.next, %346 ]
-  %.0154291 = phi i64 [ %3, %.lr.ph293 ], [ %352, %346 ]
-  %.not225 = icmp eq i64 %.0154291, 0
+329:                                              ; preds = %.lr.ph294, %346
+  %indvars.iv = phi i64 [ %326, %.lr.ph294 ], [ %indvars.iv.next, %346 ]
+  %.0154292 = phi i64 [ %3, %.lr.ph294 ], [ %352, %346 ]
+  %.not225 = icmp eq i64 %.0154292, 0
   br i1 %.not225, label %330, label %346
 
 330:                                              ; preds = %329
@@ -692,8 +692,8 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   br label %354
 
 346:                                              ; preds = %329
-  %347 = udiv i64 %325, %.0154291
-  %348 = icmp ugt i64 %.0154291, %325
+  %347 = udiv i64 %325, %.0154292
+  %348 = icmp ugt i64 %.0154292, %325
   %spec.store.select = select i1 %348, i64 1, i64 %347
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %349 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
@@ -701,31 +701,31 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %.spec.store.select = call i64 @llvm.umin.i64(i64 %350, i64 %spec.store.select)
   %351 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.next
   store i64 %.spec.store.select, ptr %351, align 8, !tbaa !28
-  %352 = mul i64 %.spec.store.select, %.0154291
+  %352 = mul i64 %.spec.store.select, %.0154292
   %353 = icmp sgt i64 %indvars.iv, 1
-  br i1 %353, label %329, label %.lr.ph295.preheader, !llvm.loop !41
+  br i1 %353, label %329, label %.lr.ph296.preheader, !llvm.loop !41
 
-.thread268:                                       ; preds = %321, %.lr.ph295.preheader
+.thread270:                                       ; preds = %321, %.lr.ph296.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %355
 
 354:                                              ; preds = %338, %342, %330
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread273
+  br label %.thread274
 
-355:                                              ; preds = %.thread268, %318
+355:                                              ; preds = %.thread270, %318
   %356 = icmp sgt i32 %317, 0
-  br i1 %356, label %.lr.ph297, label %.loopexit284
+  br i1 %356, label %.lr.ph298, label %.loopexit285
 
-.lr.ph297:                                        ; preds = %355
+.lr.ph298:                                        ; preds = %355
   %357 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %358 = getelementptr inbounds nuw i8, ptr %12, i64 840
   %359 = getelementptr inbounds nuw i8, ptr %12, i64 1096
   br label %360
 
-360:                                              ; preds = %.lr.ph297, %670
-  %indvars.iv312 = phi i64 [ 0, %.lr.ph297 ], [ %indvars.iv.next313, %670 ]
-  %361 = getelementptr inbounds nuw %struct.filter_info_t, ptr %357, i64 %indvars.iv312
+360:                                              ; preds = %.lr.ph298, %670
+  %indvars.iv313 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next314, %670 ]
+  %361 = getelementptr inbounds nuw %struct.filter_info_t, ptr %357, i64 %indvars.iv313
   %362 = load i32, ptr %361, align 8, !tbaa !39
   %363 = icmp slt i32 %362, 0
   br i1 %363, label %364, label %380
@@ -733,7 +733,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 364:                                              ; preds = %360
   %365 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %366 = icmp sgt i32 %365, 0
-  br i1 %366, label %367, label %.thread273
+  br i1 %366, label %367, label %.thread274
 
 367:                                              ; preds = %364
   %368 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -747,14 +747,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %373 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %374 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %375 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %368, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 362, i64 noundef %370, i64 noundef %373, i64 noundef %374, ptr noundef nonnull @.str.8) #9
-  br label %.thread273
+  br label %.thread274
 
 376:                                              ; preds = %367
   %377 = load ptr, ptr @stderr, align 8, !tbaa !36
   %378 = call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %377) #11
   %379 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc247 = call i32 @fputc(i32 10, ptr %379)
-  br label %.thread273
+  br label %.thread274
 
 380:                                              ; preds = %360
   switch i32 %362, label %625 [
@@ -778,7 +778,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 387:                                              ; preds = %381
   %388 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %389 = icmp sgt i32 %388, 0
-  br i1 %389, label %390, label %.thread273
+  br i1 %389, label %390, label %.thread274
 
 390:                                              ; preds = %387
   %391 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -792,14 +792,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %396 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %397 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %398 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %391, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 382, i64 noundef %393, i64 noundef %396, i64 noundef %397, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 399:                                              ; preds = %390
   %400 = load ptr, ptr @stderr, align 8, !tbaa !36
   %401 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %400) #11
   %402 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc244 = call i32 @fputc(i32 10, ptr %402)
-  br label %.thread273
+  br label %.thread274
 
 403:                                              ; preds = %381
   %404 = call i32 @H5Pset_deflate(i64 noundef %4, i32 noundef %383) #9
@@ -809,7 +809,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 406:                                              ; preds = %403
   %407 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %408 = icmp sgt i32 %407, 0
-  br i1 %408, label %409, label %.thread273
+  br i1 %408, label %409, label %.thread274
 
 409:                                              ; preds = %406
   %410 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -823,14 +823,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %415 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %416 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %417 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %410, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 384, i64 noundef %412, i64 noundef %415, i64 noundef %416, ptr noundef nonnull @.str.10) #9
-  br label %.thread273
+  br label %.thread274
 
 418:                                              ; preds = %409
   %419 = load ptr, ptr @stderr, align 8, !tbaa !36
   %420 = call i64 @fwrite(ptr nonnull @.str.10, i64 21, i64 1, ptr %419) #11
   %421 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc243 = call i32 @fputc(i32 10, ptr %421)
-  br label %.thread273
+  br label %.thread274
 
 422:                                              ; preds = %380
   %423 = getelementptr inbounds nuw i8, ptr %361, i64 8
@@ -845,7 +845,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 430:                                              ; preds = %422
   %431 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %432 = icmp sgt i32 %431, 0
-  br i1 %432, label %433, label %.thread273
+  br i1 %432, label %433, label %.thread274
 
 433:                                              ; preds = %430
   %434 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -859,14 +859,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %439 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %440 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %441 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %434, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 400, i64 noundef %436, i64 noundef %439, i64 noundef %440, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 442:                                              ; preds = %433
   %443 = load ptr, ptr @stderr, align 8, !tbaa !36
   %444 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %443) #11
   %445 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc242 = call i32 @fputc(i32 10, ptr %445)
-  br label %.thread273
+  br label %.thread274
 
 446:                                              ; preds = %422
   %447 = call i32 @H5Pset_szip(i64 noundef %4, i32 noundef %424, i32 noundef %426) #9
@@ -876,7 +876,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 449:                                              ; preds = %446
   %450 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %451 = icmp sgt i32 %450, 0
-  br i1 %451, label %452, label %.thread273
+  br i1 %451, label %452, label %.thread274
 
 452:                                              ; preds = %449
   %453 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -890,14 +890,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %458 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %459 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %460 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %453, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 402, i64 noundef %455, i64 noundef %458, i64 noundef %459, ptr noundef nonnull @.str.11) #9
-  br label %.thread273
+  br label %.thread274
 
 461:                                              ; preds = %452
   %462 = load ptr, ptr @stderr, align 8, !tbaa !36
   %463 = call i64 @fwrite(ptr nonnull @.str.11, i64 18, i64 1, ptr %462) #11
   %464 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc241 = call i32 @fputc(i32 10, ptr %464)
-  br label %.thread273
+  br label %.thread274
 
 465:                                              ; preds = %380
   %466 = load i32, ptr %359, align 8, !tbaa !27
@@ -908,7 +908,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 469:                                              ; preds = %465
   %470 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %471 = icmp sgt i32 %470, 0
-  br i1 %471, label %472, label %.thread273
+  br i1 %471, label %472, label %.thread274
 
 472:                                              ; preds = %469
   %473 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -922,14 +922,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %478 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %479 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %480 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %473, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 411, i64 noundef %475, i64 noundef %478, i64 noundef %479, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 481:                                              ; preds = %472
   %482 = load ptr, ptr @stderr, align 8, !tbaa !36
   %483 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %482) #11
   %484 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc240 = call i32 @fputc(i32 10, ptr %484)
-  br label %.thread273
+  br label %.thread274
 
 485:                                              ; preds = %465
   %486 = call i32 @H5Pset_shuffle(i64 noundef %4) #9
@@ -939,7 +939,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 488:                                              ; preds = %485
   %489 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %490 = icmp sgt i32 %489, 0
-  br i1 %490, label %491, label %.thread273
+  br i1 %490, label %491, label %.thread274
 
 491:                                              ; preds = %488
   %492 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -953,14 +953,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %497 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %498 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %499 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %492, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 413, i64 noundef %494, i64 noundef %497, i64 noundef %498, ptr noundef nonnull @.str.12) #9
-  br label %.thread273
+  br label %.thread274
 
 500:                                              ; preds = %491
   %501 = load ptr, ptr @stderr, align 8, !tbaa !36
   %502 = call i64 @fwrite(ptr nonnull @.str.12, i64 21, i64 1, ptr %501) #11
   %503 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc239 = call i32 @fputc(i32 10, ptr %503)
-  br label %.thread273
+  br label %.thread274
 
 504:                                              ; preds = %380
   %505 = load i32, ptr %359, align 8, !tbaa !27
@@ -971,7 +971,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 508:                                              ; preds = %504
   %509 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %510 = icmp sgt i32 %509, 0
-  br i1 %510, label %511, label %.thread273
+  br i1 %510, label %511, label %.thread274
 
 511:                                              ; preds = %508
   %512 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -985,14 +985,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %517 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %518 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %519 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %512, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 422, i64 noundef %514, i64 noundef %517, i64 noundef %518, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 520:                                              ; preds = %511
   %521 = load ptr, ptr @stderr, align 8, !tbaa !36
   %522 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %521) #11
   %523 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc238 = call i32 @fputc(i32 10, ptr %523)
-  br label %.thread273
+  br label %.thread274
 
 524:                                              ; preds = %504
   %525 = call i32 @H5Pset_fletcher32(i64 noundef %4) #9
@@ -1002,7 +1002,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 527:                                              ; preds = %524
   %528 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %529 = icmp sgt i32 %528, 0
-  br i1 %529, label %530, label %.thread273
+  br i1 %529, label %530, label %.thread274
 
 530:                                              ; preds = %527
   %531 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1016,14 +1016,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %536 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %537 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %538 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %531, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 424, i64 noundef %533, i64 noundef %536, i64 noundef %537, ptr noundef nonnull @.str.13) #9
-  br label %.thread273
+  br label %.thread274
 
 539:                                              ; preds = %530
   %540 = load ptr, ptr @stderr, align 8, !tbaa !36
   %541 = call i64 @fwrite(ptr nonnull @.str.13, i64 24, i64 1, ptr %540) #11
   %542 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc237 = call i32 @fputc(i32 10, ptr %542)
-  br label %.thread273
+  br label %.thread274
 
 543:                                              ; preds = %380
   %544 = load i32, ptr %359, align 8, !tbaa !27
@@ -1034,7 +1034,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 547:                                              ; preds = %543
   %548 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %549 = icmp sgt i32 %548, 0
-  br i1 %549, label %550, label %.thread273
+  br i1 %549, label %550, label %.thread274
 
 550:                                              ; preds = %547
   %551 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1048,14 +1048,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %556 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %557 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %558 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %551, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 432, i64 noundef %553, i64 noundef %556, i64 noundef %557, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 559:                                              ; preds = %550
   %560 = load ptr, ptr @stderr, align 8, !tbaa !36
   %561 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %560) #11
   %562 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc236 = call i32 @fputc(i32 10, ptr %562)
-  br label %.thread273
+  br label %.thread274
 
 563:                                              ; preds = %543
   %564 = call i32 @H5Pset_nbit(i64 noundef %4) #9
@@ -1065,7 +1065,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 566:                                              ; preds = %563
   %567 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %568 = icmp sgt i32 %567, 0
-  br i1 %568, label %569, label %.thread273
+  br i1 %568, label %569, label %.thread274
 
 569:                                              ; preds = %566
   %570 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1079,14 +1079,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %575 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %576 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %577 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %570, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 434, i64 noundef %572, i64 noundef %575, i64 noundef %576, ptr noundef nonnull @.str.14) #9
-  br label %.thread273
+  br label %.thread274
 
 578:                                              ; preds = %569
   %579 = load ptr, ptr @stderr, align 8, !tbaa !36
   %580 = call i64 @fwrite(ptr nonnull @.str.14, i64 18, i64 1, ptr %579) #11
   %581 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc235 = call i32 @fputc(i32 10, ptr %581)
-  br label %.thread273
+  br label %.thread274
 
 582:                                              ; preds = %380
   %583 = getelementptr inbounds nuw i8, ptr %361, i64 8
@@ -1101,7 +1101,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 590:                                              ; preds = %582
   %591 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %592 = icmp sgt i32 %591, 0
-  br i1 %592, label %593, label %.thread273
+  br i1 %592, label %593, label %.thread274
 
 593:                                              ; preds = %590
   %594 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1115,14 +1115,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %599 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %600 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %601 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %594, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 448, i64 noundef %596, i64 noundef %599, i64 noundef %600, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 602:                                              ; preds = %593
   %603 = load ptr, ptr @stderr, align 8, !tbaa !36
   %604 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %603) #11
   %605 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc234 = call i32 @fputc(i32 10, ptr %605)
-  br label %.thread273
+  br label %.thread274
 
 606:                                              ; preds = %582
   %607 = call i32 @H5Pset_scaleoffset(i64 noundef %4, i32 noundef %584, i32 noundef %586) #9
@@ -1132,7 +1132,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 609:                                              ; preds = %606
   %610 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %611 = icmp sgt i32 %610, 0
-  br i1 %611, label %612, label %.thread273
+  br i1 %611, label %612, label %.thread274
 
 612:                                              ; preds = %609
   %613 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1146,14 +1146,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %618 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %619 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %620 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %613, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 450, i64 noundef %615, i64 noundef %618, i64 noundef %619, ptr noundef nonnull @.str.15) #9
-  br label %.thread273
+  br label %.thread274
 
 621:                                              ; preds = %612
   %622 = load ptr, ptr @stderr, align 8, !tbaa !36
   %623 = call i64 @fwrite(ptr nonnull @.str.15, i64 25, i64 1, ptr %622) #11
   %624 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc233 = call i32 @fputc(i32 10, ptr %624)
-  br label %.thread273
+  br label %.thread274
 
 625:                                              ; preds = %380
   %626 = load i32, ptr %359, align 8, !tbaa !27
@@ -1164,7 +1164,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 629:                                              ; preds = %625
   %630 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %631 = icmp sgt i32 %630, 0
-  br i1 %631, label %632, label %.thread273
+  br i1 %631, label %632, label %.thread274
 
 632:                                              ; preds = %629
   %633 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1178,14 +1178,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %638 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %639 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %640 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %633, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 454, i64 noundef %635, i64 noundef %638, i64 noundef %639, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 641:                                              ; preds = %632
   %642 = load ptr, ptr @stderr, align 8, !tbaa !36
   %643 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %642) #11
   %644 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc246 = call i32 @fputc(i32 10, ptr %644)
-  br label %.thread273
+  br label %.thread274
 
 645:                                              ; preds = %625
   %646 = load i32, ptr %361, align 8, !tbaa !39
@@ -1201,7 +1201,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 654:                                              ; preds = %645
   %655 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %656 = icmp sgt i32 %655, 0
-  br i1 %656, label %657, label %.thread273
+  br i1 %656, label %657, label %.thread274
 
 657:                                              ; preds = %654
   %658 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1215,42 +1215,42 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %663 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %664 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %665 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %658, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 457, i64 noundef %660, i64 noundef %663, i64 noundef %664, ptr noundef nonnull @.str.16) #9
-  br label %.thread273
+  br label %.thread274
 
 666:                                              ; preds = %657
   %667 = load ptr, ptr @stderr, align 8, !tbaa !36
   %668 = call i64 @fwrite(ptr nonnull @.str.16, i64 20, i64 1, ptr %667) #11
   %669 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc245 = call i32 @fputc(i32 10, ptr %669)
-  br label %.thread273
+  br label %.thread274
 
 670:                                              ; preds = %606, %446, %403, %380, %485, %524, %563, %645
-  %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
+  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %671 = load i32, ptr %138, align 8, !tbaa !31
   %672 = sext i32 %671 to i64
-  %673 = icmp slt i64 %indvars.iv.next313, %672
-  br i1 %673, label %360, label %.loopexit284, !llvm.loop !44
+  %673 = icmp slt i64 %indvars.iv.next314, %672
+  br i1 %673, label %360, label %.loopexit285, !llvm.loop !44
 
-.loopexit284:                                     ; preds = %670, %355, %.loopexit286
+.loopexit285:                                     ; preds = %670, %355, %.loopexit287
   %674 = getelementptr inbounds nuw i8, ptr %13, i64 832
   %675 = load i32, ptr %674, align 8, !tbaa !31
   %676 = icmp sgt i32 %675, 0
-  br i1 %676, label %.lr.ph299, label %.loopexit
+  br i1 %676, label %.lr.ph300, label %.loopexit
 
-.lr.ph299:                                        ; preds = %.loopexit284
+.lr.ph300:                                        ; preds = %.loopexit285
   %677 = getelementptr inbounds nuw i8, ptr %13, i64 256
   br label %682
 
 678:                                              ; preds = %702
-  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %679 = load i32, ptr %674, align 8, !tbaa !31
   %680 = sext i32 %679 to i64
-  %681 = icmp slt i64 %indvars.iv.next316, %680
+  %681 = icmp slt i64 %indvars.iv.next317, %680
   br i1 %681, label %682, label %.loopexit, !llvm.loop !45
 
-682:                                              ; preds = %.lr.ph299, %678
-  %indvars.iv315 = phi i64 [ 0, %.lr.ph299 ], [ %indvars.iv.next316, %678 ]
-  %683 = getelementptr inbounds nuw %struct.filter_info_t, ptr %677, i64 %indvars.iv315
+682:                                              ; preds = %.lr.ph300, %678
+  %indvars.iv316 = phi i64 [ 0, %.lr.ph300 ], [ %indvars.iv.next317, %678 ]
+  %683 = getelementptr inbounds nuw %struct.filter_info_t, ptr %677, i64 %indvars.iv316
   %684 = load i32, ptr %683, align 8, !tbaa !39
   %685 = icmp slt i32 %684, 0
   br i1 %685, label %686, label %702
@@ -1258,7 +1258,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 686:                                              ; preds = %682
   %687 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %688 = icmp sgt i32 %687, 0
-  br i1 %688, label %689, label %.thread273
+  br i1 %688, label %689, label %.thread274
 
 689:                                              ; preds = %686
   %690 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1272,14 +1272,14 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %695 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %696 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %697 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %690, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 467, i64 noundef %692, i64 noundef %695, i64 noundef %696, ptr noundef nonnull @.str.8) #9
-  br label %.thread273
+  br label %.thread274
 
 698:                                              ; preds = %689
   %699 = load ptr, ptr @stderr, align 8, !tbaa !36
   %700 = call i64 @fwrite(ptr nonnull @.str.8, i64 14, i64 1, ptr %699) #11
   %701 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc232 = call i32 @fputc(i32 10, ptr %701)
-  br label %.thread273
+  br label %.thread274
 
 702:                                              ; preds = %682
   %703 = call i32 @H5Zfilter_avail(i32 noundef %684) #9
@@ -1289,7 +1289,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 705:                                              ; preds = %702
   %706 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %707 = icmp sgt i32 %706, 0
-  br i1 %707, label %708, label %.thread273
+  br i1 %707, label %708, label %.thread274
 
 708:                                              ; preds = %705
   %709 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1304,7 +1304,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %715 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %716 = load i32, ptr %683, align 8, !tbaa !39
   %717 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %709, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 470, i64 noundef %711, i64 noundef %714, i64 noundef %715, ptr noundef nonnull @.str.17, i32 noundef %716) #9
-  br label %.thread273
+  br label %.thread274
 
 718:                                              ; preds = %708
   %719 = load ptr, ptr @stderr, align 8, !tbaa !36
@@ -1312,12 +1312,12 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %719, ptr noundef nonnull @.str.17, i32 noundef %720) #12
   %722 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc231 = call i32 @fputc(i32 10, ptr %722)
-  br label %.thread273
+  br label %.thread274
 
-.loopexit:                                        ; preds = %678, %.loopexit284
+.loopexit:                                        ; preds = %678, %.loopexit285
   %723 = load i32, ptr %269, align 4, !tbaa !24
   %724 = icmp sgt i32 %723, -1
-  br i1 %724, label %725, label %.thread273
+  br i1 %724, label %725, label %.thread274
 
 725:                                              ; preds = %.loopexit
   %726 = call i32 @H5Pset_layout(i64 noundef %4, i32 noundef %723) #9
@@ -1327,7 +1327,7 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
 728:                                              ; preds = %725
   %729 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %730 = icmp sgt i32 %729, 0
-  br i1 %730, label %731, label %.thread273
+  br i1 %730, label %731, label %.thread274
 
 731:                                              ; preds = %728
   %732 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1341,18 +1341,18 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %737 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %738 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %739 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %732, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 482, i64 noundef %734, i64 noundef %737, i64 noundef %738, ptr noundef nonnull @.str.18) #9
-  br label %.thread273
+  br label %.thread274
 
 740:                                              ; preds = %731
   %741 = load ptr, ptr @stderr, align 8, !tbaa !36
   %742 = call i64 @fwrite(ptr nonnull @.str.18, i64 20, i64 1, ptr %741) #11
   %743 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc230 = call i32 @fputc(i32 10, ptr %743)
-  br label %.thread273
+  br label %.thread274
 
 744:                                              ; preds = %725
   %745 = load i32, ptr %269, align 4, !tbaa !24
-  switch i32 %745, label %.thread273 [
+  switch i32 %745, label %.thread274 [
     i32 2, label %746
     i32 0, label %768
     i32 1, label %787
@@ -1364,12 +1364,12 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %749 = load i32, ptr %748, align 8, !tbaa !27
   %750 = call i32 @H5Pset_chunk(i64 noundef %4, i32 noundef %749, ptr noundef nonnull %747) #9
   %751 = icmp slt i32 %750, 0
-  br i1 %751, label %752, label %.thread273
+  br i1 %751, label %752, label %.thread274
 
 752:                                              ; preds = %746
   %753 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %754 = icmp sgt i32 %753, 0
-  br i1 %754, label %755, label %.thread273
+  br i1 %754, label %755, label %.thread274
 
 755:                                              ; preds = %752
   %756 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1383,24 +1383,24 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %761 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %762 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %763 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %756, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 486, i64 noundef %758, i64 noundef %761, i64 noundef %762, ptr noundef nonnull @.str.9) #9
-  br label %.thread273
+  br label %.thread274
 
 764:                                              ; preds = %755
   %765 = load ptr, ptr @stderr, align 8, !tbaa !36
   %766 = call i64 @fwrite(ptr nonnull @.str.9, i64 19, i64 1, ptr %765) #11
   %767 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc229 = call i32 @fputc(i32 10, ptr %767)
-  br label %.thread273
+  br label %.thread274
 
 768:                                              ; preds = %744
   %769 = call i32 @H5Pset_alloc_time(i64 noundef %4, i32 noundef 1) #9
   %770 = icmp slt i32 %769, 0
-  br i1 %770, label %771, label %.thread273
+  br i1 %770, label %771, label %.thread274
 
 771:                                              ; preds = %768
   %772 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %773 = icmp sgt i32 %772, 0
-  br i1 %773, label %774, label %.thread273
+  br i1 %773, label %774, label %.thread274
 
 774:                                              ; preds = %771
   %775 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1414,24 +1414,24 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %780 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %781 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %782 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %775, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 490, i64 noundef %777, i64 noundef %780, i64 noundef %781, ptr noundef nonnull @.str.19) #9
-  br label %.thread273
+  br label %.thread274
 
 783:                                              ; preds = %774
   %784 = load ptr, ptr @stderr, align 8, !tbaa !36
   %785 = call i64 @fwrite(ptr nonnull @.str.19, i64 24, i64 1, ptr %784) #11
   %786 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc228 = call i32 @fputc(i32 10, ptr %786)
-  br label %.thread273
+  br label %.thread274
 
 787:                                              ; preds = %744
   %788 = call i32 @H5Premove_filter(i64 noundef %4, i32 noundef 0) #9
   %789 = icmp slt i32 %788, 0
-  br i1 %789, label %790, label %.thread273
+  br i1 %789, label %790, label %.thread274
 
 790:                                              ; preds = %787
   %791 = load i32, ptr @enable_error_stack, align 4, !tbaa !4
   %792 = icmp sgt i32 %791, 0
-  br i1 %792, label %793, label %.thread273
+  br i1 %792, label %793, label %.thread274
 
 793:                                              ; preds = %790
   %794 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !28
@@ -1445,21 +1445,21 @@ aux_copy_obj.exit:                                ; preds = %226, %248, %.lr.ph5
   %799 = load i64, ptr @H5E_tools_g, align 8, !tbaa !28
   %800 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !28
   %801 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %794, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.apply_filters, i32 noundef 495, i64 noundef %796, i64 noundef %799, i64 noundef %800, ptr noundef nonnull @.str.3) #9
-  br label %.thread273
+  br label %.thread274
 
 802:                                              ; preds = %793
   %803 = load ptr, ptr @stderr, align 8, !tbaa !36
   %804 = call i64 @fwrite(ptr nonnull @.str.3, i64 23, i64 1, ptr %803) #11
   %805 = load ptr, ptr @stderr, align 8, !tbaa !36
   %fputc227 = call i32 @fputc(i32 10, ptr %805)
-  br label %.thread273
+  br label %.thread274
 
-.thread273:                                       ; preds = %617, %621, %609, %598, %602, %590, %457, %461, %449, %438, %442, %430, %414, %418, %406, %395, %399, %387, %354, %.thread, %746, %787, %768, %.loopexit, %7, %120, %132, %128, %144, %156, %152, %253, %264, %260, %275, %287, %283, %296, %308, %304, %364, %376, %372, %469, %481, %477, %488, %500, %496, %508, %520, %516, %527, %539, %535, %547, %559, %555, %566, %578, %574, %629, %641, %637, %654, %666, %662, %686, %698, %694, %705, %718, %713, %728, %740, %736, %752, %764, %760, %771, %783, %779, %744, %790, %802, %798
-  %.0 = phi i32 [ 0, %746 ], [ 0, %768 ], [ 0, %787 ], [ 0, %.loopexit ], [ -1, %354 ], [ 0, %7 ], [ -1, %120 ], [ -1, %132 ], [ -1, %128 ], [ -1, %144 ], [ -1, %156 ], [ -1, %152 ], [ -1, %253 ], [ -1, %264 ], [ -1, %260 ], [ -1, %275 ], [ -1, %287 ], [ -1, %283 ], [ -1, %296 ], [ -1, %308 ], [ -1, %304 ], [ -1, %364 ], [ -1, %376 ], [ -1, %372 ], [ -1, %469 ], [ -1, %481 ], [ -1, %477 ], [ -1, %488 ], [ -1, %500 ], [ -1, %496 ], [ -1, %508 ], [ -1, %520 ], [ -1, %516 ], [ -1, %527 ], [ -1, %539 ], [ -1, %535 ], [ -1, %547 ], [ -1, %559 ], [ -1, %555 ], [ -1, %566 ], [ -1, %578 ], [ -1, %574 ], [ -1, %629 ], [ -1, %641 ], [ -1, %637 ], [ -1, %654 ], [ -1, %666 ], [ -1, %662 ], [ -1, %686 ], [ -1, %698 ], [ -1, %694 ], [ -1, %705 ], [ -1, %718 ], [ -1, %713 ], [ -1, %728 ], [ -1, %740 ], [ -1, %736 ], [ -1, %752 ], [ -1, %764 ], [ -1, %760 ], [ -1, %771 ], [ -1, %783 ], [ -1, %779 ], [ 0, %744 ], [ -1, %790 ], [ -1, %802 ], [ -1, %798 ], [ -1, %.thread ], [ -1, %387 ], [ -1, %399 ], [ -1, %395 ], [ -1, %406 ], [ -1, %418 ], [ -1, %414 ], [ -1, %430 ], [ -1, %442 ], [ -1, %438 ], [ -1, %449 ], [ -1, %461 ], [ -1, %457 ], [ -1, %590 ], [ -1, %602 ], [ -1, %598 ], [ -1, %609 ], [ -1, %621 ], [ -1, %617 ]
+.thread274:                                       ; preds = %617, %621, %609, %598, %602, %590, %457, %461, %449, %438, %442, %430, %414, %418, %406, %395, %399, %387, %354, %.thread, %746, %787, %768, %.loopexit, %7, %120, %132, %128, %144, %156, %152, %253, %264, %260, %275, %287, %283, %296, %308, %304, %364, %376, %372, %469, %481, %477, %488, %500, %496, %508, %520, %516, %527, %539, %535, %547, %559, %555, %566, %578, %574, %629, %641, %637, %654, %666, %662, %686, %698, %694, %705, %718, %713, %728, %740, %736, %752, %764, %760, %771, %783, %779, %744, %790, %802, %798
+  %.0149 = phi i32 [ 0, %746 ], [ 0, %768 ], [ 0, %787 ], [ 0, %.loopexit ], [ -1, %354 ], [ 0, %7 ], [ -1, %120 ], [ -1, %132 ], [ -1, %128 ], [ -1, %144 ], [ -1, %156 ], [ -1, %152 ], [ -1, %253 ], [ -1, %264 ], [ -1, %260 ], [ -1, %275 ], [ -1, %287 ], [ -1, %283 ], [ -1, %296 ], [ -1, %308 ], [ -1, %304 ], [ -1, %364 ], [ -1, %376 ], [ -1, %372 ], [ -1, %469 ], [ -1, %481 ], [ -1, %477 ], [ -1, %488 ], [ -1, %500 ], [ -1, %496 ], [ -1, %508 ], [ -1, %520 ], [ -1, %516 ], [ -1, %527 ], [ -1, %539 ], [ -1, %535 ], [ -1, %547 ], [ -1, %559 ], [ -1, %555 ], [ -1, %566 ], [ -1, %578 ], [ -1, %574 ], [ -1, %629 ], [ -1, %641 ], [ -1, %637 ], [ -1, %654 ], [ -1, %666 ], [ -1, %662 ], [ -1, %686 ], [ -1, %698 ], [ -1, %694 ], [ -1, %705 ], [ -1, %718 ], [ -1, %713 ], [ -1, %728 ], [ -1, %740 ], [ -1, %736 ], [ -1, %752 ], [ -1, %764 ], [ -1, %760 ], [ -1, %771 ], [ -1, %783 ], [ -1, %779 ], [ 0, %744 ], [ -1, %790 ], [ -1, %802 ], [ -1, %798 ], [ -1, %.thread ], [ -1, %387 ], [ -1, %399 ], [ -1, %395 ], [ -1, %406 ], [ -1, %418 ], [ -1, %414 ], [ -1, %430 ], [ -1, %442 ], [ -1, %438 ], [ -1, %449 ], [ -1, %461 ], [ -1, %457 ], [ -1, %590 ], [ -1, %602 ], [ -1, %598 ], [ -1, %609 ], [ -1, %621 ], [ -1, %617 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i32 %.0
+  ret i32 %.0149
 }
 
 declare void @init_packobject(ptr noundef) local_unnamed_addr #1

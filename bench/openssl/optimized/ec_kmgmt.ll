@@ -2135,13 +2135,13 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
   %11 = tail call ptr @EC_KEY_get0_private_key(ptr noundef nonnull %0) #5
   %12 = tail call ptr @EC_KEY_get0_public_key(ptr noundef nonnull %0) #5
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.thread102, label %13
+  br i1 %.not, label %.thread104, label %13
 
 13:                                               ; preds = %10
   %14 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef nonnull %0) #5
   %15 = tail call ptr @BN_CTX_new_ex(ptr noundef %14) #5
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread100, label %17
+  br i1 %16, label %.thread102, label %17
 
 17:                                               ; preds = %13
   %18 = icmp eq ptr %1, null
@@ -2151,31 +2151,31 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
   %20 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.31) #5
   %21 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.32) #5
   %22 = tail call ptr @OSSL_PARAM_locate(ptr noundef %2, ptr noundef nonnull @.str.33) #5
-  %.not107 = icmp eq ptr %20, null
-  br i1 %.not107, label %29, label %.thread
+  %.not109 = icmp eq ptr %20, null
+  br i1 %.not109, label %29, label %.thread
 
 .thread:                                          ; preds = %17, %19
-  %.06596 = phi ptr [ %22, %19 ], [ null, %17 ]
-  %.06694 = phi ptr [ %21, %19 ], [ null, %17 ]
-  %.06792 = phi ptr [ %20, %19 ], [ null, %17 ]
+  %.06598 = phi ptr [ %22, %19 ], [ null, %17 ]
+  %.06696 = phi ptr [ %21, %19 ], [ null, %17 ]
+  %.06794 = phi ptr [ %20, %19 ], [ null, %17 ]
   %23 = tail call i32 @EC_KEY_get_conv_form(ptr noundef nonnull %0) #5
   %24 = tail call i64 @EC_POINT_point2buf(ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %23, ptr noundef nonnull %4, ptr noundef nonnull %15) #5
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread100, label %26
+  br i1 %25, label %.thread102, label %26
 
 26:                                               ; preds = %.thread
   %27 = load ptr, ptr %4, align 8, !tbaa !42
-  %28 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %.06792, ptr noundef nonnull @.str.31, ptr noundef %27, i64 noundef %24) #5
+  %28 = tail call i32 @ossl_param_build_set_octet_string(ptr noundef %1, ptr noundef %.06794, ptr noundef nonnull @.str.31, ptr noundef %27, i64 noundef %24) #5
   %.not81.not = icmp eq i32 %28, 0
-  br i1 %.not81.not, label %.thread100, label %29
+  br i1 %.not81.not, label %.thread102, label %29
 
 29:                                               ; preds = %26, %19
-  %.06595 = phi ptr [ %.06596, %26 ], [ %22, %19 ]
-  %.06693 = phi ptr [ %.06694, %26 ], [ %21, %19 ]
-  %30 = icmp ne ptr %.06693, null
-  %31 = icmp ne ptr %.06595, null
+  %.06597 = phi ptr [ %.06598, %26 ], [ %22, %19 ]
+  %.06695 = phi ptr [ %.06696, %26 ], [ %21, %19 ]
+  %30 = icmp ne ptr %.06695, null
+  %31 = icmp ne ptr %.06597, null
   %or.cond3 = select i1 %30, i1 true, i1 %31
-  br i1 %or.cond3, label %32, label %.thread102
+  br i1 %or.cond3, label %32, label %.thread104
 
 32:                                               ; preds = %29
   br i1 %30, label %33, label %36
@@ -2183,7 +2183,7 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
 33:                                               ; preds = %32
   %34 = tail call ptr @BN_CTX_get(ptr noundef nonnull %15) #5
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread100, label %36
+  br i1 %35, label %.thread102, label %36
 
 36:                                               ; preds = %33, %32
   %.063 = phi ptr [ %34, %33 ], [ null, %32 ]
@@ -2192,41 +2192,41 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
 37:                                               ; preds = %36
   %38 = tail call ptr @BN_CTX_get(ptr noundef nonnull %15) #5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread100, label %40
+  br i1 %39, label %.thread102, label %40
 
 40:                                               ; preds = %37, %36
   %.064 = phi ptr [ %38, %37 ], [ null, %36 ]
   %41 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef %.063, ptr noundef %.064, ptr noundef nonnull %15) #5
   %.not82 = icmp eq i32 %41, 0
-  br i1 %.not82, label %.thread100, label %42
+  br i1 %.not82, label %.thread102, label %42
 
 42:                                               ; preds = %40
   br i1 %30, label %43, label %45
 
 43:                                               ; preds = %42
-  %44 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef nonnull %.06693, ptr noundef nonnull @.str.32, ptr noundef %.063) #5
+  %44 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef nonnull %.06695, ptr noundef nonnull @.str.32, ptr noundef %.063) #5
   %.not83 = icmp eq i32 %44, 0
-  br i1 %.not83, label %.thread100, label %45
+  br i1 %.not83, label %.thread102, label %45
 
 45:                                               ; preds = %43, %42
-  br i1 %31, label %46, label %.thread102
+  br i1 %31, label %46, label %.thread104
 
 46:                                               ; preds = %45
-  %47 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef nonnull %.06595, ptr noundef nonnull @.str.33, ptr noundef %.064) #5
+  %47 = tail call i32 @ossl_param_build_set_bn(ptr noundef %1, ptr noundef nonnull %.06597, ptr noundef nonnull @.str.33, ptr noundef %.064) #5
   %.not84 = icmp eq i32 %47, 0
-  br i1 %.not84, label %.thread100, label %.thread102
+  br i1 %.not84, label %.thread102, label %.thread104
 
-.thread102:                                       ; preds = %45, %46, %29, %10
+.thread104:                                       ; preds = %45, %46, %29, %10
   %.069 = phi ptr [ null, %10 ], [ %15, %29 ], [ %15, %46 ], [ %15, %45 ]
   %48 = icmp ne ptr %11, null
   %49 = icmp ne i32 %3, 0
   %or.cond5 = and i1 %49, %48
-  br i1 %or.cond5, label %50, label %.thread100
+  br i1 %or.cond5, label %50, label %.thread102
 
-50:                                               ; preds = %.thread102
+50:                                               ; preds = %.thread104
   %51 = tail call i32 @EC_GROUP_order_bits(ptr noundef nonnull %8) #5
   %52 = icmp slt i32 %51, 1
-  br i1 %52, label %.thread105, label %53
+  br i1 %52, label %.thread107, label %53
 
 53:                                               ; preds = %50
   %54 = add nuw nsw i32 %51, 7
@@ -2234,19 +2234,19 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
   %56 = zext nneg i32 %55 to i64
   %57 = tail call i32 @ossl_param_build_set_bn_pad(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef nonnull %11, i64 noundef %56) #5
   %.not85 = icmp eq i32 %57, 0
-  br i1 %.not85, label %.thread105, label %.thread100
+  br i1 %.not85, label %.thread107, label %.thread102
 
-.thread105:                                       ; preds = %50, %53
-  br label %.thread100
+.thread107:                                       ; preds = %50, %53
+  br label %.thread102
 
-.thread100:                                       ; preds = %26, %.thread, %46, %43, %40, %37, %33, %13, %.thread102, %53, %.thread105
-  %.071 = phi i32 [ 0, %.thread105 ], [ 1, %53 ], [ 1, %.thread102 ], [ 0, %13 ], [ 0, %33 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %.thread ], [ 0, %26 ]
-  %.170 = phi ptr [ %.069, %.thread105 ], [ %.069, %53 ], [ %.069, %.thread102 ], [ null, %13 ], [ %15, %33 ], [ %15, %37 ], [ %15, %40 ], [ %15, %43 ], [ %15, %46 ], [ %15, %.thread ], [ %15, %26 ]
+.thread102:                                       ; preds = %26, %.thread, %46, %43, %40, %37, %33, %13, %.thread104, %53, %.thread107
+  %.071 = phi i32 [ 0, %.thread107 ], [ 1, %53 ], [ 1, %.thread104 ], [ 0, %13 ], [ 0, %33 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %.thread ], [ 0, %26 ]
+  %.170 = phi ptr [ %.069, %.thread107 ], [ %.069, %53 ], [ %.069, %.thread104 ], [ null, %13 ], [ %15, %33 ], [ %15, %37 ], [ %15, %40 ], [ %15, %43 ], [ %15, %46 ], [ %15, %.thread ], [ %15, %26 ]
   tail call void @BN_CTX_free(ptr noundef %.170) #5
   br label %58
 
-58:                                               ; preds = %5, %7, %.thread100
-  %.0 = phi i32 [ %.071, %.thread100 ], [ 0, %7 ], [ 0, %5 ]
+58:                                               ; preds = %5, %7, %.thread102
+  %.0 = phi i32 [ %.071, %.thread102 ], [ 0, %7 ], [ 0, %5 ]
   ret i32 %.0
 }
 

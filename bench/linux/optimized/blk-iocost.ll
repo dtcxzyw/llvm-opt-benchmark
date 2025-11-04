@@ -2585,49 +2585,49 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit20, label %.preheader18
+  br i1 %28, label %.loopexit21, label %.preheader19
 
-.preheader18:                                     ; preds = %25, %33
+.preheader19:                                     ; preds = %25, %33
   %29 = phi ptr [ %35, %33 ], [ %27, %25 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2
-  br i1 %32, label %.loopexit17, label %33
+  br i1 %32, label %.loopexit18, label %33
 
-33:                                               ; preds = %.preheader18
+33:                                               ; preds = %.preheader19
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit20, label %.preheader18, !llvm.loop !22
+  br i1 %36, label %.loopexit21, label %.preheader19, !llvm.loop !22
 
-.loopexit20:                                      ; preds = %33, %25
+.loopexit21:                                      ; preds = %33, %25
   %37 = call fastcc i32 @blk_iocost_init(ptr noundef %19)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %167
 
-39:                                               ; preds = %.loopexit20
+39:                                               ; preds = %.loopexit21
   %40 = load ptr, ptr %20, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 264
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit17, label %.preheader16
+  br i1 %43, label %.loopexit18, label %.preheader17
 
-.preheader16:                                     ; preds = %39, %48
+.preheader17:                                     ; preds = %39, %48
   %44 = phi ptr [ %50, %48 ], [ %42, %39 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 2
-  br i1 %47, label %.loopexit17, label %48
+  br i1 %47, label %.loopexit18, label %48
 
-48:                                               ; preds = %.preheader16
+48:                                               ; preds = %.preheader17
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit17, label %.preheader16, !llvm.loop !22
+  br i1 %51, label %.loopexit18, label %.preheader17, !llvm.loop !22
 
-.loopexit17:                                      ; preds = %.preheader18, %48, %.preheader16, %39
-  %52 = phi ptr [ %40, %39 ], [ %40, %.preheader16 ], [ %40, %48 ], [ %21, %.preheader18 ]
-  %53 = phi ptr [ null, %39 ], [ null, %48 ], [ %44, %.preheader16 ], [ %29, %.preheader18 ]
+.loopexit18:                                      ; preds = %.preheader19, %48, %.preheader17, %39
+  %52 = phi ptr [ %40, %39 ], [ %40, %.preheader17 ], [ %40, %48 ], [ %21, %.preheader19 ]
+  %53 = phi ptr [ null, %39 ], [ null, %48 ], [ %44, %.preheader17 ], [ %29, %.preheader19 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !17
   call void @blk_mq_freeze_queue(ptr noundef %52) #22
   %54 = load ptr, ptr %20, align 8
@@ -2644,10 +2644,10 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit17, %select.unfold
-  %63 = phi ptr [ %126, %select.unfold ], [ %61, %.loopexit17 ]
-  %64 = phi i8 [ %125, %select.unfold ], [ %60, %.loopexit17 ]
-  %65 = phi i8 [ %124, %select.unfold ], [ %58, %.loopexit17 ]
+.preheader:                                       ; preds = %.loopexit18, %select.unfold
+  %63 = phi ptr [ %126, %select.unfold ], [ %61, %.loopexit18 ]
+  %64 = phi i8 [ %125, %select.unfold ], [ %60, %.loopexit18 ]
+  %65 = phi i8 [ %124, %select.unfold ], [ %58, %.loopexit18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, i8 0, i64 48, i1 false), !annotation !17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2668,7 +2668,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 70:                                               ; preds = %68
   %71 = call i32 @match_u64(ptr noundef nonnull %8, ptr noundef nonnull %10) #22
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.thread15
+  br i1 %72, label %73, label %.thread16
 
 73:                                               ; preds = %70
   %74 = load i64, ptr %10, align 8
@@ -2685,11 +2685,11 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 81:                                               ; preds = %77
   %82 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %9, ptr noundef nonnull dereferenceable(5) @.str.46, i64 5)
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %select.unfold, label %.thread15, !llvm.loop !41
+  br i1 %83, label %select.unfold, label %.thread16, !llvm.loop !41
 
 84:                                               ; preds = %68
   %85 = call i32 @match_token(ptr noundef nonnull %63, ptr noundef nonnull @qos_tokens, ptr noundef nonnull %8) #22
-  switch i32 %85, label %.thread15 [
+  switch i32 %85, label %.thread16 [
     i32 0, label %86
     i32 2, label %86
     i32 1, label %100
@@ -2701,17 +2701,17 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 86:                                               ; preds = %84, %84
   %87 = call i64 @match_strlcpy(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 32) #22
   %88 = icmp ugt i64 %87, 31
-  br i1 %88, label %.thread15, label %89
+  br i1 %88, label %.thread16, label %89
 
 89:                                               ; preds = %86
   %90 = call i32 @cgroup_parse_float(ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull %10) #22
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %.thread15
+  br i1 %91, label %92, label %.thread16
 
 92:                                               ; preds = %89
   %93 = load i64, ptr %10, align 8
   %94 = icmp ugt i64 %93, 10000
-  br i1 %94, label %.thread15, label %95
+  br i1 %94, label %.thread16, label %95
 
 95:                                               ; preds = %92
   %96 = trunc nuw nsw i64 %93 to i32
@@ -2724,7 +2724,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 100:                                              ; preds = %84, %84
   %101 = call i32 @match_u64(ptr noundef nonnull %8, ptr noundef nonnull %10) #22
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.thread15
+  br i1 %102, label %103, label %.thread16
 
 103:                                              ; preds = %100
   %104 = load i64, ptr %10, align 8
@@ -2737,17 +2737,17 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
 108:                                              ; preds = %84, %84
   %109 = call i64 @match_strlcpy(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 32) #22
   %110 = icmp ugt i64 %109, 31
-  br i1 %110, label %.thread15, label %111
+  br i1 %110, label %.thread16, label %111
 
 111:                                              ; preds = %108
   %112 = call i32 @cgroup_parse_float(ptr noundef nonnull %9, i32 noundef 2, ptr noundef nonnull %10) #22
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %.thread15
+  br i1 %113, label %114, label %.thread16
 
 114:                                              ; preds = %111
   %115 = load i64, ptr %10, align 8
   %116 = icmp slt i64 %115, 0
-  br i1 %116, label %.thread15, label %117
+  br i1 %116, label %.thread16, label %117
 
 117:                                              ; preds = %114
   %118 = mul i64 %115, 100
@@ -2759,7 +2759,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   store i32 %121, ptr %123, align 4
   br label %select.unfold
 
-.thread15:                                        ; preds = %70, %86, %89, %92, %100, %108, %111, %114, %84, %81
+.thread16:                                        ; preds = %70, %86, %89, %92, %100, %108, %111, %114, %84, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2775,9 +2775,9 @@ select.unfold:                                    ; preds = %81, %.preheader, %7
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.loopexit, label %.preheader, !llvm.loop !41
 
-.loopexit:                                        ; preds = %select.unfold, %.loopexit17
-  %128 = phi i8 [ %58, %.loopexit17 ], [ %124, %select.unfold ]
-  %129 = phi i8 [ %60, %.loopexit17 ], [ %125, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %.loopexit18
+  %128 = phi i8 [ %58, %.loopexit18 ], [ %124, %select.unfold ]
+  %129 = phi i8 [ %60, %.loopexit18 ], [ %125, %select.unfold ]
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %131 = load i32, ptr %130, align 16
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -2846,7 +2846,7 @@ select.unfold:                                    ; preds = %81, %.preheader, %7
   call void @blkg_conf_exit(ptr noundef nonnull %5) #22
   br label %170
 
-164:                                              ; preds = %.thread15, %.loopexit
+164:                                              ; preds = %.thread16, %.loopexit
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %55) #22
   %165 = load ptr, ptr %20, align 8
   call void @blk_mq_unquiesce_queue(ptr noundef %165) #22
@@ -2854,8 +2854,8 @@ select.unfold:                                    ; preds = %81, %.preheader, %7
   call void @blk_mq_unfreeze_queue(ptr noundef %166) #22
   br label %167
 
-167:                                              ; preds = %164, %.loopexit20, %13, %4
-  %168 = phi i32 [ %11, %4 ], [ -22, %164 ], [ %37, %.loopexit20 ], [ -95, %13 ]
+167:                                              ; preds = %164, %.loopexit21, %13, %4
+  %168 = phi i32 [ %11, %4 ], [ -22, %164 ], [ %37, %.loopexit21 ], [ -95, %13 ]
   call void @blkg_conf_exit(ptr noundef nonnull %5) #22
   %169 = sext i32 %168 to i64
   br label %170
@@ -2919,48 +2919,48 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 264
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit22, label %.preheader20
+  br i1 %26, label %.loopexit23, label %.preheader21
 
-.preheader20:                                     ; preds = %23, %31
+.preheader21:                                     ; preds = %23, %31
   %27 = phi ptr [ %33, %31 ], [ %25, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 2
-  br i1 %30, label %.loopexit18, label %31
+  br i1 %30, label %.loopexit19, label %31
 
-31:                                               ; preds = %.preheader20
+31:                                               ; preds = %.preheader21
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit22, label %.preheader20, !llvm.loop !22
+  br i1 %34, label %.loopexit23, label %.preheader21, !llvm.loop !22
 
-.loopexit22:                                      ; preds = %31, %23
+.loopexit23:                                      ; preds = %31, %23
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call fastcc i32 @blk_iocost_init(ptr noundef %36)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %101
 
-39:                                               ; preds = %.loopexit22
+39:                                               ; preds = %.loopexit23
   %40 = load ptr, ptr %24, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit18, label %.preheader17
+  br i1 %41, label %.loopexit19, label %.preheader18
 
-.preheader17:                                     ; preds = %39, %46
+.preheader18:                                     ; preds = %39, %46
   %42 = phi ptr [ %48, %46 ], [ %40, %39 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
-  br i1 %45, label %.loopexit18, label %46
+  br i1 %45, label %.loopexit19, label %46
 
-46:                                               ; preds = %.preheader17
+46:                                               ; preds = %.preheader18
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit18, label %.preheader17, !llvm.loop !22
+  br i1 %49, label %.loopexit19, label %.preheader18, !llvm.loop !22
 
-.loopexit18:                                      ; preds = %.preheader20, %46, %.preheader17, %39
-  %50 = phi ptr [ null, %39 ], [ %42, %.preheader17 ], [ null, %46 ], [ %27, %.preheader20 ]
+.loopexit19:                                      ; preds = %.preheader21, %46, %.preheader18, %39
+  %50 = phi ptr [ null, %39 ], [ %42, %.preheader18 ], [ null, %46 ], [ %27, %.preheader21 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !17
   call void @blk_mq_freeze_queue(ptr noundef %19) #22
   call void @blk_mq_quiesce_queue(ptr noundef %19) #22
@@ -2975,9 +2975,9 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit18, %select.unfold
-  %58 = phi ptr [ %85, %select.unfold ], [ %56, %.loopexit18 ]
-  %59 = phi i8 [ %.ph, %select.unfold ], [ %55, %.loopexit18 ]
+.preheader:                                       ; preds = %.loopexit19, %select.unfold
+  %58 = phi ptr [ %85, %select.unfold ], [ %56, %.loopexit19 ]
+  %59 = phi i8 [ %.ph, %select.unfold ], [ %55, %.loopexit19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, i8 0, i64 48, i1 false), !annotation !17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3038,8 +3038,8 @@ select.unfold:                                    ; preds = %68, %71, %81, %.pre
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.loopexit, label %.preheader, !llvm.loop !42
 
-.loopexit:                                        ; preds = %select.unfold, %.loopexit18
-  %87 = phi i8 [ %55, %.loopexit18 ], [ %.ph, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %.loopexit19
+  %87 = phi i8 [ %55, %.loopexit19 ], [ %.ph, %select.unfold ]
   %88 = and i8 %87, 1
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %93, label %90
@@ -3076,8 +3076,8 @@ select.unfold:                                    ; preds = %68, %71, %81, %.pre
   call void @blk_mq_unfreeze_queue(ptr noundef %19) #22
   br label %101
 
-101:                                              ; preds = %100, %.loopexit22, %13, %4
-  %102 = phi i32 [ %11, %4 ], [ -22, %100 ], [ %37, %.loopexit22 ], [ -95, %13 ]
+101:                                              ; preds = %100, %.loopexit23, %13, %4
+  %102 = phi i32 [ %11, %4 ], [ -22, %100 ], [ %37, %.loopexit23 ], [ -95, %13 ]
   call void @blkg_conf_exit(ptr noundef nonnull %5) #22
   %103 = sext i32 %102 to i64
   br label %104

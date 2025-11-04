@@ -1487,8 +1487,8 @@ define ptr @X509_STORE_get1_all_certs(ptr noundef readonly captures(address_is_n
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %X509_OBJECT_get0_X509.exit.thread
-  %.01827 = phi i32 [ %25, %X509_OBJECT_get0_X509.exit.thread ], [ 0, %11 ]
-  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.01827) #6
+  %.01828 = phi i32 [ %25, %X509_OBJECT_get0_X509.exit.thread ], [ 0, %11 ]
+  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %.01828) #6
   %18 = icmp eq ptr %17, null
   br i1 %18, label %X509_OBJECT_get0_X509.exit.thread, label %19
 
@@ -1509,7 +1509,7 @@ X509_OBJECT_get0_X509.exit:                       ; preds = %19
   br i1 %.not23, label %30, label %X509_OBJECT_get0_X509.exit.thread
 
 X509_OBJECT_get0_X509.exit.thread:                ; preds = %.lr.ph, %19, %X509_OBJECT_get0_X509.exit, %23
-  %25 = add nuw nsw i32 %.01827, 1
+  %25 = add nuw nsw i32 %.01828, 1
   %26 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #6
   %27 = icmp slt i32 %25, %26
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !92

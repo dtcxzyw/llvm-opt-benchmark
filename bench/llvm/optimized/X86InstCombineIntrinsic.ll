@@ -2182,7 +2182,7 @@ _ZNK4llvm5APInt3ugeEm.exit.thread.i:              ; preds = %939, %_ZNK4llvm5API
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i: ; preds = %943, %_ZNK4llvm5APInt3ugeEm.exit.thread.i
   %.sink265.i = phi i32 [ %941, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %945, %943 ]
   %.sink.ph.i = phi i32 [ %910, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %944, %943 ]
-  %.476.jt0.ph.i = phi i1 [ %.065.i, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %.072158.i, %943 ]
+  %.476.ph.i = phi i1 [ %.065.i, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %.072158.i, %943 ]
   %947 = zext i32 %.sink265.i to i64
   %948 = add nuw nsw i64 %947, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %902, i64 noundef %948, i64 noundef 4) #16
@@ -2192,14 +2192,14 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i: ; pre
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i, %943, %_ZNK4llvm5APInt3ugeEm.exit.thread.i
   %.sink250.i = phi i32 [ %941, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %945, %943 ], [ %.pre.i110.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i ]
   %.sink.i1002 = phi i32 [ %910, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %944, %943 ], [ %.sink.ph.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i ]
-  %.476.jt0.i = phi i1 [ %.065.i, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %.072158.i, %943 ], [ %.476.jt0.ph.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i ]
+  %.476.i = phi i1 [ %.065.i, %_ZNK4llvm5APInt3ugeEm.exit.thread.i ], [ %.072158.i, %943 ], [ %.476.ph.i, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.sink.split.i ]
   %949 = load ptr, ptr %22, align 8, !tbaa !116
   %950 = zext i32 %.sink250.i to i64
   %951 = getelementptr inbounds nuw i32, ptr %949, i64 %950
   store i32 %.sink.i1002, ptr %951, align 1
   %952 = load i32, ptr %903, align 8, !tbaa !117
-  %storemerge154.jt0.i = add i32 %952, 1
-  store i32 %storemerge154.jt0.i, ptr %903, align 8, !tbaa !117
+  %storemerge154.i = add i32 %952, 1
+  store i32 %storemerge154.i, ptr %903, align 8, !tbaa !117
   %953 = load i32, ptr %908, align 8, !tbaa !23
   %954 = icmp ugt i32 %953, 64
   br i1 %954, label %955, label %959
@@ -2218,7 +2218,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit108.i: ; preds = %_ZN4l
   br label %960
 
 960:                                              ; preds = %959, %.thread143.i
-  %.274146.i = phi i1 [ %.072158.i, %.thread143.i ], [ %.476.jt0.i, %959 ]
+  %.274146.i = phi i1 [ %.072158.i, %.thread143.i ], [ %.476.i, %959 ]
   %961 = add nuw nsw i32 %.077157.i, 1
   %exitcond.not.i = icmp eq i32 %961, %785
   br i1 %exitcond.not.i, label %._crit_edge.i, label %911, !llvm.loop !123

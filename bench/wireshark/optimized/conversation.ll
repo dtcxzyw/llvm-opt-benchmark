@@ -371,20 +371,20 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 define internal i32 @conversation_hash_element_list(ptr noundef readonly captures(none) %0) #3 {
   br label %2
 
-2:                                                ; preds = %add_address_to_hash.exit106, %1
-  %.032 = phi ptr [ %0, %1 ], [ %92, %add_address_to_hash.exit106 ]
-  %.031 = phi i32 [ 0, %1 ], [ %.1, %add_address_to_hash.exit106 ]
+2:                                                ; preds = %add_address_to_hash.exit107, %1
+  %.032 = phi ptr [ %0, %1 ], [ %92, %add_address_to_hash.exit107 ]
+  %.031 = phi i32 [ 0, %1 ], [ %.1, %add_address_to_hash.exit107 ]
   %3 = load i32, ptr %.032, align 8
-  switch i32 %3, label %add_address_to_hash.exit106 [
+  switch i32 %3, label %add_address_to_hash.exit107 [
     i32 1, label %4
-    i32 2, label %.lr.ph.preheader.i36
+    i32 2, label %.lr.ph.preheader.i37
     i32 3, label %25
-    i32 4, label %.lr.ph.preheader.i54
-    i32 5, label %.lr.ph.preheader.i63
-    i32 6, label %.lr.ph.preheader.i72
-    i32 7, label %.lr.ph.preheader.i81
+    i32 4, label %.lr.ph.preheader.i55
+    i32 5, label %.lr.ph.preheader.i64
+    i32 6, label %.lr.ph.preheader.i73
+    i32 7, label %.lr.ph.preheader.i82
     i32 8, label %70
-    i32 0, label %.lr.ph.preheader.i99
+    i32 0, label %.lr.ph.preheader.i100
   ]
 
 4:                                                ; preds = %2
@@ -393,7 +393,7 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %.032, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph.preheader.i, label %add_address_to_hash.exit106
+  br i1 %9, label %.lr.ph.preheader.i, label %add_address_to_hash.exit107
 
 .lr.ph.preheader.i:                               ; preds = %4
   %wide.trip.count.i = zext nneg i32 %8 to i64
@@ -411,25 +411,25 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %16 = xor i32 %15, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit106, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit107, label %.lr.ph.i, !llvm.loop !9
 
-.lr.ph.preheader.i36:                             ; preds = %2
+.lr.ph.preheader.i37:                             ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i38
+  br label %.lr.ph.i39
 
-.lr.ph.i38:                                       ; preds = %.lr.ph.i38, %.lr.ph.preheader.i36
-  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i41, %.lr.ph.i38 ]
-  %.01112.i40 = phi i32 [ %.031, %.lr.ph.preheader.i36 ], [ %24, %.lr.ph.i38 ]
-  %18 = getelementptr i8, ptr %17, i64 %indvars.iv.i39
+.lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i37
+  %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %.lr.ph.i39 ]
+  %.01112.i41 = phi i32 [ %.031, %.lr.ph.preheader.i37 ], [ %24, %.lr.ph.i39 ]
+  %18 = getelementptr i8, ptr %17, i64 %indvars.iv.i40
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = add i32 %.01112.i40, %20
+  %21 = add i32 %.01112.i41, %20
   %22 = mul i32 %21, 1025
   %23 = lshr i32 %22, 6
   %24 = xor i32 %23, %22
-  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i39, 1
-  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 4
-  br i1 %exitcond.not.i42, label %add_address_to_hash.exit106, label %.lr.ph.i38, !llvm.loop !9
+  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
+  %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 4
+  br i1 %exitcond.not.i43, label %add_address_to_hash.exit107, label %.lr.ph.i39, !llvm.loop !9
 
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -437,97 +437,97 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %28 = tail call i64 @strlen(ptr noundef %27) #16
   %29 = trunc i64 %28 to i32
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.preheader.i45, label %add_address_to_hash.exit106
+  br i1 %30, label %.lr.ph.preheader.i46, label %add_address_to_hash.exit107
 
-.lr.ph.preheader.i45:                             ; preds = %25
-  %wide.trip.count.i46 = and i64 %28, 2147483647
-  br label %.lr.ph.i47
+.lr.ph.preheader.i46:                             ; preds = %25
+  %wide.trip.count.i47 = and i64 %28, 2147483647
+  br label %.lr.ph.i48
 
-.lr.ph.i47:                                       ; preds = %.lr.ph.i47, %.lr.ph.preheader.i45
-  %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i50, %.lr.ph.i47 ]
-  %.01112.i49 = phi i32 [ %.031, %.lr.ph.preheader.i45 ], [ %37, %.lr.ph.i47 ]
-  %31 = getelementptr i8, ptr %27, i64 %indvars.iv.i48
+.lr.ph.i48:                                       ; preds = %.lr.ph.i48, %.lr.ph.preheader.i46
+  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i51, %.lr.ph.i48 ]
+  %.01112.i50 = phi i32 [ %.031, %.lr.ph.preheader.i46 ], [ %37, %.lr.ph.i48 ]
+  %31 = getelementptr i8, ptr %27, i64 %indvars.iv.i49
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %34 = add i32 %.01112.i49, %33
+  %34 = add i32 %.01112.i50, %33
   %35 = mul i32 %34, 1025
   %36 = lshr i32 %35, 6
   %37 = xor i32 %36, %35
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i46
-  br i1 %exitcond.not.i51, label %add_address_to_hash.exit106, label %.lr.ph.i47, !llvm.loop !9
+  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
+  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
+  br i1 %exitcond.not.i52, label %add_address_to_hash.exit107, label %.lr.ph.i48, !llvm.loop !9
 
-.lr.ph.preheader.i54:                             ; preds = %2
+.lr.ph.preheader.i55:                             ; preds = %2
   %38 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i56
+  br label %.lr.ph.i57
 
-.lr.ph.i56:                                       ; preds = %.lr.ph.i56, %.lr.ph.preheader.i54
-  %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i59, %.lr.ph.i56 ]
-  %.01112.i58 = phi i32 [ %.031, %.lr.ph.preheader.i54 ], [ %45, %.lr.ph.i56 ]
-  %39 = getelementptr i8, ptr %38, i64 %indvars.iv.i57
+.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %.lr.ph.preheader.i55
+  %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i60, %.lr.ph.i57 ]
+  %.01112.i59 = phi i32 [ %.031, %.lr.ph.preheader.i55 ], [ %45, %.lr.ph.i57 ]
+  %39 = getelementptr i8, ptr %38, i64 %indvars.iv.i58
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
-  %42 = add i32 %.01112.i58, %41
+  %42 = add i32 %.01112.i59, %41
   %43 = mul i32 %42, 1025
   %44 = lshr i32 %43, 6
   %45 = xor i32 %44, %43
-  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
-  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 4
-  br i1 %exitcond.not.i60, label %add_address_to_hash.exit106, label %.lr.ph.i56, !llvm.loop !9
+  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
+  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 4
+  br i1 %exitcond.not.i61, label %add_address_to_hash.exit107, label %.lr.ph.i57, !llvm.loop !9
 
-.lr.ph.preheader.i63:                             ; preds = %2
+.lr.ph.preheader.i64:                             ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i65
+  br label %.lr.ph.i66
 
-.lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i63
-  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i63 ], [ %indvars.iv.next.i68, %.lr.ph.i65 ]
-  %.01112.i67 = phi i32 [ %.031, %.lr.ph.preheader.i63 ], [ %53, %.lr.ph.i65 ]
-  %47 = getelementptr i8, ptr %46, i64 %indvars.iv.i66
+.lr.ph.i66:                                       ; preds = %.lr.ph.i66, %.lr.ph.preheader.i64
+  %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.preheader.i64 ], [ %indvars.iv.next.i69, %.lr.ph.i66 ]
+  %.01112.i68 = phi i32 [ %.031, %.lr.ph.preheader.i64 ], [ %53, %.lr.ph.i66 ]
+  %47 = getelementptr i8, ptr %46, i64 %indvars.iv.i67
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
-  %50 = add i32 %.01112.i67, %49
+  %50 = add i32 %.01112.i68, %49
   %51 = mul i32 %50, 1025
   %52 = lshr i32 %51, 6
   %53 = xor i32 %52, %51
-  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i66, 1
-  %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 8
-  br i1 %exitcond.not.i69, label %add_address_to_hash.exit106, label %.lr.ph.i65, !llvm.loop !9
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67, 1
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 8
+  br i1 %exitcond.not.i70, label %add_address_to_hash.exit107, label %.lr.ph.i66, !llvm.loop !9
 
-.lr.ph.preheader.i72:                             ; preds = %2
+.lr.ph.preheader.i73:                             ; preds = %2
   %54 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i74
+  br label %.lr.ph.i75
 
-.lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
-  %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i77, %.lr.ph.i74 ]
-  %.01112.i76 = phi i32 [ %.031, %.lr.ph.preheader.i72 ], [ %61, %.lr.ph.i74 ]
-  %55 = getelementptr i8, ptr %54, i64 %indvars.iv.i75
+.lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i73
+  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i78, %.lr.ph.i75 ]
+  %.01112.i77 = phi i32 [ %.031, %.lr.ph.preheader.i73 ], [ %61, %.lr.ph.i75 ]
+  %55 = getelementptr i8, ptr %54, i64 %indvars.iv.i76
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = add i32 %.01112.i76, %57
+  %58 = add i32 %.01112.i77, %57
   %59 = mul i32 %58, 1025
   %60 = lshr i32 %59, 6
   %61 = xor i32 %60, %59
-  %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i75, 1
-  %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 4
-  br i1 %exitcond.not.i78, label %add_address_to_hash.exit106, label %.lr.ph.i74, !llvm.loop !9
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
+  %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 4
+  br i1 %exitcond.not.i79, label %add_address_to_hash.exit107, label %.lr.ph.i75, !llvm.loop !9
 
-.lr.ph.preheader.i81:                             ; preds = %2
+.lr.ph.preheader.i82:                             ; preds = %2
   %62 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i83
+  br label %.lr.ph.i84
 
-.lr.ph.i83:                                       ; preds = %.lr.ph.i83, %.lr.ph.preheader.i81
-  %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i86, %.lr.ph.i83 ]
-  %.01112.i85 = phi i32 [ %.031, %.lr.ph.preheader.i81 ], [ %69, %.lr.ph.i83 ]
-  %63 = getelementptr i8, ptr %62, i64 %indvars.iv.i84
+.lr.ph.i84:                                       ; preds = %.lr.ph.i84, %.lr.ph.preheader.i82
+  %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i87, %.lr.ph.i84 ]
+  %.01112.i86 = phi i32 [ %.031, %.lr.ph.preheader.i82 ], [ %69, %.lr.ph.i84 ]
+  %63 = getelementptr i8, ptr %62, i64 %indvars.iv.i85
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = add i32 %.01112.i85, %65
+  %66 = add i32 %.01112.i86, %65
   %67 = mul i32 %66, 1025
   %68 = lshr i32 %67, 6
   %69 = xor i32 %68, %67
-  %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i84, 1
-  %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, 8
-  br i1 %exitcond.not.i87, label %add_address_to_hash.exit106, label %.lr.ph.i83, !llvm.loop !9
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 8
+  br i1 %exitcond.not.i88, label %add_address_to_hash.exit107, label %.lr.ph.i84, !llvm.loop !9
 
 70:                                               ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -536,50 +536,50 @@ define internal i32 @conversation_hash_element_list(ptr noundef readonly capture
   %74 = trunc i64 %73 to i32
   %75 = load ptr, ptr %71, align 8
   %76 = icmp sgt i32 %74, 0
-  br i1 %76, label %.lr.ph.preheader.i90, label %add_address_to_hash.exit106
+  br i1 %76, label %.lr.ph.preheader.i91, label %add_address_to_hash.exit107
 
-.lr.ph.preheader.i90:                             ; preds = %70
-  %wide.trip.count.i91 = and i64 %73, 2147483647
-  br label %.lr.ph.i92
+.lr.ph.preheader.i91:                             ; preds = %70
+  %wide.trip.count.i92 = and i64 %73, 2147483647
+  br label %.lr.ph.i93
 
-.lr.ph.i92:                                       ; preds = %.lr.ph.i92, %.lr.ph.preheader.i90
-  %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i95, %.lr.ph.i92 ]
-  %.01112.i94 = phi i32 [ %.031, %.lr.ph.preheader.i90 ], [ %83, %.lr.ph.i92 ]
-  %77 = getelementptr i8, ptr %75, i64 %indvars.iv.i93
+.lr.ph.i93:                                       ; preds = %.lr.ph.i93, %.lr.ph.preheader.i91
+  %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.preheader.i91 ], [ %indvars.iv.next.i96, %.lr.ph.i93 ]
+  %.01112.i95 = phi i32 [ %.031, %.lr.ph.preheader.i91 ], [ %83, %.lr.ph.i93 ]
+  %77 = getelementptr i8, ptr %75, i64 %indvars.iv.i94
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = add i32 %.01112.i94, %79
+  %80 = add i32 %.01112.i95, %79
   %81 = mul i32 %80, 1025
   %82 = lshr i32 %81, 6
   %83 = xor i32 %82, %81
-  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
-  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i91
-  br i1 %exitcond.not.i96, label %add_address_to_hash.exit106, label %.lr.ph.i92, !llvm.loop !9
+  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
+  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i92
+  br i1 %exitcond.not.i97, label %add_address_to_hash.exit107, label %.lr.ph.i93, !llvm.loop !9
 
-.lr.ph.preheader.i99:                             ; preds = %2
+.lr.ph.preheader.i100:                            ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  br label %.lr.ph.i101
+  br label %.lr.ph.i102
 
-.lr.ph.i101:                                      ; preds = %.lr.ph.i101, %.lr.ph.preheader.i99
-  %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i104, %.lr.ph.i101 ]
-  %.01112.i103 = phi i32 [ %.031, %.lr.ph.preheader.i99 ], [ %91, %.lr.ph.i101 ]
-  %85 = getelementptr i8, ptr %84, i64 %indvars.iv.i102
+.lr.ph.i102:                                      ; preds = %.lr.ph.i102, %.lr.ph.preheader.i100
+  %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.preheader.i100 ], [ %indvars.iv.next.i105, %.lr.ph.i102 ]
+  %.01112.i104 = phi i32 [ %.031, %.lr.ph.preheader.i100 ], [ %91, %.lr.ph.i102 ]
+  %85 = getelementptr i8, ptr %84, i64 %indvars.iv.i103
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
-  %88 = add i32 %.01112.i103, %87
+  %88 = add i32 %.01112.i104, %87
   %89 = mul i32 %88, 1025
   %90 = lshr i32 %89, 6
   %91 = xor i32 %90, %89
-  %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
-  %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, 4
-  br i1 %exitcond.not.i105, label %93, label %.lr.ph.i101, !llvm.loop !9
+  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i103, 1
+  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 4
+  br i1 %exitcond.not.i106, label %93, label %.lr.ph.i102, !llvm.loop !9
 
-add_address_to_hash.exit106:                      ; preds = %.lr.ph.i92, %.lr.ph.i83, %.lr.ph.i74, %.lr.ph.i65, %.lr.ph.i56, %.lr.ph.i47, %.lr.ph.i38, %.lr.ph.i, %2, %4, %25, %70
-  %.1 = phi i32 [ %.031, %2 ], [ %.031, %4 ], [ %.031, %25 ], [ %.031, %70 ], [ %16, %.lr.ph.i ], [ %24, %.lr.ph.i38 ], [ %37, %.lr.ph.i47 ], [ %45, %.lr.ph.i56 ], [ %53, %.lr.ph.i65 ], [ %61, %.lr.ph.i74 ], [ %69, %.lr.ph.i83 ], [ %83, %.lr.ph.i92 ]
+add_address_to_hash.exit107:                      ; preds = %.lr.ph.i93, %.lr.ph.i84, %.lr.ph.i75, %.lr.ph.i66, %.lr.ph.i57, %.lr.ph.i48, %.lr.ph.i39, %.lr.ph.i, %2, %4, %25, %70
+  %.1 = phi i32 [ %.031, %2 ], [ %.031, %4 ], [ %.031, %25 ], [ %.031, %70 ], [ %16, %.lr.ph.i ], [ %24, %.lr.ph.i39 ], [ %37, %.lr.ph.i48 ], [ %45, %.lr.ph.i57 ], [ %53, %.lr.ph.i66 ], [ %61, %.lr.ph.i75 ], [ %69, %.lr.ph.i84 ], [ %83, %.lr.ph.i93 ]
   %92 = getelementptr i8, ptr %.032, i64 32
   br label %2
 
-93:                                               ; preds = %.lr.ph.i101
+93:                                               ; preds = %.lr.ph.i102
   %94 = mul i32 %91, 9
   %95 = lshr i32 %94, 11
   %96 = xor i32 %95, %94

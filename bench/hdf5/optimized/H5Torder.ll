@@ -276,9 +276,9 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond41.not = select i1 %51, i1 %.not44, i1 false
   br i1 %or.cond41.not, label %.loopexit, label %37
 
-.loopexit:                                        ; preds = %37, %50, %.preheader, %33, %46, %14, %25, %28, %10
-  %.033 = phi i32 [ -1, %10 ], [ 4, %28 ], [ %27, %25 ], [ 4, %14 ], [ -1, %33 ], [ -1, %46 ], [ 4, %.preheader ], [ %spec.select, %37 ], [ 3, %50 ]
-  ret i32 %.033
+.loopexit:                                        ; preds = %50, %37, %.preheader, %14, %25, %28, %10, %46, %33
+  %.034 = phi i32 [ -1, %10 ], [ 4, %28 ], [ %27, %25 ], [ 4, %14 ], [ -1, %33 ], [ -1, %46 ], [ 4, %.preheader ], [ 3, %50 ], [ %spec.select, %37 ]
+  ret i32 %.034
 }
 
 declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #2
@@ -549,9 +549,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__set_order, i32 noundef 251, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.15) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %44, %50, %63, %2, %37, %39, %33, %18
-  %.034 = phi i32 [ -1, %18 ], [ 0, %39 ], [ 0, %37 ], [ -1, %33 ], [ 0, %2 ], [ -1, %44 ], [ -1, %50 ], [ -1, %63 ], [ 0, %54 ]
-  ret i32 %.034
+.loopexit:                                        ; preds = %54, %2, %37, %39, %33, %18, %63, %50, %44
+  %.035 = phi i32 [ -1, %18 ], [ 0, %39 ], [ 0, %37 ], [ -1, %33 ], [ 0, %2 ], [ -1, %44 ], [ -1, %50 ], [ -1, %63 ], [ 0, %54 ]
+  ret i32 %.035
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

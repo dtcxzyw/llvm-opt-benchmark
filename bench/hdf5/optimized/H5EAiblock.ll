@@ -625,24 +625,24 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.pre = load ptr, ptr %14, align 8, !tbaa !48
-  %.pre78.pre = load ptr, ptr %15, align 8, !tbaa !61
+  %.pre80.pre = load ptr, ptr %15, align 8, !tbaa !61
   br label %16
 
 16:                                               ; preds = %.lr.ph, %._crit_edge
-  %.pre78 = phi ptr [ %.pre78.pre, %.lr.ph ], [ %.pre7882, %._crit_edge ]
+  %.pre80 = phi ptr [ %.pre80.pre, %.lr.ph ], [ %.pre8084, %._crit_edge ]
   %17 = phi i64 [ %13, %.lr.ph ], [ %30, %._crit_edge ]
   %18 = phi ptr [ %.pre, %.lr.ph ], [ %31, %._crit_edge ]
-  %.04572 = phi i64 [ 0, %.lr.ph ], [ %37, %._crit_edge ]
-  %.04671 = phi i32 [ 0, %.lr.ph ], [ %spec.select62, %._crit_edge ]
-  %.04870 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %._crit_edge ]
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %.04572
+  %.04574 = phi i64 [ 0, %.lr.ph ], [ %37, %._crit_edge ]
+  %.04673 = phi i32 [ 0, %.lr.ph ], [ %spec.select62, %._crit_edge ]
+  %.04872 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %._crit_edge ]
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %.04574
   %20 = load i64, ptr %19, align 8, !tbaa !10
   %.not57 = icmp eq i64 %20, -1
-  %.pre84 = zext i32 %.04870 to i64
+  %.pre86 = zext i32 %.04872 to i64
   br i1 %.not57, label %._crit_edge, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre78, i64 %.pre84
+  %22 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre80, i64 %.pre86
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !62
   %25 = tail call i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %20, i64 noundef %24) #3
@@ -651,25 +651,25 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %14, align 8, !tbaa !48
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %.04572
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %.04574
   store i64 -1, ptr %29, align 8, !tbaa !10
-  %.pre77 = load ptr, ptr %15, align 8, !tbaa !61
-  %.pre79 = load i64, ptr %12, align 8, !tbaa !39
+  %.pre79 = load ptr, ptr %15, align 8, !tbaa !61
+  %.pre81 = load i64, ptr %12, align 8, !tbaa !39
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %27
-  %.pre7882 = phi ptr [ %.pre77, %27 ], [ %.pre78, %16 ]
-  %30 = phi i64 [ %.pre79, %27 ], [ %17, %16 ]
+  %.pre8084 = phi ptr [ %.pre79, %27 ], [ %.pre80, %16 ]
+  %30 = phi i64 [ %.pre81, %27 ], [ %17, %16 ]
   %31 = phi ptr [ %28, %27 ], [ %18, %16 ]
-  %32 = add i32 %.04671, 1
+  %32 = add i32 %.04673, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre7882, i64 %.pre84
+  %34 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre8084, i64 %.pre86
   %35 = load i64, ptr %34, align 8, !tbaa !64
   %.not58 = icmp ule i64 %35, %33
   %36 = zext i1 %.not58 to i32
-  %spec.select = add i32 %.04870, %36
+  %spec.select = add i32 %.04872, %36
   %spec.select62 = select i1 %.not58, i32 0, i32 %32
-  %37 = add nuw i64 %.04572, 1
+  %37 = add nuw i64 %.04574, 1
   %38 = icmp ult i64 %37, %30
   br i1 %38, label %16, label %.thread, !llvm.loop !65
 
@@ -683,26 +683,26 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 320
   %44 = load i64, ptr %43, align 8, !tbaa !41
   %.not59 = icmp eq i64 %44, 0
-  br i1 %.not59, label %.loopexit, label %.lr.ph74
+  br i1 %.not59, label %.loopexit, label %.lr.ph76
 
-.lr.ph74:                                         ; preds = %.thread
+.lr.ph76:                                         ; preds = %.thread
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 304
-  %.pre80 = load ptr, ptr %45, align 8, !tbaa !49
+  %.pre82 = load ptr, ptr %45, align 8, !tbaa !49
   br label %47
 
-47:                                               ; preds = %.lr.ph74, %65
-  %48 = phi i64 [ %44, %.lr.ph74 ], [ %66, %65 ]
-  %49 = phi ptr [ %.pre80, %.lr.ph74 ], [ %67, %65 ]
-  %.073 = phi i64 [ 0, %.lr.ph74 ], [ %68, %65 ]
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.073
+47:                                               ; preds = %.lr.ph76, %65
+  %48 = phi i64 [ %44, %.lr.ph76 ], [ %66, %65 ]
+  %49 = phi ptr [ %.pre82, %.lr.ph76 ], [ %67, %65 ]
+  %.075 = phi i64 [ 0, %.lr.ph76 ], [ %68, %65 ]
+  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.075
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %.not60 = icmp eq i64 %51, -1
   br i1 %.not60, label %65, label %52
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %46, align 8, !tbaa !38
-  %54 = add i64 %53, %.073
+  %54 = add i64 %53, %.075
   %55 = trunc i64 %54 to i32
   %56 = tail call i32 @H5EA__sblock_delete(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %51, i32 noundef %55) #3
   %57 = icmp slt i32 %56, 0
@@ -716,15 +716,15 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
 
 62:                                               ; preds = %52
   %63 = load ptr, ptr %45, align 8, !tbaa !49
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.073
+  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.075
   store i64 -1, ptr %64, align 8, !tbaa !10
-  %.pre81 = load i64, ptr %43, align 8, !tbaa !41
+  %.pre83 = load i64, ptr %43, align 8, !tbaa !41
   br label %65
 
 65:                                               ; preds = %47, %62
-  %66 = phi i64 [ %48, %47 ], [ %.pre81, %62 ]
+  %66 = phi i64 [ %48, %47 ], [ %.pre83, %62 ]
   %67 = phi ptr [ %49, %47 ], [ %63, %62 ]
-  %68 = add nuw i64 %.073, 1
+  %68 = add nuw i64 %.075, 1
   %69 = icmp ult i64 %68, %66
   br i1 %69, label %47, label %.loopexit, !llvm.loop !67
 
@@ -736,7 +736,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__iblock_delete, i32 noundef 371, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.13, i64 noundef %74) #3
   br label %H5EA__iblock_unprotect.exit.thread
 
-.loopexit:                                        ; preds = %65, %58, %39, %.thread
+.loopexit:                                        ; preds = %65, %39, %58, %.thread
   %.151.ph = phi i32 [ -1, %58 ], [ -1, %39 ], [ 0, %.thread ], [ 0, %65 ]
   %76 = load i8, ptr @H5EA_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %77 = trunc nuw i8 %76 to i1
@@ -768,8 +768,8 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br label %H5EA__iblock_unprotect.exit.thread
 
 H5EA__iblock_unprotect.exit.thread:               ; preds = %.loopexit, %82, %70, %1, %91
-  %.052 = phi i32 [ -1, %91 ], [ -1, %70 ], [ 0, %1 ], [ %.151.ph, %82 ], [ %.151.ph, %.loopexit ]
-  ret i32 %.052
+  %.050 = phi i32 [ -1, %91 ], [ -1, %70 ], [ 0, %1 ], [ %.151.ph, %82 ], [ %.151.ph, %.loopexit ]
+  ret i32 %.050
 }
 
 declare i32 @H5EA__dblock_delete(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

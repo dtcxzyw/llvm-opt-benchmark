@@ -309,7 +309,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   %74 = load i8, ptr %73, align 1
   %.not.i187 = icmp eq i8 %74, 39
-  br i1 %.not.i187, label %75, label %.thread137.i
+  br i1 %.not.i187, label %75, label %.thread138.i
 
 75:                                               ; preds = %70
   %76 = add i32 %67, 1
@@ -325,20 +325,20 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %81 = icmp eq i32 %67, %.pre.i
   store i32 %67, ptr %2, align 8
   store i32 %67, ptr %4, align 4
-  br i1 %81, label %.thread.i, label %..thread137.i_crit_edge
+  br i1 %81, label %.thread.i, label %..thread138.i_crit_edge
 
-..thread137.i_crit_edge:                          ; preds = %80
+..thread138.i_crit_edge:                          ; preds = %80
   %.pre254 = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre254, i64 %72
   %.pre255 = load i8, ptr %.phi.trans.insert, align 1
-  br label %.thread137.i
+  br label %.thread138.i
 
-.thread137.i:                                     ; preds = %..thread137.i_crit_edge, %70
-  %82 = phi i8 [ %.pre255, %..thread137.i_crit_edge ], [ %74, %70 ]
+.thread138.i:                                     ; preds = %..thread138.i_crit_edge, %70
+  %82 = phi i8 [ %.pre255, %..thread138.i_crit_edge ], [ %74, %70 ]
   %.not90.i = icmp eq i8 %82, 121
   br i1 %.not90.i, label %83, label %.thread.i
 
-83:                                               ; preds = %.thread137.i
+83:                                               ; preds = %.thread138.i
   %84 = add i32 %67, 1
   store i32 %84, ptr %2, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -353,7 +353,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   store i32 1, ptr %90, align 4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %88, %.thread137.i, %80, %.thread221
+.thread.i:                                        ; preds = %88, %.thread138.i, %80, %.thread221
   store i32 %67, ptr %2, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %92
@@ -362,11 +362,11 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %93 = phi i32 [ %67, %.thread.i ], [ %.be, %.backedge ]
   %94 = tail call i32 @in_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 121, i32 noundef 0) #3
   %.not91.i = icmp eq i32 %94, 0
-  br i1 %.not91.i, label %95, label %._crit_edge124.i
+  br i1 %.not91.i, label %95, label %._crit_edge125.i
 
-._crit_edge124.i:                                 ; preds = %92
-  %.pre125.i = load ptr, ptr %0, align 8
-  %.pre127.i = load i32, ptr %6, align 4
+._crit_edge125.i:                                 ; preds = %92
+  %.pre126.i = load ptr, ptr %0, align 8
+  %.pre128.i = load i32, ptr %6, align 4
   br label %103
 
 95:                                               ; preds = %92
@@ -374,19 +374,19 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   store i32 %96, ptr %4, align 4
   %97 = load i32, ptr %6, align 4
   %98 = icmp eq i32 %96, %97
-  %.pre126.i = load ptr, ptr %0, align 8
+  %.pre127.i = load ptr, ptr %0, align 8
   br i1 %98, label %103, label %99
 
 99:                                               ; preds = %95
   %100 = sext i32 %96 to i64
-  %101 = getelementptr inbounds i8, ptr %.pre126.i, i64 %100
+  %101 = getelementptr inbounds i8, ptr %.pre127.i, i64 %100
   %102 = load i8, ptr %101, align 1
   %.not92.i = icmp eq i8 %102, 121
   br i1 %.not92.i, label %109, label %103
 
-103:                                              ; preds = %99, %95, %._crit_edge124.i
-  %104 = phi i32 [ %.pre127.i, %._crit_edge124.i ], [ %96, %95 ], [ %97, %99 ]
-  %105 = phi ptr [ %.pre125.i, %._crit_edge124.i ], [ %.pre126.i, %95 ], [ %.pre126.i, %99 ]
+103:                                              ; preds = %99, %95, %._crit_edge125.i
+  %104 = phi i32 [ %.pre128.i, %._crit_edge125.i ], [ %96, %95 ], [ %97, %99 ]
+  %105 = phi ptr [ %.pre126.i, %._crit_edge125.i ], [ %.pre127.i, %95 ], [ %.pre127.i, %99 ]
   store i32 %93, ptr %2, align 8
   %106 = tail call i32 @skip_utf8(ptr noundef %105, i32 noundef %93, i32 noundef %104, i32 noundef 1) #3
   %107 = icmp slt i32 %106, 0
@@ -397,7 +397,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   br label %.backedge
 
 .backedge:                                        ; preds = %108, %113
-  %.be = phi i32 [ %106, %108 ], [ %.pre123.pre.i, %113 ]
+  %.be = phi i32 [ %106, %108 ], [ %.pre124.pre.i, %113 ]
   br label %92
 
 109:                                              ; preds = %99
@@ -412,7 +412,7 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
   %114 = load ptr, ptr %64, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 1, ptr %115, align 4
-  %.pre123.pre.i = load i32, ptr %2, align 8
+  %.pre124.pre.i = load i32, ptr %2, align 8
   br label %.backedge
 
 116:                                              ; preds = %103

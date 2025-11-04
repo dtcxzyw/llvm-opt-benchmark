@@ -6867,8 +6867,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   br label %100
 
 100:                                              ; preds = %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i, %91
-  %.0.idx168.i.i.i.i = phi i64 [ 0, %91 ], [ %.0.add.i.i.i.i, %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i ]
-  %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @constinit.18, i64 %.0.idx168.i.i.i.i
+  %.0.idx167.i.i.i.i = phi i64 [ 0, %91 ], [ %.0.add.i.i.i.i, %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i ]
+  %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @constinit.18, i64 %.0.idx167.i.i.i.i
   %101 = load ptr, ptr %.0.ptr.i.i.i.i, align 8, !tbaa !285, !noalias !284
   %102 = call noalias ptr @fopen(ptr noundef readonly %101, ptr noundef nonnull @.str.13), !noalias !286
   %.not.i.i14.i.i.i = icmp eq ptr %102, null
@@ -6878,17 +6878,17 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !284
   %104 = call i64 @fread(ptr noundef nonnull %16, i64 noundef 1, i64 noundef 24, ptr noundef nonnull %102), !noalias !284
   %.not54.i.i.i.i = icmp eq i64 %104, 24
-  br i1 %.not54.i.i.i.i, label %105, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i
+  br i1 %.not54.i.i.i.i, label %105, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i
 
 105:                                              ; preds = %103
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %16, ptr noundef nonnull dereferenceable(6) @.str.19, i64 6), !noalias !284
   %.not55.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not55.i.i.i.i, label %.preheader170.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i
+  br i1 %.not55.i.i.i.i, label %.preheader169.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i
 
-.preheader170.i.i.i.i:                            ; preds = %105, %.preheader170.i.i.i.i
-  %.0712.i.i.i.i.i = phi ptr [ %107, %.preheader170.i.i.i.i ], [ %95, %105 ]
-  %.0811.i.i.i.i.i = phi i32 [ %110, %.preheader170.i.i.i.i ], [ 0, %105 ]
-  %.0910.i.i.i.i.i = phi i64 [ %109, %.preheader170.i.i.i.i ], [ 0, %105 ]
+.preheader169.i.i.i.i:                            ; preds = %105, %.preheader169.i.i.i.i
+  %.0712.i.i.i.i.i = phi ptr [ %107, %.preheader169.i.i.i.i ], [ %95, %105 ]
+  %.0811.i.i.i.i.i = phi i32 [ %110, %.preheader169.i.i.i.i ], [ 0, %105 ]
+  %.0910.i.i.i.i.i = phi i64 [ %109, %.preheader169.i.i.i.i ], [ 0, %105 ]
   %106 = shl i64 %.0910.i.i.i.i.i, 8
   %107 = getelementptr inbounds nuw i8, ptr %.0712.i.i.i.i.i, i64 1
   %.07.val.i.i.i.i.i = load i8, ptr %.0712.i.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -6896,12 +6896,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %109 = or disjoint i64 %106, %108
   %110 = add nuw nsw i32 %.0811.i.i.i.i.i, 1
   %.not.i65.i.i.i.i = icmp eq i32 %110, 4
-  br i1 %.not.i65.i.i.i.i, label %.preheader7.i.i.i, label %.preheader170.i.i.i.i, !llvm.loop !125
+  br i1 %.not.i65.i.i.i.i, label %.preheader7.i.i.i, label %.preheader169.i.i.i.i, !llvm.loop !125
 
-.preheader7.i.i.i:                                ; preds = %.preheader170.i.i.i.i, %.preheader7.i.i.i
-  %.0712.i66.i.i.i.i = phi ptr [ %112, %.preheader7.i.i.i ], [ %96, %.preheader170.i.i.i.i ]
-  %.0811.i67.i.i.i.i = phi i32 [ %115, %.preheader7.i.i.i ], [ 0, %.preheader170.i.i.i.i ]
-  %.0910.i68.i.i.i.i = phi i64 [ %114, %.preheader7.i.i.i ], [ 0, %.preheader170.i.i.i.i ]
+.preheader7.i.i.i:                                ; preds = %.preheader169.i.i.i.i, %.preheader7.i.i.i
+  %.0712.i66.i.i.i.i = phi ptr [ %112, %.preheader7.i.i.i ], [ %96, %.preheader169.i.i.i.i ]
+  %.0811.i67.i.i.i.i = phi i32 [ %115, %.preheader7.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
+  %.0910.i68.i.i.i.i = phi i64 [ %114, %.preheader7.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
   %111 = shl i64 %.0910.i68.i.i.i.i, 8
   %112 = getelementptr inbounds nuw i8, ptr %.0712.i66.i.i.i.i, i64 1
   %.07.val.i69.i.i.i.i = load i8, ptr %.0712.i66.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -6922,12 +6922,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %122 = icmp slt i64 %.0.i.i.i.i.i, 0
   %123 = icmp slt i64 %.0.i71.i.i.i.i, %.0.i.i.i.i.i
   %or.cond.i.i.i.i = or i1 %122, %123
-  br i1 %or.cond.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i, label %124
+  br i1 %or.cond.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i, label %124
 
 124:                                              ; preds = %116
   %125 = call i32 @fseek(ptr noundef nonnull %102, i64 noundef %.0.i.i.i.i.i, i32 noundef 0), !noalias !284
   %.not56.i.i.i.i = icmp eq i32 %125, 0
-  br i1 %.not56.i.i.i.i, label %126, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i
+  br i1 %.not56.i.i.i.i, label %126, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i
 
 126:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !284
@@ -6935,25 +6935,25 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %128 = udiv i64 %127, 52
   %129 = mul nuw i64 %128, 52
   %.not57.i.i.i.i = icmp ne i64 %129, %127
-  %.not58161.i.i.i.i = icmp ult i64 %127, 52
-  %or.cond204.i.i.i.i = or i1 %.not58161.i.i.i.i, %.not57.i.i.i.i
-  br i1 %or.cond204.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not58160.i.i.i.i = icmp ult i64 %127, 52
+  %or.cond200.i.i.i.i = or i1 %.not58160.i.i.i.i, %.not57.i.i.i.i
+  br i1 %or.cond200.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i
 
 130:                                              ; preds = %150
-  %131 = add i64 %.041162.i.i.i.i, 1
+  %131 = add i64 %.041161.i.i.i.i, 1
   %.not58.i.i.i.i = icmp eq i64 %131, %128
-  br i1 %.not58.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !289
+  br i1 %.not58.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !289
 
 .lr.ph.i.i.i.i:                                   ; preds = %126, %130
-  %.041162.i.i.i.i = phi i64 [ %131, %130 ], [ 0, %126 ]
+  %.041161.i.i.i.i = phi i64 [ %131, %130 ], [ 0, %126 ]
   %132 = call i64 @fread(ptr noundef nonnull %17, i64 noundef 1, i64 noundef 52, ptr noundef nonnull %102), !noalias !284
   %.not59.i.i.i.i = icmp eq i64 %132, 52
-  br i1 %.not59.i.i.i.i, label %.preheader169.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i
+  br i1 %.not59.i.i.i.i, label %.preheader168.i.i.i.i, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i
 
-.preheader169.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i, %.preheader169.i.i.i.i
-  %.0712.i73.i.i.i.i = phi ptr [ %134, %.preheader169.i.i.i.i ], [ %98, %.lr.ph.i.i.i.i ]
-  %.0811.i74.i.i.i.i = phi i32 [ %137, %.preheader169.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
-  %.0910.i75.i.i.i.i = phi i64 [ %136, %.preheader169.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+.preheader168.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i, %.preheader168.i.i.i.i
+  %.0712.i73.i.i.i.i = phi ptr [ %134, %.preheader168.i.i.i.i ], [ %98, %.lr.ph.i.i.i.i ]
+  %.0811.i74.i.i.i.i = phi i32 [ %137, %.preheader168.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.0910.i75.i.i.i.i = phi i64 [ %136, %.preheader168.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %133 = shl i64 %.0910.i75.i.i.i.i, 8
   %134 = getelementptr inbounds nuw i8, ptr %.0712.i73.i.i.i.i, i64 1
   %.07.val.i76.i.i.i.i = load i8, ptr %.0712.i73.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -6961,12 +6961,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %136 = or disjoint i64 %133, %135
   %137 = add nuw nsw i32 %.0811.i74.i.i.i.i, 1
   %.not.i77.i.i.i.i = icmp eq i32 %137, 4
-  br i1 %.not.i77.i.i.i.i, label %.preheader.i.i.i, label %.preheader169.i.i.i.i, !llvm.loop !125
+  br i1 %.not.i77.i.i.i.i, label %.preheader.i.i.i, label %.preheader168.i.i.i.i, !llvm.loop !125
 
-.preheader.i.i.i:                                 ; preds = %.preheader169.i.i.i.i, %.preheader.i.i.i
-  %.0712.i80.i.i.i.i = phi ptr [ %139, %.preheader.i.i.i ], [ %99, %.preheader169.i.i.i.i ]
-  %.0811.i81.i.i.i.i = phi i32 [ %142, %.preheader.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
-  %.0910.i82.i.i.i.i = phi i64 [ %141, %.preheader.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %.preheader168.i.i.i.i, %.preheader.i.i.i
+  %.0712.i80.i.i.i.i = phi ptr [ %139, %.preheader.i.i.i ], [ %99, %.preheader168.i.i.i.i ]
+  %.0811.i81.i.i.i.i = phi i32 [ %142, %.preheader.i.i.i ], [ 0, %.preheader168.i.i.i.i ]
+  %.0910.i82.i.i.i.i = phi i64 [ %141, %.preheader.i.i.i ], [ 0, %.preheader168.i.i.i.i ]
   %138 = shl i64 %.0910.i82.i.i.i.i, 8
   %139 = getelementptr inbounds nuw i8, ptr %.0712.i80.i.i.i.i, i64 1
   %.07.val.i83.i.i.i.i = load i8, ptr %.0712.i80.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -6986,7 +6986,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %.0.i85.i.i.i.i = select i1 %147, i64 %141, i64 %148
   %149 = or i64 %.0.i85.i.i.i.i, %146
   %or.cond.not.i.i.i.i = icmp sgt i64 %149, -1
-  br i1 %or.cond.not.i.i.i.i, label %150, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i
+  br i1 %or.cond.not.i.i.i.i, label %150, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i
 
 150:                                              ; preds = %143
   store i8 0, ptr %98, align 8, !tbaa !33, !noalias !284
@@ -6999,7 +6999,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
 155:                                              ; preds = %150
   %156 = call i32 @fseek(ptr noundef nonnull %102, i64 noundef %146, i32 noundef 0), !noalias !284
   %.not60.i.i.i.i = icmp eq i32 %156, 0
-  br i1 %.not60.i.i.i.i, label %157, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i
+  br i1 %.not60.i.i.i.i, label %157, label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i
 
 157:                                              ; preds = %155
   %158 = icmp eq i8 %117, 0
@@ -7090,17 +7090,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !284
   br label %common.resume.i.i.i
 
-_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i: ; preds = %143, %.lr.ph.i.i.i.i, %130, %155, %126
+_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i: ; preds = %143, %.lr.ph.i.i.i.i, %130, %155, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !284
-  br label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i
+  br label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i
 
-_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i: ; preds = %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.sink.split.i.i.i.i, %124, %116, %105, %103
+_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i: ; preds = %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.sink.split.i.i.i.i, %124, %116, %105, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !284
   %192 = call noundef i32 @fclose(ptr noundef nonnull %102), !noalias !284
   br label %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i
 
-_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i: ; preds = %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.jt3.i.i.i.i, %100
-  %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx168.i.i.i.i, 8
+_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.thread.i.i.i.i: ; preds = %_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev.exit92.i.i.i.i, %100
+  %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx167.i.i.i.i, 8
   %.not.i15.i.i.i = icmp eq i64 %.0.add.i.i.i.i, 24
   br i1 %.not.i15.i.i.i, label %199, label %100
 

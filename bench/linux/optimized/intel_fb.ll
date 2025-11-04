@@ -5010,7 +5010,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   %24 = phi ptr [ %22, %20 ], [ null, %18 ]
   %25 = load i64, ptr %15, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %13, i64 noundef %25) #15
-  br label %.thread25
+  br label %.thread28
 
 26:                                               ; preds = %12
   %27 = load i32, ptr %13, align 4
@@ -5088,7 +5088,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   %70 = icmp eq i64 %69, 0
   %71 = select i1 %70, ptr @.str.16, ptr @.str.15
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %68, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull %71, i32 noundef %60, i32 noundef %58) #15
-  br label %.thread25
+  br label %.thread28
 
 72:                                               ; preds = %57
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -5108,7 +5108,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
 81:                                               ; preds = %78, %76
   %82 = phi ptr [ %80, %78 ], [ null, %76 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %82, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %74) #15
-  br label %.thread25
+  br label %.thread28
 
 83:                                               ; preds = %72
   tail call void @drm_helper_mode_fill_fb_struct(ptr noundef %5, ptr noundef %0, ptr noundef %2) #15
@@ -5129,9 +5129,9 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %97
 
-97:                                               ; preds = %.thread24, %89
-  %98 = phi ptr [ %85, %89 ], [ %309, %.thread24 ]
-  %99 = phi i64 [ 0, %89 ], [ %308, %.thread24 ]
+97:                                               ; preds = %.thread27, %89
+  %98 = phi ptr [ %85, %89 ], [ %309, %.thread27 ]
+  %99 = phi i64 [ 0, %89 ], [ %308, %.thread27 ]
   %100 = getelementptr i32, ptr %90, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %90, align 4
@@ -5149,7 +5149,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
   %108 = phi ptr [ %106, %105 ], [ null, %104 ]
   %109 = trunc nuw nsw i64 %99 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %108, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %109) #15
-  br label %.thread25
+  br label %.thread28
 
 110:                                              ; preds = %97
   %111 = load ptr, ptr %0, align 8
@@ -5254,7 +5254,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 169:                                              ; preds = %172
   %170 = add nuw nsw i64 %173, 1
   %171 = icmp eq i64 %170, 16
-  br i1 %171, label %.thread21, label %172, !llvm.loop !5
+  br i1 %171, label %.thread24, label %172, !llvm.loop !5
 
 172:                                              ; preds = %169, %167
   %173 = phi i64 [ 0, %167 ], [ %170, %169 ]
@@ -5265,16 +5265,16 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 177:                                              ; preds = %172
   %178 = icmp eq ptr %174, null
-  br i1 %178, label %.thread21, label %179, !prof !14
+  br i1 %178, label %.thread24, label %179, !prof !14
 
-.thread21:                                        ; preds = %169, %177
+.thread24:                                        ; preds = %169, %177
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #15, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 284, i32 2305, i64 12) #15, !srcloc !16
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #15, !srcloc !17
   br label %179
 
-179:                                              ; preds = %.thread21, %177
-  %180 = phi ptr [ @intel_modifiers, %.thread21 ], [ %174, %177 ]
+179:                                              ; preds = %.thread24, %177
+  %180 = phi ptr [ @intel_modifiers, %.thread24 ], [ %174, %177 ]
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 28
   %182 = load i8, ptr %181, align 4
   %183 = and i8 %182, 7
@@ -5296,7 +5296,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 193:                                              ; preds = %196
   %194 = add nuw nsw i64 %197, 1
   %195 = icmp eq i64 %194, 16
-  br i1 %195, label %.thread22, label %196, !llvm.loop !5
+  br i1 %195, label %.thread25, label %196, !llvm.loop !5
 
 196:                                              ; preds = %193, %190
   %197 = phi i64 [ 0, %190 ], [ %194, %193 ]
@@ -5307,16 +5307,16 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 201:                                              ; preds = %196
   %202 = icmp eq ptr %198, null
-  br i1 %202, label %.thread22, label %203, !prof !14
+  br i1 %202, label %.thread25, label %203, !prof !14
 
-.thread22:                                        ; preds = %193, %201
+.thread25:                                        ; preds = %193, %201
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #15, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 284, i32 2305, i64 12) #15, !srcloc !16
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #15, !srcloc !17
   br label %203
 
-203:                                              ; preds = %.thread22, %201
-  %204 = phi ptr [ @intel_modifiers, %.thread22 ], [ %198, %201 ]
+203:                                              ; preds = %.thread25, %201
+  %204 = phi ptr [ @intel_modifiers, %.thread25 ], [ %198, %201 ]
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 28
   %206 = load i8, ptr %205, align 4
   %207 = and i8 %206, 7
@@ -5376,7 +5376,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 241:                                              ; preds = %239, %238
   %242 = phi ptr [ %240, %239 ], [ null, %238 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %242, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %112, i32 noundef %234, i32 noundef %232) #15
-  br label %.thread25
+  br label %.thread28
 
 243:                                              ; preds = %231
   %244 = load i64, ptr %93, align 8
@@ -5385,7 +5385,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 245:                                              ; preds = %248
   %246 = add nuw nsw i64 %249, 1
   %247 = icmp eq i64 %246, 16
-  br i1 %247, label %.thread23, label %248, !llvm.loop !5
+  br i1 %247, label %.thread26, label %248, !llvm.loop !5
 
 248:                                              ; preds = %245, %243
   %249 = phi i64 [ 0, %243 ], [ %246, %245 ]
@@ -5396,26 +5396,26 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 253:                                              ; preds = %248
   %254 = icmp eq ptr %250, null
-  br i1 %254, label %.thread23, label %255, !prof !14
+  br i1 %254, label %.thread26, label %255, !prof !14
 
-.thread23:                                        ; preds = %245, %253
+.thread26:                                        ; preds = %245, %253
   tail call void asm sideeffect "589: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 589b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 589) #15, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 284, i32 2305, i64 12) #15, !srcloc !16
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_end\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #15, !srcloc !17
   br label %255
 
-255:                                              ; preds = %.thread23, %253
-  %256 = phi ptr [ @intel_modifiers, %.thread23 ], [ %250, %253 ]
+255:                                              ; preds = %.thread26, %253
+  %256 = phi ptr [ @intel_modifiers, %.thread26 ], [ %250, %253 ]
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i8, ptr %257, align 8
   %259 = icmp ult i8 %258, 15
-  br i1 %259, label %260, label %.thread24
+  br i1 %259, label %260, label %.thread27
 
 260:                                              ; preds = %255
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 9
   %262 = load i8, ptr %261, align 1
   %263 = icmp ugt i8 %262, 11
-  br i1 %263, label %264, label %.thread24
+  br i1 %263, label %264, label %.thread27
 
 264:                                              ; preds = %260
   %265 = load ptr, ptr %84, align 8
@@ -5441,16 +5441,16 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %281 = getelementptr inbounds nuw i8, ptr %256, i64 29
   %282 = load i8, ptr %281, align 1
   %283 = lshr i8 %282, 3
-  %.pre75 = and i8 %283, 15
+  %.pre78 = and i8 %283, 15
   br label %284
 
 284:                                              ; preds = %280, %269
-  %.pre-phi = phi i8 [ %.pre75, %280 ], [ %272, %269 ]
+  %.pre-phi = phi i8 [ %.pre78, %280 ], [ %272, %269 ]
   %285 = zext nneg i8 %.pre-phi to i64
   %286 = shl nuw i64 1, %99
   %287 = and i64 %286, %285
   %288 = icmp eq i64 %287, 0
-  br i1 %288, label %.thread24, label %289
+  br i1 %288, label %.thread27, label %289
 
 289:                                              ; preds = %284
   %290 = tail call i32 @skl_ccs_to_main_plane(ptr noundef %0, i32 noundef %112)
@@ -5465,7 +5465,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %299 = shl i32 %298, 6
   %300 = load i32, ptr %233, align 4
   %301 = icmp eq i32 %300, %299
-  br i1 %301, label %.thread24, label %302
+  br i1 %301, label %.thread27, label %302
 
 302:                                              ; preds = %289
   br i1 %91, label %305, label %303
@@ -5477,9 +5477,9 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 305:                                              ; preds = %302, %303
   %306 = phi ptr [ %304, %303 ], [ null, %302 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %306, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %112, i32 noundef %300, i32 noundef %299) #15
-  br label %.thread25
+  br label %.thread28
 
-.thread24:                                        ; preds = %289, %284, %260, %255
+.thread27:                                        ; preds = %289, %284, %260, %255
   %307 = getelementptr ptr, ptr %96, i64 %99
   store ptr %1, ptr %307, align 8
   %308 = add nuw nsw i64 %99, 1
@@ -5490,10 +5490,10 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %313 = icmp samesign ult i64 %308, %312
   br i1 %313, label %97, label %.loopexit, !llvm.loop !139
 
-.loopexit:                                        ; preds = %.thread24, %83
+.loopexit:                                        ; preds = %.thread27, %83
   %314 = tail call i32 @intel_fill_fb_info(ptr noundef %5, ptr noundef %0)
   %315 = icmp eq i32 %314, 0
-  br i1 %315, label %316, label %.thread25
+  br i1 %315, label %316, label %.thread28
 
 316:                                              ; preds = %.loopexit
   %317 = load ptr, ptr %0, align 8
@@ -5515,7 +5515,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 329:                                              ; preds = %321
   %330 = tail call ptr @intel_dpt_create(ptr noundef %0) #15
   %331 = icmp ugt ptr %330, inttoptr (i64 -4096 to ptr)
-  br i1 %331, label %332, label %.thread26
+  br i1 %331, label %332, label %.thread29
 
 332:                                              ; preds = %329
   %333 = icmp eq ptr %5, null
@@ -5526,7 +5526,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %336 = load ptr, ptr %335, align 8
   br label %338
 
-.thread26:                                        ; preds = %329
+.thread29:                                        ; preds = %329
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %330, ptr %337, align 8
   br label %342
@@ -5536,9 +5536,9 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %339, i32 noundef 2, ptr noundef nonnull @.str.21) #15
   %340 = ptrtoint ptr %330 to i64
   %341 = trunc i64 %340 to i32
-  br label %.thread25
+  br label %.thread28
 
-342:                                              ; preds = %.thread26, %321, %316
+342:                                              ; preds = %.thread29, %321, %316
   %343 = tail call i32 @drm_framebuffer_init(ptr noundef %5, ptr noundef %0, ptr noundef nonnull @intel_fb_funcs) #15
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %371, label %345
@@ -5559,7 +5559,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 6768
   %354 = load i8, ptr %353, align 8, !range !27, !noundef !28
   %355 = icmp eq i8 %354, 0
-  br i1 %355, label %.thread25, label %356
+  br i1 %355, label %.thread28, label %356
 
 356:                                              ; preds = %350
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -5569,22 +5569,22 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %361 = icmp ugt i16 %360, 12
   %362 = icmp ne i64 %358, 0
   %363 = and i1 %362, %361
-  br i1 %363, label %364, label %.thread25
+  br i1 %363, label %364, label %.thread28
 
 364:                                              ; preds = %356
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %366 = load ptr, ptr %365, align 8
   tail call void @intel_dpt_destroy(ptr noundef %366) #15
-  br label %.thread25
+  br label %.thread28
 
-.thread25:                                        ; preds = %305, %241, %107, %338, %364, %356, %350, %.loopexit, %81, %67, %23
+.thread28:                                        ; preds = %305, %241, %107, %338, %364, %356, %350, %.loopexit, %81, %67, %23
   %367 = phi i32 [ -22, %67 ], [ -22, %81 ], [ %314, %.loopexit ], [ %341, %338 ], [ %343, %364 ], [ %343, %356 ], [ -22, %23 ], [ %343, %350 ], [ -22, %107 ], [ -22, %241 ], [ -22, %305 ]
   %368 = load ptr, ptr %10, align 8
   tail call void @intel_frontbuffer_put(ptr noundef %368) #15
   br label %369
 
-369:                                              ; preds = %.thread25, %8
-  %370 = phi i32 [ %367, %.thread25 ], [ -12, %8 ]
+369:                                              ; preds = %.thread28, %8
+  %370 = phi i32 [ %367, %.thread28 ], [ -12, %8 ]
   tail call void @intel_fb_bo_framebuffer_fini(ptr noundef %1) #15
   br label %371
 

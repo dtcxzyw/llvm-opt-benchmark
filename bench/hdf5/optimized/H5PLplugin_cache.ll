@@ -392,8 +392,8 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %69, %46, %23, %92, %10, %72, %91, %87, %80, %3
-  %.0 = phi i32 [ 0, %3 ], [ -1, %72 ], [ -1, %80 ], [ -1, %87 ], [ 0, %91 ], [ 0, %10 ], [ 0, %92 ], [ 0, %23 ], [ 0, %46 ], [ 0, %69 ]
-  ret i32 %.0
+  %.037 = phi i32 [ 0, %3 ], [ -1, %72 ], [ -1, %80 ], [ -1, %87 ], [ 0, %91 ], [ 0, %10 ], [ 0, %92 ], [ 0, %23 ], [ 0, %46 ], [ 0, %69 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

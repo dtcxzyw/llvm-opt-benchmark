@@ -1974,8 +1974,8 @@ st_mult.exit:
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call ptr @xmalloc(i64 noundef %8) #13
   %10 = load i32, ptr %0, align 8, !tbaa !82
-  %.not128 = icmp eq i32 %10, 0
-  br i1 %.not128, label %.loopexit, label %.lr.ph
+  %.not129 = icmp eq i32 %10, 0
+  br i1 %.not129, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %st_mult.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1983,10 +1983,10 @@ st_mult.exit:
   br label %13
 
 13:                                               ; preds = %.lr.ph, %43
-  %.072109 = phi i64 [ 0, %.lr.ph ], [ %.173.ph, %43 ]
-  %.075108 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
+  %.072110 = phi i64 [ 0, %.lr.ph ], [ %.173.ph, %43 ]
+  %.075109 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !85
-  %15 = getelementptr inbounds nuw %struct.object_array_entry, ptr %14, i64 %.075108
+  %15 = getelementptr inbounds nuw %struct.object_array_entry, ptr %14, i64 %.075109
   %16 = load ptr, ptr %15, align 8, !tbaa !86
   %.not90 = icmp eq ptr %16, null
   br i1 %.not90, label %43, label %17
@@ -2012,7 +2012,7 @@ st_mult.exit:
 
 27:                                               ; preds = %24, %21
   %28 = load ptr, ptr %11, align 8, !tbaa !85
-  %29 = getelementptr inbounds nuw %struct.object_array_entry, ptr %28, i64 %.075108
+  %29 = getelementptr inbounds nuw %struct.object_array_entry, ptr %28, i64 %.075109
   %30 = load ptr, ptr %29, align 8, !tbaa !86
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, %12
@@ -2020,7 +2020,7 @@ st_mult.exit:
   br label %43
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw ptr, ptr %9, i64 %.072109
+  %34 = getelementptr inbounds nuw ptr, ptr %9, i64 %.072110
   store ptr %23, ptr %34, align 8, !tbaa !15
   %35 = load ptr, ptr @the_repository, align 8, !tbaa !13
   %36 = tail call i32 @repo_parse_commit_gently(ptr noundef %35, ptr noundef nonnull %23, i32 noundef 0) #13
@@ -2034,12 +2034,12 @@ st_mult.exit:
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %37
-  %42 = add i64 %.072109, 1
+  %42 = add i64 %.072110, 1
   br label %43
 
 43:                                               ; preds = %27, %41, %17, %13
-  %.173.ph = phi i64 [ %.072109, %13 ], [ %.072109, %17 ], [ %42, %41 ], [ %.072109, %27 ]
-  %44 = add nuw nsw i64 %.075108, 1
+  %.173.ph = phi i64 [ %.072110, %13 ], [ %.072110, %17 ], [ %42, %41 ], [ %.072110, %27 ]
+  %44 = add nuw nsw i64 %.075109, 1
   %45 = load i32, ptr %0, align 8, !tbaa !82
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %44, %46
@@ -2047,33 +2047,33 @@ st_mult.exit:
 
 ._crit_edge:                                      ; preds = %43
   %48 = icmp ugt i64 %.173.ph, 1
-  br i1 %48, label %sane_qsort.exit.thread150, label %sane_qsort.exit
+  br i1 %48, label %sane_qsort.exit.thread151, label %sane_qsort.exit
 
-sane_qsort.exit.thread150:                        ; preds = %._crit_edge
+sane_qsort.exit.thread151:                        ; preds = %._crit_edge
   tail call void @qsort(ptr noundef %9, i64 noundef %.173.ph, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #13
-  br label %.lr.ph120
+  br label %.lr.ph121
 
 sane_qsort.exit:                                  ; preds = %._crit_edge
-  %.not129 = icmp eq i64 %.173.ph, 0
-  br i1 %.not129, label %.loopexit, label %.lr.ph120
+  %.not130 = icmp eq i64 %.173.ph, 0
+  br i1 %.not130, label %.loopexit, label %.lr.ph121
 
-.lr.ph120:                                        ; preds = %sane_qsort.exit.thread150, %sane_qsort.exit
-  %.072.lcssa147153 = phi i64 [ %.173.ph, %sane_qsort.exit.thread150 ], [ 1, %sane_qsort.exit ]
+.lr.ph121:                                        ; preds = %sane_qsort.exit.thread151, %sane_qsort.exit
+  %.072.lcssa148154 = phi i64 [ %.173.ph, %sane_qsort.exit.thread151 ], [ 1, %sane_qsort.exit ]
   %49 = shl i32 %2, 4
   %50 = or i32 %1, 524288
   %.masked = and i32 %2, 268435455
   br label %53
 
-51:                                               ; preds = %._crit_edge118
-  %52 = add nuw i64 %.176119, 1
-  %exitcond.not = icmp eq i64 %52, %.072.lcssa147153
+51:                                               ; preds = %._crit_edge119
+  %52 = add nuw i64 %.176120, 1
+  %exitcond.not = icmp eq i64 %52, %.072.lcssa148154
   br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !91
 
-53:                                               ; preds = %.lr.ph120, %51
-  %.176119 = phi i64 [ 0, %.lr.ph120 ], [ %52, %51 ]
+53:                                               ; preds = %.lr.ph121, %51
+  %.176120 = phi i64 [ 0, %.lr.ph121 ], [ %52, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw ptr, ptr %9, i64 %.176119
+  %54 = getelementptr inbounds nuw ptr, ptr %9, i64 %.176120
   %55 = load ptr, ptr %54, align 8, !tbaa !15
   %56 = load i32, ptr %55, align 8
   %57 = or i32 %56, %49
@@ -2081,10 +2081,10 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   %58 = load ptr, ptr %54, align 8, !tbaa !15
   %59 = call ptr @commit_list_insert(ptr noundef %58, ptr noundef nonnull %5) #13
   %60 = load ptr, ptr %5, align 8, !tbaa !12
-  %.not115 = icmp eq ptr %60, null
-  br i1 %.not115, label %._crit_edge118, label %.lr.ph117
+  %.not116 = icmp eq ptr %60, null
+  br i1 %.not116, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph117:                                        ; preds = %53, %110
+.lr.ph118:                                        ; preds = %53, %110
   %61 = phi ptr [ %.pr, %110 ], [ %60, %53 ]
   %62 = load ptr, ptr %61, align 8, !tbaa !4
   %63 = load i32, ptr %62, align 8
@@ -2093,11 +2093,11 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   %.not84 = icmp eq i32 %65, 0
   br i1 %.not84, label %73, label %66
 
-66:                                               ; preds = %.lr.ph117
+66:                                               ; preds = %.lr.ph118
   %67 = call ptr @pop_commit(ptr noundef nonnull %5) #13
   %68 = load ptr, ptr %5, align 8, !tbaa !12
   %.not89 = icmp eq ptr %68, null
-  br i1 %.not89, label %._crit_edge118, label %69, !llvm.loop !92
+  br i1 %.not89, label %._crit_edge119, label %69, !llvm.loop !92
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %68, align 8, !tbaa !4
@@ -2106,36 +2106,36 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   store i32 %72, ptr %70, align 8
   br label %110, !llvm.loop !92
 
-73:                                               ; preds = %.lr.ph117
+73:                                               ; preds = %.lr.ph118
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %.068110 = load ptr, ptr %74, align 8, !tbaa !12
-  %.not85111 = icmp eq ptr %.068110, null
-  br i1 %.not85111, label %.critedge, label %.lr.ph114
+  %.068111 = load ptr, ptr %74, align 8, !tbaa !12
+  %.not85112 = icmp eq ptr %.068111, null
+  br i1 %.not85112, label %.critedge, label %.lr.ph115
 
-.lr.ph114:                                        ; preds = %73, %107
-  %.068112 = phi ptr [ %.068, %107 ], [ %.068110, %73 ]
-  %75 = load ptr, ptr %.068112, align 8, !tbaa !4
+.lr.ph115:                                        ; preds = %73, %107
+  %.068113 = phi ptr [ %.068, %107 ], [ %.068111, %73 ]
+  %75 = load ptr, ptr %.068113, align 8, !tbaa !4
   %76 = load i32, ptr %75, align 8
   %77 = lshr i32 %76, 4
   %78 = and i32 %77, %50
   %.not86 = icmp eq i32 %78, 0
   br i1 %.not86, label %84, label %79
 
-79:                                               ; preds = %.lr.ph114
+79:                                               ; preds = %.lr.ph115
   %80 = load ptr, ptr %5, align 8, !tbaa !12
   %81 = load ptr, ptr %80, align 8, !tbaa !4
   %82 = load i32, ptr %81, align 8
   %83 = or i32 %82, 8388608
   store i32 %83, ptr %81, align 8
-  %.pre = load ptr, ptr %.068112, align 8, !tbaa !4
-  %.pre134 = load i32, ptr %.pre, align 8
-  %.pre136 = lshr i32 %.pre134, 4
+  %.pre = load ptr, ptr %.068113, align 8, !tbaa !4
+  %.pre135 = load i32, ptr %.pre, align 8
+  %.pre137 = lshr i32 %.pre135, 4
   br label %84
 
-84:                                               ; preds = %79, %.lr.ph114
-  %.pre-phi = phi i32 [ %.pre136, %79 ], [ %77, %.lr.ph114 ]
-  %85 = phi i32 [ %.pre134, %79 ], [ %76, %.lr.ph114 ]
-  %86 = phi ptr [ %.pre, %79 ], [ %75, %.lr.ph114 ]
+84:                                               ; preds = %79, %.lr.ph115
+  %.pre-phi = phi i32 [ %.pre137, %79 ], [ %77, %.lr.ph115 ]
+  %85 = phi i32 [ %.pre135, %79 ], [ %76, %.lr.ph115 ]
+  %86 = phi ptr [ %.pre, %79 ], [ %75, %.lr.ph115 ]
   %87 = and i32 %.pre-phi, %2
   %.not87 = icmp eq i32 %87, 0
   br i1 %.not87, label %88, label %107
@@ -2147,13 +2147,13 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   %92 = or disjoint i32 %90, %91
   store i32 %92, ptr %86, align 8
   %93 = load ptr, ptr @the_repository, align 8, !tbaa !13
-  %94 = load ptr, ptr %.068112, align 8, !tbaa !4
+  %94 = load ptr, ptr %.068113, align 8, !tbaa !4
   %95 = call i32 @repo_parse_commit_gently(ptr noundef %93, ptr noundef %94, i32 noundef 0) #13
   %.not88 = icmp eq i32 %95, 0
   br i1 %.not88, label %96, label %107
 
 96:                                               ; preds = %88
-  %97 = load ptr, ptr %.068112, align 8, !tbaa !4
+  %97 = load ptr, ptr %.068113, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load i64, ptr %98, align 8, !tbaa !30
   %100 = icmp ult i64 %99, %3
@@ -2165,15 +2165,15 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   br i1 %103, label %107, label %104
 
 104:                                              ; preds = %101
-  %105 = load ptr, ptr %.068112, align 8, !tbaa !4
+  %105 = load ptr, ptr %.068113, align 8, !tbaa !4
   %106 = call ptr @commit_list_insert(ptr noundef %105, ptr noundef nonnull %5) #13
   br label %110
 
 107:                                              ; preds = %84, %88, %96, %101
-  %108 = getelementptr inbounds nuw i8, ptr %.068112, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.068113, i64 8
   %.068 = load ptr, ptr %108, align 8, !tbaa !12
   %.not85 = icmp eq ptr %.068, null
-  br i1 %.not85, label %.critedge, label %.lr.ph114, !llvm.loop !93
+  br i1 %.not85, label %.critedge, label %.lr.ph115, !llvm.loop !93
 
 .critedge:                                        ; preds = %107, %73
   %109 = call ptr @pop_commit(ptr noundef nonnull %5) #13
@@ -2182,9 +2182,9 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
 110:                                              ; preds = %104, %.critedge, %69
   %.pr = load ptr, ptr %5, align 8, !tbaa !12
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %._crit_edge118, label %.lr.ph117
+  br i1 %.not, label %._crit_edge119, label %.lr.ph118
 
-._crit_edge118:                                   ; preds = %66, %110, %53
+._crit_edge119:                                   ; preds = %66, %110, %53
   %111 = load ptr, ptr %54, align 8, !tbaa !15
   %112 = load i32, ptr %111, align 8
   %113 = lshr i32 %112, 4
@@ -2193,28 +2193,28 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not83, label %.loopexit, label %51
 
-.loopexit:                                        ; preds = %37, %33, %51, %._crit_edge118, %st_mult.exit, %sane_qsort.exit
-  %.072107 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa147153, %._crit_edge118 ], [ %.072.lcssa147153, %51 ], [ %.072109, %33 ], [ %.072109, %37 ]
-  %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %st_mult.exit ], [ 1, %51 ], [ 0, %._crit_edge118 ], [ 0, %33 ], [ 0, %37 ]
+.loopexit:                                        ; preds = %37, %33, %51, %._crit_edge119, %st_mult.exit, %sane_qsort.exit
+  %.072108 = phi i64 [ 0, %sane_qsort.exit ], [ 0, %st_mult.exit ], [ %.072.lcssa148154, %._crit_edge119 ], [ %.072.lcssa148154, %51 ], [ %.072110, %33 ], [ %.072110, %37 ]
+  %.2 = phi i32 [ 1, %sane_qsort.exit ], [ 1, %st_mult.exit ], [ 1, %51 ], [ 0, %._crit_edge119 ], [ 0, %33 ], [ 0, %37 ]
   %115 = or i32 %2, 524288
-  call void @clear_commit_marks_many(i64 noundef %.072107, ptr noundef %9, i32 noundef %115) #13
+  call void @clear_commit_marks_many(i64 noundef %.072108, ptr noundef %9, i32 noundef %115) #13
   call void @free(ptr noundef %9) #13
   %116 = load i32, ptr %0, align 8, !tbaa !82
-  %.not130 = icmp eq i32 %116, 0
-  br i1 %.not130, label %._crit_edge127, label %.lr.ph126
+  %.not131 = icmp eq i32 %116, 0
+  br i1 %.not131, label %._crit_edge128, label %.lr.ph127
 
-.lr.ph126:                                        ; preds = %.loopexit
+.lr.ph127:                                        ; preds = %.loopexit
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = xor i32 %2, -1
   %119 = shl i32 %118, 4
   %120 = or disjoint i32 %119, 15
   br label %121
 
-121:                                              ; preds = %.lr.ph126, %129
-  %122 = phi i32 [ %116, %.lr.ph126 ], [ %130, %129 ]
-  %.277124 = phi i64 [ 0, %.lr.ph126 ], [ %131, %129 ]
+121:                                              ; preds = %.lr.ph127, %129
+  %122 = phi i32 [ %116, %.lr.ph127 ], [ %130, %129 ]
+  %.277125 = phi i64 [ 0, %.lr.ph127 ], [ %131, %129 ]
   %123 = load ptr, ptr %117, align 8, !tbaa !85
-  %124 = getelementptr inbounds nuw %struct.object_array_entry, ptr %123, i64 %.277124
+  %124 = getelementptr inbounds nuw %struct.object_array_entry, ptr %123, i64 %.277125
   %125 = load ptr, ptr %124, align 8, !tbaa !86
   %.not97 = icmp eq ptr %125, null
   br i1 %.not97, label %129, label %126
@@ -2223,17 +2223,17 @@ sane_qsort.exit:                                  ; preds = %._crit_edge
   %127 = load i32, ptr %125, align 4
   %128 = and i32 %127, %120
   store i32 %128, ptr %125, align 4
-  %.pre135 = load i32, ptr %0, align 8, !tbaa !82
+  %.pre136 = load i32, ptr %0, align 8, !tbaa !82
   br label %129
 
 129:                                              ; preds = %126, %121
-  %130 = phi i32 [ %.pre135, %126 ], [ %122, %121 ]
-  %131 = add nuw nsw i64 %.277124, 1
+  %130 = phi i32 [ %.pre136, %126 ], [ %122, %121 ]
+  %131 = add nuw nsw i64 %.277125, 1
   %132 = zext i32 %130 to i64
   %133 = icmp samesign ult i64 %131, %132
-  br i1 %133, label %121, label %._crit_edge127, !llvm.loop !94
+  br i1 %133, label %121, label %._crit_edge128, !llvm.loop !94
 
-._crit_edge127:                                   ; preds = %129, %.loopexit
+._crit_edge128:                                   ; preds = %129, %.loopexit
   ret i32 %.2
 }
 

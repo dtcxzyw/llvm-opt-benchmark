@@ -1601,7 +1601,7 @@ child_err_spew.exit:                              ; preds = %510, %520, %526, %5
   call void @free(ptr noundef nonnull %316) #21
   br label %545
 
-545:                                              ; preds = %544, %242, %237
+545:                                              ; preds = %237, %242, %544
   %.1 = phi i32 [ %.2, %544 ], [ 2, %242 ], [ 2, %237 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

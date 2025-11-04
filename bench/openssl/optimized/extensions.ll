@@ -1240,7 +1240,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   %73 = load ptr, ptr %72, align 8, !tbaa !126
   %74 = call i64 @BIO_ctrl(ptr noundef %73, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %15) #8
   %75 = icmp slt i64 %74, 1
-  br i1 %75, label %.thread146, label %76
+  br i1 %75, label %.thread147, label %76
 
 76:                                               ; preds = %71
   %77 = load i32, ptr %39, align 8, !tbaa !91
@@ -1250,7 +1250,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
 
 78:                                               ; preds = %76
   %79 = icmp samesign ult i64 %74, 4
-  br i1 %79, label %.thread146, label %80
+  br i1 %79, label %.thread147, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
@@ -1267,14 +1267,14 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   %92 = zext i8 %91 to i64
   %93 = or disjoint i64 %89, %92
   %94 = add nsw i64 %74, -4
-  %or.cond148.not = icmp samesign ugt i64 %94, %93
-  br i1 %or.cond148.not, label %95, label %.thread146
+  %or.cond149.not = icmp samesign ugt i64 %94, %93
+  br i1 %or.cond149.not, label %95, label %.thread147
 
 95:                                               ; preds = %80
   %96 = xor i64 %93, -1
   %97 = add nsw i64 %94, %96
   %98 = icmp samesign ult i64 %97, 3
-  br i1 %98, label %.thread146, label %99
+  br i1 %98, label %.thread147, label %99
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %.pre, i64 %93
@@ -1293,7 +1293,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   %113 = or disjoint i64 %109, %112
   %114 = add nsw i64 %97, -3
   %115 = icmp samesign ult i64 %114, %113
-  br i1 %115, label %.thread146, label %.thread
+  br i1 %115, label %.thread147, label %.thread
 
 .thread:                                          ; preds = %99
   %reass.sub = sub i64 %74, %97
@@ -1305,13 +1305,13 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   %.087 = phi i64 [ %74, %76 ], [ %116, %.thread ]
   %118 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %50, ptr noundef %.pre, i64 noundef %.087) #8
   %119 = icmp slt i32 %118, 1
-  br i1 %119, label %.thread146, label %120
+  br i1 %119, label %.thread147, label %120
 
-.thread146:                                       ; preds = %117, %78, %80, %95, %99, %71
-  %.sink158 = phi i32 [ 1619, %71 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1636, %78 ], [ 1643, %117 ]
+.thread147:                                       ; preds = %117, %78, %80, %95, %99, %71
+  %.sink159 = phi i32 [ 1619, %71 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1636, %78 ], [ 1643, %117 ]
   %.sink = phi i32 [ 332, %71 ], [ 786691, %99 ], [ 786691, %95 ], [ 786691, %80 ], [ 786691, %78 ], [ 786691, %117 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink159, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %154
@@ -1352,7 +1352,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
 
 135:                                              ; preds = %128
   %.not114 = icmp eq i32 %7, 0
-  %spec.select116 = select i1 %.not114, ptr %13, ptr %5
+  %spec.select117 = select i1 %.not114, ptr %13, ptr %5
   store i64 %22, ptr %14, align 8, !tbaa !94
   %136 = call ptr @EVP_MD_get0_name(ptr noundef %1) #8
   %137 = load ptr, ptr %18, align 8, !tbaa !127
@@ -1367,7 +1367,7 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br i1 %143, label %148, label %144
 
 144:                                              ; preds = %141
-  %145 = call i32 @EVP_DigestSignFinal(ptr noundef nonnull %50, ptr noundef %spec.select116, ptr noundef nonnull %14) #8
+  %145 = call i32 @EVP_DigestSignFinal(ptr noundef nonnull %50, ptr noundef %spec.select117, ptr noundef nonnull %14) #8
   %146 = icmp sgt i32 %145, 0
   %147 = load i64, ptr %14, align 8
   %.not115 = icmp eq i64 %147, %22
@@ -1394,10 +1394,10 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 51, i32 noundef 253, ptr noundef null) #8
   br label %154
 
-154:                                              ; preds = %20, %58, %66, %127, %134, %148, %37, %59, %61, %150, %153, %149, %.thread146
-  %.093 = phi ptr [ %50, %58 ], [ %50, %66 ], [ %50, %127 ], [ %50, %134 ], [ %50, %148 ], [ %50, %150 ], [ %50, %153 ], [ %50, %61 ], [ %50, %59 ], [ null, %37 ], [ null, %20 ], [ %50, %149 ], [ %50, %.thread146 ]
-  %.092 = phi ptr [ null, %58 ], [ null, %66 ], [ null, %127 ], [ null, %134 ], [ %132, %148 ], [ %132, %150 ], [ %132, %153 ], [ null, %61 ], [ null, %59 ], [ null, %37 ], [ null, %20 ], [ %132, %149 ], [ null, %.thread146 ]
-  %.091 = phi i32 [ -1, %58 ], [ -1, %66 ], [ -1, %127 ], [ -1, %134 ], [ -1, %148 ], [ 1, %150 ], [ 0, %153 ], [ -1, %61 ], [ -1, %59 ], [ -1, %37 ], [ -1, %20 ], [ 1, %149 ], [ -1, %.thread146 ]
+154:                                              ; preds = %.thread147, %149, %153, %150, %61, %59, %37, %148, %134, %127, %66, %58, %20
+  %.093 = phi ptr [ %50, %58 ], [ %50, %66 ], [ %50, %127 ], [ %50, %134 ], [ %50, %148 ], [ %50, %150 ], [ %50, %153 ], [ %50, %61 ], [ %50, %59 ], [ null, %37 ], [ null, %20 ], [ %50, %149 ], [ %50, %.thread147 ]
+  %.092 = phi ptr [ null, %58 ], [ null, %66 ], [ null, %127 ], [ null, %134 ], [ %132, %148 ], [ %132, %150 ], [ %132, %153 ], [ null, %61 ], [ null, %59 ], [ null, %37 ], [ null, %20 ], [ %132, %149 ], [ null, %.thread147 ]
+  %.091 = phi i32 [ -1, %58 ], [ -1, %66 ], [ -1, %127 ], [ -1, %134 ], [ -1, %148 ], [ 1, %150 ], [ 0, %153 ], [ -1, %61 ], [ -1, %59 ], [ -1, %37 ], [ -1, %20 ], [ 1, %149 ], [ -1, %.thread147 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %11, i64 noundef 64) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %12, i64 noundef 64) #8
   call void @EVP_PKEY_free(ptr noundef %.092) #8

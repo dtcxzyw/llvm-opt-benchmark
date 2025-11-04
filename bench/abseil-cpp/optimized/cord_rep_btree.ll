@@ -1412,8 +1412,8 @@ define weak_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree7Add
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not91 = icmp eq i8 %9, 0
-  br i1 %.not91, label %.critedge.i, label %.lr.ph.i
+  %.not92 = icmp eq i8 %9, 0
+  br i1 %.not92, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1556,7 +1556,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   %83 = load i64, ptr %.sroa.0.0.i, align 8, !tbaa !7
   %84 = add i64 %83, %82
   store i64 %84, ptr %.sroa.0.0.i, align 8, !tbaa !7
-  br i1 %.not91, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %.not92, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %81
   %85 = zext i8 %9 to i64
@@ -1565,8 +1565,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   %88 = getelementptr ptr, ptr %5, i64 %85
   %89 = load ptr, ptr %88, align 8, !tbaa !14
   %90 = sext i32 %46 to i64
-  %trunc = trunc nuw i32 %.sroa.3.0.i to i1
-  br i1 %trunc, label %100, label %.loopexit124.i.i
+  br i1 %56, label %.loopexit124.i.i, label %100
 
 91:                                               ; preds = %_ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEbPNS0_7CordRepEm.exit.jt1.i.i
   %indvars.iv.next63.jt1.i.i = add nsw i64 %indvars.iv6273103.i.i, -1
@@ -1586,8 +1585,8 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   br label %.loopexit124.i.i
 
 100:                                              ; preds = %.preheader.i.i
-  %indvars.iv.next.i.i = add nsw i64 %85, -1
   %.not46.i.i = icmp sgt i64 %85, %90
+  %indvars.iv.next.i.i = add nsw i64 %85, -1
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 14
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i64
@@ -1751,8 +1750,8 @@ _ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE0EEENS1_8OpResultEb
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 13
   %162 = load i8, ptr %161, align 1, !tbaa !4
   %163 = zext i8 %162 to i32
-  %.not92 = icmp eq i8 %162, 0
-  br i1 %.not92, label %173, label %.lr.ph.i71
+  %.not93 = icmp eq i8 %162, 0
+  br i1 %.not93, label %173, label %.lr.ph.i71
 
 .lr.ph.i71:                                       ; preds = %156
   %wide.trip.count.i72 = zext i8 %162 to i64
@@ -1985,8 +1984,8 @@ define weak_odr dso_local noundef ptr @_ZN4absl13cord_internal12CordRepBtree7Add
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = zext i8 %9 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not107 = icmp eq i8 %9, 0
-  br i1 %.not107, label %.critedge.i, label %.lr.ph.i
+  %.not108 = icmp eq i8 %9, 0
+  br i1 %.not108, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2128,7 +2127,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   %82 = load i64, ptr %.sroa.0.0.i, align 8, !tbaa !7
   %83 = add i64 %82, %81
   store i64 %83, ptr %.sroa.0.0.i, align 8, !tbaa !7
-  br i1 %.not107, label %.loopexit.i.i, label %.preheader.i.i
+  br i1 %.not108, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %80
   %84 = zext i8 %9 to i64
@@ -2137,8 +2136,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   %87 = getelementptr ptr, ptr %5, i64 %84
   %88 = load ptr, ptr %87, align 8, !tbaa !14
   %89 = sext i32 %45 to i64
-  %trunc = trunc nuw i32 %.sroa.3.0.i to i1
-  br i1 %trunc, label %100, label %.loopexit119.i.i
+  br i1 %55, label %.loopexit119.i.i, label %100
 
 90:                                               ; preds = %_ZN4absl13cord_internal12CordRepBtree7SetEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit.jt1.i.i
   %indvars.iv.next59.jt1.i.i = add nsw i64 %indvars.iv586998.i.i, -1
@@ -2159,8 +2157,8 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %.lr.ph.i.i,
   br label %.loopexit119.i.i
 
 100:                                              ; preds = %.preheader.i.i
-  %indvars.iv.next.i.i = add nsw i64 %84, -1
   %.not45.i.i = icmp sgt i64 %84, %89
+  %indvars.iv.next.i.i = add nsw i64 %84, -1
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 15
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i64
@@ -2390,8 +2388,8 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 13
   %200 = load i8, ptr %199, align 1, !tbaa !4
   %201 = zext i8 %200 to i32
-  %.not108 = icmp eq i8 %200, 0
-  br i1 %.not108, label %211, label %.lr.ph.i72
+  %.not109 = icmp eq i8 %200, 0
+  br i1 %.not109, label %211, label %.lr.ph.i72
 
 .lr.ph.i72:                                       ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEESt17basic_string_viewIcSt11char_traitsIcEES8_m.exit
   %wide.trip.count.i73 = zext i8 %200 to i64

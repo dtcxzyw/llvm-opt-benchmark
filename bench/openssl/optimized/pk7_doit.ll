@@ -144,7 +144,7 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 288, ptr noundef nonnull @__func__.PKCS7_dataInit) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 116, ptr noundef null) #4
-  br label %.thread130
+  br label %.thread131
 
 42:                                               ; preds = %18
   %43 = load ptr, ptr %14, align 8, !tbaa !14
@@ -163,7 +163,7 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.PKCS7_dataInit) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 116, ptr noundef null) #4
-  br label %.thread130
+  br label %.thread131
 
 54:                                               ; preds = %18
   %55 = load ptr, ptr %14, align 8, !tbaa !14
@@ -176,7 +176,7 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @__func__.PKCS7_dataInit) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 112, ptr noundef null) #4
-  br label %.thread130
+  br label %.thread131
 
 .sink.split:                                      ; preds = %23, %54
   %.sink.in = phi ptr [ %58, %54 ], [ %27, %23 ]
@@ -198,17 +198,17 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 64:                                               ; preds = %.lr.ph
-  %65 = add nuw nsw i32 %.086135, 1
+  %65 = add nuw nsw i32 %.086136, 1
   %66 = tail call i32 @OPENSSL_sk_num(ptr noundef %.095) #4
   %67 = icmp slt i32 %65, %66
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %61, %64
-  %.086135 = phi i32 [ %65, %64 ], [ 0, %61 ]
-  %68 = tail call ptr @OPENSSL_sk_value(ptr noundef %.095, i32 noundef %.086135) #4
+  %.086136 = phi i32 [ %65, %64 ], [ 0, %61 ]
+  %68 = tail call ptr @OPENSSL_sk_value(ptr noundef %.095, i32 noundef %.086136) #4
   %69 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef %4, ptr noundef %68, ptr noundef %11)
   %.not123 = icmp eq i32 %69, 0
-  br i1 %.not123, label %.thread130, label %64
+  br i1 %.not123, label %.thread131, label %64
 
 ._crit_edge:                                      ; preds = %64, %61
   %.not = icmp eq ptr %.090, null
@@ -217,7 +217,7 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 70:                                               ; preds = %._crit_edge
   %71 = call fastcc i32 @pkcs7_bio_add_digest(ptr noundef %4, ptr noundef nonnull %.090, ptr noundef %11)
   %.not114 = icmp eq i32 %71, 0
-  br i1 %.not114, label %.thread130, label %72
+  br i1 %.not114, label %.thread131, label %72
 
 72:                                               ; preds = %70, %._crit_edge
   %.not115 = icmp eq ptr %.096, null
@@ -305,11 +305,11 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %119 = call i32 @OPENSSL_sk_num(ptr noundef %.094) #4
   %120 = icmp sgt i32 %119, 0
   %121 = sext i32 %80 to i64
-  br i1 %120, label %.lr.ph138, label %._crit_edge139
+  br i1 %120, label %.lr.ph139, label %._crit_edge140
 
-.lr.ph138:                                        ; preds = %118, %pkcs7_encode_rinfo.exit
-  %.187136 = phi i32 [ %151, %pkcs7_encode_rinfo.exit ], [ 0, %118 ]
-  %122 = call ptr @OPENSSL_sk_value(ptr noundef %.094, i32 noundef %.187136) #4
+.lr.ph139:                                        ; preds = %118, %pkcs7_encode_rinfo.exit
+  %.187137 = phi i32 [ %151, %pkcs7_encode_rinfo.exit ], [ 0, %118 ]
+  %122 = call ptr @OPENSSL_sk_value(ptr noundef %.094, i32 noundef %.187137) #4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load ptr, ptr %123, align 8, !tbaa !54
@@ -319,7 +319,7 @@ define ptr @PKCS7_dataInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %128 = icmp eq ptr %127, null
   br i1 %128, label %pkcs7_encode_rinfo.exit.thread, label %129
 
-129:                                              ; preds = %.lr.ph138
+129:                                              ; preds = %.lr.ph139
   %130 = call ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef %124) #4
   %131 = call ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef %124) #4
   %132 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %130, ptr noundef nonnull %127, ptr noundef %131) #4
@@ -356,26 +356,26 @@ pkcs7_encode_rinfo.exit:                          ; preds = %144
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %132) #4
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 185) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %151 = add nuw nsw i32 %.187136, 1
+  %151 = add nuw nsw i32 %.187137, 1
   %152 = call i32 @OPENSSL_sk_num(ptr noundef %.094) #4
   %153 = icmp slt i32 %151, %152
-  br i1 %153, label %.lr.ph138, label %._crit_edge139, !llvm.loop !61
+  br i1 %153, label %.lr.ph139, label %._crit_edge140, !llvm.loop !61
 
-pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
+pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph139, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-._crit_edge139:                                   ; preds = %pkcs7_encode_rinfo.exit, %118
+._crit_edge140:                                   ; preds = %pkcs7_encode_rinfo.exit, %118
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef %121) #4
   %154 = load ptr, ptr %4, align 8, !tbaa !17
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %157
 
-156:                                              ; preds = %._crit_edge139
+156:                                              ; preds = %._crit_edge140
   store ptr %75, ptr %4, align 8, !tbaa !17
   br label %159
 
-157:                                              ; preds = %._crit_edge139
+157:                                              ; preds = %._crit_edge140
   %158 = call ptr @BIO_push(ptr noundef nonnull %154, ptr noundef nonnull %75) #4
   br label %159
 
@@ -391,7 +391,7 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread130
+  br label %.thread131
 
 159:                                              ; preds = %156, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -401,7 +401,7 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
 
 160:                                              ; preds = %159, %72
   %161 = icmp eq ptr %1, null
-  br i1 %161, label %162, label %.thread133
+  br i1 %161, label %162, label %.thread134
 
 162:                                              ; preds = %160
   %163 = load ptr, ptr %19, align 8, !tbaa !3
@@ -427,7 +427,7 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
   %173 = call ptr @BIO_s_mem() #4
   %174 = call ptr @BIO_new(ptr noundef %173) #4
   %.not120 = icmp eq ptr %174, null
-  br i1 %.not120, label %.thread130, label %175
+  br i1 %.not120, label %.thread131, label %175
 
 175:                                              ; preds = %172
   %176 = call i64 @BIO_ctrl(ptr noundef nonnull %174, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
@@ -437,44 +437,44 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
   %180 = call i32 @BIO_write(ptr noundef nonnull %174, ptr noundef %178, i32 noundef %179) #4
   %181 = load i32, ptr %.091, align 8, !tbaa !62
   %.not121 = icmp eq i32 %180, %181
-  br i1 %.not121, label %.thread133, label %182
+  br i1 %.not121, label %.thread134, label %182
 
 182:                                              ; preds = %175
   call void @BIO_free_all(ptr noundef nonnull %174) #4
-  br label %.thread130
+  br label %.thread131
 
 183:                                              ; preds = %169, %168
   %184 = call ptr @BIO_s_mem() #4
   %185 = call ptr @BIO_new(ptr noundef %184) #4
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread130, label %187
+  br i1 %186, label %.thread131, label %187
 
 187:                                              ; preds = %183
   %188 = call i64 @BIO_ctrl(ptr noundef nonnull %185, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
-  br label %.thread133
+  br label %.thread134
 
 189:                                              ; preds = %166
   %190 = call ptr @BIO_s_null() #4
   %191 = call ptr @BIO_new(ptr noundef %190) #4
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %.thread130, label %.thread133
+  br i1 %192, label %.thread131, label %.thread134
 
-.thread133:                                       ; preds = %187, %175, %189, %160
+.thread134:                                       ; preds = %187, %175, %189, %160
   %.084 = phi ptr [ %191, %189 ], [ %1, %160 ], [ %185, %187 ], [ %174, %175 ]
   %193 = load ptr, ptr %4, align 8, !tbaa !17
   %.not122 = icmp eq ptr %193, null
   br i1 %.not122, label %196, label %194
 
-194:                                              ; preds = %.thread133
+194:                                              ; preds = %.thread134
   %195 = call ptr @BIO_push(ptr noundef nonnull %193, ptr noundef nonnull %.084) #4
   br label %196
 
-196:                                              ; preds = %.thread133, %194
-  %197 = phi ptr [ %193, %194 ], [ %.084, %.thread133 ]
+196:                                              ; preds = %.thread134, %194
+  %197 = phi ptr [ %193, %194 ], [ %.084, %.thread134 ]
   call void @ASN1_OCTET_STRING_free(ptr noundef %.091) #4
   br label %199
 
-.thread130:                                       ; preds = %.lr.ph, %172, %182, %.thread, %189, %183, %70, %59, %53, %41
+.thread131:                                       ; preds = %.lr.ph, %172, %182, %.thread, %189, %183, %70, %59, %53, %41
   %.098 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ %.2100.ph, %.thread ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
   %.192 = phi ptr [ null, %59 ], [ %.091, %189 ], [ %.091, %183 ], [ %.091, %70 ], [ null, %41 ], [ null, %53 ], [ %.091, %.thread ], [ %.091, %182 ], [ %.091, %172 ], [ %.091, %.lr.ph ]
   %.088 = phi ptr [ null, %59 ], [ null, %189 ], [ null, %183 ], [ null, %70 ], [ null, %41 ], [ null, %53 ], [ %75, %.thread ], [ null, %182 ], [ null, %172 ], [ null, %.lr.ph ]
@@ -485,8 +485,8 @@ pkcs7_encode_rinfo.exit.thread:                   ; preds = %.lr.ph138, %129
   call void @BIO_free_all(ptr noundef %.088) #4
   br label %199
 
-199:                                              ; preds = %.thread130, %196, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %17 ], [ null, %.thread130 ], [ %197, %196 ]
+199:                                              ; preds = %.thread131, %196, %17, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %17 ], [ null, %.thread131 ], [ %197, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1494,7 +1494,7 @@ define range(i32 0, 2) i32 @PKCS7_dataFinal(ptr noundef %0, ptr noundef %1) loca
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %14, align 8, !tbaa !14
-  br label %.thread115
+  br label %.thread120
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %14, align 8, !tbaa !14
@@ -1525,7 +1525,7 @@ define range(i32 0, 2) i32 @PKCS7_dataFinal(ptr noundef %0, ptr noundef %1) loca
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !69
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.thread115
+  br i1 %48, label %49, label %.thread120
 
 49:                                               ; preds = %42
   %50 = tail call ptr @ASN1_OCTET_STRING_new() #4
@@ -1544,7 +1544,7 @@ define range(i32 0, 2) i32 @PKCS7_dataFinal(ptr noundef %0, ptr noundef %1) loca
   %56 = load ptr, ptr %55, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %50, ptr %57, align 8, !tbaa !69
-  br label %.thread115
+  br label %.thread120
 
 58:                                               ; preds = %22
   %59 = load ptr, ptr %14, align 8, !tbaa !14
@@ -1620,33 +1620,33 @@ PKCS7_get_octet_string.exit:                      ; preds = %68, %71, %75, %78, 
 103:                                              ; preds = %95
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %105 = load ptr, ptr %104, align 8, !tbaa !14
-  br label %PKCS7_get_octet_string.exit103
+  br label %PKCS7_get_octet_string.exit108
 
 106:                                              ; preds = %95
   %107 = load ptr, ptr %99, align 8, !tbaa !3
   %108 = tail call i32 @OBJ_obj2nid(ptr noundef %107) #4
   %109 = add i32 %108, -21
-  %switch.i.i100 = icmp ult i32 %109, 6
-  br i1 %switch.i.i100, label %PKCS7_get_octet_string.exit103, label %110
+  %switch.i.i105 = icmp ult i32 %109, 6
+  br i1 %switch.i.i105, label %PKCS7_get_octet_string.exit108, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %112 = load ptr, ptr %111, align 8, !tbaa !14
-  %.not8.i101 = icmp eq ptr %112, null
-  br i1 %.not8.i101, label %PKCS7_get_octet_string.exit103, label %113
+  %.not8.i106 = icmp eq ptr %112, null
+  br i1 %.not8.i106, label %PKCS7_get_octet_string.exit108, label %113
 
 113:                                              ; preds = %110
   %114 = load i32, ptr %112, align 8, !tbaa !15
   %115 = icmp eq i32 %114, 4
-  br i1 %115, label %116, label %PKCS7_get_octet_string.exit103
+  br i1 %115, label %116, label %PKCS7_get_octet_string.exit108
 
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !14
-  br label %PKCS7_get_octet_string.exit103
+  br label %PKCS7_get_octet_string.exit108
 
-PKCS7_get_octet_string.exit103:                   ; preds = %103, %106, %110, %113, %116
-  %.0.i102 = phi ptr [ %105, %103 ], [ %118, %116 ], [ null, %113 ], [ null, %110 ], [ null, %106 ]
+PKCS7_get_octet_string.exit108:                   ; preds = %103, %106, %110, %113, %116
+  %.0.i107 = phi ptr [ %105, %103 ], [ %118, %116 ], [ null, %113 ], [ null, %110 ], [ null, %106 ]
   %119 = load ptr, ptr %14, align 8, !tbaa !14
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !81
@@ -1656,14 +1656,14 @@ PKCS7_get_octet_string.exit103:                   ; preds = %103, %106, %110, %1
   %125 = icmp eq i32 %124, 21
   br i1 %125, label %126, label %196
 
-126:                                              ; preds = %PKCS7_get_octet_string.exit103
+126:                                              ; preds = %PKCS7_get_octet_string.exit108
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !80
   %.not = icmp eq i32 %128, 0
   br i1 %.not, label %196, label %129
 
 129:                                              ; preds = %126
-  tail call void @ASN1_OCTET_STRING_free(ptr noundef %.0.i102) #4
+  tail call void @ASN1_OCTET_STRING_free(ptr noundef %.0.i107) #4
   %130 = load ptr, ptr %14, align 8, !tbaa !14
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !81
@@ -1678,13 +1678,13 @@ PKCS7_get_octet_string.exit103:                   ; preds = %103, %106, %110, %1
   br label %.loopexit
 
 .sink.split:                                      ; preds = %38, %94
-  %.sink142 = phi i64 [ 32, %94 ], [ 16, %38 ]
+  %.sink147 = phi i64 [ 32, %94 ], [ 16, %38 ]
   %.sink = phi ptr [ null, %94 ], [ %39, %38 ]
   %.079.ph = phi ptr [ %61, %94 ], [ %32, %38 ]
   %135 = load ptr, ptr %14, align 8, !tbaa !14
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = load ptr, ptr %136, align 8, !tbaa !82
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink142
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink147
   store ptr %.sink, ptr %138, align 8, !tbaa !14
   br label %139
 
@@ -1692,16 +1692,16 @@ PKCS7_get_octet_string.exit103:                   ; preds = %103, %106, %110, %1
   %.079 = phi ptr [ %32, %29 ], [ %61, %91 ], [ %61, %PKCS7_get_octet_string.exit ], [ %.079.ph, %.sink.split ]
   %.078 = phi ptr [ %36, %29 ], [ %.0.i, %91 ], [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.sink, %.sink.split ]
   %.not91 = icmp eq ptr %.079, null
-  br i1 %.not91, label %.thread115, label %.preheader
+  br i1 %.not91, label %.thread120, label %.preheader
 
 .preheader:                                       ; preds = %139
   %140 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %.079) #4
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph, label %.thread115
+  br i1 %141, label %.lr.ph, label %.thread120
 
 .lr.ph:                                           ; preds = %.preheader, %192
-  %.080126 = phi i32 [ %193, %192 ], [ 0, %.preheader ]
-  %142 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.079, i32 noundef %.080126) #4
+  %.080131 = phi i32 [ %193, %192 ], [ 0, %.preheader ]
+  %142 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %.079, i32 noundef %.080131) #4
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %144 = load ptr, ptr %143, align 8, !tbaa !83
   %145 = icmp eq ptr %144, null
@@ -1760,11 +1760,11 @@ PKCS7_get_signed_attribute.exit.thread.i:         ; preds = %PKCS7_get_signed_at
   br i1 %.not7.i, label %do_pkcs7_signed_attrib.exit.thread, label %do_pkcs7_signed_attrib.exit
 
 do_pkcs7_signed_attrib.exit.thread:               ; preds = %170, %168, %PKCS7_get_signed_attribute.exit.thread.i
-  %.sink146 = phi i32 [ 746, %PKCS7_get_signed_attribute.exit.thread.i ], [ 753, %168 ], [ 757, %170 ]
-  %.sink145 = phi i32 [ 524321, %PKCS7_get_signed_attribute.exit.thread.i ], [ 524294, %168 ], [ 524321, %170 ]
+  %.sink151 = phi i32 [ 746, %PKCS7_get_signed_attribute.exit.thread.i ], [ 753, %168 ], [ 757, %170 ]
+  %.sink150 = phi i32 [ 524321, %PKCS7_get_signed_attribute.exit.thread.i ], [ 524294, %168 ], [ 524321, %170 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink146, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink145, ptr noundef null) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink151, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink150, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
@@ -1782,13 +1782,13 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   %176 = call i32 @EVP_PKEY_get_size(ptr noundef %175) #4
   store i32 %176, ptr %6, align 4, !tbaa !67
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %.thread113, label %178
+  br i1 %177, label %.thread118, label %178
 
 178:                                              ; preds = %174
   %179 = zext i32 %176 to i64
   %180 = call noalias ptr @CRYPTO_malloc(i64 noundef %179, ptr noundef nonnull @.str, i32 noundef 890) #4
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread113, label %182
+  br i1 %181, label %.thread118, label %182
 
 182:                                              ; preds = %178
   %183 = load ptr, ptr %143, align 8, !tbaa !83
@@ -1803,9 +1803,9 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 897, ptr noundef nonnull @__func__.PKCS7_dataFinal) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef 524294, ptr noundef null) #4
-  br label %.thread113
+  br label %.thread118
 
-.thread113:                                       ; preds = %178, %174, %187
+.thread118:                                       ; preds = %178, %174, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -1818,13 +1818,13 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %192
 
 192:                                              ; preds = %188, %do_pkcs7_signed_attrib.exit, %.lr.ph
-  %193 = add nuw nsw i32 %.080126, 1
+  %193 = add nuw nsw i32 %.080131, 1
   %194 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %.079) #4
   %195 = icmp slt i32 %193, %194
-  br i1 %195, label %.lr.ph, label %.thread115, !llvm.loop !92
+  br i1 %195, label %.lr.ph, label %.thread120, !llvm.loop !92
 
-196:                                              ; preds = %129, %126, %PKCS7_get_octet_string.exit103
-  %.078.ph.ph = phi ptr [ null, %129 ], [ %.0.i102, %126 ], [ %.0.i102, %PKCS7_get_octet_string.exit103 ]
+196:                                              ; preds = %129, %126, %PKCS7_get_octet_string.exit108
+  %.078.ph.ph = phi ptr [ null, %129 ], [ %.0.i107, %126 ], [ %.0.i107, %PKCS7_get_octet_string.exit108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %197 = load ptr, ptr %14, align 8, !tbaa !14
@@ -1834,13 +1834,13 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   %201 = tail call i32 @OBJ_obj2nid(ptr noundef %200) #4
   %202 = call fastcc ptr @PKCS7_find_digest(ptr noundef %5, ptr noundef %1, i32 noundef %201)
   %.not92 = icmp eq ptr %202, null
-  br i1 %.not92, label %.thread122, label %203
+  br i1 %.not92, label %.thread127, label %203
 
 203:                                              ; preds = %196
   %204 = load ptr, ptr %5, align 8, !tbaa !88
   %205 = call i32 @EVP_DigestFinal_ex(ptr noundef %204, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   %.not93 = icmp eq i32 %205, 0
-  br i1 %.not93, label %.thread122, label %206
+  br i1 %.not93, label %.thread127, label %206
 
 206:                                              ; preds = %203
   %207 = load ptr, ptr %14, align 8, !tbaa !14
@@ -1849,9 +1849,9 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   %210 = load i32, ptr %8, align 4, !tbaa !67
   %211 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %209, ptr noundef nonnull %7, i32 noundef %210) #4
   %.not94 = icmp eq i32 %211, 0
-  br i1 %.not94, label %.thread122, label %212
+  br i1 %.not94, label %.thread127, label %212
 
-.thread122:                                       ; preds = %196, %203, %206
+.thread127:                                       ; preds = %196, %203, %206
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
@@ -1859,26 +1859,26 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
 212:                                              ; preds = %206
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread115
+  br label %.thread120
 
-.thread115:                                       ; preds = %192, %.preheader, %139, %212, %42, %53, %27
-  %.078108 = phi ptr [ %.078.ph.ph, %212 ], [ %47, %42 ], [ %50, %53 ], [ %28, %27 ], [ %.078, %139 ], [ %.078, %.preheader ], [ %.078, %192 ]
+.thread120:                                       ; preds = %192, %.preheader, %139, %212, %42, %53, %27
+  %.078113 = phi ptr [ %.078.ph.ph, %212 ], [ %47, %42 ], [ %50, %53 ], [ %28, %27 ], [ %.078, %139 ], [ %.078, %.preheader ], [ %.078, %192 ]
   %213 = load ptr, ptr %23, align 8, !tbaa !3
   %214 = call i32 @OBJ_obj2nid(ptr noundef %213) #4
   %215 = icmp eq i32 %214, 22
   br i1 %215, label %216, label %218
 
-216:                                              ; preds = %.thread115
+216:                                              ; preds = %.thread120
   %217 = call i64 @PKCS7_ctrl(ptr noundef nonnull %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #4
   %.not95 = icmp eq i64 %217, 0
   br i1 %.not95, label %218, label %.loopexit
 
-218:                                              ; preds = %216, %.thread115
-  %219 = icmp eq ptr %.078108, null
+218:                                              ; preds = %216, %.thread120
+  %219 = icmp eq ptr %.078113, null
   br i1 %219, label %.loopexit, label %220
 
 220:                                              ; preds = %218
-  %221 = getelementptr inbounds nuw i8, ptr %.078108, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.078113, i64 16
   %222 = load i64, ptr %221, align 8, !tbaa !65
   %223 = and i64 %222, 16
   %.not96 = icmp eq i64 %223, 0
@@ -1888,15 +1888,15 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %225 = call ptr @BIO_find_type(ptr noundef %1, i32 noundef 1025) #4
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %231, label %.thread124
+  br i1 %226, label %231, label %.thread129
 
-.thread124:                                       ; preds = %224
+.thread129:                                       ; preds = %224
   %227 = call i64 @BIO_ctrl(ptr noundef nonnull %225, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %9) #4
   call void @BIO_set_flags(ptr noundef nonnull %225, i32 noundef 512) #4
   %228 = call i64 @BIO_ctrl(ptr noundef nonnull %225, i32 noundef 130, i64 noundef 0, ptr noundef null) #4
   %229 = load ptr, ptr %9, align 8, !tbaa !66
   %230 = trunc i64 %227 to i32
-  call void @ASN1_STRING_set0(ptr noundef nonnull %.078108, ptr noundef %229, i32 noundef %230) #4
+  call void @ASN1_STRING_set0(ptr noundef nonnull %.078113, ptr noundef %229, i32 noundef %230) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -1907,8 +1907,8 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %do_pkcs7_signed_attrib.exit, %153, %146, %216, %220, %.thread124, %231, %.thread122, %.thread113, %do_pkcs7_signed_attrib.exit.thread, %218, %134, %52, %41
-  %.077 = phi i32 [ 0, %134 ], [ 0, %218 ], [ 0, %231 ], [ 0, %41 ], [ 0, %52 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %.thread113 ], [ 0, %.thread122 ], [ 1, %.thread124 ], [ 1, %220 ], [ 1, %216 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
+.loopexit:                                        ; preds = %do_pkcs7_signed_attrib.exit, %153, %146, %216, %220, %.thread129, %231, %.thread127, %.thread118, %do_pkcs7_signed_attrib.exit.thread, %218, %134, %52, %41
+  %.077 = phi i32 [ 0, %134 ], [ 0, %218 ], [ 0, %231 ], [ 0, %41 ], [ 0, %52 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %.thread118 ], [ 0, %.thread127 ], [ 1, %.thread129 ], [ 1, %220 ], [ 1, %216 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #4
   br label %232
 

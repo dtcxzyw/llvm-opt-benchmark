@@ -492,17 +492,17 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
 40:                                               ; preds = %35
   %41 = sub i64 %38, %11
   %42 = icmp sgt i64 %41, %1
-  br i1 %42, label %.thread6, label %43
+  br i1 %42, label %.thread7, label %43
 
 43:                                               ; preds = %40
   %44 = add i64 %38, %11
-  %.not10 = icmp sgt i64 %44, %1
-  br i1 %.not10, label %50, label %82
+  %.not11 = icmp sgt i64 %44, %1
+  br i1 %.not11, label %50, label %82
 
 45:                                               ; preds = %35
   %46 = add i64 %38, %11
   %47 = icmp slt i64 %46, %1
-  br i1 %47, label %.thread6, label %48
+  br i1 %47, label %.thread7, label %48
 
 48:                                               ; preds = %45
   %49 = sub i64 %38, %11
@@ -521,13 +521,13 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %57 = shl nsw i64 -1, %55
   %58 = and i64 %57, %53
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.thread4, label %60
+  br i1 %59, label %.thread5, label %60
 
 60:                                               ; preds = %54
   %61 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %58) #9, !srcloc !5
   %62 = and i64 %61, 4294967232
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %.thread4
+  br i1 %63, label %64, label %.thread5
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %12, align 8
@@ -543,19 +543,19 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %75 = add nuw nsw i64 %61, 1
   %76 = and i64 %75, 127
   %77 = icmp samesign ugt i64 %76, 63
-  br i1 %77, label %.thread4, label %54, !prof !6, !llvm.loop !30
+  br i1 %77, label %.thread5, label %54, !prof !6, !llvm.loop !30
 
-.thread4:                                         ; preds = %54, %64, %60
+.thread5:                                         ; preds = %54, %64, %60
   %.lcssa = phi i64 [ %56, %54 ], [ %74, %64 ], [ %56, %60 ]
   br i1 %39, label %78, label %80
 
-78:                                               ; preds = %.thread4
+78:                                               ; preds = %.thread5
   %79 = icmp sgt i64 %.lcssa, %1
-  br i1 %79, label %.thread6, label %82
+  br i1 %79, label %.thread7, label %82
 
-80:                                               ; preds = %.thread4
+80:                                               ; preds = %.thread5
   %81 = icmp slt i64 %.lcssa, %1
-  br i1 %81, label %.thread6, label %82
+  br i1 %81, label %.thread7, label %82
 
 82:                                               ; preds = %80, %78, %43, %48
   %83 = load ptr, ptr %12, align 8
@@ -565,21 +565,21 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   store i64 %86, ptr %36, align 8
   %87 = sub i32 0, %84
   call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %83, i32 %87, ptr elementtype(i32) %83) #8, !srcloc !32
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %80, %78, %82, %45, %40
+.thread7:                                         ; preds = %80, %78, %82, %45, %40
   %88 = phi i1 [ false, %40 ], [ false, %45 ], [ true, %82 ], [ false, %78 ], [ false, %80 ]
   call void @_raw_spin_unlock(ptr noundef %0) #8
   %89 = and i64 %8, 512
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %92, label %91
 
-91:                                               ; preds = %.thread6
+91:                                               ; preds = %.thread7
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   br label %92
 
-92:                                               ; preds = %.thread6, %91, %34, %30, %4
-  %93 = phi i1 [ true, %4 ], [ true, %30 ], [ true, %34 ], [ %88, %91 ], [ %88, %.thread6 ]
+92:                                               ; preds = %.thread7, %91, %34, %30, %4
+  %93 = phi i1 [ true, %4 ], [ true, %30 ], [ true, %34 ], [ %88, %91 ], [ %88, %.thread7 ]
   ret i1 %93
 }
 

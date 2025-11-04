@@ -137,13 +137,13 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   %37 = call ptr @palloc(i64 noundef 256) #5
   store i32 0, ptr %3, align 4
   %38 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
-  %.not88 = icmp eq ptr %38, null
-  br i1 %.not88, label %._crit_edge, label %.lr.ph
+  %.not89 = icmp eq ptr %38, null
+  br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %67
   %39 = phi ptr [ %68, %67 ], [ %38, %36 ]
-  %.06390 = phi i32 [ %.1, %67 ], [ 32, %36 ]
-  %.16589 = phi ptr [ %.266, %67 ], [ %37, %36 ]
+  %.06391 = phi i32 [ %.1, %67 ], [ 32, %36 ]
+  %.16590 = phi ptr [ %.266, %67 ], [ %37, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 19
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #6
@@ -174,25 +174,25 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
 .thread:                                          ; preds = %50
   %52 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
   store ptr %52, ptr %4, align 8
-  call void @pfree(ptr noundef %.16589) #5
+  call void @pfree(ptr noundef %.16590) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %3, align 4
-  %.not78 = icmp slt i32 %54, %.06390
+  %.not78 = icmp slt i32 %54, %.06391
   br i1 %.not78, label %60, label %55
 
 55:                                               ; preds = %53
-  %56 = add i32 %.06390, 32
+  %56 = add i32 %.06391, 32
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 3
-  %59 = call ptr @repalloc(ptr noundef %.16589, i64 noundef %58) #5
+  %59 = call ptr @repalloc(ptr noundef %.16590, i64 noundef %58) #5
   br label %60
 
 60:                                               ; preds = %55, %53
-  %.367 = phi ptr [ %59, %55 ], [ %.16589, %53 ]
-  %.2 = phi i32 [ %56, %55 ], [ %.06390, %53 ]
+  %.367 = phi ptr [ %59, %55 ], [ %.16590, %53 ]
+  %.2 = phi i32 [ %56, %55 ], [ %.06391, %53 ]
   %61 = call ptr @pstrdup(ptr noundef nonnull %7) #5
   %62 = load i32, ptr %3, align 4
   %63 = sext i32 %62 to i64
@@ -204,8 +204,8 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   br label %67
 
 67:                                               ; preds = %60, %50, %46, %43, %.lr.ph
-  %.266 = phi ptr [ %.16589, %.lr.ph ], [ %.16589, %43 ], [ %.16589, %46 ], [ %.367, %60 ], [ %.16589, %50 ]
-  %.1 = phi i32 [ %.06390, %.lr.ph ], [ %.06390, %43 ], [ %.06390, %46 ], [ %.2, %60 ], [ %.06390, %50 ]
+  %.266 = phi ptr [ %.16590, %.lr.ph ], [ %.16590, %43 ], [ %.16590, %46 ], [ %.367, %60 ], [ %.16590, %50 ]
+  %.1 = phi i32 [ %.06391, %.lr.ph ], [ %.06391, %43 ], [ %.06391, %46 ], [ %.2, %60 ], [ %.06391, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
   %.not = icmp eq ptr %68, null
@@ -233,12 +233,12 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   br label %77
 
 77:                                               ; preds = %73, %75
-  %.06486 = phi ptr [ %.064.ph, %75 ], [ null, %73 ]
+  %.06487 = phi ptr [ %.064.ph, %75 ], [ null, %73 ]
   call void @pfree(ptr noundef %.0.i) #5
   br label %78
 
 78:                                               ; preds = %77, %16
-  %.0 = phi ptr [ null, %16 ], [ %.06486, %77 ]
+  %.0 = phi ptr [ null, %16 ], [ %.06487, %77 ]
   ret ptr %.0
 }
 

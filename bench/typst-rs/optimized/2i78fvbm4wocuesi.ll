@@ -47450,7 +47450,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17he106ec93b9e5
   br label %"_ZN87_$LT$postcard..de..deserializer..SeqAccess$LT$F$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17hed5a7d4f9b97c254E.exit"
 
 .loopexit.i:                                      ; preds = %12, %10, %31, %29, %50, %48, %69, %67, %88, %86, %107, %105, %123, %120, %101, %82, %63, %44, %25
-  %.sroa.0.sroa.0.0.ph.i = phi i8 [ 5, %120 ], [ 14, %123 ], [ 5, %101 ], [ 5, %82 ], [ 5, %63 ], [ 5, %44 ], [ 5, %25 ], [ 5, %105 ], [ 4, %107 ], [ 5, %86 ], [ 4, %88 ], [ 5, %67 ], [ 4, %69 ], [ 5, %48 ], [ 4, %50 ], [ 4, %31 ], [ 5, %29 ], [ 4, %12 ], [ 5, %10 ]
+  %.sroa.0.sroa.0.0.ph.i = phi i8 [ 5, %120 ], [ 14, %123 ], [ 5, %101 ], [ 5, %82 ], [ 5, %63 ], [ 5, %44 ], [ 5, %25 ], [ 5, %105 ], [ 4, %107 ], [ 4, %88 ], [ 5, %86 ], [ 4, %69 ], [ 5, %67 ], [ 4, %50 ], [ 5, %48 ], [ 4, %31 ], [ 5, %29 ], [ 4, %12 ], [ 5, %10 ]
   store i8 %.sroa.0.sroa.0.0.ph.i, ptr %0, align 4, !alias.scope !9832, !noalias !9835
   br label %"_ZN87_$LT$postcard..de..deserializer..SeqAccess$LT$F$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17hed5a7d4f9b97c254E.exit"
 

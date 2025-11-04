@@ -12362,9 +12362,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716SimpleDateFormat13matchLit
   %24 = phi i32 [ %18, %.lr.ph ], [ %54, %53 ]
   %25 = phi i16 [ %14, %.lr.ph ], [ %55, %53 ]
   %26 = phi i32 [ %19, %.lr.ph ], [ %59, %53 ]
-  %.095259 = phi i8 [ 0, %.lr.ph ], [ %.196.ph, %53 ]
-  %.098258 = phi i32 [ %11, %.lr.ph ], [ %.pre-phi, %53 ]
-  %27 = icmp ult i32 %.098258, %26
+  %.095260 = phi i8 [ 0, %.lr.ph ], [ %.196.ph, %53 ]
+  %.098259 = phi i32 [ %11, %.lr.ph ], [ %.pre-phi, %53 ]
+  %27 = icmp ult i32 %.098259, %26
   br i1 %27, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %.thread200
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23
@@ -12372,10 +12372,10 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23
   %.not.i.i.i = icmp eq i16 %28, 0
   %29 = load ptr, ptr %22, align 8
   %30 = select i1 %.not.i.i.i, ptr %29, ptr %21
-  %31 = sext i32 %.098258 to i64
+  %31 = sext i32 %.098259 to i64
   %32 = getelementptr inbounds i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !69
-  %.not = icmp eq i8 %.095259, 0
+  %.not = icmp eq i8 %.095260, 0
   br i1 %.not, label %34, label %41
 
 34:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
@@ -12392,14 +12392,14 @@ _ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit: ; preds = %34
 39:                                               ; preds = %.thread200
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
 41:                                               ; preds = %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %42 = icmp eq i16 %33, 39
   br i1 %42, label %43, label %.thread200
 
 43:                                               ; preds = %41
-  %44 = add nuw nsw i32 %.098258, 1
+  %44 = add nuw nsw i32 %.098259, 1
   %45 = icmp slt i32 %44, %26
   %46 = icmp ult i32 %44, %26
   %or.cond234 = and i1 %45, %46
@@ -12413,12 +12413,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit158:      ; preds = %43
   br i1 %50, label %.thread200, label %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit158.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit158, %43
-  %51 = xor i8 %.095259, 1
+  %51 = xor i8 %.095260, 1
   br label %53
 
 .thread200:                                       ; preds = %23, %34, %_ZNK6icu_7713UnicodeString6charAtEi.exit158, %41
   %.0.i.i189203 = phi i16 [ %33, %41 ], [ 39, %_ZNK6icu_7713UnicodeString6charAtEi.exit158 ], [ %33, %34 ], [ -1, %23 ]
-  %.3101 = phi i32 [ %.098258, %41 ], [ %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit158 ], [ %.098258, %34 ], [ %.098258, %23 ]
+  %.3101 = phi i32 [ %.098259, %41 ], [ %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit158 ], [ %.098259, %34 ], [ %.098259, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %.0.i.i189203, ptr %8, align 2, !tbaa !69
   %52 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1)
@@ -12427,15 +12427,15 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit158.thread: ; preds = %_ZNK6icu_7713Unic
 _ZN6icu_7713UnicodeStringpLEDs.exit:              ; preds = %.thread200
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i16, ptr %12, align 8, !tbaa !51
-  %.pre309 = load i32, ptr %13, align 4
-  %.pre316 = add nsw i32 %.3101, 1
+  %.pre299 = load i32, ptr %13, align 4
+  %.pre306 = add nsw i32 %.3101, 1
   br label %53
 
 53:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread, %_ZN6icu_7713UnicodeStringpLEDs.exit
-  %.pre-phi = phi i32 [ %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.pre316, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
-  %54 = phi i32 [ %24, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.pre309, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
+  %.pre-phi = phi i32 [ %44, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.pre306, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
+  %54 = phi i32 [ %24, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.pre299, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
   %55 = phi i16 [ %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.pre, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
-  %.196.ph = phi i8 [ %51, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.095259, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
+  %.196.ph = phi i8 [ %51, %_ZNK6icu_7713UnicodeString6charAtEi.exit158.thread ], [ %.095260, %_ZN6icu_7713UnicodeStringpLEDs.exit ]
   %56 = icmp slt i16 %55, 0
   %57 = ashr i16 %55, 5
   %58 = sext i16 %57 to i32
@@ -12444,16 +12444,16 @@ _ZN6icu_7713UnicodeStringpLEDs.exit:              ; preds = %.thread200
   br i1 %60, label %23, label %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge, !llvm.loop !204
 
 _ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge: ; preds = %53, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit, %7
-  %.098.lcssa = phi i32 [ %11, %7 ], [ %.098258, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit ], [ %.pre-phi, %53 ]
+  %.098.lcssa = phi i32 [ %11, %7 ], [ %.098259, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit ], [ %.pre-phi, %53 ]
   %61 = load i32, ptr %3, align 4, !tbaa !12
   %.not131 = icmp eq i8 %4, 0
   br i1 %.not131, label %.critedge, label %62
 
 62:                                               ; preds = %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge
   %63 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString4trimEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-          to label %.preheader237 unwind label %.loopexit.split-lp239
+          to label %.preheader238 unwind label %.loopexit.split-lp240
 
-.preheader237:                                    ; preds = %62
+.preheader238:                                    ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %66 = load i16, ptr %64, align 8, !tbaa !51
@@ -12463,19 +12463,19 @@ _ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge: ; preds = %53, %_
   %70 = load i32, ptr %65, align 4
   %71 = select i1 %67, i32 %70, i32 %69
   %72 = icmp slt i32 %61, %71
-  br i1 %72, label %.lr.ph262, label %.critedge
+  br i1 %72, label %.lr.ph263, label %.critedge
 
-.lr.ph262:                                        ; preds = %.preheader237
+.lr.ph263:                                        ; preds = %.preheader238
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %75 = sext i32 %61 to i64
   br label %76
 
-76:                                               ; preds = %.lr.ph262, %90
-  %indvars.iv = phi i64 [ %75, %.lr.ph262 ], [ %indvars.iv.next, %90 ]
-  %77 = phi i32 [ %71, %.lr.ph262 ], [ %97, %90 ]
-  %78 = phi i16 [ %66, %.lr.ph262 ], [ %92, %90 ]
-  %.1114261 = phi i32 [ %61, %.lr.ph262 ], [ %91, %90 ]
+76:                                               ; preds = %.lr.ph263, %90
+  %indvars.iv = phi i64 [ %75, %.lr.ph263 ], [ %indvars.iv.next, %90 ]
+  %77 = phi i32 [ %71, %.lr.ph263 ], [ %97, %90 ]
+  %78 = phi i16 [ %66, %.lr.ph263 ], [ %92, %90 ]
+  %.1114262 = phi i32 [ %61, %.lr.ph263 ], [ %91, %90 ]
   %79 = trunc nsw i64 %indvars.iv to i32
   %80 = icmp ugt i32 %77, %79
   br i1 %80, label %81, label %_ZNK6icu_7713UnicodeString6charAtEi.exit161
@@ -12493,7 +12493,7 @@ _ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge: ; preds = %53, %_
 _ZNK6icu_7713UnicodeString6charAtEi.exit161:      ; preds = %81, %76
   %.0.i.i159 = phi i32 [ %87, %81 ], [ 65535, %76 ]
   %88 = invoke signext i8 @u_isWhitespace_77(i32 noundef %.0.i.i159)
-          to label %89 unwind label %.loopexit238
+          to label %89 unwind label %.loopexit239
 
 89:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit161
   %.not132 = icmp eq i8 %88, 0
@@ -12501,7 +12501,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit161:      ; preds = %81, %76
 
 90:                                               ; preds = %89
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %91 = add nsw i32 %.1114261, 1
+  %91 = add nsw i32 %.1114262, 1
   %92 = load i16, ptr %64, align 8, !tbaa !51
   %93 = icmp slt i16 %92, 0
   %94 = ashr i16 %92, 5
@@ -12512,554 +12512,535 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit161:      ; preds = %81, %76
   %99 = icmp slt i64 %indvars.iv.next, %98
   br i1 %99, label %76, label %.critedge, !llvm.loop !205
 
-.loopexit238:                                     ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit161
-  %lpad.loopexit240 = landingpad { ptr, i32 }
+.loopexit239:                                     ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit161
+  %lpad.loopexit241 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-.loopexit.split-lp239:                            ; preds = %62
-  %lpad.loopexit.split-lp241 = landingpad { ptr, i32 }
+.loopexit.split-lp240:                            ; preds = %62
+  %lpad.loopexit.split-lp242 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-.critedge:                                        ; preds = %90, %89, %.preheader237, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge
-  %.0113 = phi i32 [ %61, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge ], [ %61, %.preheader237 ], [ %91, %90 ], [ %79, %89 ]
+.critedge:                                        ; preds = %90, %89, %.preheader238, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge
+  %.0113 = phi i32 [ %61, %_ZN6icu_7716SimpleDateFormat12isSyntaxCharEDs.exit._crit_edge ], [ %61, %.preheader238 ], [ %91, %90 ], [ %79, %89 ]
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %101 = load i16, ptr %10, align 8, !tbaa !51
-  %102 = icmp slt i16 %101, 0
-  %103 = ashr i16 %101, 5
-  %104 = sext i16 %103 to i32
-  %105 = load i32, ptr %100, align 4
-  %106 = select i1 %102, i32 %105, i32 %104
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %.lr.ph281, label %.critedge3.thread
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %109 = load i16, ptr %10, align 8, !tbaa !51
+  %110 = icmp slt i16 %109, 0
+  %111 = ashr i16 %109, 5
+  %112 = sext i16 %111 to i32
+  %113 = load i32, ptr %100, align 4
+  %114 = select i1 %110, i32 %113, i32 %112
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %.lr.ph357, label %.critedge3
 
-.lr.ph281:                                        ; preds = %.critedge
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %110 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %111 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %116
+.lr.ph357:                                        ; preds = %.critedge, %299
+  %116 = phi i32 [ %305, %299 ], [ %114, %.critedge ]
+  %117 = phi i16 [ %300, %299 ], [ %109, %.critedge ]
+  %.2115356 = phi i32 [ %.8, %299 ], [ %.0113, %.critedge ]
+  %.0118355 = phi i32 [ %.3121, %299 ], [ 0, %.critedge ]
+  %118 = load i16, ptr %101, align 8, !tbaa !51
+  %119 = icmp slt i16 %118, 0
+  %120 = ashr i16 %118, 5
+  %121 = sext i16 %120 to i32
+  %122 = load i32, ptr %102, align 4
+  %123 = select i1 %119, i32 %122, i32 %121
+  %124 = icmp slt i32 %.2115356, %123
+  br i1 %124, label %.lr.ph269.preheader, label %.critedge3
 
-116:                                              ; preds = %.lr.ph281, %.backedge
-  %117 = phi i32 [ %105, %.lr.ph281 ], [ %308, %.backedge ]
-  %118 = phi i16 [ %101, %.lr.ph281 ], [ %304, %.backedge ]
-  %.2115280 = phi i32 [ %.0113, %.lr.ph281 ], [ %.8.jt8, %.backedge ]
-  %.0118279 = phi i32 [ 0, %.lr.ph281 ], [ %.3121.jt8, %.backedge ]
-  %119 = load i16, ptr %108, align 8, !tbaa !51
-  %120 = icmp slt i16 %119, 0
-  %121 = ashr i16 %119, 5
-  %122 = sext i16 %121 to i32
-  %123 = load i32, ptr %109, align 4
-  %124 = select i1 %120, i32 %123, i32 %122
-  %125 = icmp slt i32 %.2115280, %124
-  br i1 %125, label %.preheader236, label %.critedge3
+.lr.ph269.preheader:                              ; preds = %.lr.ph357
+  %125 = sext i32 %.0118355 to i64
+  br label %.lr.ph269
 
-.preheader236:                                    ; preds = %116
-  %126 = icmp slt i16 %118, 0
-  %127 = ashr i16 %118, 5
-  %128 = sext i16 %127 to i32
-  %129 = select i1 %126, i32 %117, i32 %128
-  %130 = icmp slt i32 %.0118279, %129
-  br i1 %130, label %.lr.ph268.preheader, label %.critedge5.thread
+.lr.ph269:                                        ; preds = %.lr.ph269.preheader, %139
+  %indvars.iv293 = phi i64 [ %125, %.lr.ph269.preheader ], [ %indvars.iv.next294, %139 ]
+  %126 = phi i32 [ %116, %.lr.ph269.preheader ], [ %146, %139 ]
+  %127 = phi i16 [ %117, %.lr.ph269.preheader ], [ %141, %139 ]
+  %.not134268 = phi i1 [ true, %.lr.ph269.preheader ], [ false, %139 ]
+  %.2120267 = phi i32 [ %.0118355, %.lr.ph269.preheader ], [ %140, %139 ]
+  %128 = trunc nsw i64 %indvars.iv293 to i32
+  %129 = icmp ugt i32 %126, %128
+  br i1 %129, label %130, label %_ZNK6icu_7713UnicodeString6charAtEi.exit164
 
-.lr.ph268.preheader:                              ; preds = %.preheader236
-  %131 = sext i32 %.0118279 to i64
-  br label %.lr.ph268
-
-.lr.ph268:                                        ; preds = %.lr.ph268.preheader, %145
-  %indvars.iv303 = phi i64 [ %131, %.lr.ph268.preheader ], [ %indvars.iv.next304, %145 ]
-  %132 = phi i32 [ %129, %.lr.ph268.preheader ], [ %152, %145 ]
-  %133 = phi i16 [ %118, %.lr.ph268.preheader ], [ %147, %145 ]
-  %.not134267 = phi i1 [ true, %.lr.ph268.preheader ], [ false, %145 ]
-  %.2120266 = phi i32 [ %.0118279, %.lr.ph268.preheader ], [ %146, %145 ]
-  %134 = trunc nsw i64 %indvars.iv303 to i32
-  %135 = icmp ugt i32 %132, %134
-  br i1 %135, label %136, label %_ZNK6icu_7713UnicodeString6charAtEi.exit164
-
-136:                                              ; preds = %.lr.ph268
-  %137 = and i16 %133, 2
-  %.not.i.i.i163 = icmp eq i16 %137, 0
-  %138 = load ptr, ptr %111, align 8
-  %139 = select i1 %.not.i.i.i163, ptr %138, ptr %110
-  %140 = getelementptr inbounds i16, ptr %139, i64 %indvars.iv303
-  %141 = load i16, ptr %140, align 2, !tbaa !69
-  %142 = zext i16 %141 to i32
+130:                                              ; preds = %.lr.ph269
+  %131 = and i16 %127, 2
+  %.not.i.i.i163 = icmp eq i16 %131, 0
+  %132 = load ptr, ptr %104, align 8
+  %133 = select i1 %.not.i.i.i163, ptr %132, ptr %103
+  %134 = getelementptr inbounds i16, ptr %133, i64 %indvars.iv293
+  %135 = load i16, ptr %134, align 2, !tbaa !69
+  %136 = zext i16 %135 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit164
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit164:      ; preds = %136, %.lr.ph268
-  %.0.i.i162 = phi i32 [ %142, %136 ], [ 65535, %.lr.ph268 ]
-  %143 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i162)
-          to label %144 unwind label %.loopexit
+_ZNK6icu_7713UnicodeString6charAtEi.exit164:      ; preds = %130, %.lr.ph269
+  %.0.i.i162 = phi i32 [ %136, %130 ], [ 65535, %.lr.ph269 ]
+  %137 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i162)
+          to label %138 unwind label %.loopexit
 
-144:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit164
-  %.not133 = icmp eq i8 %143, 0
-  br i1 %.not133, label %.critedge5, label %145
+138:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit164
+  %.not133 = icmp eq i8 %137, 0
+  br i1 %.not133, label %.critedge5, label %139
 
-145:                                              ; preds = %144
-  %indvars.iv.next304 = add nsw i64 %indvars.iv303, 1
-  %146 = add nsw i32 %.2120266, 1
-  %147 = load i16, ptr %10, align 8, !tbaa !51
-  %148 = icmp slt i16 %147, 0
-  %149 = ashr i16 %147, 5
-  %150 = sext i16 %149 to i32
-  %151 = load i32, ptr %100, align 4
-  %152 = select i1 %148, i32 %151, i32 %150
-  %153 = sext i32 %152 to i64
-  %154 = icmp slt i64 %indvars.iv.next304, %153
-  br i1 %154, label %.lr.ph268, label %.critedge5.thread341, !llvm.loop !206
+139:                                              ; preds = %138
+  %indvars.iv.next294 = add nsw i64 %indvars.iv293, 1
+  %140 = add nsw i32 %.2120267, 1
+  %141 = load i16, ptr %10, align 8, !tbaa !51
+  %142 = icmp slt i16 %141, 0
+  %143 = ashr i16 %141, 5
+  %144 = sext i16 %143 to i32
+  %145 = load i32, ptr %100, align 4
+  %146 = select i1 %142, i32 %145, i32 %144
+  %147 = sext i32 %146 to i64
+  %148 = icmp slt i64 %indvars.iv.next294, %147
+  br i1 %148, label %.lr.ph269, label %.critedge5.thread, !llvm.loop !206
 
-.critedge5.thread341:                             ; preds = %145
-  %.pre311.pre344 = load i16, ptr %108, align 8, !tbaa !51
-  %.pre313.pre345 = load i32, ptr %109, align 4
+.critedge5.thread:                                ; preds = %139
+  %.pre301.pre328 = load i16, ptr %101, align 8, !tbaa !51
+  %.pre303.pre329 = load i32, ptr %102, align 4
   br label %.preheader
 
 .loopexit:                                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit164
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-.loopexit.split-lp:                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %276
+.loopexit.split-lp:                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i, %271
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-.critedge5:                                       ; preds = %144
-  %.pre311.pre = load i16, ptr %108, align 8, !tbaa !51
-  %.pre313.pre = load i32, ptr %109, align 4
-  br i1 %.not134267, label %.critedge5.thread, label %.preheader
+.critedge5:                                       ; preds = %138
+  %.pre301.pre = load i16, ptr %101, align 8, !tbaa !51
+  %.pre303.pre = load i32, ptr %102, align 4
+  br i1 %.not134268, label %191, label %.preheader
 
-.preheader:                                       ; preds = %.critedge5.thread341, %.critedge5
-  %.pre313.pre348 = phi i32 [ %.pre313.pre345, %.critedge5.thread341 ], [ %.pre313.pre, %.critedge5 ]
-  %.pre311.pre347 = phi i16 [ %.pre311.pre344, %.critedge5.thread341 ], [ %.pre311.pre, %.critedge5 ]
-  %.2120.lcssa.ph346 = phi i32 [ %146, %.critedge5.thread341 ], [ %134, %.critedge5 ]
-  %155 = icmp slt i16 %.pre311.pre347, 0
-  %156 = ashr i16 %.pre311.pre347, 5
-  %157 = sext i16 %156 to i32
-  %158 = select i1 %155, i32 %.pre313.pre348, i32 %157
-  %159 = icmp slt i32 %.2115280, %158
-  br i1 %159, label %.lr.ph275.preheader, label %.thread212
+.preheader:                                       ; preds = %.critedge5.thread, %.critedge5
+  %.pre303.pre333 = phi i32 [ %.pre303.pre329, %.critedge5.thread ], [ %.pre303.pre, %.critedge5 ]
+  %.pre301.pre332 = phi i16 [ %.pre301.pre328, %.critedge5.thread ], [ %.pre301.pre, %.critedge5 ]
+  %.2120.lcssa.ph330 = phi i32 [ %140, %.critedge5.thread ], [ %128, %.critedge5 ]
+  %149 = icmp slt i16 %.pre301.pre332, 0
+  %150 = ashr i16 %.pre301.pre332, 5
+  %151 = sext i16 %150 to i32
+  %152 = select i1 %149, i32 %.pre303.pre333, i32 %151
+  %153 = icmp slt i32 %.2115356, %152
+  br i1 %153, label %.lr.ph276.preheader, label %.thread212
 
-.lr.ph275.preheader:                              ; preds = %.preheader
-  %160 = sext i32 %.2115280 to i64
-  br label %.lr.ph275
+.lr.ph276.preheader:                              ; preds = %.preheader
+  %154 = sext i32 %.2115356 to i64
+  br label %.lr.ph276
 
-.lr.ph275:                                        ; preds = %.lr.ph275.preheader, %179
-  %indvars.iv305 = phi i64 [ %160, %.lr.ph275.preheader ], [ %indvars.iv.next306, %179 ]
-  %161 = phi i32 [ %158, %.lr.ph275.preheader ], [ %186, %179 ]
-  %162 = phi i16 [ %.pre311.pre347, %.lr.ph275.preheader ], [ %181, %179 ]
-  %.5274 = phi i32 [ %.2115280, %.lr.ph275.preheader ], [ %180, %179 ]
-  %163 = trunc nsw i64 %indvars.iv305 to i32
-  %164 = icmp ugt i32 %161, %163
-  br i1 %164, label %165, label %_ZNK6icu_7713UnicodeString6charAtEi.exit167
+.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %173
+  %indvars.iv295 = phi i64 [ %154, %.lr.ph276.preheader ], [ %indvars.iv.next296, %173 ]
+  %155 = phi i32 [ %152, %.lr.ph276.preheader ], [ %180, %173 ]
+  %156 = phi i16 [ %.pre301.pre332, %.lr.ph276.preheader ], [ %175, %173 ]
+  %.5275 = phi i32 [ %.2115356, %.lr.ph276.preheader ], [ %174, %173 ]
+  %157 = trunc nsw i64 %indvars.iv295 to i32
+  %158 = icmp ugt i32 %155, %157
+  br i1 %158, label %159, label %_ZNK6icu_7713UnicodeString6charAtEi.exit167
 
-165:                                              ; preds = %.lr.ph275
-  %166 = and i16 %162, 2
-  %.not.i.i.i166 = icmp eq i16 %166, 0
-  %167 = load ptr, ptr %113, align 8
-  %168 = select i1 %.not.i.i.i166, ptr %167, ptr %112
-  %169 = getelementptr inbounds i16, ptr %168, i64 %indvars.iv305
-  %170 = load i16, ptr %169, align 2, !tbaa !69
-  %171 = zext i16 %170 to i32
+159:                                              ; preds = %.lr.ph276
+  %160 = and i16 %156, 2
+  %.not.i.i.i166 = icmp eq i16 %160, 0
+  %161 = load ptr, ptr %106, align 8
+  %162 = select i1 %.not.i.i.i166, ptr %161, ptr %105
+  %163 = getelementptr inbounds i16, ptr %162, i64 %indvars.iv295
+  %164 = load i16, ptr %163, align 2, !tbaa !69
+  %165 = zext i16 %164 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit167
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit167:      ; preds = %165, %.lr.ph275
-  %.0.i.i165 = phi i32 [ %171, %165 ], [ 65535, %.lr.ph275 ]
-  %172 = invoke signext i8 @u_isUWhiteSpace_77(i32 noundef %.0.i.i165)
-          to label %173 unwind label %177
+_ZNK6icu_7713UnicodeString6charAtEi.exit167:      ; preds = %159, %.lr.ph276
+  %.0.i.i165 = phi i32 [ %165, %159 ], [ 65535, %.lr.ph276 ]
+  %166 = invoke signext i8 @u_isUWhiteSpace_77(i32 noundef %.0.i.i165)
+          to label %167 unwind label %171
 
-173:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit167
-  %.not135 = icmp eq i8 %172, 0
-  br i1 %.not135, label %174, label %179
+167:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit167
+  %.not135 = icmp eq i8 %166, 0
+  br i1 %.not135, label %168, label %173
 
-174:                                              ; preds = %173
-  %175 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i165)
-          to label %176 unwind label %177
+168:                                              ; preds = %167
+  %169 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i165)
+          to label %170 unwind label %171
 
-176:                                              ; preds = %174
-  %.not136 = icmp eq i8 %175, 0
-  br i1 %.not136, label %.thread212, label %179
+170:                                              ; preds = %168
+  %.not136 = icmp eq i8 %169, 0
+  br i1 %.not136, label %.thread212, label %173
 
-177:                                              ; preds = %174, %_ZNK6icu_7713UnicodeString6charAtEi.exit167
-  %178 = landingpad { ptr, i32 }
+171:                                              ; preds = %168, %_ZNK6icu_7713UnicodeString6charAtEi.exit167
+  %172 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-179:                                              ; preds = %173, %176
-  %indvars.iv.next306 = add nsw i64 %indvars.iv305, 1
-  %180 = add nsw i32 %.5274, 1
-  %181 = load i16, ptr %108, align 8, !tbaa !51
-  %182 = icmp slt i16 %181, 0
-  %183 = ashr i16 %181, 5
-  %184 = sext i16 %183 to i32
-  %185 = load i32, ptr %109, align 4
-  %186 = select i1 %182, i32 %185, i32 %184
-  %187 = sext i32 %186 to i64
-  %188 = icmp slt i64 %indvars.iv.next306, %187
-  br i1 %188, label %.lr.ph275, label %.thread212
+173:                                              ; preds = %167, %170
+  %indvars.iv.next296 = add nsw i64 %indvars.iv295, 1
+  %174 = add nsw i32 %.5275, 1
+  %175 = load i16, ptr %101, align 8, !tbaa !51
+  %176 = icmp slt i16 %175, 0
+  %177 = ashr i16 %175, 5
+  %178 = sext i16 %177 to i32
+  %179 = load i32, ptr %102, align 4
+  %180 = select i1 %176, i32 %179, i32 %178
+  %181 = sext i32 %180 to i64
+  %182 = icmp slt i64 %indvars.iv.next296, %181
+  br i1 %182, label %.lr.ph276, label %.thread212
 
-.thread212:                                       ; preds = %179, %176, %.preheader
-  %.5.lcssa = phi i32 [ %.2115280, %.preheader ], [ %163, %176 ], [ %180, %179 ]
-  %189 = icmp eq i32 %.5.lcssa, %.2115280
-  %or.cond152 = and i1 %.not131, %189
-  br i1 %or.cond152, label %.thread222, label %190
+.thread212:                                       ; preds = %173, %170, %.preheader
+  %.5.lcssa = phi i32 [ %.2115356, %.preheader ], [ %157, %170 ], [ %174, %173 ]
+  %183 = icmp eq i32 %.5.lcssa, %.2115356
+  %or.cond152 = select i1 %.not131, i1 %183, i1 false
+  br i1 %or.cond152, label %.thread222, label %184
 
-190:                                              ; preds = %.thread212
-  %191 = load i16, ptr %10, align 8, !tbaa !51
-  %192 = icmp slt i16 %191, 0
-  %193 = ashr i16 %191, 5
-  %194 = sext i16 %193 to i32
-  %195 = load i32, ptr %100, align 4
-  %196 = select i1 %192, i32 %195, i32 %194
-  %.not138 = icmp slt i32 %.2120.lcssa.ph346, %196
+184:                                              ; preds = %.thread212
+  %185 = load i16, ptr %10, align 8, !tbaa !51
+  %186 = icmp slt i16 %185, 0
+  %187 = ashr i16 %185, 5
+  %188 = sext i16 %187 to i32
+  %189 = load i32, ptr %100, align 4
+  %190 = select i1 %186, i32 %189, i32 %188
+  %.not138 = icmp slt i32 %.2120.lcssa.ph330, %190
   br i1 %.not138, label %._crit_edge, label %.critedge3
 
-._crit_edge:                                      ; preds = %190
-  %.pre310 = load i16, ptr %108, align 8, !tbaa !51
-  %.pre312 = load i32, ptr %109, align 4
-  br label %.critedge5.thread
+._crit_edge:                                      ; preds = %184
+  %.pre300 = load i16, ptr %101, align 8, !tbaa !51
+  %.pre302 = load i32, ptr %102, align 4
+  br label %191
 
-.critedge5.thread:                                ; preds = %.preheader236, %._crit_edge, %.critedge5
-  %.2120.lcssa340 = phi i32 [ %.2120.lcssa.ph346, %._crit_edge ], [ %134, %.critedge5 ], [ %.0118279, %.preheader236 ]
-  %197 = phi i32 [ %.pre312, %._crit_edge ], [ %.pre313.pre, %.critedge5 ], [ %123, %.preheader236 ]
-  %198 = phi i16 [ %.pre310, %._crit_edge ], [ %.pre311.pre, %.critedge5 ], [ %119, %.preheader236 ]
-  %.4117 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.2115280, %.critedge5 ], [ %.2115280, %.preheader236 ]
-  %199 = icmp slt i16 %198, 0
-  %200 = ashr i16 %198, 5
-  %201 = sext i16 %200 to i32
-  %202 = select i1 %199, i32 %197, i32 %201
-  %.not139 = icmp slt i32 %.4117, %202
-  br i1 %.not139, label %203, label %226
+191:                                              ; preds = %._crit_edge, %.critedge5
+  %.2120.lcssa.ph331 = phi i32 [ %.2120.lcssa.ph330, %._crit_edge ], [ %128, %.critedge5 ]
+  %192 = phi i32 [ %.pre302, %._crit_edge ], [ %.pre303.pre, %.critedge5 ]
+  %193 = phi i16 [ %.pre300, %._crit_edge ], [ %.pre301.pre, %.critedge5 ]
+  %.4117 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.2115356, %.critedge5 ]
+  %194 = icmp slt i16 %193, 0
+  %195 = ashr i16 %193, 5
+  %196 = sext i16 %195 to i32
+  %197 = select i1 %194, i32 %192, i32 %196
+  %.not139 = icmp slt i32 %.4117, %197
+  br i1 %.not139, label %198, label %221
 
-203:                                              ; preds = %.critedge5.thread
-  %204 = load i16, ptr %10, align 8, !tbaa !51
-  %205 = icmp slt i16 %204, 0
-  %206 = ashr i16 %204, 5
-  %207 = sext i16 %206 to i32
-  %208 = load i32, ptr %100, align 4
-  %209 = select i1 %205, i32 %208, i32 %207
-  %210 = icmp ult i32 %.2120.lcssa340, %209
-  br i1 %210, label %211, label %_ZNK6icu_7713UnicodeString6charAtEi.exit170
+198:                                              ; preds = %191
+  %199 = load i16, ptr %10, align 8, !tbaa !51
+  %200 = icmp slt i16 %199, 0
+  %201 = ashr i16 %199, 5
+  %202 = sext i16 %201 to i32
+  %203 = load i32, ptr %100, align 4
+  %204 = select i1 %200, i32 %203, i32 %202
+  %205 = icmp ult i32 %.2120.lcssa.ph331, %204
+  br i1 %205, label %206, label %_ZNK6icu_7713UnicodeString6charAtEi.exit170
 
-211:                                              ; preds = %203
-  %212 = and i16 %204, 2
-  %.not.i.i.i169 = icmp eq i16 %212, 0
-  %213 = load ptr, ptr %111, align 8
-  %214 = select i1 %.not.i.i.i169, ptr %213, ptr %110
-  %215 = sext i32 %.2120.lcssa340 to i64
-  %216 = getelementptr inbounds i16, ptr %214, i64 %215
-  %217 = load i16, ptr %216, align 2, !tbaa !69
+206:                                              ; preds = %198
+  %207 = and i16 %199, 2
+  %.not.i.i.i169 = icmp eq i16 %207, 0
+  %208 = load ptr, ptr %104, align 8
+  %209 = select i1 %.not.i.i.i169, ptr %208, ptr %103
+  %210 = sext i32 %.2120.lcssa.ph331 to i64
+  %211 = getelementptr inbounds i16, ptr %209, i64 %210
+  %212 = load i16, ptr %211, align 2, !tbaa !69
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit170
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit170:      ; preds = %211, %203
-  %.0.i.i168 = phi i16 [ %217, %211 ], [ -1, %203 ]
-  %218 = icmp ult i32 %.4117, %202
-  br i1 %218, label %219, label %_ZNK6icu_7713UnicodeString6charAtEi.exit173
+_ZNK6icu_7713UnicodeString6charAtEi.exit170:      ; preds = %206, %198
+  %.0.i.i168 = phi i16 [ %212, %206 ], [ -1, %198 ]
+  %213 = icmp ult i32 %.4117, %197
+  br i1 %213, label %214, label %_ZNK6icu_7713UnicodeString6charAtEi.exit173
 
-219:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit170
-  %220 = and i16 %198, 2
-  %.not.i.i.i172 = icmp eq i16 %220, 0
-  %221 = load ptr, ptr %113, align 8
-  %222 = select i1 %.not.i.i.i172, ptr %221, ptr %112
-  %223 = sext i32 %.4117 to i64
-  %224 = getelementptr inbounds i16, ptr %222, i64 %223
-  %225 = load i16, ptr %224, align 2, !tbaa !69
+214:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit170
+  %215 = and i16 %193, 2
+  %.not.i.i.i172 = icmp eq i16 %215, 0
+  %216 = load ptr, ptr %106, align 8
+  %217 = select i1 %.not.i.i.i172, ptr %216, ptr %105
+  %218 = sext i32 %.4117 to i64
+  %219 = getelementptr inbounds i16, ptr %217, i64 %218
+  %220 = load i16, ptr %219, align 2, !tbaa !69
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit173
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit173:      ; preds = %219, %_ZNK6icu_7713UnicodeString6charAtEi.exit170
-  %.0.i.i171 = phi i16 [ %225, %219 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit170 ]
+_ZNK6icu_7713UnicodeString6charAtEi.exit173:      ; preds = %214, %_ZNK6icu_7713UnicodeString6charAtEi.exit170
+  %.0.i.i171 = phi i16 [ %220, %214 ], [ -1, %_ZNK6icu_7713UnicodeString6charAtEi.exit170 ]
   %.not140 = icmp eq i16 %.0.i.i168, %.0.i.i171
-  br i1 %.not140, label %302, label %226
+  br i1 %.not140, label %297, label %221
 
-226:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit173, %.critedge5.thread
-  br i1 %.not131, label %299, label %227
+221:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit173, %191
+  br i1 %.not131, label %294, label %222
 
-227:                                              ; preds = %226
-  %228 = load i32, ptr %3, align 4, !tbaa !12
-  %229 = icmp eq i32 %.4117, %228
-  %230 = icmp ult i32 %.4117, %202
-  %or.cond235 = and i1 %230, %229
+222:                                              ; preds = %221
+  %223 = load i32, ptr %3, align 4, !tbaa !12
+  %224 = icmp eq i32 %.4117, %223
+  %225 = icmp ult i32 %.4117, %197
+  %or.cond235 = and i1 %225, %224
   br i1 %or.cond235, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit176:      ; preds = %227
-  %231 = and i16 %198, 2
-  %.not.i.i.i175 = icmp eq i16 %231, 0
-  %232 = load ptr, ptr %113, align 8
-  %233 = select i1 %.not.i.i.i175, ptr %232, ptr %112
-  %234 = sext i32 %.4117 to i64
-  %235 = getelementptr inbounds i16, ptr %233, i64 %234
-  %236 = load i16, ptr %235, align 2, !tbaa !69
-  %237 = icmp eq i16 %236, 46
-  br i1 %237, label %238, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
+_ZNK6icu_7713UnicodeString6charAtEi.exit176:      ; preds = %222
+  %226 = and i16 %193, 2
+  %.not.i.i.i175 = icmp eq i16 %226, 0
+  %227 = load ptr, ptr %106, align 8
+  %228 = select i1 %.not.i.i.i175, ptr %227, ptr %105
+  %229 = sext i32 %.4117 to i64
+  %230 = getelementptr inbounds i16, ptr %228, i64 %229
+  %231 = load i16, ptr %230, align 2, !tbaa !69
+  %232 = icmp eq i16 %231, 46
+  br i1 %232, label %233, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
 
-238:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176
-  %239 = load i32, ptr %1, align 4, !tbaa !12
-  %240 = icmp slt i32 %239, 1
-  br i1 %240, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, label %241
+233:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176
+  %234 = load i32, ptr %1, align 4, !tbaa !12
+  %235 = icmp slt i32 %234, 1
+  br i1 %235, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, label %236
 
-241:                                              ; preds = %238
-  %242 = add nsw i32 %239, -1
-  %243 = load i16, ptr %12, align 8, !tbaa !51
-  %244 = icmp slt i16 %243, 0
-  %245 = ashr i16 %243, 5
-  %246 = sext i16 %245 to i32
-  %247 = load i32, ptr %13, align 4
-  %248 = select i1 %244, i32 %247, i32 %246
-  %249 = icmp ult i32 %242, %248
-  br i1 %249, label %250, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
+236:                                              ; preds = %233
+  %237 = add nsw i32 %234, -1
+  %238 = load i16, ptr %12, align 8, !tbaa !51
+  %239 = icmp slt i16 %238, 0
+  %240 = ashr i16 %238, 5
+  %241 = sext i16 %240 to i32
+  %242 = load i32, ptr %13, align 4
+  %243 = select i1 %239, i32 %242, i32 %241
+  %244 = icmp ult i32 %237, %243
+  br i1 %244, label %245, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 
-250:                                              ; preds = %241
-  %251 = and i16 %243, 2
-  %.not.i.i.i.i = icmp eq i16 %251, 0
-  %252 = load ptr, ptr %115, align 8
-  %253 = select i1 %.not.i.i.i.i, ptr %252, ptr %114
-  %254 = zext nneg i32 %242 to i64
-  %255 = getelementptr inbounds nuw i16, ptr %253, i64 %254
-  %256 = load i16, ptr %255, align 2, !tbaa !69
+245:                                              ; preds = %236
+  %246 = and i16 %238, 2
+  %.not.i.i.i.i = icmp eq i16 %246, 0
+  %247 = load ptr, ptr %108, align 8
+  %248 = select i1 %.not.i.i.i.i, ptr %247, ptr %107
+  %249 = zext nneg i32 %237 to i64
+  %250 = getelementptr inbounds nuw i16, ptr %248, i64 %249
+  %251 = load i16, ptr %250, align 2, !tbaa !69
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %250, %241
-  %.0.i.i.i = phi i16 [ %256, %250 ], [ -1, %241 ]
-  %257 = invoke noundef i32 @_ZN6icu_7717DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %.0.i.i.i)
+_ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %245, %236
+  %.0.i.i.i = phi i16 [ %251, %245 ], [ -1, %236 ]
+  %252 = invoke noundef i32 @_ZN6icu_7717DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %.0.i.i.i)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
-  %258 = icmp eq i32 %257, 38
-  br i1 %258, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, label %.preheader.i
+  %253 = icmp eq i32 %252, 38
+  br i1 %253, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.noexc
-  %259 = load i16, ptr %12, align 8, !tbaa !51
-  %260 = icmp slt i16 %259, 0
-  %261 = ashr i16 %259, 5
-  %262 = sext i16 %261 to i32
-  %263 = load i32, ptr %13, align 4
-  %264 = select i1 %260, i32 %263, i32 %262
-  %265 = and i16 %259, 2
-  %.not.i.i.i16.i = icmp eq i16 %265, 0
-  %266 = load ptr, ptr %115, align 8
-  %267 = select i1 %.not.i.i.i16.i, ptr %266, ptr %114
-  %268 = zext nneg i32 %242 to i64
-  br label %269
+  %254 = load i16, ptr %12, align 8, !tbaa !51
+  %255 = icmp slt i16 %254, 0
+  %256 = ashr i16 %254, 5
+  %257 = sext i16 %256 to i32
+  %258 = load i32, ptr %13, align 4
+  %259 = select i1 %255, i32 %258, i32 %257
+  %260 = and i16 %254, 2
+  %.not.i.i.i16.i = icmp eq i16 %260, 0
+  %261 = load ptr, ptr %108, align 8
+  %262 = select i1 %.not.i.i.i16.i, ptr %261, ptr %107
+  %263 = zext nneg i32 %237 to i64
+  br label %264
 
-269:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i, %.preheader.i
-  %indvars.iv.i = phi i64 [ %268, %.preheader.i ], [ %indvars.iv.next.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i ]
+264:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ %263, %.preheader.i ], [ %indvars.iv.next.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %270 = trunc nsw i64 %indvars.iv.next.i to i32
-  %271 = icmp ugt i32 %264, %270
-  br i1 %271, label %272, label %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i
+  %265 = trunc nsw i64 %indvars.iv.next.i to i32
+  %266 = icmp ugt i32 %259, %265
+  br i1 %266, label %267, label %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i
 
-272:                                              ; preds = %269
-  %273 = getelementptr inbounds i16, ptr %267, i64 %indvars.iv.next.i
-  %274 = load i16, ptr %273, align 2, !tbaa !69
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds i16, ptr %262, i64 %indvars.iv.next.i
+  %269 = load i16, ptr %268, align 2, !tbaa !69
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit17.i:     ; preds = %272, %269
-  %.0.i.i15.i = phi i16 [ %274, %272 ], [ -1, %269 ]
-  %275 = icmp eq i16 %.0.i.i15.i, %.0.i.i.i
-  br i1 %275, label %269, label %276, !llvm.loop !188
+_ZNK6icu_7713UnicodeString6charAtEi.exit17.i:     ; preds = %267, %264
+  %.0.i.i15.i = phi i16 [ %269, %267 ], [ -1, %264 ]
+  %270 = icmp eq i16 %.0.i.i15.i, %.0.i.i.i
+  br i1 %270, label %264, label %271, !llvm.loop !188
 
-276:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i
-  %277 = trunc nsw i64 %indvars.iv.i to i32
-  %278 = sub i32 %239, %277
-  %279 = invoke noundef signext i8 @_ZN6icu_7717DateFormatSymbols14isNumericFieldE16UDateFormatFieldi(i32 noundef %257, i32 noundef %278)
+271:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit17.i
+  %272 = trunc nsw i64 %indvars.iv.i to i32
+  %273 = sub i32 %234, %272
+  %274 = invoke noundef signext i8 @_ZN6icu_7717DateFormatSymbols14isNumericFieldE16UDateFormatFieldi(i32 noundef %252, i32 noundef %273)
           to label %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit unwind label %.loopexit.split-lp
 
-_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit: ; preds = %276
-  %.not.i.not = icmp eq i8 %279, 0
-  br i1 %.not.i.not, label %.backedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, !llvm.loop !207
+_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit: ; preds = %271
+  %.not.i.not = icmp eq i8 %274, 0
+  br i1 %.not.i.not, label %299, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread, !llvm.loop !207
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread: ; preds = %.noexc, %238, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit176, %227
-  %280 = load i16, ptr %108, align 8, !tbaa !51
-  %281 = icmp slt i16 %280, 0
-  %282 = ashr i16 %280, 5
-  %283 = sext i16 %282 to i32
-  %284 = load i32, ptr %109, align 4
-  %285 = select i1 %281, i32 %284, i32 %283
-  %286 = icmp ult i32 %.4117, %285
-  br i1 %286, label %287, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180
+_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread: ; preds = %.noexc, %233, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit176, %222
+  %275 = load i16, ptr %101, align 8, !tbaa !51
+  %276 = icmp slt i16 %275, 0
+  %277 = ashr i16 %275, 5
+  %278 = sext i16 %277 to i32
+  %279 = load i32, ptr %102, align 4
+  %280 = select i1 %276, i32 %279, i32 %278
+  %281 = icmp ult i32 %.4117, %280
+  br i1 %281, label %282, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180
 
-287:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
-  %288 = and i16 %280, 2
-  %.not.i.i.i179 = icmp eq i16 %288, 0
-  %289 = load ptr, ptr %113, align 8
-  %290 = select i1 %.not.i.i.i179, ptr %289, ptr %112
-  %291 = sext i32 %.4117 to i64
-  %292 = getelementptr inbounds i16, ptr %290, i64 %291
-  %293 = load i16, ptr %292, align 2, !tbaa !69
-  %294 = zext i16 %293 to i32
+282:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
+  %283 = and i16 %275, 2
+  %.not.i.i.i179 = icmp eq i16 %283, 0
+  %284 = load ptr, ptr %106, align 8
+  %285 = select i1 %.not.i.i.i179, ptr %284, ptr %105
+  %286 = sext i32 %.4117 to i64
+  %287 = getelementptr inbounds i16, ptr %285, i64 %286
+  %288 = load i16, ptr %287, align 2, !tbaa !69
+  %289 = zext i16 %288 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit180
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit180:      ; preds = %287, %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
-  %.0.i.i178 = phi i32 [ %294, %287 ], [ 65535, %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread ]
-  %295 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i178)
-          to label %296 unwind label %297
+_ZNK6icu_7713UnicodeString6charAtEi.exit180:      ; preds = %282, %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread
+  %.0.i.i178 = phi i32 [ %289, %282 ], [ 65535, %_ZNK6icu_7713UnicodeString6charAtEi.exit176.thread ]
+  %290 = invoke noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %.0.i.i178)
+          to label %291 unwind label %292
 
-296:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180
-  %.not144 = icmp eq i8 %295, 0
-  br i1 %.not144, label %299, label %.backedge
+291:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180
+  %.not144 = icmp eq i8 %290, 0
+  br i1 %.not144, label %294, label %299
 
-297:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180
-  %298 = landingpad { ptr, i32 }
+292:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180
+  %293 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-299:                                              ; preds = %296, %226
-  %300 = icmp ne i8 %5, 0
-  %301 = icmp ne i8 %6, 0
-  %or.cond = and i1 %300, %301
+294:                                              ; preds = %291, %221
+  %295 = icmp ne i8 %5, 0
+  %296 = icmp ne i8 %6, 0
+  %or.cond = and i1 %295, %296
   br i1 %or.cond, label %.critedge3, label %.thread222
 
-302:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit173
-  %303 = add nsw i32 %.2120.lcssa340, 1
-  br label %.backedge
+297:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit173
+  %298 = add nsw i32 %.2120.lcssa.ph331, 1
+  br label %299
 
-.backedge:                                        ; preds = %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit, %296, %302
-  %.3121.jt8 = phi i32 [ %.2120.lcssa340, %296 ], [ %303, %302 ], [ %.2120.lcssa340, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit ]
-  %.8.jt8 = add nsw i32 %.4117, 1
-  %304 = load i16, ptr %10, align 8, !tbaa !51
-  %305 = icmp slt i16 %304, 0
-  %306 = ashr i16 %304, 5
-  %307 = sext i16 %306 to i32
-  %308 = load i32, ptr %100, align 4
-  %309 = select i1 %305, i32 %308, i32 %307
-  %310 = icmp slt i32 %.3121.jt8, %309
-  br i1 %310, label %116, label %.critedge3, !llvm.loop !207
+299:                                              ; preds = %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit, %291, %297
+  %.3121 = phi i32 [ %.2120.lcssa.ph331, %291 ], [ %298, %297 ], [ %.2120.lcssa.ph331, %_ZN6icu_7716SimpleDateFormat22isAfterNonNumericFieldERKNS_13UnicodeStringEi.exit ]
+  %.8 = add nsw i32 %.4117, 1
+  %300 = load i16, ptr %10, align 8, !tbaa !51
+  %301 = icmp slt i16 %300, 0
+  %302 = ashr i16 %300, 5
+  %303 = sext i16 %302 to i32
+  %304 = load i32, ptr %100, align 4
+  %305 = select i1 %301, i32 %304, i32 %303
+  %306 = icmp slt i32 %.3121, %305
+  br i1 %306, label %.lr.ph357, label %.critedge3
 
-.critedge3:                                       ; preds = %116, %.backedge, %190, %299
-  %.1119 = phi i32 [ %.2120.lcssa340, %299 ], [ %.2120.lcssa.ph346, %190 ], [ %.0118279, %116 ], [ %.3121.jt8, %.backedge ]
-  %.3116 = phi i32 [ %.4117, %299 ], [ %.5.lcssa, %190 ], [ %.2115280, %116 ], [ %.8.jt8, %.backedge ]
-  %311 = icmp slt i32 %.1119, 1
-  br i1 %311, label %.critedge3.thread, label %.thread232
+.critedge3:                                       ; preds = %.lr.ph357, %299, %184, %.critedge, %294
+  %.1119 = phi i32 [ %.2120.lcssa.ph331, %294 ], [ 0, %.critedge ], [ %.2120.lcssa.ph330, %184 ], [ %.3121, %299 ], [ %.0118355, %.lr.ph357 ]
+  %.3116 = phi i32 [ %.4117, %294 ], [ %.0113, %.critedge ], [ %.5.lcssa, %184 ], [ %.8, %299 ], [ %.2115356, %.lr.ph357 ]
+  %307 = icmp slt i32 %.1119, 1
+  br i1 %307, label %308, label %.thread232
 
-.critedge3.thread:                                ; preds = %.critedge, %.critedge3
-  %312 = load i16, ptr %12, align 8, !tbaa !51
-  %313 = icmp slt i16 %312, 0
-  %314 = ashr i16 %312, 5
-  %315 = sext i16 %314 to i32
-  %316 = load i32, ptr %13, align 4
-  %317 = select i1 %313, i32 %316, i32 %315
-  %318 = icmp ult i32 %.098.lcssa, %317
-  br i1 %318, label %319, label %_ZNK6icu_7713UnicodeString6charAtEi.exit183
+308:                                              ; preds = %.critedge3
+  %309 = load i16, ptr %12, align 8, !tbaa !51
+  %310 = icmp slt i16 %309, 0
+  %311 = ashr i16 %309, 5
+  %312 = sext i16 %311 to i32
+  %313 = load i32, ptr %13, align 4
+  %314 = select i1 %310, i32 %313, i32 %312
+  %315 = icmp ult i32 %.098.lcssa, %314
+  br i1 %315, label %316, label %_ZNK6icu_7713UnicodeString6charAtEi.exit183
 
-319:                                              ; preds = %.critedge3.thread
-  %320 = and i16 %312, 2
-  %.not.i.i.i182 = icmp eq i16 %320, 0
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %323 = load ptr, ptr %322, align 8
-  %324 = select i1 %.not.i.i.i182, ptr %323, ptr %321
-  %325 = sext i32 %.098.lcssa to i64
-  %326 = getelementptr inbounds i16, ptr %324, i64 %325
-  %327 = load i16, ptr %326, align 2, !tbaa !69
+316:                                              ; preds = %308
+  %317 = and i16 %309, 2
+  %.not.i.i.i182 = icmp eq i16 %317, 0
+  %318 = load ptr, ptr %108, align 8
+  %319 = select i1 %.not.i.i.i182, ptr %318, ptr %107
+  %320 = sext i32 %.098.lcssa to i64
+  %321 = getelementptr inbounds i16, ptr %319, i64 %320
+  %322 = load i16, ptr %321, align 2, !tbaa !69
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit183
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit183:      ; preds = %319, %.critedge3.thread
-  %.0.i.i181 = phi i16 [ %327, %319 ], [ -1, %.critedge3.thread ]
-  %328 = invoke noundef i32 @_ZN6icu_7717DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %.0.i.i181)
-          to label %329 unwind label %332
+_ZNK6icu_7713UnicodeString6charAtEi.exit183:      ; preds = %316, %308
+  %.0.i.i181 = phi i16 [ %322, %316 ], [ -1, %308 ]
+  %323 = invoke noundef i32 @_ZN6icu_7717DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext %.0.i.i181)
+          to label %324 unwind label %327
 
-329:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit183
-  %.not145 = icmp eq i32 %328, 38
-  br i1 %.not145, label %334, label %330
+324:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit183
+  %.not145 = icmp eq i32 %323, 38
+  br i1 %.not145, label %329, label %325
 
-330:                                              ; preds = %329
-  %331 = invoke noundef ptr @_ZN6icu_7726SimpleDateFormatStaticSets13getIgnorablesE16UDateFormatField(i32 noundef %328)
-          to label %334 unwind label %332
+325:                                              ; preds = %324
+  %326 = invoke noundef ptr @_ZN6icu_7726SimpleDateFormatStaticSets13getIgnorablesE16UDateFormatField(i32 noundef %323)
+          to label %329 unwind label %327
 
-332:                                              ; preds = %330, %_ZNK6icu_7713UnicodeString6charAtEi.exit183
-  %333 = landingpad { ptr, i32 }
+327:                                              ; preds = %325, %_ZNK6icu_7713UnicodeString6charAtEi.exit183
+  %328 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-334:                                              ; preds = %330, %329
-  %.097 = phi ptr [ null, %329 ], [ %331, %330 ]
-  %335 = load i32, ptr %3, align 4, !tbaa !12
-  %336 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %337 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %338 = load i16, ptr %336, align 8, !tbaa !51
-  %339 = icmp slt i16 %338, 0
-  %340 = ashr i16 %338, 5
-  %341 = sext i16 %340 to i32
-  %342 = load i32, ptr %337, align 4
-  %343 = select i1 %339, i32 %342, i32 %341
-  %344 = icmp slt i32 %335, %343
-  br i1 %344, label %.lr.ph292, label %.thread232
+329:                                              ; preds = %325, %324
+  %.097 = phi ptr [ null, %324 ], [ %326, %325 ]
+  %330 = load i32, ptr %3, align 4, !tbaa !12
+  %331 = load i16, ptr %101, align 8, !tbaa !51
+  %332 = icmp slt i16 %331, 0
+  %333 = ashr i16 %331, 5
+  %334 = sext i16 %333 to i32
+  %335 = load i32, ptr %102, align 4
+  %336 = select i1 %332, i32 %335, i32 %334
+  %337 = icmp sge i32 %330, %336
+  %338 = icmp eq ptr %.097, null
+  %or.cond345 = or i1 %337, %338
+  br i1 %or.cond345, label %.thread232, label %.lr.ph282.split.preheader
 
-.lr.ph292:                                        ; preds = %334
-  %345 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %346 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %347 = icmp eq ptr %.097, null
-  br i1 %347, label %.thread232, label %.lr.ph292.split.preheader
+.lr.ph282.split.preheader:                        ; preds = %329
+  %339 = sext i32 %330 to i64
+  br label %.lr.ph282.split
 
-.lr.ph292.split.preheader:                        ; preds = %.lr.ph292
-  %348 = sext i32 %335 to i64
-  br label %.lr.ph292.split
+.lr.ph282.split:                                  ; preds = %.lr.ph282.split.preheader, %355
+  %indvars.iv297 = phi i64 [ %339, %.lr.ph282.split.preheader ], [ %indvars.iv.next298, %355 ]
+  %340 = phi i32 [ %336, %.lr.ph282.split.preheader ], [ %362, %355 ]
+  %341 = phi i16 [ %331, %.lr.ph282.split.preheader ], [ %357, %355 ]
+  %.12280 = phi i32 [ %330, %.lr.ph282.split.preheader ], [ %356, %355 ]
+  %342 = trunc nsw i64 %indvars.iv297 to i32
+  %343 = icmp ugt i32 %340, %342
+  br i1 %343, label %344, label %_ZNK6icu_7713UnicodeString6charAtEi.exit186
 
-.lr.ph292.split:                                  ; preds = %.lr.ph292.split.preheader, %364
-  %indvars.iv307 = phi i64 [ %348, %.lr.ph292.split.preheader ], [ %indvars.iv.next308, %364 ]
-  %349 = phi i32 [ %343, %.lr.ph292.split.preheader ], [ %371, %364 ]
-  %350 = phi i16 [ %338, %.lr.ph292.split.preheader ], [ %366, %364 ]
-  %.12290 = phi i32 [ %335, %.lr.ph292.split.preheader ], [ %365, %364 ]
-  %351 = trunc nsw i64 %indvars.iv307 to i32
-  %352 = icmp ugt i32 %349, %351
-  br i1 %352, label %353, label %_ZNK6icu_7713UnicodeString6charAtEi.exit186
-
-353:                                              ; preds = %.lr.ph292.split
-  %354 = and i16 %350, 2
-  %.not.i.i.i185 = icmp eq i16 %354, 0
-  %355 = load ptr, ptr %346, align 8
-  %356 = select i1 %.not.i.i.i185, ptr %355, ptr %345
-  %357 = getelementptr inbounds i16, ptr %356, i64 %indvars.iv307
-  %358 = load i16, ptr %357, align 2, !tbaa !69
-  %359 = zext i16 %358 to i32
+344:                                              ; preds = %.lr.ph282.split
+  %345 = and i16 %341, 2
+  %.not.i.i.i185 = icmp eq i16 %345, 0
+  %346 = load ptr, ptr %106, align 8
+  %347 = select i1 %.not.i.i.i185, ptr %346, ptr %105
+  %348 = getelementptr inbounds i16, ptr %347, i64 %indvars.iv297
+  %349 = load i16, ptr %348, align 2, !tbaa !69
+  %350 = zext i16 %349 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit186
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit186:      ; preds = %353, %.lr.ph292.split
-  %.0.i.i184 = phi i32 [ %359, %353 ], [ 65535, %.lr.ph292.split ]
-  %360 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %.097, i32 noundef %.0.i.i184)
-          to label %361 unwind label %362
+_ZNK6icu_7713UnicodeString6charAtEi.exit186:      ; preds = %344, %.lr.ph282.split
+  %.0.i.i184 = phi i32 [ %350, %344 ], [ 65535, %.lr.ph282.split ]
+  %351 = invoke noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %.097, i32 noundef %.0.i.i184)
+          to label %352 unwind label %353
 
-361:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit186
-  %.not150 = icmp eq i8 %360, 0
-  br i1 %.not150, label %.thread232, label %364
+352:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit186
+  %.not150 = icmp eq i8 %351, 0
+  br i1 %.not150, label %.thread232, label %355
 
-362:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit186
-  %363 = landingpad { ptr, i32 }
+353:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit186
+  %354 = landingpad { ptr, i32 }
           cleanup
-  br label %375
+  br label %366
 
-364:                                              ; preds = %361
-  %indvars.iv.next308 = add nsw i64 %indvars.iv307, 1
-  %365 = add nsw i32 %.12290, 1
-  %366 = load i16, ptr %336, align 8, !tbaa !51
-  %367 = icmp slt i16 %366, 0
-  %368 = ashr i16 %366, 5
-  %369 = sext i16 %368 to i32
-  %370 = load i32, ptr %337, align 4
-  %371 = select i1 %367, i32 %370, i32 %369
-  %372 = sext i32 %371 to i64
-  %373 = icmp slt i64 %indvars.iv.next308, %372
-  br i1 %373, label %.lr.ph292.split, label %.thread232, !llvm.loop !208
+355:                                              ; preds = %352
+  %indvars.iv.next298 = add nsw i64 %indvars.iv297, 1
+  %356 = add nsw i32 %.12280, 1
+  %357 = load i16, ptr %101, align 8, !tbaa !51
+  %358 = icmp slt i16 %357, 0
+  %359 = ashr i16 %357, 5
+  %360 = sext i16 %359 to i32
+  %361 = load i32, ptr %102, align 4
+  %362 = select i1 %358, i32 %361, i32 %360
+  %363 = sext i32 %362 to i64
+  %364 = icmp slt i64 %indvars.iv.next298, %363
+  br i1 %364, label %.lr.ph282.split, label %.thread232, !llvm.loop !208
 
-.thread232:                                       ; preds = %364, %361, %.lr.ph292, %334, %.critedge3
-  %.11 = phi i32 [ %.3116, %.critedge3 ], [ %335, %334 ], [ %335, %.lr.ph292 ], [ %365, %364 ], [ %351, %361 ]
-  %374 = add nsw i32 %.098.lcssa, -1
-  store i32 %374, ptr %1, align 4, !tbaa !12
+.thread232:                                       ; preds = %355, %352, %329, %.critedge3
+  %.11 = phi i32 [ %.3116, %.critedge3 ], [ %330, %329 ], [ %356, %355 ], [ %342, %352 ]
+  %365 = add nsw i32 %.098.lcssa, -1
+  store i32 %365, ptr %1, align 4, !tbaa !12
   store i32 %.11, ptr %3, align 4, !tbaa !12
   br label %.thread222
 
-.thread222:                                       ; preds = %.thread212, %299, %.thread232
-  %.4 = phi i8 [ 1, %.thread232 ], [ 0, %299 ], [ 0, %.thread212 ]
+.thread222:                                       ; preds = %.thread212, %294, %.thread232
+  %.4 = phi i8 [ 1, %.thread232 ], [ 0, %294 ], [ 0, %.thread212 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i8 %.4
 
-375:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit238, %.loopexit.split-lp239, %177, %297, %362, %332, %39
-  %.pn146.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %298, %297 ], [ %178, %177 ], [ %363, %362 ], [ %333, %332 ], [ %lpad.loopexit240, %.loopexit238 ], [ %lpad.loopexit.split-lp241, %.loopexit.split-lp239 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+366:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit239, %.loopexit.split-lp240, %171, %292, %353, %327, %39
+  %.pn146.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %293, %292 ], [ %172, %171 ], [ %354, %353 ], [ %328, %327 ], [ %lpad.loopexit241, %.loopexit239 ], [ %lpad.loopexit.split-lp242, %.loopexit.split-lp240 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn146.pn.pn

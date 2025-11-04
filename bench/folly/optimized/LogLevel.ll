@@ -937,14 +937,14 @@ define linkonce_odr i64 @_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5
   %11 = load i8, ptr %.01115.i.i.i.i, align 1, !tbaa !16
   %12 = sext i8 %11 to i32
   %13 = call i32 @isspace(i32 noundef %12) #21
-  %.not12.not.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not12.not.i.i.i.i, label %_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS_8ExpectedINS_4UnitENS_14ConversionCodeEEEZNS_5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS4_ISE_NSt16remove_referenceIDTclsr6detailE11parseToWraptlSD_Eclsr3stdE7declvalIRSE_EEEEE4type10error_typeEEEE4typeESD_EUlS5_E_JES6_S2_EEDTclsrT3_5then_clsrSP_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISE_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSE_OSR_DpOSS_.exit.i.i, label %9
+  %.not12.not.i.i.not.i.i = icmp eq i32 %13, 0
+  br i1 %.not12.not.i.i.not.i.i, label %_ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS_8ExpectedINS_4UnitENS_14ConversionCodeEEEZNS_5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS4_ISE_NSt16remove_referenceIDTclsr6detailE11parseToWraptlSD_Eclsr3stdE7declvalIRSE_EEEEE4type10error_typeEEEE4typeESD_EUlS5_E_JES6_S2_EEDTclsrT3_5then_clsrSP_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISE_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSE_OSR_DpOSS_.exit.i.i, label %9
 
 _ZN5folly15expected_detail30expected_detail_ExpectedHelper14ExpectedHelper5then_INS_8ExpectedINS_4UnitENS_14ConversionCodeEEEZNS_5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS4_ISE_NSt16remove_referenceIDTclsr6detailE11parseToWraptlSD_Eclsr3stdE7declvalIRSE_EEEEE4type10error_typeEEEE4typeESD_EUlS5_E_JES6_S2_EEDTclsrT3_5then_clsrSP_7return_IT2_Ecmclclsr3stdE7declvalIT0_EEcldtclsr3stdE7declvalISE_EE5valueEEL_ZNS_L4unitEEEspclsr3stdE7declvalIT1_EEEEOSE_OSR_DpOSS_.exit.i.i: ; preds = %9, %.lr.ph.i.i.i.i, %8
-  %.sroa.03.0.i12.i.i = phi i64 [ 1, %8 ], [ 1, %9 ], [ 2, %.lr.ph.i.i.i.i ]
+  %.sroa.03.0.i13.i.i = phi i64 [ 1, %8 ], [ 1, %9 ], [ 2, %.lr.ph.i.i.i.i ]
   %.sroa.3.0.insert.insert.i.i.i = phi i64 [ %.sroa.53.0.extract.shift.i, %8 ], [ %.sroa.53.0.extract.shift.i, %9 ], [ 2560, %.lr.ph.i.i.i.i ]
   %14 = and i64 %.sroa.3.0.insert.insert.i.i.i, -4294967296
-  %15 = or disjoint i64 %14, %.sroa.03.0.i12.i.i
+  %15 = or disjoint i64 %14, %.sroa.03.0.i13.i.i
   br label %17
 
 16:                                               ; preds = %2

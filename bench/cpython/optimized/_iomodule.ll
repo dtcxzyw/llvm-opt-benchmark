@@ -2455,9 +2455,9 @@ _io_open_impl.exit:                               ; preds = %134, %257, %259, %2
   br label %324
 
 324:                                              ; preds = %.thread168, %.thread165, %.thread162, %.thread155, %34, %72, %93, %114, %_io_open_impl.exit, %23, %50, %120
-  %.089 = phi ptr [ null, %50 ], [ null, %120 ], [ %.0.i, %_io_open_impl.exit ], [ null, %114 ], [ null, %93 ], [ null, %72 ], [ null, %34 ], [ null, %23 ], [ null, %.thread155 ], [ null, %.thread162 ], [ null, %.thread165 ], [ null, %.thread168 ]
+  %.094 = phi ptr [ null, %50 ], [ null, %120 ], [ %.0.i, %_io_open_impl.exit ], [ null, %114 ], [ null, %93 ], [ null, %72 ], [ null, %34 ], [ null, %23 ], [ null, %.thread155 ], [ null, %.thread162 ], [ null, %.thread165 ], [ null, %.thread168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %.089
+  ret ptr %.094
 }
 
 ; Function Attrs: nounwind uwtable

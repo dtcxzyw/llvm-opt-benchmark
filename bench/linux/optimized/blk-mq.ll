@@ -5662,9 +5662,9 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
 
 14:                                               ; preds = %193, %11
   %15 = phi ptr [ %194, %193 ], [ %9, %11 ]
-  %16 = phi i32 [ %.ph26, %193 ], [ 0, %11 ]
+  %16 = phi i32 [ %.ph27, %193 ], [ 0, %11 ]
   %17 = phi i8 [ %174, %193 ], [ 0, %11 ]
-  %18 = phi i8 [ %.ph28, %193 ], [ 0, %11 ]
+  %18 = phi i8 [ %.ph29, %193 ], [ 0, %11 ]
   %19 = phi i32 [ %171, %193 ], [ %2, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
@@ -5703,20 +5703,20 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
 ..thread_crit_edge:                               ; preds = %35
   %.pre = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre211 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre212 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread
 
 38:                                               ; preds = %35
   %39 = getelementptr i8, ptr %15, i64 -40
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, -1
-  br i1 %41, label %.thread24, label %42
+  br i1 %41, label %.thread25, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr i8, ptr %15, i64 -36
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, -1
-  br i1 %45, label %.thread24, label %46
+  br i1 %45, label %.thread25, label %46
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %21, align 8
@@ -5751,10 +5751,10 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %66 = load i32, ptr %39, align 8
   call void @blk_mq_put_tag(ptr noundef %63, ptr noundef %65, i32 noundef %66) #22
   store i32 -1, ptr %39, align 8
-  br label %.thread24
+  br label %.thread25
 
 .thread:                                          ; preds = %..thread_crit_edge, %28
-  %67 = phi ptr [ %.pre211, %..thread_crit_edge ], [ %31, %28 ]
+  %67 = phi ptr [ %.pre212, %..thread_crit_edge ], [ %31, %28 ]
   %68 = phi i32 [ %36, %..thread_crit_edge ], [ 0, %28 ]
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %70 = load ptr, ptr %69, align 8
@@ -5770,11 +5770,11 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %75 = getelementptr i8, ptr %15, i64 -40
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %.thread22
+  br i1 %77, label %78, label %.thread23
 
 78:                                               ; preds = %73
   %79 = call zeroext i1 @__blk_mq_alloc_driver_tag(ptr noundef %20)
-  br i1 %79, label %.thread22, label %80
+  br i1 %79, label %.thread23, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 168
@@ -5787,11 +5787,11 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   call void @blk_mq_sched_mark_restart_hctx(ptr noundef %26) #22
   %86 = load i32, ptr %75, align 8
   %87 = icmp eq i32 %86, -1
-  br i1 %87, label %88, label %.thread22
+  br i1 %87, label %88, label %.thread23
 
 88:                                               ; preds = %85
   %89 = call zeroext i1 @__blk_mq_alloc_driver_tag(ptr noundef %20)
-  br i1 %89, label %.thread22, label %.loopexit31
+  br i1 %89, label %.thread23, label %.loopexit32
 
 90:                                               ; preds = %80
   %91 = getelementptr inbounds nuw i8, ptr %26, i64 272
@@ -5799,13 +5799,13 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %93 = load volatile ptr, ptr %92, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !10
   %94 = icmp eq ptr %93, %92
-  br i1 %94, label %95, label %.loopexit31
+  br i1 %94, label %95, label %.loopexit32
 
 95:                                               ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %26, i64 304
   %97 = load volatile ptr, ptr %96, align 8
   %98 = icmp eq ptr %92, %97
-  br i1 %98, label %99, label %.loopexit31
+  br i1 %98, label %99, label %.loopexit32
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %21, align 8
@@ -5848,7 +5848,7 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   call void @_raw_spin_lock(ptr noundef nonnull %129) #22
   %130 = load volatile ptr, ptr %92, align 8
   %131 = icmp eq ptr %130, %92
-  br i1 %131, label %132, label %.loopexit31.sink.split
+  br i1 %131, label %132, label %.loopexit32.sink.split
 
 132:                                              ; preds = %127
   %133 = getelementptr inbounds nuw i8, ptr %111, i64 48
@@ -5885,7 +5885,7 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
 
 150:                                              ; preds = %146
   %151 = call zeroext i1 @__blk_mq_alloc_driver_tag(ptr noundef %20)
-  br i1 %151, label %152, label %.loopexit31.sink.split
+  br i1 %151, label %152, label %.loopexit32.sink.split
 
 152:                                              ; preds = %150, %146
   %153 = load ptr, ptr %96, align 8
@@ -5898,30 +5898,30 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %133, ptr nonnull elementtype(i32) %133) #22, !srcloc !138
   call void @_raw_spin_unlock(ptr noundef nonnull %129) #22
   call void @_raw_spin_unlock_irq(ptr noundef %128) #22
-  br label %.thread22
+  br label %.thread23
 
-.loopexit31.sink.split:                           ; preds = %150, %127
+.loopexit32.sink.split:                           ; preds = %150, %127
   call void @_raw_spin_unlock(ptr noundef nonnull %129) #22
   call void @_raw_spin_unlock_irq(ptr noundef %128) #22
-  br label %.loopexit31
+  br label %.loopexit32
 
-.loopexit31:                                      ; preds = %95, %90, %88, %.loopexit31.sink.split
-  br i1 %27, label %156, label %.thread24
+.loopexit32:                                      ; preds = %95, %90, %88, %.loopexit32.sink.split
+  br i1 %27, label %156, label %.thread25
 
-156:                                              ; preds = %.loopexit31
+156:                                              ; preds = %.loopexit32
   %157 = load ptr, ptr %20, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
-  br i1 %162, label %.thread24, label %163
+  br i1 %162, label %.thread25, label %163
 
 163:                                              ; preds = %156
   call void %161(ptr noundef %157, i32 noundef %74) #22
-  br label %.thread24
+  br label %.thread25
 
-.thread22:                                        ; preds = %85, %88, %152, %73, %78
+.thread23:                                        ; preds = %85, %88, %152, %73, %78
   %164 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %15, align 8
@@ -5941,20 +5941,20 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %174 = call zeroext i8 %173(ptr noundef %0, ptr noundef nonnull %5) #22
   switch i8 %174, label %183 [
     i8 0, label %175
-    i8 9, label %.loopexit32
-    i8 13, label %.loopexit32.loopexit
+    i8 9, label %.loopexit33
+    i8 13, label %.loopexit33.loopexit
     i8 14, label %180
   ]
 
-175:                                              ; preds = %.thread22
+175:                                              ; preds = %.thread23
   %176 = add i32 %16, 1
   br label %193
 
-.loopexit32.loopexit:                             ; preds = %.thread22
-  br label %.loopexit32
+.loopexit33.loopexit:                             ; preds = %.thread23
+  br label %.loopexit33
 
-.loopexit32:                                      ; preds = %.thread22, %.loopexit32.loopexit
-  %177 = phi i8 [ %18, %.loopexit32.loopexit ], [ 1, %.thread22 ]
+.loopexit33:                                      ; preds = %.thread23, %.loopexit33.loopexit
+  %177 = phi i8 [ %18, %.loopexit33.loopexit ], [ 1, %.thread23 ]
   %178 = load ptr, ptr %1, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store ptr %15, ptr %179, align 8
@@ -5962,9 +5962,9 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   store ptr %1, ptr %164, align 8
   store volatile ptr %15, ptr %1, align 8
   call fastcc void @__blk_mq_requeue_request(ptr noundef %20)
-  br label %.thread24
+  br label %.thread25
 
-180:                                              ; preds = %.thread22
+180:                                              ; preds = %.thread23
   %181 = load ptr, ptr %4, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %15, ptr %182, align 8
@@ -5974,7 +5974,7 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   call fastcc void @__blk_mq_requeue_request(ptr noundef %20)
   br label %193
 
-183:                                              ; preds = %.thread22
+183:                                              ; preds = %.thread23
   %184 = getelementptr i8, ptr %15, i64 -28
   %185 = load i32, ptr %184, align 4
   %186 = call zeroext i1 @blk_update_request(ptr noundef %20, i8 noundef zeroext %174, i32 noundef %185)
@@ -5989,33 +5989,33 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   call void @__blk_mq_end_request(ptr noundef %20, i8 noundef zeroext %174)
   br label %193
 
-.thread24:                                        ; preds = %163, %156, %61, %42, %38, %.loopexit31, %.loopexit32
-  %189 = phi i32 [ 0, %.loopexit32 ], [ 1, %163 ], [ 1, %156 ], [ 2, %61 ], [ 2, %42 ], [ 2, %38 ], [ 1, %.loopexit31 ]
-  %190 = phi i8 [ %174, %.loopexit32 ], [ %17, %163 ], [ %17, %156 ], [ %17, %61 ], [ %17, %42 ], [ %17, %38 ], [ %17, %.loopexit31 ]
-  %191 = phi i8 [ %177, %.loopexit32 ], [ %18, %163 ], [ %18, %156 ], [ %18, %61 ], [ %18, %42 ], [ %18, %38 ], [ %18, %.loopexit31 ]
-  %192 = phi i32 [ %171, %.loopexit32 ], [ 0, %163 ], [ 0, %156 ], [ 0, %61 ], [ 0, %42 ], [ 0, %38 ], [ %19, %.loopexit31 ]
+.thread25:                                        ; preds = %163, %156, %61, %42, %38, %.loopexit32, %.loopexit33
+  %189 = phi i32 [ 0, %.loopexit33 ], [ 1, %163 ], [ 1, %156 ], [ 2, %61 ], [ 2, %42 ], [ 2, %38 ], [ 1, %.loopexit32 ]
+  %190 = phi i8 [ %174, %.loopexit33 ], [ %17, %163 ], [ %17, %156 ], [ %17, %61 ], [ %17, %42 ], [ %17, %38 ], [ %17, %.loopexit32 ]
+  %191 = phi i8 [ %177, %.loopexit33 ], [ %18, %163 ], [ %18, %156 ], [ %18, %61 ], [ %18, %42 ], [ %18, %38 ], [ %18, %.loopexit32 ]
+  %192 = phi i32 [ %171, %.loopexit33 ], [ 0, %163 ], [ 0, %156 ], [ 0, %61 ], [ 0, %42 ], [ 0, %38 ], [ %19, %.loopexit32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit33
+  br label %.loopexit34
 
 193:                                              ; preds = %188, %180, %175
-  %.ph26 = phi i32 [ %176, %175 ], [ %16, %180 ], [ %16, %188 ]
-  %.ph28 = phi i8 [ %18, %175 ], [ 1, %180 ], [ %18, %188 ]
+  %.ph27 = phi i32 [ %176, %175 ], [ %16, %180 ], [ %16, %188 ]
+  %.ph29 = phi i8 [ %18, %175 ], [ 1, %180 ], [ %18, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %194 = load volatile ptr, ptr %1, align 8
   %195 = icmp eq ptr %194, %1
-  br i1 %195, label %.loopexit33, label %14, !llvm.loop !139
+  br i1 %195, label %.loopexit34, label %14, !llvm.loop !139
 
-.loopexit33:                                      ; preds = %193, %.thread24
-  %196 = phi i32 [ %192, %.thread24 ], [ %171, %193 ]
-  %197 = phi i8 [ %191, %.thread24 ], [ %.ph28, %193 ]
-  %198 = phi i8 [ %190, %.thread24 ], [ %174, %193 ]
-  %199 = phi i32 [ %16, %.thread24 ], [ %.ph26, %193 ]
-  %200 = phi i32 [ %189, %.thread24 ], [ 0, %193 ]
+.loopexit34:                                      ; preds = %193, %.thread25
+  %196 = phi i32 [ %192, %.thread25 ], [ %171, %193 ]
+  %197 = phi i8 [ %191, %.thread25 ], [ %.ph29, %193 ]
+  %198 = phi i8 [ %190, %.thread25 ], [ %174, %193 ]
+  %199 = phi i32 [ %16, %.thread25 ], [ %.ph27, %193 ]
+  %200 = phi i32 [ %189, %.thread25 ], [ 0, %193 ]
   %201 = load volatile ptr, ptr %4, align 8
   %202 = icmp eq ptr %201, %4
   br i1 %202, label %211, label %203
 
-203:                                              ; preds = %.loopexit33
+203:                                              ; preds = %.loopexit34
   %204 = load volatile ptr, ptr %4, align 8
   %205 = icmp eq ptr %204, %4
   br i1 %205, label %211, label %206
@@ -6033,7 +6033,7 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   store volatile ptr %4, ptr %8, align 8
   br label %211
 
-211:                                              ; preds = %206, %203, %.loopexit33
+211:                                              ; preds = %206, %203, %.loopexit34
   %212 = load volatile ptr, ptr %1, align 8
   %213 = icmp ne ptr %212, %1
   %214 = icmp ne i8 %198, 0
@@ -6126,8 +6126,8 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %267 = icmp eq i32 %196, 0
   br i1 %267, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %265, %.thread30
-  %268 = phi ptr [ %285, %.thread30 ], [ %253, %265 ]
+.preheader:                                       ; preds = %265, %.thread31
+  %268 = phi ptr [ %285, %.thread31 ], [ %253, %265 ]
   %269 = getelementptr i8, ptr %268, i64 -72
   %270 = load ptr, ptr %269, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
@@ -6135,30 +6135,30 @@ define dso_local noundef zeroext i1 @blk_mq_dispatch_rq_list(ptr noundef %0, ptr
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 48
   %274 = load ptr, ptr %273, align 8
   %275 = icmp eq ptr %274, null
-  br i1 %275, label %.thread30, label %276
+  br i1 %275, label %.thread31, label %276
 
 276:                                              ; preds = %.preheader
   %277 = call i32 %274(ptr noundef %269) #22
   %278 = icmp sgt i32 %277, -1
-  br i1 %278, label %279, label %.thread30
+  br i1 %278, label %279, label %.thread31
 
 279:                                              ; preds = %276
   %280 = load ptr, ptr %13, align 8
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = load ptr, ptr %281, align 8
   %283 = icmp eq ptr %282, null
-  br i1 %283, label %.thread30, label %284
+  br i1 %283, label %.thread31, label %284
 
 284:                                              ; preds = %279
   call void %282(ptr noundef %7, i32 noundef %277) #22
-  br label %.thread30
+  br label %.thread31
 
-.thread30:                                        ; preds = %.preheader, %284, %279, %276
+.thread31:                                        ; preds = %.preheader, %284, %279, %276
   %285 = load ptr, ptr %268, align 8
   %286 = icmp eq ptr %285, %1
   br i1 %286, label %.loopexit, label %.preheader, !llvm.loop !144
 
-.loopexit:                                        ; preds = %.thread30, %265
+.loopexit:                                        ; preds = %.thread31, %265
   call void @_raw_spin_lock(ptr noundef %0) #22
   %287 = load volatile ptr, ptr %1, align 8
   %288 = icmp eq ptr %287, %1
@@ -9040,9 +9040,9 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %27, label %.preheader22
+  br i1 %9, label %27, label %.preheader23
 
-.preheader22:                                     ; preds = %3, %21
+.preheader23:                                     ; preds = %3, %21
   %10 = phi i32 [ %22, %21 ], [ 0, %3 ]
   %11 = sext i32 %10 to i64
   %12 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %11
@@ -9051,17 +9051,17 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %15 = icmp ugt i32 %14, %1
   br i1 %15, label %21, label %16
 
-16:                                               ; preds = %.preheader22
+16:                                               ; preds = %.preheader23
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, %14
   %20 = icmp ugt i32 %19, %1
   br i1 %20, label %24, label %21
 
-21:                                               ; preds = %16, %.preheader22
+21:                                               ; preds = %16, %.preheader23
   %22 = add nuw i32 %10, 1
   %23 = icmp eq i32 %22, %8
-  br i1 %23, label %24, label %.preheader22, !llvm.loop !194
+  br i1 %23, label %24, label %.preheader23, !llvm.loop !194
 
 24:                                               ; preds = %21, %16
   %25 = phi i32 [ 0, %21 ], [ %10, %16 ]
@@ -9114,9 +9114,9 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
 55:                                               ; preds = %49
   %56 = load i32, ptr %7, align 8
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %75, label %.preheader21
+  br i1 %57, label %75, label %.preheader22
 
-.preheader21:                                     ; preds = %55, %69
+.preheader22:                                     ; preds = %55, %69
   %58 = phi i32 [ %70, %69 ], [ 0, %55 ]
   %59 = sext i32 %58 to i64
   %60 = getelementptr %struct.blk_mq_queue_map, ptr %6, i64 %59
@@ -9125,17 +9125,17 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %63 = icmp ugt i32 %62, %1
   br i1 %63, label %69, label %64
 
-64:                                               ; preds = %.preheader21
+64:                                               ; preds = %.preheader22
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, %62
   %68 = icmp ugt i32 %67, %1
   br i1 %68, label %72, label %69
 
-69:                                               ; preds = %64, %.preheader21
+69:                                               ; preds = %64, %.preheader22
   %70 = add nuw i32 %58, 1
   %71 = icmp eq i32 %70, %56
-  br i1 %71, label %72, label %.preheader21, !llvm.loop !194
+  br i1 %71, label %72, label %.preheader22, !llvm.loop !194
 
 72:                                               ; preds = %69, %64
   %73 = phi i32 [ 0, %69 ], [ %58, %64 ]
@@ -9203,7 +9203,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %111 = trunc i64 %109 to i32
   %112 = tail call ptr @__alloc_pages(i32 noundef 77056, i32 noundef %111, i32 noundef %110, ptr noundef null) #22
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %.split31.us
+  br i1 %113, label %114, label %.split32.us
 
 114:                                              ; preds = %.split.us
   %115 = add nsw i64 %109, -1
@@ -9212,14 +9212,14 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %118 = shl i64 4096, %117
   %119 = icmp ult i64 %118, %95
   %120 = select i1 %116, i1 true, i1 %119
-  br i1 %120, label %.thread15, label %.split.us, !llvm.loop !197
+  br i1 %120, label %.thread16, label %.split.us, !llvm.loop !197
 
 .split:                                           ; preds = %107, %125
   %121 = phi i64 [ %126, %125 ], [ %108, %107 ]
   %122 = trunc i64 %121 to i32
   %123 = tail call ptr @__alloc_pages(i32 noundef 77056, i32 noundef %122, i32 noundef %84, ptr noundef null) #22
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %.split31.us
+  br i1 %124, label %125, label %.split32.us
 
 125:                                              ; preds = %.split
   %126 = add nsw i64 %121, -1
@@ -9228,12 +9228,12 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %129 = shl i64 4096, %128
   %130 = icmp ult i64 %129, %95
   %131 = select i1 %127, i1 true, i1 %130
-  br i1 %131, label %.thread15, label %.split, !llvm.loop !197
+  br i1 %131, label %.thread16, label %.split, !llvm.loop !197
 
-.split31.us:                                      ; preds = %.split, %.split.us
+.split32.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi ptr [ %112, %.split.us ], [ %123, %.split ]
-  %.us-phi32 = phi i64 [ %109, %.split.us ], [ %121, %.split ]
-  %132 = shl i64 %.us-phi32, 32
+  %.us-phi33 = phi i64 [ %109, %.split.us ], [ %121, %.split ]
+  %132 = shl i64 %.us-phi33, 32
   %133 = ashr exact i64 %132, 32
   %134 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
@@ -9244,7 +9244,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %137 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   store ptr %136, ptr %137, align 8
   store volatile ptr %134, ptr %136, align 8
-  %138 = and i64 %.us-phi32, 4294967295
+  %138 = and i64 %.us-phi33, 4294967295
   %139 = shl i64 4096, %138
   %140 = udiv i64 %139, %95
   %141 = trunc i64 %140 to i32
@@ -9256,7 +9256,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %147 = icmp eq i32 %143, 0
   br i1 %147, label %.loopexit, label %148
 
-148:                                              ; preds = %.split31.us
+148:                                              ; preds = %.split32.us
   %149 = ptrtoint ptr %.us-phi to i64
   %150 = load i64, ptr @vmemmap_base, align 8
   %151 = sub i64 %149, %150
@@ -9298,14 +9298,14 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   %177 = load ptr, ptr %51, align 8
   %178 = getelementptr ptr, ptr %177, i64 %167
   store ptr null, ptr %178, align 8
-  br label %.thread15
+  br label %.thread16
 
-.loopexit:                                        ; preds = %156, %.split31.us
-  %179 = phi i32 [ %98, %.split31.us ], [ %159, %156 ]
+.loopexit:                                        ; preds = %156, %.split32.us
+  %179 = phi i32 [ %98, %.split32.us ], [ %159, %156 ]
   %180 = icmp ult i32 %179, %2
   br i1 %180, label %.preheader, label %.thread
 
-.thread15:                                        ; preds = %125, %114, %176
+.thread16:                                        ; preds = %125, %114, %176
   tail call void @blk_mq_free_rqs(ptr noundef %0, ptr noundef nonnull %41, i32 noundef %1)
   %181 = load ptr, ptr %47, align 8
   tail call void @kfree(ptr noundef %181) #22
@@ -9315,7 +9315,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   store ptr null, ptr %51, align 8
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %43, %53, %.thread15
+.thread.sink.split:                               ; preds = %43, %53, %.thread16
   tail call void @blk_mq_free_tags(ptr noundef nonnull %41) #22
   br label %.thread
 

@@ -576,519 +576,532 @@ define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %0, ptr nounde
   %12 = alloca [200 x i8], align 16
   %13 = alloca [200 x i8], align 16
   %14 = alloca [200 x i8], align 16
-  %15 = alloca [2048 x i8], align 16
+  %15 = alloca [200 x i8], align 16
   %16 = alloca [2048 x i8], align 16
-  %17 = alloca ptr, align 8
-  %18 = load ptr, ptr %3, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %17 = alloca [2048 x i8], align 16
+  %18 = alloca ptr, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %1, align 8, !tbaa !16
   %.not = icmp eq ptr %2, null
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.sink.sroa.gep251 = getelementptr inbounds nuw i8, ptr %15, i64 5
-  br i1 %.not, label %20, label %19
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.sink.sroa.gep253 = getelementptr inbounds nuw i8, ptr %16, i64 5
+  br i1 %.not, label %21, label %20
 
-19:                                               ; preds = %9
+20:                                               ; preds = %9
   store ptr null, ptr %2, align 8, !tbaa !18
-  br label %20
+  br label %21
 
-20:                                               ; preds = %19, %9
-  %21 = icmp eq ptr %18, null
-  br i1 %21, label %22, label %.thread215
+21:                                               ; preds = %20, %9
+  %22 = icmp eq ptr %19, null
+  br i1 %22, label %23, label %.thread217
 
-22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %23 = tail call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 105, i64 noundef 0, ptr noundef null) #11
-  %24 = trunc i64 %23 to i32
-  call void @get_sock_info_address(i32 noundef %24, ptr noundef null, ptr noundef nonnull %17) #11
-  %25 = load ptr, ptr %17, align 8, !tbaa !18
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %31, label %27
+23:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  %24 = tail call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 105, i64 noundef 0, ptr noundef null) #11
+  %25 = trunc i64 %24 to i32
+  call void @get_sock_info_address(i32 noundef %25, ptr noundef null, ptr noundef nonnull %18) #11
+  %26 = load ptr, ptr %18, align 8, !tbaa !18
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %32, label %28
 
-27:                                               ; preds = %22
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull %25) #11
-  %28 = load ptr, ptr %17, align 8, !tbaa !18
-  call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str.8, i32 noundef 290) #11
-  %29 = call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 101, i64 noundef 0, ptr noundef null) #11
-  %30 = icmp slt i64 %29, 1
-  br i1 %30, label %.thread, label %32
+28:                                               ; preds = %23
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull %26) #11
+  %29 = load ptr, ptr %18, align 8, !tbaa !18
+  call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.8, i32 noundef 290) #11
+  %30 = call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 101, i64 noundef 0, ptr noundef null) #11
+  %31 = icmp slt i64 %30, 1
+  br i1 %31, label %.thread, label %33
 
-.thread:                                          ; preds = %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %221
+.thread:                                          ; preds = %28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br label %226
 
-31:                                               ; preds = %22
+32:                                               ; preds = %23
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 3, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.17) #11
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %212
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br label %217
 
-.thread215:                                       ; preds = %20
+.thread217:                                       ; preds = %21
   tail call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.19) #11
-  br label %35
+  br label %36
 
-32:                                               ; preds = %27
-  %33 = call ptr @BIO_pop(ptr noundef %4) #11
-  store ptr %33, ptr %3, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread218, label %35
+33:                                               ; preds = %28
+  %34 = call ptr @BIO_pop(ptr noundef %4) #11
+  store ptr %34, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %.thread220, label %36
 
-35:                                               ; preds = %.thread215, %32
-  %.2162217 = phi ptr [ %18, %.thread215 ], [ %33, %32 ]
-  %36 = icmp sgt i32 %8, 0
-  br i1 %36, label %37, label %40
+36:                                               ; preds = %.thread217, %33
+  %.2162219 = phi ptr [ %19, %.thread217 ], [ %34, %33 ]
+  %37 = icmp sgt i32 %8, 0
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %35
-  %38 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162217, i32 noundef 105, i64 noundef 0, ptr noundef nonnull @acfd) #11
-  %39 = call i32 @alarm(i32 noundef %8) #11
-  br label %40
+38:                                               ; preds = %36
+  %39 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 105, i64 noundef 0, ptr noundef nonnull @acfd) #11
+  %40 = call i32 @alarm(i32 noundef %8) #11
+  br label %41
 
-40:                                               ; preds = %37, %35
-  %41 = call i32 @BIO_gets(ptr noundef nonnull %.2162217, ptr noundef nonnull %15, i32 noundef 2048) #11
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %221, label %43
+41:                                               ; preds = %38, %36
+  %42 = call i32 @BIO_gets(ptr noundef nonnull %.2162219, ptr noundef nonnull %16, i32 noundef 2048) #11
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %226, label %44
 
-43:                                               ; preds = %40
-  %44 = icmp slt i32 %41, 0
-  br i1 %44, label %45, label %51
+44:                                               ; preds = %41
+  %45 = icmp slt i32 %42, 0
+  br i1 %45, label %46, label %52
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.20) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %46 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
-  %47 = icmp ugt i32 %46, 199
-  br i1 %47, label %http_server_send_status.exit, label %48
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %47 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %15, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
+  %48 = icmp ugt i32 %47, 199
+  br i1 %48, label %http_server_send_status.exit, label %49
 
-48:                                               ; preds = %45
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %14) #11
-  %49 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162217, ptr noundef nonnull @.str.49, ptr noundef nonnull %14) #11
-  %50 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162217, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+49:                                               ; preds = %46
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %15) #11
+  %50 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162219, ptr noundef nonnull @.str.49, ptr noundef nonnull %15) #11
+  %51 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit
 
-http_server_send_status.exit:                     ; preds = %45, %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread218
+http_server_send_status.exit:                     ; preds = %46, %49
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %.thread220
 
-51:                                               ; preds = %43
-  %52 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 13) #15
-  %.not188 = icmp eq ptr %52, null
-  br i1 %.not188, label %57, label %53
+52:                                               ; preds = %44
+  %53 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 13) #15
+  %.not188 = icmp eq ptr %53, null
+  br i1 %.not188, label %58, label %54
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !20
-  %56 = icmp eq i8 %55, 10
-  br i1 %56, label %59, label %57
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %56 = load i8, ptr %55, align 1, !tbaa !20
+  %57 = icmp eq i8 %56, 10
+  br i1 %57, label %60, label %58
 
-57:                                               ; preds = %53, %51
-  %58 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 10) #15
-  %.not189 = icmp eq ptr %58, null
-  br i1 %.not189, label %60, label %59
+58:                                               ; preds = %54, %52
+  %59 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 10) #15
+  %.not189 = icmp eq ptr %59, null
+  br i1 %.not189, label %61, label %60
 
-59:                                               ; preds = %57, %53
-  %.0154 = phi ptr [ %52, %53 ], [ %58, %57 ]
+60:                                               ; preds = %58, %54
+  %.0154 = phi ptr [ %53, %54 ], [ %59, %58 ]
   store i8 0, ptr %.0154, align 1, !tbaa !20
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %57
-  %.1155 = phi i1 [ false, %59 ], [ true, %57 ]
-  %61 = call i32 @log_get_verbosity() #11
-  %62 = icmp slt i32 %61, 8
-  br i1 %62, label %63, label %64
+61:                                               ; preds = %60, %58
+  %.1155 = phi i1 [ false, %60 ], [ true, %58 ]
+  %62 = call i32 @log_get_verbosity() #11
+  %63 = icmp slt i32 %62, 8
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %60
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %6, i32 noundef 6, ptr noundef nonnull @.str.22, ptr noundef nonnull %15) #11
-  br label %64
+64:                                               ; preds = %61
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %6, i32 noundef 6, ptr noundef nonnull @.str.22, ptr noundef nonnull %16) #11
+  br label %65
 
-64:                                               ; preds = %63, %60
+65:                                               ; preds = %64, %61
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.23) #11
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %15) #11
-  br i1 %.1155, label %65, label %71
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %16) #11
+  br i1 %.1155, label %66, label %72
 
-65:                                               ; preds = %64
+66:                                               ; preds = %65
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.24) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %66 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
-  %67 = icmp ugt i32 %66, 199
-  br i1 %67, label %http_server_send_status.exit203, label %68
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %67 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
+  %68 = icmp ugt i32 %67, 199
+  br i1 %68, label %http_server_send_status.exit203, label %69
 
-68:                                               ; preds = %65
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #11
-  %69 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162217, ptr noundef nonnull @.str.49, ptr noundef nonnull %13) #11
-  %70 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162217, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+69:                                               ; preds = %66
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %14) #11
+  %70 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162219, ptr noundef nonnull @.str.49, ptr noundef nonnull %14) #11
+  %71 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit203
 
-http_server_send_status.exit203:                  ; preds = %65, %68
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread218
+http_server_send_status.exit203:                  ; preds = %66, %69
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br label %.thread220
 
-71:                                               ; preds = %64
+72:                                               ; preds = %65
   %.not190 = icmp ne i32 %7, 0
-  %lhsv = load i32, ptr %15, align 16
+  %lhsv = load i32, ptr %16, align 16
   %.not192 = icmp eq i32 %lhsv, 542393671
   %or.cond = select i1 %.not190, i1 %.not192, i1 false
-  br i1 %or.cond, label %74, label %72
+  br i1 %or.cond, label %75, label %73
 
-72:                                               ; preds = %71
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %15, ptr noundef nonnull dereferenceable(5) @.str.26, i64 5)
-  %73 = icmp eq i32 %bcmp, 0
-  br i1 %73, label %74, label %130
+73:                                               ; preds = %72
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %16, ptr noundef nonnull dereferenceable(5) @.str.26, i64 5)
+  %74 = icmp eq i32 %bcmp, 0
+  br i1 %74, label %75, label %131
 
-74:                                               ; preds = %72, %71
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %71 ], [ %.sink.sroa.gep251, %72 ]
-  %75 = getelementptr inbounds i8, ptr %.sink.sroa.phi, i64 -1
-  store i8 0, ptr %75, align 1, !tbaa !20
-  br label %76
+75:                                               ; preds = %73, %72
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %72 ], [ %.sink.sroa.gep253, %73 ]
+  %76 = getelementptr inbounds i8, ptr %.sink.sroa.phi, i64 -1
+  store i8 0, ptr %76, align 1, !tbaa !20
+  br label %77
 
-76:                                               ; preds = %78, %74
-  %.1158 = phi ptr [ %.sink.sroa.phi, %74 ], [ %79, %78 ]
-  %77 = load i8, ptr %.1158, align 1, !tbaa !20
-  switch i8 %77, label %80 [
-    i8 32, label %78
-    i8 47, label %86
+77:                                               ; preds = %79, %75
+  %.1158 = phi ptr [ %.sink.sroa.phi, %75 ], [ %80, %79 ]
+  %78 = load i8, ptr %.1158, align 1, !tbaa !20
+  switch i8 %78, label %81 [
+    i8 32, label %79
+    i8 47, label %87
   ]
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %.1158, i64 1
-  br label %76, !llvm.loop !21
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %.1158, i64 1
+  br label %77, !llvm.loop !21
 
-80:                                               ; preds = %76
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull %15, ptr noundef nonnull %.1158) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %81 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %12, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
-  %82 = icmp ugt i32 %81, 199
-  br i1 %82, label %http_server_send_status.exit205, label %83
+81:                                               ; preds = %77
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull %16, ptr noundef nonnull %.1158) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %82 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
+  %83 = icmp ugt i32 %82, 199
+  br i1 %83, label %http_server_send_status.exit205, label %84
 
-83:                                               ; preds = %80
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %12) #11
-  %84 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162217, ptr noundef nonnull @.str.49, ptr noundef nonnull %12) #11
-  %85 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162217, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+84:                                               ; preds = %81
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #11
+  %85 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162219, ptr noundef nonnull @.str.49, ptr noundef nonnull %13) #11
+  %86 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit205
 
-http_server_send_status.exit205:                  ; preds = %80, %83
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread218
+http_server_send_status.exit205:                  ; preds = %81, %84
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  br label %.thread220
 
-86:                                               ; preds = %76
-  %87 = getelementptr inbounds nuw i8, ptr %.1158, i64 1
-  br label %88
+87:                                               ; preds = %77
+  %88 = getelementptr inbounds nuw i8, ptr %.1158, i64 1
+  br label %89
 
-88:                                               ; preds = %90, %86
-  %.2156 = phi ptr [ %87, %86 ], [ %91, %90 ]
-  %89 = load i8, ptr %.2156, align 1, !tbaa !20
-  switch i8 %89, label %90 [
-    i8 0, label %92
-    i8 32, label %92
+89:                                               ; preds = %91, %87
+  %.2156 = phi ptr [ %88, %87 ], [ %92, %91 ]
+  %90 = load i8, ptr %.2156, align 1, !tbaa !20
+  switch i8 %90, label %91 [
+    i8 0, label %93
+    i8 32, label %93
   ]
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %.2156, i64 1
-  br label %88, !llvm.loop !22
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %.2156, i64 1
+  br label %89, !llvm.loop !22
 
-92:                                               ; preds = %88, %88
-  %93 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2156, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #15
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %98, label %95
+93:                                               ; preds = %89, %89
+  %94 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2156, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #15
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %99, label %96
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %.2156, i64 1
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.29, ptr noundef nonnull %15, ptr noundef nonnull %96) #11
-  %97 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread218
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %.2156, i64 1
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.29, ptr noundef nonnull %16, ptr noundef nonnull %97) #11
+  %98 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 400, ptr noundef nonnull @.str.21)
+  br label %.thread220
 
-98:                                               ; preds = %92
+99:                                               ; preds = %93
   store i8 0, ptr %.2156, align 1, !tbaa !20
   %.not195 = icmp eq ptr %5, null
-  br i1 %.not195, label %104, label %99
+  br i1 %.not195, label %105, label %100
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %.2156, i64 8
-  %101 = load i8, ptr %100, align 1, !tbaa !20
-  %102 = icmp sgt i8 %101, 48
-  %103 = zext i1 %102 to i32
-  store i32 %103, ptr %5, align 4, !tbaa !3
-  br label %104
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds nuw i8, ptr %.2156, i64 8
+  %102 = load i8, ptr %101, align 1, !tbaa !20
+  %103 = icmp sgt i8 %102, 48
+  %104 = zext i1 %103 to i32
+  store i32 %104, ptr %5, align 4, !tbaa !3
+  br label %105
 
-104:                                              ; preds = %99, %98
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #15
-  %106 = icmp eq i64 %105, 3
-  br i1 %106, label %107, label %112
+105:                                              ; preds = %100, %99
+  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
+  %107 = icmp eq i64 %106, 3
+  br i1 %107, label %108, label %113
 
-107:                                              ; preds = %104
-  %108 = load i8, ptr %87, align 1, !tbaa !20
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %110, label %112
+108:                                              ; preds = %105
+  %109 = load i8, ptr %88, align 1, !tbaa !20
+  %110 = icmp eq i8 %109, 0
+  br i1 %110, label %111, label %113
 
-110:                                              ; preds = %107
-  %111 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 200, ptr noundef nonnull @.str.30)
-  br label %.thread218
+111:                                              ; preds = %108
+  %112 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 200, ptr noundef nonnull @.str.30)
+  br label %.thread220
 
-112:                                              ; preds = %107, %104
-  %113 = call fastcc i32 @urldecode(ptr noundef %87)
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %115, label %117
+113:                                              ; preds = %108, %105
+  %114 = call fastcc i32 @urldecode(ptr noundef %88)
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %116, label %118
 
-115:                                              ; preds = %112
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull %15, ptr noundef nonnull %87) #11
-  %116 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread218
+116:                                              ; preds = %113
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull %16, ptr noundef nonnull %88) #11
+  %117 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 400, ptr noundef nonnull @.str.21)
+  br label %.thread220
 
-117:                                              ; preds = %112
-  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #15
-  %119 = icmp eq i64 %118, 3
-  br i1 %119, label %120, label %137
+118:                                              ; preds = %113
+  %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
+  %120 = icmp eq i64 %119, 3
+  br i1 %120, label %121, label %138
 
-120:                                              ; preds = %117
-  %121 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %87, i32 noundef %113) #11
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %127, label %123
+121:                                              ; preds = %118
+  %122 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %88, i32 noundef %114) #11
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %128, label %124
 
-123:                                              ; preds = %120
-  %124 = call ptr @BIO_f_base64() #11
-  %125 = call ptr @BIO_new(ptr noundef %124) #11
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %128
+124:                                              ; preds = %121
+  %125 = call ptr @BIO_f_base64() #11
+  %126 = call ptr @BIO_new(ptr noundef %125) #11
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %123, %120
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %113) #11
-  br label %212
+128:                                              ; preds = %124, %121
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %114) #11
+  br label %217
 
-128:                                              ; preds = %123
-  call void @BIO_set_flags(ptr noundef nonnull %125, i32 noundef 256) #11
-  %129 = call ptr @BIO_push(ptr noundef nonnull %125, ptr noundef nonnull %121) #11
-  br label %137
-
-130:                                              ; preds = %72
-  %131 = select i1 %.not190, ptr @.str.34, ptr @.str.4
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef nonnull %131, ptr noundef nonnull %15) #11
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %132 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %11, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
-  %133 = icmp ugt i32 %132, 199
-  br i1 %133, label %http_server_send_status.exit207, label %134
-
-134:                                              ; preds = %130
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %11) #11
-  %135 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162217, ptr noundef nonnull @.str.49, ptr noundef nonnull %11) #11
-  %136 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162217, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
-  br label %http_server_send_status.exit207
-
-http_server_send_status.exit207:                  ; preds = %130, %134
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread218
-
-137:                                              ; preds = %117, %128
-  %.2165 = phi ptr [ %129, %128 ], [ null, %117 ]
+129:                                              ; preds = %124
+  call void @BIO_set_flags(ptr noundef nonnull %126, i32 noundef 256) #11
+  %130 = call ptr @BIO_push(ptr noundef nonnull %126, ptr noundef nonnull %122) #11
   br label %138
 
-138:                                              ; preds = %138, %137
-  %.2159 = phi ptr [ %87, %137 ], [ %141, %138 ]
-  %139 = load i8, ptr %.2159, align 1, !tbaa !20
-  %140 = icmp eq i8 %139, 47
-  %141 = getelementptr inbounds nuw i8, ptr %.2159, i64 1
-  br i1 %140, label %138, label %.preheader, !llvm.loop !23
+131:                                              ; preds = %73
+  %132 = select i1 %.not190, ptr @.str.34, ptr @.str.4
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef nonnull %132, ptr noundef nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %133 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %12, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
+  %134 = icmp ugt i32 %133, 199
+  br i1 %134, label %http_server_send_status.exit207, label %135
 
-.preheader:                                       ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %.2159, i64 2
-  br label %143
+135:                                              ; preds = %131
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %12) #11
+  %136 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162219, ptr noundef nonnull @.str.49, ptr noundef nonnull %12) #11
+  %137 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  br label %http_server_send_status.exit207
 
-143:                                              ; preds = %.preheader, %148
-  %.3 = phi ptr [ %149, %148 ], [ %.2156, %.preheader ]
-  %.not196 = icmp ult ptr %.3, %142
-  br i1 %.not196, label %.critedge, label %144
+http_server_send_status.exit207:                  ; preds = %131, %135
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %.thread220
 
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %.3, i64 -2
-  %146 = load i8, ptr %145, align 1, !tbaa !20
-  %147 = icmp eq i8 %146, 47
-  br i1 %147, label %148, label %.critedge
+138:                                              ; preds = %118, %129
+  %.2165 = phi ptr [ %130, %129 ], [ null, %118 ]
+  br label %139
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %.3, i64 -1
-  %150 = load i8, ptr %149, align 1, !tbaa !20
-  %151 = icmp eq i8 %150, 47
-  br i1 %151, label %143, label %.critedge, !llvm.loop !24
+139:                                              ; preds = %139, %138
+  %.2159 = phi ptr [ %88, %138 ], [ %142, %139 ]
+  %140 = load i8, ptr %.2159, align 1, !tbaa !20
+  %141 = icmp eq i8 %140, 47
+  %142 = getelementptr inbounds nuw i8, ptr %.2159, i64 1
+  br i1 %141, label %139, label %.preheader, !llvm.loop !23
 
-.critedge:                                        ; preds = %144, %143, %148
+.preheader:                                       ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %.2159, i64 2
+  br label %144
+
+144:                                              ; preds = %.preheader, %149
+  %.3 = phi ptr [ %150, %149 ], [ %.2156, %.preheader ]
+  %.not196 = icmp ult ptr %.3, %143
+  br i1 %.not196, label %.critedge, label %145
+
+145:                                              ; preds = %144
+  %146 = getelementptr inbounds i8, ptr %.3, i64 -2
+  %147 = load i8, ptr %146, align 1, !tbaa !20
+  %148 = icmp eq i8 %147, 47
+  br i1 %148, label %149, label %.critedge
+
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %.3, i64 -1
+  %151 = load i8, ptr %150, align 1, !tbaa !20
+  %152 = icmp eq i8 %151, 47
+  br i1 %152, label %144, label %.critedge, !llvm.loop !24
+
+.critedge:                                        ; preds = %145, %144, %149
   store i8 0, ptr %.3, align 1, !tbaa !20
-  %152 = call i32 @BIO_gets(ptr noundef nonnull %.2162217, ptr noundef nonnull %16, i32 noundef 2048) #11
-  %153 = icmp slt i32 %152, 1
-  br i1 %153, label %._crit_edge, label %.lr.ph
+  %153 = call i32 @BIO_gets(ptr noundef nonnull %.2162219, ptr noundef nonnull %17, i32 noundef 2048) #11
+  %154 = icmp slt i32 %153, 1
+  br i1 %154, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %191, %.critedge
+._crit_edge:                                      ; preds = %196, %.critedge
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.35) #11
-  %154 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread218
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %155 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %11, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 400, ptr noundef nonnull @.str.21) #11
+  %156 = icmp ugt i32 %155, 199
+  br i1 %156, label %http_server_send_status.exit209, label %157
 
-.lr.ph:                                           ; preds = %.critedge, %191
-  %155 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 13) #15
-  %.not197 = icmp eq ptr %155, null
-  br i1 %.not197, label %160, label %156
-
-156:                                              ; preds = %.lr.ph
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 1
-  %158 = load i8, ptr %157, align 1, !tbaa !20
-  %159 = icmp eq i8 %158, 10
-  br i1 %159, label %.critedge201, label %160
-
-160:                                              ; preds = %156, %.lr.ph
-  %161 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 10) #15
-  %.not198 = icmp eq ptr %161, null
-  br i1 %.not198, label %167, label %.critedge201
-
-.critedge201:                                     ; preds = %160, %156
-  %.4 = phi ptr [ %155, %156 ], [ %161, %160 ]
-  store i8 0, ptr %.4, align 1, !tbaa !20
-  %162 = load i8, ptr %16, align 16, !tbaa !20
-  %163 = icmp eq i8 %162, 0
-  %164 = select i1 %163, ptr @.str.36, ptr %16
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %164) #11
-  %165 = load i8, ptr %16, align 16, !tbaa !20
-  %166 = icmp eq i8 %165, 0
-  br i1 %166, label %194, label %172
-
-167:                                              ; preds = %160
-  %168 = load i8, ptr %16, align 16, !tbaa !20
-  %169 = icmp eq i8 %168, 0
-  %170 = select i1 %169, ptr @.str.36, ptr %16
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %170) #11
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.37) #11
-  %171 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread218
-
-172:                                              ; preds = %.critedge201
-  %173 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 58) #15
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %177
-
-175:                                              ; preds = %172
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.38) #11
-  %176 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread218
-
-177:                                              ; preds = %172
-  store i8 0, ptr %173, align 1, !tbaa !20
-  br label %178
-
-178:                                              ; preds = %178, %177
-  %.pn = phi ptr [ %173, %177 ], [ %.0, %178 ]
-  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %179 = load i8, ptr %.0, align 1, !tbaa !20
-  %180 = icmp eq i8 %179, 32
-  br i1 %180, label %178, label %181, !llvm.loop !25
-
-181:                                              ; preds = %178
-  br i1 %.not195, label %191, label %182
-
-182:                                              ; preds = %181
-  %183 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %16, ptr noundef nonnull @.str.39) #11
-  %184 = icmp eq i32 %183, 0
-  br i1 %184, label %185, label %191
-
-185:                                              ; preds = %182
-  %186 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.40) #11
-  %187 = icmp eq i32 %186, 0
-  br i1 %187, label %.sink.split, label %188
-
-188:                                              ; preds = %185
-  %189 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.41) #11
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %.sink.split, label %191
-
-.sink.split:                                      ; preds = %188, %185
-  %.sink248 = phi i32 [ 1, %185 ], [ 0, %188 ]
-  store i32 %.sink248, ptr %5, align 4, !tbaa !3
-  br label %191
-
-191:                                              ; preds = %.sink.split, %181, %182, %188
-  %192 = call i32 @BIO_gets(ptr noundef nonnull %.2162217, ptr noundef nonnull %16, i32 noundef 2048) #11
-  %193 = icmp slt i32 %192, 1
-  br i1 %193, label %._crit_edge, label %.lr.ph
-
-194:                                              ; preds = %.critedge201
-  %195 = call i32 @alarm(i32 noundef 0) #11
-  %.not199 = icmp eq ptr %.2165, null
-  %196 = select i1 %.not199, ptr %.2162217, ptr %.2165
-  %197 = call ptr @ASN1_item_d2i_bio(ptr noundef %0, ptr noundef nonnull %196, ptr noundef null) #11
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %201
-
-199:                                              ; preds = %194
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42) #11
-  %200 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162217, i32 noundef 400, ptr noundef nonnull @.str.21)
-  br label %.thread222
-
-201:                                              ; preds = %194
-  br i1 %.not, label %.thread222, label %202
-
-202:                                              ; preds = %201
-  %203 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.2159, ptr noundef nonnull @.str.8, i32 noundef 473) #11
-  store ptr %203, ptr %2, align 8, !tbaa !18
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %205, label %.thread222
-
-205:                                              ; preds = %202
-  %206 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2159) #15
-  %207 = add i64 %206, 1
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 3, ptr noundef nonnull @.str.43, i64 noundef %207) #11
-  call void @ASN1_item_free(ptr noundef nonnull %197, ptr noundef %0) #11
-  br label %212
-
-.thread222:                                       ; preds = %199, %202, %201
-  store ptr %197, ptr %1, align 8, !tbaa !16
-  call void @BIO_free_all(ptr noundef %.2165) #11
-  br label %211
-
-.thread218:                                       ; preds = %175, %167, %._crit_edge, %32, %220, %http_server_send_status.exit207, %115, %110, %95, %http_server_send_status.exit205, %http_server_send_status.exit203, %http_server_send_status.exit
-  %.1164 = phi ptr [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit203 ], [ null, %http_server_send_status.exit205 ], [ null, %110 ], [ null, %115 ], [ %.0163, %220 ], [ null, %95 ], [ null, %http_server_send_status.exit207 ], [ null, %32 ], [ %.2165, %._crit_edge ], [ %.2165, %167 ], [ %.2165, %175 ]
-  %.1153 = phi i32 [ %8, %http_server_send_status.exit ], [ %8, %http_server_send_status.exit203 ], [ %8, %http_server_send_status.exit205 ], [ %8, %110 ], [ %8, %115 ], [ %.0152, %220 ], [ %8, %95 ], [ %8, %http_server_send_status.exit207 ], [ %8, %32 ], [ %8, %._crit_edge ], [ %8, %167 ], [ %8, %175 ]
-  %.0151 = phi i32 [ 1, %http_server_send_status.exit ], [ 1, %http_server_send_status.exit203 ], [ 1, %http_server_send_status.exit205 ], [ 1, %110 ], [ 1, %115 ], [ -1, %220 ], [ 1, %95 ], [ 1, %http_server_send_status.exit207 ], [ -1, %32 ], [ 1, %._crit_edge ], [ 1, %167 ], [ 1, %175 ]
-  call void @BIO_free_all(ptr noundef %.1164) #11
-  %208 = icmp sgt i32 %.1153, 0
-  br i1 %208, label %209, label %211
-
-209:                                              ; preds = %.thread218
-  %210 = call i32 @alarm(i32 noundef 0) #11
-  br label %211
-
-211:                                              ; preds = %.thread222, %209, %.thread218
-  %.0151226 = phi i32 [ 1, %.thread222 ], [ %.0151, %209 ], [ %.0151, %.thread218 ]
-  store i32 -1, ptr @acfd, align 4, !tbaa !3
-  br label %221
-
-212:                                              ; preds = %31, %205, %127
-  %.0163 = phi ptr [ %121, %127 ], [ %.2165, %205 ], [ null, %31 ]
-  %.1161 = phi ptr [ %.2162217, %127 ], [ %.2162217, %205 ], [ null, %31 ]
-  %.0152 = phi i32 [ %8, %127 ], [ 0, %205 ], [ %8, %31 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %213 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 500, ptr noundef nonnull @.str.44) #11
-  %214 = icmp ugt i32 %213, 199
-  br i1 %214, label %http_server_send_status.exit209, label %215
-
-215:                                              ; preds = %212
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %10) #11
-  %216 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.1161, ptr noundef nonnull @.str.49, ptr noundef nonnull %10) #11
-  %217 = call i64 @BIO_ctrl(ptr noundef %.1161, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+157:                                              ; preds = %._crit_edge
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %11) #11
+  %158 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %.2162219, ptr noundef nonnull @.str.49, ptr noundef nonnull %11) #11
+  %159 = call i64 @BIO_ctrl(ptr noundef nonnull %.2162219, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
   br label %http_server_send_status.exit209
 
-http_server_send_status.exit209:                  ; preds = %212, %215
+http_server_send_status.exit209:                  ; preds = %._crit_edge, %157
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %.thread220
+
+.lr.ph:                                           ; preds = %.critedge, %196
+  %160 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 13) #15
+  %.not197 = icmp eq ptr %160, null
+  br i1 %.not197, label %165, label %161
+
+161:                                              ; preds = %.lr.ph
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 1
+  %163 = load i8, ptr %162, align 1, !tbaa !20
+  %164 = icmp eq i8 %163, 10
+  br i1 %164, label %.critedge201, label %165
+
+165:                                              ; preds = %161, %.lr.ph
+  %166 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 10) #15
+  %.not198 = icmp eq ptr %166, null
+  br i1 %.not198, label %172, label %.critedge201
+
+.critedge201:                                     ; preds = %165, %161
+  %.4 = phi ptr [ %160, %161 ], [ %166, %165 ]
+  store i8 0, ptr %.4, align 1, !tbaa !20
+  %167 = load i8, ptr %17, align 16, !tbaa !20
+  %168 = icmp eq i8 %167, 0
+  %169 = select i1 %168, ptr @.str.36, ptr %17
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %169) #11
+  %170 = load i8, ptr %17, align 16, !tbaa !20
+  %171 = icmp eq i8 %170, 0
+  br i1 %171, label %199, label %177
+
+172:                                              ; preds = %165
+  %173 = load i8, ptr %17, align 16, !tbaa !20
+  %174 = icmp eq i8 %173, 0
+  %175 = select i1 %174, ptr @.str.36, ptr %17
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %175) #11
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.37) #11
+  %176 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 400, ptr noundef nonnull @.str.21)
+  br label %.thread220
+
+177:                                              ; preds = %.critedge201
+  %178 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 58) #15
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %180, label %182
+
+180:                                              ; preds = %177
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.38) #11
+  %181 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 400, ptr noundef nonnull @.str.21)
+  br label %.thread220
+
+182:                                              ; preds = %177
+  store i8 0, ptr %178, align 1, !tbaa !20
+  br label %183
+
+183:                                              ; preds = %183, %182
+  %.pn = phi ptr [ %178, %182 ], [ %.0, %183 ]
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
+  %184 = load i8, ptr %.0, align 1, !tbaa !20
+  %185 = icmp eq i8 %184, 32
+  br i1 %185, label %183, label %186, !llvm.loop !25
+
+186:                                              ; preds = %183
+  br i1 %.not195, label %196, label %187
+
+187:                                              ; preds = %186
+  %188 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %17, ptr noundef nonnull @.str.39) #11
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %190, label %196
+
+190:                                              ; preds = %187
+  %191 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.40) #11
+  %192 = icmp eq i32 %191, 0
+  br i1 %192, label %.sink.split, label %193
+
+193:                                              ; preds = %190
+  %194 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.41) #11
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %.sink.split, label %196
+
+.sink.split:                                      ; preds = %193, %190
+  %.sink250 = phi i32 [ 1, %190 ], [ 0, %193 ]
+  store i32 %.sink250, ptr %5, align 4, !tbaa !3
+  br label %196
+
+196:                                              ; preds = %.sink.split, %186, %187, %193
+  %197 = call i32 @BIO_gets(ptr noundef nonnull %.2162219, ptr noundef nonnull %17, i32 noundef 2048) #11
+  %198 = icmp slt i32 %197, 1
+  br i1 %198, label %._crit_edge, label %.lr.ph
+
+199:                                              ; preds = %.critedge201
+  %200 = call i32 @alarm(i32 noundef 0) #11
+  %.not199 = icmp eq ptr %.2165, null
+  %201 = select i1 %.not199, ptr %.2162219, ptr %.2165
+  %202 = call ptr @ASN1_item_d2i_bio(ptr noundef %0, ptr noundef nonnull %201, ptr noundef null) #11
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %206
+
+204:                                              ; preds = %199
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.42) #11
+  %205 = call i32 @http_server_send_status(ptr noundef %6, ptr noundef nonnull %.2162219, i32 noundef 400, ptr noundef nonnull @.str.21)
+  br label %.thread224
+
+206:                                              ; preds = %199
+  br i1 %.not, label %.thread224, label %207
+
+207:                                              ; preds = %206
+  %208 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.2159, ptr noundef nonnull @.str.8, i32 noundef 473) #11
+  store ptr %208, ptr %2, align 8, !tbaa !18
+  %209 = icmp eq ptr %208, null
+  br i1 %209, label %210, label %.thread224
+
+210:                                              ; preds = %207
+  %211 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2159) #15
+  %212 = add i64 %211, 1
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 3, ptr noundef nonnull @.str.43, i64 noundef %212) #11
+  call void @ASN1_item_free(ptr noundef nonnull %202, ptr noundef %0) #11
+  br label %217
+
+.thread224:                                       ; preds = %204, %207, %206
+  store ptr %202, ptr %1, align 8, !tbaa !16
+  call void @BIO_free_all(ptr noundef %.2165) #11
+  br label %216
+
+.thread220:                                       ; preds = %180, %172, %http_server_send_status.exit209, %33, %225, %http_server_send_status.exit207, %116, %111, %96, %http_server_send_status.exit205, %http_server_send_status.exit203, %http_server_send_status.exit
+  %.1164 = phi ptr [ null, %http_server_send_status.exit ], [ null, %http_server_send_status.exit203 ], [ null, %http_server_send_status.exit205 ], [ null, %111 ], [ null, %116 ], [ %.0163, %225 ], [ null, %96 ], [ null, %http_server_send_status.exit207 ], [ null, %33 ], [ %.2165, %http_server_send_status.exit209 ], [ %.2165, %172 ], [ %.2165, %180 ]
+  %.1153 = phi i32 [ %8, %http_server_send_status.exit ], [ %8, %http_server_send_status.exit203 ], [ %8, %http_server_send_status.exit205 ], [ %8, %111 ], [ %8, %116 ], [ %.0152, %225 ], [ %8, %96 ], [ %8, %http_server_send_status.exit207 ], [ %8, %33 ], [ %8, %http_server_send_status.exit209 ], [ %8, %172 ], [ %8, %180 ]
+  %.0151 = phi i32 [ 1, %http_server_send_status.exit ], [ 1, %http_server_send_status.exit203 ], [ 1, %http_server_send_status.exit205 ], [ 1, %111 ], [ 1, %116 ], [ -1, %225 ], [ 1, %96 ], [ 1, %http_server_send_status.exit207 ], [ -1, %33 ], [ 1, %http_server_send_status.exit209 ], [ 1, %172 ], [ 1, %180 ]
+  call void @BIO_free_all(ptr noundef %.1164) #11
+  %213 = icmp sgt i32 %.1153, 0
+  br i1 %213, label %214, label %216
+
+214:                                              ; preds = %.thread220
+  %215 = call i32 @alarm(i32 noundef 0) #11
+  br label %216
+
+216:                                              ; preds = %.thread224, %214, %.thread220
+  %.0151228 = phi i32 [ 1, %.thread224 ], [ %.0151, %214 ], [ %.0151, %.thread220 ]
+  store i32 -1, ptr @acfd, align 4, !tbaa !3
+  br label %226
+
+217:                                              ; preds = %32, %210, %128
+  %.0163 = phi ptr [ %122, %128 ], [ %.2165, %210 ], [ null, %32 ]
+  %.1161 = phi ptr [ %.2162219, %128 ], [ %.2162219, %210 ], [ null, %32 ]
+  %.0152 = phi i32 [ %8, %128 ], [ 0, %210 ], [ %8, %32 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %218 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 200, ptr noundef nonnull @.str.50, i32 noundef 500, ptr noundef nonnull @.str.44) #11
+  %219 = icmp ugt i32 %218, 199
+  br i1 %219, label %http_server_send_status.exit211, label %220
+
+220:                                              ; preds = %217
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %10) #11
+  %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.1161, ptr noundef nonnull @.str.49, ptr noundef nonnull %10) #11
+  %222 = call i64 @BIO_ctrl(ptr noundef %.1161, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  br label %http_server_send_status.exit211
+
+http_server_send_status.exit211:                  ; preds = %217, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not, label %220, label %218
+  br i1 %.not, label %225, label %223
 
-218:                                              ; preds = %http_server_send_status.exit209
-  %219 = load ptr, ptr %2, align 8, !tbaa !18
-  call void @CRYPTO_free(ptr noundef %219, ptr noundef nonnull @.str.8, i32 noundef 494) #11
+223:                                              ; preds = %http_server_send_status.exit211
+  %224 = load ptr, ptr %2, align 8, !tbaa !18
+  call void @CRYPTO_free(ptr noundef %224, ptr noundef nonnull @.str.8, i32 noundef 494) #11
   store ptr null, ptr %2, align 8, !tbaa !18
-  br label %220
+  br label %225
 
-220:                                              ; preds = %218, %http_server_send_status.exit209
+225:                                              ; preds = %223, %http_server_send_status.exit211
   call void @BIO_free_all(ptr noundef %.1161) #11
   store ptr null, ptr %3, align 8, !tbaa !13
-  br label %.thread218
+  br label %.thread220
 
-221:                                              ; preds = %.thread, %40, %211
-  %.1 = phi i32 [ %.0151226, %211 ], [ 0, %40 ], [ 0, %.thread ]
+226:                                              ; preds = %.thread, %41, %216
+  %.1 = phi i32 [ %.0151228, %216 ], [ 0, %41 ], [ 0, %.thread ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1
 }
 

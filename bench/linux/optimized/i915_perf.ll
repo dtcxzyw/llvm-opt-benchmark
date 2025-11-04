@@ -3283,18 +3283,18 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @alloc_oa_regs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %3, 0
-  br i1 %5, label %.loopexit5, label %6
+  br i1 %5, label %.loopexit6, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %.loopexit5, label %8
+  br i1 %7, label %.loopexit6, label %8
 
 8:                                                ; preds = %6
   %9 = zext i32 %3 to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3264) #24
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit5, label %.preheader
+  br i1 %12, label %.loopexit6, label %.preheader
 
 .preheader:                                       ; preds = %8, %42
   %13 = phi i64 [ %53, %42 ], [ 0, %8 ]
@@ -3356,7 +3356,7 @@ define internal fastcc ptr @alloc_oa_regs(ptr noundef %0, ptr noundef readonly c
   %52 = getelementptr i8, ptr %14, i64 8
   %53 = add nuw nsw i64 %13, 1
   %54 = icmp eq i64 %53, %9
-  br i1 %54, label %.loopexit5, label %.preheader, !llvm.loop !69
+  br i1 %54, label %.loopexit6, label %.preheader, !llvm.loop !69
 
 .loopexit.loopexit:                               ; preds = %33, %.preheader
   %.ph.ph = phi i64 [ %39, %33 ], [ %20, %.preheader ]
@@ -3368,9 +3368,9 @@ define internal fastcc ptr @alloc_oa_regs(ptr noundef %0, ptr noundef readonly c
   %.ph = phi i64 [ -22, %31 ], [ %56, %.loopexit.loopexit ]
   tail call void @kfree(ptr noundef nonnull %11) #20
   %57 = inttoptr i64 %.ph to ptr
-  br label %.loopexit5
+  br label %.loopexit6
 
-.loopexit5:                                       ; preds = %42, %.loopexit, %8, %6, %4
+.loopexit6:                                       ; preds = %42, %.loopexit, %8, %6, %4
   %58 = phi ptr [ %57, %.loopexit ], [ null, %4 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -12 to ptr), %8 ], [ %11, %42 ]
   ret ptr %58
 }

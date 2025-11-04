@@ -3495,7 +3495,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %64 = shl i64 4096, %63
   %65 = add i64 %64, %54
   %66 = icmp ugt i64 %65, %52
-  br i1 %66, label %67, label %.loopexit27
+  br i1 %66, label %67, label %.loopexit28
 
 67:                                               ; preds = %62
   %68 = load volatile i64, ptr %0, align 8
@@ -3604,9 +3604,9 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %138 = phi i64 [ %136, %134 ], [ 1, %129 ]
   %139 = icmp samesign ugt i64 %138, %130
   %140 = add nuw nsw i64 %130, 1
-  br i1 %139, label %129, label %.loopexit27, !llvm.loop !32
+  br i1 %139, label %129, label %.loopexit28, !llvm.loop !32
 
-.loopexit27:                                      ; preds = %137, %62
+.loopexit28:                                      ; preds = %137, %62
   %141 = phi i64 [ %65, %62 ], [ %52, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %143 = load ptr, ptr %142, align 8
@@ -3619,14 +3619,14 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %155, label %151
 
-151:                                              ; preds = %.loopexit27
+151:                                              ; preds = %.loopexit28
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %153 = load i64, ptr %152, align 16
   %154 = and i64 %153, 255
   br label %155
 
-155:                                              ; preds = %151, %.loopexit27
-  %156 = phi i64 [ %154, %151 ], [ 0, %.loopexit27 ]
+155:                                              ; preds = %151, %.loopexit28
+  %156 = phi i64 [ %154, %151 ], [ 0, %.loopexit28 ]
   %157 = shl i64 4096, %156
   %158 = zext nneg i8 %145 to i64
   %159 = lshr i64 %157, %158
@@ -3711,7 +3711,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
 207:                                              ; preds = %206, %202, %199
   %208 = icmp ne i32 %160, 0
   %209 = and i1 %164, %208
-  br i1 %209, label %210, label %.thread25
+  br i1 %209, label %210, label %.thread26
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4021,7 +4021,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %409 = phi i64 [ %403, %400 ], [ %224, %249 ]
   %410 = phi i32 [ 0, %400 ], [ %252, %249 ]
   %411 = icmp eq i32 %408, 0
-  br i1 %411, label %.thread25, label %412
+  br i1 %411, label %.thread26, label %412
 
 412:                                              ; preds = %407
   %413 = load ptr, ptr %216, align 8
@@ -4029,9 +4029,9 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %415 = load i32, ptr %414, align 4
   %416 = add i32 %415, 1
   store i32 %416, ptr %414, align 4
-  br label %.thread25
+  br label %.thread26
 
-.thread25:                                        ; preds = %207, %412, %407
+.thread26:                                        ; preds = %207, %412, %407
   %417 = phi i1 [ false, %412 ], [ true, %407 ], [ true, %207 ]
   %418 = phi i32 [ %410, %412 ], [ %410, %407 ], [ 0, %207 ]
   %419 = phi i64 [ %409, %412 ], [ %409, %407 ], [ %162, %207 ]
@@ -4040,7 +4040,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %422 = icmp eq ptr %421, null
   br i1 %422, label %423, label %427
 
-423:                                              ; preds = %.thread25
+423:                                              ; preds = %.thread26
   %424 = load volatile ptr, ptr %4, align 8
   %425 = icmp eq ptr %424, %4
   br i1 %425, label %427, label %426, !prof !13
@@ -4051,7 +4051,7 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   call void asm sideeffect "711: nop\0A\09.pushsection .discard.instr_end\0A\09.long 711b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 711) #16, !srcloc !139
   br label %427
 
-427:                                              ; preds = %426, %423, %.thread25
+427:                                              ; preds = %426, %423, %.thread26
   %428 = load volatile i64, ptr %0, align 8
   %429 = and i64 %428, 1
   %430 = icmp eq i64 %429, 0
@@ -4104,9 +4104,9 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   br label %451
 
 451:                                              ; preds = %450, %444
-  br i1 %417, label %.thread26, label %452
+  br i1 %417, label %.thread27, label %452
 
-.thread26:                                        ; preds = %451
+.thread27:                                        ; preds = %451
   call void @folio_unlock(ptr noundef %0) #16
   br label %531
 
@@ -4238,8 +4238,8 @@ define internal noundef i32 @iomap_do_writepage(ptr noundef %0, ptr noundef %1, 
   %530 = icmp eq i32 %527, 0
   br i1 %530, label %546, label %531, !prof !150
 
-531:                                              ; preds = %.thread26, %529
-  %532 = phi i32 [ %418, %.thread26 ], [ %527, %529 ]
+531:                                              ; preds = %.thread27, %529
+  %532 = phi i32 [ %418, %.thread27 ], [ %527, %529 ]
   %.in = getelementptr inbounds nuw i8, ptr %7, i64 48
   %533 = load ptr, ptr %.in, align 8
   call void @__filemap_set_wb_err(ptr noundef %533, i32 noundef %532) #16
@@ -5238,7 +5238,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %72 = trunc nuw nsw i64 %50 to i32
   %73 = tail call ptr %53(ptr noundef %0, i64 noundef %1, i32 noundef %72) #16
   %74 = icmp ugt ptr %73, inttoptr (i64 -4096 to ptr)
-  br i1 %74, label %75, label %.thread14
+  br i1 %74, label %75, label %.thread15
 
 75:                                               ; preds = %.thread, %55
   %76 = phi ptr [ %73, %.thread ], [ %70, %55 ]
@@ -5247,19 +5247,19 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   br label %384
 
 79:                                               ; preds = %55
-  br i1 %51, label %.thread15, label %.thread14
+  br i1 %51, label %.thread16, label %.thread15
 
-.thread14:                                        ; preds = %.thread, %79
+.thread15:                                        ; preds = %.thread, %79
   %80 = phi ptr [ %70, %79 ], [ %73, %.thread ]
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread15, label %84
+  br i1 %83, label %.thread16, label %84
 
-84:                                               ; preds = %.thread14
+84:                                               ; preds = %.thread15
   %85 = load ptr, ptr %0, align 8
   %86 = tail call zeroext i1 %82(ptr noundef %85, ptr noundef nonnull %10) #16
-  br i1 %86, label %.thread15, label %87
+  br i1 %86, label %.thread16, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -5268,8 +5268,8 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   store i16 %90, ptr %88, align 2
   br label %356
 
-.thread15:                                        ; preds = %84, %.thread14, %79
-  %91 = phi ptr [ %80, %.thread14 ], [ %70, %79 ], [ %80, %84 ]
+.thread16:                                        ; preds = %84, %.thread15, %79
+  %91 = phi ptr [ %80, %.thread15 ], [ %70, %79 ], [ %80, %84 ]
   %92 = add i64 %50, %1
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load i64, ptr %93, align 8
@@ -5279,14 +5279,14 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %103, label %99
 
-99:                                               ; preds = %.thread15
+99:                                               ; preds = %.thread16
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %101 = load i64, ptr %100, align 16
   %102 = and i64 %101, 255
   br label %103
 
-103:                                              ; preds = %99, %.thread15
-  %104 = phi i64 [ %102, %99 ], [ 0, %.thread15 ]
+103:                                              ; preds = %99, %.thread16
+  %104 = phi i64 [ %102, %99 ], [ 0, %.thread16 ]
   %105 = shl i64 4096, %104
   %106 = add i64 %105, %95
   %107 = icmp ugt i64 %92, %106
@@ -5326,9 +5326,9 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = icmp eq i64 %132, 0
-  br i1 %133, label %134, label %.thread17, !prof !13
+  br i1 %133, label %134, label %.thread18, !prof !13
 
-.thread17:                                        ; preds = %126
+.thread18:                                        ; preds = %126
   tail call void asm sideeffect "654: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 654b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 654) #16, !srcloc !162
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 724, i32 2307, i64 12) #16, !srcloc !163
   tail call void asm sideeffect "655: nop\0A\09.pushsection .discard.instr_end\0A\09.long 655b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 655) #16, !srcloc !164
@@ -5431,7 +5431,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %202 = shl i64 4096, %201
   %203 = add i64 %202, %95
   %204 = icmp ult i64 %158, %203
-  br i1 %204, label %205, label %.thread16
+  br i1 %204, label %205, label %.thread17
 
 205:                                              ; preds = %200, %180
   %206 = tail call fastcc ptr @ifs_alloc(ptr noundef %149, ptr noundef %91, i32 noundef %187)
@@ -5444,7 +5444,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %213 = and i64 %171, %212
   %214 = icmp ne i64 %213, 0
   %215 = select i1 %211, i1 %214, i1 false
-  br i1 %215, label %.thread16, label %216
+  br i1 %215, label %.thread17, label %216
 
 216:                                              ; preds = %205
   %217 = load volatile i64, ptr %91, align 8
@@ -5454,7 +5454,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
 
 220:                                              ; preds = %216
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !55
-  br label %.thread16
+  br label %.thread17
 
 221:                                              ; preds = %216
   %222 = getelementptr i8, ptr %91, i64 1
@@ -5478,7 +5478,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   call fastcc void @iomap_adjust_read_range(ptr noundef %235, ptr noundef %91, ptr noundef nonnull %7, i64 noundef %236, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %237 = load i64, ptr %9, align 8
   %238 = icmp eq i64 %237, 0
-  br i1 %238, label %.thread16, label %239
+  br i1 %238, label %.thread17, label %239
 
 239:                                              ; preds = %233
   %240 = load i32, ptr %186, align 8
@@ -5532,7 +5532,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   call void asm sideeffect "652: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 652b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 652) #16, !srcloc !165
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 676, i32 2307, i64 12) #16, !srcloc !166
   call void asm sideeffect "653: nop\0A\09.pushsection .discard.instr_end\0A\09.long 653b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 653) #16, !srcloc !167
-  br label %.thread16
+  br label %.thread17
 
 274:                                              ; preds = %272
   %275 = load i64, ptr %8, align 8
@@ -5631,7 +5631,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
 333:                                              ; preds = %267
   %334 = and i32 %240, 32
   %335 = icmp eq i32 %334, 0
-  br i1 %335, label %336, label %.thread16
+  br i1 %335, label %336, label %.thread17
 
 336:                                              ; preds = %333
   %337 = load i64, ptr %8, align 8
@@ -5652,7 +5652,7 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %345 = icmp eq i32 %344, 0
-  br i1 %345, label %..loopexit_crit_edge, label %.thread16
+  br i1 %345, label %..loopexit_crit_edge, label %.thread17
 
 ..loopexit_crit_edge:                             ; preds = %336
   %.pre = load i64, ptr %8, align 8
@@ -5668,17 +5668,17 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   %349 = add i64 %348, %237
   store i64 %349, ptr %7, align 8
   %350 = icmp slt i64 %349, %161
-  br i1 %350, label %233, label %.thread16, !llvm.loop !168
+  br i1 %350, label %233, label %.thread17, !llvm.loop !168
 
-.thread16:                                        ; preds = %333, %347, %336, %233, %273, %220, %205, %200
+.thread17:                                        ; preds = %333, %347, %336, %233, %273, %220, %205, %200
   %351 = phi i32 [ 0, %200 ], [ -11, %205 ], [ 0, %220 ], [ -5, %273 ], [ -11, %333 ], [ 0, %347 ], [ 0, %233 ], [ %344, %336 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %352
 
-352:                                              ; preds = %.thread16, %141, %134
-  %353 = phi i32 [ %143, %141 ], [ %351, %.thread16 ], [ %135, %134 ]
+352:                                              ; preds = %.thread17, %141, %134
+  %353 = phi i32 [ %143, %141 ], [ %351, %.thread17 ], [ %135, %134 ]
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %355, label %356, !prof !169
 
@@ -5686,10 +5686,10 @@ define internal fastcc i32 @iomap_write_begin(ptr noundef %0, i64 noundef %1, i6
   store ptr %91, ptr %3, align 8
   br label %384
 
-356:                                              ; preds = %.thread17, %87, %352
-  %357 = phi ptr [ %80, %87 ], [ %91, %352 ], [ %91, %.thread17 ]
-  %358 = phi i32 [ 0, %87 ], [ %353, %352 ], [ -5, %.thread17 ]
-  %359 = phi i64 [ %50, %87 ], [ %122, %352 ], [ %122, %.thread17 ]
+356:                                              ; preds = %.thread18, %87, %352
+  %357 = phi ptr [ %80, %87 ], [ %91, %352 ], [ %91, %.thread18 ]
+  %358 = phi i32 [ 0, %87 ], [ %353, %352 ], [ -5, %.thread18 ]
+  %359 = phi i64 [ %50, %87 ], [ %122, %352 ], [ %122, %.thread18 ]
   %360 = load ptr, ptr %11, align 8
   %361 = icmp eq ptr %360, null
   br i1 %361, label %368, label %362

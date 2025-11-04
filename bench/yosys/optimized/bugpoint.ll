@@ -5395,6 +5395,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit878
 
 948:                                              ; preds = %805, %811, %812, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit872, %638, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit837
+  %cond = phi i1 [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit837 ], [ false, %638 ], [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit872 ], [ true, %812 ], [ true, %811 ], [ true, %805 ]
   %cond22 = phi i32 [ 1, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit837 ], [ 19, %638 ], [ 1, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit872 ], [ 0, %812 ], [ 0, %811 ], [ 0, %805 ]
   %.26478 = phi i32 [ %645, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit837 ], [ %.244761371, %638 ], [ %813, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit872 ], [ %813, %812 ], [ %645, %811 ], [ %645, %805 ]
   %949 = load ptr, ptr %336, align 8, !tbaa !178
@@ -5586,9 +5587,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit899: ; preds = %_ZNSt4pairIN5Y
   %1016 = load i32, ptr %377, align 4, !tbaa !52
   %1017 = add nsw i32 %1016, -1
   store i32 %1017, ptr %377, align 4, !tbaa !52
-  %cond22.off = add nsw i32 %cond22, -15
-  %switch = icmp ult i32 %cond22.off, 2
-  br i1 %switch, label %.thread387, label %.thread2446
+  br i1 %cond, label %.thread387, label %.thread2446
 
 .thread387:                                       ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit899, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit899.loopexit1511, %371, %.noexc777, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit779
   %.21473394 = phi i32 [ %.194711390, %_ZNK5Yosys5RTLIL6Module22get_blackbox_attributeEb.exit779 ], [ %.194711390, %.noexc777 ], [ %.26478, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit899 ], [ %.24476.lcssa, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit899.loopexit1511 ], [ %.194711390, %371 ]

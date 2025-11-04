@@ -301,38 +301,38 @@ parse_integer.exit:                               ; preds = %15
   %22 = call ptr @BN_new() #5
   store ptr %22, ptr %21, align 8, !tbaa !6
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %parse_integer.exit.thread, label %parse_integer.exit68
+  br i1 %23, label %parse_integer.exit.thread, label %parse_integer.exit69
 
-parse_integer.exit68:                             ; preds = %20
+parse_integer.exit69:                             ; preds = %20
   %24 = call i32 @BN_parse_asn1_unsigned(ptr noundef nonnull %2, ptr noundef nonnull %22) #5
   %.not53 = icmp eq i32 %24, 0
   br i1 %.not53, label %parse_integer.exit.thread, label %25
 
-25:                                               ; preds = %parse_integer.exit68
+25:                                               ; preds = %parse_integer.exit69
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = call ptr @BN_new() #5
   store ptr %27, ptr %26, align 8, !tbaa !6
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %parse_integer.exit.thread, label %parse_integer.exit70
+  br i1 %28, label %parse_integer.exit.thread, label %parse_integer.exit71
 
-parse_integer.exit70:                             ; preds = %25
+parse_integer.exit71:                             ; preds = %25
   %29 = call i32 @BN_parse_asn1_unsigned(ptr noundef nonnull %2, ptr noundef nonnull %27) #5
   %.not54 = icmp eq i32 %29, 0
   br i1 %.not54, label %parse_integer.exit.thread, label %30
 
-30:                                               ; preds = %parse_integer.exit70
+30:                                               ; preds = %parse_integer.exit71
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %32 = call ptr @BN_new() #5
   store ptr %32, ptr %31, align 8, !tbaa !6
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %parse_integer.exit.thread, label %parse_integer.exit72
+  br i1 %33, label %parse_integer.exit.thread, label %parse_integer.exit73
 
-parse_integer.exit72:                             ; preds = %30
+parse_integer.exit73:                             ; preds = %30
   %34 = call i32 @BN_parse_asn1_unsigned(ptr noundef nonnull %2, ptr noundef nonnull %32) #5
   %.not55 = icmp eq i32 %34, 0
   br i1 %.not55, label %parse_integer.exit.thread, label %35
 
-35:                                               ; preds = %parse_integer.exit72
+35:                                               ; preds = %parse_integer.exit73
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %37 = call fastcc i32 @parse_integer(ptr noundef %2, ptr noundef %36)
   %.not56 = icmp eq i32 %37, 0
@@ -374,7 +374,7 @@ parse_integer.exit72:                             ; preds = %30
 
 55:                                               ; preds = %52, %50
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 242) #5
-  br label %.thread84
+  br label %.thread85
 
 56:                                               ; preds = %52
   %57 = call ptr @sk_new_null() #5
@@ -385,7 +385,7 @@ parse_integer.exit72:                             ; preds = %30
 
 60:                                               ; preds = %56
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 247) #5
-  br label %.thread84
+  br label %.thread85
 
 61:                                               ; preds = %56
   %62 = call ptr @BN_CTX_new() #5
@@ -393,28 +393,28 @@ parse_integer.exit72:                             ; preds = %30
   %64 = icmp eq ptr %62, null
   %65 = icmp eq ptr %63, null
   %or.cond3 = select i1 %64, i1 true, i1 %65
-  br i1 %or.cond3, label %.thread84, label %66
+  br i1 %or.cond3, label %.thread85, label %66
 
 66:                                               ; preds = %61
   %67 = load ptr, ptr %31, align 8, !tbaa !25
   %68 = load ptr, ptr %36, align 8, !tbaa !26
   %69 = call i32 @BN_mul(ptr noundef nonnull %63, ptr noundef %67, ptr noundef %68, ptr noundef nonnull %62) #5
   %.not61 = icmp eq i32 %69, 0
-  br i1 %.not61, label %.thread84, label %.preheader
+  br i1 %.not61, label %.thread85, label %.preheader
 
 .preheader:                                       ; preds = %66, %82
   %70 = call i64 @CBS_len(ptr noundef nonnull %4) #5
   %.not62 = icmp eq i64 %70, 0
-  br i1 %.not62, label %.thread88, label %71
+  br i1 %.not62, label %.thread89, label %71
 
-.thread88:                                        ; preds = %.preheader
+.thread89:                                        ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86
 
 71:                                               ; preds = %.preheader
   %72 = call fastcc ptr @rsa_parse_additional_prime(ptr noundef %4)
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread84, label %74
+  br i1 %73, label %.thread85, label %74
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %58, align 8, !tbaa !24
@@ -425,14 +425,14 @@ parse_integer.exit72:                             ; preds = %30
 77:                                               ; preds = %74
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 265) #5
   call void @RSA_additional_prime_free(ptr noundef nonnull %72) #5
-  br label %.thread84
+  br label %.thread85
 
 78:                                               ; preds = %74
   %79 = call ptr @BN_dup(ptr noundef nonnull %63) #5
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %79, ptr %80, align 8, !tbaa !27
   %81 = icmp eq ptr %79, null
-  br i1 %81, label %.thread84, label %82
+  br i1 %81, label %.thread85, label %82
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %72, align 8, !tbaa !29
@@ -440,7 +440,7 @@ parse_integer.exit72:                             ; preds = %30
   %.not64.not = icmp eq i32 %84, 0
   br i1 %.not64.not, label %85, label %.preheader, !llvm.loop !30
 
-.thread84:                                        ; preds = %71, %78, %55, %60, %66, %61, %77
+.thread85:                                        ; preds = %71, %78, %55, %60, %66, %61, %77
   %.246.ph = phi ptr [ %63, %61 ], [ %63, %66 ], [ null, %60 ], [ null, %55 ], [ %63, %77 ], [ %63, %78 ], [ %63, %71 ]
   %.2.ph = phi ptr [ %62, %61 ], [ %62, %66 ], [ null, %60 ], [ null, %55 ], [ %62, %77 ], [ %62, %78 ], [ %62, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -450,9 +450,9 @@ parse_integer.exit72:                             ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_integer.exit.thread
 
-86:                                               ; preds = %.thread88, %47
-  %.145 = phi ptr [ null, %47 ], [ %63, %.thread88 ]
-  %.143 = phi ptr [ null, %47 ], [ %62, %.thread88 ]
+86:                                               ; preds = %.thread89, %47
+  %.145 = phi ptr [ null, %47 ], [ %63, %.thread89 ]
+  %.143 = phi ptr [ null, %47 ], [ %62, %.thread89 ]
   %87 = call i64 @CBS_len(ptr noundef nonnull %2) #5
   %.not65 = icmp eq i64 %87, 0
   br i1 %.not65, label %89, label %88
@@ -466,9 +466,9 @@ parse_integer.exit72:                             ; preds = %30
   call void @BN_free(ptr noundef %.145) #5
   br label %90
 
-parse_integer.exit.thread:                        ; preds = %85, %30, %25, %20, %15, %.thread84, %parse_integer.exit, %parse_integer.exit68, %parse_integer.exit70, %parse_integer.exit72, %35, %38, %41, %44, %88, %14, %11
-  %.044 = phi ptr [ null, %14 ], [ %.145, %88 ], [ %63, %85 ], [ null, %44 ], [ null, %41 ], [ null, %38 ], [ null, %35 ], [ null, %parse_integer.exit72 ], [ null, %parse_integer.exit70 ], [ null, %parse_integer.exit68 ], [ null, %parse_integer.exit ], [ null, %11 ], [ %.246.ph, %.thread84 ], [ null, %15 ], [ null, %20 ], [ null, %25 ], [ null, %30 ]
-  %.042 = phi ptr [ null, %14 ], [ %.143, %88 ], [ %62, %85 ], [ null, %44 ], [ null, %41 ], [ null, %38 ], [ null, %35 ], [ null, %parse_integer.exit72 ], [ null, %parse_integer.exit70 ], [ null, %parse_integer.exit68 ], [ null, %parse_integer.exit ], [ null, %11 ], [ %.2.ph, %.thread84 ], [ null, %15 ], [ null, %20 ], [ null, %25 ], [ null, %30 ]
+parse_integer.exit.thread:                        ; preds = %85, %30, %25, %20, %15, %.thread85, %parse_integer.exit, %parse_integer.exit69, %parse_integer.exit71, %parse_integer.exit73, %35, %38, %41, %44, %88, %14, %11
+  %.044 = phi ptr [ null, %14 ], [ %.145, %88 ], [ %63, %85 ], [ null, %44 ], [ null, %41 ], [ null, %38 ], [ null, %35 ], [ null, %parse_integer.exit73 ], [ null, %parse_integer.exit71 ], [ null, %parse_integer.exit69 ], [ null, %parse_integer.exit ], [ null, %11 ], [ %.246.ph, %.thread85 ], [ null, %15 ], [ null, %20 ], [ null, %25 ], [ null, %30 ]
+  %.042 = phi ptr [ null, %14 ], [ %.143, %88 ], [ %62, %85 ], [ null, %44 ], [ null, %41 ], [ null, %38 ], [ null, %35 ], [ null, %parse_integer.exit73 ], [ null, %parse_integer.exit71 ], [ null, %parse_integer.exit69 ], [ null, %parse_integer.exit ], [ null, %11 ], [ %.2.ph, %.thread85 ], [ null, %15 ], [ null, %20 ], [ null, %25 ], [ null, %30 ]
   call void @BN_CTX_free(ptr noundef %.042) #5
   call void @BN_free(ptr noundef %.044) #5
   call void @RSA_free(ptr noundef nonnull %5) #5

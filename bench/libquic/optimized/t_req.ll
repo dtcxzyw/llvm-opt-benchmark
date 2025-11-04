@@ -170,7 +170,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 64:                                               ; preds = %60, %62, %39
   %65 = and i64 %3, 2048
   %.not127 = icmp eq i64 %65, 0
-  br i1 %.not127, label %66, label %.thread144
+  br i1 %.not127, label %66, label %.thread145
 
 66:                                               ; preds = %64
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4) #2
@@ -183,21 +183,21 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %72 = load ptr, ptr %71, align 8, !tbaa !32
   %73 = tail call i64 @sk_num(ptr noundef %72) #2
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %76, label %.preheader159
+  br i1 %74, label %76, label %.preheader160
 
-.preheader159:                                    ; preds = %69
+.preheader160:                                    ; preds = %69
   %75 = tail call i64 @sk_num(ptr noundef %72) #2
-  %.not167 = icmp eq i64 %75, 0
-  br i1 %.not167, label %.thread144, label %.lr.ph
+  %.not168 = icmp eq i64 %75, 0
+  br i1 %.not168, label %.thread145, label %.lr.ph
 
 76:                                               ; preds = %69
   %77 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.4) #2
   %78 = icmp slt i32 %77, 1
-  br i1 %78, label %.thread, label %.thread144
+  br i1 %78, label %.thread, label %.thread145
 
-.lr.ph:                                           ; preds = %.preheader159, %.loopexit
-  %.0116164 = phi i64 [ %133, %.loopexit ], [ 0, %.preheader159 ]
-  %79 = tail call ptr @sk_value(ptr noundef %72, i64 noundef %.0116164) #2
+.lr.ph:                                           ; preds = %.preheader160, %.loopexit
+  %.0116165 = phi i64 [ %133, %.loopexit ], [ 0, %.preheader160 ]
+  %79 = tail call ptr @sk_value(ptr noundef %72, i64 noundef %.0116165) #2
   %80 = tail call ptr @X509_ATTRIBUTE_get0_object(ptr noundef %79) #2
   %81 = tail call i32 @OBJ_obj2nid(ptr noundef %80) #2
   %82 = tail call i32 @X509_REQ_extension_nid(i32 noundef %81) #2
@@ -212,30 +212,30 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 86:                                               ; preds = %83
   %87 = tail call i32 @X509_ATTRIBUTE_count(ptr noundef %79) #2
   %88 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %80) #2
-  %.fr168 = freeze i32 %88
-  %89 = icmp slt i32 %.fr168, 1
+  %.fr169 = freeze i32 %88
+  %89 = icmp slt i32 %.fr169, 1
   br i1 %89, label %114, label %.preheader
 
 .preheader:                                       ; preds = %86
   %90 = icmp sgt i32 %87, 0
-  br i1 %90, label %.lr.ph163, label %.loopexit
+  br i1 %90, label %.lr.ph164, label %.loopexit
 
-.lr.ph163:                                        ; preds = %.preheader
-  %91 = sub nsw i32 25, %.fr168
-  %92 = icmp samesign ult i32 %.fr168, 25
-  br i1 %92, label %.lr.ph.us, label %.lr.ph163.split
+.lr.ph164:                                        ; preds = %.preheader
+  %91 = sub nsw i32 25, %.fr169
+  %92 = icmp samesign ult i32 %.fr169, 25
+  br i1 %92, label %.lr.ph.us, label %.lr.ph164.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph163, %107
-  %.0120162.us = phi i32 [ %109, %107 ], [ 0, %.lr.ph163 ]
-  %93 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %79, i32 noundef %.0120162.us) #2
+.lr.ph.us:                                        ; preds = %.lr.ph164, %107
+  %.0120163.us = phi i32 [ %109, %107 ], [ 0, %.lr.ph164 ]
+  %93 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %79, i32 noundef %.0120163.us) #2
   %94 = load i32, ptr %93, align 8, !tbaa !33
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !35
   br label %110
 
 97:                                               ; preds = %110
-  %98 = add nsw i32 %.0117161.us, -1
-  %99 = icmp sgt i32 %.0117161.us, 1
+  %98 = add nsw i32 %.0117162.us, -1
+  %99 = icmp sgt i32 %.0117162.us, 1
   br i1 %99, label %110, label %._crit_edge.us, !llvm.loop !36
 
 100:                                              ; preds = %._crit_edge.us
@@ -258,12 +258,12 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 107:                                              ; preds = %100, %101
   %.str.16.sink = phi ptr [ @.str.6, %101 ], [ @.str.16, %100 ]
   %108 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink) #2
-  %109 = add nuw nsw i32 %.0120162.us, 1
-  %exitcond175.not = icmp eq i32 %109, %87
-  br i1 %exitcond175.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !41
+  %109 = add nuw nsw i32 %.0120163.us, 1
+  %exitcond176.not = icmp eq i32 %109, %87
+  br i1 %exitcond176.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !41
 
 110:                                              ; preds = %.lr.ph.us, %97
-  %.0117161.us = phi i32 [ %91, %.lr.ph.us ], [ %98, %97 ]
+  %.0117162.us = phi i32 [ %91, %.lr.ph.us ], [ %98, %97 ]
   %111 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 1) #2
   %.not130.us = icmp eq i32 %111, 1
   br i1 %.not130.us, label %97, label %.thread
@@ -278,9 +278,9 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %.thread, label %.loopexit
 
-.lr.ph163.split:                                  ; preds = %.lr.ph163, %130
-  %.0120162 = phi i32 [ %132, %130 ], [ 0, %.lr.ph163 ]
-  %117 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %79, i32 noundef %.0120162) #2
+.lr.ph164.split:                                  ; preds = %.lr.ph164, %130
+  %.0120163 = phi i32 [ %132, %130 ], [ 0, %.lr.ph164 ]
+  %117 = tail call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %79, i32 noundef %.0120163) #2
   %118 = load i32, ptr %117, align 8, !tbaa !33
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !35
@@ -288,7 +288,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %122 = icmp slt i32 %121, 1
   br i1 %122, label %.thread, label %123
 
-123:                                              ; preds = %.lr.ph163.split
+123:                                              ; preds = %.lr.ph164.split
   switch i32 %118, label %130 [
     i32 22, label %124
     i32 20, label %124
@@ -306,24 +306,24 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   br i1 %.not129, label %130, label %.thread
 
 130:                                              ; preds = %123, %124
-  %.str.16.sink188 = phi ptr [ @.str.6, %124 ], [ @.str.16, %123 ]
-  %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink188) #2
-  %132 = add nuw nsw i32 %.0120162, 1
+  %.str.16.sink189 = phi ptr [ @.str.6, %124 ], [ @.str.16, %123 ]
+  %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink189) #2
+  %132 = add nuw nsw i32 %.0120163, 1
   %exitcond.not = icmp eq i32 %132, %87
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph164.split, !llvm.loop !41
 
 .loopexit:                                        ; preds = %130, %107, %.preheader, %.lr.ph, %114
-  %133 = add nuw i64 %.0116164, 1
+  %133 = add nuw i64 %.0116165, 1
   %134 = tail call i64 @sk_num(ptr noundef %72) #2
   %135 = icmp ult i64 %133, %134
-  br i1 %135, label %.lr.ph, label %.thread144, !llvm.loop !42
+  br i1 %135, label %.lr.ph, label %.thread145, !llvm.loop !42
 
-.thread144:                                       ; preds = %.loopexit, %.preheader159, %76, %64
+.thread145:                                       ; preds = %.loopexit, %.preheader160, %76, %64
   %136 = and i64 %3, 256
   %.not131 = icmp eq i64 %136, 0
   br i1 %.not131, label %137, label %165
 
-137:                                              ; preds = %.thread144
+137:                                              ; preds = %.thread145
   %138 = tail call ptr @X509_REQ_get_extensions(ptr noundef nonnull %1) #2
   %.not132 = icmp eq ptr %138, null
   br i1 %.not132, label %165, label %139
@@ -331,23 +331,23 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
 139:                                              ; preds = %137
   %140 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #2
   %141 = tail call i64 @sk_num(ptr noundef nonnull %138) #2
-  %.not169 = icmp eq i64 %141, 0
-  br i1 %.not169, label %.thread151, label %.lr.ph166
+  %.not170 = icmp eq i64 %141, 0
+  br i1 %.not170, label %.thread152, label %.lr.ph167
 
 142:                                              ; preds = %162
-  %143 = add nuw i64 %.0115165, 1
+  %143 = add nuw i64 %.0115166, 1
   %144 = tail call i64 @sk_num(ptr noundef nonnull %138) #2
   %145 = icmp ult i64 %143, %144
-  br i1 %145, label %.lr.ph166, label %.thread151, !llvm.loop !43
+  br i1 %145, label %.lr.ph167, label %.thread152, !llvm.loop !43
 
-.lr.ph166:                                        ; preds = %139, %142
-  %.0115165 = phi i64 [ %143, %142 ], [ 0, %139 ]
-  %146 = tail call ptr @sk_value(ptr noundef nonnull %138, i64 noundef %.0115165) #2
+.lr.ph167:                                        ; preds = %139, %142
+  %.0115166 = phi i64 [ %143, %142 ], [ 0, %139 ]
+  %146 = tail call ptr @sk_value(ptr noundef nonnull %138, i64 noundef %.0115166) #2
   %147 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #2
   %148 = icmp slt i32 %147, 1
   br i1 %148, label %.thread, label %149
 
-149:                                              ; preds = %.lr.ph166
+149:                                              ; preds = %.lr.ph167
   %150 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %146) #2
   %151 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %150) #2
   %152 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef %146) #2
@@ -373,11 +373,11 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %164 = icmp slt i32 %163, 1
   br i1 %164, label %.thread, label %142
 
-.thread151:                                       ; preds = %142, %139
+.thread152:                                       ; preds = %142, %139
   tail call void @sk_pop_free(ptr noundef nonnull %138, ptr noundef nonnull @X509_EXTENSION_free) #2
   br label %165
 
-165:                                              ; preds = %.thread151, %137, %.thread144
+165:                                              ; preds = %.thread152, %137, %.thread145
   %166 = and i64 %3, 512
   %.not135 = icmp eq i64 %166, 0
   br i1 %.not135, label %167, label %173
@@ -391,7 +391,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   %.not136 = icmp eq i32 %172, 0
   br i1 %.not136, label %.thread, label %173
 
-.thread:                                          ; preds = %114, %83, %.lr.ph163.split, %124, %101, %._crit_edge.us, %110, %162, %149, %.lr.ph166, %167, %76, %66, %41, %44, %47, %54, %28, %31, %36, %18, %10, %13
+.thread:                                          ; preds = %114, %83, %.lr.ph164.split, %124, %101, %._crit_edge.us, %110, %162, %149, %.lr.ph167, %167, %76, %66, %41, %44, %47, %54, %28, %31, %36, %18, %10, %13
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str, i32 noundef 240) #2
   br label %173
 

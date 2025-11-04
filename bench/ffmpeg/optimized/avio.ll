@@ -730,9 +730,9 @@ define range(i32 -1330794744, 1) i32 @ffurl_alloc(ptr noundef writeonly captures
   %31 = tail call noalias ptr @av_mallocz(i64 noundef %30) #12
   store ptr %31, ptr %5, align 8, !tbaa !41
   %.not69.i = icmp eq ptr %31, null
-  br i1 %.not69.i, label %.thread88.i, label %32
+  br i1 %.not69.i, label %.thread89.i, label %32
 
-.thread88.i:                                      ; preds = %28
+.thread89.i:                                      ; preds = %28
   store ptr null, ptr %0, align 8, !tbaa !41
   br label %84
 
@@ -777,13 +777,13 @@ define range(i32 -1330794744, 1) i32 @ffurl_alloc(ptr noundef writeonly captures
   %51 = load ptr, ptr %7, align 8, !tbaa !33
   %52 = call i32 @av_strstart(ptr noundef %50, ptr noundef %51, ptr noundef nonnull %6) #12
   %.not73.i = icmp eq i32 %52, 0
-  br i1 %.not73.i, label %.thread86.i, label %53
+  br i1 %.not73.i, label %.thread87.i, label %53
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %6, align 8, !tbaa !45
   %55 = load i8, ptr %54, align 1, !tbaa !70
   %56 = icmp eq i8 %55, 44
-  br i1 %56, label %57, label %.thread86.i
+  br i1 %56, label %57, label %.thread87.i
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 1
@@ -799,9 +799,9 @@ define range(i32 -1330794744, 1) i32 @ffurl_alloc(ptr noundef writeonly captures
   br label %64
 
 64:                                               ; preds = %select.unfold.i, %.lr.ph.i
-  %.05294.i = phi ptr [ %62, %.lr.ph.i ], [ %74, %select.unfold.i ]
-  %65 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05294.i, i32 noundef %63) #13
-  %66 = icmp ult ptr %.05294.i, %65
+  %.05295.i = phi ptr [ %62, %.lr.ph.i ], [ %74, %select.unfold.i ]
+  %65 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05295.i, i32 noundef %63) #13
+  %66 = icmp ult ptr %.05295.i, %65
   br i1 %66, label %67, label %.critedge.i
 
 67:                                               ; preds = %64
@@ -814,12 +814,12 @@ define range(i32 -1330794744, 1) i32 @ffurl_alloc(ptr noundef writeonly captures
   store i8 0, ptr %65, align 1, !tbaa !70
   store i8 0, ptr %69, align 1, !tbaa !70
   %71 = load ptr, ptr %45, align 8, !tbaa !67
-  %72 = call i32 @av_opt_set(ptr noundef %71, ptr noundef nonnull %.05294.i, ptr noundef nonnull %68, i32 noundef 0) #12
+  %72 = call i32 @av_opt_set(ptr noundef %71, ptr noundef nonnull %.05295.i, ptr noundef nonnull %68, i32 noundef 0) #12
   %73 = icmp eq i32 %72, -1414549496
   br i1 %73, label %select.unfold.thread.i, label %select.unfold.i
 
 select.unfold.thread.i:                           ; preds = %70
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %31, i32 noundef 16, ptr noundef nonnull @.str.36, ptr noundef nonnull %.05294.i) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %31, i32 noundef 16, ptr noundef nonnull @.str.36, ptr noundef nonnull %.05295.i) #12
   store i8 %59, ptr %65, align 1, !tbaa !70
   store i8 %59, ptr %69, align 1, !tbaa !70
   br label %.critedge.thread.loopexit.i
@@ -832,17 +832,17 @@ select.unfold.i:                                  ; preds = %70
   br i1 %75, label %64, label %.critedge.thread.loopexit.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %67, %64
-  %.not77.i = icmp eq ptr %.05294.i, %65
-  %.pre97.i = load ptr, ptr %6, align 8, !tbaa !45
+  %.not77.i = icmp eq ptr %.05295.i, %65
+  %.pre98.i = load ptr, ptr %6, align 8, !tbaa !45
   br i1 %.not77.i, label %.thread.i, label %.critedge.thread.i
 
 .thread.i:                                        ; preds = %.critedge.i
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #13
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre97.i, ptr nonnull align 1 %76, i64 %77, i1 false)
-  br label %.thread86.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre98.i, ptr nonnull align 1 %76, i64 %77, i1 false)
+  br label %.thread87.i
 
-.thread86.i:                                      ; preds = %.thread.i, %53, %49
+.thread87.i:                                      ; preds = %.thread.i, %53, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
@@ -851,12 +851,12 @@ select.unfold.i:                                  ; preds = %70
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.loopexit.i, %.critedge.i, %57
-  %78 = phi ptr [ %.pre.i, %.critedge.thread.loopexit.i ], [ %54, %57 ], [ %.pre97.i, %.critedge.i ]
+  %78 = phi ptr [ %.pre.i, %.critedge.thread.loopexit.i ], [ %54, %57 ], [ %.pre98.i, %.critedge.i ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %31, i32 noundef 16, ptr noundef nonnull @.str.37, ptr noundef %78) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %83
 
-79:                                               ; preds = %.thread86.i, %46, %32
+79:                                               ; preds = %.thread87.i, %46, %32
   %.not80.i = icmp eq ptr %3, null
   br i1 %.not80.i, label %82, label %80
 
@@ -875,8 +875,8 @@ select.unfold.i:                                  ; preds = %70
   call void @av_freep(ptr noundef nonnull %45) #12
   br label %84
 
-84:                                               ; preds = %83, %.thread88.i
-  %.05091.i = phi i32 [ -12, %.thread88.i ], [ %.050.i, %83 ]
+84:                                               ; preds = %83, %.thread89.i
+  %.05092.i = phi i32 [ -12, %.thread89.i ], [ %.050.i, %83 ]
   call void @av_freep(ptr noundef nonnull %5) #12
   %85 = load i32, ptr %9, align 4, !tbaa !63
   %86 = and i32 %85, 2
@@ -888,7 +888,7 @@ select.unfold.i:                                  ; preds = %70
   br label %url_alloc_for_protocol.exit
 
 url_alloc_for_protocol.exit:                      ; preds = %12, %19, %26, %82, %84, %87
-  %.0.i = phi i32 [ 0, %82 ], [ -5, %26 ], [ -5, %19 ], [ -5, %12 ], [ %.05091.i, %87 ], [ %.05091.i, %84 ]
+  %.0.i = phi i32 [ 0, %82 ], [ -5, %26 ], [ -5, %19 ], [ -5, %12 ], [ %.05092.i, %87 ], [ %.05092.i, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 

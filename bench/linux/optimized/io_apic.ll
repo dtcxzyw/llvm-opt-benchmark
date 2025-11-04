@@ -1693,20 +1693,20 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
 14:                                               ; preds = %9
   %15 = load i32, ptr @apic_verbosity, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %.thread12
+  br i1 %16, label %17, label %.thread13
 
 17:                                               ; preds = %14
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %0) #22
-  br label %.thread12
+  br label %.thread13
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @mp_irq_entries, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.preheader, label %.thread12
+  br i1 %21, label %.preheader, label %.thread13
 
 .preheader:                                       ; preds = %19, %.loopexit
   %22 = phi i64 [ %105, %.loopexit ], [ 0, %19 ]
-  %23 = phi i32 [ %.ph9, %.loopexit ], [ -1, %19 ]
+  %23 = phi i32 [ %.ph10, %.loopexit ], [ -1, %19 ]
   %24 = phi i32 [ %.ph, %.loopexit ], [ -1, %19 ]
   %25 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -1738,26 +1738,26 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %46 = load i8, ptr %45, align 2
-  %.fr20 = freeze i8 %46
-  %47 = icmp eq i8 %.fr20, -1
+  %.fr21 = freeze i8 %46
+  %47 = icmp eq i8 %.fr21, -1
   %48 = zext nneg i32 %42 to i64
-  br i1 %47, label %.split17.us, label %.split17
+  br i1 %47, label %.split18.us, label %.split18
 
-.split17:                                         ; preds = %44, %53
+.split18:                                         ; preds = %44, %53
   %49 = phi i64 [ %54, %53 ], [ 0, %44 ]
   %.split = getelementptr %struct.ioapic, ptr @ioapics, i64 %49
   %50 = getelementptr i8, ptr %.split, i64 17
   %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, %.fr20
-  br i1 %52, label %.split17.us, label %53
+  %52 = icmp eq i8 %51, %.fr21
+  br i1 %52, label %.split18.us, label %53
 
-53:                                               ; preds = %.split17
+53:                                               ; preds = %.split18
   %54 = add nuw nsw i64 %49, 1
   %55 = icmp eq i64 %54, %48
-  br i1 %55, label %.loopexit, label %.split17, !llvm.loop !38
+  br i1 %55, label %.loopexit, label %.split18, !llvm.loop !38
 
-.split17.us:                                      ; preds = %.split17, %44
-  %.us-phi = phi i64 [ 0, %44 ], [ %49, %.split17 ]
+.split18.us:                                      ; preds = %.split18, %44
+  %.us-phi = phi i64 [ 0, %44 ], [ %49, %.split18 ]
   %56 = trunc i64 %.us-phi to i32
   %57 = getelementptr inbounds nuw i8, ptr %25, i64 7
   %58 = load i8, ptr %57, align 1
@@ -1770,7 +1770,7 @@ define dso_local i32 @IO_APIC_get_PCI_irq_vector(i32 noundef %0, i32 noundef %1,
   %63 = icmp eq ptr %62, null
   br i1 %63, label %mp_map_pin_to_irq.exit.thread, label %64
 
-64:                                               ; preds = %.split17.us
+64:                                               ; preds = %.split18.us
   %65 = icmp sgt i32 %59, -1
   br i1 %65, label %66, label %.thread
 
@@ -1828,12 +1828,12 @@ mp_map_pin_to_irq.exit:                           ; preds = %79, %80
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %.loopexit, label %mp_map_pin_to_irq.exit.thread
 
-mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split17.us, %91, %mp_map_pin_to_irq.exit
+mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split18.us, %91, %mp_map_pin_to_irq.exit
   %97 = load i8, ptr %35, align 1
   %98 = and i8 %97, 3
   %99 = zext nneg i8 %98 to i32
   %100 = icmp eq i32 %2, %99
-  br i1 %100, label %.loopexit13, label %101
+  br i1 %100, label %.loopexit14, label %101
 
 101:                                              ; preds = %mp_map_pin_to_irq.exit.thread
   %102 = icmp slt i32 %23, 0
@@ -1843,7 +1843,7 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split17.us, %
 
 .loopexit:                                        ; preds = %53, %101, %34, %30, %.preheader, %91, %41
   %.ph = phi i32 [ %24, %41 ], [ %24, %91 ], [ %24, %.preheader ], [ %24, %30 ], [ %24, %34 ], [ %103, %101 ], [ %24, %53 ]
-  %.ph9 = phi i32 [ %23, %41 ], [ %23, %91 ], [ %23, %.preheader ], [ %23, %30 ], [ %23, %34 ], [ %104, %101 ], [ %23, %53 ]
+  %.ph10 = phi i32 [ %23, %41 ], [ %23, %91 ], [ %23, %.preheader ], [ %23, %30 ], [ %23, %34 ], [ %104, %101 ], [ %23, %53 ]
   %105 = add nuw nsw i64 %22, 1
   %106 = load i32, ptr @mp_irq_entries, align 4
   %107 = sext i32 %106 to i64
@@ -1851,12 +1851,12 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split17.us, %
   br i1 %108, label %.preheader, label %109, !llvm.loop !39
 
 109:                                              ; preds = %.loopexit
-  %110 = icmp slt i32 %.ph9, 0
-  br i1 %110, label %.thread12, label %.loopexit13
+  %110 = icmp slt i32 %.ph10, 0
+  br i1 %110, label %.thread13, label %.loopexit14
 
-.loopexit13:                                      ; preds = %mp_map_pin_to_irq.exit.thread, %109
+.loopexit14:                                      ; preds = %mp_map_pin_to_irq.exit.thread, %109
   %111 = phi i32 [ %.ph, %109 ], [ %56, %mp_map_pin_to_irq.exit.thread ]
-  %112 = phi i32 [ %.ph9, %109 ], [ %59, %mp_map_pin_to_irq.exit.thread ]
+  %112 = phi i32 [ %.ph10, %109 ], [ %59, %mp_map_pin_to_irq.exit.thread ]
   %113 = sext i32 %112 to i64
   %.split6 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %113
   %114 = getelementptr i8, ptr %.split6, i64 7
@@ -1868,10 +1868,10 @@ mp_map_pin_to_irq.exit.thread:                    ; preds = %71, %.split17.us, %
   %119 = load i32, ptr %118, align 8
   %120 = add i32 %119, %116
   %121 = tail call fastcc i32 @mp_map_pin_to_irq(i32 noundef %120, i32 noundef %112, i32 noundef %111, i32 noundef %116, i32 noundef 1, ptr noundef null)
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %19, %.loopexit13, %109, %17, %14
-  %122 = phi i32 [ %121, %.loopexit13 ], [ -1, %17 ], [ -1, %14 ], [ -1, %109 ], [ -1, %19 ]
+.thread13:                                        ; preds = %19, %.loopexit14, %109, %17, %14
+  %122 = phi i32 [ %121, %.loopexit14 ], [ -1, %17 ], [ -1, %14 ], [ -1, %109 ], [ -1, %19 ]
   ret i32 %122
 }
 

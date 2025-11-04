@@ -927,15 +927,7 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   store i32 1, ptr %0, align 8, !tbaa !37
   br label %.preheader
 
-.loopexit190:                                     ; preds = %61, %111, %.preheader, %ft_lzwstate_prefix_grow.exit.thread, %ft_lzwstate_stack_grow.exit171.thread, %ft_lzwstate_stack_grow.exit160.thread, %ft_lzwstate_stack_grow.exit.thread, %.thread, %68
-  %.4124 = phi i32 [ %.5125206, %68 ], [ %10, %.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit160.thread ], [ %.0, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2122, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5125.ph, %.preheader ], [ %.5125206, %111 ], [ 0, %61 ]
-  %.4118 = phi i32 [ %.5119207, %68 ], [ %12, %.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5119.ph, %.preheader ], [ %.5119207, %111 ], [ 0, %61 ]
-  %.4112 = phi i32 [ %57, %68 ], [ %.3111.ph, %.thread ], [ %57, %ft_lzwstate_stack_grow.exit.thread ], [ %57, %ft_lzwstate_stack_grow.exit160.thread ], [ %57, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2110, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5113.ph, %.preheader ], [ %57, %111 ], [ %.5113.ph, %61 ]
-  %.4 = phi i64 [ %.5.ph, %68 ], [ 0, %.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit171.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5.ph, %.preheader ], [ %.5.ph, %111 ], [ %.5.ph, %61 ]
-  store i32 3, ptr %0, align 8, !tbaa !37
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %190, %185, %.loopexit190, %3, %16, %50
+.loopexit:                                        ; preds = %190, %185, %50, %16, %3, %.loopexit190
   %.0120 = phi i32 [ %10, %3 ], [ %10, %16 ], [ %.4124, %.loopexit190 ], [ %44, %50 ], [ %.2122, %185 ], [ %.2122, %190 ]
   %.0114 = phi i32 [ %12, %3 ], [ %12, %16 ], [ %.4118, %.loopexit190 ], [ %44, %50 ], [ %.2116, %185 ], [ %.2116, %190 ]
   %.0108 = phi i32 [ %14, %3 ], [ %14, %16 ], [ %.4112, %.loopexit190 ], [ 0, %50 ], [ %.2110, %185 ], [ %.2110, %190 ]
@@ -944,6 +936,14 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   store i32 %.0120, ptr %9, align 4, !tbaa !39
   store i32 %.0108, ptr %13, align 8, !tbaa !41
   ret i64 %.0105
+
+.loopexit190:                                     ; preds = %61, %111, %.preheader, %ft_lzwstate_prefix_grow.exit.thread, %ft_lzwstate_stack_grow.exit171.thread, %ft_lzwstate_stack_grow.exit160.thread, %ft_lzwstate_stack_grow.exit.thread, %.thread, %68
+  %.4124 = phi i32 [ %.5125206, %68 ], [ %10, %.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit.thread ], [ %.5125206, %ft_lzwstate_stack_grow.exit160.thread ], [ %.0, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2122, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5125.ph, %.preheader ], [ %.5125206, %111 ], [ 0, %61 ]
+  %.4118 = phi i32 [ %.5119207, %68 ], [ %12, %.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5119207, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2116, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5119.ph, %.preheader ], [ %.5119207, %111 ], [ 0, %61 ]
+  %.4112 = phi i32 [ %57, %68 ], [ %.3111.ph, %.thread ], [ %57, %ft_lzwstate_stack_grow.exit.thread ], [ %57, %ft_lzwstate_stack_grow.exit160.thread ], [ %57, %ft_lzwstate_stack_grow.exit171.thread ], [ %.2110, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5113.ph, %.preheader ], [ %57, %111 ], [ %.5113.ph, %61 ]
+  %.4 = phi i64 [ %.5.ph, %68 ], [ 0, %.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit160.thread ], [ %.5.ph, %ft_lzwstate_stack_grow.exit171.thread ], [ %.us-phi, %ft_lzwstate_prefix_grow.exit.thread ], [ %.5.ph, %.preheader ], [ %.5.ph, %111 ], [ %.5.ph, %61 ]
+  store i32 3, ptr %0, align 8, !tbaa !37
+  br label %.loopexit
 }
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #2

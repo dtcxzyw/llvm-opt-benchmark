@@ -1127,7 +1127,7 @@ define dso_local ptr @interpolate_path(ptr noundef %0, i32 noundef %1) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_submodule_path.git_submodule_dir, i64 24, i1 false)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread32, label %.preheader.preheader
+  br i1 %.not, label %.thread33, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 10
@@ -1155,7 +1155,7 @@ define dso_local ptr @interpolate_path(ptr noundef %0, i32 noundef %1) local_unn
 skip_prefix.exit:                                 ; preds = %4
   %11 = load i8, ptr %0, align 1, !tbaa !14
   %12 = icmp eq i8 %11, 126
-  br i1 %12, label %13, label %.thread35
+  br i1 %12, label %13, label %.thread36
 
 13:                                               ; preds = %skip_prefix.exit
   %14 = tail call ptr @strchrnul(ptr noundef nonnull %0, i32 noundef 47) #31
@@ -1166,7 +1166,7 @@ skip_prefix.exit:                                 ; preds = %4
 17:                                               ; preds = %13
   %18 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #30
   %.not25.not = icmp eq ptr %18, null
-  br i1 %.not25.not, label %.thread32, label %19
+  br i1 %.not25.not, label %.thread33, label %19
 
 19:                                               ; preds = %17
   %.not26 = icmp eq i32 %1, 0
@@ -1174,12 +1174,12 @@ skip_prefix.exit:                                 ; preds = %4
 
 20:                                               ; preds = %19
   call void @strbuf_add_real_path(ptr noundef nonnull %3, ptr noundef nonnull %18) #30
-  br label %.thread35
+  br label %.thread36
 
 21:                                               ; preds = %19
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #31
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %18, i64 noundef %22) #30
-  br label %.thread35
+  br label %.thread36
 
 23:                                               ; preds = %13
   %24 = ptrtoint ptr %15 to i64
@@ -1189,28 +1189,28 @@ skip_prefix.exit:                                 ; preds = %4
   %28 = tail call noundef ptr @getpwnam(ptr noundef %27)
   tail call void @free(ptr noundef %27) #30
   %.not24.not = icmp eq ptr %28, null
-  br i1 %.not24.not, label %.thread32, label %29
+  br i1 %.not24.not, label %.thread33, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !70
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #31
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %31, i64 noundef %32) #30
-  br label %.thread35
+  br label %.thread36
 
-.thread35:                                        ; preds = %21, %20, %29, %skip_prefix.exit
+.thread36:                                        ; preds = %21, %20, %29, %skip_prefix.exit
   %.017 = phi ptr [ %0, %skip_prefix.exit ], [ %14, %29 ], [ %14, %20 ], [ %14, %21 ]
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017) #31
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %.017, i64 noundef %33) #30
   %34 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #30
   br label %35
 
-.thread32:                                        ; preds = %23, %17, %2
+.thread33:                                        ; preds = %23, %17, %2
   call void @strbuf_release(ptr noundef nonnull %3) #30
   br label %35
 
-35:                                               ; preds = %.thread32, %.thread35, %9
-  %.0 = phi ptr [ %10, %9 ], [ %34, %.thread35 ], [ null, %.thread32 ]
+35:                                               ; preds = %.thread33, %.thread36, %9
+  %.0 = phi ptr [ %10, %9 ], [ %34, %.thread36 ], [ null, %.thread33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

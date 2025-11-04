@@ -5323,7 +5323,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
   store i32 %spec.select95, ptr %87, align 4, !tbaa !12
   br label %88
 
-88:                                               ; preds = %53, %77, %71, %17, %23, %3, %11
+88:                                               ; preds = %17, %53, %77, %71, %23, %3, %11
   %.5 = phi i64 [ %1, %11 ], [ 0, %3 ], [ %spec.select, %17 ], [ %25, %23 ], [ %.084, %53 ], [ %spec.select94, %71 ], [ %.2, %77 ]
   %89 = trunc i64 %.5 to i32
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5344,8 +5344,8 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
   br label %99
 
 99:                                               ; preds = %91, %95
-  %.0 = phi i8 [ 1, %91 ], [ %98, %95 ]
-  ret i8 %.0
+  %100 = phi i8 [ 1, %91 ], [ %98, %95 ]
+  ret i8 %100
 }
 
 ; Function Attrs: mustprogress uwtable

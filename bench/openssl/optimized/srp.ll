@@ -1035,7 +1035,7 @@ print_index.exit:                                 ; preds = %146, %136, %121
   call void @ERR_print_errors(ptr noundef %445) #6
   br label %446
 
-446:                                              ; preds = %441, %444
+446:                                              ; preds = %444, %441
   call void @NCONF_free(ptr noundef %.0246394398) #6
   call void @free_index(ptr noundef %.0242395396) #6
   call void @release_engine(ptr noundef %.0240) #6

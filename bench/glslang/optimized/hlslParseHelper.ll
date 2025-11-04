@@ -1417,7 +1417,7 @@ $_ZTVN7glslang17TSmallArrayVectorE = comdat any
 @.str.767 = private unnamed_addr constant [21 x i8] c"basic_string::substr\00", align 1
 @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_ = private unnamed_addr constant [5 x ptr] [ptr @.str.451, ptr @.str.449, ptr @.str.452, ptr @.str.450, ptr @.str.453], align 8
 @switch.table._ZNK7glslang5TType17getCompleteStringEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES7_.74 = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.501, ptr @.str.502, ptr @.str.503], align 8
-@switch.table._ZN7glslang16HlslParseContext26handleEntryPointAttributesERKNS_10TSourceLocERKNS_5TListINS_14TAttributeArgsEEE = private unnamed_addr constant [9 x ptr] [ptr @.str.666, ptr @.str.454, ptr @.str.454, ptr @.str.669, ptr @.str.670, ptr @.str.454, ptr @.str.454, ptr @.str.673, ptr @.str.674], align 8
+@switch.table._ZN7glslang16HlslParseContext26handleEntryPointAttributesERKNS_10TSourceLocERKNS_5TListINS_14TAttributeArgsEEE = private unnamed_addr constant [5 x ptr] [ptr @.str.670, ptr @.str.454, ptr @.str.454, ptr @.str.673, ptr @.str.674], align 8
 @switch.table._ZN7glslang16HlslParseContext26handleEntryPointAttributesERKNS_10TSourceLocERKNS_5TListINS_14TAttributeArgsEEE.75 = private unnamed_addr constant [4 x ptr] [ptr @.str.454, ptr @.str.677, ptr @.str.678, ptr @.str.679], align 8
 @switch.table._ZN7glslang16HlslParseContext12declareBlockERKNS_10TSourceLocERNS_5TTypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE = private unnamed_addr constant [4 x i64] [i64 1448, i64 1528, i64 1368, i64 1288], align 8
 @switch.table._ZN7glslang16HlslParseContext12declareBlockERKNS_10TSourceLocERNS_5TTypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.76 = private unnamed_addr constant [4 x i64] [i64 1456, i64 1536, i64 1376, i64 1296], align 8
@@ -24299,8 +24299,8 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit: ; pre
   br i1 %190, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, label %191
 
 191:                                              ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit
-  %switch.tableidx = add nsw i32 %.039221, -1
-  %192 = icmp ult i32 %switch.tableidx, 9
+  %switch.tableidx = add nsw i32 %.039221, -5
+  %192 = icmp ult i32 %switch.tableidx, 5
   br i1 %192, label %switch.lookup, label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit65
 
 switch.lookup:                                    ; preds = %191

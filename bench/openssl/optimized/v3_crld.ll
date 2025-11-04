@@ -107,7 +107,7 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1
 
 .preheader:                                       ; preds = %3
   %7 = icmp sgt i32 %4, 0
-  br i1 %7, label %.lr.ph, label %.loopexit66
+  br i1 %7, label %.lr.ph, label %.loopexit67
 
 .split:                                           ; preds = %3
   tail call void @ERR_new() #5
@@ -116,8 +116,8 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1
   br label %.split44
 
 .lr.ph:                                           ; preds = %.preheader, %73
-  %.03779 = phi i32 [ %74, %73 ], [ 0, %.preheader ]
-  %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.03779) #5
+  %.03780 = phi i32 [ %74, %73 ], [ 0, %.preheader ]
+  %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.03780) #5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
@@ -146,8 +146,8 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1
   br label %23
 
 23:                                               ; preds = %46, %.lr.ph.i
-  %.02328.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %46 ]
-  %24 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %15, i32 noundef %.02328.i) #5
+  %.02329.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %46 ]
+  %24 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %15, i32 noundef %.02329.i) #5
   %25 = tail call fastcc i32 @set_dist_point_name(ptr noundef %17, ptr noundef %1, ptr noundef %24)
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %46, label %27
@@ -184,7 +184,7 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1
   br i1 %45, label %crldp_from_section.exit, label %46
 
 46:                                               ; preds = %41, %38, %34, %23
-  %47 = add nuw nsw i32 %.02328.i, 1
+  %47 = add nuw nsw i32 %.02329.i, 1
   %48 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %15) #5
   %49 = icmp slt i32 %47, %48
   br i1 %49, label %23, label %.loopexit, !llvm.loop !16
@@ -258,9 +258,9 @@ crldp_from_section.exit:                          ; preds = %16, %27, %34, %41
   br label %73
 
 73:                                               ; preds = %70, %.loopexit
-  %74 = add nuw nsw i32 %.03779, 1
+  %74 = add nuw nsw i32 %.03780, 1
   %exitcond.not = icmp eq i32 %74, %4
-  br i1 %exitcond.not, label %.loopexit66, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit67, label %.lr.ph, !llvm.loop !23
 
 .split44:                                         ; preds = %51, %12, %60, %69, %64, %57, %crldp_from_section.exit, %.split
   %.242.ph.sink = phi ptr [ null, %.split ], [ %52, %60 ], [ null, %69 ], [ null, %64 ], [ %52, %57 ], [ null, %crldp_from_section.exit ], [ null, %12 ], [ null, %51 ]
@@ -268,9 +268,9 @@ crldp_from_section.exit:                          ; preds = %16, %27, %34, %41
   tail call void @GENERAL_NAME_free(ptr noundef %.242.ph.sink) #5
   tail call void @GENERAL_NAMES_free(ptr noundef %.2.ph.sink) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %5, ptr noundef nonnull @DIST_POINT_free) #5
-  br label %.loopexit66
+  br label %.loopexit67
 
-.loopexit66:                                      ; preds = %73, %.preheader, %.split44
+.loopexit67:                                      ; preds = %73, %.preheader, %.split44
   %.036 = phi ptr [ null, %.split44 ], [ %5, %.preheader ], [ %5, %73 ]
   ret ptr %.036
 }

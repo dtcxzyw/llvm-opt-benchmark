@@ -184,7 +184,7 @@ define internal i32 @test_bn_small_factors() #0 {
   %19 = tail call i32 @test_BN_eq(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %18, ptr noundef %1) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %12, %.thread21, %3, %0
+.loopexit:                                        ; preds = %12, %0, %3, %.thread21
   %.017 = phi i32 [ %19, %.thread21 ], [ 0, %3 ], [ 0, %0 ], [ 0, %12 ]
   tail call void @BN_free(ptr noundef %1) #3
   ret i32 %.017

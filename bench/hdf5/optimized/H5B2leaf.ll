@@ -524,9 +524,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5B2__shadow_leaf(ptr noundef nonnu
   store i64 %39, ptr %12, align 8, !tbaa !42
   br label %40
 
-40:                                               ; preds = %24, %33, %37, %2, %9
-  %.016 = phi i32 [ 0, %9 ], [ 0, %2 ], [ -1, %24 ], [ -1, %33 ], [ 0, %37 ]
-  ret i32 %.016
+40:                                               ; preds = %2, %9, %37, %33, %24
+  %.017 = phi i32 [ 0, %9 ], [ 0, %2 ], [ -1, %24 ], [ -1, %33 ], [ 0, %37 ]
+  ret i32 %.017
 }
 
 declare i32 @H5AC_proxy_entry_remove_child(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -983,7 +983,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
 
 25:                                               ; preds = %21
   store i32 0, ptr %10, align 4, !tbaa !54
-  br label %.thread137
+  br label %.thread138
 
 26:                                               ; preds = %21
   %27 = zext i16 %23 to i32
@@ -1001,7 +1001,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %37 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %38 = load i64, ptr @H5E_CANTCOMPARE_g, align 8, !tbaa !10
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 464, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.16) #6
-  br label %.thread107
+  br label %.thread108
 
 40:                                               ; preds = %26
   %41 = load i32, ptr %9, align 4, !tbaa !54
@@ -1009,7 +1009,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   br i1 %.not, label %..thread_crit_edge, label %42
 
 ..thread_crit_edge:                               ; preds = %40
-  %.pre115 = load i32, ptr %10, align 4, !tbaa !54
+  %.pre116 = load i32, ptr %10, align 4, !tbaa !54
   br label %.thread
 
 42:                                               ; preds = %40
@@ -1025,7 +1025,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
 
 51:                                               ; preds = %42
   store i32 4, ptr %2, align 4, !tbaa !54
-  br label %.thread107
+  br label %.thread108
 
 52:                                               ; preds = %42
   %53 = icmp sgt i32 %41, 0
@@ -1042,7 +1042,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %58 = load i16, ptr %22, align 8, !tbaa !55
   %59 = zext i16 %58 to i32
   %60 = icmp ult i32 %57, %59
-  br i1 %60, label %61, label %.thread137
+  br i1 %60, label %61, label %.thread138
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %32, align 8, !tbaa !35
@@ -1062,12 +1062,12 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %76 = mul i64 %73, %75
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %68, ptr align 1 %70, i64 %76, i1 false)
   %.pr.pre = load i32, ptr %9, align 4, !tbaa !54
-  %.pre116.pre = load i32, ptr %10, align 4, !tbaa !54
+  %.pre117.pre = load i32, ptr %10, align 4, !tbaa !54
   %77 = icmp eq i32 %.pr.pre, 0
-  br i1 %77, label %.thread, label %.thread137
+  br i1 %77, label %.thread, label %.thread138
 
 .thread:                                          ; preds = %..thread_crit_edge, %61
-  %78 = phi i32 [ %.pre115, %..thread_crit_edge ], [ %.pre116.pre, %61 ]
+  %78 = phi i32 [ %.pre116, %..thread_crit_edge ], [ %.pre117.pre, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 256
@@ -1080,9 +1080,9 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 %85
   %87 = call i32 %6(ptr noundef %86, ptr noundef %7, ptr noundef nonnull %11) #6
   %88 = icmp slt i32 %87, 0
-  br i1 %88, label %92, label %.thread97
+  br i1 %88, label %92, label %.thread98
 
-.thread97:                                        ; preds = %.thread
+.thread98:                                        ; preds = %.thread
   %89 = load i8, ptr %11, align 1, !tbaa !3, !range !7, !noundef !8
   %90 = shl nuw nsw i8 %89, 1
   %91 = zext nneg i8 %90 to i32
@@ -1095,10 +1095,10 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %94 = load i64, ptr @H5E_CANTMODIFY_g, align 8, !tbaa !10
   %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 498, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.26) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread107
+  br label %.thread108
 
-.thread137:                                       ; preds = %25, %56, %61
-  %.pre116140 = phi i32 [ %.pre116.pre, %61 ], [ 0, %25 ], [ %57, %56 ]
+.thread138:                                       ; preds = %25, %56, %61
+  %.pre117141 = phi i32 [ %.pre117.pre, %61 ], [ 0, %25 ], [ %57, %56 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %97 = load ptr, ptr %96, align 8, !tbaa !36
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -1107,7 +1107,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %101 = load ptr, ptr %100, align 8, !tbaa !35
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %103 = load ptr, ptr %102, align 8, !tbaa !56
-  %104 = zext i32 %.pre116140 to i64
+  %104 = zext i32 %.pre117141 to i64
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 %106
@@ -1115,13 +1115,13 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %114
 
-110:                                              ; preds = %.thread137
+110:                                              ; preds = %.thread138
   %111 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %112 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 513, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.21) #6
-  br label %.thread107
+  br label %.thread108
 
-114:                                              ; preds = %.thread137
+114:                                              ; preds = %.thread138
   store i32 3, ptr %2, align 4, !tbaa !54
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !58
@@ -1136,8 +1136,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   store i16 %122, ptr %22, align 8, !tbaa !55
   br label %123
 
-123:                                              ; preds = %.thread97, %114
-  %.281 = phi i32 [ 2, %114 ], [ %91, %.thread97 ]
+123:                                              ; preds = %.thread98, %114
+  %.281 = phi i32 [ 2, %114 ], [ %91, %.thread98 ]
   %.not90 = icmp eq i32 %3, 3
   br i1 %.not90, label %186, label %124
 
@@ -1145,8 +1145,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %125 = load i32, ptr %10, align 4, !tbaa !54
   %126 = and i32 %3, -3
   %127 = or i32 %125, %126
-  %or.cond93 = icmp eq i32 %127, 0
-  br i1 %or.cond93, label %128, label %152
+  %or.cond94 = icmp eq i32 %127, 0
+  br i1 %or.cond94, label %128, label %152
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -1181,18 +1181,18 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %150 = load i64, ptr %149, align 8, !tbaa !10
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr align 1 %151, i64 %135, i1 false)
-  %.pre120 = load i32, ptr %10, align 4, !tbaa !54
+  %.pre121 = load i32, ptr %10, align 4, !tbaa !54
   br label %152
 
 152:                                              ; preds = %._crit_edge, %124
-  %153 = phi i32 [ %.pre120, %._crit_edge ], [ %125, %124 ]
+  %153 = phi i32 [ %.pre121, %._crit_edge ], [ %125, %124 ]
   %154 = load i16, ptr %22, align 8, !tbaa !55
   %155 = zext i16 %154 to i32
   %156 = add nsw i32 %155, -1
   %157 = icmp eq i32 %153, %156
   %or.cond3 = icmp ult i32 %3, 2
-  %or.cond94 = and i1 %or.cond3, %157
-  br i1 %or.cond94, label %158, label %186
+  %or.cond95 = and i1 %or.cond3, %157
+  br i1 %or.cond95, label %158, label %186
 
 158:                                              ; preds = %152
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1202,13 +1202,13 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %163 = load ptr, ptr %162, align 8, !tbaa !36
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load i64, ptr %164, align 8, !tbaa !37
-  br i1 %161, label %166, label %._crit_edge121
+  br i1 %161, label %166, label %._crit_edge122
 
 166:                                              ; preds = %158
   %167 = call noalias ptr @malloc(i64 noundef %165) #7
   store ptr %167, ptr %159, align 8, !tbaa !60
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %._crit_edge121
+  br i1 %168, label %169, label %._crit_edge122
 
 169:                                              ; preds = %166
   %170 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
@@ -1216,7 +1216,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %172 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 546, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.23) #6
   br label %186
 
-._crit_edge121:                                   ; preds = %158, %166
+._crit_edge122:                                   ; preds = %158, %166
   %173 = phi ptr [ %167, %166 ], [ %160, %158 ]
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %175 = load ptr, ptr %174, align 8, !tbaa !35
@@ -1235,15 +1235,15 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %185 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 452, i64 noundef %183, i64 noundef %184, ptr noundef nonnull @.str.11) #6
   br label %211
 
-186:                                              ; preds = %123, %._crit_edge121, %152, %169, %139
-  %.1.ph = phi i32 [ 0, %123 ], [ 0, %152 ], [ 0, %._crit_edge121 ], [ -1, %169 ], [ -1, %139 ]
+186:                                              ; preds = %123, %._crit_edge122, %152, %169, %139
+  %.1.ph = phi i32 [ 0, %123 ], [ 0, %152 ], [ 0, %._crit_edge122 ], [ -1, %169 ], [ -1, %139 ]
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %188 = load i8, ptr %187, align 8, !tbaa !61, !range !7, !noundef !8
   %189 = trunc nuw i8 %188 to i1
   %190 = and i32 %.281, 2
   %.not92 = icmp ne i32 %190, 0
-  %or.cond96.not = select i1 %189, i1 %.not92, i1 false
-  br i1 %or.cond96.not, label %191, label %.thread107
+  %or.cond97.not = select i1 %189, i1 %.not92, i1 false
+  br i1 %or.cond97.not, label %191, label %.thread108
 
 191:                                              ; preds = %186
   %192 = call fastcc i32 @H5B2__shadow_leaf(ptr noundef %19, ptr noundef %1)
@@ -1260,33 +1260,33 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %.5 = phi i32 [ -1, %194 ], [ %.1.ph, %191 ]
   %199 = load i32, ptr %2, align 4, !tbaa !54
   %200 = icmp eq i32 %199, 1
-  br i1 %200, label %201, label %.thread107
+  br i1 %200, label %201, label %.thread108
 
 201:                                              ; preds = %198
   store i32 2, ptr %2, align 4, !tbaa !54
-  br label %.thread107
+  br label %.thread108
 
-.thread107:                                       ; preds = %92, %110, %36, %51, %198, %201, %186
-  %.079.ph113 = phi i32 [ 2, %201 ], [ 2, %198 ], [ %.281, %186 ], [ 0, %51 ], [ 0, %36 ], [ 0, %110 ], [ 0, %92 ]
+.thread108:                                       ; preds = %92, %110, %36, %51, %198, %201, %186
+  %.079.ph114 = phi i32 [ 2, %201 ], [ 2, %198 ], [ %.281, %186 ], [ 0, %51 ], [ 0, %36 ], [ 0, %110 ], [ 0, %92 ]
   %.4 = phi i32 [ %.5, %201 ], [ %.5, %198 ], [ %.1.ph, %186 ], [ 0, %51 ], [ -1, %36 ], [ -1, %110 ], [ -1, %92 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %203 = load ptr, ptr %202, align 8, !tbaa !43
   %204 = load i64, ptr %1, align 8, !tbaa !45
-  %205 = call i32 @H5AC_unprotect(ptr noundef %203, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %204, ptr noundef nonnull %19, i32 noundef %.079.ph113) #6
+  %205 = call i32 @H5AC_unprotect(ptr noundef %203, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %204, ptr noundef nonnull %19, i32 noundef %.079.ph114) #6
   %206 = icmp slt i32 %205, 0
   br i1 %206, label %207, label %211
 
-207:                                              ; preds = %.thread107
+207:                                              ; preds = %.thread108
   %208 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %209 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %210 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 569, i64 noundef %208, i64 noundef %209, ptr noundef nonnull @.str.25) #6
   br label %211
 
-211:                                              ; preds = %182, %8, %.thread107, %207
-  %.082 = phi i32 [ -1, %207 ], [ %.4, %.thread107 ], [ -1, %182 ], [ 0, %8 ]
+211:                                              ; preds = %182, %8, %.thread108, %207
+  %.078 = phi i32 [ -1, %207 ], [ %.4, %.thread108 ], [ -1, %182 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.082
+  ret i32 %.078
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1297,7 +1297,7 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %.thread71, !prof !9
+  br i1 %12, label %13, label %.thread74, !prof !9
 
 13:                                               ; preds = %6
   %14 = icmp ugt i16 %1, 1
@@ -1317,7 +1317,7 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   %24 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %25 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__swap_leaf, i32 noundef 615, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.27) #6
-  br label %.thread71
+  br label %.thread74
 
 27:                                               ; preds = %13
   %28 = tail call ptr @H5B2__protect_leaf(ptr noundef %0, ptr noundef %2, ptr noundef %18, i1 noundef zeroext false, i32 noundef 0)
@@ -1328,7 +1328,7 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   %31 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %32 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__swap_leaf, i32 noundef 631, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.11) #6
-  br label %.thread71
+  br label %.thread74
 
 .thread:                                          ; preds = %27, %19
   %.251 = phi ptr [ %21, %19 ], [ %28, %27 ]
@@ -1368,17 +1368,17 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   %59 = load ptr, ptr %58, align 8, !tbaa !43
   %60 = tail call i32 @H5AC_unprotect(ptr noundef %59, ptr noundef nonnull %.143, i64 noundef %.255, ptr noundef nonnull %.251, i32 noundef 2) #6
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %.thread71
+  br i1 %61, label %62, label %.thread74
 
 62:                                               ; preds = %.thread
   %63 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %64 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__swap_leaf, i32 noundef 658, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.28) #6
-  br label %.thread71
+  br label %.thread74
 
-.thread71:                                        ; preds = %30, %23, %6, %62, %.thread
-  %.0 = phi i32 [ -1, %62 ], [ 0, %.thread ], [ 0, %6 ], [ -1, %23 ], [ -1, %30 ]
-  ret i32 %.0
+.thread74:                                        ; preds = %30, %23, %6, %62, %.thread
+  %.044 = phi i32 [ -1, %62 ], [ 0, %.thread ], [ 0, %6 ], [ -1, %23 ], [ -1, %30 ]
+  ret i32 %.044
 }
 
 declare ptr @H5B2__protect_internal(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1

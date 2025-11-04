@@ -5830,8 +5830,8 @@ calculate_stackdepth.exit:                        ; preds = %stackdepth_push.exi
   br i1 %232, label %build_cellfixedoffsets.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %228
-  %.not41.i.i = icmp eq i32 %226, 0
-  br i1 %.not41.i.i, label %._crit_edge.i.i18, label %.lr.ph.i.i15
+  %.not42.i.i = icmp eq i32 %226, 0
+  br i1 %.not42.i.i, label %._crit_edge.i.i18, label %.lr.ph.i.i15
 
 build_cellfixedoffsets.exit.thread.i:             ; preds = %228, %213
   %233 = call ptr @PyErr_NoMemory() #8
@@ -5844,8 +5844,8 @@ build_cellfixedoffsets.exit.thread.i:             ; preds = %228, %213
   store i64 0, ptr %9, align 8, !tbaa !81
   %234 = load ptr, ptr %218, align 8, !tbaa !157
   %235 = call i32 @PyDict_Next(ptr noundef %234, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
-  %.not38.i.i = icmp eq i32 %235, 0
-  br i1 %.not38.i.i, label %build_cellfixedoffsets.exit.thread51.i, label %.lr.ph40.i.i
+  %.not39.i.i = icmp eq i32 %235, 0
+  br i1 %.not39.i.i, label %build_cellfixedoffsets.exit.thread50.i, label %.lr.ph41.i.i
 
 .lr.ph.i.i15:                                     ; preds = %.preheader.i.i, %.lr.ph.i.i15
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i17, %.lr.ph.i.i15 ], [ 0, %.preheader.i.i ]
@@ -5857,15 +5857,15 @@ build_cellfixedoffsets.exit.thread.i:             ; preds = %228, %213
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i17, %229
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i18, label %.lr.ph.i.i15, !llvm.loop !159
 
-.lr.ph40.i.i:                                     ; preds = %._crit_edge.i.i18, %266
+.lr.ph41.i.i:                                     ; preds = %._crit_edge.i.i18, %266
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %239 = load ptr, ptr %214, align 8, !tbaa !151
   %240 = load ptr, ptr %7, align 8, !tbaa !41
   %241 = call i32 @PyDict_GetItemRef(ptr noundef %239, ptr noundef %240, ptr noundef nonnull %10) #8
   %242 = icmp slt i32 %241, 0
-  br i1 %242, label %build_cellfixedoffsets.exit.thread49.i, label %243
+  br i1 %242, label %build_cellfixedoffsets.exit.thread48.i, label %243
 
-243:                                              ; preds = %.lr.ph40.i.i
+243:                                              ; preds = %.lr.ph41.i.i
   %244 = load ptr, ptr %10, align 8, !tbaa !41
   %245 = icmp eq ptr %244, null
   br i1 %245, label %266, label %246, !llvm.loop !160
@@ -5894,7 +5894,7 @@ Py_DECREF.exit.i.i:                               ; preds = %253, %250, %246
 255:                                              ; preds = %Py_DECREF.exit.i.i
   %256 = call ptr @PyErr_Occurred() #8
   %.not31.i.i = icmp eq ptr %256, null
-  br i1 %.not31.i.i, label %257, label %build_cellfixedoffsets.exit.thread49.i
+  br i1 %.not31.i.i, label %257, label %build_cellfixedoffsets.exit.thread48.i
 
 257:                                              ; preds = %255, %Py_DECREF.exit.i.i
   %258 = load ptr, ptr %8, align 8, !tbaa !41
@@ -5905,7 +5905,7 @@ Py_DECREF.exit.i.i:                               ; preds = %253, %250, %246
 261:                                              ; preds = %257
   %262 = call ptr @PyErr_Occurred() #8
   %.not32.i.i = icmp eq ptr %262, null
-  br i1 %.not32.i.i, label %263, label %build_cellfixedoffsets.exit.thread49.i
+  br i1 %.not32.i.i, label %263, label %build_cellfixedoffsets.exit.thread48.i
 
 263:                                              ; preds = %261, %257
   %264 = sext i32 %259 to i64
@@ -5918,9 +5918,9 @@ Py_DECREF.exit.i.i:                               ; preds = %253, %250, %246
   %267 = load ptr, ptr %218, align 8, !tbaa !157
   %268 = call i32 @PyDict_Next(ptr noundef %267, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %.not.i.i19 = icmp eq i32 %268, 0
-  br i1 %.not.i.i19, label %build_cellfixedoffsets.exit.thread51.i, label %.lr.ph40.i.i
+  br i1 %.not.i.i19, label %build_cellfixedoffsets.exit.thread50.i, label %.lr.ph41.i.i
 
-build_cellfixedoffsets.exit.thread49.i:           ; preds = %261, %255, %.lr.ph40.i.i
+build_cellfixedoffsets.exit.thread48.i:           ; preds = %261, %255, %.lr.ph41.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @PyMem_Free(ptr noundef nonnull %231) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -5928,7 +5928,7 @@ build_cellfixedoffsets.exit.thread49.i:           ; preds = %261, %255, %.lr.ph4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %prepare_localsplus.exit.thread
 
-build_cellfixedoffsets.exit.thread51.i:           ; preds = %266, %._crit_edge.i.i18
+build_cellfixedoffsets.exit.thread50.i:           ; preds = %266, %._crit_edge.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5937,7 +5937,7 @@ build_cellfixedoffsets.exit.thread51.i:           ; preds = %266, %._crit_edge.i
   %.not.i26.i = icmp eq i32 %270, 0
   br i1 %.not.i26.i, label %313, label %271
 
-271:                                              ; preds = %build_cellfixedoffsets.exit.thread51.i
+271:                                              ; preds = %build_cellfixedoffsets.exit.thread50.i
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %273 = load i32, ptr %272, align 8, !tbaa !161
   %274 = getelementptr inbounds nuw i8, ptr %269, i64 40
@@ -6046,7 +6046,7 @@ basicblock_next_instr.exit.i66.i.i:               ; preds = %.loopexit142.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i.i, i8 0, i64 16, i1 false)
   br label %313
 
-313:                                              ; preds = %.loopexit141.i.i, %build_cellfixedoffsets.exit.thread51.i
+313:                                              ; preds = %.loopexit141.i.i, %build_cellfixedoffsets.exit.thread50.i
   %314 = load ptr, ptr %218, align 8, !tbaa !157
   %315 = getelementptr i8, ptr %314, i64 16
   %.val65.i.i = load i64, ptr %315, align 8, !tbaa !153
@@ -6240,68 +6240,68 @@ insert_prefix_instructions.exit.i:                ; preds = %basicblock_insert_i
   %392 = trunc i64 %.val34.i35.i to i32
   %393 = load ptr, ptr %218, align 8, !tbaa !157
   %394 = getelementptr i8, ptr %393, i64 16
-  %.val33.i36.i = load i64, ptr %394, align 8, !tbaa !153
-  %395 = trunc i64 %.val33.i36.i to i32
+  %.val33.i.i = load i64, ptr %394, align 8, !tbaa !153
+  %395 = trunc i64 %.val33.i.i to i32
   %396 = load ptr, ptr %222, align 8, !tbaa !158
   %397 = getelementptr i8, ptr %396, i64 16
-  %.val.i37.i = load i64, ptr %397, align 8, !tbaa !153
-  %398 = trunc i64 %.val.i37.i to i32
+  %.val.i36.i = load i64, ptr %397, align 8, !tbaa !153
+  %398 = trunc i64 %.val.i36.i to i32
   %399 = add i32 %398, %395
   %400 = icmp sgt i32 %399, 0
-  br i1 %400, label %.lr.ph.preheader.i41.i, label %.preheader35.i.i
+  br i1 %400, label %.lr.ph.preheader.i40.i, label %.preheader35.i.i
 
-.lr.ph.preheader.i41.i:                           ; preds = %insert_prefix_instructions.exit.i
-  %wide.trip.count.i42.i = zext nneg i32 %399 to i64
-  br label %.lr.ph.i43.i
+.lr.ph.preheader.i40.i:                           ; preds = %insert_prefix_instructions.exit.i
+  %wide.trip.count.i41.i = zext nneg i32 %399 to i64
+  br label %.lr.ph.i42.i
 
 .preheader35.i.i:                                 ; preds = %409, %insert_prefix_instructions.exit.i
-  %.0.lcssa.i.i20 = phi i32 [ 0, %insert_prefix_instructions.exit.i ], [ %.1.i45.i, %409 ]
+  %.0.lcssa.i.i20 = phi i32 [ 0, %insert_prefix_instructions.exit.i ], [ %.1.i44.i, %409 ]
   %.not40.i.i = icmp eq ptr %389, null
-  br i1 %.not40.i.i, label %fix_cell_offsets.exit.i, label %.preheader.i38.i
+  br i1 %.not40.i.i, label %fix_cell_offsets.exit.i, label %.preheader.i37.i
 
-.lr.ph.i43.i:                                     ; preds = %409, %.lr.ph.preheader.i41.i
-  %indvars.iv.i44.i = phi i64 [ 0, %.lr.ph.preheader.i41.i ], [ %indvars.iv.next.i46.i, %409 ]
-  %.037.i.i = phi i32 [ 0, %.lr.ph.preheader.i41.i ], [ %.1.i45.i, %409 ]
-  %indvars43.i.i = trunc i64 %indvars.iv.i44.i to i32
-  %401 = getelementptr i32, ptr %231, i64 %indvars.iv.i44.i
+.lr.ph.i42.i:                                     ; preds = %409, %.lr.ph.preheader.i40.i
+  %indvars.iv.i43.i = phi i64 [ 0, %.lr.ph.preheader.i40.i ], [ %indvars.iv.next.i45.i, %409 ]
+  %.037.i.i = phi i32 [ 0, %.lr.ph.preheader.i40.i ], [ %.1.i44.i, %409 ]
+  %indvars43.i.i = trunc i64 %indvars.iv.i43.i to i32
+  %401 = getelementptr i32, ptr %231, i64 %indvars.iv.i43.i
   %402 = load i32, ptr %401, align 4, !tbaa !17
   %403 = add i32 %indvars43.i.i, %392
   %404 = icmp eq i32 %402, %403
   br i1 %404, label %405, label %407
 
-405:                                              ; preds = %.lr.ph.i43.i
+405:                                              ; preds = %.lr.ph.i42.i
   %406 = sub i32 %402, %.037.i.i
   store i32 %406, ptr %401, align 4, !tbaa !17
   br label %409
 
-407:                                              ; preds = %.lr.ph.i43.i
+407:                                              ; preds = %.lr.ph.i42.i
   %408 = add i32 %.037.i.i, 1
   br label %409
 
 409:                                              ; preds = %407, %405
-  %.1.i45.i = phi i32 [ %.037.i.i, %405 ], [ %408, %407 ]
-  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i44.i, 1
-  %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i42.i
-  br i1 %exitcond.not.i47.i, label %.preheader35.i.i, label %.lr.ph.i43.i, !llvm.loop !164
+  %.1.i44.i = phi i32 [ %.037.i.i, %405 ], [ %408, %407 ]
+  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i43.i, 1
+  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, %wide.trip.count.i41.i
+  br i1 %exitcond.not.i46.i, label %.preheader35.i.i, label %.lr.ph.i42.i, !llvm.loop !164
 
-.preheader.i38.i:                                 ; preds = %.preheader35.i.i, %._crit_edge.i39.i
-  %.03141.i.i = phi ptr [ %416, %._crit_edge.i39.i ], [ %389, %.preheader35.i.i ]
+.preheader.i37.i:                                 ; preds = %.preheader35.i.i, %._crit_edge.i38.i
+  %.03141.i.i = phi ptr [ %416, %._crit_edge.i38.i ], [ %389, %.preheader35.i.i ]
   %410 = getelementptr inbounds nuw i8, ptr %.03141.i.i, i64 40
   %411 = load i32, ptr %410, align 8, !tbaa !25
   %412 = icmp sgt i32 %411, 0
-  br i1 %412, label %.lr.ph39.i.i, label %._crit_edge.i39.i
+  br i1 %412, label %.lr.ph39.i.i, label %._crit_edge.i38.i
 
-.lr.ph39.i.i:                                     ; preds = %.preheader.i38.i
+.lr.ph39.i.i:                                     ; preds = %.preheader.i37.i
   %413 = getelementptr inbounds nuw i8, ptr %.03141.i.i, i64 24
   %414 = load ptr, ptr %413, align 8, !tbaa !20
   %wide.trip.count47.i.i = zext nneg i32 %411 to i64
   br label %417
 
-._crit_edge.i39.i:                                ; preds = %426, %.preheader.i38.i
+._crit_edge.i38.i:                                ; preds = %426, %.preheader.i37.i
   %415 = getelementptr inbounds nuw i8, ptr %.03141.i.i, i64 32
   %416 = load ptr, ptr %415, align 8, !tbaa !34
-  %.not.i40.i = icmp eq ptr %416, null
-  br i1 %.not.i40.i, label %fix_cell_offsets.exit.i, label %.preheader.i38.i, !llvm.loop !165
+  %.not.i39.i = icmp eq ptr %416, null
+  br i1 %.not.i39.i, label %fix_cell_offsets.exit.i, label %.preheader.i37.i, !llvm.loop !165
 
 417:                                              ; preds = %426, %.lr.ph39.i.i
   %indvars.iv44.i.i = phi i64 [ 0, %.lr.ph39.i.i ], [ %indvars.iv.next45.i.i, %426 ]
@@ -6328,14 +6328,14 @@ insert_prefix_instructions.exit.i:                ; preds = %basicblock_insert_i
 426:                                              ; preds = %420, %417
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond48.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, %wide.trip.count47.i.i
-  br i1 %exitcond48.not.i.i, label %._crit_edge.i39.i, label %417, !llvm.loop !166
+  br i1 %exitcond48.not.i.i, label %._crit_edge.i38.i, label %417, !llvm.loop !166
 
-fix_cell_offsets.exit.i:                          ; preds = %._crit_edge.i39.i, %.preheader35.i.i
+fix_cell_offsets.exit.i:                          ; preds = %._crit_edge.i38.i, %.preheader35.i.i
   call void @PyMem_Free(ptr noundef nonnull %231) #8
   %.inv.i = icmp sgt i32 %.0.lcssa.i.i20, -1
   br i1 %.inv.i, label %prepare_localsplus.exit, label %prepare_localsplus.exit.thread
 
-prepare_localsplus.exit.thread:                   ; preds = %388, %fix_cell_offsets.exit.i, %build_cellfixedoffsets.exit.thread.i, %build_cellfixedoffsets.exit.thread49.i
+prepare_localsplus.exit.thread:                   ; preds = %388, %fix_cell_offsets.exit.i, %build_cellfixedoffsets.exit.thread.i, %build_cellfixedoffsets.exit.thread48.i
   store i32 -1, ptr %4, align 4, !tbaa !17
   br label %normalize_jumps.exit.thread
 

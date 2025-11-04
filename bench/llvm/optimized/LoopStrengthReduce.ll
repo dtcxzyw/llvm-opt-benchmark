@@ -14510,7 +14510,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111LSRInstance24GenerateAllReuseFor
   %116 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.6154.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %.sroa.6155.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %120 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %121 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -15565,13 +15565,13 @@ _ZNK12_GLOBAL__N_17Formula7getTypeEv.exit.i:      ; preds = %503, %499, %494
   br i1 %510, label %_ZN12_GLOBAL__N_111LSRInstance22GenerateICmpZeroScalesERNS_6LSRUseEjNS_7FormulaE.exit, label %511
 
 511:                                              ; preds = %507
-  %.val126.i = load i64, ptr %434, align 8, !tbaa !857
-  %.val127.i = load i8, ptr %436, align 8
-  %.val128.i = load i64, ptr %435, align 8, !tbaa !857
-  %.val129.i = load i8, ptr %437, align 8
-  %.not.i143.i = icmp ne i64 %.val126.i, %.val128.i
-  %512 = icmp ne i8 %.val127.i, %.val129.i
-  %513 = select i1 %.not.i143.i, i1 true, i1 %512
+  %.val127.i = load i64, ptr %434, align 8, !tbaa !857
+  %.val128.i = load i8, ptr %436, align 8
+  %.val129.i = load i64, ptr %435, align 8, !tbaa !857
+  %.val130.i = load i8, ptr %437, align 8
+  %.not.i144.i = icmp ne i64 %.val127.i, %.val129.i
+  %512 = icmp ne i8 %.val128.i, %.val130.i
+  %513 = select i1 %.not.i144.i, i1 true, i1 %512
   br i1 %513, label %_ZN12_GLOBAL__N_111LSRInstance22GenerateICmpZeroScalesERNS_6LSRUseEjNS_7FormulaE.exit, label %514
 
 514:                                              ; preds = %511
@@ -15631,21 +15631,21 @@ _ZNK12_GLOBAL__N_17Formula7getTypeEv.exit.i:      ; preds = %503, %499, %494
   br i1 %542, label %543, label %639
 
 543:                                              ; preds = %540
-  %.val134.i = load i64, ptr %116, align 8, !tbaa !857
-  %544 = icmp eq i64 %.val134.i, -9223372036854775808
+  %.val135.i = load i64, ptr %116, align 8, !tbaa !857
+  %544 = icmp eq i64 %.val135.i, -9223372036854775808
   %545 = icmp eq i64 %541, -1
   %or.cond.i = and i1 %545, %544
   br i1 %or.cond.i, label %639, label %546
 
 546:                                              ; preds = %543
-  %.not158.i = icmp ne i64 %.val134.i, 0
-  %.val138.pre.i = load i8, ptr %117, align 8, !tbaa !865, !range !50
-  %547 = trunc nuw i8 %.val138.pre.i to i1
+  %.not158.i = icmp ne i64 %.val135.i, 0
+  %.val139.pre.i = load i8, ptr %117, align 8, !tbaa !865, !range !50
+  %547 = trunc nuw i8 %.val139.pre.i to i1
   %or.cond184.i = select i1 %.not158.i, i1 %547, i1 false
   br i1 %or.cond184.i, label %639, label %548
 
 548:                                              ; preds = %546
-  %mul.i = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %541, i64 %.val134.i)
+  %mul.i = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %541, i64 %.val135.i)
   %mul.val.i = extractvalue { i64, i1 } %mul.i, 0
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %639, label %549
@@ -15661,14 +15661,14 @@ _ZNK12_GLOBAL__N_17Formula7getTypeEv.exit.i:      ; preds = %503, %499, %494
   br i1 %554, label %555, label %639
 
 555:                                              ; preds = %553, %549
-  %.sroa.0152.0.copyload.i = load i64, ptr %434, align 8
-  %556 = icmp eq i64 %.sroa.0152.0.copyload.i, -9223372036854775808
+  %.sroa.0153.0.copyload.i = load i64, ptr %434, align 8
+  %556 = icmp eq i64 %.sroa.0153.0.copyload.i, -9223372036854775808
   %or.cond5.i = and i1 %545, %556
   br i1 %or.cond5.i, label %639, label %557
 
 557:                                              ; preds = %555
   %.sroa.10.0.copyload.i = load i8, ptr %436, align 8
-  %mul159.i = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %541, i64 %.sroa.0152.0.copyload.i)
+  %mul159.i = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %541, i64 %.sroa.0153.0.copyload.i)
   %mul.val160.i = extractvalue { i64, i1 } %mul159.i, 0
   %mul.ov161.i = extractvalue { i64, i1 } %mul159.i, 1
   %558 = and i8 %.sroa.10.0.copyload.i, 1
@@ -15725,7 +15725,7 @@ _ZSt4copyIPKPKN4llvm4SCEVEPS3_ET0_T_S8_S7_.exit31.i.thread.i.i335: ; preds = %_Z
 _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit343:        ; preds = %565, %.sink.split.i.i.i337
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %125, ptr noundef nonnull readonly align 8 dereferenceable(17) %112, i64 17, i1 false)
   store i64 %mul.val.i, ptr %118, align 8
-  store i8 %.val138.pre.i, ptr %.sroa.6154.0..sroa_idx.i, align 8
+  store i8 %.val139.pre.i, ptr %.sroa.6155.0..sroa_idx.i, align 8
   %574 = load ptr, ptr %119, align 8, !tbaa !637
   %575 = load i32, ptr %433, align 8, !tbaa !864
   %.sroa.0381.0.copyload = load ptr, ptr %438, align 8
@@ -15734,7 +15734,7 @@ _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit343:        ; preds = %565, %.sink.split.i
   %577 = load i8, ptr %130, align 8, !tbaa !708, !range !50, !noundef !51
   %578 = trunc nuw i8 %577 to i1
   %579 = load i64, ptr %131, align 8, !tbaa !713
-  %580 = call fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl(ptr noundef nonnull align 8 dereferenceable(8) %574, i64 %mul.val160.i, i8 %558, i64 %mul.val160.i, i8 %558, i32 noundef %575, ptr %.sroa.0381.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef %576, i64 %mul.val.i, i8 %.val138.pre.i, i1 noundef zeroext %578, i64 noundef %579)
+  %580 = call fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl(ptr noundef nonnull align 8 dereferenceable(8) %574, i64 %mul.val160.i, i8 %558, i64 %mul.val160.i, i8 %558, i32 noundef %575, ptr %.sroa.0381.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef %576, i64 %mul.val.i, i8 %.val139.pre.i, i1 noundef zeroext %578, i64 noundef %579)
   br i1 %580, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread, label %581
 
 581:                                              ; preds = %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit343
@@ -15742,23 +15742,23 @@ _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit343:        ; preds = %565, %.sink.split.i
   br i1 %582, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit, label %.loopexit.i
 
 _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit: ; preds = %581
-  %583 = call fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl(ptr noundef nonnull align 8 dereferenceable(8) %574, i64 %mul.val160.i, i8 %558, i64 %mul.val160.i, i8 %558, i32 noundef %575, ptr %.sroa.0381.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef %576, i64 %mul.val.i, i8 %.val138.pre.i, i1 noundef zeroext true, i64 noundef 0)
+  %583 = call fastcc noundef zeroext i1 @_ZL20isAMCompletelyFoldedRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyEPNS_11GlobalValueES4_bl(ptr noundef nonnull align 8 dereferenceable(8) %574, i64 %mul.val160.i, i8 %558, i64 %mul.val160.i, i8 %558, i32 noundef %575, ptr %.sroa.0381.0.copyload, i32 %.sroa.4.0.copyload, ptr noundef %576, i64 %mul.val.i, i8 %.val139.pre.i, i1 noundef zeroext true, i64 noundef 0)
   br i1 %583, label %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread, label %.loopexit.i
 
 _ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit.thread: ; preds = %_ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit343, %_ZL10isLegalUseRKN4llvm19TargetTransformInfoEN12_GLOBAL__N_19ImmediateES4_NS3_6LSRUse8KindTypeENS3_11MemAccessTyERKNS3_7FormulaE.exit
-  %.val122.i = load i64, ptr %118, align 8, !tbaa !857
-  %.val123.i = load i8, ptr %.sroa.6154.0..sroa_idx.i, align 8, !tbaa !865, !range !50, !noundef !51
-  %584 = trunc nuw i8 %.val123.i to i1
-  %585 = add i64 %.val122.i, %mul.val160.i
-  %.val132.i = load i64, ptr %434, align 8, !tbaa !857
-  %.val133.i = load i8, ptr %436, align 8
+  %.val123.i = load i64, ptr %118, align 8, !tbaa !857
+  %.val124.i = load i8, ptr %.sroa.6155.0..sroa_idx.i, align 8, !tbaa !865, !range !50, !noundef !51
+  %584 = trunc nuw i8 %.val124.i to i1
+  %585 = add i64 %.val123.i, %mul.val160.i
+  %.val133.i = load i64, ptr %434, align 8, !tbaa !857
+  %.val134.i = load i8, ptr %436, align 8
   %586 = trunc i8 %.sroa.10.0.copyload.i to i1
   %587 = select i1 %584, i1 true, i1 %586
-  %588 = sub i64 %585, %.val132.i
-  %589 = and i8 %.val133.i, 1
+  %588 = sub i64 %585, %.val133.i
+  %589 = and i8 %.val134.i, 1
   %590 = select i1 %587, i8 1, i8 %589
   store i64 %588, ptr %118, align 8
-  store i8 %590, ptr %.sroa.6154.0..sroa_idx.i, align 8
+  store i8 %590, ptr %.sroa.6155.0..sroa_idx.i, align 8
   %591 = load ptr, ptr %113, align 8, !tbaa !634
   %592 = call noundef ptr @_ZN4llvm15ScalarEvolution11getConstantEPNS_4TypeEmb(ptr noundef nonnull align 8 dereferenceable(1344) %591, ptr noundef nonnull %506, i64 noundef %541, i1 noundef zeroext false) #25
   %593 = load i32, ptr %121, align 8, !tbaa !26
@@ -15850,8 +15850,8 @@ _ZN4llvm15ScalarEvolution10getMulExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit: ; 
   %626 = mul i64 %.val.i168, %541
   store i64 %626, ptr %126, align 8
   %627 = sdiv i64 %626, %541
-  %.val114.i = load i64, ptr %127, align 8, !tbaa !857
-  %.not110.i = icmp eq i64 %627, %.val114.i
+  %.val115.i = load i64, ptr %127, align 8, !tbaa !857
+  %.not110.i = icmp eq i64 %627, %.val115.i
   br i1 %.not110.i, label %628, label %.loopexit.i
 
 628:                                              ; preds = %625

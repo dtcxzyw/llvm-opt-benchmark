@@ -15035,9 +15035,9 @@ ct_extract_tls_extension_scts.exit.thread:        ; preds = %16, %ct_extract_tls
   br label %43
 
 43:                                               ; preds = %50, %.lr.ph.i
-  %.02345.i = phi i32 [ 0, %.lr.ph.i ], [ %51, %50 ]
-  %.144.i = phi ptr [ null, %.lr.ph.i ], [ %.2.ph.i, %50 ]
-  %44 = call ptr @OCSP_resp_get0(ptr noundef nonnull %38, i32 noundef %.02345.i) #20
+  %.02346.i = phi i32 [ 0, %.lr.ph.i ], [ %51, %50 ]
+  %.145.i = phi ptr [ null, %.lr.ph.i ], [ %.2.ph.i, %50 ]
+  %44 = call ptr @OCSP_resp_get0(ptr noundef nonnull %38, i32 noundef %.02346.i) #20
   %45 = icmp eq ptr %44, null
   br i1 %45, label %50, label %46
 
@@ -15048,8 +15048,8 @@ ct_extract_tls_extension_scts.exit.thread:        ; preds = %16, %ct_extract_tls
   br i1 %49, label %ct_extract_ocsp_response_scts.exit, label %50
 
 50:                                               ; preds = %46, %43
-  %.2.ph.i = phi ptr [ %47, %46 ], [ %.144.i, %43 ]
-  %51 = add nuw nsw i32 %.02345.i, 1
+  %.2.ph.i = phi ptr [ %47, %46 ], [ %.145.i, %43 ]
+  %51 = add nuw nsw i32 %.02346.i, 1
   %52 = call i32 @OCSP_resp_count(ptr noundef nonnull %38) #20
   %53 = icmp slt i32 %51, %52
   br i1 %53, label %43, label %.critedge, !llvm.loop !487

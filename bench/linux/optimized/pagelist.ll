@@ -2099,13 +2099,13 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load volatile ptr, ptr %17, align 8
   %60 = icmp eq ptr %59, %17
-  br i1 %60, label %.thread9, label %.lr.ph
+  br i1 %60, label %.thread10, label %.lr.ph
 
-.lr.ph:                                           ; preds = %52, %.thread8
-  %61 = phi ptr [ %112, %.thread8 ], [ %59, %52 ]
-  %62 = phi i32 [ %81, %.thread8 ], [ 0, %52 ]
-  %63 = phi ptr [ %80, %.thread8 ], [ null, %52 ]
-  %64 = phi ptr [ %79, %.thread8 ], [ %56, %52 ]
+.lr.ph:                                           ; preds = %52, %.thread9
+  %61 = phi ptr [ %112, %.thread9 ], [ %59, %52 ]
+  %62 = phi i32 [ %81, %.thread9 ], [ 0, %52 ]
+  %63 = phi ptr [ %80, %.thread9 ], [ null, %52 ]
+  %64 = phi ptr [ %79, %.thread9 ], [ %56, %52 ]
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %61, align 8
@@ -2138,7 +2138,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 84:                                               ; preds = %102, %77
   %85 = phi i64 [ %105, %102 ], [ %78, %77 ]
   %86 = icmp eq i64 %85, %83
-  br i1 %86, label %.thread8, label %87
+  br i1 %86, label %.thread9, label %87
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %70, align 4
@@ -2153,7 +2153,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 
 95:                                               ; preds = %87
   %96 = icmp eq ptr %.pre, null
-  br i1 %96, label %.thread8, label %97
+  br i1 %96, label %.thread9, label %97
 
 97:                                               ; preds = %95
   %98 = lshr i64 %90, 12
@@ -2163,7 +2163,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 .thread:                                          ; preds = %87, %97
   %100 = phi ptr [ %99, %97 ], [ %.pre, %87 ]
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread8, label %102
+  br i1 %101, label %.thread9, label %102
 
 102:                                              ; preds = %.thread
   %103 = add nsw i64 %85, 4096
@@ -2175,24 +2175,24 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 107:                                              ; preds = %102
   %108 = add i32 %81, 1
   %109 = icmp ugt i32 %108, %32
-  br i1 %109, label %.thread9, label %110
+  br i1 %109, label %.thread10, label %110
 
 110:                                              ; preds = %107
   %111 = getelementptr i8, ptr %79, i64 8
   store ptr %100, ptr %79, align 8
   br label %77, !llvm.loop !67
 
-.thread8:                                         ; preds = %95, %84, %.thread
+.thread9:                                         ; preds = %95, %84, %.thread
   %112 = load volatile ptr, ptr %17, align 8
   %113 = icmp eq ptr %112, %17
-  br i1 %113, label %.thread9, label %.lr.ph
+  br i1 %113, label %.thread10, label %.lr.ph
 
-.thread9:                                         ; preds = %.thread8, %107, %52
-  %114 = phi i32 [ 0, %52 ], [ %108, %107 ], [ %81, %.thread8 ]
+.thread10:                                        ; preds = %.thread9, %107, %52
+  %114 = phi i32 [ 0, %52 ], [ %108, %107 ], [ %81, %.thread9 ]
   %115 = icmp eq i32 %114, %32
   br i1 %115, label %123, label %116, !prof !13
 
-116:                                              ; preds = %.thread9
+116:                                              ; preds = %.thread10
   call void asm sideeffect "1997: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1997) #11, !srcloc !68
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1039, i32 2307, i64 12) #11, !srcloc !69
   call void asm sideeffect "1998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1998) #11, !srcloc !70
@@ -2207,7 +2207,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
   store i32 -22, ptr %122, align 4
   br label %181
 
-123:                                              ; preds = %.thread9
+123:                                              ; preds = %.thread10
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 32
@@ -2224,17 +2224,17 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 133:                                              ; preds = %128
   %134 = call i64 @nfs_reqs_to_commit(ptr noundef nonnull %3) #11
   %135 = icmp eq i64 %134, 0
-  %.pre31 = load i32, ptr %124, align 8
+  %.pre32 = load i32, ptr %124, align 8
   br i1 %135, label %138, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %133, %128
-  %136 = phi i32 [ %125, %128 ], [ %.pre31, %133 ]
+  %136 = phi i32 [ %125, %128 ], [ %.pre32, %133 ]
   %137 = and i32 %136, -33
   store i32 %137, ptr %124, align 8
   br label %138
 
 138:                                              ; preds = %._crit_edge, %133, %123
-  %139 = phi i32 [ %137, %._crit_edge ], [ %.pre31, %133 ], [ %125, %123 ]
+  %139 = phi i32 [ %137, %._crit_edge ], [ %.pre32, %133 ], [ %125, %123 ]
   %140 = load i64, ptr %26, align 8
   %141 = trunc i64 %140 to i32
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 32

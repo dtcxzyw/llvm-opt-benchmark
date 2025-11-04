@@ -535,10 +535,10 @@ define range(i32 -1, 1) i32 @H5VL__native_object_get(ptr noundef %0, ptr noundef
   %191 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_object_get, i32 noundef 305, i64 noundef %189, i64 noundef %190, ptr noundef nonnull @.str.20) #3
   br label %192
 
-192:                                              ; preds = %183, %115, %82, %16, %34, %50, %83, %116, %130, %143, %184, %188, %123, %134, %41, %26
-  %.0 = phi i32 [ -1, %16 ], [ -1, %188 ], [ 0, %26 ], [ -1, %34 ], [ -1, %50 ], [ 0, %41 ], [ %.1, %82 ], [ -1, %83 ], [ %.2, %115 ], [ -1, %116 ], [ -1, %130 ], [ 0, %123 ], [ -1, %143 ], [ 0, %134 ], [ %.3, %183 ], [ -1, %184 ]
+192:                                              ; preds = %16, %34, %50, %83, %116, %130, %143, %184, %188, %123, %134, %41, %26, %82, %115, %183
+  %.054 = phi i32 [ -1, %16 ], [ -1, %188 ], [ 0, %26 ], [ -1, %34 ], [ -1, %50 ], [ 0, %41 ], [ %.1, %82 ], [ -1, %83 ], [ %.2, %115 ], [ -1, %116 ], [ -1, %130 ], [ 0, %123 ], [ -1, %143 ], [ 0, %134 ], [ %.3, %183 ], [ -1, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.0
+  ret i32 %.054
 }
 
 declare i32 @H5G_get_name(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -789,10 +789,10 @@ define range(i32 -1, -2147483648) i32 @H5VL__native_object_specific(ptr noundef 
   %155 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_object_specific, i32 noundef 427, i64 noundef %153, i64 noundef %154, ptr noundef nonnull @.str.29) #3
   br label %156
 
-156:                                              ; preds = %85, %13, %25, %40, %45, %86, %138, %148, %152, %142, %132, %33, %19, %94, %110, %128, %124, %106
-  %.0 = phi i32 [ -1, %13 ], [ -1, %152 ], [ -1, %25 ], [ 0, %19 ], [ -1, %40 ], [ 0, %33 ], [ -1, %45 ], [ %.146, %85 ], [ -1, %86 ], [ -1, %138 ], [ 0, %132 ], [ -1, %148 ], [ 0, %142 ], [ -1, %106 ], [ -1, %124 ], [ -1, %128 ], [ %104, %94 ], [ %122, %110 ]
+156:                                              ; preds = %13, %25, %40, %45, %86, %138, %148, %152, %142, %132, %33, %19, %85, %94, %110, %128, %124, %106
+  %.045 = phi i32 [ -1, %13 ], [ -1, %152 ], [ -1, %25 ], [ 0, %19 ], [ -1, %40 ], [ 0, %33 ], [ -1, %45 ], [ %.146, %85 ], [ -1, %86 ], [ -1, %138 ], [ 0, %132 ], [ -1, %148 ], [ 0, %142 ], [ -1, %106 ], [ -1, %124 ], [ -1, %128 ], [ %104, %94 ], [ %122, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.0
+  ret i32 %.045
 }
 
 declare i32 @H5O_link(ptr noundef, i32 noundef) local_unnamed_addr #1

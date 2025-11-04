@@ -304,15 +304,15 @@ define ptr @ssl_cert_dup(ptr noundef %0) local_unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %32, ptr %33, align 8, !tbaa !94
   %34 = load i64, ptr %7, align 8, !tbaa !8
-  %.not133 = icmp eq i64 %34, 0
-  br i1 %.not133, label %._crit_edge, label %.lr.ph
+  %.not134 = icmp eq i64 %34, 0
+  br i1 %.not134, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %68
-  %.0104132 = phi i64 [ %69, %68 ], [ 0, %27 ]
+  %.0104133 = phi i64 [ %69, %68 ], [ 0, %27 ]
   %35 = load ptr, ptr %15, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %35, i64 %.0104132
+  %36 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %35, i64 %.0104133
   %37 = load ptr, ptr %10, align 8, !tbaa !19
-  %38 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %37, i64 %.0104132
+  %38 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %37, i64 %.0104133
   %39 = load ptr, ptr %36, align 8, !tbaa !95
   %.not126 = icmp eq ptr %39, null
   br i1 %.not126, label %42, label %40
@@ -376,7 +376,7 @@ define ptr @ssl_cert_dup(ptr noundef %0) local_unnamed_addr #0 {
   br label %68
 
 68:                                               ; preds = %65, %56
-  %69 = add nuw i64 %.0104132, 1
+  %69 = add nuw i64 %.0104133, 1
   %70 = load i64, ptr %7, align 8, !tbaa !8
   %71 = icmp ult i64 %69, %70
   br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !101
@@ -2032,23 +2032,23 @@ define range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr noundef %0, p
 
 .preheader:                                       ; preds = %.lr.ph, %10
   %13 = call ptr @OPENSSL_DIR_read(ptr noundef nonnull %3, ptr noundef %1) #14
-  %.not34 = icmp eq ptr %13, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph35
+  %.not35 = icmp eq ptr %13, null
+  br i1 %.not35, label %._crit_edge, label %.lr.ph36
 
-.lr.ph35:                                         ; preds = %.preheader
+.lr.ph36:                                         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %18
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.02533 = phi i32 [ %17, %.lr.ph ], [ 0, %10 ]
-  %15 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %.02533) #14
+  %.02534 = phi i32 [ %17, %.lr.ph ], [ 0, %10 ]
+  %15 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %.02534) #14
   %16 = tail call ptr @OPENSSL_LH_insert(ptr noundef nonnull %7, ptr noundef %15) #14
-  %17 = add nuw nsw i32 %.02533, 1
+  %17 = add nuw nsw i32 %.02534, 1
   %exitcond.not = icmp eq i32 %17, %11
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !160
 
-18:                                               ; preds = %.lr.ph35, %37
-  %19 = phi ptr [ %13, %.lr.ph35 ], [ %38, %37 ]
+18:                                               ; preds = %.lr.ph36, %37
+  %19 = phi ptr [ %13, %.lr.ph36 ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
@@ -2124,7 +2124,7 @@ define range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr noundef %0, p
   %46 = call i32 @OPENSSL_DIR_end(ptr noundef nonnull %3) #14
   br label %47
 
-47:                                               ; preds = %43, %45
+47:                                               ; preds = %45, %43
   call void @OPENSSL_LH_free(ptr noundef %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.024
@@ -2171,8 +2171,8 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
 
 .preheader:                                       ; preds = %3
   %6 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %4) #14
-  %.not44 = icmp eq i32 %6, 0
-  br i1 %.not44, label %.lr.ph, label %.critedge
+  %.not45 = icmp eq i32 %6, 0
+  br i1 %.not45, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %.not37 = icmp eq i32 %2, 0
@@ -2232,7 +2232,7 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.us, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge39
-  %.02745 = phi i32 [ %.1, %.critedge39 ], [ 1, %.lr.ph ]
+  %.02746 = phi i32 [ %.1, %.critedge39 ], [ 1, %.lr.ph ]
   %30 = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %4) #14
   %.not35 = icmp eq i32 %30, 0
   br i1 %.not35, label %31, label %.critedge
@@ -2284,27 +2284,27 @@ define internal fastcc i32 @add_uris_recursive(ptr noundef %0, ptr noundef %1, i
   br i1 %.not36, label %.split.us, label %54
 
 .split.us:                                        ; preds = %52, %25
-  %.us-phi48 = phi ptr [ %20, %25 ], [ %46, %52 ]
-  tail call void @X509_NAME_free(ptr noundef nonnull %.us-phi48) #14
+  %.us-phi49 = phi ptr [ %20, %25 ], [ %46, %52 ]
+  tail call void @X509_NAME_free(ptr noundef nonnull %.us-phi49) #14
   br label %.critedge39.thread
 
 54:                                               ; preds = %34, %52, %51, %36
-  %.2 = phi i32 [ %38, %36 ], [ %.02745, %51 ], [ %.02745, %52 ], [ %.02745, %34 ]
+  %.2 = phi i32 [ %38, %36 ], [ %.02746, %51 ], [ %.02746, %52 ], [ %.02746, %34 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %32) #14
   br label %.critedge39
 
 .critedge39:                                      ; preds = %31, %54
-  %.1 = phi i32 [ %.2, %54 ], [ %.02745, %31 ]
+  %.1 = phi i32 [ %.2, %54 ], [ %.02746, %31 ]
   %55 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.lr.ph.split, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %.critedge39, %.lr.ph.split.us, %.critedge39.us, %.preheader
-  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.critedge39.us ], [ 1, %.lr.ph.split.us ], [ %.1, %.critedge39 ], [ %.02745, %.lr.ph.split ]
+  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.critedge39.us ], [ 1, %.lr.ph.split.us ], [ %.1, %.critedge39 ], [ %.02746, %.lr.ph.split ]
   tail call void @ERR_clear_error() #14
   br label %.critedge39.thread
 
-.critedge39.thread:                               ; preds = %45, %42, %39, %19, %16, %13, %.split.us, %.critedge, %3
+.critedge39.thread:                               ; preds = %45, %42, %39, %19, %16, %13, %.split.us, %3, %.critedge
   %.3 = phi i32 [ %.027.lcssa, %.critedge ], [ 0, %3 ], [ 0, %.split.us ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ]
   %56 = tail call i32 @OSSL_STORE_close(ptr noundef %4) #14
   ret i32 %.3

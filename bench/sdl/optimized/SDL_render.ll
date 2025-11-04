@@ -12488,7 +12488,7 @@ define internal fastcc noundef zeroext i1 @SDL_SW_RenderGeometryRaw(ptr noundef 
   br label %SDL_GetRenderDrawBlendMode_REAL.exit
 
 SDL_GetRenderDrawBlendMode_REAL.exit:             ; preds = %24, %30, %32
-  %.0373 = phi i32 [ 2147483647, %30 ], [ %34, %32 ], [ 2147483647, %24 ]
+  %.0374 = phi i32 [ 2147483647, %30 ], [ %34, %32 ], [ 2147483647, %24 ]
   %35 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
   br i1 %35, label %38, label %36
 
@@ -12518,12 +12518,12 @@ SDL_GetRenderDrawBlendMode_REAL.exit:             ; preds = %24, %30, %32
   br label %SDL_GetRenderDrawColorFloat_REAL.exit
 
 SDL_GetRenderDrawColorFloat_REAL.exit:            ; preds = %36, %42, %44
-  %.0372 = phi float [ 0.000000e+00, %42 ], [ %.sroa.0.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
-  %.0371 = phi float [ 0.000000e+00, %42 ], [ %.sroa.4.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
-  %.0370 = phi float [ 0.000000e+00, %42 ], [ %.sroa.5.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
-  %.0369 = phi float [ 0.000000e+00, %42 ], [ %.sroa.6.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
-  %.not420 = icmp eq ptr %1, null
-  br i1 %.not420, label %SDL_GetTextureSize_REAL.exit, label %46
+  %.0373 = phi float [ 0.000000e+00, %42 ], [ %.sroa.0.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
+  %.0372 = phi float [ 0.000000e+00, %42 ], [ %.sroa.4.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
+  %.0371 = phi float [ 0.000000e+00, %42 ], [ %.sroa.5.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
+  %.0370 = phi float [ 0.000000e+00, %42 ], [ %.sroa.6.0.copyload.i, %44 ], [ 0.000000e+00, %36 ]
+  %.not421 = icmp eq ptr %1, null
+  br i1 %.not421, label %SDL_GetTextureSize_REAL.exit, label %46
 
 46:                                               ; preds = %SDL_GetRenderDrawColorFloat_REAL.exit
   %47 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %1, i32 noundef 3) #15
@@ -12543,8 +12543,8 @@ SDL_GetRenderDrawColorFloat_REAL.exit:            ; preds = %36, %42, %44
   br label %SDL_GetTextureSize_REAL.exit
 
 SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRenderDrawColorFloat_REAL.exit
-  %.0376 = phi float [ 0.000000e+00, %SDL_GetRenderDrawColorFloat_REAL.exit ], [ %53, %50 ], [ 0.000000e+00, %48 ]
-  %.0374 = phi float [ 0.000000e+00, %SDL_GetRenderDrawColorFloat_REAL.exit ], [ %56, %50 ], [ 0.000000e+00, %48 ]
+  %.0377 = phi float [ 0.000000e+00, %SDL_GetRenderDrawColorFloat_REAL.exit ], [ %53, %50 ], [ 0.000000e+00, %48 ]
+  %.0375 = phi float [ 0.000000e+00, %SDL_GetRenderDrawColorFloat_REAL.exit ], [ %56, %50 ], [ 0.000000e+00, %48 ]
   store i32 -1, ptr %13, align 4
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 -1, ptr %57, align 4
@@ -12552,7 +12552,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   store i32 -1, ptr %58, align 4
   %59 = select i1 %.not, i32 0, i32 %11
   %60 = icmp sgt i32 %16, 0
-  br i1 %60, label %.lr.ph, label %QueueCmdGeometry.exit359
+  br i1 %60, label %.lr.ph, label %QueueCmdGeometry.exit360
 
 .lr.ph:                                           ; preds = %SDL_GetTextureSize_REAL.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -12572,7 +12572,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %74 = phi i32 [ -1, %.lr.ph ], [ %.be, %.backedge.backedge ]
-  %indvars.iv403 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv403.be, %.backedge.backedge ]
+  %indvars.iv404 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv404.be, %.backedge.backedge ]
   switch i32 %59, label %102 [
     i32 4, label %75
     i32 2, label %82
@@ -12580,7 +12580,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   ]
 
 75:                                               ; preds = %.backedge
-  %76 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv403
+  %76 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv404
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %79 = load i32, ptr %78, align 4
@@ -12589,7 +12589,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   br label %111
 
 82:                                               ; preds = %.backedge
-  %83 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv403
+  %83 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv404
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 2
@@ -12601,7 +12601,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   br label %111
 
 92:                                               ; preds = %.backedge
-  %93 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv403
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv404
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
@@ -12613,12 +12613,12 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   br label %111
 
 102:                                              ; preds = %.backedge
-  %103 = trunc nuw nsw i64 %indvars.iv403 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv404 to i32
   %104 = call fastcc i32 @remap_indices(ptr noundef %13, i32 noundef %103, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
-  %105 = trunc i64 %indvars.iv403 to i32
+  %105 = trunc i64 %indvars.iv404 to i32
   %106 = add i32 %105, 1
   %107 = call fastcc i32 @remap_indices(ptr noundef %13, i32 noundef %106, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
-  %108 = trunc i64 %indvars.iv403 to i32
+  %108 = trunc i64 %indvars.iv404 to i32
   %109 = add i32 %108, 2
   %110 = call fastcc i32 @remap_indices(ptr noundef %13, i32 noundef %109, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
   %.pre = load i32, ptr %13, align 4
@@ -12634,7 +12634,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
 
 .preheader:                                       ; preds = %111, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 3, %111 ]
-  %.0295398 = phi i32 [ %.1296, %.preheader ], [ 0, %111 ]
+  %.0295399 = phi i32 [ %.1296, %.preheader ], [ 0, %111 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %114 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next
   %115 = load i32, ptr %114, align 4
@@ -12644,7 +12644,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   %118 = icmp eq i32 %115, %.0284
   %or.cond328 = select i1 %or.cond327, i1 true, i1 %118
   %119 = zext i1 %or.cond328 to i32
-  %.1296 = add nuw nsw i32 %.0295398, %119
+  %.1296 = add nuw nsw i32 %.0295399, %119
   %.not315 = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not315, label %120, label %.preheader, !llvm.loop !37
 
@@ -12675,50 +12675,50 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   %142 = fcmp ugt float %134, %137
   %or.cond329 = select i1 %141, i1 true, i1 %142
   %. = select i1 %or.cond329, float %135, float %132
-  %.433 = select i1 %or.cond329, float %137, float %134
+  %.434 = select i1 %or.cond329, float %137, float %134
   %.0283..0282 = select i1 %or.cond329, i32 %.0283, i32 %.0282
   %143 = fcmp ugt float %., %138
-  %144 = fcmp ugt float %.433, %140
+  %144 = fcmp ugt float %.434, %140
   %or.cond331 = select i1 %143, i1 true, i1 %144
-  %spec.select343 = select i1 %or.cond331, i32 %.0284, i32 %.0283..0282
+  %spec.select344 = select i1 %or.cond331, i32 %.0284, i32 %.0283..0282
   %145 = fcmp ult float %132, %135
   %146 = fcmp ult float %134, %137
   %or.cond332 = select i1 %145, i1 true, i1 %146
-  %.sink432 = select i1 %or.cond332, float %135, float %132
-  %.sink431 = select i1 %or.cond332, float %137, float %134
-  %.0283.sink429 = select i1 %or.cond332, i32 %.0283, i32 %.0282
-  %147 = fcmp ult float %.sink432, %138
-  %148 = fcmp ult float %.sink431, %140
+  %.sink433 = select i1 %or.cond332, float %135, float %132
+  %.sink432 = select i1 %or.cond332, float %137, float %134
+  %.0283.sink430 = select i1 %or.cond332, i32 %.0283, i32 %.0282
+  %147 = fcmp ult float %.sink433, %138
+  %148 = fcmp ult float %.sink432, %140
   %or.cond334 = select i1 %147, i1 true, i1 %148
-  %spec.select345 = select i1 %or.cond334, i32 %.0284, i32 %.0283.sink429
-  %.not316 = icmp eq i32 %.0282, %spec.select343
-  %.not317 = icmp eq i32 %.0282, %spec.select345
+  %spec.select346 = select i1 %or.cond334, i32 %.0284, i32 %.0283.sink430
+  %.not316 = icmp eq i32 %.0282, %spec.select344
+  %.not317 = icmp eq i32 %.0282, %spec.select346
   %or.cond335 = select i1 %.not316, i1 true, i1 %.not317
-  %.not318 = icmp eq i32 %.0283, %spec.select343
-  %.not319 = icmp eq i32 %.0283, %spec.select345
+  %.not318 = icmp eq i32 %.0283, %spec.select344
+  %.not319 = icmp eq i32 %.0283, %spec.select346
   %or.cond336 = select i1 %.not318, i1 true, i1 %.not319
-  %spec.select346 = select i1 %or.cond336, i32 %.0284, i32 %.0283
-  %.1301 = select i1 %or.cond335, i32 %spec.select346, i32 %.0282
-  %.not320 = icmp eq i32 %112, %spec.select343
-  %.not321 = icmp eq i32 %112, %spec.select345
+  %spec.select347 = select i1 %or.cond336, i32 %.0284, i32 %.0283
+  %.1301 = select i1 %or.cond335, i32 %spec.select347, i32 %.0282
+  %.not320 = icmp eq i32 %112, %spec.select344
+  %.not321 = icmp eq i32 %112, %spec.select346
   %or.cond337 = select i1 %.not320, i1 true, i1 %.not321
   br i1 %or.cond337, label %149, label %152
 
 149:                                              ; preds = %122
   %150 = load i32, ptr %57, align 4
-  %.not322 = icmp eq i32 %150, %spec.select343
-  %.not323 = icmp eq i32 %150, %spec.select345
+  %.not322 = icmp eq i32 %150, %spec.select344
+  %.not323 = icmp eq i32 %150, %spec.select346
   %or.cond338 = select i1 %.not322, i1 true, i1 %.not323
   %151 = load i32, ptr %58, align 4
-  %spec.select347 = select i1 %or.cond338, i32 %151, i32 %150
+  %spec.select348 = select i1 %or.cond338, i32 %151, i32 %150
   br label %152
 
 152:                                              ; preds = %149, %122
-  %.1299 = phi i32 [ %112, %122 ], [ %spec.select347, %149 ]
-  %153 = mul nsw i32 %spec.select343, %3
+  %.1299 = phi i32 [ %112, %122 ], [ %spec.select348, %149 ]
+  %153 = mul nsw i32 %spec.select344, %3
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds i8, ptr %2, i64 %154
-  %156 = mul nsw i32 %spec.select345, %3
+  %156 = mul nsw i32 %spec.select346, %3
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %2, i64 %157
   %159 = mul nsw i32 %.1301, %3
@@ -12754,18 +12754,18 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
 184:                                              ; preds = %152
   %185 = fcmp oeq float %164, %181
   %186 = fcmp oeq float %165, %179
-  %or.cond342.not393.not396 = select i1 %185, i1 %186, i1 false
-  %or.cond390.not = select i1 %or.cond342.not393.not396, i1 %175, i1 false
-  br i1 %or.cond390.not, label %187, label %.critedge
+  %or.cond342.not394.not397 = select i1 %185, i1 %186, i1 false
+  %or.cond391.not = select i1 %or.cond342.not394.not397, i1 %175, i1 false
+  br i1 %or.cond391.not, label %187, label %.critedge
 
 select.unfold:                                    ; preds = %152
   br i1 %175, label %187, label %.critedge
 
 187:                                              ; preds = %184, %select.unfold
-  %188 = mul nsw i32 %spec.select343, %5
+  %188 = mul nsw i32 %spec.select344, %5
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds i8, ptr %4, i64 %189
-  %191 = mul nsw i32 %spec.select345, %5
+  %191 = mul nsw i32 %spec.select346, %5
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds i8, ptr %4, i64 %192
   %194 = mul nsw i32 %.1299, %5
@@ -12794,30 +12794,30 @@ select.unfold:                                    ; preds = %152
   %209 = mul nsw i32 %.0282, %5
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %4, i64 %210
-  br i1 %.not420, label %234, label %212
+  br i1 %.not421, label %234, label %212
 
 212:                                              ; preds = %208
-  %213 = mul nsw i32 %spec.select343, %7
+  %213 = mul nsw i32 %spec.select344, %7
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i8, ptr %6, i64 %214
-  %216 = mul nsw i32 %spec.select345, %7
+  %216 = mul nsw i32 %spec.select346, %7
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds i8, ptr %6, i64 %217
   %219 = load float, ptr %215, align 4
-  %220 = fmul float %.0376, %219
+  %220 = fmul float %.0377, %219
   store float %220, ptr %14, align 4
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %222 = load float, ptr %221, align 4
-  %223 = fmul float %.0374, %222
+  %223 = fmul float %.0375, %222
   store float %223, ptr %64, align 4
   %224 = load float, ptr %218, align 4
   %225 = fneg float %220
-  %226 = call float @llvm.fmuladd.f32(float %224, float %.0376, float %225)
+  %226 = call float @llvm.fmuladd.f32(float %224, float %.0377, float %225)
   store float %226, ptr %63, align 4
   %227 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %228 = load float, ptr %227, align 4
   %229 = fneg float %223
-  %230 = call float @llvm.fmuladd.f32(float %228, float %.0374, float %229)
+  %230 = call float @llvm.fmuladd.f32(float %228, float %.0375, float %229)
   store float %230, ptr %62, align 4
   %231 = fcmp une float %226, 0.000000e+00
   %232 = fcmp une float %230, 0.000000e+00
@@ -12870,28 +12870,28 @@ SDL_SetTextureAlphaModFloat_REAL.exit:            ; preds = %248, %246
   %254 = load float, ptr %253, align 4
   %255 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %256 = load float, ptr %255, align 4
-  br label %tailrecurse.i351
+  br label %tailrecurse.i352
 
-tailrecurse.i351:                                 ; preds = %260, %SDL_SetTextureAlphaModFloat_REAL.exit
-  %.tr.i352 = phi ptr [ %1, %SDL_SetTextureAlphaModFloat_REAL.exit ], [ %265, %260 ]
-  %257 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i352, i32 noundef 3) #15
+tailrecurse.i352:                                 ; preds = %260, %SDL_SetTextureAlphaModFloat_REAL.exit
+  %.tr.i353 = phi ptr [ %1, %SDL_SetTextureAlphaModFloat_REAL.exit ], [ %265, %260 ]
+  %257 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i353, i32 noundef 3) #15
   br i1 %257, label %260, label %258
 
-258:                                              ; preds = %tailrecurse.i351
+258:                                              ; preds = %tailrecurse.i352
   %259 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   br label %SDL_SetTextureColorModFloat_REAL.exit
 
-260:                                              ; preds = %tailrecurse.i351
-  %261 = getelementptr inbounds nuw i8, ptr %.tr.i352, i64 40
+260:                                              ; preds = %tailrecurse.i352
+  %261 = getelementptr inbounds nuw i8, ptr %.tr.i353, i64 40
   store float %252, ptr %261, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %.tr.i352, i64 44
+  %262 = getelementptr inbounds nuw i8, ptr %.tr.i353, i64 44
   store float %254, ptr %262, align 4
-  %263 = getelementptr inbounds nuw i8, ptr %.tr.i352, i64 48
+  %263 = getelementptr inbounds nuw i8, ptr %.tr.i353, i64 48
   store float %256, ptr %263, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %.tr.i352, i64 216
+  %264 = getelementptr inbounds nuw i8, ptr %.tr.i353, i64 216
   %265 = load ptr, ptr %264, align 8
-  %.not.i353 = icmp eq ptr %265, null
-  br i1 %.not.i353, label %SDL_SetTextureColorModFloat_REAL.exit, label %tailrecurse.i351
+  %.not.i354 = icmp eq ptr %265, null
+  br i1 %.not.i354, label %SDL_SetTextureColorModFloat_REAL.exit, label %tailrecurse.i352
 
 SDL_SetTextureColorModFloat_REAL.exit:            ; preds = %260, %258
   %266 = load float, ptr %63, align 4
@@ -13005,8 +13005,8 @@ SDL_SetRenderDrawColorFloat_REAL.exit:            ; preds = %308, %313, %315
 
 318:                                              ; preds = %.critedge
   %319 = call fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef 10, ptr noundef %1)
-  %.not.i356 = icmp eq ptr %319, null
-  br i1 %.not.i356, label %QueueCmdGeometry.exit359, label %320
+  %.not.i357 = icmp eq ptr %319, null
+  br i1 %.not.i357, label %QueueCmdGeometry.exit360, label %320
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 60
@@ -13015,39 +13015,39 @@ SDL_SetRenderDrawColorFloat_REAL.exit:            ; preds = %308, %313, %315
   store i32 1, ptr %322, align 8
   %323 = load ptr, ptr %61, align 8
   %324 = call zeroext i1 %323(ptr noundef %0, ptr noundef nonnull %319, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef range(i32 3, -2147483648) %8, ptr noundef nonnull %13, i32 noundef 3, i32 noundef 4, float noundef %20, float noundef %22) #15
-  br i1 %324, label %QueueCmdGeometry.exit, label %QueueCmdGeometry.exit359.sink.split
+  br i1 %324, label %QueueCmdGeometry.exit, label %QueueCmdGeometry.exit360.sink.split
 
 QueueCmdGeometry.exit:                            ; preds = %.critedge, %320, %111
   store i32 %.0282, ptr %13, align 4
   store i32 %.0283, ptr %57, align 4
   store i32 %.0284, ptr %58, align 4
-  %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 3
-  %325 = trunc nuw i64 %indvars.iv.next404 to i32
+  %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 3
+  %325 = trunc nuw i64 %indvars.iv.next405 to i32
   %326 = icmp sgt i32 %16, %325
   br i1 %326, label %.backedge.backedge, label %._crit_edge
 
 .backedge.backedge:                               ; preds = %QueueCmdGeometry.exit, %.thread
   %.be = phi i32 [ %.0282, %QueueCmdGeometry.exit ], [ -1, %.thread ]
-  %indvars.iv403.be = phi i64 [ %indvars.iv.next404, %QueueCmdGeometry.exit ], [ %indvars.iv.next404422, %.thread ]
+  %indvars.iv404.be = phi i64 [ %indvars.iv.next405, %QueueCmdGeometry.exit ], [ %indvars.iv.next405423, %.thread ]
   br label %.backedge, !llvm.loop !38
 
 .thread:                                          ; preds = %285, %270, %SDL_SetRenderDrawColorFloat_REAL.exit, %287
   store i32 -1, ptr %13, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %indvars.iv.next404422 = add nuw nsw i64 %indvars.iv403, 3
-  %327 = trunc nuw i64 %indvars.iv.next404422 to i32
+  %indvars.iv.next405423 = add nuw nsw i64 %indvars.iv404, 3
+  %327 = trunc nuw i64 %indvars.iv.next405423 to i32
   %328 = icmp sgt i32 %16, %327
-  br i1 %328, label %.backedge.backedge, label %QueueCmdGeometry.exit359
+  br i1 %328, label %.backedge.backedge, label %QueueCmdGeometry.exit360
 
 ._crit_edge:                                      ; preds = %QueueCmdGeometry.exit
   %329 = icmp eq i32 %.0282, -1
-  br i1 %329, label %QueueCmdGeometry.exit359, label %330
+  br i1 %329, label %QueueCmdGeometry.exit360, label %330
 
 330:                                              ; preds = %._crit_edge
   %331 = call fastcc ptr @PrepQueueCmdDraw(ptr noundef %0, i32 noundef 10, ptr noundef %1)
-  %.not.i357 = icmp eq ptr %331, null
-  br i1 %.not.i357, label %QueueCmdGeometry.exit359, label %332
+  %.not.i358 = icmp eq ptr %331, null
+  br i1 %.not.i358, label %QueueCmdGeometry.exit360, label %332
 
 332:                                              ; preds = %330
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 60
@@ -13057,24 +13057,24 @@ QueueCmdGeometry.exit:                            ; preds = %.critedge, %320, %1
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %336 = load ptr, ptr %335, align 8
   %337 = call zeroext i1 %336(ptr noundef %0, ptr noundef nonnull %331, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef range(i32 3, -2147483648) %8, ptr noundef nonnull %13, i32 noundef 3, i32 noundef 4, float noundef %20, float noundef %22) #15
-  br i1 %337, label %QueueCmdGeometry.exit359, label %QueueCmdGeometry.exit359.sink.split
+  br i1 %337, label %QueueCmdGeometry.exit360, label %QueueCmdGeometry.exit360.sink.split
 
-QueueCmdGeometry.exit359.sink.split:              ; preds = %320, %332
+QueueCmdGeometry.exit360.sink.split:              ; preds = %320, %332
   %.sink = phi ptr [ %331, %332 ], [ %319, %320 ]
   store i32 0, ptr %.sink, align 8
-  br label %QueueCmdGeometry.exit359
+  br label %QueueCmdGeometry.exit360
 
-QueueCmdGeometry.exit359:                         ; preds = %.thread, %318, %QueueCmdGeometry.exit359.sink.split, %SDL_GetTextureSize_REAL.exit, %332, %330, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ true, %332 ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ false, %QueueCmdGeometry.exit359.sink.split ], [ true, %.thread ], [ false, %318 ]
-  %338 = call zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef %0, i32 noundef %.0373)
+QueueCmdGeometry.exit360:                         ; preds = %.thread, %318, %QueueCmdGeometry.exit360.sink.split, %SDL_GetTextureSize_REAL.exit, %332, %330, %._crit_edge
+  %.4 = phi i1 [ true, %._crit_edge ], [ true, %332 ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ true, %.thread ], [ false, %318 ]
+  %338 = call zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef %0, i32 noundef %.0374)
   %339 = call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %339, label %342, label %340
 
-340:                                              ; preds = %QueueCmdGeometry.exit359
+340:                                              ; preds = %QueueCmdGeometry.exit360
   %341 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5) #15
-  br label %353
+  br label %SDL_SetRenderDrawColorFloat_REAL.exit362
 
-342:                                              ; preds = %QueueCmdGeometry.exit359
+342:                                              ; preds = %QueueCmdGeometry.exit360
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %344 = load i8, ptr %343, align 8, !range !3, !noundef !4
   %345 = trunc nuw i8 %344 to i1
@@ -13082,20 +13082,20 @@ QueueCmdGeometry.exit359:                         ; preds = %.thread, %318, %Que
 
 346:                                              ; preds = %342
   %347 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
-  br label %353
+  br label %SDL_SetRenderDrawColorFloat_REAL.exit362
 
 348:                                              ; preds = %342
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  store float %.0372, ptr %349, align 4
+  store float %.0373, ptr %349, align 4
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store float %.0371, ptr %350, align 4
+  store float %.0372, ptr %350, align 4
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 508
-  store float %.0370, ptr %351, align 4
+  store float %.0371, ptr %351, align 4
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store float %.0369, ptr %352, align 4
-  br label %353
+  store float %.0370, ptr %352, align 4
+  br label %SDL_SetRenderDrawColorFloat_REAL.exit362
 
-353:                                              ; preds = %348, %346, %340
+SDL_SetRenderDrawColorFloat_REAL.exit362:         ; preds = %340, %346, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.4
 }

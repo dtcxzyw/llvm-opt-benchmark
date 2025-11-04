@@ -1673,7 +1673,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
   %90 = call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %70, i64 noundef %69)
   br label %.thread51
 
-.thread51:                                        ; preds = %.split38, %37, %33, %68, %53, %27, %._crit_edge.thread, %9, %14, %21, %89
+.thread51:                                        ; preds = %.split38, %37, %33, %68, %53, %27, %._crit_edge.thread, %89, %21, %14, %9
   %.035 = phi ptr [ null, %9 ], [ null, %14 ], [ null, %21 ], [ %70, %89 ], [ %.1.lcssa103, %._crit_edge.thread ], [ %.180, %27 ], [ %.180, %53 ], [ %.180, %68 ], [ %.180, %33 ], [ %.180, %37 ], [ %.180, %.split38 ]
   %.034 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 0, %21 ], [ %90, %89 ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %53 ], [ 0, %68 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.split38 ]
   %.033 = phi ptr [ null, %9 ], [ null, %14 ], [ %12, %21 ], [ %12, %89 ], [ %12, %._crit_edge.thread ], [ %12, %27 ], [ %12, %53 ], [ %12, %68 ], [ %12, %33 ], [ %12, %37 ], [ %12, %.split38 ]

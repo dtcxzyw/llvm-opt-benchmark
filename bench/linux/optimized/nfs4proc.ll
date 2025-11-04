@@ -9569,7 +9569,7 @@ define internal void @nfs4_open_prepare(ptr noundef %0, ptr noundef %1) #0 align
 
 26:                                               ; preds = %25
   %27 = and i32 %20, 3
-  switch i32 %27, label %default.unreachable8 [
+  switch i32 %27, label %default.unreachable9 [
     i32 1, label %28
     i32 2, label %33
     i32 3, label %38
@@ -9604,7 +9604,7 @@ define internal void @nfs4_open_prepare(ptr noundef %0, ptr noundef %1) #0 align
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %122
 
-default.unreachable8:                             ; preds = %26
+default.unreachable9:                             ; preds = %26
   unreachable
 
 48:                                               ; preds = %26, %43, %38, %33, %28, %25, %25, %18

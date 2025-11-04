@@ -171,7 +171,7 @@ define i32 @H5I__register_type_common(i32 noundef %0, ptr noundef %1) local_unna
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %.thread39, !prof !23
+  br i1 %8, label %9, label %.thread40, !prof !23
 
 9:                                                ; preds = %2
   %10 = load i32, ptr @H5I_next_type_g, align 4, !tbaa !10
@@ -201,7 +201,7 @@ define i32 @H5I__register_type_common(i32 noundef %0, ptr noundef %1) local_unna
   %22 = load i64, ptr @H5E_ID_g, align 8, !tbaa !25
   %23 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !25
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I__register_type_common, i32 noundef 200, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.1) #8
-  br label %.thread39
+  br label %.thread40
 
 .thread:                                          ; preds = %19, %12
   %.028 = phi i32 [ %10, %12 ], [ %20, %19 ]
@@ -213,7 +213,7 @@ define i32 @H5I__register_type_common(i32 noundef %0, ptr noundef %1) local_unna
   %28 = load i64, ptr @H5E_ID_g, align 8, !tbaa !25
   %29 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !25
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5I__register_type_common, i32 noundef 205, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #8
-  br label %.thread39
+  br label %.thread40
 
 31:                                               ; preds = %.thread
   store i32 %.028, ptr %25, align 8, !tbaa !26
@@ -277,15 +277,15 @@ H5I_register_type.exit.thread:                    ; preds = %45, %49
   %60 = add i32 %47, 1
   store i32 %60, ptr %46, align 8, !tbaa !31
   %61 = icmp eq i32 %.028, -1
-  br i1 %61, label %62, label %.thread39
+  br i1 %61, label %62, label %.thread40
 
 62:                                               ; preds = %H5I_register_type.exit.thread.thread, %H5I_register_type.exit.thread
   %63 = tail call ptr @H5MM_xfree(ptr noundef nonnull %25) #8
-  br label %.thread39
+  br label %.thread40
 
-.thread39:                                        ; preds = %21, %27, %2, %62, %H5I_register_type.exit.thread
-  %.032 = phi i32 [ -1, %62 ], [ %.028, %H5I_register_type.exit.thread ], [ -1, %2 ], [ -1, %27 ], [ -1, %21 ]
-  ret i32 %.032
+.thread40:                                        ; preds = %21, %27, %2, %62, %H5I_register_type.exit.thread
+  %.026 = phi i32 [ -1, %62 ], [ %.028, %H5I_register_type.exit.thread ], [ -1, %2 ], [ -1, %27 ], [ -1, %21 ]
+  ret i32 %.026
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -2455,9 +2455,9 @@ H5I_object.exit.thread:                           ; preds = %29, %H5I_object.exi
 39:                                               ; preds = %26
   br label %40
 
-40:                                               ; preds = %H5I_object.exit.thread, %37, %16, %39, %22, %26, %26, %26
-  %.019 = phi i32 [ -1, %22 ], [ 0, %39 ], [ -1, %16 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ -1, %H5I_object.exit.thread ], [ %38, %37 ]
-  ret i32 %.019
+40:                                               ; preds = %16, %39, %22, %26, %26, %26, %37, %H5I_object.exit.thread
+  %.018 = phi i32 [ -1, %22 ], [ 0, %39 ], [ -1, %16 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ -1, %H5I_object.exit.thread ], [ %38, %37 ]
+  ret i32 %.018
 }
 
 declare i32 @H5T_is_named(ptr noundef) local_unnamed_addr #1
@@ -2971,9 +2971,9 @@ define internal fastcc i32 @H5I__dec_ref(i64 noundef %0, ptr noundef %1) unnamed
   store i32 %54, ptr %18, align 8, !tbaa !46
   br label %55
 
-55:                                               ; preds = %41, %49, %45, %.thread43, %2, %53, %13
-  %.026 = phi i32 [ -1, %13 ], [ %54, %53 ], [ 0, %2 ], [ -1, %49 ], [ -1, %41 ], [ 0, %.thread43 ], [ -1, %45 ]
-  ret i32 %.026
+55:                                               ; preds = %41, %2, %53, %13, %.thread43, %45, %49
+  %.027 = phi i32 [ -1, %13 ], [ %54, %53 ], [ 0, %2 ], [ -1, %49 ], [ -1, %41 ], [ 0, %.thread43 ], [ -1, %45 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable

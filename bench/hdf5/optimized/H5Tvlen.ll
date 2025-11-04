@@ -459,8 +459,8 @@ define range(i32 -1, 2) i32 @H5T__vlen_set_loc(ptr noundef %0, ptr noundef %1, i
   br label %79
 
 79:                                               ; preds = %42, %70, %69, %.thread, %3, %17, %75, %35
-  %.034 = phi i32 [ -1, %75 ], [ -1, %35 ], [ 0, %17 ], [ 0, %3 ], [ -1, %.thread ], [ 1, %69 ], [ 1, %70 ], [ 1, %42 ]
-  ret i32 %.034
+  %.033 = phi i32 [ -1, %75 ], [ -1, %35 ], [ 0, %17 ], [ 0, %3 ], [ -1, %.thread ], [ 1, %69 ], [ 1, %70 ], [ 1, %42 ]
+  ret i32 %.033
 }
 
 declare i32 @H5VL_free_object(ptr noundef) local_unnamed_addr #2
@@ -493,7 +493,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %18 = load i32, ptr %17, align 4, !tbaa !26
   switch i32 %18, label %121 [
     i32 10, label %21
-    i32 6, label %.preheader104
+    i32 6, label %.preheader106
     i32 9, label %78
     i32 0, label %.loopexit
     i32 1, label %.loopexit
@@ -505,11 +505,11 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
     i32 11, label %.loopexit
   ]
 
-.preheader104:                                    ; preds = %10
+.preheader106:                                    ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %20 = load i32, ptr %19, align 4, !tbaa !32
-  %.not111 = icmp eq i32 %20, 0
-  br i1 %.not111, label %.loopexit, label %.lr.ph108
+  %.not113 = icmp eq i32 %20, 0
+  br i1 %.not113, label %.loopexit, label %.lr.ph110
 
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -525,22 +525,22 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
 .preheader:                                       ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %29 = load i64, ptr %28, align 8, !tbaa !32
-  %.not112 = icmp eq i64 %29, 0
-  br i1 %.not112, label %.loopexit, label %.lr.ph110
+  %.not114 = icmp eq i64 %29, 0
+  br i1 %.not114, label %.loopexit, label %.lr.ph112
 
-30:                                               ; preds = %.lr.ph110
-  %31 = add i32 %.077109, 1
+30:                                               ; preds = %.lr.ph112
+  %31 = add i32 %.077111, 1
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %15, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load i64, ptr %34, align 8, !tbaa !32
   %36 = icmp ugt i64 %35, %32
-  br i1 %36, label %.lr.ph110, label %.loopexit, !llvm.loop !42
+  br i1 %36, label %.lr.ph112, label %.loopexit, !llvm.loop !42
 
-.lr.ph110:                                        ; preds = %.preheader, %30
+.lr.ph112:                                        ; preds = %.preheader, %30
   %37 = phi ptr [ %33, %30 ], [ %16, %.preheader ]
   %38 = phi i64 [ %32, %30 ], [ 0, %.preheader ]
-  %.077109 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
+  %.077111 = phi i32 [ %31, %30 ], [ 0, %.preheader ]
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !30
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -553,15 +553,15 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %30
 
-49:                                               ; preds = %.lr.ph110
+49:                                               ; preds = %.lr.ph112
   %50 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %51 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !11
   %52 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_reclaim, i32 noundef 967, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.15) #13
   br label %.loopexit
 
-.lr.ph108:                                        ; preds = %.preheader104, %.thread
-  %53 = phi ptr [ %73, %.thread ], [ %16, %.preheader104 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.preheader104 ]
+.lr.ph110:                                        ; preds = %.preheader106, %.thread
+  %53 = phi ptr [ %73, %.thread ], [ %16, %.preheader106 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.preheader106 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %55, i64 %indvars.iv
@@ -571,11 +571,11 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %60 = load ptr, ptr %59, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !26
-  %.off95 = add i32 %62, -6
-  %switch96 = icmp ult i32 %.off95, 6
-  br i1 %switch96, label %63, label %.thread
+  %.off98 = add i32 %62, -6
+  %switch99 = icmp ult i32 %.off98, 6
+  br i1 %switch99, label %63, label %.thread
 
-63:                                               ; preds = %.lr.ph108
+63:                                               ; preds = %.lr.ph110
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !47
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %65
@@ -593,14 +593,14 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_reclaim, i32 noundef 982, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.16) #13
   br label %.loopexit
 
-.thread:                                          ; preds = %..thread_crit_edge, %.lr.ph108
-  %73 = phi ptr [ %.pre, %..thread_crit_edge ], [ %53, %.lr.ph108 ]
+.thread:                                          ; preds = %..thread_crit_edge, %.lr.ph110
+  %73 = phi ptr [ %.pre, %..thread_crit_edge ], [ %53, %.lr.ph110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 52
   %75 = load i32, ptr %74, align 4, !tbaa !32
   %76 = zext i32 %75 to i64
   %77 = icmp samesign ult i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph108, label %.loopexit, !llvm.loop !48
+  br i1 %77, label %.lr.ph110, label %.loopexit, !llvm.loop !48
 
 78:                                               ; preds = %10
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -622,9 +622,9 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %87 = load ptr, ptr %86, align 8, !tbaa !15
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %89 = load i32, ptr %88, align 4, !tbaa !26
-  %.off97 = add i32 %89, -6
-  %switch98 = icmp ult i32 %.off97, 6
-  br i1 %switch98, label %.lr.ph, label %.thread102
+  %.off100 = add i32 %89, -6
+  %switch101 = icmp ult i32 %.off100, 6
+  br i1 %switch101, label %.lr.ph, label %.thread104
 
 .lr.ph:                                           ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -652,7 +652,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %108 = add i64 %107, -1
   store i64 %108, ptr %0, align 8, !tbaa !49
   %.not93 = icmp eq i64 %108, 0
-  br i1 %.not93, label %.thread102, label %91, !llvm.loop !52
+  br i1 %.not93, label %.thread104, label %91, !llvm.loop !52
 
 109:                                              ; preds = %91
   %110 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -660,17 +660,17 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %112 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_reclaim, i32 noundef 1002, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.17) #13
   br label %.loopexit
 
-.thread102:                                       ; preds = %106, %83
+.thread104:                                       ; preds = %106, %83
   %.not94 = icmp eq ptr %12, null
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !51
   br i1 %.not94, label %116, label %115
 
-115:                                              ; preds = %.thread102
+115:                                              ; preds = %.thread104
   tail call void %12(ptr noundef %114, ptr noundef %14) #13
   br label %.loopexit
 
-116:                                              ; preds = %.thread102
+116:                                              ; preds = %.thread104
   tail call void @free(ptr noundef %114) #13
   br label %.loopexit
 
@@ -693,9 +693,9 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %124 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__vlen_reclaim, i32 noundef 1042, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.18) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %30, %.preheader104, %.preheader, %109, %69, %115, %116, %81, %49, %21, %3, %120, %119, %10, %10, %10, %10, %10, %10, %10, %10, %121, %78
-  %.0 = phi i32 [ -1, %121 ], [ -1, %69 ], [ 0, %119 ], [ 0, %120 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %3 ], [ 0, %21 ], [ 0, %78 ], [ -1, %49 ], [ -1, %109 ], [ 0, %115 ], [ 0, %116 ], [ 0, %81 ], [ 0, %.preheader ], [ 0, %.preheader104 ], [ 0, %30 ], [ 0, %.thread ]
-  ret i32 %.0
+.loopexit:                                        ; preds = %.thread, %30, %.preheader106, %.preheader, %109, %69, %21, %3, %120, %119, %10, %10, %10, %10, %10, %10, %10, %10, %121, %49, %81, %116, %115, %78
+  %.078 = phi i32 [ -1, %121 ], [ -1, %69 ], [ 0, %119 ], [ 0, %120 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %3 ], [ 0, %21 ], [ -1, %49 ], [ -1, %109 ], [ 0, %115 ], [ 0, %116 ], [ 0, %81 ], [ 0, %78 ], [ 0, %.preheader ], [ 0, %.preheader106 ], [ 0, %30 ], [ 0, %.thread ]
+  ret i32 %.078
 }
 
 declare i32 @H5T_reclaim_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -953,8 +953,8 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_seq_write(ptr readnone captu
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread, %41, %34, %7, %46
-  %.020 = phi i32 [ 0, %46 ], [ 0, %7 ], [ -1, %34 ], [ -1, %41 ], [ -1, %.thread ]
-  ret i32 %.020
+  %.021 = phi i32 [ 0, %46 ], [ 0, %7 ], [ -1, %34 ], [ -1, %41 ], [ -1, %.thread ]
+  ret i32 %.021
 }
 
 declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #2
@@ -1139,8 +1139,8 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_str_write(ptr readnone captu
   br label %50
 
 50:                                               ; preds = %.thread, %7, %47, %43, %34
-  %.023 = phi i32 [ -1, %34 ], [ 0, %47 ], [ -1, %43 ], [ 0, %7 ], [ -1, %.thread ]
-  ret i32 %.023
+  %.022 = phi i32 [ -1, %34 ], [ 0, %47 ], [ -1, %43 ], [ 0, %7 ], [ -1, %.thread ]
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1407,9 +1407,9 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_disk_delete(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
-22:                                               ; preds = %21, %11, %2
-  %.021 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.2, %21 ]
-  ret i32 %.021
+22:                                               ; preds = %21, %2, %11
+  %.022 = phi i32 [ 0, %2 ], [ 0, %11 ], [ %.2, %21 ]
+  ret i32 %.022
 }
 
 declare i32 @H5VL_blob_specific(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

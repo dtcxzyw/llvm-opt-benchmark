@@ -887,233 +887,209 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonl
   %18 = zext nneg i8 %.3.i to i64
   %.off = add nsw i8 %.3.i, -1
   %switch = icmp ult i8 %.off, 14
-  br i1 %switch, label %.preheader36, label %.loopexit
+  br i1 %switch, label %.preheader35, label %.loopexit
 
-.preheader36:                                     ; preds = %3
+.preheader35:                                     ; preds = %3
   %19 = getelementptr inbounds nuw i32, ptr @_ZN15MarchingSquares8edgeMaskE, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %23
 
-.preheader35:                                     ; preds = %_ZN15MarchingSquares9SetVertexEiPKdd.exit
+.preheader34:                                     ; preds = %_ZN15MarchingSquares9SetVertexEiPKdd.exit
   %21 = getelementptr inbounds nuw [5 x i32], ptr @_ZN15MarchingSquares5edgesE, i64 %18
   switch i8 %.3.i, label %.preheader.lr.ph [
     i8 15, label %.loopexit
     i8 0, label %.loopexit
   ]
 
-.preheader.lr.ph:                                 ; preds = %.preheader35
+.preheader.lr.ph:                                 ; preds = %.preheader34
   %22 = load i32, ptr %21, align 4
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   br label %.preheader
 
-23:                                               ; preds = %.preheader36, %_ZN15MarchingSquares9SetVertexEiPKdd.exit
-  %indvars.iv = phi i64 [ 0, %.preheader36 ], [ %indvars.iv.next, %_ZN15MarchingSquares9SetVertexEiPKdd.exit ]
-  %.038 = phi i32 [ 1, %.preheader36 ], [ %63, %_ZN15MarchingSquares9SetVertexEiPKdd.exit ]
-  %24 = and i32 %20, %.038
+23:                                               ; preds = %.preheader35, %_ZN15MarchingSquares9SetVertexEiPKdd.exit
+  %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %_ZN15MarchingSquares9SetVertexEiPKdd.exit ]
+  %.037 = phi i32 [ 1, %.preheader35 ], [ %51, %_ZN15MarchingSquares9SetVertexEiPKdd.exit ]
+  %24 = and i32 %20, %.037
   %.not32 = icmp eq i32 %24, 0
   br i1 %.not32, label %_ZN15MarchingSquares9SetVertexEiPKdd.exit, label %25
 
 25:                                               ; preds = %23
   %26 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %26, label %_ZN6Square11EdgeCornersEiRiS0_.exit.i [
-    i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt0
-    i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt0
-    i32 1, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt1
-    i32 3, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt1
+  switch i32 %26, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i [
+    i32 0, label %27
+    i32 2, label %27
+    i32 1, label %28
+    i32 3, label %28
   ]
 
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt1:    ; preds = %25, %25
+27:                                               ; preds = %25, %25
+  %.cmp.i.i = icmp samesign ugt i64 %indvars.iv, 1
+  br label %.sink.split.i.i
+
+28:                                               ; preds = %25, %25
   %.cmp6.i.i = icmp samesign ult i64 %indvars.iv, 2
-  %27 = uitofp i1 %.cmp6.i.i to double
-  %28 = icmp eq i64 %indvars.iv, 2
-  %.cmp.i.inv.i.i.jt1 = icmp samesign ult i64 %indvars.iv, 2
-  %29 = zext i1 %.cmp.i.inv.i.i.jt1 to i64
-  %30 = or disjoint i64 %29, 2
-  %31 = zext i1 %.cmp.i.inv.i.i.jt1 to i64
-  %32 = select i1 %28, i64 2, i64 %31
-  %33 = getelementptr inbounds nuw double, ptr %0, i64 %32
-  %34 = load double, ptr %33, align 8
-  %35 = fsub double %34, %1
-  %36 = select i1 %28, i64 3, i64 %30
+  br label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %28, %27
+  %29 = phi i1 [ true, %27 ], [ false, %28 ]
+  %.cmp6.sink.i.i = phi i1 [ %.cmp.i.i, %27 ], [ %.cmp6.i.i, %28 ]
+  %30 = uitofp i1 %.cmp6.sink.i.i to double
+  br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
+
+_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i:        ; preds = %.sink.split.i.i, %25
+  %.020.i = phi double [ 0.000000e+00, %25 ], [ %30, %.sink.split.i.i ]
+  %.1.i33 = phi i1 [ undef, %25 ], [ %29, %.sink.split.i.i ]
+  switch i32 %26, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i [
+    i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i
+    i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i
+    i32 1, label %33
+    i32 3, label %33
+  ]
+
+_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
+  %.cmp.i.inv.i.i = icmp samesign ult i64 %indvars.iv, 2
+  %31 = select i1 %.cmp.i.inv.i.i, i32 0, i32 2
+  br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i
+
+_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
+  %.011.i.i = phi i32 [ %31, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i ], [ 0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i ]
+  %32 = or disjoint i32 %.011.i.i, 1
+  br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
+
+33:                                               ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
+  %.cmp6.i.i.i = icmp samesign ult i64 %indvars.iv, 2
+  %34 = zext i1 %.cmp6.i.i.i to i32
+  %35 = or disjoint i32 %34, 2
+  br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
+
+_ZN6Square11EdgeCornersEiRiS0_.exit.i:            ; preds = %33, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i
+  %.019.i = phi i32 [ %.011.i.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i ], [ %34, %33 ]
+  %storemerge.i.i = phi i32 [ %32, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i ], [ %35, %33 ]
+  %36 = zext nneg i32 %.019.i to i64
   %37 = getelementptr inbounds nuw double, ptr %0, i64 %36
   %38 = load double, ptr %37, align 8
   %39 = fsub double %38, %1
-  %40 = fsub double %35, %39
-  %41 = fdiv double %35, %40
-  %42 = getelementptr inbounds nuw [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store double %41, ptr %43, align 8
-  store double %27, ptr %42, align 16
+  %40 = zext nneg i32 %storemerge.i.i to i64
+  %41 = getelementptr inbounds nuw double, ptr %0, i64 %40
+  %42 = load double, ptr %41, align 8
+  %43 = fsub double %42, %1
+  %44 = fsub double %39, %43
+  %45 = fdiv double %39, %44
+  %46 = getelementptr inbounds nuw [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %indvars.iv
+  br i1 %.1.i33, label %47, label %49
+
+47:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit.i
+  store double %45, ptr %46, align 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store double %.020.i, ptr %48, align 8
   br label %_ZN15MarchingSquares9SetVertexEiPKdd.exit
 
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt0:    ; preds = %25, %25
-  %.cmp.i.i = icmp samesign ugt i64 %indvars.iv, 1
-  %44 = uitofp i1 %.cmp.i.i to double
-  %45 = icmp eq i64 %indvars.iv, 1
-  %.cmp6.i.i.i.jt0 = icmp samesign ult i64 %indvars.iv, 2
-  br i1 %45, label %48, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0
-
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt0
-  %46 = select i1 %.cmp6.i.i.i.jt0, i32 0, i32 2
-  %47 = or disjoint i32 %46, 1
-  br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
-
-48:                                               ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt0
-  %49 = zext i1 %.cmp6.i.i.i.jt0 to i32
-  %50 = or disjoint i32 %49, 2
-  br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
-
-_ZN6Square11EdgeCornersEiRiS0_.exit.i:            ; preds = %25, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0, %48
-  %storemerge.i.i59 = phi i32 [ %47, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0 ], [ %50, %48 ], [ 1, %25 ]
-  %.019.i57 = phi i32 [ %46, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0 ], [ %49, %48 ], [ 0, %25 ]
-  %.020.i55 = phi double [ %44, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i.jt0 ], [ %44, %48 ], [ 0.000000e+00, %25 ]
-  %51 = zext nneg i32 %.019.i57 to i64
-  %52 = getelementptr inbounds nuw double, ptr %0, i64 %51
-  %53 = load double, ptr %52, align 8
-  %54 = fsub double %53, %1
-  %55 = zext nneg i32 %storemerge.i.i59 to i64
-  %56 = getelementptr inbounds nuw double, ptr %0, i64 %55
-  %57 = load double, ptr %56, align 8
-  %58 = fsub double %57, %1
-  %59 = fsub double %54, %58
-  %60 = fdiv double %54, %59
-  %61 = getelementptr inbounds nuw [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %indvars.iv
-  store double %60, ptr %61, align 16
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store double %.020.i55, ptr %62, align 8
+49:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit.i
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store double %45, ptr %50, align 8
+  store double %.020.i, ptr %46, align 16
   br label %_ZN15MarchingSquares9SetVertexEiPKdd.exit
 
-_ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i.jt1, %_ZN6Square11EdgeCornersEiRiS0_.exit.i, %23
-  %63 = shl i32 %.038, 1
+_ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %49, %47, %23
+  %51 = shl i32 %.037, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %.preheader35, label %23, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader34, label %23, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %indvars.iv49 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next50, %.preheader ]
-  %indvars.iv47 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next48, %.preheader ]
-  %64 = phi i32 [ %22, %.preheader.lr.ph ], [ %74, %.preheader ]
-  %65 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv47
-  %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %67, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %71, i64 16, i1 false)
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %72 = getelementptr inbounds nuw %class.Edge, ptr %2, i64 %indvars.iv49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 2
-  %73 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next48
-  %74 = load i32, ptr %73, align 4
-  %.not31 = icmp eq i32 %74, -1
+  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
+  %indvars.iv46 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next47, %.preheader ]
+  %52 = phi i32 [ %22, %.preheader.lr.ph ], [ %62, %.preheader ]
+  %53 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv46
+  %54 = sext i32 %52 to i64
+  %55 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %55, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(16) %59, i64 16, i1 false)
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %60 = getelementptr inbounds nuw %class.Edge, ptr %2, i64 %indvars.iv48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 2
+  %61 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next47
+  %62 = load i32, ptr %61, align 4
+  %.not31 = icmp eq i32 %62, -1
   br i1 %.not31, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %75 = trunc nuw i64 %indvars.iv.next50 to i32
+  %63 = trunc nuw i64 %indvars.iv.next49 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader35, %.preheader35, %.loopexit.loopexit, %3
-  %.030 = phi i32 [ 0, %3 ], [ 0, %.preheader35 ], [ %75, %.loopexit.loopexit ], [ 0, %.preheader35 ]
+.loopexit:                                        ; preds = %.preheader34, %.preheader34, %.loopexit.loopexit, %3
+  %.030 = phi i32 [ 0, %3 ], [ 0, %.preheader34 ], [ %63, %.loopexit.loopexit ], [ 0, %.preheader34 ]
   ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #4 align 2 {
-  switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit [
-    i32 0, label %4
-    i32 2, label %4
-    i32 1, label %5
-    i32 3, label %5
-  ]
-
-4:                                                ; preds = %3, %3
-  %.cmp.i = icmp samesign ugt i32 %0, 1
-  br label %.sink.split.i
-
-5:                                                ; preds = %3, %3
-  %.cmp6.i = icmp samesign ult i32 %0, 2
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %5, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %5 ]
-  %.cmp6.sink.i = phi i1 [ %.cmp.i, %4 ], [ %.cmp6.i, %5 ]
-  %6 = uitofp i1 %.cmp6.sink.i to double
-  br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %3, %.sink.split.i
-  %.020 = phi double [ 0.000000e+00, %3 ], [ %6, %.sink.split.i ]
-  %.1 = phi i32 [ undef, %3 ], [ %.0, %.sink.split.i ]
+_ZN6Square15FactorEdgeIndexEiRiS0_.exit:
+  %3 = icmp ult i32 %0, 4
+  %switch.idx.cast = trunc i32 %0 to i1
+  %switch.cast = trunc i32 %0 to i4
+  %switch.downshift = lshr i4 6, %switch.cast
+  %switch.masked = trunc i4 %switch.downshift to i1
+  %4 = uitofp i1 %switch.masked to double
+  %.020 = select i1 %3, double %4, double 0.000000e+00
   switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i
-    i32 1, label %9
-    i32 3, label %9
+    i32 1, label %7
+    i32 3, label %7
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
   %.cmp.i.inv.i = icmp samesign ult i32 %0, 2
-  %7 = select i1 %.cmp.i.inv.i, i32 0, i32 2
+  %5 = select i1 %.cmp.i.inv.i, i32 0, i32 2
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-  %.011.i = phi i32 [ %7, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i ], [ 0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ]
-  %8 = or disjoint i32 %.011.i, 1
+  %.011.i = phi i32 [ %5, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i ], [ 0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ]
+  %6 = or disjoint i32 %.011.i, 1
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
 
-9:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
+7:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
   %.cmp6.i.i = icmp samesign ult i32 %0, 2
-  %10 = zext i1 %.cmp6.i.i to i32
-  %11 = or disjoint i32 %10, 2
+  %8 = zext i1 %.cmp6.i.i to i32
+  %9 = or disjoint i32 %8, 2
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
 
-_ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i, %9
-  %.019 = phi i32 [ %.011.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %10, %9 ]
-  %storemerge.i = phi i32 [ %8, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %11, %9 ]
-  switch i32 %.1, label %40 [
-    i32 0, label %12
-    i32 1, label %26
-  ]
+_ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i, %7
+  %.019 = phi i32 [ %.011.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %8, %7 ]
+  %storemerge.i = phi i32 [ %6, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %9, %7 ]
+  %10 = zext nneg i32 %.019 to i64
+  %11 = getelementptr inbounds nuw double, ptr %1, i64 %10
+  %12 = load double, ptr %11, align 8
+  %13 = fsub double %12, %2
+  %14 = zext nneg i32 %storemerge.i to i64
+  %15 = getelementptr inbounds nuw double, ptr %1, i64 %14
+  %16 = load double, ptr %15, align 8
+  %17 = fsub double %16, %2
+  %18 = fsub double %13, %17
+  %19 = fdiv double %13, %18
+  %20 = sext i32 %0 to i64
+  %21 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %20
+  br i1 %switch.idx.cast, label %24, label %22
 
-12:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
-  %13 = zext nneg i32 %.019 to i64
-  %14 = getelementptr inbounds nuw double, ptr %1, i64 %13
-  %15 = load double, ptr %14, align 8
-  %16 = fsub double %15, %2
-  %17 = zext nneg i32 %storemerge.i to i64
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %17
-  %19 = load double, ptr %18, align 8
-  %20 = fsub double %19, %2
-  %21 = fsub double %16, %20
-  %22 = fdiv double %16, %21
-  %23 = sext i32 %0 to i64
-  %24 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %23
-  store double %22, ptr %24, align 16
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store double %.020, ptr %25, align 8
-  br label %40
+22:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
+  store double %19, ptr %21, align 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store double %.020, ptr %23, align 8
+  br label %26
 
-26:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
-  %27 = zext nneg i32 %.019 to i64
-  %28 = getelementptr inbounds nuw double, ptr %1, i64 %27
-  %29 = load double, ptr %28, align 8
-  %30 = fsub double %29, %2
-  %31 = zext nneg i32 %storemerge.i to i64
-  %32 = getelementptr inbounds nuw double, ptr %1, i64 %31
-  %33 = load double, ptr %32, align 8
-  %34 = fsub double %33, %2
-  %35 = fsub double %30, %34
-  %36 = fdiv double %30, %35
-  %37 = sext i32 %0 to i64
-  %38 = getelementptr inbounds [2 x double], ptr @_ZN15MarchingSquares10vertexListE, i64 %37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double %36, ptr %39, align 8
-  store double %.020, ptr %38, align 16
-  br label %40
+24:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store double %19, ptr %25, align 8
+  store double %.020, ptr %21, align 16
+  br label %26
 
-40:                                               ; preds = %26, %12, %_ZN6Square11EdgeCornersEiRiS0_.exit
+26:                                               ; preds = %24, %22
   ret void
 }
 

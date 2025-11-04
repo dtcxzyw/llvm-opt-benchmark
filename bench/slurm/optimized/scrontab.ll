@@ -1195,51 +1195,51 @@ define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %0, align 8
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #20
-  %.not5169 = icmp eq i64 %20, 0
-  br i1 %.not5169, label %.outer._crit_edge, label %.lr.ph.split
+  %.not5170 = icmp eq i64 %20, 0
+  br i1 %.not5170, label %.outer._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %18, %.lr.ph.split.backedge
-  %.040.ph72 = phi ptr [ %36, %.lr.ph.split.backedge ], [ %19, %18 ]
-  %.041.ph70 = phi i64 [ %37, %.lr.ph.split.backedge ], [ %20, %18 ]
-  %21 = call i64 @write(i32 noundef %14, ptr noundef %.040.ph72, i64 noundef %.041.ph70) #16
+  %.040.ph73 = phi ptr [ %36, %.lr.ph.split.backedge ], [ %19, %18 ]
+  %.041.ph71 = phi i64 [ %37, %.lr.ph.split.backedge ], [ %20, %18 ]
+  %21 = call i64 @write(i32 noundef %14, ptr noundef %.040.ph73, i64 noundef %.041.ph71) #16
   %22 = and i64 %21, 2147483648
-  %.not5267 = icmp eq i64 %22, 0
-  br i1 %.not5267, label %.split.us, label %.lr.ph68
+  %.not5268 = icmp eq i64 %22, 0
+  br i1 %.not5268, label %.split.us, label %.lr.ph69
 
-.lr.ph68:                                         ; preds = %.lr.ph.split
+.lr.ph69:                                         ; preds = %.lr.ph.split
   %23 = tail call ptr @__errno_location() #21
   br label %24
 
-24:                                               ; preds = %.lr.ph68, %26
+24:                                               ; preds = %.lr.ph69, %26
   %25 = load i32, ptr %23, align 4
-  switch i32 %25, label %.split62.us [
+  switch i32 %25, label %.split63.us [
     i32 11, label %26
     i32 4, label %26
   ]
 
 26:                                               ; preds = %24, %24
-  %27 = call i64 @write(i32 noundef %14, ptr noundef %.040.ph72, i64 noundef %.041.ph70) #16
+  %27 = call i64 @write(i32 noundef %14, ptr noundef %.040.ph73, i64 noundef %.041.ph71) #16
   %28 = and i64 %27, 2147483648
   %.not52 = icmp eq i64 %28, 0
   br i1 %.not52, label %.split.us, label %24
 
-.split62.us:                                      ; preds = %24
+.split63.us:                                      ; preds = %24
   %29 = call i32 @get_log_level() #16
   %30 = icmp sgt i32 %29, 4
-  br i1 %30, label %31, label %86
+  br i1 %30, label %31, label %90
 
-31:                                               ; preds = %.split62.us
+31:                                               ; preds = %.split63.us
   %32 = load ptr, ptr %0, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #20
   %34 = trunc i64 %33 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.9, i32 noundef 271, ptr noundef nonnull @__func__._edit_crontab, i64 noundef %.041.ph70, i32 noundef %34) #16
-  br label %86
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.9, i32 noundef 271, ptr noundef nonnull @__func__._edit_crontab, i64 noundef %.041.ph71, i32 noundef %34) #16
+  br label %90
 
 .split.us:                                        ; preds = %26, %.lr.ph.split
   %.us-phi = phi i64 [ %21, %.lr.ph.split ], [ %27, %26 ]
   %35 = and i64 %.us-phi, 2147483647
-  %36 = getelementptr inbounds nuw i8, ptr %.040.ph72, i64 %35
-  %37 = sub i64 %.041.ph70, %35
+  %36 = getelementptr inbounds nuw i8, ptr %.040.ph73, i64 %35
+  %37 = sub i64 %.041.ph71, %35
   %.not53 = icmp eq i64 %37, 0
   br i1 %.not53, label %.outer._crit_edge, label %38
 
@@ -1341,33 +1341,33 @@ define internal fastcc void @_edit_crontab(ptr noundef nonnull %0) unnamed_addr 
 82:                                               ; preds = %72
   %83 = call i64 @lseek(i32 noundef range(i32 0, -2147483648) %73, i64 noundef 0, i32 noundef 0) #16
   %84 = icmp slt i64 %83, 0
-  br i1 %84, label %85, label %94
+  br i1 %84, label %85, label %_load_script_from_fd.exit
 
 85:                                               ; preds = %82
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._load_script_from_fd) #18
   unreachable
 
-86:                                               ; preds = %31, %.split62.us
-  %87 = tail call ptr @__errno_location() #21
-  %88 = load i32, ptr %87, align 4
-  %89 = call i32 @close(i32 noundef %14) #16
-  %90 = load ptr, ptr %3, align 8
-  %91 = call i32 @unlink(ptr noundef %90) #16
-  %92 = load ptr, ptr %3, align 8
-  %93 = call ptr @strerror(i32 noundef %88) #16
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40, ptr noundef %92, ptr noundef %93) #18
-  unreachable
-
-94:                                               ; preds = %82
-  %95 = call fastcc ptr @_read_fd(i32 noundef range(i32 0, -2147483648) %73)
-  store ptr %95, ptr %0, align 8
-  %96 = call i32 @close(i32 noundef %73) #16
-  %97 = load ptr, ptr %3, align 8
-  %98 = call i32 @unlink(ptr noundef %97) #16
+_load_script_from_fd.exit:                        ; preds = %82
+  %86 = call fastcc ptr @_read_fd(i32 noundef range(i32 0, -2147483648) %73)
+  store ptr %86, ptr %0, align 8
+  %87 = call i32 @close(i32 noundef %73) #16
+  %88 = load ptr, ptr %3, align 8
+  %89 = call i32 @unlink(ptr noundef %88) #16
   call void @slurm_xfree(ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
+
+90:                                               ; preds = %31, %.split63.us
+  %91 = tail call ptr @__errno_location() #21
+  %92 = load i32, ptr %91, align 4
+  %93 = call i32 @close(i32 noundef %14) #16
+  %94 = load ptr, ptr %3, align 8
+  %95 = call i32 @unlink(ptr noundef %94) #16
+  %96 = load ptr, ptr %3, align 8
+  %97 = call ptr @strerror(i32 noundef %92) #16
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40, ptr noundef %96, ptr noundef %97) #18
+  unreachable
 }
 
 declare i32 @get_log_level() local_unnamed_addr #2

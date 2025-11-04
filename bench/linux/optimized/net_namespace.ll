@@ -1428,11 +1428,11 @@ define internal i32 @rtnl_net_getid(ptr noundef %0, ptr noundef %1, ptr noundef 
 25:                                               ; preds = %24
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #17
   %26 = icmp eq ptr %2, null
-  br i1 %26, label %.thread24, label %27
+  br i1 %26, label %.thread25, label %27
 
 27:                                               ; preds = %25
   store ptr @__nlmsg_parse.__msg, ptr %2, align 8
-  br label %.thread24
+  br label %.thread25
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %1, i64 20
@@ -1446,25 +1446,25 @@ define internal i32 @rtnl_net_getid(ptr noundef %0, ptr noundef %1, ptr noundef 
 33:                                               ; preds = %32
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nlmsg_parse.__msg) #17
   %34 = icmp eq ptr %2, null
-  br i1 %34, label %.thread24, label %35
+  br i1 %34, label %.thread25, label %35
 
 35:                                               ; preds = %33
   store ptr @__nlmsg_parse.__msg, ptr %2, align 8
-  br label %.thread24
+  br label %.thread25
 
 36:                                               ; preds = %32
   %37 = getelementptr i8, ptr %1, i64 20
   %38 = add i32 %22, -20
   %39 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 5, ptr noundef %37, i32 noundef %38, ptr noundef nonnull @rtnl_net_policy, i32 noundef 3, ptr noundef %2) #17
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.preheader37, label %55
+  br i1 %40, label %.preheader38, label %55
 
-41:                                               ; preds = %.preheader37
+41:                                               ; preds = %.preheader38
   %42 = add nuw nsw i64 %44, 1
   %43 = icmp eq i64 %42, 6
-  br i1 %43, label %.thread25, label %.preheader37, !llvm.loop !37
+  br i1 %43, label %.thread26, label %.preheader38, !llvm.loop !37
 
-.preheader37:                                     ; preds = %36, %41
+.preheader38:                                     ; preds = %36, %41
   %44 = phi i64 [ %42, %41 ], [ 0, %36 ]
   %45 = getelementptr ptr, ptr %4, i64 %44
   %46 = load ptr, ptr %45, align 8
@@ -1475,34 +1475,34 @@ define internal i32 @rtnl_net_getid(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = or i1 %47, %50
   br i1 %51, label %41, label %52
 
-52:                                               ; preds = %.preheader37
+52:                                               ; preds = %.preheader38
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_net_valid_getid_req.__msg) #17
   %53 = icmp eq ptr %2, null
-  br i1 %53, label %.thread24, label %54
+  br i1 %53, label %.thread25, label %54
 
 54:                                               ; preds = %52
   store ptr @rtnl_net_valid_getid_req.__msg, ptr %2, align 8
-  br label %.thread24
+  br label %.thread25
 
 55:                                               ; preds = %36, %28
   %56 = phi i32 [ %39, %36 ], [ %31, %28 ]
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.thread24, label %.thread25
+  br i1 %57, label %.thread25, label %.thread26
 
-.thread25:                                        ; preds = %41, %55
+.thread26:                                        ; preds = %41, %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = load ptr, ptr %58, align 16
   %60 = icmp eq ptr %59, null
   br i1 %60, label %66, label %61
 
-61:                                               ; preds = %.thread25
+61:                                               ; preds = %.thread26
   %62 = getelementptr i8, ptr %59, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = call ptr @get_net_ns_by_pid(i32 noundef %63)
   %65 = load ptr, ptr %58, align 16
   br label %143
 
-66:                                               ; preds = %.thread25
+66:                                               ; preds = %.thread26
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
@@ -1574,7 +1574,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %110 = getelementptr i8, ptr %107, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.thread27, label %113
+  br i1 %112, label %.thread28, label %113
 
 113:                                              ; preds = %109
   call void @__rcu_read_lock() #17
@@ -1582,13 +1582,13 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %115 = zext nneg i32 %111 to i64
   %116 = call ptr @idr_find(ptr noundef nonnull %114, i64 noundef %115) #17
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %.thread36, label %118
+  br i1 %117, label %.thread37, label %118
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 140
   %120 = load volatile i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.thread26, label %.preheader
+  br i1 %121, label %.thread27, label %.preheader
 
 .preheader:                                       ; preds = %118, %127
   %122 = phi i32 [ %128, %127 ], [ %120, %118 ]
@@ -1598,32 +1598,32 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %126 = icmp ult i8 %125, 2
   call void @llvm.assume(i1 %126)
   %.not = icmp eq i8 %125, 0
-  br i1 %.not, label %127, label %.thread26, !prof !7
+  br i1 %.not, label %127, label %.thread27, !prof !7
 
 127:                                              ; preds = %.preheader
   %128 = extractvalue { i8, i32 } %124, 1
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.thread26, label %.preheader, !llvm.loop !8
+  br i1 %129, label %.thread27, label %.preheader, !llvm.loop !8
 
-.thread26:                                        ; preds = %.preheader, %127, %118
+.thread27:                                        ; preds = %.preheader, %127, %118
   %130 = phi i32 [ 0, %118 ], [ %122, %.preheader ], [ 0, %127 ]
   %131 = add i32 %130, 1
   %132 = or i32 %131, %130
   %133 = icmp sgt i32 %132, -1
   br i1 %133, label %135, label %134, !prof !11
 
-134:                                              ; preds = %.thread26
+134:                                              ; preds = %.thread27
   call void @refcount_warn_saturate(ptr noundef nonnull %119, i32 noundef 0) #17
   br label %135
 
-135:                                              ; preds = %134, %.thread26
+135:                                              ; preds = %134, %.thread27
   %136 = icmp eq i32 %130, 0
-  br i1 %136, label %.thread36, label %138
+  br i1 %136, label %.thread37, label %138
 
-.thread36:                                        ; preds = %113, %135
+.thread37:                                        ; preds = %113, %135
   call void @__rcu_read_unlock() #17
   %137 = load ptr, ptr %106, align 8
-  br label %.thread27
+  br label %.thread28
 
 138:                                              ; preds = %135
   call void @__rcu_read_unlock() #17
@@ -1633,25 +1633,25 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
 140:                                              ; preds = %105
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_net_getid.__msg) #17
   %141 = icmp eq ptr %2, null
-  br i1 %141, label %.thread24, label %142
+  br i1 %141, label %.thread25, label %142
 
 142:                                              ; preds = %140
   store ptr @rtnl_net_getid.__msg, ptr %2, align 8
-  br label %.thread24
+  br label %.thread25
 
 143:                                              ; preds = %138, %get_net_ns_by_fd.exit, %61
   %144 = phi ptr [ %64, %61 ], [ %103, %get_net_ns_by_fd.exit ], [ %116, %138 ]
   %145 = phi ptr [ %65, %61 ], [ %104, %get_net_ns_by_fd.exit ], [ %139, %138 ]
   %146 = icmp ugt ptr %144, inttoptr (i64 -4096 to ptr)
-  br i1 %146, label %.thread27, label %157
+  br i1 %146, label %.thread28, label %157
 
-.thread27:                                        ; preds = %109, %.thread36, %143
-  %147 = phi ptr [ %145, %143 ], [ %137, %.thread36 ], [ %107, %109 ]
-  %148 = phi ptr [ %144, %143 ], [ inttoptr (i64 -2 to ptr), %.thread36 ], [ inttoptr (i64 -2 to ptr), %109 ]
+.thread28:                                        ; preds = %109, %.thread37, %143
+  %147 = phi ptr [ %145, %143 ], [ %137, %.thread37 ], [ %107, %109 ]
+  %148 = phi ptr [ %144, %143 ], [ inttoptr (i64 -2 to ptr), %.thread37 ], [ inttoptr (i64 -2 to ptr), %109 ]
   %149 = icmp eq ptr %2, null
   br i1 %149, label %153, label %150
 
-150:                                              ; preds = %.thread27
+150:                                              ; preds = %.thread28
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %147, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1660,14 +1660,14 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   store ptr @rtnl_net_getid.__msg.19, ptr %2, align 8
   br label %154
 
-153:                                              ; preds = %.thread27
+153:                                              ; preds = %.thread28
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_net_getid.__msg.19) #17
   br label %154
 
 154:                                              ; preds = %153, %150
   %155 = ptrtoint ptr %148 to i64
   %156 = trunc i64 %155 to i32
-  br label %.thread24
+  br label %.thread25
 
 157:                                              ; preds = %143
   store i32 0, ptr %10, align 4, !annotation !14
@@ -1683,7 +1683,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %165 = load ptr, ptr %164, align 8
   %166 = call ptr @rtnl_get_net_ns_capable(ptr noundef %165, i32 noundef %163) #17
   %167 = icmp ugt ptr %166, inttoptr (i64 -4096 to ptr)
-  br i1 %167, label %168, label %.thread28
+  br i1 %167, label %168, label %.thread29
 
 168:                                              ; preds = %161
   %169 = icmp eq ptr %2, null
@@ -1703,7 +1703,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtnl_net_getid.__msg.20) #17
   br label %181
 
-.thread28:                                        ; preds = %161
+.thread29:                                        ; preds = %161
   store i8 1, ptr %19, align 4
   call void @__rcu_read_lock() #17
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -1721,8 +1721,8 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %183 = trunc i64 %182 to i32
   br label %201
 
-184:                                              ; preds = %.thread28, %157
-  %185 = phi ptr [ %9, %157 ], [ %166, %.thread28 ]
+184:                                              ; preds = %.thread29, %157
+  %185 = phi ptr [ %9, %157 ], [ %166, %.thread29 ]
   %186 = call ptr @__alloc_skb(i32 noundef 36, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #17
   %187 = icmp eq ptr %186, null
   br i1 %187, label %201, label %188
@@ -1755,7 +1755,7 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
   %203 = phi i32 [ %183, %181 ], [ %195, %200 ], [ %199, %197 ], [ -12, %184 ]
   %204 = load i8, ptr %19, align 4, !range !38, !noundef !39
   %205 = icmp eq i8 %204, 0
-  br i1 %205, label %.thread30, label %206
+  br i1 %205, label %.thread31, label %206
 
 206:                                              ; preds = %201
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 140
@@ -1765,49 +1765,49 @@ get_net_ns_by_fd.exit:                            ; preds = %70, %98, %102
 
 210:                                              ; preds = %206
   %211 = icmp sgt i32 %208, 0
-  br i1 %211, label %.thread30, label %212, !prof !11
+  br i1 %211, label %.thread31, label %212, !prof !11
 
 212:                                              ; preds = %210
   call void @refcount_warn_saturate(ptr noundef nonnull %207, i32 noundef 3) #17
-  br label %.thread30
+  br label %.thread31
 
 213:                                              ; preds = %206
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %214 = getelementptr inbounds nuw i8, ptr %202, i64 64
   %215 = call zeroext i1 @llist_add_batch(ptr noundef nonnull %214, ptr noundef nonnull %214, ptr noundef nonnull @cleanup_list) #17
-  br i1 %215, label %216, label %.thread30
+  br i1 %215, label %216, label %.thread31
 
 216:                                              ; preds = %213
   %217 = load ptr, ptr @netns_wq, align 8
   %218 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %217, ptr noundef nonnull @net_cleanup_work) #17
-  br label %.thread30
+  br label %.thread31
 
-.thread30:                                        ; preds = %210, %212, %216, %213, %201
+.thread31:                                        ; preds = %210, %212, %216, %213, %201
   %219 = getelementptr inbounds nuw i8, ptr %144, i64 140
   %220 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 -1, ptr nonnull elementtype(i32) %219) #17, !srcloc !12
   %221 = icmp eq i32 %220, 1
   br i1 %221, label %225, label %222
 
-222:                                              ; preds = %.thread30
+222:                                              ; preds = %.thread31
   %223 = icmp sgt i32 %220, 0
-  br i1 %223, label %.thread24, label %224, !prof !11
+  br i1 %223, label %.thread25, label %224, !prof !11
 
 224:                                              ; preds = %222
   call void @refcount_warn_saturate(ptr noundef nonnull %219, i32 noundef 3) #17
-  br label %.thread24
+  br label %.thread25
 
-225:                                              ; preds = %.thread30
+225:                                              ; preds = %.thread31
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
   %226 = getelementptr inbounds nuw i8, ptr %144, i64 64
   %227 = call zeroext i1 @llist_add_batch(ptr noundef nonnull %226, ptr noundef nonnull %226, ptr noundef nonnull @cleanup_list) #17
-  br i1 %227, label %228, label %.thread24
+  br i1 %227, label %228, label %.thread25
 
 228:                                              ; preds = %225
   %229 = load ptr, ptr @netns_wq, align 8
   %230 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %229, ptr noundef nonnull @net_cleanup_work) #17
-  br label %.thread24
+  br label %.thread25
 
-.thread24:                                        ; preds = %222, %224, %33, %35, %25, %27, %52, %54, %228, %225, %154, %142, %140, %55
+.thread25:                                        ; preds = %222, %224, %33, %35, %25, %27, %52, %54, %228, %225, %154, %142, %140, %55
   %231 = phi i32 [ %156, %154 ], [ %56, %55 ], [ -22, %142 ], [ -22, %140 ], [ %203, %225 ], [ %203, %228 ], [ -22, %54 ], [ -22, %52 ], [ -22, %27 ], [ -22, %25 ], [ -22, %35 ], [ -22, %33 ], [ %203, %224 ], [ %203, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -831,8 +831,8 @@ define internal noundef i32 @lps0_device_attach(ptr noundef %0, ptr readnone cap
 
 split:                                            ; preds = %35
   %.pre = load ptr, ptr @lps0_device_attach.dev_id, align 8
-  %.pre57 = load i8, ptr %.pre, align 8
-  %43 = icmp eq i8 %.pre57, 0
+  %.pre58 = load i8, ptr %.pre, align 8
+  %43 = icmp eq i8 %.pre58, 0
   br i1 %43, label %split.thread, label %44
 
 44:                                               ; preds = %split
@@ -849,7 +849,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %52 = zext i1 %50 to i64
   %53 = tail call ptr @acpi_evaluate_dsm(ptr noundef %49, ptr noundef nonnull @lps0_dsm_guid, i64 noundef %52, i64 noundef 0, ptr noundef null) #8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread30, label %55
+  br i1 %54, label %.thread31, label %55
 
 55:                                               ; preds = %split.thread
   %56 = load i32, ptr %53, align 8
@@ -858,16 +858,16 @@ split.thread:                                     ; preds = %38, %44, %split
 
 58:                                               ; preds = %55
   tail call void @kfree(ptr noundef nonnull %53) #8
-  br label %.thread30
+  br label %.thread31
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, -5
   %63 = icmp ult i32 %62, -4
-  br i1 %63, label %.thread30, label %64
+  br i1 %63, label %.thread31, label %64
 
-.thread30:                                        ; preds = %59, %58, %split.thread
+.thread31:                                        ; preds = %59, %58, %split.thread
   %.ph = phi ptr [ %53, %59 ], [ null, %58 ], [ null, %split.thread ]
   tail call void @kfree(ptr noundef %.ph) #8
   store i32 -22, ptr @lps0_dsm_func_mask, align 4
@@ -891,11 +891,11 @@ split.thread:                                     ; preds = %38, %44, %split
   %73 = shl nuw i32 %67, 1
   %74 = or disjoint i32 %73, 1
   store i32 %74, ptr @lps0_dsm_func_mask, align 4
-  %.pre58 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
+  %.pre59 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   br label %102
 
-75:                                               ; preds = %.thread30, %69, %64
-  %76 = phi i32 [ -22, %.thread30 ], [ %67, %69 ], [ %67, %64 ]
+75:                                               ; preds = %.thread31, %69, %64
+  %76 = phi i32 [ -22, %.thread31 ], [ %67, %69 ], [ %67, %64 ]
   %77 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   %78 = icmp sgt i32 %77, 0
   %79 = load i1, ptr @rev_id, align 4
@@ -912,7 +912,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %84 = tail call i32 @guid_parse(ptr noundef nonnull @.str.15, ptr noundef nonnull @lps0_dsm_guid) #8
   %85 = tail call ptr @acpi_evaluate_dsm(ptr noundef %83, ptr noundef nonnull @lps0_dsm_guid, i64 noundef 1, i64 noundef 0, ptr noundef null) #8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread32, label %87
+  br i1 %86, label %.thread33, label %87
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %85, align 8
@@ -921,22 +921,22 @@ split.thread:                                     ; preds = %38, %44, %split
 
 90:                                               ; preds = %87
   tail call void @kfree(ptr noundef nonnull %85) #8
-  br label %.thread32
+  br label %.thread33
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, -5
   %95 = icmp ult i32 %94, -4
-  br i1 %95, label %.thread32, label %96
+  br i1 %95, label %.thread33, label %96
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load i32, ptr %98, align 4
-  br label %.thread32
+  br label %.thread33
 
-.thread32:                                        ; preds = %82, %90, %96, %91
+.thread33:                                        ; preds = %82, %90, %96, %91
   %100 = phi ptr [ %85, %96 ], [ %85, %91 ], [ null, %90 ], [ null, %82 ]
   %101 = phi i32 [ %99, %96 ], [ -22, %91 ], [ -22, %90 ], [ -22, %82 ]
   tail call void @kfree(ptr noundef %100) #8
@@ -944,9 +944,9 @@ split.thread:                                     ; preds = %38, %44, %split
   store i32 -22, ptr @lps0_dsm_func_mask_microsoft, align 4
   br label %102
 
-102:                                              ; preds = %.thread32, %81, %75, %72
-  %103 = phi i32 [ -22, %.thread32 ], [ -22, %81 ], [ %77, %75 ], [ %.pre58, %72 ]
-  %104 = phi i32 [ %101, %.thread32 ], [ %76, %81 ], [ %76, %75 ], [ %74, %72 ]
+102:                                              ; preds = %.thread33, %81, %75, %72
+  %103 = phi i32 [ -22, %.thread33 ], [ -22, %81 ], [ %77, %75 ], [ %.pre59, %72 ]
+  %104 = phi i32 [ %101, %.thread33 ], [ %76, %81 ], [ %76, %75 ], [ %74, %72 ]
   %105 = icmp slt i32 %104, 0
   %106 = icmp slt i32 %103, 0
   %107 = select i1 %105, i1 %106, i1 false
@@ -964,18 +964,18 @@ split.thread:                                     ; preds = %38, %44, %split
   %114 = zext i1 %113 to i64
   %115 = tail call ptr @acpi_evaluate_dsm(ptr noundef %109, ptr noundef nonnull @lps0_dsm_guid, i64 noundef %114, i64 noundef 1, ptr noundef null) #8
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %.thread34, label %117
+  br i1 %116, label %.thread35, label %117
 
 117:                                              ; preds = %112
   %118 = load i32, ptr %115, align 8
   %119 = icmp eq i32 %118, 4
-  br i1 %119, label %120, label %.thread34.sink.split
+  br i1 %119, label %120, label %.thread35.sink.split
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %.thread34.sink.split, label %124
+  br i1 %123, label %.thread35.sink.split, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -998,7 +998,7 @@ split.thread:                                     ; preds = %38, %44, %split
 136:                                              ; preds = %133
   %137 = load ptr, ptr @lps0_device_handle, align 8
   tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.17, ptr noundef %137, ptr noundef nonnull @.str.18) #8
-  br label %.thread34.sink.split
+  br label %.thread35.sink.split
 
 138:                                              ; preds = %133
   %139 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -1008,7 +1008,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %143 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %142, i32 noundef 3520) #9
   store ptr %143, ptr @lpi_constraints_table, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.thread34.sink.split, label %145
+  br i1 %144, label %.thread35.sink.split, label %145
 
 145:                                              ; preds = %138
   %146 = load i32, ptr %139, align 4
@@ -1017,13 +1017,13 @@ split.thread:                                     ; preds = %38, %44, %split
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %.pre64 = load i32, ptr @lpi_constraints_table_size, align 4
+  %.pre65 = load i32, ptr @lpi_constraints_table_size, align 4
   br label %150
 
-150:                                              ; preds = %.thread35, %148
-  %151 = phi i32 [ %.pre64, %148 ], [ %201, %.thread35 ]
-  %152 = phi ptr [ %143, %148 ], [ %202, %.thread35 ]
-  %153 = phi i32 [ 0, %148 ], [ %203, %.thread35 ]
+150:                                              ; preds = %.thread36, %148
+  %151 = phi i32 [ %.pre65, %148 ], [ %201, %.thread36 ]
+  %152 = phi ptr [ %143, %148 ], [ %202, %.thread36 ]
+  %153 = phi i32 [ 0, %148 ], [ %203, %.thread36 ]
   %154 = load ptr, ptr %149, align 8
   %155 = sext i32 %153 to i64
   %156 = getelementptr %union.acpi_object, ptr %154, i64 %155
@@ -1032,7 +1032,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.thread35, label %162
+  br i1 %161, label %.thread36, label %162
 
 162:                                              ; preds = %150
   %163 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -1083,45 +1083,45 @@ split.thread:                                     ; preds = %38, %44, %split
   %192 = select i1 %190, i1 %191, i1 false
   %193 = icmp ne i32 %186, 0
   %194 = select i1 %192, i1 %193, i1 false
-  br i1 %194, label %195, label %.thread35
+  br i1 %194, label %195, label %.thread36
 
 195:                                              ; preds = %189
   %196 = tail call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull %184, ptr noundef %158) #8
   %197 = icmp eq i32 %196, 0
-  %.pre61 = load ptr, ptr @lpi_constraints_table, align 8
-  %.pre63 = load i32, ptr @lpi_constraints_table_size, align 4
-  br i1 %197, label %198, label %.thread35
+  %.pre62 = load ptr, ptr @lpi_constraints_table, align 8
+  %.pre64 = load i32, ptr @lpi_constraints_table_size, align 4
+  br i1 %197, label %198, label %.thread36
 
 198:                                              ; preds = %195
   %199 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i32 %186, ptr %199, align 8
-  %200 = add i32 %.pre63, 1
+  %200 = add i32 %.pre64, 1
   store i32 %200, ptr @lpi_constraints_table_size, align 4
-  br label %.thread35
+  br label %.thread36
 
-.thread35:                                        ; preds = %150, %198, %195, %189
-  %201 = phi i32 [ %151, %150 ], [ %200, %198 ], [ %.pre63, %195 ], [ %151, %189 ]
-  %202 = phi ptr [ %152, %150 ], [ %.pre61, %198 ], [ %.pre61, %195 ], [ %152, %189 ]
+.thread36:                                        ; preds = %150, %198, %195, %189
+  %201 = phi i32 [ %151, %150 ], [ %200, %198 ], [ %.pre64, %195 ], [ %151, %189 ]
+  %202 = phi ptr [ %152, %150 ], [ %.pre62, %198 ], [ %.pre62, %195 ], [ %152, %189 ]
   %203 = add nuw i32 %153, 1
   %204 = load i32, ptr %139, align 4
   %205 = icmp ult i32 %203, %204
   br i1 %205, label %150, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.thread35, %126, %145
+.loopexit:                                        ; preds = %.thread36, %126, %145
   %206 = add nuw i32 %127, 1
   %207 = load i32, ptr %121, align 4
   %208 = icmp ult i32 %206, %207
-  br i1 %208, label %126, label %.thread34.sink.split, !llvm.loop !17
+  br i1 %208, label %126, label %.thread35.sink.split, !llvm.loop !17
 
 209:                                              ; preds = %108
   %210 = tail call ptr @acpi_evaluate_dsm(ptr noundef %109, ptr noundef nonnull @lps0_dsm_guid, i64 noundef 1, i64 noundef 1, ptr noundef null) #8
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %.thread34, label %212
+  br i1 %211, label %.thread35, label %212
 
 212:                                              ; preds = %209
   %213 = load i32, ptr %210, align 8
   %214 = icmp eq i32 %213, 4
-  br i1 %214, label %215, label %.thread34.sink.split
+  br i1 %214, label %215, label %.thread35.sink.split
 
 215:                                              ; preds = %212
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 4
@@ -1131,30 +1131,30 @@ split.thread:                                     ; preds = %38, %44, %split
   %220 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %219, i32 noundef 3520) #9
   store ptr %220, ptr @lpi_constraints_table, align 8
   %221 = icmp eq ptr %220, null
-  br i1 %221, label %.thread34.sink.split, label %222
+  br i1 %221, label %.thread35.sink.split, label %222
 
 222:                                              ; preds = %215
   %223 = load i32, ptr %216, align 4
   %224 = icmp eq i32 %223, 0
-  br i1 %224, label %.thread34.sink.split, label %225
+  br i1 %224, label %.thread35.sink.split, label %225
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %210, i64 8
   br label %227
 
-227:                                              ; preds = %.thread40, %225
-  %228 = phi i32 [ 0, %225 ], [ %309, %.thread40 ]
+227:                                              ; preds = %.thread41, %225
+  %228 = phi i32 [ 0, %225 ], [ %309, %.thread41 ]
   %229 = load ptr, ptr %226, align 8
   %230 = sext i32 %228 to i64
   %231 = getelementptr %union.acpi_object, ptr %229, i64 %230
   %232 = icmp eq ptr %231, null
-  br i1 %232, label %.thread40, label %233
+  br i1 %232, label %.thread41, label %233
 
 233:                                              ; preds = %227
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %235, 0
-  br i1 %236, label %.thread40, label %237
+  br i1 %236, label %.thread41, label %237
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -1209,7 +1209,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %271 = select i1 %269, i1 %270, i1 false
   %272 = icmp ne ptr %262, null
   %273 = select i1 %271, i1 %272, i1 false
-  br i1 %273, label %274, label %.thread40
+  br i1 %273, label %274, label %.thread41
 
 274:                                              ; preds = %268
   %275 = load ptr, ptr @lpi_constraints_table, align 8
@@ -1218,20 +1218,20 @@ split.thread:                                     ; preds = %38, %44, %split
   %278 = getelementptr %struct.lpi_constraints, ptr %275, i64 %277
   %279 = tail call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull %262, ptr noundef %278) #8
   %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %.thread40
+  br i1 %280, label %281, label %.thread41
 
 281:                                              ; preds = %274
   %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i32 -1, ptr %282, align 8
   %283 = icmp sgt i32 %265, 0
-  br i1 %283, label %284, label %.thread40
+  br i1 %283, label %284, label %.thread41
 
 284:                                              ; preds = %281
   %285 = zext nneg i32 %265 to i64
   br label %286
 
 286:                                              ; preds = %301, %284
-  %.pr59 = phi i32 [ -1, %284 ], [ %.pr, %301 ]
+  %.pr60 = phi i32 [ -1, %284 ], [ %.pr, %301 ]
   %287 = phi i64 [ 0, %284 ], [ %302, %301 ]
   %288 = getelementptr %union.acpi_object, ptr %264, i64 %287
   %289 = load i32, ptr %288, align 8
@@ -1254,33 +1254,33 @@ split.thread:                                     ; preds = %38, %44, %split
   br label %301
 
 301:                                              ; preds = %295, %291, %286
-  %.pr = phi i32 [ %300, %295 ], [ %.pr59, %291 ], [ %.pr59, %286 ]
+  %.pr = phi i32 [ %300, %295 ], [ %.pr60, %291 ], [ %.pr60, %286 ]
   %302 = add nuw nsw i64 %287, 1
   %303 = icmp eq i64 %302, %285
   br i1 %303, label %304, label %286, !llvm.loop !19
 
 304:                                              ; preds = %301
   %305 = icmp slt i32 %.pr, 0
-  br i1 %305, label %.thread40, label %306
+  br i1 %305, label %.thread41, label %306
 
 306:                                              ; preds = %304
   %307 = load i32, ptr @lpi_constraints_table_size, align 4
   %308 = add i32 %307, 1
   store i32 %308, ptr @lpi_constraints_table_size, align 4
-  br label %.thread40
+  br label %.thread41
 
-.thread40:                                        ; preds = %281, %233, %306, %304, %274, %268, %227
+.thread41:                                        ; preds = %281, %233, %306, %304, %274, %268, %227
   %309 = add nuw i32 %228, 1
   %310 = load i32, ptr %216, align 4
   %311 = icmp ult i32 %309, %310
-  br i1 %311, label %227, label %.thread34.sink.split, !llvm.loop !20
+  br i1 %311, label %227, label %.thread35.sink.split, !llvm.loop !20
 
-.thread34.sink.split:                             ; preds = %.thread40, %.loopexit, %138, %120, %215, %222, %136, %212, %117
-  %.sink = phi ptr [ %115, %117 ], [ %210, %212 ], [ %115, %120 ], [ %210, %222 ], [ %210, %215 ], [ %115, %136 ], [ %115, %138 ], [ %115, %.loopexit ], [ %210, %.thread40 ]
+.thread35.sink.split:                             ; preds = %.thread41, %.loopexit, %138, %120, %215, %222, %136, %212, %117
+  %.sink = phi ptr [ %115, %117 ], [ %210, %212 ], [ %115, %120 ], [ %210, %222 ], [ %210, %215 ], [ %115, %136 ], [ %115, %138 ], [ %115, %.loopexit ], [ %210, %.thread41 ]
   tail call void @kfree(ptr noundef nonnull %.sink) #8
-  br label %.thread34
+  br label %.thread35
 
-.thread34:                                        ; preds = %.thread34.sink.split, %209, %112
+.thread35:                                        ; preds = %.thread35.sink.split, %209, %112
   %312 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_FADT, i64 112), align 1
   %313 = and i32 %312, 2097152
   %314 = icmp ne i32 %313, 0
@@ -1292,12 +1292,12 @@ split.thread:                                     ; preds = %38, %44, %split
   %320 = select i1 %317, i1 %319, i1 false
   br i1 %320, label %321, label %323
 
-321:                                              ; preds = %.thread34
+321:                                              ; preds = %.thread35
   store i32 1, ptr @mem_sleep_current, align 4
   %322 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #10
   br label %323
 
-323:                                              ; preds = %321, %.thread34
+323:                                              ; preds = %321, %.thread35
   tail call void @acpi_ec_mark_gpe_for_wake() #8
   br label %324
 

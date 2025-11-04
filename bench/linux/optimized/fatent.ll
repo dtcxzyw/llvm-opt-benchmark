@@ -526,7 +526,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %40 = load i64, ptr %39, align 8
   %41 = icmp ugt i64 %40, 2
-  br i1 %41, label %42, label %.loopexit30
+  br i1 %41, label %42, label %.loopexit31
 
 42:                                               ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -534,7 +534,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   br label %45
 
 45:                                               ; preds = %155, %42
-  %46 = phi i64 [ %40, %42 ], [ %.pre69, %155 ]
+  %46 = phi i64 [ %40, %42 ], [ %.pre70, %155 ]
   %47 = phi i32 [ 0, %42 ], [ %141, %155 ]
   %48 = phi i32 [ 2, %42 ], [ %142, %155 ]
   %49 = phi i32 [ 0, %42 ], [ %140, %155 ]
@@ -559,9 +559,9 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   store ptr null, ptr %34, align 8
   %59 = load i32, ptr %33, align 8
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.preheader27, label %.loopexit28
+  br i1 %60, label %.preheader28, label %.loopexit29
 
-.preheader27:                                     ; preds = %54, %67
+.preheader28:                                     ; preds = %54, %67
   %61 = phi i32 [ %68, %67 ], [ %59, %54 ]
   %62 = phi i64 [ %69, %67 ], [ 0, %54 ]
   %63 = getelementptr ptr, ptr %35, i64 %62
@@ -569,24 +569,24 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %65 = icmp eq ptr %64, null
   br i1 %65, label %67, label %66
 
-66:                                               ; preds = %.preheader27
+66:                                               ; preds = %.preheader28
   call void @__brelse(ptr noundef nonnull %64) #9
   %.pre = load i32, ptr %33, align 8
   br label %67
 
-67:                                               ; preds = %66, %.preheader27
-  %68 = phi i32 [ %.pre, %66 ], [ %61, %.preheader27 ]
+67:                                               ; preds = %66, %.preheader28
+  %68 = phi i32 [ %.pre, %66 ], [ %61, %.preheader28 ]
   %69 = add nuw nsw i64 %62, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %69, %70
-  br i1 %71, label %.preheader27, label %.loopexit28.loopexit, !llvm.loop !5
+  br i1 %71, label %.preheader28, label %.loopexit29.loopexit, !llvm.loop !5
 
-.loopexit28.loopexit:                             ; preds = %67
-  %.pre66 = load i32, ptr %6, align 8
-  br label %.loopexit28
+.loopexit29.loopexit:                             ; preds = %67
+  %.pre67 = load i32, ptr %6, align 8
+  br label %.loopexit29
 
-.loopexit28:                                      ; preds = %.loopexit28.loopexit, %54
-  %72 = phi i32 [ %.pre66, %.loopexit28.loopexit ], [ %55, %54 ]
+.loopexit29:                                      ; preds = %.loopexit29.loopexit, %54
+  %72 = phi i32 [ %.pre67, %.loopexit29.loopexit ], [ %55, %54 ]
   store i32 0, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %73 = load ptr, ptr %58, align 8
@@ -599,18 +599,18 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %.preheader25, label %.loopexit26
+  br i1 %79, label %.preheader26, label %.loopexit27
 
-.preheader25:                                     ; preds = %.loopexit28, %146
-  %80 = phi i32 [ %140, %146 ], [ %49, %.loopexit28 ]
-  %81 = phi i32 [ %142, %146 ], [ %48, %.loopexit28 ]
-  %82 = phi i32 [ %141, %146 ], [ %47, %.loopexit28 ]
+.preheader26:                                     ; preds = %.loopexit29, %146
+  %80 = phi i32 [ %140, %146 ], [ %49, %.loopexit29 ]
+  %81 = phi i32 [ %142, %146 ], [ %48, %.loopexit29 ]
+  %82 = phi i32 [ %141, %146 ], [ %47, %.loopexit29 ]
   %83 = load ptr, ptr %43, align 8
   %84 = call i32 %83(ptr noundef nonnull %6) #9
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %139
 
-86:                                               ; preds = %.preheader25
+86:                                               ; preds = %.preheader26
   %87 = load i32, ptr %6, align 8
   %88 = load ptr, ptr %44, align 8
   call void %88(ptr noundef nonnull %6, i32 noundef 268435455) #9
@@ -626,16 +626,16 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 93:                                               ; preds = %91, %86
   %94 = load i32, ptr %33, align 8
   %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.preheader23, label %.loopexit24
+  br i1 %95, label %.preheader24, label %.loopexit25
 
-.preheader23:                                     ; preds = %93, %123
+.preheader24:                                     ; preds = %93, %123
   %96 = phi i32 [ %124, %123 ], [ %94, %93 ]
   %97 = phi i32 [ %125, %123 ], [ %80, %93 ]
   %98 = phi i64 [ %126, %123 ], [ 0, %93 ]
   %99 = icmp sgt i32 %97, 0
   br i1 %99, label %100, label %114
 
-100:                                              ; preds = %.preheader23
+100:                                              ; preds = %.preheader24
   %101 = getelementptr ptr, ptr %35, i64 %98
   %102 = load ptr, ptr %101, align 8
   %103 = zext nneg i32 %97 to i64
@@ -657,20 +657,20 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %113 = trunc i64 %105 to i32
   br label %114
 
-114:                                              ; preds = %112, %.preheader23
-  %115 = phi i32 [ 0, %.preheader23 ], [ %113, %112 ]
+114:                                              ; preds = %112, %.preheader24
+  %115 = phi i32 [ 0, %.preheader24 ], [ %113, %112 ]
   %116 = icmp eq i32 %115, %97
   br i1 %116, label %..thread_crit_edge, label %123
 
 ..thread_crit_edge:                               ; preds = %114
   %.phi.trans.insert = getelementptr ptr, ptr %35, i64 %98
-  %.pre67 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre71 = zext nneg i32 %97 to i64
+  %.pre68 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre72 = zext nneg i32 %97 to i64
   br label %.thread
 
 .thread:                                          ; preds = %109, %..thread_crit_edge
-  %.pre-phi = phi i64 [ %.pre71, %..thread_crit_edge ], [ %103, %109 ]
-  %117 = phi ptr [ %.pre67, %..thread_crit_edge ], [ %102, %109 ]
+  %.pre-phi = phi i64 [ %.pre72, %..thread_crit_edge ], [ %103, %109 ]
+  %117 = phi ptr [ %.pre68, %..thread_crit_edge ], [ %102, %109 ]
   %118 = getelementptr ptr, ptr %35, i64 %98
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 96
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, ptr nonnull elementtype(i32) %119) #9, !srcloc !17
@@ -678,49 +678,49 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %121 = getelementptr ptr, ptr %8, i64 %.pre-phi
   store ptr %120, ptr %121, align 8
   %122 = add i32 %97, 1
-  %.pre68 = load i32, ptr %33, align 8
+  %.pre69 = load i32, ptr %33, align 8
   br label %123
 
 123:                                              ; preds = %.thread, %114
-  %124 = phi i32 [ %.pre68, %.thread ], [ %96, %114 ]
+  %124 = phi i32 [ %.pre69, %.thread ], [ %96, %114 ]
   %125 = phi i32 [ %122, %.thread ], [ %97, %114 ]
   %126 = add nuw nsw i64 %98, 1
   %127 = sext i32 %124 to i64
   %128 = icmp slt i64 %126, %127
-  br i1 %128, label %.preheader23, label %.loopexit24, !llvm.loop !18
+  br i1 %128, label %.preheader24, label %.loopexit25, !llvm.loop !18
 
-.loopexit24:                                      ; preds = %123, %93
+.loopexit25:                                      ; preds = %123, %93
   %129 = phi i32 [ %80, %93 ], [ %125, %123 ]
   store i32 %87, ptr %36, align 8
   %130 = load i32, ptr %19, align 4
   %131 = icmp eq i32 %130, -1
   br i1 %131, label %134, label %132
 
-132:                                              ; preds = %.loopexit24
+132:                                              ; preds = %.loopexit25
   %133 = add i32 %130, -1
   store i32 %133, ptr %19, align 4
   br label %134
 
-134:                                              ; preds = %132, %.loopexit24
+134:                                              ; preds = %132, %.loopexit25
   %135 = sext i32 %82 to i64
   %136 = getelementptr i32, ptr %1, i64 %135
   store i32 %87, ptr %136, align 4
   %137 = add i32 %82, 1
   %138 = icmp eq i32 %137, %2
-  br i1 %138, label %.loopexit26, label %.thread20
+  br i1 %138, label %.loopexit27, label %.thread21
 
-.thread20:                                        ; preds = %134
+.thread21:                                        ; preds = %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   br label %139
 
-139:                                              ; preds = %.thread20, %.preheader25
-  %140 = phi i32 [ %80, %.preheader25 ], [ %129, %.thread20 ]
-  %141 = phi i32 [ %82, %.preheader25 ], [ %137, %.thread20 ]
+139:                                              ; preds = %.thread21, %.preheader26
+  %140 = phi i32 [ %80, %.preheader26 ], [ %129, %.thread21 ]
+  %141 = phi i32 [ %82, %.preheader26 ], [ %137, %.thread21 ]
   %142 = add i32 %81, 1
   %143 = sext i32 %142 to i64
   %144 = load i64, ptr %39, align 8
   %145 = icmp eq i64 %144, %143
-  br i1 %145, label %.loopexit30, label %146
+  br i1 %145, label %.loopexit31, label %146
 
 146:                                              ; preds = %139
   %147 = load ptr, ptr %13, align 8
@@ -728,29 +728,29 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %149 = load ptr, ptr %148, align 8
   %150 = call i32 %149(ptr noundef nonnull %6) #9
   %151 = icmp ne i32 %150, 0
-  %.pre69 = load i64, ptr %39, align 8
+  %.pre70 = load i64, ptr %39, align 8
   %152 = load i32, ptr %6, align 8
   %153 = sext i32 %152 to i64
-  %154 = icmp ugt i64 %.pre69, %153
+  %154 = icmp ugt i64 %.pre70, %153
   %or.cond = select i1 %151, i1 %154, i1 false
-  br i1 %or.cond, label %.preheader25, label %155, !llvm.loop !19
+  br i1 %or.cond, label %.preheader26, label %155, !llvm.loop !19
 
 155:                                              ; preds = %146
-  %156 = icmp ugt i64 %.pre69, %143
-  br i1 %156, label %45, label %.loopexit30, !llvm.loop !20
+  %156 = icmp ugt i64 %.pre70, %143
+  br i1 %156, label %45, label %.loopexit31, !llvm.loop !20
 
-.loopexit30:                                      ; preds = %155, %139, %29
+.loopexit31:                                      ; preds = %155, %139, %29
   %157 = phi i32 [ 0, %29 ], [ %140, %139 ], [ %140, %155 ]
   %158 = phi i32 [ 0, %29 ], [ %141, %139 ], [ %141, %155 ]
   store i32 0, ptr %19, align 4
   %159 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store i32 1, ptr %159, align 8
-  br label %.loopexit26
+  br label %.loopexit27
 
-.loopexit26:                                      ; preds = %.loopexit28, %134, %.loopexit30
-  %160 = phi i32 [ %157, %.loopexit30 ], [ %129, %134 ], [ %49, %.loopexit28 ]
-  %161 = phi i32 [ -28, %.loopexit30 ], [ 0, %134 ], [ %78, %.loopexit28 ]
-  %162 = phi i32 [ %158, %.loopexit30 ], [ %2, %134 ], [ %47, %.loopexit28 ]
+.loopexit27:                                      ; preds = %.loopexit29, %134, %.loopexit31
+  %160 = phi i32 [ %157, %.loopexit31 ], [ %129, %134 ], [ %49, %.loopexit29 ]
+  %161 = phi i32 [ -28, %.loopexit31 ], [ 0, %134 ], [ %78, %.loopexit29 ]
+  %162 = phi i32 [ %158, %.loopexit31 ], [ %2, %134 ], [ %47, %.loopexit29 ]
   call void @mutex_unlock(ptr noundef nonnull %18) #9
   %163 = load ptr, ptr %11, align 8
   %164 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -759,7 +759,7 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   %167 = icmp eq i64 %166, 0
   br i1 %167, label %168, label %175
 
-168:                                              ; preds = %.loopexit26
+168:                                              ; preds = %.loopexit27
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 9
   %170 = load i8, ptr %169, align 1
   %171 = icmp eq i8 %170, 32
@@ -771,11 +771,11 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
   call void @__mark_inode_dirty(ptr noundef %174, i32 noundef 1) #9
   br label %175
 
-175:                                              ; preds = %172, %168, %.loopexit26
+175:                                              ; preds = %172, %168, %.loopexit27
   store ptr null, ptr %34, align 8
   %176 = load i32, ptr %33, align 8
   %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.preheader, label %.loopexit22
+  br i1 %177, label %.preheader, label %.loopexit23
 
 .preheader:                                       ; preds = %175, %184
   %178 = phi i32 [ %185, %184 ], [ %176, %175 ]
@@ -787,38 +787,38 @@ define dso_local i32 @fat_alloc_clusters(ptr noundef %0, ptr noundef captures(no
 
 183:                                              ; preds = %.preheader
   call void @__brelse(ptr noundef nonnull %181) #9
-  %.pre70 = load i32, ptr %33, align 8
+  %.pre71 = load i32, ptr %33, align 8
   br label %184
 
 184:                                              ; preds = %183, %.preheader
-  %185 = phi i32 [ %.pre70, %183 ], [ %178, %.preheader ]
+  %185 = phi i32 [ %.pre71, %183 ], [ %178, %.preheader ]
   %186 = add nuw nsw i64 %179, 1
   %187 = sext i32 %185 to i64
   %188 = icmp slt i64 %186, %187
-  br i1 %188, label %.preheader, label %.loopexit22, !llvm.loop !5
+  br i1 %188, label %.preheader, label %.loopexit23, !llvm.loop !5
 
-.loopexit22:                                      ; preds = %184, %175
+.loopexit23:                                      ; preds = %184, %175
   store i32 0, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %189 = icmp eq i32 %161, 0
   br i1 %189, label %190, label %197
 
-190:                                              ; preds = %.loopexit22
+190:                                              ; preds = %.loopexit23
   %191 = call i32 @inode_needs_sync(ptr noundef %0) #9
   %192 = icmp eq i32 %191, 0
-  br i1 %192, label %.thread21, label %193
+  br i1 %192, label %.thread22, label %193
 
 193:                                              ; preds = %190
   %194 = call i32 @fat_sync_bhs(ptr noundef nonnull %8, i32 noundef %160) #9
   %195 = icmp eq i32 %194, 0
-  br i1 %195, label %.thread21, label %197
+  br i1 %195, label %.thread22, label %197
 
-.thread21:                                        ; preds = %190, %193
+.thread22:                                        ; preds = %190, %193
   %196 = call fastcc i32 @fat_mirror_bhs(ptr noundef %10, ptr noundef nonnull %8, i32 noundef %160)
   br label %197
 
-197:                                              ; preds = %.thread21, %193, %.loopexit22
-  %198 = phi i32 [ %161, %.loopexit22 ], [ %194, %193 ], [ %196, %.thread21 ]
+197:                                              ; preds = %.thread22, %193, %.loopexit23
+  %198 = phi i32 [ %161, %.loopexit23 ], [ %194, %193 ], [ %196, %.thread22 ]
   %199 = icmp sgt i32 %160, 0
   br i1 %199, label %200, label %.loopexit
 

@@ -287,12 +287,12 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %3, %._crit_edge
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %._crit_edge ]
-  %.sroa.0.086 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
+  %.sroa.0.084 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %18 = getelementptr inbounds nuw %struct.anon, ptr @PGTYPESdate_fmt_asc.mapping, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 16
   %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %19) #14
-  %.not6383 = icmp eq ptr %20, null
-  br i1 %.not6383, label %._crit_edge, label %.lr.ph
+  %.not6381 = icmp eq ptr %20, null
+  br i1 %.not6381, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -301,7 +301,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
 
 23:                                               ; preds = %.lr.ph, %56
   %24 = phi ptr [ %20, %.lr.ph ], [ %57, %56 ]
-  %.sroa.0.184 = phi ptr [ %.sroa.0.086, %.lr.ph ], [ %.sroa.0.274, %56 ]
+  %.sroa.0.182 = phi ptr [ %.sroa.0.084, %.lr.ph ], [ %.sroa.0.271, %56 ]
   switch i32 %22, label %40 [
     i32 2, label %25
     i32 1, label %27
@@ -343,18 +343,18 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   br label %56
 
 42:                                               ; preds = %27, %35, %37
-  %.sink93 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %39, %37 ]
+  %.sink91 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %39, %37 ]
   %43 = call ptr @pgtypes_alloc(i64 noundef 20) #12
   %.not65.not = icmp eq ptr %43, null
   br i1 %.not65.not, label %.critedge, label %44
 
 44:                                               ; preds = %42
-  %45 = ptrtoint ptr %.sroa.0.184 to i64
+  %45 = ptrtoint ptr %.sroa.0.182 to i64
   %.sroa.0.0.insert.mask = and i64 %45, -4294967296
-  %.sroa.0.0.insert.ext = zext i32 %.sink93 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sink91 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
-  %.sroa.0.2.ph76 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
-  %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %43, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink93) #12
+  %.sroa.0.2.ph74 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
+  %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %43, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink91) #12
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %43, i64 %47, i1 false)
   call void @free(ptr noundef nonnull %43) #12
@@ -367,7 +367,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   br i1 %.not64.not, label %.critedge, label %51
 
 51:                                               ; preds = %48
-  %52 = ptrtoint ptr %.sroa.0.184 to i64
+  %52 = ptrtoint ptr %.sroa.0.182 to i64
   %.sroa.0.0.insert.mask38 = and i64 %52, -4294967296
   %.sroa.0.0.insert.ext37 = zext i32 %49 to i64
   %.sroa.0.0.insert.insert39 = or disjoint i64 %.sroa.0.0.insert.mask38, %.sroa.0.0.insert.ext37
@@ -379,13 +379,13 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   br label %56
 
 56:                                               ; preds = %51, %44, %40
-  %.sroa.0.274 = phi ptr [ %53, %51 ], [ %.sroa.0.2.ph76, %44 ], [ %.sroa.0.2.ph, %40 ]
+  %.sroa.0.271 = phi ptr [ %53, %51 ], [ %.sroa.0.2.ph74, %44 ], [ %.sroa.0.2.ph, %40 ]
   %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %19) #14
   %.not63 = icmp eq ptr %57, null
   br i1 %.not63, label %._crit_edge, label %23, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %56, %.preheader
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.086, %.preheader ], [ %.sroa.0.274, %56 ]
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.084, %.preheader ], [ %.sroa.0.271, %56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !5

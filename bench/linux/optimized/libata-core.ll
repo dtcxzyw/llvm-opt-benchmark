@@ -15544,7 +15544,7 @@ define dso_local ptr @ata_host_alloc(ptr noundef %0, i32 noundef %1) #1 align 16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store volatile i32 1, ptr %20, align 8
   %21 = icmp sgt i32 %1, 0
-  br i1 %21, label %22, label %.loopexit5
+  br i1 %21, label %22, label %.loopexit6
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 112
@@ -15565,9 +15565,9 @@ define dso_local ptr @ata_host_alloc(ptr noundef %0, i32 noundef %1) #1 align 16
   store ptr %27, ptr %32, align 8
   %33 = add nuw nsw i64 %26, 1
   %34 = icmp eq i64 %33, %24
-  br i1 %34, label %.loopexit5, label %25, !llvm.loop !159
+  br i1 %34, label %.loopexit6, label %25, !llvm.loop !159
 
-.loopexit5:                                       ; preds = %29, %15
+.loopexit6:                                       ; preds = %29, %15
   tail call void @devres_remove_group(ptr noundef %0, ptr noundef null) #32
   br label %37
 
@@ -15579,8 +15579,8 @@ define dso_local ptr @ata_host_alloc(ptr noundef %0, i32 noundef %1) #1 align 16
   tail call void @kfree(ptr noundef nonnull %7) #32
   br label %37
 
-37:                                               ; preds = %36, %.loopexit5, %2
-  %38 = phi ptr [ null, %36 ], [ %7, %.loopexit5 ], [ null, %2 ]
+37:                                               ; preds = %36, %.loopexit6, %2
+  %38 = phi ptr [ null, %36 ], [ %7, %.loopexit6 ], [ null, %2 ]
   ret ptr %38
 }
 
@@ -15749,15 +15749,15 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   tail call void @_raw_spin_lock(ptr noundef nonnull @ata_finalize_port_ops.lock) #32
   %15 = load ptr, ptr %9, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit29.preheader, label %.preheader28
+  br i1 %16, label %.loopexit30.preheader, label %.preheader29
 
-.preheader28:                                     ; preds = %14, %29
+.preheader29:                                     ; preds = %14, %29
   %17 = phi ptr [ %31, %29 ], [ %15, %14 ]
   br label %18
 
-18:                                               ; preds = %25, %.preheader28
-  %19 = phi ptr [ %17, %.preheader28 ], [ %27, %25 ]
-  %20 = phi ptr [ %8, %.preheader28 ], [ %26, %25 ]
+18:                                               ; preds = %25, %.preheader29
+  %19 = phi ptr [ %17, %.preheader29 ], [ %27, %25 ]
+  %20 = phi ptr [ %8, %.preheader29 ], [ %26, %25 ]
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
@@ -15777,25 +15777,25 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 472
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit29.preheader, label %.preheader28, !llvm.loop !163
+  br i1 %32, label %.loopexit30.preheader, label %.preheader29, !llvm.loop !163
 
-.loopexit29.preheader:                            ; preds = %29, %14
-  br label %.loopexit29
+.loopexit30.preheader:                            ; preds = %29, %14
+  br label %.loopexit30
 
-.loopexit29:                                      ; preds = %.loopexit29.preheader, %37
-  %33 = phi ptr [ %38, %37 ], [ %8, %.loopexit29.preheader ]
+.loopexit30:                                      ; preds = %.loopexit30.preheader, %37
+  %33 = phi ptr [ %38, %37 ], [ %8, %.loopexit30.preheader ]
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %.loopexit29
+36:                                               ; preds = %.loopexit30
   store ptr null, ptr %33, align 8
   br label %37
 
-37:                                               ; preds = %36, %.loopexit29
+37:                                               ; preds = %36, %.loopexit30
   %38 = getelementptr i8, ptr %33, i64 8
   %39 = icmp ult ptr %38, %9
-  br i1 %39, label %.loopexit29, label %40, !llvm.loop !164
+  br i1 %39, label %.loopexit30, label %40, !llvm.loop !164
 
 40:                                               ; preds = %37
   store ptr null, ptr %9, align 8
@@ -15806,7 +15806,7 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.loopexit27.thread, label %45
+  br i1 %44, label %.loopexit28.thread, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -15822,7 +15822,7 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 472
   %56 = icmp eq ptr %54, null
-  br i1 %56, label %.thread66, label %57
+  br i1 %56, label %.thread67, label %57
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %55, align 8
@@ -15833,15 +15833,15 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   tail call void @_raw_spin_lock(ptr noundef nonnull @ata_finalize_port_ops.lock) #32
   %61 = load ptr, ptr %55, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit26.preheader, label %.preheader25
+  br i1 %62, label %.loopexit27.preheader, label %.preheader26
 
-.preheader25:                                     ; preds = %60, %75
+.preheader26:                                     ; preds = %60, %75
   %63 = phi ptr [ %77, %75 ], [ %61, %60 ]
   br label %64
 
-64:                                               ; preds = %71, %.preheader25
-  %65 = phi ptr [ %63, %.preheader25 ], [ %73, %71 ]
-  %66 = phi ptr [ %54, %.preheader25 ], [ %72, %71 ]
+64:                                               ; preds = %71, %.preheader26
+  %65 = phi ptr [ %63, %.preheader26 ], [ %73, %71 ]
+  %66 = phi ptr [ %54, %.preheader26 ], [ %72, %71 ]
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %71
@@ -15861,56 +15861,56 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 472
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.loopexit26.preheader, label %.preheader25, !llvm.loop !163
+  br i1 %78, label %.loopexit27.preheader, label %.preheader26, !llvm.loop !163
 
-.loopexit26.preheader:                            ; preds = %75, %60
-  br label %.loopexit26
+.loopexit27.preheader:                            ; preds = %75, %60
+  br label %.loopexit27
 
-.loopexit26:                                      ; preds = %.loopexit26.preheader, %83
-  %79 = phi ptr [ %84, %83 ], [ %54, %.loopexit26.preheader ]
+.loopexit27:                                      ; preds = %.loopexit27.preheader, %83
+  %79 = phi ptr [ %84, %83 ], [ %54, %.loopexit27.preheader ]
   %80 = load ptr, ptr %79, align 8
   %81 = icmp ugt ptr %80, inttoptr (i64 -4096 to ptr)
   br i1 %81, label %82, label %83
 
-82:                                               ; preds = %.loopexit26
+82:                                               ; preds = %.loopexit27
   store ptr null, ptr %79, align 8
   br label %83
 
-83:                                               ; preds = %82, %.loopexit26
+83:                                               ; preds = %82, %.loopexit27
   %84 = getelementptr i8, ptr %79, i64 8
   %85 = icmp ult ptr %84, %55
-  br i1 %85, label %.loopexit26, label %86, !llvm.loop !164
+  br i1 %85, label %.loopexit27, label %86, !llvm.loop !164
 
 86:                                               ; preds = %83
   store ptr null, ptr %55, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @ata_finalize_port_ops.lock) #32
-  %.pre41.pre = load ptr, ptr %53, align 8
+  %.pre42.pre = load ptr, ptr %53, align 8
   br label %87
 
 87:                                               ; preds = %86, %57
-  %.pre41 = phi ptr [ %.pre41.pre, %86 ], [ %54, %57 ]
+  %.pre42 = phi ptr [ %.pre42.pre, %86 ], [ %54, %57 ]
   %88 = load ptr, ptr %7, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %92, label %94
 
-.thread66:                                        ; preds = %47
+.thread67:                                        ; preds = %47
   %90 = load ptr, ptr %7, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread69, label %94
+  br i1 %91, label %.thread70, label %94
 
 92:                                               ; preds = %87
-  %93 = icmp eq ptr %.pre41, @ata_dummy_port_ops
-  br i1 %93, label %94, label %.thread69
+  %93 = icmp eq ptr %.pre42, @ata_dummy_port_ops
+  br i1 %93, label %94, label %.thread70
 
-.thread69:                                        ; preds = %.thread66, %92
-  %.pre416871 = phi ptr [ %.pre41, %92 ], [ null, %.thread66 ]
-  store ptr %.pre416871, ptr %7, align 8
+.thread70:                                        ; preds = %.thread67, %92
+  %.pre426972 = phi ptr [ %.pre42, %92 ], [ null, %.thread67 ]
+  store ptr %.pre426972, ptr %7, align 8
   %.pre = load ptr, ptr %53, align 8
   br label %94
 
-94:                                               ; preds = %.thread66, %.thread69, %92, %87
-  %95 = phi ptr [ %.pre416871, %.thread69 ], [ null, %92 ], [ %88, %87 ], [ %90, %.thread66 ]
-  %96 = phi ptr [ %.pre, %.thread69 ], [ @ata_dummy_port_ops, %92 ], [ %.pre41, %87 ], [ null, %.thread66 ]
+94:                                               ; preds = %.thread67, %.thread70, %92, %87
+  %95 = phi ptr [ %.pre426972, %.thread70 ], [ null, %92 ], [ %88, %87 ], [ %90, %.thread67 ]
+  %96 = phi ptr [ %.pre, %.thread70 ], [ @ata_dummy_port_ops, %92 ], [ %.pre42, %87 ], [ null, %.thread67 ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 288
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
@@ -15918,29 +15918,29 @@ define dso_local noundef i32 @ata_host_start(ptr noundef captures(none) %0) #1 a
   %101 = add nuw i32 %48, 1
   %102 = load i32, ptr %42, align 8
   %103 = icmp ult i32 %101, %102
-  br i1 %103, label %47, label %.loopexit27, !llvm.loop !165
+  br i1 %103, label %47, label %.loopexit28, !llvm.loop !165
 
-.loopexit27:                                      ; preds = %94
+.loopexit28:                                      ; preds = %94
   %104 = icmp eq i32 %100, 0
   %105 = icmp eq ptr %95, null
   br i1 %105, label %select.unfold, label %107
 
-.loopexit27.thread:                               ; preds = %41
-  %.pre42 = load ptr, ptr %7, align 8
-  %106 = icmp eq ptr %.pre42, null
-  br i1 %106, label %.loopexit24.thread, label %107
+.loopexit28.thread:                               ; preds = %41
+  %.pre43 = load ptr, ptr %7, align 8
+  %106 = icmp eq ptr %.pre43, null
+  br i1 %106, label %.loopexit25.thread, label %107
 
-107:                                              ; preds = %.loopexit27.thread, %.loopexit27
-  %.old74 = phi i1 [ true, %.loopexit27.thread ], [ %104, %.loopexit27 ]
-  %108 = phi ptr [ %.pre42, %.loopexit27.thread ], [ %95, %.loopexit27 ]
-  %109 = phi i32 [ 0, %.loopexit27.thread ], [ %102, %.loopexit27 ]
+107:                                              ; preds = %.loopexit28.thread, %.loopexit28
+  %.old75 = phi i1 [ true, %.loopexit28.thread ], [ %104, %.loopexit28 ]
+  %108 = phi ptr [ %.pre43, %.loopexit28.thread ], [ %95, %.loopexit28 ]
+  %109 = phi i32 [ 0, %.loopexit28.thread ], [ %102, %.loopexit28 ]
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 296
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
-  %or.cond = select i1 %112, i1 %.old74, i1 false
+  %or.cond = select i1 %112, i1 %.old75, i1 false
   br i1 %or.cond, label %115, label %.thread
 
-select.unfold:                                    ; preds = %.loopexit27
+select.unfold:                                    ; preds = %.loopexit28
   br i1 %104, label %115, label %.thread
 
 .thread:                                          ; preds = %107, %select.unfold
@@ -15949,14 +15949,14 @@ select.unfold:                                    ; preds = %.loopexit27
   br i1 %114, label %159, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
-  %.pre43 = load i32, ptr %42, align 8
+  %.pre44 = load i32, ptr %42, align 8
   br label %115
 
 115:                                              ; preds = %.thread._crit_edge, %107, %select.unfold
-  %116 = phi i32 [ %.pre43, %.thread._crit_edge ], [ %102, %select.unfold ], [ %109, %107 ]
+  %116 = phi i32 [ %.pre44, %.thread._crit_edge ], [ %102, %select.unfold ], [ %109, %107 ]
   %117 = phi ptr [ %113, %.thread._crit_edge ], [ null, %select.unfold ], [ null, %107 ]
   %118 = icmp eq i32 %116, 0
-  br i1 %118, label %.loopexit24, label %119
+  br i1 %118, label %.loopexit25, label %119
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -15979,20 +15979,20 @@ select.unfold:                                    ; preds = %.loopexit27
   %133 = tail call i32 %130(ptr noundef %126) #32
   switch i32 %133, label %134 [
     i32 0, label %139
-    i32 -19, label %.loopexit23
+    i32 -19, label %.loopexit24
   ]
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %121, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %135, ptr noundef nonnull @.str.91, i32 noundef %123, i32 noundef %133) #34
-  br label %.loopexit23
+  br label %.loopexit24
 
-.loopexit23:                                      ; preds = %132, %134
+.loopexit24:                                      ; preds = %132, %134
   %136 = add i32 %123, -1
   %137 = icmp sgt i32 %136, -1
   br i1 %137, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %.loopexit23
+.preheader.preheader:                             ; preds = %.loopexit24
   %138 = zext nneg i32 %136 to i64
   br label %.preheader
 
@@ -16001,19 +16001,19 @@ select.unfold:                                    ; preds = %.loopexit27
   %140 = add nuw i32 %123, 1
   %141 = load i32, ptr %42, align 8
   %142 = icmp ult i32 %140, %141
-  br i1 %142, label %122, label %.loopexit24, !llvm.loop !166
+  br i1 %142, label %122, label %.loopexit25, !llvm.loop !166
 
-.loopexit24:                                      ; preds = %139, %115
+.loopexit25:                                      ; preds = %139, %115
   %143 = icmp eq ptr %117, null
-  br i1 %143, label %.loopexit24.thread, label %144
+  br i1 %143, label %.loopexit25.thread, label %144
 
-144:                                              ; preds = %.loopexit24
+144:                                              ; preds = %.loopexit25
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %146 = load ptr, ptr %145, align 8
   tail call void @devres_add(ptr noundef %146, ptr noundef nonnull %117) #32
-  br label %.loopexit24.thread
+  br label %.loopexit25.thread
 
-.loopexit24.thread:                               ; preds = %.loopexit27.thread, %144, %.loopexit24
+.loopexit25.thread:                               ; preds = %.loopexit28.thread, %144, %.loopexit25
   %147 = load i64, ptr %2, align 8
   %148 = or i64 %147, 2
   store i64 %148, ptr %2, align 8
@@ -16039,12 +16039,12 @@ select.unfold:                                    ; preds = %.loopexit27
   %158 = icmp sgt i64 %indvars.iv, 0
   br i1 %158, label %.preheader, label %.loopexit, !llvm.loop !167
 
-.loopexit:                                        ; preds = %157, %.loopexit23
+.loopexit:                                        ; preds = %157, %.loopexit24
   tail call void @devres_free(ptr noundef %117) #32
   br label %159
 
-159:                                              ; preds = %.loopexit, %.loopexit24.thread, %.thread, %1
-  %160 = phi i32 [ %133, %.loopexit ], [ 0, %.loopexit24.thread ], [ 0, %1 ], [ -12, %.thread ]
+159:                                              ; preds = %.loopexit, %.loopexit25.thread, %.thread, %1
+  %160 = phi i32 [ %133, %.loopexit ], [ 0, %.loopexit25.thread ], [ 0, %1 ], [ -12, %.thread ]
   ret i32 %160
 }
 

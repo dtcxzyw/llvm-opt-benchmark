@@ -1335,7 +1335,7 @@ define range(i32 -2147483648, 1) i32 @wc_PKCS12_parse(ptr noundef readonly captu
   %or.cond12 = or i1 %22, %or.cond10
   %23 = icmp eq ptr %3, null
   %or.cond14 = or i1 %23, %or.cond12
-  br i1 %or.cond14, label %wc_FreeCertList.exit281, label %24
+  br i1 %or.cond14, label %wc_FreeCertList.exit282, label %24
 
 24:                                               ; preds = %7
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
@@ -1379,7 +1379,7 @@ define range(i32 -2147483648, 1) i32 @wc_PKCS12_parse(ptr noundef readonly captu
 
 wc_PKCS12_verify.exit.thread:                     ; preds = %31, %39, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %wc_FreeCertList.exit281
+  br label %wc_FreeCertList.exit282
 
 wc_PKCS12_verify.exit:                            ; preds = %43
   %46 = load ptr, ptr %30, align 8, !tbaa !23
@@ -1388,50 +1388,50 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %bcmp = call i32 @bcmp(ptr nonnull %9, ptr %46, i64 %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not252 = icmp eq i32 %bcmp, 0
-  br i1 %.not252, label %49, label %wc_FreeCertList.exit281
+  br i1 %.not252, label %49, label %wc_FreeCertList.exit282
 
 49:                                               ; preds = %wc_PKCS12_verify.exit, %28
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !11
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %wc_FreeCertList.exit281, label %53
+  br i1 %52, label %wc_FreeCertList.exit282, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !12
-  %.not398 = icmp eq i32 %55, 0
-  br i1 %.not398, label %._crit_edge395.thread, label %.lr.ph394.preheader
+  %.not399 = icmp eq i32 %55, 0
+  br i1 %.not399, label %._crit_edge396.thread, label %.lr.ph395.preheader
 
-.lr.ph394.preheader:                              ; preds = %53
+.lr.ph395.preheader:                              ; preds = %53
   %56 = load ptr, ptr %51, align 8, !tbaa !16
-  br label %.lr.ph394
+  br label %.lr.ph395
 
-.lr.ph394:                                        ; preds = %.lr.ph394.preheader, %296
-  %.0185392 = phi ptr [ %298, %296 ], [ %56, %.lr.ph394.preheader ]
-  %.0186391 = phi ptr [ %.2.lcssa, %296 ], [ null, %.lr.ph394.preheader ]
-  %.0193390 = phi i32 [ %299, %296 ], [ 0, %.lr.ph394.preheader ]
-  %.0286389 = phi ptr [ %.2288.lcssa, %296 ], [ null, %.lr.ph394.preheader ]
+.lr.ph395:                                        ; preds = %.lr.ph395.preheader, %296
+  %.0185393 = phi ptr [ %298, %296 ], [ %56, %.lr.ph395.preheader ]
+  %.0186392 = phi ptr [ %.2.lcssa, %296 ], [ null, %.lr.ph395.preheader ]
+  %.0193391 = phi i32 [ %299, %296 ], [ 0, %.lr.ph395.preheader ]
+  %.0287390 = phi ptr [ %.2289.lcssa, %296 ], [ null, %.lr.ph395.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %57 = load ptr, ptr %.0185392, align 8, !tbaa !34
-  %58 = getelementptr inbounds nuw i8, ptr %.0185392, i64 24
+  %57 = load ptr, ptr %.0185393, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %.0185393, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !32
   %60 = icmp eq i32 %59, 656
   br i1 %60, label %61, label %106
 
-61:                                               ; preds = %.lr.ph394
+61:                                               ; preds = %.lr.ph395
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %62 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.0185393, i64 20
   %63 = load i32, ptr %62, align 4, !tbaa !33
   %64 = call i32 @GetASNTag(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %63) #9
   %65 = icmp sgt i32 %64, -1
   %66 = load i8, ptr %15, align 1
   %.not256 = icmp eq i8 %66, -96
-  %or.cond268 = select i1 %65, i1 %.not256, i1 false
-  br i1 %or.cond268, label %67, label %.thread
+  %or.cond269 = select i1 %65, i1 %.not256, i1 false
+  br i1 %or.cond269, label %67, label %.thread
 
 67:                                               ; preds = %61
   %68 = load i32, ptr %62, align 4, !tbaa !33
@@ -1492,28 +1492,28 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %.0194.ph = phi i32 [ %103, %96 ], [ -125, %89 ], [ -140, %83 ], [ %81, %79 ], [ %77, %75 ], [ %73, %71 ], [ %69, %67 ], [ -140, %61 ]
   %.1189.ph = phi ptr [ %94, %96 ], [ null, %89 ], [ null, %83 ], [ null, %79 ], [ null, %75 ], [ null, %71 ], [ null, %67 ], [ null, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %wc_FreeCertList.exit.thread339
+  br label %wc_FreeCertList.exit.thread340
 
 105:                                              ; preds = %96
   store i32 0, ptr %12, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %125
 
-106:                                              ; preds = %.lr.ph394
-  %107 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
+106:                                              ; preds = %.lr.ph395
+  %107 = getelementptr inbounds nuw i8, ptr %.0185393, i64 20
   %108 = load i32, ptr %107, align 4, !tbaa !33
   %109 = call i32 @GetASNTag(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef %108) #9
   %110 = icmp sgt i32 %109, -1
   %111 = load i8, ptr %15, align 1
   %.not254 = icmp eq i8 %111, -96
-  %or.cond269 = select i1 %110, i1 %.not254, i1 false
-  br i1 %or.cond269, label %112, label %wc_FreeCertList.exit.thread339
+  %or.cond270 = select i1 %110, i1 %.not254, i1 false
+  br i1 %or.cond270, label %112, label %wc_FreeCertList.exit.thread340
 
 112:                                              ; preds = %106
   %113 = load i32, ptr %107, align 4, !tbaa !33
   %114 = call i32 @GetLength(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %113) #9
   %115 = icmp slt i32 %114, 1
-  br i1 %115, label %wc_FreeCertList.exit.thread339, label %116
+  br i1 %115, label %wc_FreeCertList.exit.thread340, label %116
 
 116:                                              ; preds = %112
   %117 = load i32, ptr %107, align 4, !tbaa !33
@@ -1521,23 +1521,23 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %119 = icmp sgt i32 %118, -1
   %120 = load i8, ptr %15, align 1
   %.not255 = icmp eq i8 %120, 4
-  %or.cond270 = select i1 %119, i1 %.not255, i1 false
-  br i1 %or.cond270, label %121, label %wc_FreeCertList.exit.thread339
+  %or.cond271 = select i1 %119, i1 %.not255, i1 false
+  br i1 %or.cond271, label %121, label %wc_FreeCertList.exit.thread340
 
 121:                                              ; preds = %116
   %122 = load i32, ptr %107, align 4, !tbaa !33
   %123 = call i32 @GetLength(ptr noundef %57, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %122) #9
   %124 = icmp slt i32 %123, 0
-  br i1 %124, label %wc_FreeCertList.exit.thread339, label %125
+  br i1 %124, label %wc_FreeCertList.exit.thread340, label %125
 
 125:                                              ; preds = %105, %121
   %.1208 = phi ptr [ %94, %105 ], [ %57, %121 ]
   %.3191 = phi ptr [ %94, %105 ], [ null, %121 ]
-  %126 = getelementptr inbounds nuw i8, ptr %.0185392, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %.0185393, i64 20
   %127 = load i32, ptr %126, align 4, !tbaa !33
   %128 = call i32 @GetSequence(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef %127) #9
   %129 = icmp slt i32 %128, 0
-  br i1 %129, label %wc_FreeCertList.exit.thread339, label %130
+  br i1 %129, label %wc_FreeCertList.exit.thread340, label %130
 
 130:                                              ; preds = %125
   %131 = load i32, ptr %12, align 4, !tbaa !28
@@ -1548,8 +1548,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %134, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %130, %291
-  %.2387 = phi ptr [ %.4, %291 ], [ %.0186391, %130 ]
-  %.2288386 = phi ptr [ %.4290, %291 ], [ %.0286389, %130 ]
+  %.2388 = phi ptr [ %.4, %291 ], [ %.0186392, %130 ]
+  %.2289387 = phi ptr [ %.4291, %291 ], [ %.0287390, %130 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %135 = load i32, ptr %126, align 4, !tbaa !33
   %136 = call i32 @GetSequence(ptr noundef %.1208, ptr noundef nonnull %12, ptr noundef nonnull %17, i32 noundef %135) #9
@@ -1568,14 +1568,14 @@ wc_PKCS12_verify.exit:                            ; preds = %43
 
 145:                                              ; preds = %138
   %146 = load i32, ptr %10, align 4, !tbaa !28
-  switch i32 %146, label %._crit_edge431 [
+  switch i32 %146, label %._crit_edge432 [
     i32 667, label %147
     i32 668, label %179
     i32 669, label %219
   ]
 
-._crit_edge431:                                   ; preds = %145
-  %.pre432 = load i32, ptr %12, align 4, !tbaa !28
+._crit_edge432:                                   ; preds = %145
+  %.pre433 = load i32, ptr %12, align 4, !tbaa !28
   br label %286
 
 147:                                              ; preds = %145
@@ -1584,8 +1584,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %150 = icmp sgt i32 %149, -1
   %151 = load i8, ptr %15, align 1
   %.not264 = icmp eq i8 %151, -96
-  %or.cond271 = select i1 %150, i1 %.not264, i1 false
-  br i1 %or.cond271, label %152, label %wc_FreeCertList.exit
+  %or.cond272 = select i1 %150, i1 %.not264, i1 false
+  br i1 %or.cond272, label %152, label %wc_FreeCertList.exit
 
 152:                                              ; preds = %147
   %153 = load i32, ptr %126, align 4, !tbaa !33
@@ -1637,8 +1637,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %182 = icmp sgt i32 %181, -1
   %183 = load i8, ptr %15, align 1
   %.not262 = icmp eq i8 %183, -96
-  %or.cond272 = select i1 %182, i1 %.not262, i1 false
-  br i1 %or.cond272, label %184, label %wc_FreeCertList.exit
+  %or.cond273 = select i1 %182, i1 %.not262, i1 false
+  br i1 %or.cond273, label %184, label %wc_FreeCertList.exit
 
 184:                                              ; preds = %179
   %185 = load i32, ptr %126, align 4, !tbaa !33
@@ -1678,9 +1678,9 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %207 = zext nneg i32 %200 to i64
   %208 = call ptr @wolfSSL_Malloc(i64 noundef %207) #9
   %.not263 = icmp eq ptr %208, null
-  br i1 %.not263, label %.thread303, label %209
+  br i1 %.not263, label %.thread304, label %209
 
-.thread303:                                       ; preds = %206
+.thread304:                                       ; preds = %206
   call void @wolfSSL_Free(ptr noundef nonnull %191) #9
   br label %wc_FreeCertList.exit
 
@@ -1719,8 +1719,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %222 = icmp sgt i32 %221, -1
   %223 = load i8, ptr %15, align 1
   %.not258 = icmp eq i8 %223, -96
-  %or.cond273 = select i1 %222, i1 %.not258, i1 false
-  br i1 %or.cond273, label %224, label %wc_FreeCertList.exit
+  %or.cond274 = select i1 %222, i1 %.not258, i1 false
+  br i1 %or.cond274, label %224, label %wc_FreeCertList.exit
 
 224:                                              ; preds = %219
   %225 = load i32, ptr %126, align 4, !tbaa !33
@@ -1751,8 +1751,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %241 = icmp sgt i32 %240, -1
   %242 = load i8, ptr %15, align 1
   %.not259 = icmp eq i8 %242, -96
-  %or.cond274 = select i1 %241, i1 %.not259, i1 false
-  br i1 %or.cond274, label %243, label %wc_FreeCertList.exit
+  %or.cond275 = select i1 %241, i1 %.not259, i1 false
+  br i1 %or.cond275, label %243, label %wc_FreeCertList.exit
 
 243:                                              ; preds = %238
   %244 = load i32, ptr %126, align 4, !tbaa !33
@@ -1771,8 +1771,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %252 = icmp sgt i32 %251, -1
   %253 = load i8, ptr %15, align 1
   %.not260 = icmp eq i8 %253, 4
-  %or.cond275 = select i1 %252, i1 %.not260, i1 false
-  br i1 %or.cond275, label %254, label %wc_FreeCertList.exit
+  %or.cond276 = select i1 %252, i1 %.not260, i1 false
+  br i1 %or.cond276, label %254, label %wc_FreeCertList.exit
 
 254:                                              ; preds = %249
   %255 = load i32, ptr %126, align 4, !tbaa !33
@@ -1816,25 +1816,25 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %279 = load i32, ptr %13, align 4, !tbaa !28
   %280 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 %279, ptr %280, align 8, !tbaa !50
-  %.not261 = icmp eq ptr %.2288386, null
+  %.not261 = icmp eq ptr %.2289387, null
   br i1 %.not261, label %283, label %281
 
 281:                                              ; preds = %273
-  %282 = getelementptr inbounds nuw i8, ptr %.2387, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %.2388, i64 16
   store ptr %265, ptr %282, align 8, !tbaa !44
   br label %283
 
 283:                                              ; preds = %281, %273
-  %.6 = phi ptr [ %.2288386, %281 ], [ %265, %273 ]
+  %.6 = phi ptr [ %.2289387, %281 ], [ %265, %273 ]
   %284 = load i32, ptr %12, align 4, !tbaa !28
   %285 = add i32 %284, %279
   store i32 %285, ptr %12, align 4, !tbaa !28
   br label %286
 
-286:                                              ; preds = %._crit_edge431, %283, %215, %175
-  %287 = phi i32 [ %.pre432, %._crit_edge431 ], [ %178, %175 ], [ %218, %215 ], [ %285, %283 ]
-  %.4290 = phi ptr [ %.2288386, %._crit_edge431 ], [ %.2288386, %175 ], [ %.2288386, %215 ], [ %.6, %283 ]
-  %.4 = phi ptr [ %.2387, %._crit_edge431 ], [ %.2387, %175 ], [ %.2387, %215 ], [ %265, %283 ]
+286:                                              ; preds = %._crit_edge432, %283, %215, %175
+  %287 = phi i32 [ %.pre433, %._crit_edge432 ], [ %178, %175 ], [ %218, %215 ], [ %285, %283 ]
+  %.4291 = phi ptr [ %.2289387, %._crit_edge432 ], [ %.2289387, %175 ], [ %.2289387, %215 ], [ %.6, %283 ]
+  %.4 = phi ptr [ %.2388, %._crit_edge432 ], [ %.2388, %175 ], [ %.2388, %215 ], [ %265, %283 ]
   %288 = load i32, ptr %17, align 4, !tbaa !28
   %289 = icmp slt i32 %287, %288
   br i1 %289, label %290, label %291
@@ -1851,8 +1851,8 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br i1 %294, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %291, %130
-  %.2288.lcssa = phi ptr [ %.0286389, %130 ], [ %.4290, %291 ]
-  %.2.lcssa = phi ptr [ %.0186391, %130 ], [ %.4, %291 ]
+  %.2289.lcssa = phi ptr [ %.0287390, %130 ], [ %.4291, %291 ]
+  %.2.lcssa = phi ptr [ %.0186392, %130 ], [ %.4, %291 ]
   %.not257 = icmp eq ptr %.3191, null
   br i1 %.not257, label %296, label %295
 
@@ -1861,41 +1861,41 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %296
 
 296:                                              ; preds = %295, %._crit_edge
-  %297 = getelementptr inbounds nuw i8, ptr %.0185392, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %.0185393, i64 8
   %298 = load ptr, ptr %297, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %299 = add nuw i32 %.0193390, 1
+  %299 = add nuw i32 %.0193391, 1
   %300 = load ptr, ptr %50, align 8, !tbaa !11
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 20
   %302 = load i32, ptr %301, align 4, !tbaa !12
   %303 = icmp ult i32 %299, %302
-  br i1 %303, label %.lr.ph394, label %._crit_edge395, !llvm.loop !52
+  br i1 %303, label %.lr.ph395, label %._crit_edge396, !llvm.loop !52
 
-._crit_edge395:                                   ; preds = %296
+._crit_edge396:                                   ; preds = %296
   %304 = load ptr, ptr %2, align 8, !tbaa !39
   %.not253 = icmp eq ptr %304, null
   br i1 %.not253, label %331, label %306
 
-._crit_edge395.thread:                            ; preds = %53
+._crit_edge396.thread:                            ; preds = %53
   %305 = load ptr, ptr %2, align 8, !tbaa !39
-  %.not253474 = icmp eq ptr %305, null
-  br i1 %.not253474, label %.thread479, label %.thread476
+  %.not253475 = icmp eq ptr %305, null
+  br i1 %.not253475, label %.thread480, label %.thread477
 
-.thread476:                                       ; preds = %._crit_edge395.thread
+.thread477:                                       ; preds = %._crit_edge396.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %freeDecCertList.exit
 
-306:                                              ; preds = %._crit_edge395
+306:                                              ; preds = %._crit_edge396
   %307 = load ptr, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not25.i = icmp eq ptr %.2288.lcssa, null
+  %.not25.i = icmp eq ptr %.2289.lcssa, null
   br i1 %.not25.i, label %freeDecCertList.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %306, %328
-  %.027.i = phi ptr [ %330, %328 ], [ %.2288.lcssa, %306 ]
+  %.027.i = phi ptr [ %330, %328 ], [ %.2289.lcssa, %306 ]
   %.02226.i = phi ptr [ %.027.i, %328 ], [ null, %306 ]
   %308 = load ptr, ptr %.027.i, align 8, !tbaa !47
   %309 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
@@ -1929,7 +1929,7 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   br label %327
 
 327:                                              ; preds = %318, %325
-  %.9294 = phi ptr [ %.2288.lcssa, %325 ], [ %324, %318 ]
+  %.9295 = phi ptr [ %.2289.lcssa, %325 ], [ %324, %318 ]
   call void @FreeDecodedCert(ptr noundef nonnull %8) #9
   call void @wolfSSL_Free(ptr noundef nonnull %.027.i) #9
   br label %freeDecCertList.exit
@@ -1941,29 +1941,29 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %.not.i = icmp eq ptr %330, null
   br i1 %.not.i, label %freeDecCertList.exit, label %.lr.ph.i, !llvm.loop !53
 
-freeDecCertList.exit:                             ; preds = %328, %.thread476, %306, %327
-  %.10295 = phi ptr [ null, %306 ], [ %.9294, %327 ], [ null, %.thread476 ], [ %.2288.lcssa, %328 ]
+freeDecCertList.exit:                             ; preds = %328, %.thread477, %306, %327
+  %.10296 = phi ptr [ null, %306 ], [ %.9295, %327 ], [ null, %.thread477 ], [ %.2289.lcssa, %328 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %331
 
-331:                                              ; preds = %freeDecCertList.exit, %._crit_edge395
-  %.8293 = phi ptr [ %.2288.lcssa, %._crit_edge395 ], [ %.10295, %freeDecCertList.exit ]
+331:                                              ; preds = %freeDecCertList.exit, %._crit_edge396
+  %.8294 = phi ptr [ %.2289.lcssa, %._crit_edge396 ], [ %.10296, %freeDecCertList.exit ]
   br i1 %.not, label %333, label %332
 
-.thread479:                                       ; preds = %._crit_edge395.thread
-  br i1 %.not, label %wc_FreeCertList.exit281, label %332
+.thread480:                                       ; preds = %._crit_edge396.thread
+  br i1 %.not, label %wc_FreeCertList.exit282, label %332
 
-332:                                              ; preds = %.thread479, %331
-  %.8293482 = phi ptr [ null, %.thread479 ], [ %.8293, %331 ]
-  store ptr %.8293482, ptr %6, align 8, !tbaa !49
-  br label %wc_FreeCertList.exit281
+332:                                              ; preds = %.thread480, %331
+  %.8294483 = phi ptr [ null, %.thread480 ], [ %.8294, %331 ]
+  store ptr %.8294483, ptr %6, align 8, !tbaa !49
+  br label %wc_FreeCertList.exit282
 
 333:                                              ; preds = %331
-  %334 = icmp eq ptr %.8293, null
-  br i1 %334, label %wc_FreeCertList.exit281, label %.preheader.i
+  %334 = icmp eq ptr %.8294, null
+  br i1 %334, label %wc_FreeCertList.exit282, label %.preheader.i
 
 .preheader.i:                                     ; preds = %333, %339
-  %.014.i = phi ptr [ %336, %339 ], [ %.8293, %333 ]
+  %.014.i = phi ptr [ %336, %339 ], [ %.8294, %333 ]
   %335 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %336 = load ptr, ptr %335, align 8, !tbaa !44
   %337 = load ptr, ptr %.014.i, align 8, !tbaa !47
@@ -1976,18 +1976,18 @@ freeDecCertList.exit:                             ; preds = %328, %.thread476, %
 
 339:                                              ; preds = %338, %.preheader.i
   call void @wolfSSL_Free(ptr noundef nonnull %.014.i) #9
-  %.not.i276 = icmp eq ptr %336, null
-  br i1 %.not.i276, label %wc_FreeCertList.exit281, label %.preheader.i, !llvm.loop !48
+  %.not.i277 = icmp eq ptr %336, null
+  br i1 %.not.i277, label %wc_FreeCertList.exit282, label %.preheader.i, !llvm.loop !48
 
-wc_FreeCertList.exit:                             ; preds = %264, %258, %254, %249, %238, %232, %228, %224, %219, %188, %184, %179, %.lr.ph, %138, %147, %161, %156, %272, %247, %.thread303, %202
-  %.3197.ph = phi i32 [ -125, %.thread303 ], [ %200, %202 ], [ -125, %272 ], [ %spec.store.select17, %247 ], [ %spec.select, %156 ], [ -140, %219 ], [ %226, %224 ], [ %230, %228 ], [ %234, %232 ], [ -140, %238 ], [ -140, %249 ], [ %256, %254 ], [ -140, %258 ], [ -125, %264 ], [ -140, %179 ], [ %186, %184 ], [ -125, %188 ], [ %136, %.lr.ph ], [ %143, %138 ], [ -140, %147 ], [ -125, %161 ]
+wc_FreeCertList.exit:                             ; preds = %264, %258, %254, %249, %238, %232, %228, %224, %219, %188, %184, %179, %.lr.ph, %138, %147, %161, %156, %272, %247, %.thread304, %202
+  %.3197.ph = phi i32 [ -125, %.thread304 ], [ %200, %202 ], [ -125, %272 ], [ %spec.store.select17, %247 ], [ %spec.select, %156 ], [ -140, %219 ], [ %226, %224 ], [ %230, %228 ], [ %234, %232 ], [ -140, %238 ], [ -140, %249 ], [ %256, %254 ], [ -140, %258 ], [ -125, %264 ], [ -140, %179 ], [ %186, %184 ], [ -125, %188 ], [ %136, %.lr.ph ], [ %143, %138 ], [ -140, %147 ], [ -125, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %wc_FreeCertList.exit.thread339
+  br label %wc_FreeCertList.exit.thread340
 
-wc_FreeCertList.exit.thread339:                   ; preds = %106, %112, %116, %121, %125, %.thread, %wc_FreeCertList.exit
-  %.2190.ph346 = phi ptr [ %.3191, %wc_FreeCertList.exit ], [ %.1189.ph, %.thread ], [ %.3191, %125 ], [ null, %121 ], [ null, %116 ], [ null, %112 ], [ null, %106 ]
-  %.1195.ph345 = phi i32 [ %.3197.ph, %wc_FreeCertList.exit ], [ %.0194.ph, %.thread ], [ %128, %125 ], [ %123, %121 ], [ -140, %116 ], [ -140, %112 ], [ -140, %106 ]
-  %.1287.ph344 = phi ptr [ %.2288386, %wc_FreeCertList.exit ], [ %.0286389, %.thread ], [ %.0286389, %125 ], [ %.0286389, %121 ], [ %.0286389, %116 ], [ %.0286389, %112 ], [ %.0286389, %106 ]
+wc_FreeCertList.exit.thread340:                   ; preds = %106, %112, %116, %121, %125, %.thread, %wc_FreeCertList.exit
+  %.2190.ph347 = phi ptr [ %.3191, %wc_FreeCertList.exit ], [ %.1189.ph, %.thread ], [ %.3191, %125 ], [ null, %121 ], [ null, %116 ], [ null, %112 ], [ null, %106 ]
+  %.1195.ph346 = phi i32 [ %.3197.ph, %wc_FreeCertList.exit ], [ %.0194.ph, %.thread ], [ %128, %125 ], [ %123, %121 ], [ -140, %116 ], [ -140, %112 ], [ -140, %106 ]
+  %.1288.ph345 = phi ptr [ %.2289387, %wc_FreeCertList.exit ], [ %.0287390, %.thread ], [ %.0287390, %125 ], [ %.0287390, %121 ], [ %.0287390, %116 ], [ %.0287390, %112 ], [ %.0287390, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1996,42 +1996,42 @@ wc_FreeCertList.exit.thread339:                   ; preds = %106, %112, %116, %1
   %.not266 = icmp eq ptr %340, null
   br i1 %.not266, label %342, label %341
 
-341:                                              ; preds = %wc_FreeCertList.exit.thread339
+341:                                              ; preds = %wc_FreeCertList.exit.thread340
   call void @wolfSSL_Free(ptr noundef nonnull %340) #9
   store ptr null, ptr %2, align 8, !tbaa !39
   br label %342
 
-342:                                              ; preds = %wc_FreeCertList.exit.thread339, %341
-  %.not267 = icmp eq ptr %.2190.ph346, null
+342:                                              ; preds = %wc_FreeCertList.exit.thread340, %341
+  %.not267 = icmp eq ptr %.2190.ph347, null
   br i1 %.not267, label %344, label %343
 
 343:                                              ; preds = %342
-  call void @wolfSSL_Free(ptr noundef nonnull %.2190.ph346) #9
+  call void @wolfSSL_Free(ptr noundef nonnull %.2190.ph347) #9
   br label %344
 
 344:                                              ; preds = %343, %342
-  %345 = icmp eq ptr %.1287.ph344, null
-  br i1 %345, label %wc_FreeCertList.exit281, label %.preheader.i277
+  %345 = icmp eq ptr %.1288.ph345, null
+  br i1 %345, label %wc_FreeCertList.exit282, label %.preheader.i278
 
-.preheader.i277:                                  ; preds = %344, %350
-  %.014.i278 = phi ptr [ %347, %350 ], [ %.1287.ph344, %344 ]
-  %346 = getelementptr inbounds nuw i8, ptr %.014.i278, i64 16
+.preheader.i278:                                  ; preds = %344, %350
+  %.014.i279 = phi ptr [ %347, %350 ], [ %.1288.ph345, %344 ]
+  %346 = getelementptr inbounds nuw i8, ptr %.014.i279, i64 16
   %347 = load ptr, ptr %346, align 8, !tbaa !44
-  %348 = load ptr, ptr %.014.i278, align 8, !tbaa !47
-  %.not13.i279 = icmp eq ptr %348, null
-  br i1 %.not13.i279, label %350, label %349
+  %348 = load ptr, ptr %.014.i279, align 8, !tbaa !47
+  %.not13.i280 = icmp eq ptr %348, null
+  br i1 %.not13.i280, label %350, label %349
 
-349:                                              ; preds = %.preheader.i277
+349:                                              ; preds = %.preheader.i278
   call void @wolfSSL_Free(ptr noundef nonnull %348) #9
   br label %350
 
-350:                                              ; preds = %349, %.preheader.i277
-  call void @wolfSSL_Free(ptr noundef nonnull %.014.i278) #9
-  %.not.i280 = icmp eq ptr %347, null
-  br i1 %.not.i280, label %wc_FreeCertList.exit281, label %.preheader.i277, !llvm.loop !48
+350:                                              ; preds = %349, %.preheader.i278
+  call void @wolfSSL_Free(ptr noundef nonnull %.014.i279) #9
+  %.not.i281 = icmp eq ptr %347, null
+  br i1 %.not.i281, label %wc_FreeCertList.exit282, label %.preheader.i278, !llvm.loop !48
 
-wc_FreeCertList.exit281:                          ; preds = %350, %339, %.thread479, %333, %332, %344, %wc_PKCS12_verify.exit.thread, %49, %wc_PKCS12_verify.exit, %7
-  %.0 = phi i32 [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %49 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph345, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread479 ], [ 0, %339 ], [ %.1195.ph345, %350 ]
+wc_FreeCertList.exit282:                          ; preds = %350, %339, %.thread480, %333, %332, %344, %wc_PKCS12_verify.exit.thread, %49, %wc_PKCS12_verify.exit, %7
+  %.0 = phi i32 [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %49 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph346, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread480 ], [ 0, %339 ], [ %.1195.ph346, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

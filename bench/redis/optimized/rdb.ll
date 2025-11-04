@@ -6916,7 +6916,7 @@ define dso_local i64 @rdbSaveDb(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %14 = load ptr, ptr %13, align 8, !tbaa !158
   %15 = tail call i64 @kvstoreSize(ptr noundef %14) #23
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %.thread120, label %17
+  br i1 %16, label %.thread121, label %17
 
 17:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6963,13 +6963,13 @@ rdbWriteRaw.exit.loopexit.i:                      ; preds = %28
 
 rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread120
+  br label %.thread121
 
 36:                                               ; preds = %rdbWriteRaw.exit.loopexit.i, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %37 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %12)
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %.thread120, label %39
+  br i1 %38, label %.thread121, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6983,16 +6983,16 @@ rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i64, ptr %44, align 8, !tbaa !53
   %46 = and i64 %45, 6
-  %.not.i.i.i97 = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i97, label %47, label %rdbSaveType.exit102.thread
+  %.not.i.i.i98 = icmp eq i64 %46, 0
+  br i1 %.not.i.i.i98, label %47, label %rdbSaveType.exit103.thread
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %48, align 8, !tbaa !56
-  %.not33.i.i.i99 = icmp eq ptr %51, null
-  br i1 %.not33.i.i.i99, label %53, label %52
+  %.not33.i.i.i100 = icmp eq ptr %51, null
+  br i1 %.not33.i.i.i100, label %53, label %52
 
 52:                                               ; preds = %47
   call void %51(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #23
@@ -7002,45 +7002,45 @@ rdbSaveType.exit.thread:                          ; preds = %18, %.thread.i.i.i
   %54 = load ptr, ptr %49, align 8, !tbaa !57
   %55 = call i64 %54(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1) #23
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %.thread.i.i.i101, label %rdbWriteRaw.exit.loopexit.i100
+  br i1 %56, label %.thread.i.i.i102, label %rdbWriteRaw.exit.loopexit.i101
 
-.thread.i.i.i101:                                 ; preds = %53
+.thread.i.i.i102:                                 ; preds = %53
   %57 = load i64, ptr %44, align 8, !tbaa !53
   %58 = or i64 %57, 2
   store i64 %58, ptr %44, align 8, !tbaa !53
-  br label %rdbSaveType.exit102.thread
+  br label %rdbSaveType.exit103.thread
 
-rdbWriteRaw.exit.loopexit.i100:                   ; preds = %53
+rdbWriteRaw.exit.loopexit.i101:                   ; preds = %53
   %59 = load i64, ptr %50, align 8, !tbaa !58
   %60 = add i64 %59, 1
   store i64 %60, ptr %50, align 8, !tbaa !58
   br label %61
 
-rdbSaveType.exit102.thread:                       ; preds = %43, %.thread.i.i.i101
+rdbSaveType.exit103.thread:                       ; preds = %43, %.thread.i.i.i102
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread120
+  br label %.thread121
 
-61:                                               ; preds = %rdbWriteRaw.exit.loopexit.i100, %39
+61:                                               ; preds = %rdbWriteRaw.exit.loopexit.i101, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %62 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %15)
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.thread120, label %64
+  br i1 %63, label %.thread121, label %64
 
 64:                                               ; preds = %61
   %65 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %42)
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread120, label %67
+  br i1 %66, label %.thread121, label %67
 
 67:                                               ; preds = %64
   %narrow = add nuw nsw i32 %37, 2
-  %narrow123 = add nuw nsw i32 %narrow, %62
-  %narrow149 = add nuw nsw i32 %65, %narrow123
-  %68 = zext nneg i32 %narrow149 to i64
+  %narrow124 = add nuw nsw i32 %narrow, %62
+  %narrow150 = add nuw nsw i32 %65, %narrow124
+  %68 = zext nneg i32 %narrow150 to i64
   %69 = load ptr, ptr %13, align 8, !tbaa !158
   %70 = call ptr @kvstoreIteratorInit(ptr noundef %69) #23
   %71 = call ptr @kvstoreIteratorNext(ptr noundef %70) #23
-  %.not91129 = icmp eq ptr %71, null
-  br i1 %.not91129, label %._crit_edge, label %.lr.ph
+  %.not91130 = icmp eq ptr %71, null
+  br i1 %.not91130, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7053,12 +7053,12 @@ rdbSaveType.exit102.thread:                       ; preds = %43, %.thread.i.i.i1
 
 78:                                               ; preds = %.lr.ph, %147
   %79 = phi ptr [ %71, %.lr.ph ], [ %148, %147 ]
-  %.071131 = phi i64 [ %68, %.lr.ph ], [ %130, %147 ]
-  %.075130 = phi i32 [ -1, %.lr.ph ], [ %.176, %147 ]
+  %.071132 = phi i64 [ %68, %.lr.ph ], [ %130, %147 ]
+  %.075131 = phi i32 [ -1, %.lr.ph ], [ %.176, %147 ]
   %80 = call i32 @kvstoreIteratorGetCurrentDictIndex(ptr noundef %70) #23
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8, !tbaa !161
   %.not92 = icmp eq i32 %81, 0
-  %.not93 = icmp eq i32 %80, %.075130
+  %.not93 = icmp eq i32 %80, %.075131
   %or.cond = select i1 %.not92, i1 true, i1 %.not93
   br i1 %or.cond, label %119, label %82
 
@@ -7070,13 +7070,13 @@ rdbSaveType.exit102.thread:                       ; preds = %43, %.thread.i.i.i1
 83:                                               ; preds = %82
   %84 = load i64, ptr %72, align 8, !tbaa !53
   %85 = and i64 %84, 6
-  %.not.i.i.i104 = icmp eq i64 %85, 0
-  br i1 %.not.i.i.i104, label %86, label %rdbSaveType.exit109.thread
+  %.not.i.i.i105 = icmp eq i64 %85, 0
+  br i1 %.not.i.i.i105, label %86, label %rdbSaveType.exit110.thread
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %73, align 8, !tbaa !56
-  %.not33.i.i.i106 = icmp eq ptr %87, null
-  br i1 %.not33.i.i.i106, label %89, label %88
+  %.not33.i.i.i107 = icmp eq ptr %87, null
+  br i1 %.not33.i.i.i107, label %89, label %88
 
 88:                                               ; preds = %86
   call void %87(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #23
@@ -7086,25 +7086,25 @@ rdbSaveType.exit102.thread:                       ; preds = %43, %.thread.i.i.i1
   %90 = load ptr, ptr %74, align 8, !tbaa !57
   %91 = call i64 %90(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #23
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %.thread.i.i.i108, label %rdbWriteRaw.exit.loopexit.i107
+  br i1 %92, label %.thread.i.i.i109, label %rdbWriteRaw.exit.loopexit.i108
 
-.thread.i.i.i108:                                 ; preds = %89
+.thread.i.i.i109:                                 ; preds = %89
   %93 = load i64, ptr %72, align 8, !tbaa !53
   %94 = or i64 %93, 2
   store i64 %94, ptr %72, align 8, !tbaa !53
-  br label %rdbSaveType.exit109.thread
+  br label %rdbSaveType.exit110.thread
 
-rdbWriteRaw.exit.loopexit.i107:                   ; preds = %89
+rdbWriteRaw.exit.loopexit.i108:                   ; preds = %89
   %95 = load i64, ptr %75, align 8, !tbaa !58
   %96 = add i64 %95, 1
   store i64 %96, ptr %75, align 8, !tbaa !58
   br label %97
 
-rdbSaveType.exit109.thread:                       ; preds = %83, %.thread.i.i.i108
+rdbSaveType.exit110.thread:                       ; preds = %83, %.thread.i.i.i109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-97:                                               ; preds = %rdbWriteRaw.exit.loopexit.i107, %82
+97:                                               ; preds = %rdbWriteRaw.exit.loopexit.i108, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %98 = sext i32 %80 to i64
   %99 = call i32 @rdbSaveLen(ptr noundef %0, i64 noundef %98)
@@ -7126,7 +7126,7 @@ rdbSaveType.exit109.thread:                       ; preds = %83, %.thread.i.i.i1
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %106
-  %112 = add nsw i64 %.071131, 1
+  %112 = add nsw i64 %.071132, 1
   %113 = zext nneg i32 %99 to i64
   %114 = add nsw i64 %112, %113
   %115 = zext nneg i32 %104 to i64
@@ -7136,8 +7136,8 @@ rdbSaveType.exit109.thread:                       ; preds = %83, %.thread.i.i.i1
   br label %119
 
 119:                                              ; preds = %111, %78
-  %.176 = phi i32 [ %80, %111 ], [ %.075130, %78 ]
-  %.1 = phi i64 [ %118, %111 ], [ %.071131, %78 ]
+  %.176 = phi i32 [ %80, %111 ], [ %.075131, %78 ]
+  %.1 = phi i64 [ %118, %111 ], [ %.071132, %78 ]
   %120 = call ptr @dictGetKey(ptr noundef nonnull %79) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = call ptr @dictGetVal(ptr noundef nonnull %79) #23
@@ -7150,9 +7150,9 @@ rdbSaveType.exit109.thread:                       ; preds = %83, %.thread.i.i.i1
   %125 = call i64 @getExpire(ptr noundef nonnull %13, ptr noundef nonnull %8) #23
   %126 = call i32 @rdbSaveKeyValuePair(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %121, i64 noundef %125, i32 noundef %1)
   %127 = icmp slt i32 %126, 0
-  br i1 %127, label %.thread116, label %128
+  br i1 %127, label %.thread117, label %128
 
-.thread116:                                       ; preds = %119
+.thread117:                                       ; preds = %119
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -7199,18 +7199,18 @@ rdbSaveType.exit109.thread:                       ; preds = %83, %.thread.i.i.i1
 ._crit_edge:                                      ; preds = %147, %67
   %.071.lcssa = phi i64 [ %68, %67 ], [ %130, %147 ]
   call void @kvstoreIteratorRelease(ptr noundef %70) #23
-  br label %.thread120
+  br label %.thread121
 
-.thread:                                          ; preds = %106, %101, %97, %rdbSaveType.exit109.thread, %.thread116
+.thread:                                          ; preds = %106, %101, %97, %rdbSaveType.exit110.thread, %.thread117
   %.not95 = icmp eq ptr %70, null
-  br i1 %.not95, label %.thread120, label %149
+  br i1 %.not95, label %.thread121, label %149
 
 149:                                              ; preds = %.thread
   call void @kvstoreIteratorRelease(ptr noundef nonnull %70) #23
-  br label %.thread120
+  br label %.thread121
 
-.thread120:                                       ; preds = %rdbSaveType.exit102.thread, %rdbSaveType.exit.thread, %64, %61, %36, %.thread, %149, %4, %._crit_edge
-  %.0 = phi i64 [ %.071.lcssa, %._crit_edge ], [ 0, %4 ], [ -1, %149 ], [ -1, %.thread ], [ -1, %36 ], [ -1, %61 ], [ -1, %64 ], [ -1, %rdbSaveType.exit.thread ], [ -1, %rdbSaveType.exit102.thread ]
+.thread121:                                       ; preds = %rdbSaveType.exit103.thread, %rdbSaveType.exit.thread, %64, %61, %36, %.thread, %149, %4, %._crit_edge
+  %.0 = phi i64 [ %.071.lcssa, %._crit_edge ], [ 0, %4 ], [ -1, %149 ], [ -1, %.thread ], [ -1, %36 ], [ -1, %61 ], [ -1, %64 ], [ -1, %rdbSaveType.exit.thread ], [ -1, %rdbSaveType.exit103.thread ]
   ret i64 %.0
 }
 
@@ -12095,7 +12095,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 declare ptr @functionsCreateWithLibraryCtx(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.rdbLoadingCtx, align 8
   %5 = tail call ptr @functionsLibCtxGetCurrent() #23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12111,7 +12111,7 @@ define dso_local noundef i32 @rdbLoadRio(ptr noundef initializes((32, 40), (64, 
 declare ptr @functionsLibCtxGetCurrent() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -12200,11 +12200,11 @@ rioRead.exit:                                     ; preds = %49
 55:                                               ; preds = %rioRead.exit
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
   %57 = icmp sgt i32 %56, 3
-  br i1 %57, label %.loopexit, label %58
+  br i1 %57, label %533, label %58
 
 58:                                               ; preds = %55
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.118) #23
-  br label %.loopexit
+  br label %533
 
 59:                                               ; preds = %rioRead.exit
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 5
@@ -12217,719 +12217,716 @@ rioRead.exit:                                     ; preds = %49
 64:                                               ; preds = %59
   %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
   %66 = icmp sgt i32 %65, 3
-  br i1 %66, label %.loopexit, label %67
+  br i1 %66, label %533, label %67
 
 67:                                               ; preds = %64
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.119, i32 noundef %62) #23
-  br label %.loopexit
+  br label %533
 
 68:                                               ; preds = %59
   %69 = call i64 @mstime() #23
   %70 = call i32 @LRU_CLOCK() #23
   %71 = zext i32 %70 to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %72 = load i64, ptr %33, align 8, !tbaa !53
-  %73 = and i64 %72, 5
-  %.not.i.i371 = icmp eq i64 %73, 0
-  br i1 %.not.i.i371, label %.lr.ph, label %rdbLoadType.exit.thread
-
-.lr.ph:                                           ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %78 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %79 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %80 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %.not260 = icmp eq ptr %2, null
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %85 = and i32 %1, 1
-  %86 = icmp eq i32 %85, 0
-  %87 = and i32 %1, 8
-  %.not245 = icmp eq i32 %87, 0
-  %88 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %89 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %90 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %91 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %92 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %93 = and i32 %1, 4
-  %.not242 = icmp eq i32 %93, 0
-  br label %94
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %83 = and i32 %1, 1
+  %84 = icmp eq i32 %83, 0
+  %85 = and i32 %1, 8
+  %.not245 = icmp eq i32 %85, 0
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %91 = and i32 %1, 4
+  %.not242 = icmp eq i32 %91, 0
+  br label %92
 
-94:                                               ; preds = %.lr.ph, %.backedge
-  %.0190380 = phi i64 [ 0, %.lr.ph ], [ %.1191.jt7, %.backedge ]
-  %.0192379 = phi i64 [ 0, %.lr.ph ], [ %.1193.jt7, %.backedge ]
-  %.0194378 = phi i64 [ 0, %.lr.ph ], [ %.1195.jt7, %.backedge ]
-  %.0196377 = phi i32 [ 0, %.lr.ph ], [ %.1197.jt7, %.backedge ]
-  %.0198376 = phi ptr [ %29, %.lr.ph ], [ %.1199.jt7, %.backedge ]
-  %.0200375 = phi i64 [ 0, %.lr.ph ], [ %.1201.jt7, %.backedge ]
-  %.0207374 = phi i64 [ -1, %.lr.ph ], [ %.1208.jt7, %.backedge ]
-  %.0210373 = phi i64 [ -1, %.lr.ph ], [ %.1211.jt7, %.backedge ]
-  %.0213372 = phi i64 [ -1, %.lr.ph ], [ %.1214.jt7, %.backedge ]
-  %95 = load ptr, ptr %0, align 8, !tbaa !60
-  %96 = call i64 %95(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #23
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %.thread.i.i, label %100
+92:                                               ; preds = %select.unfold325, %68
+  %.0213 = phi i64 [ -1, %68 ], [ %.1214, %select.unfold325 ]
+  %.0210 = phi i64 [ -1, %68 ], [ %.1211, %select.unfold325 ]
+  %.0207 = phi i64 [ -1, %68 ], [ %.1208, %select.unfold325 ]
+  %.0200 = phi i64 [ 0, %68 ], [ %.1201, %select.unfold325 ]
+  %.0198 = phi ptr [ %29, %68 ], [ %.1199, %select.unfold325 ]
+  %.0196 = phi i32 [ 0, %68 ], [ %.1197, %select.unfold325 ]
+  %.0194 = phi i64 [ 0, %68 ], [ %.1195, %select.unfold325 ]
+  %.0192 = phi i64 [ 0, %68 ], [ %.1193, %select.unfold325 ]
+  %.0190 = phi i64 [ 0, %68 ], [ %.1191, %select.unfold325 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  %93 = load i64, ptr %33, align 8, !tbaa !53
+  %94 = and i64 %93, 5
+  %.not.i.i = icmp eq i64 %94, 0
+  br i1 %.not.i.i, label %95, label %rdbLoadType.exit.thread
 
-.thread.i.i:                                      ; preds = %94
-  %98 = load i64, ptr %33, align 8, !tbaa !53
-  %99 = or i64 %98, 1
-  store i64 %99, ptr %33, align 8, !tbaa !53
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %0, align 8, !tbaa !60
+  %97 = call i64 %96(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #23
+  %98 = icmp eq i64 %97, 0
+  br i1 %98, label %.thread.i.i, label %101
+
+.thread.i.i:                                      ; preds = %95
+  %99 = load i64, ptr %33, align 8, !tbaa !53
+  %100 = or i64 %99, 1
+  store i64 %100, ptr %33, align 8, !tbaa !53
   br label %rdbLoadType.exit.thread
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %30, align 8, !tbaa !56
-  %.not33.i.i = icmp eq ptr %101, null
-  br i1 %.not33.i.i, label %rdbLoadType.exit, label %102
+101:                                              ; preds = %95
+  %102 = load ptr, ptr %30, align 8, !tbaa !56
+  %.not33.i.i = icmp eq ptr %102, null
+  br i1 %.not33.i.i, label %rdbLoadType.exit, label %103
 
-102:                                              ; preds = %100
-  call void %101(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #23
+103:                                              ; preds = %101
+  call void %102(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 1) #23
   br label %rdbLoadType.exit
 
-rdbLoadType.exit.thread:                          ; preds = %.backedge, %68, %.thread.i.i
+rdbLoadType.exit.thread:                          ; preds = %92, %.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %rioRead.exit.thread
 
-rdbLoadType.exit:                                 ; preds = %100, %102
-  %103 = load i64, ptr %36, align 8, !tbaa !58
-  %104 = add i64 %103, 1
-  store i64 %104, ptr %36, align 8, !tbaa !58
-  %105 = load i8, ptr %18, align 1
-  %106 = zext i8 %105 to i32
+rdbLoadType.exit:                                 ; preds = %101, %103
+  %104 = load i64, ptr %36, align 8, !tbaa !58
+  %105 = add i64 %104, 1
+  store i64 %105, ptr %36, align 8, !tbaa !58
+  %106 = load i8, ptr %18, align 1
+  %107 = zext i8 %106 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  switch i8 %105, label %404 [
+  switch i8 %106, label %404 [
     i8 -11, label %395
-    i8 -3, label %107
-    i8 -4, label %131
-    i8 -7, label %153
-    i8 -8, label %168
-    i8 -1, label %.thread328
-    i8 -2, label %174
-    i8 -5, label %191
-    i8 -12, label %203
-    i8 -6, label %230
-    i8 -9, label %332
+    i8 -3, label %108
+    i8 -4, label %132
+    i8 -7, label %154
+    i8 -8, label %169
+    i8 -1, label %.thread338
+    i8 -2, label %175
+    i8 -5, label %192
+    i8 -12, label %204
+    i8 -6, label %231
+    i8 -9, label %333
     i8 -10, label %394
   ]
 
-107:                                              ; preds = %rdbLoadType.exit
+108:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %108 = load i64, ptr %33, align 8, !tbaa !53
-  %109 = and i64 %108, 5
-  %.not.i.i280 = icmp eq i64 %109, 0
+  %109 = load i64, ptr %33, align 8, !tbaa !53
+  %110 = and i64 %109, 5
+  %.not.i.i280 = icmp eq i64 %110, 0
   br i1 %.not.i.i280, label %.preheader.i.i, label %rdbLoadTime.exit
 
-.preheader.i.i:                                   ; preds = %107, %121
-  %.02538.i.i = phi i64 [ %123, %121 ], [ 4, %107 ]
-  %.02737.i.i = phi ptr [ %122, %121 ], [ %17, %107 ]
-  %110 = load i64, ptr %32, align 8, !tbaa !55
-  %.not32.not.i.i = icmp eq i64 %110, 0
-  %111 = call i64 @llvm.umin.i64(i64 %110, i64 %.02538.i.i)
-  %112 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %111
-  %113 = load ptr, ptr %0, align 8, !tbaa !60
-  %114 = call i64 %113(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %112) #23
-  %115 = icmp eq i64 %114, 0
-  br i1 %115, label %.thread.i.i283, label %118
+.preheader.i.i:                                   ; preds = %108, %122
+  %.02538.i.i = phi i64 [ %124, %122 ], [ 4, %108 ]
+  %.02737.i.i = phi ptr [ %123, %122 ], [ %17, %108 ]
+  %111 = load i64, ptr %32, align 8, !tbaa !55
+  %.not32.not.i.i = icmp eq i64 %111, 0
+  %112 = call i64 @llvm.umin.i64(i64 %111, i64 %.02538.i.i)
+  %113 = select i1 %.not32.not.i.i, i64 %.02538.i.i, i64 %112
+  %114 = load ptr, ptr %0, align 8, !tbaa !60
+  %115 = call i64 %114(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %113) #23
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %.thread.i.i283, label %119
 
 .thread.i.i283:                                   ; preds = %.preheader.i.i
-  %116 = load i64, ptr %33, align 8, !tbaa !53
-  %117 = or i64 %116, 1
-  store i64 %117, ptr %33, align 8, !tbaa !53
+  %117 = load i64, ptr %33, align 8, !tbaa !53
+  %118 = or i64 %117, 1
+  store i64 %118, ptr %33, align 8, !tbaa !53
   br label %rdbLoadTime.exit
 
-118:                                              ; preds = %.preheader.i.i
-  %119 = load ptr, ptr %30, align 8, !tbaa !56
-  %.not33.i.i281 = icmp eq ptr %119, null
-  br i1 %.not33.i.i281, label %121, label %120
+119:                                              ; preds = %.preheader.i.i
+  %120 = load ptr, ptr %30, align 8, !tbaa !56
+  %.not33.i.i281 = icmp eq ptr %120, null
+  br i1 %.not33.i.i281, label %122, label %121
 
-120:                                              ; preds = %118
-  call void %119(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %112) #23
-  br label %121
+121:                                              ; preds = %119
+  call void %120(ptr noundef nonnull %0, ptr noundef %.02737.i.i, i64 noundef %113) #23
+  br label %122
 
-121:                                              ; preds = %120, %118
-  %122 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %112
-  %123 = sub i64 %.02538.i.i, %112
-  %124 = load i64, ptr %36, align 8, !tbaa !58
-  %125 = add i64 %124, %112
-  store i64 %125, ptr %36, align 8, !tbaa !58
-  %.not31.i.i = icmp eq i64 %123, 0
+122:                                              ; preds = %121, %119
+  %123 = getelementptr inbounds nuw i8, ptr %.02737.i.i, i64 %113
+  %124 = sub i64 %.02538.i.i, %113
+  %125 = load i64, ptr %36, align 8, !tbaa !58
+  %126 = add i64 %125, %113
+  store i64 %126, ptr %36, align 8, !tbaa !58
+  %.not31.i.i = icmp eq i64 %124, 0
   br i1 %.not31.i.i, label %rioRead.exit.i282, label %.preheader.i.i
 
-rioRead.exit.i282:                                ; preds = %121
-  %126 = load i32, ptr %17, align 4
-  %127 = sext i32 %126 to i64
-  %128 = mul nsw i64 %127, 1000
+rioRead.exit.i282:                                ; preds = %122
+  %127 = load i32, ptr %17, align 4
+  %128 = sext i32 %127 to i64
+  %129 = mul nsw i64 %128, 1000
   %.val279.pre = load i64, ptr %33, align 8, !tbaa !53
   br label %rdbLoadTime.exit
 
-rdbLoadTime.exit:                                 ; preds = %107, %.thread.i.i283, %rioRead.exit.i282
-  %.val279 = phi i64 [ %.val279.pre, %rioRead.exit.i282 ], [ %108, %107 ], [ %117, %.thread.i.i283 ]
-  %129 = phi i64 [ %128, %rioRead.exit.i282 ], [ -1000, %107 ], [ -1000, %.thread.i.i283 ]
+rdbLoadTime.exit:                                 ; preds = %108, %.thread.i.i283, %rioRead.exit.i282
+  %.val279 = phi i64 [ %.val279.pre, %rioRead.exit.i282 ], [ %109, %108 ], [ %118, %.thread.i.i283 ]
+  %130 = phi i64 [ %129, %rioRead.exit.i282 ], [ -1000, %108 ], [ -1000, %.thread.i.i283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %130 = and i64 %.val279, 1
-  %.not270 = icmp eq i64 %130, 0
-  br i1 %.not270, label %.backedge, label %rioRead.exit.thread
+  %131 = and i64 %.val279, 1
+  %.not270 = icmp eq i64 %131, 0
+  br i1 %.not270, label %select.unfold325, label %rioRead.exit.thread
 
-131:                                              ; preds = %rdbLoadType.exit
+132:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %132 = load i64, ptr %33, align 8, !tbaa !53
-  %133 = and i64 %132, 5
-  %.not.i.i284 = icmp eq i64 %133, 0
+  %133 = load i64, ptr %33, align 8, !tbaa !53
+  %134 = and i64 %133, 5
+  %.not.i.i284 = icmp eq i64 %134, 0
   br i1 %.not.i.i284, label %.preheader.i.i285, label %rdbLoadMillisecondTime.exit
 
-.preheader.i.i285:                                ; preds = %131, %145
-  %.02538.i.i286 = phi i64 [ %147, %145 ], [ 8, %131 ]
-  %.02737.i.i287 = phi ptr [ %146, %145 ], [ %16, %131 ]
-  %134 = load i64, ptr %32, align 8, !tbaa !55
-  %.not32.not.i.i288 = icmp eq i64 %134, 0
-  %135 = call i64 @llvm.umin.i64(i64 %134, i64 %.02538.i.i286)
-  %136 = select i1 %.not32.not.i.i288, i64 %.02538.i.i286, i64 %135
-  %137 = load ptr, ptr %0, align 8, !tbaa !60
-  %138 = call i64 %137(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %136) #23
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %.thread.i.i292, label %142
+.preheader.i.i285:                                ; preds = %132, %146
+  %.02538.i.i286 = phi i64 [ %148, %146 ], [ 8, %132 ]
+  %.02737.i.i287 = phi ptr [ %147, %146 ], [ %16, %132 ]
+  %135 = load i64, ptr %32, align 8, !tbaa !55
+  %.not32.not.i.i288 = icmp eq i64 %135, 0
+  %136 = call i64 @llvm.umin.i64(i64 %135, i64 %.02538.i.i286)
+  %137 = select i1 %.not32.not.i.i288, i64 %.02538.i.i286, i64 %136
+  %138 = load ptr, ptr %0, align 8, !tbaa !60
+  %139 = call i64 %138(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %137) #23
+  %140 = icmp eq i64 %139, 0
+  br i1 %140, label %.thread.i.i292, label %143
 
 .thread.i.i292:                                   ; preds = %.preheader.i.i285
-  %140 = load i64, ptr %33, align 8, !tbaa !53
-  %141 = or i64 %140, 1
-  store i64 %141, ptr %33, align 8, !tbaa !53
+  %141 = load i64, ptr %33, align 8, !tbaa !53
+  %142 = or i64 %141, 1
+  store i64 %142, ptr %33, align 8, !tbaa !53
   br label %rdbLoadMillisecondTime.exit
 
-142:                                              ; preds = %.preheader.i.i285
-  %143 = load ptr, ptr %30, align 8, !tbaa !56
-  %.not33.i.i289 = icmp eq ptr %143, null
-  br i1 %.not33.i.i289, label %145, label %144
+143:                                              ; preds = %.preheader.i.i285
+  %144 = load ptr, ptr %30, align 8, !tbaa !56
+  %.not33.i.i289 = icmp eq ptr %144, null
+  br i1 %.not33.i.i289, label %146, label %145
 
-144:                                              ; preds = %142
-  call void %143(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %136) #23
-  br label %145
+145:                                              ; preds = %143
+  call void %144(ptr noundef nonnull %0, ptr noundef %.02737.i.i287, i64 noundef %137) #23
+  br label %146
 
-145:                                              ; preds = %144, %142
-  %146 = getelementptr inbounds nuw i8, ptr %.02737.i.i287, i64 %136
-  %147 = sub i64 %.02538.i.i286, %136
-  %148 = load i64, ptr %36, align 8, !tbaa !58
-  %149 = add i64 %148, %136
-  store i64 %149, ptr %36, align 8, !tbaa !58
-  %.not31.i.i290 = icmp eq i64 %147, 0
+146:                                              ; preds = %145, %143
+  %147 = getelementptr inbounds nuw i8, ptr %.02737.i.i287, i64 %137
+  %148 = sub i64 %.02538.i.i286, %137
+  %149 = load i64, ptr %36, align 8, !tbaa !58
+  %150 = add i64 %149, %137
+  store i64 %150, ptr %36, align 8, !tbaa !58
+  %.not31.i.i290 = icmp eq i64 %148, 0
   br i1 %.not31.i.i290, label %rioRead.exit.i291, label %.preheader.i.i285
 
-rioRead.exit.i291:                                ; preds = %145
-  %150 = load i64, ptr %16, align 8
+rioRead.exit.i291:                                ; preds = %146
+  %151 = load i64, ptr %16, align 8
   %.val278.pre = load i64, ptr %33, align 8, !tbaa !53
   br label %rdbLoadMillisecondTime.exit
 
-rdbLoadMillisecondTime.exit:                      ; preds = %131, %.thread.i.i292, %rioRead.exit.i291
-  %.val278 = phi i64 [ %.val278.pre, %rioRead.exit.i291 ], [ %132, %131 ], [ %141, %.thread.i.i292 ]
-  %151 = phi i64 [ %150, %rioRead.exit.i291 ], [ 9223372036854775807, %131 ], [ 9223372036854775807, %.thread.i.i292 ]
+rdbLoadMillisecondTime.exit:                      ; preds = %132, %.thread.i.i292, %rioRead.exit.i291
+  %.val278 = phi i64 [ %.val278.pre, %rioRead.exit.i291 ], [ %133, %132 ], [ %142, %.thread.i.i292 ]
+  %152 = phi i64 [ %151, %rioRead.exit.i291 ], [ 9223372036854775807, %132 ], [ 9223372036854775807, %.thread.i.i292 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %152 = and i64 %.val278, 1
-  %.not269 = icmp eq i64 %152, 0
-  br i1 %.not269, label %.backedge, label %rioRead.exit.thread
+  %153 = and i64 %.val278, 1
+  %.not269 = icmp eq i64 %153, 0
+  br i1 %.not269, label %select.unfold325, label %rioRead.exit.thread
 
-153:                                              ; preds = %rdbLoadType.exit
+154:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %154 = load i64, ptr %33, align 8, !tbaa !53
-  %155 = and i64 %154, 5
-  %.not.i293 = icmp eq i64 %155, 0
+  %155 = load i64, ptr %33, align 8, !tbaa !53
+  %156 = and i64 %155, 5
+  %.not.i293 = icmp eq i64 %156, 0
   br i1 %.not.i293, label %.preheader.i295, label %select.unfold
 
-.preheader.i295:                                  ; preds = %153
-  %156 = load ptr, ptr %0, align 8, !tbaa !60
-  %157 = call i64 %156(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #23
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %.thread.i301, label %161
+.preheader.i295:                                  ; preds = %154
+  %157 = load ptr, ptr %0, align 8, !tbaa !60
+  %158 = call i64 %157(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #23
+  %159 = icmp eq i64 %158, 0
+  br i1 %159, label %.thread.i301, label %162
 
 .thread.i301:                                     ; preds = %.preheader.i295
-  %159 = load i64, ptr %33, align 8, !tbaa !53
-  %160 = or i64 %159, 1
-  store i64 %160, ptr %33, align 8, !tbaa !53
+  %160 = load i64, ptr %33, align 8, !tbaa !53
+  %161 = or i64 %160, 1
+  store i64 %161, ptr %33, align 8, !tbaa !53
   br label %select.unfold
 
-161:                                              ; preds = %.preheader.i295
-  %162 = load ptr, ptr %30, align 8, !tbaa !56
-  %.not33.i299 = icmp eq ptr %162, null
-  br i1 %.not33.i299, label %rioRead.exit302, label %163
+162:                                              ; preds = %.preheader.i295
+  %163 = load ptr, ptr %30, align 8, !tbaa !56
+  %.not33.i299 = icmp eq ptr %163, null
+  br i1 %.not33.i299, label %rioRead.exit302, label %164
 
-163:                                              ; preds = %161
-  call void %162(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #23
+164:                                              ; preds = %162
+  call void %163(ptr noundef nonnull %0, ptr noundef nonnull %21, i64 noundef 1) #23
   br label %rioRead.exit302
 
-rioRead.exit302:                                  ; preds = %161, %163
-  %164 = load i64, ptr %36, align 8, !tbaa !58
-  %165 = add i64 %164, 1
-  store i64 %165, ptr %36, align 8, !tbaa !58
-  %166 = load i8, ptr %21, align 1
-  %167 = zext i8 %166 to i64
+rioRead.exit302:                                  ; preds = %162, %164
+  %165 = load i64, ptr %36, align 8, !tbaa !58
+  %166 = add i64 %165, 1
+  store i64 %166, ptr %36, align 8, !tbaa !58
+  %167 = load i8, ptr %21, align 1
+  %168 = zext i8 %167 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.backedge
+  br label %select.unfold325
 
-168:                                              ; preds = %rdbLoadType.exit
+169:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %169 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %15)
-  %170 = icmp eq i32 %169, -1
-  %171 = load i64, ptr %15, align 8
+  %170 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %15)
+  %171 = icmp eq i32 %170, -1
+  %172 = load i64, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %172 = icmp eq i64 %171, -1
-  %173 = select i1 %170, i1 true, i1 %172
-  br i1 %173, label %rioRead.exit.thread, label %.backedge
+  %173 = icmp eq i64 %172, -1
+  %174 = select i1 %171, i1 true, i1 %173
+  br i1 %174, label %rioRead.exit.thread, label %select.unfold325
 
-174:                                              ; preds = %rdbLoadType.exit
+175:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %175 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %14)
-  %176 = icmp eq i32 %175, -1
-  %177 = load i64, ptr %14, align 8
+  %176 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %14)
+  %177 = icmp eq i32 %176, -1
+  %178 = load i64, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %178 = icmp eq i64 %177, -1
-  %179 = select i1 %176, i1 true, i1 %178
-  br i1 %179, label %rioRead.exit.thread, label %180
+  %179 = icmp eq i64 %178, -1
+  %180 = select i1 %177, i1 true, i1 %179
+  br i1 %180, label %rioRead.exit.thread, label %181
 
-180:                                              ; preds = %174
-  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !165
-  %182 = zext i32 %181 to i64
-  %.not268 = icmp ult i64 %177, %182
-  br i1 %.not268, label %188, label %183
+181:                                              ; preds = %175
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !165
+  %183 = zext i32 %182 to i64
+  %.not268 = icmp ult i64 %178, %183
+  br i1 %.not268, label %189, label %184
 
-183:                                              ; preds = %180
-  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %185 = icmp sgt i32 %184, 3
-  br i1 %185, label %187, label %186
+184:                                              ; preds = %181
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %186 = icmp sgt i32 %185, 3
+  br i1 %186, label %188, label %187
 
-186:                                              ; preds = %183
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.120, i32 noundef %181) #23
-  br label %187
+187:                                              ; preds = %184
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.120, i32 noundef %182) #23
+  br label %188
 
-187:                                              ; preds = %183, %186
+188:                                              ; preds = %184, %187
   call void @exit(i32 noundef 1) #24
   unreachable
 
-188:                                              ; preds = %180
-  %189 = load ptr, ptr %3, align 8, !tbaa !233
-  %190 = getelementptr inbounds nuw %struct.redisDb, ptr %189, i64 %177
-  br label %.backedge
+189:                                              ; preds = %181
+  %190 = load ptr, ptr %3, align 8, !tbaa !233
+  %191 = getelementptr inbounds nuw %struct.redisDb, ptr %190, i64 %178
+  br label %select.unfold325
 
-191:                                              ; preds = %rdbLoadType.exit
+192:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %192 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %13)
-  %193 = icmp eq i32 %192, -1
-  %194 = load i64, ptr %13, align 8
+  %193 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %13)
+  %194 = icmp eq i32 %193, -1
+  %195 = load i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %195 = icmp eq i64 %194, -1
-  %196 = select i1 %193, i1 true, i1 %195
-  br i1 %196, label %rioRead.exit.thread, label %197
+  %196 = icmp eq i64 %195, -1
+  %197 = select i1 %194, i1 true, i1 %196
+  br i1 %197, label %rioRead.exit.thread, label %198
 
-197:                                              ; preds = %191
+198:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %198 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %12)
-  %199 = icmp eq i32 %198, -1
-  %200 = load i64, ptr %12, align 8
+  %199 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %12)
+  %200 = icmp eq i32 %199, -1
+  %201 = load i64, ptr %12, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %201 = icmp eq i64 %200, -1
-  %202 = select i1 %199, i1 true, i1 %201
-  br i1 %202, label %rioRead.exit.thread, label %.backedge
+  %202 = icmp eq i64 %201, -1
+  %203 = select i1 %200, i1 true, i1 %202
+  br i1 %203, label %rioRead.exit.thread, label %select.unfold325
 
-203:                                              ; preds = %rdbLoadType.exit
+204:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %204 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11)
-  %205 = icmp eq i32 %204, -1
-  %206 = load i64, ptr %11, align 8
+  %205 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11)
+  %206 = icmp eq i32 %205, -1
+  %207 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %207 = icmp eq i64 %206, -1
-  %208 = select i1 %205, i1 true, i1 %207
-  br i1 %208, label %rioRead.exit.thread, label %209
+  %208 = icmp eq i64 %207, -1
+  %209 = select i1 %206, i1 true, i1 %208
+  br i1 %209, label %rioRead.exit.thread, label %210
 
-209:                                              ; preds = %203
+210:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %210 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %10)
-  %211 = icmp eq i32 %210, -1
-  %212 = load i64, ptr %10, align 8
+  %211 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %10)
+  %212 = icmp eq i32 %211, -1
+  %213 = load i64, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %213 = icmp eq i64 %212, -1
-  %214 = select i1 %211, i1 true, i1 %213
-  br i1 %214, label %rioRead.exit.thread, label %215
+  %214 = icmp eq i64 %213, -1
+  %215 = select i1 %212, i1 true, i1 %214
+  br i1 %215, label %rioRead.exit.thread, label %216
 
-215:                                              ; preds = %209
+216:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %216 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %9)
-  %217 = icmp eq i32 %216, -1
-  %218 = load i64, ptr %9, align 8
+  %217 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %9)
+  %218 = icmp eq i32 %217, -1
+  %219 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %219 = icmp eq i64 %218, -1
-  %220 = select i1 %217, i1 true, i1 %219
-  br i1 %220, label %rioRead.exit.thread, label %221
+  %220 = icmp eq i64 %219, -1
+  %221 = select i1 %218, i1 true, i1 %220
+  br i1 %221, label %rioRead.exit.thread, label %222
 
-221:                                              ; preds = %215
-  %222 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8, !tbaa !161
-  %.not267 = icmp eq i32 %222, 0
-  br i1 %.not267, label %.backedge, label %223
+222:                                              ; preds = %216
+  %223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8, !tbaa !161
+  %.not267 = icmp eq i32 %223, 0
+  br i1 %.not267, label %select.unfold325, label %224
 
-223:                                              ; preds = %221
-  %224 = load ptr, ptr %.0198376, align 8, !tbaa !158
-  %225 = trunc i64 %206 to i32
-  %226 = call i32 @kvstoreDictExpand(ptr noundef %224, i32 noundef %225, i64 noundef %212) #23
-  %227 = getelementptr inbounds nuw i8, ptr %.0198376, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !160
-  %229 = call i32 @kvstoreDictExpand(ptr noundef %228, i32 noundef %225, i64 noundef %218) #23
-  br label %.backedge
+224:                                              ; preds = %222
+  %225 = load ptr, ptr %.0198, align 8, !tbaa !158
+  %226 = trunc i64 %207 to i32
+  %227 = call i32 @kvstoreDictExpand(ptr noundef %225, i32 noundef %226, i64 noundef %213) #23
+  %228 = getelementptr inbounds nuw i8, ptr %.0198, i64 8
+  %229 = load ptr, ptr %228, align 8, !tbaa !160
+  %230 = call i32 @kvstoreDictExpand(ptr noundef %229, i32 noundef %226, i64 noundef %219) #23
+  br label %select.unfold325
 
-230:                                              ; preds = %rdbLoadType.exit
-  %231 = call ptr @rdbGenericLoadStringObject(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %rioRead.exit.thread, label %233
+231:                                              ; preds = %rdbLoadType.exit
+  %232 = call ptr @rdbGenericLoadStringObject(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
+  %233 = icmp eq ptr %232, null
+  br i1 %233, label %rioRead.exit.thread, label %234
 
-233:                                              ; preds = %230
-  %234 = call ptr @rdbGenericLoadStringObject(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %236, label %237
+234:                                              ; preds = %231
+  %235 = call ptr @rdbGenericLoadStringObject(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null)
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %237, label %238
 
-236:                                              ; preds = %233
-  call void @decrRefCount(ptr noundef nonnull %231) #23
+237:                                              ; preds = %234
+  call void @decrRefCount(ptr noundef nonnull %232) #23
   br label %rioRead.exit.thread
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !65
-  %240 = load i8, ptr %239, align 1, !tbaa !59
-  %241 = icmp eq i8 %240, 37
-  br i1 %241, label %242, label %248
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %240 = load ptr, ptr %239, align 8, !tbaa !65
+  %241 = load i8, ptr %240, align 1, !tbaa !59
+  %242 = icmp eq i8 %241, 37
+  br i1 %242, label %243, label %249
 
-242:                                              ; preds = %237
-  %243 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %244 = icmp sgt i32 %243, 2
-  br i1 %244, label %331, label %245
+243:                                              ; preds = %238
+  %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %245 = icmp sgt i32 %244, 2
+  br i1 %245, label %332, label %246
 
-245:                                              ; preds = %242
-  %246 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %247 = load ptr, ptr %246, align 8, !tbaa !65
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.121, ptr noundef nonnull %239, ptr noundef %247) #23
-  br label %331
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %248 = load ptr, ptr %247, align 8, !tbaa !65
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.121, ptr noundef nonnull %240, ptr noundef %248) #23
+  br label %332
 
-248:                                              ; preds = %237
-  %249 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.29) #27
-  %.not255 = icmp eq i32 %249, 0
-  br i1 %.not255, label %250, label %256
+249:                                              ; preds = %238
+  %250 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.29) #27
+  %.not255 = icmp eq i32 %250, 0
+  br i1 %.not255, label %251, label %257
 
-250:                                              ; preds = %248
-  br i1 %.not260, label %331, label %251
+251:                                              ; preds = %249
+  br i1 %.not260, label %332, label %252
 
-251:                                              ; preds = %250
-  %252 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !65
-  %254 = call i64 @strtol(ptr noundef nonnull captures(none) %253, ptr noundef null, i32 noundef 10) #23
-  %255 = trunc i64 %254 to i32
-  store i32 %255, ptr %2, align 8, !tbaa !149
-  br label %331
+252:                                              ; preds = %251
+  %253 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %254 = load ptr, ptr %253, align 8, !tbaa !65
+  %255 = call i64 @strtol(ptr noundef nonnull captures(none) %254, ptr noundef null, i32 noundef 10) #23
+  %256 = trunc i64 %255 to i32
+  store i32 %256, ptr %2, align 8, !tbaa !149
+  br label %332
 
-256:                                              ; preds = %248
-  %257 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.30) #27
-  %.not257 = icmp eq i32 %257, 0
-  br i1 %.not257, label %258, label %265
+257:                                              ; preds = %249
+  %258 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.30) #27
+  %.not257 = icmp eq i32 %258, 0
+  br i1 %.not257, label %259, label %266
 
-258:                                              ; preds = %256
-  br i1 %.not260, label %331, label %259
+259:                                              ; preds = %257
+  br i1 %.not260, label %332, label %260
 
-259:                                              ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %261 = load ptr, ptr %260, align 8, !tbaa !65
-  %262 = call fastcc i64 @sdslen(ptr noundef %261)
-  %263 = icmp eq i64 %262, 40
-  br i1 %263, label %264, label %331
+260:                                              ; preds = %259
+  %261 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %262 = load ptr, ptr %261, align 8, !tbaa !65
+  %263 = call fastcc i64 @sdslen(ptr noundef %262)
+  %264 = icmp eq i64 %263, 40
+  br i1 %264, label %265, label %332
 
-264:                                              ; preds = %259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %82, ptr noundef nonnull align 1 dereferenceable(41) %261, i64 41, i1 false)
-  store i32 1, ptr %83, align 4, !tbaa !237
-  br label %331
+265:                                              ; preds = %260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %80, ptr noundef nonnull align 1 dereferenceable(41) %262, i64 41, i1 false)
+  store i32 1, ptr %81, align 4, !tbaa !237
+  br label %332
 
-265:                                              ; preds = %256
-  %266 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.31) #27
-  %.not259 = icmp eq i32 %266, 0
-  br i1 %.not259, label %267, label %272
+266:                                              ; preds = %257
+  %267 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.31) #27
+  %.not259 = icmp eq i32 %267, 0
+  br i1 %.not259, label %268, label %273
 
-267:                                              ; preds = %265
-  br i1 %.not260, label %331, label %268
+268:                                              ; preds = %266
+  br i1 %.not260, label %332, label %269
 
-268:                                              ; preds = %267
-  %269 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %270 = load ptr, ptr %269, align 8, !tbaa !65
-  %271 = call i64 @strtoll(ptr noundef captures(none) %270, ptr noundef null, i32 noundef 10) #23
-  store i64 %271, ptr %81, align 8, !tbaa !238
-  br label %331
+269:                                              ; preds = %268
+  %270 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %271 = load ptr, ptr %270, align 8, !tbaa !65
+  %272 = call i64 @strtoll(ptr noundef captures(none) %271, ptr noundef null, i32 noundef 10) #23
+  store i64 %272, ptr %79, align 8, !tbaa !238
+  br label %332
 
-272:                                              ; preds = %265
-  %273 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.122) #27
-  %.not261 = icmp eq i32 %273, 0
-  br i1 %.not261, label %331, label %274
+273:                                              ; preds = %266
+  %274 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.122) #27
+  %.not261 = icmp eq i32 %274, 0
+  br i1 %.not261, label %332, label %275
 
-274:                                              ; preds = %272
-  %275 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.24) #27
-  %.not262 = icmp eq i32 %275, 0
-  br i1 %.not262, label %276, label %282
+275:                                              ; preds = %273
+  %276 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.24) #27
+  %.not262 = icmp eq i32 %276, 0
+  br i1 %.not262, label %277, label %283
 
-276:                                              ; preds = %274
-  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %278 = icmp sgt i32 %277, 2
-  br i1 %278, label %331, label %279
+277:                                              ; preds = %275
+  %278 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %279 = icmp sgt i32 %278, 2
+  br i1 %279, label %332, label %280
 
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %281 = load ptr, ptr %280, align 8, !tbaa !65
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.123, ptr noundef %281) #23
-  br label %331
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %282 = load ptr, ptr %281, align 8, !tbaa !65
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.123, ptr noundef %282) #23
+  br label %332
 
-282:                                              ; preds = %274
-  %283 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.27) #27
-  %.not263 = icmp eq i32 %283, 0
-  br i1 %.not263, label %284, label %293
+283:                                              ; preds = %275
+  %284 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.27) #27
+  %.not263 = icmp eq i32 %284, 0
+  br i1 %.not263, label %285, label %294
 
-284:                                              ; preds = %282
-  %285 = call i64 @time(ptr noundef null) #23
-  %286 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %287 = load ptr, ptr %286, align 8, !tbaa !65
-  %288 = call i64 @strtol(ptr noundef captures(none) %287, ptr noundef null, i32 noundef 10) #23
-  %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %290 = icmp sgt i32 %289, 2
-  br i1 %290, label %331, label %291
+285:                                              ; preds = %283
+  %286 = call i64 @time(ptr noundef null) #23
+  %287 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %288 = load ptr, ptr %287, align 8, !tbaa !65
+  %289 = call i64 @strtol(ptr noundef captures(none) %288, ptr noundef null, i32 noundef 10) #23
+  %290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %291 = icmp sgt i32 %290, 2
+  br i1 %291, label %332, label %292
 
-291:                                              ; preds = %284
-  %292 = sub nsw i64 %285, %288
-  %spec.store.select = call i64 @llvm.smax.i64(i64 %292, i64 0)
+292:                                              ; preds = %285
+  %293 = sub nsw i64 %286, %289
+  %spec.store.select = call i64 @llvm.smax.i64(i64 %293, i64 0)
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.124, i64 noundef %spec.store.select) #23
-  br label %331
+  br label %332
 
-293:                                              ; preds = %282
-  %294 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.28) #27
-  %.not264 = icmp eq i32 %294, 0
-  br i1 %.not264, label %295, label %305
+294:                                              ; preds = %283
+  %295 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.28) #27
+  %.not264 = icmp eq i32 %295, 0
+  br i1 %.not264, label %296, label %306
 
-295:                                              ; preds = %293
-  %296 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %297 = load ptr, ptr %296, align 8, !tbaa !65
-  %298 = call i64 @strtoll(ptr noundef captures(none) %297, ptr noundef null, i32 noundef 10) #23
-  %299 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %300 = icmp sgt i32 %299, 2
-  br i1 %300, label %304, label %301
+296:                                              ; preds = %294
+  %297 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %298 = load ptr, ptr %297, align 8, !tbaa !65
+  %299 = call i64 @strtoll(ptr noundef captures(none) %298, ptr noundef null, i32 noundef 10) #23
+  %300 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %301 = icmp sgt i32 %300, 2
+  br i1 %301, label %305, label %302
 
-301:                                              ; preds = %295
-  %302 = sitofp i64 %298 to double
-  %303 = fmul double %302, 0x3EB0000000000000
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.125, double noundef %303) #23
-  br label %304
+302:                                              ; preds = %296
+  %303 = sitofp i64 %299 to double
+  %304 = fmul double %303, 0x3EB0000000000000
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.125, double noundef %304) #23
+  br label %305
 
-304:                                              ; preds = %295, %301
-  store i64 %298, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2432), align 8, !tbaa !228
-  br label %331
+305:                                              ; preds = %296, %302
+  store i64 %299, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2432), align 8, !tbaa !228
+  br label %332
 
-305:                                              ; preds = %293
-  %306 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.126) #27
-  %.not265 = icmp eq i32 %306, 0
-  br i1 %.not265, label %307, label %315
+306:                                              ; preds = %294
+  %307 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.126) #27
+  %.not265 = icmp eq i32 %307, 0
+  br i1 %.not265, label %308, label %316
 
-307:                                              ; preds = %305
-  %308 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %309 = load ptr, ptr %308, align 8, !tbaa !65
-  %310 = call i64 @strtoll(ptr noundef captures(none) %309, ptr noundef null, i32 noundef 10) #23
-  %311 = icmp eq i64 %310, 0
-  %312 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
-  %313 = icmp sgt i32 %312, 2
-  %or.cond14 = select i1 %311, i1 true, i1 %313
-  br i1 %or.cond14, label %331, label %314
+308:                                              ; preds = %306
+  %309 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %310 = load ptr, ptr %309, align 8, !tbaa !65
+  %311 = call i64 @strtoll(ptr noundef captures(none) %310, ptr noundef null, i32 noundef 10) #23
+  %312 = icmp eq i64 %311, 0
+  %313 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
+  %314 = icmp sgt i32 %313, 2
+  %or.cond14 = select i1 %312, i1 true, i1 %314
+  br i1 %or.cond14, label %332, label %315
 
-314:                                              ; preds = %307
+315:                                              ; preds = %308
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.127) #23
-  br label %331
+  br label %332
 
-315:                                              ; preds = %305
-  %316 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.32) #27
-  %.not266 = icmp eq i32 %316, 0
-  br i1 %.not266, label %317, label %325
+316:                                              ; preds = %306
+  %317 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.32) #27
+  %.not266 = icmp eq i32 %317, 0
+  br i1 %.not266, label %318, label %326
 
-317:                                              ; preds = %315
-  %318 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %319 = load ptr, ptr %318, align 8, !tbaa !65
-  %320 = call i64 @strtoll(ptr noundef captures(none) %319, ptr noundef null, i32 noundef 10) #23
-  %321 = icmp eq i64 %320, 0
-  %322 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
-  %323 = icmp sgt i32 %322, 2
-  %or.cond16 = select i1 %321, i1 true, i1 %323
-  br i1 %or.cond16, label %331, label %324
+318:                                              ; preds = %316
+  %319 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %320 = load ptr, ptr %319, align 8, !tbaa !65
+  %321 = call i64 @strtoll(ptr noundef captures(none) %320, ptr noundef null, i32 noundef 10) #23
+  %322 = icmp eq i64 %321, 0
+  %323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
+  %324 = icmp sgt i32 %323, 2
+  %or.cond16 = select i1 %322, i1 true, i1 %324
+  br i1 %or.cond16, label %332, label %325
 
-324:                                              ; preds = %317
+325:                                              ; preds = %318
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.128) #23
-  br label %331
+  br label %332
 
-325:                                              ; preds = %315
-  %326 = call i32 @strcasecmp(ptr noundef nonnull %239, ptr noundef nonnull @.str.26) #27
-  %327 = icmp eq i32 %326, 0
-  %328 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
-  %329 = icmp sgt i32 %328, 0
-  %or.cond18 = select i1 %327, i1 true, i1 %329
-  br i1 %or.cond18, label %331, label %330
+326:                                              ; preds = %316
+  %327 = call i32 @strcasecmp(ptr noundef nonnull %240, ptr noundef nonnull @.str.26) #27
+  %328 = icmp eq i32 %327, 0
+  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
+  %330 = icmp sgt i32 %329, 0
+  %or.cond18 = select i1 %328, i1 true, i1 %330
+  br i1 %or.cond18, label %332, label %331
 
-330:                                              ; preds = %325
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.129, ptr noundef nonnull %239) #23
-  br label %331
+331:                                              ; preds = %326
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.129, ptr noundef nonnull %240) #23
+  br label %332
 
-331:                                              ; preds = %317, %324, %307, %314, %291, %284, %251, %250, %268, %267, %276, %279, %304, %330, %325, %272, %258, %259, %264, %245, %242
-  call void @decrRefCount(ptr noundef nonnull %231) #23
-  call void @decrRefCount(ptr noundef nonnull %234) #23
-  br label %.backedge
+332:                                              ; preds = %318, %325, %308, %315, %292, %285, %252, %251, %269, %268, %277, %280, %305, %331, %326, %273, %259, %260, %265, %246, %243
+  call void @decrRefCount(ptr noundef nonnull %232) #23
+  call void @decrRefCount(ptr noundef nonnull %235) #23
+  br label %select.unfold325
 
-332:                                              ; preds = %rdbLoadType.exit
+333:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %333 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
-  %334 = icmp eq i32 %333, -1
-  %335 = load i64, ptr %8, align 8
-  %.0.i309 = select i1 %334, i64 -1, i64 %335
+  %334 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
+  %335 = icmp eq i32 %334, -1
+  %336 = load i64, ptr %8, align 8
+  %.0.i309 = select i1 %335, i64 -1, i64 %336
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %336 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7)
-  %337 = load i64, ptr %7, align 8
+  %337 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7)
+  %338 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %338 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6)
-  %339 = icmp eq i32 %338, -1
-  %340 = load i64, ptr %6, align 8
+  %339 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6)
+  %340 = icmp eq i32 %339, -1
+  %341 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %341 = trunc i64 %340 to i32
-  %342 = select i1 %339, i32 -1, i32 %341
+  %342 = trunc i64 %341 to i32
+  %343 = select i1 %340, i32 -1, i32 %342
   %.val = load i64, ptr %33, align 8, !tbaa !53
-  %343 = and i64 %.val, 1
-  %.not250 = icmp eq i64 %343, 0
-  br i1 %.not250, label %344, label %rioRead.exit.thread
+  %344 = and i64 %.val, 1
+  %.not250 = icmp eq i64 %344, 0
+  br i1 %.not250, label %345, label %rioRead.exit.thread
 
-344:                                              ; preds = %332
-  %345 = icmp ne i32 %336, -1
-  %346 = and i64 %337, 4294967295
-  %.not251347 = icmp eq i64 %346, 2
-  %.not251 = select i1 %345, i1 %.not251347, i1 false
-  br i1 %.not251, label %348, label %347
+345:                                              ; preds = %333
+  %346 = icmp ne i32 %337, -1
+  %347 = and i64 %338, 4294967295
+  %.not251358 = icmp eq i64 %347, 2
+  %.not251 = select i1 %346, i1 %.not251358, i1 false
+  br i1 %.not251, label %349, label %348
 
-347:                                              ; preds = %344
+348:                                              ; preds = %345
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 3514, ptr noundef nonnull @.str.130)
   br label %rioRead.exit.thread
 
-348:                                              ; preds = %344
-  %349 = call ptr @moduleTypeLookupModuleByID(i64 noundef %.0.i309) #23
+349:                                              ; preds = %345
+  %350 = call ptr @moduleTypeLookupModuleByID(i64 noundef %.0.i309) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @moduleTypeNameByID(ptr noundef nonnull %22, i64 noundef %.0.i309) #23
-  %350 = load i32, ptr @rdbCheckMode, align 4, !tbaa !51
-  %351 = icmp eq i32 %350, 0
-  %352 = icmp eq ptr %349, null
-  %or.cond3 = select i1 %351, i1 %352, i1 false
-  br i1 %or.cond3, label %353, label %358
+  %351 = load i32, ptr @rdbCheckMode, align 4, !tbaa !51
+  %352 = icmp eq i32 %351, 0
+  %353 = icmp eq ptr %350, null
+  %or.cond3 = select i1 %352, i1 %353, i1 false
+  br i1 %or.cond3, label %354, label %359
 
-353:                                              ; preds = %348
-  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %355 = icmp sgt i32 %354, 3
-  br i1 %355, label %357, label %356
+354:                                              ; preds = %349
+  %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %356 = icmp sgt i32 %355, 3
+  br i1 %356, label %358, label %357
 
-356:                                              ; preds = %353
+357:                                              ; preds = %354
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.131, ptr noundef nonnull %22) #23
-  br label %357
+  br label %358
 
-357:                                              ; preds = %353, %356
+358:                                              ; preds = %354, %357
   call void @exit(i32 noundef 1) #24
   unreachable
 
-358:                                              ; preds = %348
-  %359 = icmp ne ptr %349, null
-  %or.cond5 = select i1 %351, i1 %359, i1 false
-  br i1 %or.cond5, label %360, label %390
+359:                                              ; preds = %349
+  %360 = icmp ne ptr %350, null
+  %or.cond5 = select i1 %352, i1 %360, i1 false
+  br i1 %or.cond5, label %361, label %391
 
-360:                                              ; preds = %358
-  %361 = getelementptr inbounds nuw i8, ptr %349, i64 96
-  %362 = load ptr, ptr %361, align 8, !tbaa !239
-  %.not252 = icmp eq ptr %362, null
-  br i1 %.not252, label %363, label %368
+361:                                              ; preds = %359
+  %362 = getelementptr inbounds nuw i8, ptr %350, i64 96
+  %363 = load ptr, ptr %362, align 8, !tbaa !239
+  %.not252 = icmp eq ptr %363, null
+  br i1 %.not252, label %364, label %369
 
-363:                                              ; preds = %360
-  %364 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %365 = icmp sgt i32 %364, 3
-  br i1 %365, label %367, label %366
+364:                                              ; preds = %361
+  %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %366 = icmp sgt i32 %365, 3
+  br i1 %366, label %368, label %367
 
-366:                                              ; preds = %363
+367:                                              ; preds = %364
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.132, ptr noundef nonnull %22) #23
-  br label %367
+  br label %368
 
-367:                                              ; preds = %363, %366
+368:                                              ; preds = %364, %367
   call void @exit(i32 noundef 1) #24
   unreachable
 
-368:                                              ; preds = %360
+369:                                              ; preds = %361
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store ptr %0, ptr %74, align 8, !tbaa !133
-  store ptr %349, ptr %75, align 8, !tbaa !137
+  store ptr %0, ptr %72, align 8, !tbaa !133
+  store ptr %350, ptr %73, align 8, !tbaa !137
   store i64 0, ptr %23, align 8, !tbaa !143
-  store i32 0, ptr %76, align 8, !tbaa !138
-  store ptr null, ptr %77, align 8, !tbaa !139
-  store i32 -1, ptr %78, align 8, !tbaa !140
-  store ptr null, ptr %79, align 8, !tbaa !141
-  store ptr null, ptr %80, align 8, !tbaa !142
-  %369 = trunc i64 %.0.i309 to i32
-  %370 = and i32 %369, 1023
-  %371 = call i32 %362(ptr noundef nonnull %23, i32 noundef %370, i32 noundef %342) #23
-  %372 = load ptr, ptr %79, align 8, !tbaa !141
-  %.not253 = icmp eq ptr %372, null
-  br i1 %.not253, label %375, label %373
+  store i32 0, ptr %74, align 8, !tbaa !138
+  store ptr null, ptr %75, align 8, !tbaa !139
+  store i32 -1, ptr %76, align 8, !tbaa !140
+  store ptr null, ptr %77, align 8, !tbaa !141
+  store ptr null, ptr %78, align 8, !tbaa !142
+  %370 = trunc i64 %.0.i309 to i32
+  %371 = and i32 %370, 1023
+  %372 = call i32 %363(ptr noundef nonnull %23, i32 noundef %371, i32 noundef %343) #23
+  %373 = load ptr, ptr %77, align 8, !tbaa !141
+  %.not253 = icmp eq ptr %373, null
+  br i1 %.not253, label %376, label %374
 
-373:                                              ; preds = %368
-  call void @moduleFreeContext(ptr noundef nonnull %372) #23
-  %374 = load ptr, ptr %79, align 8, !tbaa !141
-  call void @zfree(ptr noundef %374) #23
-  br label %375
+374:                                              ; preds = %369
+  call void @moduleFreeContext(ptr noundef nonnull %373) #23
+  %375 = load ptr, ptr %77, align 8, !tbaa !141
+  call void @zfree(ptr noundef %375) #23
+  br label %376
 
-375:                                              ; preds = %373, %368
-  %376 = icmp ne i32 %371, 0
-  %377 = load i32, ptr %76, align 8
-  %378 = icmp ne i32 %377, 0
-  %or.cond8 = select i1 %376, i1 true, i1 %378
-  br i1 %or.cond8, label %379, label %382
+376:                                              ; preds = %374, %369
+  %377 = icmp ne i32 %372, 0
+  %378 = load i32, ptr %74, align 8
+  %379 = icmp ne i32 %378, 0
+  %or.cond8 = select i1 %377, i1 true, i1 %379
+  br i1 %or.cond8, label %380, label %383
 
-379:                                              ; preds = %375
+380:                                              ; preds = %376
   call void @moduleTypeNameByID(ptr noundef nonnull %22, i64 noundef %.0.i309) #23
-  %380 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %381 = icmp sgt i32 %380, 3
-  br i1 %381, label %393, label %.sink.split
+  %381 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %382 = icmp sgt i32 %381, 3
+  br i1 %382, label %390, label %.sink.split
 
-382:                                              ; preds = %375
+383:                                              ; preds = %376
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %383 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %5)
-  %384 = icmp ne i32 %383, -1
-  %385 = load i64, ptr %5, align 8
+  %384 = call i32 @rdbLoadLenByRef(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %5)
+  %385 = icmp ne i32 %384, -1
+  %386 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not254348 = icmp eq i64 %385, 0
-  %.not254 = select i1 %384, i1 %.not254348, i1 false
-  br i1 %.not254, label %389, label %386
+  %.not254359 = icmp eq i64 %386, 0
+  %.not254 = select i1 %385, i1 %.not254359, i1 false
+  br i1 %.not254, label %390, label %387
 
-386:                                              ; preds = %382
-  %387 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %388 = icmp sgt i32 %387, 3
-  br i1 %388, label %393, label %.sink.split
+387:                                              ; preds = %383
+  %388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %389 = icmp sgt i32 %388, 3
+  br i1 %389, label %390, label %.sink.split
 
-389:                                              ; preds = %382
+.sink.split:                                      ; preds = %387, %380
+  %.str.134.sink = phi ptr [ @.str.133, %380 ], [ @.str.134, %387 ]
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.134.sink, ptr noundef nonnull %22) #23
+  br label %390
+
+390:                                              ; preds = %.sink.split, %387, %383, %380
+  %.6 = phi i32 [ 2, %380 ], [ 2, %387 ], [ 7, %383 ], [ 2, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %392
-
-390:                                              ; preds = %358
-  %391 = call ptr @rdbLoadCheckModuleValue(ptr noundef nonnull %0, ptr noundef nonnull %22)
-  call void @decrRefCount(ptr noundef %391) #23
-  br label %392
-
-392:                                              ; preds = %390, %389
-  call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.backedge
-
-.sink.split:                                      ; preds = %386, %379
-  %.str.133.sink = phi ptr [ @.str.133, %379 ], [ @.str.134, %386 ]
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull %.str.133.sink, ptr noundef nonnull %22) #23
   br label %393
 
-393:                                              ; preds = %.sink.split, %379, %386
-  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+391:                                              ; preds = %359
+  %392 = call ptr @rdbLoadCheckModuleValue(ptr noundef nonnull %0, ptr noundef nonnull %22)
+  call void @decrRefCount(ptr noundef %392) #23
+  br label %393
+
+393:                                              ; preds = %391, %390
+  %.8 = phi i32 [ %.6, %390 ], [ 7, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %rioRead.exit.thread
+  br label %select.unfold325
 
 394:                                              ; preds = %rdbLoadType.exit
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3559, ptr noundef nonnull @.str.135)
@@ -12939,37 +12936,37 @@ rioRead.exit302:                                  ; preds = %161, %163
 395:                                              ; preds = %rdbLoadType.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8, !tbaa !52
-  %396 = load ptr, ptr %84, align 8, !tbaa !236
+  %396 = load ptr, ptr %82, align 8, !tbaa !236
   %397 = call i32 @rdbFunctionLoad(ptr noundef nonnull %0, i32 poison, ptr noundef %396, i32 noundef %1, ptr noundef nonnull %24)
   %.not249 = icmp eq i32 %397, 0
-  br i1 %.not249, label %402, label %398
+  br i1 %.not249, label %403, label %398
 
 398:                                              ; preds = %395
   %399 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
   %400 = icmp sgt i32 %399, 3
   %.pre = load ptr, ptr %24, align 8, !tbaa !52
-  br i1 %400, label %403, label %401
+  br i1 %400, label %402, label %401
 
 401:                                              ; preds = %398
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef %.pre) #23
+  br label %402
+
+402:                                              ; preds = %398, %401
+  call void @sdsfree(ptr noundef %.pre) #23
   br label %403
 
-402:                                              ; preds = %395
+403:                                              ; preds = %395, %402
+  %.9 = phi i32 [ 2, %402 ], [ 7, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %.backedge
-
-403:                                              ; preds = %401, %398
-  call void @sdsfree(ptr noundef %.pre) #23
-  call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %rioRead.exit.thread
+  br label %select.unfold325
 
 404:                                              ; preds = %rdbLoadType.exit
-  %.not239 = icmp eq i32 %.0196377, 0
+  %.not239 = icmp eq i32 %.0196, 0
   br i1 %.not239, label %408, label %405
 
 405:                                              ; preds = %404
-  %406 = call i32 @dbExpand(ptr noundef %.0198376, i64 noundef %.0192379, i32 noundef 0) #23
-  %407 = call i32 @dbExpandExpires(ptr noundef %.0198376, i64 noundef %.0194378, i32 noundef 0) #23
+  %406 = call i32 @dbExpand(ptr noundef %.0198, i64 noundef %.0192, i32 noundef 0) #23
+  %407 = call i32 @dbExpandExpires(ptr noundef %.0198, i64 noundef %.0194, i32 noundef 0) #23
   br label %408
 
 408:                                              ; preds = %405, %404
@@ -12978,9 +12975,9 @@ rioRead.exit302:                                  ; preds = %161, %163
   br i1 %410, label %rioRead.exit.thread, label %411
 
 411:                                              ; preds = %408
-  %412 = getelementptr inbounds nuw i8, ptr %.0198376, i64 56
+  %412 = getelementptr inbounds nuw i8, ptr %.0198, i64 56
   %413 = load i32, ptr %412, align 8, !tbaa !240
-  %414 = call ptr @rdbLoadObject(i32 noundef %106, ptr noundef nonnull %0, ptr noundef nonnull %409, i32 noundef %413, ptr noundef nonnull %20)
+  %414 = call ptr @rdbLoadObject(i32 noundef %107, ptr noundef nonnull %0, ptr noundef nonnull %409, i32 noundef %413, ptr noundef nonnull %20)
   %415 = icmp eq ptr %414, null
   br i1 %415, label %416, label %427
 
@@ -12990,8 +12987,8 @@ rioRead.exit302:                                  ; preds = %161, %163
   br i1 %418, label %419, label %426
 
 419:                                              ; preds = %416
-  %420 = add nsw i64 %.0200375, 1
-  %421 = icmp sgt i64 %.0200375, 9
+  %420 = add nsw i64 %.0200, 1
+  %421 = icmp sgt i64 %.0200, 9
   %422 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
   %423 = icmp sgt i32 %422, 2
   %or.cond20 = select i1 %421, i1 true, i1 %423
@@ -13015,9 +13012,9 @@ rioRead.exit302:                                  ; preds = %161, %163
   br i1 %.not240, label %449, label %429
 
 429:                                              ; preds = %427
-  %430 = icmp ne i64 %.0213372, -1
-  %or.cond10 = select i1 %86, i1 %430, i1 false
-  %431 = icmp slt i64 %.0213372, %69
+  %430 = icmp ne i64 %.0213, -1
+  %or.cond10 = select i1 %84, i1 %430, i1 false
+  %431 = icmp slt i64 %.0213, %69
   %or.cond277 = select i1 %or.cond10, i1 %431, i1 false
   br i1 %or.cond277, label %432, label %449
 
@@ -13043,9 +13040,9 @@ rioRead.exit302:                                  ; preds = %161, %163
 
 440:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i32 2147483646, ptr %88, align 4, !tbaa !162
+  store i32 2147483646, ptr %86, align 4, !tbaa !162
   store i32 0, ptr %25, align 8
-  store ptr %409, ptr %89, align 8, !tbaa !65
+  store ptr %409, ptr %87, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %441 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !245
   %.not247 = icmp eq i32 %441, 0
@@ -13053,8 +13050,8 @@ rioRead.exit302:                                  ; preds = %161, %163
   %443 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
   %444 = select i1 %.not247, ptr %443, ptr %442
   store ptr %444, ptr %26, align 16, !tbaa !246
-  store ptr %25, ptr %90, align 8, !tbaa !246
-  %445 = trunc nuw i64 %.0190380 to i32
+  store ptr %25, ptr %88, align 8, !tbaa !246
+  %445 = trunc nuw i64 %.0190 to i32
   call void @replicationFeedSlaves(ptr noundef nonnull %436, i32 noundef %445, ptr noundef nonnull %26, i32 noundef 2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -13070,10 +13067,10 @@ rioRead.exit302:                                  ; preds = %161, %163
 
 449:                                              ; preds = %429, %427
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i32 2147483646, ptr %91, align 4, !tbaa !162
+  store i32 2147483646, ptr %89, align 4, !tbaa !162
   store i32 0, ptr %27, align 8
-  store ptr %409, ptr %92, align 8, !tbaa !65
-  %450 = call i32 @dbAddRDBLoad(ptr noundef nonnull %.0198376, ptr noundef nonnull %409, ptr noundef nonnull %414) #23
+  store ptr %409, ptr %90, align 8, !tbaa !65
+  %450 = call i32 @dbAddRDBLoad(ptr noundef nonnull %.0198, ptr noundef nonnull %409, ptr noundef nonnull %414) #23
   %451 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
   %452 = add nsw i64 %451, 1
   store i64 %452, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
@@ -13084,8 +13081,8 @@ rioRead.exit302:                                  ; preds = %161, %163
   br i1 %.not242, label %457, label %454
 
 454:                                              ; preds = %453
-  %455 = call i32 @dbSyncDelete(ptr noundef nonnull %.0198376, ptr noundef nonnull %27) #23
-  %456 = call i32 @dbAddRDBLoad(ptr noundef nonnull %.0198376, ptr noundef nonnull %409, ptr noundef nonnull %414) #23
+  %455 = call i32 @dbSyncDelete(ptr noundef nonnull %.0198, ptr noundef nonnull %27) #23
+  %456 = call i32 @dbAddRDBLoad(ptr noundef nonnull %.0198, ptr noundef nonnull %409, ptr noundef nonnull %414) #23
   br label %463
 
 457:                                              ; preds = %453
@@ -13115,153 +13112,188 @@ rioRead.exit302:                                  ; preds = %161, %163
   br i1 %.not243, label %470, label %469
 
 469:                                              ; preds = %467
-  call void @hashTypeAddToExpires(ptr noundef nonnull %.0198376, ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %468) #23
+  call void @hashTypeAddToExpires(ptr noundef nonnull %.0198, ptr noundef nonnull %409, ptr noundef nonnull %414, i64 noundef %468) #23
   br label %470
 
 470:                                              ; preds = %467, %469, %463
-  %.not244 = icmp eq i64 %.0213372, -1
+  %.not244 = icmp eq i64 %.0213, -1
   br i1 %.not244, label %472, label %471
 
 471:                                              ; preds = %470
-  call void @setExpire(ptr noundef null, ptr noundef nonnull %.0198376, ptr noundef nonnull %27, i64 noundef %.0213372) #23
+  call void @setExpire(ptr noundef null, ptr noundef nonnull %.0198, ptr noundef nonnull %27, i64 noundef %.0213) #23
   br label %472
 
 472:                                              ; preds = %471, %470
-  %473 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %414, i64 noundef %.0210373, i64 noundef %.0207374, i64 noundef %71, i32 noundef 1000) #23
+  %473 = call i32 @objectSetLRUOrLFU(ptr noundef nonnull %414, i64 noundef %.0210, i64 noundef %.0207, i64 noundef %71, i32 noundef 1000) #23
   %474 = load i32, ptr %412, align 8, !tbaa !240
   call void @moduleNotifyKeyspaceEvent(i32 noundef 4096, ptr noundef nonnull @.str.141, ptr noundef nonnull %27, i32 noundef %474) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %475
 
 475:                                              ; preds = %446, %472, %425
-  %.2202 = phi i64 [ %420, %425 ], [ %.0200375, %446 ], [ %.0200375, %472 ]
+  %.2202 = phi i64 [ %420, %425 ], [ %.0200, %446 ], [ %.0200, %472 ]
   %476 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6888), align 8, !tbaa !249
   %.not248 = icmp eq i32 %476, 0
-  br i1 %.not248, label %.backedge, label %477
+  br i1 %.not248, label %select.unfold325, label %477
 
 477:                                              ; preds = %475
   call void @debugDelay(i32 noundef %476) #23
-  br label %.backedge
+  br label %select.unfold325
 
-select.unfold:                                    ; preds = %153, %.thread.i301
+select.unfold:                                    ; preds = %154, %.thread.i301
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %rioRead.exit.thread
 
-.backedge:                                        ; preds = %rioRead.exit302, %168, %188, %402, %197, %221, %223, %331, %392, %477, %475, %rdbLoadTime.exit, %rdbLoadMillisecondTime.exit
-  %.1214.jt7 = phi i64 [ %.0213372, %rioRead.exit302 ], [ %.0213372, %168 ], [ %.0213372, %188 ], [ %.0213372, %197 ], [ %.0213372, %221 ], [ %.0213372, %223 ], [ %.0213372, %331 ], [ -1, %477 ], [ -1, %475 ], [ %129, %rdbLoadTime.exit ], [ %151, %rdbLoadMillisecondTime.exit ], [ %.0213372, %402 ], [ %.0213372, %392 ]
-  %.1211.jt7 = phi i64 [ %167, %rioRead.exit302 ], [ %.0210373, %168 ], [ %.0210373, %188 ], [ %.0210373, %197 ], [ %.0210373, %221 ], [ %.0210373, %223 ], [ %.0210373, %331 ], [ -1, %477 ], [ -1, %475 ], [ %.0210373, %rdbLoadTime.exit ], [ %.0210373, %rdbLoadMillisecondTime.exit ], [ %.0210373, %402 ], [ %.0210373, %392 ]
-  %.1208.jt7 = phi i64 [ %.0207374, %rioRead.exit302 ], [ %171, %168 ], [ %.0207374, %188 ], [ %.0207374, %197 ], [ %.0207374, %221 ], [ %.0207374, %223 ], [ %.0207374, %331 ], [ -1, %477 ], [ -1, %475 ], [ %.0207374, %rdbLoadTime.exit ], [ %.0207374, %rdbLoadMillisecondTime.exit ], [ %.0207374, %402 ], [ %.0207374, %392 ]
-  %.1201.jt7 = phi i64 [ %.0200375, %rioRead.exit302 ], [ %.0200375, %168 ], [ %.0200375, %188 ], [ %.0200375, %197 ], [ %.0200375, %221 ], [ %.0200375, %223 ], [ %.0200375, %331 ], [ %.2202, %477 ], [ %.2202, %475 ], [ %.0200375, %rdbLoadTime.exit ], [ %.0200375, %rdbLoadMillisecondTime.exit ], [ %.0200375, %402 ], [ %.0200375, %392 ]
-  %.1199.jt7 = phi ptr [ %.0198376, %rioRead.exit302 ], [ %.0198376, %168 ], [ %190, %188 ], [ %.0198376, %197 ], [ %.0198376, %221 ], [ %.0198376, %223 ], [ %.0198376, %331 ], [ %.0198376, %477 ], [ %.0198376, %475 ], [ %.0198376, %rdbLoadTime.exit ], [ %.0198376, %rdbLoadMillisecondTime.exit ], [ %.0198376, %402 ], [ %.0198376, %392 ]
-  %.1197.jt7 = phi i32 [ %.0196377, %rioRead.exit302 ], [ %.0196377, %168 ], [ %.0196377, %188 ], [ 1, %197 ], [ %.0196377, %221 ], [ 0, %223 ], [ %.0196377, %331 ], [ 0, %477 ], [ 0, %475 ], [ %.0196377, %rdbLoadTime.exit ], [ %.0196377, %rdbLoadMillisecondTime.exit ], [ %.0196377, %402 ], [ %.0196377, %392 ]
-  %.1195.jt7 = phi i64 [ %.0194378, %rioRead.exit302 ], [ %.0194378, %168 ], [ %.0194378, %188 ], [ %200, %197 ], [ %.0194378, %221 ], [ %.0194378, %223 ], [ %.0194378, %331 ], [ %.0194378, %477 ], [ %.0194378, %475 ], [ %.0194378, %rdbLoadTime.exit ], [ %.0194378, %rdbLoadMillisecondTime.exit ], [ %.0194378, %402 ], [ %.0194378, %392 ]
-  %.1193.jt7 = phi i64 [ %.0192379, %rioRead.exit302 ], [ %.0192379, %168 ], [ %.0192379, %188 ], [ %194, %197 ], [ %.0192379, %221 ], [ %.0192379, %223 ], [ %.0192379, %331 ], [ %.0192379, %477 ], [ %.0192379, %475 ], [ %.0192379, %rdbLoadTime.exit ], [ %.0192379, %rdbLoadMillisecondTime.exit ], [ %.0192379, %402 ], [ %.0192379, %392 ]
-  %.1191.jt7 = phi i64 [ %.0190380, %rioRead.exit302 ], [ %.0190380, %168 ], [ %177, %188 ], [ %.0190380, %197 ], [ %.0190380, %221 ], [ %.0190380, %223 ], [ %.0190380, %331 ], [ %.0190380, %477 ], [ %.0190380, %475 ], [ %.0190380, %rdbLoadTime.exit ], [ %.0190380, %rdbLoadMillisecondTime.exit ], [ %.0190380, %402 ], [ %.0190380, %392 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %478 = load i64, ptr %33, align 8, !tbaa !53
-  %479 = and i64 %478, 5
-  %.not.i.i = icmp eq i64 %479, 0
-  br i1 %.not.i.i, label %94, label %rdbLoadType.exit.thread
+select.unfold325:                                 ; preds = %rdbLoadMillisecondTime.exit, %rdbLoadTime.exit, %rioRead.exit302, %198, %169, %475, %477, %393, %332, %224, %222, %403, %189
+  %.1214 = phi i64 [ %.0213, %rioRead.exit302 ], [ %.0213, %169 ], [ %.0213, %189 ], [ %.0213, %403 ], [ %.0213, %198 ], [ %.0213, %222 ], [ %.0213, %224 ], [ %.0213, %332 ], [ %.0213, %393 ], [ -1, %477 ], [ -1, %475 ], [ %130, %rdbLoadTime.exit ], [ %152, %rdbLoadMillisecondTime.exit ]
+  %.1211 = phi i64 [ %168, %rioRead.exit302 ], [ %.0210, %169 ], [ %.0210, %189 ], [ %.0210, %403 ], [ %.0210, %198 ], [ %.0210, %222 ], [ %.0210, %224 ], [ %.0210, %332 ], [ %.0210, %393 ], [ -1, %477 ], [ -1, %475 ], [ %.0210, %rdbLoadTime.exit ], [ %.0210, %rdbLoadMillisecondTime.exit ]
+  %.1208 = phi i64 [ %.0207, %rioRead.exit302 ], [ %172, %169 ], [ %.0207, %189 ], [ %.0207, %403 ], [ %.0207, %198 ], [ %.0207, %222 ], [ %.0207, %224 ], [ %.0207, %332 ], [ %.0207, %393 ], [ -1, %477 ], [ -1, %475 ], [ %.0207, %rdbLoadTime.exit ], [ %.0207, %rdbLoadMillisecondTime.exit ]
+  %.0203 = phi i32 [ 7, %rioRead.exit302 ], [ 7, %169 ], [ 7, %189 ], [ %.9, %403 ], [ 7, %198 ], [ 7, %222 ], [ 7, %224 ], [ 7, %332 ], [ %.8, %393 ], [ 0, %477 ], [ 0, %475 ], [ 7, %rdbLoadTime.exit ], [ 7, %rdbLoadMillisecondTime.exit ]
+  %.1201 = phi i64 [ %.0200, %rioRead.exit302 ], [ %.0200, %169 ], [ %.0200, %189 ], [ %.0200, %403 ], [ %.0200, %198 ], [ %.0200, %222 ], [ %.0200, %224 ], [ %.0200, %332 ], [ %.0200, %393 ], [ %.2202, %477 ], [ %.2202, %475 ], [ %.0200, %rdbLoadTime.exit ], [ %.0200, %rdbLoadMillisecondTime.exit ]
+  %.1199 = phi ptr [ %.0198, %rioRead.exit302 ], [ %.0198, %169 ], [ %191, %189 ], [ %.0198, %403 ], [ %.0198, %198 ], [ %.0198, %222 ], [ %.0198, %224 ], [ %.0198, %332 ], [ %.0198, %393 ], [ %.0198, %477 ], [ %.0198, %475 ], [ %.0198, %rdbLoadTime.exit ], [ %.0198, %rdbLoadMillisecondTime.exit ]
+  %.1197 = phi i32 [ %.0196, %rioRead.exit302 ], [ %.0196, %169 ], [ %.0196, %189 ], [ %.0196, %403 ], [ 1, %198 ], [ %.0196, %222 ], [ 0, %224 ], [ %.0196, %332 ], [ %.0196, %393 ], [ 0, %477 ], [ 0, %475 ], [ %.0196, %rdbLoadTime.exit ], [ %.0196, %rdbLoadMillisecondTime.exit ]
+  %.1195 = phi i64 [ %.0194, %rioRead.exit302 ], [ %.0194, %169 ], [ %.0194, %189 ], [ %.0194, %403 ], [ %201, %198 ], [ %.0194, %222 ], [ %.0194, %224 ], [ %.0194, %332 ], [ %.0194, %393 ], [ %.0194, %477 ], [ %.0194, %475 ], [ %.0194, %rdbLoadTime.exit ], [ %.0194, %rdbLoadMillisecondTime.exit ]
+  %.1193 = phi i64 [ %.0192, %rioRead.exit302 ], [ %.0192, %169 ], [ %.0192, %189 ], [ %.0192, %403 ], [ %195, %198 ], [ %.0192, %222 ], [ %.0192, %224 ], [ %.0192, %332 ], [ %.0192, %393 ], [ %.0192, %477 ], [ %.0192, %475 ], [ %.0192, %rdbLoadTime.exit ], [ %.0192, %rdbLoadMillisecondTime.exit ]
+  %.1191 = phi i64 [ %.0190, %rioRead.exit302 ], [ %.0190, %169 ], [ %178, %189 ], [ %.0190, %403 ], [ %.0190, %198 ], [ %.0190, %222 ], [ %.0190, %224 ], [ %.0190, %332 ], [ %.0190, %393 ], [ %.0190, %477 ], [ %.0190, %475 ], [ %.0190, %rdbLoadTime.exit ], [ %.0190, %rdbLoadMillisecondTime.exit ]
+  %478 = icmp eq i32 %.0203, 2
+  br i1 %478, label %rioRead.exit.thread, label %92
 
-.thread328:                                       ; preds = %rdbLoadType.exit
-  %480 = icmp sgt i32 %62, 4
-  br i1 %480, label %481, label %504
+.thread338:                                       ; preds = %rdbLoadType.exit
+  %479 = icmp sgt i32 %62, 4
+  br i1 %479, label %480, label %518
 
-481:                                              ; preds = %.thread328
+480:                                              ; preds = %.thread338
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %483 = load i64, ptr %482, align 8, !tbaa !167
-  %484 = call fastcc i64 @rioRead(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef 8)
-  %485 = icmp eq i64 %484, 0
-  br i1 %485, label %503, label %486
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %482 = load i64, ptr %481, align 8, !tbaa !167
+  %483 = load i64, ptr %33, align 8, !tbaa !53
+  %484 = and i64 %483, 5
+  %.not.i313 = icmp eq i64 %484, 0
+  br i1 %.not.i313, label %.preheader.i315, label %517
 
-486:                                              ; preds = %481
-  %487 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6788), align 4, !tbaa !164
-  %488 = icmp eq i32 %487, 0
-  %489 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6324), align 4
-  %490 = icmp ne i32 %489, 0
-  %or.cond12 = select i1 %488, i1 true, i1 %490
-  br i1 %or.cond12, label %.thread341, label %491
+.preheader.i315:                                  ; preds = %480, %496
+  %.02538.i316 = phi i64 [ %498, %496 ], [ 8, %480 ]
+  %.02737.i317 = phi ptr [ %497, %496 ], [ %28, %480 ]
+  %485 = load i64, ptr %32, align 8, !tbaa !55
+  %.not32.not.i318 = icmp eq i64 %485, 0
+  %486 = call i64 @llvm.umin.i64(i64 %485, i64 %.02538.i316)
+  %487 = select i1 %.not32.not.i318, i64 %.02538.i316, i64 %486
+  %488 = load ptr, ptr %0, align 8, !tbaa !60
+  %489 = call i64 %488(ptr noundef nonnull %0, ptr noundef %.02737.i317, i64 noundef %487) #23
+  %490 = icmp eq i64 %489, 0
+  br i1 %490, label %.thread.i321, label %493
 
-491:                                              ; preds = %486
-  %492 = load i64, ptr %28, align 8, !tbaa !61
-  %493 = icmp eq i64 %492, 0
-  br i1 %493, label %494, label %498
+.thread.i321:                                     ; preds = %.preheader.i315
+  %491 = load i64, ptr %33, align 8, !tbaa !53
+  %492 = or i64 %491, 1
+  store i64 %492, ptr %33, align 8, !tbaa !53
+  br label %517
 
-494:                                              ; preds = %491
-  %495 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %496 = icmp sgt i32 %495, 2
-  br i1 %496, label %.thread341, label %497
+493:                                              ; preds = %.preheader.i315
+  %494 = load ptr, ptr %30, align 8, !tbaa !56
+  %.not33.i319 = icmp eq ptr %494, null
+  br i1 %.not33.i319, label %496, label %495
 
-497:                                              ; preds = %494
+495:                                              ; preds = %493
+  call void %494(ptr noundef nonnull %0, ptr noundef %.02737.i317, i64 noundef %487) #23
+  br label %496
+
+496:                                              ; preds = %495, %493
+  %497 = getelementptr inbounds nuw i8, ptr %.02737.i317, i64 %487
+  %498 = sub i64 %.02538.i316, %487
+  %499 = load i64, ptr %36, align 8, !tbaa !58
+  %500 = add i64 %499, %487
+  store i64 %500, ptr %36, align 8, !tbaa !58
+  %.not31.i320 = icmp eq i64 %498, 0
+  br i1 %.not31.i320, label %rioRead.exit322, label %.preheader.i315
+
+rioRead.exit322:                                  ; preds = %496
+  %501 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6788), align 4, !tbaa !164
+  %502 = icmp eq i32 %501, 0
+  %503 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6324), align 4
+  %504 = icmp ne i32 %503, 0
+  %or.cond12 = select i1 %502, i1 true, i1 %504
+  br i1 %or.cond12, label %.thread352, label %505
+
+505:                                              ; preds = %rioRead.exit322
+  %506 = load i64, ptr %28, align 8, !tbaa !61
+  %507 = icmp eq i64 %506, 0
+  br i1 %507, label %508, label %512
+
+508:                                              ; preds = %505
+  %509 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %510 = icmp sgt i32 %509, 2
+  br i1 %510, label %.thread352, label %511
+
+511:                                              ; preds = %508
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.142) #23
-  br label %.thread341
+  br label %.thread352
 
-498:                                              ; preds = %491
-  %.not271 = icmp eq i64 %492, %483
-  br i1 %.not271, label %.thread341, label %499
+512:                                              ; preds = %505
+  %.not271 = icmp eq i64 %506, %482
+  br i1 %.not271, label %.thread352, label %513
 
-499:                                              ; preds = %498
-  %500 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %501 = icmp sgt i32 %500, 3
-  br i1 %501, label %.thread343, label %502
+513:                                              ; preds = %512
+  %514 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %515 = icmp sgt i32 %514, 3
+  br i1 %515, label %.thread354, label %516
 
-502:                                              ; preds = %499
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.143, i64 noundef %483, i64 noundef %492) #23
-  br label %.thread343
+516:                                              ; preds = %513
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.143, i64 noundef %482, i64 noundef %506) #23
+  br label %.thread354
 
-.thread343:                                       ; preds = %502, %499
+.thread354:                                       ; preds = %516, %513
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 1, i32 noundef 3691, ptr noundef nonnull @.str.144)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %.loopexit
+  br label %533
 
-.thread341:                                       ; preds = %494, %497, %498, %486
+.thread352:                                       ; preds = %508, %511, %512, %rioRead.exit322
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %504
+  br label %518
 
-503:                                              ; preds = %481
+517:                                              ; preds = %480, %.thread.i321
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %rioRead.exit.thread
 
-504:                                              ; preds = %.thread341, %.thread328
-  %.not272 = icmp eq i64 %.0200375, 0
-  %505 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %506 = icmp sgt i32 %505, 2
-  br i1 %.not272, label %511, label %507
+518:                                              ; preds = %.thread352, %.thread338
+  %.not272 = icmp eq i64 %.0200, 0
+  %519 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %520 = icmp sgt i32 %519, 2
+  br i1 %.not272, label %525, label %521
 
-507:                                              ; preds = %504
-  br i1 %506, label %.loopexit, label %508
+521:                                              ; preds = %518
+  br i1 %520, label %533, label %522
 
-508:                                              ; preds = %507
-  %509 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
-  %510 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6736), align 8, !tbaa !247
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.145, i64 noundef %509, i64 noundef %510, i64 noundef %.0200375) #23
-  br label %.loopexit
+522:                                              ; preds = %521
+  %523 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
+  %524 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6736), align 8, !tbaa !247
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.145, i64 noundef %523, i64 noundef %524, i64 noundef %.0200) #23
+  br label %533
 
-511:                                              ; preds = %504
-  br i1 %506, label %.loopexit, label %512
+525:                                              ; preds = %518
+  br i1 %520, label %533, label %526
 
-512:                                              ; preds = %511
-  %513 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
-  %514 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6736), align 8, !tbaa !247
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.146, i64 noundef %513, i64 noundef %514) #23
-  br label %.loopexit
+526:                                              ; preds = %525
+  %527 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6744), align 8, !tbaa !248
+  %528 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6736), align 8, !tbaa !247
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.146, i64 noundef %527, i64 noundef %528) #23
+  br label %533
 
-rioRead.exit.thread:                              ; preds = %197, %168, %408, %332, %230, %215, %209, %203, %191, %174, %rdbLoadMillisecondTime.exit, %rdbLoadTime.exit, %393, %403, %select.unfold, %rdbLoadType.exit.thread, %347, %236, %426, %.thread.i, %4, %503
-  %515 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
-  %516 = icmp sgt i32 %515, 3
-  br i1 %516, label %518, label %517
+rioRead.exit.thread:                              ; preds = %select.unfold325, %198, %169, %408, %333, %231, %216, %210, %204, %192, %175, %rdbLoadMillisecondTime.exit, %rdbLoadTime.exit, %select.unfold, %rdbLoadType.exit.thread, %348, %237, %426, %.thread.i, %4, %517
+  %529 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !50
+  %530 = icmp sgt i32 %529, 3
+  br i1 %530, label %532, label %531
 
-517:                                              ; preds = %rioRead.exit.thread
+531:                                              ; preds = %rioRead.exit.thread
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.147) #23
-  br label %518
+  br label %532
 
-518:                                              ; preds = %rioRead.exit.thread, %517
+532:                                              ; preds = %rioRead.exit.thread, %531
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 3715, ptr noundef nonnull @.str.148)
-  br label %.loopexit
+  br label %533
 
-.loopexit:                                        ; preds = %.thread343, %507, %508, %511, %512, %67, %64, %58, %55, %518
-  %.0 = phi i32 [ -1, %518 ], [ -1, %55 ], [ -1, %58 ], [ -1, %64 ], [ -1, %67 ], [ 0, %512 ], [ 0, %511 ], [ 0, %508 ], [ 0, %507 ], [ -1, %.thread343 ]
+533:                                              ; preds = %.thread354, %521, %522, %525, %526, %67, %64, %58, %55, %532
+  %.0 = phi i32 [ -1, %532 ], [ -1, %55 ], [ -1, %58 ], [ -1, %64 ], [ -1, %67 ], [ 0, %526 ], [ 0, %525 ], [ 0, %522 ], [ 0, %521 ], [ -1, %.thread354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i32 %.0
@@ -13369,7 +13401,7 @@ define dso_local range(i32 0, 3) i32 @rdbLoadWithEmptyFunc(ptr noundef %0, ptr n
   store ptr %31, ptr %5, align 8, !tbaa !233
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %30, ptr %32, align 8, !tbaa !236
-  %33 = call noundef i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %6, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %5)
+  %33 = call range(i32 -1, 1) i32 @rdbLoadRioWithLoadingCtx(ptr noundef nonnull %6, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = call i32 @fclose(ptr noundef nonnull %8)
   %35 = icmp ne i32 %33, 0

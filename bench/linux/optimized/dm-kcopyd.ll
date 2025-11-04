@@ -1269,11 +1269,11 @@ define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef initializ
 32:                                               ; preds = %20
   %33 = load ptr, ptr %8, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread6, label %35
+  br i1 %34, label %.thread7, label %35
 
 35:                                               ; preds = %32
   tail call fastcc void @kcopyd_put_pages(ptr noundef %7, ptr noundef nonnull %33)
-  br label %.thread6
+  br label %.thread7
 
 36:                                               ; preds = %27
   %37 = load ptr, ptr %0, align 8
@@ -1289,9 +1289,9 @@ define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef initializ
   store ptr %43, ptr %44, align 8
   store volatile ptr %41, ptr %43, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %39, i64 noundef %40) #9
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %32, %35, %36
+.thread7:                                         ; preds = %32, %35, %36
   %45 = phi i32 [ 0, %36 ], [ 1, %35 ], [ 1, %32 ]
   ret i32 %45
 }

@@ -1579,7 +1579,7 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
   %60 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %35
-  br i1 %62, label %.loopexit13, label %63
+  br i1 %62, label %.loopexit14, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16564
@@ -1656,11 +1656,11 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
 
 104:                                              ; preds = %101
   %105 = tail call ptr @trace_iter_expand_format(ptr noundef %0) #12
-  %.pre17 = load i32, ptr %66, align 8
+  %.pre18 = load i32, ptr %66, align 8
   br label %106
 
 106:                                              ; preds = %104, %101
-  %107 = phi i32 [ %.pre17, %104 ], [ %102, %101 ]
+  %107 = phi i32 [ %.pre18, %104 ], [ %102, %101 ]
   %108 = load ptr, ptr %83, align 8
   %109 = load ptr, ptr %67, align 8
   %110 = zext i32 %107 to i64
@@ -1841,9 +1841,9 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
   %201 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, %35
-  br i1 %203, label %.loopexit13, label %68, !llvm.loop !42
+  br i1 %203, label %.loopexit14, label %68, !llvm.loop !42
 
-.loopexit13:                                      ; preds = %.loopexit, %59
+.loopexit14:                                      ; preds = %.loopexit, %59
   tail call void @trace_seq_putc(ptr noundef nonnull %36, i8 noundef zeroext 10) #12
   br label %205
 
@@ -1851,7 +1851,7 @@ define dso_local i32 @print_event_fields(ptr noundef %0, ptr noundef %1) local_u
   tail call void @trace_seq_puts(ptr noundef nonnull %36, ptr noundef nonnull @.str.23) #12
   br label %205
 
-205:                                              ; preds = %.loopexit13, %204, %18
+205:                                              ; preds = %18, %204, %.loopexit14
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %207 = tail call i32 @trace_handle_return(ptr noundef nonnull %206) #12
   ret i32 %207

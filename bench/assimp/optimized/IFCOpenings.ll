@@ -10324,9 +10324,8 @@ _ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.
 543:                                              ; preds = %521, %_ZSt8_DestroyIPSt6vectorIN10ClipperLib8IntPointESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   switch i32 %.8140828, label %_ZNSt6vectorIN6Assimp3IFC22ProjectedWindowContourESaIS2_EE12emplace_backIJRS_I10aiVector2tIdESaIS7_EERSt4pairIS7_S7_ERbEEERS2_DpOT_.exit [
-    i32 0, label %.backedge
-    i32 11, label %.backedge
     i32 10, label %.thread435.loopexit
+    i32 11, label %.backedge
   ]
 
 544:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN10ClipperLib8IntPointESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.jt10, %526
@@ -10337,14 +10336,14 @@ _ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNSt6vectorIN6Assimp3IFC22ProjectedWindowContourESaIS2_EE12emplace_backIJRS_I10aiVector2tIdESaIS7_EERSt4pairIS7_S7_ERbEEERS2_DpOT_.exit
 
-.backedge:                                        ; preds = %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread, %543, %543
-  %.10834 = phi i1 [ %.9829, %543 ], [ %.9829, %543 ], [ %.7621, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread ], [ %.7621, %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11 ]
-  %.sroa.0294.2830 = phi ptr [ %.sroa.0294.1827, %543 ], [ %.sroa.0294.1827, %543 ], [ %542, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread ], [ %.sroa.0294.1.jt11, %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11 ]
+.backedge:                                        ; preds = %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread, %543
+  %.10834 = phi i1 [ %.9829, %543 ], [ %.7621, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread ], [ %.7621, %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11 ]
+  %.sroa.0294.2830 = phi ptr [ %.sroa.0294.1827, %543 ], [ %542, %_ZN6Assimp3IFCL24BoundingBoxesOverlappingERKSt4pairI10aiVector2tIdES3_ES6_.exit.thread ], [ %.sroa.0294.1.jt11, %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit.jt11 ]
   %546 = load ptr, ptr %49, align 8
   %.not447 = icmp eq ptr %.sroa.0294.2830, %546
   br i1 %.not447, label %.thread435.loopexit, label %.lr.ph623
 
-.thread435.loopexit:                              ; preds = %543, %.backedge, %544
+.thread435.loopexit:                              ; preds = %.backedge, %543, %544
   %.10832 = phi i1 [ %.7621, %544 ], [ %.10834, %.backedge ], [ %.9829, %543 ]
   %.pre737 = load ptr, ptr %16, align 8
   %.pre738 = load ptr, ptr %..sroa.gep407, align 8

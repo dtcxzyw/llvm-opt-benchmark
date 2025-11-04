@@ -2931,8 +2931,8 @@ define hidden ptr @ssl_bytes_to_cipher_list(ptr noundef %0, ptr noundef readonly
 
 .preheader:                                       ; preds = %13
   %16 = call i64 @CBS_len(ptr noundef nonnull %3) #21
-  %.not3241 = icmp eq i64 %16, 0
-  br i1 %.not3241, label %.loopexit, label %.lr.ph
+  %.not3242 = icmp eq i64 %16, 0
+  br i1 %.not3242, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -20,18 +20,18 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %0, align 8, !tbaa !4
-  %.not57 = icmp eq i64 %8, -1
-  br i1 %.not57, label %._crit_edge61, label %.lr.ph60
+  %.not58 = icmp eq i64 %8, -1
+  br i1 %.not58, label %._crit_edge62, label %.lr.ph61
 
-.lr.ph60:                                         ; preds = %7, %31
+.lr.ph61:                                         ; preds = %7, %31
   %9 = phi i64 [ %34, %31 ], [ %8, %7 ]
-  %.03658 = phi i64 [ %32, %31 ], [ 0, %7 ]
-  %10 = icmp eq i64 %.03658, 4
-  br i1 %10, label %.lr.ph65.preheader, label %11
+  %.03659 = phi i64 [ %32, %31 ], [ 0, %7 ]
+  %10 = icmp eq i64 %.03659, 4
+  br i1 %10, label %.lr.ph66.preheader, label %11
 
-11:                                               ; preds = %.lr.ph60
-  %12 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.03658
-  %13 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %.03658
+11:                                               ; preds = %.lr.ph61
+  %12 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.03659
+  %13 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %.03659
   store i64 %9, ptr %13, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
@@ -39,8 +39,8 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br i1 %16, label %17, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %.not4655 = icmp eq i64 %9, 4611686018427387905
-  br i1 %.not4655, label %._crit_edge, label %.lr.ph
+  %.not4656 = icmp eq i64 %9, 4611686018427387905
+  br i1 %.not4656, label %._crit_edge, label %.lr.ph
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -48,15 +48,15 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br label %31
 
 19:                                               ; preds = %.lr.ph
-  %20 = add nuw nsw i64 %.03556, 1
+  %20 = add nuw nsw i64 %.03557, 1
   %21 = getelementptr inbounds nuw %struct.anon, ptr @features, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %.not46 = icmp eq i64 %9, %22
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %.03556 = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %23 = icmp eq i64 %.03556, 10
+  %.03557 = phi i64 [ %20, %19 ], [ 0, %.preheader ]
+  %23 = icmp eq i64 %.03557, 10
   br i1 %23, label %.thread, label %19
 
 ._crit_edge:                                      ; preds = %19, %.preheader
@@ -75,13 +75,13 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br label %31
 
 31:                                               ; preds = %29, %17
-  %32 = add nuw nsw i64 %.03658, 1
+  %32 = add nuw nsw i64 %.03659, 1
   %33 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !4
   %.not = icmp eq i64 %34, -1
-  br i1 %.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !17
+  br i1 %.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !17
 
-._crit_edge61:                                    ; preds = %31, %7
+._crit_edge62:                                    ; preds = %31, %7
   %.036.lcssa = phi i64 [ 0, %7 ], [ %32, %31 ]
   %35 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %.036.lcssa
   store i64 -1, ptr %35, align 16, !tbaa !4
@@ -94,26 +94,26 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph
   %.138 = phi i32 [ 8, %.lr.ph ], [ 5, %._crit_edge ]
-  %.not4763 = icmp eq i64 %.03658, 0
-  br i1 %.not4763, label %.loopexit, label %.lr.ph65.preheader
+  %.not4764 = icmp eq i64 %.03659, 0
+  br i1 %.not4764, label %.loopexit, label %.lr.ph66.preheader
 
-.lr.ph65.preheader:                               ; preds = %.lr.ph60, %.thread
-  %.13881 = phi i32 [ %.138, %.thread ], [ 8, %.lr.ph60 ]
-  %.036587080 = phi i64 [ %.03658, %.thread ], [ 4, %.lr.ph60 ]
-  br label %.lr.ph65
+.lr.ph66.preheader:                               ; preds = %.lr.ph61, %.thread
+  %.13882 = phi i32 [ %.138, %.thread ], [ 8, %.lr.ph61 ]
+  %.036597181 = phi i64 [ %.03659, %.thread ], [ 4, %.lr.ph61 ]
+  br label %.lr.ph66
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
-  %.164 = phi i64 [ %39, %.lr.ph65 ], [ %.036587080, %.lr.ph65.preheader ]
-  %39 = add nsw i64 %.164, -1
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
+  %.165 = phi i64 [ %39, %.lr.ph66 ], [ %.036597181, %.lr.ph66.preheader ]
+  %39 = add nsw i64 %.165, -1
   %40 = getelementptr inbounds nuw %struct.lzma_filter, ptr %4, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   tail call void @lzma_free(ptr noundef %42, ptr noundef %2) #5
   %.not47 = icmp eq i64 %39, 0
-  br i1 %.not47, label %.loopexit, label %.lr.ph65, !llvm.loop !18
+  br i1 %.not47, label %.loopexit, label %.lr.ph66, !llvm.loop !18
 
-.loopexit:                                        ; preds = %.lr.ph65, %.thread, %._crit_edge61
-  %.140 = phi i32 [ 0, %._crit_edge61 ], [ %.138, %.thread ], [ %.13881, %.lr.ph65 ]
+.loopexit:                                        ; preds = %.lr.ph66, %.thread, %._crit_edge62
+  %.140 = phi i32 [ 0, %._crit_edge62 ], [ %.138, %.thread ], [ %.13882, %.lr.ph66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 

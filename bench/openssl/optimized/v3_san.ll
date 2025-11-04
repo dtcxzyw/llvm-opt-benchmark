@@ -117,8 +117,8 @@ define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %0, ptr
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %38
-  %.02736 = phi i32 [ %39, %38 ], [ 0, %.preheader ]
-  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02736) #4
+  %.02737 = phi i32 [ %39, %38 ], [ 0, %.preheader ]
+  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02737) #4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !5
   %12 = tail call i32 @ossl_v3_name_cmp(ptr noundef %11, ptr noundef nonnull @.str.10) #4
@@ -173,7 +173,7 @@ define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %0, ptr
   br label %38
 
 38:                                               ; preds = %.thread, %20, %32
-  %39 = add nuw nsw i32 %.02736, 1
+  %39 = add nuw nsw i32 %.02737, 1
   %exitcond.not = icmp eq i32 %39, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
@@ -203,8 +203,8 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %copy_issuer.exit.thread.us
-  %.02341.us = phi i32 [ %22, %copy_issuer.exit.thread.us ], [ 0, %.lr.ph ]
-  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02341.us) #4
+  %.02342.us = phi i32 [ %22, %copy_issuer.exit.thread.us ], [ 0, %.lr.ph ]
+  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02342.us) #4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !5
   %12 = tail call i32 @ossl_v3_name_cmp(ptr noundef %11, ptr noundef nonnull @.str.37) #4
@@ -229,9 +229,9 @@ define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %0, ptr 
 
 copy_issuer.exit.thread.us:                       ; preds = %19
   %21 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %20) #4
-  %22 = add nuw nsw i32 %.02341.us, 1
-  %exitcond47.not = icmp eq i32 %22, %4
-  br i1 %exitcond47.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  %22 = add nuw nsw i32 %.02342.us, 1
+  %exitcond48.not = icmp eq i32 %22, %4
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
 
 23:                                               ; preds = %3
   tail call void @ERR_new() #4
@@ -240,8 +240,8 @@ copy_issuer.exit.thread.us:                       ; preds = %19
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %copy_issuer.exit.thread
-  %.02341 = phi i32 [ %60, %copy_issuer.exit.thread ], [ 0, %.lr.ph ]
-  %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02341) #4
+  %.02342 = phi i32 [ %60, %copy_issuer.exit.thread ], [ 0, %.lr.ph ]
+  %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02342) #4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !5
   %27 = tail call i32 @ossl_v3_name_cmp(ptr noundef %26, ptr noundef nonnull @.str.37) #4
@@ -294,7 +294,7 @@ copy_issuer.exit.thread.us:                       ; preds = %19
 
 .preheader.i:                                     ; preds = %49
   %52 = icmp sgt i32 %50, 0
-  br i1 %52, label %.lr.ph.i, label %copy_issuer.exit.thread34
+  br i1 %52, label %.lr.ph.i, label %copy_issuer.exit.thread35
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.02133.i = phi i32 [ %55, %.lr.ph.i ], [ 0, %.preheader.i ]
@@ -302,20 +302,20 @@ copy_issuer.exit.thread.us:                       ; preds = %19
   %54 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef %53) #4
   %55 = add nuw nsw i32 %.02133.i, 1
   %exitcond.not.i = icmp eq i32 %55, %50
-  br i1 %exitcond.not.i, label %copy_issuer.exit.thread34, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %copy_issuer.exit.thread35, label %.lr.ph.i, !llvm.loop !23
 
-copy_issuer.exit.thread34:                        ; preds = %.lr.ph.i, %.preheader.i
+copy_issuer.exit.thread35:                        ; preds = %.lr.ph.i, %.preheader.i
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %47) #4
   br label %copy_issuer.exit.thread
 
 copy_issuer.exit:                                 ; preds = %49, %46, %42, %37, %16
   %.us-phi = phi i32 [ 346, %16 ], [ 346, %37 ], [ 354, %46 ], [ 354, %42 ], [ 360, %49 ]
-  %.us-phi42 = phi i32 [ 127, %16 ], [ 127, %37 ], [ 126, %46 ], [ 126, %42 ], [ 524303, %49 ]
-  %.us-phi43 = phi ptr [ null, %16 ], [ null, %37 ], [ null, %46 ], [ null, %42 ], [ %47, %49 ]
+  %.us-phi43 = phi i32 [ 127, %16 ], [ 127, %37 ], [ 126, %46 ], [ 126, %42 ], [ 524303, %49 ]
+  %.us-phi44 = phi ptr [ null, %16 ], [ null, %37 ], [ null, %46 ], [ null, %42 ], [ %47, %49 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.15, i32 noundef %.us-phi, ptr noundef nonnull @__func__.copy_issuer) #4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.us-phi42, ptr noundef null) #4
-  tail call void @OPENSSL_sk_free(ptr noundef %.us-phi43) #4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.us-phi43, ptr noundef null) #4
+  tail call void @OPENSSL_sk_free(ptr noundef %.us-phi44) #4
   br label %.thread
 
 56:                                               ; preds = %31, %28, %.lr.ph.split
@@ -327,8 +327,8 @@ copy_issuer.exit:                                 ; preds = %49, %46, %42, %37, 
   %59 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %57) #4
   br label %copy_issuer.exit.thread
 
-copy_issuer.exit.thread:                          ; preds = %39, %34, %58, %copy_issuer.exit.thread34
-  %60 = add nuw nsw i32 %.02341, 1
+copy_issuer.exit.thread:                          ; preds = %39, %34, %58, %copy_issuer.exit.thread35
+  %60 = add nuw nsw i32 %.02342, 1
   %exitcond.not = icmp eq i32 %60, %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !13
 
@@ -1109,8 +1109,8 @@ do_dirname.exit:                                  ; preds = %34
   tail call void @CRYPTO_free(ptr noundef nonnull %58, ptr noundef nonnull @.str.15, i32 noundef 660) #4
   %63 = load ptr, ptr %43, align 8, !tbaa !28
   %64 = load ptr, ptr %63, align 8, !tbaa !29
-  %.not.i49 = icmp eq ptr %64, null
-  br i1 %.not.i49, label %65, label %.critedge
+  %.not.i50 = icmp eq ptr %64, null
+  br i1 %.not.i50, label %65, label %.critedge
 
 65:                                               ; preds = %60, %53, %45
   %66 = load ptr, ptr %43, align 8, !tbaa !28

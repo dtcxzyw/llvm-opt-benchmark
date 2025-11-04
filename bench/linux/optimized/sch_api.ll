@@ -246,9 +246,9 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   br i1 %20, label %24, label %26
 
 24:                                               ; preds = %17
-  br i1 %23, label %.thread5, label %.thread
+  br i1 %23, label %.thread6, label %.thread
 
-.thread5:                                         ; preds = %24
+.thread6:                                         ; preds = %24
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 56), align 8
   store ptr %25, ptr %18, align 8
   br label %27
@@ -256,7 +256,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
 26:                                               ; preds = %17
   br i1 %23, label %27, label %30
 
-27:                                               ; preds = %.thread5, %26
+27:                                               ; preds = %.thread6, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 48), align 8
   store ptr %29, ptr %28, align 8
@@ -309,7 +309,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   store ptr %0, ptr %4, align 8
   br label %.thread
 
-.thread:                                          ; preds = %7, %50, %54, %34, %38, %42, %24, %58
+.thread:                                          ; preds = %7, %50, %54, %34, %38, %42, %58, %24
   %59 = phi i32 [ 0, %58 ], [ -22, %24 ], [ -22, %42 ], [ -22, %38 ], [ -22, %34 ], [ -22, %54 ], [ -22, %50 ], [ -17, %7 ]
   tail call void @_raw_write_unlock(ptr noundef nonnull @qdisc_mod_lock) #19
   ret i32 %59
@@ -2878,13 +2878,13 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %37 = load ptr, ptr %35, align 8
   %38 = icmp eq ptr %37, %35
-  br i1 %38, label %tc_dump_qdisc_root.exit.thread16, label %.lr.ph
+  br i1 %38, label %tc_dump_qdisc_root.exit.thread17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %tc_dump_qdisc_root.exit
   %39 = phi ptr [ %156, %tc_dump_qdisc_root.exit ], [ %37, %34 ]
   %40 = phi i32 [ %155, %tc_dump_qdisc_root.exit ], [ 0, %34 ]
   %41 = phi i32 [ %154, %tc_dump_qdisc_root.exit ], [ %15, %34 ]
-  %.024 = phi i32 [ %.3, %tc_dump_qdisc_root.exit ], [ %15, %34 ]
+  %.025 = phi i32 [ %.3, %tc_dump_qdisc_root.exit ], [ %15, %34 ]
   %42 = icmp slt i32 %40, %12
   br i1 %42, label %tc_dump_qdisc_root.exit, label %43
 
@@ -2924,7 +2924,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %70 = load i32, ptr %69, align 4
   %71 = call fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %47, i32 noundef %64, i32 noundef %67, i32 noundef %70, i16 noundef zeroext 2, i32 noundef 36, ptr noundef null)
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %tc_dump_qdisc_root.exit.thread16, label %73
+  br i1 %72, label %tc_dump_qdisc_root.exit.thread17, label %73
 
 73:                                               ; preds = %62, %53, %51
   %74 = getelementptr inbounds nuw i8, ptr %47, i64 64
@@ -2975,7 +2975,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %108 = load i32, ptr %107, align 4
   %109 = call fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %89, i32 noundef %102, i32 noundef %105, i32 noundef %108, i16 noundef zeroext 2, i32 noundef 36, ptr noundef null)
   %110 = icmp slt i32 %109, 1
-  br i1 %110, label %tc_dump_qdisc_root.exit.thread16, label %111
+  br i1 %110, label %tc_dump_qdisc_root.exit.thread17, label %111
 
 111:                                              ; preds = %100, %91, %.preheader.i
   %112 = add i32 %88, 1
@@ -3010,7 +3010,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
 
 131:                                              ; preds = %125
   %132 = icmp slt i32 %.4.ph, %45
-  br i1 %132, label %.critedge10, label %133
+  br i1 %132, label %.critedge11, label %133
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 16
@@ -3021,7 +3021,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %139 = icmp eq i32 %138, 0
   %140 = or i1 %129, %139
   %141 = and i1 %137, %140
-  br i1 %141, label %142, label %.critedge10
+  br i1 %141, label %142, label %.critedge11
 
 142:                                              ; preds = %133
   %143 = getelementptr inbounds nuw i8, ptr %127, i64 60
@@ -3034,21 +3034,21 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %150 = load i32, ptr %149, align 4
   %151 = call fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %127, i32 noundef %144, i32 noundef %147, i32 noundef %150, i16 noundef zeroext 2, i32 noundef 36, ptr noundef null)
   %152 = icmp slt i32 %151, 1
-  br i1 %152, label %tc_dump_qdisc_root.exit.thread16, label %.critedge10
+  br i1 %152, label %tc_dump_qdisc_root.exit.thread17, label %.critedge11
 
-.critedge10:                                      ; preds = %142, %133, %131
+.critedge11:                                      ; preds = %142, %133, %131
   %153 = add i32 %.4.ph, 1
   br label %tc_dump_qdisc_root.exit
 
-tc_dump_qdisc_root.exit:                          ; preds = %.lr.ph, %.loopexit, %.critedge10, %125
-  %.3 = phi i32 [ %.024, %.lr.ph ], [ %.4.ph, %.loopexit ], [ %.4.ph, %125 ], [ %153, %.critedge10 ]
-  %154 = phi i32 [ %41, %.lr.ph ], [ %45, %.loopexit ], [ %45, %125 ], [ %45, %.critedge10 ]
+tc_dump_qdisc_root.exit:                          ; preds = %.lr.ph, %.loopexit, %.critedge11, %125
+  %.3 = phi i32 [ %.025, %.lr.ph ], [ %.4.ph, %.loopexit ], [ %.4.ph, %125 ], [ %153, %.critedge11 ]
+  %154 = phi i32 [ %41, %.lr.ph ], [ %45, %.loopexit ], [ %45, %125 ], [ %45, %.critedge11 ]
   %155 = add i32 %40, 1
   %156 = load ptr, ptr %39, align 8
   %157 = icmp eq ptr %156, %35
-  br i1 %157, label %tc_dump_qdisc_root.exit.thread16, label %.lr.ph
+  br i1 %157, label %tc_dump_qdisc_root.exit.thread17, label %.lr.ph
 
-tc_dump_qdisc_root.exit.thread16:                 ; preds = %tc_dump_qdisc_root.exit, %62, %142, %100, %34
+tc_dump_qdisc_root.exit.thread17:                 ; preds = %tc_dump_qdisc_root.exit, %62, %142, %100, %34
   %158 = phi i32 [ 0, %34 ], [ %40, %100 ], [ %155, %tc_dump_qdisc_root.exit ], [ %40, %62 ], [ %40, %142 ]
   %.2 = phi i32 [ %15, %34 ], [ %88, %100 ], [ %.3, %tc_dump_qdisc_root.exit ], [ 0, %62 ], [ %.4.ph, %142 ]
   %159 = sext i32 %158 to i64
@@ -3059,8 +3059,8 @@ tc_dump_qdisc_root.exit.thread16:                 ; preds = %tc_dump_qdisc_root.
   %162 = load i32, ptr %161, align 8
   br label %.thread
 
-.thread:                                          ; preds = %26, %28, %tc_dump_qdisc_root.exit.thread16, %29
-  %163 = phi i32 [ %162, %tc_dump_qdisc_root.exit.thread16 ], [ %32, %29 ], [ -22, %28 ], [ -22, %26 ]
+.thread:                                          ; preds = %26, %28, %tc_dump_qdisc_root.exit.thread17, %29
+  %163 = phi i32 [ %162, %tc_dump_qdisc_root.exit.thread17 ], [ %32, %29 ], [ -22, %28 ], [ -22, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %163
 }

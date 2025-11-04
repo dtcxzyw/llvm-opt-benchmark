@@ -11002,7 +11002,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %24 = zext i1 %23 to i32
   %25 = add nuw nsw i32 %21, %24
   %26 = icmp eq i8 %15, 0
-  br i1 %26, label %.loopexit13, label %27
+  br i1 %26, label %.loopexit14, label %27
 
 27:                                               ; preds = %2
   %28 = zext i8 %15 to i64
@@ -11023,9 +11023,9 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %40 = add i32 %39, %38
   %41 = add nuw nsw i64 %31, 1
   %42 = icmp eq i64 %41, %28
-  br i1 %42, label %.loopexit13, label %30, !llvm.loop !64
+  br i1 %42, label %.loopexit14, label %30, !llvm.loop !64
 
-.loopexit13:                                      ; preds = %30, %2
+.loopexit14:                                      ; preds = %30, %2
   %43 = phi i32 [ %25, %2 ], [ %40, %30 ]
   %44 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #18
   %45 = getelementptr i8, ptr %1, i64 3420
@@ -11046,7 +11046,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %60 = icmp ugt i32 %59, %43
   br i1 %60, label %66, label %61, !prof !18
 
-61:                                               ; preds = %.loopexit13
+61:                                               ; preds = %.loopexit14
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 144
@@ -11055,7 +11055,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   store i32 1, ptr %65, align 8
   br label %343
 
-66:                                               ; preds = %.loopexit13
+66:                                               ; preds = %.loopexit14
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %44) #18
   %67 = getelementptr i8, ptr %1, i64 3360
   %68 = load ptr, ptr %67, align 8
@@ -11209,7 +11209,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
 168:                                              ; preds = %267, %165
   %169 = phi ptr [ %162, %165 ], [ %263, %267 ]
   %170 = phi i64 [ 0, %165 ], [ %268, %267 ]
-  %171 = phi ptr [ null, %165 ], [ %spec.select56, %267 ]
+  %171 = phi ptr [ null, %165 ], [ %spec.select57, %267 ]
   %172 = phi ptr [ null, %165 ], [ %spec.select, %267 ]
   %173 = phi ptr [ %154, %165 ], [ %255, %267 ]
   %174 = load ptr, ptr %8, align 8
@@ -11227,12 +11227,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %184 = phi ptr [ %169, %168 ], [ %263, %262 ]
   %185 = phi ptr [ %173, %168 ], [ %255, %262 ]
   %186 = phi ptr [ %172, %168 ], [ %spec.select, %262 ]
-  %187 = phi ptr [ %171, %168 ], [ %spec.select56, %262 ]
+  %187 = phi ptr [ %171, %168 ], [ %spec.select57, %262 ]
   %188 = phi i32 [ 0, %168 ], [ %247, %262 ]
   %189 = phi i32 [ %181, %168 ], [ %248, %262 ]
   %190 = icmp eq ptr %187, null
   %spec.select = select i1 %190, ptr %184, ptr %186
-  %spec.select56 = select i1 %190, ptr %184, ptr %187
+  %spec.select57 = select i1 %190, ptr %184, ptr %187
   %191 = tail call i32 @llvm.umin.i32(i32 %189, i32 16384)
   %192 = load ptr, ptr %69, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 184
@@ -11253,11 +11253,11 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   br i1 %206, label %207, label %231, !prof !9
 
 207:                                              ; preds = %183
-  %208 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 8
-  %209 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 16
   %210 = load i64, ptr %208, align 8
   %211 = icmp eq i64 %210, 0
-  br i1 %211, label %.split22.us, label %.split
+  br i1 %211, label %.split23.us, label %.split
 
 .split:                                           ; preds = %207, %227
   %212 = phi i64 [ 0, %227 ], [ %210, %207 ]
@@ -11289,7 +11289,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %228 = phi ptr [ %226, %225 ], [ %222, %221 ]
   %229 = load ptr, ptr %48, align 8
   %230 = icmp eq ptr %228, %229
-  br i1 %230, label %.split22.us, label %.split, !llvm.loop !67
+  br i1 %230, label %.split23.us, label %.split, !llvm.loop !67
 
 231:                                              ; preds = %183
   %232 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -11341,9 +11341,9 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %264 = icmp eq i32 %248, 0
   br i1 %264, label %267, label %183, !llvm.loop !69
 
-.split22.us:                                      ; preds = %227, %207
+.split23.us:                                      ; preds = %227, %207
   tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #18
-  store ptr %spec.select56, ptr %48, align 8
+  store ptr %spec.select57, ptr %48, align 8
   %265 = load ptr, ptr %166, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %266, ptr nonnull elementtype(i64) %266) #18, !srcloc !70
@@ -11362,12 +11362,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %274 = load ptr, ptr %73, align 8
   %275 = icmp eq ptr %273, %274
   %276 = getelementptr i8, ptr %273, i64 -8
-  %spec.select57 = select i1 %275, ptr %272, ptr %276, !prof !9
+  %spec.select58 = select i1 %275, ptr %272, ptr %276, !prof !9
   %277 = load ptr, ptr %75, align 8
   %278 = icmp eq ptr %271, %277
   %279 = getelementptr i8, ptr %271, i64 -40
   %280 = select i1 %278, ptr %270, ptr %279, !prof !9
-  %281 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %spec.select58, i64 4
   %282 = load i32, ptr %281, align 4
   %283 = or i32 %282, %7
   store i32 %283, ptr %281, align 4
@@ -11481,8 +11481,8 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %354 = icmp eq i8 %353, 0
   br i1 %354, label %355, label %363
 
-355:                                              ; preds = %.split22.us, %352, %343, %125
-  %356 = phi i32 [ 0, %125 ], [ %345, %352 ], [ %345, %343 ], [ 0, %.split22.us ]
+355:                                              ; preds = %.split23.us, %352, %343, %125
+  %356 = phi i32 [ 0, %125 ], [ %345, %352 ], [ %345, %343 ], [ 0, %.split23.us ]
   %357 = getelementptr i8, ptr %1, i64 3084
   %358 = load i32, ptr %357, align 4
   %359 = or i32 %358, 1
@@ -13612,7 +13612,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %20 = zext i1 %19 to i32
   %21 = add nuw nsw i32 %17, %20
   %22 = icmp eq i8 %11, 0
-  br i1 %22, label %.loopexit14, label %23
+  br i1 %22, label %.loopexit15, label %23
 
 23:                                               ; preds = %2
   %24 = zext i8 %11 to i64
@@ -13633,9 +13633,9 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %36 = add i32 %35, %34
   %37 = add nuw nsw i64 %27, 1
   %38 = icmp eq i64 %37, %24
-  br i1 %38, label %.loopexit14, label %26, !llvm.loop !93
+  br i1 %38, label %.loopexit15, label %26, !llvm.loop !93
 
-.loopexit14:                                      ; preds = %26, %2
+.loopexit15:                                      ; preds = %26, %2
   %39 = phi i32 [ %21, %2 ], [ %36, %26 ]
   %40 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #18
   %41 = getelementptr i8, ptr %1, i64 3420
@@ -13656,7 +13656,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %56 = icmp ugt i32 %55, %39
   br i1 %56, label %62, label %57, !prof !18
 
-57:                                               ; preds = %.loopexit14
+57:                                               ; preds = %.loopexit15
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
@@ -13665,7 +13665,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   store i32 1, ptr %61, align 8
   br label %379
 
-62:                                               ; preds = %.loopexit14
+62:                                               ; preds = %.loopexit15
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %40) #18
   %63 = getelementptr i8, ptr %1, i64 3360
   %64 = load ptr, ptr %63, align 8
@@ -13825,7 +13825,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
 169:                                              ; preds = %274, %166
   %170 = phi ptr [ %163, %166 ], [ %270, %274 ]
   %171 = phi i64 [ 0, %166 ], [ %275, %274 ]
-  %172 = phi ptr [ null, %166 ], [ %spec.select55, %274 ]
+  %172 = phi ptr [ null, %166 ], [ %spec.select56, %274 ]
   %173 = phi ptr [ %65, %166 ], [ %spec.select, %274 ]
   %174 = phi ptr [ %155, %166 ], [ %262, %274 ]
   %175 = load ptr, ptr %4, align 8
@@ -13843,13 +13843,13 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %185 = phi ptr [ %170, %169 ], [ %270, %269 ]
   %186 = phi ptr [ %174, %169 ], [ %262, %269 ]
   %187 = phi ptr [ %173, %169 ], [ %spec.select, %269 ]
-  %188 = phi ptr [ %172, %169 ], [ %spec.select55, %269 ]
+  %188 = phi ptr [ %172, %169 ], [ %spec.select56, %269 ]
   %189 = phi i32 [ 0, %169 ], [ %254, %269 ]
   %190 = phi i32 [ %182, %169 ], [ %255, %269 ]
   %191 = tail call i32 @llvm.umin.i32(i32 %190, i32 16384)
   %192 = icmp eq ptr %187, null
   %spec.select = select i1 %192, ptr %185, ptr %187
-  %spec.select55 = select i1 %192, ptr %185, ptr %188
+  %spec.select56 = select i1 %192, ptr %185, ptr %188
   %193 = load ptr, ptr %66, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 184
   %195 = zext i32 %189 to i64
@@ -13873,11 +13873,11 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %210 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %211 = load i64, ptr %209, align 8
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %.split22.us, label %.split
+  br i1 %212, label %.split23.us, label %.split
 
 .split:                                           ; preds = %208, %228
   %213 = phi i64 [ 0, %228 ], [ %211, %208 ]
-  %214 = phi ptr [ %229, %228 ], [ %spec.select55, %208 ]
+  %214 = phi ptr [ %229, %228 ], [ %spec.select56, %208 ]
   %215 = icmp eq i64 %213, 0
   br i1 %215, label %222, label %216
 
@@ -13905,7 +13905,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %229 = phi ptr [ %227, %226 ], [ %223, %222 ]
   %230 = load ptr, ptr %44, align 8
   %231 = icmp eq ptr %229, %230
-  br i1 %231, label %.split22.us, label %.split, !llvm.loop !96
+  br i1 %231, label %.split23.us, label %.split, !llvm.loop !96
 
 232:                                              ; preds = %184
   %233 = getelementptr inbounds nuw i8, ptr %204, i64 16
@@ -13964,7 +13964,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %271 = icmp eq i32 %255, 0
   br i1 %271, label %274, label %184, !llvm.loop !97
 
-.split22.us:                                      ; preds = %228, %208
+.split23.us:                                      ; preds = %228, %208
   tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #18
   store ptr %spec.select, ptr %44, align 8
   %272 = load ptr, ptr %167, align 8
@@ -13986,12 +13986,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %282 = load ptr, ptr %69, align 8
   %283 = icmp eq ptr %280, %282
   %284 = getelementptr i8, ptr %280, i64 -16
-  %spec.select56 = select i1 %283, ptr %279, ptr %284, !prof !9
+  %spec.select57 = select i1 %283, ptr %279, ptr %284, !prof !9
   %285 = load ptr, ptr %71, align 8
   %286 = icmp eq ptr %278, %285
   %287 = getelementptr i8, ptr %278, i64 -40
   %288 = select i1 %286, ptr %277, ptr %287, !prof !9
-  %289 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 12
+  %289 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 12
   %290 = load i32, ptr %289, align 4
   %291 = or i32 %290, 536870912
   store i32 %291, ptr %289, align 4
@@ -14151,8 +14151,8 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %390 = icmp eq i8 %389, 0
   br i1 %390, label %391, label %399
 
-391:                                              ; preds = %.split22.us, %388, %379, %121
-  %392 = phi i32 [ 0, %121 ], [ %381, %388 ], [ %381, %379 ], [ 0, %.split22.us ]
+391:                                              ; preds = %.split23.us, %388, %379, %121
+  %392 = phi i32 [ 0, %121 ], [ %381, %388 ], [ %381, %379 ], [ 0, %.split23.us ]
   %393 = getelementptr i8, ptr %1, i64 3084
   %394 = load i32, ptr %393, align 4
   %395 = or i32 %394, 1

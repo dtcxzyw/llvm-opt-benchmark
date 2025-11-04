@@ -125,31 +125,31 @@ define dso_local void @bug_get_file_line(ptr noundef %0, ptr noundef writeonly c
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @find_bug(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp ult ptr @__start___bug_table, @__stop___bug_table
-  br i1 %2, label %.preheader4, label %.loopexit6
+  br i1 %2, label %.preheader5, label %.loopexit7
 
-.preheader4:                                      ; preds = %1, %9
+.preheader5:                                      ; preds = %1, %9
   %3 = phi ptr [ %10, %9 ], [ @__start___bug_table, %1 ]
   %4 = ptrtoint ptr %3 to i64
   %5 = load i32, ptr %3, align 4
   %6 = sext i32 %5 to i64
   %7 = add i64 %6, %4
   %8 = icmp eq i64 %7, %0
-  br i1 %8, label %.loopexit5, label %9
+  br i1 %8, label %.loopexit6, label %9
 
-9:                                                ; preds = %.preheader4
+9:                                                ; preds = %.preheader5
   %10 = getelementptr i8, ptr %3, i64 12
   %11 = icmp ult ptr %10, @__stop___bug_table
-  br i1 %11, label %.preheader4, label %.loopexit6, !llvm.loop !10
+  br i1 %11, label %.preheader5, label %.loopexit7, !llvm.loop !10
 
-.loopexit6:                                       ; preds = %9, %1
+.loopexit7:                                       ; preds = %9, %1
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %12 = load volatile ptr, ptr @module_bug_list, align 8
   %13 = icmp eq ptr %12, @module_bug_list
   br i1 %13, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit6, %.loopexit
-  %14 = phi ptr [ %31, %.loopexit ], [ %12, %.loopexit6 ]
+.lr.ph:                                           ; preds = %.loopexit7, %.loopexit
+  %14 = phi ptr [ %31, %.loopexit ], [ %12, %.loopexit7 ]
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
@@ -181,23 +181,23 @@ define dso_local noundef ptr @find_bug(i64 noundef %0) local_unnamed_addr #0 ali
   %32 = icmp eq ptr %31, @module_bug_list
   br i1 %32, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.loopexit, %.preheader, %.loopexit6
-  %33 = phi ptr [ null, %.loopexit6 ], [ %20, %.preheader ], [ null, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %.preheader, %.loopexit7
+  %33 = phi ptr [ null, %.loopexit7 ], [ %20, %.preheader ], [ null, %.loopexit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   %34 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !15
   %35 = icmp ult i8 %34, 2
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
-  br i1 %36, label %.loopexit5, label %37, !prof !16
+  br i1 %36, label %.loopexit6, label %37, !prof !16
 
 37:                                               ; preds = %.thread
   %38 = tail call i64 @llvm.read_register.i64(metadata !0)
   %39 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %38) #9, !srcloc !17
   tail call void @llvm.write_register.i64(metadata !0, i64 %39)
-  br label %.loopexit5
+  br label %.loopexit6
 
-.loopexit5:                                       ; preds = %.preheader4, %37, %.thread
-  %40 = phi ptr [ %33, %.thread ], [ %33, %37 ], [ %3, %.preheader4 ]
+.loopexit6:                                       ; preds = %.preheader5, %37, %.thread
+  %40 = phi ptr [ %33, %.thread ], [ %33, %37 ], [ %3, %.preheader5 ]
   ret ptr %40
 }
 
@@ -225,31 +225,31 @@ define dso_local noundef range(i32 0, 3) i32 @report_bug(i64 noundef %0, ptr nou
 
 15:                                               ; preds = %12
   %16 = icmp ult ptr @__start___bug_table, @__stop___bug_table
-  br i1 %16, label %.preheader6, label %.loopexit8
+  br i1 %16, label %.preheader7, label %.loopexit9
 
-.preheader6:                                      ; preds = %15, %23
+.preheader7:                                      ; preds = %15, %23
   %17 = phi ptr [ %24, %23 ], [ @__start___bug_table, %15 ]
   %18 = ptrtoint ptr %17 to i64
   %19 = load i32, ptr %17, align 4
   %20 = sext i32 %19 to i64
   %21 = add i64 %20, %18
   %22 = icmp eq i64 %21, %0
-  br i1 %22, label %.loopexit7, label %23
+  br i1 %22, label %.loopexit8, label %23
 
-23:                                               ; preds = %.preheader6
+23:                                               ; preds = %.preheader7
   %24 = getelementptr i8, ptr %17, i64 12
   %25 = icmp ult ptr %24, @__stop___bug_table
-  br i1 %25, label %.preheader6, label %.loopexit8, !llvm.loop !10
+  br i1 %25, label %.preheader7, label %.loopexit9, !llvm.loop !10
 
-.loopexit8:                                       ; preds = %23, %15
+.loopexit9:                                       ; preds = %23, %15
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %26 = load volatile ptr, ptr @module_bug_list, align 8
   %27 = icmp eq ptr %26, @module_bug_list
   br i1 %27, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit8, %.loopexit
-  %28 = phi ptr [ %45, %.loopexit ], [ %26, %.loopexit8 ]
+.lr.ph:                                           ; preds = %.loopexit9, %.loopexit
+  %28 = phi ptr [ %45, %.loopexit ], [ %26, %.loopexit9 ]
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
@@ -281,27 +281,27 @@ define dso_local noundef range(i32 0, 3) i32 @report_bug(i64 noundef %0, ptr nou
   %46 = icmp eq ptr %45, @module_bug_list
   br i1 %46, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %.loopexit, %.preheader, %.loopexit8
-  %47 = phi ptr [ null, %.loopexit8 ], [ %34, %.preheader ], [ null, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %.preheader, %.loopexit9
+  %47 = phi ptr [ null, %.loopexit9 ], [ %34, %.preheader ], [ null, %.loopexit ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   %48 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #9, !srcloc !15
   %49 = icmp ult i8 %48, 2
   tail call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
-  br i1 %50, label %.loopexit7, label %51, !prof !16
+  br i1 %50, label %.loopexit8, label %51, !prof !16
 
 51:                                               ; preds = %.thread
   %52 = tail call i64 @llvm.read_register.i64(metadata !0)
   %53 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %52) #9, !srcloc !17
   tail call void @llvm.write_register.i64(metadata !0, i64 %53)
-  br label %.loopexit7
+  br label %.loopexit8
 
-.loopexit7:                                       ; preds = %.preheader6, %51, %.thread
-  %54 = phi ptr [ %47, %.thread ], [ %47, %51 ], [ %17, %.preheader6 ]
+.loopexit8:                                       ; preds = %.preheader7, %51, %.thread
+  %54 = phi ptr [ %47, %.thread ], [ %47, %51 ], [ %17, %.preheader7 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %95, label %56
 
-56:                                               ; preds = %.loopexit7
+56:                                               ; preds = %.loopexit8
   tail call void @disable_trace_on_warning() #9
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i32, ptr %57, align 4
@@ -363,8 +363,8 @@ define dso_local noundef range(i32 0, 3) i32 @report_bug(i64 noundef %0, ptr nou
   %94 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %93) #11
   br label %95
 
-95:                                               ; preds = %92, %90, %83, %71, %.loopexit7, %12
-  %96 = phi i32 [ 1, %83 ], [ 0, %12 ], [ 0, %.loopexit7 ], [ 1, %71 ], [ 2, %92 ], [ 2, %90 ]
+95:                                               ; preds = %92, %90, %83, %71, %.loopexit8, %12
+  %96 = phi i32 [ 1, %83 ], [ 0, %12 ], [ 0, %.loopexit8 ], [ 1, %71 ], [ 2, %92 ], [ 2, %90 ]
   br i1 %7, label %97, label %101
 
 97:                                               ; preds = %95

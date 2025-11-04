@@ -6008,7 +6008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_
 _ZNSt10shared_ptrI10CvTrackbarEC2ERKS1_.exit:     ; preds = %19, %28, %31
   %33 = phi ptr [ %22, %19 ], [ %22, %28 ], [ %.pre, %31 ]
   %.not15 = icmp eq ptr %33, null
-  br i1 %.not15, label %.thread.jt6, label %34
+  br i1 %.not15, label %.thread, label %34
 
 34:                                               ; preds = %_ZNSt10shared_ptrI10CvTrackbarEC2ERKS1_.exit
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -6016,7 +6016,7 @@ _ZNSt10shared_ptrI10CvTrackbarEC2ERKS1_.exit:     ; preds = %19, %28, %31
   %37 = load i64, ptr %36, align 8, !tbaa !61
   %38 = load i64, ptr %18, align 8, !tbaa !61
   %39 = icmp eq i64 %37, %38
-  br i1 %39, label %40, label %.thread.jt6
+  br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %34
   %41 = icmp eq i64 %37, 0
@@ -6028,14 +6028,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %bcmp.i = tail call i32 @bcmp(ptr %43, ptr %42, i64 %37)
   %bcmp.i.fr = freeze i32 %bcmp.i
   %44 = icmp eq i32 %bcmp.i.fr, 0
-  br i1 %44, label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread, label %.thread.jt6
+  br i1 %44, label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread, label %.thread
 
-.thread.jt6:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %34, %_ZNSt10shared_ptrI10CvTrackbarEC2ERKS1_.exit
+.thread:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %34, %_ZNSt10shared_ptrI10CvTrackbarEC2ERKS1_.exit
   %45 = load ptr, ptr %17, align 8, !tbaa !52
-  %.not.i.i.jt6 = icmp eq ptr %45, null
-  br i1 %.not.i.i.jt6, label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12, label %46
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12, label %46
 
-46:                                               ; preds = %.thread.jt6
+46:                                               ; preds = %.thread
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load atomic i64, ptr %47 acquire, align 8
   %49 = icmp eq i64 %48, 4294967297
@@ -6058,28 +6058,28 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 59:                                               ; preds = %46
   %60 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58
-  %.not.i.i.i18.jt6 = icmp eq i8 %60, 0
-  br i1 %.not.i.i.i18.jt6, label %63, label %61
+  %.not.i.i.i18 = icmp eq i8 %60, 0
+  br i1 %.not.i.i.i18, label %63, label %61
 
 61:                                               ; preds = %59
   %62 = add nsw i32 %50, -1
   store i32 %62, ptr %47, align 4, !tbaa !35
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.jt6
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 63:                                               ; preds = %59
   %64 = atomicrmw volatile add ptr %47, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.jt6
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.jt6: ; preds = %61, %63
-  %.0.i.i.i.i.jt6 = phi i32 [ %64, %63 ], [ %50, %61 ]
-  %65 = icmp eq i32 %.0.i.i.i.i.jt6, 1
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %63, %61
+  %.0.i.i.i.i = phi i32 [ %50, %61 ], [ %64, %63 ]
+  %65 = icmp eq i32 %.0.i.i.i.i, 1
   br i1 %65, label %66, label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12, !prof !59
 
-66:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.jt6
+66:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #33
   br label %_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12
 
-_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12: ; preds = %.thread.jt6, %51, %66, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.jt6
+_ZNSt12__shared_ptrI10CvTrackbarLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread12: ; preds = %.thread, %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %66
   %67 = add nuw i64 %.01317, 1
   %68 = load ptr, ptr %14, align 8, !tbaa !98
   %69 = load ptr, ptr %13, align 8, !tbaa !97

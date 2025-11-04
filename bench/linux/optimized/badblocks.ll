@@ -430,12 +430,12 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %76 = add i64 %32, %33
   %77 = icmp ugt i64 %76, %74
   %78 = and i1 %75, %77
-  br i1 %78, label %79, label %.loopexit44
+  br i1 %78, label %79, label %.loopexit45
 
 79:                                               ; preds = %70
   %80 = and i64 %72, 511
-  %reass.sub53 = sub nsw i64 %80, %32
-  %81 = add nsw i64 %reass.sub53, 1
+  %reass.sub54 = sub nsw i64 %80, %32
+  %81 = add nsw i64 %reass.sub54, 1
   %82 = add nsw i64 %81, %74
   %83 = icmp ult i64 %82, 513
   %84 = lshr i64 %72, 63
@@ -479,18 +479,18 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 
 109:                                              ; preds = %47
   %110 = icmp eq i32 %48, 0
-  %.pre62 = load ptr, ptr %16, align 8
+  %.pre63 = load ptr, ptr %16, align 8
   br i1 %110, label %._crit_edge, label %111
 
 ._crit_edge:                                      ; preds = %109
-  %.pre64 = load i64, ptr %.pre62, align 8
-  %.pre70 = lshr i64 %.pre64, 9
-  %.pre72 = and i64 %.pre70, 18014398509481983
+  %.pre65 = load i64, ptr %.pre63, align 8
+  %.pre71 = lshr i64 %.pre65, 9
+  %.pre73 = and i64 %.pre71, 18014398509481983
   br label %135
 
 111:                                              ; preds = %109
   %112 = zext nneg i32 %48 to i64
-  %113 = getelementptr i64, ptr %.pre62, i64 %112
+  %113 = getelementptr i64, ptr %.pre63, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = lshr i64 %114, 9
   %116 = and i64 %115, 18014398509481983
@@ -519,11 +519,11 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   br i1 %134, label %139, label %135
 
 135:                                              ; preds = %._crit_edge, %127, %118, %111
-  %.pre-phi73 = phi i64 [ %.pre72, %._crit_edge ], [ %116, %127 ], [ %116, %118 ], [ %116, %111 ]
+  %.pre-phi74 = phi i64 [ %.pre73, %._crit_edge ], [ %116, %127 ], [ %116, %118 ], [ %116, %111 ]
   %.pre-phi = phi i64 [ 0, %._crit_edge ], [ %112, %127 ], [ %112, %118 ], [ %112, %111 ]
-  %136 = phi i64 [ %.pre64, %._crit_edge ], [ %114, %127 ], [ %114, %118 ], [ %114, %111 ]
-  %137 = getelementptr i64, ptr %.pre62, i64 %.pre-phi
-  %138 = icmp ult i64 %32, %.pre-phi73
+  %136 = phi i64 [ %.pre65, %._crit_edge ], [ %114, %127 ], [ %114, %118 ], [ %114, %111 ]
+  %137 = getelementptr i64, ptr %.pre63, i64 %.pre-phi
+  %138 = icmp ult i64 %32, %.pre-phi74
   br i1 %138, label %163, label %158
 
 139:                                              ; preds = %127
@@ -558,7 +558,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 158:                                              ; preds = %135
   %159 = and i64 %136, 511
   %160 = add nuw nsw i64 %159, 1
-  %161 = add nuw nsw i64 %160, %.pre-phi73
+  %161 = add nuw nsw i64 %160, %.pre-phi74
   %162 = icmp ult i64 %32, %161
   br i1 %162, label %167, label %163
 
@@ -592,14 +592,14 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 
 181:                                              ; preds = %178
   %182 = sub nsw i64 %161, %32
-  %183 = icmp ne i64 %.pre-phi73, %32
+  %183 = icmp ne i64 %.pre-phi74, %32
   %184 = zext i1 %183 to i32
   %185 = shl i64 %182, 32
   %186 = ashr exact i64 %185, 32
   br label %190
 
 187:                                              ; preds = %178
-  %188 = icmp eq i64 %.pre-phi73, %32
+  %188 = icmp eq i64 %.pre-phi74, %32
   %189 = select i1 %188, i32 1, i32 2
   br label %190
 
@@ -612,7 +612,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 
 195:                                              ; preds = %190
   %196 = and i64 %136, -9223372036854775808
-  switch i32 %192, label %default.unreachable119 [
+  switch i32 %192, label %default.unreachable120 [
     i32 0, label %197
     i32 1, label %199
     i32 2, label %244
@@ -624,8 +624,8 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   br label %277
 
 199:                                              ; preds = %195
-  %200 = icmp eq i64 %.pre-phi73, %32
-  %201 = shl nuw nsw i64 %.pre-phi73, 9
+  %200 = icmp eq i64 %.pre-phi74, %32
+  %201 = shl nuw nsw i64 %.pre-phi74, 9
   br i1 %200, label %202, label %225
 
 202:                                              ; preds = %199
@@ -646,19 +646,19 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %215 = lshr i64 %204, 9
   %216 = and i64 %215, 18014398509481983
   %217 = and i64 %203, 511
-  %.neg42 = add nsw i64 %161, -2
+  %.neg43 = add nsw i64 %161, -2
   %218 = add nuw nsw i64 %217, %216
-  %219 = sub nsw i64 %.neg42, %218
+  %219 = sub nsw i64 %.neg43, %218
   %220 = or i64 %214, %219
   %221 = or i64 %220, %196
   %222 = add nuw i32 %48, 1
   %223 = sext i32 %222 to i64
-  %224 = getelementptr i64, ptr %.pre62, i64 %223
+  %224 = getelementptr i64, ptr %.pre63, i64 %223
   store i64 %221, ptr %224, align 8
   br label %277
 
 225:                                              ; preds = %199
-  %226 = xor i64 %.pre-phi73, -1
+  %226 = xor i64 %.pre-phi74, -1
   %227 = add nsw i64 %32, %226
   %228 = or i64 %227, %196
   %229 = or i64 %228, %201
@@ -677,13 +677,13 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %240 = or i64 %239, -9223372036854775808
   %241 = add nuw i32 %48, 1
   %242 = sext i32 %241 to i64
-  %243 = getelementptr i64, ptr %.pre62, i64 %242
+  %243 = getelementptr i64, ptr %.pre63, i64 %242
   store i64 %240, ptr %243, align 8
   br label %277
 
 244:                                              ; preds = %195
-  %245 = shl nuw nsw i64 %.pre-phi73, 9
-  %246 = xor i64 %.pre-phi73, -1
+  %245 = shl nuw nsw i64 %.pre-phi74, 9
+  %246 = xor i64 %.pre-phi74, -1
   %247 = add nsw i64 %32, %246
   %248 = or i64 %247, %245
   %249 = or i64 %248, %196
@@ -702,7 +702,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %260 = or i64 %259, -9223372036854775808
   %261 = add nuw i32 %48, 1
   %262 = sext i32 %261 to i64
-  %263 = getelementptr i64, ptr %.pre62, i64 %262
+  %263 = getelementptr i64, ptr %.pre63, i64 %262
   store i64 %260, ptr %263, align 8
   %264 = lshr i64 %259, 9
   %265 = and i64 %264, 18014398509481983
@@ -716,11 +716,11 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   %273 = or i64 %272, %196
   %274 = add nuw i32 %48, 2
   %275 = sext i32 %274 to i64
-  %276 = getelementptr i64, ptr %.pre62, i64 %275
+  %276 = getelementptr i64, ptr %.pre63, i64 %275
   store i64 %273, ptr %276, align 8
   br label %277
 
-default.unreachable119:                           ; preds = %195
+default.unreachable120:                           ; preds = %195
   unreachable
 
 277:                                              ; preds = %244, %225, %202, %197
@@ -779,11 +779,11 @@ default.unreachable119:                           ; preds = %195
   %318 = shl i32 %317, 3
   %319 = sext i32 %318 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %283, ptr align 8 %315, i64 %319, i1 false)
-  %.pre65 = load i32, ptr %18, align 8
+  %.pre66 = load i32, ptr %18, align 8
   br label %320
 
 320:                                              ; preds = %314, %305
-  %321 = phi i32 [ %.pre65, %314 ], [ %312, %305 ]
+  %321 = phi i32 [ %.pre66, %314 ], [ %312, %305 ]
   %322 = add i32 %321, -1
   store i32 %322, ptr %18, align 8
   br label %332
@@ -808,7 +808,7 @@ default.unreachable119:                           ; preds = %195
 334:                                              ; preds = %163
   %335 = and i64 %136, 511
   %336 = add nuw nsw i64 %335, 1
-  %337 = add nuw nsw i64 %336, %.pre-phi73
+  %337 = add nuw nsw i64 %336, %.pre-phi74
   %338 = icmp ult i64 %32, %337
   br i1 %338, label %347, label %339
 
@@ -832,28 +832,28 @@ default.unreachable119:                           ; preds = %195
   tail call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #9, !srcloc !26
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 604, i32 2305, i64 12) #9, !srcloc !27
   tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #9, !srcloc !28
-  %.pre69 = load i64, ptr %137, align 8
-  %.pre74 = lshr i64 %.pre69, 9
-  %.pre76 = and i64 %.pre74, 18014398509481983
-  %.pre78 = and i64 %.pre69, 511
-  %.pre80 = add nuw nsw i64 %.pre78, 1
-  %.pre82 = add nuw nsw i64 %.pre80, %.pre76
+  %.pre70 = load i64, ptr %137, align 8
+  %.pre75 = lshr i64 %.pre70, 9
+  %.pre77 = and i64 %.pre75, 18014398509481983
+  %.pre79 = and i64 %.pre70, 511
+  %.pre81 = add nuw nsw i64 %.pre79, 1
+  %.pre83 = add nuw nsw i64 %.pre81, %.pre77
   br label %350
 
 350:                                              ; preds = %349, %347
-  %.pre-phi83 = phi i64 [ %.pre82, %349 ], [ %337, %347 ]
-  %.pre-phi79 = phi i64 [ %.pre78, %349 ], [ %335, %347 ]
-  %351 = phi i64 [ %.pre69, %349 ], [ %136, %347 ]
-  %352 = icmp samesign ult i64 %32, %.pre-phi83
+  %.pre-phi84 = phi i64 [ %.pre83, %349 ], [ %337, %347 ]
+  %.pre-phi80 = phi i64 [ %.pre79, %349 ], [ %335, %347 ]
+  %351 = phi i64 [ %.pre70, %349 ], [ %136, %347 ]
+  %352 = icmp samesign ult i64 %32, %.pre-phi84
   br i1 %352, label %353, label %356
 
 353:                                              ; preds = %350
-  %354 = sub nuw nsw i64 %.pre-phi83, %32
+  %354 = sub nuw nsw i64 %.pre-phi84, %32
   %355 = tail call i64 @llvm.umin.i64(i64 %33, i64 %354)
   br label %376
 
 356:                                              ; preds = %350
-  %357 = xor i64 %.pre-phi79, 511
+  %357 = xor i64 %.pre-phi80, 511
   %358 = tail call i64 @llvm.umin.i64(i64 %33, i64 %357)
   %359 = add nuw i32 %48, 1
   %360 = load i32, ptr %18, align 8
@@ -862,18 +862,18 @@ default.unreachable119:                           ; preds = %195
 
 362:                                              ; preds = %356
   %363 = sext i32 %359 to i64
-  %364 = getelementptr i64, ptr %.pre62, i64 %363
+  %364 = getelementptr i64, ptr %.pre63, i64 %363
   %365 = load i64, ptr %364, align 8
   %366 = lshr i64 %365, 9
   %367 = and i64 %366, 18014398509481983
-  %368 = sub nsw i64 %367, %.pre-phi83
+  %368 = sub nsw i64 %367, %.pre-phi84
   %369 = tail call i64 @llvm.umin.i64(i64 %358, i64 %368)
   br label %370
 
 370:                                              ; preds = %362, %356
   %371 = phi i64 [ %358, %356 ], [ %369, %362 ]
   %372 = and i64 %351, 9223372036854775296
-  %373 = add nuw nsw i64 %371, %.pre-phi79
+  %373 = add nuw nsw i64 %371, %.pre-phi80
   %374 = or i64 %372, %373
   %375 = or i64 %374, %20
   store i64 %375, ptr %137, align 8
@@ -890,7 +890,7 @@ default.unreachable119:                           ; preds = %195
 
 381:                                              ; preds = %380
   %382 = sext i32 %345 to i64
-  %383 = getelementptr i64, ptr %.pre62, i64 %382
+  %383 = getelementptr i64, ptr %.pre63, i64 %382
   %384 = load i64, ptr %383, align 8
   %385 = lshr i64 %384, 9
   %386 = and i64 %385, 18014398509481983
@@ -918,10 +918,10 @@ default.unreachable119:                           ; preds = %195
 
 403:                                              ; preds = %343
   %404 = sext i32 %345 to i64
-  br i1 %346, label %405, label %._crit_edge84
+  br i1 %346, label %405, label %._crit_edge85
 
 405:                                              ; preds = %403
-  %406 = getelementptr i64, ptr %.pre62, i64 %404
+  %406 = getelementptr i64, ptr %.pre63, i64 %404
   %407 = load i64, ptr %406, align 8
   %408 = lshr i64 %407, 9
   %409 = and i64 %408, 18014398509481983
@@ -947,9 +947,9 @@ default.unreachable119:                           ; preds = %195
   %424 = shl i32 %423, 3
   %425 = sext i32 %424 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %422, ptr align 8 %406, i64 %425, i1 false)
-  br label %._crit_edge84
+  br label %._crit_edge85
 
-._crit_edge84:                                    ; preds = %403, %421
+._crit_edge85:                                    ; preds = %403, %421
   %426 = phi i64 [ %.ph, %421 ], [ %33, %403 ]
   %427 = tail call i64 @llvm.umin.i64(i64 %426, i64 512)
   %428 = trunc nuw nsw i64 %427 to i32
@@ -957,7 +957,7 @@ default.unreachable119:                           ; preds = %195
   %430 = add nsw i64 %427, -1
   %431 = or i64 %429, %430
   %432 = or i64 %431, %20
-  %433 = getelementptr i64, ptr %.pre62, i64 %404
+  %433 = getelementptr i64, ptr %.pre63, i64 %404
   store i64 %432, ptr %433, align 8
   %434 = load i32, ptr %18, align 8
   %435 = add i32 %434, 1
@@ -965,12 +965,12 @@ default.unreachable119:                           ; preds = %195
   %436 = add i32 %29, 1
   br label %437
 
-437:                                              ; preds = %.thread, %._crit_edge84, %400, %391, %381, %380, %376, %332, %171, %154, %107, %88, %52, %36
-  %438 = phi i32 [ %27, %36 ], [ 0, %52 ], [ %48, %154 ], [ %48, %.thread ], [ %48, %376 ], [ %345, %400 ], [ %345, %._crit_edge84 ], [ 0, %88 ], [ 0, %107 ], [ %48, %171 ], [ %48, %332 ], [ -1, %391 ], [ -1, %380 ], [ -1, %381 ]
-  %439 = phi i32 [ %28, %36 ], [ %48, %52 ], [ %48, %154 ], [ %48, %.thread ], [ %48, %376 ], [ %48, %400 ], [ %48, %._crit_edge84 ], [ %48, %88 ], [ %48, %107 ], [ %48, %171 ], [ %48, %332 ], [ %48, %391 ], [ %48, %380 ], [ %48, %381 ]
-  %440 = phi i32 [ %46, %36 ], [ %69, %52 ], [ %157, %154 ], [ %29, %.thread ], [ %379, %376 ], [ %29, %400 ], [ %436, %._crit_edge84 ], [ %29, %88 ], [ %108, %107 ], [ %175, %171 ], [ %278, %332 ], [ %29, %391 ], [ %29, %380 ], [ %29, %381 ]
-  %441 = phi i32 [ %39, %36 ], [ %62, %52 ], [ 0, %154 ], [ %331, %.thread ], [ %378, %376 ], [ %402, %400 ], [ %428, %._crit_edge84 ], [ %92, %88 ], [ %95, %107 ], [ %174, %171 ], [ %333, %332 ], [ %31, %391 ], [ %31, %380 ], [ %31, %381 ]
-  %442 = phi i32 [ %30, %36 ], [ %30, %52 ], [ %30, %154 ], [ %30, %.thread ], [ %30, %376 ], [ %30, %400 ], [ %30, %._crit_edge84 ], [ 1, %88 ], [ %30, %107 ], [ %30, %171 ], [ %30, %332 ], [ 1, %391 ], [ 1, %380 ], [ 1, %381 ]
+437:                                              ; preds = %332, %.thread, %._crit_edge85, %400, %391, %381, %380, %376, %171, %154, %107, %88, %52, %36
+  %438 = phi i32 [ %27, %36 ], [ 0, %52 ], [ %48, %154 ], [ %48, %376 ], [ %345, %400 ], [ %345, %._crit_edge85 ], [ 0, %88 ], [ 0, %107 ], [ %48, %171 ], [ -1, %391 ], [ -1, %380 ], [ -1, %381 ], [ %48, %332 ], [ %48, %.thread ]
+  %439 = phi i32 [ %28, %36 ], [ %48, %52 ], [ %48, %154 ], [ %48, %376 ], [ %48, %400 ], [ %48, %._crit_edge85 ], [ %48, %88 ], [ %48, %107 ], [ %48, %171 ], [ %48, %391 ], [ %48, %380 ], [ %48, %381 ], [ %48, %332 ], [ %48, %.thread ]
+  %440 = phi i32 [ %46, %36 ], [ %69, %52 ], [ %157, %154 ], [ %379, %376 ], [ %29, %400 ], [ %436, %._crit_edge85 ], [ %29, %88 ], [ %108, %107 ], [ %175, %171 ], [ %29, %391 ], [ %29, %380 ], [ %29, %381 ], [ %278, %332 ], [ %29, %.thread ]
+  %441 = phi i32 [ %39, %36 ], [ %62, %52 ], [ 0, %154 ], [ %378, %376 ], [ %402, %400 ], [ %428, %._crit_edge85 ], [ %92, %88 ], [ %95, %107 ], [ %174, %171 ], [ %31, %391 ], [ %31, %380 ], [ %31, %381 ], [ %333, %332 ], [ %331, %.thread ]
+  %442 = phi i32 [ %30, %36 ], [ %30, %52 ], [ %30, %154 ], [ %30, %376 ], [ %30, %400 ], [ %30, %._crit_edge85 ], [ 1, %88 ], [ %30, %107 ], [ %30, %171 ], [ 1, %391 ], [ 1, %380 ], [ 1, %381 ], [ %30, %332 ], [ %30, %.thread ]
   %443 = sext i32 %441 to i64
   %444 = add i64 %32, %443
   %445 = sub i32 %31, %441
@@ -1043,18 +1043,18 @@ default.unreachable119:                           ; preds = %195
   %492 = shl i32 %491, 3
   %493 = sext i32 %492 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %489, ptr align 8 %490, i64 %493, i1 false)
-  %.pre68 = load i32, ptr %18, align 8
+  %.pre69 = load i32, ptr %18, align 8
   br label %494
 
 494:                                              ; preds = %488, %479
-  %495 = phi i32 [ %.pre68, %488 ], [ %486, %479 ]
+  %495 = phi i32 [ %.pre69, %488 ], [ %486, %479 ]
   %496 = add i32 %495, -1
   store i32 %496, ptr %18, align 8
   br label %497
 
 497:                                              ; preds = %494, %471, %456, %452, %450
   %498 = icmp eq i32 %442, 0
-  br i1 %498, label %.loopexit44, label %499
+  br i1 %498, label %.loopexit45, label %499
 
 499:                                              ; preds = %497
   %500 = load i32, ptr %18, align 8
@@ -1062,14 +1062,14 @@ default.unreachable119:                           ; preds = %195
   %502 = add nuw nsw i32 %25, 1
   %503 = icmp samesign ult i32 %25, 3
   %504 = select i1 %501, i1 %503, i1 false
-  br i1 %504, label %21, label %.loopexit44
+  br i1 %504, label %21, label %.loopexit45
 
-.loopexit44:                                      ; preds = %499, %497, %70
+.loopexit45:                                      ; preds = %499, %497, %70
   %505 = phi i32 [ %29, %70 ], [ %440, %497 ], [ %440, %499 ]
   %506 = icmp eq i32 %505, 0
   br i1 %506, label %.loopexit, label %507
 
-507:                                              ; preds = %.loopexit44
+507:                                              ; preds = %.loopexit45
   %508 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %509 = load i32, ptr %508, align 8
   %510 = icmp eq i32 %509, 1
@@ -1097,7 +1097,7 @@ default.unreachable119:                           ; preds = %195
 520:                                              ; preds = %515
   %521 = load i32, ptr %18, align 8
   %522 = icmp sgt i32 %521, 0
-  br i1 %522, label %523, label %.loopexit43
+  br i1 %522, label %523, label %.loopexit44
 
 523:                                              ; preds = %520
   %524 = zext nneg i32 %521 to i64
@@ -1106,7 +1106,7 @@ default.unreachable119:                           ; preds = %195
 525:                                              ; preds = %528
   %526 = add nuw nsw i64 %529, 1
   %527 = icmp eq i64 %526, %524
-  br i1 %527, label %.loopexit43, label %528, !llvm.loop !32
+  br i1 %527, label %.loopexit44, label %528, !llvm.loop !32
 
 528:                                              ; preds = %525, %523
   %529 = phi i64 [ 0, %523 ], [ %526, %525 ]
@@ -1115,11 +1115,11 @@ default.unreachable119:                           ; preds = %195
   %532 = icmp sgt i64 %531, -1
   br i1 %532, label %.loopexit, label %525
 
-.loopexit43:                                      ; preds = %525, %520
+.loopexit44:                                      ; preds = %525, %520
   store i32 0, ptr %517, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %528, %.loopexit43, %515, %513, %.loopexit44
+.loopexit:                                        ; preds = %528, %.loopexit44, %515, %513, %.loopexit45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !33
   %533 = load i32, ptr %11, align 4
   %534 = add i32 %533, 1

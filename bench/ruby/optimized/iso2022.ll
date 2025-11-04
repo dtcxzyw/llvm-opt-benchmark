@@ -509,10 +509,10 @@ switch.lookup:                                    ; preds = %53
   store i8 27, ptr %.076, align 1, !tbaa !6
   %57 = getelementptr inbounds nuw i8, ptr %.076, i64 2
   %switch.shiftamt = shl nuw nsw i32 %.0.i87, 3
-  %switch.downshift = lshr i32 673457192, %switch.shiftamt
+  %switch.downshift = lshr i32 673447976, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %switch.shiftamt122 = shl nuw nsw i32 %.0.i87, 3
-  %switch.downshift123 = lshr i32 1229078594, %switch.shiftamt122
+  %switch.downshift123 = lshr i32 1229062210, %switch.shiftamt122
   %switch.masked124 = trunc i32 %switch.downshift123 to i8
   store i8 %switch.masked, ptr %56, align 1, !tbaa !6
   store i8 %switch.masked124, ptr %57, align 1, !tbaa !6
@@ -771,10 +771,10 @@ switch.lookup:                                    ; preds = %12
   store i8 27, ptr %3, align 1, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %switch.shiftamt = shl nuw nsw i32 %.0, 3
-  %switch.downshift = lshr i32 673457192, %switch.shiftamt
+  %switch.downshift = lshr i32 673447976, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %switch.shiftamt21 = shl nuw nsw i32 %.0, 3
-  %switch.downshift22 = lshr i32 1229078594, %switch.shiftamt21
+  %switch.downshift22 = lshr i32 1229062210, %switch.shiftamt21
   %switch.masked23 = trunc i32 %switch.downshift22 to i8
   store i8 %switch.masked, ptr %15, align 1, !tbaa !6
   store i8 %switch.masked23, ptr %16, align 1, !tbaa !6

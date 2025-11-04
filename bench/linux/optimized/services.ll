@@ -3908,7 +3908,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %33 = call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 2336) #23
   store ptr %33, ptr %30, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread19, label %35
+  br i1 %34, label %.thread20, label %35
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr @secclass_map, align 8
@@ -3922,15 +3922,15 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 40:                                               ; preds = %.backedge, %38
   %41 = phi ptr [ %33, %38 ], [ %.pre, %.backedge ]
   %42 = phi ptr [ %36, %38 ], [ %.be, %.backedge ]
-  %43 = phi ptr [ @secclass_map, %38 ], [ %.be26, %.backedge ]
+  %43 = phi ptr [ @secclass_map, %38 ], [ %.be27, %.backedge ]
   %44 = phi i16 [ 0, %38 ], [ %46, %.backedge ]
-  %45 = phi i8 [ 0, %38 ], [ %.be28, %.backedge ]
+  %45 = phi i8 [ 0, %38 ], [ %.be29, %.backedge ]
   %46 = add i16 %44, 1
   %47 = zext i16 %46 to i64
   %48 = getelementptr %struct.selinux_mapping, ptr %41, i64 %47
   %49 = load i8, ptr %42, align 1
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.loopexit21, label %51, !llvm.loop !61
+  br i1 %50, label %.loopexit22, label %51, !llvm.loop !61
 
 51:                                               ; preds = %40
   %52 = call zeroext i16 @string_to_security_class(ptr noundef nonnull %17, ptr noundef nonnull %42) #19
@@ -3942,7 +3942,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit21, label %58
+  br i1 %57, label %.loopexit22, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -3953,12 +3953,12 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %62 = load i8, ptr %39, align 4
   %63 = and i8 %62, 1
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.thread16, label %.loopexit23, !llvm.loop !61
+  br i1 %64, label %.thread17, label %.loopexit24, !llvm.loop !61
 
 65:                                               ; preds = %.preheader
   %66 = load i8, ptr %72, align 1
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %.preheader, label %.loopexit22, !llvm.loop !62
+  br i1 %67, label %.preheader, label %.loopexit23, !llvm.loop !62
 
 .preheader:                                       ; preds = %93, %65
   %68 = phi i16 [ %69, %65 ], [ %96, %93 ]
@@ -3967,9 +3967,9 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %71 = getelementptr ptr, ptr %55, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit21, label %65, !llvm.loop !62
+  br i1 %73, label %.loopexit22, label %65, !llvm.loop !62
 
-.loopexit22:                                      ; preds = %65, %93
+.loopexit23:                                      ; preds = %65, %93
   %74 = phi ptr [ %94, %93 ], [ %72, %65 ]
   %75 = phi i64 [ %95, %93 ], [ %70, %65 ]
   %76 = phi i16 [ %96, %93 ], [ %69, %65 ]
@@ -3980,21 +3980,21 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %80 = icmp eq i32 %78, 0
   br i1 %80, label %81, label %86
 
-81:                                               ; preds = %.loopexit22
+81:                                               ; preds = %.loopexit23
   %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef nonnull %74, ptr noundef nonnull %42) #20
   %83 = load i8, ptr %39, align 4
   %84 = and i8 %83, 1
   %85 = icmp eq i8 %84, 0
-  br i1 %85, label %86, label %.loopexit23
+  br i1 %85, label %86, label %.loopexit24
 
-86:                                               ; preds = %81, %.loopexit22
-  %87 = phi i8 [ %97, %.loopexit22 ], [ 1, %81 ]
+86:                                               ; preds = %81, %.loopexit23
+  %87 = phi i8 [ %97, %.loopexit23 ], [ 1, %81 ]
   %88 = add i16 %76, 1
   %89 = zext i16 %88 to i64
   %90 = getelementptr ptr, ptr %55, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit21, label %93, !llvm.loop !62
+  br i1 %92, label %.loopexit22, label %93, !llvm.loop !62
 
 93:                                               ; preds = %86, %58
   %94 = phi ptr [ %56, %58 ], [ %91, %86 ]
@@ -4003,9 +4003,9 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %97 = phi i8 [ %45, %58 ], [ %87, %86 ]
   %98 = load i8, ptr %94, align 1
   %99 = icmp eq i8 %98, 0
-  br i1 %99, label %.preheader, label %.loopexit22
+  br i1 %99, label %.preheader, label %.loopexit23
 
-.loopexit21:                                      ; preds = %86, %.preheader, %54, %40
+.loopexit22:                                      ; preds = %86, %.preheader, %54, %40
   %100 = phi i16 [ 0, %40 ], [ 0, %54 ], [ %69, %.preheader ], [ %88, %86 ]
   %101 = phi i8 [ %45, %40 ], [ %45, %54 ], [ %97, %.preheader ], [ %87, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %48, i64 2
@@ -4015,26 +4015,26 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %105 = icmp eq ptr %104, null
   br i1 %105, label %110, label %.backedge
 
-.backedge:                                        ; preds = %.loopexit21, %.thread16
-  %.be = phi ptr [ %104, %.loopexit21 ], [ %108, %.thread16 ]
-  %.be26 = phi ptr [ %103, %.loopexit21 ], [ %107, %.thread16 ]
-  %.be28 = phi i8 [ %101, %.loopexit21 ], [ 1, %.thread16 ]
+.backedge:                                        ; preds = %.loopexit22, %.thread17
+  %.be = phi ptr [ %104, %.loopexit22 ], [ %108, %.thread17 ]
+  %.be27 = phi ptr [ %103, %.loopexit22 ], [ %107, %.thread17 ]
+  %.be29 = phi i8 [ %101, %.loopexit22 ], [ 1, %.thread17 ]
   %.pre = load ptr, ptr %30, align 8
   br label %40, !llvm.loop !61
 
-.thread16:                                        ; preds = %60
+.thread17:                                        ; preds = %60
   %106 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 0, ptr %106, align 2
   %107 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %47
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %.thread17, label %.backedge
+  br i1 %109, label %.thread18, label %.backedge
 
-110:                                              ; preds = %.loopexit21
+110:                                              ; preds = %.loopexit22
   %111 = icmp eq i8 %101, 0
-  br i1 %111, label %118, label %.thread17
+  br i1 %111, label %118, label %.thread18
 
-.thread17:                                        ; preds = %.thread16, %110
+.thread18:                                        ; preds = %.thread17, %110
   %112 = load i8, ptr %39, align 4
   %113 = and i8 %112, 2
   %114 = icmp eq i8 %113, 0
@@ -4042,13 +4042,13 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %116 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, ptr noundef nonnull %115) #20
   br label %118
 
-.loopexit23:                                      ; preds = %60, %81
+.loopexit24:                                      ; preds = %60, %81
   %117 = load ptr, ptr %30, align 8
   call void @kfree(ptr noundef %117) #19
   store ptr null, ptr %30, align 8
-  br label %.thread19
+  br label %.thread20
 
-118:                                              ; preds = %.thread17, %110, %35
+118:                                              ; preds = %.thread18, %110, %35
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 608
   store i16 %28, ptr %119, align 8
   %120 = load ptr, ptr %10, align 8
@@ -4084,7 +4084,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 134:                                              ; preds = %130
   %135 = load i32, ptr %6, align 4
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %.loopexit20, label %137
+  br i1 %136, label %.loopexit21, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr i8, ptr %10, i64 136
@@ -4111,13 +4111,13 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 152:                                              ; preds = %148, %142
   %153 = add nuw nsw i64 %143, 1
   %154 = icmp eq i64 %153, %141
-  br i1 %154, label %.loopexit20, label %142, !llvm.loop !63
+  br i1 %154, label %.loopexit21, label %142, !llvm.loop !63
 
-.loopexit20:                                      ; preds = %152, %134
+.loopexit21:                                      ; preds = %152, %134
   call void @evaluate_cond_nodes(ptr noundef nonnull %17) #19
   br label %155
 
-155:                                              ; preds = %.loopexit20, %130
+155:                                              ; preds = %.loopexit21, %130
   %156 = load ptr, ptr %5, align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %.loopexit, label %158
@@ -4195,15 +4195,15 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %193 = phi i32 [ %121, %123 ], [ %190, %189 ]
   %194 = load ptr, ptr %30, align 8
   call void @kfree(ptr noundef %194) #19
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %29, %.loopexit23, %192
-  %195 = phi i32 [ %193, %192 ], [ -12, %29 ], [ -22, %.loopexit23 ]
+.thread20:                                        ; preds = %29, %.loopexit24, %192
+  %195 = phi i32 [ %193, %192 ], [ -12, %29 ], [ -22, %.loopexit24 ]
   call void @policydb_destroy(ptr noundef nonnull %17) #19
   br label %196
 
-196:                                              ; preds = %.thread19, %16
-  %197 = phi i32 [ %18, %16 ], [ %195, %.thread19 ]
+196:                                              ; preds = %.thread20, %16
+  %197 = phi i32 [ %18, %16 ], [ %195, %.thread20 ]
   %198 = load ptr, ptr %10, align 8
   call void @kfree(ptr noundef %198) #19
   br label %199

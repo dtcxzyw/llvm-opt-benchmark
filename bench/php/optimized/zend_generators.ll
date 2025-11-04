@@ -1619,23 +1619,23 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   %14 = load i32, ptr %13, align 8, !tbaa !101
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = zext i32 %9 to i64
-  %umax143 = tail call i32 @llvm.umax.i32(i32 %9, i32 %14)
-  %wide.trip.count144 = zext i32 %umax143 to i64
-  br i1 %.not107, label %.preheader, label %.preheader124
+  %umax144 = tail call i32 @llvm.umax.i32(i32 %9, i32 %14)
+  %wide.trip.count145 = zext i32 %umax144 to i64
+  br i1 %.not107, label %.preheader, label %.preheader125
 
-.preheader124:                                    ; preds = %7, %17
+.preheader125:                                    ; preds = %7, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %16, %7 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count144
-  br i1 %exitcond.not, label %.thread118, label %17, !prof !26
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count145
+  br i1 %exitcond.not, label %.thread120, label %17, !prof !26
 
-17:                                               ; preds = %.preheader124
+17:                                               ; preds = %.preheader125
   %18 = load ptr, ptr %15, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw %struct._zval_struct, ptr %18, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !24
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.preheader124, label %23
+  br i1 %22, label %.preheader125, label %23
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1663,14 +1663,14 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   br label %.thread
 
 .preheader:                                       ; preds = %7, %35
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %35 ], [ %16, %7 ]
-  %exitcond145.not = icmp eq i64 %indvars.iv140, %wide.trip.count144
-  br i1 %exitcond145.not, label %.thread118, label %35, !prof !26
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %35 ], [ %16, %7 ]
+  %exitcond146.not = icmp eq i64 %indvars.iv141, %wide.trip.count145
+  br i1 %exitcond146.not, label %.thread120, label %35, !prof !26
 
 35:                                               ; preds = %.preheader
   %36 = load ptr, ptr %15, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw %struct._Bucket, ptr %36, i64 %indvars.iv140
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %37 = getelementptr inbounds nuw %struct._Bucket, ptr %36, i64 %indvars.iv141
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !24
   %40 = icmp eq i8 %39, 0
@@ -1725,7 +1725,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
 
 .thread:                                          ; preds = %55, %59, %62, %33
   %.sink = phi i32 [ 262, %59 ], [ 4, %62 ], [ 4, %33 ], [ 6, %55 ]
-  %.1.in = phi i64 [ %indvars.iv.next141, %59 ], [ %indvars.iv.next141, %62 ], [ %indvars.iv.next, %33 ], [ %indvars.iv.next141, %55 ]
+  %.1.in = phi i64 [ %indvars.iv.next142, %59 ], [ %indvars.iv.next142, %62 ], [ %indvars.iv.next, %33 ], [ %indvars.iv.next142, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %65, align 8, !tbaa !24
   %.1 = trunc i64 %.1.in to i32
@@ -1748,7 +1748,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   tail call void %74(ptr noundef nonnull %6) #11
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !102
   %.not101 = icmp eq ptr %75, null
-  br i1 %.not101, label %76, label %.thread118, !prof !58
+  br i1 %.not101, label %76, label %.thread120, !prof !58
 
 76:                                               ; preds = %70, %66
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1757,7 +1757,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   %80 = load ptr, ptr %79, align 8, !tbaa !122
   %81 = tail call i32 %80(ptr noundef nonnull %6) #11
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %.thread118, label %83
+  br i1 %82, label %.thread120, label %83
 
 83:                                               ; preds = %76
   %84 = load ptr, ptr %77, align 8, !tbaa !119
@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   %.not102 = icmp ne ptr %88, null
   %.not103 = icmp eq ptr %87, null
   %or.cond = select i1 %.not102, i1 true, i1 %.not103, !prof !124
-  br i1 %or.cond, label %.thread118, label %89, !prof !124
+  br i1 %or.cond, label %.thread120, label %89, !prof !124
 
 89:                                               ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1807,7 +1807,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %107, align 8, !tbaa !24
-  br label %.thread118
+  br label %.thread120
 
 108:                                              ; preds = %99
   %109 = load i64, ptr %67, align 8, !tbaa !116
@@ -1816,13 +1816,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_generator_get_next_delegated_v
   store i32 4, ptr %110, align 8, !tbaa !24
   br label %111
 
-.thread118:                                       ; preds = %.preheader124, %.preheader, %83, %76, %70, %106
+.thread120:                                       ; preds = %.preheader125, %.preheader, %83, %76, %70, %106
   tail call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
   store i32 0, ptr %3, align 8, !tbaa !24
   br label %111
 
-111:                                              ; preds = %104, %108, %.thread, %.thread118
-  %.0 = phi i32 [ -1, %.thread118 ], [ 0, %.thread ], [ 0, %108 ], [ 0, %104 ]
+111:                                              ; preds = %104, %108, %.thread, %.thread120
+  %.0 = phi i32 [ -1, %.thread120 ], [ 0, %.thread ], [ 0, %108 ], [ 0, %104 ]
   ret i32 %.0
 }
 

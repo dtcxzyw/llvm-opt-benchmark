@@ -64451,7 +64451,7 @@ switch.lookup:                                    ; preds = %43, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !13130
   br label %114
 
-114:                                              ; preds = %.split153.us.i, %128, %.critedge.i, %113
+114:                                              ; preds = %.critedge.i, %.split153.us.i, %128, %113
   call void @llvm.experimental.noalias.scope.decl(metadata !13170)
   call void @llvm.experimental.noalias.scope.decl(metadata !13173)
   %115 = load i64, ptr %13, align 8, !range !57, !alias.scope !13176, !noalias !13130, !noundef !9
@@ -64479,14 +64479,14 @@ switch.lookup:                                    ; preds = %43, %51
 
 .critedge.i:                                      ; preds = %106
   %124 = add nuw nsw i8 %111, 15
-  %switch.offset.i = select i1 %109, i8 13, i8 %124
+  %switch.masked = select i1 %109, i8 13, i8 %124
   store i8 0, ptr %0, align 8, !alias.scope !13123, !noalias !13169
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 8, ptr %.sroa.411.0..sroa_idx.i, align 1, !alias.scope !13123, !noalias !13169
   %.sroa.613.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 4, ptr %.sroa.613.0..sroa_idx.i, align 8, !alias.scope !13123, !noalias !13169
   %.sroa.613.sroa.4.0..sroa.613.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %switch.offset.i, ptr %.sroa.613.sroa.4.0..sroa.613.0..sroa_idx.sroa_idx.i, align 1, !alias.scope !13123, !noalias !13169
+  store i8 %switch.masked, ptr %.sroa.613.sroa.4.0..sroa.613.0..sroa_idx.sroa_idx.i, align 1, !alias.scope !13123, !noalias !13169
   br label %114
 
 125:                                              ; preds = %123

@@ -3795,12 +3795,12 @@ _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %52, %58
   %87 = trunc i64 %64 to i32
   %88 = lshr i32 %87, 8
   %89 = and i32 %88, 1048575
-  %.not76133 = icmp eq i32 %89, 0
-  br i1 %.not76133, label %.thread106, label %.lr.ph
+  %.not76134 = icmp eq i32 %89, 0
+  br i1 %.not76134, label %.thread106, label %.lr.ph
 
 .lr.ph:                                           ; preds = %84, %.backedge
   %90 = phi i32 [ %110, %.backedge ], [ %89, %84 ]
-  %.259134 = phi i32 [ %90, %.backedge ], [ %1, %84 ]
+  %.259135 = phi i32 [ %90, %.backedge ], [ %1, %84 ]
   %91 = icmp slt i32 %90, %56
   br i1 %91, label %92, label %_ZNK6icu_779UVector6410elementAtiEi.exit83
 
@@ -3845,13 +3845,13 @@ _ZNK6icu_779UVector6410elementAtiEi.exit83:       ; preds = %.lr.ph, %92
   br i1 %.not76, label %.thread106, label %.lr.ph
 
 .thread106:                                       ; preds = %.backedge, %99, %107, %84
-  %.259.lcssa = phi i32 [ %1, %84 ], [ %90, %.backedge ], [ %.259134, %99 ], [ %.259134, %107 ]
-  %.lcssa130 = phi i32 [ %89, %84 ], [ %110, %.backedge ], [ %90, %99 ], [ %90, %107 ]
+  %.259.lcssa = phi i32 [ %1, %84 ], [ %90, %.backedge ], [ %.259135, %99 ], [ %.259135, %107 ]
+  %.lcssa131 = phi i32 [ %89, %84 ], [ %110, %.backedge ], [ %90, %99 ], [ %90, %107 ]
   %111 = zext i32 %2 to i64
   %112 = shl i64 %111, 48
   %113 = sext i32 %3 to i64
   %114 = or i64 %112, %113
-  %115 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.259.lcssa, i32 noundef %.lcssa130, i64 noundef %114, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %115 = tail call noundef i32 @_ZN6icu_7716CollationBuilder17insertNodeBetweenEiilR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 noundef %.259.lcssa, i32 noundef %.lcssa131, i64 noundef %114, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit
 
 _ZNK6icu_7716CollationBuilder14findCommonNodeEii.exit: ; preds = %103, %_ZNK6icu_779UVector6410elementAtiEi.exit26.thread.i, %.thread, %28, %26, %_ZNK6icu_779UVector6410elementAtiEi.exit.i, %.thread106, %5

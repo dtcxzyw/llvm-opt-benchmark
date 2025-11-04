@@ -290,7 +290,7 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %29, align 8
   %30 = icmp samesign ult i64 %2, 4096
-  br i1 %30, label %.loopexit9, label %31
+  br i1 %30, label %.loopexit10, label %31
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -412,8 +412,8 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   %103 = getelementptr inbounds nuw i8, ptr %86, i64 12
   store i32 %102, ptr %103, align 4
   %.pre = load i64, ptr @vmemmap_base, align 8
-  %.pre20 = sub i64 %92, %.pre
-  %.pre22 = ashr exact i64 %.pre20, 6
+  %.pre21 = sub i64 %92, %.pre
+  %.pre23 = ashr exact i64 %.pre21, 6
   br label %108
 
 104:                                              ; preds = %77
@@ -424,27 +424,27 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   br label %108
 
 108:                                              ; preds = %96, %104
-  %.pre-phi23 = phi i64 [ %.pre22, %96 ], [ %81, %104 ]
+  %.pre-phi24 = phi i64 [ %.pre23, %96 ], [ %81, %104 ]
   %109 = phi ptr [ %86, %96 ], [ %37, %104 ]
-  %110 = add nsw i64 %.pre-phi23, %71
+  %110 = add nsw i64 %.pre-phi24, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = add nuw nsw i64 %71, %36
   %112 = icmp samesign ult i64 %111, %10
-  br i1 %112, label %35, label %.loopexit9, !llvm.loop !27
+  br i1 %112, label %35, label %.loopexit10, !llvm.loop !27
 
-.loopexit9:                                       ; preds = %108, %22
+.loopexit10:                                      ; preds = %108, %22
   %113 = phi ptr [ %28, %22 ], [ %109, %108 ]
   %114 = icmp eq ptr %113, null
   br i1 %114, label %119, label %115
 
-115:                                              ; preds = %.loopexit9
+115:                                              ; preds = %.loopexit10
   %116 = load i64, ptr %113, align 8
   %117 = and i64 %116, -4
   %118 = or disjoint i64 %117, 2
   store i64 %118, ptr %113, align 8
   br label %119
 
-119:                                              ; preds = %115, %.loopexit9
+119:                                              ; preds = %115, %.loopexit10
   %120 = tail call zeroext i1 @i915_sg_trim(ptr noundef %1) #12
   br label %134
 

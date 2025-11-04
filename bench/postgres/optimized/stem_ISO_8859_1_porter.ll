@@ -148,13 +148,13 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   %27 = phi i32 [ %6, %24 ], [ %.be, %.backedge ]
   %28 = tail call i32 @in_grouping(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 121, i32 noundef 0) #3
   %.not248 = icmp eq i32 %28, 0
-  %.pre355 = load i32, ptr %8, align 4
+  %.pre357 = load i32, ptr %8, align 4
   br i1 %.not248, label %29, label %37
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %5, align 8
   store i32 %30, ptr %7, align 4
-  %31 = icmp eq i32 %30, %.pre355
+  %31 = icmp eq i32 %30, %.pre357
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %29
@@ -167,7 +167,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
 
 37:                                               ; preds = %29, %32, %26
   store i32 %27, ptr %5, align 8
-  %.not250 = icmp slt i32 %27, %.pre355
+  %.not250 = icmp slt i32 %27, %.pre357
   br i1 %.not250, label %38, label %47
 
 38:                                               ; preds = %37
@@ -198,7 +198,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   store i32 %6, ptr %5, align 8
   %48 = load ptr, ptr %2, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 %.pre355, ptr %49, align 4
+  store i32 %.pre357, ptr %49, align 4
   %50 = load i32, ptr %8, align 4
   %51 = load ptr, ptr %2, align 8
   store i32 %50, ptr %51, align 4
@@ -294,8 +294,8 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   store i32 %99, ptr %25, align 8
   %100 = add i32 %99, -1
   %101 = load i32, ptr %77, align 8
-  %.not.i274 = icmp sgt i32 %100, %101
-  br i1 %.not.i274, label %102, label %165
+  %.not.i276 = icmp sgt i32 %100, %101
+  br i1 %.not.i276, label %102, label %165
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %0, align 8
@@ -481,7 +481,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i32, ptr %192, align 4
   %.not257 = icmp eq i32 %193, 0
-  br i1 %.not257, label %.thread330, label %.preheader
+  br i1 %.not257, label %.thread332, label %.preheader
 
 .preheader:                                       ; preds = %189, %207
   %194 = load i32, ptr %5, align 8
@@ -508,7 +508,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
 
 204:                                              ; preds = %197, %200
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.thread330, label %205
+  br i1 %exitcond.not, label %.thread332, label %205
 
 205:                                              ; preds = %204
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -524,12 +524,12 @@ define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef 
   %210 = icmp sgt i32 %209, -1
   br i1 %210, label %.preheader, label %.loopexit
 
-.thread330:                                       ; preds = %204, %189
+.thread332:                                       ; preds = %204, %189
   store i32 %190, ptr %5, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %40, %207, %113, %.critedge.i, %144, %149, %160, %89, %92, %95, %.thread330, %185, %181, %177, %173, %169, %165, %16
-  %.3 = phi i32 [ %19, %16 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %179, %177 ], [ %183, %181 ], [ %187, %185 ], [ 1, %.thread330 ], [ %90, %89 ], [ %93, %92 ], [ %96, %95 ], [ %114, %113 ], [ %145, %144 ], [ %151, %149 ], [ %163, %160 ], [ %122, %.critedge.i ], [ %209, %207 ], [ %42, %40 ]
+.loopexit:                                        ; preds = %40, %207, %113, %.critedge.i, %144, %149, %160, %89, %92, %95, %.thread332, %185, %181, %177, %173, %169, %165, %16
+  %.3 = phi i32 [ %19, %16 ], [ %167, %165 ], [ %171, %169 ], [ %175, %173 ], [ %179, %177 ], [ %183, %181 ], [ %187, %185 ], [ 1, %.thread332 ], [ %90, %89 ], [ %93, %92 ], [ %96, %95 ], [ %114, %113 ], [ %145, %144 ], [ %151, %149 ], [ %163, %160 ], [ %122, %.critedge.i ], [ %209, %207 ], [ %42, %40 ]
   ret i32 %.3
 }
 

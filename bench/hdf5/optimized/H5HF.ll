@@ -364,14 +364,14 @@ define range(i32 -1, 1) i32 @H5HF_close(ptr noundef %0) local_unnamed_addr #2 {
   %76 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF_close, i32 noundef 822, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.37) #5
   br label %77
 
-77:                                               ; preds = %66, %73, %70, %50, %58, %41, %33, %20
-  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %41 ], [ -1, %58 ], [ 0, %50 ], [ -1, %66 ], [ -1, %73 ], [ 0, %70 ]
+77:                                               ; preds = %50, %66, %73, %70, %58, %41, %33, %20
+  %.1 = phi i32 [ -1, %20 ], [ -1, %33 ], [ -1, %41 ], [ -1, %58 ], [ -1, %66 ], [ -1, %73 ], [ 0, %70 ], [ 0, %50 ]
   %78 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HF_t_reg_free_list, ptr noundef nonnull %0) #5
   br label %79
 
 79:                                               ; preds = %7, %77
-  %.023 = phi i32 [ %.1, %77 ], [ 0, %7 ]
-  ret i32 %.023
+  %.024 = phi i32 [ %.1, %77 ], [ 0, %7 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable

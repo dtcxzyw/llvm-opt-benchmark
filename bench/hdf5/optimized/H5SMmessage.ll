@@ -198,9 +198,9 @@ define range(i32 -1, 1) i32 @H5SM__message_compare(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %101
 
-101:                                              ; preds = %100, %3, %57, %60, %51, %26
-  %.039 = phi i32 [ 0, %26 ], [ 0, %57 ], [ 0, %60 ], [ %.138, %100 ], [ 0, %51 ], [ 0, %3 ]
-  ret i32 %.039
+101:                                              ; preds = %3, %57, %60, %51, %26, %100
+  %.037 = phi i32 [ 0, %26 ], [ 0, %57 ], [ 0, %60 ], [ %.138, %100 ], [ 0, %51 ], [ 0, %3 ]
+  ret i32 %.037
 }
 
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -326,9 +326,9 @@ define internal range(i32 -1, 2) i32 @H5SM__compare_iter_op(ptr noundef %0, ptr 
   store i32 %55, ptr %56, align 4, !tbaa !36
   br label %57
 
-57:                                               ; preds = %43, %33, %47, %29, %5, %12
-  %.023 = phi i32 [ 0, %12 ], [ 0, %5 ], [ -1, %43 ], [ 1, %33 ], [ 1, %47 ], [ 1, %29 ]
-  ret i32 %.023
+57:                                               ; preds = %5, %12, %29, %47, %33, %43
+  %.024 = phi i32 [ 0, %12 ], [ 0, %5 ], [ -1, %43 ], [ 1, %33 ], [ 1, %47 ], [ 1, %29 ]
+  ret i32 %.024
 }
 
 declare i32 @H5O_msg_iterate(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

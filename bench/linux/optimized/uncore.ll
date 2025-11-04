@@ -3580,16 +3580,16 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %15 = shl nsw i64 %14, 3
   %16 = load i32, ptr %3, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.preheader7, label %.loopexit9
+  br i1 %17, label %.preheader8, label %.loopexit10
 
-18:                                               ; preds = %.preheader7
+18:                                               ; preds = %.preheader8
   %19 = add nuw nsw i64 %23, 1
   %20 = load i32, ptr %3, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %19, %21
-  br i1 %22, label %.preheader7, label %.loopexit9, !llvm.loop !73
+  br i1 %22, label %.preheader8, label %.loopexit10, !llvm.loop !73
 
-.preheader7:                                      ; preds = %12, %18
+.preheader8:                                      ; preds = %12, %18
   %23 = phi i64 [ %19, %18 ], [ 0, %12 ]
   %24 = trunc i64 %23 to i32
   %25 = select i1 %1, i32 %24, i32 -1
@@ -3604,9 +3604,9 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 360
   store ptr %30, ptr %31, align 8
   %32 = icmp eq ptr %30, null
-  br i1 %32, label %.loopexit8, label %18
+  br i1 %32, label %.loopexit9, label %18
 
-.loopexit9:                                       ; preds = %18, %12
+.loopexit10:                                      ; preds = %18, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %10, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3629,18 +3629,18 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %76, label %.preheader6
+  br i1 %47, label %76, label %.preheader7
 
-.preheader6:                                      ; preds = %.loopexit9, %.preheader6
-  %48 = phi i32 [ %53, %.preheader6 ], [ 0, %.loopexit9 ]
+.preheader7:                                      ; preds = %.loopexit10, %.preheader7
+  %48 = phi i32 [ %53, %.preheader7 ], [ 0, %.loopexit10 ]
   %49 = sext i32 %48 to i64
   %50 = getelementptr %struct.uncore_event_desc, ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   %53 = add i32 %48, 1
-  br i1 %52, label %54, label %.preheader6, !llvm.loop !74
+  br i1 %52, label %54, label %.preheader7, !llvm.loop !74
 
-54:                                               ; preds = %.preheader6
+54:                                               ; preds = %.preheader7
   %55 = icmp slt i32 %53, 0
   %56 = sext i32 %53 to i64
   %57 = shl nsw i64 %56, 3
@@ -3648,7 +3648,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %59 = select i1 %55, i64 -1, i64 %58
   %60 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %59, i32 noundef 3520) #23
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit8, label %62
+  br i1 %61, label %.loopexit9, label %62
 
 62:                                               ; preds = %54
   store ptr @.str.9, ptr %60, align 8
@@ -3656,7 +3656,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %63, ptr %64, align 8
   %65 = icmp sgt i32 %48, 0
-  br i1 %65, label %66, label %.thread5
+  br i1 %65, label %66, label %.thread6
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %45, align 8
@@ -3670,14 +3670,14 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   store ptr %71, ptr %72, align 8
   %73 = add nuw nsw i64 %70, 1
   %74 = icmp eq i64 %73, %68
-  br i1 %74, label %.thread5, label %69, !llvm.loop !75
+  br i1 %74, label %.thread6, label %69, !llvm.loop !75
 
-.thread5:                                         ; preds = %69, %62
+.thread6:                                         ; preds = %69, %62
   %75 = getelementptr i8, ptr %0, i64 200
   store ptr %60, ptr %75, align 8
   br label %76
 
-76:                                               ; preds = %.thread5, %.loopexit9
+76:                                               ; preds = %.thread6, %.loopexit10
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr @uncore_pmu_attr_group, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -3689,13 +3689,13 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   tail call void %79(ptr noundef nonnull %0) #18
   br label %.thread
 
-.loopexit8:                                       ; preds = %.preheader7, %54
+.loopexit9:                                       ; preds = %.preheader8, %54
   %82 = load i32, ptr %3, align 4
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit8, %.preheader
-  %84 = phi i64 [ %87, %.preheader ], [ 0, %.loopexit8 ]
+.preheader:                                       ; preds = %.loopexit9, %.preheader
+  %84 = phi i64 [ %87, %.preheader ], [ 0, %.loopexit9 ]
   %.split = getelementptr %struct.intel_uncore_pmu, ptr %10, i64 %84
   %85 = getelementptr i8, ptr %.split, i64 360
   %86 = load ptr, ptr %85, align 8
@@ -3706,7 +3706,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
   %90 = icmp slt i64 %87, %89
   br i1 %90, label %.preheader, label %.loopexit, !llvm.loop !76
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit8
+.loopexit:                                        ; preds = %.preheader, %.loopexit9
   tail call void @kfree(ptr noundef nonnull %10) #18
   br label %.thread
 

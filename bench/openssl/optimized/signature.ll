@@ -943,7 +943,7 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__func__.evp_pkey_signature_init) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 786690, ptr noundef null) #8
-  br label %.thread201
+  br label %.thread203
 
 8:                                                ; preds = %4
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #8
@@ -981,14 +981,14 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
   br i1 %28, label %.thread, label %29
 
 .thread:                                          ; preds = %13, %22
-  %.1144197 = phi ptr [ %27, %22 ], [ null, %13 ]
+  %.1144199 = phi ptr [ %27, %22 ], [ null, %13 ]
   call void @EVP_KEYMGMT_free(ptr noundef %21) #8
   br label %29
 
 29:                                               ; preds = %.thread, %22
-  %.1144196 = phi ptr [ %.1144197, %.thread ], [ %27, %22 ]
-  %30 = icmp eq ptr %.1144196, null
-  br i1 %30, label %.thread207, label %31
+  %.1144198 = phi ptr [ %.1144199, %.thread ], [ %27, %22 ]
+  %30 = icmp eq ptr %.1144198, null
+  br i1 %30, label %.thread209, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -999,32 +999,32 @@ define internal fastcc i32 @evp_pkey_signature_init(ptr noundef %0, ptr noundef 
 34:                                               ; preds = %31
   %35 = call ptr %33() #8
   %36 = load ptr, ptr %35, align 8, !tbaa !73
-  %.not183242 = icmp eq ptr %36, null
-  br i1 %.not183242, label %.thread199, label %.lr.ph
+  %.not183244 = icmp eq ptr %36, null
+  br i1 %.not183244, label %.thread201, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %39
   %37 = phi ptr [ %41, %39 ], [ %36, %34 ]
-  %.0134243 = phi ptr [ %40, %39 ], [ %35, %34 ]
+  %.0134245 = phi ptr [ %40, %39 ], [ %35, %34 ]
   %38 = call i32 @EVP_PKEY_CTX_is_a(ptr noundef nonnull %0, ptr noundef nonnull %37) #8
   %.not184 = icmp eq i32 %38, 0
   br i1 %.not184, label %39, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %.0134243, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0134245, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !73
   %.not183 = icmp eq ptr %41, null
-  br i1 %.not183, label %.thread199, label %.lr.ph, !llvm.loop !74
+  br i1 %.not183, label %.thread201, label %.lr.ph, !llvm.loop !74
 
 42:                                               ; preds = %.lr.ph
-  %.pr198 = load ptr, ptr %.0134243, align 8, !tbaa !73
-  %.not185 = icmp eq ptr %.pr198, null
-  br i1 %.not185, label %.thread199, label %.thread204
+  %.pr200 = load ptr, ptr %.0134245, align 8, !tbaa !73
+  %.not185 = icmp eq ptr %.pr200, null
+  br i1 %.not185, label %.thread201, label %.thread206
 
-.thread199:                                       ; preds = %39, %34, %42
+.thread201:                                       ; preds = %39, %34, %42
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 567, ptr noundef nonnull @__func__.evp_pkey_signature_init) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #8
-  br label %.thread201
+  br label %.thread203
 
 EVP_SIGNATURE_is_a.exit:                          ; preds = %31
   %43 = load ptr, ptr %16, align 8, !tbaa !70
@@ -1032,25 +1032,25 @@ EVP_SIGNATURE_is_a.exit:                          ; preds = %31
   %45 = load ptr, ptr %14, align 8, !tbaa !12
   %46 = load i32, ptr %1, align 8, !tbaa !17
   %47 = call i32 @evp_is_a(ptr noundef %45, i32 noundef %46, ptr noundef null, ptr noundef %44) #8
-  %.not235 = icmp eq i32 %47, 0
-  br i1 %.not235, label %EVP_SIGNATURE_is_a.exit194, label %.thread204
+  %.not237 = icmp eq i32 %47, 0
+  br i1 %.not237, label %EVP_SIGNATURE_is_a.exit196, label %.thread206
 
-EVP_SIGNATURE_is_a.exit194:                       ; preds = %EVP_SIGNATURE_is_a.exit
+EVP_SIGNATURE_is_a.exit196:                       ; preds = %EVP_SIGNATURE_is_a.exit
   %48 = load ptr, ptr %16, align 8, !tbaa !70
   %49 = call ptr @evp_keymgmt_util_query_operation_name(ptr noundef %48, i32 noundef 12) #8
   %50 = load ptr, ptr %14, align 8, !tbaa !12
   %51 = load i32, ptr %1, align 8, !tbaa !17
   %52 = call i32 @evp_is_a(ptr noundef %50, i32 noundef %51, ptr noundef null, ptr noundef %49) #8
-  %.not236 = icmp eq i32 %52, 0
-  br i1 %.not236, label %53, label %.thread204
+  %.not238 = icmp eq i32 %52, 0
+  br i1 %.not238, label %53, label %.thread206
 
-53:                                               ; preds = %EVP_SIGNATURE_is_a.exit194
+53:                                               ; preds = %EVP_SIGNATURE_is_a.exit196
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 593, ptr noundef nonnull @__func__.evp_pkey_signature_init) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 228, ptr noundef null) #8
-  br label %.thread201
+  br label %.thread203
 
-.thread204:                                       ; preds = %42, %EVP_SIGNATURE_is_a.exit194, %EVP_SIGNATURE_is_a.exit
+.thread206:                                       ; preds = %42, %EVP_SIGNATURE_is_a.exit196, %EVP_SIGNATURE_is_a.exit
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = atomicrmw add ptr %54, i32 1 monotonic, align 4
   br label %129
@@ -1114,13 +1114,13 @@ EVP_SIGNATURE_is_a.exit194:                       ; preds = %EVP_SIGNATURE_is_a.
   br label %213
 
 82:                                               ; preds = %.preheader, %120
-  %.1131245 = phi ptr [ null, %.preheader ], [ %.3133.ph, %120 ]
-  %.0139244 = phi i32 [ 1, %.preheader ], [ %121, %120 ]
-  %83 = icmp eq ptr %.1131245, null
+  %.1131247 = phi ptr [ null, %.preheader ], [ %.3133.ph, %120 ]
+  %.0139246 = phi i32 [ 1, %.preheader ], [ %121, %120 ]
+  %83 = icmp eq ptr %.1131247, null
   br i1 %83, label %EVP_SIGNATURE_free.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %.1131245, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.1131247, i64 32
   %86 = atomicrmw sub ptr %85, i32 1 release, align 4
   %87 = icmp eq i32 %86, 1
   br i1 %87, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -1134,19 +1134,19 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %84
   br i1 %88, label %EVP_SIGNATURE_free.exit, label %89
 
 89:                                               ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %90 = getelementptr inbounds nuw i8, ptr %.1131245, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.1131247, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !3
   call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str, i32 noundef 393) #8
-  %92 = getelementptr inbounds nuw i8, ptr %.1131245, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.1131247, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !12
   call void @ossl_provider_free(ptr noundef %93) #8
-  call void @CRYPTO_free(ptr noundef nonnull %.1131245, ptr noundef nonnull @.str, i32 noundef 396) #8
+  call void @CRYPTO_free(ptr noundef nonnull %.1131247, ptr noundef nonnull @.str, i32 noundef 396) #8
   br label %EVP_SIGNATURE_free.exit
 
 EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_REF.exit.i, %89
   %94 = load ptr, ptr %5, align 8, !tbaa !57
   call void @EVP_KEYMGMT_free(ptr noundef %94) #8
-  %95 = icmp eq i32 %.0139244, 1
+  %95 = icmp eq i32 %.0139246, 1
   br i1 %95, label %96, label %103
 
 96:                                               ; preds = %EVP_SIGNATURE_free.exit
@@ -1178,27 +1178,27 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %113 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1141.ph, ptr noundef %111, ptr noundef %112) #8
   store ptr %113, ptr %5, align 8, !tbaa !57
   %.not178 = icmp eq ptr %113, null
-  br i1 %.not178, label %.thread217, label %114
+  br i1 %.not178, label %.thread219, label %114
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %63, align 8, !tbaa !69
   %116 = load ptr, ptr %79, align 8, !tbaa !72
   %117 = load ptr, ptr %78, align 8, !tbaa !71
   %118 = call ptr @evp_pkey_export_to_provider(ptr noundef %115, ptr noundef %116, ptr noundef nonnull %5, ptr noundef %117) #8
-  %.pr216 = load ptr, ptr %5, align 8, !tbaa !57
-  %119 = icmp eq ptr %.pr216, null
-  br i1 %119, label %.thread217, label %120
+  %.pr218 = load ptr, ptr %5, align 8, !tbaa !57
+  %119 = icmp eq ptr %.pr218, null
+  br i1 %119, label %.thread219, label %120
 
-.thread217:                                       ; preds = %109, %114
-  %.5219 = phi ptr [ %118, %114 ], [ null, %109 ]
+.thread219:                                       ; preds = %109, %114
+  %.5221 = phi ptr [ %118, %114 ], [ null, %109 ]
   call void @EVP_KEYMGMT_free(ptr noundef %113) #8
   br label %120
 
-120:                                              ; preds = %.thread217, %114, %96
-  %.4147.ph = phi ptr [ null, %96 ], [ %118, %114 ], [ %.5219, %.thread217 ]
-  %.3133.ph = phi ptr [ null, %96 ], [ %.2132.ph, %114 ], [ %.2132.ph, %.thread217 ]
-  %121 = add nuw nsw i32 %.0139244, 1
-  %122 = icmp samesign ult i32 %.0139244, 2
+120:                                              ; preds = %.thread219, %114, %96
+  %.4147.ph = phi ptr [ null, %96 ], [ %118, %114 ], [ %.5221, %.thread219 ]
+  %.3133.ph = phi ptr [ null, %96 ], [ %.2132.ph, %114 ], [ %.2132.ph, %.thread219 ]
+  %121 = add nuw nsw i32 %.0139246, 1
+  %122 = icmp samesign ult i32 %.0139246, 2
   %123 = icmp eq ptr %.4147.ph, null
   %124 = select i1 %122, i1 %123, i1 false
   br i1 %124, label %82, label %125, !llvm.loop !84
@@ -1214,9 +1214,9 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %128 = call i32 @ERR_pop_to_mark() #8
   br label %129
 
-129:                                              ; preds = %.thread204, %127
-  %.2145 = phi ptr [ %.4147.ph, %127 ], [ %.1144196, %.thread204 ]
-  %.0130 = phi ptr [ %.3133.ph, %127 ], [ %1, %.thread204 ]
+129:                                              ; preds = %.thread206, %127
+  %.2145 = phi ptr [ %.4147.ph, %127 ], [ %.1144198, %.thread206 ]
+  %.0130 = phi ptr [ %.3133.ph, %127 ], [ %1, %.thread206 ]
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0130, ptr %130, align 8, !tbaa !85
   %131 = getelementptr inbounds nuw i8, ptr %.0130, i64 40
@@ -1323,7 +1323,7 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %.sink = phi ptr [ %148, %146 ], [ %153, %151 ], [ %158, %156 ], [ %163, %161 ], [ %168, %166 ]
   %173 = call i32 %.sink(ptr noundef nonnull %138, ptr noundef nonnull %.2145, ptr noundef %3) #8
   %174 = icmp slt i32 %173, 1
-  br i1 %174, label %175, label %.critedge191
+  br i1 %174, label %175, label %.critedge193
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %.0130, i64 208
@@ -1344,8 +1344,8 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   br i1 %183, label %197, label %184
 
 184:                                              ; preds = %.loopexit
-  %trunc237 = trunc nuw i32 %2 to i16
-  switch i16 %trunc237, label %207 [
+  %trunc239 = trunc nuw i32 %2 to i16
+  switch i16 %trunc239, label %207 [
     i16 16, label %185
     i16 32, label %189
     i16 64, label %193
@@ -1355,43 +1355,43 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 72
   %187 = load ptr, ptr %186, align 8, !tbaa !87
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %197, label %.thread229
+  br i1 %188, label %197, label %.thread231
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %182, i64 88
   %191 = load ptr, ptr %190, align 8, !tbaa !89
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %197, label %.thread231
+  br i1 %192, label %197, label %.thread233
 
 193:                                              ; preds = %184
   %194 = getelementptr inbounds nuw i8, ptr %182, i64 104
   %195 = load ptr, ptr %194, align 8, !tbaa !90
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %.thread233
+  br i1 %196, label %197, label %.thread235
 
 197:                                              ; preds = %193, %189, %185, %.loopexit
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 785, ptr noundef nonnull @__func__.evp_pkey_signature_init) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #8
-  br label %.thread201
+  br label %.thread203
 
-.thread229:                                       ; preds = %185
+.thread231:                                       ; preds = %185
   %198 = getelementptr inbounds nuw i8, ptr %182, i64 64
   %199 = load ptr, ptr %198, align 8, !tbaa !91
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %.thread201, label %208
+  br i1 %200, label %.thread203, label %208
 
-.thread231:                                       ; preds = %189
+.thread233:                                       ; preds = %189
   %201 = getelementptr inbounds nuw i8, ptr %182, i64 80
   %202 = load ptr, ptr %201, align 8, !tbaa !92
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %.thread201, label %208
+  br i1 %203, label %.thread203, label %208
 
-.thread233:                                       ; preds = %193
+.thread235:                                       ; preds = %193
   %204 = getelementptr inbounds nuw i8, ptr %182, i64 96
   %205 = load ptr, ptr %204, align 8, !tbaa !93
   %206 = icmp eq ptr %205, null
-  br i1 %206, label %.thread201, label %208
+  br i1 %206, label %.thread203, label %208
 
 207:                                              ; preds = %184
   call void @ERR_new() #8
@@ -1399,21 +1399,21 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #8
   br label %213
 
-208:                                              ; preds = %.thread233, %.thread231, %.thread229
-  %.sink269 = phi ptr [ %199, %.thread229 ], [ %202, %.thread231 ], [ %205, %.thread233 ]
-  %209 = call i32 %.sink269(ptr noundef nonnull %0) #8
+208:                                              ; preds = %.thread235, %.thread233, %.thread231
+  %.sink271 = phi ptr [ %199, %.thread231 ], [ %202, %.thread233 ], [ %205, %.thread235 ]
+  %209 = call i32 %.sink271(ptr noundef nonnull %0) #8
   %210 = icmp slt i32 %209, 1
-  br i1 %210, label %213, label %.critedge191
+  br i1 %210, label %213, label %.critedge193
 
-.critedge191:                                     ; preds = %208, %172
+.critedge193:                                     ; preds = %208, %172
   %211 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %0) #8
-  br label %.thread207
+  br label %.thread209
 
-.thread207:                                       ; preds = %29, %.critedge191
-  %.4152 = phi i32 [ %211, %.critedge191 ], [ 0, %29 ]
+.thread209:                                       ; preds = %29, %.critedge193
+  %.4152 = phi i32 [ %211, %.critedge193 ], [ 0, %29 ]
   %212 = load ptr, ptr %5, align 8, !tbaa !57
   call void @EVP_KEYMGMT_free(ptr noundef %212) #8
-  br label %.thread201
+  br label %.thread203
 
 213:                                              ; preds = %56, %208, %207, %175, %171, %170, %165, %160, %155, %150, %141, %80, %73, %66
   %.1149 = phi i32 [ 0, %141 ], [ 0, %171 ], [ -2, %150 ], [ %173, %175 ], [ -2, %155 ], [ -2, %160 ], [ -2, %165 ], [ -2, %170 ], [ 0, %56 ], [ 0, %207 ], [ %209, %208 ], [ 0, %66 ], [ 0, %80 ], [ 0, %73 ]
@@ -1421,10 +1421,10 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   store i32 0, ptr %0, align 8, !tbaa !59
   %214 = load ptr, ptr %5, align 8, !tbaa !57
   call void @EVP_KEYMGMT_free(ptr noundef %214) #8
-  br label %.thread201
+  br label %.thread203
 
-.thread201:                                       ; preds = %53, %.thread199, %.thread233, %.thread231, %.thread229, %213, %.thread207, %197, %7
-  %.0 = phi i32 [ -1, %7 ], [ %.1149, %213 ], [ %.4152, %.thread207 ], [ -2, %197 ], [ 1, %.thread229 ], [ 1, %.thread231 ], [ 1, %.thread233 ], [ -2, %.thread199 ], [ -2, %53 ]
+.thread203:                                       ; preds = %53, %.thread201, %.thread235, %.thread233, %.thread231, %213, %.thread209, %197, %7
+  %.0 = phi i32 [ -1, %7 ], [ %.1149, %213 ], [ %.4152, %.thread209 ], [ -2, %197 ], [ 1, %.thread231 ], [ 1, %.thread233 ], [ 1, %.thread235 ], [ -2, %.thread201 ], [ -2, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

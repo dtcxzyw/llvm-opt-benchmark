@@ -1345,8 +1345,8 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %21 = select i1 %9, i64 24, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.in213 = load i32, ptr %22, align 4
-  %24 = lshr i32 %.in213, 12
+  %.in314 = load i32, ptr %22, align 4
+  %24 = lshr i32 %.in314, 12
   %25 = add i32 %24, %20
   %26 = zext i32 %25 to i64
   %27 = icmp ult i64 %2, %26
@@ -1358,7 +1358,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
   %28 = phi i32 [ %57, %53 ], [ %25, %.lr.ph ]
   %29 = phi i32 [ %56, %53 ], [ %24, %.lr.ph ]
-  %.in214.us = phi i32 [ %.in2.us, %53 ], [ %.in213, %.lr.ph ]
+  %.in315.us = phi i32 [ %.in3.us, %53 ], [ %.in314, %.lr.ph ]
   %30 = phi ptr [ %54, %53 ], [ %19, %.lr.ph ]
   %31 = phi i32 [ %28, %53 ], [ %20, %.lr.ph ]
   %32 = zext i32 %31 to i64
@@ -1373,10 +1373,10 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %36 = or disjoint i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
   %38 = zext nneg i32 %29 to i64
-  %39 = icmp ugt i32 %.in214.us, 8191
-  br i1 %39, label %.preheader3.us, label %.loopexit4.us
+  %39 = icmp ugt i32 %.in315.us, 8191
+  br i1 %39, label %.preheader4.us, label %.loopexit5.us
 
-.preheader3.us:                                   ; preds = %34, %43
+.preheader4.us:                                   ; preds = %34, %43
   %40 = phi i64 [ %44, %43 ], [ 1, %34 ]
   %41 = add nuw nsw i64 %40, %32
   %42 = tail call i32 @radix_tree_insert(ptr noundef nonnull %23, i64 noundef %41, ptr noundef nonnull %37) #6
@@ -1385,28 +1385,28 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
     i32 0, label %43
   ]
 
-43:                                               ; preds = %.preheader3.us, %.preheader3.us
+43:                                               ; preds = %.preheader4.us, %.preheader4.us
   %44 = add nuw nsw i64 %40, 1
   %45 = icmp eq i64 %44, %38
-  br i1 %45, label %.loopexit4.us, label %.preheader3.us, !llvm.loop !53
+  br i1 %45, label %.loopexit5.us, label %.preheader4.us, !llvm.loop !53
 
-.loopexit4.us:                                    ; preds = %43, %34
+.loopexit5.us:                                    ; preds = %43, %34
   %46 = getelementptr i8, ptr %30, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 1
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %53, label %50, !prof !5
 
-50:                                               ; preds = %.loopexit4.us
+50:                                               ; preds = %.loopexit5.us
   %51 = and i64 %47, -4
   %52 = inttoptr i64 %51 to ptr
   br label %53
 
-53:                                               ; preds = %50, %.loopexit4.us
-  %54 = phi ptr [ %52, %50 ], [ %46, %.loopexit4.us ]
+53:                                               ; preds = %50, %.loopexit5.us
+  %54 = phi ptr [ %52, %50 ], [ %46, %.loopexit5.us ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %.in2.us = load i32, ptr %55, align 4
-  %56 = lshr i32 %.in2.us, 12
+  %.in3.us = load i32, ptr %55, align 4
+  %56 = lshr i32 %.in3.us, 12
   %57 = add i32 %56, %28
   %58 = zext i32 %57 to i64
   %59 = icmp ult i64 %2, %58
@@ -1415,7 +1415,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
   %60 = phi i32 [ %89, %85 ], [ %25, %.lr.ph ]
   %61 = phi i32 [ %88, %85 ], [ %24, %.lr.ph ]
-  %.in214 = phi i32 [ %.in2, %85 ], [ %.in213, %.lr.ph ]
+  %.in315 = phi i32 [ %.in3, %85 ], [ %.in314, %.lr.ph ]
   %62 = phi ptr [ %86, %85 ], [ %19, %.lr.ph ]
   %63 = phi i32 [ %60, %85 ], [ %20, %.lr.ph ]
   %64 = zext i32 %63 to i64
@@ -1430,10 +1430,10 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
   %68 = or disjoint i64 %67, 1
   %69 = inttoptr i64 %68 to ptr
   %70 = zext nneg i32 %61 to i64
-  %71 = icmp ugt i32 %.in214, 8191
-  br i1 %71, label %.preheader3, label %.loopexit4
+  %71 = icmp ugt i32 %.in315, 8191
+  br i1 %71, label %.preheader4, label %.loopexit5
 
-.preheader3:                                      ; preds = %66, %75
+.preheader4:                                      ; preds = %66, %75
   %72 = phi i64 [ %76, %75 ], [ 1, %66 ]
   %73 = add nuw nsw i64 %72, %64
   %74 = tail call i32 @radix_tree_insert(ptr noundef nonnull %23, i64 noundef %73, ptr noundef nonnull %69) #6
@@ -1442,37 +1442,37 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
     i32 0, label %75
   ]
 
-75:                                               ; preds = %.preheader3, %.preheader3
+75:                                               ; preds = %.preheader4, %.preheader4
   %76 = add nuw nsw i64 %72, 1
   %77 = icmp eq i64 %76, %70
-  br i1 %77, label %.loopexit4, label %.preheader3, !llvm.loop !53
+  br i1 %77, label %.loopexit5, label %.preheader4, !llvm.loop !53
 
-.loopexit4:                                       ; preds = %75, %66
+.loopexit5:                                       ; preds = %75, %66
   %78 = getelementptr i8, ptr %62, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, 1
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %85, label %82, !prof !5
 
-82:                                               ; preds = %.loopexit4
+82:                                               ; preds = %.loopexit5
   %83 = and i64 %79, -4
   %84 = inttoptr i64 %83 to ptr
   br label %85
 
-85:                                               ; preds = %82, %.loopexit4
-  %86 = phi ptr [ %84, %82 ], [ %78, %.loopexit4 ]
+85:                                               ; preds = %82, %.loopexit5
+  %86 = phi ptr [ %84, %82 ], [ %78, %.loopexit5 ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  %.in2 = load i32, ptr %87, align 4
-  %88 = lshr i32 %.in2, 12
+  %.in3 = load i32, ptr %87, align 4
+  %88 = lshr i32 %.in3, 12
   %89 = add i32 %88, %60
   %90 = zext i32 %89 to i64
   %91 = icmp ult i64 %2, %90
   br i1 %91, label %.thread, label %.lr.ph.split
 
-.thread:                                          ; preds = %85, %.lr.ph.split, %.preheader3, %53, %.lr.ph.split.us, %.preheader3.us, %17
-  %92 = phi i32 [ %20, %17 ], [ %31, %.preheader3.us ], [ %28, %53 ], [ %31, %.lr.ph.split.us ], [ %63, %.preheader3 ], [ %60, %85 ], [ %63, %.lr.ph.split ]
-  %93 = phi ptr [ %19, %17 ], [ %30, %.preheader3.us ], [ %54, %53 ], [ %30, %.lr.ph.split.us ], [ %62, %.preheader3 ], [ %86, %85 ], [ %62, %.lr.ph.split ]
-  %94 = phi i32 [ %24, %17 ], [ %29, %.preheader3.us ], [ %56, %53 ], [ %29, %.lr.ph.split.us ], [ %61, %.preheader3 ], [ %88, %85 ], [ %61, %.lr.ph.split ]
+.thread:                                          ; preds = %85, %.lr.ph.split, %.preheader4, %53, %.lr.ph.split.us, %.preheader4.us, %17
+  %92 = phi i32 [ %20, %17 ], [ %31, %.preheader4.us ], [ %28, %53 ], [ %31, %.lr.ph.split.us ], [ %63, %.preheader4 ], [ %60, %85 ], [ %63, %.lr.ph.split ]
+  %93 = phi ptr [ %19, %17 ], [ %30, %.preheader4.us ], [ %54, %53 ], [ %30, %.lr.ph.split.us ], [ %62, %.preheader4 ], [ %86, %85 ], [ %62, %.lr.ph.split ]
+  %94 = phi i32 [ %24, %17 ], [ %29, %.preheader4.us ], [ %56, %53 ], [ %29, %.lr.ph.split.us ], [ %61, %.preheader4 ], [ %88, %85 ], [ %61, %.lr.ph.split ]
   store ptr %93, ptr %1, align 8
   store i32 %92, ptr %13, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %18) #6

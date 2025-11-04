@@ -1692,7 +1692,7 @@ table_iter_next_block.exit:                       ; preds = %32
   %spec.store.select = call i32 @llvm.smin.i32(i32 %36, i32 0)
   br label %37
 
-37:                                               ; preds = %2, %.loopexit, %table_iter_next_block.exit.thread27
+37:                                               ; preds = %table_iter_next_block.exit.thread27, %.loopexit, %2
   %.014 = phi i32 [ %7, %2 ], [ %spec.store.select, %.loopexit ], [ %.1.ph, %table_iter_next_block.exit.thread27 ]
   call void @reftable_record_release(ptr noundef nonnull %5) #12
   call void @reftable_buf_release(ptr noundef nonnull %3) #12

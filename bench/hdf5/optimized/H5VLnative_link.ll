@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @H5VL__native_link_create(ptr noundef readonly captu
   %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_link_create, i32 noundef 143, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.4) #3
   br label %117
 
-117:                                              ; preds = %112, %88, %68, %113
+117:                                              ; preds = %68, %113, %88, %112
   %.052 = phi i32 [ -1, %113 ], [ %.053, %68 ], [ %.4, %88 ], [ %.5, %112 ]
   ret i32 %.052
 }
@@ -780,9 +780,9 @@ define range(i32 -1, -2147483648) i32 @H5VL__native_link_specific(ptr noundef %0
   %154 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_link_specific, i32 noundef 414, i64 noundef %152, i64 noundef %153, ptr noundef nonnull @.str.18) #3
   br label %155
 
-155:                                              ; preds = %150, %110, %29, %151
-  %.0 = phi i32 [ -1, %151 ], [ %.059, %29 ], [ %.261, %110 ], [ %.4, %150 ]
-  ret i32 %.0
+155:                                              ; preds = %151, %29, %110, %150
+  %.160 = phi i32 [ -1, %151 ], [ %.059, %29 ], [ %.261, %110 ], [ %.4, %150 ]
+  ret i32 %.160
 }
 
 declare i32 @H5L__exists(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

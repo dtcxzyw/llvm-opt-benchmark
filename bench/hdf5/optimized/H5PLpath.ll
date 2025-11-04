@@ -817,17 +817,17 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.loopexit.thread.i
   br label %120
 
 120:                                              ; preds = %.sink.split, %H5PL__path_table_iterate_process_path.exit
-  %.039.i12 = phi i32 [ %.142.ph.i, %H5PL__path_table_iterate_process_path.exit ], [ 0, %.sink.split ]
+  %.041.i12 = phi i32 [ %.142.ph.i, %H5PL__path_table_iterate_process_path.exit ], [ 0, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next, %122
-  %124 = icmp eq i32 %.039.i12, 0
+  %124 = icmp eq i32 %.041.i12, 0
   %125 = and i1 %124, %123
   br i1 %125, label %21, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %120, %.loopexit19, %3
-  %.0 = phi i32 [ -1, %.loopexit19 ], [ 0, %3 ], [ %.039.i12, %120 ]
+  %.0 = phi i32 [ -1, %.loopexit19 ], [ 0, %3 ], [ %.041.i12, %120 ]
   ret i32 %.0
 }
 

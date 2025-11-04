@@ -444,8 +444,8 @@ define internal noalias noundef ptr @worker(ptr noundef %0) #4 {
   %6 = load ptr, ptr %5, align 8, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2832
   %8 = load atomic i32, ptr %7 seq_cst, align 8
-  %.not37 = icmp eq i32 %8, 0
-  br i1 %.not37, label %.lr.ph, label %.loopexit
+  %.not38 = icmp eq i32 %8, 0
+  br i1 %.not38, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8

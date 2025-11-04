@@ -911,14 +911,14 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %93 = getelementptr inbounds nuw i8, ptr %49, i64 84
   br label %96
 
-.loopexit146:                                     ; preds = %.thread112, %82
+.loopexit146:                                     ; preds = %.thread113, %82
   %94 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %49, i64 84
   br label %360
 
-96:                                               ; preds = %.thread112, %85
-  %97 = phi i32 [ 0, %85 ], [ %353, %.thread112 ]
-  %98 = phi i32 [ %86, %85 ], [ %354, %.thread112 ]
+96:                                               ; preds = %.thread113, %85
+  %97 = phi i32 [ 0, %85 ], [ %353, %.thread113 ]
+  %98 = phi i32 [ %86, %85 ], [ %354, %.thread113 ]
   %99 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #13
   %100 = zext i32 %98 to i64
   %101 = load ptr, ptr %9, align 8
@@ -966,7 +966,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 129:                                              ; preds = %120, %126
   %130 = phi i32 [ %.mux, %120 ], [ %128, %126 ]
   %131 = icmp slt i32 %130, 0
-  br i1 %131, label %.thread108, label %132
+  br i1 %131, label %.thread109, label %132
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %88, align 8
@@ -982,7 +982,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %143 = or disjoint i32 %142, 32776
   %144 = call ptr @bdev_getblk(ptr noundef %133, i64 noundef %122, i32 noundef %135, i32 noundef %143) #13
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.thread108, label %146, !prof !12
+  br i1 %145, label %.thread109, label %146, !prof !12
 
 146:                                              ; preds = %132
   %147 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 588, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %144, i32 noundef 1) #13
@@ -991,7 +991,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 149:                                              ; preds = %146
   call void @__brelse(ptr noundef nonnull %144) #13
-  br label %.thread108
+  br label %.thread109
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %144, i64 40
@@ -1019,7 +1019,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %165 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 597, ptr noundef %77, ptr noundef null, ptr noundef nonnull %144) #13
   %166 = icmp eq i32 %165, 0
   call void @__brelse(ptr noundef nonnull %144) #13
-  br i1 %166, label %167, label %.thread108
+  br i1 %166, label %167, label %.thread109
 
 167:                                              ; preds = %164
   %168 = add i32 %123, 1
@@ -1045,7 +1045,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %183 = shl i64 %91, %181
   %184 = call i32 @blkdev_issue_zeroout(ptr noundef %177, i64 noundef %182, i64 noundef %183, i32 noundef 3136, i32 noundef 0) #13
   %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %.thread108
+  br i1 %185, label %186, label %.thread109
 
 186:                                              ; preds = %174, %.loopexit143, %111, %96
   %187 = sext i32 %97 to i64
@@ -1069,7 +1069,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %202 = shl i64 %195, %200
   %203 = call i32 @blkdev_issue_zeroout(ptr noundef %196, i64 noundef %201, i64 noundef %202, i32 noundef 3136, i32 noundef 0) #13
   %204 = icmp eq i32 %203, 0
-  br i1 %204, label %._crit_edge, label %.thread108
+  br i1 %204, label %._crit_edge, label %.thread109
 
 ._crit_edge:                                      ; preds = %192
   %.pre = load i16, ptr %188, align 2
@@ -1087,9 +1087,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %212 = load i64, ptr %211, align 8
   %213 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %214 = icmp slt i32 %213, 1
-  %brmerge97 = or i1 %87, %214
-  %.mux98 = call i32 @llvm.smin.i32(i32 %213, i32 1)
-  br i1 %brmerge97, label %218, label %215
+  %brmerge98 = or i1 %87, %214
+  %.mux99 = call i32 @llvm.smin.i32(i32 %213, i32 1)
+  br i1 %brmerge98, label %218, label %215
 
 215:                                              ; preds = %209
   %216 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
@@ -1097,9 +1097,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %218
 
 218:                                              ; preds = %209, %215
-  %219 = phi i32 [ %.mux98, %209 ], [ %217, %215 ]
+  %219 = phi i32 [ %.mux99, %209 ], [ %217, %215 ]
   %220 = icmp slt i32 %219, 0
-  br i1 %220, label %.thread108, label %221
+  br i1 %220, label %.thread109, label %221
 
 221:                                              ; preds = %218
   %222 = load ptr, ptr %88, align 8
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %232 = or disjoint i32 %231, 32776
   %233 = call ptr @bdev_getblk(ptr noundef %222, i64 noundef %212, i32 noundef %224, i32 noundef %232) #13
   %234 = icmp eq ptr %233, null
-  br i1 %234, label %.thread104, label %235, !prof !12
+  br i1 %234, label %.thread105, label %235, !prof !12
 
 235:                                              ; preds = %221
   %236 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %233, i32 noundef 1) #13
@@ -1145,13 +1145,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 249:                                              ; preds = %248, %241, %238
   %250 = phi ptr [ %240, %238 ], [ %233, %241 ], [ %233, %248 ]
   %251 = icmp ugt ptr %250, inttoptr (i64 -4096 to ptr)
-  br i1 %251, label %.thread104, label %255
+  br i1 %251, label %.thread105, label %255
 
-.thread104:                                       ; preds = %221, %249
+.thread105:                                       ; preds = %221, %249
   %252 = phi ptr [ %250, %249 ], [ inttoptr (i64 -12 to ptr), %221 ]
   %253 = ptrtoint ptr %252 to i64
   %254 = trunc i64 %253 to i32
-  br label %.thread108
+  br label %.thread109
 
 255:                                              ; preds = %249
   %256 = call i64 @ext4_bg_num_gdb(ptr noundef %0, i32 noundef %98) #13
@@ -1201,7 +1201,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %290 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 653, ptr noundef %77, ptr noundef null, ptr noundef %250) #13
   call void @__brelse(ptr noundef nonnull %250) #13
   %291 = icmp eq i32 %290, 0
-  br i1 %291, label %._crit_edge245, label %.thread108
+  br i1 %291, label %._crit_edge245, label %.thread109
 
 ._crit_edge245:                                   ; preds = %280
   %.pre246 = load i16, ptr %188, align 2
@@ -1211,7 +1211,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %293 = phi i16 [ %.pre246, %._crit_edge245 ], [ %206, %205 ]
   %294 = and i16 %293, 1
   %295 = icmp eq i16 %294, 0
-  br i1 %295, label %296, label %.thread112
+  br i1 %295, label %296, label %.thread113
 
 296:                                              ; preds = %292
   %.split93 = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %187
@@ -1219,9 +1219,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %298 = load i64, ptr %297, align 8
   %299 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
   %300 = icmp slt i32 %299, 1
-  %brmerge99 = or i1 %87, %300
-  %.mux100 = call i32 @llvm.smin.i32(i32 %299, i32 1)
-  br i1 %brmerge99, label %304, label %301
+  %brmerge100 = or i1 %87, %300
+  %.mux101 = call i32 @llvm.smin.i32(i32 %299, i32 1)
+  br i1 %brmerge100, label %304, label %301
 
 301:                                              ; preds = %296
   %302 = call i32 @jbd2__journal_restart(ptr noundef %77, i32 noundef 64, i32 noundef 0, i32 noundef 3136) #13
@@ -1229,9 +1229,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br label %304
 
 304:                                              ; preds = %296, %301
-  %305 = phi i32 [ %.mux100, %296 ], [ %303, %301 ]
+  %305 = phi i32 [ %.mux101, %296 ], [ %303, %301 ]
   %306 = icmp slt i32 %305, 0
-  br i1 %306, label %.thread108, label %307
+  br i1 %306, label %.thread109, label %307
 
 307:                                              ; preds = %304
   %308 = load ptr, ptr %88, align 8
@@ -1247,7 +1247,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %318 = or disjoint i32 %317, 32776
   %319 = call ptr @bdev_getblk(ptr noundef %308, i64 noundef %298, i32 noundef %310, i32 noundef %318) #13
   %320 = icmp eq ptr %319, null
-  br i1 %320, label %.thread105, label %321, !prof !12
+  br i1 %320, label %.thread106, label %321, !prof !12
 
 321:                                              ; preds = %307
   %322 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.bclean, i32 noundef 431, ptr noundef %77, ptr noundef %0, ptr noundef nonnull %319, i32 noundef 1) #13
@@ -1277,13 +1277,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 335:                                              ; preds = %334, %327, %324
   %336 = phi ptr [ %326, %324 ], [ %319, %327 ], [ %319, %334 ]
   %337 = icmp ugt ptr %336, inttoptr (i64 -4096 to ptr)
-  br i1 %337, label %.thread105, label %341
+  br i1 %337, label %.thread106, label %341
 
-.thread105:                                       ; preds = %307, %335
+.thread106:                                       ; preds = %307, %335
   %338 = phi ptr [ %336, %335 ], [ inttoptr (i64 -12 to ptr), %307 ]
   %339 = ptrtoint ptr %338 to i64
   %340 = trunc i64 %339 to i32
-  br label %.thread108
+  br label %.thread109
 
 341:                                              ; preds = %335
   %342 = load ptr, ptr %9, align 8
@@ -1299,9 +1299,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %351 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 676, ptr noundef %77, ptr noundef null, ptr noundef %336) #13
   call void @__brelse(ptr noundef nonnull %336) #13
   %352 = icmp eq i32 %351, 0
-  br i1 %352, label %.thread112, label %.thread108
+  br i1 %352, label %.thread113, label %.thread109
 
-.thread112:                                       ; preds = %341, %292
+.thread113:                                       ; preds = %341, %292
   %353 = add nuw i32 %97, 1
   %354 = add i32 %98, 1
   %355 = load i32, ptr %13, align 4
@@ -1311,7 +1311,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 357:                                              ; preds = %.loopexit138
   %358 = add nuw nsw i64 %361, 1
   %359 = icmp eq i64 %358, 3
-  br i1 %359, label %.thread108, label %360, !llvm.loop !24
+  br i1 %359, label %.thread109, label %360, !llvm.loop !24
 
 360:                                              ; preds = %357, %.loopexit146
   %361 = phi i64 [ 0, %.loopexit146 ], [ %358, %357 ]
@@ -1356,7 +1356,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %391 = lshr i64 %390, %386
   %392 = call fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef %77, ptr noundef %2, i64 noundef %387, i64 noundef %391)
   %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %.thread108
+  br i1 %393, label %394, label %.thread109
 
 394:                                              ; preds = %384
   %395 = load i64, ptr %379, align 8
@@ -1384,10 +1384,10 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %411 = lshr i64 %410, %406
   %412 = call fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef %77, ptr noundef %2, i64 noundef %407, i64 noundef %411)
   %413 = icmp eq i32 %412, 0
-  br i1 %413, label %357, label %.thread108
+  br i1 %413, label %357, label %.thread109
 
-.thread108:                                       ; preds = %341, %304, %280, %218, %192, %174, %164, %132, %129, %.loopexit138, %357, %384, %149, %.thread104, %.thread105
-  %414 = phi i32 [ %254, %.thread104 ], [ %340, %.thread105 ], [ %147, %149 ], [ %392, %384 ], [ 0, %357 ], [ %412, %.loopexit138 ], [ %165, %164 ], [ %130, %129 ], [ -12, %132 ], [ %184, %174 ], [ %203, %192 ], [ %219, %218 ], [ %290, %280 ], [ %305, %304 ], [ %351, %341 ]
+.thread109:                                       ; preds = %341, %304, %280, %218, %192, %174, %164, %132, %129, %.loopexit138, %357, %384, %149, %.thread105, %.thread106
+  %414 = phi i32 [ %254, %.thread105 ], [ %340, %.thread106 ], [ %147, %149 ], [ %392, %384 ], [ 0, %357 ], [ %412, %.loopexit138 ], [ %165, %164 ], [ %130, %129 ], [ -12, %132 ], [ %184, %174 ], [ %203, %192 ], [ %219, %218 ], [ %290, %280 ], [ %305, %304 ], [ %351, %341 ]
   %415 = call i32 @__ext4_journal_stop(ptr noundef nonnull @__func__.setup_new_flex_group_blocks, i32 noundef 717, ptr noundef %77) #13
   %416 = icmp eq i32 %415, 0
   %417 = icmp ne i32 %414, 0
@@ -1395,8 +1395,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %419 = select i1 %418, i32 %414, i32 %415
   br label %420
 
-420:                                              ; preds = %.thread108, %79
-  %421 = phi i32 [ %81, %79 ], [ %419, %.thread108 ]
+420:                                              ; preds = %.thread109, %79
+  %421 = phi i32 [ %81, %79 ], [ %419, %.thread109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %422 = icmp eq i32 %421, 0
   br i1 %422, label %423, label %.loopexit
@@ -1604,8 +1604,8 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %569 = getelementptr i8, ptr %560, i64 24
   %.val = load i64, ptr %569, align 8
   %570 = getelementptr i8, ptr %560, i64 40
-  %.val101 = load ptr, ptr %570, align 8
-  %571 = call fastcc i32 @verify_reserved_gdb(ptr noundef %501, i32 noundef %472, i64 %.val, ptr %.val101)
+  %.val102 = load ptr, ptr %570, align 8
+  %571 = call fastcc i32 @verify_reserved_gdb(ptr noundef %501, i32 noundef %472, i64 %.val, ptr %.val102)
   %572 = icmp slt i32 %571, 0
   br i1 %572, label %573, label %579
 
@@ -1876,10 +1876,10 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 735:                                              ; preds = %729
   %736 = getelementptr i8, ptr %730, i64 24
-  %.val102 = load i64, ptr %736, align 8
+  %.val103 = load i64, ptr %736, align 8
   %737 = getelementptr i8, ptr %730, i64 40
-  %.val103 = load ptr, ptr %737, align 8
-  %738 = call fastcc i32 @verify_reserved_gdb(ptr noundef %709, i32 noundef %472, i64 %.val102, ptr %.val103)
+  %.val104 = load ptr, ptr %737, align 8
+  %738 = call fastcc i32 @verify_reserved_gdb(ptr noundef %709, i32 noundef %472, i64 %.val103, ptr %.val104)
   %739 = icmp slt i32 %738, 0
   br i1 %739, label %853, label %740
 
@@ -2297,7 +2297,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 990:                                              ; preds = %.thread
   %991 = and i32 %987, 1024
   %992 = icmp eq i32 %991, 0
-  br i1 %992, label %.critedge96, label %993
+  br i1 %992, label %.critedge97, label %993
 
 993:                                              ; preds = %990
   %994 = getelementptr inbounds nuw i8, ptr %983, i64 1280
@@ -2316,14 +2316,14 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %.pre257 = load i32, ptr %.phi.trans.insert256, align 4
   %.pre264 = and i32 %.pre257, 1024
   %998 = icmp eq i32 %.pre264, 0
-  br i1 %998, label %.critedge96, label %.thread361
+  br i1 %998, label %.critedge97, label %.thread361
 
 .thread361:                                       ; preds = %993, %997
   %999 = phi ptr [ %.pre253, %997 ], [ %983, %993 ]
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 1280
   %1001 = load ptr, ptr %1000, align 64
   %.not = icmp eq ptr %1001, null
-  br i1 %.not, label %.critedge96, label %.critedge
+  br i1 %.not, label %.critedge97, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %.thread361
   %1002 = phi ptr [ %983, %.thread ], [ %999, %.thread361 ]
@@ -2331,9 +2331,9 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %1004 = load i64, ptr %1003, align 32
   %1005 = trunc i64 %1004 to i32
   call void @ext4_itable_unused_set(ptr noundef %0, ptr noundef %905, i32 noundef %1005) #13
-  br label %.critedge96
+  br label %.critedge97
 
-.critedge96:                                      ; preds = %990, %997, %.critedge, %.thread361
+.critedge97:                                      ; preds = %990, %997, %.critedge, %.thread361
   %1006 = load i16, ptr %885, align 2
   %1007 = getelementptr inbounds nuw i8, ptr %905, i64 18
   store i16 %1006, ptr %1007, align 2
@@ -2342,11 +2342,11 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %1009 = icmp eq i32 %1008, 0
   br i1 %1009, label %1011, label %1010, !prof !15
 
-1010:                                             ; preds = %.critedge96
+1010:                                             ; preds = %.critedge97
   call void @__ext4_std_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_setup_new_descs, i32 noundef 1385, i32 noundef %1008) #13
   br label %.thread132
 
-1011:                                             ; preds = %.critedge96
+1011:                                             ; preds = %.critedge97
   %1012 = call i32 @ext4_mb_add_groupinfo(ptr noundef %0, i32 noundef %886, ptr noundef %905) #13
   %1013 = icmp eq i32 %1012, 0
   br i1 %1013, label %1014, label %.thread132

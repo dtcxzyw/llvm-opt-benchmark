@@ -579,9 +579,9 @@ define range(i32 -1, -2147483648) i32 @H5VLinitialize(i64 noundef %0, i64 nounde
   %34 = call i32 @H5E_dump_api_stack() #7
   br label %35
 
-35:                                               ; preds = %27, %10, %33
-  %.01324 = phi i32 [ -1, %33 ], [ %21, %27 ], [ 0, %10 ]
-  ret i32 %.01324
+35:                                               ; preds = %10, %27, %33
+  %.01326 = phi i32 [ -1, %33 ], [ %21, %27 ], [ 0, %10 ]
+  ret i32 %.01326
 }
 
 declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
@@ -653,9 +653,9 @@ define range(i32 -1, -2147483648) i32 @H5VLterminate(i64 noundef %0) local_unnam
   %33 = call i32 @H5E_dump_api_stack() #7
   br label %34
 
-34:                                               ; preds = %26, %9, %32
-  %.01223 = phi i32 [ -1, %32 ], [ %20, %26 ], [ 0, %9 ]
-  ret i32 %.01223
+34:                                               ; preds = %9, %26, %32
+  %.01225 = phi i32 [ -1, %32 ], [ %20, %26 ], [ 0, %9 ]
+  ret i32 %.01225
 }
 
 ; Function Attrs: nounwind uwtable
@@ -832,8 +832,8 @@ define range(i32 -1, 1) i32 @H5VL_copy_connector_info(ptr noundef readonly captu
   br label %60
 
 60:                                               ; preds = %.thread, %17, %59, %55, %50, %40, %13
-  %.023 = phi i32 [ -1, %13 ], [ -1, %40 ], [ 0, %59 ], [ -1, %50 ], [ -1, %55 ], [ 0, %17 ], [ -1, %.thread ]
-  ret i32 %.023
+  %.020 = phi i32 [ -1, %13 ], [ -1, %40 ], [ 0, %59 ], [ -1, %50 ], [ -1, %55 ], [ 0, %17 ], [ -1, %.thread ]
+  ret i32 %.020
 }
 
 declare i32 @H5VL__init_package() local_unnamed_addr #1
@@ -990,9 +990,9 @@ define range(i32 -1, -2147483648) i32 @H5VL_cmp_connector_info(ptr noundef reado
   store i32 %57, ptr %1, align 4, !tbaa !32
   br label %58
 
-58:                                               ; preds = %.thread, %48, %18, %54, %50, %30, %28, %24, %14
-  %.031 = phi i32 [ -1, %14 ], [ 0, %24 ], [ 0, %28 ], [ 0, %30 ], [ -1, %50 ], [ %42, %48 ], [ 0, %54 ], [ 0, %18 ], [ -1, %.thread ]
-  ret i32 %.031
+58:                                               ; preds = %.thread, %18, %54, %50, %30, %28, %24, %14, %48
+  %.030 = phi i32 [ -1, %14 ], [ 0, %24 ], [ 0, %28 ], [ 0, %30 ], [ -1, %50 ], [ %42, %48 ], [ 0, %54 ], [ 0, %18 ], [ -1, %.thread ]
+  ret i32 %.030
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1188,9 +1188,9 @@ define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef read
   %44 = tail call ptr @H5MM_xfree_const(ptr noundef nonnull %1) #7
   br label %45
 
-45:                                               ; preds = %.thread, %37, %16, %43, %39, %12
-  %.014 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
-  ret i32 %.014
+45:                                               ; preds = %.thread, %16, %43, %39, %12, %37
+  %.013 = phi i32 [ -1, %12 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %16 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #1
@@ -1299,8 +1299,8 @@ define range(i32 -1, -2147483648) i32 @H5VLconnector_info_to_str(ptr noundef %0,
   br label %39
 
 39:                                               ; preds = %36, %35, %29, %37
-  %.017 = phi i32 [ -1, %37 ], [ 0, %36 ], [ %23, %29 ], [ 0, %35 ]
-  ret i32 %.017
+  %.32335 = phi i32 [ -1, %37 ], [ 0, %36 ], [ %23, %29 ], [ 0, %35 ]
+  ret i32 %.32335
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1368,9 +1368,9 @@ define range(i32 -1, -2147483648) i32 @H5VL__connector_str_to_info(ptr noundef %
   store ptr null, ptr %2, align 8, !tbaa !40
   br label %37
 
-37:                                               ; preds = %.thread, %29, %3, %36, %35, %31
-  %.014 = phi i32 [ -1, %31 ], [ %23, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %3 ], [ -1, %.thread ]
-  ret i32 %.014
+37:                                               ; preds = %.thread, %3, %36, %35, %31, %29
+  %.013 = phi i32 [ -1, %31 ], [ %23, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %3 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1433,13 +1433,13 @@ define ptr @H5VLget_object(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8, !tbaa !50
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread22, label %20
+  br i1 %.not, label %.thread23, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread26, label %23
+  br i1 %22, label %.thread27, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %10, align 8, !tbaa !7
@@ -1448,9 +1448,9 @@ define ptr @H5VLget_object(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %27 = call ptr %26(ptr noundef nonnull %0) #7
   %28 = call i32 @H5_user_cb_restore(ptr noundef nonnull %3) #7
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread26, label %33
+  br i1 %29, label %.thread27, label %33
 
-.thread26:                                        ; preds = %23, %20
+.thread27:                                        ; preds = %23, %20
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTSET_g, %20 ], [ @H5E_CANTRESTORE_g, %23 ]
   %.sink = phi i32 [ 785, %20 ], [ 789, %23 ]
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
@@ -1461,15 +1461,15 @@ define ptr @H5VLget_object(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 
 33:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread22
+  br label %.thread23
 
-.thread:                                          ; preds = %12, %5, %.thread26
+.thread:                                          ; preds = %12, %5, %.thread27
   %34 = call i32 @H5E_dump_api_stack() #7
-  br label %.thread22
+  br label %.thread23
 
-.thread22:                                        ; preds = %16, %33, %.thread
-  %.016 = phi ptr [ null, %.thread ], [ %27, %33 ], [ %0, %16 ]
-  ret ptr %.016
+.thread23:                                        ; preds = %16, %33, %.thread
+  %.01421 = phi ptr [ %27, %33 ], [ null, %.thread ], [ %0, %16 ]
+  ret ptr %.01421
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1535,9 +1535,9 @@ define range(i32 -1, -2147483648) i32 @H5VLget_wrap_ctx(ptr noundef %0, i64 noun
   %36 = call i32 @H5E_dump_api_stack() #7
   br label %37
 
-37:                                               ; preds = %28, %34, %35
-  %.01526 = phi i32 [ -1, %35 ], [ %22, %28 ], [ 0, %34 ]
-  ret i32 %.01526
+37:                                               ; preds = %34, %28, %35
+  %.01528 = phi i32 [ -1, %35 ], [ %22, %28 ], [ 0, %34 ]
+  ret i32 %.01528
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1615,9 +1615,9 @@ define ptr @H5VL_wrap_object(ptr noundef readonly captures(none) %0, ptr noundef
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_wrap_object, i32 noundef 876, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.19) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %18, %36, %14, %21
-  %.014 = phi ptr [ null, %14 ], [ null, %36 ], [ %28, %34 ], [ null, %18 ], [ %2, %21 ], [ null, %.thread ]
-  ret ptr %.014
+40:                                               ; preds = %.thread, %18, %36, %14, %34, %21
+  %.013 = phi ptr [ null, %14 ], [ null, %36 ], [ %28, %34 ], [ null, %18 ], [ %2, %21 ], [ null, %.thread ]
+  ret ptr %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1740,9 +1740,9 @@ define ptr @H5VL_unwrap_object(ptr noundef readonly captures(none) %0, ptr nound
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_unwrap_object, i32 noundef 948, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.21) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %16, %36, %12, %19
-  %.012 = phi ptr [ null, %12 ], [ null, %36 ], [ %28, %34 ], [ null, %16 ], [ %1, %19 ], [ null, %.thread ]
-  ret ptr %.012
+40:                                               ; preds = %.thread, %16, %36, %12, %34, %19
+  %.011 = phi ptr [ null, %12 ], [ null, %36 ], [ %28, %34 ], [ null, %16 ], [ %1, %19 ], [ null, %.thread ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1844,9 +1844,9 @@ define range(i32 -1, -2147483648) i32 @H5VLfree_wrap_ctx(ptr noundef %0, i64 nou
   %31 = call i32 @H5E_dump_api_stack() #7
   br label %32
 
-32:                                               ; preds = %24, %10, %30
-  %.01325 = phi i32 [ -1, %30 ], [ %18, %24 ], [ 0, %10 ]
-  ret i32 %.01325
+32:                                               ; preds = %10, %24, %30
+  %.01327 = phi i32 [ -1, %30 ], [ %18, %24 ], [ 0, %10 ]
+  ret i32 %.01327
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1985,9 +1985,9 @@ define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, pt
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_create, i32 noundef 1059, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.25) #7
   br label %43
 
-43:                                               ; preds = %.thread, %37, %10, %39, %22
-  %.019 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
-  ret ptr %.019
+43:                                               ; preds = %.thread, %10, %39, %22, %37
+  %.018 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
+  ret ptr %.018
 }
 
 declare i32 @H5VL_reset_vol_wrapper() local_unnamed_addr #1
@@ -2169,9 +2169,9 @@ define internal fastcc ptr @H5VL__attr_open(ptr noundef %0, ptr noundef %1, ptr 
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_open, i32 noundef 1167, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.28) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
-  ret ptr %.016
+40:                                               ; preds = %.thread, %7, %36, %19, %34
+  %.015 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2352,9 +2352,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_read(ptr nound
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_read, i32 noundef 1272, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.30) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2535,9 +2535,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_write(ptr noun
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_write, i32 noundef 1375, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.32) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2718,9 +2718,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_get(ptr nounde
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_get, i32 noundef 1478, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.34) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2910,9 +2910,9 @@ define internal fastcc i32 @H5VL__attr_specific(ptr noundef %0, ptr noundef %1, 
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_specific, i32 noundef 1584, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.37) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.014
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.013 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3092,9 +3092,9 @@ define internal i32 @H5VL__attr_optional(ptr noundef %0, ptr noundef readonly ca
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_optional, i32 noundef 1692, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.38) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.013
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.012 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3460,9 +3460,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_close(ptr noun
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_close, i32 noundef 1839, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.48) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3642,9 +3642,9 @@ define internal fastcc ptr @H5VL__dataset_create(ptr noundef %0, ptr noundef %1,
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_create, i32 noundef 1947, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.50) #7
   br label %44
 
-44:                                               ; preds = %.thread, %38, %11, %40, %23
-  %.020 = phi ptr [ null, %23 ], [ null, %40 ], [ %32, %38 ], [ null, %11 ], [ null, %.thread ]
-  ret ptr %.020
+44:                                               ; preds = %.thread, %11, %40, %23, %38
+  %.019 = phi ptr [ null, %23 ], [ null, %40 ], [ %32, %38 ], [ null, %11 ], [ null, %.thread ]
+  ret ptr %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3824,9 +3824,9 @@ define internal fastcc ptr @H5VL__dataset_open(ptr noundef %0, ptr noundef %1, p
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_open, i32 noundef 2057, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.52) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
-  ret ptr %.016
+40:                                               ; preds = %.thread, %7, %36, %19, %34
+  %.015 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4013,9 +4013,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_read(i64 no
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_read, i32 noundef 2165, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.54) #7
   br label %42
 
-42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
-  ret i32 %.018
+42:                                               ; preds = %.thread, %9, %38, %21, %36
+  %.017 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4264,9 +4264,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_write, i32 noundef 2296, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.61) #7
   br label %42
 
-42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
-  ret i32 %.018
+42:                                               ; preds = %.thread, %9, %38, %21, %36
+  %.017 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4509,9 +4509,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_get, i32 noundef 2426, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.63) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4692,9 +4692,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_specific, i32 noundef 2530, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.65) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4875,9 +4875,9 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_optional, i32 noundef 2635, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.66) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5176,9 +5176,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_close, i32 noundef 2784, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.68) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5358,9 +5358,9 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_commit, i32 noundef 2895, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.70) #7
   br label %43
 
-43:                                               ; preds = %.thread, %37, %10, %39, %22
-  %.019 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
-  ret ptr %.019
+43:                                               ; preds = %.thread, %10, %39, %22, %37
+  %.018 = phi ptr [ null, %22 ], [ null, %39 ], [ %31, %37 ], [ null, %10 ], [ null, %.thread ]
+  ret ptr %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5540,9 +5540,9 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_open, i32 noundef 3003, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.72) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
-  ret ptr %.016
+40:                                               ; preds = %.thread, %7, %36, %19, %34
+  %.015 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5723,9 +5723,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_get, i32 noundef 3110, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.192) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5906,9 +5906,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_specific, i32 noundef 3214, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.76) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6089,9 +6089,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_optional, i32 noundef 3319, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.77) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6497,9 +6497,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_close, i32 noundef 3512, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.81) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6654,9 +6654,9 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_create, i32 noundef 3618, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.83) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
-  ret ptr %.016
+40:                                               ; preds = %.thread, %7, %36, %19, %34
+  %.015 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6822,9 +6822,9 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
-63:                                               ; preds = %62, %21, %24, %17
-  %.025 = phi ptr [ null, %17 ], [ %.2, %62 ], [ %26, %24 ], [ null, %21 ]
-  ret ptr %.025
+63:                                               ; preds = %21, %24, %17, %62
+  %.026 = phi ptr [ null, %17 ], [ %.2, %62 ], [ %26, %24 ], [ null, %21 ]
+  ret ptr %.026
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6883,9 +6883,9 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_open, i32 noundef 3718, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.90) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
-  ret ptr %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
+  ret ptr %.014
 }
 
 declare void @H5VL__is_default_conn(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -7211,9 +7211,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_get, i32 noundef 3942, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.92) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7277,9 +7277,9 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load i8, ptr @H5VL_init_g, align 1, !tbaa !33, !range !35
-  %.pre52 = load i8, ptr @H5_libterm_g, align 1, !range !35
-  %.pre53 = trunc nuw i8 %.pre to i1
-  %.pre54 = trunc nuw i8 %.pre52 to i1
+  %.pre53 = load i8, ptr @H5_libterm_g, align 1, !range !35
+  %.pre54 = trunc nuw i8 %.pre to i1
+  %.pre55 = trunc nuw i8 %.pre53 to i1
   br label %18
 
 14:                                               ; preds = %11
@@ -7287,14 +7287,14 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %15 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %16 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4068, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.5) #7
-  br label %.thread49
+  br label %.thread50
 
 18:                                               ; preds = %._crit_edge, %4
-  %.pre-phi55 = phi i1 [ %.pre54, %._crit_edge ], [ %9, %4 ]
-  %.pre-phi = phi i1 [ %.pre53, %._crit_edge ], [ %7, %4 ]
-  %19 = xor i1 %.pre-phi55, true
+  %.pre-phi56 = phi i1 [ %.pre55, %._crit_edge ], [ %9, %4 ]
+  %.pre-phi = phi i1 [ %.pre54, %._crit_edge ], [ %7, %4 ]
+  %19 = xor i1 %.pre-phi56, true
   %20 = select i1 %.pre-phi, i1 true, i1 %19
-  br i1 %20, label %21, label %.thread49, !prof !37
+  br i1 %20, label %21, label %.thread50, !prof !37
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %1, align 8, !tbaa !96
@@ -7329,20 +7329,20 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %27, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread49
+  br label %.thread50
 
 38:                                               ; preds = %21
   %39 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #7
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %.thread37
+  br i1 %40, label %41, label %.thread38
 
 41:                                               ; preds = %38
   %42 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !3
   %43 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4100, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.24) #7
-  br label %.thread49
+  br label %.thread50
 
-.thread37:                                        ; preds = %38
+.thread38:                                        ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !57
   %47 = load ptr, ptr %46, align 8, !tbaa !7
@@ -7355,15 +7355,15 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %51
 
-51:                                               ; preds = %.thread37, %48
-  %.13042 = phi ptr [ %47, %.thread37 ], [ %50, %48 ]
+51:                                               ; preds = %.thread38, %48
+  %.13043 = phi ptr [ %47, %.thread38 ], [ %50, %48 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !55
   br label %53
 
 53:                                               ; preds = %48, %51
-  %.13043 = phi ptr [ %.13042, %51 ], [ %50, %48 ]
+  %.13044 = phi ptr [ %.13043, %51 ], [ %50, %48 ]
   %54 = phi ptr [ %52, %51 ], [ null, %48 ]
-  %55 = call fastcc i32 @H5VL__file_specific(ptr noundef %54, ptr noundef %.13043, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3)
+  %55 = call fastcc i32 @H5VL__file_specific(ptr noundef %54, ptr noundef %.13044, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %61
 
@@ -7375,22 +7375,22 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 
 61:                                               ; preds = %53, %57
   %.026 = phi i32 [ -1, %57 ], [ 0, %53 ]
-  br i1 %switch.not, label %.thread49, label %62
+  br i1 %switch.not, label %.thread50, label %62
 
 62:                                               ; preds = %61
   %63 = call i32 @H5VL_reset_vol_wrapper() #7
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %65, label %.thread49
+  br i1 %64, label %65, label %.thread50
 
 65:                                               ; preds = %62
   %66 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !3
   %67 = load i64, ptr @H5E_CANTRESET_g, align 8, !tbaa !3
   %68 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_file_specific, i32 noundef 4114, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.26) #7
-  br label %.thread49
+  br label %.thread50
 
-.thread49:                                        ; preds = %.thread, %41, %14, %18, %65, %62, %61
-  %.025 = phi i32 [ -1, %65 ], [ %.026, %62 ], [ %.026, %61 ], [ 0, %18 ], [ -1, %14 ], [ -1, %41 ], [ -1, %.thread ]
-  ret i32 %.025
+.thread50:                                        ; preds = %.thread, %41, %14, %18, %65, %62, %61
+  %.1 = phi i32 [ -1, %65 ], [ %.026, %62 ], [ %.026, %61 ], [ 0, %18 ], [ -1, %14 ], [ -1, %41 ], [ -1, %.thread ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7449,9 +7449,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_specific, i32 noundef 4045, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.94) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7622,9 +7622,9 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_optional, i32 noundef 4181, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.96) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7923,9 +7923,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_close, i32 noundef 4330, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.99) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8105,9 +8105,9 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_create, i32 noundef 4434, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.101) #7
   br label %42
 
-42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi ptr [ null, %21 ], [ null, %38 ], [ %30, %36 ], [ null, %9 ], [ null, %.thread ]
-  ret ptr %.018
+42:                                               ; preds = %.thread, %9, %38, %21, %36
+  %.017 = phi ptr [ null, %21 ], [ null, %38 ], [ %30, %36 ], [ null, %9 ], [ null, %.thread ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8287,9 +8287,9 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_open, i32 noundef 4541, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.103) #7
   br label %40
 
-40:                                               ; preds = %.thread, %34, %7, %36, %19
-  %.016 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
-  ret ptr %.016
+40:                                               ; preds = %.thread, %7, %36, %19, %34
+  %.015 = phi ptr [ null, %19 ], [ null, %36 ], [ %28, %34 ], [ null, %7 ], [ null, %.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8470,9 +8470,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_get, i32 noundef 4646, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.105) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8653,9 +8653,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_specific, i32 noundef 4749, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.107) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8835,9 +8835,9 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_optional, i32 noundef 4854, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.108) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.013
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.012 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9136,9 +9136,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_close, i32 noundef 5005, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.110) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9340,9 +9340,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
   %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_create, i32 noundef 5110, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.112) #7
   br label %41
 
-41:                                               ; preds = %.thread, %35, %8, %37, %20
-  %.017 = phi i32 [ -1, %20 ], [ -1, %37 ], [ %29, %35 ], [ 0, %8 ], [ -1, %.thread ]
-  ret i32 %.017
+41:                                               ; preds = %.thread, %8, %37, %20, %35
+  %.016 = phi i32 [ -1, %20 ], [ -1, %37 ], [ %29, %35 ], [ 0, %8 ], [ -1, %.thread ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9525,9 +9525,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_copy, i32 noundef 5228, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.114) #7
   br label %42
 
-42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
-  ret i32 %.018
+42:                                               ; preds = %.thread, %9, %38, %21, %36
+  %.017 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9710,9 +9710,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_move, i32 noundef 5341, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.116) #7
   br label %42
 
-42:                                               ; preds = %.thread, %36, %9, %38, %21
-  %.018 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
-  ret i32 %.018
+42:                                               ; preds = %.thread, %9, %38, %21, %36
+  %.017 = phi i32 [ -1, %21 ], [ -1, %38 ], [ %30, %36 ], [ 0, %9 ], [ -1, %.thread ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9883,9 +9883,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_get, i32 noundef 5456, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.118) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10065,9 +10065,9 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_specific, i32 noundef 5562, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.120) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.014
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.013 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10248,9 +10248,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_optional, i32 noundef 5670, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.121) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10596,9 +10596,9 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_open, i32 noundef 5834, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.127) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
-  ret ptr %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi ptr [ null, %18 ], [ null, %35 ], [ %27, %33 ], [ null, %6 ], [ null, %.thread ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10799,9 +10799,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_copy, i32 noundef 5942, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.130) #7
   br label %44
 
-44:                                               ; preds = %.thread, %38, %11, %40, %23
-  %.020 = phi i32 [ -1, %23 ], [ -1, %40 ], [ %32, %38 ], [ 0, %11 ], [ -1, %.thread ]
-  ret i32 %.020
+44:                                               ; preds = %.thread, %11, %40, %23, %38
+  %.019 = phi i32 [ -1, %23 ], [ -1, %40 ], [ %32, %38 ], [ 0, %11 ], [ -1, %.thread ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10984,9 +10984,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_get, i32 noundef 6056, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.131) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11166,9 +11166,9 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_specific, i32 noundef 6162, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.133) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.014 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.014
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.013 = phi i32 [ -1, %18 ], [ %27, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11349,9 +11349,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_optional, i32 noundef 6270, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.135) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11696,9 +11696,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__introspect_get_conn_cls, i32 noundef 6442, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.136) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11836,9 +11836,9 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
   %44 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_get_cap_flags, i32 noundef 6557, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.140) #7
   br label %45
 
-45:                                               ; preds = %.thread, %39, %17, %41, %24, %13
-  %.013 = phi i32 [ -1, %13 ], [ -1, %24 ], [ -1, %41 ], [ %33, %39 ], [ 0, %17 ], [ -1, %.thread ]
-  ret i32 %.013
+45:                                               ; preds = %.thread, %17, %41, %24, %13, %39
+  %.012 = phi i32 [ -1, %13 ], [ -1, %24 ], [ -1, %41 ], [ %33, %39 ], [ 0, %17 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12019,9 +12019,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__introspect_opt_query, i32 noundef 6629, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.142) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.014 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.013 = phi i32 [ -1, %17 ], [ -1, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12192,9 +12192,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_wait, i32 noundef 6737, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.143) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12365,9 +12365,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_notify, i32 noundef 6845, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.145) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12538,9 +12538,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_cancel, i32 noundef 6954, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.147) #7
   br label %36
 
-36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
-  ret i32 %.012
+36:                                               ; preds = %.thread, %3, %32, %15, %30
+  %.011 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12711,9 +12711,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_specific, i32 noundef 7062, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.149) #7
   br label %36
 
-36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
-  ret i32 %.012
+36:                                               ; preds = %.thread, %3, %32, %15, %30
+  %.011 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12884,9 +12884,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_optional, i32 noundef 7172, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.150) #7
   br label %36
 
-36:                                               ; preds = %.thread, %30, %3, %32, %15
-  %.012 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
-  ret i32 %.012
+36:                                               ; preds = %.thread, %3, %32, %15, %30
+  %.011 = phi i32 [ -1, %15 ], [ -1, %32 ], [ %24, %30 ], [ 0, %3 ], [ -1, %.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13178,9 +13178,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_free, i32 noundef 7317, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.154) #7
   br label %35
 
-35:                                               ; preds = %.thread, %29, %2, %31, %14
-  %.011 = phi i32 [ -1, %14 ], [ -1, %31 ], [ %23, %29 ], [ 0, %2 ], [ -1, %.thread ]
-  ret i32 %.011
+35:                                               ; preds = %.thread, %2, %31, %14, %29
+  %.010 = phi i32 [ -1, %14 ], [ -1, %31 ], [ %23, %29 ], [ 0, %2 ], [ -1, %.thread ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13328,9 +13328,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_put, i32 noundef 7425, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.234) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13488,9 +13488,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_get, i32 noundef 7525, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.236) #7
   br label %39
 
-39:                                               ; preds = %.thread, %33, %6, %35, %18
-  %.015 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.015
+39:                                               ; preds = %.thread, %6, %35, %18, %33
+  %.014 = phi i32 [ -1, %18 ], [ -1, %35 ], [ %27, %33 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13648,9 +13648,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_specific, i32 noundef 7624, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.158) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13808,9 +13808,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_optional, i32 noundef 7723, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.160) #7
   br label %37
 
-37:                                               ; preds = %.thread, %31, %4, %33, %16
-  %.013 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
-  ret i32 %.013
+37:                                               ; preds = %.thread, %4, %33, %16, %31
+  %.012 = phi i32 [ -1, %16 ], [ -1, %33 ], [ %25, %31 ], [ 0, %4 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13995,9 +13995,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
   store i32 %44, ptr %4, align 4, !tbaa !32
   br label %45
 
-45:                                               ; preds = %.thread, %37, %5, %16, %22, %43, %20, %39
-  %.030 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.030
+45:                                               ; preds = %.thread, %5, %16, %22, %43, %20, %39, %37
+  %.029 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %22 ], [ -1, %39 ], [ %31, %37 ], [ 0, %43 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14163,9 +14163,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
   store ptr null, ptr %4, align 8, !tbaa !48
   br label %34
 
-34:                                               ; preds = %.thread, %27, %5, %33, %29
-  %.014 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+34:                                               ; preds = %.thread, %5, %33, %29, %27
+  %.013 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14341,9 +14341,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) @H5O_TOKEN_UNDEF_g, i64 16, i1 false), !tbaa.struct !140
   br label %34
 
-34:                                               ; preds = %.thread, %27, %5, %33, %29
-  %.014 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.014
+34:                                               ; preds = %.thread, %5, %33, %29, %27
+  %.013 = phi i32 [ -1, %29 ], [ %21, %27 ], [ 0, %33 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -14543,9 +14543,9 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__optional, i32 noundef 8171, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.171) #7
   br label %38
 
-38:                                               ; preds = %.thread, %32, %5, %34, %17
-  %.013 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
-  ret i32 %.013
+38:                                               ; preds = %.thread, %5, %34, %17, %32
+  %.012 = phi i32 [ -1, %17 ], [ %26, %34 ], [ %26, %32 ], [ 0, %5 ], [ -1, %.thread ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable

@@ -227,9 +227,9 @@ define void @ff_fmt_from_frame(ptr dead_on_unwind noalias writable sret(%struct.
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %switch.selectcmp = icmp eq i32 %53, 18
   %switch.select = select i1 %switch.selectcmp, i64 4294968296, i64 4294967499
-  %switch.selectcmp176 = icmp eq i32 %53, 16
-  %switch.select177 = select i1 %switch.selectcmp176, i64 4294977296, i64 %switch.select
-  store i64 %switch.select177, ptr %73, align 8
+  %switch.selectcmp175 = icmp eq i32 %53, 16
+  %switch.select176 = select i1 %switch.selectcmp175, i64 4294977296, i64 %switch.select
+  store i64 %switch.select176, ptr %73, align 8
   %74 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef %52) #8
   %.not127 = icmp eq ptr %74, null
   br i1 %.not127, label %78, label %75
@@ -298,7 +298,7 @@ define void @ff_fmt_from_frame(ptr dead_on_unwind noalias writable sret(%struct.
 112:                                              ; preds = %91, %94, %78
   %113 = tail call ptr @av_frame_get_side_data(ptr noundef nonnull %1, i32 noundef 17) #8
   %.not131 = icmp eq ptr %113, null
-  br i1 %.not131, label %.thread, label %114
+  br i1 %.not131, label %.critedge, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -310,13 +310,13 @@ define void @ff_fmt_from_frame(ptr dead_on_unwind noalias writable sret(%struct.
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 2
   %119 = load i8, ptr %118, align 2, !tbaa !56
   %.not132 = icmp eq i8 %119, 0
-  br i1 %.not132, label %.thread, label %120
+  br i1 %.not132, label %.critedge, label %120
 
 120:                                              ; preds = %114
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 1
   %122 = load i8, ptr %121, align 1, !tbaa !58
   %123 = icmp ugt i8 %122, 1
-  br i1 %123, label %.thread, label %124
+  br i1 %123, label %.critedge, label %124
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %116, i64 60
@@ -367,14 +367,14 @@ av_cmp_q.exit:                                    ; preds = %135, %148
   br i1 %151, label %152, label %av_cmp_q.exit.thread
 
 152:                                              ; preds = %av_cmp_q.exit
-  %.pre162 = ashr i64 %126, 32
+  %.pre161 = ashr i64 %126, 32
   %sext = shl i64 %126, 32
-  %.pre163 = ashr exact i64 %sext, 32
+  %.pre162 = ashr exact i64 %sext, 32
   br label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %145, %142, %152, %av_cmp_q.exit
-  %.pre-phi164 = phi i64 [ %130, %145 ], [ %130, %142 ], [ %.pre163, %152 ], [ %130, %av_cmp_q.exit ]
-  %.pre-phi = phi i64 [ %128, %145 ], [ %128, %142 ], [ %.pre162, %152 ], [ %128, %av_cmp_q.exit ]
+  %.pre-phi163 = phi i64 [ %130, %145 ], [ %130, %142 ], [ %.pre162, %152 ], [ %130, %av_cmp_q.exit ]
+  %.pre-phi = phi i64 [ %128, %145 ], [ %128, %142 ], [ %.pre161, %152 ], [ %128, %av_cmp_q.exit ]
   %.sroa.019.0 = phi i32 [ %.sroa.019.0.copyload, %145 ], [ %.sroa.019.0.copyload, %142 ], [ %.sroa.011.0.extract.trunc.i, %152 ], [ %.sroa.019.0.copyload, %av_cmp_q.exit ]
   %.sroa.12.0 = phi i32 [ %.sroa.12.0.copyload, %145 ], [ %.sroa.12.0.copyload, %142 ], [ %134, %152 ], [ %.sroa.12.0.copyload, %av_cmp_q.exit ]
   %153 = getelementptr inbounds nuw i8, ptr %116, i64 68
@@ -384,7 +384,7 @@ av_cmp_q.exit.thread:                             ; preds = %145, %142, %152, %a
   %155 = ashr exact i64 %sext.i136, 32
   %156 = mul nsw i64 %155, %.pre-phi
   %157 = ashr i64 %154, 32
-  %158 = mul nsw i64 %157, %.pre-phi164
+  %158 = mul nsw i64 %157, %.pre-phi163
   %.not.i138 = icmp eq i64 %156, %158
   %159 = lshr i64 %154, 32
   %160 = trunc nuw i64 %159 to i32
@@ -421,20 +421,20 @@ av_cmp_q.exit143:                                 ; preds = %161, %174
   %.0.i139 = phi i32 [ %167, %161 ], [ %176, %174 ]
   %177 = icmp sgt i32 %.0.i139, 0
   %spec.select = select i1 %177, i32 %.sroa.011.0.extract.trunc.i134, i32 %.sroa.019.0
-  %spec.select175 = select i1 %177, i32 %160, i32 %.sroa.12.0
+  %spec.select174 = select i1 %177, i32 %160, i32 %.sroa.12.0
   br label %av_cmp_q.exit143.thread
 
 av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %171, %168
   %.sroa.019.1 = phi i32 [ %.sroa.019.0, %168 ], [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select175, %av_cmp_q.exit143 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select174, %av_cmp_q.exit143 ]
   %178 = icmp sgt i32 %.sroa.019.1, 0
   br i1 %178, label %181, label %.preheader
 
 .preheader:                                       ; preds = %av_cmp_q.exit143.thread
   %179 = getelementptr inbounds nuw i8, ptr %116, i64 84
   %180 = load i8, ptr %179, align 4, !tbaa !59
-  %.not160 = icmp eq i8 %180, 0
-  br i1 %.not160, label %.preheader..loopexit_crit_edge, label %.lr.ph
+  %.not159 = icmp eq i8 %180, 0
+  br i1 %.not159, label %.preheader..loopexit_crit_edge, label %.lr.ph
 
 .preheader..loopexit_crit_edge:                   ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -448,7 +448,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
 181:                                              ; preds = %av_cmp_q.exit143.thread
   %182 = tail call ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %51) #8
   %.not133.not = icmp eq ptr %182, null
-  br i1 %.not133.not, label %.thread, label %183
+  br i1 %.not133.not, label %.critedge, label %183
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -478,17 +478,17 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
 
 202:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_cmp_q.exit153 ]
-  %.sroa.12.2159 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
-  %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
+  %.sroa.12.2158 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
+  %.sroa.019.2156 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
   %203 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 92
   %.sroa.03.0.copyload = load i64, ptr %204, align 4
   %.sroa.011.0.extract.trunc.i144 = trunc i64 %.sroa.03.0.copyload to i32
   %sext.i146 = shl i64 %.sroa.03.0.copyload, 32
   %205 = ashr exact i64 %sext.i146, 32
-  %206 = sext i32 %.sroa.12.2159 to i64
+  %206 = sext i32 %.sroa.12.2158 to i64
   %207 = mul nsw i64 %205, %206
-  %208 = sext i32 %.sroa.019.2157 to i64
+  %208 = sext i32 %.sroa.019.2156 to i64
   %209 = ashr i64 %.sroa.03.0.copyload, 32
   %210 = mul nsw i64 %209, %208
   %.not.i148 = icmp eq i64 %207, %210
@@ -504,20 +504,20 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   br label %av_cmp_q.exit153
 
 218:                                              ; preds = %202
-  %219 = icmp ne i32 %.sroa.12.2159, 0
+  %219 = icmp ne i32 %.sroa.12.2158, 0
   %220 = icmp ugt i64 %.sroa.03.0.copyload, 4294967295
   %or.cond.i150 = and i1 %219, %220
   br i1 %or.cond.i150, label %av_cmp_q.exit153, label %221
 
 221:                                              ; preds = %218
   %222 = icmp ne i32 %.sroa.011.0.extract.trunc.i144, 0
-  %223 = icmp ne i32 %.sroa.019.2157, 0
+  %223 = icmp ne i32 %.sroa.019.2156, 0
   %or.cond5.i151 = and i1 %223, %222
   br i1 %or.cond5.i151, label %224, label %av_cmp_q.exit153
 
 224:                                              ; preds = %221
   %225 = ashr i32 %.sroa.011.0.extract.trunc.i144, 31
-  %.neg.i152 = lshr i32 %.sroa.019.2157, 31
+  %.neg.i152 = lshr i32 %.sroa.019.2156, 31
   %226 = add nsw i32 %225, %.neg.i152
   br label %av_cmp_q.exit153
 
@@ -526,8 +526,8 @@ av_cmp_q.exit153:                                 ; preds = %211, %218, %221, %2
   %227 = icmp sgt i32 %.0.i149, 0
   %.sroa.12.0.extract.shift = lshr i64 %.sroa.03.0.copyload, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
-  %.sroa.019.3 = select i1 %227, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2157
-  %.sroa.12.3 = select i1 %227, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2159
+  %.sroa.019.3 = select i1 %227, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2156
+  %.sroa.12.3 = select i1 %227, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %202, !llvm.loop !62
@@ -550,17 +550,17 @@ av_cmp_q.exit153:                                 ; preds = %211, %218, %221, %2
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %236 = tail call i64 @av_mul_q(i64 4294977296, i64 %231) #10
   store i64 %236, ptr %235, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %181, %.loopexit, %120, %114, %112
+.critedge:                                        ; preds = %181, %.loopexit, %120, %114, %112
   %237 = icmp eq i32 %53, 16
   br i1 %237, label %238, label %239
 
-238:                                              ; preds = %.thread
+238:                                              ; preds = %.critedge
   store i64 4294967296, ptr %72, align 8
   br label %239
 
-239:                                              ; preds = %.thread, %238
+239:                                              ; preds = %.critedge, %238
   ret void
 }
 

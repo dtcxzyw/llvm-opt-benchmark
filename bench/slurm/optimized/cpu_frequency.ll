@@ -2991,7 +2991,7 @@ define dso_local void @cpu_freq_reset(ptr noundef readonly captures(none) %0) lo
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.112, ptr noundef %39, i32 noundef range(i32 -2147483648, 65535) %40) #10
   %42 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 384) #10
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %.preheader46.i
+  br i1 %43, label %44, label %.preheader47.i
 
 44:                                               ; preds = %38
   %45 = tail call ptr @__errno_location() #12
@@ -3003,16 +3003,16 @@ define dso_local void @cpu_freq_reset(ptr noundef readonly captures(none) %0) lo
   %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.113, ptr noundef nonnull @__func__._test_cpu_owner_lock, ptr noundef nonnull %2) #10
   br label %_test_cpu_owner_lock.exit.thread
 
-.preheader46.i:                                   ; preds = %38, %57
+.preheader47.i:                                   ; preds = %38, %57
   %.0612.i.i = phi i32 [ %58, %57 ], [ 0, %38 ]
   %.not.i.i = icmp eq i32 %.0612.i.i, 0
   br i1 %.not.i.i, label %51, label %49
 
-49:                                               ; preds = %.preheader46.i
+49:                                               ; preds = %.preheader47.i
   %50 = call i32 @usleep(i32 noundef 1000) #10
   br label %51
 
-51:                                               ; preds = %49, %.preheader46.i
+51:                                               ; preds = %49, %.preheader47.i
   %52 = call i32 @fd_get_write_lock(i32 noundef range(i32 0, -2147483648) %42) #10
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.lr.ph.i.preheader, label %54
@@ -3028,7 +3028,7 @@ define dso_local void @cpu_freq_reset(ptr noundef readonly captures(none) %0) lo
 57:                                               ; preds = %54, %54
   %58 = add nuw nsw i32 %.0612.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %58, 10
-  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader46.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %_fd_lock_retry.exit.i, label %.preheader47.i, !llvm.loop !32
 
 _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %59 = icmp slt i32 %52, 0
@@ -3042,16 +3042,16 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %62 = call i32 @close(i32 noundef %42) #10
   br label %_test_cpu_owner_lock.exit.thread
 
-.split60.i:                                       ; preds = %.lr.ph.split.split.i, %76
+.split61.i:                                       ; preds = %.lr.ph.split.split.i, %76
   %63 = call i32 @get_log_level() #10
   %64 = icmp sgt i32 %63, 4
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %.split60.i
+65:                                               ; preds = %.split61.i
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.3, i32 noundef 181, ptr noundef nonnull @__func__._test_cpu_owner_lock) #10
   br label %66
 
-66:                                               ; preds = %65, %.split60.i
+66:                                               ; preds = %65, %.split61.i
   %67 = tail call ptr @__errno_location() #12
   store i32 5, ptr %67, align 4
   br label %121
@@ -3062,7 +3062,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %.split.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef 181, ptr noundef nonnull @__func__._test_cpu_owner_lock, i64 noundef %.033.ph93.i, i32 noundef 4) #10
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef 181, ptr noundef nonnull @__func__._test_cpu_owner_lock, i64 noundef %.033.ph94.i, i32 noundef 4) #10
   br label %71
 
 71:                                               ; preds = %70, %.split.i
@@ -3070,42 +3070,42 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   store i32 5, ptr %72, align 4
   br label %121
 
-.lr.ph76.preheader.i:                             ; preds = %76
+.lr.ph77.preheader.i:                             ; preds = %76
   %73 = icmp slt i32 %78, 0
-  br i1 %73, label %74, label %.split54.i
+  br i1 %73, label %74, label %.split55.i
 
-74:                                               ; preds = %.lr.ph63, %.lr.ph76.preheader.i
+74:                                               ; preds = %.lr.ph63, %.lr.ph77.preheader.i
   %75 = load i32, ptr %107, align 4
-  switch i32 %75, label %.split57.i [
+  switch i32 %75, label %.split58.i [
     i32 11, label %76
     i32 4, label %76
   ]
 
 76:                                               ; preds = %74, %74
-  %77 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph95.i, i64 noundef 4) #10
+  %77 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph96.i, i64 noundef 4) #10
   %78 = trunc i64 %77 to i32
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %.split60.i, label %.lr.ph76.preheader.i
+  br i1 %79, label %.split61.i, label %.lr.ph77.preheader.i
 
-.split57.i:                                       ; preds = %97, %74
-  %.033.ph93118.i = phi i64 [ 4, %74 ], [ %.033.ph93.i, %97 ]
+.split58.i:                                       ; preds = %97, %74
+  %.033.ph94119.i = phi i64 [ 4, %74 ], [ %.033.ph94.i, %97 ]
   %80 = call i32 @get_log_level() #10
   %81 = icmp sgt i32 %80, 4
   br i1 %81, label %82, label %121
 
-82:                                               ; preds = %.split57.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef 181, ptr noundef nonnull @__func__._test_cpu_owner_lock, i64 noundef %.033.ph93118.i, i32 noundef 4) #10
+82:                                               ; preds = %.split58.i
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef 181, ptr noundef nonnull @__func__._test_cpu_owner_lock, i64 noundef %.033.ph94119.i, i32 noundef 4) #10
   br label %121
 
-.split54.i:                                       ; preds = %.lr.ph91.i, %.lr.ph76.preheader.i, %.lr.ph91.i.preheader, %.lr.ph76.preheader.i.preheader
-  %.us-phi55.i = phi i64 [ %103, %.lr.ph76.preheader.i.preheader ], [ %91, %.lr.ph91.i.preheader ], [ %77, %.lr.ph76.preheader.i ], [ %100, %.lr.ph91.i ]
-  %83 = and i64 %.us-phi55.i, 2147483647
-  %84 = getelementptr inbounds nuw i8, ptr %.032.ph95.i, i64 %83
-  %85 = sub i64 %.033.ph93.i, %83
+.split55.i:                                       ; preds = %.lr.ph92.i, %.lr.ph77.preheader.i, %.lr.ph92.i.preheader, %.lr.ph77.preheader.i.preheader
+  %.us-phi56.i = phi i64 [ %103, %.lr.ph77.preheader.i.preheader ], [ %91, %.lr.ph92.i.preheader ], [ %77, %.lr.ph77.preheader.i ], [ %100, %.lr.ph92.i ]
+  %83 = and i64 %.us-phi56.i, 2147483647
+  %84 = getelementptr inbounds nuw i8, ptr %.032.ph96.i, i64 %83
+  %85 = sub i64 %.033.ph94.i, %83
   %.not42.i = icmp eq i64 %85, 0
   br i1 %.not42.i, label %.outer._crit_edge.i, label %86
 
-86:                                               ; preds = %.split54.i
+86:                                               ; preds = %.split55.i
   %87 = call i32 @get_log_level() #10
   %88 = icmp sgt i32 %87, 6
   br i1 %88, label %89, label %.lr.ph.i.backedge
@@ -3118,57 +3118,57 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   br label %.lr.ph.i, !llvm.loop !33
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
-  %.032.ph95.i = phi ptr [ %3, %.lr.ph.i.preheader ], [ %84, %.lr.ph.i.backedge ]
-  %.033.ph93.i = phi i64 [ 4, %.lr.ph.i.preheader ], [ %85, %.lr.ph.i.backedge ]
-  %90 = icmp eq i64 %.033.ph93.i, 4
+  %.032.ph96.i = phi ptr [ %3, %.lr.ph.i.preheader ], [ %84, %.lr.ph.i.backedge ]
+  %.033.ph94.i = phi i64 [ 4, %.lr.ph.i.preheader ], [ %85, %.lr.ph.i.backedge ]
+  %90 = icmp eq i64 %.033.ph94.i, 4
   br i1 %90, label %.lr.ph.split.split.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.i
-  %91 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph95.i, i64 noundef %.033.ph93.i) #10
+  %91 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph96.i, i64 noundef %.033.ph94.i) #10
   %92 = trunc i64 %91 to i32
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.split.i, label %.lr.ph91.i.preheader
+  br i1 %93, label %.split.i, label %.lr.ph92.i.preheader
 
-.lr.ph91.i.preheader:                             ; preds = %.lr.ph.split.us.split.i
+.lr.ph92.i.preheader:                             ; preds = %.lr.ph.split.us.split.i
   %94 = icmp slt i32 %92, 0
-  br i1 %94, label %.lr.ph, label %.split54.i
+  br i1 %94, label %.lr.ph, label %.split55.i
 
-.lr.ph:                                           ; preds = %.lr.ph91.i.preheader
+.lr.ph:                                           ; preds = %.lr.ph92.i.preheader
   %95 = tail call ptr @__errno_location() #12
   br label %97
 
-.lr.ph91.i:                                       ; preds = %99
+.lr.ph92.i:                                       ; preds = %99
   %96 = icmp slt i32 %101, 0
-  br i1 %96, label %97, label %.split54.i
+  br i1 %96, label %97, label %.split55.i
 
-97:                                               ; preds = %.lr.ph, %.lr.ph91.i
+97:                                               ; preds = %.lr.ph, %.lr.ph92.i
   %98 = load i32, ptr %95, align 4
-  switch i32 %98, label %.split57.i [
+  switch i32 %98, label %.split58.i [
     i32 11, label %99
     i32 4, label %99
   ]
 
 99:                                               ; preds = %97, %97
-  %100 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph95.i, i64 noundef %.033.ph93.i) #10
+  %100 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph96.i, i64 noundef %.033.ph94.i) #10
   %101 = trunc i64 %100 to i32
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.split.i, label %.lr.ph91.i
+  br i1 %102, label %.split.i, label %.lr.ph92.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i
-  %103 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph95.i, i64 noundef 4) #10
+  %103 = call i64 @read(i32 noundef %42, ptr noundef %.032.ph96.i, i64 noundef 4) #10
   %104 = trunc i64 %103 to i32
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.split60.i, label %.lr.ph76.preheader.i.preheader
+  br i1 %105, label %.split61.i, label %.lr.ph77.preheader.i.preheader
 
-.lr.ph76.preheader.i.preheader:                   ; preds = %.lr.ph.split.split.i
+.lr.ph77.preheader.i.preheader:                   ; preds = %.lr.ph.split.split.i
   %106 = icmp slt i32 %104, 0
-  br i1 %106, label %.lr.ph63, label %.split54.i
+  br i1 %106, label %.lr.ph63, label %.split55.i
 
-.lr.ph63:                                         ; preds = %.lr.ph76.preheader.i.preheader
+.lr.ph63:                                         ; preds = %.lr.ph77.preheader.i.preheader
   %107 = tail call ptr @__errno_location() #12
   br label %74
 
-.outer._crit_edge.i:                              ; preds = %.split54.i
+.outer._crit_edge.i:                              ; preds = %.split55.i
   %108 = call i32 @fd_release_lock(i32 noundef %42) #10
   %109 = load i32, ptr %3, align 4
   %.not43.i = icmp eq i32 %29, %109
@@ -3197,7 +3197,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.121, ptr noundef nonnull @__func__._test_cpu_owner_lock, i32 noundef range(i32 -2147483648, 65535) %40, i32 noundef %29) #10
   br label %125
 
-121:                                              ; preds = %82, %.split57.i, %71, %66
+121:                                              ; preds = %82, %.split58.i, %71, %66
   %122 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122, ptr noundef nonnull @__func__._test_cpu_owner_lock, ptr noundef nonnull %2) #10
   %123 = call i32 @fd_release_lock(i32 noundef %42) #10
   %124 = call i32 @close(i32 noundef %42) #10

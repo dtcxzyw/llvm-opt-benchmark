@@ -273,7 +273,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr noundef readonly ca
   %13 = trunc nuw i8 %12 to i1
   %14 = xor i1 %13, true
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %16, label %.thread26, !prof !12
+  br i1 %15, label %16, label %.thread27, !prof !12
 
 16:                                               ; preds = %7
   %17 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_stab_t_reg_free_list) #6
@@ -284,7 +284,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr noundef readonly ca
   %20 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %21 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !13
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__stab_copy_file, i32 noundef 286, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.2) #6
-  br label %.thread26
+  br label %.thread27
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -328,16 +328,16 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr noundef readonly ca
   %46 = load i64, ptr %45, align 8, !tbaa !17
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %46, ptr %47, align 8, !tbaa !24
-  br label %.thread26
+  br label %.thread27
 
 48:                                               ; preds = %28, %37
   %49 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_stab_t_reg_free_list, ptr noundef nonnull %17) #6
-  br label %.thread26
+  br label %.thread27
 
-.thread26:                                        ; preds = %19, %41, %7, %48
-  %.022 = phi ptr [ null, %48 ], [ null, %7 ], [ %17, %41 ], [ null, %19 ]
+.thread27:                                        ; preds = %19, %41, %7, %48
+  %.021 = phi ptr [ null, %48 ], [ null, %7 ], [ %17, %41 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %.022
+  ret ptr %.021
 }
 
 ; Function Attrs: nounwind uwtable

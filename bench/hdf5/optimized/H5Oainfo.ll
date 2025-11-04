@@ -477,7 +477,7 @@ define internal ptr @H5O__ainfo_copy_file(ptr readnone captures(none) %0, ptr no
   %12 = trunc nuw i8 %11 to i1
   %13 = xor i1 %12, true
   %14 = select i1 %10, i1 true, i1 %13
-  br i1 %14, label %15, label %.thread20, !prof !9
+  br i1 %14, label %15, label %.thread21, !prof !9
 
 15:                                               ; preds = %7
   %16 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5O_ainfo_t_reg_free_list) #7
@@ -488,14 +488,14 @@ define internal ptr @H5O__ainfo_copy_file(ptr readnone captures(none) %0, ptr no
   %19 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %20 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__ainfo_copy_file, i32 noundef 409, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.4) #7
-  br label %.thread20
+  br label %.thread21
 
 22:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !25
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8, !tbaa !23
   %.not = icmp eq i64 %24, -1
-  br i1 %.not, label %.thread20, label %25
+  br i1 %.not, label %.thread21, label %25
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -509,7 +509,7 @@ define internal ptr @H5O__ainfo_copy_file(ptr readnone captures(none) %0, ptr no
 
 .thread:                                          ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread20
+  br label %.thread21
 
 29:                                               ; preds = %25
   %30 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -517,11 +517,11 @@ define internal ptr @H5O__ainfo_copy_file(ptr readnone captures(none) %0, ptr no
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__ainfo_copy_file, i32 noundef 421, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %33 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_ainfo_t_reg_free_list, ptr noundef nonnull %16) #7
-  br label %.thread20
+  br label %.thread21
 
-.thread20:                                        ; preds = %18, %22, %.thread, %7, %29
-  %.016 = phi ptr [ null, %29 ], [ null, %7 ], [ %16, %22 ], [ %16, %.thread ], [ null, %18 ]
-  ret ptr %.016
+.thread21:                                        ; preds = %18, %22, %.thread, %7, %29
+  %.015 = phi ptr [ null, %29 ], [ null, %7 ], [ %16, %22 ], [ %16, %.thread ], [ null, %18 ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable

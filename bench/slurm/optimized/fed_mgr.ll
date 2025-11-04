@@ -4819,86 +4819,86 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_cluster_features(ptr noun
   %32 = tail call ptr @list_iterator_create(ptr noundef %31) #16
   %33 = tail call ptr @list_peek(ptr noundef %26) #16
   %.not65 = icmp eq ptr %33, null
-  br i1 %.not65, label %_get_all_sibling_bits.exit82, label %34
+  br i1 %.not65, label %_get_all_sibling_bits.exit83, label %34
 
 34:                                               ; preds = %25
   %35 = load i8, ptr %33, align 1
   %36 = icmp eq i8 %35, 33
-  br i1 %36, label %37, label %_get_all_sibling_bits.exit82
+  br i1 %36, label %37, label %_get_all_sibling_bits.exit83
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %.not.i73 = icmp eq ptr %38, null
-  br i1 %.not.i73, label %_get_all_sibling_bits.exit82, label %39
+  %.not.i74 = icmp eq ptr %38, null
+  br i1 %.not.i74, label %_get_all_sibling_bits.exit83, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load ptr, ptr %40, align 8
-  %.not7.i74 = icmp eq ptr %41, null
-  br i1 %.not7.i74, label %_get_all_sibling_bits.exit82, label %42
+  %.not7.i75 = icmp eq ptr %41, null
+  br i1 %.not7.i75, label %_get_all_sibling_bits.exit83, label %42
 
 42:                                               ; preds = %39
   %43 = tail call ptr @list_iterator_create(ptr noundef nonnull %41) #16
   %44 = tail call ptr @list_next(ptr noundef %43) #16
-  %.not89.i75 = icmp eq ptr %44, null
-  br i1 %.not89.i75, label %._crit_edge.i79, label %.lr.ph.i76
+  %.not89.i76 = icmp eq ptr %44, null
+  br i1 %.not89.i76, label %._crit_edge.i80, label %.lr.ph.i77
 
-.lr.ph.i76:                                       ; preds = %42, %.lr.ph.i76
-  %45 = phi ptr [ %52, %.lr.ph.i76 ], [ %44, %42 ]
-  %.110.i77 = phi i64 [ %51, %.lr.ph.i76 ], [ 0, %42 ]
+.lr.ph.i77:                                       ; preds = %42, %.lr.ph.i77
+  %45 = phi ptr [ %52, %.lr.ph.i77 ], [ %44, %42 ]
+  %.110.i78 = phi i64 [ %51, %.lr.ph.i77 ], [ 0, %42 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   %49 = zext nneg i32 %48 to i64
   %50 = shl nuw i64 1, %49
-  %51 = or i64 %50, %.110.i77
+  %51 = or i64 %50, %.110.i78
   %52 = tail call ptr @list_next(ptr noundef %43) #16
-  %.not8.i78 = icmp eq ptr %52, null
-  br i1 %.not8.i78, label %._crit_edge.i79, label %.lr.ph.i76, !llvm.loop !31
+  %.not8.i79 = icmp eq ptr %52, null
+  br i1 %.not8.i79, label %._crit_edge.i80, label %.lr.ph.i77, !llvm.loop !31
 
-._crit_edge.i79:                                  ; preds = %.lr.ph.i76, %42
-  %.1.lcssa.i80 = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i76 ]
+._crit_edge.i80:                                  ; preds = %.lr.ph.i77, %42
+  %.1.lcssa.i81 = phi i64 [ 0, %42 ], [ %51, %.lr.ph.i77 ]
   tail call void @list_iterator_destroy(ptr noundef %43) #16
-  br label %_get_all_sibling_bits.exit82
+  br label %_get_all_sibling_bits.exit83
 
-_get_all_sibling_bits.exit82:                     ; preds = %._crit_edge.i79, %39, %37, %34, %25
-  %.052 = phi i64 [ 0, %34 ], [ 0, %25 ], [ %.1.lcssa.i80, %._crit_edge.i79 ], [ 0, %39 ], [ 0, %37 ]
-  %.050 = phi i1 [ false, %34 ], [ false, %25 ], [ true, %._crit_edge.i79 ], [ true, %39 ], [ true, %37 ]
+_get_all_sibling_bits.exit83:                     ; preds = %._crit_edge.i80, %39, %37, %34, %25
+  %.052 = phi i64 [ 0, %34 ], [ 0, %25 ], [ %.1.lcssa.i81, %._crit_edge.i80 ], [ 0, %39 ], [ 0, %37 ]
+  %.050 = phi i1 [ false, %34 ], [ false, %25 ], [ true, %._crit_edge.i80 ], [ true, %39 ], [ true, %37 ]
   %53 = tail call ptr @list_next(ptr noundef %28) #16
-  %.not6695 = icmp eq ptr %53, null
-  br i1 %.not6695, label %.thread, label %.lr.ph97
+  %.not6696 = icmp eq ptr %53, null
+  br i1 %.not6696, label %.thread, label %.lr.ph98
 
-.lr.ph97:                                         ; preds = %_get_all_sibling_bits.exit82
-  br i1 %.050, label %.lr.ph97.split.us, label %.lr.ph97.split.split
+.lr.ph98:                                         ; preds = %_get_all_sibling_bits.exit83
+  br i1 %.050, label %.lr.ph98.split.us, label %.lr.ph98.split.split
 
-.lr.ph97.split.us:                                ; preds = %.lr.ph97, %60
-  %54 = phi ptr [ %61, %60 ], [ %53, %.lr.ph97 ]
-  %.15396.us = phi i64 [ %.3.us.us, %60 ], [ %.052, %.lr.ph97 ]
+.lr.ph98.split.us:                                ; preds = %.lr.ph98, %60
+  %54 = phi ptr [ %61, %60 ], [ %53, %.lr.ph98 ]
+  %.15397.us = phi i64 [ %.3.us.us, %60 ], [ %.052, %.lr.ph98 ]
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 33
   %spec.select.idx.us = zext i1 %56 to i64
   %spec.select.us = getelementptr inbounds nuw i8, ptr %54, i64 %spec.select.idx.us
   %57 = tail call ptr @list_next(ptr noundef %32) #16
-  %.not6790.us = icmp eq ptr %57, null
-  br i1 %.not6790.us, label %.split.us, label %.lr.ph.us
+  %.not6791.us = icmp eq ptr %57, null
+  br i1 %.not6791.us, label %.split.us, label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %75
   br i1 %.1.us.us, label %58, label %.split.us
 
 58:                                               ; preds = %._crit_edge.split.us.us
   %59 = icmp eq i64 %.3.us.us, 0
-  br i1 %59, label %.split102.us, label %60
+  br i1 %59, label %.split103.us, label %60
 
 60:                                               ; preds = %58
   tail call void @list_iterator_reset(ptr noundef %32) #16
   %61 = tail call ptr @list_next(ptr noundef %28) #16
   %.not66.us = icmp eq ptr %61, null
-  br i1 %.not66.us, label %.thread, label %.lr.ph97.split.us
+  br i1 %.not66.us, label %.thread, label %.lr.ph98.split.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph97.split.us, %75
-  %62 = phi ptr [ %76, %75 ], [ %57, %.lr.ph97.split.us ]
-  %.092.us.us = phi i1 [ %.1.us.us, %75 ], [ false, %.lr.ph97.split.us ]
-  %.25491.us.us = phi i64 [ %.3.us.us, %75 ], [ %.15396.us, %.lr.ph97.split.us ]
+.lr.ph.us:                                        ; preds = %.lr.ph98.split.us, %75
+  %62 = phi ptr [ %76, %75 ], [ %57, %.lr.ph98.split.us ]
+  %.093.us.us = phi i1 [ %.1.us.us, %75 ], [ false, %.lr.ph98.split.us ]
+  %.25492.us.us = phi i64 [ %.3.us.us, %75 ], [ %.15397.us, %.lr.ph98.split.us ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 184
   %64 = load ptr, ptr %63, align 8
   %.not70.us.us = icmp eq ptr %64, null
@@ -4916,27 +4916,27 @@ _get_all_sibling_bits.exit82:                     ; preds = %._crit_edge.i79, %3
   %71 = zext nneg i32 %70 to i64
   %72 = shl nuw i64 1, %71
   %73 = xor i64 %72, -1
-  %74 = and i64 %.25491.us.us, %73
+  %74 = and i64 %.25492.us.us, %73
   br label %75
 
 75:                                               ; preds = %67, %65, %.lr.ph.us
-  %.3.us.us = phi i64 [ %.25491.us.us, %65 ], [ %.25491.us.us, %.lr.ph.us ], [ %74, %67 ]
-  %.1.us.us = phi i1 [ %.092.us.us, %65 ], [ %.092.us.us, %.lr.ph.us ], [ true, %67 ]
+  %.3.us.us = phi i64 [ %.25492.us.us, %65 ], [ %.25492.us.us, %.lr.ph.us ], [ %74, %67 ]
+  %.1.us.us = phi i1 [ %.093.us.us, %65 ], [ %.093.us.us, %.lr.ph.us ], [ true, %67 ]
   %76 = tail call ptr @list_next(ptr noundef %32) #16
   %.not67.us.us = icmp eq ptr %76, null
   br i1 %.not67.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !32
 
-.lr.ph97.split.split:                             ; preds = %.lr.ph97, %94
-  %77 = phi ptr [ %95, %94 ], [ %53, %.lr.ph97 ]
-  %.15396 = phi i64 [ %.3, %94 ], [ %.052, %.lr.ph97 ]
+.lr.ph98.split.split:                             ; preds = %.lr.ph98, %94
+  %77 = phi ptr [ %95, %94 ], [ %53, %.lr.ph98 ]
+  %.15397 = phi i64 [ %.3, %94 ], [ %.052, %.lr.ph98 ]
   %78 = tail call ptr @list_next(ptr noundef %32) #16
-  %.not6790 = icmp eq ptr %78, null
-  br i1 %.not6790, label %.split.us, label %.lr.ph
+  %.not6791 = icmp eq ptr %78, null
+  br i1 %.not6791, label %.split.us, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph97.split.split, %91
-  %79 = phi ptr [ %92, %91 ], [ %78, %.lr.ph97.split.split ]
-  %.092 = phi i1 [ %.1, %91 ], [ false, %.lr.ph97.split.split ]
-  %.25491 = phi i64 [ %.3, %91 ], [ %.15396, %.lr.ph97.split.split ]
+.lr.ph:                                           ; preds = %.lr.ph98.split.split, %91
+  %79 = phi ptr [ %92, %91 ], [ %78, %.lr.ph98.split.split ]
+  %.093 = phi i1 [ %.1, %91 ], [ false, %.lr.ph98.split.split ]
+  %.25492 = phi i64 [ %.3, %91 ], [ %.15397, %.lr.ph98.split.split ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   %.not70 = icmp eq ptr %81, null
@@ -4953,12 +4953,12 @@ _get_all_sibling_bits.exit82:                     ; preds = %._crit_edge.i79, %3
   %87 = add i32 %86, -1
   %88 = zext nneg i32 %87 to i64
   %89 = shl nuw i64 1, %88
-  %90 = or i64 %89, %.25491
+  %90 = or i64 %89, %.25492
   br label %91
 
 91:                                               ; preds = %84, %82, %.lr.ph
-  %.3 = phi i64 [ %.25491, %82 ], [ %.25491, %.lr.ph ], [ %90, %84 ]
-  %.1 = phi i1 [ %.092, %82 ], [ %.092, %.lr.ph ], [ true, %84 ]
+  %.3 = phi i64 [ %.25492, %82 ], [ %.25492, %.lr.ph ], [ %90, %84 ]
+  %.1 = phi i1 [ %.093, %82 ], [ %.093, %.lr.ph ], [ true, %84 ]
   %92 = tail call ptr @list_next(ptr noundef %32) #16
   %.not67 = icmp eq ptr %92, null
   br i1 %.not67, label %._crit_edge.split, label %.lr.ph, !llvm.loop !32
@@ -4966,25 +4966,25 @@ _get_all_sibling_bits.exit82:                     ; preds = %._crit_edge.i79, %3
 ._crit_edge.split:                                ; preds = %91
   br i1 %.1, label %94, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph97.split.split, %._crit_edge.split, %.lr.ph97.split.us, %._crit_edge.split.us.us
-  %.us-phi99 = phi ptr [ %spec.select.us, %._crit_edge.split.us.us ], [ %spec.select.us, %.lr.ph97.split.us ], [ %77, %._crit_edge.split ], [ %77, %.lr.ph97.split.split ]
-  %.us-phi100 = phi i64 [ %.15396.us, %.lr.ph97.split.us ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.15396, %.lr.ph97.split.split ], [ %.3, %._crit_edge.split ]
-  %93 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180, ptr noundef nonnull %.us-phi99) #16
+.split.us:                                        ; preds = %.lr.ph98.split.split, %._crit_edge.split, %.lr.ph98.split.us, %._crit_edge.split.us.us
+  %.us-phi100 = phi ptr [ %spec.select.us, %._crit_edge.split.us.us ], [ %spec.select.us, %.lr.ph98.split.us ], [ %77, %._crit_edge.split ], [ %77, %.lr.ph98.split.split ]
+  %.us-phi101 = phi i64 [ %.15397.us, %.lr.ph98.split.us ], [ %.3.us.us, %._crit_edge.split.us.us ], [ %.15397, %.lr.ph98.split.split ], [ %.3, %._crit_edge.split ]
+  %93 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180, ptr noundef nonnull %.us-phi100) #16
   br label %.thread
 
 94:                                               ; preds = %._crit_edge.split
   tail call void @list_iterator_reset(ptr noundef %32) #16
   %95 = tail call ptr @list_next(ptr noundef %28) #16
   %.not66 = icmp eq ptr %95, null
-  br i1 %.not66, label %.thread, label %.lr.ph97.split.split
+  br i1 %.not66, label %.thread, label %.lr.ph98.split.split
 
-.split102.us:                                     ; preds = %58
+.split103.us:                                     ; preds = %58
   %96 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.181, ptr noundef nonnull %spec.select.us) #16
   br label %.thread
 
-.thread:                                          ; preds = %94, %60, %_get_all_sibling_bits.exit82, %.split.us, %.split102.us
-  %.5 = phi i64 [ 0, %.split102.us ], [ %.us-phi100, %.split.us ], [ %.052, %_get_all_sibling_bits.exit82 ], [ %.3.us.us, %60 ], [ %.3, %94 ]
-  %.2 = phi i32 [ -1, %.split102.us ], [ -1, %.split.us ], [ 0, %_get_all_sibling_bits.exit82 ], [ 0, %60 ], [ 0, %94 ]
+.thread:                                          ; preds = %94, %60, %_get_all_sibling_bits.exit83, %.split.us, %.split103.us
+  %.5 = phi i64 [ 0, %.split103.us ], [ %.us-phi101, %.split.us ], [ %.052, %_get_all_sibling_bits.exit83 ], [ %.3.us.us, %60 ], [ %.3, %94 ]
+  %.2 = phi i32 [ -1, %.split103.us ], [ -1, %.split.us ], [ 0, %_get_all_sibling_bits.exit83 ], [ 0, %60 ], [ 0, %94 ]
   tail call void @list_iterator_destroy(ptr noundef %32) #16
   tail call void @list_iterator_destroy(ptr noundef %28) #16
   %.not = icmp eq ptr %26, null

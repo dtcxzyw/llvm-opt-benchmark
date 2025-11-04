@@ -181,11 +181,11 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %48 = call i64 @H5Tcopy(i64 noundef %2) #9
   %49 = load ptr, ptr %16, align 8, !tbaa !8
   %50 = load ptr, ptr %49, align 8, !tbaa !15
-  %.not34.i = icmp eq ptr %50, null
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not35.i = icmp eq ptr %50, null
+  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
 
 51:                                               ; preds = %63
-  %52 = add i32 %.02435.i, 1
+  %52 = add i32 %.02436.i, 1
   %53 = load ptr, ptr %16, align 8, !tbaa !8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
@@ -195,23 +195,23 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
 
 .lr.ph.i:                                         ; preds = %.thread134.sink.split, %51
   %57 = phi ptr [ %56, %51 ], [ %50, %.thread134.sink.split ]
-  %.02236.i = phi i64 [ %61, %51 ], [ %48, %.thread134.sink.split ]
-  %.02435.i = phi i32 [ %52, %51 ], [ 0, %.thread134.sink.split ]
-  %58 = call i32 @H5Tget_member_index(i64 noundef %.02236.i, ptr noundef nonnull %57) #9
+  %.02237.i = phi i64 [ %61, %51 ], [ %48, %.thread134.sink.split ]
+  %.02436.i = phi i32 [ %52, %51 ], [ 0, %.thread134.sink.split ]
+  %58 = call i32 @H5Tget_member_index(i64 noundef %.02237.i, ptr noundef nonnull %57) #9
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread.i, label %60
 
 60:                                               ; preds = %.lr.ph.i
-  %61 = call i64 @H5Tget_member_type(i64 noundef %.02236.i, i32 noundef %58) #9
+  %61 = call i64 @H5Tget_member_type(i64 noundef %.02237.i, i32 noundef %58) #9
   %62 = icmp slt i64 %61, 0
   br i1 %62, label %.thread.i, label %63
 
 63:                                               ; preds = %60
-  %64 = call i64 @H5Tget_member_offset(i64 noundef %.02236.i, i32 noundef %58) #9
+  %64 = call i64 @H5Tget_member_offset(i64 noundef %.02237.i, i32 noundef %58) #9
   %65 = load i64, ptr %10, align 8, !tbaa !20
   %66 = add i64 %65, %64
   store i64 %66, ptr %10, align 8, !tbaa !20
-  %67 = call i32 @H5Tclose(i64 noundef %.02236.i) #9
+  %67 = call i32 @H5Tclose(i64 noundef %.02237.i) #9
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.thread.i, label %51
 
@@ -225,7 +225,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   br label %.thread.i
 
 .thread.i:                                        ; preds = %63, %60, %.lr.ph.i, %._crit_edge.i
-  %.02233.i = phi i64 [ %.022.lcssa.i, %._crit_edge.i ], [ %.02236.i, %.lr.ph.i ], [ %.02236.i, %60 ], [ %.02236.i, %63 ]
+  %.02234.i = phi i64 [ %.022.lcssa.i, %._crit_edge.i ], [ %.02237.i, %.lr.ph.i ], [ %.02237.i, %60 ], [ %.02237.i, %63 ]
   %72 = phi i1 [ false, %._crit_edge.i ], [ true, %.lr.ph.i ], [ true, %60 ], [ true, %63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -246,7 +246,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   br label %81
 
 81:                                               ; preds = %78, %75
-  %82 = call i32 @H5Tclose(i64 noundef %.02233.i) #9
+  %82 = call i32 @H5Tclose(i64 noundef %.02234.i) #9
   %83 = load i32, ptr %4, align 4, !tbaa !22
   %.not29.i = icmp eq i32 %83, 0
   %84 = load ptr, ptr %5, align 8, !tbaa !17

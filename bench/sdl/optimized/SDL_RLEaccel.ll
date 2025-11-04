@@ -330,9 +330,9 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %.066.us.i = phi ptr [ %.8.us.i, %98 ], [ %80, %71 ]
   br label %103
 
-81:                                               ; preds = %.split94.us.us.i, %96
-  %.7.us.i = phi ptr [ %.6.us.i, %.split94.us.us.i ], [ %.8.us.i, %96 ]
-  %.4.us.i = phi i32 [ 0, %.split94.us.us.i ], [ %.5.us.i, %96 ]
+81:                                               ; preds = %.split93.us.us.i, %96
+  %.7.us.i = phi ptr [ %.6.us.i, %.split93.us.us.i ], [ %.8.us.i, %96 ]
+  %.4.us.i = phi i32 [ 0, %.split93.us.us.i ], [ %.5.us.i, %96 ]
   %82 = load i16, ptr %.7.us.i, align 2
   %83 = zext i16 %82 to i32
   %84 = add nsw i32 %.4.us.i, %83
@@ -395,9 +395,9 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %.470.ph.us.us.i = phi ptr [ %115, %109 ], [ %108, %117 ]
   %.3.ph.us.us.i = phi i32 [ %116, %109 ], [ %.1.us.us.i, %117 ]
   %119 = icmp slt i32 %.3.ph.us.us.i, %54
-  br i1 %119, label %103, label %.split94.us.us.i, !llvm.loop !7
+  br i1 %119, label %103, label %.split93.us.us.i, !llvm.loop !7
 
-.split94.us.us.i:                                 ; preds = %118
+.split93.us.us.i:                                 ; preds = %118
   %120 = ptrtoint ptr %.470.ph.us.us.i to i64
   %121 = and i64 %120, 2
   %.6.us.i = getelementptr inbounds nuw i8, ptr %.470.ph.us.us.i, i64 %121
@@ -438,9 +438,9 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %.470.ph.i = phi ptr [ %134, %128 ], [ %127, %136 ]
   %.3.ph.i = phi i32 [ %135, %128 ], [ %.1.i, %136 ]
   %138 = icmp slt i32 %.3.ph.i, %54
-  br i1 %138, label %122, label %.split94.i, !llvm.loop !7
+  br i1 %138, label %122, label %.split93.i, !llvm.loop !7
 
-.split94.i:                                       ; preds = %137, %153
+.split93.i:                                       ; preds = %137, %153
   %.7.i = phi ptr [ %.8.i, %153 ], [ %.470.ph.i, %137 ]
   %.4.i = phi i32 [ %.5.i, %153 ], [ 0, %137 ]
   %139 = load i16, ptr %.7.i, align 2
@@ -452,7 +452,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %.not80.i = icmp eq i16 %143, 0
   br i1 %.not80.i, label %153, label %145
 
-145:                                              ; preds = %.split94.i
+145:                                              ; preds = %.split93.i
   %146 = zext i16 %143 to i32
   %147 = sext i32 %141 to i64
   %148 = getelementptr inbounds i32, ptr %.072.i, i64 %147
@@ -462,11 +462,11 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %152 = add i32 %141, %146
   br label %153
 
-153:                                              ; preds = %145, %.split94.i
-  %.8.i = phi ptr [ %151, %145 ], [ %144, %.split94.i ]
-  %.5.i = phi i32 [ %152, %145 ], [ %141, %.split94.i ]
+153:                                              ; preds = %145, %.split93.i
+  %.8.i = phi ptr [ %151, %145 ], [ %144, %.split93.i ]
+  %.5.i = phi i32 [ %152, %145 ], [ %141, %.split93.i ]
   %154 = icmp slt i32 %.5.i, %54
-  br i1 %154, label %.split94.i, label %155, !llvm.loop !4
+  br i1 %154, label %.split93.i, label %155, !llvm.loop !4
 
 155:                                              ; preds = %153
   %156 = load i32, ptr %61, align 8
@@ -1335,14 +1335,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.01019.i = phi i32 [ %234, %236 ], [ 0, %233 ]
   %240 = add nsw i32 %.01019.i, %226
   %241 = sub nsw i32 %218, %240
-  %spec.select1327.i = tail call i32 @llvm.smin.i32(i32 %.01020.i, i32 %241)
+  %spec.select1328.i = tail call i32 @llvm.smin.i32(i32 %.01020.i, i32 %241)
   %242 = mul nsw i32 %240, 3
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds i8, ptr %.6920.i.ph, i64 %243
   %245 = mul nuw nsw i32 %.01019.i, 3
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr inbounds nuw i8, ptr %230, i64 %246
-  %248 = sext i32 %spec.select1327.i to i64
+  %248 = sext i32 %spec.select1328.i to i64
   %249 = mul nsw i64 %248, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %244, ptr nonnull align 1 %247, i64 %249, i1 false)
   br label %250
@@ -1422,14 +1422,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.01035.i = phi i32 [ %284, %286 ], [ 0, %283 ]
   %290 = add nsw i32 %.01035.i, %276
   %291 = sub nsw i32 %268, %290
-  %spec.select1329.i = tail call i32 @llvm.smin.i32(i32 %.01036.i, i32 %291)
+  %spec.select1331.i = tail call i32 @llvm.smin.i32(i32 %.01036.i, i32 %291)
   %292 = shl nsw i32 %290, 2
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds i8, ptr %.9923.i.ph, i64 %293
   %295 = shl nsw i32 %.01035.i, 2
   %296 = zext nneg i32 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %280, i64 %296
-  %298 = sext i32 %spec.select1329.i to i64
+  %298 = sext i32 %spec.select1331.i to i64
   %299 = shl nsw i64 %298, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %294, ptr nonnull align 1 %297, i64 %299, i1 false)
   br label %300
@@ -1485,8 +1485,8 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %325 = icmp eq i32 %316, 2016
   %or.cond.i = or i1 %325, %324
   %326 = icmp eq i32 %321, 2016
-  %or.cond1331.i = or i1 %or.cond.i, %326
-  br i1 %or.cond1331.i, label %327, label %679
+  %or.cond1334.i = or i1 %or.cond.i, %326
+  br i1 %or.cond1334.i, label %327, label %679
 
 327:                                              ; preds = %323
   %328 = icmp eq i8 %104, -128
@@ -1522,7 +1522,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 345:                                              ; preds = %.preheader1276
   %346 = icmp slt i32 %340, %333
-  br i1 %346, label %347, label %.loopexit1492.i
+  br i1 %346, label %347, label %.loopexit1503.i
 
 347:                                              ; preds = %345
   %348 = sub nsw i32 %106, %340
@@ -1532,14 +1532,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 350:                                              ; preds = %347
   %351 = sub nsw i32 %343, %348
   %352 = icmp slt i32 %351, 1
-  br i1 %352, label %.loopexit1492.i, label %353
+  br i1 %352, label %.loopexit1503.i, label %353
 
 353:                                              ; preds = %350, %347
   %.01056.i = phi i32 [ %351, %350 ], [ %343, %347 ]
   %.01052.i = phi i32 [ %348, %350 ], [ 0, %347 ]
   %354 = add nsw i32 %.01052.i, %340
   %355 = sub nsw i32 %333, %354
-  %spec.select1332.i = tail call i32 @llvm.smin.i32(i32 %.01056.i, i32 %355)
+  %spec.select1335.i = tail call i32 @llvm.smin.i32(i32 %.01056.i, i32 %355)
   %356 = shl nuw nsw i32 %.01052.i, 1
   %357 = zext nneg i32 %356 to i64
   %358 = getelementptr inbounds nuw i8, ptr %344, i64 %357
@@ -1554,18 +1554,18 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   br i1 %.not1296.i, label %381, label %.preheader.i
 
 .preheader.i:                                     ; preds = %353
-  %.not12991526.i = icmp eq i32 %spec.select1332.i, 0
-  br i1 %.not12991526.i, label %.loopexit1492.i, label %.lr.ph1530.i
+  %.not12991537.i = icmp eq i32 %spec.select1335.i, 0
+  br i1 %.not12991537.i, label %.loopexit1503.i, label %.lr.ph1541.i
 
-.lr.ph1530.i:                                     ; preds = %.preheader.i, %.lr.ph1530.i
-  %.010611529.i = phi i32 [ %366, %.lr.ph1530.i ], [ %spec.select1332.i, %.preheader.i ]
-  %.010641528.i = phi ptr [ %367, %.lr.ph1530.i ], [ %358, %.preheader.i ]
-  %.010671527.i = phi ptr [ %380, %.lr.ph1530.i ], [ %361, %.preheader.i ]
-  %366 = add i32 %.010611529.i, -1
-  %367 = getelementptr inbounds nuw i8, ptr %.010641528.i, i64 2
-  %368 = load i16, ptr %.010641528.i, align 2
+.lr.ph1541.i:                                     ; preds = %.preheader.i, %.lr.ph1541.i
+  %.010611540.i = phi i32 [ %366, %.lr.ph1541.i ], [ %spec.select1335.i, %.preheader.i ]
+  %.010641539.i = phi ptr [ %367, %.lr.ph1541.i ], [ %358, %.preheader.i ]
+  %.010671538.i = phi ptr [ %380, %.lr.ph1541.i ], [ %361, %.preheader.i ]
+  %366 = add i32 %.010611540.i, -1
+  %367 = getelementptr inbounds nuw i8, ptr %.010641539.i, i64 2
+  %368 = load i16, ptr %.010641539.i, align 2
   %369 = zext i16 %368 to i32
-  %370 = load i16, ptr %.010671527.i, align 2
+  %370 = load i16, ptr %.010671538.i, align 2
   %371 = zext i16 %370 to i32
   %372 = and i32 %369, 63454
   %373 = and i32 %371, 63454
@@ -1575,10 +1575,10 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %377 = and i32 %376, %371
   %378 = add nuw nsw i32 %375, %377
   %379 = trunc nuw i32 %378 to i16
-  %380 = getelementptr inbounds nuw i8, ptr %.010671527.i, i64 2
-  store i16 %379, ptr %.010671527.i, align 2
+  %380 = getelementptr inbounds nuw i8, ptr %.010671538.i, i64 2
+  store i16 %379, ptr %.010671538.i, align 2
   %.not1299.i = icmp eq i32 %366, 0
-  br i1 %.not1299.i, label %.loopexit1492.i, label %.lr.ph1530.i, !llvm.loop !14
+  br i1 %.not1299.i, label %.loopexit1503.i, label %.lr.ph1541.i, !llvm.loop !14
 
 381:                                              ; preds = %353
   %382 = and i64 %362, 3
@@ -1601,22 +1601,22 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %396 = trunc nuw i32 %395 to i16
   %397 = getelementptr inbounds nuw i8, ptr %361, i64 2
   store i16 %396, ptr %361, align 2
-  %398 = add i32 %spec.select1332.i, -1
+  %398 = add i32 %spec.select1335.i, -1
   br label %399
 
 399:                                              ; preds = %383, %381
   %.11068.i = phi ptr [ %397, %383 ], [ %361, %381 ]
   %.11065.i = phi ptr [ %384, %383 ], [ %358, %381 ]
-  %.11062.i = phi i32 [ %398, %383 ], [ %spec.select1332.i, %381 ]
+  %.11062.i = phi i32 [ %398, %383 ], [ %spec.select1335.i, %381 ]
   %400 = icmp ugt i32 %.11062.i, 1
-  br i1 %400, label %.lr.ph1535.i, label %._crit_edge1536.i
+  br i1 %400, label %.lr.ph1546.i, label %._crit_edge1547.i
 
-.lr.ph1535.i:                                     ; preds = %399, %.lr.ph1535.i
-  %.210631533.i = phi i32 [ %413, %.lr.ph1535.i ], [ %.11062.i, %399 ]
-  %.210661532.i = phi ptr [ %411, %.lr.ph1535.i ], [ %.11065.i, %399 ]
-  %.210691531.i = phi ptr [ %412, %.lr.ph1535.i ], [ %.11068.i, %399 ]
-  %401 = load i32, ptr %.210661532.i, align 4
-  %402 = load i32, ptr %.210691531.i, align 4
+.lr.ph1546.i:                                     ; preds = %399, %.lr.ph1546.i
+  %.210631544.i = phi i32 [ %413, %.lr.ph1546.i ], [ %.11062.i, %399 ]
+  %.210661543.i = phi ptr [ %411, %.lr.ph1546.i ], [ %.11065.i, %399 ]
+  %.210691542.i = phi ptr [ %412, %.lr.ph1546.i ], [ %.11068.i, %399 ]
+  %401 = load i32, ptr %.210661543.i, align 4
+  %402 = load i32, ptr %.210691542.i, align 4
   %403 = lshr i32 %401, 1
   %404 = and i32 %403, 2079292399
   %405 = lshr i32 %402, 1
@@ -1625,21 +1625,21 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %408 = and i32 %407, %402
   %409 = add nuw i32 %408, %404
   %410 = add nuw i32 %409, %406
-  store i32 %410, ptr %.210691531.i, align 4
-  %411 = getelementptr inbounds nuw i8, ptr %.210661532.i, i64 4
-  %412 = getelementptr inbounds nuw i8, ptr %.210691531.i, i64 4
-  %413 = add i32 %.210631533.i, -2
+  store i32 %410, ptr %.210691542.i, align 4
+  %411 = getelementptr inbounds nuw i8, ptr %.210661543.i, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %.210691542.i, i64 4
+  %413 = add i32 %.210631544.i, -2
   %414 = icmp ugt i32 %413, 1
-  br i1 %414, label %.lr.ph1535.i, label %._crit_edge1536.i, !llvm.loop !15
+  br i1 %414, label %.lr.ph1546.i, label %._crit_edge1547.i, !llvm.loop !15
 
-._crit_edge1536.i:                                ; preds = %.lr.ph1535.i, %399
-  %.21069.lcssa.i = phi ptr [ %.11068.i, %399 ], [ %412, %.lr.ph1535.i ]
-  %.21066.lcssa.i = phi ptr [ %.11065.i, %399 ], [ %411, %.lr.ph1535.i ]
-  %.21063.lcssa.i = phi i32 [ %.11062.i, %399 ], [ %413, %.lr.ph1535.i ]
+._crit_edge1547.i:                                ; preds = %.lr.ph1546.i, %399
+  %.21069.lcssa.i = phi ptr [ %.11068.i, %399 ], [ %412, %.lr.ph1546.i ]
+  %.21066.lcssa.i = phi ptr [ %.11065.i, %399 ], [ %411, %.lr.ph1546.i ]
+  %.21063.lcssa.i = phi i32 [ %.11062.i, %399 ], [ %413, %.lr.ph1546.i ]
   %.not1298.i = icmp eq i32 %.21063.lcssa.i, 0
-  br i1 %.not1298.i, label %.loopexit1492.i, label %415
+  br i1 %.not1298.i, label %.loopexit1503.i, label %415
 
-415:                                              ; preds = %._crit_edge1536.i
+415:                                              ; preds = %._crit_edge1547.i
   %416 = load i16, ptr %.21066.lcssa.i, align 2
   %417 = zext i16 %416 to i32
   %418 = load i16, ptr %.21069.lcssa.i, align 2
@@ -1653,9 +1653,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %426 = add nuw nsw i32 %423, %425
   %427 = trunc nuw i32 %426 to i16
   store i16 %427, ptr %.21069.lcssa.i, align 2
-  br label %.loopexit1492.i
+  br label %.loopexit1503.i
 
-.loopexit1492.i:                                  ; preds = %.lr.ph1530.i, %415, %._crit_edge1536.i, %.preheader.i, %350, %345
+.loopexit1503.i:                                  ; preds = %.lr.ph1541.i, %415, %._crit_edge1547.i, %.preheader.i, %350, %345
   %428 = shl nuw nsw i32 %343, 1
   %429 = zext nneg i32 %428 to i64
   %430 = getelementptr inbounds nuw i8, ptr %344, i64 %429
@@ -1666,9 +1666,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1295.i = icmp eq i32 %340, 0
   br i1 %.not1295.i, label %RLEClipBlit.exit, label %433
 
-433:                                              ; preds = %432, %.loopexit1492.i
-  %.21050.i = phi i32 [ %431, %.loopexit1492.i ], [ %340, %432 ]
-  %.14.i = phi ptr [ %430, %.loopexit1492.i ], [ %344, %432 ]
+433:                                              ; preds = %432, %.loopexit1503.i
+  %.21050.i = phi i32 [ %431, %.loopexit1503.i ], [ %340, %432 ]
+  %.14.i = phi ptr [ %430, %.loopexit1503.i ], [ %344, %432 ]
   %434 = icmp eq i32 %.21050.i, %6
   br i1 %434, label %435, label %.preheader1276
 
@@ -1705,7 +1705,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 450:                                              ; preds = %442
   %451 = icmp slt i32 %445, %333
-  br i1 %451, label %452, label %.loopexit1494.i
+  br i1 %451, label %452, label %.loopexit1505.i
 
 452:                                              ; preds = %450
   %453 = sub nsw i32 %106, %445
@@ -1715,34 +1715,34 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 455:                                              ; preds = %452
   %456 = sub nsw i32 %448, %453
   %457 = icmp slt i32 %456, 1
-  br i1 %457, label %.loopexit1494.i, label %458
+  br i1 %457, label %.loopexit1505.i, label %458
 
 458:                                              ; preds = %455, %452
   %.01085.i = phi i32 [ %456, %455 ], [ %448, %452 ]
   %.01084.i = phi i32 [ %453, %455 ], [ 0, %452 ]
   %459 = add nsw i32 %.01084.i, %445
   %460 = sub nsw i32 %333, %459
-  %spec.select1334.i = tail call i32 @llvm.smin.i32(i32 %.01085.i, i32 %460)
-  %461 = icmp sgt i32 %spec.select1334.i, 0
-  br i1 %461, label %.lr.ph1525.preheader.i, label %.loopexit1494.i
+  %spec.select1338.i = tail call i32 @llvm.smin.i32(i32 %.01085.i, i32 %460)
+  %461 = icmp sgt i32 %spec.select1338.i, 0
+  br i1 %461, label %.lr.ph1536.preheader.i, label %.loopexit1505.i
 
-.lr.ph1525.preheader.i:                           ; preds = %458
+.lr.ph1536.preheader.i:                           ; preds = %458
   %462 = shl nsw i32 %459, 1
   %463 = sext i32 %462 to i64
   %464 = getelementptr inbounds i8, ptr %.15929.i.ph, i64 %463
   %465 = shl nuw nsw i32 %.01084.i, 1
   %466 = zext nneg i32 %465 to i64
   %467 = getelementptr inbounds nuw i8, ptr %449, i64 %466
-  br label %.lr.ph1525.i
+  br label %.lr.ph1536.i
 
-.lr.ph1525.i:                                     ; preds = %.lr.ph1525.i, %.lr.ph1525.preheader.i
-  %.010871523.i = phi i32 [ %488, %.lr.ph1525.i ], [ 0, %.lr.ph1525.preheader.i ]
-  %.010881522.i = phi ptr [ %468, %.lr.ph1525.i ], [ %467, %.lr.ph1525.preheader.i ]
-  %.010891521.i = phi ptr [ %487, %.lr.ph1525.i ], [ %464, %.lr.ph1525.preheader.i ]
-  %468 = getelementptr inbounds nuw i8, ptr %.010881522.i, i64 2
-  %469 = load i16, ptr %.010881522.i, align 2
+.lr.ph1536.i:                                     ; preds = %.lr.ph1536.i, %.lr.ph1536.preheader.i
+  %.010871534.i = phi i32 [ %488, %.lr.ph1536.i ], [ 0, %.lr.ph1536.preheader.i ]
+  %.010881533.i = phi ptr [ %468, %.lr.ph1536.i ], [ %467, %.lr.ph1536.preheader.i ]
+  %.010891532.i = phi ptr [ %487, %.lr.ph1536.i ], [ %464, %.lr.ph1536.preheader.i ]
+  %468 = getelementptr inbounds nuw i8, ptr %.010881533.i, i64 2
+  %469 = load i16, ptr %.010881533.i, align 2
   %470 = zext i16 %469 to i32
-  %471 = load i16, ptr %.010891521.i, align 2
+  %471 = load i16, ptr %.010891532.i, align 2
   %472 = zext i16 %471 to i32
   %473 = shl nuw i32 %470, 16
   %474 = or disjoint i32 %473, %470
@@ -1758,13 +1758,13 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %484 = lshr i32 %483, 16
   %485 = or disjoint i32 %484, %483
   %486 = trunc i32 %485 to i16
-  %487 = getelementptr inbounds nuw i8, ptr %.010891521.i, i64 2
-  store i16 %486, ptr %.010891521.i, align 2
-  %488 = add nuw nsw i32 %.010871523.i, 1
-  %exitcond1578.not.i = icmp eq i32 %488, %spec.select1334.i
-  br i1 %exitcond1578.not.i, label %.loopexit1494.i, label %.lr.ph1525.i, !llvm.loop !16
+  %487 = getelementptr inbounds nuw i8, ptr %.010891532.i, i64 2
+  store i16 %486, ptr %.010891532.i, align 2
+  %488 = add nuw nsw i32 %.010871534.i, 1
+  %exitcond1589.not.i = icmp eq i32 %488, %spec.select1338.i
+  br i1 %exitcond1589.not.i, label %.loopexit1505.i, label %.lr.ph1536.i, !llvm.loop !16
 
-.loopexit1494.i:                                  ; preds = %.lr.ph1525.i, %458, %455, %450
+.loopexit1505.i:                                  ; preds = %.lr.ph1536.i, %458, %455, %450
   %489 = shl nuw nsw i32 %448, 1
   %490 = zext nneg i32 %489 to i64
   %491 = getelementptr inbounds nuw i8, ptr %449, i64 %490
@@ -1775,9 +1775,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1292.i = icmp eq i32 %445, 0
   br i1 %.not1292.i, label %RLEClipBlit.exit, label %494
 
-494:                                              ; preds = %493, %.loopexit1494.i
-  %.21082.i = phi i32 [ %492, %.loopexit1494.i ], [ %445, %493 ]
-  %.17.i = phi ptr [ %491, %.loopexit1494.i ], [ %449, %493 ]
+494:                                              ; preds = %493, %.loopexit1505.i
+  %.21082.i = phi i32 [ %492, %.loopexit1505.i ], [ %445, %493 ]
+  %.17.i = phi ptr [ %491, %.loopexit1505.i ], [ %449, %493 ]
   %495 = icmp eq i32 %.21082.i, %6
   br i1 %495, label %496, label %442
 
@@ -1792,10 +1792,10 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 501:                                              ; preds = %314
   %502 = icmp eq i32 %318, 992
   %503 = icmp eq i32 %316, 992
-  %or.cond1336.i = or i1 %503, %502
+  %or.cond1341.i = or i1 %503, %502
   %504 = icmp eq i32 %321, 992
-  %or.cond1337.i = or i1 %or.cond1336.i, %504
-  br i1 %or.cond1337.i, label %505, label %679
+  %or.cond1342.i = or i1 %or.cond1341.i, %504
+  br i1 %or.cond1342.i, label %505, label %679
 
 505:                                              ; preds = %501
   %506 = icmp eq i8 %104, -128
@@ -1831,7 +1831,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 523:                                              ; preds = %.preheader1279
   %524 = icmp slt i32 %518, %511
-  br i1 %524, label %525, label %.loopexit1497.i
+  br i1 %524, label %525, label %.loopexit1508.i
 
 525:                                              ; preds = %523
   %526 = sub nsw i32 %106, %518
@@ -1841,14 +1841,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 528:                                              ; preds = %525
   %529 = sub nsw i32 %521, %526
   %530 = icmp slt i32 %529, 1
-  br i1 %530, label %.loopexit1497.i, label %531
+  br i1 %530, label %.loopexit1508.i, label %531
 
 531:                                              ; preds = %528, %525
   %.01104.i = phi i32 [ %529, %528 ], [ %521, %525 ]
   %.01103.i = phi i32 [ %526, %528 ], [ 0, %525 ]
   %532 = add nsw i32 %.01103.i, %518
   %533 = sub nsw i32 %511, %532
-  %spec.select1338.i = tail call i32 @llvm.smin.i32(i32 %.01104.i, i32 %533)
+  %spec.select1343.i = tail call i32 @llvm.smin.i32(i32 %.01104.i, i32 %533)
   %534 = shl nuw nsw i32 %.01103.i, 1
   %535 = zext nneg i32 %534 to i64
   %536 = getelementptr inbounds nuw i8, ptr %522, i64 %535
@@ -1860,21 +1860,21 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %542 = xor i64 %541, %540
   %543 = and i64 %542, 3
   %.not1286.i = icmp eq i64 %543, 0
-  br i1 %.not1286.i, label %559, label %.preheader1496.i
+  br i1 %.not1286.i, label %559, label %.preheader1507.i
 
-.preheader1496.i:                                 ; preds = %531
-  %.not12891510.i = icmp eq i32 %spec.select1338.i, 0
-  br i1 %.not12891510.i, label %.loopexit1497.i, label %.lr.ph1514.i
+.preheader1507.i:                                 ; preds = %531
+  %.not12891521.i = icmp eq i32 %spec.select1343.i, 0
+  br i1 %.not12891521.i, label %.loopexit1508.i, label %.lr.ph1525.i
 
-.lr.ph1514.i:                                     ; preds = %.preheader1496.i, %.lr.ph1514.i
-  %.011061513.i = phi i32 [ %544, %.lr.ph1514.i ], [ %spec.select1338.i, %.preheader1496.i ]
-  %.011161512.i = phi ptr [ %545, %.lr.ph1514.i ], [ %536, %.preheader1496.i ]
-  %.011191511.i = phi ptr [ %558, %.lr.ph1514.i ], [ %539, %.preheader1496.i ]
-  %544 = add i32 %.011061513.i, -1
-  %545 = getelementptr inbounds nuw i8, ptr %.011161512.i, i64 2
-  %546 = load i16, ptr %.011161512.i, align 2
+.lr.ph1525.i:                                     ; preds = %.preheader1507.i, %.lr.ph1525.i
+  %.011061524.i = phi i32 [ %544, %.lr.ph1525.i ], [ %spec.select1343.i, %.preheader1507.i ]
+  %.011161523.i = phi ptr [ %545, %.lr.ph1525.i ], [ %536, %.preheader1507.i ]
+  %.011191522.i = phi ptr [ %558, %.lr.ph1525.i ], [ %539, %.preheader1507.i ]
+  %544 = add i32 %.011061524.i, -1
+  %545 = getelementptr inbounds nuw i8, ptr %.011161523.i, i64 2
+  %546 = load i16, ptr %.011161523.i, align 2
   %547 = zext i16 %546 to i32
-  %548 = load i16, ptr %.011191511.i, align 2
+  %548 = load i16, ptr %.011191522.i, align 2
   %549 = zext i16 %548 to i32
   %550 = and i32 %547, 64478
   %551 = and i32 %549, 64478
@@ -1884,10 +1884,10 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %555 = and i32 %554, %549
   %556 = add nuw nsw i32 %553, %555
   %557 = trunc nuw i32 %556 to i16
-  %558 = getelementptr inbounds nuw i8, ptr %.011191511.i, i64 2
-  store i16 %557, ptr %.011191511.i, align 2
+  %558 = getelementptr inbounds nuw i8, ptr %.011191522.i, i64 2
+  store i16 %557, ptr %.011191522.i, align 2
   %.not1289.i = icmp eq i32 %544, 0
-  br i1 %.not1289.i, label %.loopexit1497.i, label %.lr.ph1514.i, !llvm.loop !17
+  br i1 %.not1289.i, label %.loopexit1508.i, label %.lr.ph1525.i, !llvm.loop !17
 
 559:                                              ; preds = %531
   %560 = and i64 %540, 3
@@ -1910,22 +1910,22 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %574 = trunc nuw i32 %573 to i16
   %575 = getelementptr inbounds nuw i8, ptr %539, i64 2
   store i16 %574, ptr %539, align 2
-  %576 = add i32 %spec.select1338.i, -1
+  %576 = add i32 %spec.select1343.i, -1
   br label %577
 
 577:                                              ; preds = %561, %559
   %.11120.i = phi ptr [ %575, %561 ], [ %539, %559 ]
   %.11117.i = phi ptr [ %562, %561 ], [ %536, %559 ]
-  %.11107.i = phi i32 [ %576, %561 ], [ %spec.select1338.i, %559 ]
+  %.11107.i = phi i32 [ %576, %561 ], [ %spec.select1343.i, %559 ]
   %578 = icmp ugt i32 %.11107.i, 1
-  br i1 %578, label %.lr.ph1518.i, label %._crit_edge.i
+  br i1 %578, label %.lr.ph1529.i, label %._crit_edge.i
 
-.lr.ph1518.i:                                     ; preds = %577, %.lr.ph1518.i
-  %.211081517.i = phi i32 [ %591, %.lr.ph1518.i ], [ %.11107.i, %577 ]
-  %.211181516.i = phi ptr [ %589, %.lr.ph1518.i ], [ %.11117.i, %577 ]
-  %.211211515.i = phi ptr [ %590, %.lr.ph1518.i ], [ %.11120.i, %577 ]
-  %579 = load i32, ptr %.211181516.i, align 4
-  %580 = load i32, ptr %.211211515.i, align 4
+.lr.ph1529.i:                                     ; preds = %577, %.lr.ph1529.i
+  %.211081528.i = phi i32 [ %591, %.lr.ph1529.i ], [ %.11107.i, %577 ]
+  %.211181527.i = phi ptr [ %589, %.lr.ph1529.i ], [ %.11117.i, %577 ]
+  %.211211526.i = phi ptr [ %590, %.lr.ph1529.i ], [ %.11120.i, %577 ]
+  %579 = load i32, ptr %.211181527.i, align 4
+  %580 = load i32, ptr %.211211526.i, align 4
   %581 = lshr i32 %579, 1
   %582 = and i32 %581, 2112847343
   %583 = lshr i32 %580, 1
@@ -1934,19 +1934,19 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %586 = and i32 %585, %580
   %587 = add nuw i32 %586, %582
   %588 = add nuw i32 %587, %584
-  store i32 %588, ptr %.211211515.i, align 4
-  %589 = getelementptr inbounds nuw i8, ptr %.211181516.i, i64 4
-  %590 = getelementptr inbounds nuw i8, ptr %.211211515.i, i64 4
-  %591 = add i32 %.211081517.i, -2
+  store i32 %588, ptr %.211211526.i, align 4
+  %589 = getelementptr inbounds nuw i8, ptr %.211181527.i, i64 4
+  %590 = getelementptr inbounds nuw i8, ptr %.211211526.i, i64 4
+  %591 = add i32 %.211081528.i, -2
   %592 = icmp ugt i32 %591, 1
-  br i1 %592, label %.lr.ph1518.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %592, label %.lr.ph1529.i, label %._crit_edge.i, !llvm.loop !18
 
-._crit_edge.i:                                    ; preds = %.lr.ph1518.i, %577
-  %.21121.lcssa.i = phi ptr [ %.11120.i, %577 ], [ %590, %.lr.ph1518.i ]
-  %.21118.lcssa.i = phi ptr [ %.11117.i, %577 ], [ %589, %.lr.ph1518.i ]
-  %.21108.lcssa.i = phi i32 [ %.11107.i, %577 ], [ %591, %.lr.ph1518.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph1529.i, %577
+  %.21121.lcssa.i = phi ptr [ %.11120.i, %577 ], [ %590, %.lr.ph1529.i ]
+  %.21118.lcssa.i = phi ptr [ %.11117.i, %577 ], [ %589, %.lr.ph1529.i ]
+  %.21108.lcssa.i = phi i32 [ %.11107.i, %577 ], [ %591, %.lr.ph1529.i ]
   %.not1288.i = icmp eq i32 %.21108.lcssa.i, 0
-  br i1 %.not1288.i, label %.loopexit1497.i, label %593
+  br i1 %.not1288.i, label %.loopexit1508.i, label %593
 
 593:                                              ; preds = %._crit_edge.i
   %594 = load i16, ptr %.21118.lcssa.i, align 2
@@ -1962,9 +1962,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %604 = add nuw nsw i32 %601, %603
   %605 = trunc nuw i32 %604 to i16
   store i16 %605, ptr %.21121.lcssa.i, align 2
-  br label %.loopexit1497.i
+  br label %.loopexit1508.i
 
-.loopexit1497.i:                                  ; preds = %.lr.ph1514.i, %593, %._crit_edge.i, %.preheader1496.i, %528, %523
+.loopexit1508.i:                                  ; preds = %.lr.ph1525.i, %593, %._crit_edge.i, %.preheader1507.i, %528, %523
   %606 = shl nuw nsw i32 %521, 1
   %607 = zext nneg i32 %606 to i64
   %608 = getelementptr inbounds nuw i8, ptr %522, i64 %607
@@ -1975,9 +1975,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1285.i = icmp eq i32 %518, 0
   br i1 %.not1285.i, label %RLEClipBlit.exit, label %611
 
-611:                                              ; preds = %610, %.loopexit1497.i
-  %.21098.i = phi i32 [ %609, %.loopexit1497.i ], [ %518, %610 ]
-  %.20.i = phi ptr [ %608, %.loopexit1497.i ], [ %522, %610 ]
+611:                                              ; preds = %610, %.loopexit1508.i
+  %.21098.i = phi i32 [ %609, %.loopexit1508.i ], [ %518, %610 ]
+  %.20.i = phi ptr [ %608, %.loopexit1508.i ], [ %522, %610 ]
   %612 = icmp eq i32 %.21098.i, %6
   br i1 %612, label %613, label %.preheader1279
 
@@ -2014,7 +2014,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 628:                                              ; preds = %620
   %629 = icmp slt i32 %623, %511
-  br i1 %629, label %630, label %.loopexit1499.i
+  br i1 %629, label %630, label %.loopexit1510.i
 
 630:                                              ; preds = %628
   %631 = sub nsw i32 %106, %623
@@ -2024,34 +2024,34 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 633:                                              ; preds = %630
   %634 = sub nsw i32 %626, %631
   %635 = icmp slt i32 %634, 1
-  br i1 %635, label %.loopexit1499.i, label %636
+  br i1 %635, label %.loopexit1510.i, label %636
 
 636:                                              ; preds = %633, %630
   %.01130.i = phi i32 [ %634, %633 ], [ %626, %630 ]
   %.01129.i = phi i32 [ %631, %633 ], [ 0, %630 ]
   %637 = add nsw i32 %.01129.i, %623
   %638 = sub nsw i32 %511, %637
-  %spec.select1340.i = tail call i32 @llvm.smin.i32(i32 %.01130.i, i32 %638)
-  %639 = icmp sgt i32 %spec.select1340.i, 0
-  br i1 %639, label %.lr.ph1509.preheader.i, label %.loopexit1499.i
+  %spec.select1346.i = tail call i32 @llvm.smin.i32(i32 %.01130.i, i32 %638)
+  %639 = icmp sgt i32 %spec.select1346.i, 0
+  br i1 %639, label %.lr.ph1520.preheader.i, label %.loopexit1510.i
 
-.lr.ph1509.preheader.i:                           ; preds = %636
+.lr.ph1520.preheader.i:                           ; preds = %636
   %640 = shl nsw i32 %637, 1
   %641 = sext i32 %640 to i64
   %642 = getelementptr inbounds i8, ptr %.21935.i.ph, i64 %641
   %643 = shl nuw nsw i32 %.01129.i, 1
   %644 = zext nneg i32 %643 to i64
   %645 = getelementptr inbounds nuw i8, ptr %627, i64 %644
-  br label %.lr.ph1509.i
+  br label %.lr.ph1520.i
 
-.lr.ph1509.i:                                     ; preds = %.lr.ph1509.i, %.lr.ph1509.preheader.i
-  %.011321508.i = phi i32 [ %666, %.lr.ph1509.i ], [ 0, %.lr.ph1509.preheader.i ]
-  %.011331507.i = phi ptr [ %646, %.lr.ph1509.i ], [ %645, %.lr.ph1509.preheader.i ]
-  %.011371506.i = phi ptr [ %665, %.lr.ph1509.i ], [ %642, %.lr.ph1509.preheader.i ]
-  %646 = getelementptr inbounds nuw i8, ptr %.011331507.i, i64 2
-  %647 = load i16, ptr %.011331507.i, align 2
+.lr.ph1520.i:                                     ; preds = %.lr.ph1520.i, %.lr.ph1520.preheader.i
+  %.011321519.i = phi i32 [ %666, %.lr.ph1520.i ], [ 0, %.lr.ph1520.preheader.i ]
+  %.011331518.i = phi ptr [ %646, %.lr.ph1520.i ], [ %645, %.lr.ph1520.preheader.i ]
+  %.011371517.i = phi ptr [ %665, %.lr.ph1520.i ], [ %642, %.lr.ph1520.preheader.i ]
+  %646 = getelementptr inbounds nuw i8, ptr %.011331518.i, i64 2
+  %647 = load i16, ptr %.011331518.i, align 2
   %648 = zext i16 %647 to i32
-  %649 = load i16, ptr %.011371506.i, align 2
+  %649 = load i16, ptr %.011371517.i, align 2
   %650 = zext i16 %649 to i32
   %651 = shl nuw i32 %648, 16
   %652 = or disjoint i32 %651, %648
@@ -2067,13 +2067,13 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %662 = lshr i32 %661, 16
   %663 = or disjoint i32 %662, %661
   %664 = trunc i32 %663 to i16
-  %665 = getelementptr inbounds nuw i8, ptr %.011371506.i, i64 2
-  store i16 %664, ptr %.011371506.i, align 2
-  %666 = add nuw nsw i32 %.011321508.i, 1
-  %exitcond1577.not.i = icmp eq i32 %666, %spec.select1340.i
-  br i1 %exitcond1577.not.i, label %.loopexit1499.i, label %.lr.ph1509.i, !llvm.loop !19
+  %665 = getelementptr inbounds nuw i8, ptr %.011371517.i, i64 2
+  store i16 %664, ptr %.011371517.i, align 2
+  %666 = add nuw nsw i32 %.011321519.i, 1
+  %exitcond1588.not.i = icmp eq i32 %666, %spec.select1346.i
+  br i1 %exitcond1588.not.i, label %.loopexit1510.i, label %.lr.ph1520.i, !llvm.loop !19
 
-.loopexit1499.i:                                  ; preds = %.lr.ph1509.i, %636, %633, %628
+.loopexit1510.i:                                  ; preds = %.lr.ph1520.i, %636, %633, %628
   %667 = shl nuw nsw i32 %626, 1
   %668 = zext nneg i32 %667 to i64
   %669 = getelementptr inbounds nuw i8, ptr %627, i64 %668
@@ -2084,9 +2084,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1282.i = icmp eq i32 %623, 0
   br i1 %.not1282.i, label %RLEClipBlit.exit, label %672
 
-672:                                              ; preds = %671, %.loopexit1499.i
-  %.21127.i = phi i32 [ %670, %.loopexit1499.i ], [ %623, %671 ]
-  %.23.i = phi ptr [ %669, %.loopexit1499.i ], [ %627, %671 ]
+672:                                              ; preds = %671, %.loopexit1510.i
+  %.21127.i = phi i32 [ %670, %.loopexit1510.i ], [ %623, %671 ]
+  %.23.i = phi ptr [ %669, %.loopexit1510.i ], [ %627, %671 ]
   %673 = icmp eq i32 %.21127.i, %6
   br i1 %673, label %674, label %620
 
@@ -2138,7 +2138,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 704:                                              ; preds = %696
   %705 = icmp slt i32 %699, %684
-  br i1 %705, label %706, label %.loopexit1490.i
+  br i1 %705, label %706, label %.loopexit1501.i
 
 706:                                              ; preds = %704
   %707 = sub nsw i32 %106, %699
@@ -2148,33 +2148,33 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 709:                                              ; preds = %706
   %710 = sub nsw i32 %702, %707
   %711 = icmp slt i32 %710, 1
-  br i1 %711, label %.loopexit1490.i, label %712
+  br i1 %711, label %.loopexit1501.i, label %712
 
 712:                                              ; preds = %709, %706
   %.01140.i = phi i32 [ %707, %709 ], [ 0, %706 ]
   %.01138.i = phi i32 [ %710, %709 ], [ %702, %706 ]
   %713 = add nsw i32 %.01140.i, %699
   %714 = sub nsw i32 %684, %713
-  %spec.select1342.i = tail call i32 @llvm.smin.i32(i32 %.01138.i, i32 %714)
-  %715 = icmp sgt i32 %spec.select1342.i, 0
-  br i1 %715, label %.lr.ph1544.preheader.i, label %.loopexit1490.i
+  %spec.select1349.i = tail call i32 @llvm.smin.i32(i32 %.01138.i, i32 %714)
+  %715 = icmp sgt i32 %spec.select1349.i, 0
+  br i1 %715, label %.lr.ph1555.preheader.i, label %.loopexit1501.i
 
-.lr.ph1544.preheader.i:                           ; preds = %712
+.lr.ph1555.preheader.i:                           ; preds = %712
   %716 = shl nsw i32 %713, 1
   %717 = sext i32 %716 to i64
   %718 = getelementptr inbounds i8, ptr %.24938.i.ph, i64 %717
   %719 = shl nuw nsw i32 %.01140.i, 1
   %720 = zext nneg i32 %719 to i64
   %721 = getelementptr inbounds nuw i8, ptr %703, i64 %720
-  br label %.lr.ph1544.i
+  br label %.lr.ph1555.i
 
-.lr.ph1544.i:                                     ; preds = %.lr.ph1544.i, %.lr.ph1544.preheader.i
-  %.011341542.i = phi ptr [ %813, %.lr.ph1544.i ], [ %718, %.lr.ph1544.preheader.i ]
-  %.011351541.i = phi ptr [ %812, %.lr.ph1544.i ], [ %721, %.lr.ph1544.preheader.i ]
-  %.011361540.i = phi i32 [ %814, %.lr.ph1544.i ], [ 0, %.lr.ph1544.preheader.i ]
-  %722 = load i16, ptr %.011351541.i, align 2
+.lr.ph1555.i:                                     ; preds = %.lr.ph1555.i, %.lr.ph1555.preheader.i
+  %.011341553.i = phi ptr [ %813, %.lr.ph1555.i ], [ %718, %.lr.ph1555.preheader.i ]
+  %.011351552.i = phi ptr [ %812, %.lr.ph1555.i ], [ %721, %.lr.ph1555.preheader.i ]
+  %.011361551.i = phi i32 [ %814, %.lr.ph1555.i ], [ 0, %.lr.ph1555.preheader.i ]
+  %722 = load i16, ptr %.011351552.i, align 2
   %723 = zext i16 %722 to i32
-  %724 = load i16, ptr %.011341542.i, align 2
+  %724 = load i16, ptr %.011341553.i, align 2
   %725 = zext i16 %724 to i32
   %726 = load i8, ptr %689, align 4
   %727 = zext i8 %726 to i64
@@ -2262,14 +2262,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %809 = or i32 %808, %802
   %810 = or i32 %809, %806
   %811 = trunc i32 %810 to i16
-  store i16 %811, ptr %.011341542.i, align 2
-  %812 = getelementptr inbounds nuw i8, ptr %.011351541.i, i64 2
-  %813 = getelementptr inbounds nuw i8, ptr %.011341542.i, i64 2
-  %814 = add nuw nsw i32 %.011361540.i, 1
-  %exitcond1579.not.i = icmp eq i32 %814, %spec.select1342.i
-  br i1 %exitcond1579.not.i, label %.loopexit1490.i, label %.lr.ph1544.i, !llvm.loop !20
+  store i16 %811, ptr %.011341553.i, align 2
+  %812 = getelementptr inbounds nuw i8, ptr %.011351552.i, i64 2
+  %813 = getelementptr inbounds nuw i8, ptr %.011341553.i, i64 2
+  %814 = add nuw nsw i32 %.011361551.i, 1
+  %exitcond1590.not.i = icmp eq i32 %814, %spec.select1349.i
+  br i1 %exitcond1590.not.i, label %.loopexit1501.i, label %.lr.ph1555.i, !llvm.loop !20
 
-.loopexit1490.i:                                  ; preds = %.lr.ph1544.i, %712, %709, %704
+.loopexit1501.i:                                  ; preds = %.lr.ph1555.i, %712, %709, %704
   %815 = shl nuw nsw i32 %702, 1
   %816 = zext nneg i32 %815 to i64
   %817 = getelementptr inbounds nuw i8, ptr %703, i64 %816
@@ -2280,9 +2280,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1302.i = icmp eq i32 %699, 0
   br i1 %.not1302.i, label %RLEClipBlit.exit, label %820
 
-820:                                              ; preds = %819, %.loopexit1490.i
-  %.21146.i = phi i32 [ %818, %.loopexit1490.i ], [ %699, %819 ]
-  %.26.i = phi ptr [ %817, %.loopexit1490.i ], [ %703, %819 ]
+820:                                              ; preds = %819, %.loopexit1501.i
+  %.21146.i = phi i32 [ %818, %.loopexit1501.i ], [ %699, %819 ]
+  %.26.i = phi ptr [ %817, %.loopexit1501.i ], [ %703, %819 ]
   %821 = icmp eq i32 %.21146.i, %6
   br i1 %821, label %822, label %696
 
@@ -2337,7 +2337,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 855:                                              ; preds = %847
   %856 = icmp slt i32 %850, %832
-  br i1 %856, label %857, label %.loopexit1501.i
+  br i1 %856, label %857, label %.loopexit1512.i
 
 857:                                              ; preds = %855
   %858 = sub nsw i32 %106, %850
@@ -2347,16 +2347,16 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 860:                                              ; preds = %857
   %861 = sub nsw i32 %853, %858
   %862 = icmp slt i32 %861, 1
-  br i1 %862, label %.loopexit1501.i, label %863
+  br i1 %862, label %.loopexit1512.i, label %863
 
 863:                                              ; preds = %860, %857
   %.01102.i = phi i32 [ %858, %860 ], [ 0, %857 ]
   %.01100.i = phi i32 [ %861, %860 ], [ %853, %857 ]
   %864 = add nsw i32 %.01102.i, %850
   %865 = sub nsw i32 %832, %864
-  %spec.select1344.i = tail call i32 @llvm.smin.i32(i32 %.01100.i, i32 %865)
-  %866 = icmp sgt i32 %spec.select1344.i, 0
-  br i1 %866, label %.lr.ph.preheader.i, label %.loopexit1501.i
+  %spec.select1352.i = tail call i32 @llvm.smin.i32(i32 %.01100.i, i32 %865)
+  %866 = icmp sgt i32 %spec.select1352.i, 0
+  br i1 %866, label %.lr.ph.preheader.i, label %.loopexit1512.i
 
 .lr.ph.preheader.i:                               ; preds = %863
   %867 = mul nsw i32 %864, 3
@@ -2368,22 +2368,22 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.010931505.i = phi ptr [ %979, %.lr.ph.i ], [ %869, %.lr.ph.preheader.i ]
-  %.010941504.i = phi ptr [ %978, %.lr.ph.i ], [ %872, %.lr.ph.preheader.i ]
-  %.010951503.i = phi i32 [ %980, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %873 = getelementptr i8, ptr %.010941504.i, i64 1
+  %.010931516.i = phi ptr [ %979, %.lr.ph.i ], [ %869, %.lr.ph.preheader.i ]
+  %.010941515.i = phi ptr [ %978, %.lr.ph.i ], [ %872, %.lr.ph.preheader.i ]
+  %.010951514.i = phi i32 [ %980, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %873 = getelementptr i8, ptr %.010941515.i, i64 1
   %874 = load i16, ptr %873, align 1
   %875 = zext i16 %874 to i32
   %876 = shl nuw nsw i32 %875, 8
-  %877 = load i8, ptr %.010941504.i, align 1
+  %877 = load i8, ptr %.010941515.i, align 1
   %878 = zext i8 %877 to i32
   %879 = or disjoint i32 %876, %878
-  %880 = getelementptr inbounds nuw i8, ptr %.010931505.i, i64 2
-  %881 = getelementptr i8, ptr %.010931505.i, i64 1
+  %880 = getelementptr inbounds nuw i8, ptr %.010931516.i, i64 2
+  %881 = getelementptr i8, ptr %.010931516.i, i64 1
   %882 = load i16, ptr %881, align 1
   %883 = zext i16 %882 to i32
   %884 = shl nuw nsw i32 %883, 8
-  %885 = load i8, ptr %.010931505.i, align 1
+  %885 = load i8, ptr %.010931516.i, align 1
   %886 = zext i8 %885 to i32
   %887 = or disjoint i32 %884, %886
   %888 = load i8, ptr %837, align 4
@@ -2472,20 +2472,20 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %971 = or i32 %970, %964
   %972 = or i32 %971, %968
   %973 = trunc i32 %972 to i8
-  store i8 %973, ptr %.010931505.i, align 1
+  store i8 %973, ptr %.010931516.i, align 1
   %974 = lshr i32 %972, 8
   %975 = trunc i32 %974 to i8
   store i8 %975, ptr %881, align 1
   %976 = lshr i32 %972, 16
   %977 = trunc i32 %976 to i8
   store i8 %977, ptr %880, align 1
-  %978 = getelementptr inbounds nuw i8, ptr %.010941504.i, i64 3
-  %979 = getelementptr inbounds nuw i8, ptr %.010931505.i, i64 3
-  %980 = add nuw nsw i32 %.010951503.i, 1
-  %exitcond.not.i = icmp eq i32 %980, %spec.select1344.i
-  br i1 %exitcond.not.i, label %.loopexit1501.i, label %.lr.ph.i, !llvm.loop !21
+  %978 = getelementptr inbounds nuw i8, ptr %.010941515.i, i64 3
+  %979 = getelementptr inbounds nuw i8, ptr %.010931516.i, i64 3
+  %980 = add nuw nsw i32 %.010951514.i, 1
+  %exitcond.not.i = icmp eq i32 %980, %spec.select1352.i
+  br i1 %exitcond.not.i, label %.loopexit1512.i, label %.lr.ph.i, !llvm.loop !21
 
-.loopexit1501.i:                                  ; preds = %.lr.ph.i, %863, %860, %855
+.loopexit1512.i:                                  ; preds = %.lr.ph.i, %863, %860, %855
   %981 = mul nuw nsw i32 %853, 3
   %982 = zext nneg i32 %981 to i64
   %983 = getelementptr inbounds nuw i8, ptr %854, i64 %982
@@ -2496,9 +2496,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1279.i = icmp eq i32 %850, 0
   br i1 %.not1279.i, label %RLEClipBlit.exit, label %986
 
-986:                                              ; preds = %985, %.loopexit1501.i
-  %.21111.i = phi i32 [ %984, %.loopexit1501.i ], [ %850, %985 ]
-  %.29.i = phi ptr [ %983, %.loopexit1501.i ], [ %854, %985 ]
+986:                                              ; preds = %985, %.loopexit1512.i
+  %.21111.i = phi i32 [ %984, %.loopexit1512.i ], [ %850, %985 ]
+  %.29.i = phi ptr [ %983, %.loopexit1512.i ], [ %854, %985 ]
   %987 = icmp eq i32 %.21111.i, %6
   br i1 %987, label %988, label %847
 
@@ -2525,10 +2525,10 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 1003:                                             ; preds = %993
   %1004 = icmp eq i32 %997, 65280
   %1005 = icmp eq i32 %995, 65280
-  %or.cond1346.i = or i1 %1005, %1004
+  %or.cond1355.i = or i1 %1005, %1004
   %1006 = icmp eq i32 %1000, 65280
-  %or.cond1347.i = or i1 %or.cond1346.i, %1006
-  br i1 %or.cond1347.i, label %1007, label %1124
+  %or.cond1356.i = or i1 %or.cond1355.i, %1006
+  br i1 %or.cond1356.i, label %1007, label %1124
 
 1007:                                             ; preds = %1003
   %1008 = icmp eq i8 %104, -128
@@ -2581,26 +2581,26 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.01058.i = phi i32 [ %1031, %1030 ], [ %1023, %1027 ]
   %1034 = add nsw i32 %.01060.i, %1020
   %1035 = sub nsw i32 %1013, %1034
-  %spec.select1348.i = tail call i32 @llvm.smin.i32(i32 %.01058.i, i32 %1035)
-  %1036 = icmp sgt i32 %spec.select1348.i, 0
-  br i1 %1036, label %.lr.ph1559.preheader.i, label %.loopexit.i
+  %spec.select1357.i = tail call i32 @llvm.smin.i32(i32 %.01058.i, i32 %1035)
+  %1036 = icmp sgt i32 %spec.select1357.i, 0
+  br i1 %1036, label %.lr.ph1570.preheader.i, label %.loopexit.i
 
-.lr.ph1559.preheader.i:                           ; preds = %1033
+.lr.ph1570.preheader.i:                           ; preds = %1033
   %1037 = shl nsw i32 %1034, 2
   %1038 = sext i32 %1037 to i64
   %1039 = getelementptr inbounds i8, ptr %.30944.i.ph, i64 %1038
   %1040 = shl nsw i32 %.01060.i, 2
   %1041 = zext nneg i32 %1040 to i64
   %1042 = getelementptr inbounds nuw i8, ptr %1024, i64 %1041
-  br label %.lr.ph1559.i
+  br label %.lr.ph1570.i
 
-.lr.ph1559.i:                                     ; preds = %.lr.ph1559.i, %.lr.ph1559.preheader.i
-  %.010531557.i = phi ptr [ %1053, %.lr.ph1559.i ], [ %1039, %.lr.ph1559.preheader.i ]
-  %.010541556.i = phi ptr [ %1043, %.lr.ph1559.i ], [ %1042, %.lr.ph1559.preheader.i ]
-  %.010551555.i = phi i32 [ %1054, %.lr.ph1559.i ], [ 0, %.lr.ph1559.preheader.i ]
-  %1043 = getelementptr inbounds nuw i8, ptr %.010541556.i, i64 4
-  %1044 = load i32, ptr %.010541556.i, align 4
-  %1045 = load i32, ptr %.010531557.i, align 4
+.lr.ph1570.i:                                     ; preds = %.lr.ph1570.i, %.lr.ph1570.preheader.i
+  %.010531568.i = phi ptr [ %1053, %.lr.ph1570.i ], [ %1039, %.lr.ph1570.preheader.i ]
+  %.010541567.i = phi ptr [ %1043, %.lr.ph1570.i ], [ %1042, %.lr.ph1570.preheader.i ]
+  %.010551566.i = phi i32 [ %1054, %.lr.ph1570.i ], [ 0, %.lr.ph1570.preheader.i ]
+  %1043 = getelementptr inbounds nuw i8, ptr %.010541567.i, i64 4
+  %1044 = load i32, ptr %.010541567.i, align 4
+  %1045 = load i32, ptr %.010531568.i, align 4
   %1046 = and i32 %1044, 16711422
   %1047 = and i32 %1045, 16711422
   %1048 = add nuw nsw i32 %1047, %1046
@@ -2608,13 +2608,13 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1050 = and i32 %1044, 65793
   %1051 = and i32 %1050, %1045
   %1052 = add nuw nsw i32 %1049, %1051
-  %1053 = getelementptr inbounds nuw i8, ptr %.010531557.i, i64 4
-  store i32 %1052, ptr %.010531557.i, align 4
-  %1054 = add nuw nsw i32 %.010551555.i, 1
-  %exitcond1582.not.i = icmp eq i32 %1054, %spec.select1348.i
-  br i1 %exitcond1582.not.i, label %.loopexit.i, label %.lr.ph1559.i, !llvm.loop !22
+  %1053 = getelementptr inbounds nuw i8, ptr %.010531568.i, i64 4
+  store i32 %1052, ptr %.010531568.i, align 4
+  %1054 = add nuw nsw i32 %.010551566.i, 1
+  %exitcond1593.not.i = icmp eq i32 %1054, %spec.select1357.i
+  br i1 %exitcond1593.not.i, label %.loopexit.i, label %.lr.ph1570.i, !llvm.loop !22
 
-.loopexit.i:                                      ; preds = %.lr.ph1559.i, %1033, %1030, %1025
+.loopexit.i:                                      ; preds = %.lr.ph1570.i, %1033, %1030, %1025
   %1055 = shl nuw nsw i32 %1023, 2
   %1056 = zext nneg i32 %1055 to i64
   %1057 = getelementptr inbounds nuw i8, ptr %1024, i64 %1056
@@ -2654,7 +2654,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 1074:                                             ; preds = %.preheader1272
   %1075 = icmp slt i32 %1069, %1013
-  br i1 %1075, label %1076, label %.loopexit1486.i
+  br i1 %1075, label %1076, label %.loopexit1497.i
 
 1076:                                             ; preds = %1074
   %1077 = sub nsw i32 %106, %1069
@@ -2664,33 +2664,33 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 1079:                                             ; preds = %1076
   %1080 = sub nsw i32 %1072, %1077
   %1081 = icmp slt i32 %1080, 1
-  br i1 %1081, label %.loopexit1486.i, label %1082
+  br i1 %1081, label %.loopexit1497.i, label %1082
 
 1082:                                             ; preds = %1079, %1076
   %.01034.i = phi i32 [ %1077, %1079 ], [ 0, %1076 ]
   %.01032.i = phi i32 [ %1080, %1079 ], [ %1072, %1076 ]
   %1083 = add nsw i32 %.01034.i, %1069
   %1084 = sub nsw i32 %1013, %1083
-  %spec.select1350.i = tail call i32 @llvm.smin.i32(i32 %.01032.i, i32 %1084)
-  %1085 = icmp sgt i32 %spec.select1350.i, 0
-  br i1 %1085, label %.lr.ph1554.preheader.i, label %.loopexit1486.i
+  %spec.select1360.i = tail call i32 @llvm.smin.i32(i32 %.01032.i, i32 %1084)
+  %1085 = icmp sgt i32 %spec.select1360.i, 0
+  br i1 %1085, label %.lr.ph1565.preheader.i, label %.loopexit1497.i
 
-.lr.ph1554.preheader.i:                           ; preds = %1082
+.lr.ph1565.preheader.i:                           ; preds = %1082
   %1086 = shl nsw i32 %1083, 2
   %1087 = sext i32 %1086 to i64
   %1088 = getelementptr inbounds i8, ptr %.33947.i.ph, i64 %1087
   %1089 = shl nsw i32 %.01034.i, 2
   %1090 = zext nneg i32 %1089 to i64
   %1091 = getelementptr inbounds nuw i8, ptr %1073, i64 %1090
-  br label %.lr.ph1554.i
+  br label %.lr.ph1565.i
 
-.lr.ph1554.i:                                     ; preds = %.lr.ph1554.i, %.lr.ph1554.preheader.i
-  %.010251552.i = phi ptr [ %1110, %.lr.ph1554.i ], [ %1088, %.lr.ph1554.preheader.i ]
-  %.010261551.i = phi ptr [ %1092, %.lr.ph1554.i ], [ %1091, %.lr.ph1554.preheader.i ]
-  %.010271550.i = phi i32 [ %1111, %.lr.ph1554.i ], [ 0, %.lr.ph1554.preheader.i ]
-  %1092 = getelementptr inbounds nuw i8, ptr %.010261551.i, i64 4
-  %1093 = load i32, ptr %.010261551.i, align 4
-  %1094 = load i32, ptr %.010251552.i, align 4
+.lr.ph1565.i:                                     ; preds = %.lr.ph1565.i, %.lr.ph1565.preheader.i
+  %.010251563.i = phi ptr [ %1110, %.lr.ph1565.i ], [ %1088, %.lr.ph1565.preheader.i ]
+  %.010261562.i = phi ptr [ %1092, %.lr.ph1565.i ], [ %1091, %.lr.ph1565.preheader.i ]
+  %.010271561.i = phi i32 [ %1111, %.lr.ph1565.i ], [ 0, %.lr.ph1565.preheader.i ]
+  %1092 = getelementptr inbounds nuw i8, ptr %.010261562.i, i64 4
+  %1093 = load i32, ptr %.010261562.i, align 4
+  %1094 = load i32, ptr %.010251563.i, align 4
   %1095 = and i32 %1093, 16711935
   %1096 = and i32 %1094, 16711935
   %1097 = sub nsw i32 %1095, %1096
@@ -2706,13 +2706,13 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1107 = add nuw nsw i32 %1106, %1103
   %1108 = and i32 %1107, 65280
   %1109 = or disjoint i32 %1101, %1108
-  %1110 = getelementptr inbounds nuw i8, ptr %.010251552.i, i64 4
-  store i32 %1109, ptr %.010251552.i, align 4
-  %1111 = add nuw nsw i32 %.010271550.i, 1
-  %exitcond1581.not.i = icmp eq i32 %1111, %spec.select1350.i
-  br i1 %exitcond1581.not.i, label %.loopexit1486.i, label %.lr.ph1554.i, !llvm.loop !23
+  %1110 = getelementptr inbounds nuw i8, ptr %.010251563.i, i64 4
+  store i32 %1109, ptr %.010251563.i, align 4
+  %1111 = add nuw nsw i32 %.010271561.i, 1
+  %exitcond1592.not.i = icmp eq i32 %1111, %spec.select1360.i
+  br i1 %exitcond1592.not.i, label %.loopexit1497.i, label %.lr.ph1565.i, !llvm.loop !23
 
-.loopexit1486.i:                                  ; preds = %.lr.ph1554.i, %1082, %1079, %1074
+.loopexit1497.i:                                  ; preds = %.lr.ph1565.i, %1082, %1079, %1074
   %1112 = shl nuw nsw i32 %1072, 2
   %1113 = zext nneg i32 %1112 to i64
   %1114 = getelementptr inbounds nuw i8, ptr %1073, i64 %1113
@@ -2723,9 +2723,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1308.i = icmp eq i32 %1069, 0
   br i1 %.not1308.i, label %RLEClipBlit.exit, label %1117
 
-1117:                                             ; preds = %1116, %.loopexit1486.i
-  %.21043.i = phi i32 [ %1115, %.loopexit1486.i ], [ %1069, %1116 ]
-  %.35.i = phi ptr [ %1114, %.loopexit1486.i ], [ %1073, %1116 ]
+1117:                                             ; preds = %1116, %.loopexit1497.i
+  %.21043.i = phi i32 [ %1115, %.loopexit1497.i ], [ %1069, %1116 ]
+  %.35.i = phi ptr [ %1114, %.loopexit1497.i ], [ %1073, %1116 ]
   %1118 = icmp eq i32 %.21043.i, %6
   br i1 %1118, label %1119, label %.preheader1272
 
@@ -2783,7 +2783,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 
 1149:                                             ; preds = %1141
   %1150 = icmp slt i32 %1144, %1129
-  br i1 %1150, label %1151, label %.loopexit1488.i
+  br i1 %1150, label %1151, label %.loopexit1499.i
 
 1151:                                             ; preds = %1149
   %1152 = sub nsw i32 %106, %1144
@@ -2793,32 +2793,32 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
 1154:                                             ; preds = %1151
   %1155 = sub nsw i32 %1147, %1152
   %1156 = icmp slt i32 %1155, 1
-  br i1 %1156, label %.loopexit1488.i, label %1157
+  br i1 %1156, label %.loopexit1499.i, label %1157
 
 1157:                                             ; preds = %1154, %1151
   %.01001.i = phi i32 [ %1152, %1154 ], [ 0, %1151 ]
   %.0999.i = phi i32 [ %1155, %1154 ], [ %1147, %1151 ]
   %1158 = add nsw i32 %.01001.i, %1144
   %1159 = sub nsw i32 %1129, %1158
-  %spec.select1352.i = tail call i32 @llvm.smin.i32(i32 %.0999.i, i32 %1159)
-  %1160 = icmp sgt i32 %spec.select1352.i, 0
-  br i1 %1160, label %.lr.ph1549.preheader.i, label %.loopexit1488.i
+  %spec.select1363.i = tail call i32 @llvm.smin.i32(i32 %.0999.i, i32 %1159)
+  %1160 = icmp sgt i32 %spec.select1363.i, 0
+  br i1 %1160, label %.lr.ph1560.preheader.i, label %.loopexit1499.i
 
-.lr.ph1549.preheader.i:                           ; preds = %1157
+.lr.ph1560.preheader.i:                           ; preds = %1157
   %1161 = shl nsw i32 %1158, 2
   %1162 = sext i32 %1161 to i64
   %1163 = getelementptr inbounds i8, ptr %.36950.i.ph, i64 %1162
   %1164 = shl nsw i32 %.01001.i, 2
   %1165 = zext nneg i32 %1164 to i64
   %1166 = getelementptr inbounds nuw i8, ptr %1148, i64 %1165
-  br label %.lr.ph1549.i
+  br label %.lr.ph1560.i
 
-.lr.ph1549.i:                                     ; preds = %.lr.ph1549.i, %.lr.ph1549.preheader.i
-  %.09921547.i = phi ptr [ %1255, %.lr.ph1549.i ], [ %1163, %.lr.ph1549.preheader.i ]
-  %.09931546.i = phi ptr [ %1254, %.lr.ph1549.i ], [ %1166, %.lr.ph1549.preheader.i ]
-  %.09941545.i = phi i32 [ %1256, %.lr.ph1549.i ], [ 0, %.lr.ph1549.preheader.i ]
-  %1167 = load i32, ptr %.09931546.i, align 4
-  %1168 = load i32, ptr %.09921547.i, align 4
+.lr.ph1560.i:                                     ; preds = %.lr.ph1560.i, %.lr.ph1560.preheader.i
+  %.09921558.i = phi ptr [ %1255, %.lr.ph1560.i ], [ %1163, %.lr.ph1560.preheader.i ]
+  %.09931557.i = phi ptr [ %1254, %.lr.ph1560.i ], [ %1166, %.lr.ph1560.preheader.i ]
+  %.09941556.i = phi i32 [ %1256, %.lr.ph1560.i ], [ 0, %.lr.ph1560.preheader.i ]
+  %1167 = load i32, ptr %.09931557.i, align 4
+  %1168 = load i32, ptr %.09921558.i, align 4
   %1169 = load i8, ptr %1134, align 4
   %1170 = zext i8 %1169 to i64
   %1171 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1170
@@ -2904,14 +2904,14 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1251 = or i32 %1241, %1250
   %1252 = or i32 %1251, %1245
   %1253 = or i32 %1252, %1249
-  store i32 %1253, ptr %.09921547.i, align 4
-  %1254 = getelementptr inbounds nuw i8, ptr %.09931546.i, i64 4
-  %1255 = getelementptr inbounds nuw i8, ptr %.09921547.i, i64 4
-  %1256 = add nuw nsw i32 %.09941545.i, 1
-  %exitcond1580.not.i = icmp eq i32 %1256, %spec.select1352.i
-  br i1 %exitcond1580.not.i, label %.loopexit1488.i, label %.lr.ph1549.i, !llvm.loop !24
+  store i32 %1253, ptr %.09921558.i, align 4
+  %1254 = getelementptr inbounds nuw i8, ptr %.09931557.i, i64 4
+  %1255 = getelementptr inbounds nuw i8, ptr %.09921558.i, i64 4
+  %1256 = add nuw nsw i32 %.09941556.i, 1
+  %exitcond1591.not.i = icmp eq i32 %1256, %spec.select1363.i
+  br i1 %exitcond1591.not.i, label %.loopexit1499.i, label %.lr.ph1560.i, !llvm.loop !24
 
-.loopexit1488.i:                                  ; preds = %.lr.ph1549.i, %1157, %1154, %1149
+.loopexit1499.i:                                  ; preds = %.lr.ph1560.i, %1157, %1154, %1149
   %1257 = shl nuw nsw i32 %1147, 2
   %1258 = zext nneg i32 %1257 to i64
   %1259 = getelementptr inbounds nuw i8, ptr %1148, i64 %1258
@@ -2922,9 +2922,9 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %.not1305.i = icmp eq i32 %1144, 0
   br i1 %.not1305.i, label %RLEClipBlit.exit, label %1262
 
-1262:                                             ; preds = %1261, %.loopexit1488.i
-  %.21010.i = phi i32 [ %1260, %.loopexit1488.i ], [ %1144, %1261 ]
-  %.38.i = phi ptr [ %1259, %.loopexit1488.i ], [ %1148, %1261 ]
+1262:                                             ; preds = %1261, %.loopexit1499.i
+  %.21010.i = phi i32 [ %1260, %.loopexit1499.i ], [ %1144, %1261 ]
+  %.38.i = phi ptr [ %1259, %.loopexit1499.i ], [ %1148, %1261 ]
   %1263 = icmp eq i32 %.21010.i, %6
   br i1 %1263, label %1264, label %1141
 
@@ -4932,20 +4932,20 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %.not330 = icmp eq i32 %34, 0
-  br i1 %.not330, label %.thread364, label %35
+  br i1 %.not330, label %.thread370, label %35
 
 35:                                               ; preds = %13
   %36 = icmp eq i8 %25, 2
-  br i1 %36, label %.preheader430, label %73
+  br i1 %36, label %.preheader436, label %73
 
-.preheader430:                                    ; preds = %35, %71
+.preheader436:                                    ; preds = %35, %71
   %.0269 = phi i32 [ %72, %71 ], [ %34, %35 ]
   %.1 = phi ptr [ %68, %71 ], [ %32, %35 ]
   br label %37
 
-37:                                               ; preds = %52, %.preheader430
-  %.0271 = phi i32 [ 0, %.preheader430 ], [ %.2273.ph, %52 ]
-  %.2 = phi ptr [ %.1, %.preheader430 ], [ %.4.ph, %52 ]
+37:                                               ; preds = %52, %.preheader436
+  %.0271 = phi i32 [ 0, %.preheader436 ], [ %.2273.ph, %52 ]
+  %.2 = phi ptr [ %.1, %.preheader436 ], [ %.4.ph, %52 ]
   %38 = load i8, ptr %.2, align 1
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %.0271, %39
@@ -4999,7 +4999,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 71:                                               ; preds = %58
   %72 = add nsw i32 %.0269, -1
   %.not334 = icmp eq i32 %72, 0
-  br i1 %.not334, label %.thread364, label %.preheader430, !llvm.loop !51
+  br i1 %.not334, label %.thread370, label %.preheader436, !llvm.loop !51
 
 73:                                               ; preds = %35
   %74 = shl i32 %34, 1
@@ -5043,22 +5043,22 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 93:                                               ; preds = %91
   %94 = add nsw i32 %.1270, -1
   %.not332 = icmp eq i32 %94, 0
-  br i1 %.not332, label %.thread364, label %75, !llvm.loop !53
+  br i1 %.not332, label %.thread370, label %75, !llvm.loop !53
 
-.thread364:                                       ; preds = %93, %71, %13
-  %.12367 = phi ptr [ %32, %13 ], [ %68, %71 ], [ %.11.ph, %93 ]
+.thread370:                                       ; preds = %93, %71, %13
+  %.12373 = phi ptr [ %32, %13 ], [ %68, %71 ], [ %.11.ph, %93 ]
   %95 = load i32, ptr %1, align 4
   %.not335 = icmp eq i32 %95, 0
   br i1 %.not335, label %96, label %100
 
-96:                                               ; preds = %.thread364
+96:                                               ; preds = %.thread370
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %5, align 8
   %.not336 = icmp eq i32 %98, %99
   br i1 %.not336, label %398, label %100
 
-100:                                              ; preds = %96, %.thread364
+100:                                              ; preds = %96, %.thread370
   %101 = load ptr, ptr %7, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 5
   %103 = load i8, ptr %102, align 1
@@ -5099,7 +5099,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 124:                                              ; preds = %206, %116
   %.0308.i = phi i32 [ %118, %116 ], [ %210, %206 ]
   %.0302.i = phi ptr [ %123, %116 ], [ %209, %206 ]
-  %.0.i = phi ptr [ %.12367, %116 ], [ %.6.i, %206 ]
+  %.0.i = phi ptr [ %.12373, %116 ], [ %.6.i, %206 ]
   br label %125
 
 125:                                              ; preds = %154, %124
@@ -5256,7 +5256,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 219:                                              ; preds = %301, %211
   %.0342.i = phi i32 [ %213, %211 ], [ %305, %301 ]
   %.2304.i = phi ptr [ %218, %211 ], [ %304, %301 ]
-  %.7.i = phi ptr [ %.12367, %211 ], [ %.13.i, %301 ]
+  %.7.i = phi ptr [ %.12373, %211 ], [ %.13.i, %301 ]
   br label %220
 
 220:                                              ; preds = %249, %219
@@ -5413,7 +5413,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 314:                                              ; preds = %393, %306
   %.0343.i = phi i32 [ %308, %306 ], [ %397, %393 ]
   %.4306.i = phi ptr [ %313, %306 ], [ %396, %393 ]
-  %.14.i = phi ptr [ %.12367, %306 ], [ %.20.i, %393 ]
+  %.14.i = phi ptr [ %.12373, %306 ], [ %.20.i, %393 ]
   br label %315
 
 315:                                              ; preds = %344, %314
@@ -5584,7 +5584,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 414:                                              ; preds = %474, %411
   %.0280 = phi i32 [ %413, %411 ], [ %478, %474 ]
   %.0250 = phi ptr [ %29, %411 ], [ %477, %474 ]
-  %.13 = phi ptr [ %.12367, %411 ], [ %.19, %474 ]
+  %.13 = phi ptr [ %.12373, %411 ], [ %.19, %474 ]
   br label %415
 
 415:                                              ; preds = %432, %414
@@ -5646,11 +5646,11 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   br label %449
 
 449:                                              ; preds = %446, %449
-  %.20441 = phi ptr [ %445, %446 ], [ %467, %449 ]
-  %.0292440 = phi ptr [ %448, %446 ], [ %468, %449 ]
-  %.0293439 = phi i32 [ 0, %446 ], [ %469, %449 ]
-  %450 = load i32, ptr %.20441, align 4
-  %451 = load i16, ptr %.0292440, align 2
+  %.20447 = phi ptr [ %445, %446 ], [ %467, %449 ]
+  %.0292446 = phi ptr [ %448, %446 ], [ %468, %449 ]
+  %.0293445 = phi i32 [ 0, %446 ], [ %469, %449 ]
+  %450 = load i32, ptr %.20447, align 4
+  %451 = load i16, ptr %.0292446, align 2
   %452 = zext i16 %451 to i32
   %453 = lshr i32 %450, 5
   %454 = and i32 %453, 31
@@ -5666,12 +5666,12 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   %464 = lshr i32 %463, 16
   %465 = or disjoint i32 %464, %463
   %466 = trunc i32 %465 to i16
-  store i16 %466, ptr %.0292440, align 2
-  %467 = getelementptr inbounds nuw i8, ptr %.20441, i64 4
-  %468 = getelementptr inbounds nuw i8, ptr %.0292440, i64 2
-  %469 = add nuw nsw i32 %.0293439, 1
-  %exitcond460.not = icmp eq i32 %469, %444
-  br i1 %exitcond460.not, label %470, label %449, !llvm.loop !67
+  store i16 %466, ptr %.0292446, align 2
+  %467 = getelementptr inbounds nuw i8, ptr %.20447, i64 4
+  %468 = getelementptr inbounds nuw i8, ptr %.0292446, i64 2
+  %469 = add nuw nsw i32 %.0293445, 1
+  %exitcond466.not = icmp eq i32 %469, %444
+  br i1 %exitcond466.not, label %470, label %449, !llvm.loop !67
 
 470:                                              ; preds = %449
   %471 = add i32 %441, %444
@@ -5699,7 +5699,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 482:                                              ; preds = %542, %479
   %.0294 = phi i32 [ %481, %479 ], [ %546, %542 ]
   %.2252 = phi ptr [ %29, %479 ], [ %545, %542 ]
-  %.21 = phi ptr [ %.12367, %479 ], [ %.27, %542 ]
+  %.21 = phi ptr [ %.12373, %479 ], [ %.27, %542 ]
   br label %483
 
 483:                                              ; preds = %500, %482
@@ -5761,11 +5761,11 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   br label %517
 
 517:                                              ; preds = %514, %517
-  %.28438 = phi ptr [ %513, %514 ], [ %535, %517 ]
-  %.0300437 = phi i32 [ 0, %514 ], [ %537, %517 ]
-  %.0301436 = phi ptr [ %516, %514 ], [ %536, %517 ]
-  %518 = load i32, ptr %.28438, align 4
-  %519 = load i16, ptr %.0301436, align 2
+  %.28444 = phi ptr [ %513, %514 ], [ %535, %517 ]
+  %.0300443 = phi i32 [ 0, %514 ], [ %537, %517 ]
+  %.0301442 = phi ptr [ %516, %514 ], [ %536, %517 ]
+  %518 = load i32, ptr %.28444, align 4
+  %519 = load i16, ptr %.0301442, align 2
   %520 = zext i16 %519 to i32
   %521 = lshr i32 %518, 5
   %522 = and i32 %521, 31
@@ -5781,12 +5781,12 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   %532 = lshr i32 %531, 16
   %533 = or disjoint i32 %532, %531
   %534 = trunc i32 %533 to i16
-  store i16 %534, ptr %.0301436, align 2
-  %535 = getelementptr inbounds nuw i8, ptr %.28438, i64 4
-  %536 = getelementptr inbounds nuw i8, ptr %.0301436, i64 2
-  %537 = add nuw nsw i32 %.0300437, 1
-  %exitcond459.not = icmp eq i32 %537, %512
-  br i1 %exitcond459.not, label %538, label %517, !llvm.loop !71
+  store i16 %534, ptr %.0301442, align 2
+  %535 = getelementptr inbounds nuw i8, ptr %.28444, i64 4
+  %536 = getelementptr inbounds nuw i8, ptr %.0301442, i64 2
+  %537 = add nuw nsw i32 %.0300443, 1
+  %exitcond465.not = icmp eq i32 %537, %512
+  br i1 %exitcond465.not, label %538, label %517, !llvm.loop !71
 
 538:                                              ; preds = %517
   %539 = add i32 %509, %512
@@ -5814,7 +5814,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 550:                                              ; preds = %607, %547
   %.0291 = phi i32 [ %549, %547 ], [ %611, %607 ]
   %.4254 = phi ptr [ %29, %547 ], [ %610, %607 ]
-  %.29 = phi ptr [ %.12367, %547 ], [ %.35, %607 ]
+  %.29 = phi ptr [ %.12373, %547 ], [ %.35, %607 ]
   br label %551
 
 551:                                              ; preds = %568, %550
@@ -5870,11 +5870,11 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   br label %580
 
 580:                                              ; preds = %577, %580
-  %.36435 = phi ptr [ %576, %577 ], [ %600, %580 ]
-  %.0278434 = phi i32 [ 0, %577 ], [ %602, %580 ]
-  %.0279433 = phi ptr [ %579, %577 ], [ %601, %580 ]
-  %581 = load i32, ptr %.36435, align 4
-  %582 = load i32, ptr %.0279433, align 4
+  %.36441 = phi ptr [ %576, %577 ], [ %600, %580 ]
+  %.0278440 = phi i32 [ 0, %577 ], [ %602, %580 ]
+  %.0279439 = phi ptr [ %579, %577 ], [ %601, %580 ]
+  %581 = load i32, ptr %.36441, align 4
+  %582 = load i32, ptr %.0279439, align 4
   %583 = lshr i32 %581, 24
   %584 = and i32 %581, 16711935
   %585 = and i32 %582, 16711935
@@ -5892,10 +5892,10 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
   %597 = and i32 %596, 65280
   %598 = or disjoint i32 %597, %590
   %599 = or disjoint i32 %598, -16777216
-  store i32 %599, ptr %.0279433, align 4
-  %600 = getelementptr inbounds nuw i8, ptr %.36435, i64 4
-  %601 = getelementptr inbounds nuw i8, ptr %.0279433, i64 4
-  %602 = add nuw nsw i32 %.0278434, 1
+  store i32 %599, ptr %.0279439, align 4
+  %600 = getelementptr inbounds nuw i8, ptr %.36441, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %.0279439, i64 4
+  %602 = add nuw nsw i32 %.0278440, 1
   %exitcond.not = icmp eq i32 %602, %575
   br i1 %exitcond.not, label %603, label %580, !llvm.loop !75
 

@@ -44209,8 +44209,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit86: 
   %162 = load ptr, ptr %8, align 8, !tbaa !25
   %163 = load i32, ptr %26, align 8, !tbaa !26
   %164 = zext i32 %163 to i64
-  %.idx155 = shl nuw nsw i64 %164, 3
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx155
+  %.idx152 = shl nuw nsw i64 %164, 3
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx152
   %.not72138 = icmp eq i32 %163, 0
   br i1 %.not72138, label %.critedge, label %.lr.ph.outer
 
@@ -44395,8 +44395,8 @@ _ZL13hasSameExtUsePN4llvm5ValueERKNS_14TargetLoweringE.exit.thread.thread: ; pre
   %256 = add i32 %255, 1
   store i32 %256, ptr %22, align 8, !tbaa !26
   %257 = getelementptr inbounds nuw i8, ptr %.061140, i64 8
-  %.not72185 = icmp eq ptr %257, %165
-  br i1 %.not72185, label %._crit_edge.thread, label %.lr.ph.outer
+  %.not72182 = icmp eq ptr %257, %165
+  br i1 %.not72182, label %._crit_edge.thread, label %.lr.ph.outer
 
 .critedge:                                        ; preds = %159, %._crit_edge
   %258 = load i32, ptr %17, align 8, !tbaa !26
@@ -44470,21 +44470,21 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit110:
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZL13hasSameExtUsePN4llvm5ValueERKNS_14TargetLoweringE.exit.thread.thread, %._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit110
-  %.5.jt3 = phi i1 [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit110 ], [ true, %._crit_edge ], [ true, %_ZL13hasSameExtUsePN4llvm5ValueERKNS_14TargetLoweringE.exit.thread.thread ]
+  %.5 = phi i1 [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit110 ], [ true, %._crit_edge ], [ true, %_ZL13hasSameExtUsePN4llvm5ValueERKNS_14TargetLoweringE.exit.thread.thread ]
   %290 = load ptr, ptr %8, align 8, !tbaa !25
   %291 = icmp eq ptr %290, %25
-  br i1 %291, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3, label %292
+  br i1 %291, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, label %292
 
 292:                                              ; preds = %._crit_edge.thread
   call void @free(ptr noundef %290) #29
-  br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3
+  br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3: ; preds = %292, %._crit_edge.thread
+_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit: ; preds = %._crit_edge.thread, %292
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %293
 
-293:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit86, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3
-  %.4.jt3 = phi i1 [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit86 ], [ %.5.jt3, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3 ]
+293:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit86
+  %.4 = phi i1 [ %.5, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit ], [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %294 = load ptr, ptr %6, align 8, !tbaa !25
   %295 = icmp eq ptr %294, %18
@@ -44499,7 +44499,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.jt3: ; preds = %292, %._c
   br label %.thread126
 
 .thread126:                                       ; preds = %297, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit79, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
-  %.258129 = phi i1 [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit79 ], [ %.4.jt3, %297 ]
+  %.258129 = phi i1 [ %.4, %297 ], [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ %.056143, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit79 ]
   %298 = getelementptr inbounds nuw i8, ptr %.060142, i64 8
   %.not = icmp eq ptr %298, %13
   br i1 %.not, label %.thread, label %28

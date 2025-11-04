@@ -2050,12 +2050,12 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %29 = add i32 %16, 23
   %30 = and i32 %29, -4
   %31 = icmp slt i32 %28, %30
-  br i1 %31, label %.thread8, label %32, !prof !5
+  br i1 %31, label %.thread11, label %32, !prof !5
 
 32:                                               ; preds = %27
   %33 = tail call ptr @__nlmsg_put(ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef %15, i32 noundef %17, i32 noundef %3) #15
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread8, label %35
+  br i1 %34, label %.thread11, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %33, i64 16
@@ -2068,7 +2068,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   store i16 0, ptr %40, align 2
   %41 = getelementptr i8, ptr %33, i64 20
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread8, label %43
+  br i1 %42, label %.thread11, label %43
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2077,7 +2077,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %47 = add i32 %46, 1
   %48 = tail call i32 @nla_put(ptr noundef %4, i32 noundef 2, i32 noundef %47, ptr noundef nonnull %44) #15
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.thread12
+  br i1 %49, label %50, label %.thread15
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2088,7 +2088,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %54 = call i32 @nla_put(ptr noundef %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %13) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread12
+  br i1 %55, label %56, label %.thread15
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2098,7 +2098,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %59 = call i32 @nla_put(ptr noundef %4, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.thread12
+  br i1 %60, label %61, label %.thread15
 
 61:                                               ; preds = %56
   %62 = load i32, ptr %0, align 8
@@ -2107,7 +2107,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %63 = call i32 @nla_put(ptr noundef %4, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.thread12
+  br i1 %64, label %65, label %.thread15
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2117,7 +2117,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %68 = call i32 @nla_put(ptr noundef %4, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %.thread12
+  br i1 %69, label %70, label %.thread15
 
 70:                                               ; preds = %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 104, i1 false), !annotation !18
@@ -2153,7 +2153,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %94 = icmp slt i32 %93, 0
   %95 = icmp eq ptr %92, null
   %96 = select i1 %94, i1 true, i1 %95
-  br i1 %96, label %.thread12, label %97
+  br i1 %96, label %.thread15, label %97
 
 97:                                               ; preds = %86
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -2181,7 +2181,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %117 = icmp slt i32 %116, 0
   %118 = icmp eq ptr %115, null
   %119 = select i1 %117, i1 true, i1 %118
-  br i1 %119, label %.thread12, label %120
+  br i1 %119, label %.thread15, label %120
 
 120:                                              ; preds = %.lr.ph
   %121 = load i32, ptr %100, align 8
@@ -2190,7 +2190,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %122 = call i32 @nla_put(ptr noundef %4, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.thread12
+  br i1 %123, label %124, label %.thread15
 
 124:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2198,7 +2198,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %125 = call i32 @nla_put(ptr noundef %4, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.thread12
+  br i1 %126, label %127, label %.thread15
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr %87, align 8
@@ -2242,16 +2242,16 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %157 = icmp slt i32 %156, 0
   %158 = icmp eq ptr %155, null
   %159 = select i1 %157, i1 true, i1 %158
-  br i1 %159, label %.thread12, label %160
+  br i1 %159, label %.thread15, label %160
 
 160:                                              ; preds = %149
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %163 = load i8, ptr %146, align 8
   %.not = icmp eq i8 %163, 0
-  br i1 %.not, label %._crit_edge20, label %.lr.ph19
+  br i1 %.not, label %._crit_edge23, label %.lr.ph22
 
-.lr.ph19:                                         ; preds = %160, %186
+.lr.ph22:                                         ; preds = %160, %186
   %164 = phi i64 [ %167, %186 ], [ 0, %160 ]
   %165 = load ptr, ptr %161, align 8
   %166 = getelementptr %struct.genl_multicast_group, ptr %165, i64 %164
@@ -2265,9 +2265,9 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %174 = icmp slt i32 %173, 0
   %175 = icmp eq ptr %171, null
   %176 = select i1 %174, i1 true, i1 %175
-  br i1 %176, label %.thread12, label %177
+  br i1 %176, label %.thread15, label %177
 
-177:                                              ; preds = %.lr.ph19
+177:                                              ; preds = %.lr.ph22
   %178 = load i32, ptr %162, align 4
   %179 = trunc nuw nsw i64 %164 to i32
   %180 = add i32 %178, %179
@@ -2276,12 +2276,12 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %181 = call i32 @nla_put(ptr noundef %4, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %.thread12
+  br i1 %182, label %183, label %.thread15
 
 183:                                              ; preds = %177
   %184 = call fastcc i32 @nla_put_string(ptr noundef %4, ptr noundef %166)
   %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %.thread12
+  br i1 %185, label %186, label %.thread15
 
 186:                                              ; preds = %183
   %187 = load ptr, ptr %150, align 8
@@ -2296,9 +2296,9 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %195 = load i8, ptr %146, align 8
   %196 = zext i8 %195 to i64
   %197 = icmp samesign ult i64 %167, %196
-  br i1 %197, label %.lr.ph19, label %._crit_edge20, !llvm.loop !95
+  br i1 %197, label %.lr.ph22, label %._crit_edge23, !llvm.loop !95
 
-._crit_edge20:                                    ; preds = %186, %160
+._crit_edge23:                                    ; preds = %186, %160
   %198 = load ptr, ptr %150, align 8
   %199 = load i32, ptr %152, align 8
   %200 = zext i32 %199 to i64
@@ -2310,7 +2310,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   store i16 %205, ptr %155, align 2
   br label %206
 
-206:                                              ; preds = %._crit_edge20, %145
+206:                                              ; preds = %._crit_edge23, %145
   %207 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 184
@@ -2322,31 +2322,31 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
   %215 = sub i64 %213, %214
   %216 = trunc i64 %215 to i32
   store i32 %216, ptr %33, align 4
-  br label %.thread8
+  br label %.thread11
 
-.thread12:                                        ; preds = %.lr.ph, %124, %120, %.lr.ph19, %183, %177, %43, %50, %56, %61, %65, %86, %149
+.thread15:                                        ; preds = %.lr.ph, %124, %120, %.lr.ph22, %183, %177, %43, %50, %56, %61, %65, %86, %149
   %217 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %218 = load ptr, ptr %217, align 8
   %219 = icmp ugt ptr %218, %33
   br i1 %219, label %220, label %221, !prof !5
 
-220:                                              ; preds = %.thread12
+220:                                              ; preds = %.thread15
   call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #15, !srcloc !71
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 1062, i32 2305, i64 12) #15, !srcloc !72
   call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #15, !srcloc !73
   %.pre = load ptr, ptr %217, align 8
   br label %221
 
-221:                                              ; preds = %220, %.thread12
-  %222 = phi ptr [ %.pre, %220 ], [ %218, %.thread12 ]
+221:                                              ; preds = %220, %.thread15
+  %222 = phi ptr [ %.pre, %220 ], [ %218, %.thread15 ]
   %223 = ptrtoint ptr %33 to i64
   %224 = ptrtoint ptr %222 to i64
   %225 = sub i64 %223, %224
   %226 = trunc i64 %225 to i32
   call void @skb_trim(ptr noundef %4, i32 noundef %226) #15
-  br label %.thread8
+  br label %.thread11
 
-.thread8:                                         ; preds = %27, %32, %221, %206, %35
+.thread11:                                        ; preds = %27, %32, %221, %206, %35
   %227 = phi i32 [ 0, %206 ], [ -1, %35 ], [ -90, %221 ], [ -1, %32 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %227
@@ -2956,7 +2956,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %39 = tail call fastcc i32 @ctrl_dumppolicy_put_op(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37, ptr noundef nonnull %38), !range !102
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %.thread7
+  br i1 %40, label %41, label %.thread8
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %34, align 8
@@ -2977,7 +2977,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = load ptr, ptr %6, align 8
   %55 = tail call zeroext i1 @netlink_policy_dump_loop(ptr noundef %54) #15
-  br i1 %55, label %.lr.ph, label %.thread7
+  br i1 %55, label %.lr.ph, label %.thread8
 
 .lr.ph:                                           ; preds = %.loopexit, %104
   %56 = load ptr, ptr %1, align 8
@@ -3004,12 +3004,12 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   %73 = add i32 %63, 23
   %74 = and i32 %73, -4
   %75 = icmp slt i32 %72, %74
-  br i1 %75, label %.thread7, label %76, !prof !5
+  br i1 %75, label %.thread8, label %76, !prof !5
 
 76:                                               ; preds = %71
   %77 = call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %58, i32 noundef %61, i32 noundef %62, i32 noundef %64, i32 noundef 2) #15
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread7, label %79
+  br i1 %78, label %.thread8, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr i8, ptr %77, i64 16
@@ -3022,7 +3022,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   store i16 0, ptr %84, align 2
   %85 = getelementptr i8, ptr %77, i64 20
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread7, label %87
+  br i1 %86, label %.thread8, label %87
 
 87:                                               ; preds = %79
   %88 = load i16, ptr %52, align 4
@@ -3031,7 +3031,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   %89 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %.thread7
+  br i1 %90, label %91, label %.thread8
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %53, align 8
@@ -3071,7 +3071,7 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   store i32 %120, ptr %77, align 4
   %121 = load ptr, ptr %6, align 8
   %122 = call zeroext i1 @netlink_policy_dump_loop(ptr noundef %121) #15
-  br i1 %122, label %.lr.ph, label %.thread7
+  br i1 %122, label %.lr.ph, label %.thread8
 
 123:                                              ; preds = %91, %100
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -3093,15 +3093,15 @@ define internal i32 @ctrl_dumppolicy(ptr noundef %0, ptr noundef captures(none) 
   %132 = sub i64 %130, %131
   %133 = trunc i64 %132 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %133) #15
-  br label %.thread7
+  br label %.thread8
 
-.thread7:                                         ; preds = %35, %104, %79, %87, %76, %71, %.loopexit, %128
+.thread8:                                         ; preds = %35, %104, %79, %87, %76, %71, %.loopexit, %128
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %135 = load i32, ptr %134, align 8
   br label %136
 
-136:                                              ; preds = %.thread, %.thread7
-  %137 = phi i32 [ %135, %.thread7 ], [ %.ph, %.thread ]
+136:                                              ; preds = %.thread, %.thread8
+  %137 = phi i32 [ %135, %.thread8 ], [ %.ph, %.thread ]
   ret i32 %137
 }
 

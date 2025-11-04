@@ -2146,9 +2146,9 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %95, %91
   br label %_pickle_load_impl.exit
 
 _pickle_load_impl.exit:                           ; preds = %Py_DECREF.exit.sink.split.i, %95, %_Unpickler_SetBuffers.exit.thread.i, %91, %_Unpickler_SetBuffers.exit.i, %63, %.thread102, %.thread94, %34, %51, %14, %22
-  %.054 = phi ptr [ null, %22 ], [ null, %51 ], [ null, %34 ], [ null, %14 ], [ null, %.thread94 ], [ null, %.thread102 ], [ null, %63 ], [ %89, %_Unpickler_SetBuffers.exit.i ], [ %89, %91 ], [ null, %_Unpickler_SetBuffers.exit.thread.i ], [ null, %95 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
+  %.057 = phi ptr [ null, %22 ], [ null, %51 ], [ null, %34 ], [ null, %14 ], [ null, %.thread94 ], [ null, %.thread102 ], [ null, %63 ], [ %89, %_Unpickler_SetBuffers.exit.i ], [ %89, %91 ], [ null, %_Unpickler_SetBuffers.exit.thread.i ], [ null, %95 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.054
+  ret ptr %.057
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2413,9 +2413,9 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %107, %103
   br label %_pickle_loads_impl.exit
 
 _pickle_loads_impl.exit:                          ; preds = %Py_DECREF.exit.sink.split.i, %107, %_Unpickler_SetStringInput.exit.thread.i, %103, %_Unpickler_SetBuffers.exit.i, %63, %.thread102, %.thread94, %34, %51, %14, %22
-  %.054 = phi ptr [ null, %22 ], [ null, %51 ], [ null, %34 ], [ null, %14 ], [ null, %.thread94 ], [ null, %.thread102 ], [ null, %63 ], [ %101, %_Unpickler_SetBuffers.exit.i ], [ %101, %103 ], [ null, %_Unpickler_SetStringInput.exit.thread.i ], [ null, %107 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
+  %.057 = phi ptr [ null, %22 ], [ null, %51 ], [ null, %34 ], [ null, %14 ], [ null, %.thread94 ], [ null, %.thread102 ], [ null, %63 ], [ %101, %_Unpickler_SetBuffers.exit.i ], [ %101, %103 ], [ null, %_Unpickler_SetStringInput.exit.thread.i ], [ null, %107 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.054
+  ret ptr %.057
 }
 
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -9338,7 +9338,7 @@ save_singleton_type.exit:                         ; preds = %29, %38, %35, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @save_global(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @save_global(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -10629,8 +10629,8 @@ Py_XDECREF.exit182:                               ; preds = %Py_XDECREF.exit, %5
   call void @_Py_Dealloc(ptr noundef nonnull %.1204.ph) #13
   br label %Py_XDECREF.exit186
 
-Py_XDECREF.exit186:                               ; preds = %25, %565, %562, %560, %Py_XDECREF.exit182
-  %.097203334338 = phi i32 [ %.097203.ph, %565 ], [ %.097203.ph, %562 ], [ %.097203.ph, %560 ], [ %.097203.ph, %Py_XDECREF.exit182 ], [ -1, %25 ]
+Py_XDECREF.exit186:                               ; preds = %25, %Py_XDECREF.exit182, %560, %562, %565
+  %.097203334338 = phi i32 [ %.097203.ph, %Py_XDECREF.exit182 ], [ %.097203.ph, %560 ], [ %.097203.ph, %562 ], [ %.097203.ph, %565 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.097203334338
@@ -24054,52 +24054,52 @@ define internal fastcc ptr @_pickle_UnpicklerMemoProxy_copy_impl(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.preheader, %25
   %8 = phi ptr [ %26, %25 ], [ %5, %.preheader ]
-  %.01726 = phi i64 [ %27, %25 ], [ 0, %.preheader ]
+  %.01727 = phi i64 [ %27, %25 ], [ 0, %.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !161
-  %11 = getelementptr ptr, ptr %10, i64 %.01726
+  %11 = getelementptr ptr, ptr %10, i64 %.01727
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = icmp eq ptr %12, null
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call ptr @PyLong_FromSsize_t(i64 noundef %.01726) #13
+  %15 = tail call ptr @PyLong_FromSsize_t(i64 noundef %.01727) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %14
   %18 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %2, ptr noundef nonnull %15, ptr noundef nonnull %12) #13
   %19 = load i32, ptr %15, align 8, !tbaa !42
-  %.not.i22 = icmp sgt i32 %19, -1
-  br i1 %.not.i22, label %20, label %Py_DECREF.exit23
+  %.not.i23 = icmp sgt i32 %19, -1
+  br i1 %.not.i23, label %20, label %Py_DECREF.exit24
 
 20:                                               ; preds = %17
   %21 = add nsw i32 %19, -1
   store i32 %21, ptr %15, align 8, !tbaa !42
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %Py_DECREF.exit23
+  br i1 %22, label %23, label %Py_DECREF.exit24
 
 23:                                               ; preds = %20
   tail call void @_Py_Dealloc(ptr noundef nonnull %15) #13
-  br label %Py_DECREF.exit23
+  br label %Py_DECREF.exit24
 
-Py_DECREF.exit23:                                 ; preds = %17, %20, %23
+Py_DECREF.exit24:                                 ; preds = %17, %20, %23
   %24 = icmp slt i32 %18, 0
-  br i1 %24, label %select.unfold, label %Py_DECREF.exit23._crit_edge
+  br i1 %24, label %select.unfold, label %Py_DECREF.exit24._crit_edge
 
-Py_DECREF.exit23._crit_edge:                      ; preds = %Py_DECREF.exit23
+Py_DECREF.exit24._crit_edge:                      ; preds = %Py_DECREF.exit24
   %.pre = load ptr, ptr %4, align 8, !tbaa !198
   br label %25
 
-25:                                               ; preds = %Py_DECREF.exit23._crit_edge, %.lr.ph
-  %26 = phi ptr [ %.pre, %Py_DECREF.exit23._crit_edge ], [ %8, %.lr.ph ]
-  %27 = add nuw i64 %.01726, 1
+25:                                               ; preds = %Py_DECREF.exit24._crit_edge, %.lr.ph
+  %26 = phi ptr [ %.pre, %Py_DECREF.exit24._crit_edge ], [ %8, %.lr.ph ]
+  %27 = add nuw i64 %.01727, 1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !162
   %30 = icmp ult i64 %27, %29
   br i1 %30, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !201
 
-select.unfold:                                    ; preds = %Py_DECREF.exit23, %14
+select.unfold:                                    ; preds = %Py_DECREF.exit24, %14
   %31 = load i32, ptr %2, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %31, -1
   br i1 %.not.i, label %32, label %Py_DECREF.exit
@@ -26235,9 +26235,9 @@ _Unpickler_NewMemo.exit.thread.i:                 ; preds = %115
   br label %_pickle_Unpickler___init___impl.exit
 
 _pickle_Unpickler___init___impl.exit:             ; preds = %121, %_Unpickler_NewMemo.exit.thread.i, %Pdata_New.exit.i, %Pdata_New.exit.thread.i, %87, %_Unpickler_SetInputEncoding.exit.thread.i, %71, %.thread104, %.thread96, %36, %53, %15, %24
-  %.057 = phi i32 [ -1, %24 ], [ -1, %53 ], [ -1, %36 ], [ -1, %15 ], [ -1, %.thread96 ], [ -1, %.thread104 ], [ -1, %71 ], [ 0, %121 ], [ -1, %Pdata_New.exit.i ], [ -1, %_Unpickler_SetInputEncoding.exit.thread.i ], [ -1, %Pdata_New.exit.thread.i ], [ -1, %_Unpickler_NewMemo.exit.thread.i ], [ -1, %87 ]
+  %.060 = phi i32 [ -1, %24 ], [ -1, %53 ], [ -1, %36 ], [ -1, %15 ], [ -1, %.thread96 ], [ -1, %.thread104 ], [ -1, %71 ], [ 0, %121 ], [ -1, %Pdata_New.exit.i ], [ -1, %_Unpickler_SetInputEncoding.exit.thread.i ], [ -1, %Pdata_New.exit.thread.i ], [ -1, %_Unpickler_NewMemo.exit.thread.i ], [ -1, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.057
+  ret i32 %.060
 }
 
 ; Function Attrs: nounwind uwtable

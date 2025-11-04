@@ -883,13 +883,13 @@ declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr 
 define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread23, label %5, !prof !5
+  br i1 %4, label %.thread24, label %5, !prof !5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @llvm.bswap.i32(i32 %6)
   %8 = icmp eq i32 %6, 0
-  br i1 %8, label %.thread23, label %9
+  br i1 %8, label %.thread24, label %9
 
 9:                                                ; preds = %5
   store i32 1, ptr %1, align 8
@@ -898,7 +898,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
-  br i1 %13, label %.thread23, label %14
+  br i1 %13, label %.thread24, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -909,7 +909,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
 
 19:                                               ; preds = %14
   tail call void @kfree(ptr noundef %18) #9
-  br label %.thread23
+  br label %.thread24
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -926,16 +926,16 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %32
 
-29:                                               ; preds = %97, %.thread24
+29:                                               ; preds = %97, %.thread25
   %30 = add nuw i32 %33, 1
   %31 = icmp eq i32 %30, %7
-  br i1 %31, label %.thread23, label %32, !llvm.loop !7
+  br i1 %31, label %.thread24, label %32, !llvm.loop !7
 
 32:                                               ; preds = %29, %20
   %33 = phi i32 [ 0, %20 ], [ %30, %29 ]
   %34 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread23, label %36, !prof !5
+  br i1 %35, label %.thread24, label %36, !prof !5
 
 36:                                               ; preds = %32
   %37 = load i32, ptr %34, align 4
@@ -943,7 +943,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %39 = zext i32 %38 to i64
   %40 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %39) #9
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread23, label %42, !prof !5
+  br i1 %41, label %.thread24, label %42, !prof !5
 
 42:                                               ; preds = %36
   %43 = icmp eq i32 %37, 251658240
@@ -957,33 +957,33 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
 47:                                               ; preds = %44
   %48 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread23, label %50, !prof !5
+  br i1 %49, label %.thread24, label %50, !prof !5
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %48, align 4
   %52 = tail call i32 @llvm.bswap.i32(i32 %51)
   %53 = zext i32 %52 to i64
   %54 = icmp ugt i32 %52, 262156
-  br i1 %54, label %.thread23, label %55
+  br i1 %54, label %.thread24, label %55
 
 55:                                               ; preds = %50
   %56 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread23, label %58
+  br i1 %57, label %.thread24, label %58
 
 58:                                               ; preds = %55
   %59 = load i32, ptr %56, align 4
   store i32 %59, ptr %16, align 8
   %60 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread23, label %62
+  br i1 %61, label %.thread24, label %62
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %60, align 4
   store i32 %63, ptr %27, align 4
   %64 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.thread23, label %66
+  br i1 %65, label %.thread24, label %66
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %64, align 4
@@ -991,28 +991,28 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %69 = zext i32 %68 to i64
   %70 = shl nuw nsw i64 %69, 2
   %71 = icmp eq i64 %70, %53
-  br i1 %71, label %72, label %.thread23
+  br i1 %71, label %72, label %.thread24
 
 72:                                               ; preds = %66
   %73 = tail call ptr @groups_alloc(i32 noundef %67) #9
   store ptr %73, ptr %28, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread23, label %75
+  br i1 %74, label %.thread24, label %75
 
 75:                                               ; preds = %72
   %76 = icmp eq i32 %67, 0
-  br i1 %76, label %.thread24, label %.preheader
+  br i1 %76, label %.thread25, label %.preheader
 
 .preheader:                                       ; preds = %75, %83
   %77 = phi i32 [ %88, %83 ], [ 0, %75 ]
   %78 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread17, label %80
+  br i1 %79, label %.thread18, label %80
 
 80:                                               ; preds = %.preheader
   %81 = load i32, ptr %78, align 4
   %82 = icmp eq i32 %81, -1
-  br i1 %82, label %.thread17, label %83
+  br i1 %82, label %.thread18, label %83
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %28, align 8
@@ -1022,19 +1022,19 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   store i32 %81, ptr %87, align 4
   %88 = add nuw i32 %77, 1
   %89 = icmp eq i32 %88, %67
-  br i1 %89, label %.thread24.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %89, label %.thread25.loopexit, label %.preheader, !llvm.loop !10
 
-.thread17:                                        ; preds = %.preheader, %80
+.thread18:                                        ; preds = %.preheader, %80
   %90 = load ptr, ptr %28, align 8
   tail call void @groups_free(ptr noundef %90) #9
-  br label %.thread23
-
-.thread24.loopexit:                               ; preds = %83
-  %.pre = load ptr, ptr %28, align 8
   br label %.thread24
 
-.thread24:                                        ; preds = %.thread24.loopexit, %75
-  %91 = phi ptr [ %.pre, %.thread24.loopexit ], [ %73, %75 ]
+.thread25.loopexit:                               ; preds = %83
+  %.pre = load ptr, ptr %28, align 8
+  br label %.thread25
+
+.thread25:                                        ; preds = %.thread25.loopexit, %75
+  %91 = phi ptr [ %.pre, %.thread25.loopexit ], [ %73, %75 ]
   tail call void @groups_sort(ptr noundef %91) #9
   %92 = load ptr, ptr %12, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
@@ -1044,7 +1044,7 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
 94:                                               ; preds = %44, %42
   %95 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.thread23, label %97, !prof !5
+  br i1 %96, label %.thread24, label %97, !prof !5
 
 97:                                               ; preds = %94
   %98 = load i32, ptr %95, align 4
@@ -1052,10 +1052,10 @@ define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef 
   %100 = zext i32 %99 to i64
   %101 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %100) #9
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread23, label %29, !prof !5
+  br i1 %102, label %.thread24, label %29, !prof !5
 
-.thread23:                                        ; preds = %97, %94, %62, %58, %55, %72, %66, %50, %47, %36, %32, %29, %.thread17, %19, %9, %5, %2
-  %103 = phi i32 [ -12, %19 ], [ -28, %2 ], [ 0, %5 ], [ -12, %9 ], [ -22, %.thread17 ], [ -28, %97 ], [ -28, %94 ], [ -22, %62 ], [ -22, %58 ], [ -22, %55 ], [ -28, %47 ], [ -28, %50 ], [ -22, %66 ], [ -12, %72 ], [ -28, %32 ], [ -28, %36 ], [ 0, %29 ]
+.thread24:                                        ; preds = %97, %94, %62, %58, %55, %72, %66, %50, %47, %36, %32, %29, %.thread18, %19, %9, %5, %2
+  %103 = phi i32 [ -12, %19 ], [ -28, %2 ], [ 0, %5 ], [ -12, %9 ], [ -22, %.thread18 ], [ -28, %97 ], [ -28, %94 ], [ -22, %62 ], [ -22, %58 ], [ -22, %55 ], [ -28, %47 ], [ -28, %50 ], [ -22, %66 ], [ -12, %72 ], [ -28, %32 ], [ -28, %36 ], [ 0, %29 ]
   ret i32 %103
 }
 

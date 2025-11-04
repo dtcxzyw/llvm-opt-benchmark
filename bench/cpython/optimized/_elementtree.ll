@@ -1493,7 +1493,7 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   %7 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @elementiter_spec, ptr noundef null) #12
   store ptr %7, ptr %4, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %1, %6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -1505,7 +1505,7 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   %13 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @treebuilder_spec, ptr noundef null) #12
   store ptr %13, ptr %10, align 8, !tbaa !17
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %15
+  br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -1517,7 +1517,7 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   %19 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @element_spec, ptr noundef null) #12
   store ptr %19, ptr %16, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %21
+  br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %15, %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -1529,35 +1529,35 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   %25 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @xmlparser_spec, ptr noundef null) #12
   store ptr %25, ptr %22, align 8, !tbaa !18
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %27
+  br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %24, %21
   %28 = tail call ptr @PyImport_ImportModuleAttrString(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #12
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !11
   %30 = icmp eq ptr %28, null
-  br i1 %30, label %.loopexit, label %31
+  br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.13) #12
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %32, ptr %33, align 8, !tbaa !12
   %.not63 = icmp eq ptr %32, null
-  br i1 %.not63, label %.loopexit, label %34
+  br i1 %.not63, label %.thread, label %34
 
 34:                                               ; preds = %31
   %35 = tail call ptr @PyImport_ImportModuleAttrString(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #12
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr %35, ptr %36, align 8, !tbaa !19
   %.not64 = icmp eq ptr %35, null
-  br i1 %.not64, label %.loopexit, label %37
+  br i1 %.not64, label %.thread, label %37
 
 37:                                               ; preds = %34
   %38 = tail call ptr @PyCapsule_GetPointer(ptr noundef nonnull %35, ptr noundef nonnull @.str.16) #12
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %38, ptr %39, align 8, !tbaa !23
   %.not65 = icmp eq ptr %38, null
-  br i1 %.not65, label %.loopexit, label %40
+  br i1 %.not65, label %.thread, label %40
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %38, align 8, !tbaa !54
@@ -1592,63 +1592,63 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
 56:                                               ; preds = %53, %50, %47, %43, %40
   %57 = load ptr, ptr @PyExc_ImportError, align 8, !tbaa !20
   tail call void @PyErr_SetString(ptr noundef %57, ptr noundef nonnull @.str.18) #12
-  br label %.loopexit
+  br label %.thread
 
 58:                                               ; preds = %53
   %59 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.19) #12
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %59, ptr %60, align 8, !tbaa !60
   %61 = icmp eq ptr %59, null
-  br i1 %61, label %.loopexit, label %62
+  br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %58
   %63 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.20) #12
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %63, ptr %64, align 8, !tbaa !61
   %65 = icmp eq ptr %63, null
-  br i1 %65, label %.loopexit, label %66
+  br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %62
   %67 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.21) #12
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %67, ptr %68, align 8, !tbaa !62
   %69 = icmp eq ptr %67, null
-  br i1 %69, label %.loopexit, label %70
+  br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %66
   %71 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.22) #12
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %71, ptr %72, align 8, !tbaa !63
   %73 = icmp eq ptr %71, null
-  br i1 %73, label %.loopexit, label %74
+  br i1 %73, label %.thread, label %74
 
 74:                                               ; preds = %70
   %75 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.23) #12
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %75, ptr %76, align 8, !tbaa !64
   %77 = icmp eq ptr %75, null
-  br i1 %77, label %.loopexit, label %78
+  br i1 %77, label %.thread, label %78
 
 78:                                               ; preds = %74
   %79 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.24) #12
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %79, ptr %80, align 8, !tbaa !65
   %81 = icmp eq ptr %79, null
-  br i1 %81, label %.loopexit, label %82
+  br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %78
   %83 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.25) #12
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %83, ptr %84, align 8, !tbaa !66
   %85 = icmp eq ptr %83, null
-  br i1 %85, label %.loopexit, label %86
+  br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %82
   %87 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.26) #12
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %87, ptr %88, align 8, !tbaa !67
   %89 = icmp eq ptr %87, null
-  br i1 %89, label %.loopexit, label %90
+  br i1 %89, label %.thread, label %90
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !20
@@ -1656,7 +1656,7 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   store ptr %92, ptr %3, align 8, !tbaa !3
   %93 = tail call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef %92) #12
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.loopexit, label %95
+  br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %16, align 8, !tbaa !15
@@ -1670,20 +1670,20 @@ define internal range(i32 -1, 1) i32 @module_exec(ptr noundef %0) #0 {
   br label %103
 
 101:                                              ; preds = %103
-  %102 = add nuw nsw i64 %.05675, 1
+  %102 = add nuw nsw i64 %.05672, 1
   %exitcond.not = icmp eq i64 %102, 3
-  br i1 %exitcond.not, label %.loopexit, label %103, !llvm.loop !68
+  br i1 %exitcond.not, label %.thread, label %103, !llvm.loop !68
 
 103:                                              ; preds = %95, %101
-  %.05675 = phi i64 [ 0, %95 ], [ %102, %101 ]
-  %104 = getelementptr ptr, ptr %2, i64 %.05675
+  %.05672 = phi i64 [ 0, %95 ], [ %102, %101 ]
+  %104 = getelementptr ptr, ptr %2, i64 %.05672
   %105 = load ptr, ptr %104, align 8, !tbaa !22
   %106 = tail call i32 @PyModule_AddType(ptr noundef %0, ptr noundef %105) #12
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.loopexit, label %101
+  br i1 %107, label %.thread, label %101
 
-.loopexit:                                        ; preds = %103, %101, %56, %6, %12, %18, %24, %27, %31, %34, %37, %58, %62, %66, %70, %74, %78, %82, %86, %90
-  %.057 = phi i32 [ -1, %90 ], [ -1, %86 ], [ -1, %82 ], [ -1, %78 ], [ -1, %74 ], [ -1, %70 ], [ -1, %66 ], [ -1, %62 ], [ -1, %58 ], [ -1, %37 ], [ -1, %34 ], [ -1, %31 ], [ -1, %27 ], [ -1, %24 ], [ -1, %18 ], [ -1, %12 ], [ -1, %6 ], [ -1, %56 ], [ -1, %103 ], [ 0, %101 ]
+.thread:                                          ; preds = %101, %103, %56, %6, %12, %18, %24, %27, %31, %34, %37, %58, %62, %66, %70, %74, %78, %82, %86, %90
+  %.057 = phi i32 [ -1, %90 ], [ -1, %86 ], [ -1, %82 ], [ -1, %78 ], [ -1, %74 ], [ -1, %70 ], [ -1, %66 ], [ -1, %62 ], [ -1, %58 ], [ -1, %37 ], [ -1, %34 ], [ -1, %31 ], [ -1, %27 ], [ -1, %24 ], [ -1, %18 ], [ -1, %12 ], [ -1, %6 ], [ -1, %56 ], [ 0, %101 ], [ -1, %103 ]
   ret i32 %.057
 }
 

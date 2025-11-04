@@ -11789,55 +11789,55 @@ recursive_list_access.exit:                       ; preds = %rbimpl_RB_TYPE_P_fa
 recursive_check.exit:                             ; preds = %recursive_list_access.exit
   %50 = tail call i64 @rb_id2sym(i64 noundef 3153) #16
   %51 = tail call i64 @rb_hash_lookup2(i64 noundef %45, i64 noundef %50, i64 noundef 36) #16
-  %.not90 = icmp eq i64 %51, 36
+  %.not91 = icmp eq i64 %51, 36
   br label %52
 
 52:                                               ; preds = %recursive_check.exit, %recursive_list_access.exit
-  %or.cond = phi i1 [ true, %recursive_list_access.exit ], [ %.not90, %recursive_check.exit ]
-  %53 = phi i1 [ false, %recursive_list_access.exit ], [ %.not90, %recursive_check.exit ]
+  %or.cond = phi i1 [ true, %recursive_list_access.exit ], [ %.not91, %recursive_check.exit ]
+  %53 = phi i1 [ false, %recursive_list_access.exit ], [ %.not91, %recursive_check.exit ]
   %54 = tail call i64 @rb_hash_lookup2(i64 noundef %45, i64 noundef %1, i64 noundef 36) #16
   %55 = icmp eq i64 %54, 36
   br i1 %55, label %73, label %56
 
 56:                                               ; preds = %52
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %recursive_check.exit49, label %57
+  br i1 %.not.i, label %recursive_check.exit50, label %57
 
 57:                                               ; preds = %56
   %58 = icmp eq i64 %54, 0
   %59 = and i64 %54, 7
   %60 = icmp ne i64 %59, 0
   %61 = or i1 %58, %60
-  br i1 %61, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i47, label %rbimpl_RB_TYPE_P_fastpath.exit.i46
+  br i1 %61, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i48, label %rbimpl_RB_TYPE_P_fastpath.exit.i47
 
-rbimpl_RB_TYPE_P_fastpath.exit.i46:               ; preds = %57
+rbimpl_RB_TYPE_P_fastpath.exit.i47:               ; preds = %57
   %62 = inttoptr i64 %54 to ptr
   %63 = load i64, ptr %62, align 8, !tbaa !42
   %64 = and i64 %63, 31
   %65 = icmp eq i64 %64, 8
-  br i1 %65, label %67, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i47
+  br i1 %65, label %67, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i48
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i47:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i46, %57
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i48:        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i47, %57
   %66 = icmp eq i64 %2, %54
-  br i1 %66, label %recursive_check.exit49, label %73
+  br i1 %66, label %recursive_check.exit50, label %73
 
-67:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i46
+67:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i47
   %68 = tail call i64 @rb_hash_lookup(i64 noundef %54, i64 noundef %2) #16
   %69 = icmp eq i64 %68, 4
-  br i1 %69, label %73, label %recursive_check.exit49
+  br i1 %69, label %73, label %recursive_check.exit50
 
-recursive_check.exit49:                           ; preds = %67, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i47, %56
+recursive_check.exit50:                           ; preds = %67, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i48, %56
   br i1 %or.cond, label %71, label %70
 
-70:                                               ; preds = %recursive_check.exit49
+70:                                               ; preds = %recursive_check.exit50
   tail call void @rb_throw_obj(i64 noundef %45, i64 noundef %45) #38
   unreachable
 
-71:                                               ; preds = %recursive_check.exit49
+71:                                               ; preds = %recursive_check.exit50
   %72 = tail call i64 %0(i64 noundef %1, i64 noundef %3, i32 noundef 1) #16
   br label %197
 
-73:                                               ; preds = %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i47, %67
+73:                                               ; preds = %52, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i48, %67
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %7, align 8, !tbaa !350
   br i1 %53, label %74, label %123
@@ -11851,8 +11851,8 @@ recursive_check.exit49:                           ; preds = %67, %rbimpl_RB_TYPE
   %79 = load i64, ptr %46, align 8, !tbaa !345
   %80 = load i64, ptr %47, align 8, !tbaa !347
   %81 = load i64, ptr %48, align 8, !tbaa !348
-  %.not.i50 = icmp eq i64 %81, 0
-  br i1 %.not.i50, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i52, label %82
+  %.not.i51 = icmp eq i64 %81, 0
+  br i1 %.not.i51, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i53, label %82
 
 82:                                               ; preds = %74
   %83 = call i64 @rb_hash_lookup2(i64 noundef %79, i64 noundef %80, i64 noundef 36) #16
@@ -11864,16 +11864,16 @@ recursive_check.exit49:                           ; preds = %67, %rbimpl_RB_TYPE
   %87 = and i64 %83, 7
   %88 = icmp ne i64 %87, 0
   %89 = or i1 %86, %88
-  br i1 %89, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i52, label %rbimpl_RB_TYPE_P_fastpath.exit.i51
+  br i1 %89, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i53, label %rbimpl_RB_TYPE_P_fastpath.exit.i52
 
-rbimpl_RB_TYPE_P_fastpath.exit.i51:               ; preds = %85
+rbimpl_RB_TYPE_P_fastpath.exit.i52:               ; preds = %85
   %90 = inttoptr i64 %83 to ptr
   %91 = load i64, ptr %90, align 8, !tbaa !42
   %92 = and i64 %91, 31
   %93 = icmp eq i64 %92, 8
-  br i1 %93, label %94, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i52
+  br i1 %93, label %94, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i53
 
-94:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i51
+94:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i52
   %95 = call i64 @rb_hash_delete_entry(i64 noundef %83, i64 noundef %81) #16
   %96 = load i64, ptr %90, align 8, !tbaa !42
   %97 = and i64 %96, 32768
@@ -11895,13 +11895,13 @@ rbimpl_RB_TYPE_P_fastpath.exit.i51:               ; preds = %85
 RHASH_EMPTY_P.exit.i:                             ; preds = %101, %98
   %.0.i.i.i = phi i64 [ %100, %98 ], [ %105, %101 ]
   %106 = icmp eq i64 %.0.i.i.i, 0
-  br i1 %106, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i52, label %108
+  br i1 %106, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i53, label %108
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i52:        ; preds = %RHASH_EMPTY_P.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i51, %85, %74
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i53:        ; preds = %RHASH_EMPTY_P.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.i52, %85, %74
   %107 = call i64 @rb_hash_delete_entry(i64 noundef %79, i64 noundef %80) #16
   br label %108
 
-108:                                              ; preds = %RHASH_EMPTY_P.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i52
+108:                                              ; preds = %RHASH_EMPTY_P.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i53
   %109 = load i64, ptr %46, align 8, !tbaa !345
   %110 = call i64 @rb_id2sym(i64 noundef 3153) #16
   %111 = call i64 @rb_hash_delete_entry(i64 noundef %109, i64 noundef %110) #16
@@ -11912,10 +11912,10 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i52:        ; preds = %RHASH_EMPTY_P.exit.
 113:                                              ; preds = %108
   %114 = load ptr, ptr %14, align 8, !tbaa !148
   %115 = getelementptr i8, ptr %114, i64 24
-  %.val45 = load ptr, ptr %115, align 8, !tbaa !211
-  %116 = getelementptr inbounds nuw i8, ptr %.val45, i64 64
+  %.val46 = load ptr, ptr %115, align 8, !tbaa !211
+  %116 = getelementptr inbounds nuw i8, ptr %.val46, i64 64
   store i32 %112, ptr %116, align 8, !tbaa !208
-  %117 = getelementptr inbounds nuw i8, ptr %.val45, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.val46, i64 16
   call void @llvm.eh.sjlj.longjmp(ptr nonnull %117)
   unreachable
 
@@ -11961,8 +11961,8 @@ rb_ec_ractor_ptr.exit.i:                          ; preds = %130, %123
   %.0.i2.i = phi ptr [ %132, %130 ], [ null, %123 ]
   %.0.i6.i = phi ptr [ %135, %130 ], [ null, %123 ]
   %136 = load ptr, ptr %.in.i, align 8, !tbaa !120
-  %.not.i58 = icmp eq ptr %136, %.0.i6.i
-  br i1 %.not.i58, label %137, label %rb_ec_vm_lock_rec.exit
+  %.not.i59 = icmp eq ptr %136, %.0.i6.i
+  br i1 %.not.i59, label %137, label %rb_ec_vm_lock_rec.exit
 
 137:                                              ; preds = %rb_ec_ractor_ptr.exit.i
   %138 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
@@ -11970,9 +11970,9 @@ rb_ec_ractor_ptr.exit.i:                          ; preds = %130, %123
   br label %rb_ec_vm_lock_rec.exit
 
 rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %137
-  %.0.i59 = phi i32 [ %139, %137 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
+  %.0.i60 = phi i32 [ %139, %137 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 68
-  store i32 %.0.i59, ptr %140, align 4, !tbaa !213
+  store i32 %.0.i60, ptr %140, align 4, !tbaa !213
   %141 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %142 = tail call ptr @llvm.frameaddress.p0(i32 0)
   store ptr %142, ptr %141, align 8
@@ -12006,8 +12006,8 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %154 = load i64, ptr %46, align 8, !tbaa !345
   %155 = load i64, ptr %47, align 8, !tbaa !347
   %156 = load i64, ptr %48, align 8, !tbaa !348
-  %.not.i60 = icmp eq i64 %156, 0
-  br i1 %.not.i60, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i62, label %157
+  %.not.i61 = icmp eq i64 %156, 0
+  br i1 %.not.i61, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i63, label %157
 
 157:                                              ; preds = %150
   %158 = call i64 @rb_hash_lookup2(i64 noundef %154, i64 noundef %155, i64 noundef 36) #16
@@ -12019,46 +12019,46 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   %162 = and i64 %158, 7
   %163 = icmp ne i64 %162, 0
   %164 = or i1 %161, %163
-  br i1 %164, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i62, label %rbimpl_RB_TYPE_P_fastpath.exit.i61
+  br i1 %164, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i63, label %rbimpl_RB_TYPE_P_fastpath.exit.i62
 
-rbimpl_RB_TYPE_P_fastpath.exit.i61:               ; preds = %160
+rbimpl_RB_TYPE_P_fastpath.exit.i62:               ; preds = %160
   %165 = inttoptr i64 %158 to ptr
   %166 = load i64, ptr %165, align 8, !tbaa !42
   %167 = and i64 %166, 31
   %168 = icmp eq i64 %167, 8
-  br i1 %168, label %169, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i62
+  br i1 %168, label %169, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i63
 
-169:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i61
+169:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i62
   %170 = call i64 @rb_hash_delete_entry(i64 noundef %158, i64 noundef %156) #16
   %171 = load i64, ptr %165, align 8, !tbaa !42
   %172 = and i64 %171, 32768
-  %.not.i.i.i.i65 = icmp eq i64 %172, 0
-  br i1 %.not.i.i.i.i65, label %173, label %176
+  %.not.i.i.i.i66 = icmp eq i64 %172, 0
+  br i1 %.not.i.i.i.i66, label %173, label %176
 
 173:                                              ; preds = %169
   %174 = lshr i64 %171, 16
   %175 = and i64 %174, 15
-  br label %RHASH_EMPTY_P.exit.i66
+  br label %RHASH_EMPTY_P.exit.i67
 
 176:                                              ; preds = %169
   %177 = add i64 %158, 24
   %178 = inttoptr i64 %177 to ptr
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load i64, ptr %179, align 8, !tbaa !351
-  br label %RHASH_EMPTY_P.exit.i66
+  br label %RHASH_EMPTY_P.exit.i67
 
-RHASH_EMPTY_P.exit.i66:                           ; preds = %176, %173
-  %.0.i.i.i67 = phi i64 [ %175, %173 ], [ %180, %176 ]
-  %181 = icmp eq i64 %.0.i.i.i67, 0
-  br i1 %181, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i62, label %183
+RHASH_EMPTY_P.exit.i67:                           ; preds = %176, %173
+  %.0.i.i.i68 = phi i64 [ %175, %173 ], [ %180, %176 ]
+  %181 = icmp eq i64 %.0.i.i.i68, 0
+  br i1 %181, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i63, label %183
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i62:        ; preds = %RHASH_EMPTY_P.exit.i66, %rbimpl_RB_TYPE_P_fastpath.exit.i61, %160, %150
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i63:        ; preds = %RHASH_EMPTY_P.exit.i67, %rbimpl_RB_TYPE_P_fastpath.exit.i62, %160, %150
   %182 = call i64 @rb_hash_delete_entry(i64 noundef %154, i64 noundef %155) #16
   br label %183
 
-183:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i62, %RHASH_EMPTY_P.exit.i66
+183:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i63, %RHASH_EMPTY_P.exit.i67
   %.not41 = icmp eq i32 %151, 0
-  br i1 %.not41, label %recursive_pop.exit68, label %184
+  br i1 %.not41, label %recursive_pop.exit69, label %184
 
 184:                                              ; preds = %183
   %185 = load ptr, ptr %14, align 8, !tbaa !148
@@ -12070,7 +12070,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i62:        ; preds = %RHASH_EMPTY_P.exit.
   call void @llvm.eh.sjlj.longjmp(ptr nonnull %188)
   unreachable
 
-recursive_pop.exit68:                             ; preds = %183
+recursive_pop.exit69:                             ; preds = %183
   %.0..0..0..0.6 = load volatile i64, ptr %9, align 8, !tbaa !145
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %190
@@ -12079,8 +12079,8 @@ recursive_pop.exit68:                             ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %191
 
-190:                                              ; preds = %118, %121, %recursive_pop.exit68
-  %.034.ph = phi i64 [ %.0..0..0..0.6, %recursive_pop.exit68 ], [ %78, %118 ], [ %122, %121 ]
+190:                                              ; preds = %118, %121, %recursive_pop.exit69
+  %.034.ph = phi i64 [ %.0..0..0..0.6, %recursive_pop.exit69 ], [ %78, %118 ], [ %122, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %7, i64 40, i1 true), !tbaa.struct !355
   br label %197
@@ -12090,8 +12090,8 @@ recursive_pop.exit68:                             ; preds = %183
   %192 = load i64, ptr @rb_eTypeError, align 8, !tbaa !145
   %193 = load ptr, ptr %14, align 8, !tbaa !148
   %194 = getelementptr i8, ptr %193, i64 48
-  %.val.i.i70 = load ptr, ptr %194, align 8, !tbaa !7
-  %195 = getelementptr inbounds nuw i8, ptr %.val.i.i70, i64 16
+  %.val.i.i71 = load ptr, ptr %194, align 8, !tbaa !7
+  %195 = getelementptr inbounds nuw i8, ptr %.val.i.i71, i64 16
   %196 = load i64, ptr %195, align 8, !tbaa !88
   call void (i64, ptr, ...) @rb_raise(i64 noundef %192, ptr noundef nonnull @.str.223, i64 noundef %13, i64 noundef %196) #38
   unreachable

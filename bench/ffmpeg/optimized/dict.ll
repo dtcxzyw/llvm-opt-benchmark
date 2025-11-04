@@ -300,7 +300,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not92, label %81, label %.thread
 
 .thread:                                          ; preds = %13, %15
-  %.173115 = phi ptr [ %16, %15 ], [ %1, %13 ]
+  %.173118 = phi ptr [ %16, %15 ], [ %1, %13 ]
   %17 = icmp eq ptr %2, null
   %18 = icmp ne ptr %12, null
   %or.cond = select i1 %17, i1 true, i1 %18
@@ -322,8 +322,8 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 
 .preheader:                                       ; preds = %23
   %25 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef nonnull %1, ptr noundef null, i32 noundef %3)
-  %.not95147 = icmp eq ptr %25, null
-  br i1 %.not95147, label %.loopexit, label %.lr.ph
+  %.not95150 = icmp eq ptr %25, null
+  br i1 %.not95150, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %17, label %.lr.ph.split.us, label %.critedge
@@ -353,7 +353,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not111, label %.split.us, label %36
 
 .split.us:                                        ; preds = %34, %.lr.ph.split.us
-  tail call void @av_free(ptr noundef nonnull %.173115) #8
+  tail call void @av_free(ptr noundef nonnull %.173118) #8
   tail call void @av_free(ptr noundef %12) #8
   br label %86
 
@@ -365,30 +365,30 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 .loopexit:                                        ; preds = %36, %29, %.preheader, %23, %21
   %.070 = phi ptr [ null, %23 ], [ %22, %21 ], [ null, %.preheader ], [ null, %29 ], [ null, %36 ]
   %.not96 = icmp eq ptr %6, null
-  br i1 %.not96, label %38, label %.thread116
+  br i1 %.not96, label %38, label %.thread119
 
 38:                                               ; preds = %.loopexit
   %39 = tail call noalias ptr @av_mallocz(i64 noundef 16) #8
   store ptr %39, ptr %0, align 8, !tbaa !19
   %.not97 = icmp eq ptr %39, null
-  br i1 %.not97, label %.thread142, label %.thread116
+  br i1 %.not97, label %.thread145, label %.thread119
 
-.thread142:                                       ; preds = %38
+.thread145:                                       ; preds = %38
   tail call void @av_free(ptr noundef %12) #8
   br label %85
 
-.thread116:                                       ; preds = %.loopexit, %38
-  %.2119 = phi ptr [ %39, %38 ], [ %6, %.loopexit ]
+.thread119:                                       ; preds = %.loopexit, %38
+  %.2122 = phi ptr [ %39, %38 ], [ %6, %.loopexit ]
   %.not98 = icmp eq ptr %.070, null
   br i1 %.not98, label %55, label %40
 
-40:                                               ; preds = %.thread116
+40:                                               ; preds = %.thread119
   %41 = and i32 %3, 16
   %.not101 = icmp eq i32 %41, 0
   br i1 %.not101, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call void @av_free(ptr noundef nonnull %.173115) #8
+  tail call void @av_free(ptr noundef nonnull %.173118) #8
   tail call void @av_free(ptr noundef %12) #8
   br label %86
 
@@ -408,9 +408,9 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %51 = add i64 %50, %48
   %52 = tail call ptr @av_realloc(ptr noundef nonnull %46, i64 noundef %51) #8
   %.not104 = icmp eq ptr %52, null
-  br i1 %.not104, label %.thread137, label %.thread120
+  br i1 %.not104, label %.thread140, label %.thread123
 
-.thread120:                                       ; preds = %47
+.thread123:                                       ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %12, i64 %50, i1 false)
   call void @av_freep(ptr noundef nonnull %5) #8
@@ -421,86 +421,86 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @av_free(ptr noundef %46) #8
   br label %63
 
-55:                                               ; preds = %.thread116
+55:                                               ; preds = %.thread119
   %.not99 = icmp eq ptr %12, null
-  br i1 %.not99, label %.thread126, label %56
+  br i1 %.not99, label %.thread129, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %.2119, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.2122, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !11
-  %59 = load i32, ptr %.2119, align 8, !tbaa !4
+  %59 = load i32, ptr %.2122, align 8, !tbaa !4
   %60 = add nsw i32 %59, 1
   %61 = sext i32 %60 to i64
   %62 = tail call ptr @av_realloc_array(ptr noundef %58, i64 noundef %61, i64 noundef 16) #8
   %.not100 = icmp eq ptr %62, null
-  br i1 %.not100, label %.thread137, label %.thread165
+  br i1 %.not100, label %.thread140, label %.thread168
 
-.thread165:                                       ; preds = %56
+.thread168:                                       ; preds = %56
   store ptr %62, ptr %57, align 8, !tbaa !11
   br label %72
 
-63:                                               ; preds = %54, %.thread120
+63:                                               ; preds = %54, %.thread123
   %64 = load ptr, ptr %.070, align 8, !tbaa !12
   call void @av_free(ptr noundef %64) #8
-  %65 = getelementptr inbounds nuw i8, ptr %.2119, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.2122, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !11
-  %67 = load i32, ptr %.2119, align 8, !tbaa !4
+  %67 = load i32, ptr %.2122, align 8, !tbaa !4
   %68 = add nsw i32 %67, -1
-  store i32 %68, ptr %.2119, align 8, !tbaa !4
+  store i32 %68, ptr %.2122, align 8, !tbaa !4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %66, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.070, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !24
   %.pr.pre = load ptr, ptr %5, align 8, !tbaa !21
   %71 = icmp eq ptr %.pr.pre, null
-  br i1 %71, label %.thread126, label %72
+  br i1 %71, label %.thread129, label %72
 
-72:                                               ; preds = %.thread165, %63
-  %73 = getelementptr inbounds nuw i8, ptr %.2119, i64 8
+72:                                               ; preds = %.thread168, %63
+  %73 = getelementptr inbounds nuw i8, ptr %.2122, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !11
-  %75 = load i32, ptr %.2119, align 8, !tbaa !4
+  %75 = load i32, ptr %.2122, align 8, !tbaa !4
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76
-  store ptr %.173115, ptr %77, align 8, !tbaa !12
+  store ptr %.173118, ptr %77, align 8, !tbaa !12
   %78 = load ptr, ptr %5, align 8, !tbaa !21
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %78, ptr %79, align 8, !tbaa !22
   %80 = add nsw i32 %75, 1
-  store i32 %80, ptr %.2119, align 8, !tbaa !4
+  store i32 %80, ptr %.2122, align 8, !tbaa !4
   br label %86
 
-.thread137:                                       ; preds = %47, %56
+.thread140:                                       ; preds = %47, %56
   tail call void @av_free(ptr noundef nonnull %12) #8
-  br label %.thread126
+  br label %.thread129
 
 81:                                               ; preds = %11, %15, %.thread
   %.075 = phi i32 [ -22, %11 ], [ -12, %15 ], [ -12, %.thread ]
-  %.072 = phi ptr [ null, %11 ], [ null, %15 ], [ %.173115, %.thread ]
+  %.072 = phi ptr [ null, %11 ], [ null, %15 ], [ %.173118, %.thread ]
   tail call void @av_free(ptr noundef %12) #8
   %.not106 = icmp eq ptr %6, null
-  br i1 %.not106, label %85, label %.thread126
+  br i1 %.not106, label %85, label %.thread129
 
-.thread126:                                       ; preds = %55, %63, %.thread137, %81
-  %.3135 = phi ptr [ %6, %81 ], [ %.2119, %.thread137 ], [ %.2119, %63 ], [ %.2119, %55 ]
-  %.274133 = phi ptr [ %.072, %81 ], [ %.173115, %.thread137 ], [ %.173115, %63 ], [ %.173115, %55 ]
-  %.176131 = phi i32 [ %.075, %81 ], [ -12, %.thread137 ], [ 0, %63 ], [ 0, %55 ]
-  %82 = load i32, ptr %.3135, align 8, !tbaa !4
+.thread129:                                       ; preds = %55, %63, %.thread140, %81
+  %.3138 = phi ptr [ %6, %81 ], [ %.2122, %.thread140 ], [ %.2122, %63 ], [ %.2122, %55 ]
+  %.274136 = phi ptr [ %.072, %81 ], [ %.173118, %.thread140 ], [ %.173118, %63 ], [ %.173118, %55 ]
+  %.176134 = phi i32 [ %.075, %81 ], [ -12, %.thread140 ], [ 0, %63 ], [ 0, %55 ]
+  %82 = load i32, ptr %.3138, align 8, !tbaa !4
   %.not107 = icmp eq i32 %82, 0
   br i1 %.not107, label %83, label %85
 
-83:                                               ; preds = %.thread126
-  %84 = getelementptr inbounds nuw i8, ptr %.3135, i64 8
+83:                                               ; preds = %.thread129
+  %84 = getelementptr inbounds nuw i8, ptr %.3138, i64 8
   call void @av_freep(ptr noundef nonnull %84) #8
   call void @av_freep(ptr noundef nonnull %0) #8
   br label %85
 
-85:                                               ; preds = %.thread142, %83, %.thread126, %81
-  %.274134 = phi ptr [ %.274133, %83 ], [ %.274133, %.thread126 ], [ %.072, %81 ], [ %.173115, %.thread142 ]
-  %.176132 = phi i32 [ %.176131, %83 ], [ %.176131, %.thread126 ], [ %.075, %81 ], [ -12, %.thread142 ]
-  call void @av_free(ptr noundef %.274134) #8
+85:                                               ; preds = %.thread145, %83, %.thread129, %81
+  %.274137 = phi ptr [ %.274136, %83 ], [ %.274136, %.thread129 ], [ %.072, %81 ], [ %.173118, %.thread145 ]
+  %.176135 = phi i32 [ %.176134, %83 ], [ %.176134, %.thread129 ], [ %.075, %81 ], [ -12, %.thread145 ]
+  call void @av_free(ptr noundef %.274137) #8
   br label %86
 
 86:                                               ; preds = %85, %72, %42, %.split.us
-  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ 0, %72 ], [ %.176132, %85 ]
+  %.0 = phi i32 [ 0, %.split.us ], [ 0, %42 ], [ 0, %72 ], [ %.176135, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

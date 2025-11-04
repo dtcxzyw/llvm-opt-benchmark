@@ -99,23 +99,23 @@ dtls1_max_record_size.exit.thread:                ; preds = %23, %dtls1_max_reco
   %40 = load i32, ptr %39, align 8, !tbaa !39
   %41 = zext i32 %40 to i64
   %42 = call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #13
-  %.not.i76 = icmp ult i64 %42, %41
-  br i1 %.not.i76, label %dtls1_max_record_size.exit79, label %.thread84
+  %.not.i78 = icmp ult i64 %42, %41
+  br i1 %.not.i78, label %dtls1_max_record_size.exit81, label %.thread86
 
-dtls1_max_record_size.exit79:                     ; preds = %.thread
+dtls1_max_record_size.exit81:                     ; preds = %.thread
   %43 = sub nuw nsw i64 %41, %42
   %44 = call ptr @SSL_get_wbio(ptr noundef nonnull %0) #13
   %45 = call i64 @BIO_wpending(ptr noundef %44) #13
-  %.1.i78 = call i64 @llvm.usub.sat.i64(i64 %43, i64 %45)
-  %46 = icmp samesign ult i64 %.1.i78, 13
-  br i1 %46, label %.thread84, label %47
+  %.1.i80 = call i64 @llvm.usub.sat.i64(i64 %43, i64 %45)
+  %46 = icmp samesign ult i64 %.1.i80, 13
+  br i1 %46, label %.thread86, label %47
 
-.thread84:                                        ; preds = %dtls1_max_record_size.exit79, %.thread
+.thread86:                                        ; preds = %dtls1_max_record_size.exit81, %.thread
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 169, ptr noundef nonnull @.str, i32 noundef 355) #13
   br label %113
 
-47:                                               ; preds = %dtls1_max_record_size.exit79
-  %48 = add nsw i64 %.1.i78, -12
+47:                                               ; preds = %dtls1_max_record_size.exit81
+  %48 = add nsw i64 %.1.i80, -12
   %49 = load i32, ptr %21, align 8, !tbaa !45
   %50 = sext i32 %49 to i64
   %spec.select = call i64 @llvm.umin.i64(i64 %48, i64 %50)
@@ -184,16 +184,16 @@ dtls1_max_record_size.exit79:                     ; preds = %.thread
 
 88:                                               ; preds = %86, %78, %75, %71, %66, %61, %56, %47
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 377) #13
-  br label %.thread87
+  br label %.thread89
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %4, align 8, !tbaa !53
   %91 = trunc i64 %90 to i32
   %92 = call i32 @dtls1_write_bytes(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef %91, i32 noundef %1) #13
   %93 = icmp slt i32 %92, 1
-  br i1 %93, label %.thread87, label %94
+  br i1 %93, label %.thread89, label %94
 
-.thread87:                                        ; preds = %89, %88
+.thread89:                                        ; preds = %89, %88
   %.5.ph = phi i32 [ -1, %88 ], [ %92, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
@@ -232,8 +232,8 @@ dtls1_max_record_size.exit79:                     ; preds = %.thread
   store i32 0, ptr %21, align 8, !tbaa !45
   br label %113
 
-113:                                              ; preds = %112, %2, %36, %.thread84, %.thread87
-  %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %34, %36 ], [ -1, %.thread84 ], [ %.5.ph, %.thread87 ]
+113:                                              ; preds = %.thread89, %.thread86, %36, %2, %112
+  %.054 = phi i32 [ -1, %2 ], [ 1, %112 ], [ %34, %36 ], [ -1, %.thread86 ], [ %.5.ph, %.thread89 ]
   call void @CBB_cleanup(ptr noundef nonnull %3) #13
   call void @free(ptr noundef %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -631,9 +631,9 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   %15 = getelementptr i8, ptr %14, i64 -1
   %16 = load i8, ptr %15, align 1, !tbaa !26
   %17 = icmp eq i8 %16, 44
-  br i1 %17, label %82, label %.preheader95
+  br i1 %17, label %82, label %.preheader96
 
-.preheader95:                                     ; preds = %13, %21
+.preheader96:                                     ; preds = %13, %21
   %.052 = phi ptr [ %22, %21 ], [ %0, %13 ]
   %.046 = phi i32 [ %.1, %21 ], [ 0, %13 ]
   %18 = load i8, ptr %.052, align 1, !tbaa !26
@@ -642,16 +642,16 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
     i8 44, label %19
   ]
 
-19:                                               ; preds = %.preheader95
+19:                                               ; preds = %.preheader96
   %20 = add nsw i32 %.046, 1
   br label %21
 
-21:                                               ; preds = %.preheader95, %19
-  %.1 = phi i32 [ %20, %19 ], [ %.046, %.preheader95 ]
+21:                                               ; preds = %.preheader96, %19
+  %.1 = phi i32 [ %20, %19 ], [ %.046, %.preheader96 ]
   %22 = getelementptr inbounds nuw i8, ptr %.052, i64 1
-  br label %.preheader95, !llvm.loop !27
+  br label %.preheader96, !llvm.loop !27
 
-23:                                               ; preds = %.preheader95
+23:                                               ; preds = %.preheader96
   %.not68 = icmp eq i32 %.046, 2
   br i1 %.not68, label %24, label %82
 
@@ -662,12 +662,12 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   br i1 %27, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %24, %72
-  %.048121 = phi i32 [ %74, %72 ], [ 0, %24 ]
-  %.050120 = phi i16 [ %.151, %72 ], [ 0, %24 ]
-  %.153119 = phi ptr [ %.3, %72 ], [ %26, %24 ]
-  %.055118 = phi i16 [ %.257, %72 ], [ 0, %24 ]
-  %.058117 = phi i16 [ %.260, %72 ], [ 0, %24 ]
-  %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.153119, i32 noundef 44) #6
+  %.048122 = phi i32 [ %74, %72 ], [ 0, %24 ]
+  %.050121 = phi i16 [ %.151, %72 ], [ 0, %24 ]
+  %.153120 = phi ptr [ %.3, %72 ], [ %26, %24 ]
+  %.055119 = phi i16 [ %.257, %72 ], [ 0, %24 ]
+  %.058118 = phi i16 [ %.260, %72 ], [ 0, %24 ]
+  %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.153120, i32 noundef 44) #6
   %.not69 = icmp ne ptr %28, null
   br i1 %.not69, label %29, label %30
 
@@ -676,7 +676,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   br label %30
 
 30:                                               ; preds = %29, %.preheader
-  %31 = icmp eq i32 %.048121, 0
+  %31 = icmp eq i32 %.048122, 0
   br i1 %31, label %.preheader.i, label %44
 
 .preheader.i:                                     ; preds = %30, %41
@@ -694,7 +694,7 @@ define range(i32 0, 2) i32 @ossl_hpke_str2suite(ptr noundef %0, ptr noundef writ
   %.013.i = phi i64 [ 0, %.preheader.i ], [ %35, %34 ]
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %.013.i
   %38 = load ptr, ptr %37, align 8, !tbaa !5
-  %39 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153119, ptr noundef %38) #5
+  %39 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153120, ptr noundef %38) #5
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %synonyms_name2id.exit, label %34
 
@@ -708,77 +708,77 @@ synonyms_name2id.exit:                            ; preds = %36
   br label %44
 
 44:                                               ; preds = %synonyms_name2id.exit, %30
-  %.151 = phi i16 [ %43, %synonyms_name2id.exit ], [ %.050120, %30 ]
-  %45 = icmp eq i32 %.048121, 1
-  br i1 %45, label %.preheader.i70, label %58
+  %.151 = phi i16 [ %43, %synonyms_name2id.exit ], [ %.050121, %30 ]
+  %45 = icmp eq i32 %.048122, 1
+  br i1 %45, label %.preheader.i71, label %58
 
-.preheader.i70:                                   ; preds = %44, %55
-  %.01114.i71 = phi i64 [ %56, %55 ], [ 0, %44 ]
-  %46 = getelementptr inbounds nuw %struct.synonymttab_t, ptr @kdfstrtab, i64 %.01114.i71
+.preheader.i71:                                   ; preds = %44, %55
+  %.01114.i72 = phi i64 [ %56, %55 ], [ 0, %44 ]
+  %46 = getelementptr inbounds nuw %struct.synonymttab_t, ptr @kdfstrtab, i64 %.01114.i72
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %50
 
 48:                                               ; preds = %50
-  %49 = add nuw nsw i64 %.013.i72, 1
-  %exitcond.not.i73 = icmp eq i64 %49, 4
-  br i1 %exitcond.not.i73, label %55, label %50, !llvm.loop !28
+  %49 = add nuw nsw i64 %.013.i73, 1
+  %exitcond.not.i74 = icmp eq i64 %49, 4
+  br i1 %exitcond.not.i74, label %55, label %50, !llvm.loop !28
 
-50:                                               ; preds = %48, %.preheader.i70
-  %.013.i72 = phi i64 [ 0, %.preheader.i70 ], [ %49, %48 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %.013.i72
+50:                                               ; preds = %48, %.preheader.i71
+  %.013.i73 = phi i64 [ 0, %.preheader.i71 ], [ %49, %48 ]
+  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %.013.i73
   %52 = load ptr, ptr %51, align 8, !tbaa !5
-  %53 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153119, ptr noundef %52) #5
+  %53 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153120, ptr noundef %52) #5
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %synonyms_name2id.exit76, label %48
+  br i1 %54, label %synonyms_name2id.exit77, label %48
 
 55:                                               ; preds = %48
-  %56 = add nuw nsw i64 %.01114.i71, 1
-  %exitcond16.not.i74 = icmp eq i64 %56, 3
-  br i1 %exitcond16.not.i74, label %.thread, label %.preheader.i70, !llvm.loop !29
+  %56 = add nuw nsw i64 %.01114.i72, 1
+  %exitcond16.not.i75 = icmp eq i64 %56, 3
+  br i1 %exitcond16.not.i75, label %.thread, label %.preheader.i71, !llvm.loop !29
 
-synonyms_name2id.exit76:                          ; preds = %50
+synonyms_name2id.exit77:                          ; preds = %50
   %57 = load i16, ptr %46, align 8, !tbaa !30
   br label %58
 
-58:                                               ; preds = %synonyms_name2id.exit76, %44
-  %.260 = phi i16 [ %57, %synonyms_name2id.exit76 ], [ %.058117, %44 ]
-  %59 = icmp eq i32 %.048121, 2
-  br i1 %59, label %.preheader.i77, label %72
+58:                                               ; preds = %synonyms_name2id.exit77, %44
+  %.260 = phi i16 [ %57, %synonyms_name2id.exit77 ], [ %.058118, %44 ]
+  %59 = icmp eq i32 %.048122, 2
+  br i1 %59, label %.preheader.i78, label %72
 
-.preheader.i77:                                   ; preds = %58, %69
-  %.01114.i78 = phi i64 [ %70, %69 ], [ 0, %58 ]
-  %60 = getelementptr inbounds nuw %struct.synonymttab_t, ptr @aeadstrtab, i64 %.01114.i78
+.preheader.i78:                                   ; preds = %58, %69
+  %.01114.i79 = phi i64 [ %70, %69 ], [ 0, %58 ]
+  %60 = getelementptr inbounds nuw %struct.synonymttab_t, ptr @aeadstrtab, i64 %.01114.i79
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   br label %64
 
 62:                                               ; preds = %64
-  %63 = add nuw nsw i64 %.013.i79, 1
-  %exitcond.not.i80 = icmp eq i64 %63, 4
-  br i1 %exitcond.not.i80, label %69, label %64, !llvm.loop !28
+  %63 = add nuw nsw i64 %.013.i80, 1
+  %exitcond.not.i81 = icmp eq i64 %63, 4
+  br i1 %exitcond.not.i81, label %69, label %64, !llvm.loop !28
 
-64:                                               ; preds = %62, %.preheader.i77
-  %.013.i79 = phi i64 [ 0, %.preheader.i77 ], [ %63, %62 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %.013.i79
+64:                                               ; preds = %62, %.preheader.i78
+  %.013.i80 = phi i64 [ 0, %.preheader.i78 ], [ %63, %62 ]
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %.013.i80
   %66 = load ptr, ptr %65, align 8, !tbaa !5
-  %67 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153119, ptr noundef %66) #5
+  %67 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.153120, ptr noundef %66) #5
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %synonyms_name2id.exit83, label %62
+  br i1 %68, label %synonyms_name2id.exit84, label %62
 
 69:                                               ; preds = %62
-  %70 = add nuw nsw i64 %.01114.i78, 1
-  %exitcond16.not.i81 = icmp eq i64 %70, 4
-  br i1 %exitcond16.not.i81, label %.thread, label %.preheader.i77, !llvm.loop !29
+  %70 = add nuw nsw i64 %.01114.i79, 1
+  %exitcond16.not.i82 = icmp eq i64 %70, 4
+  br i1 %exitcond16.not.i82, label %.thread, label %.preheader.i78, !llvm.loop !29
 
-synonyms_name2id.exit83:                          ; preds = %64
+synonyms_name2id.exit84:                          ; preds = %64
   %71 = load i16, ptr %60, align 8, !tbaa !30
   br label %72
 
-72:                                               ; preds = %synonyms_name2id.exit83, %58
-  %.257 = phi i16 [ %71, %synonyms_name2id.exit83 ], [ %.055118, %58 ]
+72:                                               ; preds = %synonyms_name2id.exit84, %58
+  %.257 = phi i16 [ %71, %synonyms_name2id.exit84 ], [ %.055119, %58 ]
   %73 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.3 = select i1 %.not69, ptr %73, ptr null
-  %74 = add nuw nsw i32 %.048121, 1
-  %75 = icmp samesign ult i32 %.048121, 2
+  %74 = add nuw nsw i32 %.048122, 1
+  %75 = icmp samesign ult i32 %.048122, 2
   %76 = select i1 %.not69, i1 %75, i1 false
   br i1 %76, label %.preheader, label %77
 

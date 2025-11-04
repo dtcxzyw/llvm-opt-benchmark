@@ -646,9 +646,9 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
   br label %69
 
 69:                                               ; preds = %.thread74, %34, %41, %51, %67, %27, %35
-  %.045 = phi ptr [ null, %35 ], [ null, %41 ], [ %68, %67 ], [ null, %51 ], [ null, %34 ], [ null, %27 ], [ null, %.thread74 ]
+  %.048 = phi ptr [ null, %35 ], [ null, %41 ], [ %68, %67 ], [ null, %51 ], [ null, %34 ], [ null, %27 ], [ null, %.thread74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.045
+  ret ptr %.048
 }
 
 ; Function Attrs: nounwind uwtable

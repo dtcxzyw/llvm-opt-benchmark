@@ -5276,32 +5276,32 @@ define internal i32 @packet_mmap(ptr readnone captures(none) %0, ptr noundef rea
   %38 = icmp eq i64 %37, %28
   br i1 %38, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %33, %.loopexit9
-  %39 = phi i64 [ %95, %.loopexit9 ], [ %36, %33 ]
-  %40 = phi ptr [ %96, %.loopexit9 ], [ %11, %33 ]
+.preheader:                                       ; preds = %33, %.loopexit10
+  %39 = phi i64 [ %95, %.loopexit10 ], [ %36, %33 ]
+  %40 = phi ptr [ %96, %.loopexit10 ], [ %11, %33 ]
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit9, label %43
+  br i1 %42, label %.loopexit10, label %43
 
 43:                                               ; preds = %.preheader
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit9, label %47
+  br i1 %46, label %.loopexit10, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.loopexit9, label %.split
+  br i1 %50, label %.loopexit10, label %.split
 
-.split:                                           ; preds = %47, %.loopexit8
-  %51 = phi i32 [ %91, %.loopexit8 ], [ %45, %47 ]
-  %52 = phi i32 [ %92, %.loopexit8 ], [ 1, %47 ]
-  %53 = phi i32 [ %93, %.loopexit8 ], [ 0, %47 ]
-  %54 = phi i64 [ %.ph, %.loopexit8 ], [ %39, %47 ]
+.split:                                           ; preds = %47, %.loopexit9
+  %51 = phi i32 [ %91, %.loopexit9 ], [ %45, %47 ]
+  %52 = phi i32 [ %92, %.loopexit9 ], [ 1, %47 ]
+  %53 = phi i32 [ %93, %.loopexit9 ], [ 0, %47 ]
+  %54 = phi i64 [ %.ph, %.loopexit9 ], [ %39, %47 ]
   %55 = icmp eq i32 %52, 0
-  br i1 %55, label %.loopexit8, label %56
+  br i1 %55, label %.loopexit9, label %56
 
 56:                                               ; preds = %.split
   %57 = load ptr, ptr %40, align 8
@@ -5348,27 +5348,27 @@ define internal i32 @packet_mmap(ptr readnone captures(none) %0, ptr noundef rea
   %88 = add nuw i32 %62, 1
   %89 = load i32, ptr %48, align 4
   %90 = icmp ult i32 %88, %89
-  br i1 %90, label %61, label %.loopexit8.loopexit, !llvm.loop !79
+  br i1 %90, label %61, label %.loopexit9.loopexit, !llvm.loop !79
 
-.loopexit8.loopexit:                              ; preds = %85
+.loopexit9.loopexit:                              ; preds = %85
   %.pre = load i32, ptr %44, align 8
-  br label %.loopexit8
+  br label %.loopexit9
 
-.loopexit8:                                       ; preds = %.loopexit8.loopexit, %.split
-  %91 = phi i32 [ %51, %.split ], [ %.pre, %.loopexit8.loopexit ]
-  %92 = phi i32 [ 0, %.split ], [ %89, %.loopexit8.loopexit ]
-  %.ph = phi i64 [ %54, %.split ], [ %86, %.loopexit8.loopexit ]
+.loopexit9:                                       ; preds = %.loopexit9.loopexit, %.split
+  %91 = phi i32 [ %51, %.split ], [ %.pre, %.loopexit9.loopexit ]
+  %92 = phi i32 [ 0, %.split ], [ %89, %.loopexit9.loopexit ]
+  %.ph = phi i64 [ %54, %.split ], [ %86, %.loopexit9.loopexit ]
   %93 = add nuw i32 %53, 1
   %94 = icmp ult i32 %93, %91
-  br i1 %94, label %.split, label %.loopexit9, !llvm.loop !80
+  br i1 %94, label %.split, label %.loopexit10, !llvm.loop !80
 
-.loopexit9:                                       ; preds = %.loopexit8, %47, %43, %.preheader
-  %95 = phi i64 [ %39, %.preheader ], [ %39, %43 ], [ %39, %47 ], [ %.ph, %.loopexit8 ]
+.loopexit10:                                      ; preds = %.loopexit9, %47, %43, %.preheader
+  %95 = phi i64 [ %39, %.preheader ], [ %39, %43 ], [ %39, %47 ], [ %.ph, %.loopexit9 ]
   %96 = getelementptr i8, ptr %40, i64 200
   %97 = icmp ugt ptr %96, %12
   br i1 %97, label %98, label %.preheader, !llvm.loop !82
 
-98:                                               ; preds = %.loopexit9
+98:                                               ; preds = %.loopexit10
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 1240
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %99, ptr nonnull elementtype(i64) %99) #19, !srcloc !83
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 120

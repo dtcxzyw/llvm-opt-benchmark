@@ -4178,7 +4178,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.12, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef nonnull %7) #20
   %59 = icmp sgt i32 %58, 2
-  br i1 %59, label %60, label %.thread155
+  br i1 %59, label %60, label %.thread156
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %7, align 4
@@ -4206,7 +4206,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %75 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.092, ptr noundef nonnull @.str.13, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %8, ptr noundef nonnull %7) #20
   %76 = icmp sgt i32 %75, 1
-  br i1 %76, label %77, label %.thread155
+  br i1 %76, label %77, label %.thread156
 
 77:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4295,7 +4295,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.193, ptr noundef nonnull @.str.14, ptr noundef nonnull %124, ptr noundef nonnull %10, ptr noundef nonnull %7) #20
   %126 = icmp slt i32 %125, 2
-  br i1 %126, label %.thread155.sink.split, label %127
+  br i1 %126, label %.thread156.sink.split, label %127
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4306,13 +4306,13 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %indvars.iv.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i, %131 ]
   %130 = getelementptr [4 x i8], ptr @parse_month_name.months, i64 %indvars.iv.i
   %lhsv = load i32, ptr %130, align 4
-  %.not187 = icmp eq i32 %lhsv, %rhsv
-  br i1 %.not187, label %132, label %131
+  %.not188 = icmp eq i32 %lhsv, %rhsv
+  br i1 %.not188, label %132, label %131
 
 131:                                              ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %.thread155.sink.split, label %129, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.thread156.sink.split, label %129, !llvm.loop !18
 
 132:                                              ; preds = %129
   %133 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4338,12 +4338,12 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %141 = call zeroext i1 @ws_strtou32(ptr noundef %.294, ptr noundef nonnull %12, ptr noundef nonnull %11)
-  br i1 %141, label %142, label %parse_month_name.exit.thread149
+  br i1 %141, label %142, label %parse_month_name.exit.thread150
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %12, align 8
   %144 = load i8, ptr %143, align 1
-  switch i8 %144, label %parse_month_name.exit.thread149 [
+  switch i8 %144, label %parse_month_name.exit.thread150 [
     i8 32, label %145
     i8 9, label %145
   ]
@@ -4353,7 +4353,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %147 = ptrtoint ptr %.294 to i64
   %148 = sub i64 %146, %147
   %149 = icmp slt i64 %148, 2
-  br i1 %149, label %parse_month_name.exit.thread149, label %150
+  br i1 %149, label %parse_month_name.exit.thread150, label %150
 
 150:                                              ; preds = %145
   %.pre = load i32, ptr %11, align 4
@@ -4368,8 +4368,8 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %150, %151
-  %.sink177 = phi i32 [ %., %151 ], [ 1900, %150 ]
-  %153 = add i32 %.pre, %.sink177
+  %.sink178 = phi i32 [ %., %151 ], [ 1900, %150 ]
+  %153 = add i32 %.pre, %.sink178
   store i32 %153, ptr %11, align 4
   br label %._crit_edge
 
@@ -4397,7 +4397,7 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %163 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.395, ptr noundef nonnull @.str.15, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %7) #20
   %164 = icmp slt i32 %163, 2
-  br i1 %164, label %parse_month_name.exit.thread149, label %165
+  br i1 %164, label %parse_month_name.exit.thread150, label %165
 
 165:                                              ; preds = %160
   %166 = load i32, ptr %7, align 4
@@ -4457,15 +4457,15 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %parse_month_name.exit.thread149
+  br label %parse_month_name.exit.thread150
 
 189:                                              ; preds = %185, %187
-  %.sink183 = phi i32 [ -3600, %187 ], [ 3600, %185 ]
-  %.sink181 = phi i32 [ -60, %187 ], [ 60, %185 ]
+  %.sink184 = phi i32 [ -3600, %187 ], [ 3600, %185 ]
+  %.sink182 = phi i32 [ -60, %187 ], [ 60, %185 ]
   %190 = load i32, ptr %14, align 4
-  %191 = mul i32 %190, %.sink183
+  %191 = mul i32 %190, %.sink184
   %192 = load i32, ptr %15, align 4
-  %193 = mul i32 %192, %.sink181
+  %193 = mul i32 %192, %.sink182
   %194 = add i32 %193, %191
   %195 = load i32, ptr %7, align 4
   %196 = sext i32 %195 to i64
@@ -4476,10 +4476,10 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %198 = sext i32 %194 to i64
   br label %parse_month_name.exit
 
-parse_month_name.exit.thread149:                  ; preds = %140, %142, %145, %160, %188
+parse_month_name.exit.thread150:                  ; preds = %140, %142, %145, %160, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread155.sink.split
+  br label %.thread156.sink.split
 
 parse_month_name.exit:                            ; preds = %180, %175, %189
   %.390 = phi ptr [ %176, %175 ], [ %181, %180 ], [ %197, %189 ]
@@ -4501,13 +4501,13 @@ parse_month_name.exit:                            ; preds = %180, %175, %189
   %203 = tail call ptr @__errno_location() #22
   %204 = load i32, ptr %203, align 4
   %.not124 = icmp eq i32 %204, 0
-  br i1 %.not124, label %205, label %.thread155
+  br i1 %.not124, label %205, label %.thread156
 
-.thread155.sink.split:                            ; preds = %131, %123, %parse_month_name.exit.thread149
+.thread156.sink.split:                            ; preds = %131, %123, %parse_month_name.exit.thread150
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread155
+  br label %.thread156
 
-.thread155:                                       ; preds = %.thread155.sink.split, %54, %72, %202
+.thread156:                                       ; preds = %.thread156.sink.split, %54, %72, %202
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -4531,8 +4531,8 @@ parse_month_name.exit:                            ; preds = %180, %175, %189
   store i32 %213, ptr %5, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %44, %48, %.thread155, %207, %208
-  %.082 = phi ptr [ %4, %208 ], [ %4, %207 ], [ null, %.thread155 ], [ null, %48 ], [ null, %44 ], [ null, %38 ]
+.loopexit:                                        ; preds = %38, %44, %48, %.thread156, %207, %208
+  %.082 = phi ptr [ %4, %208 ], [ %4, %207 ], [ null, %.thread156 ], [ null, %48 ], [ null, %44 ], [ null, %38 ]
   call void @wmem_free(ptr noundef null, ptr noundef %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.082
@@ -6620,24 +6620,24 @@ tvb_get_etsi_ts_102_221_annex_a_string.exit:      ; preds = %14
   %.032.i = phi i32 [ %3, %165 ], [ %.133.lcssa.i, %178 ]
   %.030.i = phi ptr [ %166, %165 ], [ %.131.lcssa.i, %178 ]
   %168 = load i8, ptr %.030.i, align 1
-  %.13149.i = getelementptr i8, ptr %.030.i, i64 1
-  %.13350.i = add nsw i32 %.032.i, -1
-  %.not3751.i = icmp eq i8 %168, 0
-  br i1 %.not3751.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.13150.i = getelementptr i8, ptr %.030.i, i64 1
+  %.13351.i = add nsw i32 %.032.i, -1
+  %.not3752.i = icmp eq i8 %168, 0
+  br i1 %.not3752.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %167
   %169 = zext i8 %168 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %175, %.lr.ph.preheader.i
-  %.13354.i = phi i32 [ %.133.i, %175 ], [ %.13350.i, %.lr.ph.preheader.i ]
-  %.13153.i = phi ptr [ %.131.i, %175 ], [ %.13149.i, %.lr.ph.preheader.i ]
-  %.02852.i = phi i32 [ %176, %175 ], [ %169, %.lr.ph.preheader.i ]
-  %.not38.i = icmp eq i32 %.13354.i, 0
+  %.13355.i = phi i32 [ %.133.i, %175 ], [ %.13351.i, %.lr.ph.preheader.i ]
+  %.13154.i = phi ptr [ %.131.i, %175 ], [ %.13150.i, %.lr.ph.preheader.i ]
+  %.02853.i = phi i32 [ %176, %175 ], [ %169, %.lr.ph.preheader.i ]
+  %.not38.i = icmp eq i32 %.13355.i, 0
   br i1 %.not38.i, label %tvb_get_apn_string.exit, label %170
 
 170:                                              ; preds = %.lr.ph.i
-  %171 = load i8, ptr %.13153.i, align 1
+  %171 = load i8, ptr %.13154.i, align 1
   %172 = icmp sgt i8 %171, -1
   br i1 %172, label %173, label %174
 
@@ -6650,15 +6650,15 @@ tvb_get_etsi_ts_102_221_annex_a_string.exit:      ; preds = %14
   br label %175
 
 175:                                              ; preds = %174, %173
-  %176 = add nsw i32 %.02852.i, -1
-  %.131.i = getelementptr i8, ptr %.13153.i, i64 1
-  %.133.i = add nsw i32 %.13354.i, -1
+  %176 = add nsw i32 %.02853.i, -1
+  %.131.i = getelementptr i8, ptr %.13154.i, i64 1
+  %.133.i = add nsw i32 %.13355.i, -1
   %.not37.i = icmp eq i32 %176, 0
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %175, %167
-  %.131.lcssa.i = phi ptr [ %.13149.i, %167 ], [ %.131.i, %175 ]
-  %.133.lcssa.i = phi i32 [ %.13350.i, %167 ], [ %.133.i, %175 ]
+  %.131.lcssa.i = phi ptr [ %.13150.i, %167 ], [ %.131.i, %175 ]
+  %.133.lcssa.i = phi i32 [ %.13351.i, %167 ], [ %.133.i, %175 ]
   %177 = icmp eq i32 %.133.lcssa.i, 0
   br i1 %177, label %tvb_get_apn_string.exit, label %178
 

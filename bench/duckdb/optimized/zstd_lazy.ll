@@ -21848,8 +21848,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %104 = select i1 %101, ptr %21, ptr %14
   %105 = icmp ugt ptr %.0.i83, %.0294.i82
   %106 = icmp ugt ptr %103, %104
-  %or.cond372.i56 = select i1 %105, i1 %106, i1 false
-  br i1 %or.cond372.i56, label %.lr.ph, label %.critedge.i
+  %or.cond374.i56 = select i1 %105, i1 %106, i1 false
+  br i1 %or.cond374.i56, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %97, %112
   %.14.i59 = phi i64 [ %113, %112 ], [ %.0.i4, %97 ]
@@ -21866,8 +21866,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %113 = add i64 %.14.i59, 1
   %114 = icmp ugt ptr %107, %.0294.i82
   %115 = icmp ugt ptr %109, %104
-  %or.cond372.i = select i1 %114, i1 %115, i1 false
-  br i1 %or.cond372.i, label %.lr.ph, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %114, i1 %115, i1 false
+  br i1 %or.cond374.i, label %.lr.ph, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %112, %.lr.ph, %97
   %.12341.i.lcssa = phi ptr [ %.0.i83, %97 ], [ %.12341.i58, %.lr.ph ], [ %107, %112 ]
@@ -22718,8 +22718,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %217 = select i1 %214, ptr %21, ptr %14
   %218 = icmp ugt ptr %.0.i112, %.0294.i111
   %219 = icmp ugt ptr %216, %217
-  %or.cond372.i82 = select i1 %218, i1 %219, i1 false
-  br i1 %or.cond372.i82, label %.lr.ph86, label %.critedge.i
+  %or.cond374.i82 = select i1 %218, i1 %219, i1 false
+  br i1 %or.cond374.i82, label %.lr.ph86, label %.critedge.i
 
 .lr.ph86:                                         ; preds = %210, %225
   %.14.i85 = phi i64 [ %226, %225 ], [ %.0.i11, %210 ]
@@ -22736,8 +22736,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %226 = add i64 %.14.i85, 1
   %227 = icmp ugt ptr %220, %.0294.i111
   %228 = icmp ugt ptr %222, %217
-  %or.cond372.i = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond372.i, label %.lr.ph86, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %227, i1 %228, i1 false
+  br i1 %or.cond374.i, label %.lr.ph86, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %225, %.lr.ph86, %210
   %.12341.i.lcssa = phi ptr [ %.0.i112, %210 ], [ %.12341.i84, %.lr.ph86 ], [ %220, %225 ]
@@ -23601,8 +23601,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %169 = select i1 %166, ptr %22, ptr %15
   %170 = icmp ugt ptr %.2331.i, %.0294.i107
   %171 = icmp ugt ptr %168, %169
-  %or.cond372.i79 = select i1 %170, i1 %171, i1 false
-  br i1 %or.cond372.i79, label %.lr.ph83, label %.critedge.i
+  %or.cond374.i79 = select i1 %170, i1 %171, i1 false
+  br i1 %or.cond374.i79, label %.lr.ph83, label %.critedge.i
 
 .lr.ph83:                                         ; preds = %161, %177
   %.14.i82 = phi i64 [ %178, %177 ], [ %.4315.i, %161 ]
@@ -23619,8 +23619,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %178 = add i64 %.14.i82, 1
   %179 = icmp ugt ptr %172, %.0294.i107
   %180 = icmp ugt ptr %174, %169
-  %or.cond372.i = select i1 %179, i1 %180, i1 false
-  br i1 %or.cond372.i, label %.lr.ph83, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %179, i1 %180, i1 false
+  br i1 %or.cond374.i, label %.lr.ph83, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %177, %.lr.ph83, %161
   %.12341.i.lcssa = phi ptr [ %.2331.i, %161 ], [ %.12341.i81, %.lr.ph83 ], [ %172, %177 ]
@@ -24646,8 +24646,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %297 = select i1 %294, ptr %22, ptr %15
   %298 = icmp ugt ptr %.2331.i, %.0294.i136
   %299 = icmp ugt ptr %296, %297
-  %or.cond372.i106 = select i1 %298, i1 %299, i1 false
-  br i1 %or.cond372.i106, label %.lr.ph110, label %.critedge.i
+  %or.cond374.i106 = select i1 %298, i1 %299, i1 false
+  br i1 %or.cond374.i106, label %.lr.ph110, label %.critedge.i
 
 .lr.ph110:                                        ; preds = %289, %305
   %.14.i109 = phi i64 [ %306, %305 ], [ %.4315.i, %289 ]
@@ -24664,8 +24664,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %306 = add i64 %.14.i109, 1
   %307 = icmp ugt ptr %300, %.0294.i136
   %308 = icmp ugt ptr %302, %297
-  %or.cond372.i = select i1 %307, i1 %308, i1 false
-  br i1 %or.cond372.i, label %.lr.ph110, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %307, i1 %308, i1 false
+  br i1 %or.cond374.i, label %.lr.ph110, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %305, %.lr.ph110, %289
   %.12341.i.lcssa = phi ptr [ %.2331.i, %289 ], [ %.12341.i108, %.lr.ph110 ], [ %300, %305 ]
@@ -25647,8 +25647,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %230 = select i1 %227, ptr %23, ptr %16
   %231 = icmp ugt ptr %.2331.i, %.0294.i123
   %232 = icmp ugt ptr %229, %230
-  %or.cond372.i95 = select i1 %231, i1 %232, i1 false
-  br i1 %or.cond372.i95, label %.lr.ph99, label %.critedge.i
+  %or.cond374.i95 = select i1 %231, i1 %232, i1 false
+  br i1 %or.cond374.i95, label %.lr.ph99, label %.critedge.i
 
 .lr.ph99:                                         ; preds = %222, %238
   %.14.i98 = phi i64 [ %239, %238 ], [ %.4315.i, %222 ]
@@ -25665,8 +25665,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %239 = add i64 %.14.i98, 1
   %240 = icmp ugt ptr %233, %.0294.i123
   %241 = icmp ugt ptr %235, %230
-  %or.cond372.i = select i1 %240, i1 %241, i1 false
-  br i1 %or.cond372.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %240, i1 %241, i1 false
+  br i1 %or.cond374.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %238, %.lr.ph99, %222
   %.12341.i.lcssa = phi ptr [ %.2331.i, %222 ], [ %.12341.i97, %.lr.ph99 ], [ %233, %238 ]
@@ -26853,8 +26853,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %373 = select i1 %370, ptr %23, ptr %16
   %374 = icmp ugt ptr %.2331.i, %.0294.i152
   %375 = icmp ugt ptr %372, %373
-  %or.cond372.i122 = select i1 %374, i1 %375, i1 false
-  br i1 %or.cond372.i122, label %.lr.ph126, label %.critedge.i
+  %or.cond374.i122 = select i1 %374, i1 %375, i1 false
+  br i1 %or.cond374.i122, label %.lr.ph126, label %.critedge.i
 
 .lr.ph126:                                        ; preds = %365, %381
   %.14.i125 = phi i64 [ %382, %381 ], [ %.4315.i, %365 ]
@@ -26871,8 +26871,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %382 = add i64 %.14.i125, 1
   %383 = icmp ugt ptr %376, %.0294.i152
   %384 = icmp ugt ptr %378, %373
-  %or.cond372.i = select i1 %383, i1 %384, i1 false
-  br i1 %or.cond372.i, label %.lr.ph126, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %383, i1 %384, i1 false
+  br i1 %or.cond374.i, label %.lr.ph126, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %381, %.lr.ph126, %365
   %.12341.i.lcssa = phi ptr [ %.2331.i, %365 ], [ %.12341.i124, %.lr.ph126 ], [ %376, %381 ]
@@ -27854,8 +27854,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %230 = select i1 %227, ptr %23, ptr %16
   %231 = icmp ugt ptr %.2331.i, %.0294.i123
   %232 = icmp ugt ptr %229, %230
-  %or.cond372.i95 = select i1 %231, i1 %232, i1 false
-  br i1 %or.cond372.i95, label %.lr.ph99, label %.critedge.i
+  %or.cond374.i95 = select i1 %231, i1 %232, i1 false
+  br i1 %or.cond374.i95, label %.lr.ph99, label %.critedge.i
 
 .lr.ph99:                                         ; preds = %222, %238
   %.14.i98 = phi i64 [ %239, %238 ], [ %.4315.i, %222 ]
@@ -27872,8 +27872,8 @@ _ZN11duckdb_zstdL14ZSTD_searchMaxEPNS_17ZSTD_matchState_tEPKhS3_PmjjNS_14searchM
   %239 = add i64 %.14.i98, 1
   %240 = icmp ugt ptr %233, %.0294.i123
   %241 = icmp ugt ptr %235, %230
-  %or.cond372.i = select i1 %240, i1 %241, i1 false
-  br i1 %or.cond372.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !73
+  %or.cond374.i = select i1 %240, i1 %241, i1 false
+  br i1 %or.cond374.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !73
 
 .critedge.i:                                      ; preds = %238, %.lr.ph99, %222
   %.12341.i.lcssa = phi ptr [ %.2331.i, %222 ], [ %.12341.i97, %.lr.ph99 ], [ %233, %238 ]

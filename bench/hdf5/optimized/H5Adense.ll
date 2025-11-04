@@ -353,7 +353,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
   %16 = load i64, ptr %15, align 8, !tbaa !39
   %17 = tail call ptr @H5HF_open(ptr noundef %0, i64 noundef %16) #7
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread62, label %19
+  br i1 %18, label %.thread63, label %19
 
 19:                                               ; preds = %14
   %20 = tail call i32 @H5SM_type_shared(ptr noundef %0, i32 noundef 12) #7
@@ -365,7 +365,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
   %24 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 346, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.11) #7
   store ptr null, ptr %6, align 8, !tbaa !37
-  br label %.thread56
+  br label %.thread57
 
 26:                                               ; preds = %19
   %.not = icmp eq i32 %20, 0
@@ -407,7 +407,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
 43:                                               ; preds = %39, %30
   store ptr null, ptr %6, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread56
+  br label %.thread57
 
 44:                                               ; preds = %.thread, %26
   %.1 = phi ptr [ null, %26 ], [ %.2.ph, %.thread ]
@@ -471,45 +471,45 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
 
 77:                                               ; preds = %.sink.split, %70
   %.not44 = icmp eq ptr %.1, null
-  br i1 %.not44, label %.thread56, label %78
+  br i1 %.not44, label %.thread57, label %78
 
 78:                                               ; preds = %77
   %79 = call i32 @H5HF_close(ptr noundef nonnull %.1) #7
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %.thread56
+  br i1 %80, label %81, label %.thread57
 
 81:                                               ; preds = %78
   %82 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %83 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 389, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.7) #7
   store ptr null, ptr %6, align 8, !tbaa !37
-  br label %.thread56
+  br label %.thread57
 
-.thread62:                                        ; preds = %14
+.thread63:                                        ; preds = %14
   %85 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %86 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %87 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 342, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.10) #7
-  br label %.sink.split69
+  br label %.sink.split70
 
-.thread56:                                        ; preds = %43, %22, %77, %78, %81
-  %.0335458 = phi ptr [ %47, %81 ], [ %47, %78 ], [ %47, %77 ], [ null, %22 ], [ null, %43 ]
+.thread57:                                        ; preds = %43, %22, %77, %78, %81
+  %.0335559 = phi ptr [ %47, %81 ], [ %47, %78 ], [ %47, %77 ], [ null, %22 ], [ null, %43 ]
   %88 = call i32 @H5HF_close(ptr noundef nonnull %17) #7
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %94
 
-90:                                               ; preds = %.thread56
+90:                                               ; preds = %.thread57
   %91 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %92 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 391, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.7) #7
   store ptr null, ptr %6, align 8, !tbaa !37
   br label %94
 
-94:                                               ; preds = %90, %.thread56
-  %.not46 = icmp eq ptr %.0335458, null
+94:                                               ; preds = %90, %.thread57
+  %.not46 = icmp eq ptr %.0335559, null
   br i1 %.not46, label %102, label %95
 
 95:                                               ; preds = %94
-  %96 = call i32 @H5B2_close(ptr noundef nonnull %.0335458) #7
+  %96 = call i32 @H5B2_close(ptr noundef nonnull %.0335559) #7
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %102
 
@@ -517,13 +517,13 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
   %99 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %100 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 393, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.8) #7
-  br label %.sink.split69
+  br label %.sink.split70
 
-.sink.split69:                                    ; preds = %.thread62, %98
+.sink.split70:                                    ; preds = %98, %.thread63
   store ptr null, ptr %6, align 8, !tbaa !37
   br label %102
 
-102:                                              ; preds = %.sink.split69, %3, %95, %94
+102:                                              ; preds = %.sink.split70, %94, %95, %3
   %103 = load ptr, ptr %6, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -586,8 +586,8 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fnd_cb(ptr noundef %0, ptr noun
   br label %24
 
 24:                                               ; preds = %19, %3, %23
-  %.013 = phi i32 [ 0, %23 ], [ -1, %19 ], [ 0, %3 ]
-  ret i32 %.013
+  %.012 = phi i32 [ 0, %23 ], [ -1, %19 ], [ 0, %3 ]
+  ret i32 %.012
 }
 
 declare i32 @H5B2_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread149, !prof !9
+  br i1 %13, label %14, label %.thread152, !prof !9
 
 14:                                               ; preds = %3
   %15 = tail call i32 @H5SM_type_shared(ptr noundef %0, i32 noundef 12) #7
@@ -619,7 +619,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %18 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %19 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 430, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.11) #7
-  br label %.thread149
+  br label %.thread152
 
 21:                                               ; preds = %14
   %.not = icmp eq i32 %15, 0
@@ -685,7 +685,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
 
 .thread:                                          ; preds = %25, %41, %50, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread149
+  br label %.thread152
 
 54:                                               ; preds = %45, %47
   %.2 = phi ptr [ %48, %47 ], [ null, %45 ]
@@ -704,7 +704,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %61 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %62 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %63 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 466, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.10) #7
-  br label %.thread108
+  br label %.thread111
 
 64:                                               ; preds = %55
   %65 = load i32, ptr %6, align 4, !tbaa !59
@@ -728,7 +728,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %75 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %76 = load i64, ptr @H5E_CANTGETSIZE_g, align 8, !tbaa !27
   %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 482, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.18) #7
-  br label %.thread108
+  br label %.thread111
 
 78:                                               ; preds = %71
   %79 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 128) #7
@@ -739,7 +739,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %82 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %83 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !27
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 486, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.19) #7
-  br label %.thread108
+  br label %.thread111
 
 85:                                               ; preds = %78
   %86 = call ptr @H5WB_actual(ptr noundef nonnull %79, i64 noundef %72) #7
@@ -750,7 +750,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %89 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %90 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !27
   %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 490, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.20) #7
-  br label %.thread108
+  br label %.thread111
 
 92:                                               ; preds = %85
   %93 = call i32 @H5O_msg_encode(ptr noundef %0, i32 noundef 12, i1 noundef zeroext false, ptr noundef nonnull %86, ptr noundef %2) #7
@@ -761,7 +761,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %96 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %97 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !27
   %98 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 494, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.21) #7
-  br label %.thread108
+  br label %.thread111
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -773,7 +773,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %104 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %105 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !27
   %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 499, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.22) #7
-  br label %.thread108
+  br label %.thread111
 
 107:                                              ; preds = %99, %67
   %.178 = phi ptr [ null, %67 ], [ %79, %99 ]
@@ -787,7 +787,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %113 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %114 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 504, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.13) #7
-  br label %.thread108
+  br label %.thread111
 
 116:                                              ; preds = %107
   store ptr %0, ptr %4, align 8, !tbaa !61
@@ -824,13 +824,13 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %138 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %139 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !27
   %140 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 520, i64 noundef %138, i64 noundef %139, ptr noundef nonnull @.str.23) #7
-  br label %.thread108
+  br label %.thread111
 
 141:                                              ; preds = %116
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %143 = load i8, ptr %142, align 1, !tbaa !35, !range !7, !noundef !8
   %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %.thread108
+  br i1 %144, label %145, label %.thread111
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -843,20 +843,20 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %151 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %152 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %153 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 527, i64 noundef %151, i64 noundef %152, ptr noundef nonnull @.str.24) #7
-  br label %.thread108
+  br label %.thread111
 
 154:                                              ; preds = %145
   %155 = call i32 @H5B2_insert(ptr noundef nonnull %148, ptr noundef nonnull %4) #7
   %156 = icmp slt i32 %155, 0
-  br i1 %156, label %157, label %.thread108
+  br i1 %156, label %157, label %.thread111
 
 157:                                              ; preds = %154
   %158 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %159 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !27
   %160 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 531, i64 noundef %158, i64 noundef %159, ptr noundef nonnull @.str.23) #7
-  br label %.thread108
+  br label %.thread111
 
-.thread108:                                       ; preds = %103, %95, %88, %81, %74, %141, %154, %157, %150, %137, %112, %60
+.thread111:                                       ; preds = %103, %95, %88, %81, %74, %141, %154, %157, %150, %137, %112, %60
   %.080 = phi ptr [ null, %60 ], [ null, %112 ], [ null, %137 ], [ null, %150 ], [ %148, %157 ], [ %148, %154 ], [ null, %141 ], [ null, %74 ], [ null, %81 ], [ null, %88 ], [ null, %95 ], [ null, %103 ]
   %.077 = phi ptr [ null, %60 ], [ %.178, %112 ], [ %.178, %137 ], [ %.178, %150 ], [ %.178, %157 ], [ %.178, %154 ], [ %.178, %141 ], [ null, %74 ], [ null, %81 ], [ %79, %88 ], [ %79, %95 ], [ %79, %103 ]
   %.076 = phi ptr [ null, %60 ], [ null, %112 ], [ %110, %137 ], [ %110, %150 ], [ %110, %157 ], [ %110, %154 ], [ %110, %141 ], [ null, %74 ], [ null, %81 ], [ null, %88 ], [ null, %95 ], [ null, %103 ]
@@ -864,7 +864,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %.not99 = icmp eq ptr %.171, null
   br i1 %.not99, label %168, label %161
 
-161:                                              ; preds = %.thread108
+161:                                              ; preds = %.thread111
   %162 = call i32 @H5HF_close(ptr noundef nonnull %.171) #7
   %163 = icmp slt i32 %162, 0
   br i1 %163, label %164, label %168
@@ -875,8 +875,8 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   %167 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 537, i64 noundef %165, i64 noundef %166, ptr noundef nonnull @.str.7) #7
   br label %168
 
-168:                                              ; preds = %164, %161, %.thread108
-  %.6 = phi i32 [ -1, %164 ], [ %.173, %161 ], [ %.173, %.thread108 ]
+168:                                              ; preds = %164, %161, %.thread111
+  %.6 = phi i32 [ -1, %164 ], [ %.173, %161 ], [ %.173, %.thread111 ]
   br i1 %59, label %176, label %169
 
 169:                                              ; preds = %168
@@ -925,25 +925,25 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
 192:                                              ; preds = %188, %185, %184
   %.9 = phi i32 [ -1, %188 ], [ %.8, %185 ], [ %.8, %184 ]
   %.not103 = icmp eq ptr %.077, null
-  br i1 %.not103, label %.thread149, label %193
+  br i1 %.not103, label %.thread152, label %193
 
 193:                                              ; preds = %192
   %194 = call i32 @H5WB_unwrap(ptr noundef nonnull %.077) #7
   %195 = icmp slt i32 %194, 0
-  br i1 %195, label %196, label %.thread149
+  br i1 %195, label %196, label %.thread152
 
 196:                                              ; preds = %193
   %197 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %198 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %199 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_insert, i32 noundef 545, i64 noundef %197, i64 noundef %198, ptr noundef nonnull @.str.25) #7
-  br label %.thread149
+  br label %.thread152
 
-.thread149:                                       ; preds = %.thread, %17, %3, %196, %193, %192
-  %.0 = phi i32 [ -1, %196 ], [ %.9, %193 ], [ %.9, %192 ], [ 0, %3 ], [ -1, %17 ], [ -1, %.thread ]
+.thread152:                                       ; preds = %.thread, %17, %3, %196, %193, %192
+  %.072 = phi i32 [ -1, %196 ], [ %.9, %193 ], [ %.9, %192 ], [ 0, %3 ], [ -1, %17 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0
+  ret i32 %.072
 }
 
 declare i32 @H5O_msg_is_shared(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -980,7 +980,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr noundef readon
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %.thread75, !prof !9
+  br i1 %12, label %13, label %.thread76, !prof !9
 
 13:                                               ; preds = %3
   %14 = tail call i32 @H5SM_type_shared(ptr noundef %0, i32 noundef 12) #7
@@ -991,7 +991,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr noundef readon
   %17 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %18 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write, i32 noundef 721, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.11) #7
-  br label %.thread75
+  br label %.thread76
 
 20:                                               ; preds = %13
   %.not = icmp eq i32 %14, 0
@@ -1032,7 +1032,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr noundef readon
 
 37:                                               ; preds = %33, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread75
+  br label %.thread76
 
 38:                                               ; preds = %.thread, %20
   %.141 = phi ptr [ null, %20 ], [ %.242.ph, %.thread ]
@@ -1139,24 +1139,24 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr noundef readon
 98:                                               ; preds = %94, %91, %90
   %.5 = phi i32 [ -1, %94 ], [ %.4, %91 ], [ %.4, %90 ]
   %.not56 = icmp eq ptr %.039, null
-  br i1 %.not56, label %.thread75, label %99
+  br i1 %.not56, label %.thread76, label %99
 
 99:                                               ; preds = %98
   %100 = call i32 @H5B2_close(ptr noundef nonnull %.039) #7
   %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %.thread75
+  br i1 %101, label %102, label %.thread76
 
 102:                                              ; preds = %99
   %103 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %104 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write, i32 noundef 776, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.8) #7
-  br label %.thread75
+  br label %.thread76
 
-.thread75:                                        ; preds = %37, %16, %3, %102, %99, %98
-  %.038 = phi i32 [ -1, %102 ], [ %.5, %99 ], [ %.5, %98 ], [ 0, %3 ], [ -1, %37 ], [ -1, %16 ]
+.thread76:                                        ; preds = %37, %16, %3, %102, %99, %98
+  %.037 = phi i32 [ -1, %102 ], [ %.5, %99 ], [ %.5, %98 ], [ 0, %3 ], [ -1, %37 ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.038
+  ret i32 %.037
 }
 
 declare i32 @H5B2_modify(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1172,7 +1172,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %.thread68, !prof !9
+  br i1 %11, label %12, label %.thread70, !prof !9
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1193,7 +1193,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
   %23 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %24 = load i64, ptr @H5E_CANTUPDATE_g, align 8, !tbaa !27
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write_bt2_cb, i32 noundef 610, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.47) #7
-  br label %.thread68
+  br label %.thread70
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %17, align 8, !tbaa !79
@@ -1265,7 +1265,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
   %63 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %64 = load i64, ptr @H5E_CANTGETSIZE_g, align 8, !tbaa !27
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write_bt2_cb, i32 noundef 650, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.48) #7
-  br label %.thread68
+  br label %.thread70
 
 66:                                               ; preds = %59
   %67 = call ptr @H5WB_wrap(ptr noundef nonnull %4, i64 noundef 128) #7
@@ -1276,7 +1276,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
   %70 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %71 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !27
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write_bt2_cb, i32 noundef 654, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.19) #7
-  br label %.thread68
+  br label %.thread70
 
 73:                                               ; preds = %66
   %74 = call ptr @H5WB_actual(ptr noundef nonnull %67, i64 noundef %60) #7
@@ -1319,35 +1319,35 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
   %.147 = phi i32 [ 0, %58 ], [ -1, %.thread ]
   %.043 = phi ptr [ %.1, %58 ], [ %34, %.thread ]
   %.not56 = icmp eq ptr %.043, null
-  br i1 %.not56, label %.thread68, label %99
+  br i1 %.not56, label %.thread70, label %99
 
 99:                                               ; preds = %98
   %100 = call i32 @H5B2_close(ptr noundef nonnull %.043) #7
   %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %.thread68
+  br i1 %101, label %102, label %.thread70
 
 102:                                              ; preds = %99
   %103 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %104 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write_bt2_cb, i32 noundef 683, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.9) #7
-  br label %.thread68
+  br label %.thread70
 
 106:                                              ; preds = %89, %94, %85, %76
   %.147.ph.ph = phi i32 [ -1, %76 ], [ -1, %85 ], [ -1, %94 ], [ 0, %89 ]
   %107 = call i32 @H5WB_unwrap(ptr noundef nonnull %67) #7
   %108 = icmp slt i32 %107, 0
-  br i1 %108, label %109, label %.thread68
+  br i1 %108, label %109, label %.thread70
 
 109:                                              ; preds = %106
   %110 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %111 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_write_bt2_cb, i32 noundef 685, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.25) #7
-  br label %.thread68
+  br label %.thread70
 
-.thread68:                                        ; preds = %98, %99, %102, %62, %69, %22, %3, %109, %106
-  %.0 = phi i32 [ -1, %109 ], [ %.147.ph.ph, %106 ], [ 0, %3 ], [ -1, %69 ], [ -1, %62 ], [ -1, %22 ], [ %.147, %98 ], [ %.147, %99 ], [ -1, %102 ]
+.thread70:                                        ; preds = %98, %99, %102, %62, %69, %22, %3, %109, %106
+  %.046 = phi i32 [ -1, %109 ], [ %.147.ph.ph, %106 ], [ 0, %3 ], [ -1, %69 ], [ -1, %62 ], [ -1, %22 ], [ %.147, %98 ], [ %.147, %99 ], [ -1, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0
+  ret i32 %.046
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1383,7 +1383,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef reado
   %23 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %24 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %25 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 855, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.11) #7
-  br label %.thread140
+  br label %.thread145
 
 26:                                               ; preds = %19
   %.not = icmp eq i32 %20, 0
@@ -1424,7 +1424,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef reado
 
 43:                                               ; preds = %39, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread140
+  br label %.thread145
 
 44:                                               ; preds = %.thread, %26
   %.177 = phi ptr [ null, %26 ], [ %.278.ph, %.thread ]
@@ -1556,7 +1556,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef reado
   %123 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %124 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %125 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 924, i64 noundef %123, i64 noundef %124, ptr noundef nonnull @.str.28) #7
-  br label %.thread108
+  br label %.thread113
 
 126:                                              ; preds = %117
   %127 = load ptr, ptr %6, align 8, !tbaa !37
@@ -1574,12 +1574,12 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef reado
   %135 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %136 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !27
   %137 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 931, i64 noundef %135, i64 noundef %136, ptr noundef nonnull @.str.14) #7
-  br label %.thread108
+  br label %.thread113
 
 138:                                              ; preds = %126
   %139 = load i8, ptr %10, align 1, !tbaa !3, !range !7, !noundef !8
   %140 = trunc nuw i8 %139 to i1
-  br i1 %140, label %141, label %.thread104
+  br i1 %140, label %141, label %.thread109
 
 141:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1596,13 +1596,13 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef reado
 
 select.unfold:                                    ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread104
+  br label %.thread109
 
-.thread104:                                       ; preds = %138, %select.unfold
+.thread109:                                       ; preds = %138, %select.unfold
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %154
 
-.thread108:                                       ; preds = %122, %134
+.thread113:                                       ; preds = %122, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %208
 
@@ -1614,8 +1614,8 @@ select.unfold:                                    ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %208
 
-154:                                              ; preds = %.thread104, %113
-  %.174 = phi ptr [ null, %113 ], [ %120, %.thread104 ]
+154:                                              ; preds = %.thread109, %113
+  %.174 = phi ptr [ null, %113 ], [ %120, %.thread109 ]
   %155 = load ptr, ptr %6, align 8, !tbaa !37
   %156 = call i32 @H5A__dense_insert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %155)
   %157 = icmp slt i32 %156, 0
@@ -1649,13 +1649,13 @@ select.unfold:                                    ; preds = %141
 174:                                              ; preds = %166
   %175 = load i64, ptr %12, align 8, !tbaa !27
   %176 = icmp eq i64 %175, 1
-  br i1 %176, label %177, label %.thread112
+  br i1 %176, label %177, label %.thread117
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %6, align 8, !tbaa !37
   %179 = call i32 @H5O__attr_link(ptr noundef %0, ptr noundef null, ptr noundef %178) #7
   %180 = icmp slt i32 %179, 0
-  br i1 %180, label %181, label %.thread112
+  br i1 %180, label %181, label %.thread117
 
 181:                                              ; preds = %177
   %182 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
@@ -1663,7 +1663,7 @@ select.unfold:                                    ; preds = %141
   %184 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 969, i64 noundef %182, i64 noundef %183, ptr noundef nonnull @.str.32) #7
   br label %185
 
-.thread112:                                       ; preds = %177, %174
+.thread117:                                       ; preds = %177, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %200
 
@@ -1693,7 +1693,7 @@ select.unfold:                                    ; preds = %141
   %199 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 979, i64 noundef %197, i64 noundef %198, ptr noundef nonnull @.str.17) #7
   br label %208
 
-200:                                              ; preds = %.thread112, %188
+200:                                              ; preds = %.thread117, %188
   %201 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 -1, ptr %201, align 8, !tbaa !74
   %202 = call i32 @H5A__dense_remove(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %2)
@@ -1706,10 +1706,10 @@ select.unfold:                                    ; preds = %141
   %207 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 987, i64 noundef %205, i64 noundef %206, ptr noundef nonnull @.str.33) #7
   br label %208
 
-208:                                              ; preds = %150, %185, %.thread108, %200, %204, %196, %192, %158, %109, %90, %82, %75, %58, %49
-  %.075 = phi ptr [ null, %49 ], [ null, %58 ], [ %56, %75 ], [ %56, %82 ], [ %56, %90 ], [ %56, %109 ], [ %56, %158 ], [ %56, %204 ], [ %56, %200 ], [ %56, %185 ], [ %56, %192 ], [ %56, %196 ], [ %56, %150 ], [ %56, %.thread108 ]
-  %.073 = phi ptr [ null, %49 ], [ null, %58 ], [ null, %75 ], [ null, %82 ], [ null, %90 ], [ null, %109 ], [ %.174, %158 ], [ %.174, %204 ], [ %.174, %200 ], [ %.174, %185 ], [ %.174, %192 ], [ %.174, %196 ], [ %120, %150 ], [ %120, %.thread108 ]
-  %.169 = phi i32 [ -1, %49 ], [ -1, %58 ], [ -1, %75 ], [ -1, %82 ], [ -1, %90 ], [ -1, %109 ], [ -1, %158 ], [ -1, %204 ], [ 0, %200 ], [ -1, %185 ], [ -1, %192 ], [ -1, %196 ], [ -1, %150 ], [ -1, %.thread108 ]
+208:                                              ; preds = %150, %185, %.thread113, %200, %204, %196, %192, %158, %109, %90, %82, %75, %58, %49
+  %.075 = phi ptr [ null, %49 ], [ null, %58 ], [ %56, %75 ], [ %56, %82 ], [ %56, %90 ], [ %56, %109 ], [ %56, %158 ], [ %56, %204 ], [ %56, %200 ], [ %56, %185 ], [ %56, %192 ], [ %56, %196 ], [ %56, %150 ], [ %56, %.thread113 ]
+  %.073 = phi ptr [ null, %49 ], [ null, %58 ], [ null, %75 ], [ null, %82 ], [ null, %90 ], [ null, %109 ], [ %.174, %158 ], [ %.174, %204 ], [ %.174, %200 ], [ %.174, %185 ], [ %.174, %192 ], [ %.174, %196 ], [ %120, %150 ], [ %120, %.thread113 ]
+  %.169 = phi i32 [ -1, %49 ], [ -1, %58 ], [ -1, %75 ], [ -1, %82 ], [ -1, %90 ], [ -1, %109 ], [ -1, %158 ], [ -1, %204 ], [ 0, %200 ], [ -1, %185 ], [ -1, %192 ], [ -1, %196 ], [ -1, %150 ], [ -1, %.thread113 ]
   %.not95 = icmp eq ptr %.177, null
   br i1 %.not95, label %216, label %209
 
@@ -1758,36 +1758,36 @@ select.unfold:                                    ; preds = %141
 232:                                              ; preds = %228, %225, %224
   %.12 = phi i32 [ -1, %228 ], [ %.11, %225 ], [ %.11, %224 ]
   %.not98 = icmp eq ptr %.073, null
-  br i1 %.not98, label %.thread140, label %233
+  br i1 %.not98, label %.thread145, label %233
 
 233:                                              ; preds = %232
   %234 = call i32 @H5B2_close(ptr noundef nonnull %.073) #7
   %235 = icmp slt i32 %234, 0
-  br i1 %235, label %236, label %.thread140
+  br i1 %235, label %236, label %.thread145
 
 236:                                              ; preds = %233
   %237 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %238 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %239 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_rename, i32 noundef 998, i64 noundef %237, i64 noundef %238, ptr noundef nonnull @.str.9) #7
-  br label %.thread140
+  br label %.thread145
 
-.thread140:                                       ; preds = %22, %43, %236, %233, %232
+.thread145:                                       ; preds = %22, %43, %236, %233, %232
   %.13 = phi i32 [ -1, %236 ], [ %.12, %233 ], [ %.12, %232 ], [ -1, %43 ], [ -1, %22 ]
   %240 = load ptr, ptr %6, align 8, !tbaa !37
   %.not99 = icmp eq ptr %240, null
   br i1 %.not99, label %243, label %241
 
-241:                                              ; preds = %.thread140
+241:                                              ; preds = %.thread145
   %242 = call ptr @H5O_msg_free(i32 noundef 12, ptr noundef nonnull %240) #7
   br label %243
 
-243:                                              ; preds = %4, %241, %.thread140
-  %.072 = phi i32 [ %.13, %241 ], [ %.13, %.thread140 ], [ 0, %4 ]
+243:                                              ; preds = %4, %241, %.thread145
+  %.068 = phi i32 [ %.13, %241 ], [ %.13, %.thread145 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.072
+  ret i32 %.068
 }
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
@@ -1823,7 +1823,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
   %15 = load i64, ptr %14, align 8, !tbaa !39
   %16 = tail call ptr @H5HF_open(ptr noundef %0, i64 noundef %15) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread74, label %18
+  br i1 %17, label %.thread75, label %18
 
 18:                                               ; preds = %13
   %19 = tail call i32 @H5SM_type_shared(ptr noundef %0, i32 noundef 12) #7
@@ -1834,7 +1834,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
   %22 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %23 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove, i32 noundef 1331, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.11) #7
-  br label %.thread65
+  br label %.thread66
 
 25:                                               ; preds = %18
   %.not = icmp eq i32 %19, 0
@@ -1875,7 +1875,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
 
 42:                                               ; preds = %38, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread65
+  br label %.thread66
 
 43:                                               ; preds = %.thread, %25
   %.137 = phi ptr [ null, %25 ], [ %.238.ph, %.thread ]
@@ -1924,45 +1924,45 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
 70:                                               ; preds = %52, %66, %48
   %.1 = phi i32 [ -1, %48 ], [ -1, %66 ], [ 0, %52 ]
   %.not50 = icmp eq ptr %.137, null
-  br i1 %.not50, label %.thread65, label %71
+  br i1 %.not50, label %.thread66, label %71
 
 71:                                               ; preds = %70
   %72 = call i32 @H5HF_close(ptr noundef nonnull %.137) #7
   %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %.thread65
+  br i1 %73, label %74, label %.thread66
 
 74:                                               ; preds = %71
   %75 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %76 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove, i32 noundef 1370, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.7) #7
-  br label %.thread65
+  br label %.thread66
 
-.thread74:                                        ; preds = %13
+.thread75:                                        ; preds = %13
   %78 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %79 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove, i32 noundef 1327, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.10) #7
   br label %95
 
-.thread65:                                        ; preds = %42, %21, %70, %71, %74
-  %.470 = phi i32 [ %.1, %70 ], [ %.1, %71 ], [ -1, %74 ], [ -1, %21 ], [ -1, %42 ]
-  %.0356368 = phi ptr [ %46, %70 ], [ %46, %71 ], [ %46, %74 ], [ null, %21 ], [ null, %42 ]
+.thread66:                                        ; preds = %42, %21, %70, %71, %74
+  %.471 = phi i32 [ %.1, %70 ], [ %.1, %71 ], [ -1, %74 ], [ -1, %21 ], [ -1, %42 ]
+  %.0356469 = phi ptr [ %46, %70 ], [ %46, %71 ], [ %46, %74 ], [ null, %21 ], [ null, %42 ]
   %81 = call i32 @H5HF_close(ptr noundef nonnull %16) #7
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %87
 
-83:                                               ; preds = %.thread65
+83:                                               ; preds = %.thread66
   %84 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %85 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove, i32 noundef 1372, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.7) #7
   br label %87
 
-87:                                               ; preds = %83, %.thread65
-  %.5 = phi i32 [ -1, %83 ], [ %.470, %.thread65 ]
-  %.not52 = icmp eq ptr %.0356368, null
+87:                                               ; preds = %83, %.thread66
+  %.5 = phi i32 [ -1, %83 ], [ %.471, %.thread66 ]
+  %.not52 = icmp eq ptr %.0356469, null
   br i1 %.not52, label %95, label %88
 
 88:                                               ; preds = %87
-  %89 = call i32 @H5B2_close(ptr noundef nonnull %.0356368) #7
+  %89 = call i32 @H5B2_close(ptr noundef nonnull %.0356469) #7
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %95
 
@@ -1972,8 +1972,8 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
   %94 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove, i32 noundef 1374, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.8) #7
   br label %95
 
-95:                                               ; preds = %.thread74, %91, %88, %87
-  %.6 = phi i32 [ -1, %91 ], [ %.5, %88 ], [ %.5, %87 ], [ -1, %.thread74 ]
+95:                                               ; preds = %.thread75, %91, %88, %87
+  %.6 = phi i32 [ -1, %91 ], [ %.5, %88 ], [ %.5, %87 ], [ -1, %.thread75 ]
   %96 = load ptr, ptr %5, align 8, !tbaa !37
   %.not53 = icmp eq ptr %96, null
   br i1 %.not53, label %99, label %97
@@ -1983,10 +1983,10 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef reado
   br label %99
 
 99:                                               ; preds = %3, %97, %95
-  %.034 = phi i32 [ %.6, %97 ], [ %.6, %95 ], [ 0, %3 ]
+  %.033 = phi i32 [ %.6, %97 ], [ %.6, %95 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.034
+  ret i32 %.033
 }
 
 declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -2040,7 +2040,7 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %36 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %37 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1172, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.11) #7
-  br label %.thread118
+  br label %.thread117
 
 39:                                               ; preds = %32
   %.not = icmp eq i32 %33, 0
@@ -2081,7 +2081,7 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 56:                                               ; preds = %52, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread118
+  br label %.thread117
 
 57:                                               ; preds = %.thread83, %39
   %.160 = phi ptr [ null, %39 ], [ %.261.ph, %.thread83 ]
@@ -2139,84 +2139,84 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %84 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %85 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1217, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.36) #7
-  br label %.thread121
+  br label %.thread120
 
 87:                                               ; preds = %.thread
   %88 = call i32 @H5A__attr_iterate_table(ptr noundef nonnull %10, i64 noundef %5, ptr noundef %6, i64 noundef %1, ptr noundef %7, ptr noundef %8) #7
   %89 = icmp slt i32 %88, 0
-  br i1 %89, label %90, label %.thread121
+  br i1 %89, label %90, label %.thread120
 
 90:                                               ; preds = %87
   %91 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %92 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !27
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1221, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.37) #7
-  br label %.thread121
+  br label %.thread120
 
 94:                                               ; preds = %60, %79, %78
   %.155 = phi i32 [ -1, %60 ], [ %72, %79 ], [ %72, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not77 = icmp eq ptr %.160, null
-  br i1 %.not77, label %.thread103, label %95
+  br i1 %.not77, label %.thread102, label %95
 
 95:                                               ; preds = %94
   %96 = call i32 @H5HF_close(ptr noundef nonnull %.160) #7
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %98, label %.thread103
+  br i1 %97, label %98, label %.thread102
 
 98:                                               ; preds = %95
   %99 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %100 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1227, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.7) #7
-  br label %.thread103
+  br label %.thread102
 
-.thread118:                                       ; preds = %35, %56
+.thread117:                                       ; preds = %35, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread103
+  br label %.thread102
 
 102:                                              ; preds = %27
   %103 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %104 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1168, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread121
+  br label %.thread120
 
-.thread103:                                       ; preds = %94, %95, %98, %.thread118
-  %.4111 = phi i32 [ -1, %.thread118 ], [ %.155, %94 ], [ %.155, %95 ], [ -1, %98 ]
-  %.15895108 = phi ptr [ null, %.thread118 ], [ %58, %94 ], [ %58, %95 ], [ %58, %98 ]
+.thread102:                                       ; preds = %94, %95, %98, %.thread117
+  %.4110 = phi i32 [ -1, %.thread117 ], [ %.155, %94 ], [ %.155, %95 ], [ -1, %98 ]
+  %.15894107 = phi ptr [ null, %.thread117 ], [ %58, %94 ], [ %58, %95 ], [ %58, %98 ]
   %106 = call i32 @H5HF_close(ptr noundef nonnull %30) #7
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %108, label %112
 
-108:                                              ; preds = %.thread103
+108:                                              ; preds = %.thread102
   %109 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %110 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %111 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1229, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.7) #7
   br label %112
 
-112:                                              ; preds = %108, %.thread103
-  %.5 = phi i32 [ -1, %108 ], [ %.4111, %.thread103 ]
-  %.not79 = icmp eq ptr %.15895108, null
-  br i1 %.not79, label %.thread121, label %113
+112:                                              ; preds = %108, %.thread102
+  %.5 = phi i32 [ -1, %108 ], [ %.4110, %.thread102 ]
+  %.not79 = icmp eq ptr %.15894107, null
+  br i1 %.not79, label %.thread120, label %113
 
 113:                                              ; preds = %112
-  %114 = call i32 @H5B2_close(ptr noundef nonnull %.15895108) #7
+  %114 = call i32 @H5B2_close(ptr noundef nonnull %.15894107) #7
   %115 = icmp slt i32 %114, 0
-  br i1 %115, label %116, label %.thread121
+  br i1 %115, label %116, label %.thread120
 
 116:                                              ; preds = %113
   %117 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %118 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %119 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1231, i64 noundef %117, i64 noundef %118, ptr noundef nonnull @.str.38) #7
-  br label %.thread121
+  br label %.thread120
 
-.thread121:                                       ; preds = %83, %90, %87, %102, %116, %113, %112
+.thread120:                                       ; preds = %83, %90, %87, %102, %116, %113, %112
   %.6 = phi i32 [ -1, %116 ], [ %.5, %113 ], [ %.5, %112 ], [ -1, %102 ], [ %88, %87 ], [ %88, %90 ], [ -1, %83 ]
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !105
   %.not80 = icmp eq ptr %121, null
   br i1 %.not80, label %129, label %122
 
-122:                                              ; preds = %.thread121
+122:                                              ; preds = %.thread120
   %123 = call i32 @H5A__attr_release_table(ptr noundef nonnull %10) #7
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %129
@@ -2227,10 +2227,10 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %128 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_iterate, i32 noundef 1233, i64 noundef %126, i64 noundef %127, ptr noundef nonnull @.str.39) #7
   br label %129
 
-129:                                              ; preds = %9, %125, %122, %.thread121
-  %.053 = phi i32 [ -1, %125 ], [ %.6, %122 ], [ %.6, %.thread121 ], [ -1, %9 ]
+129:                                              ; preds = %9, %125, %122, %.thread120
+  %.054 = phi i32 [ -1, %125 ], [ %.6, %122 ], [ %.6, %.thread120 ], [ -1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i32 %.053
+  ret i32 %.054
 }
 
 declare i32 @H5B2_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2601,7 +2601,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %30 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %31 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1564, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.11) #7
-  br label %.thread118
+  br label %.thread117
 
 33:                                               ; preds = %26
   %.not74 = icmp eq i32 %27, 0
@@ -2642,7 +2642,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
 
 50:                                               ; preds = %46, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread118
+  br label %.thread117
 
 51:                                               ; preds = %.thread82, %33
   %.160 = phi ptr [ null, %33 ], [ %.261.ph, %.thread82 ]
@@ -2688,7 +2688,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %73 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %74 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1601, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.36) #7
-  br label %.thread122
+  br label %.thread121
 
 76:                                               ; preds = %.thread
   %77 = load i64, ptr %6, align 8, !tbaa !122
@@ -2699,7 +2699,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %79 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !27
   %80 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !27
   %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1605, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.42) #7
-  br label %.thread122
+  br label %.thread121
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2712,79 +2712,79 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %90 = load ptr, ptr %89, align 8, !tbaa !65
   %91 = call i32 @H5A__dense_remove(ptr noundef %0, ptr noundef %1, ptr noundef %90)
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %.thread122
+  br i1 %92, label %93, label %.thread121
 
 93:                                               ; preds = %82
   %94 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %95 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !27
   %96 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1609, i64 noundef %94, i64 noundef %95, ptr noundef nonnull @.str.33) #7
-  br label %.thread122
+  br label %.thread121
 
 97:                                               ; preds = %54, %66, %58
   %.155 = phi i32 [ -1, %54 ], [ -1, %66 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not76 = icmp eq ptr %.160, null
-  br i1 %.not76, label %.thread103, label %98
+  br i1 %.not76, label %.thread102, label %98
 
 98:                                               ; preds = %97
   %99 = call i32 @H5HF_close(ptr noundef nonnull %.160) #7
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %101, label %.thread103
+  br i1 %100, label %101, label %.thread102
 
 101:                                              ; preds = %98
   %102 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %103 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1615, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.7) #7
-  br label %.thread103
+  br label %.thread102
 
-.thread118:                                       ; preds = %29, %50
+.thread117:                                       ; preds = %29, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread103
+  br label %.thread102
 
 105:                                              ; preds = %21
   %106 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %107 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %108 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1560, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread122
+  br label %.thread121
 
-.thread103:                                       ; preds = %97, %98, %101, %.thread118
-  %.5111 = phi i32 [ -1, %.thread118 ], [ %.155, %97 ], [ %.155, %98 ], [ -1, %101 ]
-  %.15895108 = phi ptr [ null, %.thread118 ], [ %52, %97 ], [ %52, %98 ], [ %52, %101 ]
+.thread102:                                       ; preds = %97, %98, %101, %.thread117
+  %.5110 = phi i32 [ -1, %.thread117 ], [ %.155, %97 ], [ %.155, %98 ], [ -1, %101 ]
+  %.15894107 = phi ptr [ null, %.thread117 ], [ %52, %97 ], [ %52, %98 ], [ %52, %101 ]
   %109 = call i32 @H5HF_close(ptr noundef nonnull %24) #7
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %115
 
-111:                                              ; preds = %.thread103
+111:                                              ; preds = %.thread102
   %112 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %113 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1617, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.7) #7
   br label %115
 
-115:                                              ; preds = %111, %.thread103
-  %.6 = phi i32 [ -1, %111 ], [ %.5111, %.thread103 ]
-  %.not78 = icmp eq ptr %.15895108, null
-  br i1 %.not78, label %.thread122, label %116
+115:                                              ; preds = %111, %.thread102
+  %.6 = phi i32 [ -1, %111 ], [ %.5110, %.thread102 ]
+  %.not78 = icmp eq ptr %.15894107, null
+  br i1 %.not78, label %.thread121, label %116
 
 116:                                              ; preds = %115
-  %117 = call i32 @H5B2_close(ptr noundef nonnull %.15895108) #7
+  %117 = call i32 @H5B2_close(ptr noundef nonnull %.15894107) #7
   %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %.thread122
+  br i1 %118, label %119, label %.thread121
 
 119:                                              ; preds = %116
   %120 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %121 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1619, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.38) #7
-  br label %.thread122
+  br label %.thread121
 
-.thread122:                                       ; preds = %72, %78, %93, %82, %105, %119, %116, %115
+.thread121:                                       ; preds = %72, %78, %93, %82, %105, %119, %116, %115
   %.7 = phi i32 [ -1, %119 ], [ %.6, %116 ], [ %.6, %115 ], [ -1, %105 ], [ 0, %82 ], [ -1, %93 ], [ -1, %78 ], [ -1, %72 ]
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !105
   %.not79 = icmp eq ptr %124, null
   br i1 %.not79, label %132, label %125
 
-125:                                              ; preds = %.thread122
+125:                                              ; preds = %.thread121
   %126 = call i32 @H5A__attr_release_table(ptr noundef nonnull %6) #7
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %128, label %132
@@ -2795,10 +2795,10 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
   %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx, i32 noundef 1621, i64 noundef %129, i64 noundef %130, ptr noundef nonnull @.str.39) #7
   br label %132
 
-132:                                              ; preds = %5, %128, %125, %.thread122
-  %.053 = phi i32 [ -1, %128 ], [ %.7, %125 ], [ %.7, %.thread122 ], [ 0, %5 ]
+132:                                              ; preds = %5, %128, %125, %.thread121
+  %.054 = phi i32 [ -1, %128 ], [ %.7, %125 ], [ %.7, %.thread121 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.053
+  ret i32 %.054
 }
 
 declare i32 @H5B2_remove_by_idx(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2842,9 +2842,9 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
 23:                                               ; preds = %12
   %24 = call i32 @H5HF_op(ptr noundef %.045, ptr noundef nonnull %0, ptr noundef nonnull @H5A__dense_copy_fh_cb, ptr noundef nonnull %3) #7
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.thread58, label %32
+  br i1 %25, label %.thread60, label %32
 
-.thread58:                                        ; preds = %23
+.thread60:                                        ; preds = %23
   %26 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %27 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !27
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx_bt2_cb, i32 noundef 1419, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.58) #7
@@ -2979,9 +2979,9 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx_bt2_cb, i32 noundef 1490, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.57) #7
   br label %106
 
-106:                                              ; preds = %86, %81, %.thread, %99, %102, %95
-  %.046 = phi ptr [ %.147, %95 ], [ %.147, %102 ], [ %.147, %99 ], [ %64, %.thread ], [ %.147, %81 ], [ %.147, %86 ]
-  %.142 = phi i32 [ -1, %95 ], [ -1, %102 ], [ 0, %99 ], [ -1, %.thread ], [ 0, %81 ], [ -1, %86 ]
+106:                                              ; preds = %.thread, %86, %81, %99, %102, %95
+  %.046 = phi ptr [ %.147, %95 ], [ %.147, %102 ], [ %.147, %99 ], [ %.147, %81 ], [ %.147, %86 ], [ %64, %.thread ]
+  %.142 = phi i32 [ -1, %95 ], [ -1, %102 ], [ 0, %99 ], [ 0, %81 ], [ -1, %86 ], [ -1, %.thread ]
   %.not54 = icmp eq ptr %.046, null
   br i1 %.not54, label %114, label %107
 
@@ -2996,8 +2996,8 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_remove_by_idx_bt2_cb, i32 noundef 1496, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.38) #7
   br label %114
 
-114:                                              ; preds = %.thread58, %110, %107, %106
-  %.5 = phi i32 [ -1, %110 ], [ %.142, %107 ], [ %.142, %106 ], [ -1, %.thread58 ]
+114:                                              ; preds = %.thread60, %110, %107, %106
+  %.5 = phi i32 [ -1, %110 ], [ %.142, %107 ], [ %.142, %106 ], [ -1, %.thread60 ]
   %115 = load ptr, ptr %15, align 8, !tbaa !113
   %.not55 = icmp eq ptr %115, null
   br i1 %.not55, label %118, label %116
@@ -3007,10 +3007,10 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   br label %118
 
 118:                                              ; preds = %2, %116, %114
-  %.044 = phi i32 [ %.5, %116 ], [ %.5, %114 ], [ 0, %2 ]
+  %.041 = phi i32 [ %.5, %116 ], [ %.5, %114 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.044
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3031,7 +3031,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef reado
   %15 = load i64, ptr %14, align 8, !tbaa !39
   %16 = tail call ptr @H5HF_open(ptr noundef %0, i64 noundef %15) #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread72, label %18
+  br i1 %17, label %.thread73, label %18
 
 18:                                               ; preds = %13
   %19 = tail call i32 @H5SM_type_shared(ptr noundef %0, i32 noundef 12) #7
@@ -3042,7 +3042,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef reado
   %22 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %23 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !27
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_exists, i32 noundef 1660, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.11) #7
-  br label %.thread63
+  br label %.thread64
 
 25:                                               ; preds = %18
   %.not = icmp eq i32 %19, 0
@@ -3083,7 +3083,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef reado
 
 42:                                               ; preds = %38, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread63
+  br label %.thread64
 
 43:                                               ; preds = %.thread, %25
   %.137 = phi ptr [ null, %25 ], [ %.238.ph, %.thread ]
@@ -3130,45 +3130,45 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef reado
 68:                                               ; preds = %52, %64, %48
   %.1 = phi i32 [ -1, %48 ], [ -1, %64 ], [ 0, %52 ]
   %.not49 = icmp eq ptr %.137, null
-  br i1 %.not49, label %.thread63, label %69
+  br i1 %.not49, label %.thread64, label %69
 
 69:                                               ; preds = %68
   %70 = call i32 @H5HF_close(ptr noundef nonnull %.137) #7
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %.thread63
+  br i1 %71, label %72, label %.thread64
 
 72:                                               ; preds = %69
   %73 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %74 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_exists, i32 noundef 1700, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.7) #7
-  br label %.thread63
+  br label %.thread64
 
-.thread72:                                        ; preds = %13
+.thread73:                                        ; preds = %13
   %76 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %77 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_exists, i32 noundef 1656, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.10) #7
   br label %93
 
-.thread63:                                        ; preds = %42, %21, %68, %69, %72
-  %.468 = phi i32 [ %.1, %68 ], [ %.1, %69 ], [ -1, %72 ], [ -1, %21 ], [ -1, %42 ]
-  %.0356166 = phi ptr [ %46, %68 ], [ %46, %69 ], [ %46, %72 ], [ null, %21 ], [ null, %42 ]
+.thread64:                                        ; preds = %42, %21, %68, %69, %72
+  %.469 = phi i32 [ %.1, %68 ], [ %.1, %69 ], [ -1, %72 ], [ -1, %21 ], [ -1, %42 ]
+  %.0356267 = phi ptr [ %46, %68 ], [ %46, %69 ], [ %46, %72 ], [ null, %21 ], [ null, %42 ]
   %79 = call i32 @H5HF_close(ptr noundef nonnull %16) #7
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %85
 
-81:                                               ; preds = %.thread63
+81:                                               ; preds = %.thread64
   %82 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %83 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_exists, i32 noundef 1702, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.7) #7
   br label %85
 
-85:                                               ; preds = %81, %.thread63
-  %.5 = phi i32 [ -1, %81 ], [ %.468, %.thread63 ]
-  %.not51 = icmp eq ptr %.0356166, null
+85:                                               ; preds = %81, %.thread64
+  %.5 = phi i32 [ -1, %81 ], [ %.469, %.thread64 ]
+  %.not51 = icmp eq ptr %.0356267, null
   br i1 %.not51, label %93, label %86
 
 86:                                               ; preds = %85
-  %87 = call i32 @H5B2_close(ptr noundef nonnull %.0356166) #7
+  %87 = call i32 @H5B2_close(ptr noundef nonnull %.0356267) #7
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %93
 
@@ -3178,10 +3178,10 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef reado
   %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_exists, i32 noundef 1704, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.8) #7
   br label %93
 
-93:                                               ; preds = %.thread72, %4, %89, %86, %85
-  %.034 = phi i32 [ -1, %89 ], [ %.5, %86 ], [ %.5, %85 ], [ 0, %4 ], [ -1, %.thread72 ]
+93:                                               ; preds = %.thread73, %4, %89, %86, %85
+  %.033 = phi i32 [ -1, %89 ], [ %.5, %86 ], [ %.5, %85 ], [ 0, %4 ], [ -1, %.thread73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.034
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3349,9 +3349,9 @@ define internal range(i32 -1, 1) i32 @H5A__dense_delete_bt2_cb(ptr noundef %0, p
   %31 = load ptr, ptr %30, align 8, !tbaa !45
   %32 = call i32 @H5HF_op(ptr noundef %31, ptr noundef nonnull %0, ptr noundef nonnull @H5A__dense_copy_fh_cb, ptr noundef nonnull %4) #7
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %.thread28, label %37
+  br i1 %33, label %.thread29, label %37
 
-.thread28:                                        ; preds = %26
+.thread29:                                        ; preds = %26
   %34 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %35 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !27
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_delete_bt2_cb, i32 noundef 1752, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.50) #7
@@ -3381,9 +3381,9 @@ define internal range(i32 -1, 1) i32 @H5A__dense_delete_bt2_cb(ptr noundef %0, p
   %48 = call ptr @H5O_msg_free_real(ptr noundef nonnull @H5O_MSG_ATTR, ptr noundef nonnull %38) #7
   br label %49
 
-49:                                               ; preds = %.thread28, %.thread, %2, %47, %46
-  %.023 = phi i32 [ %.3, %47 ], [ %.3, %46 ], [ 0, %2 ], [ %.120, %.thread ], [ -1, %.thread28 ]
-  ret i32 %.023
+49:                                               ; preds = %.thread29, %.thread, %2, %47, %46
+  %.019 = phi i32 [ %.3, %47 ], [ %.3, %46 ], [ 0, %2 ], [ %.120, %.thread ], [ -1, %.thread29 ]
+  ret i32 %.019
 }
 
 declare i32 @H5HF_delete(ptr noundef, i64 noundef) local_unnamed_addr #2

@@ -213,9 +213,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.thread.thread225, label %.thread
+  br i1 %35, label %.thread.thread226, label %.thread
 
-.thread.thread225:                                ; preds = %32
+.thread.thread226:                                ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef align 8 dereferenceable(40) %3, i64 40, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -229,7 +229,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %42, 0
-  br i1 %45, label %.thread49, label %46
+  br i1 %45, label %.thread50, label %46
 
 46:                                               ; preds = %39
   %47 = lshr i64 %42, 9
@@ -237,14 +237,14 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ugt i64 %47, %50
-  br i1 %51, label %.thread49, label %52
+  br i1 %51, label %.thread50, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 220
   %54 = load i16, ptr %53, align 4
   %55 = zext i16 %54 to i64
   %56 = icmp ugt i64 %44, %55
-  br i1 %56, label %.thread49, label %57
+  br i1 %56, label %.thread50, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -256,9 +256,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 62:                                               ; preds = %57
   %63 = tail call ptr @bio_kmalloc(i16 noundef zeroext 0, i32 noundef 3264) #8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread49, label %.thread42
+  br i1 %64, label %.thread50, label %.thread43
 
-.thread42:                                        ; preds = %62
+.thread43:                                        ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 120
   %66 = load i32, ptr %58, align 8
   %67 = and i32 %66, 255
@@ -268,10 +268,10 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 68:                                               ; preds = %57
   %69 = tail call ptr @bio_alloc_bioset(ptr noundef null, i16 noundef zeroext 0, i32 noundef %59, i32 noundef 3264, ptr noundef nonnull @fs_bio_set) #8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread49, label %71
+  br i1 %70, label %.thread50, label %71
 
-71:                                               ; preds = %.thread42, %68
-  %72 = phi ptr [ %63, %.thread42 ], [ %69, %68 ]
+71:                                               ; preds = %.thread43, %68
+  %72 = phi ptr [ %63, %.thread43 ], [ %69, %68 ]
   tail call void @bio_iov_bvec_set(ptr noundef nonnull %72, ptr noundef %3) #8
   %73 = trunc nuw i64 %44 to i16
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 122
@@ -291,7 +291,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq i64 %44, 0
-  br i1 %85, label %.thread51, label %86
+  br i1 %85, label %.thread52, label %86
 
 86:                                               ; preds = %71
   %87 = getelementptr inbounds nuw i8, ptr %40, i64 136
@@ -373,7 +373,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 136:                                              ; preds = %131
   %137 = add nuw i64 %90, 1
   %138 = icmp eq i64 %137, %44
-  br i1 %138, label %.thread51, label %89, !llvm.loop !9
+  br i1 %138, label %.thread52, label %89, !llvm.loop !9
 
 139:                                              ; preds = %122, %119, %127, %131
   %140 = load i32, ptr %88, align 8
@@ -383,12 +383,12 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 143:                                              ; preds = %139
   tail call void @bio_put(ptr noundef nonnull %72) #8
-  br label %.thread49
+  br label %.thread50
 
 144:                                              ; preds = %139
   tail call void @bio_uninit(ptr noundef nonnull %72) #8
   tail call void @kfree(ptr noundef nonnull %72) #8
-  br label %.thread49
+  br label %.thread50
 
 .thread.thread:                                   ; preds = %117, %118, %30, %21, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef align 8 dereferenceable(40) %3, i64 40, i1 false)
@@ -418,10 +418,10 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br i1 %.not, label %.thread.split.preheader, label %.thread.split.us.preheader
 
-.thread.split.preheader:                          ; preds = %.thread.thread225, %.thread
-  %164 = phi ptr [ %38, %.thread.thread225 ], [ %163, %.thread ]
-  %165 = phi ptr [ %37, %.thread.thread225 ], [ %157, %.thread ]
-  %166 = phi ptr [ %36, %.thread.thread225 ], [ %156, %.thread ]
+.thread.split.preheader:                          ; preds = %.thread.thread226, %.thread
+  %164 = phi ptr [ %38, %.thread.thread226 ], [ %163, %.thread ]
+  %165 = phi ptr [ %37, %.thread.thread226 ], [ %157, %.thread ]
+  %166 = phi ptr [ %36, %.thread.thread226 ], [ %156, %.thread ]
   br label %.thread.split
 
 .thread.split.us.preheader:                       ; preds = %.thread.thread, %.thread
@@ -459,14 +459,14 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %190 = phi i32 [ %188, %185 ], [ 0, %.thread.split.us ]
   %191 = load i64, ptr %173, align 8
   %192 = icmp ugt i64 %191, 1024
-  br i1 %192, label %.thread77, label %193
+  br i1 %192, label %.thread78, label %193
 
 193:                                              ; preds = %189
   %194 = shl nuw nsw i64 %191, 4
   %195 = add nuw nsw i64 %194, 48
   %196 = call noalias align 8 ptr @__kmalloc(i64 noundef %195, i32 noundef %4) #9
   %197 = icmp eq ptr %196, null
-  br i1 %197, label %.thread77, label %198
+  br i1 %197, label %.thread78, label %198
 
 198:                                              ; preds = %193
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 8
@@ -509,45 +509,45 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %224 = trunc nuw nsw i32 %223 to i16
   %225 = call ptr @bio_kmalloc(i16 noundef zeroext %224, i32 noundef %4) #8
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %.loopexit82, label %227
+  br i1 %226, label %.loopexit83, label %227
 
 227:                                              ; preds = %215
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 120
   %229 = load i32, ptr %174, align 8
   %230 = and i32 %229, 255
   call void @bio_init(ptr noundef nonnull %225, ptr noundef null, ptr noundef nonnull %228, i16 noundef zeroext %224, i32 noundef %230) #8
-  br i1 %20, label %231, label %.thread226
+  br i1 %20, label %231, label %.thread227
 
 231:                                              ; preds = %227
   %232 = icmp eq i32 %184, 0
-  br i1 %232, label %.thread58.us, label %.lr.ph115.split.us.us
+  br i1 %232, label %.thread59.us, label %.lr.ph116.split.us.us
 
-.thread226:                                       ; preds = %227
+.thread227:                                       ; preds = %227
   %233 = load i16, ptr %178, align 8
   %234 = zext nneg i16 %233 to i32
   %235 = shl nuw i32 1, %234
   %236 = icmp eq i32 %184, 0
-  br i1 %236, label %.thread61.us, label %.lr.ph115.split.us120.preheader
+  br i1 %236, label %.thread62.us, label %.lr.ph116.split.us121.preheader
 
-.lr.ph115.split.us120.preheader:                  ; preds = %.thread226
+.lr.ph116.split.us121.preheader:                  ; preds = %.thread227
   %237 = load i64, ptr %176, align 8
   %238 = lshr i64 %237, 12
   %239 = trunc i64 %238 to i32
-  br label %.lr.ph115.split.us120
+  br label %.lr.ph116.split.us121
 
-.lr.ph115.split.us120:                            ; preds = %.lr.ph115.split.us120.preheader, %260
-  %240 = phi i32 [ 0, %260 ], [ %190, %.lr.ph115.split.us120.preheader ]
-  %241 = phi i32 [ %262, %260 ], [ %184, %.lr.ph115.split.us120.preheader ]
-  %242 = phi i32 [ %261, %260 ], [ %239, %.lr.ph115.split.us120.preheader ]
+.lr.ph116.split.us121:                            ; preds = %.lr.ph116.split.us121.preheader, %260
+  %240 = phi i32 [ 0, %260 ], [ %190, %.lr.ph116.split.us121.preheader ]
+  %241 = phi i32 [ %262, %260 ], [ %184, %.lr.ph116.split.us121.preheader ]
+  %242 = phi i32 [ %261, %260 ], [ %239, %.lr.ph116.split.us121.preheader ]
   %243 = sub nuw nsw i32 4096, %240
   %244 = call i32 @llvm.umin.i32(i32 %243, i32 %241)
   %245 = load i16, ptr %179, align 2
   %246 = zext i16 %245 to i32
   %247 = shl i32 %246, %234
   %248 = icmp eq i32 %242, %247
-  br i1 %248, label %.thread60.thread80, label %.thread54.us
+  br i1 %248, label %.thread61.thread81, label %.thread55.us
 
-.thread54.us:                                     ; preds = %.lr.ph115.split.us120
+.thread55.us:                                     ; preds = %.lr.ph116.split.us121
   %249 = load ptr, ptr %2, align 8
   %250 = sdiv i32 %242, %235
   %251 = sext i32 %250 to i64
@@ -559,18 +559,18 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %257 = load ptr, ptr %1, align 8
   %258 = call i32 @bio_add_pc_page(ptr noundef %257, ptr noundef nonnull %225, ptr noundef %256, i32 noundef %244, i32 noundef %240) #8
   %259 = icmp ult i32 %258, %244
-  br i1 %259, label %.thread61.us, label %260
+  br i1 %259, label %.thread62.us, label %260
 
-260:                                              ; preds = %.thread54.us
+260:                                              ; preds = %.thread55.us
   %261 = add i32 %242, 1
   %262 = sub i32 %241, %244
   %263 = icmp eq i32 %262, 0
-  br i1 %263, label %.thread58.us, label %.lr.ph115.split.us120
+  br i1 %263, label %.thread59.us, label %.lr.ph116.split.us121
 
-.thread58.us:                                     ; preds = %260, %402, %231, %.split.us.us
-  br i1 %20, label %323, label %.thread61.us
+.thread59.us:                                     ; preds = %260, %402, %231, %.split.us.us
+  br i1 %20, label %323, label %.thread62.us
 
-.thread61.us:                                     ; preds = %.thread54.us, %.thread226, %.thread58.us
+.thread62.us:                                     ; preds = %.thread55.us, %.thread227, %.thread59.us
   %264 = getelementptr inbounds nuw i8, ptr %225, i64 40
   %265 = load i32, ptr %264, align 8
   %266 = zext i32 %265 to i64
@@ -581,12 +581,12 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %270 = icmp eq i8 %269, 0
   br i1 %270, label %274, label %271
 
-271:                                              ; preds = %.thread61.us
+271:                                              ; preds = %.thread62.us
   %272 = load i8, ptr %177, align 4, !range !10, !noundef !11
   %273 = icmp eq i8 %272, 0
   br i1 %273, label %326, label %274
 
-274:                                              ; preds = %271, %.thread61.us
+274:                                              ; preds = %271, %.thread62.us
   %275 = load i8, ptr %181, align 1, !range !10, !noundef !11
   %276 = icmp eq i8 %275, 0
   br i1 %276, label %372, label %277
@@ -606,7 +606,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %284 = load i16, ptr %278, align 8
   %285 = zext i16 %284 to i32
   %286 = icmp samesign ult i32 %282, %285
-  br i1 %286, label %287, label %.thread68.us
+  br i1 %286, label %287, label %.thread69.us
 
 287:                                              ; preds = %280
   %288 = load ptr, ptr %279, align 8
@@ -650,16 +650,16 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %320 = icmp slt i64 %317, %316
   %321 = zext i1 %320 to i32
   %322 = select i1 %319, i32 2, i32 %321
-  switch i32 %322, label %.split.us127 [
+  switch i32 %322, label %.split.us128 [
     i32 0, label %280
-    i32 2, label %.thread68.us
+    i32 2, label %.thread69.us
   ], !llvm.loop !12
 
-.thread68.us:                                     ; preds = %302, %280
+.thread69.us:                                     ; preds = %302, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread64.us
+  br label %.thread65.us
 
-323:                                              ; preds = %.thread58.us
+323:                                              ; preds = %.thread59.us
   %324 = load i8, ptr %170, align 1, !range !10, !noundef !11
   %325 = icmp eq i8 %324, 0
   br i1 %325, label %372, label %326
@@ -676,7 +676,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %333 = load i16, ptr %327, align 8
   %334 = zext i16 %333 to i32
   %335 = icmp samesign ult i32 %331, %334
-  br i1 %335, label %336, label %.thread64.us
+  br i1 %335, label %336, label %.thread65.us
 
 336:                                              ; preds = %329
   %337 = load ptr, ptr %328, align 8
@@ -720,9 +720,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %369 = icmp slt i64 %366, %365
   %370 = zext i1 %369 to i32
   %371 = select i1 %368, i32 2, i32 %370
-  switch i32 %371, label %.thread60 [
+  switch i32 %371, label %.thread61 [
     i32 0, label %329
-    i32 2, label %.thread64.us
+    i32 2, label %.thread65.us
   ], !llvm.loop !12
 
 372:                                              ; preds = %323, %274
@@ -741,39 +741,39 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %380 = load i32, ptr %379, align 8
   %381 = zext i32 %380 to i64
   call void @iov_iter_advance(ptr noundef nonnull %11, i64 noundef %381) #8
-  br label %.thread64.us
+  br label %.thread65.us
 
-.thread64.us:                                     ; preds = %329, %351, %378, %.thread68.us
+.thread65.us:                                     ; preds = %329, %351, %378, %.thread69.us
   %382 = getelementptr inbounds nuw i8, ptr %225, i64 64
   store ptr %196, ptr %382, align 8
   %383 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %225), !range !13
   %384 = icmp eq i32 %383, 0
-  br i1 %384, label %.thread79.us, label %.thread60
+  br i1 %384, label %.thread80.us, label %.thread61
 
-.thread79.us:                                     ; preds = %.thread64.us
+.thread80.us:                                     ; preds = %.thread65.us
   %385 = icmp eq ptr %183, null
   br i1 %385, label %386, label %388
 
-386:                                              ; preds = %.thread79.us
+386:                                              ; preds = %.thread80.us
   %387 = load ptr, ptr %167, align 8
   br label %388
 
-388:                                              ; preds = %386, %.thread79.us
-  %389 = phi ptr [ %183, %.thread79.us ], [ %387, %386 ]
+388:                                              ; preds = %386, %.thread80.us
+  %389 = phi ptr [ %183, %.thread80.us ], [ %387, %386 ]
   %390 = load i64, ptr %175, align 8
   %391 = icmp eq i64 %390, 0
-  br i1 %391, label %.thread51, label %.thread.split.us, !llvm.loop !14
+  br i1 %391, label %.thread52, label %.thread.split.us, !llvm.loop !14
 
-.lr.ph115.split.us.us:                            ; preds = %231, %402
+.lr.ph116.split.us.us:                            ; preds = %231, %402
   %392 = phi i32 [ 0, %402 ], [ %190, %231 ]
   %393 = phi i32 [ %403, %402 ], [ %184, %231 ]
   %394 = sub nuw nsw i32 4096, %392
   %395 = call i32 @llvm.umin.i32(i32 %394, i32 %393)
   %396 = call ptr @alloc_pages(i32 noundef %180, i32 noundef 0) #8
   %397 = icmp eq ptr %396, null
-  br i1 %397, label %.thread60.thread, label %398
+  br i1 %397, label %.thread61.thread, label %398
 
-398:                                              ; preds = %.lr.ph115.split.us.us
+398:                                              ; preds = %.lr.ph116.split.us.us
   %399 = load ptr, ptr %1, align 8
   %400 = call i32 @bio_add_pc_page(ptr noundef %399, ptr noundef nonnull %225, ptr noundef nonnull %396, i32 noundef %395, i32 noundef %392) #8
   %401 = icmp ult i32 %400, %395
@@ -782,11 +782,11 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 402:                                              ; preds = %398
   %403 = sub i32 %393, %395
   %404 = icmp eq i32 %403, 0
-  br i1 %404, label %.thread58.us, label %.lr.ph115.split.us.us
+  br i1 %404, label %.thread59.us, label %.lr.ph116.split.us.us
 
 .split.us.us:                                     ; preds = %398
   call void @__free_pages(ptr noundef nonnull %396, i32 noundef 0) #8
-  br label %.thread58.us
+  br label %.thread59.us
 
 .thread.split:                                    ; preds = %.thread.split.preheader, %557
   %405 = phi ptr [ %558, %557 ], [ null, %.thread.split.preheader ]
@@ -796,31 +796,31 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %409 = call i32 @iov_iter_npages(ptr noundef nonnull %11, i32 noundef 256) #8
   %410 = load i64, ptr %166, align 8
   %411 = icmp eq i64 %410, 0
-  br i1 %411, label %.thread77, label %416
+  br i1 %411, label %.thread78, label %416
 
-.split.us127:                                     ; preds = %302
+.split.us128:                                     ; preds = %302
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread60
+  br label %.thread61
 
-.thread60:                                        ; preds = %.thread64.us, %351, %.split.us127
-  %412 = phi i32 [ -14, %.split.us127 ], [ -14, %351 ], [ %383, %.thread64.us ]
-  br i1 %20, label %.thread60.thread, label %.thread60.thread80
+.thread61:                                        ; preds = %.thread65.us, %351, %.split.us128
+  %412 = phi i32 [ -14, %.split.us128 ], [ -14, %351 ], [ %383, %.thread65.us ]
+  br i1 %20, label %.thread61.thread, label %.thread61.thread81
 
-.thread60.thread:                                 ; preds = %.lr.ph115.split.us.us, %.thread60
-  %413 = phi i32 [ %412, %.thread60 ], [ -12, %.lr.ph115.split.us.us ]
+.thread61.thread:                                 ; preds = %.lr.ph116.split.us.us, %.thread61
+  %413 = phi i32 [ %412, %.thread61 ], [ -12, %.lr.ph116.split.us.us ]
   call void @bio_free_pages(ptr noundef nonnull %225) #8
-  br label %.thread60.thread80
+  br label %.thread61.thread81
 
-.thread60.thread80:                               ; preds = %.lr.ph115.split.us120, %.thread60.thread, %.thread60
-  %414 = phi i32 [ %413, %.thread60.thread ], [ %412, %.thread60 ], [ -12, %.lr.ph115.split.us120 ]
+.thread61.thread81:                               ; preds = %.lr.ph116.split.us121, %.thread61.thread, %.thread61
+  %414 = phi i32 [ %413, %.thread61.thread ], [ %412, %.thread61 ], [ -12, %.lr.ph116.split.us121 ]
   call void @bio_uninit(ptr noundef nonnull %225) #8
   call void @kfree(ptr noundef nonnull %225) #8
-  br label %.loopexit82
+  br label %.loopexit83
 
-.loopexit82:                                      ; preds = %215, %.thread60.thread80
-  %415 = phi i32 [ %414, %.thread60.thread80 ], [ -12, %215 ]
+.loopexit83:                                      ; preds = %215, %.thread61.thread81
+  %415 = phi i32 [ %414, %.thread61.thread81 ], [ -12, %215 ]
   call void @kfree(ptr noundef nonnull %196) #8
-  br label %.thread77
+  br label %.thread78
 
 416:                                              ; preds = %.thread.split
   %417 = load i32, ptr %165, align 8
@@ -834,9 +834,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 423:                                              ; preds = %416
   %424 = call ptr @bio_kmalloc(i16 noundef zeroext %422, i32 noundef %4) #8
   %425 = icmp eq ptr %424, null
-  br i1 %425, label %.thread77, label %.thread70
+  br i1 %425, label %.thread78, label %.thread71
 
-.thread70:                                        ; preds = %423
+.thread71:                                        ; preds = %423
   %426 = getelementptr inbounds nuw i8, ptr %424, i64 120
   %427 = load i32, ptr %165, align 8
   %428 = and i32 %427, 255
@@ -846,10 +846,10 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 429:                                              ; preds = %416
   %430 = call ptr @bio_alloc_bioset(ptr noundef null, i16 noundef zeroext %422, i32 noundef %417, i32 noundef %4, ptr noundef nonnull @fs_bio_set) #8
   %431 = icmp eq ptr %430, null
-  br i1 %431, label %.thread77, label %432
+  br i1 %431, label %.thread78, label %432
 
-432:                                              ; preds = %.thread70, %429
-  %433 = phi ptr [ %424, %.thread70 ], [ %430, %429 ]
+432:                                              ; preds = %.thread71, %429
+  %433 = phi ptr [ %424, %.thread71 ], [ %430, %429 ]
   %434 = load ptr, ptr %1, align 8
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 32
   %436 = load volatile i64, ptr %435, align 8
@@ -890,9 +890,9 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 452:                                              ; preds = %451, %.lr.ph
   %453 = call i64 @iov_iter_extract_pages(ptr noundef nonnull %11, ptr noundef nonnull %7, i64 noundef 9223372036854775807, i32 noundef %409, i32 noundef %439, ptr noundef nonnull %8) #8
   %454 = icmp slt i64 %453, 1
-  br i1 %454, label %.thread74, label %458, !prof !15
+  br i1 %454, label %.thread75, label %458, !prof !15
 
-.thread74:                                        ; preds = %452
+.thread75:                                        ; preds = %452
   %455 = icmp eq i64 %453, 0
   %456 = trunc i64 %453 to i32
   %457 = select i1 %455, i32 -14, i32 %456
@@ -970,7 +970,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %504 = add nuw nsw i64 %480, 1
   %505 = icmp eq i64 %504, %477
-  br i1 %505, label %.thread72, label %478, !llvm.loop !17
+  br i1 %505, label %.thread73, label %478, !llvm.loop !17
 
 506:                                              ; preds = %478
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -981,7 +981,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %509 = phi i32 [ 0, %470 ], [ %507, %506 ]
   %510 = phi i64 [ %453, %470 ], [ %481, %506 ]
   %511 = icmp slt i32 %509, %463
-  br i1 %511, label %512, label %.thread72
+  br i1 %511, label %512, label %.thread73
 
 512:                                              ; preds = %508
   %513 = sext i32 %509 to i64
@@ -1006,23 +1006,23 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 526:                                              ; preds = %522, %516
   %527 = icmp eq i64 %518, %515
-  br i1 %527, label %.thread72, label %516, !llvm.loop !18
+  br i1 %527, label %.thread73, label %516, !llvm.loop !18
 
-.thread72:                                        ; preds = %501, %526, %508
+.thread73:                                        ; preds = %501, %526, %508
   %528 = phi i64 [ %510, %508 ], [ %510, %526 ], [ %503, %501 ]
   %529 = load ptr, ptr %7, align 8
   %530 = icmp eq ptr %529, %6
   br i1 %530, label %532, label %531
 
-531:                                              ; preds = %.thread72
+531:                                              ; preds = %.thread73
   call void @kvfree(ptr noundef %529) #8
   br label %532
 
-532:                                              ; preds = %531, %.thread72
+532:                                              ; preds = %531, %.thread73
   %533 = icmp eq i64 %528, 0
-  br i1 %533, label %534, label %.thread73
+  br i1 %533, label %534, label %.thread74
 
-.thread73:                                        ; preds = %532
+.thread74:                                        ; preds = %532
   call void @iov_iter_revert(ptr noundef nonnull %11, i64 noundef %528) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1037,13 +1037,13 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %536 = icmp eq i64 %535, 0
   br i1 %536, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %534, %446, %.thread73
+.loopexit:                                        ; preds = %534, %446, %.thread74
   %537 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %433), !range !13
   %538 = icmp eq i32 %537, 0
-  br i1 %538, label %.thread79, label %539
+  br i1 %538, label %.thread80, label %539
 
-539:                                              ; preds = %.thread74, %.loopexit
-  %540 = phi i32 [ %537, %.loopexit ], [ %457, %.thread74 ]
+539:                                              ; preds = %.thread75, %.loopexit
+  %540 = phi i32 [ %537, %.loopexit ], [ %457, %.thread75 ]
   %541 = load i16, ptr %448, align 4
   %542 = and i16 %541, 1
   %543 = icmp eq i16 %542, 0
@@ -1071,36 +1071,36 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 552:                                              ; preds = %551, %550
   %553 = icmp eq i32 %540, 0
-  br i1 %553, label %.thread79, label %.thread77
+  br i1 %553, label %.thread80, label %.thread78
 
-.thread79:                                        ; preds = %.loopexit, %552
+.thread80:                                        ; preds = %.loopexit, %552
   %554 = icmp eq ptr %405, null
   br i1 %554, label %555, label %557
 
-555:                                              ; preds = %.thread79
+555:                                              ; preds = %.thread80
   %556 = load ptr, ptr %164, align 8
   br label %557
 
-557:                                              ; preds = %555, %.thread79
-  %558 = phi ptr [ %405, %.thread79 ], [ %556, %555 ]
+557:                                              ; preds = %555, %.thread80
+  %558 = phi ptr [ %405, %.thread80 ], [ %556, %555 ]
   %559 = load i64, ptr %166, align 8
   %560 = icmp eq i64 %559, 0
-  br i1 %560, label %.thread51, label %.thread.split, !llvm.loop !14
+  br i1 %560, label %.thread52, label %.thread.split, !llvm.loop !14
 
-.thread77:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit82
-  %561 = phi ptr [ %183, %.loopexit82 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
-  %562 = phi i32 [ %415, %.loopexit82 ], [ -12, %189 ], [ -12, %193 ], [ %540, %552 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
+.thread78:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit83
+  %561 = phi ptr [ %183, %.loopexit83 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
+  %562 = phi i32 [ %415, %.loopexit83 ], [ -12, %189 ], [ -12, %193 ], [ %540, %552 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
   %563 = call i32 @blk_rq_unmap_user(ptr noundef %561)
-  br label %.thread49
+  br label %.thread50
 
-.thread49:                                        ; preds = %62, %144, %143, %68, %52, %39, %46, %.thread77
-  %564 = phi i32 [ %562, %.thread77 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -22, %46 ], [ -12, %62 ]
+.thread50:                                        ; preds = %62, %144, %143, %68, %52, %39, %46, %.thread78
+  %564 = phi i32 [ %562, %.thread78 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -22, %46 ], [ -12, %62 ]
   %565 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %565, align 8
-  br label %.thread51
+  br label %.thread52
 
-.thread51:                                        ; preds = %557, %136, %388, %71, %.thread49
-  %566 = phi i32 [ %564, %.thread49 ], [ 0, %71 ], [ 0, %388 ], [ 0, %136 ], [ 0, %557 ]
+.thread52:                                        ; preds = %557, %136, %388, %71, %.thread50
+  %566 = phi i32 [ %564, %.thread50 ], [ 0, %71 ], [ 0, %388 ], [ 0, %136 ], [ 0, %557 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %566
 }

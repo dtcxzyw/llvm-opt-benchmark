@@ -671,8 +671,8 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !130
   %35 = tail call i32 %34(ptr noundef nonnull %31, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #6
-  %.not7594 = icmp eq i32 %35, 0
-  br i1 %.not7594, label %.lr.ph, label %.loopexit
+  %.not7595 = icmp eq i32 %35, 0
+  br i1 %.not7595, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -746,7 +746,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %72 = load i8, ptr %71, align 1, !tbaa !134
   %73 = zext i8 %72 to i32
   %switch = icmp ult i8 %72, 3
-  br i1 %switch, label %.thread, label %.split99.us.thread
+  br i1 %switch, label %.thread, label %.split100.us.thread
 
 .thread:                                          ; preds = %66, %69
   %74 = phi i32 [ %73, %69 ], [ 2, %66 ]
@@ -764,34 +764,34 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !127
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %83, label %.thread121
+  br i1 %82, label %83, label %.thread122
 
 83:                                               ; preds = %77, %79
   %84 = load ptr, ptr %0, align 8, !tbaa !123
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !129
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %.thread121
+  br i1 %87, label %88, label %.thread122
 
 88:                                               ; preds = %83
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #6
   %.pre = load i64, ptr %37, align 2
-  %.pre108 = and i64 %.pre, 2147483648
-  %89 = icmp eq i64 %.pre108, 0
-  br i1 %89, label %.critedge, label %.thread121
+  %.pre109 = and i64 %.pre, 2147483648
+  %89 = icmp eq i64 %.pre109, 0
+  br i1 %89, label %.critedge, label %.thread122
 
-.thread121:                                       ; preds = %79, %83, %88
+.thread122:                                       ; preds = %79, %83, %88
   %90 = load ptr, ptr %38, align 8, !tbaa !126
   %.not80 = icmp eq ptr %90, null
   br i1 %.not80, label %95, label %91
 
-91:                                               ; preds = %.thread121
+91:                                               ; preds = %.thread122
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i32, ptr %92, align 8, !tbaa !127
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %.critedge
 
-95:                                               ; preds = %91, %.thread121
+95:                                               ; preds = %91, %.thread122
   %96 = icmp ne i32 %74, 1
   %97 = zext i1 %96 to i32
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i32 noundef %97) #6
@@ -802,13 +802,13 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %.not81 = icmp eq i32 %98, 0
   br i1 %.not81, label %108, label %.loopexit
 
-.split99.us.thread:                               ; preds = %69
+.split100.us.thread:                              ; preds = %69
   %99 = load i64, ptr %37, align 2
   %100 = and i64 %99, 2147483648
   %.not82 = icmp eq i64 %100, 0
   br i1 %.not82, label %.loopexit, label %101
 
-101:                                              ; preds = %.split99.us.thread
+101:                                              ; preds = %.split100.us.thread
   %102 = load ptr, ptr %38, align 8, !tbaa !126
   %.not83 = icmp eq ptr %102, null
   br i1 %.not83, label %107, label %103
@@ -843,8 +843,8 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   store i8 1, ptr %3, align 1, !tbaa !42
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split, %108, %.critedge, %.lr.ph.split.us, %54, %.thread.us, %47, %29, %.split99.us.thread, %103, %107, %.split.us, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %.split.us ], [ 7, %.split99.us.thread ], [ 7, %103 ], [ 7, %107 ], [ %35, %29 ], [ 0, %.lr.ph.split.us ], [ %61, %54 ], [ %53, %.thread.us ], [ 7, %47 ], [ 0, %.lr.ph.split ], [ %115, %108 ], [ %98, %.critedge ]
+.loopexit:                                        ; preds = %.lr.ph.split, %108, %.critedge, %.lr.ph.split.us, %54, %.thread.us, %47, %29, %.split100.us.thread, %103, %107, %.split.us, %10
+  %.0 = phi i32 [ 0, %10 ], [ 0, %.split.us ], [ 7, %.split100.us.thread ], [ 7, %103 ], [ 7, %107 ], [ %35, %29 ], [ 0, %.lr.ph.split.us ], [ %61, %54 ], [ %53, %.thread.us ], [ 7, %47 ], [ 0, %.lr.ph.split ], [ %115, %108 ], [ %98, %.critedge ]
   ret i32 %.0
 }
 

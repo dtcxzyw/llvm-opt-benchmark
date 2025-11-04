@@ -4558,19 +4558,19 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call void @h5tools_str_close(ptr noundef nonnull %7) #14
   br label %314
 
-313:                                              ; preds = %.thread, %296, %257, %203, %295, %263
+313:                                              ; preds = %296, %257, %203, %295, %263, %.thread
   %.0148.ph = phi i32 [ %.8, %295 ], [ -1, %263 ], [ %.6, %257 ], [ -1, %203 ], [ 0, %296 ], [ %.1, %.thread ]
   call void @h5tools_str_close(ptr noundef nonnull %7) #14
   call void @free(ptr noundef nonnull %56) #14
   br label %314
 
 314:                                              ; preds = %312, %313
-  %.0 = phi i32 [ %.0148.ph, %313 ], [ -1, %312 ]
+  %.0148189 = phi i32 [ -1, %312 ], [ %.0148.ph, %313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0
+  ret i32 %.0148189
 }
 
 ; Function Attrs: nounwind uwtable

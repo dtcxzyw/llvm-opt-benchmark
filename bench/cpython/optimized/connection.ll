@@ -2243,9 +2243,9 @@ Py_DECREF.exit.thread.i:                          ; preds = %157, %154, %.lr.ph.
   br label %pysqlite_connection_backup_impl.exit
 
 pysqlite_connection_backup_impl.exit:             ; preds = %172, %.split.us.i, %Py_DECREF.exit.i, %147, %126, %121, %pysqlite_check_connection.exit72.thread.i, %pysqlite_check_connection.exit.thread.i, %pysqlite_check_thread.exit.i, %.thread96, %27, %58, %12, %42, %77
-  %.055 = phi ptr [ null, %42 ], [ null, %77 ], [ null, %58 ], [ null, %27 ], [ null, %12 ], [ null, %.thread96 ], [ null, %121 ], [ null, %147 ], [ null, %172 ], [ null, %Py_DECREF.exit.i ], [ null, %126 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %.split.us.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_connection.exit72.thread.i ]
+  %.058 = phi ptr [ null, %42 ], [ null, %77 ], [ null, %58 ], [ null, %27 ], [ null, %12 ], [ null, %.thread96 ], [ null, %121 ], [ null, %147 ], [ null, %172 ], [ null, %Py_DECREF.exit.i ], [ null, %126 ], [ null, %pysqlite_check_thread.exit.i ], [ @_Py_NoneStruct, %.split.us.i ], [ null, %pysqlite_check_connection.exit.thread.i ], [ null, %pysqlite_check_connection.exit72.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.055
+  ret ptr %.058
 }
 
 ; Function Attrs: nounwind uwtable

@@ -377,51 +377,51 @@ define dso_local i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef 
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.21, ptr noundef nonnull %9, i32 noundef %26, ptr noundef %1) #15
   %27 = load ptr, ptr %8, align 8
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
-  %.not3145 = icmp eq i64 %28, 0
-  br i1 %.not3145, label %.outer._crit_edge, label %.lr.ph.split
+  %.not3146 = icmp eq i64 %28, 0
+  br i1 %.not3146, label %.outer._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %25, %.lr.ph.split.backedge
-  %.025.ph48 = phi ptr [ %44, %.lr.ph.split.backedge ], [ %27, %25 ]
-  %.026.ph46 = phi i64 [ %45, %.lr.ph.split.backedge ], [ %28, %25 ]
-  %29 = call i64 @write(i32 noundef %22, ptr noundef %.025.ph48, i64 noundef %.026.ph46) #15
+  %.025.ph49 = phi ptr [ %44, %.lr.ph.split.backedge ], [ %27, %25 ]
+  %.026.ph47 = phi i64 [ %45, %.lr.ph.split.backedge ], [ %28, %25 ]
+  %29 = call i64 @write(i32 noundef %22, ptr noundef %.025.ph49, i64 noundef %.026.ph47) #15
   %30 = and i64 %29, 2147483648
-  %.not3243 = icmp eq i64 %30, 0
-  br i1 %.not3243, label %.split.us, label %.lr.ph44
+  %.not3244 = icmp eq i64 %30, 0
+  br i1 %.not3244, label %.split.us, label %.lr.ph45
 
-.lr.ph44:                                         ; preds = %.lr.ph.split
+.lr.ph45:                                         ; preds = %.lr.ph.split
   %31 = tail call ptr @__errno_location() #19
   br label %32
 
-32:                                               ; preds = %.lr.ph44, %34
+32:                                               ; preds = %.lr.ph45, %34
   %33 = load i32, ptr %31, align 4
-  switch i32 %33, label %.split38.us [
+  switch i32 %33, label %.split39.us [
     i32 11, label %34
     i32 4, label %34
   ]
 
 34:                                               ; preds = %32, %32
-  %35 = call i64 @write(i32 noundef %22, ptr noundef %.025.ph48, i64 noundef %.026.ph46) #15
+  %35 = call i64 @write(i32 noundef %22, ptr noundef %.025.ph49, i64 noundef %.026.ph47) #15
   %36 = and i64 %35, 2147483648
   %.not32 = icmp eq i64 %36, 0
   br i1 %.not32, label %.split.us, label %32
 
-.split38.us:                                      ; preds = %32
+.split39.us:                                      ; preds = %32
   %37 = call i32 @get_log_level() #15
   %38 = icmp sgt i32 %37, 4
-  br i1 %38, label %39, label %66
+  br i1 %38, label %39, label %68
 
-39:                                               ; preds = %.split38.us
+39:                                               ; preds = %.split39.us
   %40 = load ptr, ptr %8, align 8
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #17
   %42 = trunc i64 %41 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @__func__.x11_set_xauth, i64 noundef %.026.ph46, i32 noundef %42) #15
-  br label %66
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @__func__.x11_set_xauth, i64 noundef %.026.ph47, i32 noundef %42) #15
+  br label %68
 
 .split.us:                                        ; preds = %34, %.lr.ph.split
   %.us-phi = phi i64 [ %29, %.lr.ph.split ], [ %35, %34 ]
   %43 = and i64 %.us-phi, 2147483647
-  %44 = getelementptr inbounds nuw i8, ptr %.025.ph48, i64 %43
-  %45 = sub i64 %.026.ph46, %43
+  %44 = getelementptr inbounds nuw i8, ptr %.025.ph49, i64 %43
+  %45 = sub i64 %.026.ph47, %43
   %.not33 = icmp eq i64 %45, 0
   br i1 %.not33, label %.outer._crit_edge, label %46
 
@@ -465,19 +465,15 @@ define dso_local i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef 
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   %63 = call i32 @get_log_level() #15
   %64 = icmp sgt i32 %63, 5
-  br i1 %64, label %65, label %67
+  br i1 %64, label %65, label %66
 
 65:                                               ; preds = %.outer._crit_edge
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.x11_set_xauth, ptr noundef %61) #15
-  br label %67
+  br label %66
 
-66:                                               ; preds = %39, %.split38.us
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.x11_set_xauth) #18
-  unreachable
-
-67:                                               ; preds = %.outer._crit_edge, %65
+66:                                               ; preds = %65, %.outer._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %68 = load i32, ptr %4, align 4
+  %67 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -485,7 +481,11 @@ define dso_local i32 @x11_set_xauth(ptr noundef %0, ptr noundef %1, i16 noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %68
+  ret i32 %67
+
+68:                                               ; preds = %39, %.split39.us
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.x11_set_xauth) #18
+  unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

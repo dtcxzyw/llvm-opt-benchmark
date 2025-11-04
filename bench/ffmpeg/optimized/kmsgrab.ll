@@ -717,28 +717,28 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   br label %100
 
 100:                                              ; preds = %.thread.i, %95
-  %indvars.iv145.i = phi i64 [ 0, %95 ], [ %indvars.iv.next146.i, %.thread.i ]
-  %.0102140.i = phi i32 [ 0, %95 ], [ %.3105128.i, %.thread.i ]
-  %101 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv145.i
+  %indvars.iv146.i = phi i64 [ 0, %95 ], [ %indvars.iv.next147.i, %.thread.i ]
+  %.0102141.i = phi i32 [ 0, %95 ], [ %.3105129.i, %.thread.i ]
+  %101 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv146.i
   %102 = load i32, ptr %101, align 4, !tbaa !42
   %.not120.i = icmp eq i32 %102, 0
-  br i1 %.not120.i, label %.critedge.split.loop.exit155.i, label %103
+  br i1 %.not120.i, label %.critedge.split.loop.exit156.i, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv145.i
+  %104 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv146.i
   %105 = load i32, ptr %104, align 4, !tbaa !42
   %106 = load i32, ptr %77, align 8, !tbaa !58
-  %107 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv145.i
+  %107 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv146.i
   %108 = load i32, ptr %107, align 4, !tbaa !42
   %109 = mul i32 %108, %106
   %110 = add i32 %109, %105
   %111 = zext i32 %110 to i64
-  %.not122138.not.i = icmp eq i64 %indvars.iv145.i, 0
-  br i1 %.not122138.not.i, label %.critedge124.i, label %.lr.ph.i
+  %.not122139.not.i = icmp eq i64 %indvars.iv146.i, 0
+  br i1 %.not122139.not.i, label %.critedge124.i, label %.lr.ph.i
 
 112:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv145.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv146.i
   br i1 %exitcond.not.i, label %.critedge124.i, label %.lr.ph.i, !llvm.loop !108
 
 .lr.ph.i:                                         ; preds = %103, %112
@@ -762,7 +762,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   br label %124
 
 124:                                              ; preds = %123, %116
-  %125 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv145.i
+  %125 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv146.i
   %126 = zext i32 %105 to i64
   %127 = zext i32 %108 to i64
   store i32 %118, ptr %125, align 8, !tbaa !42
@@ -783,8 +783,8 @@ define internal range(i32 -2147483647, -2147483648) i32 @kmsgrab_read_packet(ptr
   br i1 %131, label %select.unfold.i, label %141
 
 select.unfold.i:                                  ; preds = %.critedge124.i
-  %132 = add nsw i32 %.0102140.i, 1
-  %133 = sext i32 %.0102140.i to i64
+  %132 = add nsw i32 %.0102141.i, 1
+  %133 = sext i32 %.0102141.i to i64
   %134 = getelementptr inbounds %struct.AVDRMObjectDescriptor, ptr %98, i64 %133
   %135 = load i32, ptr %4, align 4, !tbaa !42
   store i32 %135, ptr %134, align 8, !tbaa !42
@@ -794,12 +794,12 @@ select.unfold.i:                                  ; preds = %.critedge124.i
   store i64 %111, ptr %.sroa.33.0..sroa_idx.i, align 8, !tbaa !113
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 %.0106.i, ptr %.sroa.44.0..sroa_idx.i, align 8, !tbaa !113
-  %136 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv145.i
+  %136 = getelementptr inbounds nuw %struct.AVDRMPlaneDescriptor, ptr %99, i64 %indvars.iv146.i
   %137 = load i32, ptr %104, align 4, !tbaa !42
   %138 = zext i32 %137 to i64
   %139 = load i32, ptr %107, align 4, !tbaa !42
   %140 = zext i32 %139 to i64
-  store i32 %.0102140.i, ptr %136, align 8, !tbaa !42
+  store i32 %.0102141.i, ptr %136, align 8, !tbaa !42
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -819,18 +819,18 @@ select.unfold.i:                                  ; preds = %.critedge124.i
   br label %147
 
 .thread.i:                                        ; preds = %select.unfold.i, %124
-  %.3105128.i = phi i32 [ %132, %select.unfold.i ], [ %.0102140.i, %124 ]
-  %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
-  %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 4
-  br i1 %exitcond148.not.i, label %.critedge.i, label %100, !llvm.loop !114
+  %.3105129.i = phi i32 [ %132, %select.unfold.i ], [ %.0102141.i, %124 ]
+  %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
+  %exitcond149.not.i = icmp eq i64 %indvars.iv.next147.i, 4
+  br i1 %exitcond149.not.i, label %.critedge.i, label %100, !llvm.loop !114
 
-.critedge.split.loop.exit155.i:                   ; preds = %100
-  %146 = trunc nuw nsw i64 %indvars.iv145.i to i32
+.critedge.split.loop.exit156.i:                   ; preds = %100
+  %146 = trunc nuw nsw i64 %indvars.iv146.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.thread.i, %.critedge.split.loop.exit155.i
-  %.0102.lcssa.i = phi i32 [ %.0102140.i, %.critedge.split.loop.exit155.i ], [ %.3105128.i, %.thread.i ]
-  %.0101.lcssa.i = phi i32 [ %146, %.critedge.split.loop.exit155.i ], [ 4, %.thread.i ]
+.critedge.i:                                      ; preds = %.thread.i, %.critedge.split.loop.exit156.i
+  %.0102.lcssa.i = phi i32 [ %.0102141.i, %.critedge.split.loop.exit156.i ], [ %.3105129.i, %.thread.i ]
+  %.0101.lcssa.i = phi i32 [ %146, %.critedge.split.loop.exit156.i ], [ 4, %.thread.i ]
   store i32 %.0102.lcssa.i, ptr %45, align 8, !tbaa !115
   store i32 %.0101.lcssa.i, ptr %.sroa.425.0..sroa_idx.i, align 4, !tbaa !117
   br label %147

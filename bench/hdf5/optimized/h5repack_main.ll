@@ -881,16 +881,16 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %145
   %230 = load ptr, ptr @H5_optarg, align 8, !tbaa !8
   %231 = call i64 @strtol(ptr noundef nonnull captures(none) %230, ptr noundef null, i32 noundef 10) #14
   %232 = icmp eq i64 %231, 0
-  %spec.store.select146.i = select i1 %232, i64 -1, i64 %231
-  store i64 %spec.store.select146.i, ptr %35, align 8
+  %spec.store.select147.i = select i1 %232, i64 -1, i64 %231
+  store i64 %spec.store.select147.i, ptr %35, align 8
   br label %.loopexit.i
 
 233:                                              ; preds = %58
   %234 = load ptr, ptr @H5_optarg, align 8, !tbaa !8
   %235 = call i64 @strtoll(ptr noundef captures(none) %234, ptr noundef null, i32 noundef 0) #14
   %236 = icmp eq i64 %235, 0
-  %spec.store.select147.i = select i1 %236, i64 -1, i64 %235
-  store i64 %spec.store.select147.i, ptr %34, align 8
+  %spec.store.select148.i = select i1 %236, i64 -1, i64 %235
+  store i64 %spec.store.select148.i, ptr %34, align 8
   br label %.loopexit.i
 
 237:                                              ; preds = %58
@@ -901,8 +901,8 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %145
 240:                                              ; preds = %58
   %241 = load ptr, ptr @H5_optarg, align 8, !tbaa !8
   %242 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %241, ptr noundef nonnull dereferenceable(5) @.str.260) #15
-  %.not.i148.i = icmp eq i32 %242, 0
-  br i1 %.not.i148.i, label %set_sort_by.exit.thread.i, label %243
+  %.not.i149.i = icmp eq i32 %242, 0
+  br i1 %.not.i149.i, label %set_sort_by.exit.thread.i, label %243
 
 243:                                              ; preds = %240
   %244 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %241, ptr noundef nonnull dereferenceable(15) @.str.261) #15
@@ -923,17 +923,17 @@ set_sort_by.exit.thread.i:                        ; preds = %243, %240
 246:                                              ; preds = %58
   %247 = load ptr, ptr @H5_optarg, align 8, !tbaa !8
   %248 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %247, ptr noundef nonnull dereferenceable(10) @.str.262) #15
-  %.not.i149.i = icmp eq i32 %248, 0
-  br i1 %.not.i149.i, label %set_sort_order.exit.thread.i, label %249
+  %.not.i150.i = icmp eq i32 %248, 0
+  br i1 %.not.i150.i, label %set_sort_order.exit.thread.i, label %249
 
 249:                                              ; preds = %246
   %250 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %247, ptr noundef nonnull dereferenceable(11) @.str.263) #15
-  %.not2.i150.i = icmp eq i32 %250, 0
-  br i1 %.not2.i150.i, label %set_sort_order.exit.thread.i, label %251
+  %.not2.i151.i = icmp eq i32 %250, 0
+  br i1 %.not2.i151.i, label %set_sort_order.exit.thread.i, label %251
 
 set_sort_order.exit.thread.i:                     ; preds = %249, %246
-  %.0.i152.ph.i = phi i32 [ 0, %246 ], [ 1, %249 ]
-  store i32 %.0.i152.ph.i, ptr @sort_order, align 4, !tbaa !4
+  %.0.i153.ph.i = phi i32 [ 0, %246 ], [ 1, %249 ]
+  store i32 %.0.i153.ph.i, ptr @sort_order, align 4, !tbaa !4
   br label %.loopexit.i
 
 251:                                              ; preds = %249

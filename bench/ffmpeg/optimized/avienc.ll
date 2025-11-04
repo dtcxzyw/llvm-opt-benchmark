@@ -835,19 +835,19 @@ define internal range(i32 -2147483648, 1) i32 @avi_write_packet(ptr noundef %0, 
 24:                                               ; preds = %21
   %25 = tail call i32 @ff_check_h264_startcode(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %1) #10
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.thread146, label %._crit_edge162
+  br i1 %26, label %.thread147, label %._crit_edge163
 
-._crit_edge162:                                   ; preds = %24
+._crit_edge163:                                   ; preds = %24
   %.pre = load ptr, ptr %7, align 8, !tbaa !36
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %9
-  %.pre163 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !37
-  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %.pre163, i64 16
-  %.pre165 = load ptr, ptr %.phi.trans.insert164, align 8, !tbaa !54
+  %.pre164 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !37
+  %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.pre164, i64 16
+  %.pre166 = load ptr, ptr %.phi.trans.insert165, align 8, !tbaa !54
   br label %27
 
-27:                                               ; preds = %._crit_edge162, %21, %17, %2
-  %28 = phi ptr [ %.pre165, %._crit_edge162 ], [ %13, %21 ], [ %13, %17 ], [ %13, %2 ]
-  %29 = phi ptr [ %.pre163, %._crit_edge162 ], [ %11, %21 ], [ %11, %17 ], [ %11, %2 ]
+27:                                               ; preds = %._crit_edge163, %21, %17, %2
+  %28 = phi ptr [ %.pre166, %._crit_edge163 ], [ %13, %21 ], [ %13, %17 ], [ %13, %2 ]
+  %29 = phi ptr [ %.pre164, %._crit_edge163 ], [ %11, %21 ], [ %11, %17 ], [ %11, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !95
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 156
@@ -896,7 +896,7 @@ define internal range(i32 -2147483648, 1) i32 @avi_write_packet(ptr noundef %0, 
 
 write_skip_frames.exit:                           ; preds = %49
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.43, i64 noundef %50) #10
-  br label %.thread146
+  br label %.thread147
 
 .loopexit:                                        ; preds = %52, %43, %47, %27
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -906,7 +906,7 @@ write_skip_frames.exit:                           ; preds = %49
 
 60:                                               ; preds = %.loopexit
   %61 = tail call fastcc i32 @avi_write_packet_internal(ptr noundef %0, ptr noundef nonnull %1)
-  br label %.thread146
+  br label %.thread147
 
 62:                                               ; preds = %.loopexit
   %63 = load i32, ptr %13, align 8, !tbaa !59
@@ -947,14 +947,14 @@ write_skip_frames.exit:                           ; preds = %49
   %89 = and i32 %88, -4
   %90 = call i32 @ff_reshuffle_raw_rgb(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %13, i32 noundef %89) #10
   %91 = icmp sgt i32 %90, -1
-  br i1 %91, label %92, label %.thread146
+  br i1 %91, label %92, label %.thread147
 
 92:                                               ; preds = %65, %75, %79
   %.0110 = phi i32 [ %90, %79 ], [ 0, %75 ], [ 0, %65 ]
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %94 = load i32, ptr %93, align 4, !tbaa !76
   %95 = icmp eq i32 %94, 11
-  br i1 %95, label %96, label %.thread138
+  br i1 %95, label %96, label %.thread139
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %70, i64 88
@@ -964,7 +964,7 @@ write_skip_frames.exit:                           ; preds = %49
 
 100:                                              ; preds = %96
   %.not123 = icmp eq i32 %98, 0
-  br i1 %.not123, label %.thread138, label %101
+  br i1 %.not123, label %.thread139, label %101
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -1023,7 +1023,7 @@ write_skip_frames.exit:                           ; preds = %49
   %126 = zext nneg i32 %125 to i64
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %124, i64 %126)
   %.not126 = icmp eq i32 %bcmp, 0
-  br i1 %.not126, label %.thread138, label %avi_stream2fourcc.exit
+  br i1 %.not126, label %.thread139, label %avi_stream2fourcc.exit
 
 avi_stream2fourcc.exit:                           ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1047,7 +1047,7 @@ avi_stream2fourcc.exit:                           ; preds = %123
   %139 = load i32, ptr %138, align 8, !tbaa !66
   %140 = and i32 %139, 1
   %.not127 = icmp eq i32 %140, 0
-  br i1 %.not127, label %.lr.ph153.preheader, label %141
+  br i1 %.not127, label %.lr.ph154.preheader, label %141
 
 141:                                              ; preds = %avi_stream2fourcc.exit
   %142 = getelementptr inbounds nuw i8, ptr %70, i64 80
@@ -1068,65 +1068,65 @@ avi_stream2fourcc.exit:                           ; preds = %123
   %150 = add nuw nsw i32 %125, 4
   %151 = call fastcc i32 @avi_add_ientry(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull %4, i32 noundef 256, i32 noundef %150)
   %152 = icmp slt i32 %151, 0
-  br i1 %152, label %159, label %.lr.ph153.preheader
+  br i1 %152, label %159, label %.lr.ph154.preheader
 
-.lr.ph153.preheader:                              ; preds = %avi_stream2fourcc.exit, %149
+.lr.ph154.preheader:                              ; preds = %avi_stream2fourcc.exit, %149
   %153 = call i64 @ff_start_tag(ptr noundef nonnull %72, ptr noundef nonnull %4) #10
   call void @avio_w8(ptr noundef nonnull %72, i32 noundef 0) #10
   %154 = and i32 %104, 255
   call void @avio_w8(ptr noundef nonnull %72, i32 noundef %154) #10
   call void @avio_wl16(ptr noundef nonnull %72, i32 noundef 0) #10
-  %wide.trip.count160 = zext nneg i32 %104 to i64
-  br label %.lr.ph153
+  %wide.trip.count161 = zext nneg i32 %104 to i64
+  br label %.lr.ph154
 
-.lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
-  %indvars.iv156 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next157, %.lr.ph153 ]
-  %155 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv156
+.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %.lr.ph154
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph154.preheader ], [ %indvars.iv.next158, %.lr.ph154 ]
+  %155 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv157
   %156 = load i32, ptr %155, align 4, !tbaa !74
   %157 = shl i32 %156, 8
   call void @avio_wb32(ptr noundef nonnull %72, i32 noundef %157) #10
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count160
-  br i1 %exitcond161.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !101
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count161
+  br i1 %exitcond162.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !101
 
-._crit_edge154:                                   ; preds = %.lr.ph153
+._crit_edge155:                                   ; preds = %.lr.ph154
   %sext = shl i64 %153, 32
   %158 = ashr exact i64 %sext, 32
   call void @ff_end_tag(ptr noundef nonnull %72, i64 noundef %158) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %124, ptr noundef nonnull align 8 dereferenceable(1) %97, i64 %126, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread138
+  br label %.thread139
 
 159:                                              ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %161
 
-.thread138:                                       ; preds = %._crit_edge154, %123, %100, %92
+.thread139:                                       ; preds = %._crit_edge155, %123, %100, %92
   %.not129 = icmp eq i32 %.0110, 0
-  %.pre166 = load ptr, ptr %3, align 8, !tbaa !92
-  br i1 %.not129, label %163, label %.thread141
+  %.pre167 = load ptr, ptr %3, align 8, !tbaa !92
+  br i1 %.not129, label %163, label %.thread142
 
-.thread141:                                       ; preds = %.thread138
-  %160 = call fastcc i32 @avi_write_packet_internal(ptr noundef nonnull %0, ptr noundef %.pre166)
+.thread142:                                       ; preds = %.thread139
+  %160 = call fastcc i32 @avi_write_packet_internal(ptr noundef nonnull %0, ptr noundef %.pre167)
   br label %162
 
 161:                                              ; preds = %159, %96
   %.0102 = phi i32 [ %98, %96 ], [ %151, %159 ]
   %.not130 = icmp eq i32 %.0110, 0
-  br i1 %.not130, label %.thread146, label %162
+  br i1 %.not130, label %.thread147, label %162
 
-162:                                              ; preds = %.thread141, %161
-  %.0102144 = phi i32 [ %160, %.thread141 ], [ %.0102, %161 ]
+162:                                              ; preds = %.thread142, %161
+  %.0102145 = phi i32 [ %160, %.thread142 ], [ %.0102, %161 ]
   call void @av_packet_free(ptr noundef nonnull %3) #10
-  br label %.thread146
+  br label %.thread147
 
-163:                                              ; preds = %.thread138, %62
-  %164 = phi ptr [ %.pre166, %.thread138 ], [ %1, %62 ]
+163:                                              ; preds = %.thread139, %62
+  %164 = phi ptr [ %.pre167, %.thread139 ], [ %1, %62 ]
   %165 = call fastcc i32 @avi_write_packet_internal(ptr noundef %0, ptr noundef %164)
-  br label %.thread146
+  br label %.thread147
 
-.thread146:                                       ; preds = %161, %162, %79, %write_skip_frames.exit, %24, %163, %60
-  %.0 = phi i32 [ %165, %163 ], [ %61, %60 ], [ %25, %24 ], [ -22, %write_skip_frames.exit ], [ %.0102, %161 ], [ %.0102144, %162 ], [ %90, %79 ]
+.thread147:                                       ; preds = %161, %162, %79, %write_skip_frames.exit, %24, %163, %60
+  %.0 = phi i32 [ %165, %163 ], [ %61, %60 ], [ %25, %24 ], [ -22, %write_skip_frames.exit ], [ %.0102, %161 ], [ %.0102145, %162 ], [ %90, %79 ]
   ret i32 %.0
 }
 

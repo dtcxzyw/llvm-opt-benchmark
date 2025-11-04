@@ -3600,7 +3600,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 %59(ptr noundef %0) #9
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.thread23
+  br i1 %61, label %62, label %.thread24
 
 62:                                               ; preds = %54
   %63 = load i32, ptr %20, align 4
@@ -3663,14 +3663,14 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef %0) #9
   %104 = icmp eq i32 %74, 0
-  br i1 %104, label %105, label %.thread23
+  br i1 %104, label %105, label %.thread24
 
 105:                                              ; preds = %101
   %106 = load i32, ptr %20, align 4
   %107 = icmp ugt i32 %106, 11
-  br i1 %107, label %108, label %.thread24
+  br i1 %107, label %108, label %.thread25
 
-.thread24:                                        ; preds = %105
+.thread25:                                        ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %141
@@ -3686,7 +3686,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   br i1 %110, label %114, label %134
 
 114:                                              ; preds = %108
-  br i1 %113, label %115, label %.thread27
+  br i1 %113, label %115, label %.thread28
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 904
@@ -3698,7 +3698,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
 120:                                              ; preds = %115
   %121 = load ptr, ptr %102, align 8
   call void %121(ptr noundef %0) #9
-  br label %.thread27
+  br label %.thread28
 
 122:                                              ; preds = %115
   %123 = load i16, ptr %12, align 2
@@ -3720,10 +3720,10 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %132 = load ptr, ptr %102, align 8
   call void %132(ptr noundef %0) #9
   %133 = icmp eq i32 %131, 0
-  br i1 %133, label %140, label %.thread27
+  br i1 %133, label %140, label %.thread28
 
 134:                                              ; preds = %108
-  br i1 %113, label %135, label %.thread27
+  br i1 %113, label %135, label %.thread28
 
 135:                                              ; preds = %134
   %136 = load ptr, ptr %66, align 8
@@ -3731,16 +3731,16 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %138 = load ptr, ptr %102, align 8
   call void %138(ptr noundef %0) #9
   %139 = icmp eq i32 %137, 0
-  br i1 %139, label %140, label %.thread27
+  br i1 %139, label %140, label %.thread28
 
-.thread23:                                        ; preds = %54, %101
+.thread24:                                        ; preds = %54, %101
   %.ph = phi i32 [ %74, %101 ], [ %60, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %367
 
-.thread27:                                        ; preds = %120, %114, %127, %134, %135
-  %.ph26 = phi i32 [ %137, %135 ], [ %112, %134 ], [ %131, %127 ], [ %112, %114 ], [ %118, %120 ]
+.thread28:                                        ; preds = %120, %114, %127, %134, %135
+  %.ph27 = phi i32 [ %137, %135 ], [ %112, %134 ], [ %131, %127 ], [ %112, %114 ], [ %118, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3753,8 +3753,8 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %.pr = load i32, ptr %20, align 4
   br label %141
 
-141:                                              ; preds = %140, %.thread24, %28
-  %142 = phi i32 [ %.pr, %140 ], [ %106, %.thread24 ], [ %29, %28 ]
+141:                                              ; preds = %140, %.thread25, %28
+  %142 = phi i32 [ %.pr, %140 ], [ %106, %.thread25 ], [ %29, %28 ]
   %143 = icmp ugt i32 %142, 10
   br i1 %143, label %144, label %150
 
@@ -3802,19 +3802,19 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %171 = load ptr, ptr %170, align 8
   %172 = call i32 %171(ptr noundef %0) #9
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %.thread30
+  br i1 %173, label %174, label %.thread31
 
 174:                                              ; preds = %169
   %175 = call i32 @e1000e_read_kmrn_reg_locked(ptr noundef %0, i32 noundef 7, ptr noundef nonnull %6) #9
   %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %.thread34
+  br i1 %176, label %177, label %.thread35
 
 177:                                              ; preds = %174
   %178 = load i16, ptr %6, align 2
   %179 = and i16 %178, -3
   %180 = call i32 @e1000e_write_kmrn_reg_locked(ptr noundef %0, i32 noundef 7, i16 noundef zeroext %179) #9
   %181 = icmp eq i32 %180, 0
-  br i1 %181, label %211, label %.thread34
+  br i1 %181, label %211, label %.thread35
 
 182:                                              ; preds = %156
   %183 = and i32 %162, -257
@@ -3822,21 +3822,21 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %185 = load i32, ptr %184, align 8
   %186 = icmp ult i32 %185, 6
   %187 = and i1 %158, %186
-  br i1 %187, label %188, label %.thread31
+  br i1 %187, label %188, label %.thread32
 
 188:                                              ; preds = %182
   %189 = and i32 %165, 64
   %190 = icmp eq i32 %189, 0
   %191 = and i32 %165, 65
   %192 = icmp eq i32 %191, 65
-  br i1 %192, label %.thread31, label %193
+  br i1 %192, label %.thread32, label %193
 
 193:                                              ; preds = %188
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %195 = load ptr, ptr %194, align 8
   %196 = call i32 %195(ptr noundef %0, i32 noundef 24658, ptr noundef nonnull %6) #9
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %.thread30
+  br i1 %197, label %198, label %.thread31
 
 198:                                              ; preds = %193
   %199 = load i16, ptr %6, align 2
@@ -3851,21 +3851,21 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %205 = load ptr, ptr %204, align 8
   %206 = call i32 %205(ptr noundef %0, i32 noundef 24658, i16 noundef zeroext %.sink) #9
   %207 = icmp eq i32 %206, 0
-  br i1 %207, label %.thread31, label %.thread30
+  br i1 %207, label %.thread32, label %.thread31
 
-.thread31:                                        ; preds = %182, %188, %198
+.thread32:                                        ; preds = %182, %188, %198
   %208 = phi i32 [ %183, %182 ], [ %203, %198 ], [ %183, %188 ]
   call void @__ew32(ptr noundef %0, i64 noundef 16, i32 noundef %208) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %218
 
-.thread30:                                        ; preds = %169, %193, %198
-  %.ph29 = phi i32 [ %206, %198 ], [ %196, %193 ], [ %172, %169 ]
+.thread31:                                        ; preds = %169, %193, %198
+  %.ph30 = phi i32 [ %206, %198 ], [ %196, %193 ], [ %172, %169 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %367
 
-.thread34:                                        ; preds = %174, %177
-  %.ph33 = phi i32 [ %180, %177 ], [ %175, %174 ]
+.thread35:                                        ; preds = %174, %177
+  %.ph34 = phi i32 [ %180, %177 ], [ %175, %174 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %210 = load ptr, ptr %209, align 8
   call void %210(ptr noundef %0) #9
@@ -3885,12 +3885,12 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %217 = icmp eq i32 %214, 0
   br i1 %217, label %218, label %367
 
-218:                                              ; preds = %.thread31, %211, %150
+218:                                              ; preds = %.thread32, %211, %150
   %219 = load i32, ptr %20, align 4
   %220 = icmp ugt i32 %219, 10
-  br i1 %220, label %222, label %.thread43
+  br i1 %220, label %222, label %.thread44
 
-.thread43:                                        ; preds = %218
+.thread44:                                        ; preds = %218
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 9372
   store i16 0, ptr %221, align 4
   br label %317
@@ -3935,7 +3935,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1436
   %246 = load i32, ptr %245, align 4
   %247 = icmp ugt i32 %243, %246
-  br i1 %247, label %248, label %.thread38
+  br i1 %247, label %248, label %.thread39
 
 248:                                              ; preds = %237
   %249 = sub nuw nsw i32 %243, %246
@@ -3945,7 +3945,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %253 = mul i32 %249, %252
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i32 %253, 1023
-  br i1 %255, label %.preheader, label %.thread38
+  br i1 %255, label %.preheader, label %.thread39
 
 .preheader:                                       ; preds = %248, %.preheader
   %256 = phi i64 [ %260, %.preheader ], [ %254, %248 ]
@@ -3958,9 +3958,9 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
 
 262:                                              ; preds = %.preheader
   %263 = icmp ugt i16 %258, 5
-  br i1 %263, label %293, label %.thread38
+  br i1 %263, label %293, label %.thread39
 
-.thread38:                                        ; preds = %237, %248, %262
+.thread39:                                        ; preds = %237, %248, %262
   %264 = phi i64 [ %260, %262 ], [ %254, %248 ], [ 0, %237 ]
   %265 = phi i16 [ %258, %262 ], [ 0, %248 ], [ 0, %237 ]
   %266 = shl nuw nsw i16 %265, 10
@@ -4003,16 +4003,16 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %367
 
-294:                                              ; preds = %222, %.thread38
-  %295 = phi i32 [ %292, %.thread38 ], [ 0, %222 ]
+294:                                              ; preds = %222, %.thread39
+  %295 = phi i32 [ %292, %.thread39 ], [ 0, %222 ]
   %296 = shl nuw i32 %295, 16
   %297 = or i32 %225, %296
   %298 = or i32 %297, %295
   call void @__ew32(ptr noundef %0, i64 noundef 248, i32 noundef %298) #9
-  %.pr42 = load i32, ptr %20, align 4
+  %.pr43 = load i32, ptr %20, align 4
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 9372
   store i16 0, ptr %299, align 4
-  %300 = icmp ugt i32 %.pr42, 10
+  %300 = icmp ugt i32 %.pr43, 10
   br i1 %300, label %301, label %317
 
 301:                                              ; preds = %294
@@ -4038,7 +4038,7 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   call void @__ew32(ptr noundef %0, i64 noundef 16, i32 noundef %316) #9
   br label %317
 
-317:                                              ; preds = %.thread43, %315, %294
+317:                                              ; preds = %.thread44, %315, %294
   %318 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %319 = icmp eq i8 %318, 0
   br i1 %319, label %367, label %320
@@ -4079,16 +4079,16 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %341 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %340) #9, !srcloc !8
   %342 = and i32 %341, 1
   %343 = icmp eq i32 %342, 0
-  %.pre46 = load i16, ptr %8, align 2
+  %.pre47 = load i16, ptr %8, align 2
   br i1 %343, label %344, label %346
 
 344:                                              ; preds = %332
-  %345 = or i16 %.pre46, 4096
+  %345 = or i16 %.pre47, 4096
   store i16 %345, ptr %8, align 2
   br label %346
 
 346:                                              ; preds = %344, %332
-  %347 = phi i16 [ %345, %344 ], [ %.pre46, %332 ]
+  %347 = phi i16 [ %345, %344 ], [ %.pre47, %332 ]
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %349 = load ptr, ptr %348, align 8
   %350 = call i32 %349(ptr noundef %0, i32 noundef 24656, i16 noundef zeroext %347) #9
@@ -4119,8 +4119,8 @@ define internal i32 @e1000_check_for_copper_link_ich8lan(ptr noundef %0) #0 alig
   %366 = call i32 @e1000e_config_fc_after_link_up(ptr noundef %0) #9
   br label %369
 
-367:                                              ; preds = %293, %.thread34, %.thread30, %.thread27, %.thread23, %317, %211, %23, %16
-  %368 = phi i32 [ %17, %16 ], [ %26, %23 ], [ %214, %211 ], [ -3, %293 ], [ 0, %317 ], [ %.ph, %.thread23 ], [ %.ph26, %.thread27 ], [ %.ph29, %.thread30 ], [ %.ph33, %.thread34 ]
+367:                                              ; preds = %293, %.thread35, %.thread31, %.thread28, %.thread24, %317, %211, %23, %16
+  %368 = phi i32 [ %17, %16 ], [ %26, %23 ], [ %214, %211 ], [ -3, %293 ], [ 0, %317 ], [ %.ph, %.thread24 ], [ %.ph27, %.thread28 ], [ %.ph30, %.thread31 ], [ %.ph34, %.thread35 ]
   store i8 1, ptr %13, align 8
   br label %369
 

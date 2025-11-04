@@ -1800,7 +1800,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %27 = tail call noalias align 8 dereferenceable_or_null(696) ptr @kmalloc_node_trace(ptr noundef %26, i32 noundef %18, i32 noundef %25, i64 noundef 696) #19
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.split9.us, label %29
+  br i1 %28, label %.split10.us, label %29
 
 29:                                               ; preds = %.thread.split.us
   store volatile ptr %27, ptr %27, align 8
@@ -1866,7 +1866,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %65 = load ptr, ptr %61, align 16
   %66 = tail call noalias align 8 dereferenceable_or_null(696) ptr @kmalloc_node_trace(ptr noundef %65, i32 noundef %18, i32 noundef %64, i64 noundef 696) #19
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.split9.us, label %68
+  br i1 %67, label %.split10.us, label %68
 
 68:                                               ; preds = %62
   store volatile ptr %66, ptr %66, align 8
@@ -1918,7 +1918,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %96 = icmp eq i32 %95, %16
   br i1 %96, label %.loopexit, label %62, !llvm.loop !57
 
-.split9.us:                                       ; preds = %62, %.thread.split.us
+.split10.us:                                      ; preds = %62, %.thread.split.us
   %97 = load ptr, ptr %23, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1300
   %99 = load i32, ptr %98, align 4
@@ -1926,7 +1926,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %.loopexit, label %102
 
-102:                                              ; preds = %.split9.us
+102:                                              ; preds = %.split10.us
   %103 = zext i8 %100 to i32
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = load i32, ptr %104, align 8
@@ -1973,8 +1973,8 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   %130 = icmp eq ptr %118, %113
   br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !58
 
-.loopexit:                                        ; preds = %94, %55, %128, %126, %109, %102, %.split9.us, %12
-  %131 = phi i32 [ -12, %.split9.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %126 ], [ -12, %128 ], [ 0, %55 ], [ 0, %94 ]
+.loopexit:                                        ; preds = %94, %55, %128, %126, %109, %102, %.split10.us, %12
+  %131 = phi i32 [ -12, %.split10.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %126 ], [ -12, %128 ], [ 0, %55 ], [ 0, %94 ]
   ret i32 %131
 }
 

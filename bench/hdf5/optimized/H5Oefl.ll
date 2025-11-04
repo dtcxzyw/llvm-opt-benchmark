@@ -1613,9 +1613,9 @@ define range(i32 -1, 1) i32 @H5O_efl_total_size(ptr noundef readonly captures(no
   store i64 %.022.lcssa, ptr %1, align 8, !tbaa !13
   br label %43
 
-43:                                               ; preds = %39, %._crit_edge, %15, %28, %11
-  %.021 = phi i32 [ -1, %11 ], [ 0, %28 ], [ 0, %15 ], [ -1, %39 ], [ 0, %._crit_edge ]
-  ret i32 %.021
+43:                                               ; preds = %15, %28, %11, %._crit_edge, %39
+  %.020 = phi i32 [ -1, %11 ], [ 0, %28 ], [ 0, %15 ], [ -1, %39 ], [ 0, %._crit_edge ]
+  ret i32 %.020
 }
 
 declare i32 @H5O__init_package() local_unnamed_addr #2

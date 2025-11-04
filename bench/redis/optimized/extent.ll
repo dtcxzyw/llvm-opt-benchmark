@@ -1100,17 +1100,17 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
   br label %28
 
 28:                                               ; preds = %48, %malloc_mutex_lock.exit
-  %.val38 = load ptr, ptr %22, align 8, !tbaa !60
-  %29 = icmp eq ptr %.val38, null
+  %.val39 = load ptr, ptr %22, align 8, !tbaa !60
+  %29 = icmp eq ptr %.val39, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %.val39 = load ptr, ptr %24, align 8, !tbaa !60
-  %31 = icmp eq ptr %.val39, null
+  %.val40 = load ptr, ptr %24, align 8, !tbaa !60
+  %31 = icmp eq ptr %.val40, null
   br i1 %31, label %.thread46, label %32
 
 32:                                               ; preds = %30, %28
-  %.033 = phi ptr [ %.val39, %30 ], [ %.val38, %28 ]
+  %.033 = phi ptr [ %.val40, %30 ], [ %.val39, %28 ]
   %.032 = phi ptr [ %23, %30 ], [ %21, %28 ]
   %33 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %21) #9
   %34 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %23) #9
@@ -1165,12 +1165,12 @@ select.unfold:                                    ; preds = %41
   tail call void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.033) #9
   br label %.thread46
 
-.thread46:                                        ; preds = %32, %30, %52, %51
-  %.13443 = phi ptr [ %.033, %51 ], [ %.033, %52 ], [ null, %30 ], [ null, %32 ]
+.thread46:                                        ; preds = %32, %30, %51, %52
+  %.13444 = phi ptr [ %.033, %51 ], [ %.033, %52 ], [ null, %30 ], [ null, %32 ]
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store atomic i8 0, ptr %53 monotonic, align 1
   %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #9
-  ret ptr %.13443
+  ret ptr %.13444
 }
 
 declare void @je_eset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2

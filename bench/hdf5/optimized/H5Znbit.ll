@@ -801,7 +801,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %.thread45, !prof !9
+  br i1 %8, label %9, label %.thread46, !prof !9
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8, !tbaa !10
@@ -815,23 +815,23 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   %15 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %16 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__calc_parms_compound, i32 noundef 300, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.18) #8
-  br label %.thread45
+  br label %.thread46
 
 18:                                               ; preds = %9
   %19 = load i64, ptr %1, align 8, !tbaa !10
   %20 = add i64 %19, 1
   store i64 %20, ptr %1, align 8, !tbaa !10
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %.thread45, label %.lr.ph
+  br i1 %.not, label %.thread46, label %.lr.ph
 
 21:                                               ; preds = %55
-  %22 = add nuw i32 %.03359, 1
+  %22 = add nuw i32 %.03360, 1
   %exitcond.not = icmp eq i32 %22, %12
-  br i1 %exitcond.not, label %.thread45, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread46, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %18, %21
-  %.03359 = phi i32 [ %22, %21 ], [ 0, %18 ]
-  %23 = tail call ptr @H5T_get_member_type(ptr noundef nonnull %0, i32 noundef %.03359) #8
+  %.03360 = phi i32 [ %22, %21 ], [ 0, %18 ]
+  %23 = tail call ptr @H5T_get_member_type(ptr noundef nonnull %0, i32 noundef %.03360) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %62, label %25
 
@@ -897,8 +897,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   br label %66
 
 .sink.split:                                      ; preds = %32, %32, %49
-  %.sink75 = phi i64 [ 3, %49 ], [ 6, %32 ], [ 6, %32 ]
-  %54 = add i64 %33, %.sink75
+  %.sink76 = phi i64 [ 3, %49 ], [ 6, %32 ], [ 6, %32 ]
+  %54 = add i64 %33, %.sink76
   store i64 %54, ptr %1, align 8, !tbaa !10
   br label %55
 
@@ -917,22 +917,22 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   %63 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %64 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__calc_parms_compound, i32 noundef 311, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.19) #8
-  br label %.thread45
+  br label %.thread46
 
 66:                                               ; preds = %45, %38, %58, %50, %28
   %67 = tail call i32 @H5T_close_real(ptr noundef nonnull %23) #8
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %.thread45
+  br i1 %68, label %69, label %.thread46
 
 69:                                               ; preds = %66
   %70 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %71 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !10
   %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__calc_parms_compound, i32 noundef 366, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.21) #8
-  br label %.thread45
+  br label %.thread46
 
-.thread45:                                        ; preds = %21, %18, %14, %62, %2, %66, %69
-  %.031 = phi i32 [ -1, %69 ], [ -1, %66 ], [ -1, %62 ], [ 0, %2 ], [ -1, %14 ], [ 0, %18 ], [ 0, %21 ]
-  ret i32 %.031
+.thread46:                                        ; preds = %21, %18, %14, %62, %2, %66, %69
+  %.032 = phi i32 [ -1, %69 ], [ -1, %66 ], [ -1, %62 ], [ 0, %2 ], [ -1, %14 ], [ 0, %18 ], [ 0, %21 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

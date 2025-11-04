@@ -1306,7 +1306,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %425 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %426 = load i8, ptr %425, align 8, !tbaa !117
   %.not114.i = icmp eq i8 %426, 0
-  br i1 %.not114.i, label %427, label %.thread145.i
+  br i1 %.not114.i, label %427, label %.thread146.i
 
 427:                                              ; preds = %409
   %428 = getelementptr inbounds nuw i8, ptr %413, i64 5
@@ -1350,7 +1350,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 
 450:                                              ; preds = %445
   %451 = icmp slt i32 %439, %442
-  br i1 %451, label %.thread145.sink.split.i, label %452
+  br i1 %451, label %.thread146.sink.split.i, label %452
 
 452:                                              ; preds = %450
   %453 = icmp eq i32 %439, 0
@@ -1360,7 +1360,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %455 = getelementptr inbounds nuw i8, ptr %391, i64 15
   %456 = load i8, ptr %455, align 1, !tbaa !122
   %.not117.i = icmp eq i8 %456, 0
-  br i1 %.not117.i, label %463, label %.thread145.sink.split.i
+  br i1 %.not117.i, label %463, label %.thread146.sink.split.i
 
 457:                                              ; preds = %434
   %458 = getelementptr inbounds nuw i8, ptr %413, i64 12
@@ -1400,7 +1400,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 4
   %482 = load i32, ptr %481, align 4, !tbaa !84
   %483 = icmp eq i32 %482, 86019
-  br i1 %483, label %.thread145.sink.split.i, label %484
+  br i1 %483, label %.thread146.sink.split.i, label %484
 
 484:                                              ; preds = %463
   %485 = load i32, ptr %14, align 8, !tbaa !25
@@ -1408,7 +1408,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %487 = load i16, ptr %486, align 2, !tbaa !132
   %488 = zext i16 %487 to i32
   %.not118.i = icmp eq i32 %485, %488
-  br i1 %.not118.i, label %.thread145.i, label %.lr.ph.i
+  br i1 %.not118.i, label %.thread146.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %484
   %489 = getelementptr inbounds nuw i8, ptr %469, i64 5
@@ -1419,10 +1419,10 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 491:                                              ; preds = %574, %.lr.ph.i
   %492 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %508, %574 ]
   %493 = phi i32 [ %485, %.lr.ph.i ], [ %512, %574 ]
-  %.089152.i = phi i32 [ %488, %.lr.ph.i ], [ %578, %574 ]
-  %494 = zext nneg i32 %.089152.i to i64
+  %.089153.i = phi i32 [ %488, %.lr.ph.i ], [ %578, %574 ]
+  %494 = zext nneg i32 %.089153.i to i64
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 %494
-  %496 = sub nsw i32 %493, %.089152.i
+  %496 = sub nsw i32 %493, %.089153.i
   %497 = sext i32 %496 to i64
   %498 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %5, ptr noundef %495, i64 noundef %497) #17
   %499 = icmp slt i32 %498, 0
@@ -1445,7 +1445,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %510 = zext nneg i32 %507 to i64
   %511 = getelementptr inbounds nuw i8, ptr %509, i64 %510
   %512 = load i32, ptr %14, align 8, !tbaa !25
-  %513 = add nuw i32 %507, %.089152.i
+  %513 = add nuw i32 %507, %.089153.i
   %514 = sub i32 %512, %513
   %or.cond.i.i = icmp ugt i32 %514, 268435455
   %515 = shl nuw nsw i32 %514, 3
@@ -1480,8 +1480,8 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 
 .split:                                           ; preds = %504, %.split
   %533 = phi i1 [ false, %.split ], [ true, %504 ]
-  %.sroa.7.0149.i = phi i32 [ %.sroa.7.1.i, %.split ], [ 5, %504 ]
-  %534 = add i32 %.sroa.7.0149.i, 5
+  %.sroa.7.0150.i = phi i32 [ %.sroa.7.1.i, %.split ], [ 5, %504 ]
+  %534 = add i32 %.sroa.7.0150.i, 5
   %535 = call i32 @llvm.umin.i32(i32 %519, i32 %534)
   %536 = lshr i32 %535, 3
   %537 = zext nneg i32 %536 to i64
@@ -1516,13 +1516,13 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
 556:                                              ; preds = %.split626
   %557 = icmp slt i32 %.us-phi, %519
   %558 = zext i1 %557 to i32
-  %spec.select.i128.i = add i32 %.us-phi, %558
-  %559 = lshr i32 %spec.select.i128.i, 3
+  %spec.select.i129.i = add i32 %.us-phi, %558
+  %559 = lshr i32 %spec.select.i129.i, 3
   %560 = zext nneg i32 %559 to i64
   %561 = getelementptr inbounds nuw i8, ptr %511, i64 %560
   %562 = load i32, ptr %561, align 1, !tbaa !88
   %563 = call i32 @llvm.bswap.i32(i32 %562)
-  %564 = and i32 %spec.select.i128.i, 7
+  %564 = and i32 %spec.select.i129.i, 7
   %565 = shl i32 %563, %564
   %566 = load i16, ptr %490, align 2, !tbaa !135
   %sum.shift.i = lshr i32 %565, 21
@@ -1543,15 +1543,15 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %575 = getelementptr inbounds nuw i8, ptr %501, i64 46
   %576 = load i16, ptr %575, align 2, !tbaa !132
   %577 = zext i16 %576 to i32
-  %578 = add nuw nsw i32 %.089152.i, %577
+  %578 = add nuw nsw i32 %.089153.i, %577
   %.not119.i = icmp eq i32 %578, %512
-  br i1 %.not119.i, label %.thread145.i, label %491, !llvm.loop !136
+  br i1 %.not119.i, label %.thread146.i, label %491, !llvm.loop !136
 
-.thread145.sink.split.i:                          ; preds = %463, %454, %450
+.thread146.sink.split.i:                          ; preds = %463, %454, %450
   store i8 1, ptr %425, align 8, !tbaa !117
-  br label %.thread145.i
+  br label %.thread146.i
 
-.thread145.i:                                     ; preds = %574, %.thread145.sink.split.i, %484, %409
+.thread146.i:                                     ; preds = %574, %.thread146.sink.split.i, %484, %409
   %579 = getelementptr inbounds nuw i8, ptr %391, i64 9
   %580 = load i8, ptr %579, align 1, !tbaa !137
   %581 = icmp eq i8 %580, 0
@@ -1559,11 +1559,11 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %or.cond.i546 = select i1 %581, i1 %582, i1 false
   br i1 %or.cond.i546, label %583, label %585
 
-583:                                              ; preds = %.thread145.i
+583:                                              ; preds = %.thread146.i
   %584 = load i32, ptr %14, align 8, !tbaa !25
   br label %handle_eac3.exit
 
-585:                                              ; preds = %.thread145.i
+585:                                              ; preds = %.thread146.i
   %586 = zext i8 %580 to i32
   %587 = add nsw i32 %424, %586
   %588 = icmp sgt i32 %587, 6

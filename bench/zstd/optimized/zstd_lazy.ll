@@ -21847,8 +21847,8 @@ ZSTD_searchMax.exit:                              ; preds = %76, %78, %80
   %101 = select i1 %98, ptr %21, ptr %14
   %102 = icmp ugt ptr %.0.i83, %.0294.i82
   %103 = icmp ugt ptr %100, %101
-  %or.cond384.i56 = select i1 %102, i1 %103, i1 false
-  br i1 %or.cond384.i56, label %.lr.ph, label %.critedge.i
+  %or.cond386.i56 = select i1 %102, i1 %103, i1 false
+  br i1 %or.cond386.i56, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %94, %109
   %.14.i59 = phi i64 [ %110, %109 ], [ %.0.i4, %94 ]
@@ -21865,8 +21865,8 @@ ZSTD_searchMax.exit:                              ; preds = %76, %78, %80
   %110 = add i64 %.14.i59, 1
   %111 = icmp ugt ptr %104, %.0294.i82
   %112 = icmp ugt ptr %106, %101
-  %or.cond384.i = select i1 %111, i1 %112, i1 false
-  br i1 %or.cond384.i, label %.lr.ph, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %111, i1 %112, i1 false
+  br i1 %or.cond386.i, label %.lr.ph, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %109, %.lr.ph, %94
   %.12341.i.lcssa = phi ptr [ %.0.i83, %94 ], [ %.12341.i58, %.lr.ph ], [ %104, %109 ]
@@ -22716,8 +22716,8 @@ ZSTD_searchMax.exit:                              ; preds = %175, %177, %179, %1
   %214 = select i1 %211, ptr %21, ptr %14
   %215 = icmp ugt ptr %.0.i113, %.0294.i112
   %216 = icmp ugt ptr %213, %214
-  %or.cond384.i83 = select i1 %215, i1 %216, i1 false
-  br i1 %or.cond384.i83, label %.lr.ph87, label %.critedge.i
+  %or.cond386.i83 = select i1 %215, i1 %216, i1 false
+  br i1 %or.cond386.i83, label %.lr.ph87, label %.critedge.i
 
 .lr.ph87:                                         ; preds = %207, %222
   %.14.i86 = phi i64 [ %223, %222 ], [ %.0.i11, %207 ]
@@ -22734,8 +22734,8 @@ ZSTD_searchMax.exit:                              ; preds = %175, %177, %179, %1
   %223 = add i64 %.14.i86, 1
   %224 = icmp ugt ptr %217, %.0294.i112
   %225 = icmp ugt ptr %219, %214
-  %or.cond384.i = select i1 %224, i1 %225, i1 false
-  br i1 %or.cond384.i, label %.lr.ph87, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %224, i1 %225, i1 false
+  br i1 %or.cond386.i, label %.lr.ph87, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %222, %.lr.ph87, %207
   %.12341.i.lcssa = phi ptr [ %.0.i113, %207 ], [ %.12341.i85, %.lr.ph87 ], [ %217, %222 ]
@@ -23598,8 +23598,8 @@ ZSTD_searchMax.exit:                              ; preds = %132, %134, %136
   %164 = select i1 %161, ptr %22, ptr %15
   %165 = icmp ugt ptr %.2331.i, %.0294.i107
   %166 = icmp ugt ptr %163, %164
-  %or.cond384.i79 = select i1 %165, i1 %166, i1 false
-  br i1 %or.cond384.i79, label %.lr.ph83, label %.critedge.i
+  %or.cond386.i79 = select i1 %165, i1 %166, i1 false
+  br i1 %or.cond386.i79, label %.lr.ph83, label %.critedge.i
 
 .lr.ph83:                                         ; preds = %156, %172
   %.14.i82 = phi i64 [ %173, %172 ], [ %.4315.i, %156 ]
@@ -23616,8 +23616,8 @@ ZSTD_searchMax.exit:                              ; preds = %132, %134, %136
   %173 = add i64 %.14.i82, 1
   %174 = icmp ugt ptr %167, %.0294.i107
   %175 = icmp ugt ptr %169, %164
-  %or.cond384.i = select i1 %174, i1 %175, i1 false
-  br i1 %or.cond384.i, label %.lr.ph83, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %174, i1 %175, i1 false
+  br i1 %or.cond386.i, label %.lr.ph83, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %172, %.lr.ph83, %156
   %.12341.i.lcssa = phi ptr [ %.2331.i, %156 ], [ %.12341.i81, %.lr.ph83 ], [ %167, %172 ]
@@ -24642,8 +24642,8 @@ ZSTD_searchMax.exit:                              ; preds = %246, %248, %250, %2
   %292 = select i1 %289, ptr %22, ptr %15
   %293 = icmp ugt ptr %.2331.i, %.0294.i137
   %294 = icmp ugt ptr %291, %292
-  %or.cond384.i107 = select i1 %293, i1 %294, i1 false
-  br i1 %or.cond384.i107, label %.lr.ph111, label %.critedge.i
+  %or.cond386.i107 = select i1 %293, i1 %294, i1 false
+  br i1 %or.cond386.i107, label %.lr.ph111, label %.critedge.i
 
 .lr.ph111:                                        ; preds = %284, %300
   %.14.i110 = phi i64 [ %301, %300 ], [ %.4315.i, %284 ]
@@ -24660,8 +24660,8 @@ ZSTD_searchMax.exit:                              ; preds = %246, %248, %250, %2
   %301 = add i64 %.14.i110, 1
   %302 = icmp ugt ptr %295, %.0294.i137
   %303 = icmp ugt ptr %297, %292
-  %or.cond384.i = select i1 %302, i1 %303, i1 false
-  br i1 %or.cond384.i, label %.lr.ph111, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %302, i1 %303, i1 false
+  br i1 %or.cond386.i, label %.lr.ph111, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %300, %.lr.ph111, %284
   %.12341.i.lcssa = phi ptr [ %.2331.i, %284 ], [ %.12341.i109, %.lr.ph111 ], [ %295, %300 ]
@@ -25642,8 +25642,8 @@ ZSTD_searchMax.exit:                              ; preds = %193, %195, %197
   %223 = select i1 %220, ptr %23, ptr %16
   %224 = icmp ugt ptr %.2331.i, %.0294.i123
   %225 = icmp ugt ptr %222, %223
-  %or.cond384.i95 = select i1 %224, i1 %225, i1 false
-  br i1 %or.cond384.i95, label %.lr.ph99, label %.critedge.i
+  %or.cond386.i95 = select i1 %224, i1 %225, i1 false
+  br i1 %or.cond386.i95, label %.lr.ph99, label %.critedge.i
 
 .lr.ph99:                                         ; preds = %215, %231
   %.14.i98 = phi i64 [ %232, %231 ], [ %.4315.i, %215 ]
@@ -25660,8 +25660,8 @@ ZSTD_searchMax.exit:                              ; preds = %193, %195, %197
   %232 = add i64 %.14.i98, 1
   %233 = icmp ugt ptr %226, %.0294.i123
   %234 = icmp ugt ptr %228, %223
-  %or.cond384.i = select i1 %233, i1 %234, i1 false
-  br i1 %or.cond384.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %233, i1 %234, i1 false
+  br i1 %or.cond386.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %231, %.lr.ph99, %215
   %.12341.i.lcssa = phi ptr [ %.2331.i, %215 ], [ %.12341.i97, %.lr.ph99 ], [ %226, %231 ]
@@ -26847,8 +26847,8 @@ ZSTD_searchMax.exit:                              ; preds = %322, %324, %326, %3
   %366 = select i1 %363, ptr %23, ptr %16
   %367 = icmp ugt ptr %.2331.i, %.0294.i153
   %368 = icmp ugt ptr %365, %366
-  %or.cond384.i123 = select i1 %367, i1 %368, i1 false
-  br i1 %or.cond384.i123, label %.lr.ph127, label %.critedge.i
+  %or.cond386.i123 = select i1 %367, i1 %368, i1 false
+  br i1 %or.cond386.i123, label %.lr.ph127, label %.critedge.i
 
 .lr.ph127:                                        ; preds = %358, %374
   %.14.i126 = phi i64 [ %375, %374 ], [ %.4315.i, %358 ]
@@ -26865,8 +26865,8 @@ ZSTD_searchMax.exit:                              ; preds = %322, %324, %326, %3
   %375 = add i64 %.14.i126, 1
   %376 = icmp ugt ptr %369, %.0294.i153
   %377 = icmp ugt ptr %371, %366
-  %or.cond384.i = select i1 %376, i1 %377, i1 false
-  br i1 %or.cond384.i, label %.lr.ph127, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %376, i1 %377, i1 false
+  br i1 %or.cond386.i, label %.lr.ph127, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %374, %.lr.ph127, %358
   %.12341.i.lcssa = phi ptr [ %.2331.i, %358 ], [ %.12341.i125, %.lr.ph127 ], [ %369, %374 ]
@@ -27847,8 +27847,8 @@ ZSTD_searchMax.exit:                              ; preds = %193, %195, %197
   %223 = select i1 %220, ptr %23, ptr %16
   %224 = icmp ugt ptr %.2331.i, %.0294.i123
   %225 = icmp ugt ptr %222, %223
-  %or.cond384.i95 = select i1 %224, i1 %225, i1 false
-  br i1 %or.cond384.i95, label %.lr.ph99, label %.critedge.i
+  %or.cond386.i95 = select i1 %224, i1 %225, i1 false
+  br i1 %or.cond386.i95, label %.lr.ph99, label %.critedge.i
 
 .lr.ph99:                                         ; preds = %215, %231
   %.14.i98 = phi i64 [ %232, %231 ], [ %.4315.i, %215 ]
@@ -27865,8 +27865,8 @@ ZSTD_searchMax.exit:                              ; preds = %193, %195, %197
   %232 = add i64 %.14.i98, 1
   %233 = icmp ugt ptr %226, %.0294.i123
   %234 = icmp ugt ptr %228, %223
-  %or.cond384.i = select i1 %233, i1 %234, i1 false
-  br i1 %or.cond384.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !71
+  %or.cond386.i = select i1 %233, i1 %234, i1 false
+  br i1 %or.cond386.i, label %.lr.ph99, label %.critedge.i, !llvm.loop !71
 
 .critedge.i:                                      ; preds = %231, %.lr.ph99, %215
   %.12341.i.lcssa = phi ptr [ %.2331.i, %215 ], [ %.12341.i97, %.lr.ph99 ], [ %226, %231 ]

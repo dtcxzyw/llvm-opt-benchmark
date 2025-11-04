@@ -64,7 +64,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %1
   %12 = icmp eq i32 %6, 0
-  br i1 %12, label %.loopexit23, label %13
+  br i1 %12, label %.loopexit24, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -118,9 +118,9 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 50:                                               ; preds = %44
   %51 = add nuw nsw i64 %17, 1
   %52 = icmp eq i64 %51, %15
-  br i1 %52, label %.loopexit23, label %16, !llvm.loop !7
+  br i1 %52, label %.loopexit24, label %16, !llvm.loop !7
 
-.loopexit23:                                      ; preds = %50, %11
+.loopexit24:                                      ; preds = %50, %11
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = load ptr, ptr %54, align 8
@@ -130,7 +130,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %125, label %60
 
-60:                                               ; preds = %.loopexit23
+60:                                               ; preds = %.loopexit24
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 224
@@ -142,12 +142,12 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !annotation !10
   %67 = icmp eq i32 %64, 1
-  br i1 %67, label %.thread18, label %68
+  br i1 %67, label %.thread19, label %68
 
 68:                                               ; preds = %66
   %69 = load i32, ptr %55, align 8
   %70 = icmp ult i32 %69, %64
-  br i1 %70, label %.thread18, label %71
+  br i1 %70, label %.thread19, label %71
 
 71:                                               ; preds = %68
   %72 = zext i32 %64 to i64
@@ -173,7 +173,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %88 = lshr i64 %84, %87
   %89 = trunc i64 %88 to i32
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.loopexit21, label %91
+  br i1 %90, label %.loopexit22, label %91
 
 91:                                               ; preds = %78
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -188,7 +188,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   store i32 %97, ptr %93, align 4
   %98 = call i32 @ext4_map_blocks(ptr noundef null, ptr noundef %73, ptr noundef nonnull %2, i32 noundef 0) #7
   %99 = icmp slt i32 %98, 0
-  br i1 %99, label %.loopexit21, label %100
+  br i1 %99, label %.loopexit22, label %100
 
 100:                                              ; preds = %94
   %101 = icmp eq i32 %98, 0
@@ -206,7 +206,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 
 108:                                              ; preds = %104
   %109 = icmp eq i32 %106, -117
-  br i1 %109, label %110, label %.loopexit21
+  br i1 %109, label %110, label %.loopexit22
 
 110:                                              ; preds = %108
   %111 = load i64, ptr %2, align 8
@@ -215,7 +215,7 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %114 = add i64 %111, -1
   %115 = add i64 %114, %113
   call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %73, ptr noundef nonnull @__func__.ext4_protect_reserved_inode, i32 noundef 182, i64 noundef 0, i32 noundef 117, ptr noundef nonnull @.str.4, i64 noundef %111, i64 noundef %115) #7
-  br label %.loopexit21
+  br label %.loopexit22
 
 116:                                              ; preds = %104
   %117 = add i32 %98, %95
@@ -224,24 +224,24 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
 118:                                              ; preds = %116, %102
   %119 = phi i32 [ %103, %102 ], [ %117, %116 ]
   %120 = icmp ult i32 %119, %89
-  br i1 %120, label %94, label %.loopexit21, !llvm.loop !11
+  br i1 %120, label %94, label %.loopexit22, !llvm.loop !11
 
-.loopexit21:                                      ; preds = %118, %94, %110, %108, %78
+.loopexit22:                                      ; preds = %118, %94, %110, %108, %78
   %121 = phi i32 [ -117, %110 ], [ %106, %108 ], [ 0, %78 ], [ 0, %118 ], [ %98, %94 ]
   call void @iput(ptr noundef %73) #7
   br label %122
 
-.thread18:                                        ; preds = %68, %66
+.thread19:                                        ; preds = %68, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
-122:                                              ; preds = %.loopexit21, %75
-  %123 = phi i32 [ %77, %75 ], [ %121, %.loopexit21 ]
+122:                                              ; preds = %.loopexit22, %75
+  %123 = phi i32 [ %77, %75 ], [ %121, %.loopexit22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %.thread
 
-125:                                              ; preds = %122, %60, %.loopexit23
+125:                                              ; preds = %122, %60, %.loopexit24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 688
   store volatile ptr %9, ptr %126, align 16
@@ -280,26 +280,26 @@ define dso_local i32 @ext4_setup_system_zone(ptr noundef %0) local_unnamed_addr 
   %149 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #9
   br label %157
 
-.thread:                                          ; preds = %44, %40, %35, %22, %.thread18, %122
-  %150 = phi i32 [ %123, %122 ], [ -22, %.thread18 ], [ %33, %22 ], [ %38, %35 ], [ %42, %40 ], [ %48, %44 ]
+.thread:                                          ; preds = %44, %40, %35, %22, %.thread19, %122
+  %150 = phi i32 [ %123, %122 ], [ -22, %.thread19 ], [ %33, %22 ], [ %38, %35 ], [ %42, %40 ], [ %48, %44 ]
   %151 = call ptr @rb_first_postorder(ptr noundef nonnull %9) #7
   %152 = icmp eq ptr %151, null
-  br i1 %152, label %.loopexit20, label %.preheader19
+  br i1 %152, label %.loopexit21, label %.preheader20
 
-.preheader19:                                     ; preds = %.thread, %.preheader19
-  %153 = phi ptr [ %154, %.preheader19 ], [ %151, %.thread ]
+.preheader20:                                     ; preds = %.thread, %.preheader20
+  %153 = phi ptr [ %154, %.preheader20 ], [ %151, %.thread ]
   %154 = call ptr @rb_next_postorder(ptr noundef nonnull %153) #7
   %155 = load ptr, ptr @ext4_system_zone_cachep, align 8
   call void @kmem_cache_free(ptr noundef %155, ptr noundef nonnull %153) #7
   %156 = icmp eq ptr %154, null
-  br i1 %156, label %.loopexit20, label %.preheader19, !llvm.loop !14
+  br i1 %156, label %.loopexit21, label %.preheader20, !llvm.loop !14
 
-.loopexit20:                                      ; preds = %.preheader19, %.thread
+.loopexit21:                                      ; preds = %.preheader20, %.thread
   call void @kfree(ptr noundef nonnull %9) #7
   br label %157
 
-157:                                              ; preds = %.loopexit20, %.loopexit, %125, %1
-  %158 = phi i32 [ %150, %.loopexit20 ], [ -12, %1 ], [ 0, %.loopexit ], [ 0, %125 ]
+157:                                              ; preds = %.loopexit21, %.loopexit, %125, %1
+  %158 = phi i32 [ %150, %.loopexit21 ], [ -12, %1 ], [ 0, %.loopexit ], [ 0, %125 ]
   ret i32 %158
 }
 

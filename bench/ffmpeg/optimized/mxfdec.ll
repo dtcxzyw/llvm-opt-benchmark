@@ -3858,7 +3858,7 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
 
 1635:                                             ; preds = %._crit_edge.i.i141
   %1636 = icmp sgt i32 %.1102.i.i, 0
-  br i1 %1636, label %.preheader.us.preheader.i.i, label %mxf_get_sorted_table_segments.exit.thread314.i
+  br i1 %1636, label %.preheader.us.preheader.i.i, label %mxf_get_sorted_table_segments.exit.thread315.i
 
 .preheader.us.preheader.i.i:                      ; preds = %1635
   %wide.trip.count.i.i142 = zext nneg i32 %.1102.i.i to i64
@@ -3869,8 +3869,8 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
   %.095142.us.i.i = phi i32 [ %.us-phi139.us.i.i, %1639 ], [ -1, %.preheader.us.preheader.i.i ]
   %.097141.us.i.i = phi i32 [ %.us-phi138.us.i.i, %1639 ], [ -1, %.preheader.us.preheader.i.i ]
   %.099140.us.i.i = phi i32 [ %.us-phi137.us.i.i, %1639 ], [ -1, %.preheader.us.preheader.i.i ]
-  %indvars253.i = trunc i64 %indvars.iv.i143 to i32
-  %1637 = icmp eq i32 %indvars253.i, 0
+  %indvars254.i = trunc i64 %indvars.iv.i143 to i32
+  %1637 = icmp eq i32 %indvars254.i, 0
   %1638 = sext i32 %.095142.us.i.i to i64
   br i1 %1637, label %.lr.ph131.split.us.us.i.i, label %.lr.ph131.split.us162.i.i
 
@@ -3922,9 +3922,9 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
   %1662 = icmp eq i32 %.089126.us150.i.i, -1
   %1663 = icmp slt i32 %1647, %.087127.us149.i.i
   %or.cond.i.i154 = select i1 %1662, i1 true, i1 %1663
-  br i1 %or.cond.i.i154, label %._crit_edge275.i, label %1664
+  br i1 %or.cond.i.i154, label %._crit_edge276.i, label %1664
 
-._crit_edge275.i:                                 ; preds = %1661
+._crit_edge276.i:                                 ; preds = %1661
   %.phi.trans.insert.i155 = getelementptr inbounds nuw i8, ptr %1645, i64 28
   %.pre.i156 = load i32, ptr %.phi.trans.insert.i155, align 4, !tbaa !224
   br label %1683
@@ -3960,8 +3960,8 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
   %1682 = icmp ugt i64 %1681, %.082130.us146.i.i
   br i1 %1682, label %1683, label %1691
 
-1683:                                             ; preds = %1679, %1672, %1666, %._crit_edge275.i
-  %1684 = phi i32 [ %.pre.i156, %._crit_edge275.i ], [ %.085128.us148.i.i, %1679 ], [ %.085128.us148.i.i, %1672 ], [ %1668, %1666 ]
+1683:                                             ; preds = %1679, %1672, %1666, %._crit_edge276.i
+  %1684 = phi i32 [ %.pre.i156, %._crit_edge276.i ], [ %.085128.us148.i.i, %1679 ], [ %.085128.us148.i.i, %1672 ], [ %1668, %1666 ]
   %1685 = getelementptr inbounds nuw i8, ptr %1645, i64 48
   %1686 = load i64, ptr %1685, align 8, !tbaa !225
   %1687 = trunc i64 %1686 to i32
@@ -4005,8 +4005,8 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
   br i1 %or.cond189.i.i, label %.lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i, label %1697
 
 .lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i: ; preds = %.lr.ph131.split.us.us.i.i
-  %.phi.trans.insert276.i = getelementptr inbounds nuw i8, ptr %1694, i64 28
-  %.pre277.i = load i32, ptr %.phi.trans.insert276.i, align 4, !tbaa !224
+  %.phi.trans.insert277.i = getelementptr inbounds nuw i8, ptr %1694, i64 28
+  %.pre278.i = load i32, ptr %.phi.trans.insert277.i, align 4, !tbaa !224
   br label %.lr.ph131.split.us.us._crit_edge.i.i
 
 1697:                                             ; preds = %.lr.ph131.split.us.us.i.i
@@ -4041,7 +4041,7 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
   br i1 %1715, label %.lr.ph131.split.us.us._crit_edge.i.i, label %1724
 
 .lr.ph131.split.us.us._crit_edge.i.i:             ; preds = %1712, %1705, %1699, %.lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i
-  %1716 = phi i32 [ %.085128.us.us.i.i, %1712 ], [ %.085128.us.us.i.i, %1705 ], [ %1701, %1699 ], [ %.pre277.i, %.lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i ]
+  %1716 = phi i32 [ %.085128.us.us.i.i, %1712 ], [ %.085128.us.us.i.i, %1705 ], [ %1701, %1699 ], [ %.pre278.i, %.lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i ]
   %1717 = phi i32 [ %.087127.us.us.i.i, %1712 ], [ %.087127.us.us.i.i, %1705 ], [ %.087127.us.us.i.i, %1699 ], [ %.pre174.i.i, %.lr.ph131.split.us.us.i..lr.ph131.split.us.us._crit_edge.i_crit_edge.i ]
   %1718 = getelementptr inbounds nuw i8, ptr %1694, i64 48
   %1719 = load i64, ptr %1718, align 8, !tbaa !225
@@ -4063,36 +4063,36 @@ mxf_parse_structural_metadata.exit:               ; preds = %.loopexit.i, %.preh
 
 .sink.split.sink.split.i.i:                       ; preds = %._crit_edge.i.i141, %.preheader122.i.i, %1608, %1605
   call void @av_freep(ptr noundef nonnull %4) #15
-  br label %mxf_get_sorted_table_segments.exit.thread314.i
+  br label %mxf_get_sorted_table_segments.exit.thread315.i
 
-mxf_get_sorted_table_segments.exit.thread314.i:   ; preds = %.sink.split.sink.split.i.i, %1635
+mxf_get_sorted_table_segments.exit.thread315.i:   ; preds = %.sink.split.sink.split.i.i, %1635
   call void @av_free(ptr noundef %1607) #15
   br label %mxf_compute_index_tables.exit.thread
 
 mxf_get_sorted_table_segments.exit.i:             ; preds = %._crit_edge132.us.i.i, %1639
-  %.0159.i = phi i32 [ %indvars253.i, %._crit_edge132.us.i.i ], [ %.1102.i.i, %1639 ]
+  %.0160.i = phi i32 [ %indvars254.i, %._crit_edge132.us.i.i ], [ %.1102.i.i, %1639 ]
   call void @av_free(ptr noundef nonnull %1607) #15
-  %1725 = icmp slt i32 %.0159.i, 1
-  br i1 %1725, label %mxf_compute_index_tables.exit.thread, label %.preheader199.i
+  %1725 = icmp slt i32 %.0160.i, 1
+  br i1 %1725, label %mxf_compute_index_tables.exit.thread, label %.preheader200.i
 
-.preheader199.i:                                  ; preds = %mxf_get_sorted_table_segments.exit.i
+.preheader200.i:                                  ; preds = %mxf_get_sorted_table_segments.exit.i
   %1726 = load ptr, ptr %4, align 8
   %1727 = getelementptr inbounds nuw i8, ptr %18, i64 588
-  %wide.trip.count257.i = zext nneg i32 %.0159.i to i64
+  %wide.trip.count258.i = zext nneg i32 %.0160.i to i64
   br label %1729
 
-mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_get_sorted_table_segments.exit.thread314.i, %mxf_get_sorted_table_segments.exit.i
+mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_get_sorted_table_segments.exit.thread315.i, %mxf_get_sorted_table_segments.exit.i
   %1728 = load ptr, ptr %37, align 8, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1728, i32 noundef 24, ptr noundef nonnull @.str.124) #15
   br label %2152
 
-1729:                                             ; preds = %1748, %.preheader199.i
-  %indvars.iv254.i = phi i64 [ 0, %.preheader199.i ], [ %indvars.iv.next255.i, %1748 ]
-  %1730 = icmp eq i64 %indvars.iv254.i, 0
+1729:                                             ; preds = %1748, %.preheader200.i
+  %indvars.iv255.i = phi i64 [ 0, %.preheader200.i ], [ %indvars.iv.next256.i, %1748 ]
+  %1730 = icmp eq i64 %indvars.iv255.i, 0
   br i1 %1730, label %1740, label %1731
 
 1731:                                             ; preds = %1729
-  %1732 = getelementptr ptr, ptr %1726, i64 %indvars.iv254.i
+  %1732 = getelementptr ptr, ptr %1726, i64 %indvars.iv255.i
   %1733 = getelementptr i8, ptr %1732, i64 -8
   %1734 = load ptr, ptr %1733, align 8, !tbaa !222
   %1735 = getelementptr inbounds nuw i8, ptr %1734, i64 28
@@ -4118,9 +4118,9 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   br i1 %.not134.i, label %1748, label %1749
 
 1748:                                             ; preds = %1743, %1740
-  %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
-  %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count257.i
-  br i1 %exitcond258.not.i, label %1751, label %1729, !llvm.loop !232
+  %indvars.iv.next256.i = add nuw nsw i64 %indvars.iv255.i, 1
+  %exitcond259.not.i = icmp eq i64 %indvars.iv.next256.i, %wide.trip.count258.i
+  br i1 %exitcond259.not.i, label %1751, label %1729, !llvm.loop !232
 
 1749:                                             ; preds = %1743
   %1750 = load ptr, ptr %37, align 8, !tbaa !39
@@ -4148,16 +4148,16 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
 .preheader.i:                                     ; preds = %1772
   %1759 = load i32, ptr %1727, align 4, !tbaa !231
   %1760 = icmp sgt i32 %1759, 0
-  br i1 %1760, label %.lr.ph230.i, label %mxf_compute_index_tables.exit
+  br i1 %1760, label %.lr.ph231.i, label %mxf_compute_index_tables.exit
 
 1761:                                             ; preds = %1772, %.lr.ph.i147
-  %indvars.iv259.i = phi i64 [ 0, %.lr.ph.i147 ], [ %indvars.iv.next260.i, %1772 ]
-  %.0123219.i = phi i32 [ 0, %.lr.ph.i147 ], [ %.1124.i, %1772 ]
-  %.not145.i = icmp eq i64 %indvars.iv259.i, 0
+  %indvars.iv260.i = phi i64 [ 0, %.lr.ph.i147 ], [ %indvars.iv.next261.i, %1772 ]
+  %.0123220.i = phi i32 [ 0, %.lr.ph.i147 ], [ %.1124.i, %1772 ]
+  %.not145.i = icmp eq i64 %indvars.iv260.i, 0
   br i1 %.not145.i, label %1772, label %1762
 
 1762:                                             ; preds = %1761
-  %1763 = getelementptr ptr, ptr %1756, i64 %indvars.iv259.i
+  %1763 = getelementptr ptr, ptr %1756, i64 %indvars.iv260.i
   %1764 = getelementptr i8, ptr %1763, i64 -8
   %1765 = load ptr, ptr %1764, align 8, !tbaa !222
   %1766 = getelementptr inbounds nuw i8, ptr %1765, i64 28
@@ -4167,26 +4167,26 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   %1770 = load i32, ptr %1769, align 4, !tbaa !224
   %.not146.i = icmp ne i32 %1767, %1770
   %1771 = zext i1 %.not146.i to i32
-  %spec.select.i148 = add nsw i32 %.0123219.i, %1771
+  %spec.select.i148 = add nsw i32 %.0123220.i, %1771
   br label %1772
 
 1772:                                             ; preds = %1762, %1761
-  %.1124.i = phi i32 [ %.0123219.i, %1761 ], [ %spec.select.i148, %1762 ]
+  %.1124.i = phi i32 [ %.0123220.i, %1761 ], [ %spec.select.i148, %1762 ]
   %1773 = sext i32 %.1124.i to i64
   %1774 = getelementptr inbounds %struct.MXFIndexTable, ptr %1754, i64 %1773
   %1775 = getelementptr inbounds nuw i8, ptr %1774, i64 32
   %1776 = load i32, ptr %1775, align 8, !tbaa !234
   %1777 = add nsw i32 %1776, 1
   store i32 %1777, ptr %1775, align 8, !tbaa !234
-  %indvars.iv.next260.i = add nuw nsw i64 %indvars.iv259.i, 1
-  %exitcond263.not.i = icmp eq i64 %indvars.iv.next260.i, %wide.trip.count257.i
-  br i1 %exitcond263.not.i, label %.preheader.i, label %1761, !llvm.loop !236
+  %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
+  %exitcond264.not.i = icmp eq i64 %indvars.iv.next261.i, %wide.trip.count258.i
+  br i1 %exitcond264.not.i, label %.preheader.i, label %1761, !llvm.loop !236
 
-.lr.ph230.i:                                      ; preds = %.preheader.i, %.thread178.i
-  %1778 = phi ptr [ %2051, %.thread178.i ], [ %1754, %.preheader.i ]
-  %indvars.iv272.i = phi i64 [ %indvars.iv.next273.i, %.thread178.i ], [ 0, %.preheader.i ]
-  %.0122228.i = phi i32 [ %2055, %.thread178.i ], [ 0, %.preheader.i ]
-  %1779 = getelementptr inbounds nuw %struct.MXFIndexTable, ptr %1778, i64 %indvars.iv272.i
+.lr.ph231.i:                                      ; preds = %.preheader.i, %.thread179.i
+  %1778 = phi ptr [ %2051, %.thread179.i ], [ %1754, %.preheader.i ]
+  %indvars.iv273.i = phi i64 [ %indvars.iv.next274.i, %.thread179.i ], [ 0, %.preheader.i ]
+  %.0122229.i = phi i32 [ %2055, %.thread179.i ], [ 0, %.preheader.i ]
+  %1779 = getelementptr inbounds nuw %struct.MXFIndexTable, ptr %1778, i64 %indvars.iv273.i
   %1780 = getelementptr inbounds nuw i8, ptr %1779, i64 32
   %1781 = load i32, ptr %1780, align 8, !tbaa !234
   %1782 = sext i32 %1781 to i64
@@ -4196,14 +4196,14 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   %.not136.i = icmp eq ptr %1783, null
   br i1 %.not136.i, label %1785, label %1787
 
-1785:                                             ; preds = %.lr.ph230.i
+1785:                                             ; preds = %.lr.ph231.i
   %1786 = load ptr, ptr %37, align 8, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1786, i32 noundef 16, ptr noundef nonnull @.str.127) #15
   br label %mxf_compute_index_tables.exit.thread228
 
-1787:                                             ; preds = %.lr.ph230.i
+1787:                                             ; preds = %.lr.ph231.i
   %1788 = load ptr, ptr %4, align 8, !tbaa !215
-  %1789 = sext i32 %.0122228.i to i64
+  %1789 = sext i32 %.0122229.i to i64
   %1790 = getelementptr inbounds ptr, ptr %1788, i64 %1789
   %1791 = load ptr, ptr %1790, align 8, !tbaa !222
   %1792 = getelementptr inbounds nuw i8, ptr %1791, i64 48
@@ -4216,13 +4216,13 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   %1796 = getelementptr inbounds nuw i8, ptr %1791, i64 28
   %1797 = load i32, ptr %1796, align 4, !tbaa !224
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1795, i32 noundef 24, ptr noundef nonnull @.str.128, i32 noundef %1797, i64 noundef %1793) #15
-  %.pre278.i = load ptr, ptr %1784, align 8, !tbaa !237
-  %.pre279.i = load ptr, ptr %4, align 8, !tbaa !215
+  %.pre279.i = load ptr, ptr %1784, align 8, !tbaa !237
+  %.pre280.i = load ptr, ptr %4, align 8, !tbaa !215
   br label %1798
 
 1798:                                             ; preds = %1794, %1787
-  %1799 = phi ptr [ %.pre279.i, %1794 ], [ %1788, %1787 ]
-  %1800 = phi ptr [ %.pre278.i, %1794 ], [ %1783, %1787 ]
+  %1799 = phi ptr [ %.pre280.i, %1794 ], [ %1788, %1787 ]
+  %1800 = phi ptr [ %.pre279.i, %1794 ], [ %1783, %1787 ]
   %1801 = getelementptr inbounds ptr, ptr %1799, i64 %1789
   %1802 = load i32, ptr %1780, align 8, !tbaa !234
   %1803 = sext i32 %1802 to i64
@@ -4241,22 +4241,22 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1813 = load i32, ptr %1780, align 8, !tbaa !234
   %1814 = icmp sgt i32 %1813, 0
-  br i1 %1814, label %.lr.ph.i151.i, label %.._crit_edge_crit_edge.i.i
+  br i1 %1814, label %.lr.ph.i152.i, label %.._crit_edge_crit_edge.i.i
 
 .._crit_edge_crit_edge.i.i:                       ; preds = %1798
-  %.phi.trans.insert.i147.i = getelementptr inbounds nuw i8, ptr %1779, i64 8
-  %.pre.i148.i = load i32, ptr %.phi.trans.insert.i147.i, align 8, !tbaa !240
-  br label %._crit_edge.i149.i
+  %.phi.trans.insert.i148.i = getelementptr inbounds nuw i8, ptr %1779, i64 8
+  %.pre.i149.i = load i32, ptr %.phi.trans.insert.i148.i, align 8, !tbaa !240
+  br label %._crit_edge.i150.i
 
-.lr.ph.i151.i:                                    ; preds = %1798
+.lr.ph.i152.i:                                    ; preds = %1798
   %1815 = load ptr, ptr %1784, align 8, !tbaa !237
   %1816 = getelementptr inbounds nuw i8, ptr %1779, i64 8
-  %wide.trip.count.i152.i = zext nneg i32 %1813 to i64
+  %wide.trip.count.i153.i = zext nneg i32 %1813 to i64
   br label %1817
 
-1817:                                             ; preds = %1844, %.lr.ph.i151.i
-  %indvars.iv.i153.i = phi i64 [ 0, %.lr.ph.i151.i ], [ %indvars.iv.next.i155.i, %1844 ]
-  %1818 = getelementptr inbounds nuw ptr, ptr %1815, i64 %indvars.iv.i153.i
+1817:                                             ; preds = %1844, %.lr.ph.i152.i
+  %indvars.iv.i154.i = phi i64 [ 0, %.lr.ph.i152.i ], [ %indvars.iv.next.i156.i, %1844 ]
+  %1818 = getelementptr inbounds nuw ptr, ptr %1815, i64 %indvars.iv.i154.i
   %1819 = load ptr, ptr %1818, align 8, !tbaa !222
   %1820 = getelementptr inbounds nuw i8, ptr %1819, i64 88
   %1821 = load i32, ptr %1820, align 8, !tbaa !221
@@ -4289,8 +4289,8 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   %.not130.i.i = icmp eq i64 %1825, %1835
   %1836 = add nuw nsw i64 %1825, 1
   %.not131.i.i = icmp eq i64 %1836, %1835
-  %or.cond.i154.i = select i1 %.not130.i.i, i1 true, i1 %.not131.i.i
-  br i1 %or.cond.i154.i, label %1844, label %1837
+  %or.cond.i155.i = select i1 %.not130.i.i, i1 true, i1 %.not131.i.i
+  br i1 %or.cond.i155.i, label %1844, label %1837
 
 1837:                                             ; preds = %1834
   %1838 = shl nuw nsw i64 %1825, 1
@@ -4310,23 +4310,23 @@ mxf_compute_index_tables.exit.thread:             ; preds = %._crit_edge, %mxf_g
   %1845 = trunc nuw nsw i64 %1825 to i32
   %1846 = add i32 %1826, %1845
   store i32 %1846, ptr %1816, align 8, !tbaa !240
-  %indvars.iv.next.i155.i = add nuw nsw i64 %indvars.iv.i153.i, 1
-  %exitcond.not.i156.i = icmp eq i64 %indvars.iv.next.i155.i, %wide.trip.count.i152.i
-  br i1 %exitcond.not.i156.i, label %._crit_edge.i149.i, label %1817, !llvm.loop !241
+  %indvars.iv.next.i156.i = add nuw nsw i64 %indvars.iv.i154.i, 1
+  %exitcond.not.i157.i = icmp eq i64 %indvars.iv.next.i156.i, %wide.trip.count.i153.i
+  br i1 %exitcond.not.i157.i, label %._crit_edge.i150.i, label %1817, !llvm.loop !241
 
-._crit_edge.i149.i:                               ; preds = %1844, %.._crit_edge_crit_edge.i.i
-  %1847 = phi i32 [ %.pre.i148.i, %.._crit_edge_crit_edge.i.i ], [ %1846, %1844 ]
+._crit_edge.i150.i:                               ; preds = %1844, %.._crit_edge_crit_edge.i.i
+  %1847 = phi i32 [ %.pre.i149.i, %.._crit_edge_crit_edge.i.i ], [ %1846, %1844 ]
   %1848 = getelementptr inbounds nuw i8, ptr %1779, i64 8
   %1849 = icmp slt i32 %1847, 1
   br i1 %1849, label %mxf_compute_ptses_fake_index.exit.i, label %1850
 
-1850:                                             ; preds = %._crit_edge.i149.i
+1850:                                             ; preds = %._crit_edge.i150.i
   %1851 = zext nneg i32 %1847 to i64
   %1852 = call ptr @av_malloc_array(i64 noundef %1851, i64 noundef 8) #15
   %1853 = getelementptr inbounds nuw i8, ptr %1779, i64 24
   store ptr %1852, ptr %1853, align 8, !tbaa !242
-  %.not.i150.i = icmp eq ptr %1852, null
-  br i1 %.not.i150.i, label %mxf_compute_ptses_fake_index.exit.thread.i, label %1854
+  %.not.i151.i = icmp eq ptr %1852, null
+  br i1 %.not.i151.i, label %mxf_compute_ptses_fake_index.exit.thread.i, label %1854
 
 1854:                                             ; preds = %1850
   %1855 = load i32, ptr %1848, align 8, !tbaa !240
@@ -4550,23 +4550,23 @@ mxf_compute_ptses_fake_index.exit.thread.i:       ; preds = %1864, %1859, %1854,
   store i64 %1965, ptr %1966, align 8, !tbaa !254
   br label %mxf_compute_ptses_fake_index.exit.i
 
-mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i, %._crit_edge.i149.i, %1840, %1830, %1822
+mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i, %._crit_edge.i150.i, %1840, %1830, %1822
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1967 = load ptr, ptr %37, align 8, !tbaa !39
   %1968 = getelementptr inbounds nuw i8, ptr %1967, i64 44
   %1969 = load i32, ptr %1968, align 4, !tbaa !209
-  %.not231.i = icmp eq i32 %1969, 0
-  br i1 %.not231.i, label %._crit_edge.i151, label %.lr.ph221.i
+  %.not232.i = icmp eq i32 %1969, 0
+  br i1 %.not232.i, label %._crit_edge.i151, label %.lr.ph222.i
 
-.lr.ph221.i:                                      ; preds = %mxf_compute_ptses_fake_index.exit.i
+.lr.ph222.i:                                      ; preds = %mxf_compute_ptses_fake_index.exit.i
   %1970 = getelementptr inbounds nuw i8, ptr %1967, i64 48
   %1971 = load ptr, ptr %1970, align 8, !tbaa !210
-  %wide.trip.count267.i = zext i32 %1969 to i64
+  %wide.trip.count268.i = zext i32 %1969 to i64
   br label %1972
 
-1972:                                             ; preds = %1982, %.lr.ph221.i
-  %indvars.iv264.i = phi i64 [ 0, %.lr.ph221.i ], [ %indvars.iv.next265.i, %1982 ]
-  %1973 = getelementptr inbounds nuw ptr, ptr %1971, i64 %indvars.iv264.i
+1972:                                             ; preds = %1982, %.lr.ph222.i
+  %indvars.iv265.i = phi i64 [ 0, %.lr.ph222.i ], [ %indvars.iv.next266.i, %1982 ]
+  %1973 = getelementptr inbounds nuw ptr, ptr %1971, i64 %indvars.iv265.i
   %1974 = load ptr, ptr %1973, align 8, !tbaa !211
   %1975 = getelementptr inbounds nuw i8, ptr %1974, i64 24
   %1976 = load ptr, ptr %1975, align 8, !tbaa !125
@@ -4581,27 +4581,27 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
   br i1 %1981, label %._crit_edge.i151, label %1982
 
 1982:                                             ; preds = %1977, %1972
-  %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
-  %exitcond268.not.i = icmp eq i64 %indvars.iv.next265.i, %wide.trip.count267.i
-  br i1 %exitcond268.not.i, label %._crit_edge.i151, label %1972, !llvm.loop !255
+  %indvars.iv.next266.i = add nuw nsw i64 %indvars.iv265.i, 1
+  %exitcond269.not.i = icmp eq i64 %indvars.iv.next266.i, %wide.trip.count268.i
+  br i1 %exitcond269.not.i, label %._crit_edge.i151, label %1972, !llvm.loop !255
 
 ._crit_edge.i151:                                 ; preds = %1982, %1977, %mxf_compute_ptses_fake_index.exit.i
   %.1113.i = phi ptr [ null, %mxf_compute_ptses_fake_index.exit.i ], [ null, %1982 ], [ %1976, %1977 ]
   %1983 = load i32, ptr %1780, align 8, !tbaa !234
   %1984 = icmp sgt i32 %1983, 0
-  br i1 %1984, label %.lr.ph227.i, label %.thread178.i
+  br i1 %1984, label %.lr.ph228.i, label %.thread179.i
 
-.lr.ph227.i:                                      ; preds = %._crit_edge.i151
+.lr.ph228.i:                                      ; preds = %._crit_edge.i151
   %.not141.i = icmp eq ptr %.1113.i, null
   %1985 = getelementptr inbounds nuw i8, ptr %.1113.i, i64 68
-  %.pre280.i = load ptr, ptr %1784, align 8, !tbaa !237
+  %.pre281.i = load ptr, ptr %1784, align 8, !tbaa !237
   br label %1986
 
-1986:                                             ; preds = %2042, %.lr.ph227.i
-  %1987 = phi ptr [ %.pre280.i, %.lr.ph227.i ], [ %2020, %2042 ]
-  %indvars.iv269.i = phi i64 [ 0, %.lr.ph227.i ], [ %indvars.iv.next270.i, %2042 ]
-  %.0110224.i = phi i64 [ 0, %.lr.ph227.i ], [ %2047, %2042 ]
-  %1988 = getelementptr inbounds nuw ptr, ptr %1987, i64 %indvars.iv269.i
+1986:                                             ; preds = %2042, %.lr.ph228.i
+  %1987 = phi ptr [ %.pre281.i, %.lr.ph228.i ], [ %2020, %2042 ]
+  %indvars.iv270.i = phi i64 [ 0, %.lr.ph228.i ], [ %indvars.iv.next271.i, %2042 ]
+  %.0110225.i = phi i64 [ 0, %.lr.ph228.i ], [ %2047, %2042 ]
+  %1988 = getelementptr inbounds nuw ptr, ptr %1987, i64 %indvars.iv270.i
   %1989 = load ptr, ptr %1988, align 8, !tbaa !222
   %1990 = getelementptr inbounds nuw i8, ptr %1989, i64 36
   %1991 = load i32, ptr %1990, align 4, !tbaa !256
@@ -4617,13 +4617,13 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
 1995:                                             ; preds = %1992, %1986
   %1996 = load ptr, ptr %37, align 8, !tbaa !39
   %1997 = load i32, ptr %1779, align 8, !tbaa !238
-  %1998 = trunc nuw nsw i64 %indvars.iv269.i to i32
+  %1998 = trunc nuw nsw i64 %indvars.iv270.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1996, i32 noundef 24, ptr noundef nonnull @.str.129, i32 noundef %1997, i32 noundef %1998) #15
   br i1 %.not141.i, label %2005, label %1999
 
 1999:                                             ; preds = %1995
   %2000 = load ptr, ptr %1784, align 8, !tbaa !237
-  %2001 = getelementptr inbounds nuw ptr, ptr %2000, i64 %indvars.iv269.i
+  %2001 = getelementptr inbounds nuw ptr, ptr %2000, i64 %indvars.iv270.i
   %2002 = load ptr, ptr %2001, align 8, !tbaa !222
   %2003 = getelementptr inbounds nuw i8, ptr %2002, i64 36
   %2004 = load i64, ptr %1985, align 4
@@ -4632,7 +4632,7 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
 
 2005:                                             ; preds = %1999, %1995, %1992
   %2006 = getelementptr inbounds nuw i8, ptr %1989, i64 96
-  store i64 %.0110224.i, ptr %2006, align 8, !tbaa !258
+  store i64 %.0110225.i, ptr %2006, align 8, !tbaa !258
   %2007 = getelementptr inbounds nuw i8, ptr %1989, i64 24
   %2008 = load i32, ptr %2007, align 8, !tbaa !217
   %.not142.i = icmp eq i32 %2008, 0
@@ -4648,13 +4648,13 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
 
 2015:                                             ; preds = %2009
   %2016 = mul i64 %2011, %2012
-  %2017 = sub nsw i64 9223372036854775807, %.0110224.i
+  %2017 = sub nsw i64 9223372036854775807, %.0110225.i
   %2018 = icmp ugt i64 %2016, %2017
   br i1 %2018, label %mxf_compute_index_tables.exit.thread228, label %2019
 
 2019:                                             ; preds = %2015, %2005
   %2020 = load ptr, ptr %1784, align 8, !tbaa !237
-  %2021 = getelementptr inbounds nuw ptr, ptr %2020, i64 %indvars.iv269.i
+  %2021 = getelementptr inbounds nuw ptr, ptr %2020, i64 %indvars.iv270.i
   %2022 = load ptr, ptr %2021, align 8, !tbaa !222
   %2023 = getelementptr inbounds nuw i8, ptr %2022, i64 56
   %2024 = load i64, ptr %2023, align 8, !tbaa !229
@@ -4667,7 +4667,7 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
   br i1 %2027, label %2028, label %2032
 
 2028:                                             ; preds = %2025
-  %2029 = trunc nuw nsw i64 %indvars.iv269.i to i32
+  %2029 = trunc nuw nsw i64 %indvars.iv270.i to i32
   %2030 = load ptr, ptr %37, align 8, !tbaa !39
   %2031 = load i32, ptr %1779, align 8, !tbaa !238
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2030, i32 noundef 24, ptr noundef nonnull @.str.130, i32 noundef %2031, i32 noundef %2029) #15
@@ -4679,41 +4679,41 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
 2033:                                             ; preds = %2032
   %2034 = load ptr, ptr %37, align 8, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2034, i32 noundef 24, ptr noundef nonnull @.str.131) #15
-  br label %.thread178.i
+  br label %.thread179.i
 
 2035:                                             ; preds = %2032
   %2036 = getelementptr inbounds nuw i8, ptr %.1113.i, i64 88
   %2037 = load i64, ptr %2036, align 8, !tbaa !136
   %2038 = load ptr, ptr %1784, align 8, !tbaa !237
-  %2039 = getelementptr inbounds nuw ptr, ptr %2038, i64 %indvars.iv269.i
+  %2039 = getelementptr inbounds nuw ptr, ptr %2038, i64 %indvars.iv270.i
   %2040 = load ptr, ptr %2039, align 8, !tbaa !222
   %2041 = getelementptr inbounds nuw i8, ptr %2040, i64 56
   store i64 %2037, ptr %2041, align 8, !tbaa !229
-  br label %.thread178.i
+  br label %.thread179.i
 
 2042:                                             ; preds = %2019
   %2043 = getelementptr inbounds nuw i8, ptr %2022, i64 24
   %2044 = load i32, ptr %2043, align 8, !tbaa !217
   %2045 = zext i32 %2044 to i64
   %2046 = mul i64 %2024, %2045
-  %2047 = add i64 %2046, %.0110224.i
-  %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
+  %2047 = add i64 %2046, %.0110225.i
+  %indvars.iv.next271.i = add nuw nsw i64 %indvars.iv270.i, 1
   %2048 = load i32, ptr %1780, align 8, !tbaa !234
   %2049 = sext i32 %2048 to i64
-  %2050 = icmp slt i64 %indvars.iv.next270.i, %2049
-  br i1 %2050, label %1986, label %.thread178.i, !llvm.loop !259
+  %2050 = icmp slt i64 %indvars.iv.next271.i, %2049
+  br i1 %2050, label %1986, label %.thread179.i, !llvm.loop !259
 
-.thread178.i:                                     ; preds = %2042, %2035, %2033, %._crit_edge.i151
+.thread179.i:                                     ; preds = %2042, %2035, %2033, %._crit_edge.i151
   %2051 = load ptr, ptr %1755, align 8, !tbaa !233
-  %indvars.iv.next273.i = add nuw nsw i64 %indvars.iv272.i, 1
-  %2052 = getelementptr inbounds nuw %struct.MXFIndexTable, ptr %2051, i64 %indvars.iv272.i
+  %indvars.iv.next274.i = add nuw nsw i64 %indvars.iv273.i, 1
+  %2052 = getelementptr inbounds nuw %struct.MXFIndexTable, ptr %2051, i64 %indvars.iv273.i
   %2053 = getelementptr inbounds nuw i8, ptr %2052, i64 32
   %2054 = load i32, ptr %2053, align 8, !tbaa !234
-  %2055 = add nsw i32 %2054, %.0122228.i
+  %2055 = add nsw i32 %2054, %.0122229.i
   %2056 = load i32, ptr %1727, align 4, !tbaa !231
   %2057 = sext i32 %2056 to i64
-  %2058 = icmp slt i64 %indvars.iv.next273.i, %2057
-  br i1 %2058, label %.lr.ph230.i, label %mxf_compute_index_tables.exit.loopexit, !llvm.loop !260
+  %2058 = icmp slt i64 %indvars.iv.next274.i, %2057
+  br i1 %2058, label %.lr.ph231.i, label %mxf_compute_index_tables.exit.loopexit, !llvm.loop !260
 
 mxf_compute_index_tables.exit.thread228:          ; preds = %2009, %2015, %1757, %1749, %mxf_compute_ptses_fake_index.exit.thread.i, %1785
   %.1.i150.ph = phi i32 [ -12, %1785 ], [ -12, %mxf_compute_ptses_fake_index.exit.thread.i ], [ -1094995529, %1749 ], [ -12, %1757 ], [ -1094995529, %2015 ], [ -1094995529, %2009 ]
@@ -4722,7 +4722,7 @@ mxf_compute_index_tables.exit.thread228:          ; preds = %2009, %2015, %1757,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread222
 
-mxf_compute_index_tables.exit.loopexit:           ; preds = %.thread178.i
+mxf_compute_index_tables.exit.loopexit:           ; preds = %.thread179.i
   %.pre450 = load ptr, ptr %4, align 8, !tbaa !215
   br label %mxf_compute_index_tables.exit
 

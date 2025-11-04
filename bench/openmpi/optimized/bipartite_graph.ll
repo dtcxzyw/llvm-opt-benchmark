@@ -559,38 +559,38 @@ define i32 @prte_bp_graph_clone(ptr noundef readonly captures(none) %0, i1 nound
   store ptr null, ptr %5, align 8, !tbaa !23
   %10 = call i32 @prte_bp_graph_create(ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.preheader48, label %47
+  br i1 %.not, label %.preheader49, label %47
 
-.preheader48:                                     ; preds = %9
+.preheader49:                                     ; preds = %9
   %11 = load i32, ptr %0, align 8, !tbaa !32
   %12 = icmp sgt i32 %11, 0
-  %.pre65.pre = load ptr, ptr %5, align 8, !tbaa !23
-  br i1 %12, label %.lr.ph, label %._crit_edge58
+  %.pre66.pre = load ptr, ptr %5, align 8, !tbaa !23
+  br i1 %12, label %.lr.ph, label %._crit_edge59
 
 13:                                               ; preds = %.lr.ph
-  %14 = add nuw nsw i32 %.02951, 1
+  %14 = add nuw nsw i32 %.02952, 1
   %15 = load i32, ptr %0, align 8, !tbaa !32
   %16 = icmp slt i32 %14, %15
   br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !53
 
 .preheader:                                       ; preds = %13
   %17 = icmp sgt i32 %15, 0
-  br i1 %17, label %.lr.ph57, label %._crit_edge58
+  br i1 %17, label %.lr.ph58, label %._crit_edge59
 
-.lr.ph57:                                         ; preds = %.preheader
+.lr.ph58:                                         ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %21
 
-.lr.ph:                                           ; preds = %.preheader48, %13
-  %.02951 = phi i32 [ %14, %13 ], [ 0, %.preheader48 ]
-  %20 = call i32 @prte_bp_graph_add_vertex(ptr noundef %.pre65.pre, ptr noundef null, ptr noundef nonnull %4)
+.lr.ph:                                           ; preds = %.preheader49, %13
+  %.02952 = phi i32 [ %14, %13 ], [ 0, %.preheader49 ]
+  %20 = call i32 @prte_bp_graph_add_vertex(ptr noundef %.pre66.pre, ptr noundef null, ptr noundef nonnull %4)
   %.not43 = icmp eq i32 %20, 0
   br i1 %.not43, label %13, label %.thread
 
-21:                                               ; preds = %.lr.ph57, %._crit_edge
-  %22 = phi i32 [ %15, %.lr.ph57 ], [ %43, %._crit_edge ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %._crit_edge ]
+21:                                               ; preds = %.lr.ph58, %._crit_edge
+  %22 = phi i32 [ %15, %.lr.ph58 ], [ %43, %._crit_edge ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %._crit_edge ]
   %23 = load i32, ptr %18, align 8, !tbaa !33
   %24 = sext i32 %23 to i64
   %.not.i = icmp slt i64 %indvars.iv, %24
@@ -606,27 +606,27 @@ pmix_pointer_array_get_item.exit:                 ; preds = %21
 29:                                               ; preds = %pmix_pointer_array_get_item.exit
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 256
-  %.pn52 = load ptr, ptr %31, align 8, !tbaa !41
-  %.not4153 = icmp eq ptr %.pn52, %30
-  br i1 %.not4153, label %._crit_edge, label %.lr.ph55
+  %.pn53 = load ptr, ptr %31, align 8, !tbaa !41
+  %.not4154 = icmp eq ptr %.pn53, %30
+  br i1 %.not4154, label %._crit_edge, label %.lr.ph56
 
-32:                                               ; preds = %.lr.ph55
-  %33 = getelementptr inbounds nuw i8, ptr %.pn54, i64 120
+32:                                               ; preds = %.lr.ph56
+  %33 = getelementptr inbounds nuw i8, ptr %.pn55, i64 120
   %.pn = load ptr, ptr %33, align 8, !tbaa !41
   %.not41 = icmp eq ptr %.pn, %30
-  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph55, !llvm.loop !54
+  br i1 %.not41, label %._crit_edge.loopexit, label %.lr.ph56, !llvm.loop !54
 
-.lr.ph55:                                         ; preds = %29, %32
-  %.pn54 = phi ptr [ %.pn, %32 ], [ %.pn52, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.pn54, i64 288
+.lr.ph56:                                         ; preds = %29, %32
+  %.pn55 = phi ptr [ %.pn, %32 ], [ %.pn53, %29 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.pn55, i64 288
   %35 = load i32, ptr %34, align 8, !tbaa !55
-  %36 = getelementptr inbounds nuw i8, ptr %.pn54, i64 292
+  %36 = getelementptr inbounds nuw i8, ptr %.pn55, i64 292
   %37 = load i32, ptr %36, align 4, !tbaa !56
-  %38 = getelementptr inbounds nuw i8, ptr %.pn54, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %.pn55, i64 296
   %39 = load i64, ptr %38, align 8, !tbaa !57
-  %40 = getelementptr inbounds nuw i8, ptr %.pn54, i64 304
+  %40 = getelementptr inbounds nuw i8, ptr %.pn55, i64 304
   %41 = load i32, ptr %40, align 8, !tbaa !58
-  %42 = call i32 @prte_bp_graph_add_edge(ptr noundef %.pre65.pre, i32 noundef %35, i32 noundef %37, i64 noundef %39, i32 noundef %41, ptr noundef null)
+  %42 = call i32 @prte_bp_graph_add_edge(ptr noundef %.pre66.pre, i32 noundef %35, i32 noundef %37, i64 noundef %39, i32 noundef %41, ptr noundef null)
   %.not42 = icmp eq i32 %42, 0
   br i1 %.not42, label %32, label %.thread
 
@@ -639,19 +639,19 @@ pmix_pointer_array_get_item.exit:                 ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %21, label %._crit_edge58, !llvm.loop !59
+  br i1 %45, label %21, label %._crit_edge59, !llvm.loop !59
 
-._crit_edge58:                                    ; preds = %._crit_edge, %.preheader48, %.preheader
-  store ptr %.pre65.pre, ptr %2, align 8, !tbaa !23
+._crit_edge59:                                    ; preds = %._crit_edge, %.preheader49, %.preheader
+  store ptr %.pre66.pre, ptr %2, align 8, !tbaa !23
   br label %47
 
-.thread:                                          ; preds = %.lr.ph, %21, %pmix_pointer_array_get_item.exit, %.lr.ph55
-  %.131 = phi i32 [ %42, %.lr.ph55 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -13, %21 ], [ %20, %.lr.ph ]
-  %46 = call i32 @prte_bp_graph_free(ptr noundef %.pre65.pre)
+.thread:                                          ; preds = %.lr.ph, %21, %pmix_pointer_array_get_item.exit, %.lr.ph56
+  %.131 = phi i32 [ %42, %.lr.ph56 ], [ -13, %pmix_pointer_array_get_item.exit ], [ -13, %21 ], [ %20, %.lr.ph ]
+  %46 = call i32 @prte_bp_graph_free(ptr noundef %.pre66.pre)
   br label %47
 
-47:                                               ; preds = %9, %3, %.thread, %._crit_edge58
-  %.0 = phi i32 [ %.131, %.thread ], [ 0, %._crit_edge58 ], [ -5, %3 ], [ %10, %9 ]
+47:                                               ; preds = %9, %3, %.thread, %._crit_edge59
+  %.0 = phi i32 [ %.131, %.thread ], [ 0, %._crit_edge59 ], [ -5, %3 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

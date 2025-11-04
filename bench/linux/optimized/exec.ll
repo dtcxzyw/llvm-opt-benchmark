@@ -1149,7 +1149,7 @@ define dso_local i32 @begin_new_exec(ptr noundef %0) #0 align 16 {
 102:                                              ; preds = %100, %95
   %103 = phi i32 [ %101, %100 ], [ %96, %95 ]
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %.loopexit12, label %105
+  br i1 %104, label %.loopexit13, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1169,15 +1169,15 @@ define dso_local i32 @begin_new_exec(ptr noundef %0) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef %76) #15
   %113 = load i32, ptr %97, align 4
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.loopexit12, label %108, !llvm.loop !35
+  br i1 %114, label %.loopexit13, label %108, !llvm.loop !35
 
-.loopexit12:                                      ; preds = %112, %102
+.loopexit13:                                      ; preds = %112, %102
   tail call void @_raw_spin_unlock_irq(ptr noundef %76) #15
   %115 = load i32, ptr %77, align 8
   %116 = icmp sgt i32 %115, -1
   br i1 %116, label %171, label %117
 
-117:                                              ; preds = %.loopexit12
+117:                                              ; preds = %.loopexit13
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 1376
   %119 = load ptr, ptr %118, align 32
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1216
@@ -1290,7 +1290,7 @@ define dso_local i32 @begin_new_exec(ptr noundef %0) #0 align 16 {
   tail call void @release_task(ptr noundef %119) #15
   br label %171
 
-171:                                              ; preds = %.thread, %.loopexit12
+171:                                              ; preds = %.thread, %.loopexit13
   store ptr null, ptr %91, align 8
   store i32 0, ptr %97, align 4
   br label %172
@@ -3949,22 +3949,22 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = icmp sgt i32 %0, 0
-  br i1 %8, label %.lr.ph.preheader, label %.thread23.thread77
+  br i1 %8, label %.lr.ph.preheader, label %.thread24.thread78
 
 .lr.ph.preheader:                                 ; preds = %4
   %9 = zext nneg i32 %0 to i64
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %54
-  %10 = icmp sgt i64 %.in57, 1
-  br i1 %10, label %.lr.ph, label %.thread23
+  %10 = icmp sgt i64 %.in58, 1
+  br i1 %10, label %.lr.ph, label %.thread24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
-  %.in57 = phi i64 [ %14, %.loopexit ], [ %9, %.lr.ph.preheader ]
+  %.in58 = phi i64 [ %14, %.loopexit ], [ %9, %.lr.ph.preheader ]
   %11 = phi i64 [ %57, %.loopexit ], [ 0, %.lr.ph.preheader ]
   %12 = phi ptr [ %56, %.loopexit ], [ null, %.lr.ph.preheader ]
   %13 = phi ptr [ %55, %.loopexit ], [ null, %.lr.ph.preheader ]
-  %14 = add nsw i64 %.in57, -1
+  %14 = add nsw i64 %.in58, -1
   %15 = tail call i64 @llvm.read_register.i64(metadata !0)
   %16 = shl i64 %14, 32
   %17 = ashr exact i64 %16, 32
@@ -3979,7 +3979,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   tail call void @llvm.write_register.i64(metadata !0, i64 %22)
   %24 = and i64 %23, 4294967295
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %.thread23
+  br i1 %25, label %.thread, label %.thread24
 
 .thread:                                          ; preds = %18
   %26 = extractvalue { ptr, i32, i64 } %20, 1
@@ -3998,7 +3998,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %36 = extractvalue { ptr, i64, i64 } %30, 1
   %37 = icmp ugt i64 %36, -4096
   %or.cond = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond, label %.thread23, label %38
+  br i1 %or.cond, label %.thread24, label %38
 
 38:                                               ; preds = %28, %.thread
   %.in = phi i64 [ %27, %.thread ], [ %36, %28 ]
@@ -4006,13 +4006,13 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %40 = tail call i64 @strnlen_user(ptr noundef %39, i64 noundef 131072) #15
   %41 = trunc i64 %40 to i32
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread23, label %43
+  br i1 %42, label %.thread24, label %43
 
 43:                                               ; preds = %38
   %44 = shl i64 %40, 32
   %45 = ashr exact i64 %44, 32
   %46 = icmp ult i64 %45, 131073
-  br i1 %46, label %47, label %.thread23
+  br i1 %46, label %47, label %.thread24
 
 47:                                               ; preds = %43
   %48 = load i64, ptr %6, align 8
@@ -4020,7 +4020,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   store i64 %49, ptr %6, align 8
   %50 = load i64, ptr %7, align 8
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.thread23, label %52
+  br i1 %51, label %.thread24, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr i8, ptr %39, i64 %45
@@ -4049,7 +4049,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 256
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %.critedge, label %.thread23
+  br i1 %72, label %.critedge, label %.thread24
 
 .critedge:                                        ; preds = %62, %68
   %73 = tail call i32 @__SCT__cond_resched() #15
@@ -4073,7 +4073,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
 89:                                               ; preds = %.critedge
   %90 = tail call fastcc ptr @get_arg_page(ptr noundef %3, i64 noundef %81, i32 noundef 1)
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread23, label %92
+  br i1 %91, label %.thread24, label %92
 
 92:                                               ; preds = %89
   br i1 %85, label %93, label %125
@@ -4149,29 +4149,29 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %138 = getelementptr i8, ptr %135, i64 %137
   %139 = tail call i64 @_copy_from_user(ptr noundef %138, ptr noundef %83, i64 noundef %80) #15
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %54, label %.thread23.thread, !llvm.loop !90
+  br i1 %140, label %54, label %.thread24.thread, !llvm.loop !90
 
-.thread23:                                        ; preds = %.loopexit, %38, %43, %47, %18, %28, %89, %68
+.thread24:                                        ; preds = %.loopexit, %38, %43, %47, %18, %28, %89, %68
   %141 = phi ptr [ %55, %68 ], [ %55, %89 ], [ %55, %.loopexit ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %18 ], [ %13, %28 ]
   %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ 0, %.loopexit ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ -14, %18 ], [ -14, %28 ]
   %143 = icmp eq ptr %141, null
-  br i1 %143, label %.thread23.thread77, label %.thread23.thread
+  br i1 %143, label %.thread24.thread78, label %.thread24.thread
 
-.thread23.thread:                                 ; preds = %133, %.thread23
-  %144 = phi i32 [ %142, %.thread23 ], [ -14, %133 ]
-  %145 = phi ptr [ %141, %.thread23 ], [ %134, %133 ]
+.thread24.thread:                                 ; preds = %133, %.thread24
+  %144 = phi i32 [ %142, %.thread24 ], [ -14, %133 ]
+  %145 = phi ptr [ %141, %.thread24 ], [ %134, %133 ]
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load volatile i64, ptr %146, align 8
   %148 = and i64 %147, 1
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %153, label %150, !prof !6
 
-150:                                              ; preds = %.thread23.thread
+150:                                              ; preds = %.thread24.thread
   %151 = add nsw i64 %147, -1
   %152 = inttoptr i64 %151 to ptr
   br label %170
 
-153:                                              ; preds = %.thread23.thread
+153:                                              ; preds = %.thread24.thread
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #15
           to label %170 [label %154], !srcloc !7
 
@@ -4206,14 +4206,14 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %174 = icmp ult i8 %173, 2
   tail call void @llvm.assume(i1 %174)
   %175 = icmp eq i8 %173, 0
-  br i1 %175, label %.thread23.thread77, label %176
+  br i1 %175, label %.thread24.thread78, label %176
 
 176:                                              ; preds = %170
   tail call void @__folio_put(ptr noundef %171) #15
-  br label %.thread23.thread77
+  br label %.thread24.thread78
 
-.thread23.thread77:                               ; preds = %4, %176, %170, %.thread23
-  %177 = phi i32 [ %144, %176 ], [ %144, %170 ], [ %142, %.thread23 ], [ 0, %4 ]
+.thread24.thread78:                               ; preds = %4, %176, %170, %.thread24
+  %177 = phi i32 [ %144, %176 ], [ %144, %170 ], [ %142, %.thread24 ], [ 0, %4 ]
   ret i32 %177
 }
 

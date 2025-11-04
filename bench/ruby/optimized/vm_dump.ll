@@ -886,7 +886,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 26:                                               ; preds = %.lr.ph
-  %27 = add nuw nsw i32 %.01823, 1
+  %27 = add nuw nsw i32 %.01822, 1
   %28 = load ptr, ptr %0, align 8, !tbaa !7
   %29 = load i64, ptr %16, align 8, !tbaa !22
   %30 = getelementptr i64, ptr %28, i64 %29
@@ -898,7 +898,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !107
 
 .lr.ph:                                           ; preds = %7, %26
-  %.01823 = phi i32 [ %27, %26 ], [ 0, %7 ]
+  %.01822 = phi i32 [ %27, %26 ], [ 0, %7 ]
   %36 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %3, i32 noundef 1, ptr noundef nonnull @.str.10) #13
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.loopexit, label %26

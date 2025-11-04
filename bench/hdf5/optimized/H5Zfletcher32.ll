@@ -108,9 +108,9 @@ define internal noundef i64 @H5Z__filter_fletcher32(i32 noundef %0, i64 %1, ptr 
   store ptr %42, ptr %5, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %16, %34, %19, %35, %44, %48, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %35 ], [ 0, %44 ], [ %41, %48 ], [ %18, %19 ], [ %18, %34 ], [ %18, %16 ]
-  ret i64 %.0
+.thread:                                          ; preds = %16, %34, %19, %35, %6, %44, %48
+  %.0152 = phi i64 [ 0, %6 ], [ 0, %35 ], [ 0, %44 ], [ %41, %48 ], [ %18, %19 ], [ %18, %34 ], [ %18, %16 ]
+  ret i64 %.0152
 }
 
 declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr #1

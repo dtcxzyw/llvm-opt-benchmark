@@ -1125,33 +1125,33 @@ zero_remaining.exit.i.i:                          ; preds = %291, %._crit_edge.i
   %294 = phi i32 [ %285, %read_decode_block.exit.thread.i.i ], [ %285, %._crit_edge.i.i218.i ], [ %.pre34.i.i, %291 ]
   %295 = load ptr, ptr %160, align 8, !tbaa !123
   %296 = icmp ugt i32 %294, %284
-  br i1 %296, label %.lr.ph.preheader.i87.i.i, label %decode_blocks.exit.thread.i
+  br i1 %296, label %.lr.ph.preheader.i88.i.i, label %decode_blocks.exit.thread.i
 
-.lr.ph.preheader.i87.i.i:                         ; preds = %zero_remaining.exit.i.i
-  %wide.trip.count.i88.i.i = zext i32 %294 to i64
-  br label %.lr.ph.i89.i.i
+.lr.ph.preheader.i88.i.i:                         ; preds = %zero_remaining.exit.i.i
+  %wide.trip.count.i89.i.i = zext i32 %294 to i64
+  br label %.lr.ph.i90.i.i
 
-.lr.ph.i89.i.i:                                   ; preds = %.lr.ph.i89.i.i, %.lr.ph.preheader.i87.i.i
-  %indvars.iv.i90.i.i = phi i64 [ %indvars.iv31.i.i, %.lr.ph.preheader.i87.i.i ], [ %indvars.iv.next.i92.i.i, %.lr.ph.i89.i.i ]
-  %.09.i91.i.i = phi i32 [ 0, %.lr.ph.preheader.i87.i.i ], [ %299, %.lr.ph.i89.i.i ]
-  %indvars.iv.next.i92.i.i = add nuw nsw i64 %indvars.iv.i90.i.i, 1
-  %297 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i90.i.i
+.lr.ph.i90.i.i:                                   ; preds = %.lr.ph.i90.i.i, %.lr.ph.preheader.i88.i.i
+  %indvars.iv.i91.i.i = phi i64 [ %indvars.iv31.i.i, %.lr.ph.preheader.i88.i.i ], [ %indvars.iv.next.i93.i.i, %.lr.ph.i90.i.i ]
+  %.09.i92.i.i = phi i32 [ 0, %.lr.ph.preheader.i88.i.i ], [ %299, %.lr.ph.i90.i.i ]
+  %indvars.iv.next.i93.i.i = add nuw nsw i64 %indvars.iv.i91.i.i, 1
+  %297 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i91.i.i
   %298 = load i32, ptr %297, align 4, !tbaa !104
-  %299 = add i32 %298, %.09.i91.i.i
-  %exitcond.not.i93.i.i = icmp eq i64 %indvars.iv.next.i92.i.i, %wide.trip.count.i88.i.i
-  br i1 %exitcond.not.i93.i.i, label %._crit_edge.i94.i.i, label %.lr.ph.i89.i.i, !llvm.loop !125
+  %299 = add i32 %298, %.09.i92.i.i
+  %exitcond.not.i94.i.i = icmp eq i64 %indvars.iv.next.i93.i.i, %wide.trip.count.i89.i.i
+  br i1 %exitcond.not.i94.i.i, label %._crit_edge.i95.i.i, label %.lr.ph.i90.i.i, !llvm.loop !125
 
-._crit_edge.i94.i.i:                              ; preds = %.lr.ph.i89.i.i
-  %.not.i95.i.i = icmp eq i32 %299, 0
-  br i1 %.not.i95.i.i, label %decode_blocks.exit.thread.i, label %300
+._crit_edge.i95.i.i:                              ; preds = %.lr.ph.i90.i.i
+  %.not.i96.i.i = icmp eq i32 %299, 0
+  br i1 %.not.i96.i.i, label %decode_blocks.exit.thread.i, label %300
 
-300:                                              ; preds = %._crit_edge.i94.i.i
+300:                                              ; preds = %._crit_edge.i95.i.i
   %301 = zext i32 %299 to i64
   %302 = shl nuw nsw i64 %301, 2
   call void @llvm.memset.p0.i64(ptr align 4 %295, i8 0, i64 %302, i1 false)
   br label %decode_blocks.exit.thread.i
 
-decode_blocks.exit.thread.i:                      ; preds = %300, %._crit_edge.i94.i.i, %zero_remaining.exit.i.i
+decode_blocks.exit.thread.i:                      ; preds = %300, %._crit_edge.i95.i.i, %zero_remaining.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1266
 

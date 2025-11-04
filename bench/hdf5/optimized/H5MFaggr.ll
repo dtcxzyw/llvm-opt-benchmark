@@ -109,7 +109,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread306, !prof !9
+  br i1 %13, label %14, label %.thread304, !prof !9
 
 14:                                               ; preds = %5
   %15 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef %3) #6
@@ -120,7 +120,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %18 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %19 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !20
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 160, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.3) #6
-  br label %.thread306
+  br label %.thread304
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -220,7 +220,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %80 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %81 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !20
   %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 225, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.10) #6
-  br label %.thread306
+  br label %.thread304
 
 83:                                               ; preds = %74, %69
   %.not257 = icmp eq i64 %71, 0
@@ -235,7 +235,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %88 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %89 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
   %90 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 229, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.11) #6
-  br label %.thread306
+  br label %.thread304
 
 91:                                               ; preds = %84
   %.not258 = icmp eq i32 %85, 0
@@ -287,7 +287,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %117 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %118 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %119 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 247, i64 noundef %117, i64 noundef %118, ptr noundef nonnull @.str.12) #6
-  br label %.thread306
+  br label %.thread304
 
 120:                                              ; preds = %113, %109, %105, %100, %.thread272
   %121 = call i64 @H5F__alloc(ptr noundef nonnull %0, i32 noundef %58, i64 noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
@@ -302,7 +302,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %124 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %125 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
   %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 254, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.13) #6
-  br label %.thread306
+  br label %.thread304
 
 127:                                              ; preds = %66
   %128 = sub nuw i64 %68, %4
@@ -326,7 +326,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %140 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %141 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !20
   %142 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 272, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.10) #6
-  br label %.thread306
+  br label %.thread304
 
 143:                                              ; preds = %134, %127
   %.not249 = icmp eq i64 %131, 0
@@ -341,7 +341,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %148 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %149 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
   %150 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 276, i64 noundef %148, i64 noundef %149, ptr noundef nonnull @.str.11) #6
-  br label %.thread306
+  br label %.thread304
 
 151:                                              ; preds = %144
   %.not250 = icmp eq i32 %145, 0
@@ -394,7 +394,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %180 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %181 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %182 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 295, i64 noundef %180, i64 noundef %181, ptr noundef nonnull @.str.12) #6
-  br label %.thread306
+  br label %.thread304
 
 183:                                              ; preds = %176, %172, %168, %163, %.thread281
   %184 = load i64, ptr %67, align 8, !tbaa !48
@@ -406,7 +406,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %188 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %189 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
   %190 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 302, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.13) #6
-  br label %.thread306
+  br label %.thread304
 
 191:                                              ; preds = %183
   %192 = load i64, ptr %63, align 8, !tbaa !47
@@ -423,7 +423,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %198 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %199 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %200 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 308, i64 noundef %198, i64 noundef %199, ptr noundef nonnull @.str.12) #6
-  br label %.thread306
+  br label %.thread304
 
 201:                                              ; preds = %193, %191
   %202 = load i64, ptr %7, align 8, !tbaa !20
@@ -475,13 +475,13 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %225 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %226 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %227 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 341, i64 noundef %225, i64 noundef %226, ptr noundef nonnull @.str.14) #6
-  br label %.thread306
+  br label %.thread304
 
 228:                                              ; preds = %.thread, %220, %218
-  %.2195339 = phi i1 [ true, %.thread ], [ %.2195, %220 ], [ %.2195, %218 ]
-  %.4202338 = phi i64 [ %93, %.thread ], [ %.4202, %220 ], [ %.4202, %218 ]
+  %.2195335 = phi i1 [ true, %.thread ], [ %.2195, %220 ], [ %.2195, %218 ]
+  %.4202334 = phi i64 [ %93, %.thread ], [ %.4202, %220 ], [ %.4202, %218 ]
   %229 = icmp ne i64 %.0204, 0
-  %or.cond6 = and i1 %229, %.2195339
+  %or.cond6 = and i1 %229, %.2195335
   br i1 %or.cond6, label %230, label %.thread297
 
 230:                                              ; preds = %228
@@ -493,7 +493,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %234 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %235 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %236 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 347, i64 noundef %234, i64 noundef %235, ptr noundef nonnull @.str.15) #6
-  br label %.thread306
+  br label %.thread304
 
 237:                                              ; preds = %54
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -509,13 +509,13 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
 243:                                              ; preds = %237
   %244 = tail call i32 @H5MF_xfree(ptr noundef nonnull %0, i32 noundef %58, i64 noundef %.0205, i64 noundef %.0204) #6
   %245 = icmp slt i32 %244, 0
-  br i1 %245, label %.thread301, label %.thread297
+  br i1 %245, label %.thread300, label %.thread297
 
-.thread301:                                       ; preds = %243
+.thread300:                                       ; preds = %243
   %246 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %247 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %248 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 359, i64 noundef %246, i64 noundef %247, ptr noundef nonnull @.str.15) #6
-  br label %.thread306
+  br label %.thread304
 
 249:                                              ; preds = %35, %28, %21
   %250 = call i64 @H5F__alloc(ptr noundef nonnull %0, i32 noundef %3, i64 noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
@@ -526,7 +526,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %253 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %254 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !20
   %255 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 365, i64 noundef %253, i64 noundef %254, ptr noundef nonnull @.str.13) #6
-  br label %.thread306
+  br label %.thread304
 
 256:                                              ; preds = %249
   %257 = load i64, ptr %7, align 8, !tbaa !20
@@ -543,23 +543,23 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %263 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !20
   %264 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !20
   %265 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggr_alloc, i32 noundef 371, i64 noundef %263, i64 noundef %264, ptr noundef nonnull @.str.14) #6
-  br label %.thread306
+  br label %.thread304
 
 .thread297:                                       ; preds = %228, %230, %243, %237, %256, %258
-  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %237 ], [ %240, %243 ], [ %.4202338, %230 ], [ %.4202338, %228 ]
+  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %237 ], [ %240, %243 ], [ %.4202334, %230 ], [ %.4202334, %228 ]
   %266 = call i64 @H5F_get_alignment(ptr noundef nonnull %0) #6
   %.not264 = icmp eq i64 %266, 0
-  br i1 %.not264, label %.thread306, label %267
+  br i1 %.not264, label %.thread304, label %267
 
 267:                                              ; preds = %.thread297
   %268 = call i64 @H5F_get_threshold(ptr noundef nonnull %0) #6
-  br label %.thread306
+  br label %.thread304
 
-.thread306:                                       ; preds = %197, %187, %179, %147, %139, %123, %116, %87, %79, %233, %224, %.thread301, %5, %.thread297, %262, %252, %17, %267
-  %.0 = phi i64 [ -1, %17 ], [ -1, %252 ], [ -1, %262 ], [ %.9, %267 ], [ %.9, %.thread297 ], [ -1, %5 ], [ -1, %.thread301 ], [ -1, %224 ], [ -1, %233 ], [ -1, %79 ], [ -1, %87 ], [ -1, %116 ], [ -1, %123 ], [ -1, %139 ], [ -1, %147 ], [ -1, %179 ], [ -1, %187 ], [ -1, %197 ]
+.thread304:                                       ; preds = %197, %187, %179, %147, %139, %123, %116, %87, %79, %233, %224, %.thread300, %5, %.thread297, %262, %252, %17, %267
+  %.0198 = phi i64 [ -1, %17 ], [ -1, %252 ], [ -1, %262 ], [ %.9, %267 ], [ %.9, %.thread297 ], [ -1, %5 ], [ -1, %.thread300 ], [ -1, %224 ], [ -1, %233 ], [ -1, %79 ], [ -1, %87 ], [ -1, %116 ], [ -1, %123 ], [ -1, %139 ], [ -1, %147 ], [ -1, %179 ], [ -1, %187 ], [ -1, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %.0
+  ret i64 %.0198
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -668,9 +668,9 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   store i64 %68, ptr %22, align 8, !tbaa !46
   br label %69
 
-69:                                               ; preds = %50, %54, %56, %28, %42, %66, %65, %5, %12, %21
-  %.047 = phi i32 [ 0, %21 ], [ 0, %12 ], [ 0, %5 ], [ -1, %28 ], [ 1, %42 ], [ 1, %66 ], [ 0, %65 ], [ -1, %50 ], [ %48, %54 ], [ 1, %56 ]
-  ret i32 %.047
+69:                                               ; preds = %50, %54, %56, %5, %12, %21, %65, %66, %42, %28
+  %.048 = phi i32 [ 0, %21 ], [ 0, %12 ], [ 0, %5 ], [ -1, %28 ], [ 1, %42 ], [ 1, %66 ], [ 0, %65 ], [ -1, %50 ], [ %48, %54 ], [ 1, %56 ]
+  ret i32 %.048
 }
 
 declare i64 @H5F_get_eoa(ptr noundef, i32 noundef) local_unnamed_addr #1

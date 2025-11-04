@@ -537,7 +537,7 @@ define internal range(i32 0, 2) i32 @set_cn(ptr noundef %0, ...) unnamed_addr #0
   %spec.select = zext i1 %.not15 to i32
   br label %.thread17
 
-.thread17:                                        ; preds = %33, %1, %37
+.thread17:                                        ; preds = %33, %37, %1
   %.011 = phi i32 [ 0, %1 ], [ %spec.select, %37 ], [ 0, %33 ]
   call void @X509_NAME_free(ptr noundef %3) #11
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -653,7 +653,7 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
   %spec.select = zext i1 %.not32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %41, %38, %33, %1, %47
+.thread:                                          ; preds = %41, %38, %33, %47, %1
   %.022 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %33 ], [ %36, %38 ], [ %36, %41 ]
   %.021 = phi ptr [ null, %1 ], [ null, %47 ], [ null, %33 ], [ null, %38 ], [ %39, %41 ]
   %.020 = phi i32 [ 0, %1 ], [ %spec.select, %47 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ]

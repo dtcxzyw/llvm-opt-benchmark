@@ -1213,15 +1213,15 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit38, label %.preheader37
+  br i1 %9, label %.loopexit39, label %.preheader38
 
-.preheader37:                                     ; preds = %2, %.preheader37
+.preheader38:                                     ; preds = %2, %.preheader38
   %10 = tail call i32 @__SCT__cond_resched() #8
   %11 = load volatile ptr, ptr %7, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit38, label %.preheader37, !llvm.loop !33
+  br i1 %12, label %.loopexit39, label %.preheader38, !llvm.loop !33
 
-.loopexit38:                                      ; preds = %.preheader37, %2
+.loopexit39:                                      ; preds = %.preheader38, %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4956
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, %4
@@ -1230,12 +1230,12 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = icmp eq i32 %15, 0
-  br i1 %20, label %._crit_edge53, label %.lr.ph52
+  br i1 %20, label %._crit_edge54, label %.lr.ph53
 
-.lr.ph52:                                         ; preds = %.loopexit38, %.loopexit34
-  %21 = phi i32 [ %29, %.loopexit34 ], [ %15, %.loopexit38 ]
-  %22 = phi ptr [ %131, %.loopexit34 ], [ null, %.loopexit38 ]
-  %23 = phi ptr [ %129, %.loopexit34 ], [ null, %.loopexit38 ]
+.lr.ph53:                                         ; preds = %.loopexit39, %.loopexit35
+  %21 = phi i32 [ %29, %.loopexit35 ], [ %15, %.loopexit39 ]
+  %22 = phi ptr [ %131, %.loopexit35 ], [ null, %.loopexit39 ]
+  %23 = phi ptr [ %129, %.loopexit35 ], [ null, %.loopexit39 ]
   %24 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %21, i32 -1) #10, !srcloc !34
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw i64 1, %25
@@ -1253,30 +1253,30 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   tail call void @__rcu_read_lock() #8
   %38 = load volatile ptr, ptr %17, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread26, label %40
+  br i1 %39, label %.thread27, label %40
 
-40:                                               ; preds = %.lr.ph52
+40:                                               ; preds = %.lr.ph53
   %41 = load ptr, ptr %18, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.preheader109, label %43
+  br i1 %42, label %.preheader110, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, %37
-  br i1 %46, label %47, label %.preheader109
+  br i1 %46, label %47, label %.preheader110
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %49 = load volatile ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread19, label %.preheader109
+  br i1 %50, label %.thread20, label %.preheader110
 
-.preheader109:                                    ; preds = %47, %43, %40
+.preheader110:                                    ; preds = %47, %43, %40
   br label %51
 
-51:                                               ; preds = %.preheader109, %60
-  %52 = phi ptr [ %64, %60 ], [ %38, %.preheader109 ]
+51:                                               ; preds = %.preheader110, %60
+  %52 = phi ptr [ %64, %60 ], [ %38, %.preheader110 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, %37
@@ -1286,7 +1286,7 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %58 = load volatile ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread19, label %60
+  br i1 %59, label %.thread20, label %60
 
 60:                                               ; preds = %51, %56
   %61 = icmp ult i64 %54, %37
@@ -1294,24 +1294,24 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 %62
   %64 = load volatile ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.preheader35, label %51
+  br i1 %65, label %.preheader36, label %51
 
-.preheader35:                                     ; preds = %60, %.thread21
-  %66 = phi ptr [ %106, %.thread21 ], [ %52, %60 ]
+.preheader36:                                     ; preds = %60, %.thread22
+  %66 = phi ptr [ %106, %.thread22 ], [ %52, %60 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load i64, ptr %67, align 8
   %69 = icmp ugt i64 %68, %37
-  br i1 %69, label %.thread26, label %70
+  br i1 %69, label %.thread27, label %70
 
-70:                                               ; preds = %.preheader35
+70:                                               ; preds = %.preheader36
   %71 = icmp ult i64 %68, %37
-  br i1 %71, label %.thread21, label %72
+  br i1 %71, label %.thread22, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %74 = load volatile ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread19, label %76
+  br i1 %75, label %.thread20, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 40
@@ -1319,15 +1319,15 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
   %79 = load volatile ptr, ptr %73, align 8
   %80 = icmp ugt ptr %79, inttoptr (i64 -4096 to ptr)
-  br i1 %80, label %81, label %.thread21
+  br i1 %80, label %81, label %.thread22
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 168
   %83 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %82, ptr null, ptr nonnull elementtype(ptr) %82) #8, !srcloc !13
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread21, label %.preheader33
+  br i1 %84, label %.thread22, label %.preheader34
 
-.preheader33:                                     ; preds = %81, %95
+.preheader34:                                     ; preds = %81, %95
   %85 = phi ptr [ %89, %95 ], [ %83, %81 ]
   %86 = phi ptr [ %98, %95 ], [ null, %81 ]
   %87 = phi ptr [ %97, %95 ], [ null, %81 ]
@@ -1337,18 +1337,18 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %91 = icmp eq ptr %88, %90
   br i1 %91, label %95, label %92
 
-92:                                               ; preds = %.preheader33
+92:                                               ; preds = %.preheader34
   store ptr %87, ptr %85, align 8
   %93 = icmp eq ptr %86, null
   %94 = select i1 %93, ptr %85, ptr %86
   br label %95
 
-95:                                               ; preds = %92, %.preheader33
-  %96 = phi ptr [ null, %.preheader33 ], [ %88, %92 ]
-  %97 = phi ptr [ %87, %.preheader33 ], [ %85, %92 ]
-  %98 = phi ptr [ %86, %.preheader33 ], [ %94, %92 ]
+95:                                               ; preds = %92, %.preheader34
+  %96 = phi ptr [ null, %.preheader34 ], [ %88, %92 ]
+  %97 = phi ptr [ %87, %.preheader34 ], [ %85, %92 ]
+  %98 = phi ptr [ %86, %.preheader34 ], [ %94, %92 ]
   %99 = icmp eq ptr %89, null
-  br i1 %99, label %100, label %.preheader33, !llvm.loop !14
+  br i1 %99, label %100, label %.preheader34, !llvm.loop !14
 
 100:                                              ; preds = %95
   %101 = icmp eq ptr %97, null
@@ -1360,14 +1360,14 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
 
 104:                                              ; preds = %102, %100
   %105 = icmp eq ptr %96, null
-  br i1 %105, label %.thread19, label %.thread21
+  br i1 %105, label %.thread20, label %.thread22
 
-.thread21:                                        ; preds = %76, %104, %81, %70
+.thread22:                                        ; preds = %76, %104, %81, %70
   %106 = tail call ptr @rb_next(ptr noundef nonnull %66) #8
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.thread26, label %.preheader35, !llvm.loop !36
+  br i1 %107, label %.thread27, label %.preheader36, !llvm.loop !36
 
-.thread19:                                        ; preds = %56, %104, %72, %47
+.thread20:                                        ; preds = %56, %104, %72, %47
   %108 = phi ptr [ %41, %47 ], [ %66, %72 ], [ %66, %104 ], [ %52, %56 ]
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %19) #8
   tail call void @rb_erase(ptr noundef nonnull %108, ptr noundef nonnull %17) #8
@@ -1375,23 +1375,23 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %110 = icmp eq ptr %108, %109
   br i1 %110, label %111, label %115
 
-111:                                              ; preds = %.thread19
+111:                                              ; preds = %.thread20
   store volatile ptr null, ptr %18, align 8
   br label %115
 
-.thread26:                                        ; preds = %.thread21, %.preheader35, %.lr.ph52
+.thread27:                                        ; preds = %.thread22, %.preheader36, %.lr.ph53
   tail call void @__rcu_read_unlock() #8
   %112 = load ptr, ptr @slab_cache, align 8
   %113 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %112, i32 noundef 3264) #8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %147, label %116
 
-115:                                              ; preds = %.thread19, %111
+115:                                              ; preds = %.thread20, %111
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #8
   tail call void @__rcu_read_unlock() #8
   br label %121
 
-116:                                              ; preds = %.thread26
+116:                                              ; preds = %.thread27
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store volatile ptr null, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 48
@@ -1435,7 +1435,7 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %140 = icmp ult i8 %139, 2
   tail call void @llvm.assume(i1 %140)
   %141 = icmp eq i8 %139, 0
-  br i1 %141, label %142, label %.loopexit34, !prof !8
+  br i1 %141, label %142, label %.loopexit35, !prof !8
 
 142:                                              ; preds = %.lr.ph
   %143 = extractvalue { i8, i32 } %138, 1
@@ -1444,21 +1444,21 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
 
 ._crit_edge:                                      ; preds = %142, %128
   %145 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %132) #8
-  br label %.loopexit34
+  br label %.loopexit35
 
-.loopexit34:                                      ; preds = %.lr.ph, %._crit_edge
+.loopexit35:                                      ; preds = %.lr.ph, %._crit_edge
   %146 = icmp eq i32 %29, 0
-  br i1 %146, label %._crit_edge53, label %.lr.ph52
+  br i1 %146, label %._crit_edge54, label %.lr.ph53
 
-147:                                              ; preds = %.thread26
+147:                                              ; preds = %.thread27
   %148 = icmp eq ptr %23, null
-  br i1 %148, label %.loopexit32, label %.preheader
+  br i1 %148, label %.loopexit33, label %.preheader
 
-._crit_edge53:                                    ; preds = %.loopexit34, %.loopexit38
-  %.lcssa49 = phi ptr [ null, %.loopexit38 ], [ %129, %.loopexit34 ]
-  %.lcssa47 = phi ptr [ null, %.loopexit38 ], [ %131, %.loopexit34 ]
-  %149 = tail call zeroext i1 @llist_add_batch(ptr noundef %.lcssa49, ptr noundef %.lcssa47, ptr noundef nonnull %7) #8
-  br label %.loopexit32
+._crit_edge54:                                    ; preds = %.loopexit35, %.loopexit39
+  %.lcssa50 = phi ptr [ null, %.loopexit39 ], [ %129, %.loopexit35 ]
+  %.lcssa48 = phi ptr [ null, %.loopexit39 ], [ %131, %.loopexit35 ]
+  %149 = tail call zeroext i1 @llist_add_batch(ptr noundef %.lcssa50, ptr noundef %.lcssa48, ptr noundef nonnull %7) #8
+  br label %.loopexit33
 
 .preheader:                                       ; preds = %147, %.loopexit
   %150 = phi ptr [ %152, %.loopexit ], [ %23, %147 ]
@@ -1471,9 +1471,9 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %156 = tail call i32 @__SCT__might_resched() #8
   %157 = load volatile i32, ptr %155, align 4
   %158 = icmp eq i32 %157, 1
-  br i1 %158, label %._crit_edge57, label %.lr.ph56, !prof !6
+  br i1 %158, label %._crit_edge58, label %.lr.ph57, !prof !6
 
-.lr.ph56:                                         ; preds = %.preheader, %165
+.lr.ph57:                                         ; preds = %.preheader, %165
   %159 = phi i32 [ %166, %165 ], [ %157, %.preheader ]
   %160 = add i32 %159, -1
   %161 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %155, i32 %160, ptr nonnull elementtype(i32) %155, i32 %159) #8, !srcloc !7
@@ -1483,23 +1483,23 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %164 = icmp eq i8 %162, 0
   br i1 %164, label %165, label %.loopexit, !prof !8
 
-165:                                              ; preds = %.lr.ph56
+165:                                              ; preds = %.lr.ph57
   %166 = extractvalue { i8, i32 } %161, 1
   %167 = icmp eq i32 %166, 1
-  br i1 %167, label %._crit_edge57, label %.lr.ph56, !prof !9, !llvm.loop !10
+  br i1 %167, label %._crit_edge58, label %.lr.ph57, !prof !9, !llvm.loop !10
 
-._crit_edge57:                                    ; preds = %165, %.preheader
+._crit_edge58:                                    ; preds = %165, %.preheader
   tail call void @__intel_wakeref_put_last(ptr noundef nonnull %155, i64 noundef 0) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph56, %._crit_edge57
+.loopexit:                                        ; preds = %.lr.ph57, %._crit_edge58
   %168 = load ptr, ptr @slab_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %168, ptr noundef %151) #8
   %169 = icmp eq ptr %152, null
-  br i1 %169, label %.loopexit32, label %.preheader, !llvm.loop !37
+  br i1 %169, label %.loopexit33, label %.preheader, !llvm.loop !37
 
-.loopexit32:                                      ; preds = %.loopexit, %._crit_edge53, %147
-  %170 = phi i32 [ 0, %._crit_edge53 ], [ -12, %147 ], [ -12, %.loopexit ]
+.loopexit33:                                      ; preds = %.loopexit, %._crit_edge54, %147
+  %170 = phi i32 [ 0, %._crit_edge54 ], [ -12, %147 ], [ -12, %.loopexit ]
   ret i32 %170
 }
 

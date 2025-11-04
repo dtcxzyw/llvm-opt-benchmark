@@ -1577,28 +1577,28 @@ define void @_ZN5boost3log11v2_mt_posix4core11open_recordERKNS1_13attribute_setE
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %10
-  %.not.i4 = icmp eq ptr %12, null
-  br i1 %.not.i4, label %13, label %15, !prof !76
+  %.not.i2 = icmp eq ptr %12, null
+  br i1 %.not.i2, label %13, label %15, !prof !76
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation16init_thread_dataEv(ptr noundef nonnull align 8 dereferenceable(136) %7)
-          to label %.noexc6 unwind label %41
+          to label %.noexc3 unwind label %41
 
-.noexc6:                                          ; preds = %13
+.noexc3:                                          ; preds = %13
   %14 = invoke noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %15 unwind label %41
 
-15:                                               ; preds = %.noexc6, %.noexc
-  %.0.i5 = phi ptr [ %12, %.noexc ], [ %14, %.noexc6 ]
+15:                                               ; preds = %.noexc3, %.noexc
+  %.0.i = phi ptr [ %12, %.noexc ], [ %14, %.noexc3 ]
   %16 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %7) #21, !noalias !80
   %17 = load atomic volatile i8, ptr %8 monotonic, align 1, !noalias !80
-  %.not23 = icmp eq i8 %17, 0
-  br i1 %.not23, label %66, label %18, !prof !76
+  %.not15 = icmp eq i8 %17, 0
+  br i1 %.not15, label %66, label %18, !prof !76
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !80
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_setC1ERKNS1_13attribute_setES5_S5_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i5, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_setC1ERKNS1_13attribute_setES5_S5_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
           to label %20 unwind label %43, !noalias !80
 
 20:                                               ; preds = %18
@@ -1609,7 +1609,7 @@ define void @_ZN5boost3log11v2_mt_posix4core11open_recordERKNS1_13attribute_setE
           to label %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit unwind label %45
 
 _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds = %20
-  br i1 %24, label %25, label %.sink.split
+  br i1 %24, label %25, label %62
 
 25:                                               ; preds = %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !80
@@ -1630,18 +1630,18 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   br label %37
 
 37:                                               ; preds = %31, %38
-  %.012.i26 = phi i32 [ %36, %31 ], [ %40, %38 ]
-  %.sroa.013.025 = phi ptr [ %27, %31 ], [ %39, %38 ]
-  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.025, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i26)
+  %.012.i18 = phi i32 [ %36, %31 ], [ %40, %38 ]
+  %.sroa.010.017 = phi ptr [ %27, %31 ], [ %39, %38 ]
+  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.017, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i18)
           to label %38 unwind label %47, !noalias !80
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 16
-  %40 = add i32 %.012.i26, -1
-  %.not24 = icmp eq ptr %39, %29
-  br i1 %.not24, label %.loopexit, label %37, !llvm.loop !83
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
+  %40 = add i32 %.012.i18, -1
+  %.not16 = icmp eq ptr %39, %29
+  br i1 %.not16, label %.loopexit, label %37, !llvm.loop !83
 
-41:                                               ; preds = %.noexc6, %13, %10
+41:                                               ; preds = %.noexc3, %13, %10
   %42 = landingpad { ptr, i32 }
           catch ptr null
   br label %68
@@ -1659,51 +1659,60 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
 47:                                               ; preds = %37
   %48 = landingpad { ptr, i32 }
           catch ptr null
-  br label %60
+  br label %61
 
 49:                                               ; preds = %25
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 80
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1)
           to label %.loopexit unwind label %51, !noalias !80
 
-51:                                               ; preds = %58, %49
-  %.523.i = phi i1 [ true, %58 ], [ false, %49 ]
+51:                                               ; preds = %59, %49
+  %.523.i = phi i1 [ true, %59 ], [ false, %49 ]
   %52 = landingpad { ptr, i32 }
           catch ptr null
-  br label %60
+  br label %61
 
 .loopexit:                                        ; preds = %38, %49
   %53 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !80
   %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %58, label %54
+  br i1 %.not.i, label %59, label %54
 
 54:                                               ; preds = %.loopexit
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !3, !noalias !80
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+  br i1 %57, label %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit, label %59
 
-58:                                               ; preds = %54, %.loopexit
-  %59 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !80
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %.sink.split.sink.split unwind label %51, !noalias !80
+_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit: ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #21, !noalias !80
+  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %53) #21, !noalias !80
+  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !80
+  br label %.sink.split
 
-60:                                               ; preds = %51, %47
+59:                                               ; preds = %54, %.loopexit
+  %60 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !80
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
+          to label %.sink.split unwind label %51, !noalias !80
+
+61:                                               ; preds = %51, %47
   %.422.i = phi i1 [ %.523.i, %51 ], [ false, %47 ]
   %.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !80
   br label %63
 
-61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21, !noalias !80
-  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %53) #21, !noalias !80
-  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !80
-  br label %.sink.split.sink.split
+.sink.split:                                      ; preds = %59, %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !80
+  br label %62
 
-63:                                               ; preds = %60, %45
-  %.321.i = phi i1 [ %.422.i, %60 ], [ true, %45 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %60 ], [ %46, %45 ]
+62:                                               ; preds = %.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !80
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !80
+  br label %66
+
+63:                                               ; preds = %61, %45
+  %.321.i = phi i1 [ %.422.i, %61 ], [ true, %45 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %61 ], [ %46, %45 ]
   call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !80
   br label %64
 
@@ -1714,16 +1723,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %65 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !80
   br label %68
 
-.sink.split.sink.split:                           ; preds = %58, %61
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !80
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !80
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !80
-  br label %66
-
-66:                                               ; preds = %.sink.split, %15
+66:                                               ; preds = %62, %15
   %67 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !80
   br label %_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_13attribute_setEEENS1_6recordEOT_.exit
 
@@ -1799,7 +1799,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %82
 93:                                               ; preds = %85, %78
   unreachable
 
-_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_13attribute_setEEENS1_6recordEOT_.exit: ; preds = %3, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit, %66
+_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_13attribute_setEEENS1_6recordEOT_.exit: ; preds = %3, %66, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit
   %94 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !80
   store ptr %94, ptr %0, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !80
@@ -1825,28 +1825,28 @@ define void @_ZN5boost3log11v2_mt_posix4core11open_recordERKNS1_19attribute_valu
           to label %.noexc unwind label %41
 
 .noexc:                                           ; preds = %10
-  %.not.i4 = icmp eq ptr %12, null
-  br i1 %.not.i4, label %13, label %15, !prof !76
+  %.not.i2 = icmp eq ptr %12, null
+  br i1 %.not.i2, label %13, label %15, !prof !76
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation16init_thread_dataEv(ptr noundef nonnull align 8 dereferenceable(136) %7)
-          to label %.noexc6 unwind label %41
+          to label %.noexc3 unwind label %41
 
-.noexc6:                                          ; preds = %13
+.noexc3:                                          ; preds = %13
   %14 = invoke noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %15 unwind label %41
 
-15:                                               ; preds = %.noexc6, %.noexc
-  %.0.i5 = phi ptr [ %12, %.noexc ], [ %14, %.noexc6 ]
+15:                                               ; preds = %.noexc3, %.noexc
+  %.0.i = phi ptr [ %12, %.noexc ], [ %14, %.noexc3 ]
   %16 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %7) #21, !noalias !84
   %17 = load atomic volatile i8, ptr %8 monotonic, align 1, !noalias !84
-  %.not23 = icmp eq i8 %17, 0
-  br i1 %.not23, label %66, label %18, !prof !76
+  %.not15 = icmp eq i8 %17, 0
+  br i1 %.not15, label %66, label %18, !prof !76
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !84
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_setC1ERKS2_RKNS1_13attribute_setES7_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i5, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_setC1ERKS2_RKNS1_13attribute_setES7_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
           to label %20 unwind label %43, !noalias !84
 
 20:                                               ; preds = %18
@@ -1857,7 +1857,7 @@ define void @_ZN5boost3log11v2_mt_posix4core11open_recordERKNS1_19attribute_valu
           to label %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit unwind label %45
 
 _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds = %20
-  br i1 %24, label %25, label %.sink.split
+  br i1 %24, label %25, label %62
 
 25:                                               ; preds = %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !84
@@ -1878,18 +1878,18 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   br label %37
 
 37:                                               ; preds = %31, %38
-  %.012.i26 = phi i32 [ %36, %31 ], [ %40, %38 ]
-  %.sroa.013.025 = phi ptr [ %27, %31 ], [ %39, %38 ]
-  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.025, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i26)
+  %.012.i18 = phi i32 [ %36, %31 ], [ %40, %38 ]
+  %.sroa.010.017 = phi ptr [ %27, %31 ], [ %39, %38 ]
+  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.017, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i18)
           to label %38 unwind label %47, !noalias !84
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 16
-  %40 = add i32 %.012.i26, -1
-  %.not24 = icmp eq ptr %39, %29
-  br i1 %.not24, label %.loopexit, label %37, !llvm.loop !87
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
+  %40 = add i32 %.012.i18, -1
+  %.not16 = icmp eq ptr %39, %29
+  br i1 %.not16, label %.loopexit, label %37, !llvm.loop !87
 
-41:                                               ; preds = %.noexc6, %13, %10
+41:                                               ; preds = %.noexc3, %13, %10
   %42 = landingpad { ptr, i32 }
           catch ptr null
   br label %68
@@ -1907,51 +1907,60 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
 47:                                               ; preds = %37
   %48 = landingpad { ptr, i32 }
           catch ptr null
-  br label %60
+  br label %61
 
 49:                                               ; preds = %25
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 80
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1)
           to label %.loopexit unwind label %51, !noalias !84
 
-51:                                               ; preds = %58, %49
-  %.523.i = phi i1 [ true, %58 ], [ false, %49 ]
+51:                                               ; preds = %59, %49
+  %.523.i = phi i1 [ true, %59 ], [ false, %49 ]
   %52 = landingpad { ptr, i32 }
           catch ptr null
-  br label %60
+  br label %61
 
 .loopexit:                                        ; preds = %38, %49
   %53 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !84
   %.not.i = icmp eq ptr %53, null
-  br i1 %.not.i, label %58, label %54
+  br i1 %.not.i, label %59, label %54
 
 54:                                               ; preds = %.loopexit
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !3, !noalias !84
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %61, label %58
+  br i1 %57, label %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit, label %59
 
-58:                                               ; preds = %54, %.loopexit
-  %59 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !84
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %.sink.split.sink.split unwind label %51, !noalias !84
+_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit: ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #21, !noalias !84
+  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %53) #21, !noalias !84
+  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !84
+  br label %.sink.split
 
-60:                                               ; preds = %51, %47
+59:                                               ; preds = %54, %.loopexit
+  %60 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !84
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
+          to label %.sink.split unwind label %51, !noalias !84
+
+61:                                               ; preds = %51, %47
   %.422.i = phi i1 [ %.523.i, %51 ], [ false, %47 ]
   %.pn.i = phi { ptr, i32 } [ %52, %51 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
   br label %63
 
-61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21, !noalias !84
-  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %53) #21, !noalias !84
-  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !84
-  br label %.sink.split.sink.split
+.sink.split:                                      ; preds = %59, %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
+  br label %62
 
-63:                                               ; preds = %60, %45
-  %.321.i = phi i1 [ %.422.i, %60 ], [ true, %45 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %60 ], [ %46, %45 ]
+62:                                               ; preds = %.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !84
+  br label %66
+
+63:                                               ; preds = %61, %45
+  %.321.i = phi i1 [ %.422.i, %61 ], [ true, %45 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %61 ], [ %46, %45 ]
   call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !84
   br label %64
 
@@ -1962,16 +1971,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %65 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !84
   br label %68
 
-.sink.split.sink.split:                           ; preds = %58, %61
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !84
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !84
-  br label %66
-
-66:                                               ; preds = %.sink.split, %15
+66:                                               ; preds = %62, %15
   %67 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !84
   br label %_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_19attribute_value_setEEENS1_6recordEOT_.exit
 
@@ -2047,7 +2047,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %82
 93:                                               ; preds = %85, %78
   unreachable
 
-_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_19attribute_value_setEEENS1_6recordEOT_.exit: ; preds = %3, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit, %66
+_ZN5boost3log11v2_mt_posix4core14implementation11open_recordIRKNS1_19attribute_value_setEEENS1_6recordEOT_.exit: ; preds = %3, %66, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit
   %94 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !84
   store ptr %94, ptr %0, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !84
@@ -2073,29 +2073,29 @@ define void @_ZN5boost3log11v2_mt_posix4core16open_record_moveERNS1_19attribute_
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %10
-  %.not.i4 = icmp eq ptr %12, null
-  br i1 %.not.i4, label %13, label %15, !prof !76
+  %.not.i2 = icmp eq ptr %12, null
+  br i1 %.not.i2, label %13, label %15, !prof !76
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation16init_thread_dataEv(ptr noundef nonnull align 8 dereferenceable(136) %7)
-          to label %.noexc6 unwind label %40
+          to label %.noexc3 unwind label %40
 
-.noexc6:                                          ; preds = %13
+.noexc3:                                          ; preds = %13
   %14 = invoke noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %15 unwind label %40
 
-15:                                               ; preds = %.noexc6, %.noexc
-  %.0.i5 = phi ptr [ %12, %.noexc ], [ %14, %.noexc6 ]
+15:                                               ; preds = %.noexc3, %.noexc
+  %.0.i = phi ptr [ %12, %.noexc ], [ %14, %.noexc3 ]
   %16 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %7) #21, !noalias !88
   %17 = load atomic volatile i8, ptr %8 monotonic, align 1, !noalias !88
-  %.not24 = icmp eq i8 %17, 0
-  br i1 %.not24, label %65, label %18, !prof !76
+  %.not16 = icmp eq i8 %17, 0
+  br i1 %.not16, label %65, label %18, !prof !76
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !88
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr null, ptr %5, align 8, !tbaa !91, !noalias !88
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set9constructERS2_RKNS1_13attribute_setES6_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i5, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set9constructERS2_RKNS1_13attribute_setES6_m(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 8)
           to label %_ZN5boost3log11v2_mt_posix19attribute_value_setC2EOS2_RKNS1_13attribute_setES6_m.exit unwind label %42
 
 _ZN5boost3log11v2_mt_posix19attribute_value_setC2EOS2_RKNS1_13attribute_setES6_m.exit: ; preds = %18
@@ -2106,7 +2106,7 @@ _ZN5boost3log11v2_mt_posix19attribute_value_setC2EOS2_RKNS1_13attribute_setES6_m
           to label %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit unwind label %44
 
 _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds = %_ZN5boost3log11v2_mt_posix19attribute_value_setC2EOS2_RKNS1_13attribute_setES6_m.exit
-  br i1 %23, label %24, label %.sink.split
+  br i1 %23, label %24, label %61
 
 24:                                               ; preds = %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !88
@@ -2127,18 +2127,18 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   br label %36
 
 36:                                               ; preds = %30, %37
-  %.012.i27 = phi i32 [ %35, %30 ], [ %39, %37 ]
-  %.sroa.014.026 = phi ptr [ %26, %30 ], [ %38, %37 ]
-  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.026, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i27)
+  %.012.i19 = phi i32 [ %35, %30 ], [ %39, %37 ]
+  %.sroa.011.018 = phi ptr [ %26, %30 ], [ %38, %37 ]
+  invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.018, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %.012.i19)
           to label %37 unwind label %46, !noalias !88
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.014.026, i64 16
-  %39 = add i32 %.012.i27, -1
-  %.not25 = icmp eq ptr %38, %28
-  br i1 %.not25, label %.loopexit, label %36, !llvm.loop !92
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.018, i64 16
+  %39 = add i32 %.012.i19, -1
+  %.not17 = icmp eq ptr %38, %28
+  br i1 %.not17, label %.loopexit, label %36, !llvm.loop !92
 
-40:                                               ; preds = %.noexc6, %13, %10
+40:                                               ; preds = %.noexc3, %13, %10
   %41 = landingpad { ptr, i32 }
           catch ptr null
   br label %67
@@ -2156,51 +2156,60 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
 46:                                               ; preds = %36
   %47 = landingpad { ptr, i32 }
           catch ptr null
-  br label %59
+  br label %60
 
 48:                                               ; preds = %24
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 80
   invoke void @_ZN5boost3log11v2_mt_posix4core14implementation17apply_sink_filterERKNS_10shared_ptrINS1_5sinks4sinkEEERPNS1_11record_view12private_dataERPNS1_19attribute_value_setEj(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 1)
           to label %.loopexit unwind label %50, !noalias !88
 
-50:                                               ; preds = %57, %48
-  %.523.i = phi i1 [ true, %57 ], [ false, %48 ]
+50:                                               ; preds = %58, %48
+  %.523.i = phi i1 [ true, %58 ], [ false, %48 ]
   %51 = landingpad { ptr, i32 }
           catch ptr null
-  br label %59
+  br label %60
 
 .loopexit:                                        ; preds = %37, %48
   %52 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !88
   %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %57, label %53
+  br i1 %.not.i, label %58, label %53
 
 53:                                               ; preds = %.loopexit
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !3, !noalias !88
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %60, label %57
+  br i1 %56, label %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit, label %58
 
-57:                                               ; preds = %53, %.loopexit
-  %58 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !88
-  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %58)
-          to label %.sink.split.sink.split unwind label %50, !noalias !88
+_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit: ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #21, !noalias !88
+  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %52) #21, !noalias !88
+  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !88
+  br label %.sink.split
 
-59:                                               ; preds = %50, %46
+58:                                               ; preds = %53, %.loopexit
+  %59 = load ptr, ptr %6, align 8, !tbaa !62, !noalias !88
+  invoke void @_ZN5boost3log11v2_mt_posix19attribute_value_set6freezeEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
+          to label %.sink.split unwind label %50, !noalias !88
+
+60:                                               ; preds = %50, %46
   %.422.i = phi i1 [ %.523.i, %50 ], [ false, %46 ]
   %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !88
   br label %62
 
-60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #21, !noalias !88
-  call void @free(ptr noundef nonnull align 8 dereferenceable(25) %52) #21, !noalias !88
-  store ptr null, ptr %4, align 8, !tbaa !62, !noalias !88
-  br label %.sink.split.sink.split
+.sink.split:                                      ; preds = %58, %_ZN5boost3log11v2_mt_posix11record_view12private_data7destroyEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !88
+  br label %61
 
-62:                                               ; preds = %59, %44
-  %.321.i = phi i1 [ %.422.i, %59 ], [ true, %44 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %59 ], [ %45, %44 ]
+61:                                               ; preds = %.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
+  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !88
+  br label %65
+
+62:                                               ; preds = %60, %44
+  %.321.i = phi i1 [ %.422.i, %60 ], [ true, %44 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %60 ], [ %45, %44 ]
   call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !88
   br label %63
 
@@ -2211,16 +2220,7 @@ _ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit: ; preds 
   %64 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !88
   br label %67
 
-.sink.split.sink.split:                           ; preds = %57, %60
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !88
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %.sink.split.sink.split, %_ZNK5boost3log11v2_mt_posix6filterclERKNS1_19attribute_value_setE.exit
-  call void @_ZN5boost3log11v2_mt_posix19attribute_value_setD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21, !noalias !88
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !88
-  br label %65
-
-65:                                               ; preds = %.sink.split, %15
+65:                                               ; preds = %61, %15
   %66 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %7) #21, !noalias !88
   br label %_ZN5boost3log11v2_mt_posix4core14implementation11open_recordINS1_19attribute_value_setEEENS1_6recordEOT_.exit
 
@@ -2296,7 +2296,7 @@ _ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit: ; preds = %81
 92:                                               ; preds = %84, %77
   unreachable
 
-_ZN5boost3log11v2_mt_posix4core14implementation11open_recordINS1_19attribute_value_setEEENS1_6recordEOT_.exit: ; preds = %3, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit, %65
+_ZN5boost3log11v2_mt_posix4core14implementation11open_recordINS1_19attribute_value_setEEENS1_6recordEOT_.exit: ; preds = %3, %65, %_ZNK5boost3log11v2_mt_posix3aux14light_functionIFvvEEclEv.exit
   %93 = load ptr, ptr %4, align 8, !tbaa !62, !noalias !88
   store ptr %93, ptr %0, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !88

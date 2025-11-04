@@ -9280,7 +9280,7 @@ define noundef zeroext i1 @_ZN7rocksdb6DBIter25FindUserKeyBeforeSavedKeyEv(ptr n
   br label %49
 
 49:                                               ; preds = %.lr.ph, %241
-  %.01490 = phi i64 [ 0, %.lr.ph ], [ %.317, %241 ]
+  %.01491 = phi i64 [ 0, %.lr.ph ], [ %.317, %241 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str, ptr %2, align 8, !tbaa !148
   store i64 0, ptr %16, align 8, !tbaa !149
@@ -9514,7 +9514,7 @@ _ZTWN7rocksdb12perf_contextE.exit33:              ; preds = %149, %150
 
 153:                                              ; preds = %_ZTWN7rocksdb10perf_levelE.exit31, %_ZTWN7rocksdb12perf_contextE.exit33, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit
   %154 = load i64, ptr %33, align 8, !tbaa !196
-  %.not21 = icmp ult i64 %.01490, %154
+  %.not21 = icmp ult i64 %.01491, %154
   br i1 %.not21, label %228, label %155
 
 155:                                              ; preds = %153
@@ -9722,7 +9722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %223
   resume { ptr, i32 } %.pn24
 
 228:                                              ; preds = %153
-  %229 = add nuw i64 %.01490, 1
+  %229 = add nuw i64 %.01491, 1
   br label %230
 
 230:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %228

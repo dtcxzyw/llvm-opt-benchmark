@@ -580,8 +580,8 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata(ptr noundef %0, i64 noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %25, %18, %22, %150, %149
-  %.033 = phi i32 [ %.2, %150 ], [ %.2, %149 ], [ 0, %22 ], [ 0, %25 ], [ -1, %18 ]
-  ret i32 %.033
+  %.1 = phi i32 [ %.2, %150 ], [ %.2, %149 ], [ 0, %22 ], [ 0, %25 ], [ -1, %18 ]
+  ret i32 %.1
 }
 
 declare i32 @H5F_get_intent(ptr noundef) local_unnamed_addr #1

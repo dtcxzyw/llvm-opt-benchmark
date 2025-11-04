@@ -215,9 +215,9 @@ define range(i32 -1, 1) i32 @H5G_link_to_info(ptr noundef readonly captures(none
   store i64 0, ptr %86, align 8, !tbaa !29
   br label %87
 
-87:                                               ; preds = %.thread, %79, %83, %51, %85, %17, %32, %43, %39, %13
-  %.041 = phi i32 [ -1, %13 ], [ -1, %39 ], [ 0, %32 ], [ 0, %43 ], [ 0, %17 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
-  ret i32 %.041
+87:                                               ; preds = %.thread, %79, %83, %17, %32, %43, %39, %13, %85, %51
+  %.042 = phi i32 [ -1, %13 ], [ -1, %39 ], [ 0, %32 ], [ 0, %43 ], [ 0, %17 ], [ -1, %51 ], [ 0, %85 ], [ -1, %79 ], [ 0, %83 ], [ -1, %.thread ]
+  ret i32 %.042
 }
 
 declare i32 @H5G__init_package() local_unnamed_addr #1
@@ -453,10 +453,10 @@ define range(i32 -1, 1) i32 @H5G__link_to_ent(ptr noundef %0, ptr noundef %1, pt
   %123 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__link_to_ent, i32 noundef 389, i64 noundef %121, i64 noundef %122, ptr noundef nonnull @.str.13) #9
   br label %124
 
-124:                                              ; preds = %.thread, %119, %6, %101, %120, %24
-  %.048 = phi i32 [ -1, %24 ], [ -1, %120 ], [ 0, %101 ], [ %.3, %119 ], [ 0, %6 ], [ -1, %.thread ]
+124:                                              ; preds = %.thread, %6, %101, %120, %24, %119
+  %.049 = phi i32 [ -1, %24 ], [ -1, %120 ], [ 0, %101 ], [ %.3, %119 ], [ 0, %6 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.048
+  ret i32 %.049
 }
 
 declare void @H5G__ent_reset(ptr noundef) local_unnamed_addr #1

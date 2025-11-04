@@ -467,12 +467,12 @@ define internal i32 @sg_add_device(ptr noundef captures(none) %0) #2 align 16 {
 86:                                               ; preds = %78
   %87 = tail call i32 @sysfs_create_link(ptr noundef %3, ptr noundef %84, ptr noundef nonnull @.str.9) #17
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.thread11, label %89
+  br i1 %88, label %.thread12, label %89
 
 89:                                               ; preds = %86
   %90 = load i32, ptr %70, align 4
   %91 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.sg_add_device, i32 noundef %90) #18
-  br label %.thread11
+  br label %.thread12
 
 92:                                               ; preds = %78
   %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.sg_add_device) #18
@@ -482,9 +482,9 @@ define internal i32 @sg_add_device(ptr noundef captures(none) %0) #2 align 16 {
 
 96:                                               ; preds = %75
   %97 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.sg_add_device) #18
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %86, %89, %96
+.thread12:                                        ; preds = %86, %89, %96
   %98 = load i32, ptr %70, align 4
   %99 = getelementptr i8, ptr %3, i64 -264
   %100 = load i8, ptr %99, align 8
@@ -519,8 +519,8 @@ define internal i32 @sg_add_device(ptr noundef captures(none) %0) #2 align 16 {
   tail call void @blk_put_queue(ptr noundef %114) #17
   br label %115
 
-115:                                              ; preds = %112, %.thread11, %8
-  %116 = phi i32 [ %113, %112 ], [ 0, %.thread11 ], [ -19, %8 ]
+115:                                              ; preds = %112, %.thread12, %8
+  %116 = phi i32 [ %113, %112 ], [ 0, %.thread12 ], [ -19, %8 ]
   ret i32 %116
 }
 

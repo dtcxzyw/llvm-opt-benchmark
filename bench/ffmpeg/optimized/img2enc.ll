@@ -311,7 +311,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 103:                                              ; preds = %94, %97
   %.0123.lcssa.ph = phi i64 [ 4, %97 ], [ %indvars.iv, %94 ]
   %104 = load i32, ptr %70, align 8, !tbaa !56
-  %.not139.not177 = icmp eq i32 %104, 0
+  %.not139.not178 = icmp eq i32 %104, 0
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %106 = load i32, ptr %105, align 8, !tbaa !60
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 76
@@ -374,10 +374,10 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 150:                                              ; preds = %140
   %151 = load i8, ptr %72, align 8, !tbaa !44
   %152 = icmp ugt i8 %151, 3
-  br i1 %152, label %153, label %.thread182
+  br i1 %152, label %153, label %.thread183
 
-.thread182:                                       ; preds = %150
-  br i1 %.not139.not177, label %._crit_edge, label %.lr.ph
+.thread183:                                       ; preds = %150
+  br i1 %.not139.not178, label %._crit_edge, label %.lr.ph
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -416,42 +416,42 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %170, %153
-  %.sink198 = phi ptr [ %161, %153 ], [ %176, %170 ]
+  %.sink199 = phi ptr [ %161, %153 ], [ %176, %170 ]
   %.sink.ph = phi ptr [ %154, %153 ], [ %3, %170 ]
-  %.not139.not180.ph = phi i1 [ %.not139.not177, %153 ], [ %.not139.not, %170 ]
-  %.0123.lcssa178.ph = phi i64 [ %.0123.lcssa.ph, %153 ], [ %indvars.iv, %170 ]
-  call void @avio_flush(ptr noundef %.sink198) #8
+  %.not139.not181.ph = phi i1 [ %.not139.not178, %153 ], [ %.not139.not, %170 ]
+  %.0123.lcssa179.ph = phi i64 [ %.0123.lcssa.ph, %153 ], [ %indvars.iv, %170 ]
+  call void @avio_flush(ptr noundef %.sink199) #8
   br label %177
 
 177:                                              ; preds = %.sink.split, %166
   %.sink = phi ptr [ %3, %166 ], [ %.sink.ph, %.sink.split ]
-  %.not139.not180 = phi i1 [ %.not139.not, %166 ], [ %.not139.not180.ph, %.sink.split ]
-  %.0123.lcssa178 = phi i64 [ %indvars.iv, %166 ], [ %.0123.lcssa178.ph, %.sink.split ]
+  %.not139.not181 = phi i1 [ %.not139.not, %166 ], [ %.not139.not181.ph, %.sink.split ]
+  %.0123.lcssa179 = phi i64 [ %indvars.iv, %166 ], [ %.0123.lcssa179.ph, %.sink.split ]
   %178 = call i32 @ff_format_io_close(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #8
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %177
-  br i1 %.not139.not180, label %._crit_edge, label %.lr.ph
+  br i1 %.not139.not181, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread182, %.preheader
-  %.0123.lcssa178187188 = phi i64 [ %.0123.lcssa.ph, %.thread182 ], [ %.0123.lcssa178, %.preheader ]
+.lr.ph:                                           ; preds = %.thread183, %.preheader
+  %.0123.lcssa179188189 = phi i64 [ %.0123.lcssa.ph, %.thread183 ], [ %.0123.lcssa179, %.preheader ]
   br label %181
 
 180:                                              ; preds = %181
-  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv163, %.0123.lcssa178187188
-  br i1 %exitcond166.not, label %._crit_edge, label %181, !llvm.loop !69
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv164, %.0123.lcssa179188189
+  br i1 %exitcond167.not, label %._crit_edge, label %181, !llvm.loop !69
 
 181:                                              ; preds = %.lr.ph, %180
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %180 ]
-  %182 = getelementptr inbounds nuw [1024 x i8], ptr %67, i64 %indvars.iv163
-  %183 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %indvars.iv163
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next165, %180 ]
+  %182 = getelementptr inbounds nuw [1024 x i8], ptr %67, i64 %indvars.iv164
+  %183 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %indvars.iv164
   %184 = call i32 @ff_rename(ptr noundef nonnull %182, ptr noundef nonnull %183, ptr noundef nonnull %0) #8
   %185 = icmp sgt i32 %184, -1
   br i1 %185, label %180, label %.loopexit
 
-._crit_edge:                                      ; preds = %180, %.thread182, %.preheader
+._crit_edge:                                      ; preds = %180, %.thread183, %.preheader
   %186 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %187 = load i32, ptr %186, align 4, !tbaa !47
   %188 = add nsw i32 %187, 1
@@ -464,8 +464,8 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br label %189
 
 189:                                              ; preds = %.thread, %194
-  %indvars.iv167 = phi i64 [ 0, %.thread ], [ %indvars.iv.next168, %194 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv167
+  %indvars.iv168 = phi i64 [ 0, %.thread ], [ %indvars.iv.next169, %194 ]
+  %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv168
   %191 = load ptr, ptr %190, align 8, !tbaa !67
   %.not143 = icmp eq ptr %191, null
   br i1 %.not143, label %194, label %192
@@ -475,9 +475,9 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   br label %194
 
 194:                                              ; preds = %189, %192
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
-  br i1 %exitcond170.not, label %.loopexit, label %189, !llvm.loop !70
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next169, 4
+  br i1 %exitcond171.not, label %.loopexit, label %189, !llvm.loop !70
 
 .loopexit:                                        ; preds = %181, %194, %37, %._crit_edge, %64, %48
   %.2 = phi i32 [ 0, %._crit_edge ], [ -22, %37 ], [ -22, %48 ], [ -22, %64 ], [ %.0117, %194 ], [ %184, %181 ]

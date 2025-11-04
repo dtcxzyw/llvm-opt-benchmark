@@ -1550,19 +1550,19 @@ list_length.exit:                                 ; preds = %102, %107
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1922, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #15
   unreachable
 
-149:                                              ; preds = %117, %114, %112, %list_length.exit
+149:                                              ; preds = %list_length.exit, %112, %114, %117
   %150 = add i32 %.093, 1
   br i1 %.not124.lcssa228, label %.backedge242.backedge, label %151
 
-.backedge242.backedge:                            ; preds = %149, %98, %130
-  %.096.be = phi ptr [ %.399.ph230, %149 ], [ %.399.ph239, %98 ], [ %.399.ph230, %130 ]
-  %.094.be = phi ptr [ %105, %149 ], [ %90, %98 ], [ %105, %130 ]
-  %.093.be = phi i32 [ %150, %149 ], [ %101, %98 ], [ %133, %130 ]
+.backedge242.backedge:                            ; preds = %149, %130, %98
+  %.096.be = phi ptr [ %.399.ph230, %149 ], [ %.399.ph230, %130 ], [ %.399.ph239, %98 ]
+  %.094.be = phi ptr [ %105, %149 ], [ %105, %130 ], [ %90, %98 ]
+  %.093.be = phi i32 [ %150, %149 ], [ %133, %130 ], [ %101, %98 ]
   br label %.backedge242
 
-151:                                              ; preds = %130, %98, %149
-  %152 = phi i32 [ %101, %98 ], [ %150, %149 ], [ %133, %130 ]
-  %.2.lcssa225240 = phi ptr [ %.2.lcssa237, %98 ], [ %.2.lcssa226, %149 ], [ %.2.lcssa226, %130 ]
+151:                                              ; preds = %98, %130, %149
+  %152 = phi i32 [ %133, %130 ], [ %150, %149 ], [ %101, %98 ]
+  %.2.lcssa225240 = phi ptr [ %.2.lcssa226, %130 ], [ %.2.lcssa226, %149 ], [ %.2.lcssa237, %98 ]
   %153 = load ptr, ptr %22, align 8
   %154 = ptrtoint ptr %.2.lcssa225240 to i64
   %155 = ptrtoint ptr %153 to i64

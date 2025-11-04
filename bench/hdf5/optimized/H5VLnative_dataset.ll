@@ -499,7 +499,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   %108 = call ptr @H5S_create_simple(i32 noundef 1, ptr noundef nonnull %10, ptr noundef null) #5
   store ptr %108, ptr %106, align 8, !tbaa !65
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %110, label %.thread116
+  br i1 %109, label %110, label %.thread117
 
 110:                                              ; preds = %107
   %111 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
@@ -511,7 +511,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   %115 = call ptr @H5S_create(i32 noundef 2) #5
   store ptr %115, ptr %106, align 8, !tbaa !65
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %.thread116
+  br i1 %116, label %117, label %.thread117
 
 117:                                              ; preds = %114
   %118 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !8
@@ -519,7 +519,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_setup, i32 noundef 175, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.51) #5
   br label %121
 
-.thread116:                                       ; preds = %114, %107
+.thread117:                                       ; preds = %114, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %134
 
@@ -546,7 +546,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_io_setup, i32 noundef 183, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.53) #5
   br label %.loopexit
 
-134:                                              ; preds = %.thread116, %126, %98
+134:                                              ; preds = %.thread117, %126, %98
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %136 = load ptr, ptr %135, align 8, !tbaa !63
   %137 = call i32 @H5S_select_valid(ptr noundef %136) #5
@@ -582,8 +582,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %150, %8, %121, %.thread, %23, %29, %39, %53, %91, %122, %130, %138, %146
-  %.0100 = phi i32 [ -1, %23 ], [ -1, %29 ], [ -1, %39 ], [ -1, %138 ], [ -1, %146 ], [ -1, %121 ], [ -1, %122 ], [ -1, %130 ], [ -1, %53 ], [ -1, %91 ], [ -1, %.thread ], [ 0, %8 ], [ 0, %150 ]
-  ret i32 %.0100
+  %.1102 = phi i32 [ -1, %23 ], [ -1, %29 ], [ -1, %39 ], [ -1, %138 ], [ -1, %146 ], [ -1, %121 ], [ -1, %122 ], [ -1, %130 ], [ -1, %53 ], [ -1, %91 ], [ -1, %.thread ], [ 0, %8 ], [ 0, %150 ]
+  ret i32 %.1102
 }
 
 declare void @H5CX_set_dxpl(i64 noundef) local_unnamed_addr #1
@@ -1055,11 +1055,11 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
 84:                                               ; preds = %76
   %85 = tail call ptr @H5I_object_verify(i64 noundef %77, i32 noundef 4) #5
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %._crit_edge130
+  br i1 %86, label %87, label %._crit_edge136
 
-._crit_edge130:                                   ; preds = %84
-  %.phi.trans.insert131 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre132 = load ptr, ptr %.phi.trans.insert131, align 8, !tbaa !38
+._crit_edge136:                                   ; preds = %84
+  %.phi.trans.insert137 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.pre138 = load ptr, ptr %.phi.trans.insert137, align 8, !tbaa !38
   br label %91
 
 87:                                               ; preds = %84
@@ -1068,9 +1068,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %90 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_optional, i32 noundef 658, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.30) #5
   br label %282
 
-91:                                               ; preds = %._crit_edge130, %79
-  %92 = phi ptr [ %81, %79 ], [ %.pre132, %._crit_edge130 ]
-  %.0115 = phi ptr [ %83, %79 ], [ %85, %._crit_edge130 ]
+91:                                               ; preds = %._crit_edge136, %79
+  %92 = phi ptr [ %81, %79 ], [ %.pre138, %._crit_edge136 ]
+  %.0115 = phi ptr [ %83, %79 ], [ %85, %._crit_edge136 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 248
   %94 = load i32, ptr %93, align 8, !tbaa !77
   %.not126 = icmp eq i32 %94, 2
@@ -1363,9 +1363,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr noundef readonly c
   %281 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_dataset_optional, i32 noundef 802, i64 noundef %279, i64 noundef %280, ptr noundef nonnull @.str.40) #5
   br label %282
 
-282:                                              ; preds = %252, %244, %243, %205, %153, %167, %157, %119, %127, %144, %131, %87, %95, %104, %99, %62, %72, %66, %21, %32, %36, %40, %49, %264, %278, %268, %274, %10, %18, %15, %29, %25, %256, %53
-  %.0 = phi i32 [ -1, %278 ], [ -1, %40 ], [ -1, %21 ], [ 0, %18 ], [ 0, %15 ], [ -1, %32 ], [ 0, %29 ], [ 0, %25 ], [ 0, %10 ], [ -1, %36 ], [ -1, %49 ], [ 0, %53 ], [ %.5, %205 ], [ %.6, %243 ], [ 0, %256 ], [ -1, %264 ], [ %272, %274 ], [ %272, %268 ], [ -1, %62 ], [ -1, %72 ], [ 0, %66 ], [ -1, %95 ], [ -1, %104 ], [ -1, %87 ], [ 0, %99 ], [ -1, %127 ], [ -1, %144 ], [ -1, %119 ], [ 0, %131 ], [ -1, %153 ], [ -1, %167 ], [ 0, %157 ], [ -1, %252 ], [ 0, %244 ]
-  ret i32 %.0
+282:                                              ; preds = %21, %32, %36, %40, %49, %264, %278, %268, %274, %10, %18, %15, %29, %25, %256, %53, %66, %72, %62, %99, %104, %95, %87, %131, %144, %127, %119, %157, %167, %153, %205, %243, %244, %252
+  %.0106 = phi i32 [ -1, %278 ], [ -1, %40 ], [ -1, %21 ], [ 0, %18 ], [ 0, %15 ], [ -1, %32 ], [ 0, %29 ], [ 0, %25 ], [ 0, %10 ], [ -1, %36 ], [ -1, %49 ], [ 0, %53 ], [ %.5, %205 ], [ %.6, %243 ], [ 0, %256 ], [ -1, %264 ], [ %272, %274 ], [ %272, %268 ], [ -1, %62 ], [ -1, %72 ], [ 0, %66 ], [ -1, %95 ], [ -1, %104 ], [ -1, %87 ], [ 0, %99 ], [ -1, %127 ], [ -1, %144 ], [ -1, %119 ], [ 0, %131 ], [ -1, %153 ], [ -1, %167 ], [ 0, %157 ], [ -1, %252 ], [ 0, %244 ]
+  ret i32 %.0106
 }
 
 declare i32 @H5D__format_convert(ptr noundef) local_unnamed_addr #1

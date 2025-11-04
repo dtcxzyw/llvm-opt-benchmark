@@ -1369,10 +1369,10 @@ define range(i32 0, 2) i32 @OSSL_CMP_exec_RR_ses(ptr noundef %0) local_unnamed_a
   br i1 %.not48, label %84, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %80, %74, %71, %68, %57, %40, %50, %51
-  %.sink59 = phi i32 [ 969, %51 ], [ 966, %50 ], [ 952, %40 ], [ 983, %57 ], [ 988, %68 ], [ 994, %71 ], [ 1002, %74 ], [ 1011, %80 ]
+  %.sink60 = phi i32 [ 969, %51 ], [ 966, %50 ], [ 952, %40 ], [ 983, %57 ], [ 988, %68 ], [ 994, %71 ], [ 1002, %74 ], [ 1011, %80 ]
   %.sink = phi i32 [ 186, %51 ], [ 185, %50 ], [ 182, %40 ], [ 188, %57 ], [ 165, %68 ], [ 187, %71 ], [ 173, %74 ], [ 188, %80 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink59, ptr noundef nonnull @__func__.OSSL_CMP_exec_RR_ses) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink60, ptr noundef nonnull @__func__.OSSL_CMP_exec_RR_ses) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink, ptr noundef null) #4
   br label %.thread
 

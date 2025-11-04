@@ -3502,17 +3502,17 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit:         ; preds = %._crit_edge.i.i, %_
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader216
 
-thread-pre-split:                                 ; preds = %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_family_idEv.exit.thread.i125, %_ZNK3app13get_family_idEv.exit.i128, %221
-  %.pr = load i32, ptr %38, align 8, !tbaa !243
+thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_decl_kindEv.exit.i126, %_ZNK3app13get_family_idEv.exit.thread.i125, %_ZNK3app13get_family_idEv.exit.i128
+  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %.pre-phi, %_ZNK3app13get_decl_kindEv.exit.i126 ], [ %.pre-phi, %_ZNK3app13get_decl_kindEv.exit.i126 ], [ %.pre-phi, %_ZNK3app13get_decl_kindEv.exit.i126 ], [ %.pre-phi, %_ZNK3app13get_family_idEv.exit.thread.i125 ], [ %.pre-phi, %_ZNK3app13get_family_idEv.exit.i128 ]
   %43 = icmp eq i32 %.pr, 0
   br i1 %43, label %226, label %.preheader216.backedge
 
 .preheader216:                                    ; preds = %.preheader216.backedge, %36
-  %44 = load ptr, ptr %4, align 8, !tbaa !239
-  %45 = load i32, ptr %38, align 8, !tbaa !243
-  %46 = add i32 %45, -1
+  %44 = phi i32 [ 1, %36 ], [ %.be, %.preheader216.backedge ]
+  %45 = load ptr, ptr %4, align 8, !tbaa !239
+  %46 = add i32 %44, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !244
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
@@ -3560,8 +3560,8 @@ thread-pre-split:                                 ; preds = %_ZNK3app13get_decl_
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 32
   br label %63
 
-63:                                               ; preds = %.lr.ph, %.backedge
-  %64 = phi i32 [ %60, %.lr.ph ], [ %154, %.backedge ]
+63:                                               ; preds = %.lr.ph, %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
+  %64 = phi i32 [ %60, %.lr.ph ], [ %154, %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit ]
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !199
@@ -3577,7 +3577,7 @@ thread-pre-split:                                 ; preds = %_ZNK3app13get_decl_
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %74, 65536
   %.not213 = icmp eq i32 %75, 0
-  br i1 %.not213, label %78, label %.backedge, !llvm.loop !252
+  br i1 %.not213, label %78, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit, !llvm.loop !252
 
 76:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit.thread.i127.invoke
   %77 = landingpad { ptr, i32 }
@@ -3760,21 +3760,21 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97: ; preds = %.noexc102, %
 _ZNK3app13get_family_idEv.exit.i:                 ; preds = %123
   %129 = load i32, ptr %0, align 4, !tbaa !221
   %130 = icmp eq i32 %129, -1
-  br i1 %130, label %.invoke, label %.backedge
+  br i1 %130, label %.invoke, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
 
 _ZNK3app13get_family_idEv.exit.thread.i:          ; preds = %123
   %131 = load i32, ptr %127, align 8, !tbaa !258
   %132 = load i32, ptr %0, align 4, !tbaa !221
   %133 = icmp eq i32 %131, %132
-  br i1 %133, label %_ZNK3app13get_decl_kindEv.exit.i, label %.backedge
+  br i1 %133, label %_ZNK3app13get_decl_kindEv.exit.i, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
 
 _ZNK3app13get_decl_kindEv.exit.i:                 ; preds = %_ZNK3app13get_family_idEv.exit.thread.i
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !262
   switch i32 %135, label %.invoke [
-    i32 0, label %.backedge
-    i32 40, label %.backedge
-    i32 37, label %.backedge
+    i32 0, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
+    i32 40, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
+    i32 37, label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
   ]
 
 136:                                              ; preds = %119
@@ -3844,20 +3844,20 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118: ; preds = %.noexc123, 
 
 153:                                              ; preds = %152
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
-          to label %.backedge unwind label %.loopexit
+          to label %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit unwind label %.loopexit
 
-.backedge:                                        ; preds = %72, %153, %_ZNK3app13get_family_idEv.exit.i, %_ZNK3app13get_family_idEv.exit.thread.i, %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK3app13get_decl_kindEv.exit.i
+_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit: ; preds = %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK3app13get_decl_kindEv.exit.i, %_ZNK3app13get_family_idEv.exit.thread.i, %_ZNK3app13get_family_idEv.exit.i, %153, %72
   %154 = load i32, ptr %59, align 8, !tbaa !246
   %155 = icmp ult i32 %154, %58
-  br i1 %155, label %63, label %._crit_edge.loopexit, !llvm.loop !252
+  br i1 %155, label %63, label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %.backedge
-  %.pre274 = load i32, ptr %38, align 8, !tbaa !243
-  %.pre275 = add i32 %.pre274, -1
+._crit_edge.loopexit:                             ; preds = %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit
+  %.pre269 = load i32, ptr %38, align 8, !tbaa !243
+  %.pre271 = add i32 %.pre269, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %56, %._crit_edge.loopexit
-  %.pre-phi = phi i32 [ %.pre275, %._crit_edge.loopexit ], [ %46, %56 ]
+  %.pre-phi = phi i32 [ %.pre271, %._crit_edge.loopexit ], [ %46, %56 ]
   store i32 %.pre-phi, ptr %38, align 8, !tbaa !243
   %156 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !254
@@ -3988,7 +3988,7 @@ _ZN13ast_fast_markILj1EE4markEP3ast.exit153:      ; preds = %._crit_edge.i.i149,
   br label %.loopexit215
 
 .loopexit215:                                     ; preds = %169, %_ZN13ast_fast_markILj1EE4markEP3ast.exit153
-  %202 = phi i32 [ %.pre, %_ZN13ast_fast_markILj1EE4markEP3ast.exit153 ], [ %45, %169 ]
+  %202 = phi i32 [ %.pre, %_ZN13ast_fast_markILj1EE4markEP3ast.exit153 ], [ %44, %169 ]
   %203 = load i32, ptr %39, align 4, !tbaa !242
   %.not.i154 = icmp ult i32 %202, %203
   br i1 %.not.i154, label %._crit_edge.i168, label %204
@@ -4069,15 +4069,19 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166: ; preds = %.noexc171, 
 
 221:                                              ; preds = %220
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
-          to label %thread-pre-split unwind label %.loopexit217
+          to label %.thread-pre-split_crit_edge unwind label %.loopexit217
+
+.thread-pre-split_crit_edge:                      ; preds = %221
+  %.pr.pre = load i32, ptr %38, align 8, !tbaa !243
+  br label %thread-pre-split
 
 _ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit131: ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166, %._crit_edge.i168, %._crit_edge.i120, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118, %._crit_edge.i99, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97
   %.sink = phi i32 [ %104, %._crit_edge.i99 ], [ %.pre2.i98, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97 ], [ %137, %._crit_edge.i120 ], [ %.pre2.i119, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118 ], [ %202, %._crit_edge.i168 ], [ %.pre2.i167, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166 ]
-  %.sink339 = phi ptr [ %.pre.i100, %._crit_edge.i99 ], [ %110, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97 ], [ %.pre.i121, %._crit_edge.i120 ], [ %143, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118 ], [ %.pre.i169, %._crit_edge.i168 ], [ %208, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166 ]
-  %.lcssa306.sink = phi ptr [ %67, %._crit_edge.i99 ], [ %67, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97 ], [ %67, %._crit_edge.i120 ], [ %67, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118 ], [ %.0.i, %._crit_edge.i168 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166 ]
+  %.sink335 = phi ptr [ %.pre.i100, %._crit_edge.i99 ], [ %110, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97 ], [ %.pre.i121, %._crit_edge.i120 ], [ %143, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118 ], [ %.pre.i169, %._crit_edge.i168 ], [ %208, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166 ]
+  %.lcssa302.sink = phi ptr [ %67, %._crit_edge.i99 ], [ %67, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97 ], [ %67, %._crit_edge.i120 ], [ %67, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i118 ], [ %.0.i, %._crit_edge.i168 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i166 ]
   %222 = zext i32 %.sink to i64
-  %223 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink339, i64 %222
-  store ptr %.lcssa306.sink, ptr %223, align 8
+  %223 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink335, i64 %222
+  store ptr %.lcssa302.sink, ptr %223, align 8
   %.sroa.5180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i32 0, ptr %.sroa.5180.0..sroa_idx, align 8
   %224 = load i32, ptr %38, align 8, !tbaa !243
@@ -4086,6 +4090,7 @@ _ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit131: ; preds = %_ZN6bufferISt4p
   br label %.preheader216.backedge
 
 .preheader216.backedge:                           ; preds = %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit131, %thread-pre-split
+  %.be = phi i32 [ %225, %_ZN18bv1_blaster_tactic3imp7visitorclEPK3app.exit131 ], [ %.pr, %thread-pre-split ]
   br label %.preheader216
 
 226:                                              ; preds = %thread-pre-split

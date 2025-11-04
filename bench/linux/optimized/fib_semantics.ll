@@ -1961,7 +1961,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
 74:                                               ; preds = %71
   %75 = call i32 @fib_table_lookup(ptr noundef nonnull %72, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 3) #16
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.thread13, label %.thread
+  br i1 %76, label %.thread14, label %.thread
 
 .thread:                                          ; preds = %70, %70, %74, %71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1028
@@ -1980,40 +1980,40 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %85 = load volatile ptr, ptr %84, align 16
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %.thread10, label %87
+  br i1 %86, label %.thread11, label %87
 
 87:                                               ; preds = %82
   %88 = call i32 @fib_table_lookup(ptr noundef nonnull %85, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 3) #16
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.thread11, label %.thread10
+  br i1 %89, label %.thread12, label %.thread11
 
-.thread10:                                        ; preds = %82, %87
+.thread11:                                        ; preds = %82, %87
   %90 = phi i32 [ %88, %87 ], [ -101, %82 ]
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %92 = load volatile ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %96, label %94
 
-94:                                               ; preds = %.thread10
+94:                                               ; preds = %.thread11
   %95 = call i32 @fib_table_lookup(ptr noundef nonnull %92, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 3) #16
   br label %96
 
-96:                                               ; preds = %94, %.thread10
-  %97 = phi i32 [ %95, %94 ], [ %90, %.thread10 ]
+96:                                               ; preds = %94, %.thread11
+  %97 = phi i32 [ %95, %94 ], [ %90, %.thread11 ]
   %.fr = freeze i32 %97
   %98 = icmp eq i32 %.fr, -11
   %spec.select = select i1 %98, i32 -101, i32 %.fr
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %96, %87
+.thread12:                                        ; preds = %96, %87
   %99 = phi i32 [ 0, %87 ], [ %spec.select, %96 ]
   call void @__rcu_read_unlock() #16
   br label %100
 
-100:                                              ; preds = %.thread11, %80
-  %101 = phi i32 [ %81, %80 ], [ %99, %.thread11 ]
+100:                                              ; preds = %.thread12, %80
+  %101 = phi i32 [ %81, %80 ], [ %99, %.thread12 ]
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.thread13, label %103
+  br i1 %102, label %.thread14, label %103
 
 103:                                              ; preds = %100
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_check_nh_v4_gw.__msg.15) #16
@@ -2028,7 +2028,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %143
 
-.thread13:                                        ; preds = %74, %100
+.thread14:                                        ; preds = %74, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %108 = load i8, ptr %107, align 2
@@ -2036,7 +2036,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   %110 = icmp ult i8 %109, -2
   br i1 %110, label %111, label %114
 
-111:                                              ; preds = %.thread13
+111:                                              ; preds = %.thread14
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_check_nh_v4_gw.__msg.16) #16
   %112 = icmp eq ptr %4, null
   br i1 %112, label %143, label %113
@@ -2045,7 +2045,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   store ptr @fib_check_nh_v4_gw.__msg.16, ptr %4, align 8
   br label %143
 
-114:                                              ; preds = %.thread13
+114:                                              ; preds = %.thread14
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %116 = load i8, ptr %115, align 1
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2210,11 +2210,11 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   %203 = getelementptr inbounds nuw i8, ptr %192, i64 1280
   %204 = load ptr, ptr %203, align 8
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %204, ptr elementtype(i32) %204) #16, !srcloc !34
-  %.pre16 = load ptr, ptr %1, align 8
+  %.pre17 = load ptr, ptr %1, align 8
   br label %205
 
 205:                                              ; preds = %202, %200
-  %206 = phi ptr [ %.pre16, %202 ], [ null, %200 ]
+  %206 = phi ptr [ %.pre17, %202 ], [ null, %200 ]
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 -2, ptr %207, align 4
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 352
@@ -2337,7 +2337,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = icmp ugt i8 %6, 11
-  br i1 %7, label %.thread55, label %8
+  br i1 %7, label %.thread57, label %8
 
 8:                                                ; preds = %2
   %9 = zext nneg i8 %6 to i64
@@ -2352,11 +2352,11 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 15:                                               ; preds = %8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg) #16
   %16 = icmp eq ptr %1, null
-  br i1 %16, label %.thread55, label %17
+  br i1 %16, label %.thread57, label %17
 
 17:                                               ; preds = %15
   store ptr @fib_create_info.__msg, ptr %1, align 8
-  br label %.thread55
+  br label %.thread57
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2368,11 +2368,11 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 23:                                               ; preds = %18
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.2) #16
   %24 = icmp eq ptr %1, null
-  br i1 %24, label %.thread55, label %25
+  br i1 %24, label %.thread57, label %25
 
 25:                                               ; preds = %23
   store ptr @fib_create_info.__msg.2, ptr %1, align 8
-  br label %.thread55
+  br label %.thread57
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2502,11 +2502,11 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 115:                                              ; preds = %.thread
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.3) #16
   %116 = icmp eq ptr %1, null
-  br i1 %116, label %.thread55, label %117
+  br i1 %116, label %.thread57, label %117
 
 117:                                              ; preds = %115
   store ptr @fib_create_info.__msg.3, ptr %1, align 8
-  br label %.thread55
+  br label %.thread57
 
 118:                                              ; preds = %.thread, %26
   %119 = phi ptr [ null, %26 ], [ %113, %.thread ]
@@ -2520,7 +2520,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %126 = load i32, ptr %125, align 4
   %127 = icmp sgt i32 %126, 7
-  br i1 %127, label %.lr.ph, label %.critedge.thread117
+  br i1 %127, label %.lr.ph, label %.critedge.thread119
 
 .lr.ph:                                           ; preds = %124, %134
   %128 = phi i32 [ %135, %134 ], [ 0, %124 ]
@@ -2547,22 +2547,22 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %142 = icmp sgt i32 %138, 0
   br i1 %142, label %.critedge.thread, label %146
 
-.critedge.thread117:                              ; preds = %124
+.critedge.thread119:                              ; preds = %124
   %143 = icmp sgt i32 %126, 0
-  br i1 %143, label %.critedge.thread, label %.thread55
+  br i1 %143, label %.critedge.thread, label %.thread57
 
-.critedge.thread:                                 ; preds = %.lr.ph, %.critedge.thread117, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph, %.critedge.thread119, %.critedge
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_count_nexthops.__msg) #16
   %144 = icmp eq ptr %1, null
-  br i1 %144, label %.thread55, label %145
+  br i1 %144, label %.thread57, label %145
 
 145:                                              ; preds = %.critedge.thread
   store ptr @fib_count_nexthops.__msg, ptr %1, align 8
-  br label %.thread55
+  br label %.thread57
 
 146:                                              ; preds = %.critedge
   %147 = icmp eq i32 %135, 0
-  br i1 %147, label %.thread55, label %148
+  br i1 %147, label %.thread57, label %148
 
 148:                                              ; preds = %146, %118
   %149 = phi i32 [ %135, %146 ], [ %120, %118 ]
@@ -2596,7 +2596,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 166:                                              ; preds = %165, %164
   %167 = load i32, ptr @fib_info_hash_size, align 4
   %168 = icmp eq i32 %167, 0
-  br i1 %168, label %.thread55, label %169
+  br i1 %168, label %.thread57, label %169
 
 169:                                              ; preds = %166, %148
   %170 = sext i32 %149 to i64
@@ -2607,7 +2607,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %175 = select i1 %172, i64 -1, i64 %174
   %176 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %175, i32 noundef 3520) #19
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %.thread55, label %178
+  br i1 %177, label %.thread57, label %178
 
 178:                                              ; preds = %169
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 48
@@ -2664,14 +2664,14 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 
 214:                                              ; preds = %193
   %215 = tail call fastcc zeroext i1 @nexthop_get(ptr noundef nonnull %119)
-  br i1 %215, label %.thread45, label %216
+  br i1 %215, label %.thread47, label %216
 
 216:                                              ; preds = %214
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.4) #16
   %217 = icmp eq ptr %1, null
-  br i1 %217, label %.thread56, label %.thread56.sink.split
+  br i1 %217, label %.thread58, label %.thread58.sink.split
 
-.thread45:                                        ; preds = %214
+.thread47:                                        ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %176, i64 104
   store ptr %119, ptr %218, align 8
   br label %262
@@ -2742,9 +2742,9 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 259:                                              ; preds = %257, %253
   %260 = phi i32 [ %256, %253 ], [ %258, %257 ]
   %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %.thread56
+  br i1 %261, label %262, label %.thread58
 
-262:                                              ; preds = %.thread45, %259
+262:                                              ; preds = %.thread47, %259
   %263 = load i8, ptr %5, align 4
   %264 = icmp ult i8 %263, 6
   br i1 %264, label %278, label %265
@@ -2769,16 +2769,16 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 276:                                              ; preds = %273, %269, %265
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.5) #16
   %277 = icmp eq ptr %1, null
-  br i1 %277, label %.thread56, label %.thread56.sink.split
+  br i1 %277, label %.thread58, label %.thread58.sink.split
 
 278:                                              ; preds = %262
-  %.not116 = icmp eq i8 %263, 0
-  br i1 %.not116, label %279, label %281
+  %.not118 = icmp eq i8 %263, 0
+  br i1 %.not118, label %279, label %281
 
 279:                                              ; preds = %278
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.6) #16
   %280 = icmp eq ptr %1, null
-  br i1 %280, label %.thread56, label %.thread56.sink.split
+  br i1 %280, label %.thread58, label %.thread58.sink.split
 
 281:                                              ; preds = %278
   %282 = load i8, ptr %12, align 1
@@ -2788,7 +2788,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 284:                                              ; preds = %281
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.7) #16
   %285 = icmp eq ptr %1, null
-  br i1 %285, label %.thread56, label %.thread56.sink.split
+  br i1 %285, label %.thread58, label %.thread58.sink.split
 
 286:                                              ; preds = %281
   %287 = getelementptr inbounds nuw i8, ptr %176, i64 104
@@ -2799,7 +2799,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 290:                                              ; preds = %286
   %291 = tail call i32 @fib_check_nexthop(ptr noundef nonnull %288, i8 noundef zeroext %282, ptr noundef %1) #16
   %292 = icmp eq i32 %291, 0
-  br i1 %292, label %.thread48, label %.thread56
+  br i1 %292, label %.thread50, label %.thread58
 
 293:                                              ; preds = %286
   %294 = icmp eq i8 %282, -2
@@ -2813,7 +2813,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 298:                                              ; preds = %296
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.8) #16
   %299 = icmp eq ptr %1, null
-  br i1 %299, label %.thread56, label %.thread56.sink.split
+  br i1 %299, label %.thread58, label %.thread58.sink.split
 
 300:                                              ; preds = %296
   %301 = getelementptr inbounds nuw i8, ptr %176, i64 142
@@ -2824,7 +2824,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 304:                                              ; preds = %300
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.9) #16
   %305 = icmp eq ptr %1, null
-  br i1 %305, label %.thread56, label %.thread56.sink.split
+  br i1 %305, label %.thread58, label %.thread58.sink.split
 
 306:                                              ; preds = %300
   %307 = getelementptr inbounds nuw i8, ptr %176, i64 140
@@ -2834,7 +2834,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %310 = tail call ptr @dev_get_by_index(ptr noundef %4, i32 noundef %309) #16
   store ptr %310, ptr %295, align 8
   %311 = icmp eq ptr %310, null
-  br i1 %311, label %.thread56, label %.thread48
+  br i1 %311, label %.thread58, label %.thread50
 
 .preheader:                                       ; preds = %293, %342
   %312 = phi ptr [ %.pr, %342 ], [ null, %293 ]
@@ -2879,7 +2879,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %339 = load i8, ptr %12, align 1
   %340 = tail call i32 @fib_check_nh(ptr noundef %337, ptr noundef %315, i32 noundef %338, i8 noundef zeroext %339, ptr noundef %1)
   %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %.thread56
+  br i1 %341, label %342, label %.thread58
 
 342:                                              ; preds = %336
   %343 = getelementptr inbounds nuw i8, ptr %315, i64 15
@@ -2896,29 +2896,29 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 351:                                              ; preds = %333
   %352 = load i32, ptr %212, align 8
   %353 = icmp eq i32 %313, %352
-  br i1 %353, label %354, label %.thread48
+  br i1 %353, label %354, label %.thread50
 
 354:                                              ; preds = %351
   %355 = load i32, ptr %200, align 8
   %356 = or i32 %355, 16
   store i32 %356, ptr %200, align 8
-  br label %.thread48
+  br label %.thread50
 
-.thread48:                                        ; preds = %351, %354, %306, %290
+.thread50:                                        ; preds = %351, %354, %306, %290
   %357 = load i32, ptr %206, align 8
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %363, label %359
 
-359:                                              ; preds = %.thread48
+359:                                              ; preds = %.thread50
   %360 = tail call fastcc zeroext i1 @fib_valid_prefsrc(ptr noundef %0, i32 noundef %357)
   br i1 %360, label %363, label %361
 
 361:                                              ; preds = %359
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @fib_create_info.__msg.10) #16
   %362 = icmp eq ptr %1, null
-  br i1 %362, label %.thread56, label %.thread56.sink.split
+  br i1 %362, label %.thread58, label %.thread58.sink.split
 
-363:                                              ; preds = %359, %.thread48
+363:                                              ; preds = %359, %.thread50
   %364 = load ptr, ptr %287, align 8
   %365 = icmp eq ptr %364, null
   br i1 %365, label %366, label %404
@@ -2929,7 +2929,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %369
 
 369:                                              ; preds = %400, %366
-  %370 = phi ptr [ %.pr52, %400 ], [ null, %366 ]
+  %370 = phi ptr [ %.pr54, %400 ], [ null, %366 ]
   %371 = phi i32 [ %402, %400 ], [ 0, %366 ]
   %372 = phi ptr [ %401, %400 ], [ %367, %366 ]
   %373 = icmp eq ptr %370, null
@@ -2979,7 +2979,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 400:                                              ; preds = %399, %393
   %401 = getelementptr i8, ptr %372, i64 104
   %402 = add nuw i32 %371, 1
-  %.pr52 = load ptr, ptr %287, align 8
+  %.pr54 = load ptr, ptr %287, align 8
   br label %369, !llvm.loop !39
 
 403:                                              ; preds = %390
@@ -3081,20 +3081,20 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %457
 
 457:                                              ; preds = %502, %455
-  %.pr5373 = phi ptr [ %.pr53, %502 ], [ null, %455 ]
+  %.pr5575 = phi ptr [ %.pr55, %502 ], [ null, %455 ]
   %458 = phi i32 [ %504, %502 ], [ 0, %455 ]
   %459 = phi ptr [ %503, %502 ], [ %456, %455 ]
-  %460 = icmp eq ptr %.pr5373, null
+  %460 = icmp eq ptr %.pr5575, null
   br i1 %460, label %475, label %461, !prof !14
 
 461:                                              ; preds = %457
-  %462 = getelementptr inbounds nuw i8, ptr %.pr5373, i64 102
+  %462 = getelementptr inbounds nuw i8, ptr %.pr5575, i64 102
   %463 = load i8, ptr %462, align 2, !range !16, !noundef !17
   %464 = icmp eq i8 %463, 0
   br i1 %464, label %477, label %465
 
 465:                                              ; preds = %461
-  %466 = getelementptr inbounds nuw i8, ptr %.pr5373, i64 128
+  %466 = getelementptr inbounds nuw i8, ptr %.pr5575, i64 128
   %467 = load volatile ptr, ptr %466, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 10
   %469 = load i8, ptr %468, align 2, !range !16, !noundef !17
@@ -3148,11 +3148,11 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   store volatile ptr %495, ptr %494, align 8
   %501 = getelementptr inbounds nuw i8, ptr %459, i64 80
   store volatile ptr %494, ptr %501, align 8
-  %.pr53.pre = load ptr, ptr %446, align 8
+  %.pr55.pre = load ptr, ptr %446, align 8
   br label %502
 
 502:                                              ; preds = %500, %480
-  %.pr53 = phi ptr [ %.pr53.pre, %500 ], [ %.pr5373, %480 ]
+  %.pr55 = phi ptr [ %.pr55.pre, %500 ], [ %.pr5575, %480 ]
   %503 = getelementptr i8, ptr %459, i64 104
   %504 = add nuw i32 %458, 1
   br label %457, !llvm.loop !40
@@ -3161,27 +3161,27 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @fib_info_lock) #16
   br label %511
 
-.thread56.sink.split:                             ; preds = %361, %304, %298, %284, %279, %276, %216
+.thread58.sink.split:                             ; preds = %361, %304, %298, %284, %279, %276, %216
   %fib_create_info.__msg.5.sink = phi ptr [ @fib_create_info.__msg.4, %216 ], [ @fib_create_info.__msg.5, %276 ], [ @fib_create_info.__msg.6, %279 ], [ @fib_create_info.__msg.7, %284 ], [ @fib_create_info.__msg.8, %298 ], [ @fib_create_info.__msg.9, %304 ], [ @fib_create_info.__msg.10, %361 ]
   store ptr %fib_create_info.__msg.5.sink, ptr %1, align 8
-  br label %.thread56
+  br label %.thread58
 
-.thread56:                                        ; preds = %336, %.thread56.sink.split, %259, %276, %279, %284, %290, %361, %306, %298, %304, %216
-  %505 = phi i32 [ -22, %216 ], [ %260, %259 ], [ %291, %290 ], [ -22, %276 ], [ -22, %279 ], [ -22, %284 ], [ -22, %361 ], [ -19, %306 ], [ -22, %298 ], [ -22, %304 ], [ -22, %.thread56.sink.split ], [ %340, %336 ]
+.thread58:                                        ; preds = %336, %.thread58.sink.split, %259, %276, %279, %284, %290, %361, %306, %298, %304, %216
+  %505 = phi i32 [ -22, %216 ], [ %260, %259 ], [ %291, %290 ], [ -22, %276 ], [ -22, %279 ], [ -22, %284 ], [ -22, %361 ], [ -19, %306 ], [ -22, %298 ], [ -22, %304 ], [ -22, %.thread58.sink.split ], [ %340, %336 ]
   %506 = getelementptr inbounds nuw i8, ptr %176, i64 68
   store i8 1, ptr %506, align 4
   %507 = getelementptr inbounds nuw i8, ptr %176, i64 112
   tail call void @call_rcu(ptr noundef nonnull %507, ptr noundef nonnull @free_fib_info_rcu) #16
   %508 = sext i32 %505 to i64
-  br label %.thread55
+  br label %.thread57
 
-.thread55:                                        ; preds = %.critedge.thread117, %.critedge.thread, %145, %115, %117, %23, %25, %15, %17, %146, %2, %169, %166, %.thread56
-  %509 = phi i64 [ %508, %.thread56 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -105, %166 ], [ -22, %145 ], [ -22, %.critedge.thread ], [ -22, %.critedge.thread117 ]
+.thread57:                                        ; preds = %.critedge.thread119, %.critedge.thread, %145, %115, %117, %23, %25, %15, %17, %146, %2, %169, %166, %.thread58
+  %509 = phi i64 [ %508, %.thread58 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -105, %166 ], [ -22, %145 ], [ -22, %.critedge.thread ], [ -22, %.critedge.thread119 ]
   %510 = inttoptr i64 %509 to ptr
   br label %511
 
-511:                                              ; preds = %.thread55, %.loopexit, %407, %188, %111
-  %512 = phi ptr [ %510, %.thread55 ], [ %192, %188 ], [ %405, %407 ], [ %176, %.loopexit ], [ %65, %111 ]
+511:                                              ; preds = %.thread57, %.loopexit, %407, %188, %111
+  %512 = phi ptr [ %510, %.thread57 ], [ %192, %188 ], [ %405, %407 ], [ %176, %.loopexit ], [ %65, %111 ]
   ret ptr %512
 }
 

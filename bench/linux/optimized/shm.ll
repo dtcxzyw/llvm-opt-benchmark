@@ -2933,7 +2933,7 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   %48 = getelementptr i8, ptr %47, i64 800
   %49 = load volatile i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.thread, label %.thread6
+  br i1 %50, label %.thread, label %.thread7
 
 51:                                               ; preds = %43, %27
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -2945,7 +2945,7 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   %58 = or i1 %56, %57
   br i1 %58, label %.thread, label %66
 
-.thread6:                                         ; preds = %45
+.thread7:                                         ; preds = %45
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %60 = load ptr, ptr %59, align 64
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 176
@@ -2953,27 +2953,27 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   %63 = icmp eq ptr %62, @hugetlbfs_file_operations
   %64 = icmp eq ptr %62, @shm_file_operations_huge
   %65 = or i1 %63, %64
-  br i1 %65, label %.thread, label %.thread7
+  br i1 %65, label %.thread, label %.thread8
 
 66:                                               ; preds = %51
   %67 = icmp eq i32 %2, 11
-  br i1 %67, label %..thread7_crit_edge, label %82
+  br i1 %67, label %..thread8_crit_edge, label %82
 
-..thread7_crit_edge:                              ; preds = %66
+..thread8_crit_edge:                              ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %.thread7
+  br label %.thread8
 
-.thread7:                                         ; preds = %..thread7_crit_edge, %.thread6
-  %68 = phi ptr [ %.pre, %..thread7_crit_edge ], [ %33, %.thread6 ]
-  %69 = phi ptr [ %53, %..thread7_crit_edge ], [ %60, %.thread6 ]
+.thread8:                                         ; preds = %..thread8_crit_edge, %.thread7
+  %68 = phi ptr [ %.pre, %..thread8_crit_edge ], [ %33, %.thread7 ]
+  %69 = phi ptr [ %53, %..thread8_crit_edge ], [ %60, %.thread7 ]
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 152
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @shmem_lock(ptr noundef %69, i32 noundef 1, ptr noundef %71) #12
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.thread
 
-74:                                               ; preds = %.thread7
+74:                                               ; preds = %.thread8
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %76 = load i16, ptr %75, align 32
   %77 = and i16 %76, 1024
@@ -3012,8 +3012,8 @@ define internal fastcc i32 @shmctl_do_lock(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @fput(ptr noundef %53) #12
   br label %99
 
-.thread:                                          ; preds = %45, %39, %.thread6, %82, %79, %74, %.thread7, %51, %23
-  %96 = phi i32 [ 0, %51 ], [ 0, %82 ], [ -43, %23 ], [ 0, %79 ], [ 0, %74 ], [ %72, %.thread7 ], [ 0, %.thread6 ], [ -1, %39 ], [ -1, %45 ]
+.thread:                                          ; preds = %45, %39, %.thread7, %82, %79, %74, %.thread8, %51, %23
+  %96 = phi i32 [ 0, %51 ], [ 0, %82 ], [ -43, %23 ], [ 0, %79 ], [ 0, %74 ], [ %72, %.thread8 ], [ 0, %.thread7 ], [ -1, %39 ], [ -1, %45 ]
   tail call void @_raw_spin_unlock(ptr noundef %5) #12
   br label %97
 

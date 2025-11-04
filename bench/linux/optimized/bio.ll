@@ -656,7 +656,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void asm sideeffect "784: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 784b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 784) #17, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 501, i32 2307, i64 12) #17, !srcloc !18
   tail call void asm sideeffect "785: nop\0A\09.pushsection .discard.instr_end\0A\09.long 785b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 785) #17, !srcloc !19
-  br label %.thread17
+  br label %.thread18
 
 14:                                               ; preds = %5
   %15 = and i32 %2, 8388608
@@ -689,7 +689,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %35 = load volatile i32, ptr %34, align 4
   %36 = icmp ugt i32 %35, 15
-  br i1 %36, label %37, label %.thread41
+  br i1 %36, label %37, label %.thread42
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -720,9 +720,9 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
 48:                                               ; preds = %47, %37
   %49 = phi ptr [ %.pre, %47 ], [ %40, %37 ]
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread41, label %57
+  br i1 %50, label %.thread42, label %57
 
-.thread41:                                        ; preds = %33, %48
+.thread42:                                        ; preds = %33, %48
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
   %51 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !28
   %52 = icmp ult i8 %51, 2
@@ -730,7 +730,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %53 = icmp eq i8 %51, 0
   br i1 %53, label %.thread, label %54, !prof !13
 
-54:                                               ; preds = %.thread41
+54:                                               ; preds = %.thread42
   %55 = call i64 @llvm.read_register.i64(metadata !0)
   %56 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %55) #17, !srcloc !29
   call void @llvm.write_register.i64(metadata !0, i64 %56)
@@ -799,14 +799,14 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   store ptr %71, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %58, i64 112
   store ptr %4, ptr %89, align 8
-  br label %.thread17
+  br label %.thread18
 
 90:                                               ; preds = %17
   %91 = and i32 %2, -8388609
   br label %.thread
 
-.thread:                                          ; preds = %.thread41, %54, %90, %14
-  %92 = phi i32 [ %91, %90 ], [ %2, %14 ], [ %2, %54 ], [ %2, %.thread41 ]
+.thread:                                          ; preds = %.thread42, %54, %90, %14
+  %92 = phi i32 [ %91, %90 ], [ %2, %14 ], [ %2, %54 ], [ %2, %.thread42 ]
   %93 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !32
   %94 = inttoptr i64 %93 to ptr
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2112
@@ -838,19 +838,19 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %114 = call noalias ptr @mempool_alloc(ptr noundef nonnull %113, i32 noundef %112) #17
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %.thread18
+  br i1 %115, label %116, label %.thread19
 
 116:                                              ; preds = %111
   %117 = icmp eq i32 %112, %3
-  br i1 %117, label %.thread17, label %118
+  br i1 %117, label %.thread18, label %118
 
 118:                                              ; preds = %116
   call fastcc void @punt_bios_to_rescuer(ptr noundef %4)
   %119 = call noalias ptr @mempool_alloc(ptr noundef nonnull %113, i32 noundef %3) #17
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.thread17, label %.thread18, !prof !33
+  br i1 %120, label %.thread18, label %.thread19, !prof !33
 
-.thread18:                                        ; preds = %111, %118
+.thread19:                                        ; preds = %111, %118
   %121 = phi ptr [ %119, %118 ], [ %114, %111 ]
   %122 = phi i32 [ %3, %118 ], [ %112, %111 ]
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -867,7 +867,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %134 = icmp ugt i16 %1, 4
   br i1 %134, label %135, label %196
 
-135:                                              ; preds = %.thread18
+135:                                              ; preds = %.thread19
   %136 = call fastcc ptr @biovec_slab(i16 noundef zeroext %1)
   %137 = load i32, ptr %136, align 8
   %138 = trunc i32 %137 to i16
@@ -882,25 +882,25 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %145 = or disjoint i32 %144, 598016
   %146 = call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %143, i32 noundef %145) #17
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %.thread23, !prof !6
+  br i1 %147, label %148, label %.thread24, !prof !6
 
 148:                                              ; preds = %141
   %149 = and i32 %122, 1024
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %.thread19, label %151
+  br i1 %150, label %.thread20, label %151
 
 151:                                              ; preds = %135, %148
   %152 = phi i16 [ %138, %135 ], [ 256, %148 ]
   %153 = call noalias ptr @mempool_alloc(ptr noundef nonnull %7, i32 noundef %122) #17
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread19, label %.thread23
+  br i1 %154, label %.thread20, label %.thread24
 
-.thread19:                                        ; preds = %148, %151
+.thread20:                                        ; preds = %148, %151
   %155 = phi i16 [ %152, %151 ], [ %138, %148 ]
   %156 = icmp eq i32 %122, %3
-  br i1 %156, label %.thread26, label %157
+  br i1 %156, label %.thread27, label %157
 
-157:                                              ; preds = %.thread19
+157:                                              ; preds = %.thread20
   call fastcc void @punt_bios_to_rescuer(ptr noundef %4)
   %158 = call fastcc ptr @biovec_slab(i16 noundef zeroext %155)
   %159 = load i32, ptr %158, align 8
@@ -916,20 +916,20 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   %167 = or disjoint i32 %166, 598016
   %168 = call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %165, i32 noundef %167) #17
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %.thread23, !prof !6
+  br i1 %169, label %170, label %.thread24, !prof !6
 
 170:                                              ; preds = %163
   %171 = and i32 %3, 1024
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %.thread26, label %173
+  br i1 %172, label %.thread27, label %173
 
 173:                                              ; preds = %157, %170
   %174 = phi i16 [ %160, %157 ], [ 256, %170 ]
   %175 = call noalias ptr @mempool_alloc(ptr noundef nonnull %7, i32 noundef %3) #17
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %.thread26, label %.thread23, !prof !33
+  br i1 %176, label %.thread27, label %.thread24, !prof !33
 
-.thread23:                                        ; preds = %141, %163, %151, %173
+.thread24:                                        ; preds = %141, %163, %151, %173
   %177 = phi ptr [ %175, %173 ], [ %168, %163 ], [ %153, %151 ], [ %146, %141 ]
   %178 = phi i16 [ %174, %173 ], [ %160, %163 ], [ %152, %151 ], [ %138, %141 ]
   store ptr null, ptr %133, align 8
@@ -950,11 +950,11 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, i8 0, i64 32, i1 false)
   br i1 %186, label %188, label %187
 
-187:                                              ; preds = %.thread23
+187:                                              ; preds = %.thread24
   call void @bio_associate_blkg(ptr noundef %133) #17
   br label %188
 
-188:                                              ; preds = %.thread23, %187
+188:                                              ; preds = %.thread24, %187
   %189 = getelementptr inbounds nuw i8, ptr %133, i64 88
   store i64 0, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %133, i64 96
@@ -971,7 +971,7 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
   store ptr %177, ptr %195, align 8
   br label %234
 
-196:                                              ; preds = %.thread18
+196:                                              ; preds = %.thread19
   br i1 %11, label %216, label %197
 
 197:                                              ; preds = %196
@@ -1058,14 +1058,14 @@ define dso_local ptr @bio_alloc_bioset(ptr noundef %0, i16 noundef zeroext %1, i
 234:                                              ; preds = %188, %226, %208
   %235 = getelementptr inbounds nuw i8, ptr %133, i64 112
   store ptr %4, ptr %235, align 8
-  br label %.thread17
+  br label %.thread18
 
-.thread26:                                        ; preds = %170, %.thread19, %173
+.thread27:                                        ; preds = %170, %.thread20, %173
   call void @mempool_free(ptr noundef nonnull %121, ptr noundef nonnull %113) #17
-  br label %.thread17
+  br label %.thread18
 
-.thread17:                                        ; preds = %116, %81, %.thread26, %234, %118, %13
-  %236 = phi ptr [ null, %.thread26 ], [ %133, %234 ], [ null, %13 ], [ %58, %81 ], [ null, %118 ], [ null, %116 ]
+.thread18:                                        ; preds = %116, %81, %.thread27, %234, %118, %13
+  %236 = phi ptr [ null, %.thread27 ], [ %133, %234 ], [ null, %13 ], [ %58, %81 ], [ null, %118 ], [ null, %116 ]
   ret ptr %236
 }
 

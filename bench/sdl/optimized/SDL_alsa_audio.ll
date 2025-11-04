@@ -195,9 +195,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.118 = private unnamed_addr constant [46 x i8] c"ALSA: snd_pcm_wait failed (unrecoverable): %s\00", align 1
 @.str.119 = private unnamed_addr constant [38 x i8] c"ALSA write failed (unrecoverable): %s\00", align 1
 @.str.120 = private unnamed_addr constant [37 x i8] c"ALSA read failed (unrecoverable): %s\00", align 1
-@switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans = private unnamed_addr constant [4 x i32] [i32 0, i32 5, i32 9, i32 0], align 4
-@switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.1 = private unnamed_addr constant [4 x i32] [i32 0, i32 6, i32 10, i32 0], align 4
-@switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.2 = private unnamed_addr constant [4 x ptr] [ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.104], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ALSA_Init(ptr noundef writeonly captures(none) %0) #0 {
@@ -1452,7 +1449,7 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
 19:                                               ; preds = %12
   %20 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %17) #8
   %.not33 = icmp eq ptr %20, null
-  br i1 %.not33, label %95, label %21
+  br i1 %.not33, label %96, label %21
 
 21:                                               ; preds = %.thread, %19
   %22 = phi ptr [ %18, %.thread ], [ %20, %19 ]
@@ -1473,85 +1470,85 @@ define internal fastcc void @ALSA_HotplugIteration(ptr noundef writeonly capture
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.thread39, label %.lr.ph
 
+.backedge:                                        ; preds = %34, %.critedge50
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %29 = load ptr, ptr @ALSA_snd_card_next, align 8
+  %30 = call i32 %29(ptr noundef nonnull %6) #8
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.thread39, label %.lr.ph
+
 .lr.ph:                                           ; preds = %21, %.backedge
-  %29 = load i32, ptr %6, align 4
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %thread-pre-split, label %31
+  %32 = load i32, ptr %6, align 4
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %thread-pre-split, label %34
 
-31:                                               ; preds = %.lr.ph
+34:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %32 = load ptr, ptr @ALSA_device_prefix, align 8
-  %33 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.72, ptr noundef %32, i32 noundef %29) #8
+  %35 = load ptr, ptr @ALSA_device_prefix, align 8
+  %36 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.72, ptr noundef %35, i32 noundef %32) #8
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.73, ptr noundef nonnull %7) #8
-  %34 = load ptr, ptr @ALSA_snd_ctl_open, align 8
-  %35 = call i32 %34(ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef 0) #8
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.backedge, label %37
+  %37 = load ptr, ptr @ALSA_snd_ctl_open, align 8
+  %38 = call i32 %37(ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef 0) #8
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %.backedge, label %40
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr @ALSA_snd_ctl_card_info, align 8
-  %39 = load ptr, ptr %3, align 8
-  %40 = call i32 %38(ptr noundef %39, ptr noundef nonnull %22) #8
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %.thread39.sink.split, label %42
+40:                                               ; preds = %34
+  %41 = load ptr, ptr @ALSA_snd_ctl_card_info, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = call i32 %41(ptr noundef %42, ptr noundef nonnull %22) #8
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %.thread39.sink.split, label %45
 
-42:                                               ; preds = %37
+45:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4
-  br label %43
+  br label %46
 
-43:                                               ; preds = %55, %42
-  %44 = load ptr, ptr @ALSA_snd_ctl_pcm_next_device, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = call i32 %44(ptr noundef %45, ptr noundef nonnull %8) #8
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %64, label %48
+46:                                               ; preds = %58, %45
+  %47 = load ptr, ptr @ALSA_snd_ctl_pcm_next_device, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = call i32 %47(ptr noundef %48, ptr noundef nonnull %8) #8
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %67, label %51
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %8, align 4
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %.loopexit.jt0, label %51
+51:                                               ; preds = %46
+  %52 = load i32, ptr %8, align 4
+  %53 = icmp eq i32 %52, -1
+  br i1 %53, label %.critedge50, label %54
 
-51:                                               ; preds = %48
-  %52 = load ptr, ptr %3, align 8
-  %53 = call fastcc i32 @hotplug_device_process(ptr noundef %52, ptr noundef %22, i32 noundef %49, i32 noundef 0, ptr noundef %4, ptr noundef %5)
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %64, label %55
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %3, align 8
+  %56 = call fastcc i32 @hotplug_device_process(ptr noundef %55, ptr noundef %22, i32 noundef %52, i32 noundef 0, ptr noundef %4, ptr noundef %5)
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %67, label %58
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i32, ptr %8, align 4
-  %58 = call fastcc i32 @hotplug_device_process(ptr noundef %56, ptr noundef %22, i32 noundef %57, i32 noundef 1, ptr noundef %4, ptr noundef %5)
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %64, label %43
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %3, align 8
+  %60 = load i32, ptr %8, align 4
+  %61 = call fastcc i32 @hotplug_device_process(ptr noundef %59, ptr noundef %22, i32 noundef %60, i32 noundef 1, ptr noundef %4, ptr noundef %5)
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %67, label %46
 
-.loopexit.jt0:                                    ; preds = %48
-  %60 = load ptr, ptr @ALSA_snd_ctl_close, align 8
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 %60(ptr noundef %61) #8
-  %63 = load ptr, ptr @ALSA_snd_ctl_card_info_clear, align 8
-  call void %63(ptr noundef nonnull %22) #8
+.critedge50:                                      ; preds = %51
+  %63 = load ptr, ptr @ALSA_snd_ctl_close, align 8
+  %64 = load ptr, ptr %3, align 8
+  %65 = call i32 %63(ptr noundef %64) #8
+  %66 = load ptr, ptr @ALSA_snd_ctl_card_info_clear, align 8
+  call void %66(ptr noundef nonnull %22) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
-64:                                               ; preds = %43, %51, %55
+67:                                               ; preds = %58, %54, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread39.sink.split
 
-.backedge:                                        ; preds = %31, %.loopexit.jt0
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %65 = load ptr, ptr @ALSA_snd_card_next, align 8
-  %66 = call i32 %65(ptr noundef nonnull %6) #8
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread39, label %.lr.ph
-
 thread-pre-split:                                 ; preds = %.lr.ph
   %.pr = load ptr, ptr %4, align 8
-  %.not3750 = icmp eq ptr %.pr, null
-  br i1 %.not3750, label %._crit_edge, label %.lr.ph51
+  %.not3751 = icmp eq ptr %.pr, null
+  br i1 %.not3751, label %._crit_edge, label %.lr.ph52
 
-.lr.ph51:                                         ; preds = %thread-pre-split, %.lr.ph51
-  %68 = phi ptr [ %74, %.lr.ph51 ], [ %.pr, %thread-pre-split ]
+.lr.ph52:                                         ; preds = %thread-pre-split, %.lr.ph52
+  %68 = phi ptr [ %74, %.lr.ph52 ], [ %.pr, %thread-pre-split ]
   %69 = call ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef nonnull %68) #8
   call void @SDL_AudioDeviceDisconnected(ptr noundef %69) #8
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1563,14 +1560,14 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %74 = load ptr, ptr %73, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %68) #8
   %.not37 = icmp eq ptr %74, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph51, !llvm.loop !11
+  br i1 %.not37, label %._crit_edge, label %.lr.ph52, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph51, %thread-pre-split
+._crit_edge:                                      ; preds = %.lr.ph52, %thread-pre-split
   %75 = load ptr, ptr %5, align 8
   store ptr %75, ptr @hotplug_devices, align 8
-  br i1 %15, label %.loopexit48, label %.loopexit48.sink.split
+  br i1 %15, label %95, label %.sink.split
 
-.thread39.sink.split:                             ; preds = %37, %64
+.thread39.sink.split:                             ; preds = %40, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread39
 
@@ -1586,11 +1583,11 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 80:                                               ; preds = %77, %.thread39
   %.pr41 = load ptr, ptr %4, align 8
-  %.not3554 = icmp eq ptr %.pr41, null
-  br i1 %.not3554, label %thread-pre-split42, label %.lr.ph56
+  %.not3555 = icmp eq ptr %.pr41, null
+  br i1 %.not3555, label %thread-pre-split42, label %.lr.ph57
 
-.lr.ph56:                                         ; preds = %80, %.lr.ph56
-  %81 = phi ptr [ %87, %.lr.ph56 ], [ %.pr41, %80 ]
+.lr.ph57:                                         ; preds = %80, %.lr.ph57
+  %81 = phi ptr [ %87, %.lr.ph57 ], [ %.pr41, %80 ]
   %82 = call ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef nonnull %81) #8
   call void @SDL_AudioDeviceDisconnected(ptr noundef %82) #8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -1602,15 +1599,15 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %87 = load ptr, ptr %86, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %81) #8
   %.not35 = icmp eq ptr %87, null
-  br i1 %.not35, label %thread-pre-split42, label %.lr.ph56, !llvm.loop !12
+  br i1 %.not35, label %thread-pre-split42, label %.lr.ph57, !llvm.loop !12
 
-thread-pre-split42:                               ; preds = %.lr.ph56, %80
+thread-pre-split42:                               ; preds = %.lr.ph57, %80
   %.pr43 = load ptr, ptr %5, align 8
-  %.not3660 = icmp eq ptr %.pr43, null
-  br i1 %.not3660, label %._crit_edge62, label %.lr.ph61
+  %.not3661 = icmp eq ptr %.pr43, null
+  br i1 %.not3661, label %._crit_edge63, label %.lr.ph62
 
-.lr.ph61:                                         ; preds = %thread-pre-split42, %.lr.ph61
-  %88 = phi ptr [ %94, %.lr.ph61 ], [ %.pr43, %thread-pre-split42 ]
+.lr.ph62:                                         ; preds = %thread-pre-split42, %.lr.ph62
+  %88 = phi ptr [ %94, %.lr.ph62 ], [ %.pr43, %thread-pre-split42 ]
   %89 = call ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef nonnull %88) #8
   call void @SDL_AudioDeviceDisconnected(ptr noundef %89) #8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -1622,24 +1619,24 @@ thread-pre-split42:                               ; preds = %.lr.ph56, %80
   %94 = load ptr, ptr %93, align 8
   call void @SDL_free_REAL(ptr noundef nonnull %88) #8
   %.not36 = icmp eq ptr %94, null
-  br i1 %.not36, label %._crit_edge62, label %.lr.ph61, !llvm.loop !13
+  br i1 %.not36, label %._crit_edge63, label %.lr.ph62, !llvm.loop !13
 
-._crit_edge62:                                    ; preds = %.lr.ph61, %thread-pre-split42
+._crit_edge63:                                    ; preds = %.lr.ph62, %thread-pre-split42
   store ptr null, ptr @hotplug_devices, align 8
-  br i1 %15, label %.loopexit48, label %.loopexit48.sink.split
+  br i1 %15, label %95, label %.sink.split
 
-.loopexit48.sink.split:                           ; preds = %._crit_edge62, %._crit_edge
+.sink.split:                                      ; preds = %._crit_edge63, %._crit_edge
   call void @SDL_free_REAL(ptr noundef nonnull %22) #8
-  br label %.loopexit48
+  br label %95
 
-.loopexit48:                                      ; preds = %.loopexit48.sink.split, %._crit_edge62, %._crit_edge
+95:                                               ; preds = %.sink.split, %._crit_edge63, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %19, %.loopexit48
+96:                                               ; preds = %19, %95
   ret void
 }
 
@@ -2804,24 +2801,24 @@ has_pos.exit43:                                   ; preds = %.preheader45
   %.2 = phi i32 [ 2, %18 ], [ %.02952, %.preheader ], [ 1, %19 ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, 6
-  br i1 %exitcond.not, label %switch.lookup, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !29
 
-switch.lookup:                                    ; preds = %20
-  %21 = zext nneg i32 %.2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans, i64 %21
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %22 = zext nneg i32 %.2 to i64
-  %switch.gep79 = getelementptr inbounds nuw i32, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.1, i64 %22
-  %switch.load80 = load i32, ptr %switch.gep79, align 4
-  %23 = zext nneg i32 %.2 to i64
-  %switch.gep81 = getelementptr inbounds nuw ptr, ptr @switch.table.sdl_6chans_set_rear_or_side_channels_from_alsa_6chans.2, i64 %23
-  %switch.load82 = load ptr, ptr %switch.gep81, align 8
+21:                                               ; preds = %20
+  switch i32 %.2, label %23 [
+    i32 1, label %22
+    i32 0, label %.thread
+  ]
+
+22:                                               ; preds = %21
   br label %.thread
 
-.thread:                                          ; preds = %18, %19, %switch.lookup, %has_pos.exit, %has_pos.exit35, %has_pos.exit39, %has_pos.exit43
-  %.sink74 = phi i32 [ 0, %has_pos.exit43 ], [ 0, %has_pos.exit39 ], [ 0, %has_pos.exit35 ], [ 0, %has_pos.exit ], [ %switch.load, %switch.lookup ], [ 0, %19 ], [ 0, %18 ]
-  %.sink = phi i32 [ 0, %has_pos.exit43 ], [ 0, %has_pos.exit39 ], [ 0, %has_pos.exit35 ], [ 0, %has_pos.exit ], [ %switch.load80, %switch.lookup ], [ 0, %19 ], [ 0, %18 ]
-  %.str.104.sink = phi ptr [ @.str.104, %has_pos.exit43 ], [ @.str.104, %has_pos.exit39 ], [ @.str.104, %has_pos.exit35 ], [ @.str.104, %has_pos.exit ], [ %switch.load82, %switch.lookup ], [ @.str.104, %19 ], [ @.str.104, %18 ]
+23:                                               ; preds = %21
+  br label %.thread
+
+.thread:                                          ; preds = %18, %19, %21, %has_pos.exit, %has_pos.exit35, %has_pos.exit39, %has_pos.exit43, %23, %22
+  %.sink74 = phi i32 [ 9, %23 ], [ 5, %22 ], [ 0, %has_pos.exit43 ], [ 0, %has_pos.exit39 ], [ 0, %has_pos.exit35 ], [ 0, %has_pos.exit ], [ %.2, %21 ], [ 0, %19 ], [ 0, %18 ]
+  %.sink = phi i32 [ 10, %23 ], [ 6, %22 ], [ 0, %has_pos.exit43 ], [ 0, %has_pos.exit39 ], [ 0, %has_pos.exit35 ], [ 0, %has_pos.exit ], [ %.2, %21 ], [ 0, %19 ], [ 0, %18 ]
+  %.str.104.sink = phi ptr [ @.str.106, %23 ], [ @.str.105, %22 ], [ @.str.104, %has_pos.exit43 ], [ @.str.104, %has_pos.exit39 ], [ @.str.104, %has_pos.exit35 ], [ @.str.104, %has_pos.exit ], [ @.str.104, %21 ], [ @.str.104, %19 ], [ @.str.104, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink74, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20

@@ -2466,8 +2466,8 @@ cms_get0_signed.exit:                             ; preds = %1
   %51 = load ptr, ptr %8, align 8, !tbaa !15
   %52 = load ptr, ptr %51, align 8, !tbaa !16
   %53 = tail call i32 @OBJ_obj2nid(ptr noundef %52) #7
-  %.not.i25 = icmp eq i32 %53, 21
-  br i1 %.not.i25, label %58, label %54
+  %.not.i26 = icmp eq i32 %53, 21
+  br i1 %.not.i26, label %58, label %54
 
 54:                                               ; preds = %._crit_edge.i
   %55 = load i32, ptr %5, align 8, !tbaa !6
@@ -2545,33 +2545,33 @@ cms_sd_set_version.exit:                          ; preds = %87, %._crit_edge45.
   br i1 %91, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %cms_sd_set_version.exit, %100
-  %.01932 = phi i32 [ %101, %100 ], [ 0, %cms_sd_set_version.exit ]
-  %.02131 = phi ptr [ %.1.ph, %100 ], [ null, %cms_sd_set_version.exit ]
+  %.01933 = phi i32 [ %101, %100 ], [ 0, %cms_sd_set_version.exit ]
+  %.02132 = phi ptr [ %.1.ph, %100 ], [ null, %cms_sd_set_version.exit ]
   %92 = load ptr, ptr %88, align 8, !tbaa !52
-  %93 = tail call ptr @OPENSSL_sk_value(ptr noundef %92, i32 noundef %.01932) #7
+  %93 = tail call ptr @OPENSSL_sk_value(ptr noundef %92, i32 noundef %.01933) #7
   %94 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef nonnull %0) #7
   %95 = tail call ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %93, ptr noundef %94) #7
   %96 = icmp eq ptr %95, null
   br i1 %96, label %105, label %97
 
 97:                                               ; preds = %.lr.ph
-  %.not24 = icmp eq ptr %.02131, null
+  %.not24 = icmp eq ptr %.02132, null
   br i1 %.not24, label %100, label %98
 
 98:                                               ; preds = %97
-  %99 = tail call ptr @BIO_push(ptr noundef nonnull %.02131, ptr noundef nonnull %95) #7
+  %99 = tail call ptr @BIO_push(ptr noundef nonnull %.02132, ptr noundef nonnull %95) #7
   br label %100
 
 100:                                              ; preds = %97, %98
-  %.1.ph = phi ptr [ %95, %97 ], [ %.02131, %98 ]
-  %101 = add nuw nsw i32 %.01932, 1
+  %.1.ph = phi ptr [ %95, %97 ], [ %.02132, %98 ]
+  %101 = add nuw nsw i32 %.01933, 1
   %102 = load ptr, ptr %88, align 8, !tbaa !52
   %103 = tail call i32 @OPENSSL_sk_num(ptr noundef %102) #7
   %104 = icmp slt i32 %101, %103
   br i1 %104, label %.lr.ph, label %.loopexit, !llvm.loop !105
 
 105:                                              ; preds = %.lr.ph
-  tail call void @BIO_free_all(ptr noundef %.02131) #7
+  tail call void @BIO_free_all(ptr noundef %.02132) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %100, %cms_sd_set_version.exit, %cms_get0_signed.exit.thread, %cms_get0_signed.exit, %105

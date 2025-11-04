@@ -4261,9 +4261,9 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %33
 
-33:                                               ; preds = %182, %27
-  %34 = phi ptr [ null, %27 ], [ %176, %182 ]
-  %35 = phi ptr [ null, %27 ], [ %180, %182 ]
+33:                                               ; preds = %184, %27
+  %34 = phi ptr [ null, %27 ], [ %178, %184 ]
+  %35 = phi ptr [ null, %27 ], [ %182, %184 ]
   tail call void @_raw_write_lock(ptr noundef nonnull %32) #19
   %36 = load ptr, ptr %0, align 8
   %37 = icmp eq ptr %36, null
@@ -4302,11 +4302,11 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
   br i1 %57, label %.preheader, label %.thread24.preheader
 
 .thread24.preheader:                              ; preds = %46, %.preheader, %54, %33
-  %.ph164 = phi ptr [ null, %33 ], [ %51, %54 ], [ %51, %.preheader ], [ null, %46 ]
+  %.ph163 = phi ptr [ null, %33 ], [ %51, %54 ], [ %51, %.preheader ], [ null, %46 ]
   br label %.thread24
 
 .thread24:                                        ; preds = %.thread24.preheader, %123
-  %58 = phi ptr [ %65, %123 ], [ %.ph164, %.thread24.preheader ]
+  %58 = phi ptr [ %65, %123 ], [ %.ph163, %.thread24.preheader ]
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.thread29, label %60
 
@@ -4361,7 +4361,7 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
 
 86:                                               ; preds = %85
   %87 = icmp eq ptr %34, null
-  br i1 %87, label %174, label %88
+  br i1 %87, label %176, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -4495,88 +4495,90 @@ define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, p
   tail call void @_raw_write_unlock(ptr noundef nonnull %32) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %174, %158
-  %159 = phi ptr [ %125, %158 ], [ null, %174 ]
-  %160 = phi ptr [ %126, %158 ], [ %35, %174 ]
-  %161 = phi i32 [ 0, %158 ], [ -12, %174 ]
-  %162 = icmp eq ptr %160, null
-  br i1 %162, label %169, label %163
+.loopexit:                                        ; preds = %176, %158
+  %159 = phi ptr [ %125, %158 ], [ null, %176 ]
+  %160 = phi ptr [ %126, %158 ], [ %35, %176 ]
+  %161 = phi i1 [ false, %158 ], [ true, %176 ]
+  %162 = phi i32 [ 0, %158 ], [ -12, %176 ]
+  %163 = icmp eq ptr %160, null
+  br i1 %163, label %170, label %164
 
-163:                                              ; preds = %.loopexit
-  %164 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %160, ptr nonnull elementtype(i32) %160) #19, !srcloc !13
-  %165 = icmp ult i8 %164, 2
-  tail call void @llvm.assume(i1 %165)
-  %166 = icmp eq i8 %164, 0
-  br i1 %166, label %169, label %167
+164:                                              ; preds = %.loopexit
+  %165 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %160, ptr nonnull elementtype(i32) %160) #19, !srcloc !13
+  %166 = icmp ult i8 %165, 2
+  tail call void @llvm.assume(i1 %166)
+  %167 = icmp eq i8 %165, 0
+  br i1 %167, label %170, label %168
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr @policy_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %168, ptr noundef nonnull %160) #19
-  br label %169
+168:                                              ; preds = %164
+  %169 = load ptr, ptr @policy_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %169, ptr noundef nonnull %160) #19
+  br label %170
 
-169:                                              ; preds = %167, %163, %.loopexit
-  %170 = icmp eq ptr %159, null
-  br i1 %170, label %183, label %.thread32
+170:                                              ; preds = %168, %164, %.loopexit
+  %171 = icmp eq ptr %159, null
+  br i1 %171, label %185, label %.thread32
 
-.thread32:                                        ; preds = %178, %169
-  %171 = phi ptr [ %159, %169 ], [ %176, %178 ]
-  %172 = phi i32 [ %161, %169 ], [ -12, %178 ]
-  %173 = load ptr, ptr @sn_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %173, ptr noundef nonnull %171) #19
-  br label %183
-
-174:                                              ; preds = %86
-  tail call void @_raw_write_unlock(ptr noundef nonnull %32) #19
+.thread32:                                        ; preds = %180, %170
+  %172 = phi ptr [ %159, %170 ], [ %178, %180 ]
+  %173 = phi i1 [ %161, %170 ], [ true, %180 ]
+  %174 = phi i32 [ %162, %170 ], [ -12, %180 ]
   %175 = load ptr, ptr @sn_cache, align 8
-  %176 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %175, i32 noundef 3264) #19
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %.loopexit, label %178
+  tail call void @kmem_cache_free(ptr noundef %175, ptr noundef nonnull %172) #19
+  br label %185
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr @policy_cache, align 8
-  %180 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %179, i32 noundef 3264) #19
-  %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread32, label %182
+176:                                              ; preds = %86
+  tail call void @_raw_write_unlock(ptr noundef nonnull %32) #19
+  %177 = load ptr, ptr @sn_cache, align 8
+  %178 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %177, i32 noundef 3264) #19
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %.loopexit, label %180
 
-182:                                              ; preds = %178
-  store volatile i32 1, ptr %180, align 8
+180:                                              ; preds = %176
+  %181 = load ptr, ptr @policy_cache, align 8
+  %182 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %181, i32 noundef 3264) #19
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %.thread32, label %184
+
+184:                                              ; preds = %180
+  store volatile i32 1, ptr %182, align 8
   br label %33
 
-183:                                              ; preds = %.thread32, %169
-  %184 = phi i32 [ %172, %.thread32 ], [ %161, %169 ]
-  %185 = icmp ne i32 %184, 0
-  %186 = icmp ne ptr %28, null
-  %187 = and i1 %186, %185
-  br i1 %187, label %188, label %.thread
+185:                                              ; preds = %.thread32, %170
+  %186 = phi i1 [ %173, %.thread32 ], [ %161, %170 ]
+  %187 = phi i32 [ %174, %.thread32 ], [ %162, %170 ]
+  %188 = icmp ne ptr %28, null
+  %189 = and i1 %188, %186
+  br i1 %189, label %190, label %.thread
 
-188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %190 = load ptr, ptr %189, align 8
-  %191 = icmp eq ptr %190, null
-  br i1 %191, label %.thread.sink.split, label %192
+190:                                              ; preds = %185
+  %191 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %192 = load ptr, ptr %191, align 8
+  %193 = icmp eq ptr %192, null
+  br i1 %193, label %.thread.sink.split, label %194
 
-192:                                              ; preds = %188
-  %193 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %190, ptr nonnull elementtype(i32) %190) #19, !srcloc !13
-  %194 = icmp ult i8 %193, 2
-  tail call void @llvm.assume(i1 %194)
-  %195 = icmp eq i8 %193, 0
-  br i1 %195, label %.thread.sink.split, label %196
+194:                                              ; preds = %190
+  %195 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %192, ptr nonnull elementtype(i32) %192) #19, !srcloc !13
+  %196 = icmp ult i8 %195, 2
+  tail call void @llvm.assume(i1 %196)
+  %197 = icmp eq i8 %195, 0
+  br i1 %197, label %.thread.sink.split, label %198
 
-196:                                              ; preds = %192
-  %197 = load ptr, ptr @policy_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %197, ptr noundef nonnull %190) #19
+198:                                              ; preds = %194
+  %199 = load ptr, ptr @policy_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %199, ptr noundef nonnull %192) #19
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %188, %192, %196, %17
-  %.sink135 = phi ptr [ %15, %17 ], [ %28, %196 ], [ %28, %192 ], [ %28, %188 ]
-  %.ph = phi i32 [ -12, %17 ], [ %184, %196 ], [ %184, %192 ], [ %184, %188 ]
-  %198 = load ptr, ptr @sn_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %198, ptr noundef nonnull %.sink135) #19
+.thread.sink.split:                               ; preds = %190, %194, %198, %17
+  %.sink134 = phi ptr [ %15, %17 ], [ %28, %198 ], [ %28, %194 ], [ %28, %190 ]
+  %.ph = phi i32 [ -12, %17 ], [ %187, %198 ], [ %187, %194 ], [ %187, %190 ]
+  %200 = load ptr, ptr @sn_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %200, ptr noundef nonnull %.sink134) #19
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %10, %183
-  %199 = phi i32 [ %184, %183 ], [ -12, %10 ], [ %.ph, %.thread.sink.split ]
-  ret i32 %199
+.thread:                                          ; preds = %.thread.sink.split, %10, %185
+  %201 = phi i32 [ %187, %185 ], [ -12, %10 ], [ %.ph, %.thread.sink.split ]
+  ret i32 %201
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

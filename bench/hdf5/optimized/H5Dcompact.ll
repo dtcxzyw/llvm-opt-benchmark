@@ -323,9 +323,9 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_readvv(ptr
   %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__compact_readvv, i32 noundef 395, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.23) #8
   br label %49
 
-49:                                               ; preds = %36, %10, %37, %45
-  %.027 = phi i64 [ %.1, %36 ], [ -1, %45 ], [ %43, %37 ], [ -1, %10 ]
-  ret i64 %.027
+49:                                               ; preds = %10, %37, %45, %36
+  %.026 = phi i64 [ %.1, %36 ], [ -1, %45 ], [ %43, %37 ], [ -1, %10 ]
+  ret i64 %.026
 }
 
 ; Function Attrs: nounwind uwtable
@@ -398,8 +398,8 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_writevv(pt
   br label %53
 
 53:                                               ; preds = %32, %10, %48, %44
-  %.028 = phi i64 [ %.2, %48 ], [ -1, %32 ], [ -1, %44 ], [ -1, %10 ]
-  ret i64 %.028
+  %.027 = phi i64 [ %.2, %48 ], [ -1, %32 ], [ -1, %44 ], [ -1, %10 ]
+  ret i64 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -798,9 +798,9 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr noundef reado
   %161 = load ptr, ptr %160, align 8, !tbaa !87
   %162 = tail call i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %4, ptr noundef %159, i64 noundef %156, ptr noundef %2, ptr noundef %161, ptr noundef nonnull %5) #8
   %163 = icmp slt i32 %162, 0
-  br i1 %163, label %.thread219, label %184
+  br i1 %163, label %.thread220, label %184
 
-.thread219:                                       ; preds = %157
+.thread220:                                       ; preds = %157
   %164 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !48
   %165 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !48
   %166 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__compact_copy, i32 noundef 649, i64 noundef %164, i64 noundef %165, ptr noundef nonnull @.str.14) #8
@@ -921,9 +921,9 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr noundef reado
   %217 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.1128) #8
   br label %218
 
-218:                                              ; preds = %.thread219, %6, %216, %215
-  %.0113 = phi i32 [ %.6, %216 ], [ %.6, %215 ], [ 0, %6 ], [ -1, %.thread219 ]
-  ret i32 %.0113
+218:                                              ; preds = %.thread220, %6, %216, %215
+  %.0123 = phi i32 [ %.6, %216 ], [ %.6, %215 ], [ 0, %6 ], [ -1, %.thread220 ]
+  ret i32 %.0123
 }
 
 declare i32 @H5T_detect_class(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3

@@ -1048,13 +1048,13 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %38 = load ptr, ptr %31, align 8, !tbaa !26
   %39 = tail call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %37, ptr noundef %38, ptr noundef nonnull %25, ptr noundef %3) #9
   %.not320 = icmp eq ptr %39, null
-  br i1 %.not320, label %41, label %.preheader410
+  br i1 %.not320, label %41, label %.preheader412
 
-.preheader410:                                    ; preds = %34
-  %.not438 = icmp eq i32 %.0302, 0
-  br i1 %.not438, label %._crit_edge, label %.lr.ph
+.preheader412:                                    ; preds = %34
+  %.not440 = icmp eq i32 %.0302, 0
+  br i1 %.not440, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader410
+.lr.ph:                                           ; preds = %.preheader412
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 136
   br label %44
 
@@ -1063,14 +1063,14 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   br label %.thread
 
 42:                                               ; preds = %44
-  %43 = add nuw nsw i32 %.0300411, 1
+  %43 = add nuw nsw i32 %.0300413, 1
   %exitcond.not = icmp eq i32 %43, %.0302
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !44
 
 44:                                               ; preds = %.lr.ph, %42
-  %.0300411 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
+  %.0300413 = phi i32 [ 0, %.lr.ph ], [ %43, %42 ]
   %45 = load ptr, ptr %40, align 8, !tbaa !43
-  %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %.0300411) #9
+  %46 = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %.0300413) #9
   %47 = load ptr, ptr %46, align 8, !tbaa !46
   tail call void @BN_with_flags(ptr noundef nonnull %25, ptr noundef %47, i32 noundef 4) #9
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -1083,7 +1083,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   tail call void @BN_free(ptr noundef nonnull %25) #9
   br label %.thread
 
-._crit_edge:                                      ; preds = %42, %.preheader410
+._crit_edge:                                      ; preds = %42, %.preheader412
   tail call void @BN_free(ptr noundef nonnull %25) #9
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !27
@@ -1281,9 +1281,9 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %165 = icmp eq ptr %164, null
   %166 = icmp eq ptr %163, null
   %or.cond5 = select i1 %165, i1 true, i1 %166
-  br i1 %or.cond5, label %168, label %.lr.ph413
+  br i1 %or.cond5, label %168, label %.lr.ph415
 
-.lr.ph413:                                        ; preds = %162
+.lr.ph415:                                        ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %wide.trip.count = zext nneg i32 %.0302 to i64
   br label %170
@@ -1295,11 +1295,11 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 
 169:                                              ; preds = %184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond419.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond419.not, label %._crit_edge414, label %170, !llvm.loop !50
+  %exitcond421.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond421.not, label %._crit_edge416, label %170, !llvm.loop !50
 
-170:                                              ; preds = %.lr.ph413, %169
-  %indvars.iv = phi i64 [ 0, %.lr.ph413 ], [ %indvars.iv.next, %169 ]
+170:                                              ; preds = %.lr.ph415, %169
+  %indvars.iv = phi i64 [ 0, %.lr.ph415 ], [ %indvars.iv.next, %169 ]
   %171 = tail call ptr @BN_CTX_get(ptr noundef %3) #9
   %172 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr %171, ptr %172, align 8, !tbaa !51
@@ -1345,12 +1345,12 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   tail call void @BN_free(ptr noundef %163) #9
   br label %.thread
 
-._crit_edge414:                                   ; preds = %169
+._crit_edge416:                                   ; preds = %169
   tail call void @BN_free(ptr noundef %164) #9
   tail call void @BN_free(ptr noundef %163) #9
   br label %193
 
-193:                                              ; preds = %._crit_edge414, %160
+193:                                              ; preds = %._crit_edge416, %160
   %194 = tail call i32 @BN_sub(ptr noundef %0, ptr noundef %0, ptr noundef %8) #9
   %.not331 = icmp eq i32 %194, 0
   br i1 %.not331, label %.thread, label %195
@@ -1414,24 +1414,24 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 221:                                              ; preds = %220
   %222 = tail call ptr @BN_new() #9
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %.thread, label %.lr.ph416
+  br i1 %223, label %.thread, label %.lr.ph418
 
-.lr.ph416:                                        ; preds = %221
+.lr.ph418:                                        ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %wide.trip.count423 = zext nneg i32 %.0302 to i64
+  %wide.trip.count425 = zext nneg i32 %.0302 to i64
   br label %226
 
 225:                                              ; preds = %254
-  %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
-  %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %._crit_edge417, label %226, !llvm.loop !54
+  %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
+  %exitcond426.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count425
+  br i1 %exitcond426.not, label %._crit_edge419, label %226, !llvm.loop !54
 
-226:                                              ; preds = %.lr.ph416, %225
-  %indvars.iv420 = phi i64 [ 0, %.lr.ph416 ], [ %indvars.iv.next421, %225 ]
+226:                                              ; preds = %.lr.ph418, %225
+  %indvars.iv422 = phi i64 [ 0, %.lr.ph418 ], [ %indvars.iv.next423, %225 ]
   %227 = load ptr, ptr %224, align 8, !tbaa !43
-  %228 = trunc nuw nsw i64 %indvars.iv420 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv422 to i32
   %229 = tail call ptr @OPENSSL_sk_value(ptr noundef %227, i32 noundef %228) #9
-  %230 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv420
+  %230 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv422
   %231 = load ptr, ptr %230, align 8, !tbaa !51
   %232 = tail call i32 @BN_sub(ptr noundef %6, ptr noundef %231, ptr noundef %0) #9
   %.not340 = icmp eq i32 %232, 0
@@ -1498,11 +1498,11 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   tail call void @BN_free(ptr noundef nonnull %222) #9
   br label %.thread
 
-._crit_edge417:                                   ; preds = %225
+._crit_edge419:                                   ; preds = %225
   tail call void @BN_free(ptr noundef nonnull %222) #9
   br label %257
 
-257:                                              ; preds = %._crit_edge417, %220, %115
+257:                                              ; preds = %._crit_edge419, %220, %115
   %258 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %259 = load ptr, ptr %258, align 8, !tbaa !23
   %.not357 = icmp eq ptr %259, null
@@ -1602,7 +1602,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   tail call void @bn_correct_top(ptr noundef %0) #9
   br label %.thread
 
-.thread:                                          ; preds = %300, %297, %221, %233, %238, %242, %248, %253, %256, %207, %204, %183, %192, %174, %168, %150, %147, %143, %142, %130, %119, %126, %24, %41, %51, %286, %310, %4, %15, %67, %115, %112, %107, %104, %101, %89, %86, %82, %79, %75, %193, %197, %200, %212, %215, %218, %269, %273, %282, %287, %292
+.thread:                                          ; preds = %300, %297, %221, %233, %238, %242, %248, %253, %256, %207, %204, %183, %192, %174, %168, %150, %147, %143, %142, %130, %119, %126, %24, %41, %51, %292, %287, %282, %273, %269, %218, %215, %212, %200, %197, %193, %75, %79, %82, %86, %89, %101, %104, %107, %112, %115, %67, %15, %4, %310, %286
   %.0298 = phi i32 [ 0, %4 ], [ 0, %15 ], [ 1, %286 ], [ 1, %310 ], [ 0, %292 ], [ 0, %287 ], [ 0, %282 ], [ 0, %269 ], [ 0, %273 ], [ 0, %115 ], [ 0, %112 ], [ 0, %107 ], [ 0, %104 ], [ 0, %101 ], [ 0, %89 ], [ 0, %86 ], [ 0, %82 ], [ 0, %79 ], [ 0, %75 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %200 ], [ 0, %197 ], [ 0, %193 ], [ 0, %67 ], [ 0, %51 ], [ 0, %41 ], [ 0, %24 ], [ 0, %126 ], [ 0, %119 ], [ 0, %130 ], [ 0, %142 ], [ 0, %143 ], [ 0, %147 ], [ 0, %150 ], [ 0, %168 ], [ 0, %174 ], [ 0, %192 ], [ 0, %183 ], [ 0, %204 ], [ 0, %207 ], [ 0, %256 ], [ 0, %253 ], [ 0, %248 ], [ 0, %242 ], [ 0, %238 ], [ 0, %233 ], [ 0, %221 ], [ 0, %297 ], [ 0, %300 ]
   tail call void @BN_CTX_end(ptr noundef %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

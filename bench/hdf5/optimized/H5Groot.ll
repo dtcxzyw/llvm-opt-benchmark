@@ -115,9 +115,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7
-  %.pre118 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre119 = trunc nuw i8 %.pre to i1
-  %.pre120 = trunc nuw i8 %.pre118 to i1
+  %.pre121 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre122 = trunc nuw i8 %.pre to i1
+  %.pre123 = trunc nuw i8 %.pre121 to i1
   br label %19
 
 15:                                               ; preds = %12
@@ -128,11 +128,11 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %230
 
 19:                                               ; preds = %._crit_edge, %2
-  %.pre-phi121 = phi i1 [ %.pre120, %._crit_edge ], [ %10, %2 ]
-  %.pre-phi = phi i1 [ %.pre119, %._crit_edge ], [ %8, %2 ]
-  %20 = xor i1 %.pre-phi121, true
+  %.pre-phi124 = phi i1 [ %.pre123, %._crit_edge ], [ %10, %2 ]
+  %.pre-phi = phi i1 [ %.pre122, %._crit_edge ], [ %8, %2 ]
+  %20 = xor i1 %.pre-phi124, true
   %21 = select i1 %.pre-phi, i1 true, i1 %20
-  br i1 %21, label %22, label %.thread115, !prof !9
+  br i1 %21, label %22, label %.thread118, !prof !9
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -140,7 +140,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1456
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %27, label %.thread115
+  br i1 %.not, label %27, label %.thread118
 
 27:                                               ; preds = %22
   %28 = tail call i32 @H5G__node_init(ptr noundef nonnull %0) #6
@@ -401,7 +401,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 185:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %186 = icmp eq i32 %.076, -1
-  br i1 %186, label %187, label %.thread98
+  br i1 %186, label %187, label %.thread101
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %3, align 8, !tbaa !51
@@ -417,21 +417,21 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 
 195:                                              ; preds = %187
   %.not92 = icmp eq i32 %189, 0
-  br i1 %.not92, label %.thread101, label %.thread98
+  br i1 %.not92, label %.thread104, label %.thread101
 
-.thread98:                                        ; preds = %185, %195
+.thread101:                                       ; preds = %185, %195
   %196 = load ptr, ptr %3, align 8, !tbaa !51
   %197 = call ptr @H5O_msg_read(ptr noundef %196, i32 noundef 17, ptr noundef nonnull %6) #6
   %198 = icmp eq ptr %197, null
   br i1 %198, label %199, label %203
 
-199:                                              ; preds = %.thread98
+199:                                              ; preds = %.thread101
   %200 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !49
   %201 = load i64, ptr @H5E_BADMESG_g, align 8, !tbaa !49
   %202 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_mkroot, i32 noundef 260, i64 noundef %200, i64 noundef %201, ptr noundef nonnull @.str.11) #6
   br label %219
 
-203:                                              ; preds = %.thread98
+203:                                              ; preds = %.thread101
   %204 = load ptr, ptr %23, align 8, !tbaa !10
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !60
@@ -450,9 +450,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %217 = load ptr, ptr %216, align 8, !tbaa !70
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store i64 %212, ptr %218, align 8, !tbaa !74
-  br label %.thread101
+  br label %.thread104
 
-.thread101:                                       ; preds = %203, %195
+.thread104:                                       ; preds = %203, %195
   %.374.ph = phi i1 [ %1, %195 ], [ true, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %220
@@ -461,8 +461,8 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %230
 
-220:                                              ; preds = %.thread101, %183, %177, %172
-  %.273 = phi i1 [ %1, %183 ], [ %1, %177 ], [ %1, %172 ], [ %.374.ph, %.thread101 ]
+220:                                              ; preds = %.thread104, %183, %177, %172
+  %.273 = phi i1 [ %1, %183 ], [ %1, %177 ], [ %1, %172 ], [ %.374.ph, %.thread104 ]
   %221 = load ptr, ptr %59, align 8, !tbaa !55
   %222 = call i32 @H5G__name_init(ptr noundef %221, ptr noundef nonnull @.str.12) #6
   %223 = load ptr, ptr %23, align 8, !tbaa !10
@@ -474,7 +474,7 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %228 = load i32, ptr %227, align 8, !tbaa !85
   %229 = add i32 %228, -1
   store i32 %229, ptr %227, align 8, !tbaa !85
-  br i1 %.273, label %260, label %.thread115
+  br i1 %.273, label %260, label %.thread118
 
 230:                                              ; preds = %15, %30, %39, %49, %69, %76, %84, %99, %219, %123, %140, %168
   %.071.ph = phi i1 [ false, %168 ], [ false, %140 ], [ false, %123 ], [ %1, %219 ], [ true, %99 ], [ false, %84 ], [ false, %76 ], [ false, %69 ], [ false, %49 ], [ false, %39 ], [ false, %30 ], [ false, %15 ]
@@ -522,31 +522,31 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   %257 = load ptr, ptr %256, align 8, !tbaa !60
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 304
   store ptr %254, ptr %258, align 8, !tbaa !70
-  br i1 %.071.ph, label %260, label %.thread115
+  br i1 %.071.ph, label %260, label %.thread118
 
 259:                                              ; preds = %247
-  br i1 %.071.ph, label %260, label %.thread115
+  br i1 %.071.ph, label %260, label %.thread118
 
 260:                                              ; preds = %220, %251, %259
-  %.068113129 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %220 ]
+  %.068116132 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %220 ]
   %261 = phi ptr [ %255, %251 ], [ %248, %259 ], [ %223, %220 ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !60
   %264 = call i32 @H5AC_mark_entry_dirty(ptr noundef %263) #6
   %265 = icmp slt i32 %264, 0
-  br i1 %265, label %266, label %.thread115
+  br i1 %265, label %266, label %.thread118
 
 266:                                              ; preds = %260
   %267 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !49
   %268 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !49
   %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_mkroot, i32 noundef 302, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.13) #6
-  br label %.thread115
+  br label %.thread118
 
-.thread115:                                       ; preds = %220, %251, %22, %19, %260, %266, %259
-  %.078 = phi i32 [ -1, %266 ], [ %.068113129, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %22 ], [ -1, %251 ], [ 0, %220 ]
+.thread118:                                       ; preds = %220, %251, %22, %19, %260, %266, %259
+  %.169 = phi i32 [ -1, %266 ], [ %.068116132, %260 ], [ -1, %259 ], [ 0, %19 ], [ 0, %22 ], [ -1, %251 ], [ 0, %220 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.078
+  ret i32 %.169
 }
 
 declare i32 @H5G__init_package() local_unnamed_addr #2

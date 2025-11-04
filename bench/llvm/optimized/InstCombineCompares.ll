@@ -2801,58 +2801,58 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %_ZNK4llvm11GEPOpera
   br i1 %exitcond, label %.split.loop.exit, label %283, !llvm.loop !157
 
 .split.loop.exit:                                 ; preds = %314
-  %trunc = trunc nuw i32 %.3154 to i1
-  br i1 %trunc, label %321, label %.split.loop.exit.thread307
+  %315 = icmp eq i32 %.3154, 0
+  br i1 %315, label %.split.loop.exit.thread307, label %322
 
 .split.loop.exit.thread307:                       ; preds = %.split.loop.exit, %271
-  %315 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %316 = load ptr, ptr %315, align 8, !tbaa !14
-  %317 = tail call noundef zeroext i1 @_ZN4llvm7CmpInst15isTrueWhenEqualENS0_9PredicateE(i32 noundef %.sroa.0222.0.extract.trunc) #19
-  %318 = zext i1 %317 to i64
-  %319 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %316, i64 noundef %318, i1 noundef zeroext false) #19
-  %320 = tail call noundef ptr @_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %319)
+  %316 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %317 = load ptr, ptr %316, align 8, !tbaa !14
+  %318 = tail call noundef zeroext i1 @_ZN4llvm7CmpInst15isTrueWhenEqualENS0_9PredicateE(i32 noundef %.sroa.0222.0.extract.trunc) #19
+  %319 = zext i1 %318 to i64
+  %320 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %317, i64 noundef %319, i1 noundef zeroext false) #19
+  %321 = tail call noundef ptr @_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %320)
   br label %.thread254
 
-321:                                              ; preds = %.split.loop.exit
+322:                                              ; preds = %.split.loop.exit
   %.not259 = icmp ult i8 %116, 2
-  br i1 %.not259, label %.thread250, label %322
+  br i1 %.not259, label %.thread250, label %323
 
-322:                                              ; preds = %321
-  %323 = load i32, ptr %19, align 4
-  %324 = and i32 %323, 134217727
-  %325 = zext nneg i32 %324 to i64
-  %326 = sub nsw i64 0, %325
-  %327 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %326
-  %328 = zext i32 %.3158 to i64
-  %329 = getelementptr inbounds nuw %"class.llvm::Use", ptr %327, i64 %328
-  %330 = load ptr, ptr %329, align 8, !tbaa !37
-  %331 = zext nneg i32 %273 to i64
-  %332 = sub nsw i64 0, %331
-  %333 = getelementptr inbounds %"class.llvm::Use", ptr %.0241, i64 %332
-  %334 = getelementptr inbounds nuw %"class.llvm::Use", ptr %333, i64 %328
-  %335 = load ptr, ptr %334, align 8, !tbaa !37
-  %336 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl11foldGEPICmpEPNS_11GEPOperatorEPNS_5ValueENS_12CmpPredicateERNS_11InstructionEENK3$_1clENS_14GEPNoWrapFlagsES4_S4_"(i32 %.sroa.0222.0.extract.trunc, i32 %118, ptr noundef %330, ptr noundef %335)
+323:                                              ; preds = %322
+  %324 = load i32, ptr %19, align 4
+  %325 = and i32 %324, 134217727
+  %326 = zext nneg i32 %325 to i64
+  %327 = sub nsw i64 0, %326
+  %328 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %327
+  %329 = zext i32 %.3158 to i64
+  %330 = getelementptr inbounds nuw %"class.llvm::Use", ptr %328, i64 %329
+  %331 = load ptr, ptr %330, align 8, !tbaa !37
+  %332 = zext nneg i32 %273 to i64
+  %333 = sub nsw i64 0, %332
+  %334 = getelementptr inbounds %"class.llvm::Use", ptr %.0241, i64 %333
+  %335 = getelementptr inbounds nuw %"class.llvm::Use", ptr %334, i64 %329
+  %336 = load ptr, ptr %335, align 8, !tbaa !37
+  %337 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl11foldGEPICmpEPNS_11GEPOperatorEPNS_5ValueENS_12CmpPredicateERNS_11InstructionEENK3$_1clENS_14GEPNoWrapFlagsES4_S4_"(i32 %.sroa.0222.0.extract.trunc, i32 %118, ptr noundef %331, ptr noundef %336)
   br label %.thread254
 
-.thread250:                                       ; preds = %.critedge, %308, %303, %288, %321, %267, %266
-  %337 = icmp ugt i8 %116, 1
-  %spec.select.i195 = select i1 %.pre-phi303, i1 true, i1 %337
-  br i1 %spec.select.i195, label %338, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread
+.thread250:                                       ; preds = %.critedge, %308, %303, %288, %322, %267, %266
+  %338 = icmp ugt i8 %116, 1
+  %spec.select.i195 = select i1 %.pre-phi303, i1 true, i1 %338
+  br i1 %spec.select.i195, label %339, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread
 
-338:                                              ; preds = %.thread250
-  %339 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl13EmitGEPOffsetEPNS_11GEPOperatorEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %1, i1 noundef zeroext true) #19
-  %340 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl13EmitGEPOffsetEPNS_11GEPOperatorEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %.0241, i1 noundef zeroext true) #19
-  %341 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl11foldGEPICmpEPNS_11GEPOperatorEPNS_5ValueENS_12CmpPredicateERNS_11InstructionEENK3$_1clENS_14GEPNoWrapFlagsES4_S4_"(i32 %.sroa.0222.0.extract.trunc, i32 %118, ptr noundef %339, ptr noundef %340)
+339:                                              ; preds = %.thread250
+  %340 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl13EmitGEPOffsetEPNS_11GEPOperatorEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %1, i1 noundef zeroext true) #19
+  %341 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl13EmitGEPOffsetEPNS_11GEPOperatorEb(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull %.0241, i1 noundef zeroext true) #19
+  %342 = tail call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl11foldGEPICmpEPNS_11GEPOperatorEPNS_5ValueENS_12CmpPredicateERNS_11InstructionEENK3$_1clENS_14GEPNoWrapFlagsES4_S4_"(i32 %.sroa.0222.0.extract.trunc, i32 %118, ptr noundef %340, ptr noundef %341)
   br label %.thread254
 
 _ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread: ; preds = %106, %_ZN4llvm14CastIsPossibleINS_11GEPOperatorEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %108, %.thread250
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %343 = load ptr, ptr %342, align 8, !tbaa !95
-  %344 = tail call fastcc noundef ptr @_ZL25transformToIndexedComparePN4llvm11GEPOperatorEPNS_5ValueENS_12CmpPredicateERKNS_10DataLayoutERNS_12InstCombinerE(ptr noundef nonnull %1, ptr noundef %.0241, i64 %3, ptr noundef nonnull align 8 dereferenceable(496) %343, ptr noundef nonnull align 8 dereferenceable(1081) %0)
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %344 = load ptr, ptr %343, align 8, !tbaa !95
+  %345 = tail call fastcc noundef ptr @_ZL25transformToIndexedComparePN4llvm11GEPOperatorEPNS_5ValueENS_12CmpPredicateERKNS_10DataLayoutERNS_12InstCombinerE(ptr noundef nonnull %1, ptr noundef %.0241, i64 %3, ptr noundef nonnull align 8 dereferenceable(496) %344, ptr noundef nonnull align 8 dereferenceable(1081) %0)
   br label %.thread254
 
-.thread254:                                       ; preds = %.split.loop.exit.thread307, %322, %170, %256, %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %338, %34, %95, %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread, %5
-  %.0 = phi ptr [ null, %5 ], [ %42, %34 ], [ %344, %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread ], [ %96, %95 ], [ %336, %322 ], [ %320, %.split.loop.exit.thread307 ], [ %262, %256 ], [ %265, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ %171, %170 ], [ %341, %338 ]
+.thread254:                                       ; preds = %.split.loop.exit.thread307, %323, %170, %256, %_ZNK4llvm5Value9hasOneUseEv.exit.thread, %339, %34, %95, %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread, %5
+  %.0 = phi ptr [ null, %5 ], [ %42, %34 ], [ %345, %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread ], [ %96, %95 ], [ %337, %323 ], [ %321, %.split.loop.exit.thread307 ], [ %262, %256 ], [ %265, %_ZNK4llvm5Value9hasOneUseEv.exit.thread ], [ %171, %170 ], [ %342, %339 ]
   ret ptr %.0
 }
 

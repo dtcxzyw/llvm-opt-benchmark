@@ -7068,11 +7068,11 @@ _ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EE9push_backEOS2_.exit: ; preds 
   %111 = icmp eq ptr %110, %108
   %spec.select.i.i = select i1 %111, ptr null, ptr %110
   %.not48 = icmp eq ptr %38, %spec.select.i.i
-  br i1 %.not48, label %215, label %112
+  br i1 %.not48, label %216, label %112
 
 112:                                              ; preds = %105
   %113 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder7buildBrERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(288) %38) #29
-  br label %215
+  br label %216
 
 114:                                              ; preds = %._crit_edge
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1824
@@ -7210,14 +7210,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG18SwitchWorkListItemELb1EE9push_ba
   %178 = getelementptr inbounds nuw i8, ptr %38, i64 32
   br label %179
 
-thread-pre-split:                                 ; preds = %205, %208
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.pr = load i32, ptr %125, align 8, !tbaa !26
-  %.not.i59 = icmp eq i32 %.pr, 0
-  br i1 %.not.i59, label %._crit_edge91, label %179
-
-179:                                              ; preds = %.lr.ph90, %thread-pre-split
-  %180 = phi i32 [ %174, %.lr.ph90 ], [ %.pr, %thread-pre-split ]
+179:                                              ; preds = %.lr.ph90, %212
+  %180 = phi i32 [ %174, %.lr.ph90 ], [ %.pr, %212 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %181 = load ptr, ptr %8, align 8, !tbaa !25, !noalias !609
   %182 = zext i32 %180 to i64
@@ -7256,41 +7250,47 @@ thread-pre-split:                                 ; preds = %205, %208
   %206 = load ptr, ptr %28, align 8, !tbaa !449
   %207 = load ptr, ptr %206, align 8, !tbaa !373
   call void @_ZN4llvm12IRTranslator13splitWorkItemERNS_11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EEERKS3_PNS_5ValueEPNS_17MachineBasicBlockERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(208) %8, ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef %207, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(88) %2)
-  br label %thread-pre-split, !llvm.loop !716
+  br label %212, !llvm.loop !716
 
 208:                                              ; preds = %201, %195, %179
   %209 = load ptr, ptr %28, align 8, !tbaa !449
   %210 = load ptr, ptr %209, align 8, !tbaa !373
   %211 = call noundef zeroext i1 @_ZN4llvm12IRTranslator19lowerSwitchWorkItemENS_8SwitchCG18SwitchWorkListItemEPNS_5ValueEPNS_17MachineBasicBlockES6_RNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull byval(%"struct.llvm::SwitchCG::SwitchWorkListItem") align 8 %10, ptr noundef %210, ptr noundef nonnull %46, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(88) %2)
-  br label %thread-pre-split
+  br label %212
 
-._crit_edge91:                                    ; preds = %thread-pre-split, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG18SwitchWorkListItemELb1EE9push_backERKS2_.exit
-  %212 = load ptr, ptr %8, align 8, !tbaa !25
-  %213 = icmp eq ptr %212, %124
-  br i1 %213, label %_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit, label %214
+212:                                              ; preds = %208, %205
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %.pr = load i32, ptr %125, align 8, !tbaa !26
+  %.not.i59 = icmp eq i32 %.pr, 0
+  br i1 %.not.i59, label %._crit_edge91, label %179
 
-214:                                              ; preds = %._crit_edge91
-  call void @free(ptr noundef %212) #29
+._crit_edge91:                                    ; preds = %212, %_ZN4llvm23SmallVectorTemplateBaseINS_8SwitchCG18SwitchWorkListItemELb1EE9push_backERKS2_.exit
+  %213 = load ptr, ptr %8, align 8, !tbaa !25
+  %214 = icmp eq ptr %213, %124
+  br i1 %214, label %_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit, label %215
+
+215:                                              ; preds = %._crit_edge91
+  call void @free(ptr noundef %213) #29
   br label %_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit: ; preds = %._crit_edge91, %214
+_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit: ; preds = %._crit_edge91, %215
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %215
+  br label %216
 
-215:                                              ; preds = %105, %112, %_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit
-  %216 = load ptr, ptr %5, align 8, !tbaa !587
-  %.not.i.i.i = icmp eq ptr %216, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EED2Ev.exit, label %217
+216:                                              ; preds = %105, %112, %_ZN4llvm11SmallVectorINS_8SwitchCG18SwitchWorkListItemELj4EED2Ev.exit
+  %217 = load ptr, ptr %5, align 8, !tbaa !587
+  %.not.i.i.i = icmp eq ptr %217, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EED2Ev.exit, label %218
 
-217:                                              ; preds = %215
-  %218 = load ptr, ptr %19, align 8, !tbaa !591
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %216 to i64
-  %221 = sub i64 %219, %220
-  call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef %221) #32
+218:                                              ; preds = %216
+  %219 = load ptr, ptr %19, align 8, !tbaa !591
+  %220 = ptrtoint ptr %219 to i64
+  %221 = ptrtoint ptr %217 to i64
+  %222 = sub i64 %220, %221
+  call void @_ZdlPvm(ptr noundef nonnull %217, i64 noundef %222) #32
   br label %_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EED2Ev.exit: ; preds = %215, %217
+_ZNSt6vectorIN4llvm8SwitchCG11CaseClusterESaIS2_EED2Ev.exit: ; preds = %216, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 true
 }

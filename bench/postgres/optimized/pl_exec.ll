@@ -9739,17 +9739,17 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %153
-  %.070130 = phi i64 [ %19, %.preheader.lr.ph ], [ %155, %153 ]
-  %.071129 = phi i8 [ 1, %.preheader.lr.ph ], [ %.4, %153 ]
-  %.073128 = phi i64 [ 1, %.preheader.lr.ph ], [ %.376, %153 ]
-  %.084127 = phi ptr [ %18, %.preheader.lr.ph ], [ %154, %153 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.084127, i64 8
+  %.070131 = phi i64 [ %19, %.preheader.lr.ph ], [ %155, %153 ]
+  %.071130 = phi i8 [ 1, %.preheader.lr.ph ], [ %.4, %153 ]
+  %.073129 = phi i64 [ 1, %.preheader.lr.ph ], [ %.376, %153 ]
+  %.084128 = phi ptr [ %18, %.preheader.lr.ph ], [ %154, %153 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.084128, i64 8
   br label %40
 
 40:                                               ; preds = %.preheader, %151
-  %.069125 = phi i64 [ 0, %.preheader ], [ %152, %151 ]
-  %.172124 = phi i8 [ %.071129, %.preheader ], [ %.4, %151 ]
-  %.174123 = phi i64 [ %.073128, %.preheader ], [ %.376, %151 ]
+  %.069126 = phi i64 [ 0, %.preheader ], [ %152, %151 ]
+  %.172125 = phi i8 [ %.071130, %.preheader ], [ %.4, %151 ]
+  %.174124 = phi i64 [ %.073129, %.preheader ], [ %.376, %151 ]
   %41 = load i32, ptr %13, align 8
   %42 = icmp eq i32 %41, 2
   br i1 %42, label %43, label %118
@@ -9760,20 +9760,20 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
   br i1 %.not96, label %._crit_edge, label %45
 
 ._crit_edge:                                      ; preds = %43
-  %.pre = trunc nuw i8 %.172124 to i1
+  %.pre = trunc nuw i8 %.172125 to i1
   br label %57
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %47 = load i64, ptr %46, align 8
-  %48 = icmp eq i64 %47, %.174123
-  %49 = trunc nuw i8 %.172124 to i1
+  %48 = icmp eq i64 %47, %.174124
+  %49 = trunc nuw i8 %.172125 to i1
   %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %50, label %57
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.069125
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.069126
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %14, align 1, !range !3, !noundef !4
   %55 = trunc nuw i8 %54 to i1
@@ -9784,9 +9784,9 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
 57:                                               ; preds = %._crit_edge, %45
   %.pre-phi = phi i1 [ %.pre, %._crit_edge ], [ %49, %45 ]
   %58 = load ptr, ptr %39, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.069125
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.069126
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %.084127, align 8
+  %61 = load ptr, ptr %.084128, align 8
   tail call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %60, ptr noundef %61)
   br i1 %.pre-phi, label %62, label %compatible_tupdescs.exit
 
@@ -9796,7 +9796,7 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
   br i1 %64, label %compatible_tupdescs.exit, label %65
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %.084127, align 8
+  %66 = load ptr, ptr %.084128, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %63, %68
@@ -9806,8 +9806,8 @@ define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr n
   %71 = load ptr, ptr %32, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load ptr, ptr %72, align 8
-  %.not.i99 = icmp eq ptr %73, null
-  br i1 %.not.i99, label %74, label %expanded_record_get_tupdesc.exit, !prof !9
+  %.not.i100 = icmp eq ptr %73, null
+  br i1 %.not.i100, label %74, label %expanded_record_get_tupdesc.exit, !prof !9
 
 74:                                               ; preds = %70
   %75 = tail call ptr @expanded_record_fetch_tupdesc(ptr noundef nonnull %71) #11
@@ -9817,8 +9817,8 @@ expanded_record_get_tupdesc.exit:                 ; preds = %70, %74
   %.0.i = phi ptr [ %75, %74 ], [ %73, %70 ]
   %76 = load i32, ptr %.0.i, align 8
   %77 = load i32, ptr %66, align 8
-  %.not.i100 = icmp eq i32 %76, %77
-  br i1 %.not.i100, label %.preheader.i, label %compatible_tupdescs.exit
+  %.not.i101 = icmp eq i32 %76, %77
+  br i1 %.not.i101, label %.preheader.i, label %compatible_tupdescs.exit
 
 .preheader.i:                                     ; preds = %expanded_record_get_tupdesc.exit
   %78 = sext i32 %76 to i64
@@ -9899,18 +9899,18 @@ compatible_tupdescs.exit:                         ; preds = %.critedge.i, %110, 
 
 118:                                              ; preds = %40
   %119 = load ptr, ptr %39, align 8
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %.069125
+  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %.069126
   %121 = load ptr, ptr %120, align 8
-  %122 = load ptr, ptr %.084127, align 8
+  %122 = load ptr, ptr %.084128, align 8
   tail call fastcc void @exec_move_row(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %121, ptr noundef %122)
   br label %123
 
 123:                                              ; preds = %50, %compatible_tupdescs.exit, %118
-  %.376 = phi i64 [ %.174123, %118 ], [ %.174123, %50 ], [ %117, %compatible_tupdescs.exit ]
-  %.4 = phi i8 [ %.172124, %118 ], [ 1, %50 ], [ %.3, %compatible_tupdescs.exit ]
+  %.376 = phi i64 [ %.174124, %118 ], [ %.174124, %50 ], [ %117, %compatible_tupdescs.exit ]
+  %.4 = phi i8 [ %.172125, %118 ], [ 1, %50 ], [ %.3, %compatible_tupdescs.exit ]
   %124 = load ptr, ptr %21, align 8
-  %.not.i102 = icmp eq ptr %124, null
-  br i1 %.not.i102, label %126, label %125
+  %.not.i103 = icmp eq ptr %124, null
+  br i1 %.not.i103, label %126, label %125
 
 125:                                              ; preds = %123
   tail call void @SPI_freetuptable(ptr noundef nonnull %124) #11
@@ -9919,16 +9919,16 @@ compatible_tupdescs.exit:                         ; preds = %.critedge.i, %110, 
 126:                                              ; preds = %125, %123
   store ptr null, ptr %21, align 8
   %127 = load ptr, ptr %34, align 8
-  %.not6.i103 = icmp eq ptr %127, null
-  br i1 %.not6.i103, label %exec_eval_cleanup.exit104, label %128
+  %.not6.i104 = icmp eq ptr %127, null
+  br i1 %.not6.i104, label %exec_eval_cleanup.exit105, label %128
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %130 = load ptr, ptr %129, align 8
   tail call void @MemoryContextReset(ptr noundef %130) #11
-  br label %exec_eval_cleanup.exit104
+  br label %exec_eval_cleanup.exit105
 
-exec_eval_cleanup.exit104:                        ; preds = %126, %128
+exec_eval_cleanup.exit105:                        ; preds = %126, %128
   %131 = load ptr, ptr %35, align 8
   %132 = tail call fastcc i32 @exec_stmts(ptr noundef %0, ptr noundef %131)
   switch i32 %132, label %151 [
@@ -9937,7 +9937,7 @@ exec_eval_cleanup.exit104:                        ; preds = %126, %128
     i32 3, label %142
   ]
 
-133:                                              ; preds = %exec_eval_cleanup.exit104
+133:                                              ; preds = %exec_eval_cleanup.exit105
   %134 = load ptr, ptr %36, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.thread, label %136
@@ -9956,7 +9956,7 @@ exec_eval_cleanup.exit104:                        ; preds = %126, %128
   store ptr null, ptr %36, align 8
   br label %.thread
 
-142:                                              ; preds = %exec_eval_cleanup.exit104
+142:                                              ; preds = %exec_eval_cleanup.exit105
   %143 = load ptr, ptr %36, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %151, label %145
@@ -9975,24 +9975,24 @@ exec_eval_cleanup.exit104:                        ; preds = %126, %128
   store ptr null, ptr %36, align 8
   br label %151
 
-151:                                              ; preds = %142, %exec_eval_cleanup.exit104, %150
-  %.381 = phi i32 [ 0, %150 ], [ %132, %exec_eval_cleanup.exit104 ], [ 0, %142 ]
-  %152 = add nuw i64 %.069125, 1
-  %exitcond.not = icmp eq i64 %152, %.070130
+151:                                              ; preds = %142, %exec_eval_cleanup.exit105, %150
+  %.381 = phi i32 [ 0, %150 ], [ %132, %exec_eval_cleanup.exit105 ], [ 0, %142 ]
+  %152 = add nuw i64 %.069126, 1
+  %exitcond.not = icmp eq i64 %152, %.070131
   br i1 %exitcond.not, label %153, label %40, !llvm.loop !19
 
 153:                                              ; preds = %151
-  tail call void @SPI_freetuptable(ptr noundef %.084127) #11
+  tail call void @SPI_freetuptable(ptr noundef %.084128) #11
   tail call void @SPI_cursor_fetch(ptr noundef %2, i1 noundef zeroext true, i64 noundef %38) #11
   %154 = load ptr, ptr @SPI_tuptable, align 8
   %155 = load i64, ptr @SPI_processed, align 8
   %.not = icmp eq i64 %155, 0
   br i1 %.not, label %.thread, label %.preheader
 
-.thread:                                          ; preds = %153, %145, %147, %exec_eval_cleanup.exit104, %26, %29, %136, %138, %133, %141
-  %.084122 = phi ptr [ %.084127, %136 ], [ %.084127, %138 ], [ %.084127, %133 ], [ %.084127, %141 ], [ %18, %29 ], [ %18, %26 ], [ %.084127, %exec_eval_cleanup.exit104 ], [ %.084127, %147 ], [ %.084127, %145 ], [ %154, %153 ]
-  %.482 = phi i32 [ 1, %136 ], [ 1, %138 ], [ 0, %133 ], [ 0, %141 ], [ 0, %29 ], [ 0, %26 ], [ %132, %exec_eval_cleanup.exit104 ], [ %132, %147 ], [ %132, %145 ], [ %.381, %153 ]
-  tail call void @SPI_freetuptable(ptr noundef %.084122) #11
+.thread:                                          ; preds = %153, %145, %147, %exec_eval_cleanup.exit105, %26, %29, %136, %138, %133, %141
+  %.084123 = phi ptr [ %.084128, %136 ], [ %.084128, %138 ], [ %.084128, %133 ], [ %.084128, %141 ], [ %18, %29 ], [ %18, %26 ], [ %.084128, %exec_eval_cleanup.exit105 ], [ %.084128, %147 ], [ %.084128, %145 ], [ %154, %153 ]
+  %.482 = phi i32 [ 1, %136 ], [ 1, %138 ], [ 0, %133 ], [ 0, %141 ], [ 0, %29 ], [ 0, %26 ], [ %132, %exec_eval_cleanup.exit105 ], [ %132, %147 ], [ %132, %145 ], [ %.381, %153 ]
+  tail call void @SPI_freetuptable(ptr noundef %.084123) #11
   tail call void @UnpinPortal(ptr noundef %2) #11
   %156 = load ptr, ptr %5, align 8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 104

@@ -100,17 +100,17 @@ define range(i32 -2147483648, 1) i32 @ff_rm_read_mdpr_codecdata(ptr noundef %0, 
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = icmp slt i32 %4, 0
-  br i1 %9, label %.thread125, label %10
+  br i1 %9, label %.thread124, label %10
 
 10:                                               ; preds = %6
   %11 = icmp eq i32 %4, 0
-  br i1 %11, label %.thread125, label %12
+  br i1 %11, label %.thread124, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = load i32, ptr %14, align 8, !tbaa !21
-  switch i32 %15, label %.thread125 [
+  switch i32 %15, label %.thread124 [
     i32 -1, label %16
     i32 2, label %16
   ]
@@ -127,7 +127,7 @@ define range(i32 -2147483648, 1) i32 @ff_rm_read_mdpr_codecdata(ptr noundef %0, 
 19:                                               ; preds = %16
   %20 = tail call fastcc i32 @rm_read_audio_stream_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef 0)
   %.not117 = icmp eq i32 %20, 0
-  br i1 %.not117, label %.loopexit, label %.thread125
+  br i1 %.not117, label %.loopexit, label %.thread124
 
 21:                                               ; preds = %16
   %22 = tail call i64 @avio_seek(ptr noundef %1, i64 noundef -4, i32 noundef 1) #12
@@ -136,13 +136,13 @@ define range(i32 -2147483648, 1) i32 @ff_rm_read_mdpr_codecdata(ptr noundef %0, 
 
 rm_read_extradata.exit.thread:                    ; preds = %21
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %4) #12
-  br label %.thread125
+  br label %.thread124
 
 rm_read_extradata.exit:                           ; preds = %21
   %24 = load ptr, ptr %13, align 8, !tbaa !16
   %25 = tail call i32 @ff_get_extradata(ptr noundef %0, ptr noundef %24, ptr noundef %1, i32 noundef %4) #12
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.thread125, label %27
+  br i1 %26, label %.thread124, label %27
 
 27:                                               ; preds = %rm_read_extradata.exit
   %28 = load ptr, ptr %13, align 8, !tbaa !16
@@ -195,7 +195,7 @@ rm_read_extradata.exit:                           ; preds = %21
   br label %54
 
 54:                                               ; preds = %.lr.ph, %79
-  %.098128 = phi i32 [ 0, %.lr.ph ], [ %80, %79 ]
+  %.098127 = phi i32 [ 0, %.lr.ph ], [ %80, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = call i32 @avio_rb32(ptr noundef %1) #12
@@ -250,7 +250,7 @@ get_strl.exit:                                    ; preds = %67, %70
 79:                                               ; preds = %get_strl.exit, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %80 = add nuw nsw i32 %.098128, 1
+  %80 = add nuw nsw i32 %.098127, 1
   %exitcond.not = icmp eq i32 %80, %51
   br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !28
 
@@ -307,12 +307,12 @@ get_strl.exit:                                    ; preds = %67, %70
 
 rm_read_extradata.exit120.thread:                 ; preds = %97
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %112) #12
-  br label %.thread125
+  br label %.thread124
 
 rm_read_extradata.exit120:                        ; preds = %97
   %114 = tail call i32 @ff_get_extradata(ptr noundef %0, ptr noundef %109, ptr noundef %1, i32 noundef %112) #12
   %115 = icmp slt i32 %114, 0
-  br i1 %115, label %.thread125, label %116
+  br i1 %115, label %.thread124, label %116
 
 116:                                              ; preds = %rm_read_extradata.exit120
   %117 = icmp sgt i32 %108, 0
@@ -337,9 +337,9 @@ rm_read_extradata.exit120:                        ; preds = %97
 
 129:                                              ; preds = %125
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #12
-  br label %.thread125
+  br label %.thread124
 
-.loopexit:                                        ; preds = %79, %42, %83, %125, %118, %41, %78, %19, %27
+.loopexit:                                        ; preds = %79, %42, %83, %125, %118, %78, %41, %19, %27
   %130 = call i64 @avio_seek(ptr noundef %1, i64 noundef 0, i32 noundef 1) #12
   %131 = sub nsw i64 %130, %17
   %132 = trunc i64 %131 to i32
@@ -350,13 +350,13 @@ rm_read_extradata.exit120:                        ; preds = %97
   %134 = sub nuw nsw i32 %4, %132
   %135 = zext nneg i32 %134 to i64
   %136 = call i64 @avio_skip(ptr noundef %1, i64 noundef %135) #12
-  br label %.thread125
+  br label %.thread124
 
 137:                                              ; preds = %.loopexit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.6, i32 noundef %4, i32 noundef %132) #12
-  br label %.thread125
+  br label %.thread124
 
-.thread125:                                       ; preds = %rm_read_extradata.exit120.thread, %rm_read_extradata.exit120, %129, %rm_read_extradata.exit.thread, %133, %137, %rm_read_extradata.exit, %19, %12, %10, %6
+.thread124:                                       ; preds = %rm_read_extradata.exit120.thread, %rm_read_extradata.exit120, %129, %rm_read_extradata.exit.thread, %133, %137, %rm_read_extradata.exit, %19, %12, %10, %6
   %.0 = phi i32 [ -1094995529, %6 ], [ 0, %10 ], [ -1094995529, %12 ], [ -1, %19 ], [ %25, %rm_read_extradata.exit ], [ 0, %137 ], [ 0, %133 ], [ -1, %rm_read_extradata.exit.thread ], [ -1, %rm_read_extradata.exit120.thread ], [ %114, %rm_read_extradata.exit120 ], [ -1094995529, %129 ]
   ret i32 %.0
 }

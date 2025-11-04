@@ -3229,7 +3229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %427 = getelementptr inbounds nuw i8, ptr %.sroa.063.070.i, i64 56
   %428 = load ptr, ptr %3, align 8, !tbaa !25
   %429 = load ptr, ptr %427, align 8, !tbaa !25
-  switch i32 %.066.lcssa, label %default.unreachable [
+  switch i32 %.066.lcssa, label %.unreachabledefault [
     i32 0, label %430
     i32 1, label %438
     i32 2, label %452
@@ -3276,7 +3276,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %453, ptr noundef nonnull @.str.88, ptr noundef %428, i32 noundef %455, i32 noundef %458, i32 noundef %461, i32 noundef %463, ptr noundef nonnull @.str.92, ptr noundef %429) #34
   br label %_ZL6report12ReportFormatPKcRKN4Luau8LocationES1_S1_.exit206
 
-default.unreachable:                              ; preds = %468, %426, %532, %577
+.unreachabledefault:                              ; preds = %426
+  unreachable
+
+default.unreachable:                              ; preds = %468, %532, %577
   unreachable
 
 465:                                              ; preds = %.noexc.i159

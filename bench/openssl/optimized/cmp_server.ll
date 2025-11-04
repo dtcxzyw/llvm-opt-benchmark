@@ -1020,22 +1020,22 @@ switch.lookup:                                    ; preds = %22
 
 81:                                               ; preds = %78
   %82 = icmp eq i32 %44, 1
-  %.pre84.i = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre85.i = load ptr, ptr %0, align 8, !tbaa !3
   br i1 %82, label %83, label %.thread.i
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %.pre84.i, i64 352
+  %84 = getelementptr inbounds nuw i8, ptr %.pre85.i, i64 352
   %85 = load i32, ptr %84, align 8, !tbaa !71
   %.not80.i = icmp eq i32 %85, 0
   br i1 %.not80.i, label %.thread.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %.pre84.i, i64 344
+  %87 = getelementptr inbounds nuw i8, ptr %.pre85.i, i64 344
   %88 = load ptr, ptr %87, align 8, !tbaa !72
   br label %.thread.i
 
 .thread.i:                                        ; preds = %86, %83, %81, %..thread_crit_edge.i
-  %89 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %.pre84.i, %86 ], [ %.pre84.i, %81 ], [ %.pre84.i, %83 ]
+  %89 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %.pre85.i, %86 ], [ %.pre85.i, %81 ], [ %.pre85.i, %83 ]
   %.061.i = phi ptr [ null, %..thread_crit_edge.i ], [ %88, %86 ], [ null, %81 ], [ null, %83 ]
   %.053.i = phi ptr [ %56, %..thread_crit_edge.i ], [ %61, %86 ], [ %61, %81 ], [ %61, %83 ]
   %90 = load ptr, ptr %4, align 8, !tbaa !69

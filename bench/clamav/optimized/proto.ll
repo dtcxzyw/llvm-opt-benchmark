@@ -599,9 +599,9 @@ select.unfold:                                    ; preds = %77, %75, %58
   br label %117
 
 117:                                              ; preds = %.thread86, %115, %116
-  %.053 = phi i32 [ %.058, %116 ], [ %.058, %115 ], [ 0, %.thread86 ]
+  %.05890 = phi i32 [ 0, %.thread86 ], [ %.058, %115 ], [ %.058, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.053
+  ret i32 %.05890
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3237,8 +3237,8 @@ define dso_local range(i32 0, 2) i32 @copy_extensions(ptr noundef %0, ptr nounde
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
-  %.02636.us = phi i32 [ %19, %18 ], [ 0, %.lr.ph ]
-  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %.02636.us) #27
+  %.02637.us = phi i32 [ %19, %18 ], [ 0, %.lr.ph ]
+  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %.02637.us) #27
   %14 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %13) #27
   %15 = tail call i32 @X509_get_ext_by_OBJ(ptr noundef %0, ptr noundef %14, i32 noundef -1) #27
   %.not.us = icmp eq i32 %15, -1
@@ -3250,14 +3250,14 @@ define dso_local range(i32 0, 2) i32 @copy_extensions(ptr noundef %0, ptr nounde
   br i1 %.not34.us, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph.split.us, %16
-  %19 = add nuw nsw i32 %.02636.us, 1
+  %19 = add nuw nsw i32 %.02637.us, 1
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #27
   %21 = icmp slt i32 %19, %20
   br i1 %21, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
-  %.02636 = phi i32 [ %29, %28 ], [ 0, %.lr.ph ]
-  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %.02636) #27
+  %.02637 = phi i32 [ %29, %28 ], [ 0, %.lr.ph ]
+  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %9, i32 noundef %.02637) #27
   %23 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %22) #27
   %24 = tail call i32 @X509_get_ext_by_OBJ(ptr noundef %0, ptr noundef %23, i32 noundef -1) #27
   %.not = icmp eq i32 %24, -1
@@ -3277,7 +3277,7 @@ define dso_local range(i32 0, 2) i32 @copy_extensions(ptr noundef %0, ptr nounde
   br i1 %.not34, label %._crit_edge, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = add nuw nsw i32 %.02636, 1
+  %29 = add nuw nsw i32 %.02637, 1
   %30 = tail call i32 @OPENSSL_sk_num(ptr noundef %9) #27
   %31 = icmp slt i32 %29, %30
   br i1 %31, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
@@ -4384,16 +4384,16 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 18:                                               ; preds = %11
   %19 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %5, ptr noundef nonnull @.str.1, i32 noundef 1963) #27
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %.preheader82
+  br i1 %20, label %22, label %.preheader83
 
-.preheader82:                                     ; preds = %18
+.preheader83:                                     ; preds = %18
   %21 = load i8, ptr %5, align 1, !tbaa !13
-  %.not6891 = icmp eq i8 %21, 0
-  br i1 %.not6891, label %._crit_edge, label %.preheader81.lr.ph
+  %.not6892 = icmp eq i8 %21, 0
+  br i1 %.not6892, label %._crit_edge, label %.preheader82.lr.ph
 
-.preheader81.lr.ph:                               ; preds = %.preheader82
+.preheader82.lr.ph:                               ; preds = %.preheader83
   %.not73.not = icmp eq i32 %2, 0
-  br label %.preheader81
+  br label %.preheader82
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr @bio_err, align 8, !tbaa !26
@@ -4401,16 +4401,16 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.140, ptr noundef %24, ptr noundef %3) #27
   br label %.thread
 
-.preheader81:                                     ; preds = %.preheader81.lr.ph, %87
-  %26 = phi i8 [ %21, %.preheader81.lr.ph ], [ %88, %87 ]
-  %.05793 = phi ptr [ %5, %.preheader81.lr.ph ], [ %spec.select, %87 ]
-  %.05892 = phi i32 [ 0, %.preheader81.lr.ph ], [ %.us-phi90, %87 ]
+.preheader82:                                     ; preds = %.preheader82.lr.ph, %87
+  %26 = phi i8 [ %21, %.preheader82.lr.ph ], [ %88, %87 ]
+  %.05794 = phi ptr [ %5, %.preheader82.lr.ph ], [ %spec.select, %87 ]
+  %.05893 = phi i32 [ 0, %.preheader82.lr.ph ], [ %.us-phi91, %87 ]
   br label %27
 
-27:                                               ; preds = %.preheader81, %29
-  %28 = phi i8 [ %.pr, %29 ], [ %26, %.preheader81 ]
-  %.062 = phi ptr [ %31, %29 ], [ %19, %.preheader81 ]
-  %.1 = phi ptr [ %30, %29 ], [ %.05793, %.preheader81 ]
+27:                                               ; preds = %.preheader82, %29
+  %28 = phi i8 [ %.pr, %29 ], [ %26, %.preheader82 ]
+  %.062 = phi ptr [ %31, %29 ], [ %19, %.preheader82 ]
+  %.1 = phi ptr [ %30, %29 ], [ %.05794, %.preheader82 ]
   switch i8 %28, label %29 [
     i8 0, label %.critedge
     i8 61, label %.critedge
@@ -4471,7 +4471,7 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   switch i8 %47, label %55 [
     i8 0, label %.critedge2
     i8 47, label %.critedge2
-    i8 43, label %.critedge2.loopexit146
+    i8 43, label %.critedge2.loopexit147
     i8 92, label %48
   ]
 
@@ -4494,19 +4494,19 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   store i8 %56, ptr %.163, align 1, !tbaa !13
   br label %.preheader.split, !llvm.loop !88
 
-.critedge2.loopexit146:                           ; preds = %.preheader.split
+.critedge2.loopexit147:                           ; preds = %.preheader.split
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split, %.preheader.split, %.critedge2.loopexit146
-  %.us-phi = phi ptr [ %.163, %.critedge2.loopexit146 ], [ %.163, %.preheader.split ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
-  %.us-phi88 = phi ptr [ %.1.pn, %.critedge2.loopexit146 ], [ %.1.pn, %.preheader.split ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
-  %.us-phi89 = phi ptr [ %.3, %.critedge2.loopexit146 ], [ %.3, %.preheader.split ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
-  %.us-phi90 = phi i32 [ 1, %.critedge2.loopexit146 ], [ 0, %.preheader.split ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
+.critedge2:                                       ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split, %.preheader.split, %.critedge2.loopexit147
+  %.us-phi = phi ptr [ %.163, %.critedge2.loopexit147 ], [ %.163, %.preheader.split ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
+  %.us-phi89 = phi ptr [ %.1.pn, %.critedge2.loopexit147 ], [ %.1.pn, %.preheader.split ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
+  %.us-phi90 = phi ptr [ %.3, %.critedge2.loopexit147 ], [ %.3, %.preheader.split ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
+  %.us-phi91 = phi i32 [ 1, %.critedge2.loopexit147 ], [ 0, %.preheader.split ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
   store i8 0, ptr %.us-phi, align 1, !tbaa !13
-  %58 = load i8, ptr %.us-phi89, align 1, !tbaa !13
+  %58 = load i8, ptr %.us-phi90, align 1, !tbaa !13
   %.not74 = icmp eq i8 %58, 0
-  %59 = getelementptr inbounds nuw i8, ptr %.us-phi88, i64 2
-  %spec.select = select i1 %.not74, ptr %.us-phi89, ptr %59
+  %59 = getelementptr inbounds nuw i8, ptr %.us-phi89, i64 2
+  %spec.select = select i1 %.not74, ptr %.us-phi90, ptr %59
   %60 = tail call i32 @OBJ_txt2nid(ptr noundef nonnull %19) #27
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %70
@@ -4515,7 +4515,7 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %63 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %64 = tail call ptr @opt_getprog() #27
   %65 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %63, ptr noundef nonnull @.str.143, ptr noundef %64, ptr noundef %3, ptr noundef nonnull %19) #27
-  %.not77 = icmp eq i32 %.05892, 0
+  %.not77 = icmp eq i32 %.05893, 0
   br i1 %.not77, label %87, label %66, !llvm.loop !89
 
 66:                                               ; preds = %62
@@ -4538,7 +4538,7 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 77:                                               ; preds = %70
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #29
   %79 = trunc i64 %78 to i32
-  %.not75 = icmp ne i32 %.05892, 0
+  %.not75 = icmp ne i32 %.05893, 0
   %80 = sext i1 %.not75 to i32
   %81 = tail call i32 @X509_NAME_add_entry_by_NID(ptr noundef nonnull %12, i32 noundef %60, i32 noundef %1, ptr noundef nonnull %32, i32 noundef %79, i32 noundef -1, i32 noundef %80) #27
   %.not76 = icmp eq i32 %81, 0
@@ -4555,9 +4555,9 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 87:                                               ; preds = %77, %62, %66, %73
   %88 = load i8, ptr %spec.select, align 1, !tbaa !13
   %.not68 = icmp eq i8 %88, 0
-  br i1 %.not68, label %._crit_edge, label %.preheader81
+  br i1 %.not68, label %._crit_edge, label %.preheader82
 
-._crit_edge:                                      ; preds = %87, %.preheader82
+._crit_edge:                                      ; preds = %87, %.preheader83
   tail call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str.1, i32 noundef 2041) #27
   br label %89
 

@@ -142,9 +142,9 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
 12:                                               ; preds = %9
   %13 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull %0) #15
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread107, label %.thread76
+  br i1 %14, label %.thread108, label %.thread77
 
-.thread107:                                       ; preds = %12
+.thread108:                                       ; preds = %12
   %15 = load i64, ptr @H5E_INTERNAL_g, align 8, !tbaa !16
   %16 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_build_extpath, i32 noundef 631, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.2) #15
@@ -153,9 +153,9 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
 18:                                               ; preds = %9
   %19 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #16
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread120, label %24
+  br i1 %20, label %.thread121, label %24
 
-.thread120:                                       ; preds = %18
+.thread121:                                       ; preds = %18
   %21 = load i64, ptr @H5E_INTERNAL_g, align 8, !tbaa !16
   %22 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_build_extpath, i32 noundef 640, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.2) #15
@@ -172,13 +172,13 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
   %30 = load i64, ptr @H5E_INTERNAL_g, align 8, !tbaa !16
   %31 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_build_extpath, i32 noundef 643, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #15
-  br label %.thread99
+  br label %.thread100
 
 33:                                               ; preds = %24
   %34 = tail call ptr @getcwd(ptr noundef nonnull %19, i64 noundef 1024) #15
   %35 = tail call ptr @strncpy(ptr noundef nonnull %27, ptr noundef nonnull %0, i64 noundef %26) #15
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.thread99, label %36
+  br i1 %.not, label %.thread100, label %36
 
 36:                                               ; preds = %33
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #17
@@ -189,7 +189,7 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
   %40 = load i64, ptr @H5E_INTERNAL_g, align 8, !tbaa !16
   %41 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !16
   %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_build_extpath, i32 noundef 677, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.3) #15
-  br label %.thread99
+  br label %.thread100
 
 43:                                               ; preds = %36
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
@@ -203,7 +203,7 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
   %50 = load i64, ptr @H5E_INTERNAL_g, align 8, !tbaa !16
   %51 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
   %52 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5_build_extpath, i32 noundef 680, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.2) #15
-  br label %.thread99
+  br label %.thread100
 
 53:                                               ; preds = %43
   %54 = tail call ptr @strncpy(ptr noundef nonnull %47, ptr noundef nonnull %19, i64 noundef %46) #15
@@ -224,9 +224,9 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
 
 64:                                               ; preds = %61, %53
   %65 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull %27, i64 noundef %44) #15
-  br label %.thread76
+  br label %.thread77
 
-.thread76:                                        ; preds = %64, %12
+.thread77:                                        ; preds = %64, %12
   %.152.ph = phi ptr [ %27, %64 ], [ null, %12 ]
   %.150.ph = phi ptr [ %19, %64 ], [ null, %12 ]
   %.047.ph = phi ptr [ %47, %64 ], [ %13, %12 ]
@@ -235,28 +235,28 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr noundef writeo
   store i8 0, ptr %67, align 1, !tbaa !22
   store ptr %.047.ph, ptr %1, align 8, !tbaa !21
   %.not67 = icmp eq ptr %.150.ph, null
-  br i1 %.not67, label %69, label %.thread99
+  br i1 %.not67, label %69, label %.thread100
 
-.thread99:                                        ; preds = %49, %39, %29, %33, %.thread76
-  %.049106 = phi ptr [ %.150.ph, %.thread76 ], [ %19, %33 ], [ %19, %29 ], [ %19, %39 ], [ %19, %49 ]
-  %.051105 = phi ptr [ %.152.ph, %.thread76 ], [ %27, %33 ], [ null, %29 ], [ %27, %39 ], [ %27, %49 ]
-  %.155104 = phi i32 [ 0, %.thread76 ], [ 0, %33 ], [ -1, %29 ], [ -1, %39 ], [ -1, %49 ]
-  %68 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.049106) #15
+.thread100:                                       ; preds = %49, %39, %29, %33, %.thread77
+  %.049107 = phi ptr [ %.150.ph, %.thread77 ], [ %19, %33 ], [ %19, %29 ], [ %19, %39 ], [ %19, %49 ]
+  %.051106 = phi ptr [ %.152.ph, %.thread77 ], [ %27, %33 ], [ null, %29 ], [ %27, %39 ], [ %27, %49 ]
+  %.155105 = phi i32 [ 0, %.thread77 ], [ 0, %33 ], [ -1, %29 ], [ -1, %39 ], [ -1, %49 ]
+  %68 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.049107) #15
   br label %69
 
-69:                                               ; preds = %.thread99, %.thread76
-  %.05198 = phi ptr [ %.051105, %.thread99 ], [ %.152.ph, %.thread76 ]
-  %.15597 = phi i32 [ %.155104, %.thread99 ], [ 0, %.thread76 ]
-  %.not68 = icmp eq ptr %.05198, null
+69:                                               ; preds = %.thread100, %.thread77
+  %.05199 = phi ptr [ %.051106, %.thread100 ], [ %.152.ph, %.thread77 ]
+  %.15598 = phi i32 [ %.155105, %.thread100 ], [ 0, %.thread77 ]
+  %.not68 = icmp eq ptr %.05199, null
   br i1 %.not68, label %72, label %70
 
 70:                                               ; preds = %69
-  %71 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.05198) #15
+  %71 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.05199) #15
   br label %72
 
-72:                                               ; preds = %.thread120, %.thread107, %2, %70, %69
-  %.0 = phi i32 [ %.15597, %70 ], [ %.15597, %69 ], [ 0, %2 ], [ -1, %.thread107 ], [ -1, %.thread120 ]
-  ret i32 %.0
+72:                                               ; preds = %.thread121, %.thread108, %2, %70, %69
+  %.054 = phi i32 [ %.15598, %70 ], [ %.15598, %69 ], [ 0, %2 ], [ -1, %.thread108 ], [ -1, %.thread121 ]
+  ret i32 %.054
 }
 
 declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #1

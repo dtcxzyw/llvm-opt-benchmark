@@ -708,9 +708,9 @@ define internal range(i32 -1, 1) i32 @H5O__linfo_post_copy_file_cb(ptr noundef %
   br label %38
 
 38:                                               ; preds = %32, %2, %36
-  %.014 = phi i32 [ %.2, %36 ], [ -1, %32 ], [ 0, %2 ]
+  %.012 = phi i32 [ %.2, %36 ], [ -1, %32 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.014
+  ret i32 %.012
 }
 
 declare i32 @H5L__link_copy_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

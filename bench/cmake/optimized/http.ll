@@ -3497,7 +3497,7 @@ define dso_local i32 @Curl_http_req_complete(ptr noundef %0, ptr noundef %1, i32
 8:                                                ; preds = %3
   %9 = tail call i32 @Curl_httpchunk_add_reader(ptr noundef nonnull %0) #12
   %.not52 = icmp eq i32 %9, 0
-  br i1 %.not52, label %10, label %addexpect.exit.thread78
+  br i1 %.not52, label %10, label %addexpect.exit.thread79
 
 10:                                               ; preds = %8, %3
   %11 = tail call i64 @Curl_creader_total_length(ptr noundef nonnull %0) #12
@@ -3528,7 +3528,7 @@ define dso_local i32 @Curl_http_req_complete(ptr noundef %0, ptr noundef %1, i32
 21:                                               ; preds = %17, %19
   %22 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %1, ptr noundef nonnull @.str.46, i64 noundef %11) #12
   %.not56 = icmp eq i32 %22, 0
-  br i1 %.not56, label %.thread, label %addexpect.exit.thread78
+  br i1 %.not56, label %.thread, label %addexpect.exit.thread79
 
 .thread:                                          ; preds = %12, %19, %14, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4504
@@ -3537,48 +3537,48 @@ define dso_local i32 @Curl_http_req_complete(ptr noundef %0, ptr noundef %1, i32
   %25 = and i32 %2, 6
   %or.cond = icmp eq i32 %25, 2
   %or.cond65 = and i1 %or.cond, %.not57
-  br i1 %or.cond65, label %26, label %.thread71
+  br i1 %or.cond65, label %26, label %.thread72
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %.089 = load ptr, ptr %27, align 8, !tbaa !115
-  %.not5890 = icmp eq ptr %.089, null
-  br i1 %.not5890, label %.thread71.thread, label %.lr.ph
+  %.090 = load ptr, ptr %27, align 8, !tbaa !115
+  %.not5891 = icmp eq ptr %.090, null
+  br i1 %.not5891, label %.thread72.thread, label %.lr.ph
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %.091, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.092, i64 8
   %.0 = load ptr, ptr %29, align 8, !tbaa !115
   %.not58 = icmp eq ptr %.0, null
-  br i1 %.not58, label %.thread71, label %.lr.ph, !llvm.loop !182
+  br i1 %.not58, label %.thread72, label %.lr.ph, !llvm.loop !182
 
 .lr.ph:                                           ; preds = %26, %28
-  %.091 = phi ptr [ %.0, %28 ], [ %.089, %26 ]
-  %30 = load ptr, ptr %.091, align 8, !tbaa !116
+  %.092 = phi ptr [ %.0, %28 ], [ %.090, %26 ]
+  %30 = load ptr, ptr %.092, align 8, !tbaa !116
   %31 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %1, ptr noundef nonnull @.str.18, ptr noundef %30) #12
   %.not59 = icmp eq i32 %31, 0
-  br i1 %.not59, label %28, label %addexpect.exit.thread78
+  br i1 %.not59, label %28, label %addexpect.exit.thread79
 
-.thread71:                                        ; preds = %28, %.thread
+.thread72:                                        ; preds = %28, %.thread
   %32 = icmp eq i32 %2, 1
-  br i1 %32, label %33, label %.thread71.thread
+  br i1 %32, label %33, label %.thread72.thread
 
-33:                                               ; preds = %.thread71
+33:                                               ; preds = %.thread72
   %34 = tail call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, i64 noundef 12) #12
   %.not60 = icmp eq ptr %34, null
-  br i1 %.not60, label %35, label %.thread71.thread
+  br i1 %.not60, label %35, label %.thread72.thread
 
 35:                                               ; preds = %33
   %36 = tail call i32 @Curl_dyn_addn(ptr noundef %1, ptr noundef nonnull @.str.48, i64 noundef 49) #12
   %.not61 = icmp eq i32 %36, 0
-  br i1 %.not61, label %.thread71.thread, label %addexpect.exit.thread78
+  br i1 %.not61, label %.thread72.thread, label %addexpect.exit.thread79
 
-.thread71.thread:                                 ; preds = %26, %33, %35, %.thread71
+.thread72.thread:                                 ; preds = %26, %33, %35, %.thread72
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %38 = load i32, ptr %37, align 4, !tbaa !183
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %39, label %addexpect.exit.thread
 
-39:                                               ; preds = %.thread71.thread
+39:                                               ; preds = %.thread72.thread
   %40 = tail call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, i64 noundef 6) #12
   %.not22.i = icmp eq ptr %40, null
   br i1 %.not22.i, label %43, label %41
@@ -3624,24 +3624,24 @@ Curl_use_http_1_1plus.exit.i:                     ; preds = %51
 62:                                               ; preds = %60
   %63 = tail call i32 @Curl_dyn_addn(ptr noundef %1, ptr noundef nonnull @.str.136, i64 noundef 22) #12
   %.not24.i = icmp eq i32 %63, 0
-  br i1 %.not24.i, label %addexpect.exit.thread, label %addexpect.exit.thread78
+  br i1 %.not24.i, label %addexpect.exit.thread, label %addexpect.exit.thread79
 
-addexpect.exit.thread:                            ; preds = %62, %41, %60, %47, %51, %Curl_use_http_1_1plus.exit.i, %43, %.thread71.thread, %10
-  %.067 = phi i1 [ false, %10 ], [ %42, %41 ], [ false, %.thread71.thread ], [ false, %43 ], [ false, %Curl_use_http_1_1plus.exit.i ], [ false, %60 ], [ false, %51 ], [ false, %47 ], [ true, %62 ]
+addexpect.exit.thread:                            ; preds = %62, %41, %60, %47, %51, %Curl_use_http_1_1plus.exit.i, %43, %.thread72.thread, %10
+  %.068 = phi i1 [ false, %10 ], [ %42, %41 ], [ false, %.thread72.thread ], [ false, %43 ], [ false, %Curl_use_http_1_1plus.exit.i ], [ false, %60 ], [ false, %51 ], [ false, %47 ], [ true, %62 ]
   %64 = tail call i32 @Curl_dyn_addn(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef 2) #12
   %.not63 = icmp eq i32 %64, 0
-  br i1 %.not63, label %65, label %addexpect.exit.thread78
+  br i1 %.not63, label %65, label %addexpect.exit.thread79
 
 65:                                               ; preds = %addexpect.exit.thread
   tail call void @Curl_pgrsSetUploadSize(ptr noundef nonnull %0, i64 noundef %11) #12
-  br i1 %.067, label %66, label %addexpect.exit.thread81
+  br i1 %.068, label %66, label %addexpect.exit.thread82
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !184
   %67 = call i32 @Curl_creader_create(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull @cr_exp100, i32 noundef 2) #12
-  %.not.i66 = icmp eq i32 %67, 0
-  br i1 %.not.i66, label %68, label %.thread.i
+  %.not.i67 = icmp eq i32 %67, 0
+  br i1 %.not.i67, label %68, label %.thread.i
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %4, align 8, !tbaa !184
@@ -3653,15 +3653,15 @@ addexpect.exit.thread:                            ; preds = %62, %41, %60, %47, 
   %.011.i = phi i32 [ %70, %68 ], [ %67, %66 ]
   %71 = load ptr, ptr %4, align 8
   %.not17.i = icmp eq ptr %71, null
-  br i1 %.not17.i, label %addexpect.exit.thread86, label %72
+  br i1 %.not17.i, label %addexpect.exit.thread87, label %72
 
 72:                                               ; preds = %.thread.i
   call void @Curl_creader_free(ptr noundef nonnull %0, ptr noundef nonnull %71) #12
-  br label %addexpect.exit.thread86
+  br label %addexpect.exit.thread87
 
-addexpect.exit.thread86:                          ; preds = %72, %.thread.i
+addexpect.exit.thread87:                          ; preds = %72, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %addexpect.exit.thread78
+  br label %addexpect.exit.thread79
 
 addexpect.exit:                                   ; preds = %68
   %73 = load ptr, ptr %4, align 8, !tbaa !184
@@ -3670,14 +3670,14 @@ addexpect.exit:                                   ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   store i32 2, ptr %76, align 8, !tbaa !188
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %addexpect.exit.thread81
+  br label %addexpect.exit.thread82
 
-addexpect.exit.thread81:                          ; preds = %65, %addexpect.exit
+addexpect.exit.thread82:                          ; preds = %65, %addexpect.exit
   call void @Curl_xfer_setup1(ptr noundef nonnull %0, i32 noundef 3, i64 noundef -1, i1 noundef zeroext true) #12
-  br label %addexpect.exit.thread78
+  br label %addexpect.exit.thread79
 
-addexpect.exit.thread78:                          ; preds = %.lr.ph, %62, %35, %21, %addexpect.exit.thread, %addexpect.exit.thread86, %addexpect.exit.thread81, %8
-  %.040 = phi i32 [ %9, %8 ], [ 0, %addexpect.exit.thread81 ], [ %.011.i, %addexpect.exit.thread86 ], [ %63, %62 ], [ %36, %35 ], [ %22, %21 ], [ %64, %addexpect.exit.thread ], [ %31, %.lr.ph ]
+addexpect.exit.thread79:                          ; preds = %.lr.ph, %62, %35, %21, %addexpect.exit.thread, %addexpect.exit.thread87, %addexpect.exit.thread82, %8
+  %.040 = phi i32 [ %9, %8 ], [ 0, %addexpect.exit.thread82 ], [ %.011.i, %addexpect.exit.thread87 ], [ %63, %62 ], [ %36, %35 ], [ %22, %21 ], [ %64, %addexpect.exit.thread ], [ %31, %.lr.ph ]
   ret i32 %.040
 }
 

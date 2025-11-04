@@ -4037,8 +4037,8 @@ _odict_clear_nodes.exit:                          ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @odict_copy(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val48 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not = icmp eq ptr %.val48, @PyODict_Type
+  %.val51 = load ptr, ptr %3, align 8, !tbaa !20
+  %.not = icmp eq ptr %.val51, @PyODict_Type
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
@@ -4049,7 +4049,7 @@ define internal ptr @odict_copy(ptr noundef %0, ptr readnone captures(none) %1) 
 7:                                                ; preds = %2
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8, !tbaa !64
-  %10 = getelementptr i8, ptr %.val48, i64 8
+  %10 = getelementptr i8, ptr %.val51, i64 8
   %.val.i.i.i = load ptr, ptr %10, align 8, !tbaa !20
   %11 = getelementptr i8, ptr %.val.i.i.i, i64 168
   %.val6.i.i.i = load i64, ptr %11, align 8, !tbaa !54
@@ -4060,18 +4060,18 @@ define internal ptr @odict_copy(ptr noundef %0, ptr readnone captures(none) %1) 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   %14 = load i64, ptr %13, align 8, !tbaa !144
-  %15 = getelementptr i8, ptr %.val48, i64 %14
+  %15 = getelementptr i8, ptr %.val51, i64 %14
   %.0.copyload.i.i.i = load ptr, ptr %15, align 1
   %16 = icmp eq ptr %.0.copyload.i.i.i, null
   br i1 %16, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %18
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %7
-  %17 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %9, ptr noundef nonnull %.val48, ptr noundef null, i64 noundef 0, ptr noundef null) #8
+  %17 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %9, ptr noundef nonnull %.val51, ptr noundef null, i64 noundef 0, ptr noundef null) #8
   br label %_PyObject_CallNoArgs.exit
 
 18:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %19 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.val48, ptr noundef null, i64 noundef 0, ptr noundef null) #8
-  %20 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %9, ptr noundef nonnull %.val48, ptr noundef %19, ptr noundef null) #8
+  %19 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %.val51, ptr noundef null, i64 noundef 0, ptr noundef null) #8
+  %20 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %9, ptr noundef nonnull %.val51, ptr noundef %19, ptr noundef null) #8
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %18, %_PyVectorcall_FunctionInline.exit.thread.i.i, %4
@@ -4080,30 +4080,30 @@ _PyObject_CallNoArgs.exit:                        ; preds = %18, %_PyVectorcall_
   br i1 %21, label %Py_DECREF.exit, label %22
 
 22:                                               ; preds = %_PyObject_CallNoArgs.exit
-  %.val47 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not54 = icmp eq ptr %.val47, @PyODict_Type
+  %.val50 = load ptr, ptr %3, align 8, !tbaa !20
+  %.not57 = icmp eq ptr %.val50, @PyODict_Type
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.03161 = load ptr, ptr %23, align 8, !tbaa !50
-  %.not4062 = icmp eq ptr %.03161, null
-  br i1 %.not54, label %24, label %38
+  %.03164 = load ptr, ptr %23, align 8, !tbaa !50
+  %.not4065 = icmp eq ptr %.03164, null
+  br i1 %.not57, label %24, label %38
 
 24:                                               ; preds = %22
-  br i1 %.not4062, label %Py_DECREF.exit, label %.lr.ph64
+  br i1 %.not4065, label %Py_DECREF.exit, label %.lr.ph67
 
 25:                                               ; preds = %34
-  %26 = getelementptr inbounds nuw i8, ptr %.03163, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.03166, i64 16
   %.031 = load ptr, ptr %26, align 8, !tbaa !50
   %.not40 = icmp eq ptr %.031, null
-  br i1 %.not40, label %Py_DECREF.exit, label %.lr.ph64, !llvm.loop !148
+  br i1 %.not40, label %Py_DECREF.exit, label %.lr.ph67, !llvm.loop !148
 
-.lr.ph64:                                         ; preds = %24, %25
-  %.03163 = phi ptr [ %.031, %25 ], [ %.03161, %24 ]
-  %27 = load ptr, ptr %.03163, align 8, !tbaa !44
+.lr.ph67:                                         ; preds = %24, %25
+  %.03166 = phi ptr [ %.031, %25 ], [ %.03164, %24 ]
+  %27 = load ptr, ptr %.03166, align 8, !tbaa !44
   %28 = tail call ptr @PyDict_GetItemWithError(ptr noundef %0, ptr noundef %27) #8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34
 
-30:                                               ; preds = %.lr.ph64
+30:                                               ; preds = %.lr.ph67
   %31 = tail call ptr @PyErr_Occurred() #8
   %.not42 = icmp eq ptr %31, null
   br i1 %.not42, label %32, label %.thread
@@ -4113,51 +4113,51 @@ _PyObject_CallNoArgs.exit:                        ; preds = %18, %_PyVectorcall_
   tail call void @PyErr_SetObject(ptr noundef %33, ptr noundef %27) #8
   br label %.thread
 
-34:                                               ; preds = %.lr.ph64
-  %35 = getelementptr inbounds nuw i8, ptr %.03163, i64 8
+34:                                               ; preds = %.lr.ph67
+  %35 = getelementptr inbounds nuw i8, ptr %.03166, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !138
   %37 = tail call fastcc i32 @_PyODict_SetItem_KnownHash(ptr noundef nonnull %.032, ptr noundef %27, ptr noundef nonnull %28, i64 noundef %36)
   %.not41 = icmp eq i32 %37, 0
   br i1 %.not41, label %25, label %.thread
 
 38:                                               ; preds = %22
-  br i1 %.not4062, label %Py_DECREF.exit, label %.lr.ph
+  br i1 %.not4065, label %Py_DECREF.exit, label %.lr.ph
 
-39:                                               ; preds = %Py_DECREF.exit45
-  %40 = getelementptr inbounds nuw i8, ptr %.160, i64 16
+39:                                               ; preds = %Py_DECREF.exit48
+  %40 = getelementptr inbounds nuw i8, ptr %.163, i64 16
   %.1 = load ptr, ptr %40, align 8, !tbaa !50
   %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %Py_DECREF.exit, label %.lr.ph, !llvm.loop !149
 
 .lr.ph:                                           ; preds = %38, %39
-  %.160 = phi ptr [ %.1, %39 ], [ %.03161, %38 ]
-  %41 = load ptr, ptr %.160, align 8, !tbaa !44
+  %.163 = phi ptr [ %.1, %39 ], [ %.03164, %38 ]
+  %41 = load ptr, ptr %.163, align 8, !tbaa !44
   %42 = tail call ptr @PyObject_GetItem(ptr noundef %0, ptr noundef %41) #8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = load ptr, ptr %.160, align 8, !tbaa !44
+  %45 = load ptr, ptr %.163, align 8, !tbaa !44
   %46 = tail call i32 @PyObject_SetItem(ptr noundef nonnull %.032, ptr noundef %45, ptr noundef nonnull %42) #8
   %47 = load i32, ptr %42, align 8, !tbaa !38
-  %.not.i44 = icmp sgt i32 %47, -1
-  br i1 %.not.i44, label %48, label %Py_DECREF.exit45
+  %.not.i47 = icmp sgt i32 %47, -1
+  br i1 %.not.i47, label %48, label %Py_DECREF.exit48
 
 48:                                               ; preds = %44
   %49 = add nsw i32 %47, -1
   store i32 %49, ptr %42, align 8, !tbaa !38
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %Py_DECREF.exit45
+  br i1 %50, label %51, label %Py_DECREF.exit48
 
 51:                                               ; preds = %48
   tail call void @_Py_Dealloc(ptr noundef nonnull %42) #8
-  br label %Py_DECREF.exit45
+  br label %Py_DECREF.exit48
 
-Py_DECREF.exit45:                                 ; preds = %44, %48, %51
+Py_DECREF.exit48:                                 ; preds = %44, %48, %51
   %.not39 = icmp eq i32 %46, 0
   br i1 %.not39, label %39, label %.thread
 
-.thread:                                          ; preds = %Py_DECREF.exit45, %.lr.ph, %34, %30, %32
+.thread:                                          ; preds = %Py_DECREF.exit48, %.lr.ph, %34, %30, %32
   %52 = load i32, ptr %.032, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %52, -1
   br i1 %.not.i, label %53, label %Py_DECREF.exit
@@ -4549,31 +4549,31 @@ _odict_find_node_hash.exit:                       ; preds = %9
 16:                                               ; preds = %_odict_find_node_hash.exit
   %17 = tail call fastcc i32 @_odict_clear_node(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %1, i64 noundef %3)
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %16
   %20 = call i32 @_PyDict_Pop_KnownHash(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %3, ptr noundef nonnull %5) #8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %..thread_crit_edge
+  br i1 %21, label %22, label %..critedge_crit_edge
 
-..thread_crit_edge:                               ; preds = %19
+..critedge_crit_edge:                             ; preds = %19
   %.pre = load ptr, ptr %5, align 8, !tbaa !53
-  br label %.thread
+  br label %.critedge
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %2, align 8, !tbaa !38
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %22
   %26 = add nuw i32 %23, 1
   store i32 %26, ptr %2, align 8, !tbaa !38
-  br label %.thread
+  br label %.critedge
 
 _odict_find_node_hash.exit.thread.thread:         ; preds = %_odict_find_node_hash.exit, %9, %4
   %27 = tail call ptr @PyErr_Occurred() #8
   %.not21 = icmp eq ptr %27, null
-  br i1 %.not21, label %28, label %.thread
+  br i1 %.not21, label %28, label %.critedge
 
 28:                                               ; preds = %_odict_find_node_hash.exit.thread.thread
   %.not22 = icmp eq ptr %2, null
@@ -4582,20 +4582,20 @@ _odict_find_node_hash.exit.thread.thread:         ; preds = %_odict_find_node_ha
 29:                                               ; preds = %28
   %30 = load i32, ptr %2, align 8, !tbaa !38
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %29
   %33 = add nuw i32 %30, 1
   store i32 %33, ptr %2, align 8, !tbaa !38
-  br label %.thread
+  br label %.critedge
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !53
   tail call void @PyErr_SetObject(ptr noundef %35, ptr noundef %1) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %32, %29, %25, %22, %..thread_crit_edge, %34, %_odict_find_node_hash.exit.thread.thread, %16
-  %36 = phi ptr [ %.pre, %..thread_crit_edge ], [ null, %34 ], [ null, %_odict_find_node_hash.exit.thread.thread ], [ null, %16 ], [ %2, %22 ], [ %2, %25 ], [ %2, %29 ], [ %2, %32 ]
+.critedge:                                        ; preds = %32, %29, %25, %22, %..critedge_crit_edge, %16, %34, %_odict_find_node_hash.exit.thread.thread
+  %36 = phi ptr [ %.pre, %..critedge_crit_edge ], [ null, %16 ], [ null, %34 ], [ null, %_odict_find_node_hash.exit.thread.thread ], [ %2, %22 ], [ %2, %25 ], [ %2, %29 ], [ %2, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %36
 }

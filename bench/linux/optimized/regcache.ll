@@ -375,7 +375,7 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %.thread8
+  br i1 %43, label %44, label %.thread11
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 549
@@ -403,18 +403,18 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   store ptr %52, ptr %41, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 550
   store i8 1, ptr %60, align 2
-  br label %.thread8
+  br label %.thread11
 
 61:                                               ; preds = %54
   tail call void @kfree(ptr noundef nonnull %52) #12
-  br label %.thread8
+  br label %.thread11
 
-.thread8:                                         ; preds = %59, %61, %40
+.thread11:                                        ; preds = %59, %61, %40
   %62 = load i32, ptr %3, align 8
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %.loopexit, label %64
 
-64:                                               ; preds = %.thread8
+64:                                               ; preds = %.thread11
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 549
@@ -484,7 +484,7 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
 103:                                              ; preds = %99, %95, %91, %85
   %104 = phi i32 [ %89, %85 ], [ %101, %99 ], [ %98, %95 ], [ %94, %91 ]
   store i32 %104, ptr %2, align 4
-  br label %.thread9
+  br label %.thread12
 
 105:                                              ; preds = %78
   %106 = load i8, ptr %67, align 1, !range !10, !noundef !11
@@ -492,14 +492,14 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   %107 = call i32 @regmap_read(ptr noundef %0, i32 noundef %74, ptr noundef nonnull %2) #12
   store i8 %106, ptr %67, align 1
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.thread9, label %109
+  br i1 %108, label %.thread12, label %109
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %68, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %110, ptr noundef nonnull @.str.12, i32 noundef %74, i32 noundef %107) #10
   br label %124
 
-.thread9:                                         ; preds = %105, %103
+.thread12:                                        ; preds = %105, %103
   %111 = load ptr, ptr %38, align 8
   %112 = sext i32 %71 to i64
   %113 = getelementptr %struct.reg_default, ptr %111, i64 %112
@@ -512,8 +512,8 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   %117 = add i32 %71, 1
   br label %118
 
-118:                                              ; preds = %.thread9, %76, %69
-  %119 = phi i32 [ %71, %76 ], [ %117, %.thread9 ], [ %71, %69 ]
+118:                                              ; preds = %.thread12, %76, %69
+  %119 = phi i32 [ %71, %76 ], [ %117, %.thread12 ], [ %71, %69 ]
   %120 = add nuw nsw i64 %70, 1
   %121 = load i32, ptr %3, align 8
   %122 = zext i32 %121 to i64
@@ -526,8 +526,8 @@ define internal fastcc i32 @regcache_hw_init(ptr noundef %0) unnamed_addr #0 ali
   call void @kfree(ptr noundef %126) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %118, %.thread, %124, %.thread8, %34, %28, %1
-  %127 = phi i32 [ %125, %124 ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread8 ], [ -12, %.thread ], [ 0, %118 ]
+.loopexit:                                        ; preds = %118, %.thread, %124, %.thread11, %34, %28, %1
+  %127 = phi i32 [ %125, %124 ], [ 0, %28 ], [ -22, %1 ], [ -12, %34 ], [ 0, %.thread11 ], [ -12, %.thread ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %127
 }

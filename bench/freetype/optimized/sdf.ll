@@ -837,9 +837,9 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly cap
   store i8 %30, ptr %31, align 2, !tbaa !20
   br label %32
 
-32:                                               ; preds = %10, %7, %15, %29, %22, %26
-  %.0 = phi i32 [ 0, %15 ], [ 0, %22 ], [ 0, %29 ], [ 12, %26 ], [ 0, %10 ], [ 6, %7 ]
-  ret i32 %.0
+32:                                               ; preds = %15, %29, %22, %7, %10, %26
+  %.1 = phi i32 [ 0, %15 ], [ 0, %22 ], [ 0, %29 ], [ 0, %10 ], [ 6, %7 ], [ 12, %26 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2620,10 +2620,10 @@ define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 2814749767
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !129
-  %.not66127.i = icmp eq ptr %24, null
-  br i1 %.not66127.i, label %.loopexit, label %.lr.ph131.i
+  %.not66126.i = icmp eq ptr %24, null
+  br i1 %.not66126.i, label %.loopexit, label %.lr.ph130.i
 
-.lr.ph131.i:                                      ; preds = %22
+.lr.ph130.i:                                      ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
@@ -2634,19 +2634,19 @@ define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 2814749767
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %33
 
-33:                                               ; preds = %.loopexit.i, %.lr.ph131.i
-  %.049129.i = phi ptr [ null, %.lr.ph131.i ], [ %76, %.loopexit.i ]
-  %.051128.i = phi ptr [ %24, %.lr.ph131.i ], [ %83, %.loopexit.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %.051128.i, i64 16
+33:                                               ; preds = %.loopexit.i, %.lr.ph130.i
+  %.049128.i = phi ptr [ null, %.lr.ph130.i ], [ %76, %.loopexit.i ]
+  %.051127.i = phi ptr [ %24, %.lr.ph130.i ], [ %83, %.loopexit.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %.051127.i, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !153
-  %.not67122.i = icmp eq ptr %35, null
-  br i1 %.not67122.i, label %._crit_edge126.i, label %.lr.ph125.i
+  %.not67121.i = icmp eq ptr %35, null
+  br i1 %.not67121.i, label %._crit_edge125.i, label %.lr.ph124.i
 
-.lr.ph125.i:                                      ; preds = %33, %73
-  %.047123.i = phi ptr [ %75, %73 ], [ %35, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 64
+.lr.ph124.i:                                      ; preds = %33, %73
+  %.047122.i = phi ptr [ %75, %73 ], [ %35, %33 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 64
   %37 = load i32, ptr %36, align 8, !tbaa !136
   switch i32 %37, label %.thread107.i [
     i32 1, label %38
@@ -2654,7 +2654,7 @@ define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 2814749767
     i32 3, label %67
   ]
 
-38:                                               ; preds = %.lr.ph125.i
+38:                                               ; preds = %.lr.ph124.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !21
   %39 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 80, ptr noundef nonnull %16) #12
@@ -2669,19 +2669,19 @@ sdf_edge_new.exit.i:                              ; preds = %38
 .thread.i:                                        ; preds = %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull align 8 dereferenceable(80) %.047123.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull align 8 dereferenceable(80) %.047122.i, i64 72, i1 false)
   %41 = load ptr, ptr %17, align 8, !tbaa !153
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 72
   store ptr %41, ptr %42, align 8, !tbaa !146
   store ptr %39, ptr %17, align 8, !tbaa !153
   br label %73
 
-43:                                               ; preds = %.lr.ph125.i
+43:                                               ; preds = %.lr.ph124.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %.047123.i, i64 16, i1 false), !tbaa.struct !119
-  %44 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %.047122.i, i64 16, i1 false), !tbaa.struct !119
+  %44 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !119
-  %45 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !119
   %46 = load i64, ptr %29, align 16, !tbaa !52
   %47 = load i64, ptr %18, align 16, !tbaa !52
@@ -2704,11 +2704,11 @@ sdf_edge_new.exit.i:                              ; preds = %38
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %.041121.i = phi i32 [ %64, %.lr.ph.i ], [ 1, %43 ]
-  %.144120.i = phi i32 [ %63, %.lr.ph.i ], [ %.043.i, %43 ]
-  %63 = lshr i32 %.144120.i, 2
-  %64 = shl i32 %.041121.i, 1
-  %65 = icmp samesign ugt i32 %.144120.i, 35
+  %.041120.i = phi i32 [ %64, %.lr.ph.i ], [ 1, %43 ]
+  %.144119.i = phi i32 [ %63, %.lr.ph.i ], [ %.043.i, %43 ]
+  %63 = lshr i32 %.144119.i, 2
+  %64 = shl i32 %.041120.i, 1
+  %65 = icmp samesign ugt i32 %.144119.i, 35
   br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !154
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
@@ -2717,14 +2717,14 @@ sdf_edge_new.exit.i:                              ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %72
 
-67:                                               ; preds = %.lr.ph125.i
+67:                                               ; preds = %.lr.ph124.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %.047123.i, i64 16, i1 false), !tbaa.struct !119
-  %68 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %.047122.i, i64 16, i1 false), !tbaa.struct !119
+  %68 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !119
-  %69 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false), !tbaa.struct !119
-  %70 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !119
   %71 = call fastcc i32 @split_sdf_cubic(ptr noundef %21, ptr noundef %19, i32 noundef 32, ptr noundef %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -2736,12 +2736,12 @@ sdf_edge_new.exit.i:                              ; preds = %38
   br i1 %.not70.i, label %73, label %.thread107.i
 
 73:                                               ; preds = %72, %.thread.i
-  %74 = getelementptr inbounds nuw i8, ptr %.047123.i, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %.047122.i, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !146
   %.not67.i = icmp eq ptr %75, null
-  br i1 %.not67.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !155
+  br i1 %.not67.i, label %._crit_edge125.i, label %.lr.ph124.i, !llvm.loop !155
 
-._crit_edge126.i:                                 ; preds = %73, %33
+._crit_edge125.i:                                 ; preds = %73, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !21
   %76 = call ptr @ft_mem_qalloc(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull %15) #12
@@ -2749,20 +2749,20 @@ sdf_edge_new.exit.i:                              ; preds = %38
   %.not8.i73.i = icmp eq i32 %77, 0
   br i1 %.not8.i73.i, label %78, label %sdf_contour_new.exit.i
 
-sdf_contour_new.exit.i:                           ; preds = %._crit_edge126.i
+sdf_contour_new.exit.i:                           ; preds = %._crit_edge125.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread107.i
 
-78:                                               ; preds = %._crit_edge126.i
+78:                                               ; preds = %._crit_edge125.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr %.049129.i, ptr %79, align 8, !tbaa !130
+  store ptr %.049128.i, ptr %79, align 8, !tbaa !130
   %80 = load ptr, ptr %17, align 8, !tbaa !153
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %80, ptr %81, align 8, !tbaa !135
   store ptr null, ptr %17, align 8, !tbaa !153
-  %82 = getelementptr inbounds nuw i8, ptr %.051128.i, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.051127.i, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !130
   %84 = load ptr, ptr %34, align 8, !tbaa !135
   %.not1617.i.i = icmp eq ptr %84, null
@@ -2776,13 +2776,13 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %.not16.i.i = icmp eq ptr %86, null
   br i1 %.not16.i.i, label %.loopexit.i, label %sdf_edge_done.exit.i.i, !llvm.loop !156
 
-.thread107.i:                                     ; preds = %72, %.lr.ph125.i, %sdf_contour_new.exit.i, %sdf_edge_new.exit.i
-  %.4.ph.i = phi i32 [ %77, %sdf_contour_new.exit.i ], [ %40, %sdf_edge_new.exit.i ], [ %.3.i, %72 ], [ 6, %.lr.ph125.i ]
+.thread107.i:                                     ; preds = %72, %.lr.ph124.i, %sdf_contour_new.exit.i, %sdf_edge_new.exit.i
+  %.4.ph.i = phi i32 [ %77, %sdf_contour_new.exit.i ], [ %40, %sdf_edge_new.exit.i ], [ %.3.i, %72 ], [ 6, %.lr.ph124.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %split_sdf_shape.exit.thread
 
 .loopexit.i:                                      ; preds = %sdf_edge_done.exit.i.i, %78
-  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.051128.i) #12
+  call void @ft_mem_free(ptr noundef nonnull %21, ptr noundef nonnull %.051127.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not66.i = icmp eq ptr %83, null
   br i1 %.not66.i, label %.loopexit, label %33

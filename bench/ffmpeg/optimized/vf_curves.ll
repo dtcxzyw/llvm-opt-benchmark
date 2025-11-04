@@ -188,18 +188,18 @@ parse_psfile.exit.thread:                         ; preds = %19
   store ptr %33, ptr %2, align 8, !tbaa !22
   %34 = add i64 %24, -4
   store i64 %34, ptr %3, align 8, !tbaa !27
-  %.not62.i = icmp eq i16 %32, 0
-  br i1 %.not62.i, label %parse_psfile.exit, label %.lr.ph57.i
+  %.not63.i = icmp eq i16 %32, 0
+  br i1 %.not63.i, label %parse_psfile.exit, label %.lr.ph58.i
 
-.lr.ph57.i:                                       ; preds = %31
+.lr.ph58.i:                                       ; preds = %31
   %35 = call i16 @llvm.bswap.i16(i16 %32)
   %36 = call i16 @llvm.umin.i16(i16 %35, i16 4)
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %wide.trip.count.i = zext nneg i16 %36 to i64
   br label %38
 
-38:                                               ; preds = %79, %.lr.ph57.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph57.i ], [ %indvars.iv.next.i, %79 ]
+38:                                               ; preds = %79, %.lr.ph58.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph58.i ], [ %indvars.iv.next.i, %79 ]
   call void @av_bprint_clear(ptr noundef nonnull %4) #13
   %39 = load i64, ptr %3, align 8, !tbaa !27
   %40 = icmp ult i64 %39, 2
@@ -214,8 +214,8 @@ parse_psfile.exit.thread:                         ; preds = %19
   store ptr %46, ptr %2, align 8, !tbaa !22
   %47 = add i64 %39, -2
   store i64 %47, ptr %3, align 8, !tbaa !27
-  %.not63.i = icmp eq i16 %43, 0
-  br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  %.not64.i = icmp eq i16 %43, 0
+  br i1 %.not64.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %41
   %48 = icmp ult i64 %47, 2
@@ -227,7 +227,7 @@ parse_psfile.exit.thread:                         ; preds = %19
   br i1 %49, label %parse_psfile.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.phthread-pre-split.i
-  %.03054.i73 = phi i32 [ %66, %.lr.phthread-pre-split.i ], [ 0, %.lr.ph.i.preheader ]
+  %.03055.i73 = phi i32 [ %66, %.lr.phthread-pre-split.i ], [ 0, %.lr.ph.i.preheader ]
   %50 = phi i64 [ %.pr.i, %.lr.phthread-pre-split.i ], [ %47, %.lr.ph.i.preheader ]
   %51 = load ptr, ptr %2, align 8, !tbaa !22
   %52 = load i16, ptr %51, align 1, !tbaa !29
@@ -251,7 +251,7 @@ parse_psfile.exit.thread:                         ; preds = %19
   %64 = uitofp i16 %57 to double
   %65 = fdiv nsz double %64, 2.550000e+02
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, double noundef %63, double noundef %65) #13
-  %66 = add nuw nsw i32 %.03054.i73, 1
+  %66 = add nuw nsw i32 %.03055.i73, 1
   %exitcond.not.i = icmp eq i32 %66, %45
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.phthread-pre-split.i, !llvm.loop !30
 
@@ -281,8 +281,8 @@ parse_psfile.exit.thread:                         ; preds = %19
 
 79:                                               ; preds = %75, %69, %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond67.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond67.not.i, label %parse_psfile.exit, label %38, !llvm.loop !34
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond68.not.i, label %parse_psfile.exit, label %38, !llvm.loop !34
 
 parse_psfile.exit:                                ; preds = %38, %75, %79, %.lr.ph.i.preheader, %.lr.ph, %.lr.phthread-pre-split.i, %23, %26, %31
   %.029.i = phi i32 [ -1094995529, %23 ], [ -1094995529, %26 ], [ %21, %31 ], [ -1094995529, %.lr.phthread-pre-split.i ], [ -1094995529, %.lr.ph ], [ -1094995529, %.lr.ph.i.preheader ], [ -12, %75 ], [ -1094995529, %38 ], [ %21, %79 ]

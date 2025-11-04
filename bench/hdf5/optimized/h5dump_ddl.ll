@@ -502,7 +502,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 63:                                               ; preds = %45
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dump_opts, i64 8), align 4, !tbaa !25
   %.not149 = icmp eq i32 %64, 0
-  br i1 %.not149, label %.thread171, label %65
+  br i1 %.not149, label %.thread170, label %65
 
 65:                                               ; preds = %63
   %66 = load i64, ptr @H5P_CLS_DATASET_ACCESS_ID_g, align 8, !tbaa !33
@@ -548,14 +548,14 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %86 = icmp sgt i64 %85, -1
   br i1 %86, label %89, label %208
 
-.thread171:                                       ; preds = %63
+.thread170:                                       ; preds = %63
   %87 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #15
   %88 = icmp sgt i64 %87, -1
-  br i1 %88, label %89, label %.thread175
+  br i1 %88, label %89, label %.thread174
 
-89:                                               ; preds = %.thread171, %84
-  %90 = phi i64 [ %87, %.thread171 ], [ %85, %84 ]
-  %.0114173 = phi i64 [ 0, %.thread171 ], [ %67, %84 ]
+89:                                               ; preds = %.thread170, %84
+  %90 = phi i64 [ %87, %.thread170 ], [ %85, %84 ]
+  %.0114172 = phi i64 [ 0, %.thread170 ], [ %67, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %92 = load i32, ptr %91, align 4, !tbaa !56
   %93 = icmp ugt i32 %92, 1
@@ -609,11 +609,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 125:                                              ; preds = %120
   %126 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #15
-  %.pre180 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
+  %.pre179 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
   br label %127
 
 127:                                              ; preds = %120, %125, %101
-  %128 = phi ptr [ %122, %120 ], [ %.pre180, %125 ], [ %117, %101 ]
+  %128 = phi ptr [ %122, %120 ], [ %.pre179, %125 ], [ %117, %101 ]
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
   %130 = load ptr, ptr %129, align 8, !tbaa !65
   %char0163 = load i8, ptr %130, align 1
@@ -633,11 +633,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %139 = add i32 %138, -1
   store i32 %139, ptr %16, align 8, !tbaa !8
   call void @h5tools_setstatus(i32 noundef 1) #15
-  %.not165 = icmp eq i64 %.0114173, 0
+  %.not165 = icmp eq i64 %.0114172, 0
   br i1 %.not165, label %142, label %140
 
 140:                                              ; preds = %133
-  %141 = call i32 @H5Pclose(i64 noundef %.0114173) #15
+  %141 = call i32 @H5Pclose(i64 noundef %.0114172) #15
   br label %142
 
 142:                                              ; preds = %140, %133
@@ -699,11 +699,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 182:                                              ; preds = %177
   %183 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #15
-  %.pre179 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
+  %.pre178 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
   br label %184
 
 184:                                              ; preds = %177, %182, %148
-  %185 = phi ptr [ %179, %177 ], [ %.pre179, %182 ], [ %174, %148 ]
+  %185 = phi ptr [ %179, %177 ], [ %.pre178, %182 ], [ %174, %148 ]
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %187 = load ptr, ptr %186, align 8, !tbaa !65
   %char0156 = load i8, ptr %187, align 1
@@ -719,11 +719,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %192 = load i32, ptr %37, align 8, !tbaa !41
   %193 = zext i32 %192 to i64
   %194 = call zeroext i1 @h5tools_render_element(ptr noundef %191, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %193, i64 noundef 0, i64 noundef 0) #15
-  %.not158 = icmp eq i64 %.0114173, 0
+  %.not158 = icmp eq i64 %.0114172, 0
   br i1 %.not158, label %197, label %195
 
 195:                                              ; preds = %190
-  %196 = call i32 @H5Pclose(i64 noundef %.0114173) #15
+  %196 = call i32 @H5Pclose(i64 noundef %.0114172) #15
   br label %197
 
 197:                                              ; preds = %195, %190
@@ -739,11 +739,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8, !tbaa !70
   call void %203(i64 noundef %90, ptr noundef %1, ptr noundef null) #15
-  %.not166 = icmp eq i64 %.0114173, 0
+  %.not166 = icmp eq i64 %.0114172, 0
   br i1 %.not166, label %206, label %204
 
 204:                                              ; preds = %200
-  %205 = call i32 @H5Pclose(i64 noundef %.0114173) #15
+  %205 = call i32 @H5Pclose(i64 noundef %.0114172) #15
   br label %206
 
 206:                                              ; preds = %204, %200
@@ -752,13 +752,13 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 208:                                              ; preds = %84
   %.not151 = icmp eq i64 %67, 0
-  br i1 %.not151, label %.thread175, label %209
+  br i1 %.not151, label %.thread174, label %209
 
 209:                                              ; preds = %208
   %210 = call i32 @H5Pclose(i64 noundef %67) #15
-  br label %.thread175
+  br label %.thread174
 
-.thread175:                                       ; preds = %.thread171, %209, %208
+.thread174:                                       ; preds = %.thread170, %209, %208
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.88, ptr noundef %1) #15
   call void @h5tools_setstatus(i32 noundef 1) #15
   br label %.thread
@@ -786,8 +786,8 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   call void @h5tools_setstatus(i32 noundef 1) #15
   br label %.thread
 
-.thread:                                          ; preds = %197, %142, %220, %61, %51, %.thread175, %206, %215, %214, %44
-  %.1113 = phi i32 [ -1, %44 ], [ -1, %220 ], [ -1, %51 ], [ 0, %61 ], [ 0, %206 ], [ -1, %.thread175 ], [ -1, %214 ], [ 0, %215 ], [ 0, %197 ], [ -1, %142 ]
+.thread:                                          ; preds = %197, %142, %220, %61, %51, %.thread174, %206, %215, %214, %44
+  %.1113 = phi i32 [ -1, %44 ], [ -1, %220 ], [ -1, %51 ], [ 0, %61 ], [ 0, %206 ], [ -1, %.thread174 ], [ -1, %214 ], [ 0, %215 ], [ 0, %197 ], [ -1, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %444
 
@@ -865,11 +865,11 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 265:                                              ; preds = %260
   %266 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #15
-  %.pre178 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
+  %.pre177 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
   br label %267
 
 267:                                              ; preds = %260, %265, %253
-  %268 = phi ptr [ %262, %260 ], [ %.pre178, %265 ], [ %257, %253 ]
+  %268 = phi ptr [ %262, %260 ], [ %.pre177, %265 ], [ %257, %253 ]
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 144
   %270 = load ptr, ptr %269, align 8, !tbaa !76
   %char0141 = load i8, ptr %270, align 1
@@ -1166,11 +1166,11 @@ dump_extlink.exit:                                ; preds = %308, %334, %344, %3
 
 431:                                              ; preds = %426
   %432 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #15
-  %.pre181 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
+  %.pre180 = load ptr, ptr @h5tools_dump_header_format, align 8, !tbaa !59
   br label %433
 
 433:                                              ; preds = %426, %431, %398
-  %434 = phi ptr [ %428, %426 ], [ %.pre181, %431 ], [ %423, %398 ]
+  %434 = phi ptr [ %428, %426 ], [ %.pre180, %431 ], [ %423, %398 ]
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 176
   %436 = load ptr, ptr %435, align 8, !tbaa !91
   %char0147 = load i8, ptr %436, align 1
@@ -1188,7 +1188,7 @@ dump_extlink.exit:                                ; preds = %308, %334, %344, %3
   %443 = call zeroext i1 @h5tools_render_element(ptr noundef %440, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef %442, i64 noundef 0, i64 noundef 0) #15
   br label %444
 
-444:                                              ; preds = %283, %393, %226, %273, %439, %.thread
+444:                                              ; preds = %439, %273, %226, %393, %283, %.thread
   %.0112 = phi i32 [ %.1113, %.thread ], [ 0, %439 ], [ -1, %226 ], [ %.5, %273 ], [ -1, %283 ], [ %.7, %393 ]
   call void @h5tools_str_close(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

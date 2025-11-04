@@ -728,7 +728,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %12 = call fastcc i32 @helper_init(ptr noundef %2, i64 noundef 0)
   %13 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 921, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.6, i32 noundef %12, i32 noundef 1) #9
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %.loopexit153.i, label %14
+  br i1 %.not.i, label %.loopexit154.i, label %14
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %2, align 8, !tbaa !15
@@ -760,21 +760,21 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %26 = call noalias ptr @CRYPTO_zalloc(i64 noundef %25, ptr noundef nonnull @.str.3, i32 noundef 937) #9
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 938, ptr noundef nonnull @.str.53, ptr noundef %26) #9
   %.not116.i = icmp eq i32 %27, 0
-  br i1 %.not116.i, label %.loopexit153.i, label %28
+  br i1 %.not116.i, label %.loopexit154.i, label %28
 
 28:                                               ; preds = %24
   %29 = mul i64 %.0106.i, 24
   %30 = call noalias ptr @CRYPTO_zalloc(i64 noundef %29, ptr noundef nonnull @.str.3, i32 noundef 941) #9
   %31 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 942, ptr noundef nonnull @.str.54, ptr noundef %30) #9
   %.not117.i = icmp eq i32 %31, 0
-  br i1 %.not117.i, label %.loopexit153.i, label %.preheader160.i
+  br i1 %.not117.i, label %.loopexit154.i, label %.preheader161.i
 
-.preheader160.i:                                  ; preds = %28
+.preheader161.i:                                  ; preds = %28
   %32 = load i32, ptr %11, align 8, !tbaa !70
-  %.not118175.i = icmp eq i32 %32, 0
-  br i1 %.not118175.i, label %test_rx_ack_actual.exit, label %.lr.ph181.i
+  %.not118176.i = icmp eq i32 %32, 0
+  br i1 %.not118176.i, label %test_rx_ack_actual.exit, label %.lr.ph182.i
 
-.lr.ph181.i:                                      ; preds = %.preheader160.i
+.lr.ph182.i:                                      ; preds = %.preheader161.i
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = trunc i32 %8 to i8
@@ -787,17 +787,17 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %invariant.op = or disjoint i8 %36, 12
   br label %42
 
-42:                                               ; preds = %.loopexit.i, %.lr.ph181.i
-  %43 = phi i32 [ %32, %.lr.ph181.i ], [ %190, %.loopexit.i ]
-  %.1179.i = phi ptr [ %11, %.lr.ph181.i ], [ %188, %.loopexit.i ]
-  %.0108178.i = phi i64 [ 0, %.lr.ph181.i ], [ %.1109.i, %.loopexit.i ]
-  %.1112176.i = phi i64 [ 0, %.lr.ph181.i ], [ %189, %.loopexit.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 8
+42:                                               ; preds = %.loopexit.i, %.lr.ph182.i
+  %43 = phi i32 [ %32, %.lr.ph182.i ], [ %190, %.loopexit.i ]
+  %.1180.i = phi ptr [ %11, %.lr.ph182.i ], [ %188, %.loopexit.i ]
+  %.0108179.i = phi i64 [ 0, %.lr.ph182.i ], [ %.1109.i, %.loopexit.i ]
+  %.1112177.i = phi i64 [ 0, %.lr.ph182.i ], [ %189, %.loopexit.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !74
   %46 = load i64, ptr @fake_time.0, align 8
   %.sroa.03.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %46, i64 %45)
   store i64 %.sroa.03.0.i.i, ptr @fake_time.0, align 8, !tbaa !30
-  switch i32 %43, label %.loopexit153.i [
+  switch i32 %43, label %.loopexit154.i [
     i32 1, label %.preheader.i
     i32 2, label %65
     i32 3, label %65
@@ -809,21 +809,21 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   ]
 
 .preheader.i:                                     ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !72
-  %.not185.i = icmp eq i64 %48, 0
-  br i1 %.not185.i, label %.loopexit.i, label %.lr.ph174.i
+  %.not186.i = icmp eq i64 %48, 0
+  br i1 %.not186.i, label %.loopexit.i, label %.lr.ph175.i
 
-.lr.ph174.i:                                      ; preds = %.preheader.i
-  %49 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 16
+.lr.ph175.i:                                      ; preds = %.preheader.i
+  %49 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   br label %50
 
-50:                                               ; preds = %61, %.lr.ph174.i
-  %.1104173.i = phi i64 [ 0, %.lr.ph174.i ], [ %62, %61 ]
+50:                                               ; preds = %61, %.lr.ph175.i
+  %.1104174.i = phi i64 [ 0, %.lr.ph175.i ], [ %62, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %39, align 8
   %51 = load i64, ptr %49, align 8, !tbaa !75
-  %52 = add i64 %51, %.1104173.i
+  %52 = add i64 %51, %.1104174.i
   store i64 %52, ptr %6, align 8, !tbaa !76
   %53 = load i64, ptr @fake_time.0, align 8, !tbaa !30
   store i64 %53, ptr %38, align 8, !tbaa !30
@@ -843,59 +843,59 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
 
 .thread.i:                                        ; preds = %57, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit153.i
+  br label %.loopexit154.i
 
 61:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %62 = add nuw i64 %.1104173.i, 1
+  %62 = add nuw i64 %.1104174.i, 1
   %63 = load i64, ptr %47, align 8, !tbaa !72
   %64 = icmp ult i64 %62, %63
   br i1 %64, label %50, label %.loopexit.i, !llvm.loop !78
 
 65:                                               ; preds = %42, %42
-  %66 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !72
-  %.not184.i = icmp eq i64 %67, 0
-  br i1 %.not184.i, label %.loopexit.i, label %.lr.ph172.i
+  %.not185.i = icmp eq i64 %67, 0
+  br i1 %.not185.i, label %.loopexit.i, label %.lr.ph173.i
 
-.lr.ph172.i:                                      ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 16
+.lr.ph173.i:                                      ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   br label %73
 
 69:                                               ; preds = %73
-  %70 = add nuw i64 %.2171.i, 1
+  %70 = add nuw i64 %.2172.i, 1
   %71 = load i64, ptr %66, align 8, !tbaa !72
   %72 = icmp ult i64 %70, %71
   br i1 %72, label %73, label %.loopexit.i, !llvm.loop !79
 
-73:                                               ; preds = %69, %.lr.ph172.i
-  %.2171.i = phi i64 [ 0, %.lr.ph172.i ], [ %70, %69 ]
+73:                                               ; preds = %69, %.lr.ph173.i
+  %.2172.i = phi i64 [ 0, %.lr.ph173.i ], [ %70, %69 ]
   %74 = load ptr, ptr %2, align 8, !tbaa !15
   %75 = load i64, ptr %68, align 8, !tbaa !75
-  %76 = add i64 %75, %.2171.i
+  %76 = add i64 %75, %.2172.i
   %77 = call i32 @ossl_ackm_is_rx_pn_processable(ptr noundef %74, i64 noundef %76, i32 noundef %8) #9
-  %78 = load i32, ptr %.1179.i, align 8, !tbaa !70
+  %78 = load i32, ptr %.1180.i, align 8, !tbaa !70
   %79 = icmp eq i32 %78, 3
   %80 = zext i1 %79 to i32
   %81 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 976, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef %77, i32 noundef %80) #9
   %.not132.i = icmp eq i32 %81, 0
-  br i1 %.not132.i, label %.loopexit153.i, label %69
+  br i1 %.not132.i, label %.loopexit154.i, label %69
 
 82:                                               ; preds = %42
   %83 = load ptr, ptr %2, align 8, !tbaa !15
   %84 = call i32 @ossl_ackm_is_ack_desired(ptr noundef %83, i32 noundef %8) #9
-  %85 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 32
   %86 = load i8, ptr %85, align 8, !tbaa !80
   %87 = sext i8 %86 to i32
   %88 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 983, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %84, i32 noundef %87) #9
   %.not125.i = icmp eq i32 %88, 0
-  br i1 %.not125.i, label %.loopexit153.i, label %89
+  br i1 %.not125.i, label %.loopexit154.i, label %89
 
 89:                                               ; preds = %82
   %90 = load ptr, ptr %2, align 8, !tbaa !15
   %91 = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %90, i32 noundef %8) #9
-  %.not151.i = icmp eq i64 %91, -1
-  br i1 %.not151.i, label %97, label %92
+  %.not152.i = icmp eq i64 %91, -1
+  br i1 %.not152.i, label %97, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %2, align 8, !tbaa !15
@@ -906,105 +906,105 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
 
 97:                                               ; preds = %92, %89
   %98 = phi i32 [ 0, %89 ], [ %96, %92 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 33
+  %99 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 33
   %100 = load i8, ptr %99, align 1, !tbaa !81
   %101 = sext i8 %100 to i32
   %102 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 988, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef %98, i32 noundef %101) #9
   %.not128.i = icmp eq i32 %102, 0
-  br i1 %.not128.i, label %.loopexit153.i, label %.preheader154.i
+  br i1 %.not128.i, label %.loopexit154.i, label %.preheader155.i
 
-103:                                              ; preds = %.preheader154._crit_edge.i
-  %104 = add nuw nsw i64 %.3170.i, 1
+103:                                              ; preds = %.preheader155._crit_edge.i
+  %104 = add nuw nsw i64 %.3171.i, 1
   %exitcond.not.i = icmp eq i64 %104, 3
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader154.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader155.i, !llvm.loop !82
 
-.preheader154.i:                                  ; preds = %97, %103
-  %.3170.i = phi i64 [ %104, %103 ], [ 0, %97 ]
-  %.not129.i = icmp eq i64 %.3170.i, %37
-  br i1 %.not129.i, label %.preheader154._crit_edge.i, label %105
+.preheader155.i:                                  ; preds = %97, %103
+  %.3171.i = phi i64 [ %104, %103 ], [ 0, %97 ]
+  %.not129.i = icmp eq i64 %.3171.i, %37
+  br i1 %.not129.i, label %.preheader155._crit_edge.i, label %105
 
-105:                                              ; preds = %.preheader154.i
+105:                                              ; preds = %.preheader155.i
   %106 = load ptr, ptr %2, align 8, !tbaa !15
-  %107 = trunc nuw nsw i64 %.3170.i to i32
+  %107 = trunc nuw nsw i64 %.3171.i to i32
   %108 = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %106, i32 noundef %107) #9
   %109 = icmp eq i64 %108, -1
   %110 = zext i1 %109 to i32
   %111 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 993, ptr noundef nonnull @.str.63, i32 noundef %110) #9
   %.not130.i = icmp eq i32 %111, 0
-  br i1 %.not130.i, label %.loopexit153.i, label %.preheader154._crit_edge.i
+  br i1 %.not130.i, label %.loopexit154.i, label %.preheader155._crit_edge.i
 
-.preheader154._crit_edge.i:                       ; preds = %.preheader154.i, %105
-  %.pre-phi.i = phi i32 [ %107, %105 ], [ %8, %.preheader154.i ]
+.preheader155._crit_edge.i:                       ; preds = %.preheader155.i, %105
+  %.pre-phi.i = phi i32 [ %107, %105 ], [ %8, %.preheader155.i ]
   %112 = load ptr, ptr %2, align 8, !tbaa !15
   %113 = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %112, i32 noundef %.pre-phi.i) #9
-  %114 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %5, i64 %.3170.i
+  %114 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %5, i64 %.3171.i
   %115 = load i64, ptr %114, align 8
   %.0.i.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %113, i64 %115)
   %116 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 997, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.11, i32 noundef %.0.i.i, i32 noundef 0) #9
   %.not131.i = icmp eq i32 %116, 0
-  br i1 %.not131.i, label %.loopexit153.i, label %103
+  br i1 %.not131.i, label %.loopexit154.i, label %103
 
 117:                                              ; preds = %42
   %118 = load ptr, ptr %2, align 8, !tbaa !15
   %119 = call ptr @ossl_ackm_get_ack_frame(ptr noundef %118, i32 noundef %8) #9
   %120 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 1007, ptr noundef nonnull @.str.65, ptr noundef %119) #9
   %.not121.i = icmp eq i32 %120, 0
-  br i1 %.not121.i, label %.loopexit153.i, label %121
+  br i1 %.not121.i, label %.loopexit154.i, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !48
-  %124 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 48
   %125 = load i64, ptr %124, align 8, !tbaa !83
   %126 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.3, i32 noundef 1010, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i64 noundef %123, i64 noundef %125) #9
   %.not122.i = icmp eq i32 %126, 0
-  br i1 %.not122.i, label %.loopexit153.i, label %.preheader157.i
+  br i1 %.not122.i, label %.loopexit154.i, label %.preheader158.i
 
-.preheader157.i:                                  ; preds = %121
+.preheader158.i:                                  ; preds = %121
   %127 = load i64, ptr %122, align 8, !tbaa !48
-  %.not183.i = icmp eq i64 %127, 0
-  br i1 %.not183.i, label %.loopexit.i, label %.lr.ph.i
+  %.not184.i = icmp eq i64 %127, 0
+  br i1 %.not184.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader157.i
-  %128 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 40
+.lr.ph.i:                                         ; preds = %.preheader158.i
+  %128 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 40
   br label %133
 
 129:                                              ; preds = %141
-  %130 = add nuw i64 %.4169.i, 1
+  %130 = add nuw i64 %.4170.i, 1
   %131 = load i64, ptr %122, align 8, !tbaa !48
   %132 = icmp ult i64 %130, %131
   br i1 %132, label %133, label %.loopexit.i, !llvm.loop !84
 
 133:                                              ; preds = %129, %.lr.ph.i
-  %.4169.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %129 ]
+  %.4170.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %129 ]
   %134 = load ptr, ptr %119, align 8, !tbaa !45
-  %135 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %134, i64 %.4169.i
+  %135 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %134, i64 %.4170.i
   %136 = load i64, ptr %135, align 8, !tbaa !63
   %137 = load ptr, ptr %128, align 8, !tbaa !85
-  %138 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %137, i64 %.4169.i
+  %138 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %137, i64 %.4170.i
   %139 = load i64, ptr %138, align 8, !tbaa !63
   %140 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 1015, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i64 noundef %136, i64 noundef %139) #9
   %.not123.i = icmp eq i32 %140, 0
-  br i1 %.not123.i, label %.loopexit153.i, label %141
+  br i1 %.not123.i, label %.loopexit154.i, label %141
 
 141:                                              ; preds = %133
   %142 = load ptr, ptr %119, align 8, !tbaa !45
-  %143 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %142, i64 %.4169.i
+  %143 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %142, i64 %.4170.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !65
   %146 = load ptr, ptr %128, align 8, !tbaa !85
-  %147 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %146, i64 %.4169.i
+  %147 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %146, i64 %.4170.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i64, ptr %148, align 8, !tbaa !65
   %150 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 1018, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i64 noundef %145, i64 noundef %149) #9
   %.not124.i = icmp eq i32 %150, 0
-  br i1 %.not124.i, label %.loopexit153.i, label %129
+  br i1 %.not124.i, label %.loopexit154.i, label %129
 
 151:                                              ; preds = %42
-  %152 = getelementptr inbounds nuw %struct.ossl_ackm_tx_pkt_st, ptr %26, i64 %.0108178.i
-  %153 = getelementptr inbounds nuw %struct.pkt_info, ptr %30, i64 %.0108178.i
+  %152 = getelementptr inbounds nuw %struct.ossl_ackm_tx_pkt_st, ptr %26, i64 %.0108179.i
+  %153 = getelementptr inbounds nuw %struct.pkt_info, ptr %30, i64 %.0108179.i
   store ptr %152, ptr %153, align 8, !tbaa !26
-  %154 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   %155 = load i64, ptr %154, align 8, !tbaa !75
   store i64 %155, ptr %152, align 8, !tbaa !31
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 32
@@ -1012,7 +1012,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %158 = and i8 %157, -16
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i64 123, ptr %159, align 8, !tbaa !34
-  %160 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 56
   %161 = load i64, ptr %160, align 8, !tbaa !86
   %162 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store i64 %161, ptr %162, align 8, !tbaa !35
@@ -1032,19 +1032,19 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %169 = call i32 @ossl_ackm_on_tx_packet(ptr noundef %168, ptr noundef nonnull %152) #9
   %170 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 1039, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef %169, i32 noundef 1) #9
   %.not120.i = icmp eq i32 %170, 0
-  br i1 %.not120.i, label %.loopexit153.i, label %171
+  br i1 %.not120.i, label %.loopexit154.i, label %171
 
 171:                                              ; preds = %151
-  %172 = add i64 %.0108178.i, 1
+  %172 = add i64 %.0108179.i, 1
   br label %.loopexit.i
 
 173:                                              ; preds = %42
   store ptr %4, ptr %3, align 8, !tbaa !45
   store i64 1, ptr %33, align 8, !tbaa !48
-  %174 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   %175 = load i64, ptr %174, align 8, !tbaa !75
   store i64 %175, ptr %4, align 8, !tbaa !63
-  %176 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 24
   %177 = load i64, ptr %176, align 8, !tbaa !72
   %178 = add i64 %175, -1
   %179 = add i64 %178, %177
@@ -1053,44 +1053,44 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %181 = call i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %180, ptr noundef nonnull %3, i32 noundef %8, i64 %.sroa.03.0.i.i) #9
   %182 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 1053, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef %181, i32 noundef 1) #9
   %.not119.i = icmp eq i32 %182, 0
-  br i1 %.not119.i, label %.loopexit153.i, label %.loopexit.i
+  br i1 %.not119.i, label %.loopexit154.i, label %.loopexit.i
 
 183:                                              ; preds = %42
-  %184 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   %185 = load i64, ptr %184, align 8, !tbaa !75
   %186 = trunc i64 %185 to i32
   %187 = icmp eq i32 %8, %186
   br i1 %187, label %test_rx_ack_actual.exit, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %129, %103, %69, %61, %183, %173, %171, %.preheader157.i, %65, %.preheader.i
-  %.1109.i = phi i64 [ %172, %171 ], [ %.0108178.i, %173 ], [ %.0108178.i, %183 ], [ %.0108178.i, %.preheader.i ], [ %.0108178.i, %65 ], [ %.0108178.i, %.preheader157.i ], [ %.0108178.i, %61 ], [ %.0108178.i, %69 ], [ %.0108178.i, %103 ], [ %.0108178.i, %129 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.1179.i, i64 64
-  %189 = add i64 %.1112176.i, 1
+.loopexit.i:                                      ; preds = %129, %103, %69, %61, %183, %173, %171, %.preheader158.i, %65, %.preheader.i
+  %.1109.i = phi i64 [ %172, %171 ], [ %.0108179.i, %173 ], [ %.0108179.i, %183 ], [ %.0108179.i, %.preheader.i ], [ %.0108179.i, %65 ], [ %.0108179.i, %.preheader158.i ], [ %.0108179.i, %61 ], [ %.0108179.i, %69 ], [ %.0108179.i, %103 ], [ %.0108179.i, %129 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 64
+  %189 = add i64 %.1112177.i, 1
   %190 = load i32, ptr %188, align 8, !tbaa !70
   %.not118.i = icmp eq i32 %190, 0
   br i1 %.not118.i, label %test_rx_ack_actual.exit, label %42, !llvm.loop !87
 
-.loopexit153.i:                                   ; preds = %173, %151, %121, %117, %97, %82, %42, %141, %133, %.preheader154._crit_edge.i, %105, %73, %.thread.i, %28, %24, %1
-  %.0113.ph.i = phi ptr [ %26, %.thread.i ], [ null, %1 ], [ %26, %24 ], [ %26, %28 ], [ %26, %73 ], [ %26, %105 ], [ %26, %.preheader154._crit_edge.i ], [ %26, %133 ], [ %26, %141 ], [ %26, %42 ], [ %26, %82 ], [ %26, %97 ], [ %26, %117 ], [ %26, %121 ], [ %26, %151 ], [ %26, %173 ]
-  %.0111.ph.i = phi i64 [ %.1112176.i, %.thread.i ], [ 0, %1 ], [ 0, %24 ], [ 0, %28 ], [ %.1112176.i, %73 ], [ %.1112176.i, %105 ], [ %.1112176.i, %.preheader154._crit_edge.i ], [ %.1112176.i, %133 ], [ %.1112176.i, %141 ], [ %.1112176.i, %42 ], [ %.1112176.i, %82 ], [ %.1112176.i, %97 ], [ %.1112176.i, %117 ], [ %.1112176.i, %121 ], [ %.1112176.i, %151 ], [ %.1112176.i, %173 ]
-  %.0110.ph.i = phi ptr [ %30, %.thread.i ], [ null, %1 ], [ null, %24 ], [ %30, %28 ], [ %30, %73 ], [ %30, %105 ], [ %30, %.preheader154._crit_edge.i ], [ %30, %133 ], [ %30, %141 ], [ %30, %42 ], [ %30, %82 ], [ %30, %97 ], [ %30, %117 ], [ %30, %121 ], [ %30, %151 ], [ %30, %173 ]
+.loopexit154.i:                                   ; preds = %173, %151, %121, %117, %97, %82, %42, %141, %133, %.preheader155._crit_edge.i, %105, %73, %.thread.i, %28, %24, %1
+  %.0113.ph.i = phi ptr [ %26, %.thread.i ], [ null, %1 ], [ %26, %24 ], [ %26, %28 ], [ %26, %73 ], [ %26, %105 ], [ %26, %.preheader155._crit_edge.i ], [ %26, %133 ], [ %26, %141 ], [ %26, %42 ], [ %26, %82 ], [ %26, %97 ], [ %26, %117 ], [ %26, %121 ], [ %26, %151 ], [ %26, %173 ]
+  %.0111.ph.i = phi i64 [ %.1112177.i, %.thread.i ], [ 0, %1 ], [ 0, %24 ], [ 0, %28 ], [ %.1112177.i, %73 ], [ %.1112177.i, %105 ], [ %.1112177.i, %.preheader155._crit_edge.i ], [ %.1112177.i, %133 ], [ %.1112177.i, %141 ], [ %.1112177.i, %42 ], [ %.1112177.i, %82 ], [ %.1112177.i, %97 ], [ %.1112177.i, %117 ], [ %.1112177.i, %121 ], [ %.1112177.i, %151 ], [ %.1112177.i, %173 ]
+  %.0110.ph.i = phi ptr [ %30, %.thread.i ], [ null, %1 ], [ null, %24 ], [ %30, %28 ], [ %30, %73 ], [ %30, %105 ], [ %30, %.preheader155._crit_edge.i ], [ %30, %133 ], [ %30, %141 ], [ %30, %42 ], [ %30, %82 ], [ %30, %97 ], [ %30, %117 ], [ %30, %121 ], [ %30, %151 ], [ %30, %173 ]
   %191 = add nuw nsw i32 %7, 1
   %192 = add i64 %.0111.ph.i, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 1074, ptr noundef nonnull @.str.73, i32 noundef %191, i64 noundef %192) #9
   br label %test_rx_ack_actual.exit
 
-test_rx_ack_actual.exit:                          ; preds = %183, %.loopexit.i, %.preheader160.i, %.loopexit153.i
-  %.0101149.i = phi i32 [ 0, %.loopexit153.i ], [ 1, %.preheader160.i ], [ 1, %.loopexit.i ], [ 1, %183 ]
-  %.0110147.i = phi ptr [ %.0110.ph.i, %.loopexit153.i ], [ %30, %.preheader160.i ], [ %30, %.loopexit.i ], [ %30, %183 ]
-  %.0113144.i = phi ptr [ %.0113.ph.i, %.loopexit153.i ], [ %26, %.preheader160.i ], [ %26, %.loopexit.i ], [ %26, %183 ]
+test_rx_ack_actual.exit:                          ; preds = %183, %.loopexit.i, %.preheader161.i, %.loopexit154.i
+  %.0101150.i = phi i32 [ 0, %.loopexit154.i ], [ 1, %.preheader161.i ], [ 1, %.loopexit.i ], [ 1, %183 ]
+  %.0110148.i = phi ptr [ %.0110.ph.i, %.loopexit154.i ], [ %30, %.preheader161.i ], [ %30, %.loopexit.i ], [ %30, %183 ]
+  %.0113145.i = phi ptr [ %.0113.ph.i, %.loopexit154.i ], [ %26, %.preheader161.i ], [ %26, %.loopexit.i ], [ %26, %183 ]
   call fastcc void @helper_destroy(ptr noundef %2)
-  call void @CRYPTO_free(ptr noundef %.0110147.i, ptr noundef nonnull @.str.3, i32 noundef 1077) #9
-  call void @CRYPTO_free(ptr noundef %.0113144.i, ptr noundef nonnull @.str.3, i32 noundef 1078) #9
+  call void @CRYPTO_free(ptr noundef %.0110148.i, ptr noundef nonnull @.str.3, i32 noundef 1077) #9
+  call void @CRYPTO_free(ptr noundef %.0113145.i, ptr noundef nonnull @.str.3, i32 noundef 1078) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0101149.i
+  ret i32 %.0101150.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

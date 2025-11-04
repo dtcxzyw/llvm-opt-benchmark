@@ -1289,7 +1289,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %39 = and i32 %36, %31
   %40 = icmp eq i32 %39, 0
   %41 = select i1 %38, i1 %40, i1 false
-  br i1 %41, label %42, label %.loopexit12
+  br i1 %41, label %42, label %.loopexit13
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1297,7 +1297,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %45 = or i64 %1, 4294967295
   br label %47
 
-.loopexit12:                                      ; preds = %86, %35
+.loopexit13:                                      ; preds = %86, %35
   %46 = phi ptr [ null, %35 ], [ %69, %86 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_state_lock) #12
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_list_lock) #12
@@ -1390,7 +1390,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %90 = and i32 %87, %31
   %91 = icmp eq i32 %90, 0
   %92 = select i1 %89, i1 %91, i1 false
-  br i1 %92, label %47, label %.loopexit12
+  br i1 %92, label %47, label %.loopexit13
 
 93:                                               ; preds = %.loopexit
   %94 = getelementptr inbounds nuw i8, ptr %48, i64 112
@@ -1496,7 +1496,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %153 = load volatile i64, ptr %152, align 8
   %154 = and i64 %153, 32
   %155 = icmp eq i64 %154, 0
-  br i1 %155, label %156, label %.thread11
+  br i1 %155, label %156, label %.thread12
 
 156:                                              ; preds = %147
   %157 = load ptr, ptr %43, align 8
@@ -1504,7 +1504,7 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %159 = load ptr, ptr %158, align 8
   %160 = tail call i32 %159(ptr noundef nonnull %148) #12
   %161 = icmp slt i32 %160, 0
-  br i1 %161, label %162, label %.thread11
+  br i1 %161, label %162, label %.thread12
 
 162:                                              ; preds = %156
   tail call void @dqput(ptr noundef nonnull %148)
@@ -1512,13 +1512,13 @@ define dso_local ptr @dqget(ptr noundef %0, i64 %1) #0 align 16 {
   %164 = inttoptr i64 %163 to ptr
   br label %165
 
-.thread11:                                        ; preds = %156, %147
+.thread12:                                        ; preds = %156, %147
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !40
   br label %165
 
-165:                                              ; preds = %162, %.thread11, %.loopexit12
-  %166 = phi ptr [ %148, %.thread11 ], [ %164, %162 ], [ inttoptr (i64 -3 to ptr), %.loopexit12 ]
-  %167 = phi ptr [ %149, %.thread11 ], [ %149, %162 ], [ %46, %.loopexit12 ]
+165:                                              ; preds = %162, %.thread12, %.loopexit13
+  %166 = phi ptr [ %148, %.thread12 ], [ %164, %162 ], [ inttoptr (i64 -3 to ptr), %.loopexit13 ]
+  %167 = phi ptr [ %149, %.thread12 ], [ %149, %162 ], [ %46, %.loopexit13 ]
   %168 = icmp eq ptr %167, null
   br i1 %168, label %176, label %169
 
@@ -1591,7 +1591,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
 
 .split.us:                                        ; preds = %19, %77
   %33 = phi i64 [ %78, %77 ], [ 0, %19 ]
-  %34 = phi i32 [ %.ph7.us, %77 ], [ 0, %19 ]
+  %34 = phi i32 [ %.ph8.us, %77 ], [ 0, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %35 = getelementptr ptr, ptr %24, i64 %33
@@ -1612,7 +1612,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   br i1 %47, label %48, label %77
 
 48:                                               ; preds = %38
-  switch i32 %40, label %default.unreachable28 [
+  switch i32 %40, label %default.unreachable29 [
     i32 0, label %65
     i32 1, label %61
     i32 2, label %49
@@ -1653,7 +1653,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
 
 72:                                               ; preds = %68
   %73 = icmp eq ptr %70, inttoptr (i64 -3 to ptr)
-  br i1 %73, label %74, label %.split10.us
+  br i1 %73, label %74, label %.split11.us
 
 74:                                               ; preds = %72, %68
   %75 = phi ptr [ %70, %68 ], [ null, %72 ]
@@ -1662,15 +1662,15 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   br label %77
 
 77:                                               ; preds = %74, %49, %38, %.split.us
-  %.ph7.us = phi i32 [ 1, %49 ], [ %34, %38 ], [ %34, %.split.us ], [ 1, %74 ]
+  %.ph8.us = phi i32 [ 1, %49 ], [ %34, %38 ], [ %34, %.split.us ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = add nuw nsw i64 %33, 1
   %79 = icmp eq i64 %78, 3
-  br i1 %79, label %.split12.us, label %.split.us, !llvm.loop !41
+  br i1 %79, label %.split13.us, label %.split.us, !llvm.loop !41
 
 .split:                                           ; preds = %.split.preheader, %123
   %80 = phi i64 [ %124, %123 ], [ 0, %.split.preheader ]
-  %81 = phi i32 [ %.ph7, %123 ], [ 0, %.split.preheader ]
+  %81 = phi i32 [ %.ph8, %123 ], [ 0, %.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %82 = icmp eq i64 %80, %28
@@ -1724,7 +1724,7 @@ define internal fastcc i32 @__dquot_initialize(ptr noundef %0, i32 noundef %1) u
   %112 = or disjoint i64 %111, 8589934592
   br label %113
 
-default.unreachable28:                            ; preds = %48
+default.unreachable29:                            ; preds = %48
   unreachable
 
 default.unreachable:                              ; preds = %93
@@ -1738,14 +1738,14 @@ default.unreachable:                              ; preds = %93
 
 117:                                              ; preds = %113
   %118 = icmp eq ptr %115, inttoptr (i64 -3 to ptr)
-  br i1 %118, label %119, label %.split10.us
+  br i1 %118, label %119, label %.split11.us
 
 119:                                              ; preds = %117, %113
   %120 = phi ptr [ %115, %113 ], [ null, %117 ]
   store ptr %120, ptr %32, align 8
   br label %123
 
-.split10.us:                                      ; preds = %117, %72
+.split11.us:                                      ; preds = %117, %72
   %.us-phi = phi ptr [ %70, %72 ], [ %115, %117 ]
   %121 = ptrtoint ptr %.us-phi to i64
   %122 = trunc i64 %121 to i32
@@ -1753,23 +1753,23 @@ default.unreachable:                              ; preds = %93
   br label %195
 
 123:                                              ; preds = %119, %.split, %83, %86, %101
-  %.ph7 = phi i32 [ 1, %101 ], [ %81, %86 ], [ %81, %83 ], [ %81, %.split ], [ 1, %119 ]
+  %.ph8 = phi i32 [ 1, %101 ], [ %81, %86 ], [ %81, %83 ], [ %81, %.split ], [ 1, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %124 = add nuw nsw i64 %80, 1
   %125 = icmp eq i64 %124, 3
-  br i1 %125, label %.split12.us, label %.split, !llvm.loop !41
+  br i1 %125, label %.split13.us, label %.split, !llvm.loop !41
 
-.split12.us:                                      ; preds = %123, %77
-  %.us-phi13 = phi i32 [ %.ph7.us, %77 ], [ %.ph7, %123 ]
-  %126 = icmp eq i32 %.us-phi13, 0
+.split13.us:                                      ; preds = %123, %77
+  %.us-phi14 = phi i32 [ %.ph8.us, %77 ], [ %.ph8, %123 ]
+  %126 = icmp eq i32 %.us-phi14, 0
   br i1 %126, label %.loopexit, label %127
 
-127:                                              ; preds = %.split12.us
+127:                                              ; preds = %.split13.us
   call void @_raw_spin_lock(ptr noundef nonnull @dq_data_lock) #12
   %128 = load i32, ptr %7, align 4
   %129 = and i32 %128, 32
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %.loopexit8
+  br i1 %130, label %131, label %.loopexit9
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1870,14 +1870,14 @@ default.unreachable:                              ; preds = %93
 .critedge:                                        ; preds = %.critedge.sink.split, %155, %169, %151, %147, %137, %133
   %193 = add nuw nsw i64 %134, 1
   %194 = icmp eq i64 %193, 3
-  br i1 %194, label %.loopexit8, label %133, !llvm.loop !43
+  br i1 %194, label %.loopexit9, label %133, !llvm.loop !43
 
-.loopexit8:                                       ; preds = %.critedge, %127
+.loopexit9:                                       ; preds = %.critedge, %127
   call void @_raw_spin_unlock(ptr noundef nonnull @dq_data_lock) #12
   br label %195
 
-195:                                              ; preds = %.split10.us, %.loopexit8
-  %196 = phi i32 [ %122, %.split10.us ], [ 0, %.loopexit8 ]
+195:                                              ; preds = %.split11.us, %.loopexit9
+  %196 = phi i32 [ %122, %.split11.us ], [ 0, %.loopexit9 ]
   br label %197
 
 197:                                              ; preds = %197, %195
@@ -1889,8 +1889,8 @@ default.unreachable:                              ; preds = %93
   %202 = icmp eq i64 %201, 3
   br i1 %202, label %.loopexit, label %197, !llvm.loop !44
 
-.loopexit:                                        ; preds = %197, %.split12.us, %11, %2
-  %203 = phi i32 [ 0, %11 ], [ 0, %.split12.us ], [ 0, %2 ], [ %196, %197 ]
+.loopexit:                                        ; preds = %197, %.split13.us, %11, %2
+  %203 = phi i32 [ 0, %11 ], [ 0, %.split13.us ], [ 0, %2 ], [ %196, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %203
 }

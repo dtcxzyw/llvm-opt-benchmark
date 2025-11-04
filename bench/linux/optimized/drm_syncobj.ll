@@ -3527,7 +3527,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 27:                                               ; preds = %23
   %28 = icmp eq i32 %2, 0
-  br i1 %28, label %.loopexit34, label %29
+  br i1 %28, label %.loopexit35, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !25
@@ -3613,11 +3613,11 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread23, label %80
+  br i1 %79, label %.thread24, label %80
 
 80:                                               ; preds = %74
   %81 = call zeroext i1 %78(ptr noundef %67) #12
-  br i1 %81, label %82, label %.thread23
+  br i1 %81, label %82, label %.thread24
 
 82:                                               ; preds = %80
   %83 = call i32 @dma_fence_signal(ptr noundef %67) #12
@@ -3635,101 +3635,101 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 89:                                               ; preds = %87, %84
   %90 = add i32 %38, 1
-  br label %.thread23
+  br label %.thread24
 
-.thread23:                                        ; preds = %89, %74, %80
+.thread24:                                        ; preds = %89, %74, %80
   %.ph = phi i32 [ %38, %80 ], [ %38, %74 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %91
 
 .thread:                                          ; preds = %59, %61, %36, %54, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %35, label %.loopexit33, label %91
+  br i1 %35, label %.loopexit34, label %91
 
-91:                                               ; preds = %.thread, %.thread23
-  %92 = phi i32 [ %.ph, %.thread23 ], [ %38, %.thread ]
+91:                                               ; preds = %.thread24, %.thread
+  %92 = phi i32 [ %.ph, %.thread24 ], [ %38, %.thread ]
   %93 = add nuw nsw i64 %37, 1
   %94 = icmp eq i64 %93, %10
-  br i1 %94, label %.loopexit34, label %36, !llvm.loop !48
+  br i1 %94, label %.loopexit35, label %36, !llvm.loop !48
 
-.loopexit34:                                      ; preds = %91, %27
+.loopexit35:                                      ; preds = %91, %27
   %95 = phi i32 [ 0, %27 ], [ %92, %91 ]
   %96 = icmp eq i32 %95, %2
-  br i1 %96, label %.loopexit33, label %97
+  br i1 %96, label %.loopexit34, label %97
 
-97:                                               ; preds = %.loopexit34
+97:                                               ; preds = %.loopexit35
   %98 = icmp ne i32 %95, 0
   %99 = and i32 %3, 1
   %100 = icmp eq i32 %99, 0
   %101 = and i1 %100, %98
-  br i1 %101, label %.loopexit33, label %102
+  br i1 %101, label %.loopexit34, label %102
 
 102:                                              ; preds = %97
   %103 = icmp ne i32 %9, 0
   %104 = icmp ne i32 %2, 0
   %105 = and i1 %104, %103
-  br i1 %105, label %.preheader31, label %.loopexit32
+  br i1 %105, label %.preheader32, label %.loopexit33
 
-.preheader31:                                     ; preds = %102, %.preheader31
-  %106 = phi i64 [ %110, %.preheader31 ], [ 0, %102 ]
+.preheader32:                                     ; preds = %102, %.preheader32
+  %106 = phi i64 [ %110, %.preheader32 ], [ 0, %102 ]
   %107 = getelementptr ptr, ptr %0, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %106
   call fastcc void @drm_syncobj_fence_add_wait(ptr noundef %108, ptr noundef %109)
   %110 = add nuw nsw i64 %106, 1
   %111 = icmp eq i64 %110, %10
-  br i1 %111, label %.loopexit32, label %.preheader31, !llvm.loop !49
+  br i1 %111, label %.loopexit33, label %.preheader32, !llvm.loop !49
 
-.loopexit32:                                      ; preds = %.preheader31, %102
+.loopexit33:                                      ; preds = %.preheader32, %102
   %112 = icmp ne ptr %6, null
   %113 = and i1 %104, %112
-  br i1 %113, label %.preheader29, label %.loopexit30
+  br i1 %113, label %.preheader30, label %.loopexit31
 
-.preheader29:                                     ; preds = %.loopexit32, %120
-  %114 = phi i64 [ %121, %120 ], [ 0, %.loopexit32 ]
+.preheader30:                                     ; preds = %.loopexit33, %120
+  %114 = phi i64 [ %121, %120 ], [ 0, %.loopexit33 ]
   %.split = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %114
   %115 = getelementptr i8, ptr %.split, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %120, label %118
 
-118:                                              ; preds = %.preheader29
+118:                                              ; preds = %.preheader30
   %119 = load i64, ptr %6, align 8
   call void @dma_fence_set_deadline(ptr noundef nonnull %116, i64 noundef %119) #12
   br label %120
 
-120:                                              ; preds = %118, %.preheader29
+120:                                              ; preds = %118, %.preheader30
   %121 = add nuw nsw i64 %114, 1
   %122 = icmp eq i64 %121, %10
-  br i1 %122, label %.loopexit30, label %.preheader29, !llvm.loop !50
+  br i1 %122, label %.loopexit31, label %.preheader30, !llvm.loop !50
 
-.loopexit30:                                      ; preds = %120, %.loopexit32
+.loopexit31:                                      ; preds = %120, %.loopexit33
   %123 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !25
   %124 = inttoptr i64 %123 to ptr
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = and i32 %3, 4
   %127 = icmp eq i32 %126, 0
-  br i1 %28, label %.split56.us, label %.preheader26
+  br i1 %28, label %.split57.us, label %.preheader27
 
-.split56.us:                                      ; preds = %.loopexit30
+.split57.us:                                      ; preds = %.loopexit31
   %128 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %125, i32 1, ptr nonnull elementtype(i32) %125) #12, !srcloc !51
   br label %.critedge
 
-.preheader26:                                     ; preds = %.loopexit30, %198
-  %129 = phi i64 [ %199, %198 ], [ %4, %.loopexit30 ]
+.preheader27:                                     ; preds = %.loopexit31, %198
+  %129 = phi i64 [ %199, %198 ], [ %4, %.loopexit31 ]
   %130 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %125, i32 1, ptr nonnull elementtype(i32) %125) #12, !srcloc !51
-  br i1 %127, label %.preheader26.split.us, label %.preheader26.split
+  br i1 %127, label %.preheader27.split.us, label %.preheader27.split
 
-.preheader26.split.us:                            ; preds = %.preheader26, %163
-  %131 = phi i64 [ %165, %163 ], [ 0, %.preheader26 ]
-  %132 = phi i32 [ %164, %163 ], [ 0, %.preheader26 ]
+.preheader27.split.us:                            ; preds = %.preheader27, %163
+  %131 = phi i64 [ %165, %163 ], [ 0, %.preheader27 ]
+  %132 = phi i32 [ %164, %163 ], [ 0, %.preheader27 ]
   %133 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %163, label %137
 
-137:                                              ; preds = %.preheader26.split.us
+137:                                              ; preds = %.preheader27.split.us
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %139 = load volatile i64, ptr %138, align 8
   %140 = and i64 %139, 1
@@ -3765,37 +3765,37 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %156, %150, %137
-  br i1 %100, label %.split43.us, label %161
+  br i1 %100, label %.split44.us, label %161
 
 161:                                              ; preds = %160
   %162 = add i32 %132, 1
   br label %163
 
-163:                                              ; preds = %161, %156, %152, %.preheader26.split.us
-  %164 = phi i32 [ %162, %161 ], [ %132, %152 ], [ %132, %156 ], [ %132, %.preheader26.split.us ]
+163:                                              ; preds = %161, %156, %152, %.preheader27.split.us
+  %164 = phi i32 [ %162, %161 ], [ %132, %152 ], [ %132, %156 ], [ %132, %.preheader27.split.us ]
   %165 = add nuw nsw i64 %131, 1
   %166 = icmp eq i64 %165, %10
-  br i1 %166, label %.loopexit27, label %.preheader26.split.us, !llvm.loop !52
+  br i1 %166, label %.loopexit28, label %.preheader27.split.us, !llvm.loop !52
 
-.preheader26.split:                               ; preds = %.preheader26
-  br i1 %100, label %.preheader26.split.split.us, label %.preheader26.split.split
+.preheader27.split:                               ; preds = %.preheader27
+  br i1 %100, label %.preheader27.split.split.us, label %.preheader27.split.split
 
-.preheader26.split.split.us:                      ; preds = %.preheader26.split, %172
-  %167 = phi i64 [ %173, %172 ], [ 0, %.preheader26.split ]
+.preheader27.split.split.us:                      ; preds = %.preheader27.split, %172
+  %167 = phi i64 [ %173, %172 ], [ 0, %.preheader27.split ]
   %168 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = load ptr, ptr %169, align 8
   %171 = icmp eq ptr %170, null
-  br i1 %171, label %172, label %.split43.us
+  br i1 %171, label %172, label %.split44.us
 
-172:                                              ; preds = %.preheader26.split.split.us
+172:                                              ; preds = %.preheader27.split.split.us
   %173 = add nuw nsw i64 %167, 1
   %174 = icmp eq i64 %173, %10
-  br i1 %174, label %.loopexit27, label %.preheader26.split.split.us, !llvm.loop !52
+  br i1 %174, label %.loopexit28, label %.preheader27.split.split.us, !llvm.loop !52
 
-.preheader26.split.split:                         ; preds = %.preheader26.split, %.preheader26.split.split
-  %175 = phi i64 [ %182, %.preheader26.split.split ], [ 0, %.preheader26.split ]
-  %176 = phi i32 [ %spec.select, %.preheader26.split.split ], [ 0, %.preheader26.split ]
+.preheader27.split.split:                         ; preds = %.preheader27.split, %.preheader27.split.split
+  %175 = phi i64 [ %182, %.preheader27.split.split ], [ 0, %.preheader27.split ]
+  %176 = phi i32 [ %spec.select, %.preheader27.split.split ], [ 0, %.preheader27.split ]
   %177 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %175
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8
@@ -3804,24 +3804,24 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   %spec.select = add i32 %176, %181
   %182 = add nuw nsw i64 %175, 1
   %183 = icmp eq i64 %182, %10
-  br i1 %183, label %.loopexit27, label %.preheader26.split.split, !llvm.loop !52
+  br i1 %183, label %.loopexit28, label %.preheader27.split.split, !llvm.loop !52
 
-.split43.us:                                      ; preds = %.preheader26.split.split.us, %160
-  %.us-phi44 = phi i64 [ %131, %160 ], [ %167, %.preheader26.split.split.us ]
+.split44.us:                                      ; preds = %.preheader27.split.split.us, %160
+  %.us-phi45 = phi i64 [ %131, %160 ], [ %167, %.preheader27.split.split.us ]
   %184 = icmp eq ptr %5, null
   br i1 %184, label %.critedge, label %185
 
-185:                                              ; preds = %.split43.us
-  %186 = trunc i64 %.us-phi44 to i32
+185:                                              ; preds = %.split44.us
+  %186 = trunc i64 %.us-phi45 to i32
   store i32 %186, ptr %5, align 4
   br label %.critedge
 
-.loopexit27:                                      ; preds = %.preheader26.split.split, %172, %163
-  %.us-phi45 = phi i32 [ %164, %163 ], [ 0, %172 ], [ %spec.select, %.preheader26.split.split ]
-  %187 = icmp eq i32 %.us-phi45, %2
+.loopexit28:                                      ; preds = %.preheader27.split.split, %172, %163
+  %.us-phi46 = phi i32 [ %164, %163 ], [ 0, %172 ], [ %spec.select, %.preheader27.split.split ]
+  %187 = icmp eq i32 %.us-phi46, %2
   br i1 %187, label %.critedge, label %188
 
-188:                                              ; preds = %.loopexit27
+188:                                              ; preds = %.loopexit28
   %189 = icmp eq i64 %129, 0
   br i1 %189, label %.critedge, label %190
 
@@ -3839,19 +3839,19 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 198:                                              ; preds = %194
   %199 = call i64 @schedule_timeout(i64 noundef %129) #12
-  br label %.preheader26, !llvm.loop !53
+  br label %.preheader27, !llvm.loop !53
 
-.critedge:                                        ; preds = %.loopexit27, %188, %194, %190, %.split56.us, %185, %.split43.us
-  %200 = phi i64 [ %129, %185 ], [ %129, %.split43.us ], [ %4, %.split56.us ], [ -512, %190 ], [ -512, %194 ], [ -62, %188 ], [ %129, %.loopexit27 ]
+.critedge:                                        ; preds = %.loopexit28, %188, %194, %190, %.split57.us, %185, %.split44.us
+  %200 = phi i64 [ %129, %185 ], [ %129, %.split44.us ], [ %4, %.split57.us ], [ -512, %190 ], [ -512, %194 ], [ -62, %188 ], [ %129, %.loopexit28 ]
   store volatile i32 0, ptr %125, align 8
-  br label %.loopexit33
+  br label %.loopexit34
 
-.loopexit33:                                      ; preds = %.thread, %.critedge, %97, %.loopexit34
-  %201 = phi i64 [ %4, %.loopexit34 ], [ %200, %.critedge ], [ %4, %97 ], [ -22, %.thread ]
+.loopexit34:                                      ; preds = %.thread, %.critedge, %97, %.loopexit35
+  %201 = phi i64 [ %4, %.loopexit35 ], [ %200, %.critedge ], [ %4, %97 ], [ -22, %.thread ]
   br i1 %28, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit33, %.thread25
-  %202 = phi i64 [ %235, %.thread25 ], [ 0, %.loopexit33 ]
+.preheader:                                       ; preds = %.loopexit34, %.thread26
+  %202 = phi i64 [ %235, %.thread26 ], [ 0, %.loopexit34 ]
   %203 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
@@ -3890,7 +3890,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   %224 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %.thread25, label %227
+  br i1 %226, label %.thread26, label %227
 
 227:                                              ; preds = %223
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 56
@@ -3900,23 +3900,23 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 231:                                              ; preds = %227
   %232 = icmp sgt i32 %229, 0
-  br i1 %232, label %.thread25, label %233, !prof !8
+  br i1 %232, label %.thread26, label %233, !prof !8
 
 233:                                              ; preds = %231
   call void @refcount_warn_saturate(ptr noundef nonnull %228, i32 noundef 3) #12
-  br label %.thread25
+  br label %.thread26
 
 234:                                              ; preds = %227
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   call void @dma_fence_release(ptr noundef nonnull %228) #12, !callees !17
-  br label %.thread25
+  br label %.thread26
 
-.thread25:                                        ; preds = %231, %233, %234, %223
+.thread26:                                        ; preds = %231, %233, %234, %223
   %235 = add nuw nsw i64 %202, 1
   %236 = icmp eq i64 %235, %10
   br i1 %236, label %.loopexit, label %.preheader, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.thread25, %.loopexit33
+.loopexit:                                        ; preds = %.thread26, %.loopexit34
   call void @kfree(ptr noundef nonnull %25) #12
   br label %237
 

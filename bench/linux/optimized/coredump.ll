@@ -264,13 +264,13 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 4
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %.thread29
+  br i1 %56, label %57, label %.thread30
 
 57:                                               ; preds = %44
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %.thread29
+  br i1 %60, label %61, label %.thread30
 
 61:                                               ; preds = %57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !6
@@ -289,9 +289,9 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load volatile ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, %70
-  br i1 %72, label %.loopexit69, label %.preheader68
+  br i1 %72, label %.loopexit70, label %.preheader69
 
-.preheader68:                                     ; preds = %61, %99
+.preheader69:                                     ; preds = %61, %99
   %73 = phi ptr [ %101, %99 ], [ %71, %61 ]
   %74 = phi i32 [ %100, %99 ], [ 0, %61 ]
   %75 = getelementptr i8, ptr %73, i64 -1488
@@ -299,7 +299,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %76 = icmp eq ptr %75, %7
   br i1 %76, label %99, label %77
 
-77:                                               ; preds = %.preheader68
+77:                                               ; preds = %.preheader69
   %78 = getelementptr i8, ptr %73, i64 -1444
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 8
@@ -332,20 +332,20 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %98 = add i32 %74, %97
   br label %99
 
-99:                                               ; preds = %92, %77, %.preheader68
-  %100 = phi i32 [ %74, %77 ], [ %74, %.preheader68 ], [ %98, %92 ]
+99:                                               ; preds = %92, %77, %.preheader69
+  %100 = phi i32 [ %74, %77 ], [ %74, %.preheader69 ], [ %98, %92 ]
   %101 = load volatile ptr, ptr %73, align 8
   %102 = load ptr, ptr %13, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = icmp eq ptr %101, %103
-  br i1 %104, label %.loopexit69, label %.preheader68, !llvm.loop !9
+  br i1 %104, label %.loopexit70, label %.preheader69, !llvm.loop !9
 
-.thread29:                                        ; preds = %57, %44
+.thread30:                                        ; preds = %57, %44
   %105 = load ptr, ptr %51, align 32
   call void @_raw_spin_unlock_irq(ptr noundef %105) #20
   br label %495
 
-.loopexit69:                                      ; preds = %99, %61
+.loopexit70:                                      ; preds = %99, %61
   %106 = phi i32 [ 0, %61 ], [ %100, %99 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %7, i32 -5, ptr elementtype(i8) %7) #20, !srcloc !12
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -358,26 +358,26 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %111 = icmp sgt i32 %106, 0
   br i1 %111, label %112, label %122
 
-112:                                              ; preds = %.loopexit69
+112:                                              ; preds = %.loopexit70
   %113 = call i32 @wait_for_completion_state(ptr noundef nonnull %46, i32 noundef 8194) #20
   %114 = load ptr, ptr %49, align 8
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %.thread28, label %.preheader67
+  br i1 %115, label %.thread29, label %.preheader68
 
-.preheader67:                                     ; preds = %112, %.preheader67
-  %116 = phi ptr [ %120, %.preheader67 ], [ %114, %112 ]
+.preheader68:                                     ; preds = %112, %.preheader68
+  %116 = phi ptr [ %120, %.preheader68 ], [ %114, %112 ]
   %117 = load ptr, ptr %116, align 8
   %118 = call i64 @wait_task_inactive(ptr noundef %117, i32 noundef 65535) #20
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.thread28, label %.preheader67, !llvm.loop !13
+  br i1 %121, label %.thread29, label %.preheader68, !llvm.loop !13
 
-122:                                              ; preds = %.loopexit69
+122:                                              ; preds = %.loopexit70
   %123 = icmp slt i32 %106, 0
-  br i1 %123, label %495, label %.thread28
+  br i1 %123, label %495, label %.thread29
 
-.thread28:                                        ; preds = %.preheader67, %112, %122
+.thread29:                                        ; preds = %.preheader68, %112, %122
   %124 = call ptr @override_creds(ptr noundef nonnull %38) #20
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %126 = load ptr, ptr %125, align 8
@@ -394,9 +394,9 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %135 = ashr exact i64 %134, 32
   %136 = call ptr @krealloc(ptr noundef null, i64 noundef %135, i32 noundef 3264) #21
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread39, label %138
+  br i1 %137, label %.thread40, label %138
 
-138:                                              ; preds = %.thread28
+138:                                              ; preds = %.thread29
   %139 = load i32, ptr @core_name_size, align 4
   %140 = icmp slt i32 %139, %133
   br i1 %140, label %141, label %142
@@ -416,13 +416,13 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %146 = call noalias align 8 dereferenceable_or_null(512) ptr @kmalloc_trace(ptr noundef %145, i32 noundef 3264, i64 noundef 512) #22
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %.thread39, label %148
+  br i1 %147, label %.thread40, label %148
 
 148:                                              ; preds = %144
   store i64 0, ptr %146, align 8
   %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_pattern, i64 1), align 1
   %.not = icmp eq i8 %149, 0
-  br i1 %.not, label %.thread39, label %150
+  br i1 %.not, label %.thread40, label %150
 
 150:                                              ; preds = %148, %142
   %151 = phi ptr [ %146, %148 ], [ null, %142 ]
@@ -442,20 +442,20 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %163 = phi i32 [ 0, %150 ], [ %272, %270 ]
   %164 = load i8, ptr %162, align 1
   %165 = icmp eq i8 %164, 0
-  br i1 %165, label %.loopexit64, label %166
+  br i1 %165, label %.loopexit65, label %166
 
 166:                                              ; preds = %160
-  br i1 %128, label %thread-pre-split, label %.preheader63
+  br i1 %128, label %thread-pre-split, label %.preheader64
 
-.preheader63:                                     ; preds = %166
+.preheader64:                                     ; preds = %166
   %167 = load i32, ptr %129, align 8
-  %.fr89 = freeze i32 %167
-  %168 = icmp eq i32 %.fr89, 0
-  br i1 %168, label %.preheader63.split.us, label %.preheader63.split
+  %.fr90 = freeze i32 %167
+  %168 = icmp eq i32 %.fr90, 0
+  br i1 %168, label %.preheader64.split.us, label %.preheader64.split
 
-.preheader63.split.us:                            ; preds = %.preheader63, %176
-  %169 = phi i8 [ %178, %176 ], [ %164, %.preheader63 ]
-  %170 = phi ptr [ %177, %176 ], [ %162, %.preheader63 ]
+.preheader64.split.us:                            ; preds = %.preheader64, %176
+  %169 = phi i8 [ %178, %176 ], [ %164, %.preheader64 ]
+  %170 = phi ptr [ %177, %176 ], [ %162, %.preheader64 ]
   %171 = zext i8 %169 to i64
   %172 = getelementptr i8, ptr @_ctype, i64 %171
   %173 = load i8, ptr %172, align 1
@@ -463,13 +463,13 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %175 = icmp eq i8 %174, 0
   br i1 %175, label %thread-pre-split, label %176
 
-176:                                              ; preds = %.preheader63.split.us
+176:                                              ; preds = %.preheader64.split.us
   %177 = getelementptr i8, ptr %170, i64 1
   %178 = load i8, ptr %177, align 1
   %179 = icmp eq i8 %178, 0
-  br i1 %179, label %.loopexit64, label %.preheader63.split.us, !llvm.loop !14
+  br i1 %179, label %.loopexit65, label %.preheader64.split.us, !llvm.loop !14
 
-.preheader63.split:                               ; preds = %.preheader63
+.preheader64.split:                               ; preds = %.preheader64
   %180 = zext i8 %164 to i64
   %181 = getelementptr i8, ptr @_ctype, i64 %180
   %182 = load i8, ptr %181, align 1
@@ -485,17 +485,17 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %190 = icmp eq i8 %189, 0
   br i1 %190, label %.split.us, label %.lr.ph, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.preheader63.split, %185
-  %191 = phi ptr [ %192, %185 ], [ %162, %.preheader63.split ]
+.lr.ph:                                           ; preds = %.preheader64.split, %185
+  %191 = phi ptr [ %192, %185 ], [ %162, %.preheader64.split ]
   %192 = getelementptr i8, ptr %191, i64 1
   %193 = load i8, ptr %192, align 1
   %194 = icmp eq i8 %193, 0
-  br i1 %194, label %.loopexit64, label %185, !llvm.loop !14
+  br i1 %194, label %.loopexit65, label %185, !llvm.loop !14
 
 .split.us:                                        ; preds = %185
   %195 = call i32 (ptr, ptr, ...) @cn_printf(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, i32 noundef 0), !range !15
   %196 = icmp eq i32 %195, 0
-  br i1 %196, label %197, label %.thread39
+  br i1 %196, label %197, label %.thread40
 
 197:                                              ; preds = %.split.us
   %198 = load i32, ptr %129, align 8
@@ -507,10 +507,10 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %.pr.pre = load i8, ptr %192, align 1
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.preheader63.split.us, %.preheader63.split, %197, %166
-  %203 = phi i8 [ %164, %166 ], [ %.pr.pre, %197 ], [ %164, %.preheader63.split ], [ %169, %.preheader63.split.us ]
-  %204 = phi i32 [ %161, %166 ], [ %200, %197 ], [ %161, %.preheader63.split ], [ %161, %.preheader63.split.us ]
-  %205 = phi ptr [ %162, %166 ], [ %192, %197 ], [ %162, %.preheader63.split ], [ %170, %.preheader63.split.us ]
+thread-pre-split:                                 ; preds = %.preheader64.split.us, %.preheader64.split, %197, %166
+  %203 = phi i8 [ %164, %166 ], [ %.pr.pre, %197 ], [ %164, %.preheader64.split ], [ %169, %.preheader64.split.us ]
+  %204 = phi i32 [ %161, %166 ], [ %200, %197 ], [ %161, %.preheader64.split ], [ %161, %.preheader64.split.us ]
+  %205 = phi ptr [ %162, %166 ], [ %192, %197 ], [ %162, %.preheader64.split ], [ %170, %.preheader64.split.us ]
   %206 = icmp eq i8 %203, 37
   br i1 %206, label %211, label %207
 
@@ -524,7 +524,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %212 = getelementptr i8, ptr %205, i64 1
   %213 = load i8, ptr %212, align 1
   switch i8 %213, label %266 [
-    i8 0, label %.loopexit64
+    i8 0, label %.loopexit65
     i8 37, label %214
     i8 112, label %216
     i8 80, label %219
@@ -642,7 +642,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %160, label %286, !llvm.loop !14
 
-.loopexit64:                                      ; preds = %211, %160, %.lr.ph, %176
+.loopexit65:                                      ; preds = %211, %160, %.lr.ph, %176
   %275 = phi i32 [ %161, %176 ], [ %161, %.lr.ph ], [ %204, %211 ], [ %161, %160 ]
   %276 = icmp eq i32 %163, 0
   %277 = select i1 %128, i1 %276, i1 false
@@ -651,38 +651,38 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %280 = select i1 %277, i1 %279, i1 false
   br i1 %280, label %281, label %285
 
-281:                                              ; preds = %.loopexit64
+281:                                              ; preds = %.loopexit65
   %282 = call i32 @__task_pid_nr_ns(ptr noundef %7, i32 noundef 1, ptr noundef null) #20
   %283 = call i32 (ptr, ptr, ...) @cn_printf(ptr noundef nonnull %3, ptr noundef nonnull @.str.21, i32 noundef %282), !range !15
   %284 = icmp eq i32 %283, 0
-  br i1 %284, label %.thread, label %.thread39
+  br i1 %284, label %.thread, label %.thread40
 
-285:                                              ; preds = %.loopexit64
-  br i1 %128, label %.thread, label %.thread37
+285:                                              ; preds = %.loopexit65
+  br i1 %128, label %.thread, label %.thread38
 
 286:                                              ; preds = %270
   %287 = icmp slt i32 %273, 0
-  br i1 %287, label %.thread39, label %.thread37
+  br i1 %287, label %.thread40, label %.thread38
 
-.thread39:                                        ; preds = %.split.us, %144, %.thread28, %281, %148, %286
-  %.ph3343 = phi ptr [ %151, %286 ], [ null, %.thread28 ], [ %151, %281 ], [ %146, %148 ], [ null, %144 ], [ %151, %.split.us ]
+.thread40:                                        ; preds = %.split.us, %144, %.thread29, %281, %148, %286
+  %.ph3444 = phi ptr [ %151, %286 ], [ null, %.thread29 ], [ %151, %281 ], [ %146, %148 ], [ null, %144 ], [ %151, %.split.us ]
   %288 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #23
   %289 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #23
-  br label %.thread50
+  br label %.thread51
 
-.thread37:                                        ; preds = %285, %286
+.thread38:                                        ; preds = %285, %286
   %290 = phi i32 [ %204, %286 ], [ %275, %285 ]
   %291 = load i64, ptr %12, align 8
   %292 = icmp eq i64 %291, 1
   br i1 %292, label %293, label %297
 
-293:                                              ; preds = %.thread37
+293:                                              ; preds = %.thread38
   %294 = call i32 @__task_pid_nr_ns(ptr noundef %7, i32 noundef 1, ptr noundef null) #20
   %295 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %294, ptr noundef nonnull %154) #23
   %296 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #23
-  br label %.thread50
+  br label %.thread51
 
-297:                                              ; preds = %.thread37
+297:                                              ; preds = %.thread38
   store i64 -1, ptr %12, align 8
   %298 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @do_coredump.core_dump_count, i32 1, ptr nonnull elementtype(i32) @do_coredump.core_dump_count) #20, !srcloc !16
   %299 = add i32 %298, 1
@@ -696,32 +696,32 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %305 = call i32 @__task_pid_nr_ns(ptr noundef %7, i32 noundef 1, ptr noundef null) #20
   %306 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %305, ptr noundef nonnull %154) #23
   %307 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #23
-  br label %.thread57
+  br label %.thread58
 
 308:                                              ; preds = %297
   %309 = add i32 %290, 1
   %310 = icmp slt i32 %309, 0
-  br i1 %310, label %.thread44, label %311, !prof !17
+  br i1 %310, label %.thread45, label %311, !prof !17
 
 311:                                              ; preds = %308
   %312 = zext nneg i32 %309 to i64
   %313 = shl nuw nsw i64 %312, 3
   %314 = call noalias align 8 ptr @__kmalloc(i64 noundef %313, i32 noundef 3264) #24
   %315 = icmp eq ptr %314, null
-  br i1 %315, label %.thread44, label %316
+  br i1 %315, label %.thread45, label %316
 
 316:                                              ; preds = %311
   %317 = icmp sgt i32 %290, 0
-  br i1 %317, label %318, label %.loopexit62
+  br i1 %317, label %318, label %.loopexit63
 
 318:                                              ; preds = %316
   %319 = zext nneg i32 %290 to i64
   %320 = load ptr, ptr %3, align 8
   br label %322
 
-.thread44:                                        ; preds = %308, %311
+.thread45:                                        ; preds = %308, %311
   %321 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.do_coredump) #23
-  br label %.thread57
+  br label %.thread58
 
 322:                                              ; preds = %322, %318
   %323 = phi i64 [ 0, %318 ], [ %328, %322 ]
@@ -732,9 +732,9 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   store ptr %326, ptr %327, align 8
   %328 = add nuw nsw i64 %323, 1
   %329 = icmp eq i64 %328, %319
-  br i1 %329, label %.loopexit62, label %322, !llvm.loop !18
+  br i1 %329, label %.loopexit63, label %322, !llvm.loop !18
 
-.loopexit62:                                      ; preds = %322, %316
+.loopexit63:                                      ; preds = %322, %316
   %330 = phi i64 [ 0, %316 ], [ %319, %322 ]
   %331 = getelementptr ptr, ptr %314, i64 %330
   store ptr null, ptr %331, align 8
@@ -743,27 +743,27 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %334 = icmp eq ptr %333, null
   br i1 %334, label %338, label %335
 
-335:                                              ; preds = %.loopexit62
+335:                                              ; preds = %.loopexit63
   %336 = call i32 @call_usermodehelper_exec(ptr noundef nonnull %333, i32 noundef 1) #20
   %337 = icmp eq i32 %336, 0
   call void @kfree(ptr noundef nonnull %314) #20
-  br i1 %337, label %.thread51, label %339
+  br i1 %337, label %.thread52, label %339
 
-338:                                              ; preds = %.loopexit62
+338:                                              ; preds = %.loopexit63
   call void @kfree(ptr noundef nonnull %314) #20
   br label %339
 
 339:                                              ; preds = %335, %338
   %340 = load ptr, ptr %3, align 8
   %341 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %340) #23
-  br label %.thread54
+  br label %.thread55
 
 .thread:                                          ; preds = %281, %285
   %342 = load i64, ptr %12, align 8
   %343 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %344 = load i64, ptr %343, align 8
   %345 = icmp ult i64 %342, %344
-  br i1 %345, label %.thread50, label %346
+  br i1 %345, label %.thread51, label %346
 
 346:                                              ; preds = %.thread
   %347 = load ptr, ptr %3, align 8
@@ -778,7 +778,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %352 = call i32 @__task_pid_nr_ns(ptr noundef %7, i32 noundef 1, ptr noundef null) #20
   %353 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %352, ptr noundef nonnull %154) #23
   %354 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #23
-  br label %.thread50
+  br label %.thread51
 
 355:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -791,7 +791,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   store ptr %357, ptr %11, align 8
   call void @path_put(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pr52 = load ptr, ptr %11, align 8
+  %.pr53 = load ptr, ptr %11, align 8
   br label %362
 
 358:                                              ; preds = %346
@@ -802,9 +802,9 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   br label %362
 
 362:                                              ; preds = %358, %355
-  %363 = phi ptr [ %361, %358 ], [ %.pr52, %355 ]
+  %363 = phi ptr [ %361, %358 ], [ %.pr53, %355 ]
   %364 = icmp ugt ptr %363, inttoptr (i64 -4096 to ptr)
-  br i1 %364, label %.thread50, label %365
+  br i1 %364, label %.thread51, label %365
 
 365:                                              ; preds = %362
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 168
@@ -812,7 +812,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 72
   %369 = load i32, ptr %368, align 8
   %370 = icmp ugt i32 %369, 1
-  br i1 %370, label %.thread54, label %371
+  br i1 %370, label %.thread55, label %371
 
 371:                                              ; preds = %365
   %372 = getelementptr inbounds nuw i8, ptr %363, i64 160
@@ -820,12 +820,12 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %375 = load ptr, ptr %374, align 8
   %376 = icmp eq ptr %375, null
-  br i1 %376, label %.thread54, label %377
+  br i1 %376, label %.thread55, label %377
 
 377:                                              ; preds = %371
   %378 = load i16, ptr %367, align 8
   %379 = icmp slt i16 %378, -28672
-  br i1 %379, label %380, label %.thread54
+  br i1 %379, label %380, label %.thread55
 
 380:                                              ; preds = %377
   %381 = getelementptr inbounds nuw i8, ptr %363, i64 152
@@ -851,11 +851,11 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
 398:                                              ; preds = %380
   %399 = call i32 @___ratelimit(ptr noundef nonnull @do_coredump._rs, ptr noundef nonnull @__func__.do_coredump) #20
   %400 = icmp eq i32 %399, 0
-  br i1 %400, label %.thread54, label %401
+  br i1 %400, label %.thread55, label %401
 
 401:                                              ; preds = %398
   %402 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %347) #23
-  br label %.thread54
+  br label %.thread55
 
 403:                                              ; preds = %380
   %404 = load i16, ptr %367, align 8
@@ -866,11 +866,11 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
 407:                                              ; preds = %403
   %408 = call i32 @___ratelimit(ptr noundef nonnull @do_coredump._rs.9, ptr noundef nonnull @__func__.do_coredump) #20
   %409 = icmp eq i32 %408, 0
-  br i1 %409, label %.thread54, label %410
+  br i1 %409, label %.thread55, label %410
 
 410:                                              ; preds = %407
   %411 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %347) #23
-  br label %.thread54
+  br label %.thread55
 
 412:                                              ; preds = %403
   %413 = load ptr, ptr %11, align 8
@@ -878,22 +878,22 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %415 = load i32, ptr %414, align 4
   %416 = and i32 %415, 262144
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %.thread54.thread, label %418
+  br i1 %417, label %.thread55.thread, label %418
 
 418:                                              ; preds = %412
   %419 = getelementptr inbounds nuw i8, ptr %413, i64 160
   %420 = load ptr, ptr %419, align 8
   %421 = call i32 @do_truncate(ptr noundef %384, ptr noundef %420, i64 noundef 0, i32 noundef 0, ptr noundef %413) #20
   %422 = icmp eq i32 %421, 0
-  br i1 %422, label %.thread51, label %.thread54
+  br i1 %422, label %.thread52, label %.thread55
 
-.thread51:                                        ; preds = %335, %418
+.thread52:                                        ; preds = %335, %418
   %423 = phi i1 [ false, %418 ], [ true, %335 ]
   %424 = call i32 @unshare_files() #20
   %425 = icmp eq i32 %424, 0
-  br i1 %425, label %426, label %.thread54
+  br i1 %425, label %426, label %.thread55
 
-426:                                              ; preds = %.thread51
+426:                                              ; preds = %.thread52
   %427 = call fastcc zeroext i1 @dump_interrupted()
   br i1 %427, label %451, label %428
 
@@ -905,11 +905,11 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
 431:                                              ; preds = %428
   %432 = load ptr, ptr %3, align 8
   %433 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %432) #23
-  br label %.thread54
+  br label %.thread55
 
 434:                                              ; preds = %428
   %435 = call fastcc zeroext i1 @dump_vma_snapshot(ptr noundef nonnull %4)
-  br i1 %435, label %436, label %.thread54
+  br i1 %435, label %436, label %.thread55
 
 436:                                              ; preds = %434
   %437 = load ptr, ptr %11, align 8
@@ -933,8 +933,8 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
 448:                                              ; preds = %445, %436
   %449 = load ptr, ptr %11, align 8
   %450 = getelementptr i8, ptr %449, i64 168
-  %.val25 = load ptr, ptr %450, align 8
-  call fastcc void @file_end_write(ptr %.val25)
+  %.val26 = load ptr, ptr %450, align 8
+  call fastcc void @file_end_write(ptr %.val26)
   call fastcc void @free_vma_snapshot(ptr noundef nonnull %4)
   br label %451
 
@@ -943,45 +943,45 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   %453 = load i32, ptr @core_pipe_limit, align 4
   %454 = icmp ne i32 %453, 0
   %455 = select i1 %423, i1 %454, i1 false
-  br i1 %455, label %456, label %.thread54
+  br i1 %455, label %456, label %.thread55
 
 456:                                              ; preds = %451
   %457 = load ptr, ptr %11, align 8
   %458 = getelementptr i8, ptr %457, i64 200
-  %.val26 = load ptr, ptr %458, align 8
-  call fastcc void @wait_for_dump_helpers(ptr %.val26)
-  br label %.thread54
+  %.val27 = load ptr, ptr %458, align 8
+  call fastcc void @wait_for_dump_helpers(ptr %.val27)
+  br label %.thread55
 
-.thread54:                                        ; preds = %418, %407, %410, %398, %401, %377, %371, %365, %339, %456, %451, %434, %431, %.thread51
-  %.ph58 = phi i1 [ false, %418 ], [ false, %407 ], [ false, %410 ], [ false, %398 ], [ false, %401 ], [ false, %377 ], [ false, %371 ], [ false, %365 ], [ %423, %431 ], [ %423, %434 ], [ %423, %451 ], [ true, %456 ], [ %423, %.thread51 ], [ true, %339 ]
-  %.ph60 = phi i8 [ 0, %418 ], [ 0, %407 ], [ 0, %410 ], [ 0, %398 ], [ 0, %401 ], [ 0, %377 ], [ 0, %371 ], [ 0, %365 ], [ 0, %431 ], [ 0, %434 ], [ %452, %451 ], [ %452, %456 ], [ 0, %.thread51 ], [ 0, %339 ]
-  %.pr61 = load ptr, ptr %11, align 8
-  %459 = icmp eq ptr %.pr61, null
+.thread55:                                        ; preds = %418, %407, %410, %398, %401, %377, %371, %365, %339, %456, %451, %434, %431, %.thread52
+  %.ph59 = phi i1 [ false, %418 ], [ false, %407 ], [ false, %410 ], [ false, %398 ], [ false, %401 ], [ false, %377 ], [ false, %371 ], [ false, %365 ], [ %423, %431 ], [ %423, %434 ], [ %423, %451 ], [ true, %456 ], [ %423, %.thread52 ], [ true, %339 ]
+  %.ph61 = phi i8 [ 0, %418 ], [ 0, %407 ], [ 0, %410 ], [ 0, %398 ], [ 0, %401 ], [ 0, %377 ], [ 0, %371 ], [ 0, %365 ], [ 0, %431 ], [ 0, %434 ], [ %452, %451 ], [ %452, %456 ], [ 0, %.thread52 ], [ 0, %339 ]
+  %.pr62 = load ptr, ptr %11, align 8
+  %459 = icmp eq ptr %.pr62, null
   br i1 %459, label %464, label %462
 
-.thread54.thread:                                 ; preds = %412
+.thread55.thread:                                 ; preds = %412
   %460 = icmp eq ptr %413, null
-  br i1 %460, label %.thread50, label %.thread140
+  br i1 %460, label %.thread51, label %.thread141
 
-.thread140:                                       ; preds = %.thread54.thread
+.thread141:                                       ; preds = %.thread55.thread
   %461 = call i32 @filp_close(ptr noundef nonnull %413, ptr noundef null) #20
-  br label %.thread50
+  br label %.thread51
 
-462:                                              ; preds = %.thread54
-  %463 = call i32 @filp_close(ptr noundef nonnull %.pr61, ptr noundef null) #20
-  br i1 %.ph58, label %.thread57, label %.thread50
+462:                                              ; preds = %.thread55
+  %463 = call i32 @filp_close(ptr noundef nonnull %.pr62, ptr noundef null) #20
+  br i1 %.ph59, label %.thread58, label %.thread51
 
-464:                                              ; preds = %.thread54
-  br i1 %.ph58, label %.thread57, label %.thread50
+464:                                              ; preds = %.thread55
+  br i1 %.ph59, label %.thread58, label %.thread51
 
-.thread57:                                        ; preds = %304, %.thread44, %462, %464
-  %465 = phi i8 [ %.ph60, %464 ], [ %.ph60, %462 ], [ 0, %.thread44 ], [ 0, %304 ]
+.thread58:                                        ; preds = %304, %.thread45, %462, %464
+  %465 = phi i8 [ %.ph61, %464 ], [ %.ph61, %462 ], [ 0, %.thread45 ], [ 0, %304 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @do_coredump.core_dump_count, ptr nonnull elementtype(i32) @do_coredump.core_dump_count) #20, !srcloc !21
-  br label %.thread50
+  br label %.thread51
 
-.thread50:                                        ; preds = %.thread54.thread, %.thread140, %362, %.thread, %351, %293, %.thread39, %462, %.thread57, %464
-  %466 = phi ptr [ %151, %.thread57 ], [ %151, %464 ], [ %151, %462 ], [ %151, %293 ], [ %.ph3343, %.thread39 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread140 ], [ %151, %.thread54.thread ]
-  %467 = phi i8 [ %465, %.thread57 ], [ %.ph60, %464 ], [ %.ph60, %462 ], [ 0, %293 ], [ 0, %.thread39 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread140 ], [ 0, %.thread54.thread ]
+.thread51:                                        ; preds = %.thread55.thread, %.thread141, %362, %.thread, %351, %293, %.thread40, %462, %.thread58, %464
+  %466 = phi ptr [ %151, %.thread58 ], [ %151, %464 ], [ %151, %462 ], [ %151, %293 ], [ %.ph3444, %.thread40 ], [ %151, %351 ], [ %151, %.thread ], [ %151, %362 ], [ %151, %.thread141 ], [ %151, %.thread55.thread ]
+  %467 = phi i8 [ %465, %.thread58 ], [ %.ph61, %464 ], [ %.ph61, %462 ], [ 0, %293 ], [ 0, %.thread40 ], [ 0, %351 ], [ 0, %.thread ], [ 0, %362 ], [ 0, %.thread141 ], [ 0, %.thread55.thread ]
   call void @kfree(ptr noundef %466) #20
   %468 = load ptr, ptr %3, align 8
   call void @kfree(ptr noundef %468) #20
@@ -990,7 +990,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   call void @_raw_spin_lock_irq(ptr noundef %470) #20
   br i1 %469, label %481, label %471
 
-471:                                              ; preds = %.thread50
+471:                                              ; preds = %.thread51
   %472 = getelementptr inbounds nuw i8, ptr %7, i64 1936
   %473 = load i64, ptr %472, align 8
   %474 = and i64 %473, 256
@@ -1005,7 +1005,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   store i32 %480, ptr %478, align 8
   br label %481
 
-481:                                              ; preds = %476, %471, %.thread50
+481:                                              ; preds = %476, %471, %.thread51
   %482 = load ptr, ptr %13, align 8
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 120
   %484 = load ptr, ptr %483, align 8
@@ -1032,7 +1032,7 @@ thread-pre-split:                                 ; preds = %.preheader63.split.
   call void @revert_creds(ptr noundef %124) #20
   br label %495
 
-495:                                              ; preds = %.thread29, %.loopexit, %122
+495:                                              ; preds = %.thread30, %.loopexit, %122
   %496 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %38, i64 1, ptr nonnull elementtype(i64) %38) #20, !srcloc !24
   %497 = icmp ult i8 %496, 2
   call void @llvm.assume(i1 %497)

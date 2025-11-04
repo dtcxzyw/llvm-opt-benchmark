@@ -216,8 +216,8 @@ define dso_local range(i32 0, 2) i32 @filter_provider_set_filter(i32 noundef %0,
   store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 2016), align 8, !tbaa !28
   br label %.thread72
 
-.thread72:                                        ; preds = %29, %25, %12, %26, %38, %2
-  %.051 = phi i32 [ 0, %2 ], [ 1, %38 ], [ 0, %26 ], [ 0, %12 ], [ 0, %25 ], [ 0, %29 ]
+.thread72:                                        ; preds = %25, %29, %12, %26, %2, %38
+  %.051 = phi i32 [ 0, %2 ], [ 1, %38 ], [ 0, %26 ], [ 0, %12 ], [ 0, %29 ], [ 0, %25 ]
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ourglobals, i64 8), align 8, !tbaa !18
   call void @OSSL_PROVIDER_unquery_operation(ptr noundef %44, i32 noundef %0, ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 264) #7

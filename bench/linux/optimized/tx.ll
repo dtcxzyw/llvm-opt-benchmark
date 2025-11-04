@@ -9055,16 +9055,16 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %104 = getelementptr ptr, ptr %102, i64 %103
   %105 = load volatile ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %346, label %.thread12, !prof !8
+  br i1 %106, label %346, label %.thread17, !prof !8
 
-.thread12:                                        ; preds = %101
+.thread17:                                        ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %107, ptr noundef nonnull align 4 dereferenceable(6) %108, i64 6, i1 false)
   br label %109
 
-109:                                              ; preds = %.thread12, %.thread, %98
-  %110 = phi i8 [ %12, %98 ], [ %80, %.thread ], [ %12, %.thread12 ]
+109:                                              ; preds = %.thread17, %.thread, %98
+  %110 = phi i8 [ %12, %98 ], [ %80, %.thread ], [ %12, %.thread17 ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %112 = getelementptr i8, ptr %16, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %111, ptr noundef align 1 dereferenceable(6) %112, i64 6, i1 false)
@@ -9101,9 +9101,9 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %133 = getelementptr ptr, ptr %132, i64 %128
   %134 = load volatile ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %138, label %.thread13, !prof !8
+  br i1 %135, label %138, label %.thread18, !prof !8
 
-.thread13:                                        ; preds = %127
+.thread18:                                        ; preds = %127
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %136, ptr noundef nonnull align 8 dereferenceable(6) %137, i64 6, i1 false)
@@ -9174,13 +9174,13 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %170, ptr noundef nonnull align 2 dereferenceable(6) %171, i64 6, i1 false)
   br label %172
 
-172:                                              ; preds = %.thread13, %166, %162, %156, %148, %109, %63
-  %173 = phi i8 [ %12, %166 ], [ %12, %162 ], [ %12, %148 ], [ %12, %156 ], [ %110, %109 ], [ %12, %63 ], [ %12, %.thread13 ]
-  %174 = phi ptr [ %33, %166 ], [ %33, %162 ], [ %33, %148 ], [ %33, %156 ], [ %66, %109 ], [ %64, %63 ], [ %33, %.thread13 ]
-  %175 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %67, %109 ], [ %54, %63 ], [ 0, %.thread13 ]
-  %176 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %68, %109 ], [ %55, %63 ], [ 0, %.thread13 ]
-  %177 = phi i16 [ 8, %166 ], [ 8, %162 ], [ 776, %148 ], [ 264, %156 ], [ %70, %109 ], [ %56, %63 ], [ 8, %.thread13 ]
-  %178 = phi i16 [ 24, %166 ], [ 24, %162 ], [ 30, %148 ], [ 24, %156 ], [ 24, %109 ], [ %57, %63 ], [ 24, %.thread13 ]
+172:                                              ; preds = %.thread18, %166, %162, %156, %148, %109, %63
+  %173 = phi i8 [ %12, %166 ], [ %12, %162 ], [ %12, %148 ], [ %12, %156 ], [ %110, %109 ], [ %12, %63 ], [ %12, %.thread18 ]
+  %174 = phi ptr [ %33, %166 ], [ %33, %162 ], [ %33, %148 ], [ %33, %156 ], [ %66, %109 ], [ %64, %63 ], [ %33, %.thread18 ]
+  %175 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %67, %109 ], [ %54, %63 ], [ 0, %.thread18 ]
+  %176 = phi i8 [ 0, %166 ], [ 0, %162 ], [ 0, %148 ], [ 0, %156 ], [ %68, %109 ], [ %55, %63 ], [ 0, %.thread18 ]
+  %177 = phi i16 [ 8, %166 ], [ 8, %162 ], [ 776, %148 ], [ 264, %156 ], [ %70, %109 ], [ %56, %63 ], [ 8, %.thread18 ]
+  %178 = phi i16 [ 24, %166 ], [ 24, %162 ], [ 30, %148 ], [ 24, %156 ], [ 24, %109 ], [ %57, %63 ], [ 24, %.thread18 ]
   %179 = icmp eq ptr %174, null
   br i1 %179, label %180, label %182
 
@@ -9237,18 +9237,18 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 216:                                              ; preds = %211
   %217 = getelementptr i8, ptr %16, i64 6
   %218 = tail call zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr noundef %217, ptr noundef null) #20
-  br i1 %218, label %.thread14, label %346, !prof !9
+  br i1 %218, label %.thread19, label %346, !prof !9
 
 219:                                              ; preds = %198
-  br i1 %189, label %.thread14, label %242
+  br i1 %189, label %.thread19, label %242
 
-.thread14:                                        ; preds = %216, %219
+.thread19:                                        ; preds = %216, %219
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
   br i1 %222, label %237, label %223
 
-223:                                              ; preds = %.thread14
+223:                                              ; preds = %.thread19
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 188
@@ -9264,7 +9264,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %236 = or i1 %235, %233
   br i1 %236, label %240, label %242, !prof !159
 
-237:                                              ; preds = %.thread14
+237:                                              ; preds = %.thread19
   %238 = and i32 %4, 1
   %239 = icmp eq i32 %238, 0
   br i1 %239, label %242, label %240, !prof !9
@@ -9283,13 +9283,13 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 247:                                              ; preds = %242
   %248 = tail call ptr @skb_clone(ptr noundef %1, i32 noundef 2080) #20
   %249 = icmp eq ptr %248, null
-  br i1 %249, label %.thread15, label %.thread16, !prof !8
+  br i1 %249, label %.thread20, label %.thread21, !prof !8
 
-.thread16:                                        ; preds = %247
+.thread21:                                        ; preds = %247
   tail call void @consume_skb(ptr noundef %1) #20
   br label %252
 
-.thread15:                                        ; preds = %247
+.thread20:                                        ; preds = %247
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #20
   br label %346
 
@@ -9297,8 +9297,8 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %251 = icmp eq ptr %1, null
   br i1 %251, label %346, label %252, !prof !77
 
-252:                                              ; preds = %.thread16, %250
-  %253 = phi ptr [ %248, %.thread16 ], [ %1, %250 ]
+252:                                              ; preds = %.thread21, %250
+  %253 = phi ptr [ %248, %.thread21 ], [ %1, %250 ]
   store i16 %204, ptr %8, align 2
   %.2..2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %.2..2..2..2..sroa_idx, align 2
@@ -9441,9 +9441,9 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   store i32 %344, ptr %345, align 8
   br label %350
 
-346:                                              ; preds = %.thread15, %138, %101, %90, %339, %250, %216, %211, %180, %32
-  %347 = phi i64 [ -22, %339 ], [ -22, %138 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -1, %211 ], [ -67, %101 ], [ -12, %.thread15 ]
-  %348 = phi ptr [ %253, %339 ], [ %1, %138 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %211 ], [ %1, %101 ], [ null, %.thread15 ]
+346:                                              ; preds = %.thread20, %138, %101, %90, %339, %250, %216, %211, %180, %32
+  %347 = phi i64 [ -22, %339 ], [ -22, %138 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -1, %211 ], [ -67, %101 ], [ -12, %.thread20 ]
+  %348 = phi ptr [ %253, %339 ], [ %1, %138 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %211 ], [ %1, %101 ], [ null, %.thread20 ]
   tail call void @kfree_skb_reason(ptr noundef %348, i32 noundef 2) #20
   %349 = inttoptr i64 %347 to ptr
   br label %350
@@ -10707,9 +10707,9 @@ define dso_local zeroext i1 @ieee80211_beacon_cntdwn_is_complete(ptr noundef %0)
   %26 = getelementptr i8, ptr %0, i64 -1760
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %47, label %.thread6
+  br i1 %28, label %47, label %.thread9
 
-.thread6:                                         ; preds = %25
+.thread9:                                         ; preds = %25
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %32
@@ -10720,10 +10720,10 @@ define dso_local zeroext i1 @ieee80211_beacon_cntdwn_is_complete(ptr noundef %0)
   tail call void asm sideeffect "3355: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3355b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3355) #20, !srcloc !182
   br label %47
 
-32:                                               ; preds = %.thread6, %.thread, %17
-  %.in.in = phi ptr [ %18, %17 ], [ %24, %.thread ], [ %30, %.thread6 ]
-  %33 = phi ptr [ %14, %17 ], [ %23, %.thread ], [ %29, %.thread6 ]
-  %34 = phi ptr [ %10, %17 ], [ %21, %.thread ], [ %27, %.thread6 ]
+32:                                               ; preds = %.thread9, %.thread, %17
+  %.in.in = phi ptr [ %18, %17 ], [ %24, %.thread ], [ %30, %.thread9 ]
+  %33 = phi ptr [ %14, %17 ], [ %23, %.thread ], [ %29, %.thread9 ]
+  %34 = phi ptr [ %10, %17 ], [ %21, %.thread ], [ %27, %.thread9 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i16, ptr %35, align 8
   %37 = icmp eq i16 %36, 0
@@ -11206,7 +11206,7 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %234, %239
   tail call void asm sideeffect "3376: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3376) #20, !srcloc !195
   br label %257
 
-257:                                              ; preds = %7, %14, %30, %.thread, %84, %91, %256, %ieee80211_beacon_get_finish.exit, %.loopexit, %94
+257:                                              ; preds = %94, %.loopexit, %ieee80211_beacon_get_finish.exit, %256, %91, %84, %.thread, %30, %14, %7
   %258 = phi ptr [ null, %.thread ], [ null, %84 ], [ %93, %91 ], [ null, %30 ], [ null, %256 ], [ null, %14 ], [ null, %7 ], [ %183, %ieee80211_beacon_get_finish.exit ], [ null, %94 ], [ null, %.loopexit ]
   tail call void @__rcu_read_unlock() #20
   ret ptr %258
@@ -11874,7 +11874,7 @@ define dso_local ptr @ieee80211_get_buffered_bc(ptr noundef %0, ptr noundef %1) 
   %76 = select i1 %75, ptr %33, ptr null
   br label %.thread
 
-.thread:                                          ; preds = %60, %15, %11, %2, %8, %18, %22, %26, %63
+.thread:                                          ; preds = %60, %15, %11, %63, %26, %22, %18, %8, %2
   %77 = phi ptr [ null, %18 ], [ null, %22 ], [ null, %2 ], [ %76, %63 ], [ null, %8 ], [ null, %26 ], [ null, %11 ], [ null, %15 ], [ null, %60 ]
   call void @__rcu_read_unlock() #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

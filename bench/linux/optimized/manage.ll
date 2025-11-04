@@ -3115,14 +3115,14 @@ define dso_local void @enable_percpu_irq(i32 noundef %0, i32 noundef %1) #1 alig
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 15
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread3, label %.thread
+  br i1 %15, label %.thread4, label %.thread
 
 .thread:                                          ; preds = %7, %10
   %16 = phi i32 [ %14, %10 ], [ %8, %7 ]
   %17 = zext nneg i32 %16 to i64
   %18 = call i32 @__irq_set_trigger(ptr noundef nonnull %5, i64 noundef %17)
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.thread3, label %20
+  br i1 %19, label %.thread4, label %20
 
 20:                                               ; preds = %.thread
   call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #10, !srcloc !91
@@ -3133,11 +3133,11 @@ define dso_local void @enable_percpu_irq(i32 noundef %0, i32 noundef %1) #1 alig
   call void asm sideeffect "453: nop\0A\09.pushsection .discard.instr_end\0A\09.long 453b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 453) #10, !srcloc !95
   br label %21
 
-.thread3:                                         ; preds = %.thread, %10
+.thread4:                                         ; preds = %.thread, %10
   call void @irq_percpu_enable(ptr noundef nonnull %5, i32 noundef %4) #10
   br label %21
 
-21:                                               ; preds = %20, %.thread3
+21:                                               ; preds = %20, %.thread4
   %22 = load i64, ptr %3, align 8
   call void @__irq_put_desc_unlock(ptr noundef nonnull %5, i64 noundef %22, i1 noundef zeroext false) #10
   br label %23

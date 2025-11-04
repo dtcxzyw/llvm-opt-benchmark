@@ -2348,13 +2348,13 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1512
   %24 = load i32, ptr %23, align 8, !tbaa !16
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %.thread156
+  br i1 %25, label %26, label %.thread161
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 1976
   %28 = load i64, ptr %27, align 8, !tbaa !40
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.thread156, label %29
+  br i1 %.not, label %.thread161, label %29
 
 29:                                               ; preds = %26
   %30 = icmp ult i64 %3, %28
@@ -2366,7 +2366,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %34 = add i64 %33, %20
   %35 = udiv i64 %34, %28
   %.not136 = icmp ne i64 %32, %35
-  br label %.thread156
+  br label %.thread161
 
 36:                                               ; preds = %29
   %37 = call i64 @H5F_get_eoa(ptr noundef nonnull %0, i32 noundef %1) #7
@@ -2377,11 +2377,11 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %40 = add i64 %37, %4
   %.off = add i64 %40, -1
   %switch = icmp ult i64 %.off, -2
-  br i1 %switch, label %41, label %..thread156_crit_edge
+  br i1 %switch, label %41, label %..thread161_crit_edge
 
-..thread156_crit_edge:                            ; preds = %39
+..thread161_crit_edge:                            ; preds = %39
   %.pre = load ptr, ptr %21, align 8, !tbaa !42
-  br label %.thread156
+  br label %.thread161
 
 41:                                               ; preds = %39
   %42 = call i64 @H5F_get_base_addr(ptr noundef nonnull %0) #7
@@ -2392,19 +2392,19 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %47 = urem i64 %43, %46
   %.not135 = icmp eq i64 %47, 0
   %48 = sub i64 %46, %47
-  %spec.select148 = select i1 %.not135, i64 0, i64 %48
-  br label %.thread156
+  %spec.select154 = select i1 %.not135, i64 0, i64 %48
+  br label %.thread161
 
 49:                                               ; preds = %36
   %50 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %51 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !41
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1279, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.18) #7
-  br label %.thread161
+  br label %.thread166
 
-.thread156:                                       ; preds = %..thread156_crit_edge, %41, %31, %26, %17
-  %53 = phi ptr [ %22, %26 ], [ %22, %17 ], [ %22, %31 ], [ %44, %41 ], [ %.pre, %..thread156_crit_edge ]
-  %.0111 = phi i64 [ 0, %26 ], [ 0, %17 ], [ 0, %31 ], [ %spec.select148, %41 ], [ 0, %..thread156_crit_edge ]
-  %.not137 = phi i1 [ false, %26 ], [ false, %17 ], [ %.not136, %31 ], [ false, %41 ], [ false, %..thread156_crit_edge ]
+.thread161:                                       ; preds = %..thread161_crit_edge, %41, %31, %26, %17
+  %53 = phi ptr [ %22, %26 ], [ %22, %17 ], [ %22, %31 ], [ %44, %41 ], [ %.pre, %..thread161_crit_edge ]
+  %.0111 = phi i64 [ 0, %26 ], [ 0, %17 ], [ 0, %31 ], [ %spec.select154, %41 ], [ 0, %..thread161_crit_edge ]
+  %.not137 = phi i1 [ false, %26 ], [ false, %17 ], [ %.not136, %31 ], [ false, %41 ], [ false, %..thread161_crit_edge ]
   %54 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %55 = trunc nuw i8 %54 to i1
   %56 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2413,7 +2413,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %59 = select i1 %55, i1 true, i1 %58
   br i1 %59, label %60, label %H5MF__alloc_to_fs_type.exit, !prof !9
 
-60:                                               ; preds = %.thread156
+60:                                               ; preds = %.thread161
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 1512
   %62 = load i32, ptr %61, align 8, !tbaa !16
   %63 = icmp eq i32 %62, 1
@@ -2467,13 +2467,13 @@ define range(i32 -1, -2147483648) i32 @H5MF_try_extend(ptr noundef %0, i32 nound
   %.28.i = select i1 %91, i32 %1, i32 %90
   br label %H5MF__alloc_to_fs_type.exit
 
-H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, %86, %.thread156
-  %.0155 = phi i32 [ 13, %.thread156 ], [ %.28.i, %86 ], [ %79, %78 ], [ %77, %76 ], [ %..i, %80 ], [ 7, %68 ]
+H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, %86, %.thread161
+  %.0 = phi i32 [ 13, %.thread161 ], [ %.28.i, %86 ], [ %79, %78 ], [ %77, %76 ], [ %..i, %80 ], [ 7, %68 ]
   %92 = load ptr, ptr %21, align 8, !tbaa !42
-  %93 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %92, i32 noundef %.0155)
+  %93 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %92, i32 noundef %.0)
   %. = select i1 %93, i32 3, i32 2
   call void @H5AC_set_ring(i32 noundef %., ptr noundef nonnull %6) #7
-  br i1 %.not137, label %.thread161, label %94
+  br i1 %.not137, label %.thread166, label %94
 
 94:                                               ; preds = %H5MF__alloc_to_fs_type.exit
   %95 = add i64 %.0111, %4
@@ -2485,10 +2485,10 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %99 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %100 = load i64, ptr @H5E_CANTEXTEND_g, align 8, !tbaa !41
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1299, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.19) #7
-  br label %.thread161
+  br label %.thread166
 
 102:                                              ; preds = %94
-  switch i32 %96, label %.thread161 [
+  switch i32 %96, label %.thread166 [
     i32 1, label %103
     i32 0, label %144
   ]
@@ -2498,7 +2498,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1512
   %106 = load i32, ptr %105, align 8, !tbaa !16
   %107 = icmp eq i32 %106, 1
-  br i1 %107, label %108, label %.thread161
+  br i1 %107, label %108, label %.thread166
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 1976
@@ -2506,18 +2506,18 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %111 = icmp ne i64 %110, 0
   %112 = icmp ne i64 %.0111, 0
   %or.cond = and i1 %112, %111
-  br i1 %or.cond, label %113, label %.thread161
+  br i1 %or.cond, label %113, label %.thread166
 
 113:                                              ; preds = %108
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 1712
-  %115 = zext i32 %.0155 to i64
+  %115 = zext i32 %.0 to i64
   %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !49
   %.not138 = icmp eq ptr %117, null
   br i1 %.not138, label %118, label %125
 
 118:                                              ; preds = %113
-  %119 = call i32 @H5MF__start_fstype(ptr noundef nonnull %0, i32 noundef %.0155)
+  %119 = call i32 @H5MF__start_fstype(ptr noundef nonnull %0, i32 noundef %.0)
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %125
 
@@ -2525,7 +2525,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %122 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %123 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !41
   %124 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1315, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.3) #7
-  br label %.thread161
+  br label %.thread166
 
 125:                                              ; preds = %118, %113
   %126 = add i64 %20, %4
@@ -2537,7 +2537,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %130 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %131 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !41
   %132 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1319, i64 noundef %130, i64 noundef %131, ptr noundef nonnull @.str.15) #7
-  br label %.thread161
+  br label %.thread166
 
 133:                                              ; preds = %125
   %134 = load ptr, ptr %21, align 8, !tbaa !42
@@ -2546,19 +2546,19 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %137 = load ptr, ptr %136, align 8, !tbaa !49
   %138 = call i32 @H5MF__add_sect(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %137, ptr noundef nonnull %127)
   %139 = icmp slt i32 %138, 0
-  br i1 %139, label %140, label %.thread161
+  br i1 %139, label %140, label %.thread166
 
 140:                                              ; preds = %133
   %141 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %142 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !41
   %143 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1323, i64 noundef %141, i64 noundef %142, ptr noundef nonnull @.str.4) #7
-  br label %.thread161
+  br label %.thread166
 
 144:                                              ; preds = %102
   %145 = load ptr, ptr %21, align 8, !tbaa !42
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 1512
   %147 = load i32, ptr %146, align 8, !tbaa !16
-  switch i32 %147, label %.thread173 [
+  switch i32 %147, label %.thread178 [
     i32 0, label %148
     i32 2, label %148
   ]
@@ -2575,53 +2575,53 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %154 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %155 = load i64, ptr @H5E_CANTEXTEND_g, align 8, !tbaa !41
   %156 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1336, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.20) #7
-  br label %.thread161
+  br label %.thread166
 
 157:                                              ; preds = %148
   %158 = icmp eq i32 %151, 0
-  br i1 %158, label %..thread173_crit_edge, label %.thread161
+  br i1 %158, label %..thread178_crit_edge, label %.thread166
 
-..thread173_crit_edge:                            ; preds = %157
-  %.pre177 = load ptr, ptr %21, align 8, !tbaa !42
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre177, i64 1512
-  %.pre178 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !16
-  br label %.thread173
+..thread178_crit_edge:                            ; preds = %157
+  %.pre182 = load ptr, ptr %21, align 8, !tbaa !42
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre182, i64 1512
+  %.pre183 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !16
+  br label %.thread178
 
-.thread173:                                       ; preds = %..thread173_crit_edge, %144
-  %159 = phi i32 [ %.pre178, %..thread173_crit_edge ], [ %147, %144 ]
-  %160 = phi ptr [ %.pre177, %..thread173_crit_edge ], [ %145, %144 ]
-  switch i32 %159, label %.thread161 [
+.thread178:                                       ; preds = %..thread178_crit_edge, %144
+  %159 = phi i32 [ %.pre183, %..thread178_crit_edge ], [ %147, %144 ]
+  %160 = phi ptr [ %.pre182, %..thread178_crit_edge ], [ %145, %144 ]
+  switch i32 %159, label %.thread166 [
     i32 0, label %164
     i32 1, label %161
   ]
 
-161:                                              ; preds = %.thread173
+161:                                              ; preds = %.thread178
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 1976
   %163 = load i64, ptr %162, align 8, !tbaa !40
   %.not139 = icmp eq i64 %163, 0
-  br i1 %.not139, label %.thread161, label %164
+  br i1 %.not139, label %.thread166, label %164
 
-164:                                              ; preds = %.thread173, %161
+164:                                              ; preds = %.thread178, %161
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8, !tbaa !62
   %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %165, align 8, !tbaa !65
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 1712
-  %167 = zext i32 %.0155 to i64
+  %167 = zext i32 %.0 to i64
   %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !49
   %.not140 = icmp eq ptr %169, null
-  br i1 %.not140, label %170, label %.thread196
+  br i1 %.not140, label %170, label %.thread202
 
 170:                                              ; preds = %164
   %171 = getelementptr inbounds nuw i8, ptr %160, i64 1608
   %172 = getelementptr inbounds nuw i64, ptr %171, i64 %167
   %173 = load i64, ptr %172, align 8, !tbaa !41
   %.not141 = icmp eq i64 %173, -1
-  br i1 %.not141, label %.thread175, label %174
+  br i1 %.not141, label %.thread180, label %174
 
 174:                                              ; preds = %170
-  %175 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.0155)
+  %175 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.0)
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %177, label %181
 
@@ -2632,41 +2632,41 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   br label %212
 
 181:                                              ; preds = %174
-  %.pre179 = load ptr, ptr %21, align 8, !tbaa !42
-  %.phi.trans.insert180 = getelementptr inbounds nuw i8, ptr %.pre179, i64 1712
-  %.phi.trans.insert181 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert180, i64 %167
-  %.pre182 = load ptr, ptr %.phi.trans.insert181, align 8, !tbaa !49
-  %.not142 = icmp eq ptr %.pre182, null
-  br i1 %.not142, label %.thread175, label %.thread196
+  %.pre184 = load ptr, ptr %21, align 8, !tbaa !42
+  %.phi.trans.insert185 = getelementptr inbounds nuw i8, ptr %.pre184, i64 1712
+  %.phi.trans.insert186 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert185, i64 %167
+  %.pre187 = load ptr, ptr %.phi.trans.insert186, align 8, !tbaa !49
+  %.not142 = icmp eq ptr %.pre187, null
+  br i1 %.not142, label %.thread180, label %.thread202
 
-.thread196:                                       ; preds = %164, %181
-  %182 = phi ptr [ %.pre182, %181 ], [ %169, %164 ]
+.thread202:                                       ; preds = %164, %181
+  %182 = phi ptr [ %.pre187, %181 ], [ %169, %164 ]
   %183 = call i32 @H5FS_sect_try_extend(ptr noundef nonnull %0, ptr noundef nonnull %182, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef 2, ptr noundef nonnull %8) #7
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %185, label %189
 
-185:                                              ; preds = %.thread196
+185:                                              ; preds = %.thread202
   %186 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %187 = load i64, ptr @H5E_CANTEXTEND_g, align 8, !tbaa !41
   %188 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_try_extend, i32 noundef 1363, i64 noundef %186, i64 noundef %187, ptr noundef nonnull @.str.21) #7
   br label %212
 
-189:                                              ; preds = %.thread196
+189:                                              ; preds = %.thread202
   %190 = icmp eq i32 %183, 0
-  br i1 %190, label %..thread175_crit_edge, label %212
+  br i1 %190, label %..thread180_crit_edge, label %212
 
-..thread175_crit_edge:                            ; preds = %189
-  %.pre183 = load ptr, ptr %21, align 8, !tbaa !42
-  br label %.thread175
+..thread180_crit_edge:                            ; preds = %189
+  %.pre188 = load ptr, ptr %21, align 8, !tbaa !42
+  br label %.thread180
 
-.thread175:                                       ; preds = %170, %..thread175_crit_edge, %181
-  %191 = phi ptr [ %.pre183, %..thread175_crit_edge ], [ %.pre179, %181 ], [ %160, %170 ]
+.thread180:                                       ; preds = %170, %..thread180_crit_edge, %181
+  %191 = phi ptr [ %.pre188, %..thread180_crit_edge ], [ %.pre184, %181 ], [ %160, %170 ]
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 1512
   %193 = load i32, ptr %192, align 8, !tbaa !16
   %194 = icmp eq i32 %193, 1
   br i1 %194, label %195, label %212
 
-195:                                              ; preds = %.thread175
+195:                                              ; preds = %.thread180
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 1976
   %197 = load i64, ptr %196, align 8, !tbaa !40
   %198 = icmp ne i64 %197, 0
@@ -2688,35 +2688,35 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %68, %76, %78, %80, 
   %208 = urem i64 %204, %207
   %.not143 = icmp eq i64 %208, 0
   %209 = sub i64 %207, %208
-  %spec.select149 = select i1 %.not143, i64 0, i64 %209
+  %spec.select155 = select i1 %.not143, i64 0, i64 %209
   br label %210
 
 210:                                              ; preds = %202, %200
-  %.3114 = phi i64 [ 0, %200 ], [ %spec.select149, %202 ]
+  %.3114 = phi i64 [ 0, %200 ], [ %spec.select155, %202 ]
   %211 = call i64 @H5F_get_pgend_meta_thres(ptr noundef nonnull %0) #7
   %.not144 = icmp ule i64 %.3114, %211
   %.not145 = icmp ule i64 %4, %.3114
-  %or.cond147.not = and i1 %.not145, %.not144
-  %spec.select150 = zext i1 %or.cond147.not to i32
+  %or.cond152.not = and i1 %.not145, %.not144
+  %spec.select156 = zext i1 %or.cond152.not to i32
   br label %212
 
-212:                                              ; preds = %210, %189, %.thread175, %195, %185, %177
-  %.8 = phi i32 [ -1, %185 ], [ -1, %177 ], [ 0, %195 ], [ 0, %.thread175 ], [ %183, %189 ], [ %spec.select150, %210 ]
+212:                                              ; preds = %210, %189, %.thread180, %195, %185, %177
+  %.8 = phi i32 [ -1, %185 ], [ -1, %177 ], [ 0, %195 ], [ 0, %.thread180 ], [ %183, %189 ], [ %spec.select156, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread161
+  br label %.thread166
 
-.thread161:                                       ; preds = %102, %133, %103, %108, %121, %140, %129, %212, %153, %49, %.thread173, %H5MF__alloc_to_fs_type.exit, %161, %157, %98
-  %.3118 = phi i32 [ -1, %98 ], [ %.8, %212 ], [ 0, %161 ], [ %151, %157 ], [ -1, %153 ], [ 0, %H5MF__alloc_to_fs_type.exit ], [ -1, %49 ], [ 0, %.thread173 ], [ -1, %129 ], [ -1, %140 ], [ -1, %121 ], [ 1, %108 ], [ 1, %103 ], [ 1, %133 ], [ %96, %102 ]
+.thread166:                                       ; preds = %102, %133, %103, %108, %121, %140, %129, %153, %49, %212, %.thread178, %H5MF__alloc_to_fs_type.exit, %161, %157, %98
+  %.3118 = phi i32 [ -1, %98 ], [ %.8, %212 ], [ 0, %161 ], [ %151, %157 ], [ -1, %153 ], [ 0, %H5MF__alloc_to_fs_type.exit ], [ -1, %49 ], [ 0, %.thread178 ], [ -1, %129 ], [ -1, %140 ], [ -1, %121 ], [ 1, %108 ], [ 1, %103 ], [ 1, %133 ], [ %96, %102 ]
   %213 = load i32, ptr %6, align 4, !tbaa !11
   %.not146 = icmp eq i32 %213, 0
   br i1 %.not146, label %215, label %214
 
-214:                                              ; preds = %.thread161
+214:                                              ; preds = %.thread166
   call void @H5AC_set_ring(i32 noundef %213, ptr noundef null) #7
   br label %215
 
-215:                                              ; preds = %14, %214, %.thread161
-  %.0115 = phi i32 [ %.3118, %214 ], [ %.3118, %.thread161 ], [ 0, %14 ]
+215:                                              ; preds = %.thread166, %214, %14
+  %.0115 = phi i32 [ %.3118, %214 ], [ %.3118, %.thread166 ], [ 0, %14 ]
   %216 = load i64, ptr %7, align 8, !tbaa !41
   call void @H5AC_tag(i64 noundef %216, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2819,22 +2819,22 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %51, i8 -1, i64 96, i1 false), !tbaa !41
   %52 = trunc nuw i8 %37 to i1
-  br i1 %52, label %.preheader70.i, label %.preheader71.i
+  br i1 %52, label %.preheader71.i, label %.preheader72.i
 
-.preheader70.i:                                   ; preds = %31
+.preheader71.i:                                   ; preds = %31
   %53 = getelementptr inbounds nuw i8, ptr %32, i64 1608
   br label %54
 
-54:                                               ; preds = %54, %.preheader70.i
-  %indvars.iv.i = phi i64 [ 1, %.preheader70.i ], [ %indvars.iv.next.i, %54 ]
+54:                                               ; preds = %54, %.preheader71.i
+  %indvars.iv.i = phi i64 [ 1, %.preheader71.i ], [ %indvars.iv.next.i, %54 ]
   %55 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv.i
   %56 = load i64, ptr %55, align 8, !tbaa !41
   %57 = getelementptr i64, ptr %51, i64 %indvars.iv.i
   %58 = getelementptr i8, ptr %57, i64 -8
   store i64 %56, ptr %58, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond79.not.i = icmp eq i64 %indvars.iv.next.i, 13
-  br i1 %exitcond79.not.i, label %59, label %54, !llvm.loop !90
+  %exitcond80.not.i = icmp eq i64 %indvars.iv.next.i, 13
+  br i1 %exitcond80.not.i, label %59, label %54, !llvm.loop !90
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %32, i64 1824
@@ -2856,19 +2856,19 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
 
 .preheader.i:                                     ; preds = %93, %.preheader.preheader.i
   %68 = phi ptr [ %.pre.i, %.preheader.preheader.i ], [ %94, %93 ]
-  %indvars.iv80.i = phi i64 [ 1, %.preheader.preheader.i ], [ %indvars.iv.next81.i, %93 ]
-  %.06275.i = phi i32 [ 2, %.preheader.preheader.i ], [ %.163.i, %93 ]
+  %indvars.iv81.i = phi i64 [ 1, %.preheader.preheader.i ], [ %indvars.iv.next82.i, %93 ]
+  %.06276.i = phi i32 [ 2, %.preheader.preheader.i ], [ %.163.i, %93 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1712
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv80.i
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv81.i
   %71 = load ptr, ptr %70, align 8, !tbaa !49
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %93, label %72
 
 72:                                               ; preds = %.preheader.i
-  %73 = trunc nuw nsw i64 %indvars.iv80.i to i32
+  %73 = trunc nuw nsw i64 %indvars.iv81.i to i32
   %74 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %68, i32 noundef %73)
   %..i = select i1 %74, i32 3, i32 2
-  %.not66.i = icmp eq i32 %..i, %.06275.i
+  %.not66.i = icmp eq i32 %..i, %.06276.i
   br i1 %.not66.i, label %76, label %75
 
 75:                                               ; preds = %72
@@ -2876,10 +2876,10 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   br label %76
 
 76:                                               ; preds = %75, %72
-  %.264.i = phi i32 [ %..i, %75 ], [ %.06275.i, %72 ]
+  %.264.i = phi i32 [ %..i, %75 ], [ %.06276.i, %72 ]
   %77 = load ptr, ptr %16, align 8, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1712
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv80.i
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv81.i
   %80 = load ptr, ptr %79, align 8, !tbaa !49
   %81 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %80) #7
   %82 = icmp slt i32 %81, 0
@@ -2894,22 +2894,22 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
 87:                                               ; preds = %76
   %88 = load ptr, ptr %16, align 8, !tbaa !42
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1712
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv80.i
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv81.i
   store ptr null, ptr %90, align 8, !tbaa !49
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 1556
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv80.i
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv81.i
   store i32 0, ptr %92, align 4, !tbaa !11
   br label %93
 
 93:                                               ; preds = %87, %.preheader.i
   %94 = phi ptr [ %88, %87 ], [ %68, %.preheader.i ]
-  %.163.i = phi i32 [ %.264.i, %87 ], [ %.06275.i, %.preheader.i ]
+  %.163.i = phi i32 [ %.264.i, %87 ], [ %.06276.i, %.preheader.i ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1608
-  %96 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv80.i
+  %96 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv81.i
   store i64 -1, ptr %96, align 8, !tbaa !41
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 13
-  br i1 %exitcond83.not.i, label %97, label %.preheader.i, !llvm.loop !92
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 13
+  br i1 %exitcond84.not.i, label %97, label %.preheader.i, !llvm.loop !92
 
 97:                                               ; preds = %93
   %98 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef nonnull %0)
@@ -2935,18 +2935,18 @@ define range(i32 -1, 1) i32 @H5MF_close(ptr noundef %0) local_unnamed_addr #3 {
   %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__close_pagefs, i32 noundef 1970, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.48) #7
   br label %.thread.i
 
-113:                                              ; preds = %.preheader71.i
-  %114 = add nuw nsw i32 %.36073.i, 1
+113:                                              ; preds = %.preheader72.i
+  %114 = add nuw nsw i32 %.36074.i, 1
   %exitcond.not.i = icmp eq i32 %114, 13
-  br i1 %exitcond.not.i, label %121, label %.preheader71.i, !llvm.loop !94
+  br i1 %exitcond.not.i, label %121, label %.preheader72.i, !llvm.loop !94
 
-.preheader71.i:                                   ; preds = %31, %113
-  %.36073.i = phi i32 [ %114, %113 ], [ 1, %31 ]
-  %115 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.36073.i)
+.preheader72.i:                                   ; preds = %31, %113
+  %.36074.i = phi i32 [ %114, %113 ], [ 1, %31 ]
+  %115 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.36074.i)
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %117, label %113
 
-117:                                              ; preds = %.preheader71.i
+117:                                              ; preds = %.preheader72.i
   %118 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %119 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !41
   %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__close_pagefs, i32 noundef 1998, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.26) #7
@@ -3036,25 +3036,25 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 1528
   %165 = load i8, ptr %164, align 8, !tbaa !81, !range !7, !noundef !8
   %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %.preheader73.i, label %.preheader
+  br i1 %166, label %.preheader74.i, label %.preheader
 
-.preheader73.i:                                   ; preds = %163
+.preheader74.i:                                   ; preds = %163
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %167, i8 -1, i64 96, i1 false), !tbaa !41
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 1608
   br label %169
 
-169:                                              ; preds = %169, %.preheader73.i
-  %indvars.iv.i10 = phi i64 [ 1, %.preheader73.i ], [ %indvars.iv.next.i11, %169 ]
+169:                                              ; preds = %169, %.preheader74.i
+  %indvars.iv.i10 = phi i64 [ 1, %.preheader74.i ], [ %indvars.iv.next.i11, %169 ]
   %170 = getelementptr inbounds nuw i64, ptr %168, i64 %indvars.iv.i10
   %171 = load i64, ptr %170, align 8, !tbaa !41
   %172 = getelementptr i64, ptr %3, i64 %indvars.iv.i10
   %173 = getelementptr i8, ptr %172, i64 40
   store i64 %171, ptr %173, align 8, !tbaa !41
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  %exitcond81.not.i = icmp eq i64 %indvars.iv.next.i11, 7
-  br i1 %exitcond81.not.i, label %174, label %169, !llvm.loop !105
+  %exitcond82.not.i = icmp eq i64 %indvars.iv.next.i11, 7
+  br i1 %exitcond82.not.i, label %174, label %169, !llvm.loop !105
 
 174:                                              ; preds = %169
   %175 = getelementptr inbounds nuw i8, ptr %157, i64 1512
@@ -3098,19 +3098,19 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
 
 .preheader.i14:                                   ; preds = %224, %.preheader.preheader.i12
   %199 = phi ptr [ %.pre.i13, %.preheader.preheader.i12 ], [ %225, %224 ]
-  %indvars.iv82.i = phi i64 [ 1, %.preheader.preheader.i12 ], [ %indvars.iv.next83.i, %224 ]
-  %.06577.i = phi i32 [ 2, %.preheader.preheader.i12 ], [ %.166.i, %224 ]
+  %indvars.iv83.i = phi i64 [ 1, %.preheader.preheader.i12 ], [ %indvars.iv.next84.i, %224 ]
+  %.06578.i = phi i32 [ 2, %.preheader.preheader.i12 ], [ %.166.i, %224 ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1712
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv82.i
+  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv83.i
   %202 = load ptr, ptr %201, align 8, !tbaa !49
   %.not.i15 = icmp eq ptr %202, null
   br i1 %.not.i15, label %224, label %203
 
 203:                                              ; preds = %.preheader.i14
-  %204 = trunc nuw nsw i64 %indvars.iv82.i to i32
+  %204 = trunc nuw nsw i64 %indvars.iv83.i to i32
   %205 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %199, i32 noundef %204)
   %..i16 = select i1 %205, i32 3, i32 2
-  %.not69.i = icmp eq i32 %..i16, %.06577.i
+  %.not69.i = icmp eq i32 %..i16, %.06578.i
   br i1 %.not69.i, label %207, label %206
 
 206:                                              ; preds = %203
@@ -3118,10 +3118,10 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
   br label %207
 
 207:                                              ; preds = %206, %203
-  %.267.i = phi i32 [ %..i16, %206 ], [ %.06577.i, %203 ]
+  %.267.i = phi i32 [ %..i16, %206 ], [ %.06578.i, %203 ]
   %208 = load ptr, ptr %16, align 8, !tbaa !42
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 1712
-  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv82.i
+  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv83.i
   %211 = load ptr, ptr %210, align 8, !tbaa !49
   %212 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %211) #7
   %213 = icmp slt i32 %212, 0
@@ -3136,22 +3136,22 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
 218:                                              ; preds = %207
   %219 = load ptr, ptr %16, align 8, !tbaa !42
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 1712
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv82.i
+  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv83.i
   store ptr null, ptr %221, align 8, !tbaa !49
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 1556
-  %223 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv82.i
+  %223 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv83.i
   store i32 0, ptr %223, align 4, !tbaa !11
   br label %224
 
 224:                                              ; preds = %218, %.preheader.i14
   %225 = phi ptr [ %219, %218 ], [ %199, %.preheader.i14 ]
-  %.166.i = phi i32 [ %.267.i, %218 ], [ %.06577.i, %.preheader.i14 ]
+  %.166.i = phi i32 [ %.267.i, %218 ], [ %.06578.i, %.preheader.i14 ]
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 1608
-  %227 = getelementptr inbounds nuw i64, ptr %226, i64 %indvars.iv82.i
+  %227 = getelementptr inbounds nuw i64, ptr %226, i64 %indvars.iv83.i
   store i64 -1, ptr %227, align 8, !tbaa !41
-  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
-  %exitcond85.not.i = icmp eq i64 %indvars.iv.next83.i, 7
-  br i1 %exitcond85.not.i, label %228, label %.preheader.i14, !llvm.loop !106
+  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, 7
+  br i1 %exitcond86.not.i, label %228, label %.preheader.i14, !llvm.loop !106
 
 228:                                              ; preds = %224
   %229 = call fastcc i32 @H5MF__close_shrink_eoa(ptr noundef nonnull %0)
@@ -3186,13 +3186,13 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
   br label %.loopexit.i
 
 245:                                              ; preds = %247
-  %246 = add nuw nsw i32 %.26374.i, 1
+  %246 = add nuw nsw i32 %.26375.i, 1
   %exitcond.not.i8 = icmp eq i32 %246, 7
   br i1 %exitcond.not.i8, label %.loopexit.i, label %247, !llvm.loop !107
 
 247:                                              ; preds = %.preheader, %245
-  %.26374.i = phi i32 [ %246, %245 ], [ 0, %.preheader ]
-  %248 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.26374.i)
+  %.26375.i = phi i32 [ %246, %245 ], [ 0, %.preheader ]
+  %248 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.26375.i)
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %250, label %245
 
@@ -3284,29 +3284,29 @@ define range(i32 -1, 1) i32 @H5MF_try_close(ptr noundef %0) local_unnamed_addr #
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1512
   %16 = load i32, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %.preheader57
+  br i1 %17, label %18, label %.preheader58
 
-.preheader57:                                     ; preds = %18, %12
+.preheader58:                                     ; preds = %18, %12
   br label %31
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 1976
   %20 = load i64, ptr %19, align 8, !tbaa !40
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.preheader57, label %.preheader
+  br i1 %.not, label %.preheader58, label %.preheader
 
 21:                                               ; preds = %26
-  %22 = add nuw nsw i32 %.02845, 1
+  %22 = add nuw nsw i32 %.02846, 1
   %exitcond.not = icmp eq i32 %22, 13
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !108
 
 .preheader:                                       ; preds = %18, %21
-  %.02845 = phi i32 [ %22, %21 ], [ 1, %18 ]
-  %.03344 = phi i32 [ %.134, %21 ], [ 2, %18 ]
+  %.02846 = phi i32 [ %22, %21 ], [ 1, %18 ]
+  %.03345 = phi i32 [ %.134, %21 ], [ 2, %18 ]
   %23 = load ptr, ptr %13, align 8, !tbaa !42
-  %24 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %23, i32 noundef %.02845)
+  %24 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %23, i32 noundef %.02846)
   %. = select i1 %24, i32 3, i32 2
-  %.not40 = icmp eq i32 %., %.03344
+  %.not40 = icmp eq i32 %., %.03345
   br i1 %.not40, label %26, label %25
 
 25:                                               ; preds = %.preheader
@@ -3314,23 +3314,23 @@ define range(i32 -1, 1) i32 @H5MF_try_close(ptr noundef %0) local_unnamed_addr #
   br label %26
 
 26:                                               ; preds = %25, %.preheader
-  %.134 = phi i32 [ %., %25 ], [ %.03344, %.preheader ]
-  %27 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.02845)
+  %.134 = phi i32 [ %., %25 ], [ %.03345, %.preheader ]
+  %27 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.02846)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.loopexit.sink.split, label %21
 
 29:                                               ; preds = %35
-  %30 = add nuw nsw i32 %.047, 1
-  %exitcond49.not = icmp eq i32 %30, 7
-  br i1 %exitcond49.not, label %.loopexit, label %31, !llvm.loop !109
+  %30 = add nuw nsw i32 %.048, 1
+  %exitcond50.not = icmp eq i32 %30, 7
+  br i1 %exitcond50.not, label %.loopexit, label %31, !llvm.loop !109
 
-31:                                               ; preds = %.preheader57, %29
-  %.047 = phi i32 [ %30, %29 ], [ 0, %.preheader57 ]
-  %.23546 = phi i32 [ %.336, %29 ], [ 2, %.preheader57 ]
+31:                                               ; preds = %.preheader58, %29
+  %.048 = phi i32 [ %30, %29 ], [ 0, %.preheader58 ]
+  %.23547 = phi i32 [ %.336, %29 ], [ 2, %.preheader58 ]
   %32 = load ptr, ptr %13, align 8, !tbaa !42
-  %33 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %32, i32 noundef %.047)
+  %33 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %32, i32 noundef %.048)
   %.42 = select i1 %33, i32 3, i32 2
-  %.not39 = icmp eq i32 %.42, %.23546
+  %.not39 = icmp eq i32 %.42, %.23547
   br i1 %.not39, label %35, label %34
 
 34:                                               ; preds = %31
@@ -3338,8 +3338,8 @@ define range(i32 -1, 1) i32 @H5MF_try_close(ptr noundef %0) local_unnamed_addr #
   br label %35
 
 35:                                               ; preds = %34, %31
-  %.336 = phi i32 [ %.42, %34 ], [ %.23546, %31 ]
-  %36 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.047)
+  %.336 = phi i32 [ %.42, %34 ], [ %.23547, %31 ]
+  %36 = call fastcc i32 @H5MF__close_delete_fstype(ptr noundef nonnull %0, i32 noundef %.048)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.loopexit.sink.split, label %29
 
@@ -3360,7 +3360,7 @@ define range(i32 -1, 1) i32 @H5MF_try_close(ptr noundef %0) local_unnamed_addr #
   call void @H5AC_set_ring(i32 noundef %41, ptr noundef null) #7
   br label %43
 
-43:                                               ; preds = %9, %42, %.loopexit
+43:                                               ; preds = %.loopexit, %42, %9
   %.029 = phi i32 [ %.2, %42 ], [ %.2, %.loopexit ], [ 0, %9 ]
   %44 = load i64, ptr %3, align 8, !tbaa !41
   call void @H5AC_tag(i64 noundef %44, ptr noundef null) #7
@@ -3554,13 +3554,13 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   br label %35
 
 33:                                               ; preds = %35
-  %34 = add nuw nsw i32 %.072106, 1
+  %34 = add nuw nsw i32 %.072107, 1
   %exitcond.not = icmp eq i32 %34, 7
   br i1 %exitcond.not, label %42, label %35, !llvm.loop !110
 
 35:                                               ; preds = %32, %33
-  %.072106 = phi i32 [ 1, %32 ], [ %34, %33 ]
-  %36 = call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef %.072106) #7
+  %.072107 = phi i32 [ 1, %32 ], [ %34, %33 ]
+  %36 = call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef %.072107) #7
   %37 = icmp eq i64 %36, -1
   br i1 %37, label %38, label %33
 
@@ -3581,9 +3581,9 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 1976
   %49 = load i64, ptr %48, align 8, !tbaa !40
   %.not83 = icmp eq i64 %49, 0
-  br i1 %.not83, label %50, label %.preheader122
+  br i1 %.not83, label %50, label %.preheader123
 
-.preheader122:                                    ; preds = %58, %47
+.preheader123:                                    ; preds = %58, %47
   br label %67
 
 50:                                               ; preds = %47, %42
@@ -3603,7 +3603,7 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1936
   %61 = call i32 @H5MF__aggr_query(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %.preheader122
+  br i1 %62, label %63, label %.preheader123
 
 63:                                               ; preds = %58
   %64 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
@@ -3611,11 +3611,11 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_freespace, i32 noundef 2195, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.28) #7
   br label %164
 
-67:                                               ; preds = %.preheader122, %120
-  %68 = phi i32 [ %., %120 ], [ 2, %.preheader122 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %120 ], [ 1, %.preheader122 ]
-  %.073108 = phi i64 [ %.275, %120 ], [ 0, %.preheader122 ]
-  %.076107 = phi i64 [ %.278, %120 ], [ 0, %.preheader122 ]
+67:                                               ; preds = %.preheader123, %120
+  %68 = phi i32 [ %., %120 ], [ 2, %.preheader123 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %120 ], [ 1, %.preheader123 ]
+  %.073109 = phi i64 [ %.275, %120 ], [ 0, %.preheader123 ]
+  %.076108 = phi i64 [ %.278, %120 ], [ 0, %.preheader123 ]
   %69 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 0, ptr %69, align 4, !tbaa !11
   %70 = load ptr, ptr %23, align 8, !tbaa !42
@@ -3683,7 +3683,7 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   %101 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %102 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !41
   %103 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_freespace, i32 noundef 2228, i64 noundef %101, i64 noundef %102, ptr noundef nonnull @.str.29) #7
-  br label %.thread94
+  br label %.thread95
 
 104:                                              ; preds = %97
   %105 = load ptr, ptr %23, align 8, !tbaa !42
@@ -3698,46 +3698,46 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   %112 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %113 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !41
   %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_freespace, i32 noundef 2230, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.30) #7
-  br label %.thread94
+  br label %.thread95
 
-.thread94:                                        ; preds = %100, %111
+.thread95:                                        ; preds = %100, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %164
 
 115:                                              ; preds = %104
   %116 = load i64, ptr %12, align 8, !tbaa !41
-  %117 = add i64 %116, %.076107
+  %117 = add i64 %116, %.076108
   %118 = load i64, ptr %13, align 8, !tbaa !41
-  %119 = add i64 %118, %.073108
+  %119 = add i64 %118, %.073109
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %120
 
 120:                                              ; preds = %115, %92
-  %.278 = phi i64 [ %117, %115 ], [ %.076107, %92 ]
-  %.275 = phi i64 [ %119, %115 ], [ %.073108, %92 ]
+  %.278 = phi i64 [ %117, %115 ], [ %.076108, %92 ]
+  %.275 = phi i64 [ %119, %115 ], [ %.073109, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next, %.068
-  br i1 %exitcond112.not, label %.preheader, label %67, !llvm.loop !111
+  %exitcond113.not = icmp eq i64 %indvars.iv.next, %.068
+  br i1 %exitcond113.not, label %.preheader, label %67, !llvm.loop !111
 
 .preheader:                                       ; preds = %120, %H5MF__close_fstype.exit.thread
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %H5MF__close_fstype.exit.thread ], [ 1, %120 ]
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %H5MF__close_fstype.exit.thread ], [ 1, %120 ]
   %121 = load ptr, ptr %23, align 8, !tbaa !42
-  %122 = trunc nuw nsw i64 %indvars.iv113 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv114 to i32
   %123 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %121, i32 noundef %122)
-  %.93 = select i1 %123, i32 3, i32 2
+  %.94 = select i1 %123, i32 3, i32 2
   %124 = load i32, ptr %10, align 4, !tbaa !11
-  %.not86 = icmp eq i32 %.93, %124
+  %.not86 = icmp eq i32 %.94, %124
   br i1 %.not86, label %126, label %125
 
 125:                                              ; preds = %.preheader
-  call void @H5AC_set_ring(i32 noundef %.93, ptr noundef nonnull %10) #7
-  store i32 %.93, ptr %10, align 4, !tbaa !11
+  call void @H5AC_set_ring(i32 noundef %.94, ptr noundef nonnull %10) #7
+  store i32 %.94, ptr %10, align 4, !tbaa !11
   br label %126
 
 126:                                              ; preds = %125, %.preheader
-  %127 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv113
+  %127 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv114
   %128 = load i32, ptr %127, align 4, !tbaa !11
   %.not87 = icmp eq i32 %128, 0
   br i1 %.not87, label %H5MF__close_fstype.exit.thread, label %129
@@ -3754,7 +3754,7 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
 136:                                              ; preds = %129
   %137 = load ptr, ptr %23, align 8, !tbaa !42
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1712
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv113
+  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv114
   %140 = load ptr, ptr %139, align 8, !tbaa !49
   %141 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %140) #7
   %142 = icmp slt i32 %141, 0
@@ -3763,10 +3763,10 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
 143:                                              ; preds = %136
   %144 = load ptr, ptr %23, align 8, !tbaa !42
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 1712
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv113
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv114
   store ptr null, ptr %146, align 8, !tbaa !49
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 1556
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv113
+  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv114
   store i32 0, ptr %148, align 4, !tbaa !11
   br label %H5MF__close_fstype.exit.thread
 
@@ -3780,9 +3780,9 @@ define range(i32 -1, 1) i32 @H5MF_get_freespace(ptr noundef %0, ptr noundef writ
   br label %164
 
 H5MF__close_fstype.exit.thread:                   ; preds = %129, %143, %126
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %.068
-  br i1 %exitcond117.not, label %156, label %.preheader, !llvm.loop !112
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %.068
+  br i1 %exitcond118.not, label %156, label %.preheader, !llvm.loop !112
 
 156:                                              ; preds = %H5MF__close_fstype.exit.thread
   %.not84 = icmp eq ptr %1, null
@@ -3804,8 +3804,8 @@ H5MF__close_fstype.exit.thread:                   ; preds = %129, %143, %126
   store i64 %.275, ptr %2, align 8, !tbaa !41
   br label %164
 
-164:                                              ; preds = %.thread94, %162, %163, %149, %82, %63, %54, %38
-  %.1 = phi i32 [ -1, %38 ], [ -1, %82 ], [ -1, %149 ], [ 0, %163 ], [ 0, %162 ], [ -1, %54 ], [ -1, %63 ], [ -1, %.thread94 ]
+164:                                              ; preds = %.thread95, %162, %163, %149, %82, %63, %54, %38
+  %.1 = phi i32 [ -1, %38 ], [ -1, %82 ], [ -1, %149 ], [ 0, %163 ], [ 0, %162 ], [ -1, %54 ], [ -1, %63 ], [ -1, %.thread95 ]
   %165 = load i32, ptr %9, align 4, !tbaa !11
   %.not92 = icmp eq i32 %165, 0
   br i1 %.not92, label %167, label %166
@@ -3814,7 +3814,7 @@ H5MF__close_fstype.exit.thread:                   ; preds = %129, %143, %126
   call void @H5AC_set_ring(i32 noundef %165, ptr noundef null) #7
   br label %167
 
-167:                                              ; preds = %19, %166, %164
+167:                                              ; preds = %164, %166, %19
   %.065 = phi i32 [ %.1, %166 ], [ %.1, %164 ], [ 0, %19 ]
   %168 = load i64, ptr %11, align 8, !tbaa !41
   call void @H5AC_tag(i64 noundef %168, ptr noundef null) #7
@@ -3864,7 +3864,7 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
 16:                                               ; preds = %5
   %17 = xor i1 %14, true
   %18 = select i1 %12, i1 true, i1 %17
-  br i1 %18, label %19, label %135, !prof !71
+  br i1 %18, label %19, label %135, !prof !10
 
 19:                                               ; preds = %.thread, %16
   %20 = icmp eq i32 %1, 0
@@ -3913,9 +3913,9 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
 
 40:                                               ; preds = %.lr.ph, %130
   %41 = phi ptr [ %.pre, %.lr.ph ], [ %121, %130 ]
-  %.04679 = phi i32 [ %.050, %.lr.ph ], [ %131, %130 ]
-  %.05178 = phi i64 [ 0, %.lr.ph ], [ %120, %130 ]
-  %42 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %41, i32 noundef %.04679)
+  %.04680 = phi i32 [ %.050, %.lr.ph ], [ %131, %130 ]
+  %.05179 = phi i64 [ 0, %.lr.ph ], [ %120, %130 ]
+  %42 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %41, i32 noundef %.04680)
   %. = select i1 %42, i32 3, i32 2
   %43 = load i32, ptr %8, align 4, !tbaa !11
   %.not58 = icmp eq i32 %., %43
@@ -3929,11 +3929,11 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
 45:                                               ; preds = %44, %40
   %46 = load ptr, ptr %38, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1712
-  %48 = zext i32 %.04679 to i64
+  %48 = zext i32 %.04680 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !49
   %.not59 = icmp eq ptr %50, null
-  br i1 %.not59, label %51, label %.thread96
+  br i1 %.not59, label %51, label %.thread97
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 1608
@@ -3943,7 +3943,7 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
   br i1 %.not60, label %.H5MF__close_fstype.exit.thread_crit_edge, label %55
 
 55:                                               ; preds = %51
-  %56 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.04679)
+  %56 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.04680)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
@@ -3951,18 +3951,18 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
   %59 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %60 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !41
   %61 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_free_sections, i32 noundef 2356, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.32) #7
-  br label %.thread69
+  br label %.thread70
 
 62:                                               ; preds = %55
-  %.pre82 = load ptr, ptr %38, align 8, !tbaa !42
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre82, i64 1712
-  %.phi.trans.insert83 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %48
-  %.pre84 = load ptr, ptr %.phi.trans.insert83, align 8, !tbaa !49
-  %.not61 = icmp eq ptr %.pre84, null
-  br i1 %.not61, label %.thread100, label %.thread96
+  %.pre83 = load ptr, ptr %38, align 8, !tbaa !42
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre83, i64 1712
+  %.phi.trans.insert84 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %48
+  %.pre85 = load ptr, ptr %.phi.trans.insert84, align 8, !tbaa !49
+  %.not61 = icmp eq ptr %.pre85, null
+  br i1 %.not61, label %.thread101, label %.thread97
 
-.thread96:                                        ; preds = %45, %62
-  %63 = phi ptr [ %.pre84, %62 ], [ %50, %45 ]
+.thread97:                                        ; preds = %45, %62
+  %63 = phi ptr [ %.pre85, %62 ], [ %50, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !41
   %64 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -3973,7 +3973,7 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
   %69 = select i1 %65, i1 true, i1 %68
   br i1 %69, label %70, label %91, !prof !9
 
-70:                                               ; preds = %.thread96
+70:                                               ; preds = %.thread97
   %71 = call i32 @H5FS_sect_stats(ptr noundef nonnull %63, ptr noundef null, ptr noundef nonnull %6) #7
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %77
@@ -4008,32 +4008,32 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
   %88 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %89 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !41
   %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_free_sections, i32 noundef 2365, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.33) #7
-  br label %.thread69
+  br label %.thread70
 
-91:                                               ; preds = %.thread96, %77, %80
-  %.165.ph = phi i64 [ 0, %.thread96 ], [ %78, %80 ], [ %78, %77 ]
+91:                                               ; preds = %.thread97, %77, %80
+  %.166.ph = phi i64 [ 0, %.thread97 ], [ %78, %80 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %92 = add i64 %.165.ph, %.05178
-  br i1 %.not59, label %.thread100, label %.H5MF__close_fstype.exit.thread_crit_edge
+  %92 = add i64 %.166.ph, %.05179
+  br i1 %.not59, label %.thread101, label %.H5MF__close_fstype.exit.thread_crit_edge
 
 .H5MF__close_fstype.exit.thread_crit_edge:        ; preds = %51, %91
-  %93 = phi i64 [ %92, %91 ], [ %.05178, %51 ]
-  %.pre85 = load ptr, ptr %38, align 8, !tbaa !42
+  %93 = phi i64 [ %92, %91 ], [ %.05179, %51 ]
+  %.pre86 = load ptr, ptr %38, align 8, !tbaa !42
   br label %H5MF__close_fstype.exit.thread
 
-.thread100:                                       ; preds = %62, %91
-  %94 = phi i64 [ %92, %91 ], [ %.05178, %62 ]
+.thread101:                                       ; preds = %62, %91
+  %94 = phi i64 [ %92, %91 ], [ %.05179, %62 ]
   %95 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %96 = trunc nuw i8 %95 to i1
   %97 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %98 = trunc nuw i8 %97 to i1
   %99 = xor i1 %98, true
   %100 = select i1 %96, i1 true, i1 %99
-  %.pre86 = load ptr, ptr %38, align 8, !tbaa !42
+  %.pre87 = load ptr, ptr %38, align 8, !tbaa !42
   br i1 %100, label %101, label %H5MF__close_fstype.exit.thread, !prof !9
 
-101:                                              ; preds = %.thread100
-  %102 = getelementptr inbounds nuw i8, ptr %.pre86, i64 1712
+101:                                              ; preds = %.thread101
+  %102 = getelementptr inbounds nuw i8, ptr %.pre87, i64 1712
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %48
   %104 = load ptr, ptr %103, align 8, !tbaa !49
   %105 = call i32 @H5FS_close(ptr noundef nonnull %0, ptr noundef %104) #7
@@ -4057,11 +4057,11 @@ define range(i32 -1, 1) i32 @H5MF_get_free_sections(ptr noundef %0, i32 noundef 
   %117 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %118 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !41
   %119 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_get_free_sections, i32 noundef 2373, i64 noundef %117, i64 noundef %118, ptr noundef nonnull @.str.31) #7
-  br label %.thread69
+  br label %.thread70
 
-H5MF__close_fstype.exit.thread:                   ; preds = %.H5MF__close_fstype.exit.thread_crit_edge, %.thread100, %107
-  %120 = phi i64 [ %93, %.H5MF__close_fstype.exit.thread_crit_edge ], [ %94, %.thread100 ], [ %94, %107 ]
-  %121 = phi ptr [ %.pre85, %.H5MF__close_fstype.exit.thread_crit_edge ], [ %.pre86, %.thread100 ], [ %108, %107 ]
+H5MF__close_fstype.exit.thread:                   ; preds = %.H5MF__close_fstype.exit.thread_crit_edge, %.thread101, %107
+  %120 = phi i64 [ %93, %.H5MF__close_fstype.exit.thread_crit_edge ], [ %94, %.thread101 ], [ %94, %107 ]
+  %121 = phi ptr [ %.pre86, %.H5MF__close_fstype.exit.thread_crit_edge ], [ %.pre87, %.thread101 ], [ %108, %107 ]
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1512
   %123 = load i32, ptr %122, align 8, !tbaa !16
   %124 = icmp eq i32 %123, 1
@@ -4072,12 +4072,12 @@ H5MF__close_fstype.exit.thread:                   ; preds = %.H5MF__close_fstype
   %127 = load i64, ptr %126, align 8, !tbaa !40
   %128 = icmp ne i64 %127, 0
   %or.cond = and i1 %39, %128
-  %129 = add i32 %.04679, 5
-  %spec.select = select i1 %or.cond, i32 %129, i32 %.04679
+  %129 = add i32 %.04680, 5
+  %spec.select = select i1 %or.cond, i32 %129, i32 %.04680
   br label %130
 
 130:                                              ; preds = %H5MF__close_fstype.exit.thread, %125
-  %.147 = phi i32 [ %.04679, %H5MF__close_fstype.exit.thread ], [ %spec.select, %125 ]
+  %.147 = phi i32 [ %.04680, %H5MF__close_fstype.exit.thread ], [ %spec.select, %125 ]
   %131 = add i32 %.147, 1
   %132 = icmp ult i32 %131, %.049
   br i1 %132, label %40, label %._crit_edge, !llvm.loop !118
@@ -4085,20 +4085,20 @@ H5MF__close_fstype.exit.thread:                   ; preds = %.H5MF__close_fstype
 ._crit_edge:                                      ; preds = %130, %34
   %.051.lcssa = phi i64 [ 0, %34 ], [ %120, %130 ]
   store i64 %.051.lcssa, ptr %4, align 8, !tbaa !41
-  br label %.thread69
+  br label %.thread70
 
-.thread69:                                        ; preds = %58, %113, %87, %._crit_edge
+.thread70:                                        ; preds = %58, %113, %87, %._crit_edge
   %.3 = phi i32 [ 0, %._crit_edge ], [ -1, %87 ], [ -1, %113 ], [ -1, %58 ]
   %133 = load i32, ptr %7, align 4, !tbaa !11
   %.not62 = icmp eq i32 %133, 0
   br i1 %.not62, label %135, label %134
 
-134:                                              ; preds = %.thread69
+134:                                              ; preds = %.thread70
   call void @H5AC_set_ring(i32 noundef %133, ptr noundef null) #7
   br label %135
 
-135:                                              ; preds = %16, %134, %.thread69
-  %.045 = phi i32 [ %.3, %134 ], [ %.3, %.thread69 ], [ 0, %16 ]
+135:                                              ; preds = %.thread70, %134, %16
+  %.045 = phi i32 [ %.3, %134 ], [ %.3, %.thread70 ], [ 0, %16 ]
   %136 = load i64, ptr %10, align 8, !tbaa !41
   call void @H5AC_tag(i64 noundef %136, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4188,9 +4188,9 @@ define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr nounde
   br label %43
 
 43:                                               ; preds = %40, %154
-  %.089174 = phi i32 [ 3, %40 ], [ %.3, %154 ]
+  %.089173 = phi i32 [ 3, %40 ], [ %.3, %154 ]
   %44 = phi i1 [ true, %40 ], [ false, %154 ]
-  %.0144172 = phi i32 [ 13, %40 ], [ %.4148, %154 ]
+  %.0171 = phi i32 [ 13, %40 ], [ %.4147, %154 ]
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %43
@@ -4214,10 +4214,10 @@ define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr nounde
   %.094 = phi i64 [ %54, %53 ], [ 1, %43 ]
   br label %56
 
-56:                                               ; preds = %55, %.thread217
-  %indvars.iv = phi i64 [ 1, %55 ], [ %indvars.iv.next, %.thread217 ]
-  %.190171 = phi i32 [ %.089174, %55 ], [ %.3, %.thread217 ]
-  %.1145169 = phi i32 [ %.0144172, %55 ], [ %.4148, %.thread217 ]
+56:                                               ; preds = %55, %.thread216
+  %indvars.iv = phi i64 [ 1, %55 ], [ %indvars.iv.next, %.thread216 ]
+  %.190170 = phi i32 [ %.089173, %55 ], [ %.3, %.thread216 ]
+  %.1144168 = phi i32 [ %.0171, %55 ], [ %.4147, %.thread216 ]
   %57 = load ptr, ptr %18, align 8, !tbaa !42
   %58 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %59 = trunc nuw i8 %58 to i1
@@ -4282,12 +4282,12 @@ define range(i32 -1, 1) i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr nounde
   br label %H5MF__alloc_to_fs_type.exit
 
 H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, %90, %56
-  %.4148 = phi i32 [ %.1145169, %56 ], [ %.28.i, %90 ], [ %83, %82 ], [ %81, %79 ], [ %..i, %84 ], [ 7, %72 ]
-  %96 = zext i32 %.4148 to i64
+  %.4147 = phi i32 [ %.1144168, %56 ], [ %.28.i, %90 ], [ %83, %82 ], [ %81, %79 ], [ %..i, %84 ], [ 7, %72 ]
+  %96 = zext i32 %.4147 to i64
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !3, !range !7, !noundef !8
   %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %.thread217, label %100
+  br i1 %99, label %.thread216, label %100
 
 100:                                              ; preds = %H5MF__alloc_to_fs_type.exit
   store i8 1, ptr %97, align 1, !tbaa !3
@@ -4296,17 +4296,17 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, 
   %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %96
   %104 = load ptr, ptr %103, align 8, !tbaa !49
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %106, label %.thread219
+  br i1 %105, label %106, label %.thread218
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 1608
   %108 = getelementptr inbounds nuw i64, ptr %107, i64 %96
   %109 = load i64, ptr %108, align 8, !tbaa !41
   %.not116 = icmp eq i64 %109, -1
-  br i1 %.not116, label %.thread217, label %110
+  br i1 %.not116, label %.thread216, label %110
 
 110:                                              ; preds = %106
-  %111 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.4148)
+  %111 = call i32 @H5MF__open_fstype(ptr noundef nonnull %0, i32 noundef %.4147)
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %117
 
@@ -4321,24 +4321,24 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, 
   store i8 1, ptr %118, align 1, !tbaa !3
   %.pre = load ptr, ptr %18, align 8, !tbaa !42
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1712
-  %.phi.trans.insert206 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %96
-  %.pre207 = load ptr, ptr %.phi.trans.insert206, align 8, !tbaa !49
-  %119 = icmp eq ptr %.pre207, null
-  br i1 %119, label %.thread217, label %.thread219
+  %.phi.trans.insert205 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %96
+  %.pre206 = load ptr, ptr %.phi.trans.insert205, align 8, !tbaa !49
+  %119 = icmp eq ptr %.pre206, null
+  br i1 %119, label %.thread216, label %.thread218
 
-.thread219:                                       ; preds = %100, %117
+.thread218:                                       ; preds = %100, %117
   %120 = phi ptr [ %.pre, %117 ], [ %101, %100 ]
-  %121 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %120, i32 noundef %.4148)
+  %121 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %120, i32 noundef %.4147)
   %. = select i1 %121, i32 3, i32 2
-  %.not118 = icmp eq i32 %., %.190171
+  %.not118 = icmp eq i32 %., %.190170
   br i1 %.not118, label %123, label %122
 
-122:                                              ; preds = %.thread219
+122:                                              ; preds = %.thread218
   call void @H5AC_set_ring(i32 noundef %., ptr noundef null) #7
   br label %123
 
-123:                                              ; preds = %122, %.thread219
-  %.291 = phi i32 [ %., %122 ], [ %.190171, %.thread219 ]
+123:                                              ; preds = %122, %.thread218
+  %.291 = phi i32 [ %., %122 ], [ %.190170, %.thread218 ]
   %124 = load ptr, ptr %18, align 8, !tbaa !42
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1712
   %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %96
@@ -4359,7 +4359,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, 
   %137 = load i64, ptr %42, align 8
   %138 = icmp ne i64 %137, -1
   %or.cond = select i1 %136, i1 true, i1 %138
-  br i1 %or.cond, label %139, label %.thread217
+  br i1 %or.cond, label %139, label %.thread216
 
 139:                                              ; preds = %134
   %140 = load ptr, ptr %18, align 8, !tbaa !42
@@ -4381,24 +4381,24 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %72, %79, %82, %84, 
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 1608
   %153 = getelementptr inbounds nuw i64, ptr %152, i64 %96
   store i64 -1, ptr %153, align 8, !tbaa !41
-  br label %.thread217
+  br label %.thread216
 
-.thread217:                                       ; preds = %106, %H5MF__alloc_to_fs_type.exit, %150, %134, %117
-  %.3 = phi i32 [ %.190171, %H5MF__alloc_to_fs_type.exit ], [ %.291, %150 ], [ %.291, %134 ], [ %.190171, %117 ], [ %.190171, %106 ]
+.thread216:                                       ; preds = %106, %H5MF__alloc_to_fs_type.exit, %150, %134, %117
+  %.3 = phi i32 [ %.190170, %H5MF__alloc_to_fs_type.exit ], [ %.291, %150 ], [ %.291, %134 ], [ %.190170, %117 ], [ %.190170, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %154, label %56, !llvm.loop !121
 
-154:                                              ; preds = %.thread217
+154:                                              ; preds = %.thread216
   br i1 %44, label %43, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %154
-  %.pre208 = load ptr, ptr %18, align 8, !tbaa !42
+  %.pre207 = load ptr, ptr %18, align 8, !tbaa !42
   br label %split, !llvm.loop !122
 
 split:                                            ; preds = %45, %50, %._crit_edge
-  %155 = phi ptr [ %.pre208, %._crit_edge ], [ %46, %50 ], [ %46, %45 ]
-  %.089.lcssa = phi i32 [ %.3, %._crit_edge ], [ %.089174, %50 ], [ %.089174, %45 ]
+  %155 = phi ptr [ %.pre207, %._crit_edge ], [ %46, %50 ], [ %46, %45 ]
+  %.089.lcssa = phi i32 [ %.3, %._crit_edge ], [ %.089173, %50 ], [ %.089173, %45 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !95
   %.not107 = icmp eq ptr %157, null
@@ -4437,9 +4437,9 @@ split:                                            ; preds = %45, %50, %._crit_ed
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8, !tbaa !95
   %.not109 = icmp eq ptr %178, null
-  br i1 %.not109, label %.preheader, label %.preheader151
+  br i1 %.not109, label %.preheader, label %.preheader150
 
-.preheader151:                                    ; preds = %175
+.preheader150:                                    ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %179, i8 -1, i64 96, i1 false), !tbaa !41
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 1512
@@ -4468,22 +4468,22 @@ split:                                            ; preds = %45, %50, %._crit_ed
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %.preheader
 
-198:                                              ; preds = %.preheader151
+198:                                              ; preds = %.preheader150
   %199 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !41
   %200 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !41
   %201 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF_settle_raw_data_fsm, i32 noundef 2777, i64 noundef %199, i64 noundef %200, ptr noundef nonnull @.str.40) #7
   br label %343
 
-.preheader:                                       ; preds = %.preheader151, %175
+.preheader:                                       ; preds = %.preheader150, %175
   %scevgep = getelementptr inbounds nuw i8, ptr %8, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %scevgep, i8 0, i64 12, i1 false), !tbaa !3
   %202 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %203
 
 203:                                              ; preds = %.preheader, %341
-  %.4182 = phi i32 [ %.089.lcssa, %.preheader ], [ %.6, %341 ]
+  %.4181 = phi i32 [ %.089.lcssa, %.preheader ], [ %.6, %341 ]
   %204 = phi i1 [ true, %.preheader ], [ false, %341 ]
-  %.2146180 = phi i32 [ 13, %.preheader ], [ %.5149, %341 ]
+  %.2145179 = phi i32 [ 13, %.preheader ], [ %.5148, %341 ]
   br i1 %204, label %215, label %205
 
 205:                                              ; preds = %203
@@ -4508,9 +4508,9 @@ split:                                            ; preds = %45, %50, %._crit_ed
   br label %216
 
 216:                                              ; preds = %215, %340
-  %indvars.iv202 = phi i64 [ 1, %215 ], [ %indvars.iv.next203, %340 ]
-  %.5179 = phi i32 [ %.4182, %215 ], [ %.6, %340 ]
-  %.3147177 = phi i32 [ %.2146180, %215 ], [ %.5149, %340 ]
+  %indvars.iv201 = phi i64 [ 1, %215 ], [ %indvars.iv.next202, %340 ]
+  %.5178 = phi i32 [ %.4181, %215 ], [ %.6, %340 ]
+  %.3146176 = phi i32 [ %.2145179, %215 ], [ %.5148, %340 ]
   %217 = load ptr, ptr %18, align 8, !tbaa !42
   %218 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %219 = trunc nuw i8 %218 to i1
@@ -4542,13 +4542,13 @@ split:                                            ; preds = %45, %50, %._crit_ed
 
 234:                                              ; preds = %232
   %235 = getelementptr inbounds nuw i8, ptr %217, i64 1868
-  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv202
+  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv201
   %237 = load i32, ptr %236, align 4, !tbaa !11
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %234
-  %240 = trunc i64 %indvars.iv202 to i32
+  %240 = trunc i64 %indvars.iv201 to i32
   %241 = add i32 %240, 6
   br label %H5MF__alloc_to_fs_type.exit127
 
@@ -4558,28 +4558,28 @@ split:                                            ; preds = %45, %50, %._crit_ed
 
 244:                                              ; preds = %231
   %245 = getelementptr inbounds nuw i8, ptr %217, i64 1868
-  %246 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv202
+  %246 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv201
   %247 = load i32, ptr %246, align 4, !tbaa !11
   %248 = icmp eq i32 %247, 0
-  %249 = trunc nuw nsw i64 %indvars.iv202 to i32
+  %249 = trunc nuw nsw i64 %indvars.iv201 to i32
   %..i126 = select i1 %248, i32 %249, i32 %247
   br label %H5MF__alloc_to_fs_type.exit127
 
 250:                                              ; preds = %228, %224
   %251 = getelementptr inbounds nuw i8, ptr %217, i64 1868
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv202
+  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv201
   %253 = load i32, ptr %252, align 4, !tbaa !11
   %254 = icmp eq i32 %253, 0
-  %255 = trunc nuw nsw i64 %indvars.iv202 to i32
+  %255 = trunc nuw nsw i64 %indvars.iv201 to i32
   %.28.i121 = select i1 %254, i32 %255, i32 %253
   br label %H5MF__alloc_to_fs_type.exit127
 
 H5MF__alloc_to_fs_type.exit127:                   ; preds = %232, %239, %242, %244, %250, %216
-  %.5149 = phi i32 [ %.3147177, %216 ], [ %.28.i121, %250 ], [ %243, %242 ], [ %241, %239 ], [ %..i126, %244 ], [ 7, %232 ]
+  %.5148 = phi i32 [ %.3146176, %216 ], [ %.28.i121, %250 ], [ %243, %242 ], [ %241, %239 ], [ %..i126, %244 ], [ 7, %232 ]
   %256 = load ptr, ptr %18, align 8, !tbaa !42
-  %257 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %256, i32 noundef %.5149)
+  %257 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef %256, i32 noundef %.5148)
   %.120 = select i1 %257, i32 3, i32 2
-  %.not113 = icmp eq i32 %.120, %.5179
+  %.not113 = icmp eq i32 %.120, %.5178
   br i1 %.not113, label %259, label %258
 
 258:                                              ; preds = %H5MF__alloc_to_fs_type.exit127
@@ -4587,8 +4587,8 @@ H5MF__alloc_to_fs_type.exit127:                   ; preds = %232, %239, %242, %2
   br label %259
 
 259:                                              ; preds = %258, %H5MF__alloc_to_fs_type.exit127
-  %.6 = phi i32 [ %.120, %258 ], [ %.5179, %H5MF__alloc_to_fs_type.exit127 ]
-  %260 = zext i32 %.5149 to i64
+  %.6 = phi i32 [ %.120, %258 ], [ %.5178, %H5MF__alloc_to_fs_type.exit127 ]
+  %260 = zext i32 %.5148 to i64
   %261 = getelementptr inbounds nuw i8, ptr %8, i64 %260
   %262 = load i8, ptr %261, align 1, !tbaa !3, !range !7, !noundef !8
   %263 = trunc nuw i8 %262 to i1
@@ -4604,7 +4604,7 @@ H5MF__alloc_to_fs_type.exit127:                   ; preds = %232, %239, %242, %2
   br i1 %.not114, label %308, label %269
 
 269:                                              ; preds = %264
-  %270 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %265, i32 noundef %.5149)
+  %270 = call fastcc zeroext i1 @H5MF__fsm_type_is_self_referential(ptr noundef nonnull %265, i32 noundef %.5148)
   br i1 %270, label %308, label %271
 
 271:                                              ; preds = %269
@@ -4707,9 +4707,9 @@ H5MF__alloc_to_fs_type.exit127:                   ; preds = %232, %239, %242, %2
   br label %340
 
 340:                                              ; preds = %259, %339, %308
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next203, 7
-  br i1 %exitcond205.not, label %341, label %216, !llvm.loop !125
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond204.not = icmp eq i64 %indvars.iv.next202, 7
+  br i1 %exitcond204.not, label %341, label %216, !llvm.loop !125
 
 341:                                              ; preds = %340
   br i1 %204, label %203, label %342, !llvm.loop !126
@@ -4734,7 +4734,7 @@ H5MF__alloc_to_fs_type.exit127:                   ; preds = %232, %239, %242, %2
   call void @H5AC_set_ring(i32 noundef %345, ptr noundef null) #7
   br label %347
 
-347:                                              ; preds = %14, %346, %344
+347:                                              ; preds = %344, %346, %14
   %.086 = phi i32 [ %.2, %346 ], [ %.2, %344 ], [ 0, %14 ]
   %348 = load i64, ptr %6, align 8, !tbaa !41
   call void @H5AC_tag(i64 noundef %348, ptr noundef null) #7

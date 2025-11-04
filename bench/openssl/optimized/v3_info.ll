@@ -38,12 +38,12 @@ define internal ptr @i2v_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %27
-  %.03445 = phi ptr [ %10, %27 ], [ %2, %3 ]
-  %.03544 = phi i32 [ %31, %27 ], [ 0, %3 ]
-  %7 = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.03544) #5
+  %.03446 = phi ptr [ %10, %27 ], [ %2, %3 ]
+  %.03545 = phi i32 [ %31, %27 ], [ 0, %3 ]
+  %7 = call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.03545) #5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = call ptr @i2v_GENERAL_NAME(ptr noundef %0, ptr noundef %9, ptr noundef %.03445) #5
+  %10 = call ptr @i2v_GENERAL_NAME(ptr noundef %0, ptr noundef %9, ptr noundef %.03446) #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -54,7 +54,7 @@ define internal ptr @i2v_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   br label %.loopexit
 
 13:                                               ; preds = %.lr.ph
-  %14 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %10, i32 noundef %.03544) #5
+  %14 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %10, i32 noundef %.03545) #5
   %15 = load ptr, ptr %7, align 8, !tbaa !10
   %16 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %4, i32 noundef 80, ptr noundef %15) #5
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
@@ -76,7 +76,7 @@ define internal ptr @i2v_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   %30 = load ptr, ptr %19, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %30, ptr noundef nonnull @.str.5, i32 noundef 88) #5
   store ptr %25, ptr %19, align 8, !tbaa !11
-  %31 = add nuw nsw i32 %.03544, 1
+  %31 = add nuw nsw i32 %.03545, 1
   %32 = call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %33 = icmp slt i32 %31, %32
   br i1 %33, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !14
@@ -90,7 +90,7 @@ define internal ptr @i2v_AUTHORITY_INFO_ACCESS(ptr noundef %0, ptr noundef %1, p
   br label %._crit_edge.thread
 
 .loopexit:                                        ; preds = %13, %12
-  %.1.ph = phi ptr [ %.03445, %12 ], [ %10, %13 ]
+  %.1.ph = phi ptr [ %.03446, %12 ], [ %10, %13 ]
   %37 = icmp eq ptr %2, null
   %38 = icmp ne ptr %.1.ph, null
   %or.cond3 = and i1 %37, %38

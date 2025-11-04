@@ -1675,7 +1675,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %spec.select = add nuw nsw i64 %53, %.188
   switch i64 %52, label %75 [
     i64 -1, label %54
-    i64 0, label %.thread126
+    i64 0, label %.thread
   ]
 
 54:                                               ; preds = %50
@@ -1693,16 +1693,16 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %61 = load i64, ptr %32, align 8, !tbaa !37
   %62 = and i64 %61, 2
   %.not111 = icmp eq i64 %62, 0
-  br i1 %.not111, label %.thread, label %63
+  br i1 %.not111, label %.thread126, label %63
 
 63:                                               ; preds = %.critedge
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = add nsw i64 %25, -1
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.54, i64 noundef %3, i64 noundef %66, i64 noundef %4) #19
-  br label %.thread
+  br label %.thread126
 
-.thread:                                          ; preds = %63, %.critedge
+.thread126:                                       ; preds = %63, %.critedge
   %68 = load i64, ptr @H5E_IO_g, align 8, !tbaa !10
   %69 = load i64, ptr @H5E_READERROR_g, align 8, !tbaa !10
   %70 = call ptr @ctime(ptr noundef nonnull %9) #19
@@ -1713,7 +1713,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %119
 
-.thread126:                                       ; preds = %50
+.thread:                                          ; preds = %50
   call void @llvm.memset.p0.i64(ptr align 1 %.096151, i8 0, i64 %.094152, i1 false)
   br label %.loopexit
 
@@ -1723,7 +1723,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %.not110 = icmp eq i64 %76, 0
   br i1 %.not110, label %.loopexit, label %49
 
-.loopexit:                                        ; preds = %75, %47, %.thread126
+.loopexit:                                        ; preds = %75, %47, %.thread
   %78 = load i64, ptr %32, align 8, !tbaa !37
   %79 = and i64 %78, 8192
   %.not112 = icmp eq i64 %79, 0
@@ -1795,11 +1795,11 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %fputc = call i32 @fputc(i32 10, ptr %111)
   br label %119
 
-119:                                              ; preds = %.thread, %6, %98, %118, %112, %27, %18
-  %.082 = phi i32 [ -1, %27 ], [ 0, %112 ], [ 0, %118 ], [ 0, %98 ], [ -1, %18 ], [ 0, %6 ], [ -1, %.thread ]
+119:                                              ; preds = %.thread126, %6, %98, %118, %112, %27, %18
+  %.086 = phi i32 [ -1, %27 ], [ 0, %112 ], [ 0, %118 ], [ 0, %98 ], [ -1, %18 ], [ 0, %6 ], [ -1, %.thread126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.082
+  ret i32 %.086
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2057,10 +2057,10 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   br label %139
 
 139:                                              ; preds = %.thread, %6, %134, %138, %28, %19
-  %.091 = phi i32 [ -1, %28 ], [ 0, %138 ], [ 0, %134 ], [ -1, %19 ], [ 0, %6 ], [ -1, %.thread ]
+  %.095 = phi i32 [ -1, %28 ], [ 0, %138 ], [ 0, %134 ], [ -1, %19 ], [ 0, %6 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.091
+  ret i32 %.095
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2199,9 +2199,9 @@ define internal range(i32 -1, 1) i32 @H5FD__log_truncate(ptr noundef captures(no
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
-82:                                               ; preds = %81, %3, %15
-  %.026 = phi i32 [ 0, %15 ], [ %.2, %81 ], [ 0, %3 ]
-  ret i32 %.026
+82:                                               ; preds = %3, %15, %81
+  %.027 = phi i32 [ 0, %15 ], [ %.2, %81 ], [ 0, %3 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable

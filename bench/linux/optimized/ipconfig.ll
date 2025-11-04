@@ -888,14 +888,14 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   tail call void @rtnl_lock() #17
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 144), align 16
   %2 = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
-  br i1 %2, label %.thread, label %.preheader18
+  br i1 %2, label %.thread, label %.preheader17
 
 3:                                                ; preds = %18
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 144), align 16
   %4 = icmp eq ptr %.pr, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
-  br i1 %4, label %.thread, label %.preheader17
+  br i1 %4, label %.thread, label %.preheader16
 
-.preheader18:                                     ; preds = %0, %18
+.preheader17:                                     ; preds = %0, %18
   %5 = phi ptr [ %19, %18 ], [ %1, %0 ]
   %6 = getelementptr i8, ptr %5, i64 -192
   %7 = load i32, ptr %6, align 8
@@ -903,7 +903,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %18, label %10
 
-10:                                               ; preds = %.preheader18
+10:                                               ; preds = %.preheader17
   %11 = getelementptr i8, ptr %5, i64 -360
   %12 = or i32 %7, 1
   %13 = tail call i32 @dev_change_flags(ptr noundef %11, i32 noundef %12, ptr noundef null) #17
@@ -915,19 +915,19 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef %16) #19
   br label %18
 
-18:                                               ; preds = %15, %10, %.preheader18
+18:                                               ; preds = %15, %10, %.preheader17
   %19 = load ptr, ptr %5, align 8
   %20 = icmp eq ptr %19, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
-  br i1 %20, label %3, label %.preheader18, !llvm.loop !19
+  br i1 %20, label %3, label %.preheader17, !llvm.loop !19
 
-.preheader17:                                     ; preds = %3, %.thread9
-  %21 = phi ptr [ %73, %.thread9 ], [ %.pr, %3 ]
-  %22 = phi ptr [ %72, %.thread9 ], [ @ic_first_dev, %3 ]
+.preheader16:                                     ; preds = %3, %.thread10
+  %21 = phi ptr [ %73, %.thread10 ], [ %.pr, %3 ]
+  %22 = phi ptr [ %72, %.thread10 ], [ @ic_first_dev, %3 ]
   %23 = getelementptr i8, ptr %21, i64 -360
   %24 = tail call fastcc zeroext i1 @ic_is_init_dev(ptr noundef %23) #18
-  br i1 %24, label %25, label %.thread9
+  br i1 %24, label %25, label %.thread10
 
-25:                                               ; preds = %.preheader17
+25:                                               ; preds = %.preheader16
   %26 = getelementptr i8, ptr %21, i64 -304
   %27 = load i32, ptr %26, align 8
   %28 = icmp ugt i32 %27, 363
@@ -951,7 +951,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %42 = icmp eq i32 %40, 0
   %43 = icmp ne i32 %41, 0
   %44 = select i1 %42, i1 true, i1 %43
-  br i1 %44, label %45, label %.thread9
+  br i1 %44, label %45, label %.thread10
 
 45:                                               ; preds = %32
   %46 = trunc i32 %35 to i16
@@ -964,7 +964,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
 51:                                               ; preds = %45
   %52 = getelementptr i8, ptr %21, i64 -64
   %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, ptr noundef %52) #19
-  br label %.thread9
+  br label %.thread10
 
 54:                                               ; preds = %45
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -998,24 +998,24 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %69 = load i32, ptr @ic_proto_have_if, align 4
   %70 = or i32 %69, %41
   store i32 %70, ptr @ic_proto_have_if, align 4
-  br label %.thread9
+  br label %.thread10
 
 71:                                               ; preds = %54
   tail call void @rtnl_unlock() #17
   br label %134
 
-.thread9:                                         ; preds = %32, %68, %51, %.preheader17
-  %72 = phi ptr [ %22, %.preheader17 ], [ %22, %32 ], [ %56, %68 ], [ %22, %51 ]
+.thread10:                                        ; preds = %32, %68, %51, %.preheader16
+  %72 = phi ptr [ %22, %.preheader16 ], [ %22, %32 ], [ %56, %68 ], [ %22, %51 ]
   %73 = load ptr, ptr %21, align 8
   %74 = icmp eq ptr %73, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
-  br i1 %74, label %.thread, label %.preheader17, !llvm.loop !20
+  br i1 %74, label %.thread, label %.preheader16, !llvm.loop !20
 
-.thread:                                          ; preds = %.thread9, %0, %3
-  %75 = phi ptr [ @ic_first_dev, %3 ], [ @ic_first_dev, %0 ], [ %72, %.thread9 ]
+.thread:                                          ; preds = %.thread10, %0, %3
+  %75 = phi ptr [ @ic_first_dev, %3 ], [ @ic_first_dev, %0 ], [ %72, %.thread10 ]
   tail call void @rtnl_unlock() #17
   %76 = load ptr, ptr @ic_first_dev, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.loopexit16, label %78
+  br i1 %77, label %.loopexit15, label %78
 
 78:                                               ; preds = %.thread
   %79 = load volatile i64, ptr @jiffies, align 64
@@ -1026,14 +1026,14 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %84 = add i64 %79, %83
   %85 = sub i64 %80, %84
   %86 = icmp slt i64 %85, 0
-  br i1 %86, label %.lr.ph.preheader, label %.loopexit16
+  br i1 %86, label %.lr.ph.preheader, label %.loopexit15
 
 .lr.ph.preheader:                                 ; preds = %78
   %87 = add i64 %79, 20000
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %117
-  %88 = phi i64 [ %.ph11, %117 ], [ %87, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %116
+  %88 = phi i64 [ %117, %116 ], [ %87, %.lr.ph.preheader ]
   tail call void @rtnl_lock() #17
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 144), align 16
   %90 = icmp eq ptr %89, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
@@ -1050,7 +1050,11 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %96 = load volatile i64, ptr %95, align 8
   %97 = and i64 %96, 4
   %98 = icmp eq i64 %97, 0
-  br i1 %98, label %116, label %99
+  br i1 %98, label %.thread11, label %99
+
+.thread11:                                        ; preds = %94
+  tail call void @rtnl_unlock() #17
+  br label %.loopexit15
 
 99:                                               ; preds = %94, %.preheader
   %100 = load ptr, ptr %91, align 8
@@ -1063,7 +1067,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %102 = load volatile i64, ptr @jiffies, align 64
   %103 = sub i64 %102, %88
   %104 = icmp slt i64 %103, 0
-  br i1 %104, label %117, label %105, !llvm.loop !22
+  br i1 %104, label %116, label %105, !llvm.loop !22
 
 105:                                              ; preds = %.loopexit
   %106 = load volatile i64, ptr @jiffies, align 64
@@ -1077,14 +1081,10 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %113 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, i32 noundef %112) #19
   %114 = load volatile i64, ptr @jiffies, align 64
   %115 = add i64 %114, 20000
-  br label %117
+  br label %116
 
-116:                                              ; preds = %94
-  tail call void @rtnl_unlock() #17
-  br label %.loopexit16
-
-117:                                              ; preds = %105, %.loopexit
-  %.ph11 = phi i64 [ %88, %.loopexit ], [ %115, %105 ]
+116:                                              ; preds = %105, %.loopexit
+  %117 = phi i64 [ %115, %105 ], [ %88, %.loopexit ]
   %118 = load volatile i64, ptr @jiffies, align 64
   %119 = load i32, ptr @carrier_timeout, align 4
   %120 = mul i32 %119, 1000
@@ -1092,15 +1092,15 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %122 = add i64 %79, %121
   %123 = sub i64 %118, %122
   %124 = icmp slt i64 %123, 0
-  br i1 %124, label %.lr.ph, label %.loopexit16, !llvm.loop !22
+  br i1 %124, label %.lr.ph, label %.loopexit15, !llvm.loop !22
 
-.loopexit16:                                      ; preds = %117, %78, %116, %.thread
+.loopexit15:                                      ; preds = %116, %78, %.thread11, %.thread
   store ptr null, ptr %75, align 8
   %125 = load ptr, ptr @ic_first_dev, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %134
 
-127:                                              ; preds = %.loopexit16
+127:                                              ; preds = %.loopexit15
   %128 = load i8, ptr @user_dev_name, align 16
   %129 = icmp eq i8 %128, 0
   br i1 %129, label %132, label %130
@@ -1113,8 +1113,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @ic_open_devs() unnamed_add
   %133 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32) #19
   br label %134
 
-134:                                              ; preds = %71, %132, %130, %.loopexit16
-  %135 = phi i32 [ -19, %132 ], [ -19, %130 ], [ 0, %.loopexit16 ], [ -12, %71 ]
+134:                                              ; preds = %71, %132, %130, %.loopexit15
+  %135 = phi i32 [ -19, %132 ], [ -19, %130 ], [ 0, %.loopexit15 ], [ -12, %71 ]
   ret i32 %135
 }
 
@@ -1964,9 +1964,9 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 17:                                               ; preds = %13
   %18 = tail call ptr @skb_clone(ptr noundef %0, i32 noundef 2080) #17
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.sink.split, label %.thread18, !prof !30
+  br i1 %19, label %.sink.split, label %.thread19, !prof !30
 
-.thread18:                                        ; preds = %17
+.thread19:                                        ; preds = %17
   tail call void @consume_skb(ptr noundef %0) #17
   br label %22
 
@@ -1974,8 +1974,8 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %21 = icmp eq ptr %0, null
   br i1 %21, label %240, label %22
 
-22:                                               ; preds = %.thread18, %20
-  %23 = phi ptr [ %18, %.thread18 ], [ %0, %20 ]
+22:                                               ; preds = %.thread19, %20
+  %23 = phi ptr [ %18, %.thread19 ], [ %0, %20 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 116
@@ -2084,19 +2084,19 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   tail call void @_raw_spin_lock(ptr noundef nonnull @ic_recv_lock) #17
   %101 = load volatile i32, ptr @ic_got_reply, align 4
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.preheader23, label %.loopexit
+  br i1 %102, label %.preheader24, label %.loopexit
 
-.preheader23:                                     ; preds = %96, %106
+.preheader24:                                     ; preds = %96, %106
   %103 = phi ptr [ %104, %106 ], [ @ic_first_dev, %96 ]
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.loopexit, label %106
 
-106:                                              ; preds = %.preheader23
+106:                                              ; preds = %.preheader24
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %1
-  br i1 %109, label %110, label %.preheader23, !llvm.loop !31
+  br i1 %109, label %110, label %.preheader24, !llvm.loop !31
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -2130,13 +2130,13 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 
 132:                                              ; preds = %115
   %133 = icmp ugt i16 %87, 247
-  br i1 %133, label %134, label %.thread22
+  br i1 %133, label %134, label %.thread23
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %100, i64 264
   %136 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %135, ptr noundef nonnull dereferenceable(4) @ic_bootp_cookie, i64 4)
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %.thread22
+  br i1 %137, label %138, label %.thread23
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %100, i64 2
@@ -2152,7 +2152,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 147:                                              ; preds = %138
   %148 = getelementptr i8, ptr %100, i64 268
   %149 = icmp ult ptr %148, %143
-  br i1 %149, label %.lr.ph, label %.thread19.thread
+  br i1 %149, label %.lr.ph, label %.thread20.thread
 
 .lr.ph:                                           ; preds = %147, %176
   %150 = phi i32 [ %179, %176 ], [ 0, %147 ]
@@ -2160,7 +2160,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %152 = phi ptr [ %177, %176 ], [ %148, %147 ]
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %153, -1
-  br i1 %154, label %.thread19, label %155
+  br i1 %154, label %.thread20, label %155
 
 155:                                              ; preds = %.lr.ph
   %156 = getelementptr i8, ptr %152, i64 1
@@ -2173,7 +2173,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %161 = getelementptr i8, ptr %156, i64 %160
   %162 = getelementptr i8, ptr %161, i64 1
   %163 = icmp ult ptr %162, %143
-  br i1 %163, label %164, label %.thread19
+  br i1 %163, label %164, label %.thread20
 
 164:                                              ; preds = %158
   switch i8 %153, label %176 [
@@ -2205,17 +2205,17 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %178 = phi i32 [ %151, %155 ], [ %151, %171 ], [ %175, %173 ], [ %151, %165 ], [ %151, %167 ], [ %151, %164 ]
   %179 = phi i32 [ %150, %155 ], [ %150, %171 ], [ %150, %173 ], [ %150, %165 ], [ %170, %167 ], [ %150, %164 ]
   %180 = icmp ult ptr %177, %143
-  br i1 %180, label %.lr.ph, label %.thread19
+  br i1 %180, label %.lr.ph, label %.thread20
 
-.thread19:                                        ; preds = %176, %.lr.ph, %158
-  %.lcssa24 = phi i32 [ %178, %176 ], [ %151, %.lr.ph ], [ %151, %158 ]
+.thread20:                                        ; preds = %176, %.lr.ph, %158
+  %.lcssa25 = phi i32 [ %178, %176 ], [ %151, %.lr.ph ], [ %151, %158 ]
   %.lcssa = phi i32 [ %179, %176 ], [ %150, %.lr.ph ], [ %150, %158 ]
-  switch i32 %.lcssa, label %.thread19.thread [
+  switch i32 %.lcssa, label %.thread20.thread [
     i32 2, label %181
     i32 5, label %193
   ]
 
-181:                                              ; preds = %.thread19
+181:                                              ; preds = %.thread20
   %182 = load i32, ptr @ic_myaddr, align 4
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %184, label %.loopexit
@@ -2224,21 +2224,21 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %185 = getelementptr inbounds nuw i8, ptr %100, i64 44
   %186 = load i32, ptr %185, align 4
   store i32 %186, ptr @ic_myaddr, align 4
-  store i32 %.lcssa24, ptr @ic_servaddr, align 4
-  %187 = icmp eq i32 %.lcssa24, -1
+  store i32 %.lcssa25, ptr @ic_servaddr, align 4
+  %187 = icmp eq i32 %.lcssa25, -1
   br i1 %187, label %202, label %188
 
 188:                                              ; preds = %184
   %189 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %190 = load i32, ptr %189, align 4
-  %191 = icmp eq i32 %190, %.lcssa24
+  %191 = icmp eq i32 %190, %.lcssa25
   br i1 %191, label %202, label %192
 
 192:                                              ; preds = %188
-  store i32 %.lcssa24, ptr %189, align 4
+  store i32 %.lcssa25, ptr %189, align 4
   br label %202
 
-193:                                              ; preds = %.thread19
+193:                                              ; preds = %.thread20
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 968
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -2249,7 +2249,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %.loopexit
 
-.thread19.thread:                                 ; preds = %147, %.thread19
+.thread20.thread:                                 ; preds = %147, %.thread20
   store i32 -1, ptr @ic_myaddr, align 4
   store i32 -1, ptr @ic_servaddr, align 4
   br label %.loopexit
@@ -2261,13 +2261,13 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 203:                                              ; preds = %202, %138
   %204 = getelementptr i8, ptr %100, i64 268
   %205 = icmp ult ptr %204, %143
-  br i1 %205, label %.preheader, label %.thread22
+  br i1 %205, label %.preheader, label %.thread23
 
 .preheader:                                       ; preds = %203, %219
   %206 = phi ptr [ %220, %219 ], [ %204, %203 ]
   %207 = load i8, ptr %206, align 1
   %208 = icmp eq i8 %207, -1
-  br i1 %208, label %.thread22, label %209
+  br i1 %208, label %.thread23, label %209
 
 209:                                              ; preds = %.preheader
   %210 = getelementptr i8, ptr %206, i64 1
@@ -2289,9 +2289,9 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
 219:                                              ; preds = %218, %212, %209
   %220 = phi ptr [ %210, %209 ], [ %216, %218 ], [ %216, %212 ]
   %221 = icmp ult ptr %220, %143
-  br i1 %221, label %.preheader, label %.thread22
+  br i1 %221, label %.preheader, label %.thread23
 
-.thread22:                                        ; preds = %219, %.preheader, %203, %134, %132
+.thread23:                                        ; preds = %219, %.preheader, %203, %134, %132
   store ptr %104, ptr @ic_dev, align 8
   %222 = getelementptr inbounds nuw i8, ptr %100, i64 44
   %223 = load i32, ptr %222, align 4
@@ -2306,7 +2306,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   %229 = icmp eq i32 %228, -1
   br i1 %229, label %230, label %235
 
-230:                                              ; preds = %.thread22
+230:                                              ; preds = %.thread23
   %231 = getelementptr inbounds nuw i8, ptr %100, i64 52
   %232 = load i32, ptr %231, align 4
   %233 = icmp eq i32 %232, 0
@@ -2316,7 +2316,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   store i32 %232, ptr @ic_gateway, align 4
   br label %235
 
-235:                                              ; preds = %234, %230, %.thread22
+235:                                              ; preds = %234, %230, %.thread23
   %236 = load i32, ptr @ic_nameservers, align 4
   %237 = icmp eq i32 %236, -1
   br i1 %237, label %238, label %239
@@ -2330,7 +2330,7 @@ define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef r
   store volatile i32 1, ptr @ic_got_reply, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader23, %193, %181, %.thread19.thread, %239, %124, %121, %96
+.loopexit:                                        ; preds = %.preheader24, %193, %181, %.thread20.thread, %239, %124, %121, %96
   tail call void @_raw_spin_unlock(ptr noundef nonnull @ic_recv_lock) #17
   br label %.sink.split
 

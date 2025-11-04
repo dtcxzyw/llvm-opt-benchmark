@@ -545,8 +545,8 @@ define range(i32 -1, 1) i32 @H5T__enum_insert(ptr noundef readonly captures(none
   br label %.thread
 
 .thread:                                          ; preds = %61, %46, %3, %70, %32, %23
-  %.042 = phi i32 [ -1, %32 ], [ -1, %23 ], [ 0, %70 ], [ 0, %3 ], [ -1, %46 ], [ -1, %61 ]
-  ret i32 %.042
+  %.044 = phi i32 [ -1, %32 ], [ -1, %23 ], [ 0, %70 ], [ 0, %3 ], [ -1, %46 ], [ -1, %61 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

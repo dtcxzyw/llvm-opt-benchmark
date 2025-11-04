@@ -589,18 +589,18 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
 90:                                               ; preds = %82
   %91 = icmp eq i32 %83, 3
   %92 = or i1 %34, %91
-  br i1 %92, label %.thread31, label %93
+  br i1 %92, label %.thread32, label %93
 
 93:                                               ; preds = %90
   %94 = load i16, ptr %26, align 8
   %95 = and i16 %94, 2048
   %96 = icmp eq i16 %95, 0
-  br i1 %96, label %.thread31, label %97
+  br i1 %96, label %.thread32, label %97
 
 97:                                               ; preds = %93
   %98 = load volatile i32, ptr %35, align 8
   %99 = icmp slt i32 %98, 0
-  br i1 %99, label %.thread31, label %100
+  br i1 %99, label %.thread32, label %100
 
 100:                                              ; preds = %97
   %101 = load volatile i64, ptr %36, align 8
@@ -609,7 +609,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %104 = add i64 %101, %103
   %105 = call i64 @ktime_get_mono_fast_ns() #8
   %106 = icmp ugt i64 %104, %105
-  br i1 %106, label %107, label %.thread31
+  br i1 %106, label %107, label %.thread32
 
 107:                                              ; preds = %100
   store i32 0, ptr %30, align 8
@@ -632,17 +632,17 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   store i16 %117, ptr %26, align 8
   br label %.critedge
 
-.thread31:                                        ; preds = %93, %97, %100, %90
+.thread32:                                        ; preds = %93, %97, %100, %90
   %118 = load i64, ptr %37, align 8
   %119 = icmp eq i64 %118, 0
   br i1 %119, label %122, label %120
 
-120:                                              ; preds = %.thread31
+120:                                              ; preds = %.thread32
   %121 = call i32 @hrtimer_try_to_cancel(ptr noundef nonnull %38) #8
   store i64 0, ptr %37, align 8
   br label %122
 
-122:                                              ; preds = %120, %.thread31
+122:                                              ; preds = %120, %.thread32
   store i32 0, ptr %30, align 8
   %123 = load i32, ptr %29, align 4
   %124 = icmp eq i32 %123, 3
@@ -669,28 +669,28 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   call void @prepare_to_wait(ptr noundef nonnull %45, ptr noundef nonnull %3, i32 noundef 2) #8
   %133 = load i32, ptr %29, align 4
   %134 = icmp eq i32 %133, 3
-  br i1 %134, label %.preheader42, label %.loopexit43
+  br i1 %134, label %.preheader43, label %.loopexit44
 
 135:                                              ; preds = %128
   call void @_raw_spin_unlock(ptr noundef nonnull %52) #8
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
   call void @_raw_spin_lock(ptr noundef nonnull %52) #8
-  br label %.thread33
+  br label %.thread34
 
-.preheader42:                                     ; preds = %132, %.preheader42
+.preheader43:                                     ; preds = %132, %.preheader43
   call void @_raw_spin_unlock_irq(ptr noundef nonnull %52) #8
   call void @schedule() #8
   call void @_raw_spin_lock_irq(ptr noundef nonnull %52) #8
   call void @prepare_to_wait(ptr noundef nonnull %45, ptr noundef nonnull %3, i32 noundef 2) #8
   %136 = load i32, ptr %29, align 4
   %137 = icmp eq i32 %136, 3
-  br i1 %137, label %.preheader42, label %.loopexit43, !llvm.loop !25
+  br i1 %137, label %.preheader43, label %.loopexit44, !llvm.loop !25
 
-.loopexit43:                                      ; preds = %.preheader42, %132
+.loopexit44:                                      ; preds = %.preheader43, %132
   call void @finish_wait(ptr noundef nonnull %45, ptr noundef nonnull %3) #8
-  br label %.thread33
+  br label %.thread34
 
-.thread33:                                        ; preds = %.loopexit43, %135
+.thread34:                                        ; preds = %.loopexit44, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %358
 
@@ -702,7 +702,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %140 = load i16, ptr %26, align 8
   %141 = and i16 %140, 512
   %142 = icmp eq i16 %141, 0
-  br i1 %142, label %143, label %.loopexit44
+  br i1 %142, label %143, label %.loopexit45
 
 143:                                              ; preds = %139
   br i1 %32, label %153, label %144
@@ -776,27 +776,27 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
 185:                                              ; preds = %181, %178
   %186 = load ptr, ptr %43, align 8
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %.thread38, label %188
+  br i1 %187, label %.thread39, label %188
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 144
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, null
-  br i1 %191, label %.thread38, label %192
+  br i1 %191, label %.thread39, label %192
 
 192:                                              ; preds = %188, %181, %174, %168
-  %.ph35 = phi ptr [ %190, %188 ], [ %183, %181 ], [ %176, %174 ], [ %169, %168 ]
-  %193 = getelementptr i8, ptr %.ph35, i64 160
+  %.ph36 = phi ptr [ %190, %188 ], [ %183, %181 ], [ %176, %174 ], [ %169, %168 ]
+  %193 = getelementptr i8, ptr %.ph36, i64 160
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %.thread38, label %205
+  br i1 %195, label %.thread39, label %205
 
-.thread38:                                        ; preds = %188, %185, %192
+.thread39:                                        ; preds = %188, %185, %192
   %196 = load ptr, ptr %44, align 8
   %197 = icmp eq ptr %196, null
   br i1 %197, label %205, label %198
 
-198:                                              ; preds = %.thread38
+198:                                              ; preds = %.thread39
   %199 = getelementptr inbounds nuw i8, ptr %196, i64 120
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, null
@@ -807,8 +807,8 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %204 = load ptr, ptr %203, align 8
   br label %205
 
-205:                                              ; preds = %202, %198, %.thread38, %192
-  %206 = phi ptr [ %194, %192 ], [ %204, %202 ], [ null, %198 ], [ null, %.thread38 ]
+205:                                              ; preds = %202, %198, %.thread39, %192
+  %206 = phi ptr [ %194, %192 ], [ %204, %202 ], [ null, %198 ], [ null, %.thread39 ]
   call void @dev_pm_enable_wake_irq_check(ptr noundef %0, i1 noundef zeroext true) #8
   %207 = load i16, ptr %26, align 8
   %208 = and i16 %207, 8192
@@ -845,15 +845,15 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
 228:                                              ; preds = %223
   call void @dev_pm_enable_wake_irq_complete(ptr noundef %0) #8
   %.pre = load i16, ptr %26, align 8
-  br label %.loopexit44
+  br label %.loopexit45
 
-.loopexit44:                                      ; preds = %139, %228
+.loopexit45:                                      ; preds = %139, %228
   %229 = phi i16 [ %.pre, %228 ], [ %140, %139 ]
   %230 = and i16 %229, 7
   %231 = icmp eq i16 %230, 0
   br i1 %231, label %232, label %244
 
-232:                                              ; preds = %.loopexit44
+232:                                              ; preds = %.loopexit45
   %233 = load i64, ptr %39, align 8
   %234 = call i64 @ktime_get_mono_fast_ns() #8
   store i64 %234, ptr %39, align 8
@@ -871,7 +871,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   store i64 %243, ptr %241, align 8
   br label %244
 
-244:                                              ; preds = %236, %232, %.loopexit44
+244:                                              ; preds = %236, %232, %.loopexit45
   store i32 2, ptr %29, align 4
   %245 = load i64, ptr %37, align 8
   %246 = icmp eq i64 %245, 0
@@ -886,15 +886,15 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
-  br i1 %252, label %.thread39, label %253
+  br i1 %252, label %.thread40, label %253
 
 253:                                              ; preds = %249
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 436
   %255 = load volatile i32, ptr %254, align 4
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %.thread39, label %.lr.ph73, !prof !6
+  br i1 %256, label %.thread40, label %.lr.ph74, !prof !6
 
-.lr.ph73:                                         ; preds = %253, %263
+.lr.ph74:                                         ; preds = %253, %263
   %257 = phi i32 [ %264, %263 ], [ %255, %253 ]
   %258 = add i32 %257, -1
   %259 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %254, i32 %258, ptr nonnull elementtype(i32) %254, i32 %257) #8, !srcloc !7
@@ -902,27 +902,27 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %261 = icmp ult i8 %260, 2
   call void @llvm.assume(i1 %261)
   %262 = icmp eq i8 %260, 0
-  br i1 %262, label %263, label %.thread39, !prof !8
+  br i1 %262, label %263, label %.thread40, !prof !8
 
-263:                                              ; preds = %.lr.ph73
+263:                                              ; preds = %.lr.ph74
   %264 = extractvalue { i8, i32 } %259, 1
   %265 = icmp eq i32 %264, 0
-  br i1 %265, label %.thread39, label %.lr.ph73, !prof !9, !llvm.loop !10
+  br i1 %265, label %.thread40, label %.lr.ph74, !prof !9, !llvm.loop !10
 
-.thread39:                                        ; preds = %263, %.lr.ph73, %253, %249
+.thread40:                                        ; preds = %263, %.lr.ph74, %253, %249
   %266 = call i32 @__wake_up(ptr noundef nonnull %45, i32 noundef 3, i32 noundef 0, ptr noundef null) #8
   %267 = load i16, ptr %26, align 8
   %268 = and i16 %267, 32
   %269 = icmp eq i16 %268, 0
   br i1 %269, label %273, label %270
 
-270:                                              ; preds = %.thread39
+270:                                              ; preds = %.thread40
   %271 = and i16 %267, -33
   store i16 %271, ptr %26, align 8
   %272 = call fastcc i32 @rpm_resume(ptr noundef %0, i32 noundef 0)
   br label %.critedge
 
-273:                                              ; preds = %.thread39
+273:                                              ; preds = %.thread40
   %274 = and i16 %267, 1024
   %275 = icmp eq i16 %274, 0
   br i1 %275, label %276, label %.critedge
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @rpm_suspend(ptr noundef %0, i32 noundef %1) unnamed_
   %.not = icmp ugt i64 %356, %357
   br i1 %.not, label %358, label %.critedge
 
-358:                                              ; preds = %.thread33, %352
+358:                                              ; preds = %.thread34, %352
   %359 = load i32, ptr %25, align 4
   %360 = icmp eq i32 %359, 0
   br i1 %360, label %.lr.ph, label %.critedge

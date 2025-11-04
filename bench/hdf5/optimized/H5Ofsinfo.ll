@@ -66,14 +66,14 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %13 = trunc nuw i8 %12 to i1
   %14 = xor i1 %13, true
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %16, label %.thread164, !prof !12
+  br i1 %15, label %16, label %.thread165, !prof !12
 
 16:                                               ; preds = %6
   %17 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5O_fsinfo_t_reg_free_list) #6
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %21, label %.preheader177
+  br i1 %18, label %21, label %.preheader178
 
-.preheader177:                                    ; preds = %16
+.preheader178:                                    ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, i8 -1, i64 96, i1 false), !tbaa !13
   %20 = icmp slt i64 %4, 1
@@ -83,15 +83,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %22 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %23 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !13
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__fsinfo_decode, i32 noundef 106, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.4) #6
-  br label %.thread164
+  br label %.thread165
 
-25:                                               ; preds = %.preheader177
+25:                                               ; preds = %.preheader178
   %26 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %27 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__fsinfo_decode, i32 noundef 113, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.5) #6
   br label %.thread
 
-29:                                               ; preds = %.preheader177
+29:                                               ; preds = %.preheader178
   %30 = ptrtoint ptr %9 to i64
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %31, ptr %7, align 8, !tbaa !3
@@ -168,17 +168,17 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %79
 
 79:                                               ; preds = %77, %79
-  %.0142187 = phi i64 [ 0, %77 ], [ %86, %79 ]
-  %.0144186 = phi i64 [ 0, %77 ], [ %85, %79 ]
+  %.0142188 = phi i64 [ 0, %77 ], [ %86, %79 ]
+  %.0144187 = phi i64 [ 0, %77 ], [ %85, %79 ]
   %80 = phi ptr [ %78, %77 ], [ %82, %79 ]
-  %81 = shl i64 %.0144186, 8
+  %81 = shl i64 %.0144187, 8
   %82 = getelementptr inbounds i8, ptr %80, i64 -1
   %83 = load i8, ptr %82, align 1, !tbaa !15
   %84 = zext i8 %83 to i64
   %85 = or disjoint i64 %81, %84
-  %86 = add nuw nsw i64 %.0142187, 1
-  %exitcond193.not = icmp eq i64 %86, 8
-  br i1 %exitcond193.not, label %87, label %79, !llvm.loop !23
+  %86 = add nuw nsw i64 %.0142188, 1
+  %exitcond194.not = icmp eq i64 %86, 8
+  br i1 %exitcond194.not, label %87, label %79, !llvm.loop !23
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 7
@@ -227,7 +227,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 .preheader:                                       ; preds = %99, %124
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %124 ], [ 1, %99 ]
+  %indvars.iv195 = phi i64 [ %indvars.iv.next196, %124 ], [ 1, %99 ]
   %107 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #6
   %.not161 = icmp eq i8 %107, 0
   br i1 %.not161, label %124, label %108
@@ -255,12 +255,12 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 124:                                              ; preds = %111, %.preheader
-  %125 = getelementptr i64, ptr %17, i64 %indvars.iv194
+  %125 = getelementptr i64, ptr %17, i64 %indvars.iv195
   %126 = getelementptr i8, ptr %125, i64 40
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %126) #6
-  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %exitcond197.not = icmp eq i64 %indvars.iv.next195, 7
-  br i1 %exitcond197.not, label %.loopexit, label %.preheader, !llvm.loop !26
+  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next196, 7
+  br i1 %exitcond198.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
 127:                                              ; preds = %98
   %128 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -288,7 +288,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   store i32 1, ptr %17, align 8, !tbaa !27
   %137 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store i8 1, ptr %137, align 8, !tbaa !28
-  br label %.thread164
+  br label %.thread165
 
 138:                                              ; preds = %29
   %139 = zext i8 %32 to i32
@@ -375,14 +375,14 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %195 = or disjoint i64 %194, %190
   store i64 %195, ptr %180, align 8, !tbaa !19
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  br label %.sink.split211
+  br label %.sink.split212
 
 197:                                              ; preds = %175
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 11
   br label %199
 
 199:                                              ; preds = %197, %199
-  %.0140180 = phi i64 [ 0, %197 ], [ %207, %199 ]
+  %.0140181 = phi i64 [ 0, %197 ], [ %207, %199 ]
   %200 = phi i64 [ 0, %197 ], [ %206, %199 ]
   %201 = phi ptr [ %198, %197 ], [ %203, %199 ]
   %202 = shl i64 %200, 8
@@ -390,7 +390,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %204 = load i8, ptr %203, align 1, !tbaa !15
   %205 = zext i8 %204 to i64
   %206 = or disjoint i64 %202, %205
-  %207 = add nuw nsw i64 %.0140180, 1
+  %207 = add nuw nsw i64 %.0140181, 1
   %exitcond.not = icmp eq i64 %207, 8
   br i1 %exitcond.not, label %208, label %199, !llvm.loop !29
 
@@ -398,7 +398,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %209 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %206, ptr %209, align 8, !tbaa !19
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 7
-  br label %.sink.split211
+  br label %.sink.split212
 
 211:                                              ; preds = %175
   %212 = load i8, ptr %155, align 1, !tbaa !15
@@ -411,15 +411,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %219 = or disjoint i64 %218, %213
   store i64 %219, ptr %214, align 8, !tbaa !19
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  br label %.sink.split211
+  br label %.sink.split212
 
-.sink.split211:                                   ; preds = %177, %208, %211
-  %.sink212 = phi ptr [ %220, %211 ], [ %210, %208 ], [ %196, %177 ]
-  store ptr %.sink212, ptr %7, align 8, !tbaa !3
+.sink.split212:                                   ; preds = %177, %208, %211
+  %.sink213 = phi ptr [ %220, %211 ], [ %210, %208 ], [ %196, %177 ]
+  store ptr %.sink213, ptr %7, align 8, !tbaa !3
   br label %221
 
-221:                                              ; preds = %.sink.split211, %175
-  %222 = phi ptr [ %155, %175 ], [ %.sink212, %.sink.split211 ]
+221:                                              ; preds = %.sink.split212, %175
+  %222 = phi ptr [ %155, %175 ], [ %.sink213, %.sink.split212 ]
   %223 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %.not157 = icmp eq i8 %223, 0
   br i1 %.not157, label %238, label %224
@@ -479,7 +479,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %258 = or disjoint i64 %257, %253
   store i64 %258, ptr %243, align 8, !tbaa !20
   %259 = getelementptr inbounds nuw i8, ptr %222, i64 4
-  br label %.sink.split213
+  br label %.sink.split214
 
 260:                                              ; preds = %238
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -488,7 +488,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %263
 
 263:                                              ; preds = %260, %263
-  %.0183 = phi i64 [ 0, %260 ], [ %271, %263 ]
+  %.0184 = phi i64 [ 0, %260 ], [ %271, %263 ]
   %264 = phi i64 [ 0, %260 ], [ %270, %263 ]
   %265 = phi ptr [ %262, %260 ], [ %267, %263 ]
   %266 = shl i64 %264, 8
@@ -498,13 +498,13 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %269 = zext i8 %268 to i64
   %270 = or disjoint i64 %266, %269
   store i64 %270, ptr %261, align 8, !tbaa !20
-  %271 = add nuw nsw i64 %.0183, 1
-  %exitcond190.not = icmp eq i64 %271, 8
-  br i1 %exitcond190.not, label %272, label %263, !llvm.loop !30
+  %271 = add nuw nsw i64 %.0184, 1
+  %exitcond191.not = icmp eq i64 %271, 8
+  br i1 %exitcond191.not, label %272, label %263, !llvm.loop !30
 
 272:                                              ; preds = %263
   %273 = getelementptr inbounds nuw i8, ptr %265, i64 7
-  br label %.sink.split213
+  br label %.sink.split214
 
 274:                                              ; preds = %238
   %275 = load i8, ptr %222, align 1, !tbaa !15
@@ -519,15 +519,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %282 = or disjoint i64 %281, %276
   store i64 %282, ptr %277, align 8, !tbaa !20
   %283 = getelementptr inbounds nuw i8, ptr %222, i64 2
-  br label %.sink.split213
+  br label %.sink.split214
 
-.sink.split213:                                   ; preds = %240, %272, %274
-  %.sink215 = phi ptr [ %283, %274 ], [ %273, %272 ], [ %259, %240 ]
-  store ptr %.sink215, ptr %7, align 8, !tbaa !3
+.sink.split214:                                   ; preds = %240, %272, %274
+  %.sink216 = phi ptr [ %283, %274 ], [ %273, %272 ], [ %259, %240 ]
+  store ptr %.sink216, ptr %7, align 8, !tbaa !3
   br label %284
 
-284:                                              ; preds = %.sink.split213, %238
-  %285 = phi ptr [ %222, %238 ], [ %.sink215, %.sink.split213 ]
+284:                                              ; preds = %.sink.split214, %238
+  %285 = phi ptr [ %222, %238 ], [ %.sink216, %.sink.split214 ]
   %286 = icmp ugt ptr %285, %9
   %287 = ptrtoint ptr %285 to i64
   %288 = sub i64 %143, %287
@@ -584,15 +584,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %320) #6
   %321 = load i8, ptr %158, align 8, !tbaa !16, !range !10, !noundef !11
   %322 = trunc nuw i8 %321 to i1
-  br i1 %322, label %.preheader175, label %.loopexit176
+  br i1 %322, label %.preheader176, label %.loopexit177
 
-.preheader175:                                    ; preds = %319, %340
+.preheader176:                                    ; preds = %319, %340
   %indvars.iv = phi i64 [ %indvars.iv.next, %340 ], [ 1, %319 ]
   %323 = call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #6
   %.not159 = icmp eq i8 %323, 0
   br i1 %.not159, label %340, label %324
 
-324:                                              ; preds = %.preheader175
+324:                                              ; preds = %.preheader176
   %325 = load ptr, ptr %7, align 8, !tbaa !3
   %326 = icmp ugt ptr %325, %9
   br i1 %326, label %336, label %327
@@ -614,26 +614,26 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %339 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__fsinfo_decode, i32 noundef 201, i64 noundef %337, i64 noundef %338, ptr noundef nonnull @.str.5) #6
   br label %.thread
 
-340:                                              ; preds = %327, %.preheader175
+340:                                              ; preds = %327, %.preheader176
   %341 = getelementptr i64, ptr %19, i64 %indvars.iv
   %342 = getelementptr i8, ptr %341, i64 -8
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %342) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond192.not, label %.loopexit176, label %.preheader175, !llvm.loop !31
+  %exitcond193.not = icmp eq i64 %indvars.iv.next, 13
+  br i1 %exitcond193.not, label %.loopexit177, label %.preheader176, !llvm.loop !31
 
-.loopexit176:                                     ; preds = %340, %319
+.loopexit177:                                     ; preds = %340, %319
   %343 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store i8 0, ptr %343, align 8, !tbaa !28
-  br label %.thread164
+  br label %.thread165
 
 .thread:                                          ; preds = %25, %146, %171, %234, %290, %315, %336, %50, %133, %103, %120
   %344 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_fsinfo_t_reg_free_list, ptr noundef nonnull %17) #6
-  br label %.thread164
+  br label %.thread165
 
-.thread164:                                       ; preds = %21, %.loopexit176, %.loopexit, %6, %.thread
-  %.0145 = phi ptr [ null, %.thread ], [ null, %6 ], [ %17, %.loopexit176 ], [ %17, %.loopexit ], [ null, %21 ]
-  ret ptr %.0145
+.thread165:                                       ; preds = %21, %.loopexit177, %.loopexit, %6, %.thread
+  %.0146 = phi ptr [ null, %.thread ], [ null, %6 ], [ %17, %.loopexit177 ], [ %17, %.loopexit ], [ null, %21 ]
+  ret ptr %.0146
 }
 
 ; Function Attrs: nounwind uwtable

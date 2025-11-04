@@ -1688,8 +1688,8 @@ define dso_local { i32, ptr } @_ZN5clang16serialized_diags26SerializedDiagnostic
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4llvm15BitstreamCursor13EnterSubBlockEjPj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %9, ptr noundef nonnull align 8 dereferenceable(344) %1, i32 noundef 9, ptr noundef null) #18
   %22 = load ptr, ptr %9, align 8, !tbaa !49
-  %.not164 = icmp eq ptr %22, null
-  br i1 %.not164, label %40, label %23
+  %.not165 = icmp eq ptr %22, null
+  br i1 %.not165, label %40, label %23
 
 23:                                               ; preds = %2
   store ptr null, ptr %9, align 8, !tbaa !49
@@ -1747,8 +1747,8 @@ _ZN4llvm5ErrorD2Ev.exit55.thread:                 ; preds = %32, %35
   %43 = load ptr, ptr %42, align 8
   %44 = call { i32, ptr } %43(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   %45 = extractvalue { i32, ptr } %44, 0
-  %.not165 = icmp eq i32 %45, 0
-  br i1 %.not165, label %46, label %313
+  %.not166 = icmp eq i32 %45, 0
+  br i1 %.not166, label %46, label %313
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1800,15 +1800,15 @@ _ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE
 70:                                               ; preds = %67
   %71 = call { i32, ptr } @_ZN5clang16serialized_diags26SerializedDiagnosticReader19readDiagnosticBlockERN4llvm15BitstreamCursorE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(344) %1)
   %72 = extractvalue { i32, ptr } %71, 0
-  %.not168 = icmp eq i32 %72, 0
-  br i1 %.not168, label %307, label %.thread158.loopexit, !llvm.loop !151
+  %.not169 = icmp eq i32 %72, 0
+  br i1 %.not169, label %307, label %.thread158.loopexit, !llvm.loop !151
 
 73:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN4llvm15BitstreamCursor9SkipBlockEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(344) %1)
   %74 = load ptr, ptr %13, align 8, !tbaa !49
-  %.not167 = icmp eq ptr %74, null
-  br i1 %.not167, label %_ZN4llvm5ErrorD2Ev.exit64, label %75
+  %.not168 = icmp eq ptr %74, null
+  br i1 %.not168, label %_ZN4llvm5ErrorD2Ev.exit64, label %75
 
 75:                                               ; preds = %73
   store ptr null, ptr %13, align 8, !tbaa !49
@@ -1869,8 +1869,8 @@ _ZN4llvm5ErrorD2Ev.exit64:                        ; preds = %73
   %95 = call { i32, ptr } %94(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   %96 = extractvalue { i32, ptr } %95, 0
   %97 = extractvalue { i32, ptr } %95, 1
-  %.not166 = icmp eq i32 %96, 0
-  br i1 %.not166, label %98, label %.thread158
+  %.not167 = icmp eq i32 %96, 0
+  br i1 %.not167, label %98, label %.thread158
 
 98:                                               ; preds = %91
   %99 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #20
@@ -1954,8 +1954,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit69: ; preds = %1
   %131 = load ptr, ptr %130, align 8
   %132 = call { i32, ptr } %131(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %128, ptr %.sroa.023.0.copyload, i64 %.sroa.224.0.copyload) #18
   %133 = extractvalue { i32, ptr } %132, 0
-  %.not175 = icmp eq i32 %133, 0
-  br i1 %.not175, label %_ZN4llvm5ErrorD2Ev.exit65, label %134, !llvm.loop !151
+  %.not176 = icmp eq i32 %133, 0
+  br i1 %.not176, label %_ZN4llvm5ErrorD2Ev.exit65, label %134, !llvm.loop !151
 
 134:                                              ; preds = %125
   %135 = extractvalue { i32, ptr } %132, 1
@@ -2011,9 +2011,9 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit73: ; preds = %1
   %165 = load ptr, ptr %164, align 8
   %166 = call { i32, ptr } %165(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %144, ptr noundef nonnull align 4 dereferenceable(16) %17, i32 noundef %159, i32 noundef %162, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %14) #18
   %167 = extractvalue { i32, ptr } %166, 0
-  %.not174 = icmp eq i32 %167, 0
+  %.not175 = icmp eq i32 %167, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %.not174, label %_ZN4llvm5ErrorD2Ev.exit65, label %168, !llvm.loop !151
+  br i1 %.not175, label %_ZN4llvm5ErrorD2Ev.exit65, label %168, !llvm.loop !151
 
 168:                                              ; preds = %141
   %169 = extractvalue { i32, ptr } %166, 1
@@ -2048,8 +2048,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit77: ; preds = %1
   %181 = load ptr, ptr %180, align 8
   %182 = call { i32, ptr } %181(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %178, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload) #18
   %183 = extractvalue { i32, ptr } %182, 0
-  %.not173 = icmp eq i32 %183, 0
-  br i1 %.not173, label %_ZN4llvm5ErrorD2Ev.exit65, label %184, !llvm.loop !151
+  %.not174 = icmp eq i32 %183, 0
+  br i1 %.not174, label %_ZN4llvm5ErrorD2Ev.exit65, label %184, !llvm.loop !151
 
 184:                                              ; preds = %175
   %185 = extractvalue { i32, ptr } %182, 1
@@ -2090,8 +2090,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit81: ; preds = %1
   %203 = load ptr, ptr %202, align 8
   %204 = call { i32, ptr } %203(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %194, i32 noundef %197, i32 noundef %200, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload) #18
   %205 = extractvalue { i32, ptr } %204, 0
-  %.not172 = icmp eq i32 %205, 0
-  br i1 %.not172, label %_ZN4llvm5ErrorD2Ev.exit65, label %206, !llvm.loop !151
+  %.not173 = icmp eq i32 %205, 0
+  br i1 %.not173, label %_ZN4llvm5ErrorD2Ev.exit65, label %206, !llvm.loop !151
 
 206:                                              ; preds = %191
   %207 = extractvalue { i32, ptr } %204, 1
@@ -2157,10 +2157,10 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit85: ; preds = %2
   %240 = load ptr, ptr %239, align 8
   %241 = call { i32, ptr } %240(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr %.sroa.06.0.copyload, i64 %.sroa.2.0.copyload) #18
   %242 = extractvalue { i32, ptr } %241, 0
-  %.not171 = icmp eq i32 %242, 0
+  %.not172 = icmp eq i32 %242, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not171, label %_ZN4llvm5ErrorD2Ev.exit65, label %243, !llvm.loop !151
+  br i1 %.not172, label %_ZN4llvm5ErrorD2Ev.exit65, label %243, !llvm.loop !151
 
 243:                                              ; preds = %213
   %244 = extractvalue { i32, ptr } %241, 1
@@ -2224,10 +2224,10 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit89: ; preds = %2
   %277 = load ptr, ptr %276, align 8
   %278 = call { i32, ptr } %277(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %21) #18
   %279 = extractvalue { i32, ptr } %278, 0
-  %.not170 = icmp eq i32 %279, 0
+  %.not171 = icmp eq i32 %279, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %.not170, label %_ZN4llvm5ErrorD2Ev.exit65, label %280, !llvm.loop !151
+  br i1 %.not171, label %_ZN4llvm5ErrorD2Ev.exit65, label %280, !llvm.loop !151
 
 280:                                              ; preds = %250
   %281 = extractvalue { i32, ptr } %278, 1
@@ -2260,8 +2260,8 @@ _ZNSt10error_codeC2IN5clang16serialized_diags7SDErrorEvEET_.exit93: ; preds = %2
   %293 = load ptr, ptr %292, align 8
   %294 = call { i32, ptr } %293(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %290) #18
   %295 = extractvalue { i32, ptr } %294, 0
-  %.not169 = icmp eq i32 %295, 0
-  br i1 %.not169, label %_ZN4llvm5ErrorD2Ev.exit65, label %296, !llvm.loop !151
+  %.not170 = icmp eq i32 %295, 0
+  br i1 %.not170, label %_ZN4llvm5ErrorD2Ev.exit65, label %296, !llvm.loop !151
 
 296:                                              ; preds = %287
   %297 = extractvalue { i32, ptr } %294, 1
@@ -2311,8 +2311,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %301, %_ZNKSt14defau
   br label %_ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit
 
 .loopexit:                                        ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit, %.thread158
-  %.sroa.0154.4163 = phi i32 [ %.sroa.0154.4.ph, %.thread158 ], [ %.sroa.0154.5, %_ZN4llvm8ExpectedIjED2Ev.exit ]
-  %.sroa.32.4162 = phi ptr [ %.sroa.32.4.ph, %.thread158 ], [ %.sroa.32.5, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.sroa.0154.4164 = phi i32 [ %.sroa.0154.4.ph, %.thread158 ], [ %.sroa.0154.5, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %.sroa.32.4163 = phi ptr [ %.sroa.32.4.ph, %.thread158 ], [ %.sroa.32.5, %_ZN4llvm8ExpectedIjED2Ev.exit ]
   %308 = load ptr, ptr %10, align 8, !tbaa !37
   %309 = icmp eq ptr %308, %47
   br i1 %309, label %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, label %310
@@ -2323,8 +2323,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %301, %_ZNKSt14defau
 
 _ZN4llvm11SmallVectorImLj16EED2Ev.exit:           ; preds = %.loopexit, %310
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %311 = insertvalue { i32, ptr } poison, i32 %.sroa.0154.4163, 0
-  %312 = insertvalue { i32, ptr } %311, ptr %.sroa.32.4162, 1
+  %311 = insertvalue { i32, ptr } poison, i32 %.sroa.0154.4164, 0
+  %312 = insertvalue { i32, ptr } %311, ptr %.sroa.32.4163, 1
   br label %313
 
 313:                                              ; preds = %_ZN4llvm11SmallVectorImLj16EED2Ev.exit, %40, %_ZN4llvm5ErrorD2Ev.exit55.thread

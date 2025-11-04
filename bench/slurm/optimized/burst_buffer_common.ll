@@ -863,53 +863,53 @@ define dso_local ptr @bb_handle_job_script(ptr noundef captures(none) %0, ptr no
   %25 = call ptr @_handle_replacement(ptr noundef nonnull %0)
   store ptr %25, ptr %5, align 8
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #19
-  %.not3448 = icmp eq i64 %26, 0
-  br i1 %.not3448, label %.outer._crit_edge, label %.lr.ph.split
+  %.not3449 = icmp eq i64 %26, 0
+  br i1 %.not3449, label %.outer._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %23, %.lr.ph.split.backedge
-  %.026.ph51 = phi ptr [ %44, %.lr.ph.split.backedge ], [ %25, %23 ]
-  %.027.ph49 = phi i64 [ %45, %.lr.ph.split.backedge ], [ %26, %23 ]
+  %.026.ph52 = phi ptr [ %44, %.lr.ph.split.backedge ], [ %25, %23 ]
+  %.027.ph50 = phi i64 [ %45, %.lr.ph.split.backedge ], [ %26, %23 ]
   %27 = load i32, ptr %20, align 4
-  %28 = call i64 @write(i32 noundef %27, ptr noundef %.026.ph51, i64 noundef %.027.ph49) #17
+  %28 = call i64 @write(i32 noundef %27, ptr noundef %.026.ph52, i64 noundef %.027.ph50) #17
   %29 = and i64 %28, 2147483648
-  %.not3546 = icmp eq i64 %29, 0
-  br i1 %.not3546, label %.split.us, label %.lr.ph47
+  %.not3547 = icmp eq i64 %29, 0
+  br i1 %.not3547, label %.split.us, label %.lr.ph48
 
-.lr.ph47:                                         ; preds = %.lr.ph.split
+.lr.ph48:                                         ; preds = %.lr.ph.split
   %30 = tail call ptr @__errno_location() #20
   br label %31
 
-31:                                               ; preds = %.lr.ph47, %33
+31:                                               ; preds = %.lr.ph48, %33
   %32 = load i32, ptr %30, align 4
-  switch i32 %32, label %.split41.us [
+  switch i32 %32, label %.split42.us [
     i32 11, label %33
     i32 4, label %33
   ]
 
 33:                                               ; preds = %31, %31
   %34 = load i32, ptr %20, align 4
-  %35 = call i64 @write(i32 noundef %34, ptr noundef %.026.ph51, i64 noundef %.027.ph49) #17
+  %35 = call i64 @write(i32 noundef %34, ptr noundef %.026.ph52, i64 noundef %.027.ph50) #17
   %36 = and i64 %35, 2147483648
   %.not35 = icmp eq i64 %36, 0
   br i1 %.not35, label %.split.us, label %31
 
-.split41.us:                                      ; preds = %31
+.split42.us:                                      ; preds = %31
   %37 = call i32 @get_log_level() #17
   %38 = icmp sgt i32 %37, 4
-  br i1 %38, label %39, label %53
+  br i1 %38, label %39, label %55
 
-39:                                               ; preds = %.split41.us
+39:                                               ; preds = %.split42.us
   %40 = load ptr, ptr %5, align 8
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #19
   %42 = trunc i64 %41 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.bb_handle_job_script, ptr noundef nonnull @.str, i32 noundef 430, ptr noundef nonnull @__func__.bb_handle_job_script, i64 noundef %.027.ph49, i32 noundef %42) #17
-  br label %53
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.bb_handle_job_script, ptr noundef nonnull @.str, i32 noundef 430, ptr noundef nonnull @__func__.bb_handle_job_script, i64 noundef %.027.ph50, i32 noundef %42) #17
+  br label %55
 
 .split.us:                                        ; preds = %33, %.lr.ph.split
   %.us-phi = phi i64 [ %28, %.lr.ph.split ], [ %35, %33 ]
   %43 = and i64 %.us-phi, 2147483647
-  %44 = getelementptr inbounds nuw i8, ptr %.026.ph51, i64 %43
-  %45 = sub i64 %.027.ph49, %43
+  %44 = getelementptr inbounds nuw i8, ptr %.026.ph52, i64 %43
+  %45 = sub i64 %.027.ph50, %43
   %.not36 = icmp eq i64 %45, 0
   br i1 %.not36, label %.outer._crit_edge, label %46
 
@@ -928,18 +928,18 @@ define dso_local ptr @bb_handle_job_script(ptr noundef captures(none) %0, ptr no
 .lr.ph.split.backedge:                            ; preds = %49, %46
   br label %.lr.ph.split, !llvm.loop !27
 
-53:                                               ; preds = %39, %.split41.us
-  call void @slurm_xfree(ptr noundef nonnull %5) #17
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.bb_handle_job_script) #18
-  unreachable
-
 .outer._crit_edge:                                ; preds = %.split.us, %23
   call void @slurm_xfree(ptr noundef nonnull %5) #17
-  %54 = load ptr, ptr %6, align 8
-  %55 = call ptr @xstrdup(ptr noundef %54) #17
+  %53 = load ptr, ptr %6, align 8
+  %54 = call ptr @xstrdup(ptr noundef %53) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %62
+
+55:                                               ; preds = %39, %.split42.us
+  call void @slurm_xfree(ptr noundef nonnull %5) #17
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.bb_handle_job_script) #18
+  unreachable
 
 56:                                               ; preds = %10
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1336), align 8
@@ -951,7 +951,7 @@ define dso_local ptr @bb_handle_job_script(ptr noundef captures(none) %0, ptr no
   br label %62
 
 62:                                               ; preds = %56, %.outer._crit_edge, %8
-  %.0 = phi ptr [ %9, %8 ], [ %55, %.outer._crit_edge ], [ %61, %56 ]
+  %.0 = phi ptr [ %9, %8 ], [ %54, %.outer._crit_edge ], [ %61, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -3270,52 +3270,52 @@ define dso_local i32 @bb_write_file(ptr noundef %0, ptr noundef readonly capture
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %15 = trunc i64 %14 to i32
   %sext = shl i64 %14, 32
-  %.not3448 = icmp eq i64 %sext, 0
-  br i1 %.not3448, label %.outer._crit_edge, label %.lr.ph.preheader
+  %.not3449 = icmp eq i64 %sext, 0
+  br i1 %.not3449, label %.outer._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
   %16 = ashr exact i64 %sext, 32
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.backedge, %.lr.ph.preheader
-  %.026.ph51 = phi ptr [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph.split.backedge ]
-  %.027.ph49 = phi i64 [ %16, %.lr.ph.preheader ], [ %30, %.lr.ph.split.backedge ]
-  %17 = tail call i64 @write(i32 noundef %4, ptr noundef %.026.ph51, i64 noundef %.027.ph49) #17
+  %.026.ph52 = phi ptr [ %1, %.lr.ph.preheader ], [ %29, %.lr.ph.split.backedge ]
+  %.027.ph50 = phi i64 [ %16, %.lr.ph.preheader ], [ %30, %.lr.ph.split.backedge ]
+  %17 = tail call i64 @write(i32 noundef %4, ptr noundef %.026.ph52, i64 noundef %.027.ph50) #17
   %18 = and i64 %17, 2147483648
-  %.not3546 = icmp eq i64 %18, 0
-  br i1 %.not3546, label %.split.us, label %.lr.ph47
+  %.not3547 = icmp eq i64 %18, 0
+  br i1 %.not3547, label %.split.us, label %.lr.ph48
 
-.lr.ph47:                                         ; preds = %.lr.ph.split
+.lr.ph48:                                         ; preds = %.lr.ph.split
   %19 = tail call ptr @__errno_location() #20
   br label %20
 
-20:                                               ; preds = %.lr.ph47, %22
+20:                                               ; preds = %.lr.ph48, %22
   %21 = load i32, ptr %19, align 4
-  switch i32 %21, label %.split41.us [
+  switch i32 %21, label %.split42.us [
     i32 11, label %22
     i32 4, label %22
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = tail call i64 @write(i32 noundef %4, ptr noundef %.026.ph51, i64 noundef %.027.ph49) #17
+  %23 = tail call i64 @write(i32 noundef %4, ptr noundef %.026.ph52, i64 noundef %.027.ph50) #17
   %24 = and i64 %23, 2147483648
   %.not35 = icmp eq i64 %24, 0
   br i1 %.not35, label %.split.us, label %20
 
-.split41.us:                                      ; preds = %20
+.split42.us:                                      ; preds = %20
   %25 = tail call i32 @get_log_level() #17
   %26 = icmp sgt i32 %25, 4
   br i1 %26, label %27, label %36
 
-27:                                               ; preds = %.split41.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.bb_write_file, ptr noundef nonnull @.str, i32 noundef 2092, ptr noundef nonnull @__func__.bb_write_file, i64 noundef %.027.ph49, i32 noundef %15) #17
+27:                                               ; preds = %.split42.us
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.bb_write_file, ptr noundef nonnull @.str, i32 noundef 2092, ptr noundef nonnull @__func__.bb_write_file, i64 noundef %.027.ph50, i32 noundef %15) #17
   br label %36
 
 .split.us:                                        ; preds = %22, %.lr.ph.split
   %.us-phi = phi i64 [ %17, %.lr.ph.split ], [ %23, %22 ]
   %28 = and i64 %.us-phi, 2147483647
-  %29 = getelementptr inbounds nuw i8, ptr %.026.ph51, i64 %28
-  %30 = sub i64 %.027.ph49, %28
+  %29 = getelementptr inbounds nuw i8, ptr %.026.ph52, i64 %28
+  %30 = sub i64 %.027.ph50, %28
   %.not36 = icmp eq i64 %30, 0
   br i1 %.not36, label %.outer._crit_edge, label %31
 
@@ -3335,7 +3335,7 @@ define dso_local i32 @bb_write_file(ptr noundef %0, ptr noundef readonly capture
   %35 = tail call i32 @close(i32 noundef %4) #17
   br label %39
 
-36:                                               ; preds = %27, %.split41.us
+36:                                               ; preds = %27, %.split42.us
   %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.113, ptr noundef %0) #17
   %38 = tail call i32 @close(i32 noundef %4) #17
   br label %39

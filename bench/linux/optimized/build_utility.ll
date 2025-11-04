@@ -7281,50 +7281,50 @@ define dso_local ptr @housekeeping_cpumask(i32 noundef %0) #0 align 16 {
 define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %.thread127, label %5, !prof !12
+  br i1 %4, label %.thread130, label %5, !prof !12
 
-.thread127:                                       ; preds = %2
+.thread130:                                       ; preds = %2
   tail call void asm sideeffect "1567: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1567b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1567) #42, !srcloc !163
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2393, i32 2305, i64 12) #42, !srcloc !164
   tail call void asm sideeffect "1568: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1568b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1568) #42, !srcloc !165
-  br label %.loopexit133
+  br label %.loopexit136
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @sched_domain_topology, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit160, label %.preheader158
+  br i1 %8, label %.loopexit163, label %.preheader161
 
-.preheader158:                                    ; preds = %5, %.thread
+.preheader161:                                    ; preds = %5, %.thread
   %9 = phi ptr [ %92, %.thread ], [ %6, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #46
   store ptr %11, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit157, label %13
+  br i1 %12, label %.loopexit160, label %13
 
-13:                                               ; preds = %.preheader158
+13:                                               ; preds = %.preheader161
   %14 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #46
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %.loopexit157, label %17
+  br i1 %16, label %.loopexit160, label %17
 
 17:                                               ; preds = %13
   %18 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #46
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
-  br i1 %20, label %.loopexit157, label %21
+  br i1 %20, label %.loopexit160, label %21
 
 21:                                               ; preds = %17
   %22 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #46
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.loopexit157, label %.preheader156
+  br i1 %24, label %.loopexit160, label %.preheader159
 
-.preheader156:                                    ; preds = %21, %83
+.preheader159:                                    ; preds = %21, %83
   %25 = phi i64 [ %90, %83 ], [ 0, %21 ]
   %26 = load i64, ptr %0, align 8
   %27 = shl nsw i64 -1, %25
@@ -7332,7 +7332,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.thread, label %30
 
-30:                                               ; preds = %.preheader156
+30:                                               ; preds = %.preheader159
   %31 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %28) #43, !srcloc !46
   %32 = and i64 %31, 4294967232
   %33 = icmp eq i64 %32, 0
@@ -7348,7 +7348,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %42 = tail call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_node_trace(ptr noundef %41, i32 noundef 3520, i32 noundef %40, i64 noundef 288) #48
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit157, label %44
+  br i1 %43, label %.loopexit160, label %44
 
 44:                                               ; preds = %34
   %45 = load ptr, ptr %10, align 8
@@ -7364,7 +7364,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %55 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_node_trace(ptr noundef %54, i32 noundef 3520, i32 noundef %53, i64 noundef 16) #48
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit157, label %57
+  br i1 %56, label %.loopexit160, label %57
 
 57:                                               ; preds = %44
   %58 = load ptr, ptr %15, align 8
@@ -7380,7 +7380,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %68 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_node_trace(ptr noundef %67, i32 noundef 3520, i32 noundef %66, i64 noundef 48) #48
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.loopexit157, label %70
+  br i1 %69, label %.loopexit160, label %70
 
 70:                                               ; preds = %57
   store ptr %68, ptr %68, align 8
@@ -7397,7 +7397,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %81 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_node_trace(ptr noundef %80, i32 noundef 3520, i32 noundef %79, i64 noundef 56) #48
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.loopexit157, label %83
+  br i1 %82, label %.loopexit160, label %83
 
 83:                                               ; preds = %70
   %84 = load ptr, ptr %23, align 8
@@ -7409,59 +7409,59 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %89 = add nuw nsw i64 %31, 1
   %90 = and i64 %89, 127
   %91 = icmp samesign ult i64 %90, 64
-  br i1 %91, label %.preheader156, label %.thread, !prof !51, !llvm.loop !166
+  br i1 %91, label %.preheader159, label %.thread, !prof !51, !llvm.loop !166
 
-.thread:                                          ; preds = %.preheader156, %83, %30
+.thread:                                          ; preds = %.preheader159, %83, %30
   %92 = getelementptr i8, ptr %9, i64 56
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  br i1 %94, label %.loopexit160, label %.preheader158, !llvm.loop !167
+  br i1 %94, label %.loopexit163, label %.preheader161, !llvm.loop !167
 
-.loopexit160:                                     ; preds = %.thread, %5
+.loopexit163:                                     ; preds = %.thread, %5
   %95 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu(i64 noundef 8, i64 noundef 8) #46
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.loopexit157, label %97
+  br i1 %96, label %.loopexit160, label %97
 
-97:                                               ; preds = %.loopexit160
+97:                                               ; preds = %.loopexit163
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %99 = tail call noalias align 8 dereferenceable_or_null(1824) ptr @kmalloc_trace(ptr noundef %98, i32 noundef 3520, i64 noundef 1824) #45
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.thread128, label %101
+  br i1 %100, label %.thread131, label %101
 
 101:                                              ; preds = %97
   %102 = tail call fastcc i32 @init_rootdomain(ptr noundef nonnull %99), !range !122
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %.thread128.sink.split
+  br i1 %103, label %104, label %.thread131.sink.split
 
 104:                                              ; preds = %101
   %105 = icmp eq ptr %1, null
   %106 = ptrtoint ptr %95 to i64
   br label %107
 
-107:                                              ; preds = %104, %.loopexit155
-  %108 = phi i64 [ 0, %104 ], [ %379, %.loopexit155 ]
-  %109 = phi i8 [ 0, %104 ], [ %.ph, %.loopexit155 ]
+107:                                              ; preds = %104, %.loopexit158
+  %108 = phi i64 [ 0, %104 ], [ %379, %.loopexit158 ]
+  %109 = phi i8 [ 0, %104 ], [ %.ph, %.loopexit158 ]
   %110 = load i64, ptr %0, align 8
   %111 = shl nsw i64 -1, %108
   %112 = and i64 %110, %111
   %113 = icmp eq i64 %112, 0
-  br i1 %113, label %.preheader152, label %114
+  br i1 %113, label %.preheader155, label %114
 
 114:                                              ; preds = %107
   %115 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %112) #43, !srcloc !46
   %116 = trunc i64 %115 to i32
   %117 = icmp ult i32 %116, 64
-  br i1 %117, label %118, label %.preheader152
+  br i1 %117, label %118, label %.preheader155
 
-.preheader152:                                    ; preds = %107, %.loopexit155, %114
-  %.lcssa349 = phi i8 [ %109, %107 ], [ %.ph, %.loopexit155 ], [ %109, %114 ]
+.preheader155:                                    ; preds = %107, %.loopexit158, %114
+  %.lcssa352 = phi i8 [ %109, %107 ], [ %.ph, %.loopexit158 ], [ %109, %114 ]
   br label %381
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr @sched_domain_topology, align 8
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.loopexit155, label %122
+  br i1 %121, label %.loopexit158, label %122
 
 122:                                              ; preds = %118
   %123 = and i64 %115, 63
@@ -7472,7 +7472,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %126 = getelementptr i8, ptr %133, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %.loopexit155, label %129, !llvm.loop !168
+  br i1 %128, label %.loopexit158, label %129, !llvm.loop !168
 
 129:                                              ; preds = %125, %122
   %130 = phi ptr [ %120, %122 ], [ %127, %125 ]
@@ -7483,21 +7483,21 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %135 = load i32, ptr %134, align 8
   %136 = and i32 %135, 1
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %.preheader154, label %.thread96
+  br i1 %137, label %.preheader157, label %.thread99
 
-.preheader154:                                    ; preds = %129, %166
+.preheader157:                                    ; preds = %129, %166
   %138 = phi i64 [ %168, %166 ], [ 0, %129 ]
   %139 = load i64, ptr %0, align 8
   %140 = shl nsw i64 -1, %138
   %141 = and i64 %139, %140
   %142 = icmp eq i64 %141, 0
-  br i1 %142, label %.thread96.loopexit, label %143
+  br i1 %142, label %.thread99.loopexit, label %143
 
-143:                                              ; preds = %.preheader154
+143:                                              ; preds = %.preheader157
   %144 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %141) #43, !srcloc !46
   %145 = trunc i64 %144 to i32
   %146 = icmp ugt i32 %145, 63
-  br i1 %146, label %.thread96.loopexit, label %147
+  br i1 %146, label %.thread99.loopexit, label %147
 
 147:                                              ; preds = %143
   %148 = icmp eq i32 %145, %116
@@ -7528,14 +7528,14 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %167 = add nuw nsw i64 %144, 1
   %168 = and i64 %167, 127
   %169 = icmp samesign ult i64 %168, 64
-  br i1 %169, label %.preheader154, label %.thread96.loopexit, !prof !51, !llvm.loop !169
+  br i1 %169, label %.preheader157, label %.thread99.loopexit, !prof !51, !llvm.loop !169
 
-.thread96.loopexit:                               ; preds = %143, %166, %.preheader154
-  %.pre198 = load ptr, ptr %133, align 8
-  br label %.thread96
+.thread99.loopexit:                               ; preds = %143, %166, %.preheader157
+  %.pre201 = load ptr, ptr %133, align 8
+  br label %.thread99
 
-.thread96:                                        ; preds = %.thread96.loopexit, %129
-  %170 = phi ptr [ %.pre198, %.thread96.loopexit ], [ %130, %129 ]
+.thread99:                                        ; preds = %.thread99.loopexit, %129
+  %170 = phi ptr [ %.pre201, %.thread99.loopexit ], [ %130, %129 ]
   %171 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %172 to i64
@@ -7553,15 +7553,15 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %184 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread97, label %187
+  br i1 %186, label %.thread100, label %187
 
-187:                                              ; preds = %.thread96
+187:                                              ; preds = %.thread99
   %188 = tail call i32 %185() #42
   %189 = and i32 %188, -19329
   %190 = icmp eq i32 %189, 0
   %191 = load i1, ptr @sd_init.__already_done, align 1
   %192 = select i1 %190, i1 true, i1 %191
-  br i1 %192, label %.thread97, label %193, !prof !170
+  br i1 %192, label %.thread100, label %193, !prof !170
 
 193:                                              ; preds = %187
   store i1 true, ptr @sd_init.__already_done, align 1
@@ -7571,10 +7571,10 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1594, i32 2313, i64 12) #42, !srcloc !173
   tail call void asm sideeffect "1534: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1534) #42, !srcloc !174
   tail call void asm sideeffect "1535: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1535b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1535) #42, !srcloc !175
-  br label %.thread97
+  br label %.thread100
 
-.thread97:                                        ; preds = %.thread96, %193, %187
-  %194 = phi i32 [ %188, %193 ], [ %188, %187 ], [ 0, %.thread96 ]
+.thread100:                                       ; preds = %.thread99, %193, %187
+  %194 = phi i32 [ %188, %193 ], [ %188, %187 ], [ 0, %.thread99 ]
   %195 = and i32 %194, 19328
   %196 = shl i64 %182, 32
   %197 = ashr exact i64 %196, 32
@@ -7622,19 +7622,19 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %223 = icmp eq i64 %222, 0
   br i1 %223, label %228, label %224
 
-224:                                              ; preds = %.thread97
+224:                                              ; preds = %.thread100
   %225 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %222) #43, !srcloc !46
   %226 = shl i64 %225, 32
   %227 = ashr exact i64 %226, 32
   br label %228
 
-228:                                              ; preds = %224, %.thread97
-  %229 = phi i64 [ %227, %224 ], [ 64, %.thread97 ]
+228:                                              ; preds = %224, %.thread100
+  %229 = phi i64 [ %227, %224 ], [ 64, %.thread100 ]
   %230 = load ptr, ptr @asym_cap_list, align 8
   %231 = icmp eq ptr %230, @asym_cap_list
-  br i1 %231, label %.thread98, label %.preheader153
+  br i1 %231, label %.thread101, label %.preheader156
 
-.preheader153:                                    ; preds = %228, %247
+.preheader156:                                    ; preds = %228, %247
   %232 = phi ptr [ %250, %247 ], [ %230, %228 ]
   %233 = phi i32 [ %249, %247 ], [ 0, %228 ]
   %234 = phi i32 [ %248, %247 ], [ 0, %228 ]
@@ -7644,11 +7644,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %238 = icmp eq i64 %237, 0
   br i1 %238, label %241, label %239
 
-239:                                              ; preds = %.preheader153
+239:                                              ; preds = %.preheader156
   %240 = add i32 %233, 1
   br label %247
 
-241:                                              ; preds = %.preheader153
+241:                                              ; preds = %.preheader156
   %242 = load i64, ptr %0, align 8
   %243 = and i64 %242, %236
   %244 = icmp ne i64 %243, 0
@@ -7661,34 +7661,34 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %249 = phi i32 [ %240, %239 ], [ %233, %241 ]
   %250 = load ptr, ptr %232, align 8
   %251 = icmp eq ptr %250, @asym_cap_list
-  br i1 %251, label %252, label %.preheader153, !llvm.loop !176
+  br i1 %251, label %252, label %.preheader156, !llvm.loop !176
 
 252:                                              ; preds = %247
   %253 = icmp eq i32 %249, 0
-  br i1 %253, label %.thread98, label %257
+  br i1 %253, label %.thread101, label %257
 
-.thread98:                                        ; preds = %228, %252
+.thread101:                                       ; preds = %228, %252
   %254 = load volatile ptr, ptr @asym_cap_list, align 8
   %255 = icmp eq ptr %254, @asym_cap_list
-  br i1 %255, label %.thread314, label %256, !prof !18
+  br i1 %255, label %.thread317, label %256, !prof !18
 
-256:                                              ; preds = %.thread98
+256:                                              ; preds = %.thread101
   tail call void asm sideeffect "1524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1524) #42, !srcloc !177
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1375, i32 2307, i64 12) #42, !srcloc !178
   tail call void asm sideeffect "1525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1525) #42, !srcloc !179
-  br label %.thread314
+  br label %.thread317
 
 257:                                              ; preds = %252
   %258 = icmp eq i32 %248, 0
   %259 = select i1 %258, i32 96, i32 32
   %260 = icmp slt i32 %249, 2
-  br i1 %260, label %.thread314, label %261
+  br i1 %260, label %.thread317, label %261
 
-.thread314:                                       ; preds = %.thread98, %256, %257
+.thread317:                                       ; preds = %.thread101, %256, %257
   br label %261
 
-261:                                              ; preds = %257, %.thread314
-  %262 = phi i32 [ 0, %.thread314 ], [ %259, %257 ]
+261:                                              ; preds = %257, %.thread317
+  %262 = phi i32 [ 0, %.thread317 ], [ %259, %257 ]
   %263 = load i32, ptr %210, align 4
   %264 = or i32 %263, %262
   store i32 %264, ptr %210, align 4
@@ -7706,11 +7706,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1636, i32 2313, i64 12) #42, !srcloc !182
   tail call void asm sideeffect "1538: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1538b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1538) #42, !srcloc !183
   tail call void asm sideeffect "1539: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1539b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1539) #42, !srcloc !184
-  %.pre199 = load i32, ptr %210, align 4
+  %.pre202 = load i32, ptr %210, align 4
   br label %270
 
 270:                                              ; preds = %269, %261
-  %271 = phi i32 [ %.pre199, %269 ], [ %264, %261 ]
+  %271 = phi i32 [ %.pre202, %269 ], [ %264, %261 ]
   %272 = and i32 %271, 32
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %281, label %274
@@ -7725,11 +7725,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %279 = load i32, ptr %278, align 4
   %280 = and i32 %279, -4097
   store i32 %280, ptr %278, align 4
-  %.pre200 = load i32, ptr %210, align 4
+  %.pre203 = load i32, ptr %210, align 4
   br label %281
 
 281:                                              ; preds = %277, %274, %270
-  %282 = phi i32 [ %.pre200, %277 ], [ %271, %274 ], [ %271, %270 ]
+  %282 = phi i32 [ %.pre203, %277 ], [ %271, %274 ], [ %271, %270 ]
   %283 = and i32 %282, 128
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %286, label %285
@@ -7831,38 +7831,38 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br label %342
 
 342:                                              ; preds = %337, %325, %322
-  br i1 %105, label %._crit_edge208, label %343
+  br i1 %105, label %._crit_edge211, label %343
 
-._crit_edge208:                                   ; preds = %342
-  %.pre202.pre206.pre = load i32, ptr %210, align 4
+._crit_edge211:                                   ; preds = %342
+  %.pre205.pre209.pre = load i32, ptr %210, align 4
   br label %346
 
 343:                                              ; preds = %342
   %344 = load i32, ptr %1, align 4
   %345 = icmp slt i32 %344, 0
-  %.pre202.pre206.pre209 = load i32, ptr %210, align 4
-  br i1 %345, label %346, label %._crit_edge205
+  %.pre205.pre209.pre212 = load i32, ptr %210, align 4
+  br i1 %345, label %346, label %._crit_edge208
 
-346:                                              ; preds = %._crit_edge208, %343
-  %.pre202.pre206 = phi i32 [ %.pre202.pre206.pre, %._crit_edge208 ], [ %.pre202.pre206.pre209, %343 ]
+346:                                              ; preds = %._crit_edge211, %343
+  %.pre205.pre209 = phi i32 [ %.pre205.pre209.pre, %._crit_edge211 ], [ %.pre205.pre209.pre212, %343 ]
   %347 = load i32, ptr @default_relax_domain_level, align 4
   %348 = icmp slt i32 %347, 0
-  br i1 %348, label %._crit_edge, label %._crit_edge205
+  br i1 %348, label %._crit_edge, label %._crit_edge208
 
-._crit_edge205:                                   ; preds = %343, %346
-  %.pre202 = phi i32 [ %.pre202.pre206, %346 ], [ %.pre202.pre206.pre209, %343 ]
+._crit_edge208:                                   ; preds = %343, %346
+  %.pre205 = phi i32 [ %.pre205.pre209, %346 ], [ %.pre205.pre209.pre212, %343 ]
   %349 = phi i32 [ %347, %346 ], [ %344, %343 ]
   %350 = load i32, ptr %211, align 8
   %351 = icmp sgt i32 %350, %349
   br i1 %351, label %352, label %._crit_edge
 
-352:                                              ; preds = %._crit_edge205
-  %353 = and i32 %.pre202, -10
+352:                                              ; preds = %._crit_edge208
+  %353 = and i32 %.pre205, -10
   store i32 %353, ptr %210, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %346, %352, %._crit_edge205
-  %354 = phi i32 [ %353, %352 ], [ %.pre202, %._crit_edge205 ], [ %.pre202.pre206, %346 ]
+._crit_edge:                                      ; preds = %346, %352, %._crit_edge208
+  %354 = phi i32 [ %353, %352 ], [ %.pre205, %._crit_edge208 ], [ %.pre205.pre209, %346 ]
   %355 = and i32 %354, 32
   %356 = zext nneg i8 %132 to i32
   %357 = or disjoint i32 %355, %356
@@ -7895,34 +7895,34 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %374 = load i64, ptr %0, align 8
   %375 = load i64, ptr %217, align 8
   %376 = icmp eq i64 %374, %375
-  br i1 %376, label %.loopexit155, label %125
+  br i1 %376, label %.loopexit158, label %125
 
 377:                                              ; preds = %157
   tail call void asm sideeffect "1569: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1569b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1569) #42, !srcloc !185
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2407, i32 2305, i64 12) #42, !srcloc !186
   tail call void asm sideeffect "1570: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1570) #42, !srcloc !187
-  br label %.loopexit135
+  br label %.loopexit138
 
-.loopexit155:                                     ; preds = %125, %373, %118
+.loopexit158:                                     ; preds = %125, %373, %118
   %.ph = phi i8 [ %109, %118 ], [ %359, %373 ], [ %359, %125 ]
   %378 = add nuw nsw i64 %115, 1
   %379 = and i64 %378, 127
   %380 = icmp samesign ult i64 %379, 64
-  br i1 %380, label %107, label %.preheader152, !prof !51, !llvm.loop !188
+  br i1 %380, label %107, label %.preheader155, !prof !51, !llvm.loop !188
 
-381:                                              ; preds = %.preheader152, %.loopexit151
-  %382 = phi i64 [ 0, %.preheader152 ], [ %751, %.loopexit151 ]
+381:                                              ; preds = %.preheader155, %.loopexit154
+  %382 = phi i64 [ 0, %.preheader155 ], [ %751, %.loopexit154 ]
   %383 = load i64, ptr %0, align 8
   %384 = shl nsw i64 -1, %382
   %385 = and i64 %383, %384
   %386 = icmp eq i64 %385, 0
-  br i1 %386, label %.preheader145.preheader, label %387
+  br i1 %386, label %.preheader148.preheader, label %387
 
 387:                                              ; preds = %381
   %388 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %385) #43, !srcloc !46
   %389 = and i64 %388, 4294967232
   %390 = icmp eq i64 %389, 0
-  br i1 %390, label %391, label %.preheader145.preheader
+  br i1 %390, label %391, label %.preheader148.preheader
 
 391:                                              ; preds = %387
   %392 = and i64 %388, 63
@@ -7932,14 +7932,14 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %396 = inttoptr i64 %395 to ptr
   %397 = load ptr, ptr %396, align 8
   %398 = icmp eq ptr %397, null
-  br i1 %398, label %.loopexit151, label %399
+  br i1 %398, label %.loopexit154, label %399
 
 399:                                              ; preds = %391
   %400 = shl nsw i64 -1, %392
   br label %401
 
-401:                                              ; preds = %.loopexit150, %399
-  %402 = phi ptr [ %397, %399 ], [ %748, %.loopexit150 ]
+401:                                              ; preds = %.loopexit153, %399
+  %402 = phi ptr [ %397, %399 ], [ %748, %.loopexit153 ]
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 280
   %404 = load i64, ptr %403, align 8
   %405 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %404) #47, !srcloc !50
@@ -7958,28 +7958,28 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br i1 %411, label %616, label %416
 
 416:                                              ; preds = %401
-  br i1 %415, label %.thread101, label %417
+  br i1 %415, label %.thread104, label %417
 
 417:                                              ; preds = %416
   %418 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %414) #43, !srcloc !46
   %419 = icmp ult i64 %418, 64
-  br i1 %419, label %423, label %.thread101
+  br i1 %419, label %423, label %.thread104
 
-.thread101:                                       ; preds = %416, %417
+.thread104:                                       ; preds = %416, %417
   %420 = tail call i64 @_find_first_bit(ptr noundef nonnull %403, i64 noundef %392) #42
   %421 = icmp ult i64 %420, %392
   %422 = select i1 %421, i64 %420, i64 64
   br label %423
 
-423:                                              ; preds = %.thread101, %417
-  %424 = phi i64 [ %422, %.thread101 ], [ %418, %417 ]
+423:                                              ; preds = %.thread104, %417
+  %424 = phi i64 [ %422, %.thread104 ], [ %418, %417 ]
   %425 = and i64 %424, 4294967232
   %426 = icmp eq i64 %425, 0
-  br i1 %426, label %.preheader149, label %.loopexit150
+  br i1 %426, label %.preheader152, label %.loopexit153
 
-.preheader149:                                    ; preds = %423, %601
-  %427 = phi ptr [ %.ph109, %601 ], [ null, %423 ]
-  %428 = phi ptr [ %.ph108, %601 ], [ null, %423 ]
+.preheader152:                                    ; preds = %423, %601
+  %427 = phi ptr [ %.ph112, %601 ], [ null, %423 ]
+  %428 = phi ptr [ %.ph111, %601 ], [ null, %423 ]
   %429 = phi i64 [ %602, %601 ], [ %424, %423 ]
   %430 = and i64 %429, 63
   %431 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @sched_domains_tmpmask, i64 %430) #42, !srcloc !42
@@ -7988,7 +7988,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %433 = icmp eq i8 %431, 0
   br i1 %433, label %434, label %583
 
-434:                                              ; preds = %.preheader149
+434:                                              ; preds = %.preheader152
   %435 = load ptr, ptr %413, align 8
   %436 = ptrtoint ptr %435 to i64
   %437 = getelementptr i64, ptr @__per_cpu_offset, i64 %430
@@ -8007,7 +8007,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %447 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %448 = load ptr, ptr %447, align 8
   %449 = icmp eq ptr %448, null
-  br i1 %449, label %.loopexit146, label %450
+  br i1 %449, label %.loopexit149, label %450
 
 450:                                              ; preds = %446
   %451 = getelementptr inbounds nuw i8, ptr %448, i64 280
@@ -8016,31 +8016,31 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %454 = xor i64 %453, -1
   %455 = and i64 %452, %454
   %456 = icmp eq i64 %455, 0
-  br i1 %456, label %.loopexit146, label %.preheader147
+  br i1 %456, label %.loopexit149, label %.preheader150
 
-.preheader147:                                    ; preds = %450, %461
+.preheader150:                                    ; preds = %450, %461
   %457 = phi ptr [ %459, %461 ], [ %441, %450 ]
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %459 = load ptr, ptr %458, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %.preheader355, label %461
+  br i1 %460, label %.preheader358, label %461
 
-461:                                              ; preds = %.preheader147
+461:                                              ; preds = %.preheader150
   %462 = getelementptr inbounds nuw i8, ptr %459, i64 280
   %463 = load i64, ptr %462, align 8
   %464 = and i64 %463, %454
   %465 = icmp eq i64 %464, 0
-  br i1 %465, label %.preheader355, label %.preheader147, !llvm.loop !189
+  br i1 %465, label %.preheader358, label %.preheader150, !llvm.loop !189
 
-.preheader355:                                    ; preds = %461, %.preheader147
+.preheader358:                                    ; preds = %461, %.preheader150
   br label %466
 
-466:                                              ; preds = %.preheader355, %471
-  %467 = phi ptr [ %469, %471 ], [ %457, %.preheader355 ]
+466:                                              ; preds = %.preheader358, %471
+  %467 = phi ptr [ %469, %471 ], [ %457, %.preheader358 ]
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = icmp eq ptr %469, null
-  br i1 %470, label %.loopexit146, label %471
+  br i1 %470, label %.loopexit149, label %471
 
 471:                                              ; preds = %466
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 280
@@ -8048,9 +8048,9 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %474 = load i64, ptr %472, align 8
   %475 = load i64, ptr %473, align 8
   %476 = icmp eq i64 %474, %475
-  br i1 %476, label %466, label %.loopexit146, !llvm.loop !190
+  br i1 %476, label %466, label %.loopexit149, !llvm.loop !190
 
-.loopexit146:                                     ; preds = %471, %466, %450, %446
+.loopexit149:                                     ; preds = %471, %466, %450, %446
   %477 = phi ptr [ %441, %450 ], [ %441, %446 ], [ %467, %466 ], [ %467, %471 ]
   %478 = load i64, ptr %393, align 8
   %479 = add i64 %478, ptrtoint (ptr @numa_node to i64)
@@ -8061,7 +8061,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %484 = icmp eq ptr %483, null
   br i1 %484, label %605, label %485
 
-485:                                              ; preds = %.loopexit146
+485:                                              ; preds = %.loopexit149
   %486 = getelementptr inbounds nuw i8, ptr %483, i64 40
   %487 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %488 = load ptr, ptr %487, align 8
@@ -8102,13 +8102,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %509 = shl nsw i64 -1, %507
   %510 = and i64 %508, %509
   %511 = icmp eq i64 %510, 0
-  br i1 %511, label %.thread104, label %512
+  br i1 %511, label %.thread107, label %512
 
 512:                                              ; preds = %506
   %513 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %510) #43, !srcloc !46
   %514 = and i64 %513, 4294967232
   %515 = icmp eq i64 %514, 0
-  br i1 %515, label %516, label %.thread104
+  br i1 %515, label %516, label %.thread107
 
 516:                                              ; preds = %512
   %517 = load ptr, ptr %505, align 8
@@ -8138,30 +8138,30 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %534 = add nuw nsw i64 %513, 1
   %535 = and i64 %534, 127
   %536 = icmp samesign ult i64 %535, 64
-  br i1 %536, label %506, label %.thread104, !prof !51, !llvm.loop !191
+  br i1 %536, label %506, label %.thread107, !prof !51, !llvm.loop !191
 
-.thread104:                                       ; preds = %506, %533, %512
+.thread107:                                       ; preds = %506, %533, %512
   %537 = load i64, ptr @sched_domains_tmpmask2, align 8
   %538 = icmp eq i64 %537, 0
-  br i1 %538, label %539, label %.thread105, !prof !12
+  br i1 %538, label %539, label %.thread108, !prof !12
 
-539:                                              ; preds = %.thread104
+539:                                              ; preds = %.thread107
   tail call void asm sideeffect "1516: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1516b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1516) #42, !srcloc !192
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 948, i32 2307, i64 12) #42, !srcloc !193
   tail call void asm sideeffect "1517: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1517b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1517) #42, !srcloc !194
   %.pr = load i64, ptr @sched_domains_tmpmask2, align 8
   %540 = icmp eq i64 %.pr, 0
-  br i1 %540, label %545, label %.thread105
+  br i1 %540, label %545, label %.thread108
 
-.thread105:                                       ; preds = %.thread104, %539
-  %541 = phi i64 [ %.pr, %539 ], [ %537, %.thread104 ]
+.thread108:                                       ; preds = %.thread107, %539
+  %541 = phi i64 [ %.pr, %539 ], [ %537, %.thread107 ]
   %542 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %541) #43, !srcloc !46
   %543 = shl i64 %542, 32
   %544 = ashr exact i64 %543, 32
   br label %545
 
-545:                                              ; preds = %.thread105, %539
-  %546 = phi i64 [ %544, %.thread105 ], [ 64, %539 ]
+545:                                              ; preds = %.thread108, %539
+  %546 = phi i64 [ %544, %.thread108 ], [ 64, %539 ]
   %547 = getelementptr inbounds nuw i8, ptr %505, i64 24
   %548 = load ptr, ptr %547, align 8
   %549 = ptrtoint ptr %548 to i64
@@ -8222,48 +8222,48 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   store ptr %579, ptr %483, align 8
   br label %583
 
-583:                                              ; preds = %582, %.preheader149, %434
-  %.ph108 = phi ptr [ %428, %434 ], [ %428, %.preheader149 ], [ %483, %582 ]
-  %.ph109 = phi ptr [ %427, %434 ], [ %427, %.preheader149 ], [ %579, %582 ]
+583:                                              ; preds = %582, %.preheader152, %434
+  %.ph111 = phi ptr [ %428, %434 ], [ %428, %.preheader152 ], [ %483, %582 ]
+  %.ph112 = phi ptr [ %427, %434 ], [ %427, %.preheader152 ], [ %579, %582 ]
   %584 = add nuw nsw i64 %429, 1
   %585 = and i64 %584, 127
   %586 = icmp samesign ugt i64 %585, %392
-  br i1 %586, label %587, label %.thread112
+  br i1 %586, label %587, label %.thread115
 
 587:                                              ; preds = %583
   %588 = icmp samesign ult i64 %585, 64
-  br i1 %588, label %589, label %.thread112, !prof !18
+  br i1 %588, label %589, label %.thread115, !prof !18
 
 589:                                              ; preds = %587
   %590 = load i64, ptr %403, align 8
   %591 = shl nsw i64 -1, %585
   %592 = and i64 %590, %591
   %593 = icmp eq i64 %592, 0
-  br i1 %593, label %.thread112, label %594
+  br i1 %593, label %.thread115, label %594
 
 594:                                              ; preds = %589
   %595 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %592) #43, !srcloc !46
   %596 = icmp ult i64 %595, 64
-  br i1 %596, label %601, label %.thread112
+  br i1 %596, label %601, label %.thread115
 
-.thread112:                                       ; preds = %589, %587, %594, %583
+.thread115:                                       ; preds = %589, %587, %594, %583
   %597 = phi i64 [ %585, %583 ], [ 0, %594 ], [ 0, %587 ], [ 0, %589 ]
   %598 = tail call i64 @_find_next_bit(ptr noundef nonnull %403, i64 noundef %392, i64 noundef %597) #42
   %599 = icmp ult i64 %598, %392
   %600 = select i1 %599, i64 %598, i64 64
   br label %601
 
-601:                                              ; preds = %.thread112, %594
-  %602 = phi i64 [ %600, %.thread112 ], [ %595, %594 ]
+601:                                              ; preds = %.thread115, %594
+  %602 = phi i64 [ %600, %.thread115 ], [ %595, %594 ]
   %603 = and i64 %602, 4294967232
   %604 = icmp eq i64 %603, 0
-  br i1 %604, label %.preheader149, label %.loopexit150, !llvm.loop !199
+  br i1 %604, label %.preheader152, label %.loopexit153, !llvm.loop !199
 
-605:                                              ; preds = %.loopexit146
+605:                                              ; preds = %.loopexit149
   %606 = icmp eq ptr %427, null
-  br i1 %606, label %.loopexit135, label %.preheader134
+  br i1 %606, label %.loopexit138, label %.preheader137
 
-.preheader134:                                    ; preds = %605, %614
+.preheader137:                                    ; preds = %605, %614
   %607 = phi ptr [ %608, %614 ], [ %427, %605 ]
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds nuw i8, ptr %607, i64 8
@@ -8273,33 +8273,33 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %612 = icmp eq i8 %610, 0
   br i1 %612, label %614, label %613
 
-613:                                              ; preds = %.preheader134
+613:                                              ; preds = %.preheader137
   tail call void @kfree(ptr noundef %607) #42
   br label %614
 
-614:                                              ; preds = %613, %.preheader134
+614:                                              ; preds = %613, %.preheader137
   %615 = icmp eq ptr %608, %427
-  br i1 %615, label %.loopexit135, label %.preheader134, !llvm.loop !200
+  br i1 %615, label %.loopexit138, label %.preheader137, !llvm.loop !200
 
 616:                                              ; preds = %401
-  br i1 %415, label %.thread113, label %617
+  br i1 %415, label %.thread116, label %617
 
 617:                                              ; preds = %616
   %618 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %414) #43, !srcloc !46
   %619 = icmp ult i64 %618, 64
-  br i1 %619, label %623, label %.thread113
+  br i1 %619, label %623, label %.thread116
 
-.thread113:                                       ; preds = %616, %617
+.thread116:                                       ; preds = %616, %617
   %620 = tail call i64 @_find_first_bit(ptr noundef nonnull %403, i64 noundef %392) #42
   %621 = icmp ult i64 %620, %392
   %622 = select i1 %621, i64 %620, i64 64
   br label %623
 
-623:                                              ; preds = %.thread113, %617
-  %624 = phi i64 [ %622, %.thread113 ], [ %618, %617 ]
+623:                                              ; preds = %.thread116, %617
+  %624 = phi i64 [ %622, %.thread116 ], [ %618, %617 ]
   %625 = trunc i64 %624 to i32
   %626 = icmp ult i32 %625, 64
-  br i1 %626, label %627, label %.loopexit148
+  br i1 %626, label %627, label %.loopexit151
 
 627:                                              ; preds = %623
   %628 = getelementptr inbounds nuw i8, ptr %413, i64 16
@@ -8443,73 +8443,73 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %723 = add i64 %632, 1
   %724 = and i64 %723, 4294967295
   %725 = icmp samesign ugt i64 %724, %392
-  br i1 %725, label %726, label %.thread115
+  br i1 %725, label %726, label %.thread118
 
 726:                                              ; preds = %720
   %727 = icmp samesign ult i64 %724, 64
-  br i1 %727, label %728, label %.thread115, !prof !18
+  br i1 %727, label %728, label %.thread118, !prof !18
 
 728:                                              ; preds = %726
   %729 = load i64, ptr %403, align 8
   %730 = shl nsw i64 -1, %724
   %731 = and i64 %729, %730
   %732 = icmp eq i64 %731, 0
-  br i1 %732, label %.thread115, label %733
+  br i1 %732, label %.thread118, label %733
 
 733:                                              ; preds = %728
   %734 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %731) #43, !srcloc !46
   %735 = icmp ult i64 %734, 64
-  br i1 %735, label %740, label %.thread115
+  br i1 %735, label %740, label %.thread118
 
-.thread115:                                       ; preds = %728, %726, %733, %720
+.thread118:                                       ; preds = %728, %726, %733, %720
   %736 = phi i64 [ %724, %720 ], [ 0, %733 ], [ 0, %726 ], [ 0, %728 ]
   %737 = tail call i64 @_find_next_bit(ptr noundef nonnull %403, i64 noundef %392, i64 noundef %736) #42
   %738 = icmp ult i64 %737, %392
   %739 = select i1 %738, i64 %737, i64 64
   br label %740
 
-740:                                              ; preds = %.thread115, %733
-  %741 = phi i64 [ %739, %.thread115 ], [ %734, %733 ]
+740:                                              ; preds = %.thread118, %733
+  %741 = phi i64 [ %739, %.thread118 ], [ %734, %733 ]
   %742 = trunc i64 %741 to i32
   %743 = icmp ult i32 %742, 64
-  br i1 %743, label %630, label %.loopexit148, !llvm.loop !204
+  br i1 %743, label %630, label %.loopexit151, !llvm.loop !204
 
-.loopexit148:                                     ; preds = %740, %623
+.loopexit151:                                     ; preds = %740, %623
   %744 = phi ptr [ null, %623 ], [ %721, %740 ]
   %745 = phi ptr [ null, %623 ], [ %722, %740 ]
   store ptr %744, ptr %745, align 8
-  br label %.loopexit150
+  br label %.loopexit153
 
-.loopexit150:                                     ; preds = %601, %.loopexit148, %423
-  %746 = phi ptr [ %744, %.loopexit148 ], [ null, %423 ], [ %.ph109, %601 ]
+.loopexit153:                                     ; preds = %601, %.loopexit151, %423
+  %746 = phi ptr [ %744, %.loopexit151 ], [ null, %423 ], [ %.ph112, %601 ]
   %747 = getelementptr inbounds nuw i8, ptr %402, i64 16
   store ptr %746, ptr %747, align 8
   %748 = load ptr, ptr %402, align 8
   %749 = icmp eq ptr %748, null
-  br i1 %749, label %.loopexit151, label %401, !llvm.loop !205
+  br i1 %749, label %.loopexit154, label %401, !llvm.loop !205
 
-.loopexit151:                                     ; preds = %.loopexit150, %391
+.loopexit154:                                     ; preds = %.loopexit153, %391
   %750 = add nuw nsw i64 %388, 1
   %751 = and i64 %750, 127
   %752 = icmp samesign ult i64 %751, 64
-  br i1 %752, label %381, label %.preheader145.preheader, !prof !51, !llvm.loop !206
+  br i1 %752, label %381, label %.preheader148.preheader, !prof !51, !llvm.loop !206
 
-.preheader145.preheader:                          ; preds = %381, %.loopexit151, %387
-  br label %.preheader145
+.preheader148.preheader:                          ; preds = %381, %.loopexit154, %387
+  br label %.preheader148
 
-.preheader145:                                    ; preds = %.preheader145.preheader, %.loopexit144
-  %753 = phi i64 [ %821, %.loopexit144 ], [ 0, %.preheader145.preheader ]
+.preheader148:                                    ; preds = %.preheader148.preheader, %.loopexit147
+  %753 = phi i64 [ %821, %.loopexit147 ], [ 0, %.preheader148.preheader ]
   %754 = load i64, ptr %0, align 8
   %755 = shl nsw i64 -1, %753
   %756 = and i64 %754, %755
   %757 = icmp eq i64 %756, 0
-  br i1 %757, label %.thread117, label %758
+  br i1 %757, label %.thread120, label %758
 
-758:                                              ; preds = %.preheader145
+758:                                              ; preds = %.preheader148
   %759 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %756) #43, !srcloc !46
   %760 = and i64 %759, 4294967232
   %761 = icmp eq i64 %760, 0
-  br i1 %761, label %762, label %.thread117
+  br i1 %761, label %762, label %.thread120
 
 762:                                              ; preds = %758
   %763 = and i64 %759, 63
@@ -8519,12 +8519,12 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %767 = inttoptr i64 %766 to ptr
   %768 = load ptr, ptr %767, align 8
   %769 = icmp eq ptr %768, null
-  br i1 %769, label %.loopexit144, label %.preheader143
+  br i1 %769, label %.loopexit147, label %.preheader146
 
-.preheader143:                                    ; preds = %762, %.loopexit142
-  %770 = phi ptr [ %818, %.loopexit142 ], [ %768, %762 ]
-  %771 = phi i32 [ %817, %.loopexit142 ], [ 0, %762 ]
-  %772 = phi i32 [ %816, %.loopexit142 ], [ 1, %762 ]
+.preheader146:                                    ; preds = %762, %.loopexit145
+  %770 = phi ptr [ %818, %.loopexit145 ], [ %768, %762 ]
+  %771 = phi i32 [ %817, %.loopexit145 ], [ 0, %762 ]
+  %772 = phi i32 [ %816, %.loopexit145 ], [ 1, %762 ]
   %773 = getelementptr inbounds nuw i8, ptr %770, i64 8
   %774 = load ptr, ptr %773, align 8
   %775 = getelementptr inbounds nuw i8, ptr %770, i64 60
@@ -8535,7 +8535,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %780 = select i1 %778, i1 %779, i1 false
   br i1 %780, label %781, label %808
 
-781:                                              ; preds = %.preheader143
+781:                                              ; preds = %.preheader146
   %782 = getelementptr inbounds nuw i8, ptr %774, i64 60
   %783 = load i32, ptr %782, align 4
   %784 = and i32 %783, 512
@@ -8560,7 +8560,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %798 = phi ptr [ %770, %786 ], [ %799, %801 ]
   %799 = load ptr, ptr %798, align 8
   %800 = icmp eq ptr %799, null
-  br i1 %800, label %.loopexit142, label %801
+  br i1 %800, label %.loopexit145, label %801
 
 801:                                              ; preds = %797
   %802 = getelementptr inbounds nuw i8, ptr %799, i64 60
@@ -8572,9 +8572,9 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 806:                                              ; preds = %801
   %807 = getelementptr inbounds nuw i8, ptr %799, i64 272
   %.pre = load i32, ptr %807, align 8
-  br label %.loopexit142
+  br label %.loopexit145
 
-808:                                              ; preds = %781, %.preheader143
+808:                                              ; preds = %781, %.preheader146
   %809 = getelementptr inbounds nuw i8, ptr %770, i64 272
   %810 = load i32, ptr %809, align 8
   %811 = udiv i32 %810, %772
@@ -8583,38 +8583,38 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %814 = mul i32 %813, %771
   %815 = getelementptr inbounds nuw i8, ptr %770, i64 52
   store i32 %814, ptr %815, align 4
-  br label %.loopexit142
+  br label %.loopexit145
 
-.loopexit142:                                     ; preds = %797, %806, %808
+.loopexit145:                                     ; preds = %797, %806, %808
   %816 = phi i32 [ %772, %808 ], [ %.pre, %806 ], [ %788, %797 ]
   %817 = phi i32 [ %771, %808 ], [ %795, %806 ], [ %795, %797 ]
   %818 = load ptr, ptr %770, align 8
   %819 = icmp eq ptr %818, null
-  br i1 %819, label %.loopexit144, label %.preheader143, !llvm.loop !208
+  br i1 %819, label %.loopexit147, label %.preheader146, !llvm.loop !208
 
-.loopexit144:                                     ; preds = %.loopexit142, %762
+.loopexit147:                                     ; preds = %.loopexit145, %762
   %820 = add nuw nsw i64 %759, 1
   %821 = and i64 %820, 127
   %822 = icmp samesign ult i64 %821, 64
-  br i1 %822, label %.preheader145, label %.thread117, !prof !51, !llvm.loop !209
+  br i1 %822, label %.preheader148, label %.thread120, !prof !51, !llvm.loop !209
 
-.thread117:                                       ; preds = %.preheader145, %.loopexit144, %758
+.thread120:                                       ; preds = %.preheader148, %.loopexit147, %758
   %823 = load i32, ptr @nr_cpu_ids, align 4
   %824 = add i32 %823, -1
   %825 = icmp sgt i32 %824, -1
-  br i1 %825, label %826, label %.loopexit141
+  br i1 %825, label %826, label %.loopexit144
 
-826:                                              ; preds = %.thread117
+826:                                              ; preds = %.thread120
   %827 = zext nneg i32 %824 to i64
   br label %828
 
-828:                                              ; preds = %.loopexit140, %826
-  %829 = phi i64 [ %827, %826 ], [ %973, %.loopexit140 ]
+828:                                              ; preds = %.loopexit143, %826
+  %829 = phi i64 [ %827, %826 ], [ %973, %.loopexit143 ]
   %830 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %829) #42, !srcloc !42
   %831 = icmp ult i8 %830, 2
   tail call void @llvm.assume(i1 %831)
   %832 = icmp eq i8 %830, 0
-  br i1 %832, label %.loopexit140, label %833
+  br i1 %832, label %.loopexit143, label %833
 
 833:                                              ; preds = %828
   %834 = getelementptr i64, ptr @__per_cpu_offset, i64 %829
@@ -8623,7 +8623,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %837 = inttoptr i64 %836 to ptr
   %838 = load ptr, ptr %837, align 8
   %839 = icmp eq ptr %838, null
-  br i1 %839, label %.loopexit140, label %840
+  br i1 %839, label %.loopexit143, label %840
 
 840:                                              ; preds = %833
   %841 = trunc i64 %829 to i32
@@ -8646,16 +8646,16 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   tail call void asm sideeffect "1530: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1530b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1530) #42, !srcloc !210
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1525, i32 2307, i64 12) #42, !srcloc !211
   tail call void asm sideeffect "1531: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1531b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1531) #42, !srcloc !212
-  %.pre194 = load ptr, ptr %845, align 8
-  %.pre195 = load i64, ptr %834, align 8
-  %.pre216 = ptrtoint ptr %.pre194 to i64
-  %.pre218 = add i64 %.pre195, %.pre216
-  %.pre220 = inttoptr i64 %.pre218 to ptr
+  %.pre197 = load ptr, ptr %845, align 8
+  %.pre198 = load i64, ptr %834, align 8
+  %.pre219 = ptrtoint ptr %.pre197 to i64
+  %.pre221 = add i64 %.pre198, %.pre219
+  %.pre223 = inttoptr i64 %.pre221 to ptr
   br label %854
 
 854:                                              ; preds = %853, %842
-  %.pre-phi221 = phi ptr [ %.pre220, %853 ], [ %850, %842 ]
-  store ptr null, ptr %.pre-phi221, align 8
+  %.pre-phi224 = phi ptr [ %.pre223, %853 ], [ %850, %842 ]
+  store ptr null, ptr %.pre-phi224, align 8
   %855 = getelementptr inbounds nuw i8, ptr %845, i64 8
   %856 = load ptr, ptr %855, align 8
   %857 = ptrtoint ptr %856 to i64
@@ -8669,11 +8669,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 
 864:                                              ; preds = %854
   store ptr null, ptr %860, align 8
-  %.pre196 = load i64, ptr %834, align 8
+  %.pre199 = load i64, ptr %834, align 8
   br label %865
 
 865:                                              ; preds = %864, %854
-  %866 = phi i64 [ %.pre196, %864 ], [ %858, %854 ]
+  %866 = phi i64 [ %.pre199, %864 ], [ %858, %854 ]
   %867 = getelementptr inbounds nuw i8, ptr %845, i64 16
   %868 = load ptr, ptr %867, align 8
   %869 = ptrtoint ptr %868 to i64
@@ -8687,11 +8687,11 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 
 876:                                              ; preds = %865
   store ptr null, ptr %871, align 8
-  %.pre197 = load i64, ptr %834, align 8
+  %.pre200 = load i64, ptr %834, align 8
   br label %877
 
 877:                                              ; preds = %876, %865
-  %878 = phi i64 [ %.pre197, %876 ], [ %866, %865 ]
+  %878 = phi i64 [ %.pre200, %876 ], [ %866, %865 ]
   %879 = getelementptr inbounds nuw i8, ptr %845, i64 24
   %880 = load ptr, ptr %879, align 8
   %881 = ptrtoint ptr %880 to i64
@@ -8740,13 +8740,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %906 = shl nsw i64 -1, %903
   %907 = and i64 %906, %905
   %908 = icmp eq i64 %907, 0
-  br i1 %908, label %.thread119, label %909
+  br i1 %908, label %.thread122, label %909
 
 909:                                              ; preds = %902
   %910 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %907) #43, !srcloc !46
   %911 = and i64 %910, 4294967232
   %912 = icmp eq i64 %911, 0
-  br i1 %912, label %913, label %.thread119
+  br i1 %912, label %913, label %.thread122
 
 913:                                              ; preds = %909
   %914 = add i32 %904, 1
@@ -8762,31 +8762,31 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %923 = add nuw nsw i64 %910, 1
   %924 = and i64 %923, 127
   %925 = icmp samesign ult i64 %924, 64
-  br i1 %925, label %902, label %.thread119, !prof !51, !llvm.loop !216
+  br i1 %925, label %902, label %.thread122, !prof !51, !llvm.loop !216
 
-.thread119:                                       ; preds = %902, %913, %909
-  %.lcssa162 = phi i32 [ %904, %902 ], [ %914, %913 ], [ %904, %909 ]
+.thread122:                                       ; preds = %902, %913, %909
+  %.lcssa165 = phi i32 [ %904, %902 ], [ %914, %913 ], [ %904, %909 ]
   %926 = getelementptr inbounds nuw i8, ptr %896, i64 16
-  store i32 %.lcssa162, ptr %926, align 8
+  store i32 %.lcssa165, ptr %926, align 8
   %927 = load i32, ptr %894, align 4
   %928 = and i32 %927, 2048
   %929 = icmp eq i32 %928, 0
-  br i1 %929, label %953, label %.preheader139
+  br i1 %929, label %953, label %.preheader142
 
-.preheader139:                                    ; preds = %.thread119, %947
-  %930 = phi i64 [ %950, %947 ], [ 0, %.thread119 ]
-  %931 = phi i32 [ %948, %947 ], [ -1, %.thread119 ]
+.preheader142:                                    ; preds = %.thread122, %947
+  %930 = phi i64 [ %950, %947 ], [ 0, %.thread122 ]
+  %931 = phi i32 [ %948, %947 ], [ -1, %.thread122 ]
   %932 = load i64, ptr %897, align 8
   %933 = shl nsw i64 -1, %930
   %934 = and i64 %932, %933
   %935 = icmp eq i64 %934, 0
-  br i1 %935, label %.thread121, label %936
+  br i1 %935, label %.thread124, label %936
 
-936:                                              ; preds = %.preheader139
+936:                                              ; preds = %.preheader142
   %937 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %934) #43, !srcloc !46
   %938 = trunc i64 %937 to i32
   %939 = icmp ult i32 %938, 64
-  br i1 %939, label %940, label %.thread121
+  br i1 %939, label %940, label %.thread124
 
 940:                                              ; preds = %936
   %941 = icmp slt i32 %931, 0
@@ -8804,15 +8804,15 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %949 = add nuw nsw i64 %937, 1
   %950 = and i64 %949, 127
   %951 = icmp samesign ult i64 %950, 64
-  br i1 %951, label %.preheader139, label %.thread121, !prof !51, !llvm.loop !217
+  br i1 %951, label %.preheader142, label %.thread124, !prof !51, !llvm.loop !217
 
-.thread121:                                       ; preds = %.preheader139, %947, %936
-  %.lcssa163 = phi i32 [ %931, %.preheader139 ], [ %948, %947 ], [ %931, %936 ]
+.thread124:                                       ; preds = %.preheader142, %947, %936
+  %.lcssa166 = phi i32 [ %931, %.preheader142 ], [ %948, %947 ], [ %931, %936 ]
   %952 = getelementptr inbounds nuw i8, ptr %896, i64 32
-  store i32 %.lcssa163, ptr %952, align 8
+  store i32 %.lcssa166, ptr %952, align 8
   br label %953
 
-953:                                              ; preds = %.thread121, %.thread119
+953:                                              ; preds = %.thread124, %.thread122
   %954 = load ptr, ptr %896, align 8
   %955 = load ptr, ptr %889, align 8
   %956 = icmp eq ptr %954, %955
@@ -8843,32 +8843,32 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
 970:                                              ; preds = %969, %966
   %971 = load ptr, ptr %843, align 8
   %972 = icmp eq ptr %971, null
-  br i1 %972, label %.loopexit140, label %842, !llvm.loop !219
+  br i1 %972, label %.loopexit143, label %842, !llvm.loop !219
 
-.loopexit140:                                     ; preds = %970, %833, %828
+.loopexit143:                                     ; preds = %970, %833, %828
   %973 = add nsw i64 %829, -1
   %974 = icmp sgt i64 %829, 0
-  br i1 %974, label %828, label %.loopexit141, !llvm.loop !220
+  br i1 %974, label %828, label %.loopexit144, !llvm.loop !220
 
-.loopexit141:                                     ; preds = %.loopexit140, %.thread117
+.loopexit144:                                     ; preds = %.loopexit143, %.thread120
   tail call void @__rcu_read_lock() #42
   %975 = getelementptr inbounds nuw i8, ptr %99, i64 1808
   br label %976
 
-976:                                              ; preds = %.loopexit141, %.loopexit137
-  %977 = phi i64 [ 0, %.loopexit141 ], [ %1014, %.loopexit137 ]
-  %978 = phi i8 [ 0, %.loopexit141 ], [ %1012, %.loopexit137 ]
+976:                                              ; preds = %.loopexit144, %.loopexit140
+  %977 = phi i64 [ 0, %.loopexit144 ], [ %1014, %.loopexit140 ]
+  %978 = phi i8 [ 0, %.loopexit144 ], [ %1012, %.loopexit140 ]
   %979 = load i64, ptr %0, align 8
   %980 = shl nsw i64 -1, %977
   %981 = and i64 %979, %980
   %982 = icmp eq i64 %981, 0
-  br i1 %982, label %.thread123, label %983
+  br i1 %982, label %.thread126, label %983
 
 983:                                              ; preds = %976
   %984 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %981) #43, !srcloc !46
   %985 = trunc i64 %984 to i32
   %986 = icmp ult i32 %985, 64
-  br i1 %986, label %987, label %.thread123
+  br i1 %986, label %987, label %.thread126
 
 987:                                              ; preds = %983
   %988 = and i64 %984, 63
@@ -8893,103 +8893,103 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 2488
   %1002 = load volatile ptr, ptr %1001, align 8
   %1003 = icmp eq ptr %1002, null
-  br i1 %1003, label %.loopexit137, label %.preheader136
+  br i1 %1003, label %.loopexit140, label %.preheader139
 
-.preheader136:                                    ; preds = %997, %1009
+.preheader139:                                    ; preds = %997, %1009
   %1004 = phi ptr [ %1010, %1009 ], [ %1002, %997 ]
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 60
   %1006 = load i32, ptr %1005, align 4
   %1007 = and i32 %1006, 256
   %1008 = icmp eq i32 %1007, 0
-  br i1 %1008, label %1009, label %.loopexit137
+  br i1 %1008, label %1009, label %.loopexit140
 
-1009:                                             ; preds = %.preheader136
+1009:                                             ; preds = %.preheader139
   %1010 = load ptr, ptr %1004, align 8
   %1011 = icmp eq ptr %1010, null
-  br i1 %1011, label %.loopexit137, label %.preheader136, !llvm.loop !221
+  br i1 %1011, label %.loopexit140, label %.preheader139, !llvm.loop !221
 
-.loopexit137:                                     ; preds = %1009, %.preheader136, %997
-  %1012 = phi i8 [ %978, %997 ], [ 1, %.preheader136 ], [ %978, %1009 ]
+.loopexit140:                                     ; preds = %1009, %.preheader139, %997
+  %1012 = phi i8 [ %978, %997 ], [ 1, %.preheader139 ], [ %978, %1009 ]
   %1013 = add nuw nsw i64 %984, 1
   %1014 = and i64 %1013, 127
   %1015 = icmp samesign ult i64 %1014, 64
-  br i1 %1015, label %976, label %.thread123, !prof !51, !llvm.loop !222
+  br i1 %1015, label %976, label %.thread126, !prof !51, !llvm.loop !222
 
-.thread123:                                       ; preds = %976, %.loopexit137, %983
-  %.lcssa161 = phi i8 [ %978, %976 ], [ %1012, %.loopexit137 ], [ %978, %983 ]
+.thread126:                                       ; preds = %976, %.loopexit140, %983
+  %.lcssa164 = phi i8 [ %978, %976 ], [ %1012, %.loopexit140 ], [ %978, %983 ]
   tail call void @__rcu_read_unlock() #42
-  %1016 = icmp eq i8 %.lcssa349, 0
+  %1016 = icmp eq i8 %.lcssa352, 0
   br i1 %1016, label %1019, label %1017
 
-1017:                                             ; preds = %.thread123
+1017:                                             ; preds = %.thread126
   %1018 = tail call zeroext i1 @static_key_slow_inc_cpuslocked(ptr noundef nonnull @sched_asym_cpucapacity) #42
   br label %1019
 
-1019:                                             ; preds = %1017, %.thread123
-  %1020 = icmp eq i8 %.lcssa161, 0
-  br i1 %1020, label %.loopexit135, label %1021
+1019:                                             ; preds = %1017, %.thread126
+  %1020 = icmp eq i8 %.lcssa164, 0
+  br i1 %1020, label %.loopexit138, label %1021
 
 1021:                                             ; preds = %1019
   %1022 = tail call zeroext i1 @static_key_slow_inc_cpuslocked(ptr noundef nonnull @sched_cluster_active) #42
-  br label %.loopexit135
+  br label %.loopexit138
 
-.loopexit135:                                     ; preds = %614, %1019, %1021, %605, %377
-  %.ph125 = phi i32 [ -12, %377 ], [ -12, %605 ], [ 0, %1021 ], [ 0, %1019 ], [ -12, %614 ]
+.loopexit138:                                     ; preds = %614, %1019, %1021, %605, %377
+  %.ph128 = phi i32 [ -12, %377 ], [ -12, %605 ], [ 0, %1021 ], [ 0, %1019 ], [ -12, %614 ]
   %1023 = load volatile i32, ptr %99, align 8
   %1024 = icmp eq i32 %1023, 0
-  br i1 %1024, label %1025, label %.thread128
+  br i1 %1024, label %1025, label %.thread131
 
-1025:                                             ; preds = %.loopexit135
+1025:                                             ; preds = %.loopexit138
   %1026 = getelementptr i8, ptr %99, i64 1800
   %1027 = load ptr, ptr %1026, align 8
   tail call void @kfree(ptr noundef %1027) #42
   %1028 = getelementptr i8, ptr %99, i64 88
   tail call void @cpudl_cleanup(ptr noundef %1028) #42
-  br label %.thread128.sink.split
+  br label %.thread131.sink.split
 
-.thread128.sink.split:                            ; preds = %101, %1025
-  %.ph334 = phi i32 [ %.ph125, %1025 ], [ -12, %101 ]
+.thread131.sink.split:                            ; preds = %101, %1025
+  %.ph337 = phi i32 [ %.ph128, %1025 ], [ -12, %101 ]
   tail call void @kfree(ptr noundef nonnull %99) #42
-  br label %.thread128
+  br label %.thread131
 
-.thread128:                                       ; preds = %.thread128.sink.split, %97, %.loopexit135
-  %1029 = phi i32 [ %.ph125, %.loopexit135 ], [ -12, %97 ], [ %.ph334, %.thread128.sink.split ]
+.thread131:                                       ; preds = %.thread131.sink.split, %97, %.loopexit138
+  %1029 = phi i32 [ %.ph128, %.loopexit138 ], [ -12, %97 ], [ %.ph337, %.thread131.sink.split ]
   tail call void @free_percpu(ptr noundef nonnull %95) #42
-  br label %.loopexit157
+  br label %.loopexit160
 
-.loopexit157:                                     ; preds = %.preheader158, %13, %17, %21, %34, %44, %57, %70, %.loopexit160, %.thread128
-  %1030 = phi i32 [ %1029, %.thread128 ], [ -12, %.loopexit160 ], [ -12, %70 ], [ -12, %57 ], [ -12, %44 ], [ -12, %34 ], [ -12, %21 ], [ -12, %17 ], [ -12, %13 ], [ -12, %.preheader158 ]
+.loopexit160:                                     ; preds = %.preheader161, %13, %17, %21, %34, %44, %57, %70, %.loopexit163, %.thread131
+  %1030 = phi i32 [ %1029, %.thread131 ], [ -12, %.loopexit163 ], [ -12, %70 ], [ -12, %57 ], [ -12, %44 ], [ -12, %34 ], [ -12, %21 ], [ -12, %17 ], [ -12, %13 ], [ -12, %.preheader161 ]
   %1031 = load ptr, ptr @sched_domain_topology, align 8
   %1032 = load ptr, ptr %1031, align 8
   %1033 = icmp eq ptr %1032, null
-  br i1 %1033, label %.loopexit133, label %.preheader132
+  br i1 %1033, label %.loopexit136, label %.preheader135
 
-.preheader132:                                    ; preds = %.loopexit157, %.loopexit131
-  %1034 = phi ptr [ %1122, %.loopexit131 ], [ %1031, %.loopexit157 ]
+.preheader135:                                    ; preds = %.loopexit160, %.loopexit134
+  %1034 = phi ptr [ %1122, %.loopexit134 ], [ %1031, %.loopexit160 ]
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 24
   %1036 = getelementptr inbounds nuw i8, ptr %1034, i64 32
   %1037 = getelementptr inbounds nuw i8, ptr %1034, i64 40
   %1038 = getelementptr inbounds nuw i8, ptr %1034, i64 48
   br label %1039
 
-1039:                                             ; preds = %.preheader132, %1114
-  %1040 = phi i64 [ 0, %.preheader132 ], [ %1116, %1114 ]
+1039:                                             ; preds = %.preheader135, %1114
+  %1040 = phi i64 [ 0, %.preheader135 ], [ %1116, %1114 ]
   %1041 = load i64, ptr %0, align 8
   %1042 = shl nsw i64 -1, %1040
   %1043 = and i64 %1041, %1042
   %1044 = icmp eq i64 %1043, 0
-  br i1 %1044, label %.thread130, label %1046
+  br i1 %1044, label %.thread133, label %1046
 
-.thread130:                                       ; preds = %1114, %1039
+.thread133:                                       ; preds = %1114, %1039
   %1045 = load ptr, ptr %1035, align 8
-  br label %.loopexit131
+  br label %.loopexit134
 
 1046:                                             ; preds = %1039
   %1047 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1043) #43, !srcloc !46
   %1048 = and i64 %1047, 4294967232
   %1049 = icmp eq i64 %1048, 0
   %1050 = load ptr, ptr %1035, align 8
-  br i1 %1049, label %1051, label %.loopexit131
+  br i1 %1049, label %1051, label %.loopexit134
 
 1051:                                             ; preds = %1046
   %1052 = icmp eq ptr %1050, null
@@ -9038,16 +9038,16 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   br i1 %1079, label %.loopexit.loopexit, label %.preheader, !llvm.loop !200
 
 .loopexit.loopexit:                               ; preds = %1078
-  %.pre203 = load ptr, ptr %1035, align 8
-  %.pre204 = load i64, ptr %1056, align 8
-  %.pre211 = ptrtoint ptr %.pre203 to i64
-  %.pre212 = add i64 %.pre204, %.pre211
-  %.pre214 = inttoptr i64 %.pre212 to ptr
+  %.pre206 = load ptr, ptr %1035, align 8
+  %.pre207 = load i64, ptr %1056, align 8
+  %.pre214 = ptrtoint ptr %.pre206 to i64
+  %.pre215 = add i64 %.pre207, %.pre214
+  %.pre217 = inttoptr i64 %.pre215 to ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1067, %1062, %1053
-  %.pre-phi215 = phi ptr [ %.pre214, %.loopexit.loopexit ], [ %1059, %1067 ], [ %1059, %1062 ], [ %1059, %1053 ]
-  %1080 = load ptr, ptr %.pre-phi215, align 8
+  %.pre-phi218 = phi ptr [ %.pre217, %.loopexit.loopexit ], [ %1059, %1067 ], [ %1059, %1062 ], [ %1059, %1053 ]
+  %1080 = load ptr, ptr %.pre-phi218, align 8
   tail call void @kfree(ptr noundef %1080) #42
   br label %1081
 
@@ -9103,10 +9103,10 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %1115 = add nuw nsw i64 %1047, 1
   %1116 = and i64 %1115, 127
   %1117 = icmp samesign ult i64 %1116, 64
-  br i1 %1117, label %1039, label %.thread130, !prof !51, !llvm.loop !223
+  br i1 %1117, label %1039, label %.thread133, !prof !51, !llvm.loop !223
 
-.loopexit131:                                     ; preds = %1046, %.thread130
-  %1118 = phi ptr [ %1045, %.thread130 ], [ %1050, %1046 ]
+.loopexit134:                                     ; preds = %1046, %.thread133
+  %1118 = phi ptr [ %1045, %.thread133 ], [ %1050, %1046 ]
   tail call void @free_percpu(ptr noundef %1118) #42
   store ptr null, ptr %1035, align 8
   %1119 = load ptr, ptr %1036, align 8
@@ -9121,10 +9121,10 @@ define internal fastcc range(i32 -12, 1) i32 @build_sched_domains(ptr noundef %0
   %1122 = getelementptr i8, ptr %1034, i64 56
   %1123 = load ptr, ptr %1122, align 8
   %1124 = icmp eq ptr %1123, null
-  br i1 %1124, label %.loopexit133, label %.preheader132, !llvm.loop !224
+  br i1 %1124, label %.loopexit136, label %.preheader135, !llvm.loop !224
 
-.loopexit133:                                     ; preds = %.loopexit131, %.thread127, %.loopexit157
-  %1125 = phi i32 [ %1030, %.loopexit157 ], [ -12, %.thread127 ], [ %1030, %.loopexit131 ]
+.loopexit136:                                     ; preds = %.loopexit134, %.thread130, %.loopexit160
+  %1125 = phi i32 [ %1030, %.loopexit160 ], [ -12, %.thread130 ], [ %1030, %.loopexit134 ]
   ret i32 %1125
 }
 
@@ -12685,7 +12685,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load volatile i32, ptr %8, align 4
-  switch i32 %0, label %default.unreachable17 [
+  switch i32 %0, label %default.unreachable18 [
     i32 1, label %10
     i32 2, label %13
     i32 0, label %16
@@ -12701,7 +12701,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @membarrier_private_expedite
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %92, label %19
 
-default.unreachable17:                            ; preds = %2
+default.unreachable18:                            ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -12742,7 +12742,7 @@ default.unreachable17:                            ; preds = %2
 33:                                               ; preds = %31
   %34 = load i32, ptr @nr_cpu_ids, align 4
   %35 = icmp ugt i32 %34, %1
-  br i1 %35, label %36, label %.thread6
+  br i1 %35, label %36, label %.thread7
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %1 to i64
@@ -12750,7 +12750,7 @@ default.unreachable17:                            ; preds = %2
   %39 = icmp ult i8 %38, 2
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i8 %38, 0
-  br i1 %40, label %.thread6, label %41
+  br i1 %40, label %.thread7, label %41
 
 41:                                               ; preds = %36
   tail call void @__rcu_read_lock() #42
@@ -12761,41 +12761,41 @@ default.unreachable17:                            ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2336
   %47 = load volatile ptr, ptr %46, align 32
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread8, label %49
+  br i1 %48, label %.thread9, label %49
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 1192
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %7
-  br i1 %52, label %.thread11, label %.thread8
+  br i1 %52, label %.thread12, label %.thread9
 
-.thread8:                                         ; preds = %41, %49
+.thread9:                                         ; preds = %41, %49
   tail call void @__rcu_read_unlock() #42
-  br label %.thread6
+  br label %.thread7
 
-.thread11:                                        ; preds = %49
+.thread12:                                        ; preds = %49
   tail call void @__rcu_read_unlock() #42
   %53 = tail call i32 @smp_call_function_single(i32 noundef %1, ptr noundef nonnull %28, ptr noundef null, i32 noundef 1) #42
-  br label %.thread6
+  br label %.thread7
 
 54:                                               ; preds = %31
   tail call void @__rcu_read_lock() #42
-  %.pre12 = load i64, ptr @__cpu_online_mask, align 8
+  %.pre13 = load i64, ptr @__cpu_online_mask, align 8
   br label %55
 
 55:                                               ; preds = %54, %79
-  %56 = phi i64 [ %.pre12, %54 ], [ %80, %79 ]
+  %56 = phi i64 [ %.pre13, %54 ], [ %80, %79 ]
   %57 = phi i64 [ 0, %54 ], [ %82, %79 ]
   %58 = shl nsw i64 -1, %57
   %59 = and i64 %56, %58
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %.thread10, label %61
+  br i1 %60, label %.thread11, label %61
 
 61:                                               ; preds = %55
   %62 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %59) #43, !srcloc !46
   %63 = and i64 %62, 4294967232
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %.thread10
+  br i1 %64, label %65, label %.thread11
 
 65:                                               ; preds = %61
   %66 = and i64 %62, 63
@@ -12824,13 +12824,13 @@ default.unreachable17:                            ; preds = %2
   %81 = add nuw nsw i64 %62, 1
   %82 = and i64 %81, 127
   %83 = icmp samesign ult i64 %82, 64
-  br i1 %83, label %55, label %.thread10, !prof !51, !llvm.loop !281
+  br i1 %83, label %55, label %.thread11, !prof !51, !llvm.loop !281
 
-.thread10:                                        ; preds = %55, %79, %61
+.thread11:                                        ; preds = %55, %79, %61
   call void @__rcu_read_unlock() #42
   br i1 %27, label %91, label %84
 
-84:                                               ; preds = %.thread10
+84:                                               ; preds = %.thread11
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #42, !srcloc !14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #42, !srcloc !282
   call void @smp_call_function_many(ptr noundef nonnull %3, ptr noundef nonnull %28, ptr noundef null, i1 noundef zeroext true) #42
@@ -12839,26 +12839,26 @@ default.unreachable17:                            ; preds = %2
   %86 = icmp ult i8 %85, 2
   call void @llvm.assume(i1 %86)
   %87 = icmp eq i8 %85, 0
-  br i1 %87, label %.thread6, label %88, !prof !18
+  br i1 %87, label %.thread7, label %88, !prof !18
 
 88:                                               ; preds = %84
   %89 = call i64 @llvm.read_register.i64(metadata !0)
   %90 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %89) #42, !srcloc !284
   call void @llvm.write_register.i64(metadata !0, i64 %90)
-  br label %.thread6
+  br label %.thread7
 
-91:                                               ; preds = %.thread10
+91:                                               ; preds = %.thread11
   call void @on_each_cpu_cond_mask(ptr noundef null, ptr noundef nonnull %28, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %3) #42
-  br label %.thread6
+  br label %.thread7
 
-.thread6:                                         ; preds = %33, %36, %.thread11, %84, %88, %91, %.thread8
+.thread7:                                         ; preds = %33, %36, %.thread9, %91, %88, %84, %.thread12
   call void @cpus_read_unlock() #42
   call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #42, !srcloc !285
   call void @mutex_unlock(ptr noundef nonnull @membarrier_ipi_mutex) #42
   br label %92
 
-92:                                               ; preds = %.thread6, %23, %19, %16, %13, %10
-  %93 = phi i32 [ 0, %.thread6 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ 0, %23 ], [ 0, %19 ]
+92:                                               ; preds = %.thread7, %23, %19, %16, %13, %10
+  %93 = phi i32 [ 0, %.thread7 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ 0, %23 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %93
 }

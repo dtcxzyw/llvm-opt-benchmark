@@ -1252,7 +1252,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #7
   %15 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #7
   %.not82 = icmp eq i32 %15, 0
-  br i1 %.not82, label %.thread98, label %16
+  br i1 %.not82, label %.thread99, label %16
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %21 = select i1 %20, ptr @.str.3, ptr @.str.1
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %21) #7
   %23 = icmp slt i32 %22, 1
-  br i1 %23, label %.thread98, label %24
+  br i1 %23, label %.thread99, label %24
 
 24:                                               ; preds = %16
   %.not83 = icmp eq i32 %3, 0
@@ -1279,12 +1279,12 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %30 = add nuw nsw i32 %29, 2
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.078, i32 noundef %30) #7
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %.thread98, label %36
+  br i1 %32, label %.thread99, label %36
 
 33:                                               ; preds = %25, %24
   %34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %.078) #7
   %35 = icmp slt i32 %34, 1
-  br i1 %35, label %.thread98, label %36
+  br i1 %35, label %.thread99, label %36
 
 36:                                               ; preds = %33, %28
   %.080 = phi ptr [ @.str.8, %28 ], [ @.str.11, %33 ]
@@ -1292,14 +1292,14 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %37 = load ptr, ptr %7, align 8, !tbaa !50
   %38 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull %.077, ptr noundef %37, ptr noundef null, i32 noundef %2) #7
   %.not85 = icmp eq i32 %38, 0
-  br i1 %.not85, label %.thread98, label %39
+  br i1 %.not85, label %.thread99, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull %.080, ptr noundef %41, ptr noundef null, i32 noundef %2) #7
   %.not86 = icmp eq i32 %42, 0
-  br i1 %.not86, label %.thread98, label %43
+  br i1 %.not86, label %.thread99, label %43
 
 43:                                               ; preds = %39
   br i1 %.not83, label %.loopexit, label %44
@@ -1309,42 +1309,42 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %46 = load ptr, ptr %45, align 8, !tbaa !66
   %47 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %46, ptr noundef null, i32 noundef %2) #7
   %.not87 = icmp eq i32 %47, 0
-  br i1 %.not87, label %.thread98, label %48
+  br i1 %.not87, label %.thread99, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !67
   %51 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %50, ptr noundef null, i32 noundef %2) #7
   %.not88 = icmp eq i32 %51, 0
-  br i1 %.not88, label %.thread98, label %52
+  br i1 %.not88, label %.thread99, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %54 = load ptr, ptr %53, align 8, !tbaa !68
   %55 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %54, ptr noundef null, i32 noundef %2) #7
   %.not89 = icmp eq i32 %55, 0
-  br i1 %.not89, label %.thread98, label %56
+  br i1 %.not89, label %.thread99, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %58 = load ptr, ptr %57, align 8, !tbaa !69
   %59 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %58, ptr noundef null, i32 noundef %2) #7
   %.not90 = icmp eq i32 %59, 0
-  br i1 %.not90, label %.thread98, label %60
+  br i1 %.not90, label %.thread99, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %62 = load ptr, ptr %61, align 8, !tbaa !70
   %63 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %62, ptr noundef null, i32 noundef %2) #7
   %.not91 = icmp eq i32 %63, 0
-  br i1 %.not91, label %.thread98, label %64
+  br i1 %.not91, label %.thread99, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %66 = load ptr, ptr %65, align 8, !tbaa !71
   %67 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %66, ptr noundef null, i32 noundef %2) #7
   %.not92 = icmp eq i32 %67, 0
-  br i1 %.not92, label %.thread98, label %.preheader
+  br i1 %.not92, label %.thread99, label %.preheader
 
 .preheader:                                       ; preds = %64
   %68 = load ptr, ptr %12, align 8, !tbaa !65
@@ -1370,7 +1370,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
   %.072101 = phi i32 [ 0, %.lr.ph ], [ %77, %76 ]
   %79 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %2, i32 noundef 128) #7
   %.not93 = icmp eq i32 %79, 0
-  br i1 %.not93, label %.thread98, label %80
+  br i1 %.not93, label %.thread99, label %80
 
 80:                                               ; preds = %78
   switch i32 %.072101, label %default.unreachable105 [
@@ -1382,17 +1382,17 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
 81:                                               ; preds = %80
   %82 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %73) #7
   %83 = icmp slt i32 %82, 1
-  br i1 %83, label %.thread98, label %90
+  br i1 %83, label %.thread99, label %90
 
 84:                                               ; preds = %80
   %85 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %73) #7
   %86 = icmp slt i32 %85, 1
-  br i1 %86, label %.thread98, label %90
+  br i1 %86, label %.thread99, label %90
 
 87:                                               ; preds = %80
   %88 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %73) #7
   %89 = icmp slt i32 %88, 1
-  br i1 %89, label %.thread98, label %90
+  br i1 %89, label %.thread99, label %90
 
 default.unreachable105:                           ; preds = %80
   unreachable
@@ -1402,7 +1402,7 @@ default.unreachable105:                           ; preds = %80
   %.175 = load ptr, ptr %.175.in, align 8, !tbaa !74
   %91 = tail call i32 @ASN1_bn_print(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %.175, ptr noundef null, i32 noundef %2) #7
   %.not94 = icmp eq i32 %91, 0
-  br i1 %.not94, label %.thread98, label %76
+  br i1 %.not94, label %.thread99, label %76
 
 92:                                               ; preds = %76
   %93 = add nuw nsw i32 %.076102, 1
@@ -1422,14 +1422,14 @@ default.unreachable105:                           ; preds = %80
   %102 = load ptr, ptr %101, align 8, !tbaa !40
   %103 = tail call fastcc i32 @rsa_pss_param_print(ptr noundef %0, i32 noundef 1, ptr noundef %102, i32 noundef %2)
   %.not95 = icmp eq i32 %103, 0
-  br i1 %.not95, label %.thread98, label %104
+  br i1 %.not95, label %.thread99, label %104
 
 104:                                              ; preds = %100, %.loopexit
-  br label %.thread98
+  br label %.thread99
 
-.thread98:                                        ; preds = %78, %81, %84, %87, %90, %64, %60, %56, %52, %48, %44, %104, %11, %16, %28, %33, %36, %39, %100
-  %.073 = phi i32 [ 0, %16 ], [ 0, %28 ], [ 1, %104 ], [ 0, %100 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %11 ], [ 0, %44 ], [ 0, %48 ], [ 0, %52 ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ]
-  ret i32 %.073
+.thread99:                                        ; preds = %78, %81, %84, %87, %90, %64, %60, %56, %52, %48, %44, %104, %11, %16, %28, %33, %36, %39, %100
+  %.079 = phi i32 [ 0, %16 ], [ 0, %28 ], [ 1, %104 ], [ 0, %100 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %11 ], [ 0, %44 ], [ 0, %48 ], [ 0, %52 ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %90 ], [ 0, %87 ], [ 0, %84 ], [ 0, %81 ], [ 0, %78 ]
+  ret i32 %.079
 }
 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1

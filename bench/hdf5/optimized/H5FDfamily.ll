@@ -843,7 +843,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread200.thread, !prof !9
+  br i1 %13, label %14, label %.thread205.thread, !prof !9
 
 14:                                               ; preds = %4
   %.not = icmp eq ptr %0, null
@@ -858,7 +858,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %18 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 664, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.17) #15
-  br label %.thread200.thread
+  br label %.thread205.thread
 
 21:                                               ; preds = %15
   %22 = add i64 %3, 1
@@ -869,7 +869,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %24 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %25 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !10
   %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 666, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.18) #15
-  br label %.thread200.thread
+  br label %.thread205.thread
 
 27:                                               ; preds = %21
   %28 = tail call noalias dereferenceable_or_null(160) ptr @calloc(i64 noundef 1, i64 noundef 160) #16
@@ -880,7 +880,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %31 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %32 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 670, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.19) #15
-  br label %.thread200.thread
+  br label %.thread205.thread
 
 34:                                               ; preds = %27
   %35 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8, !tbaa !10
@@ -924,7 +924,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %54 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %55 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %56 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 691, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.5) #15
-  br label %.thread180
+  br label %.thread185
 
 57:                                               ; preds = %50
   %58 = tail call ptr @H5P_peek_driver_info(ptr noundef nonnull %51) #15
@@ -940,7 +940,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %64 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %65 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %66 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 694, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.20) #15
-  br label %.thread180
+  br label %.thread185
 
 67:                                               ; preds = %60, %57
   %.0128 = phi ptr [ %58, %57 ], [ %6, %60 ]
@@ -958,7 +958,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %75 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %76 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %77 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 703, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.22) #15
-  br label %.thread180
+  br label %.thread185
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %28, i64 152
@@ -981,7 +981,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %89 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %90 = load i64, ptr @H5E_CANTINC_g, align 8, !tbaa !10
   %91 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 711, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.15) #15
-  br label %.thread180
+  br label %.thread185
 
 92:                                               ; preds = %85
   %93 = load i64, ptr %81, align 8, !tbaa !18
@@ -996,7 +996,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %98 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %99 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %100 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 716, i64 noundef %98, i64 noundef %99, ptr noundef nonnull @.str.5) #15
-  br label %.thread180
+  br label %.thread185
 
 101:                                              ; preds = %94
   %102 = tail call i64 @H5P_copy_plist(ptr noundef nonnull %95, i1 noundef zeroext false) #15
@@ -1023,9 +1023,9 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %113 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %114 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !10
   %115 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 723, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.23) #15
-  br label %.thread180
+  br label %.thread185
 
-.thread180:                                       ; preds = %53, %63, %74, %88, %112, %97
+.thread185:                                       ; preds = %53, %63, %74, %88, %112, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader
 
@@ -1059,7 +1059,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %131 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %132 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %133 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 732, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.25) #15
-  br label %.thread208
+  br label %.thread213
 
 134:                                              ; preds = %127
   %135 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %121, i64 noundef 4096, ptr noundef nonnull %0, i32 noundef 0) #15
@@ -1069,7 +1069,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   br i1 %.not167, label %138, label %152
 
 138:                                              ; preds = %134
-  br i1 %.1136, label %139, label %.thread200.thread249
+  br i1 %.1136, label %139, label %.thread205.thread254
 
 139:                                              ; preds = %138
   %140 = tail call ptr @H5MM_xfree(ptr noundef nonnull %128) #15
@@ -1081,9 +1081,9 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %144 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %145 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %146 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 741, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.26) #15
-  br label %.thread208
+  br label %.thread213
 
-.thread200.thread249:                             ; preds = %138
+.thread205.thread254:                             ; preds = %138
   %147 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %148 = load i64, ptr @H5E_FILEEXISTS_g, align 8, !tbaa !10
   %149 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 745, i64 noundef %147, i64 noundef %148, ptr noundef nonnull @.str.27) #15
@@ -1117,9 +1117,9 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %166 = shl nuw nsw i64 %165, 3
   %167 = tail call ptr @H5MM_realloc(ptr noundef %164, i64 noundef %166) #15
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %169, label %.thread183
+  br i1 %168, label %169, label %.thread188
 
-.thread183:                                       ; preds = %162
+.thread188:                                       ; preds = %162
   store i32 %spec.select, ptr %154, align 4, !tbaa !38
   store ptr %167, ptr %155, align 8, !tbaa !39
   %.pr = load i32, ptr %153, align 8, !tbaa !37
@@ -1129,10 +1129,10 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %170 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %171 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %172 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 759, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.28) #15
-  br label %.thread200
+  br label %.thread205
 
-173:                                              ; preds = %.thread183, %157
-  %174 = phi i32 [ %.pr, %.thread183 ], [ %160, %157 ]
+173:                                              ; preds = %.thread188, %157
+  %174 = phi i32 [ %.pr, %.thread188 ], [ %160, %157 ]
   %175 = icmp eq i32 %174, 0
   %176 = load ptr, ptr %155, align 8, !tbaa !39
   br i1 %175, label %177, label %185
@@ -1141,17 +1141,17 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %178 = load i64, ptr %156, align 8, !tbaa !33
   %179 = tail call i32 @H5FD_open(i1 noundef zeroext false, ptr noundef %176, ptr noundef nonnull %121, i32 noundef %1, i64 noundef %178, i64 noundef -1) #15
   %180 = icmp slt i32 %179, 0
-  br i1 %180, label %181, label %._crit_edge225
+  br i1 %180, label %181, label %._crit_edge230
 
-._crit_edge225:                                   ; preds = %177
-  %.pre226 = load i32, ptr %153, align 8, !tbaa !37
+._crit_edge230:                                   ; preds = %177
+  %.pre231 = load i32, ptr %153, align 8, !tbaa !37
   br label %201
 
 181:                                              ; preds = %177
   %182 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %183 = load i64, ptr @H5E_CANTOPENFILE_g, align 8, !tbaa !10
   %184 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 772, i64 noundef %182, i64 noundef %183, ptr noundef nonnull @.str.29) #15
-  br label %.thread200
+  br label %.thread205
 
 185:                                              ; preds = %173
   %186 = zext i32 %174 to i64
@@ -1165,7 +1165,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %192 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %193 = load i64, ptr @H5E_CANTOPENFILE_g, align 8, !tbaa !10
   %194 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_open, i32 noundef 777, i64 noundef %192, i64 noundef %193, ptr noundef nonnull @.str.29) #15
-  br label %.thread200
+  br label %.thread205
 
 195:                                              ; preds = %185
   %196 = load ptr, ptr %155, align 8, !tbaa !39
@@ -1176,8 +1176,8 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %.not169 = icmp eq ptr %200, null
   br i1 %.not169, label %204, label %201
 
-201:                                              ; preds = %._crit_edge225, %195
-  %202 = phi i32 [ %.pre226, %._crit_edge225 ], [ %197, %195 ]
+201:                                              ; preds = %._crit_edge230, %195
+  %202 = phi i32 [ %.pre231, %._crit_edge230 ], [ %197, %195 ]
   %203 = add i32 %202, 1
   store i32 %203, ptr %153, align 8, !tbaa !37
   br label %157
@@ -1186,29 +1186,29 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   %205 = load ptr, ptr %196, align 8, !tbaa !40
   %206 = tail call i64 @H5FD_get_eof(ptr noundef %205, i32 noundef 0) #15
   %.not170 = icmp eq i64 %206, 0
-  br i1 %.not170, label %.thread200, label %207
+  br i1 %.not170, label %.thread205, label %207
 
 207:                                              ; preds = %204
   %208 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store i64 %206, ptr %208, align 8, !tbaa !32
-  br label %.thread200
+  br label %.thread205
 
-.thread208:                                       ; preds = %143, %130
+.thread213:                                       ; preds = %143, %130
   %209 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   br label %.preheader
 
-.thread200:                                       ; preds = %181, %191, %169, %207, %204
+.thread205:                                       ; preds = %181, %191, %169, %207, %204
   %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %169 ], [ null, %191 ], [ null, %181 ]
   %210 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   %211 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1140) #15
   %212 = icmp eq ptr %.1132.ph, null
-  br i1 %212, label %.preheader, label %.thread200.thread
+  br i1 %212, label %.preheader, label %.thread205.thread
 
-.preheader:                                       ; preds = %.thread180, %46, %123, %.thread208, %.thread200.thread249, %.thread200
+.preheader:                                       ; preds = %.thread185, %46, %123, %.thread213, %.thread205.thread254, %.thread205
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %214 = load i32, ptr %213, align 8, !tbaa !37
-  %.not223 = icmp eq i32 %214, 0
-  br i1 %.not223, label %._crit_edge.thread, label %.lr.ph
+  %.not228 = icmp eq i32 %214, 0
+  br i1 %.not228, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %215 = getelementptr inbounds nuw i8, ptr %28, i64 112
@@ -1217,7 +1217,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
 216:                                              ; preds = %.lr.ph, %224
   %217 = phi i32 [ %214, %.lr.ph ], [ %225, %224 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %224 ]
-  %.0125221 = phi i32 [ 0, %.lr.ph ], [ %.1, %224 ]
+  %.0125226 = phi i32 [ 0, %.lr.ph ], [ %.1, %224 ]
   %218 = load ptr, ptr %215, align 8, !tbaa !39
   %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %indvars.iv
   %220 = load ptr, ptr %219, align 8, !tbaa !40
@@ -1227,13 +1227,13 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
 221:                                              ; preds = %216
   %222 = tail call i32 @H5FD_close(ptr noundef nonnull %220) #15
   %223 = lshr i32 %222, 31
-  %spec.select177 = add i32 %223, %.0125221
-  %.pre227 = load i32, ptr %213, align 8, !tbaa !37
+  %spec.select182 = add i32 %223, %.0125226
+  %.pre232 = load i32, ptr %213, align 8, !tbaa !37
   br label %224
 
 224:                                              ; preds = %221, %216
-  %225 = phi i32 [ %217, %216 ], [ %.pre227, %221 ]
-  %.1 = phi i32 [ %.0125221, %216 ], [ %spec.select177, %221 ]
+  %225 = phi i32 [ %217, %216 ], [ %.pre232, %221 ]
+  %.1 = phi i32 [ %.0125226, %216 ], [ %spec.select182, %221 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %226 = zext i32 %225 to i64
   %227 = icmp samesign ult i64 %indvars.iv.next, %226
@@ -1284,11 +1284,11 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
 
 251:                                              ; preds = %249, %246
   %252 = tail call ptr @H5MM_xfree(ptr noundef nonnull %28) #15
-  br label %.thread200.thread
+  br label %.thread205.thread
 
-.thread200.thread:                                ; preds = %23, %30, %17, %4, %251, %.thread200
-  %.0126 = phi ptr [ null, %251 ], [ %.1132.ph, %.thread200 ], [ null, %4 ], [ null, %17 ], [ null, %30 ], [ null, %23 ]
-  ret ptr %.0126
+.thread205.thread:                                ; preds = %23, %30, %17, %4, %251, %.thread205
+  %.0131 = phi ptr [ null, %251 ], [ %.1132.ph, %.thread205 ], [ null, %4 ], [ null, %17 ], [ null, %30 ], [ null, %23 ]
+  ret ptr %.0131
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1459,7 +1459,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
 10:                                               ; preds = %3
   %11 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #17
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread82, label %.preheader
+  br i1 %12, label %.thread83, label %.preheader
 
 .preheader:                                       ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1472,7 +1472,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %24
 
-.thread82:                                        ; preds = %10
+.thread83:                                        ; preds = %10
   %21 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %22 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_set_eoa, i32 noundef 996, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.24) #15
@@ -1526,7 +1526,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   br i1 %.not77, label %41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
-  %.pre87 = zext i32 %.066 to i64
+  %.pre88 = zext i32 %.066 to i64
   br label %46
 
 41:                                               ; preds = %39
@@ -1538,7 +1538,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   br i1 %.not78, label %46, label %61
 
 46:                                               ; preds = %._crit_edge, %41
-  %.pre-phi = phi i64 [ %.pre87, %._crit_edge ], [ %43, %41 ]
+  %.pre-phi = phi i64 [ %.pre88, %._crit_edge ], [ %43, %41 ]
   %47 = add i32 %.066, 1
   %. = tail call i32 @llvm.umax.i32(i32 %40, i32 %47)
   store i32 %., ptr %13, align 8, !tbaa !37
@@ -1552,9 +1552,9 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   %55 = load i64, ptr %19, align 8, !tbaa !32
   %56 = tail call i32 @H5FD_open(i1 noundef zeroext false, ptr noundef %51, ptr noundef nonnull %11, i32 noundef %53, i64 noundef %54, i64 noundef %55) #15
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %.thread84, label %61
+  br i1 %57, label %.thread85, label %61
 
-.thread84:                                        ; preds = %46
+.thread85:                                        ; preds = %46
   %58 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
   %59 = load i64, ptr @H5E_CANTOPENFILE_g, align 8, !tbaa !10
   %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__family_set_eoa, i32 noundef 1019, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.29) #15
@@ -1609,14 +1609,14 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   store i64 %2, ptr %91, align 8, !tbaa !45
   br label %92
 
-92:                                               ; preds = %73, %84, %90, %35, %.thread84
-  %.16586 = phi i32 [ -1, %.thread84 ], [ -1, %73 ], [ -1, %84 ], [ -1, %35 ], [ 0, %90 ]
+92:                                               ; preds = %73, %84, %90, %35, %.thread85
+  %.16587 = phi i32 [ -1, %.thread85 ], [ -1, %73 ], [ -1, %84 ], [ -1, %35 ], [ 0, %90 ]
   %93 = tail call ptr @H5MM_xfree(ptr noundef nonnull %11) #15
   br label %94
 
-94:                                               ; preds = %.thread82, %3, %92
-  %.062 = phi i32 [ %.16586, %92 ], [ 0, %3 ], [ -1, %.thread82 ]
-  ret i32 %.062
+94:                                               ; preds = %.thread83, %3, %92
+  %.064 = phi i32 [ %.16587, %92 ], [ 0, %3 ], [ -1, %.thread83 ]
+  ret i32 %.064
 }
 
 ; Function Attrs: nounwind uwtable

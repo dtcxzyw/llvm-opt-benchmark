@@ -250,8 +250,8 @@ define dso_local range(i32 0, 2) i32 @pkcs12_main(i32 noundef %0, ptr noundef %1
   br label %set_pbe.exit
 
 set_pbe.exit:                                     ; preds = %set_pbe.exit.backedge, %2
-  %.0449 = phi i32 [ 0, %2 ], [ %.0449.be, %set_pbe.exit.backedge ]
-  %.0444 = phi i32 [ 0, %2 ], [ %.0444.be, %set_pbe.exit.backedge ]
+  %.0452 = phi i32 [ 0, %2 ], [ %.0452.be, %set_pbe.exit.backedge ]
+  %.0 = phi i32 [ 0, %2 ], [ %.0.be, %set_pbe.exit.backedge ]
   %.0326 = phi ptr [ null, %2 ], [ %.0326.be, %set_pbe.exit.backedge ]
   %.0324 = phi i32 [ 0, %2 ], [ %.0324.be, %set_pbe.exit.backedge ]
   %.0322 = phi i32 [ 0, %2 ], [ %.0322.be, %set_pbe.exit.backedge ]
@@ -468,8 +468,8 @@ set_pbe.exit.thread:                              ; preds = %79, %68, %set_pbe.e
 
 79:                                               ; preds = %set_pbe.exit
   %80 = tail call ptr @opt_arg() #6
-  %.not.i431 = icmp eq ptr %80, null
-  br i1 %.not.i431, label %set_pbe.exit.thread, label %81
+  %.not.i435 = icmp eq ptr %80, null
+  br i1 %.not.i435, label %set_pbe.exit.thread, label %81
 
 81:                                               ; preds = %79
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(5) @.str.196) #7
@@ -482,8 +482,8 @@ set_pbe.exit.thread:                              ; preds = %79, %68, %set_pbe.e
   br i1 %86, label %87, label %set_pbe.exit.backedge
 
 set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, %set_pbe.exit, %137, %110, %90, %136, %133, %132, %131, %130, %128, %126, %124, %122, %120, %118, %116, %114, %103, %102, %100, %98, %96, %94, %92, %66, %65, %63, %62, %60, %59, %58, %56, %54, %51, %50, %49, %48, %47, %46, %44, %41, %39, %37, %35, %33, %32, %31, %29
-  %.0449.be = phi i32 [ %.0449, %set_pbe.exit ], [ %.0449, %29 ], [ %.0449, %31 ], [ %.0449, %32 ], [ %.0449, %33 ], [ %.0449, %35 ], [ %.0449, %37 ], [ %.0449, %39 ], [ %.0449, %41 ], [ %.0449, %44 ], [ %.0449, %46 ], [ %.0449, %47 ], [ %.0449, %48 ], [ 146, %49 ], [ %.0449, %50 ], [ %.0449, %51 ], [ %.0449, %54 ], [ %.0449, %56 ], [ %.0449, %58 ], [ %.0449, %59 ], [ %.0449, %60 ], [ -1, %62 ], [ %.0449, %63 ], [ %.0449, %65 ], [ %.0449, %66 ], [ %.0449, %137 ], [ %.0449, %90 ], [ %.0449, %92 ], [ %.0449, %94 ], [ %.0449, %96 ], [ %.0449, %98 ], [ %.0449, %100 ], [ %.0449, %102 ], [ %.0449, %103 ], [ %.0449, %110 ], [ %.0449, %114 ], [ %.0449, %116 ], [ %.0449, %118 ], [ %.0449, %120 ], [ %.0449, %122 ], [ %.0449, %124 ], [ %.0449, %126 ], [ %.0449, %128 ], [ %.0449, %130 ], [ %.0449, %131 ], [ %.0449, %132 ], [ %.0449, %133 ], [ %.0449, %136 ], [ %74, %73 ], [ -1, %70 ], [ %.0449, %81 ], [ %.0449, %84 ]
-  %.0444.be = phi i32 [ %.0444, %set_pbe.exit ], [ %.0444, %29 ], [ %.0444, %31 ], [ %.0444, %32 ], [ %.0444, %33 ], [ %.0444, %35 ], [ %.0444, %37 ], [ %.0444, %39 ], [ %.0444, %41 ], [ %.0444, %44 ], [ %.0444, %46 ], [ %.0444, %47 ], [ %.0444, %48 ], [ %.0444, %49 ], [ %.0444, %50 ], [ %.0444, %51 ], [ %.0444, %54 ], [ %.0444, %56 ], [ %.0444, %58 ], [ %.0444, %59 ], [ %.0444, %60 ], [ %.0444, %62 ], [ %.0444, %63 ], [ %.0444, %65 ], [ %.0444, %66 ], [ %.0444, %137 ], [ %.0444, %90 ], [ %.0444, %92 ], [ %.0444, %94 ], [ %.0444, %96 ], [ %.0444, %98 ], [ %.0444, %100 ], [ %.0444, %102 ], [ %.0444, %103 ], [ %.0444, %110 ], [ %.0444, %114 ], [ %.0444, %116 ], [ %.0444, %118 ], [ %.0444, %120 ], [ %.0444, %122 ], [ %.0444, %124 ], [ %.0444, %126 ], [ %.0444, %128 ], [ %.0444, %130 ], [ %.0444, %131 ], [ %.0444, %132 ], [ %.0444, %133 ], [ %.0444, %136 ], [ %.0444, %73 ], [ %.0444, %70 ], [ -1, %81 ], [ %85, %84 ]
+  %.0452.be = phi i32 [ %.0452, %set_pbe.exit ], [ %.0452, %29 ], [ %.0452, %31 ], [ %.0452, %32 ], [ %.0452, %33 ], [ %.0452, %35 ], [ %.0452, %37 ], [ %.0452, %39 ], [ %.0452, %41 ], [ %.0452, %44 ], [ %.0452, %46 ], [ %.0452, %47 ], [ %.0452, %48 ], [ 146, %49 ], [ %.0452, %50 ], [ %.0452, %51 ], [ %.0452, %54 ], [ %.0452, %56 ], [ %.0452, %58 ], [ %.0452, %59 ], [ %.0452, %60 ], [ -1, %62 ], [ %.0452, %63 ], [ %.0452, %65 ], [ %.0452, %66 ], [ %.0452, %137 ], [ %.0452, %90 ], [ %.0452, %92 ], [ %.0452, %94 ], [ %.0452, %96 ], [ %.0452, %98 ], [ %.0452, %100 ], [ %.0452, %102 ], [ %.0452, %103 ], [ %.0452, %110 ], [ %.0452, %114 ], [ %.0452, %116 ], [ %.0452, %118 ], [ %.0452, %120 ], [ %.0452, %122 ], [ %.0452, %124 ], [ %.0452, %126 ], [ %.0452, %128 ], [ %.0452, %130 ], [ %.0452, %131 ], [ %.0452, %132 ], [ %.0452, %133 ], [ %.0452, %136 ], [ %74, %73 ], [ -1, %70 ], [ %.0452, %81 ], [ %.0452, %84 ]
+  %.0.be = phi i32 [ %.0, %set_pbe.exit ], [ %.0, %29 ], [ %.0, %31 ], [ %.0, %32 ], [ %.0, %33 ], [ %.0, %35 ], [ %.0, %37 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %44 ], [ %.0, %46 ], [ %.0, %47 ], [ %.0, %48 ], [ %.0, %49 ], [ %.0, %50 ], [ %.0, %51 ], [ %.0, %54 ], [ %.0, %56 ], [ %.0, %58 ], [ %.0, %59 ], [ %.0, %60 ], [ %.0, %62 ], [ %.0, %63 ], [ %.0, %65 ], [ %.0, %66 ], [ %.0, %137 ], [ %.0, %90 ], [ %.0, %92 ], [ %.0, %94 ], [ %.0, %96 ], [ %.0, %98 ], [ %.0, %100 ], [ %.0, %102 ], [ %.0, %103 ], [ %.0, %110 ], [ %.0, %114 ], [ %.0, %116 ], [ %.0, %118 ], [ %.0, %120 ], [ %.0, %122 ], [ %.0, %124 ], [ %.0, %126 ], [ %.0, %128 ], [ %.0, %130 ], [ %.0, %131 ], [ %.0, %132 ], [ %.0, %133 ], [ %.0, %136 ], [ %.0, %73 ], [ %.0, %70 ], [ -1, %81 ], [ %85, %84 ]
   %.0326.be = phi ptr [ %.0326, %set_pbe.exit ], [ %.0326, %29 ], [ %.0326, %31 ], [ %.0326, %32 ], [ %.0326, %33 ], [ %.0326, %35 ], [ %.0326, %37 ], [ %.0326, %39 ], [ %.0326, %41 ], [ %.0326, %44 ], [ %.0326, %46 ], [ %.0326, %47 ], [ %.0326, %48 ], [ %.0326, %49 ], [ %.0326, %50 ], [ %.0326, %51 ], [ %.0326, %54 ], [ %.0326, %56 ], [ %.0326, %58 ], [ %.0326, %59 ], [ %.0326, %60 ], [ %.0326, %62 ], [ %.0326, %63 ], [ %.0326, %65 ], [ %.0326, %66 ], [ %.0326, %137 ], [ %.0326, %90 ], [ %.0326, %92 ], [ %.0326, %94 ], [ %.0326, %96 ], [ %.0326, %98 ], [ %.0326, %100 ], [ %.0326, %102 ], [ %104, %103 ], [ %.0326, %110 ], [ %.0326, %114 ], [ %.0326, %116 ], [ %.0326, %118 ], [ %.0326, %120 ], [ %.0326, %122 ], [ %.0326, %124 ], [ %.0326, %126 ], [ %.0326, %128 ], [ %.0326, %130 ], [ %.0326, %131 ], [ %.0326, %132 ], [ %.0326, %133 ], [ %.0326, %136 ], [ %.0326, %73 ], [ %.0326, %70 ], [ %.0326, %81 ], [ %.0326, %84 ]
   %.0324.be = phi i32 [ %.0324, %set_pbe.exit ], [ %.0324, %29 ], [ %.0324, %31 ], [ %.0324, %32 ], [ %.0324, %33 ], [ %.0324, %35 ], [ %.0324, %37 ], [ %.0324, %39 ], [ %.0324, %41 ], [ %.0324, %44 ], [ %.0324, %46 ], [ %.0324, %47 ], [ %.0324, %48 ], [ %.0324, %49 ], [ 1, %50 ], [ %.0324, %51 ], [ %.0324, %54 ], [ %.0324, %56 ], [ %.0324, %58 ], [ %.0324, %59 ], [ %.0324, %60 ], [ %.0324, %62 ], [ %.0324, %63 ], [ %.0324, %65 ], [ %.0324, %66 ], [ %.0324, %137 ], [ %.0324, %90 ], [ %.0324, %92 ], [ %.0324, %94 ], [ %.0324, %96 ], [ %.0324, %98 ], [ %.0324, %100 ], [ %.0324, %102 ], [ %.0324, %103 ], [ %.0324, %110 ], [ %.0324, %114 ], [ %.0324, %116 ], [ %.0324, %118 ], [ %.0324, %120 ], [ %.0324, %122 ], [ %.0324, %124 ], [ %.0324, %126 ], [ %.0324, %128 ], [ %.0324, %130 ], [ %.0324, %131 ], [ %.0324, %132 ], [ %.0324, %133 ], [ %.0324, %136 ], [ %.0324, %73 ], [ %.0324, %70 ], [ %.0324, %81 ], [ %.0324, %84 ]
   %.0322.be = phi i32 [ %.0322, %set_pbe.exit ], [ %30, %29 ], [ %.0322, %31 ], [ %.0322, %32 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %43, %41 ], [ %45, %44 ], [ %.0322, %46 ], [ %.0322, %47 ], [ %.0322, %48 ], [ %.0322, %49 ], [ %.0322, %50 ], [ %.0322, %51 ], [ %.0322, %54 ], [ %.0322, %56 ], [ %.0322, %58 ], [ %.0322, %59 ], [ %.0322, %60 ], [ %.0322, %62 ], [ %.0322, %63 ], [ %.0322, %65 ], [ %.0322, %66 ], [ %.0322, %137 ], [ %.0322, %90 ], [ %.0322, %92 ], [ %.0322, %94 ], [ %.0322, %96 ], [ %.0322, %98 ], [ %.0322, %100 ], [ %.0322, %102 ], [ %.0322, %103 ], [ %.0322, %110 ], [ %.0322, %114 ], [ %.0322, %116 ], [ %.0322, %118 ], [ %.0322, %120 ], [ %.0322, %122 ], [ %.0322, %124 ], [ %.0322, %126 ], [ %.0322, %128 ], [ %.0322, %130 ], [ %.0322, %131 ], [ %.0322, %132 ], [ %.0322, %133 ], [ %.0322, %136 ], [ %.0322, %73 ], [ %.0322, %70 ], [ %.0322, %81 ], [ %.0322, %84 ]
@@ -849,7 +849,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %235
 
 235:                                              ; preds = %.sink.split, %231
-  %.not369 = icmp eq i32 %.0444, 0
+  %.not369 = icmp eq i32 %.0, 0
   br i1 %.not369, label %239, label %236
 
 236:                                              ; preds = %235
@@ -858,7 +858,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %239
 
 239:                                              ; preds = %236, %235
-  %240 = add i32 %.0449, -1
+  %240 = add i32 %.0452, -1
   %or.cond = icmp ult i32 %240, -2
   br i1 %or.cond, label %241, label %244
 
@@ -887,21 +887,21 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 
 252:                                              ; preds = %249, %248
   %253 = icmp eq i32 %.0307, 1
-  br i1 %253, label %.sink.split1122, label %254
+  br i1 %253, label %.sink.split1126, label %254
 
 254:                                              ; preds = %252
-  %255 = icmp eq i32 %.0449, -1
+  %255 = icmp eq i32 %.0452, -1
   %256 = icmp eq i32 %.0307, -1
   %or.cond5 = select i1 %255, i1 %256, i1 false
-  br i1 %or.cond5, label %.sink.split1122, label %259
+  br i1 %or.cond5, label %.sink.split1126, label %259
 
-.sink.split1122:                                  ; preds = %254, %252
+.sink.split1126:                                  ; preds = %254, %252
   %.str.108.sink = phi ptr [ @.str.108, %252 ], [ @.str.114, %254 ]
   %257 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %258 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %257, ptr noundef nonnull @.str.122, ptr noundef nonnull %.str.108.sink) #6
   br label %259
 
-259:                                              ; preds = %.sink.split1122, %254
+259:                                              ; preds = %.sink.split1126, %254
   %.not372 = icmp eq i32 %.0303, 8
   br i1 %.not372, label %263, label %260
 
@@ -933,10 +933,10 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not380, label %.loopexit, label %273
 
 273:                                              ; preds = %270, %264
-  %274 = icmp eq i32 %.0449, 0
-  %spec.select500 = select i1 %274, i32 149, i32 %.0449
-  %275 = icmp eq i32 %.0444, 0
-  %.3447 = select i1 %275, i32 146, i32 %.0444
+  %274 = icmp eq i32 %.0452, 0
+  %spec.select503 = select i1 %274, i32 149, i32 %.0452
+  %275 = icmp eq i32 %.0, 0
+  %.3450 = select i1 %275, i32 146, i32 %.0
   %276 = load ptr, ptr %9, align 8, !tbaa !11
   %277 = icmp eq ptr %276, %23
   br i1 %277, label %278, label %280
@@ -952,8 +952,8 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %282
 
 282:                                              ; preds = %280, %263
-  %.2451 = phi i32 [ %.0449, %263 ], [ %spec.select500, %280 ]
-  %.2446 = phi i32 [ %.0444, %263 ], [ %.3447, %280 ]
+  %.2454 = phi i32 [ %.0452, %263 ], [ %spec.select503, %280 ]
+  %.2449 = phi i32 [ %.0, %263 ], [ %.3450, %280 ]
   %.2285 = phi ptr [ %.0283, %263 ], [ %spec.store.select, %280 ]
   %283 = call i32 @app_passwd(ptr noundef %.0242, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #6
   %.not381 = icmp eq i32 %283, 0
@@ -981,14 +981,14 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 
 293:                                              ; preds = %287
   %.val = load ptr, ptr %6, align 8
-  %.val501 = load ptr, ptr %7, align 8
-  %.0275 = select i1 %.not353, ptr %.val, ptr %.val501
+  %.val504 = load ptr, ptr %7, align 8
+  %.0275 = select i1 %.not353, ptr %.val, ptr %.val504
   %.not384 = icmp eq ptr %.0275, null
   %.not386 = icmp eq i32 %.0317, 0
   br i1 %.not384, label %301, label %294
 
 294:                                              ; preds = %293
-  br i1 %.not386, label %.thread461, label %295
+  br i1 %.not386, label %.thread464, label %295
 
 295:                                              ; preds = %294
   %296 = load ptr, ptr @bio_err, align 8, !tbaa !13
@@ -1003,25 +1003,25 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %.loopexit
 
 301:                                              ; preds = %293
-  br i1 %.not386, label %.thread461, label %302
+  br i1 %.not386, label %.thread464, label %302
 
 302:                                              ; preds = %301
   %303 = call i32 @EVP_read_pw_string(ptr noundef nonnull %5, i32 noundef 2048, ptr noundef nonnull @.str.131, i32 noundef %.0324) #6
   %.not387 = icmp eq i32 %303, 0
-  br i1 %.not387, label %.thread461, label %304
+  br i1 %.not387, label %.thread464, label %304
 
 304:                                              ; preds = %302
   %305 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %306 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %305, ptr noundef nonnull @.str.132) #6
   br label %.loopexit
 
-.thread461:                                       ; preds = %294, %302, %301
-  %.not386467 = phi i1 [ false, %302 ], [ true, %301 ], [ true, %294 ]
-  %.0274466 = phi ptr [ %5, %302 ], [ %5, %301 ], [ %.0275, %294 ]
-  %.1276465 = phi ptr [ %4, %302 ], [ %4, %301 ], [ %.0275, %294 ]
+.thread464:                                       ; preds = %294, %302, %301
+  %.not386470 = phi i1 [ false, %302 ], [ true, %301 ], [ true, %294 ]
+  %.0274469 = phi ptr [ %5, %302 ], [ %5, %301 ], [ %.0275, %294 ]
+  %.1276468 = phi ptr [ %4, %302 ], [ %4, %301 ], [ %.0275, %294 ]
   br i1 %.not353, label %468, label %307
 
-307:                                              ; preds = %.thread461
+307:                                              ; preds = %.thread464
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1091,32 +1091,32 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %338 = load ptr, ptr %10, align 8, !tbaa !17
   %339 = call i32 @OPENSSL_sk_num(ptr noundef %338) #6
   %340 = icmp sgt i32 %339, 0
-  br i1 %340, label %.lr.ph, label %.thread468
+  br i1 %340, label %.lr.ph, label %.thread471
 
 .lr.ph:                                           ; preds = %.preheader, %344
-  %.0233701 = phi i32 [ %345, %344 ], [ 0, %.preheader ]
+  %.0233704 = phi i32 [ %345, %344 ], [ 0, %.preheader ]
   %341 = load ptr, ptr %10, align 8, !tbaa !17
-  %342 = call ptr @OPENSSL_sk_value(ptr noundef %341, i32 noundef %.0233701) #6
+  %342 = call ptr @OPENSSL_sk_value(ptr noundef %341, i32 noundef %.0233704) #6
   %343 = call i32 @cert_matches_key(ptr noundef %342, ptr noundef nonnull %.1239) #6
   %.not408 = icmp eq i32 %343, 0
   br i1 %.not408, label %344, label %349
 
 344:                                              ; preds = %.lr.ph
-  %345 = add nuw nsw i32 %.0233701, 1
+  %345 = add nuw nsw i32 %.0233704, 1
   %346 = load ptr, ptr %10, align 8, !tbaa !17
   %347 = call i32 @OPENSSL_sk_num(ptr noundef %346) #6
   %348 = icmp slt i32 %345, %347
-  br i1 %348, label %.lr.ph, label %.thread468, !llvm.loop !21
+  br i1 %348, label %.lr.ph, label %.thread471, !llvm.loop !21
 
 349:                                              ; preds = %.lr.ph
   %350 = call i32 @X509_keyid_set1(ptr noundef %342, ptr noundef null, i32 noundef 0) #6
   %351 = call i32 @X509_alias_set1(ptr noundef %342, ptr noundef null, i32 noundef 0) #6
   %352 = load ptr, ptr %10, align 8, !tbaa !17
-  %353 = call ptr @OPENSSL_sk_delete(ptr noundef %352, i32 noundef %.0233701) #6
+  %353 = call ptr @OPENSSL_sk_delete(ptr noundef %352, i32 noundef %.0233704) #6
   %354 = icmp eq ptr %342, null
-  br i1 %354, label %.thread468, label %357
+  br i1 %354, label %.thread471, label %357
 
-.thread468:                                       ; preds = %344, %.preheader, %349
+.thread471:                                       ; preds = %344, %.preheader, %349
   %355 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %356 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %355, ptr noundef nonnull @.str.139, ptr noundef %.0216) #6
   br label %462
@@ -1156,12 +1156,12 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 370:                                              ; preds = %368
   %371 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %372 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %371, ptr noundef nonnull @.str.141) #6
-  br label %.thread470
+  br label %.thread473
 
 373:                                              ; preds = %368
   %374 = call ptr @setup_verify(ptr noundef %.0265, i32 noundef %.0257, ptr noundef %.0267, i32 noundef %.0259, ptr noundef %.0263, i32 noundef %.0255) #6
   %375 = icmp eq ptr %374, null
-  br i1 %375, label %.thread470, label %376
+  br i1 %375, label %.thread473, label %376
 
 376:                                              ; preds = %373
   %377 = load ptr, ptr %11, align 8, !tbaa !17
@@ -1169,7 +1169,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   call void @X509_STORE_free(ptr noundef nonnull %374) #6
   switch i32 %378, label %384 [
     i32 0, label %379
-    i32 1, label %.thread470
+    i32 1, label %.thread473
   ]
 
 379:                                              ; preds = %376
@@ -1180,16 +1180,16 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %383 = call i32 @X509_add_certs(ptr noundef %382, ptr noundef %380, i32 noundef 5) #6
   call void @OSSL_STACK_OF_X509_free(ptr noundef %380) #6
   %.not413 = icmp eq i32 %383, 0
-  br i1 %.not413, label %.thread470, label %389
+  br i1 %.not413, label %.thread473, label %389
 
 384:                                              ; preds = %376
   %385 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %386 = sext i32 %378 to i64
   %387 = call ptr @X509_verify_cert_error_string(i64 noundef %386) #6
   %388 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %385, ptr noundef nonnull @.str.142, ptr noundef %387) #6
-  br label %.thread470
+  br label %.thread473
 
-.thread470:                                       ; preds = %370, %373, %376, %384, %379
+.thread473:                                       ; preds = %370, %373, %376, %384, %379
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %462
 
@@ -1210,20 +1210,20 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 394:                                              ; preds = %391, %390
   %395 = call i32 @OPENSSL_sk_num(ptr noundef %.0244) #6
   %396 = icmp sgt i32 %395, 0
-  br i1 %396, label %.lr.ph703, label %._crit_edge
+  br i1 %396, label %.lr.ph706, label %._crit_edge
 
-.lr.ph703:                                        ; preds = %394, %.lr.ph703
-  %.1234702 = phi i32 [ %401, %.lr.ph703 ], [ 0, %394 ]
-  %397 = call ptr @OPENSSL_sk_value(ptr noundef %.0244, i32 noundef %.1234702) #6
+.lr.ph706:                                        ; preds = %394, %.lr.ph706
+  %.1234705 = phi i32 [ %401, %.lr.ph706 ], [ 0, %394 ]
+  %397 = call ptr @OPENSSL_sk_value(ptr noundef %.0244, i32 noundef %.1234705) #6
   %398 = load ptr, ptr %10, align 8, !tbaa !17
-  %399 = call ptr @OPENSSL_sk_value(ptr noundef %398, i32 noundef %.1234702) #6
+  %399 = call ptr @OPENSSL_sk_value(ptr noundef %398, i32 noundef %.1234705) #6
   %400 = call i32 @X509_alias_set1(ptr noundef %399, ptr noundef %397, i32 noundef -1) #6
-  %401 = add nuw nsw i32 %.1234702, 1
+  %401 = add nuw nsw i32 %.1234705, 1
   %402 = call i32 @OPENSSL_sk_num(ptr noundef %.0244) #6
   %403 = icmp slt i32 %401, %402
-  br i1 %403, label %.lr.ph703, label %._crit_edge, !llvm.loop !22
+  br i1 %403, label %.lr.ph706, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph703, %394
+._crit_edge:                                      ; preds = %.lr.ph706, %394
   %404 = icmp ne ptr %.0326, null
   %405 = icmp ne ptr %.1239, null
   %or.cond9 = and i1 %404, %405
@@ -1263,7 +1263,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %462
 
 422:                                              ; preds = %417, %413, %412
-  br i1 %.not386467, label %423, label %425
+  br i1 %.not386470, label %423, label %425
 
 423:                                              ; preds = %422
   %424 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 2048) #6
@@ -1282,7 +1282,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %429 = load ptr, ptr %10, align 8, !tbaa !17
   %430 = call ptr @app_get0_libctx() #6
   %431 = call ptr @app_get0_propq() #6
-  %432 = call ptr @PKCS12_create_ex2(ptr noundef nonnull %.1276465, ptr noundef %.0261, ptr noundef %.1239, ptr noundef %.1236, ptr noundef %429, i32 noundef %.2446, i32 noundef %.2451, i32 noundef %.0309, i32 noundef -1, i32 noundef %.0315, ptr noundef %430, ptr noundef %431, ptr noundef nonnull @jdk_trust, ptr noundef %.1232) #6
+  %432 = call ptr @PKCS12_create_ex2(ptr noundef nonnull %.1276468, ptr noundef %.0261, ptr noundef %.1239, ptr noundef %.1236, ptr noundef %429, i32 noundef %.2449, i32 noundef %.2454, i32 noundef %.0309, i32 noundef -1, i32 noundef %.0315, ptr noundef %430, ptr noundef %431, ptr noundef nonnull @jdk_trust, ptr noundef %.1232) #6
   store ptr %432, ptr %8, align 8, !tbaa !9
   %433 = icmp eq ptr %432, null
   br i1 %433, label %434, label %437
@@ -1312,7 +1312,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not, label %449, label %444
 
 444:                                              ; preds = %441
-  %445 = call i32 @PKCS12_set_pbmac1_pbkdf2(ptr noundef %442, ptr noundef nonnull %.0274466, i32 noundef -1, ptr noundef null, i32 noundef %.0303, i32 noundef %.0307, ptr noundef %443, ptr noundef %.0281) #6
+  %445 = call i32 @PKCS12_set_pbmac1_pbkdf2(ptr noundef %442, ptr noundef nonnull %.0274469, i32 noundef -1, ptr noundef null, i32 noundef %.0303, i32 noundef %.0307, ptr noundef %443, ptr noundef %.0281) #6
   %.not423 = icmp eq i32 %445, 0
   br i1 %.not423, label %446, label %456
 
@@ -1322,7 +1322,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %462
 
 449:                                              ; preds = %441
-  %450 = call i32 @PKCS12_set_mac(ptr noundef %442, ptr noundef nonnull %.0274466, i32 noundef -1, ptr noundef null, i32 noundef %.0303, i32 noundef %.0307, ptr noundef %443) #6
+  %450 = call i32 @PKCS12_set_mac(ptr noundef %442, ptr noundef nonnull %.0274469, i32 noundef -1, ptr noundef null, i32 noundef %.0303, i32 noundef %.0307, ptr noundef %443) #6
   %.not422 = icmp eq i32 %450, 0
   br i1 %.not422, label %451, label %456
 
@@ -1336,19 +1336,19 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 456:                                              ; preds = %444, %449, %440
   %457 = call ptr @bio_open_owner(ptr noundef %.0217, i32 noundef 6, i32 noundef 1) #6
   %458 = icmp eq ptr %457, null
-  br i1 %458, label %.thread473, label %459
+  br i1 %458, label %.thread476, label %459
 
 459:                                              ; preds = %456
   %460 = load ptr, ptr %8, align 8, !tbaa !9
   %461 = call i32 @i2d_PKCS12_bio(ptr noundef nonnull %457, ptr noundef %460) #6
   br label %462
 
-462:                                              ; preds = %.thread470, %391, %358, %327, %320, %459, %451, %446, %434, %419, %.thread468, %334, %310
-  %.2301 = phi i32 [ 1, %310 ], [ 1, %434 ], [ 0, %459 ], [ 1, %446 ], [ 1, %451 ], [ 1, %419 ], [ 1, %391 ], [ 1, %358 ], [ 1, %334 ], [ 1, %.thread468 ], [ 1, %327 ], [ 1, %320 ], [ 1, %.thread470 ]
-  %.2250 = phi ptr [ null, %310 ], [ null, %434 ], [ %457, %459 ], [ null, %446 ], [ null, %451 ], [ null, %419 ], [ null, %391 ], [ null, %358 ], [ null, %334 ], [ null, %.thread468 ], [ null, %327 ], [ null, %320 ], [ null, %.thread470 ]
-  %.0238 = phi ptr [ null, %310 ], [ %.1239, %434 ], [ %.1239, %459 ], [ %.1239, %446 ], [ %.1239, %451 ], [ %.1239, %419 ], [ %.1239, %391 ], [ %.1239, %358 ], [ %.1239, %334 ], [ %.1239, %.thread468 ], [ %.1239, %327 ], [ null, %320 ], [ %.1239, %.thread470 ]
-  %.0235 = phi ptr [ null, %310 ], [ %.1236, %434 ], [ %.1236, %459 ], [ %.1236, %446 ], [ %.1236, %451 ], [ %.1236, %419 ], [ %.1236, %391 ], [ %.1236, %358 ], [ null, %334 ], [ null, %.thread468 ], [ null, %327 ], [ null, %320 ], [ %.1236, %.thread470 ]
-  %.0231 = phi ptr [ null, %310 ], [ %.1232, %434 ], [ %.1232, %459 ], [ %.1232, %446 ], [ %.1232, %451 ], [ null, %419 ], [ null, %391 ], [ null, %358 ], [ null, %334 ], [ null, %.thread468 ], [ null, %327 ], [ null, %320 ], [ null, %.thread470 ]
+462:                                              ; preds = %.thread473, %391, %358, %327, %320, %459, %451, %446, %434, %419, %.thread471, %334, %310
+  %.2301 = phi i32 [ 1, %310 ], [ 1, %434 ], [ 0, %459 ], [ 1, %446 ], [ 1, %451 ], [ 1, %419 ], [ 1, %391 ], [ 1, %358 ], [ 1, %334 ], [ 1, %.thread471 ], [ 1, %327 ], [ 1, %320 ], [ 1, %.thread473 ]
+  %.2250 = phi ptr [ null, %310 ], [ null, %434 ], [ %457, %459 ], [ null, %446 ], [ null, %451 ], [ null, %419 ], [ null, %391 ], [ null, %358 ], [ null, %334 ], [ null, %.thread471 ], [ null, %327 ], [ null, %320 ], [ null, %.thread473 ]
+  %.0238 = phi ptr [ null, %310 ], [ %.1239, %434 ], [ %.1239, %459 ], [ %.1239, %446 ], [ %.1239, %451 ], [ %.1239, %419 ], [ %.1239, %391 ], [ %.1239, %358 ], [ %.1239, %334 ], [ %.1239, %.thread471 ], [ %.1239, %327 ], [ null, %320 ], [ %.1239, %.thread473 ]
+  %.0235 = phi ptr [ null, %310 ], [ %.1236, %434 ], [ %.1236, %459 ], [ %.1236, %446 ], [ %.1236, %451 ], [ %.1236, %419 ], [ %.1236, %391 ], [ %.1236, %358 ], [ null, %334 ], [ null, %.thread471 ], [ null, %327 ], [ null, %320 ], [ %.1236, %.thread473 ]
+  %.0231 = phi ptr [ null, %310 ], [ %.1232, %434 ], [ %.1232, %459 ], [ %.1232, %446 ], [ %.1232, %451 ], [ null, %419 ], [ null, %391 ], [ null, %358 ], [ null, %334 ], [ null, %.thread471 ], [ null, %327 ], [ null, %320 ], [ null, %.thread473 ]
   call void @EVP_PKEY_free(ptr noundef %.0238) #6
   %463 = load ptr, ptr %12, align 8, !tbaa !19
   call void @EVP_MD_free(ptr noundef %463) #6
@@ -1360,9 +1360,9 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   call void @ASN1_OBJECT_free(ptr noundef %.0231) #6
   %466 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %466) #6
-  br label %.thread473
+  br label %.thread476
 
-.thread473:                                       ; preds = %462, %456
+.thread476:                                       ; preds = %462, %456
   %.3302.ph = phi i32 [ 1, %456 ], [ %.2301, %462 ]
   %.3251.ph = phi ptr [ null, %456 ], [ %.2250, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1376,7 +1376,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %set_pbe.exit.thread
 
-468:                                              ; preds = %.thread461
+468:                                              ; preds = %.thread464
   %469 = call ptr @bio_open_default(ptr noundef %.0216, i8 noundef signext 114, i32 noundef 6) #6
   %470 = icmp eq ptr %469, null
   br i1 %470, label %.loopexit, label %471
@@ -1419,7 +1419,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %.loopexit
 
 489:                                              ; preds = %484, %483
-  br i1 %.not386467, label %490, label %492
+  br i1 %.not386470, label %490, label %492
 
 490:                                              ; preds = %489
   %491 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 2048) #6
@@ -1569,7 +1569,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 569:                                              ; preds = %565
   %570 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %571 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %570, ptr noundef nonnull @.str.157) #6
-  br label %.sink.split1123
+  br label %.sink.split1127
 
 572:                                              ; preds = %565
   call void @X509_ALGOR_get0(ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef nonnull %567) #6
@@ -1583,9 +1583,9 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %577 = call ptr @app_get0_propq() #6
   %578 = call ptr @EVP_KDF_fetch(ptr noundef %576, ptr noundef nonnull @.str.158, ptr noundef %577) #6
   %.not397 = icmp eq ptr %578, null
-  br i1 %.not397, label %.thread492, label %583
+  br i1 %.not397, label %.thread495, label %583
 
-.thread492:                                       ; preds = %575
+.thread495:                                       ; preds = %575
   %579 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %580 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %579, ptr noundef nonnull @.str.159) #6
   %581 = load ptr, ptr @bio_err, align 8, !tbaa !13
@@ -1599,7 +1599,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %584
 
 584:                                              ; preds = %583, %572
-  %585 = load i8, ptr %.0274466, align 1, !tbaa !33
+  %585 = load i8, ptr %.0274469, align 1, !tbaa !33
   %.not398 = icmp eq i8 %585, 0
   br i1 %.not398, label %586, label %590
 
@@ -1610,26 +1610,26 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not399, label %590, label %589
 
 589:                                              ; preds = %586
-  %spec.select = select i1 %.not386467, ptr null, ptr %.1276465
-  br label %.sink.split1123
+  %spec.select = select i1 %.not386470, ptr null, ptr %.1276468
+  br label %.sink.split1127
 
 590:                                              ; preds = %586, %584
   %591 = load ptr, ptr %8, align 8, !tbaa !9
-  %592 = call i32 @PKCS12_verify_mac(ptr noundef %591, ptr noundef nonnull %.0274466, i32 noundef -1) #6
+  %592 = call i32 @PKCS12_verify_mac(ptr noundef %591, ptr noundef nonnull %.0274469, i32 noundef -1) #6
   %.not400 = icmp eq i32 %592, 0
-  br i1 %.not400, label %593, label %.sink.split1123
+  br i1 %.not400, label %593, label %.sink.split1127
 
 593:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %594 = call i64 @ERR_peek_error() #6
   %595 = and i64 %594, 4294967295
-  %or.cond502 = icmp eq i64 %595, 293601388
-  br i1 %or.cond502, label %610, label %596
+  %or.cond505 = icmp eq i64 %595, 293601388
+  br i1 %or.cond505, label %610, label %596
 
 596:                                              ; preds = %593
-  %597 = call ptr @OPENSSL_asc2uni(ptr noundef nonnull %.0274466, i32 noundef -1, ptr noundef null, ptr noundef nonnull %22) #6
+  %597 = call ptr @OPENSSL_asc2uni(ptr noundef nonnull %.0274469, i32 noundef -1, ptr noundef null, ptr noundef nonnull %22) #6
   %598 = icmp eq ptr %597, null
-  br i1 %598, label %.thread497, label %599
+  br i1 %598, label %.thread500, label %599
 
 599:                                              ; preds = %596
   %600 = load i32, ptr %22, align 4, !tbaa !36
@@ -1645,15 +1645,15 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %606 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %604, ptr noundef nonnull @.str.162) #6
   %607 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %607) #6
-  br label %.thread497
+  br label %.thread500
 
 608:                                              ; preds = %599
   %609 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %604, ptr noundef nonnull @.str.163) #6
-  %spec.select429 = select i1 %.not386467, ptr %601, ptr %.1276465
+  %spec.select431 = select i1 %.not386470, ptr %601, ptr %.1276468
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.sink.split1123
+  br label %.sink.split1127
 
-.thread497:                                       ; preds = %596, %605
+.thread500:                                       ; preds = %596, %605
   %.3272.ph.ph = phi ptr [ %601, %605 ], [ null, %596 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1664,18 +1664,18 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %611 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %612 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %611, ptr noundef nonnull @.str.157) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.sink.split1123
+  br label %.sink.split1127
 
-.sink.split1123:                                  ; preds = %608, %589, %590, %569, %610
-  %.6.ph = phi ptr [ %.1276465, %610 ], [ %spec.select429, %608 ], [ %spec.select, %589 ], [ %.1276465, %590 ], [ %.1276465, %569 ]
+.sink.split1127:                                  ; preds = %608, %589, %590, %569, %610
+  %.6.ph = phi ptr [ %.1276468, %610 ], [ %spec.select431, %608 ], [ %spec.select, %589 ], [ %.1276468, %590 ], [ %.1276468, %569 ]
   %.4273.ph = phi ptr [ null, %610 ], [ %601, %608 ], [ null, %589 ], [ null, %590 ], [ null, %569 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %613
 
-613:                                              ; preds = %.sink.split1123, %564
-  %.6 = phi ptr [ %.1276465, %564 ], [ %.6.ph, %.sink.split1123 ]
-  %.4273 = phi ptr [ null, %564 ], [ %.4273.ph, %.sink.split1123 ]
+613:                                              ; preds = %.sink.split1127, %564
+  %.6 = phi ptr [ %.1276468, %564 ], [ %.6.ph, %.sink.split1127 ]
+  %.4273 = phi ptr [ null, %564 ], [ %.4273.ph, %.sink.split1127 ]
   %614 = call ptr @bio_open_owner(ptr noundef %.0217, i32 noundef 32773, i32 noundef 1) #6
   %615 = icmp eq ptr %614, null
   br i1 %615, label %.loopexit, label %616
@@ -1695,12 +1695,12 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   call void @ERR_print_errors(ptr noundef %624) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %90, %107, %110, %137, %set_pbe.exit.thread, %28, %284, %290, %304, %476, %481, %486, %621, %141, %267, %270, %299, %297, %468, %613, %616, %.thread473, %.thread492, %.thread497
-  %.1300 = phi i32 [ 1, %set_pbe.exit.thread ], [ 0, %28 ], [ 1, %297 ], [ 1, %299 ], [ 1, %304 ], [ 1, %468 ], [ 1, %476 ], [ 1, %481 ], [ 1, %613 ], [ 1, %621 ], [ 1, %486 ], [ 1, %290 ], [ 1, %284 ], [ 1, %270 ], [ 1, %267 ], [ 1, %141 ], [ 0, %616 ], [ %.3302.ph, %.thread473 ], [ 1, %.thread492 ], [ 1, %.thread497 ], [ 1, %137 ], [ 1, %110 ], [ 1, %107 ], [ 1, %90 ]
-  %.0269 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ null, %476 ], [ null, %481 ], [ %.4273, %613 ], [ %.4273, %621 ], [ null, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %.4273, %616 ], [ null, %.thread473 ], [ null, %.thread492 ], [ %.3272.ph.ph, %.thread497 ], [ null, %137 ], [ null, %110 ], [ null, %107 ], [ null, %90 ]
-  %.0252 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ %469, %476 ], [ %469, %481 ], [ %469, %613 ], [ %469, %621 ], [ %469, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %469, %616 ], [ null, %.thread473 ], [ %469, %.thread492 ], [ %469, %.thread497 ], [ null, %137 ], [ null, %110 ], [ null, %107 ], [ null, %90 ]
-  %.1249 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ null, %476 ], [ null, %481 ], [ null, %613 ], [ %614, %621 ], [ null, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %614, %616 ], [ %.3251.ph, %.thread473 ], [ null, %.thread492 ], [ null, %.thread497 ], [ null, %137 ], [ null, %110 ], [ null, %107 ], [ null, %90 ]
-  %.2246 = phi ptr [ %.0244, %set_pbe.exit.thread ], [ %.0244, %28 ], [ %.0244, %297 ], [ %.0244, %299 ], [ %.0244, %304 ], [ %.0244, %468 ], [ %.0244, %476 ], [ %.0244, %481 ], [ %.0244, %613 ], [ %.0244, %621 ], [ %.0244, %486 ], [ %.0244, %290 ], [ %.0244, %284 ], [ %.0244, %270 ], [ %.0244, %267 ], [ %.0244, %141 ], [ %.0244, %616 ], [ %.0244, %.thread473 ], [ %.0244, %.thread492 ], [ %.0244, %.thread497 ], [ %.0244, %90 ], [ null, %107 ], [ %.3247, %110 ], [ %.0244, %137 ]
+.loopexit:                                        ; preds = %137, %110, %107, %90, %.thread500, %.thread495, %.thread476, %616, %613, %468, %297, %299, %270, %267, %141, %621, %486, %481, %476, %304, %290, %284, %28, %set_pbe.exit.thread
+  %.1300 = phi i32 [ 1, %set_pbe.exit.thread ], [ 0, %28 ], [ 1, %297 ], [ 1, %299 ], [ 1, %304 ], [ 1, %468 ], [ 1, %476 ], [ 1, %481 ], [ 1, %613 ], [ 1, %621 ], [ 1, %486 ], [ 1, %290 ], [ 1, %284 ], [ 1, %270 ], [ 1, %267 ], [ 1, %141 ], [ 0, %616 ], [ %.3302.ph, %.thread476 ], [ 1, %.thread495 ], [ 1, %.thread500 ], [ 1, %90 ], [ 1, %107 ], [ 1, %110 ], [ 1, %137 ]
+  %.0269 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ null, %476 ], [ null, %481 ], [ %.4273, %613 ], [ %.4273, %621 ], [ null, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %.4273, %616 ], [ null, %.thread476 ], [ null, %.thread495 ], [ %.3272.ph.ph, %.thread500 ], [ null, %90 ], [ null, %107 ], [ null, %110 ], [ null, %137 ]
+  %.0252 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ %469, %476 ], [ %469, %481 ], [ %469, %613 ], [ %469, %621 ], [ %469, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %469, %616 ], [ null, %.thread476 ], [ %469, %.thread495 ], [ %469, %.thread500 ], [ null, %90 ], [ null, %107 ], [ null, %110 ], [ null, %137 ]
+  %.1249 = phi ptr [ null, %set_pbe.exit.thread ], [ null, %28 ], [ null, %297 ], [ null, %299 ], [ null, %304 ], [ null, %468 ], [ null, %476 ], [ null, %481 ], [ null, %613 ], [ %614, %621 ], [ null, %486 ], [ null, %290 ], [ null, %284 ], [ null, %270 ], [ null, %267 ], [ null, %141 ], [ %614, %616 ], [ %.3251.ph, %.thread476 ], [ null, %.thread495 ], [ null, %.thread500 ], [ null, %90 ], [ null, %107 ], [ null, %110 ], [ null, %137 ]
+  %.2246 = phi ptr [ %.0244, %set_pbe.exit.thread ], [ %.0244, %28 ], [ %.0244, %297 ], [ %.0244, %299 ], [ %.0244, %304 ], [ %.0244, %468 ], [ %.0244, %476 ], [ %.0244, %481 ], [ %.0244, %613 ], [ %.0244, %621 ], [ %.0244, %486 ], [ %.0244, %290 ], [ %.0244, %284 ], [ %.0244, %270 ], [ %.0244, %267 ], [ %.0244, %141 ], [ %.0244, %616 ], [ %.0244, %.thread476 ], [ %.0244, %.thread495 ], [ %.0244, %.thread500 ], [ %.0244, %137 ], [ %.3247, %110 ], [ null, %107 ], [ %.0244, %90 ]
   %625 = load ptr, ptr %8, align 8, !tbaa !9
   call void @PKCS12_free(ptr noundef %625) #6
   call void @release_engine(ptr noundef %.0253) #6
@@ -1941,7 +1941,7 @@ define dso_local range(i32 0, 2) i32 @dump_certs_keys_p12(ptr noundef %0, ptr no
 .preheader:                                       ; preds = %7
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %8) #6
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %.loopexit42
+  br i1 %11, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = and i32 %4, 4
@@ -1999,7 +1999,7 @@ define dso_local range(i32 0, 2) i32 @dump_certs_keys_p12(ptr noundef %0, ptr no
 40:                                               ; preds = %18, %20, %38
   %.0 = phi ptr [ %19, %20 ], [ %19, %18 ], [ %39, %38 ]
   %41 = icmp eq ptr %.0, null
-  br i1 %41, label %.loopexit42, label %42
+  br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %40
   %43 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %.0) #6
@@ -2021,7 +2021,7 @@ define dso_local range(i32 0, 2) i32 @dump_certs_keys_p12(ptr noundef %0, ptr no
 
 dump_certs_pkeys_bags.exit:                       ; preds = %.lr.ph.i
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %.0, ptr noundef nonnull @PKCS12_SAFEBAG_free) #6
-  br label %.loopexit42
+  br label %.thread
 
 .loopexit:                                        ; preds = %45, %42
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %.0, ptr noundef nonnull @PKCS12_SAFEBAG_free) #6
@@ -2031,15 +2031,15 @@ dump_certs_pkeys_bags.exit:                       ; preds = %.lr.ph.i
   %52 = add nuw nsw i32 %.03343, 1
   %53 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %8) #6
   %54 = icmp slt i32 %52, %53
-  br i1 %54, label %13, label %.loopexit42, !llvm.loop !52
+  br i1 %54, label %13, label %.thread, !llvm.loop !52
 
-.loopexit42:                                      ; preds = %51, %40, %.preheader, %dump_certs_pkeys_bags.exit
+.thread:                                          ; preds = %51, %40, %.preheader, %dump_certs_pkeys_bags.exit
   %.032 = phi i32 [ 0, %dump_certs_pkeys_bags.exit ], [ 1, %.preheader ], [ 1, %51 ], [ 0, %40 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %8, ptr noundef nonnull @PKCS7_free) #6
   br label %55
 
-55:                                               ; preds = %7, %.loopexit42
-  %.031 = phi i32 [ %.032, %.loopexit42 ], [ 0, %7 ]
+55:                                               ; preds = %7, %.thread
+  %.031 = phi i32 [ %.032, %.thread ], [ 0, %7 ]
   ret i32 %.031
 }
 
@@ -2153,16 +2153,16 @@ define internal fastcc void @alg_print(ptr noundef %0) unnamed_addr #0 {
 56:                                               ; preds = %21
   %57 = load i32, ptr %2, align 4, !tbaa !36
   %58 = icmp eq i32 %57, 16
-  br i1 %58, label %59, label %.thread52
+  br i1 %58, label %59, label %.thread51
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %4, align 8, !tbaa !53
   %61 = call ptr @SCRYPT_PARAMS_it() #6
   %62 = call ptr @ASN1_item_unpack(ptr noundef %60, ptr noundef %61) #6
   %.not = icmp eq ptr %62, null
-  br i1 %.not, label %.thread52, label %65
+  br i1 %.not, label %.thread51, label %65
 
-.thread52:                                        ; preds = %59, %56
+.thread51:                                        ; preds = %59, %56
   %63 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %64 = call i32 @BIO_puts(ptr noundef %63, ptr noundef nonnull @.str.191) #6
   br label %94
@@ -2189,16 +2189,16 @@ define internal fastcc void @alg_print(ptr noundef %0) unnamed_addr #0 {
   br label %94
 
 80:                                               ; preds = %1
-  br i1 %12, label %81, label %.thread55
+  br i1 %12, label %81, label %.thread53
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr %4, align 8, !tbaa !53
   %83 = call ptr @PBEPARAM_it() #6
   %84 = call ptr @ASN1_item_unpack(ptr noundef %82, ptr noundef %83) #6
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread55, label %88
+  br i1 %85, label %.thread53, label %88
 
-.thread55:                                        ; preds = %80, %81
+.thread53:                                        ; preds = %80, %81
   %86 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %87 = call i32 @BIO_puts(ptr noundef %86, ptr noundef nonnull @.str.191) #6
   br label %94
@@ -2212,7 +2212,7 @@ define internal fastcc void @alg_print(ptr noundef %0) unnamed_addr #0 {
   call void @PBEPARAM_free(ptr noundef nonnull %84) #6
   br label %94
 
-94:                                               ; preds = %.thread55, %88, %.thread52, %.thread44, %79, %.thread
+94:                                               ; preds = %.thread51, %.thread44, %.thread, %79, %88, %.thread53
   %95 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %96 = call i32 @BIO_puts(ptr noundef %95, ptr noundef nonnull @.str.178) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

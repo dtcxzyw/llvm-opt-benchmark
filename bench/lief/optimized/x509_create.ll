@@ -191,8 +191,8 @@ x509_attr_descr_from_name.exit:                   ; preds = %22
   br i1 %63, label %parse_attribute_value_hex_der_encoded.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %61, %100
-  %.04059.i = phi i64 [ %103, %100 ], [ 0, %61 ]
-  %64 = shl nuw nsw i64 %.04059.i, 1
+  %.04060.i = phi i64 [ %103, %100 ], [ 0, %61 ]
+  %64 = shl nuw nsw i64 %.04060.i, 1
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !7
   %67 = sext i8 %66 to i32
@@ -262,9 +262,9 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
 
 100:                                              ; preds = %hexpair_to_int.exit.i
   %101 = trunc i32 %.0.i.i to i8
-  %102 = getelementptr inbounds nuw i8, ptr %62, i64 %.04059.i
+  %102 = getelementptr inbounds nuw i8, ptr %62, i64 %.04060.i
   store i8 %101, ptr %102, align 1, !tbaa !7
-  %103 = add nuw nsw i64 %.04059.i, 1
+  %103 = add nuw nsw i64 %.04060.i, 1
   %exitcond.not.i = icmp eq i64 %103, %59
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
@@ -289,36 +289,36 @@ hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
   br i1 %112, label %113, label %..loopexit_crit_edge.i
 
 ..loopexit_crit_edge.i:                           ; preds = %111
-  %.pre66.i = load ptr, ptr %2, align 8, !tbaa !21
+  %.pre67.i = load ptr, ptr %2, align 8, !tbaa !21
   br label %parse_attribute_value_hex_der_encoded.exit
 
 113:                                              ; preds = %111
   %114 = shl nuw i32 1, %104
   %115 = and i32 %114, 1347948544
   %.not50.i = icmp ne i32 %115, 0
-  %.not5160.i = icmp ne i64 %109, 0
-  %or.cond63.i = and i1 %.not50.i, %.not5160.i
-  %.pre67.i = load ptr, ptr %2, align 8, !tbaa !21
-  br i1 %or.cond63.i, label %.lr.ph62.i, label %parse_attribute_value_hex_der_encoded.exit
+  %.not5161.i = icmp ne i64 %109, 0
+  %or.cond64.i = and i1 %.not50.i, %.not5161.i
+  %.pre68.i = load ptr, ptr %2, align 8, !tbaa !21
+  br i1 %or.cond64.i, label %.lr.ph63.i, label %parse_attribute_value_hex_der_encoded.exit
 
-116:                                              ; preds = %.lr.ph62.i
-  %117 = add nuw nsw i64 %.061.i, 1
-  %exitcond65.not.i = icmp eq i64 %117, %109
-  br i1 %exitcond65.not.i, label %parse_attribute_value_hex_der_encoded.exit, label %.lr.ph62.i, !llvm.loop !22
+116:                                              ; preds = %.lr.ph63.i
+  %117 = add nuw nsw i64 %.062.i, 1
+  %exitcond66.not.i = icmp eq i64 %117, %109
+  br i1 %exitcond66.not.i, label %parse_attribute_value_hex_der_encoded.exit, label %.lr.ph63.i, !llvm.loop !22
 
-.lr.ph62.i:                                       ; preds = %113, %116
-  %.061.i = phi i64 [ %117, %116 ], [ 0, %113 ]
-  %118 = getelementptr inbounds nuw i8, ptr %.pre67.i, i64 %.061.i
+.lr.ph63.i:                                       ; preds = %113, %116
+  %.062.i = phi i64 [ %117, %116 ], [ 0, %113 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.pre68.i, i64 %.062.i
   %119 = load i8, ptr %118, align 1, !tbaa !7
   %120 = icmp eq i8 %119, 0
   br i1 %120, label %parse_attribute_value_hex_der_encoded.exit.thread123, label %116
 
-parse_attribute_value_hex_der_encoded.exit.thread123: ; preds = %._crit_edge.i, %108, %.lr.ph62.i
+parse_attribute_value_hex_der_encoded.exit.thread123: ; preds = %._crit_edge.i, %108, %.lr.ph63.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
 
 parse_attribute_value_hex_der_encoded.exit:       ; preds = %116, %..loopexit_crit_edge.i, %113
-  %121 = phi ptr [ %.pre66.i, %..loopexit_crit_edge.i ], [ %.pre67.i, %113 ], [ %.pre67.i, %116 ]
+  %121 = phi ptr [ %.pre67.i, %..loopexit_crit_edge.i ], [ %.pre68.i, %113 ], [ %.pre68.i, %116 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %121, i64 %109, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @free(ptr noundef %62) #9

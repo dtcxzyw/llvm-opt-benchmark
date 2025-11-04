@@ -3151,13 +3151,13 @@ define internal range(i32 -16, 1) i32 @setup_app(ptr noundef %0) #0 {
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %.not73.not95 = icmp eq ptr %48, null
-  br i1 %.not73.not95, label %.critedge81.preheader, label %.lr.ph97
+  br i1 %.not73.not95, label %.critedge82.preheader, label %.lr.ph97
 
-.critedge81.preheader:                            ; preds = %94, %45
+.critedge82.preheader:                            ; preds = %94, %45
   %49 = load ptr, ptr @environ, align 8, !tbaa !38
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %.not77.not98 = icmp eq ptr %50, null
-  br i1 %.not77.not98, label %.critedge83, label %.lr.ph100
+  br i1 %.not77.not98, label %.critedge84, label %.lr.ph100
 
 .lr.ph97:                                         ; preds = %45, %94
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %94 ], [ 1, %45 ]
@@ -3239,21 +3239,21 @@ set_classpath_jar_file.exit:                      ; preds = %.set_classpath_jar_
   %95 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next109
   %96 = load ptr, ptr %95, align 8, !tbaa !4
   %.not73.not = icmp eq ptr %96, null
-  br i1 %.not73.not, label %.critedge81.preheader, label %.lr.ph97, !llvm.loop !111
+  br i1 %.not73.not, label %.critedge82.preheader, label %.lr.ph97, !llvm.loop !111
 
-.critedge81:                                      ; preds = %.lr.ph100
+.critedge82:                                      ; preds = %.lr.ph100
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %97 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.next112
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   %.not77.not = icmp eq ptr %98, null
-  br i1 %.not77.not, label %.critedge83, label %.lr.ph100, !llvm.loop !112
+  br i1 %.not77.not, label %.critedge84, label %.lr.ph100, !llvm.loop !112
 
-.lr.ph100:                                        ; preds = %.critedge81.preheader, %.critedge81
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.critedge81 ], [ 0, %.critedge81.preheader ]
-  %99 = phi ptr [ %98, %.critedge81 ], [ %50, %.critedge81.preheader ]
+.lr.ph100:                                        ; preds = %.critedge82.preheader, %.critedge82
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.critedge82 ], [ 0, %.critedge82.preheader ]
+  %99 = phi ptr [ %98, %.critedge82 ], [ %50, %.critedge82.preheader ]
   %100 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(10) @.str.13, i64 noundef 9) #20
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.critedge81
+  br i1 %101, label %102, label %.critedge82
 
 102:                                              ; preds = %.lr.ph100
   %103 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 61) #20
@@ -3265,7 +3265,7 @@ set_classpath_jar_file.exit:                      ; preds = %.set_classpath_jar_
   store ptr %107, ptr %4, align 8, !tbaa !4
   %108 = call i32 @access(ptr noundef %107, i32 noundef 0) #18
   %.not78 = icmp eq i32 %108, -1
-  br i1 %.not78, label %set_classpath_jar_file.exit84, label %109
+  br i1 %.not78, label %set_classpath_jar_file.exit85, label %109
 
 109:                                              ; preds = %102
   %110 = load ptr, ptr %6, align 8, !tbaa !105
@@ -3273,7 +3273,7 @@ set_classpath_jar_file.exit:                      ; preds = %.set_classpath_jar_
   %112 = load ptr, ptr %111, align 8, !tbaa !4
   %113 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %112, ptr noundef nonnull dereferenceable(1) @.str.11) #20
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %set_classpath_jar_file.exit84
+  br i1 %114, label %115, label %set_classpath_jar_file.exit85
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds i8, ptr %112, i64 -1
@@ -3294,9 +3294,9 @@ set_classpath_jar_file.exit:                      ; preds = %.set_classpath_jar_
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %127, ptr %129, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %set_classpath_jar_file.exit84
+  br label %set_classpath_jar_file.exit85
 
-set_classpath_jar_file.exit84:                    ; preds = %115, %109, %102
+set_classpath_jar_file.exit85:                    ; preds = %115, %109, %102
   %130 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %130) #18
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3316,7 +3316,7 @@ set_classpath_jar_file.exit84:                    ; preds = %115, %109, %102
   %143 = call i32 @pmix_argv_insert_element(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @.str.14) #18
   br label %158
 
-.critedge83:                                      ; preds = %.critedge81, %.critedge81.preheader
+.critedge84:                                      ; preds = %.critedge82, %.critedge82.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %145 = load ptr, ptr %144, align 8, !tbaa !110
@@ -3328,15 +3328,15 @@ set_classpath_jar_file.exit84:                    ; preds = %115, %109, %102
   %.not79 = icmp eq i32 %149, -1
   br i1 %.not79, label %154, label %150
 
-150:                                              ; preds = %.critedge83
+150:                                              ; preds = %.critedge84
   %151 = load ptr, ptr %4, align 8, !tbaa !4
   %152 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.12, ptr noundef %146, ptr noundef %151) #18
   call void @free(ptr noundef %146) #18
   %153 = load ptr, ptr %5, align 8, !tbaa !4
   br label %154
 
-154:                                              ; preds = %150, %.critedge83
-  %.0 = phi ptr [ %153, %150 ], [ %146, %.critedge83 ]
+154:                                              ; preds = %150, %.critedge84
+  %.0 = phi ptr [ %153, %150 ], [ %146, %.critedge84 ]
   %155 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %155) #18
   %156 = call i32 @pmix_argv_insert_element(ptr noundef nonnull %6, i32 noundef 1, ptr noundef %.0) #18
@@ -3345,8 +3345,8 @@ set_classpath_jar_file.exit84:                    ; preds = %115, %109, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %158
 
-158:                                              ; preds = %set_classpath_jar_file.exit84, %set_classpath_jar_file.exit, %22, %154, %1, %15
-  %.062 = phi i32 [ -16, %15 ], [ 0, %1 ], [ 0, %set_classpath_jar_file.exit84 ], [ 0, %154 ], [ 0, %set_classpath_jar_file.exit ], [ -5, %22 ]
+158:                                              ; preds = %set_classpath_jar_file.exit85, %set_classpath_jar_file.exit, %22, %154, %1, %15
+  %.062 = phi i32 [ -16, %15 ], [ 0, %1 ], [ 0, %set_classpath_jar_file.exit85 ], [ 0, %154 ], [ 0, %set_classpath_jar_file.exit ], [ -5, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
 }

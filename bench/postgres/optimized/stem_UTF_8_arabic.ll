@@ -744,14 +744,14 @@ select.unfold.i:                                  ; preds = %196
   %208 = load i32, ptr %8, align 8
   store i32 %208, ptr %37, align 8
   %209 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_17, i32 noundef 12) #2
-  %.not.i398862 = icmp eq i32 %209, 0
-  br i1 %.not.i398862, label %.thread, label %.lr.ph
+  %.not.i398867 = icmp eq i32 %209, 0
+  br i1 %.not.i398867, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %r_Suffix_Verb_Step1.exit
   %210 = phi i32 [ %237, %r_Suffix_Verb_Step1.exit ], [ %209, %.preheader.preheader ]
   %211 = phi i32 [ %236, %r_Suffix_Verb_Step1.exit ], [ %208, %.preheader.preheader ]
   %212 = phi i32 [ %235, %r_Suffix_Verb_Step1.exit ], [ %207, %.preheader.preheader ]
-  %.0326863 = phi i32 [ %spec.select, %r_Suffix_Verb_Step1.exit ], [ 1, %.preheader.preheader ]
+  %.0326868 = phi i32 [ %spec.select, %r_Suffix_Verb_Step1.exit ], [ 1, %.preheader.preheader ]
   %213 = load i32, ptr %8, align 8
   store i32 %213, ptr %10, align 4
   switch i32 %210, label %r_Suffix_Verb_Step1.exit [
@@ -794,7 +794,7 @@ select.unfold.i:                                  ; preds = %196
   br i1 %234, label %r_Suffix_Verb_Step1.exit, label %r_Normalize_pre.exit.thread
 
 r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.lr.ph
-  %spec.select = add i32 %.0326863, -1
+  %spec.select = add i32 %.0326868, -1
   %235 = load i32, ptr %12, align 4
   %236 = load i32, ptr %8, align 8
   store i32 %236, ptr %37, align 8
@@ -803,17 +803,17 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
   br i1 %.not.i398, label %.thread.loopexit, label %.lr.ph
 
 .thread.loopexit:                                 ; preds = %r_Suffix_Verb_Step1.exit, %214, %221, %228
-  %.0326.lcssa.ph = phi i32 [ %.0326863, %228 ], [ %.0326863, %221 ], [ %.0326863, %214 ], [ %spec.select, %r_Suffix_Verb_Step1.exit ]
-  %.lcssa859.ph = phi i32 [ %212, %228 ], [ %212, %221 ], [ %212, %214 ], [ %235, %r_Suffix_Verb_Step1.exit ]
+  %.0326.lcssa.ph = phi i32 [ %.0326868, %228 ], [ %.0326868, %221 ], [ %.0326868, %214 ], [ %spec.select, %r_Suffix_Verb_Step1.exit ]
+  %.lcssa864.ph = phi i32 [ %212, %228 ], [ %212, %221 ], [ %212, %214 ], [ %235, %r_Suffix_Verb_Step1.exit ]
   %.lcssa.ph = phi i32 [ %211, %228 ], [ %211, %221 ], [ %211, %214 ], [ %236, %r_Suffix_Verb_Step1.exit ]
   %238 = icmp sgt i32 %.0326.lcssa.ph, 0
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.preheader.preheader
   %.0326.lcssa = phi i1 [ true, %.preheader.preheader ], [ %238, %.thread.loopexit ]
-  %.lcssa859 = phi i32 [ %207, %.preheader.preheader ], [ %.lcssa859.ph, %.thread.loopexit ]
+  %.lcssa864 = phi i32 [ %207, %.preheader.preheader ], [ %.lcssa864.ph, %.thread.loopexit ]
   %.lcssa = phi i32 [ %208, %.preheader.preheader ], [ %.lcssa.ph, %.thread.loopexit ]
-  %.neg.le = sub i32 %.lcssa, %.lcssa859
+  %.neg.le = sub i32 %.lcssa, %.lcssa864
   %239 = load i32, ptr %12, align 4
   %240 = add i32 %.neg.le, %239
   store i32 %240, ptr %8, align 8
@@ -896,7 +896,7 @@ r_Suffix_Verb_Step2c.exit.thread:                 ; preds = %265, %258, %254, %2
   br i1 %277, label %.thread561, label %r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge
 
 r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge: ; preds = %r_Suffix_Verb_Step2c.exit.thread
-  %.pre711 = load i32, ptr %12, align 4
+  %.pre714 = load i32, ptr %12, align 4
   br label %.thread445
 
 278:                                              ; preds = %.thread441
@@ -904,7 +904,7 @@ r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge: ; preds = %r_Suffix_Verb_
   br i1 %cond654, label %.thread561, label %r_Normalize_pre.exit.thread
 
 .thread445:                                       ; preds = %r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge, %.thread
-  %279 = phi i32 [ %239, %.thread ], [ %.pre711, %r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge ]
+  %279 = phi i32 [ %239, %.thread ], [ %.pre714, %r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge ]
   %.7 = phi i32 [ %.0.i, %.thread ], [ %.8, %r_Suffix_Verb_Step2c.exit.thread..thread445_crit_edge ]
   store i32 %279, ptr %8, align 8
   store i32 %279, ptr %37, align 8
@@ -941,8 +941,8 @@ r_Suffix_Verb_Step2b.exit:                        ; preds = %290
   %295 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %296 = icmp slt i32 %295, 0
   %..7 = select i1 %296, i32 %295, i32 %.7
-  %cond685 = icmp sgt i32 %295, -1
-  br i1 %cond685, label %.thread561, label %.loopexit.thread
+  %cond688 = icmp sgt i32 %295, -1
+  br i1 %cond688, label %.thread561, label %r_Normalize_pre.exit.thread
 
 r_Suffix_Verb_Step2b.exit.thread:                 ; preds = %290, %288, %.thread445, %282
   %297 = load i32, ptr %12, align 4
@@ -950,25 +950,30 @@ r_Suffix_Verb_Step2b.exit.thread:                 ; preds = %290, %288, %.thread
   %298 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0)
   %.fr = freeze i32 %298
   %299 = icmp eq i32 %.fr, 0
-  br i1 %299, label %.thread476, label %300
+  br i1 %299, label %r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge, label %300
+
+r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge: ; preds = %r_Suffix_Verb_Step2b.exit.thread
+  %.pre715 = load i32, ptr %12, align 4
+  %.pre716 = load ptr, ptr %2, align 8
+  br label %.thread476
 
 300:                                              ; preds = %r_Suffix_Verb_Step2b.exit.thread
   %301 = icmp slt i32 %.fr, 0
-  br i1 %301, label %.loopexit.thread, label %.thread561
+  br i1 %301, label %r_Normalize_pre.exit.thread, label %.thread561
 
-.thread476:                                       ; preds = %r_Suffix_Verb_Step2b.exit.thread, %201
-  %.3 = phi i32 [ %.0.i, %201 ], [ %.7, %r_Suffix_Verb_Step2b.exit.thread ]
-  %302 = load i32, ptr %12, align 4
-  store i32 %302, ptr %8, align 8
-  %303 = load ptr, ptr %2, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
+.thread476:                                       ; preds = %r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge, %201
+  %302 = phi ptr [ %204, %201 ], [ %.pre716, %r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge ]
+  %303 = phi i32 [ %203, %201 ], [ %.pre715, %r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge ]
+  %.3 = phi i32 [ %.0.i, %201 ], [ %.7, %r_Suffix_Verb_Step2b.exit.thread..thread476_crit_edge ]
+  store i32 %303, ptr %8, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %305 = load i32, ptr %304, align 4
   %.not355 = icmp eq i32 %305, 0
   br i1 %.not355, label %r_Suffix_Noun_Step3.exit.thread, label %306
 
 306:                                              ; preds = %.thread476
-  store i32 %302, ptr %37, align 8
-  %307 = add i32 %302, -1
+  store i32 %303, ptr %37, align 8
+  %307 = add i32 %303, -1
   %308 = load i32, ptr %202, align 8
   %.not.i404 = icmp sgt i32 %307, %308
   br i1 %.not.i404, label %309, label %r_Suffix_Noun_Step2c2.exit.thread
@@ -997,10 +1002,10 @@ r_Suffix_Verb_Step2b.exit.thread:                 ; preds = %290, %288, %.thread
 r_Suffix_Noun_Step2c2.exit:                       ; preds = %316
   %321 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %322 = icmp slt i32 %321, 0
-  %.lobit659 = lshr i32 %321, 31
+  %.lobit662 = lshr i32 %321, 31
   %..3 = select i1 %322, i32 %321, i32 %.3
-  %cond686 = icmp sgt i32 %321, -1
-  br i1 %cond686, label %.thread525, label %409
+  %cond689 = icmp sgt i32 %321, -1
+  br i1 %cond689, label %.thread525, label %409
 
 r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %309
   %323 = load i32, ptr %12, align 4
@@ -1014,9 +1019,9 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
   %327 = tail call fastcc i32 @r_Suffix_Noun_Step1a(ptr noundef nonnull %0)
   %328 = icmp eq i32 %327, 0
   %329 = icmp slt i32 %327, 0
-  %.lobit660 = lshr i32 %327, 31
+  %.lobit663 = lshr i32 %327, 31
   %..15 = select i1 %329, i32 %327, i32 %.3
-  %.16298 = select i1 %328, i32 17, i32 %.lobit660
+  %.16298 = select i1 %328, i32 17, i32 %.lobit663
   %.18 = select i1 %328, i32 %.3, i32 %..15
   switch i32 %.16298, label %409 [
     i32 0, label %330
@@ -1030,9 +1035,9 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
   %334 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %335 = icmp eq i32 %334, 0
   %336 = icmp slt i32 %334, 0
-  %.lobit661 = lshr i32 %334, 31
+  %.lobit664 = lshr i32 %334, 31
   %..18 = select i1 %336, i32 %334, i32 %.18
-  %.17299 = select i1 %335, i32 18, i32 %.lobit661
+  %.17299 = select i1 %335, i32 18, i32 %.lobit664
   %.19 = select i1 %335, i32 %.18, i32 %..18
   switch i32 %.17299, label %356 [
     i32 0, label %.thread525
@@ -1046,9 +1051,9 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
   %340 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %341 = icmp eq i32 %340, 0
   %342 = icmp slt i32 %340, 0
-  %.lobit662 = lshr i32 %340, 31
+  %.lobit665 = lshr i32 %340, 31
   %..19 = select i1 %342, i32 %340, i32 %.19
-  %.19301 = select i1 %341, i32 20, i32 %.lobit662
+  %.19301 = select i1 %341, i32 20, i32 %.lobit665
   %.21 = select i1 %341, i32 %.19, i32 %..19
   switch i32 %.19301, label %356 [
     i32 0, label %.thread525
@@ -1062,9 +1067,9 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
   %346 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0)
   %347 = icmp eq i32 %346, 0
   %348 = icmp slt i32 %346, 0
-  %.lobit663 = lshr i32 %346, 31
+  %.lobit666 = lshr i32 %346, 31
   %..21 = select i1 %348, i32 %346, i32 %.21
-  %.20302 = select i1 %347, i32 21, i32 %.lobit663
+  %.20302 = select i1 %347, i32 21, i32 %.lobit666
   %.22 = select i1 %347, i32 %.21, i32 %..21
   switch i32 %.20302, label %356 [
     i32 0, label %.thread525
@@ -1082,7 +1087,7 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
   br i1 %355, label %.thread525.sink.split, label %.thread643
 
 356:                                              ; preds = %343, %337, %330
-  %.18300 = phi i32 [ %.lobit661, %330 ], [ %.lobit662, %337 ], [ %.lobit663, %343 ]
+  %.18300 = phi i32 [ %.lobit664, %330 ], [ %.lobit665, %337 ], [ %.lobit666, %343 ]
   %.20 = phi i32 [ %.19, %330 ], [ %.21, %337 ], [ %.22, %343 ]
   %cond652 = icmp eq i32 %.18300, 0
   br i1 %cond652, label %.thread525, label %r_Normalize_pre.exit.thread
@@ -1121,10 +1126,10 @@ r_Suffix_Noun_Step2c2.exit.thread:                ; preds = %316, %314, %306, %3
 r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   %372 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %373 = icmp slt i32 %372, 0
-  %.lobit665 = lshr i32 %372, 31
+  %.lobit668 = lshr i32 %372, 31
   %..17 = select i1 %373, i32 %372, i32 %.17
-  %cond687 = icmp sgt i32 %372, -1
-  br i1 %cond687, label %374, label %409
+  %cond690 = icmp sgt i32 %372, -1
+  br i1 %cond690, label %374, label %409
 
 374:                                              ; preds = %r_Suffix_Noun_Step1b.exit
   %375 = load i32, ptr %12, align 4
@@ -1133,9 +1138,9 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   %378 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %379 = icmp eq i32 %378, 0
   %380 = icmp slt i32 %378, 0
-  %.lobit666 = lshr i32 %378, 31
+  %.lobit669 = lshr i32 %378, 31
   %..23 = select i1 %380, i32 %378, i32 %.17
-  %.23305 = select i1 %379, i32 23, i32 %.lobit666
+  %.23305 = select i1 %379, i32 23, i32 %.lobit669
   %.25 = select i1 %379, i32 %.17, i32 %..23
   switch i32 %.23305, label %394 [
     i32 0, label %.thread525
@@ -1149,9 +1154,9 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   %384 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
   %385 = icmp eq i32 %384, 0
   %386 = icmp slt i32 %384, 0
-  %.lobit667 = lshr i32 %384, 31
+  %.lobit670 = lshr i32 %384, 31
   %..25 = select i1 %386, i32 %384, i32 %.25
-  %.25307 = select i1 %385, i32 25, i32 %.lobit667
+  %.25307 = select i1 %385, i32 25, i32 %.lobit670
   %.27 = select i1 %385, i32 %.25, i32 %..25
   switch i32 %.25307, label %394 [
     i32 0, label %.thread525
@@ -1163,18 +1168,18 @@ r_Suffix_Noun_Step1b.exit:                        ; preds = %367
   %389 = sub i32 %388, %377
   store i32 %389, ptr %8, align 8
   %390 = tail call fastcc i32 @r_Suffix_Noun_Step2c1(ptr noundef nonnull %0)
-  %.fr670 = freeze i32 %390
-  %391 = icmp eq i32 %.fr670, 0
+  %.fr673 = freeze i32 %390
+  %391 = icmp eq i32 %.fr673, 0
   br i1 %391, label %r_Suffix_Noun_Step1b.exit.thread, label %392
 
 392:                                              ; preds = %387
-  %393 = icmp slt i32 %.fr670, 0
-  %.fr670.lobit = lshr i32 %.fr670, 31
+  %393 = icmp slt i32 %.fr673, 0
+  %.fr673.lobit = lshr i32 %.fr673, 31
   br i1 %393, label %394, label %.thread525
 
 394:                                              ; preds = %392, %381, %374
-  %.24306 = phi i32 [ %.lobit666, %374 ], [ %.lobit667, %381 ], [ %.fr670.lobit, %392 ]
-  %.26 = phi i32 [ %.25, %374 ], [ %.27, %381 ], [ %.fr670, %392 ]
+  %.24306 = phi i32 [ %.lobit669, %374 ], [ %.lobit670, %381 ], [ %.fr673.lobit, %392 ]
+  %.26 = phi i32 [ %.25, %374 ], [ %.27, %381 ], [ %.fr673, %392 ]
   %cond653 = icmp eq i32 %.24306, 0
   br i1 %cond653, label %.thread525, label %r_Normalize_pre.exit.thread
 
@@ -1191,9 +1196,9 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %367, %365, %.
   %399 = tail call fastcc i32 @r_Suffix_Noun_Step2a(ptr noundef nonnull %0)
   %400 = icmp eq i32 %399, 0
   %401 = icmp slt i32 %399, 0
-  %.lobit671 = lshr i32 %399, 31
+  %.lobit674 = lshr i32 %399, 31
   %..24 = select i1 %401, i32 %399, i32 %.24
-  %.27309 = select i1 %400, i32 27, i32 %.lobit671
+  %.27309 = select i1 %400, i32 27, i32 %.lobit674
   %.30 = select i1 %400, i32 %.24, i32 %..24
   switch i32 %.27309, label %409 [
     i32 0, label %.thread525
@@ -1201,16 +1206,16 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %367, %365, %.
   ]
 
 ._crit_edge:                                      ; preds = %398
-  %.pre712 = load i32, ptr %12, align 4
+  %.pre717 = load i32, ptr %12, align 4
   br label %402
 
 402:                                              ; preds = %._crit_edge, %r_Suffix_Noun_Step1b.exit.thread
-  %403 = phi i32 [ %395, %r_Suffix_Noun_Step1b.exit.thread ], [ %.pre712, %._crit_edge ]
+  %403 = phi i32 [ %395, %r_Suffix_Noun_Step1b.exit.thread ], [ %.pre717, %._crit_edge ]
   %.29 = phi i32 [ %.24, %r_Suffix_Noun_Step1b.exit.thread ], [ %.30, %._crit_edge ]
   store i32 %403, ptr %8, align 8
   %404 = tail call fastcc i32 @r_Suffix_Noun_Step2b(ptr noundef nonnull %0)
-  %.fr674 = freeze i32 %404
-  %405 = icmp eq i32 %.fr674, 0
+  %.fr677 = freeze i32 %404
+  %405 = icmp eq i32 %.fr677, 0
   br i1 %405, label %.thread512, label %407
 
 .thread512:                                       ; preds = %402
@@ -1218,15 +1223,15 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %367, %365, %.
   br label %.thread525.sink.split
 
 407:                                              ; preds = %402
-  %408 = icmp slt i32 %.fr674, 0
-  %.fr674.lobit = lshr i32 %.fr674, 31
+  %408 = icmp slt i32 %.fr677, 0
+  %.fr677.lobit = lshr i32 %.fr677, 31
   br i1 %408, label %409, label %.thread525
 
 409:                                              ; preds = %r_Suffix_Noun_Step1b.exit, %r_Suffix_Noun_Step2c2.exit, %407, %398, %326
-  %.15297 = phi i32 [ %.lobit659, %r_Suffix_Noun_Step2c2.exit ], [ %.lobit665, %r_Suffix_Noun_Step1b.exit ], [ %.lobit671, %398 ], [ %.lobit660, %326 ], [ %.fr674.lobit, %407 ]
-  %.16 = phi i32 [ %..3, %r_Suffix_Noun_Step2c2.exit ], [ %..17, %r_Suffix_Noun_Step1b.exit ], [ %.30, %398 ], [ %.18, %326 ], [ %.fr674, %407 ]
-  %cond843 = icmp eq i32 %.15297, 0
-  br i1 %cond843, label %.thread525, label %.loopexit.thread
+  %.15297 = phi i32 [ %.lobit662, %r_Suffix_Noun_Step2c2.exit ], [ %.lobit668, %r_Suffix_Noun_Step1b.exit ], [ %.lobit674, %398 ], [ %.lobit663, %326 ], [ %.fr677.lobit, %407 ]
+  %.16 = phi i32 [ %..3, %r_Suffix_Noun_Step2c2.exit ], [ %..17, %r_Suffix_Noun_Step1b.exit ], [ %.30, %398 ], [ %.18, %326 ], [ %.fr677, %407 ]
+  %cond658 = icmp eq i32 %.15297, 0
+  br i1 %cond658, label %.thread525, label %r_Normalize_pre.exit.thread
 
 .thread525.sink.split:                            ; preds = %349, %.thread512
   %.sink = phi i32 [ %406, %.thread512 ], [ %354, %349 ]
@@ -1234,7 +1239,7 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %367, %365, %.
   store i32 %.sink, ptr %8, align 8
   br label %.thread525
 
-.thread525:                                       ; preds = %.thread525.sink.split, %409, %r_Suffix_Noun_Step2c2.exit, %394, %356, %407, %398, %392, %381, %374, %343, %337, %330
+.thread525:                                       ; preds = %.thread525.sink.split, %r_Suffix_Noun_Step2c2.exit, %409, %394, %356, %407, %398, %392, %381, %374, %343, %337, %330
   %.16523529 = phi i32 [ %..3, %r_Suffix_Noun_Step2c2.exit ], [ %.19, %330 ], [ %.21, %337 ], [ %.22, %343 ], [ %.20, %356 ], [ %.25, %374 ], [ %.27, %381 ], [ %.27, %392 ], [ %.26, %394 ], [ %.30, %398 ], [ %.29, %407 ], [ %.16, %409 ], [ %.16523529.ph, %.thread525.sink.split ]
   %410 = load i32, ptr %8, align 8
   store i32 %410, ptr %37, align 8
@@ -1267,10 +1272,9 @@ r_Suffix_Noun_Step1b.exit.thread:                 ; preds = %387, %367, %365, %.
 r_Suffix_Noun_Step3.exit:                         ; preds = %420
   %425 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %426 = icmp slt i32 %425, 0
-  %.lobit676 = lshr i32 %425, 31
   %..16 = select i1 %426, i32 %425, i32 %.16523529
-  %cond688 = icmp sgt i32 %425, -1
-  br i1 %cond688, label %.thread561, label %.loopexit.thread
+  %cond691 = icmp sgt i32 %425, -1
+  br i1 %cond691, label %.thread561, label %r_Normalize_pre.exit.thread
 
 r_Suffix_Noun_Step3.exit.thread:                  ; preds = %420, %418, %.thread525, %413, %.thread476
   %.14 = phi i32 [ %.3, %.thread476 ], [ %.16523529, %413 ], [ %.16523529, %.thread525 ], [ %.16523529, %418 ], [ %.16523529, %420 ]
@@ -1302,14 +1306,8 @@ r_Suffix_Noun_Step3.exit.thread:                  ; preds = %420, %418, %.thread
   %440 = icmp sgt i32 %439, -1
   br i1 %440, label %.thread561, label %r_Normalize_pre.exit.thread
 
-.loopexit.thread:                                 ; preds = %300, %r_Suffix_Verb_Step2b.exit, %409, %r_Suffix_Noun_Step3.exit
-  %.13295 = phi i32 [ %.lobit676, %r_Suffix_Noun_Step3.exit ], [ 1, %409 ], [ 1, %r_Suffix_Verb_Step2b.exit ], [ 1, %300 ]
-  %.13 = phi i32 [ %..16, %r_Suffix_Noun_Step3.exit ], [ %.16, %409 ], [ %..7, %r_Suffix_Verb_Step2b.exit ], [ %.fr, %300 ]
-  %cond844 = icmp eq i32 %.13295, 0
-  br i1 %cond844, label %.thread561, label %r_Normalize_pre.exit.thread
-
-.thread561:                                       ; preds = %r_Suffix_Verb_Step2c.exit.thread, %.loopexit.thread, %256, %262, %269, %r_Suffix_Noun_Step3.exit, %r_Suffix_Verb_Step2b.exit, %278, %437, %.thread441, %300, %435, %r_Suffix_Noun_Step3.exit.thread, %430
-  %.13556 = phi i32 [ %.13, %.loopexit.thread ], [ %.14, %437 ], [ %.8, %.thread441 ], [ %.8, %278 ], [ %..7, %r_Suffix_Verb_Step2b.exit ], [ %.7, %300 ], [ %..16, %r_Suffix_Noun_Step3.exit ], [ %.14, %435 ], [ %.14, %r_Suffix_Noun_Step3.exit.thread ], [ %.14, %430 ], [ %.8, %269 ], [ %.8, %262 ], [ %.8, %256 ], [ %.8, %r_Suffix_Verb_Step2c.exit.thread ]
+.thread561:                                       ; preds = %r_Suffix_Verb_Step2c.exit.thread, %256, %262, %269, %r_Suffix_Noun_Step3.exit, %r_Suffix_Verb_Step2b.exit, %278, %437, %.thread441, %300, %435, %r_Suffix_Noun_Step3.exit.thread, %430
+  %.13556 = phi i32 [ %.14, %437 ], [ %.8, %.thread441 ], [ %.8, %278 ], [ %..7, %r_Suffix_Verb_Step2b.exit ], [ %.7, %300 ], [ %..16, %r_Suffix_Noun_Step3.exit ], [ %.14, %435 ], [ %.14, %r_Suffix_Noun_Step3.exit.thread ], [ %.14, %430 ], [ %.8, %269 ], [ %.8, %262 ], [ %.8, %256 ], [ %.8, %r_Suffix_Verb_Step2c.exit.thread ]
   %441 = load i32, ptr %12, align 4
   %442 = load i32, ptr %202, align 8
   store i32 %442, ptr %8, align 8
@@ -1439,24 +1437,24 @@ r_Suffix_Noun_Step3.exit.thread:                  ; preds = %420, %418, %.thread
   store i32 %504, ptr %8, align 8
   %507 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %508 = icmp sgt i32 %507, -1
-  br i1 %508, label %._crit_edge713, label %r_Normalize_pre.exit.thread
+  br i1 %508, label %._crit_edge718, label %r_Normalize_pre.exit.thread
 
-._crit_edge713:                                   ; preds = %506
-  %.pre714 = load i32, ptr %8, align 8
+._crit_edge718:                                   ; preds = %506
+  %.pre719 = load i32, ptr %8, align 8
   br label %509
 
 r_Prefix_Step2.exit.thread:                       ; preds = %503, %498, %496, %487, %491
   store i32 %488, ptr %8, align 8
   br label %509
 
-509:                                              ; preds = %._crit_edge713, %r_Prefix_Step2.exit.thread
-  %510 = phi i32 [ %.pre714, %._crit_edge713 ], [ %488, %r_Prefix_Step2.exit.thread ]
+509:                                              ; preds = %._crit_edge718, %r_Prefix_Step2.exit.thread
+  %510 = phi i32 [ %.pre719, %._crit_edge718 ], [ %488, %r_Prefix_Step2.exit.thread ]
   %511 = tail call fastcc i32 @r_Prefix_Step3a_Noun(ptr noundef nonnull %0)
   %512 = icmp eq i32 %511, 0
   %513 = icmp slt i32 %511, 0
-  %.lobit677 = lshr i32 %511, 31
+  %.lobit680 = lshr i32 %511, 31
   %..36 = select i1 %513, i32 %511, i32 %.13556
-  %.38320 = select i1 %512, i32 32, i32 %.lobit677
+  %.38320 = select i1 %512, i32 32, i32 %.lobit680
   %.37 = select i1 %512, i32 %.13556, i32 %..36
   switch i32 %.38320, label %535 [
     i32 0, label %.thread632
@@ -1475,21 +1473,21 @@ r_Prefix_Step2.exit.thread:                       ; preds = %503, %498, %496, %4
   %519 = tail call fastcc i32 @r_Prefix_Step3b_Noun(ptr noundef nonnull %0)
   %520 = icmp eq i32 %519, 0
   %521 = icmp slt i32 %519, 0
-  %.lobit678 = lshr i32 %519, 31
+  %.lobit681 = lshr i32 %519, 31
   %..37 = select i1 %521, i32 %519, i32 %.37
-  %.40322 = select i1 %520, i32 34, i32 %.lobit678
+  %.40322 = select i1 %520, i32 34, i32 %.lobit681
   %.40 = select i1 %520, i32 %.37, i32 %..37
   switch i32 %.40322, label %535 [
     i32 0, label %.thread632
-    i32 34, label %._crit_edge715
+    i32 34, label %._crit_edge720
   ]
 
-._crit_edge715:                                   ; preds = %518
-  %.pre716 = load ptr, ptr %2, align 8
+._crit_edge720:                                   ; preds = %518
+  %.pre721 = load ptr, ptr %2, align 8
   br label %522
 
-522:                                              ; preds = %._crit_edge715, %514
-  %523 = phi ptr [ %.pre716, %._crit_edge715 ], [ %515, %514 ]
+522:                                              ; preds = %._crit_edge720, %514
+  %523 = phi ptr [ %.pre721, %._crit_edge720 ], [ %515, %514 ]
   store i32 %510, ptr %8, align 8
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 4
   %525 = load i32, ptr %524, align 4
@@ -1511,14 +1509,14 @@ r_Prefix_Step2.exit.thread:                       ; preds = %503, %498, %496, %4
 
 532:                                              ; preds = %530, %529
   %533 = tail call fastcc i32 @r_Prefix_Step4_Verb(ptr noundef nonnull %0)
-  %.fr681 = freeze i32 %533
-  %534 = icmp slt i32 %.fr681, 0
-  %.fr681.lobit = lshr i32 %.fr681, 31
+  %.fr684 = freeze i32 %533
+  %534 = icmp slt i32 %.fr684, 0
+  %.fr684.lobit = lshr i32 %.fr684, 31
   br i1 %534, label %535, label %.thread632
 
 535:                                              ; preds = %532, %518, %509
-  %.39321 = phi i32 [ %.lobit677, %509 ], [ %.lobit678, %518 ], [ %.fr681.lobit, %532 ]
-  %.38 = phi i32 [ %.37, %509 ], [ %.40, %518 ], [ %.fr681, %532 ]
+  %.39321 = phi i32 [ %.lobit680, %509 ], [ %.lobit681, %518 ], [ %.fr684.lobit, %532 ]
+  %.38 = phi i32 [ %.37, %509 ], [ %.40, %518 ], [ %.fr684, %532 ]
   %cond = icmp eq i32 %.39321, 0
   br i1 %cond, label %.thread632, label %r_Normalize_pre.exit.thread
 
@@ -1643,8 +1641,8 @@ r_Prefix_Step2.exit.thread:                       ; preds = %503, %498, %496, %4
   store i32 %442, ptr %8, align 8
   br label %r_Normalize_pre.exit.thread
 
-r_Normalize_pre.exit.thread:                      ; preds = %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %218, %225, %232, %578, %575, %572, %.loopexit.thread, %269, %262, %278, %550, %394, %356, %588, %506, %437, %535, %483, %476, %469, %462, %530
-  %.1 = phi i32 [ %527, %530 ], [ %484, %483 ], [ %477, %476 ], [ %470, %469 ], [ %463, %462 ], [ %.13, %.loopexit.thread ], [ %.38, %535 ], [ %439, %437 ], [ %507, %506 ], [ 1, %588 ], [ %.20, %356 ], [ %.26, %394 ], [ %552, %550 ], [ %263, %262 ], [ %270, %269 ], [ %.8, %278 ], [ %573, %572 ], [ %576, %575 ], [ %579, %578 ], [ %219, %218 ], [ %226, %225 ], [ %233, %232 ], [ %44, %43 ], [ %47, %46 ], [ %50, %49 ], [ %53, %52 ], [ %56, %55 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %98, %97 ], [ %101, %100 ], [ %104, %103 ], [ %107, %106 ], [ %110, %109 ], [ %113, %112 ], [ %116, %115 ], [ %119, %118 ], [ %122, %121 ], [ %125, %124 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ], [ %137, %136 ], [ %140, %139 ], [ %143, %142 ], [ %146, %145 ], [ %149, %148 ], [ %152, %151 ], [ %155, %154 ], [ %158, %157 ], [ %161, %160 ], [ %164, %163 ], [ %167, %166 ], [ %170, %169 ], [ %173, %172 ], [ %176, %175 ], [ %179, %178 ], [ %182, %181 ], [ %185, %184 ], [ %188, %187 ], [ %191, %190 ], [ %194, %193 ]
+r_Normalize_pre.exit.thread:                      ; preds = %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %218, %225, %232, %578, %575, %572, %300, %r_Suffix_Verb_Step2b.exit, %r_Suffix_Noun_Step3.exit, %550, %356, %394, %269, %262, %278, %409, %588, %506, %437, %535, %483, %476, %469, %462, %530
+  %.1 = phi i32 [ %527, %530 ], [ %484, %483 ], [ %477, %476 ], [ %470, %469 ], [ %463, %462 ], [ %.38, %535 ], [ %439, %437 ], [ %507, %506 ], [ 1, %588 ], [ %.16, %409 ], [ %.8, %278 ], [ %270, %269 ], [ %263, %262 ], [ %.20, %356 ], [ %.26, %394 ], [ %552, %550 ], [ %..16, %r_Suffix_Noun_Step3.exit ], [ %..7, %r_Suffix_Verb_Step2b.exit ], [ %.fr, %300 ], [ %573, %572 ], [ %576, %575 ], [ %579, %578 ], [ %219, %218 ], [ %226, %225 ], [ %233, %232 ], [ %44, %43 ], [ %47, %46 ], [ %50, %49 ], [ %53, %52 ], [ %56, %55 ], [ %59, %58 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ %77, %76 ], [ %80, %79 ], [ %83, %82 ], [ %86, %85 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %98, %97 ], [ %101, %100 ], [ %104, %103 ], [ %107, %106 ], [ %110, %109 ], [ %113, %112 ], [ %116, %115 ], [ %119, %118 ], [ %122, %121 ], [ %125, %124 ], [ %128, %127 ], [ %131, %130 ], [ %134, %133 ], [ %137, %136 ], [ %140, %139 ], [ %143, %142 ], [ %146, %145 ], [ %149, %148 ], [ %152, %151 ], [ %155, %154 ], [ %158, %157 ], [ %161, %160 ], [ %164, %163 ], [ %167, %166 ], [ %170, %169 ], [ %173, %172 ], [ %176, %175 ], [ %179, %178 ], [ %182, %181 ], [ %185, %184 ], [ %188, %187 ], [ %191, %190 ], [ %194, %193 ]
   ret i32 %.1
 }
 

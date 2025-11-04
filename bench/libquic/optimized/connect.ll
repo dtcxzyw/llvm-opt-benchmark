@@ -454,7 +454,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 26:                                               ; preds = %23
   %27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 93) #11
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit88, label %29
+  br i1 %28, label %.loopexit89, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -463,7 +463,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   %33 = sub i64 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !31
-  switch i8 %35, label %.loopexit88 [
+  switch i8 %35, label %.loopexit89 [
     i8 58, label %36
     i8 0, label %50
   ]
@@ -500,7 +500,7 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   %51 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
   store ptr %51, ptr %4, align 8, !tbaa !30
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit88, label %53
+  br i1 %52, label %.loopexit89, label %53
 
 53:                                               ; preds = %50
   %54 = icmp ne ptr %.240.i, null
@@ -519,38 +519,38 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
 .critedge.sink.split.i:                           ; preds = %58, %53
   %.sink.i = phi ptr [ %4, %58 ], [ %5, %53 ]
   store ptr null, ptr %.sink.i, align 8, !tbaa !30
-  %.0..0..0.79.pre = load ptr, ptr %5, align 8
+  %.0..0..0.80.pre = load ptr, ptr %5, align 8
   br label %split_host_and_port.exit
 
 split_host_and_port.exit:                         ; preds = %55, %.critedge.sink.split.i
-  %.0..0.79 = phi ptr [ %56, %55 ], [ %.0..0..0.79.pre, %.critedge.sink.split.i ]
+  %.0..0.80 = phi ptr [ %56, %55 ], [ %.0..0..0.80.pre, %.critedge.sink.split.i ]
   %.1.i = phi i1 [ false, %55 ], [ %54, %.critedge.sink.split.i ]
-  %59 = icmp eq ptr %.0..0.79, null
+  %59 = icmp eq ptr %.0..0.80, null
   %or.cond = select i1 %.1.i, i1 true, i1 %59
-  br i1 %or.cond, label %.loopexit88.loopexit, label %.thread
+  br i1 %or.cond, label %.loopexit89.loopexit, label %.thread
 
 .thread:                                          ; preds = %split_host_and_port.exit
   %60 = load ptr, ptr %10, align 8, !tbaa !24
   call void @free(ptr noundef %60) #10
-  store ptr %.0..0.79, ptr %10, align 8, !tbaa !24
+  store ptr %.0..0.80, ptr %10, align 8, !tbaa !24
   %61 = load ptr, ptr %9, align 8, !tbaa !23
   call void @free(ptr noundef %61) #10
-  %.0..0..0.81 = load ptr, ptr %4, align 8, !tbaa !30
-  store ptr %.0..0..0.81, ptr %9, align 8, !tbaa !23
+  %.0..0..0.82 = load ptr, ptr %4, align 8, !tbaa !30
+  store ptr %.0..0..0.82, ptr %9, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %10, align 8, !tbaa !24
   br label %63
 
-.loopexit88.loopexit:                             ; preds = %split_host_and_port.exit
-  %.0..0..0.80.pre = load ptr, ptr %4, align 8, !tbaa !30
-  br label %.loopexit88
+.loopexit89.loopexit:                             ; preds = %split_host_and_port.exit
+  %.0..0..0.81.pre = load ptr, ptr %4, align 8, !tbaa !30
+  br label %.loopexit89
 
-.loopexit88:                                      ; preds = %26, %29, %50, %.loopexit88.loopexit
-  %.0..0.80 = phi ptr [ %.0..0..0.80.pre, %.loopexit88.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
-  %.0.7986 = phi ptr [ %.0..0.79, %.loopexit88.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
-  call void @free(ptr noundef %.0..0.80) #10
-  call void @free(ptr noundef %.0.7986) #10
+.loopexit89:                                      ; preds = %26, %29, %50, %.loopexit89.loopexit
+  %.0..0.81 = phi ptr [ %.0..0..0.81.pre, %.loopexit89.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
+  %.0.8087 = phi ptr [ %.0..0.80, %.loopexit89.loopexit ], [ null, %50 ], [ null, %29 ], [ null, %26 ]
+  call void @free(ptr noundef %.0..0.81) #10
+  call void @free(ptr noundef %.0.8087) #10
   call void @ERR_put_error(i32 noundef 17, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str.2, i32 noundef 192) #10
   %62 = load ptr, ptr %9, align 8, !tbaa !23
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %62) #10
@@ -560,7 +560,7 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
 
 63:                                               ; preds = %.thread, %20
   %64 = phi ptr [ %.pre, %.thread ], [ %21, %20 ]
-  %65 = phi ptr [ %.0..0..0.81, %.thread ], [ %17, %20 ]
+  %65 = phi ptr [ %.0..0..0.82, %.thread ], [ %17, %20 ]
   %66 = call i32 @bio_ip_and_port_to_socket_and_addr(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %65, ptr noundef %64) #10
   %.not72 = icmp eq i32 %66, 0
   br i1 %.not72, label %67, label %70
@@ -669,7 +669,7 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
 108:                                              ; preds = %107
   %109 = call i32 %7(ptr noundef nonnull %0, i32 noundef 2, i32 noundef %.2) #10
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.loopexit89, label %.backedge
+  br i1 %110, label %.loopexit90, label %.backedge
 
 .backedge:                                        ; preds = %108, %107
   %.062.be = phi i32 [ %109, %108 ], [ %.2, %107 ]
@@ -678,19 +678,19 @@ split_host_and_port.exit:                         ; preds = %55, %.critedge.sink
 .loopexit.loopexit:                               ; preds = %14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit88, %102, %104, %92, %94, %82, %75, %67, %19
-  %.1 = phi i32 [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit88 ], [ -1, %102 ], [ 0, %104 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
-  br i1 %.not, label %.loopexit89, label %111
+.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %.loopexit89, %102, %104, %92, %94, %82, %75, %67, %19
+  %.1 = phi i32 [ %.062, %19 ], [ %80, %82 ], [ %88, %92 ], [ %88, %94 ], [ %.062, %75 ], [ %.062, %67 ], [ %.062, %.loopexit89 ], [ -1, %102 ], [ 0, %104 ], [ %.062, %.loopexit.loopexit ], [ 1, %14 ]
+  br i1 %.not, label %.loopexit90, label %111
 
 111:                                              ; preds = %.loopexit
   %112 = load i32, ptr %1, align 8, !tbaa !16
   %113 = call i32 %7(ptr noundef %0, i32 noundef %112, i32 noundef %.1) #10
-  br label %.loopexit89
+  br label %.loopexit90
 
-.loopexit89:                                      ; preds = %108, %111, %.loopexit
-  %.063 = phi i32 [ %113, %111 ], [ %.1, %.loopexit ], [ 0, %108 ]
+.loopexit90:                                      ; preds = %108, %111, %.loopexit
+  %.4 = phi i32 [ %113, %111 ], [ %.1, %.loopexit ], [ 0, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.063
+  ret i32 %.4
 }
 
 declare void @bio_clear_socket_error() local_unnamed_addr #1

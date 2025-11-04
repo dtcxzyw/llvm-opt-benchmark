@@ -34,139 +34,137 @@ define dso_local noundef zeroext i1 @ipv6_ext_hdr(i8 noundef zeroext %0) #0 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3) #1 align 16 {
-.preheader:
-  %4 = alloca %struct.ipv6_opt_hdr, align 2
-  %5 = alloca i16, align 2
-  %6 = load i8, ptr %2, align 1
+  %5 = alloca %struct.ipv6_opt_hdr, align 2
+  %6 = alloca i16, align 2
+  %7 = load i8, ptr %2, align 1
   store i16 0, ptr %3, align 2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %10 = icmp eq ptr %0, null
-  br label %11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %11 = icmp eq ptr %0, null
+  br label %12
 
-11:                                               ; preds = %.preheader, %62
-  %12 = phi i32 [ %65, %62 ], [ %1, %.preheader ]
-  %13 = phi i8 [ %64, %62 ], [ %6, %.preheader ]
-  switch i8 %13, label %.loopexit22 [
-    i8 59, label %14
-    i8 51, label %14
-    i8 44, label %14
-    i8 43, label %14
-    i8 0, label %14
-    i8 60, label %14
+12:                                               ; preds = %62, %4
+  %13 = phi i32 [ %1, %4 ], [ %65, %62 ]
+  %14 = phi i8 [ %7, %4 ], [ %64, %62 ]
+  switch i8 %14, label %.loopexit [
+    i8 59, label %15
+    i8 51, label %15
+    i8 44, label %15
+    i8 43, label %15
+    i8 0, label %15
+    i8 60, label %15
   ]
 
-14:                                               ; preds = %11, %11, %11, %11, %11, %11
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !annotation !5
-  %15 = icmp eq i8 %13, 59
-  br i1 %15, label %.thread13, label %16
-
-16:                                               ; preds = %14
-  %17 = load i32, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = add i32 %12, %18
-  %20 = sub i32 %17, %19
-  %21 = icmp slt i32 %20, 2
-  br i1 %21, label %22, label %26, !prof !6
-
-22:                                               ; preds = %16
-  br i1 %10, label %.thread13, label %23
-
-23:                                               ; preds = %22
-  %24 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %4, i32 noundef 2) #7
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.thread13, label %.thread5, !prof !6
-
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %9, align 8
-  %28 = sext i32 %12 to i64
-  %29 = getelementptr i8, ptr %27, i64 %28
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread13, label %.thread5
-
-.thread5:                                         ; preds = %23, %26
-  %31 = phi ptr [ %29, %26 ], [ %4, %23 ]
-  switch i8 %13, label %53 [
-    i8 44, label %32
-    i8 51, label %54
-  ]
-
-32:                                               ; preds = %.thread5
+15:                                               ; preds = %12, %12, %12, %12, %12, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !5
-  %33 = add i32 %12, 2
-  %34 = load i32, ptr %7, align 8
-  %35 = load i32, ptr %8, align 4
-  %36 = add i32 %34, -2
-  %37 = add i32 %12, %35
-  %38 = sub i32 %36, %37
-  %39 = icmp slt i32 %38, 2
-  br i1 %39, label %40, label %44, !prof !6
+  %16 = icmp eq i8 %14, 59
+  br i1 %16, label %.thread13, label %17
 
-40:                                               ; preds = %32
-  br i1 %10, label %.thread11, label %41
+17:                                               ; preds = %15
+  %18 = load i32, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = add i32 %13, %19
+  %21 = sub i32 %18, %20
+  %22 = icmp slt i32 %21, 2
+  br i1 %22, label %23, label %27, !prof !6
 
-41:                                               ; preds = %40
-  %42 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %5, i32 noundef 2) #7
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread11, label %.thread9, !prof !6
+23:                                               ; preds = %17
+  br i1 %11, label %.thread13, label %24
 
-44:                                               ; preds = %32
-  %45 = load ptr, ptr %9, align 8
-  %46 = sext i32 %33 to i64
-  %47 = getelementptr i8, ptr %45, i64 %46
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread11, label %.thread9
+24:                                               ; preds = %23
+  %25 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %13, ptr noundef nonnull %5, i32 noundef 2) #7
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %.thread13, label %.thread5, !prof !6
 
-.thread11:                                        ; preds = %44, %40, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %10, align 8
+  %29 = sext i32 %13 to i64
+  %30 = getelementptr i8, ptr %28, i64 %29
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.thread13, label %.thread5
+
+.thread5:                                         ; preds = %24, %27
+  %32 = phi ptr [ %30, %27 ], [ %5, %24 ]
+  switch i8 %14, label %54 [
+    i8 44, label %33
+    i8 51, label %55
+  ]
+
+33:                                               ; preds = %.thread5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  store i16 0, ptr %6, align 2, !annotation !5
+  %34 = add i32 %13, 2
+  %35 = load i32, ptr %8, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = add i32 %35, -2
+  %38 = add i32 %13, %36
+  %39 = sub i32 %37, %38
+  %40 = icmp slt i32 %39, 2
+  br i1 %40, label %41, label %45, !prof !6
+
+41:                                               ; preds = %33
+  br i1 %11, label %.thread11, label %42
+
+42:                                               ; preds = %41
+  %43 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %34, ptr noundef nonnull %6, i32 noundef 2) #7
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %.thread11, label %.thread9, !prof !6
+
+45:                                               ; preds = %33
+  %46 = load ptr, ptr %10, align 8
+  %47 = sext i32 %34 to i64
+  %48 = getelementptr i8, ptr %46, i64 %47
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.thread11, label %.thread9
+
+.thread11:                                        ; preds = %45, %41, %42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread13
 
-.thread9:                                         ; preds = %41, %44
-  %49 = phi ptr [ %47, %44 ], [ %5, %41 ]
-  %50 = load i16, ptr %49, align 2
-  store i16 %50, ptr %3, align 2
-  %51 = and i16 %50, -1793
-  %52 = icmp eq i16 %51, 0
+.thread9:                                         ; preds = %42, %45
+  %50 = phi ptr [ %48, %45 ], [ %6, %42 ]
+  %51 = load i16, ptr %50, align 2
+  store i16 %51, ptr %3, align 2
+  %52 = and i16 %51, -1793
+  %53 = icmp eq i16 %52, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %53, label %62, label %.thread
+
+.thread:                                          ; preds = %.thread9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %52, label %62, label %61
+  br label %.loopexit
 
-53:                                               ; preds = %.thread5
-  br label %54
+54:                                               ; preds = %.thread5
+  br label %55
 
-54:                                               ; preds = %53, %.thread5
-  %55 = phi i32 [ 3, %53 ], [ 2, %.thread5 ]
-  %56 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw nsw i32 %58, %55
-  %60 = add nuw nsw i32 %59, 8
+55:                                               ; preds = %54, %.thread5
+  %56 = phi i32 [ 3, %54 ], [ 2, %.thread5 ]
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = shl nuw nsw i32 %59, %56
+  %61 = add nuw nsw i32 %60, 8
   br label %62
 
-.thread13:                                        ; preds = %14, %26, %22, %23, %.thread11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit
+.thread13:                                        ; preds = %15, %27, %23, %24, %.thread11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %66
 
-61:                                               ; preds = %.thread9
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit22
+62:                                               ; preds = %.thread9, %55
+  %63 = phi i32 [ 8, %.thread9 ], [ %61, %55 ]
+  %64 = load i8, ptr %32, align 1
+  %65 = add i32 %63, %13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %12
 
-62:                                               ; preds = %.thread9, %54
-  %63 = phi i32 [ 8, %.thread9 ], [ %60, %54 ]
-  %64 = load i8, ptr %31, align 1
-  %65 = add i32 %63, %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %11
+.loopexit:                                        ; preds = %12, %.thread
+  store i8 %14, ptr %2, align 1
+  br label %66
 
-.loopexit22:                                      ; preds = %11, %61
-  %66 = phi i8 [ 44, %61 ], [ %13, %11 ]
-  store i8 %66, ptr %2, align 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.thread13, %.loopexit22
-  %67 = phi i32 [ %12, %.loopexit22 ], [ -1, %.thread13 ]
+66:                                               ; preds = %.thread13, %.loopexit
+  %67 = phi i32 [ %13, %.loopexit ], [ -1, %.thread13 ]
   ret i32 %67
 }
 

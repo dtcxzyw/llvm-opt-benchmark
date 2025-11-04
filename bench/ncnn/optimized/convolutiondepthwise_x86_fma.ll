@@ -3661,12 +3661,12 @@ define hidden noundef i32 @_ZN4ncnn28ConvolutionDepthWise_x86_fma24create_pipeli
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit16, label %35
+  br i1 %.not.i, label %_ZN4ncnn3MatD2Ev.exit17, label %35
 
 35:                                               ; preds = %32
   %36 = atomicrmw add ptr %34, i32 -1 acq_rel, align 4
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %_ZN4ncnn3MatD2Ev.exit16
+  br i1 %37, label %38, label %_ZN4ncnn3MatD2Ev.exit17
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3680,15 +3680,15 @@ define hidden noundef i32 @_ZN4ncnn28ConvolutionDepthWise_x86_fma24create_pipeli
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %41)
-          to label %_ZN4ncnn3MatD2Ev.exit16 unwind label %48
+          to label %_ZN4ncnn3MatD2Ev.exit17 unwind label %48
 
 46:                                               ; preds = %38
-  %.not.i32 = icmp eq ptr %41, null
-  br i1 %.not.i32, label %_ZN4ncnn3MatD2Ev.exit16, label %47
+  %.not.i33 = icmp eq ptr %41, null
+  br i1 %.not.i33, label %_ZN4ncnn3MatD2Ev.exit17, label %47
 
 47:                                               ; preds = %46
   call void @free(ptr noundef nonnull %41) #13
-  br label %_ZN4ncnn3MatD2Ev.exit16
+  br label %_ZN4ncnn3MatD2Ev.exit17
 
 48:                                               ; preds = %42
   %49 = landingpad { ptr, i32 }
@@ -3697,7 +3697,7 @@ define hidden noundef i32 @_ZN4ncnn28ConvolutionDepthWise_x86_fma24create_pipeli
   call void @__clang_call_terminate(ptr %50) #25
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit16:                          ; preds = %35, %32, %42, %46, %47
+_ZN4ncnn3MatD2Ev.exit17:                          ; preds = %35, %32, %42, %46, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
@@ -3706,8 +3706,8 @@ _ZN4ncnn3MatD2Ev.exit16:                          ; preds = %35, %32, %42, %46, 
           cleanup
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !7
-  %.not.i17 = icmp eq ptr %54, null
-  br i1 %.not.i17, label %_ZN4ncnn3MatD2Ev.exit, label %55
+  %.not.i18 = icmp eq ptr %54, null
+  br i1 %.not.i18, label %_ZN4ncnn3MatD2Ev.exit, label %55
 
 55:                                               ; preds = %51
   %56 = atomicrmw add ptr %54, i32 -1 acq_rel, align 4
@@ -3717,9 +3717,9 @@ _ZN4ncnn3MatD2Ev.exit16:                          ; preds = %35, %32, %42, %46, 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !15
-  %.not3.i18 = icmp eq ptr %60, null
+  %.not3.i19 = icmp eq ptr %60, null
   %61 = load ptr, ptr %3, align 8, !tbaa !16
-  br i1 %.not3.i18, label %66, label %62
+  br i1 %.not3.i19, label %66, label %62
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %60, align 8, !tbaa !4
@@ -3729,8 +3729,8 @@ _ZN4ncnn3MatD2Ev.exit16:                          ; preds = %35, %32, %42, %46, 
           to label %_ZN4ncnn3MatD2Ev.exit unwind label %68
 
 66:                                               ; preds = %58
-  %.not.i30 = icmp eq ptr %61, null
-  br i1 %.not.i30, label %_ZN4ncnn3MatD2Ev.exit, label %67
+  %.not.i31 = icmp eq ptr %61, null
+  br i1 %.not.i31, label %_ZN4ncnn3MatD2Ev.exit, label %67
 
 67:                                               ; preds = %66
   call void @free(ptr noundef nonnull %61) #13
@@ -3752,8 +3752,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %55, %51, %62, %66, 
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %75 = load ptr, ptr %74, align 8, !tbaa !7
-  %.not.i34 = icmp eq ptr %75, null
-  br i1 %.not.i34, label %78, label %76
+  %.not.i35 = icmp eq ptr %75, null
+  br i1 %.not.i35, label %78, label %76
 
 76:                                               ; preds = %71
   %77 = atomicrmw add ptr %75, i32 1 acq_rel, align 4
@@ -3835,7 +3835,7 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
   store i64 %122, ptr %101, align 8, !tbaa !17
   br label %123
 
-123:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit16, %_ZN4ncnn3MataSERKS0_.exit
+123:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit17, %_ZN4ncnn3MataSERKS0_.exit
   %124 = load i8, ptr %1, align 8, !tbaa !65, !range !50, !noundef !51
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %166
@@ -3844,8 +3844,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %129 = load ptr, ptr %128, align 8, !tbaa !7
-  %.not.i24 = icmp eq ptr %129, null
-  br i1 %.not.i24, label %.sink.split, label %130
+  %.not.i25 = icmp eq ptr %129, null
+  br i1 %.not.i25, label %.sink.split, label %130
 
 130:                                              ; preds = %126
   %131 = atomicrmw add ptr %129, i32 -1 acq_rel, align 4
@@ -3855,9 +3855,9 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %135 = load ptr, ptr %134, align 8, !tbaa !15
-  %.not3.i25 = icmp eq ptr %135, null
+  %.not3.i26 = icmp eq ptr %135, null
   %136 = load ptr, ptr %127, align 8, !tbaa !16
-  br i1 %.not3.i25, label %141, label %137
+  br i1 %.not3.i26, label %141, label %137
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %135, align 8, !tbaa !4
@@ -3867,8 +3867,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
   br label %.sink.split
 
 141:                                              ; preds = %133
-  %.not.i27 = icmp eq ptr %136, null
-  br i1 %.not.i27, label %.sink.split, label %142
+  %.not.i28 = icmp eq ptr %136, null
+  br i1 %.not.i28, label %.sink.split, label %142
 
 142:                                              ; preds = %141
   call void @free(ptr noundef nonnull %136) #13
@@ -3884,8 +3884,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %150 = load ptr, ptr %149, align 8, !tbaa !7
-  %.not.i21 = icmp eq ptr %150, null
-  br i1 %.not.i21, label %.sink.split, label %151
+  %.not.i22 = icmp eq ptr %150, null
+  br i1 %.not.i22, label %.sink.split, label %151
 
 151:                                              ; preds = %147
   %152 = atomicrmw add ptr %150, i32 -1 acq_rel, align 4
@@ -3895,9 +3895,9 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %156 = load ptr, ptr %155, align 8, !tbaa !15
-  %.not3.i22 = icmp eq ptr %156, null
+  %.not3.i23 = icmp eq ptr %156, null
   %157 = load ptr, ptr %148, align 8, !tbaa !16
-  br i1 %.not3.i22, label %162, label %158
+  br i1 %.not3.i23, label %162, label %158
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %156, align 8, !tbaa !4
@@ -3907,19 +3907,19 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %92, %93, %78, %81, 
   br label %.sink.split
 
 162:                                              ; preds = %154
-  %.not.i28 = icmp eq ptr %157, null
-  br i1 %.not.i28, label %.sink.split, label %163
+  %.not.i29 = icmp eq ptr %157, null
+  br i1 %.not.i29, label %.sink.split, label %163
 
 163:                                              ; preds = %162
   tail call void @free(ptr noundef nonnull %157) #13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %158, %151, %147, %162, %163, %137, %130, %126, %141, %142
-  %.sink51 = phi ptr [ %127, %142 ], [ %127, %141 ], [ %127, %126 ], [ %127, %130 ], [ %127, %137 ], [ %148, %163 ], [ %148, %162 ], [ %148, %147 ], [ %148, %151 ], [ %148, %158 ]
+  %.sink52 = phi ptr [ %127, %142 ], [ %127, %141 ], [ %127, %126 ], [ %127, %130 ], [ %127, %137 ], [ %148, %163 ], [ %148, %162 ], [ %148, %147 ], [ %148, %151 ], [ %148, %158 ]
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %165, align 8, !tbaa !17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink51, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink52, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %164, i8 0, i64 20, i1 false)
   br label %166
 

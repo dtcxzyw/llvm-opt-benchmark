@@ -390,7 +390,7 @@ thread-pre-split.i:                               ; preds = %58
   store ptr null, ptr %4, align 8, !tbaa !13
   %182 = load i32, ptr @test_type, align 4, !tbaa !11
   %or.cond5.i = icmp ult i32 %182, 2
-  br i1 %or.cond5.i, label %183, label %.thread62.i
+  br i1 %or.cond5.i, label %183, label %.thread65.i
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %3, align 8, !tbaa !13
@@ -409,29 +409,29 @@ thread-pre-split.i:                               ; preds = %58
 
 .thread.i:                                        ; preds = %189, %186, %178, %170, %162, %150, %144, %132, %126, %103, %93, %76, %70, %61, %53, %45
   %.025.ph.i = phi i32 [ 1, %189 ], [ 0, %45 ], [ 0, %53 ], [ 0, %61 ], [ 0, %93 ], [ 0, %126 ], [ 0, %150 ], [ 0, %178 ], [ 0, %186 ], [ 0, %144 ], [ 0, %132 ], [ 0, %103 ], [ 0, %76 ], [ 0, %70 ], [ 0, %162 ], [ 0, %170 ]
-  %.pr61.i = load ptr, ptr %4, align 8, !tbaa !13
-  %.not54.i = icmp eq ptr %.pr61.i, null
-  br i1 %.not54.i, label %.thread62.i, label %190
+  %.pr64.i = load ptr, ptr %4, align 8, !tbaa !13
+  %.not54.i = icmp eq ptr %.pr64.i, null
+  br i1 %.not54.i, label %.thread65.i, label %190
 
 190:                                              ; preds = %.thread.i
-  %191 = call i32 @sd_close(ptr noundef nonnull %.pr61.i) #9
-  br label %.thread62.i
+  %191 = call i32 @sd_close(ptr noundef nonnull %.pr64.i) #9
+  br label %.thread65.i
 
-.thread62.i:                                      ; preds = %190, %.thread.i, %181
-  %.02565.i = phi i32 [ %.025.ph.i, %190 ], [ %.025.ph.i, %.thread.i ], [ 1, %181 ]
+.thread65.i:                                      ; preds = %190, %.thread.i, %181
+  %.02568.i = phi i32 [ %.025.ph.i, %190 ], [ %.025.ph.i, %.thread.i ], [ 1, %181 ]
   %192 = load ptr, ptr %3, align 8, !tbaa !13
   %.not55.i = icmp eq ptr %192, null
   br i1 %.not55.i, label %test_lib.exit, label %193
 
-193:                                              ; preds = %.thread62.i
+193:                                              ; preds = %.thread65.i
   %194 = call i32 @sd_close(ptr noundef nonnull %192) #9
   br label %test_lib.exit
 
-test_lib.exit:                                    ; preds = %.thread62.i, %193
+test_lib.exit:                                    ; preds = %.thread65.i, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not11 = icmp eq i32 %.02565.i, 0
+  %.not11 = icmp eq i32 %.02568.i, 0
   %. = zext i1 %.not11 to i32
   br label %195
 

@@ -178,7 +178,7 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
   %97 = load i32, ptr %94, align 8, !tbaa !66
   %98 = call i32 @av_image_fill_linesizes(ptr noundef nonnull %5, i32 noundef %97, i32 noundef %96) #6
   %99 = icmp slt i32 %98, 0
-  br i1 %99, label %.thread68.i, label %100
+  br i1 %99, label %.thread69.i, label %100
 
 100:                                              ; preds = %95
   %101 = load i32, ptr %6, align 4, !tbaa !65
@@ -190,72 +190,72 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
 
 105:                                              ; preds = %105, %100
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %105 ]
-  %.077.i = phi i32 [ 0, %100 ], [ %111, %105 ]
+  %.078.i = phi i32 [ 0, %100 ], [ %111, %105 ]
   %106 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %107 = load i32, ptr %106, align 4, !tbaa !65
   %108 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 4, !tbaa !65
   %110 = srem i32 %107, %109
-  %111 = or i32 %110, %.077.i
+  %111 = or i32 %110, %.078.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %112, label %105, !llvm.loop !67
 
 112:                                              ; preds = %105
   %.not64.i = icmp eq i32 %111, 0
-  br i1 %.not64.i, label %.preheader71.i, label %95, !llvm.loop !69
+  br i1 %.not64.i, label %.preheader72.i, label %95, !llvm.loop !69
 
-.preheader71.i:                                   ; preds = %112, %.preheader71.i
-  %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.preheader71.i ], [ 0, %112 ]
-  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv84.i
+.preheader72.i:                                   ; preds = %112, %.preheader72.i
+  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.preheader72.i ], [ 0, %112 ]
+  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv85.i
   %114 = load i32, ptr %113, align 4, !tbaa !65
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv84.i
+  %116 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv85.i
   store i64 %115, ptr %116, align 8, !tbaa !70
-  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next85.i, 4
-  br i1 %exitcond87.not.i, label %117, label %.preheader71.i, !llvm.loop !71
+  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
+  %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 4
+  br i1 %exitcond88.not.i, label %117, label %.preheader72.i, !llvm.loop !71
 
-117:                                              ; preds = %.preheader71.i
+117:                                              ; preds = %.preheader72.i
   %118 = load i32, ptr %94, align 8, !tbaa !66
   %119 = load i32, ptr %7, align 4, !tbaa !65
   %120 = call i32 @av_image_fill_plane_sizes(ptr noundef nonnull %9, i32 noundef %118, i32 noundef %119, ptr noundef nonnull %8) #6
   %121 = icmp slt i32 %120, 0
-  br i1 %121, label %.thread68.i, label %.preheader.preheader.i
+  br i1 %121, label %.thread69.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %84, i64 76
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %134, %.preheader.preheader.i
-  %indvars.iv88.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next89.i, %134 ]
-  %123 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv88.i
+  %indvars.iv89.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next90.i, %134 ]
+  %123 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv89.i
   %124 = load i32, ptr %123, align 4, !tbaa !65
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv88.i
+  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv89.i
   store i32 %124, ptr %125, align 4, !tbaa !65
-  %126 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv88.i
+  %126 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv89.i
   %127 = load i64, ptr %126, align 8, !tbaa !70
   %.not65.i = icmp eq i64 %127, 0
   br i1 %.not65.i, label %134, label %128
 
 128:                                              ; preds = %.preheader.i
   %129 = icmp ugt i64 %127, 2147483624
-  br i1 %129, label %.thread68.i, label %130
+  br i1 %129, label %.thread69.i, label %130
 
 130:                                              ; preds = %128
   %131 = add nuw nsw i64 %127, 23
   %132 = call ptr @av_buffer_pool_init(i64 noundef %131, ptr noundef nonnull @av_buffer_allocz) #6
-  %133 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv88.i
+  %133 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv89.i
   store ptr %132, ptr %133, align 8, !tbaa !72
   %.not66.i = icmp eq ptr %132, null
-  br i1 %.not66.i, label %.thread68.i, label %134
+  br i1 %.not66.i, label %.thread69.i, label %134
 
 134:                                              ; preds = %130, %.preheader.i
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %exitcond91.not.i = icmp eq i64 %indvars.iv.next89.i, 4
-  br i1 %exitcond91.not.i, label %135, label %.preheader.i, !llvm.loop !73
+  %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
+  %exitcond92.not.i = icmp eq i64 %indvars.iv.next90.i, 4
+  br i1 %exitcond92.not.i, label %135, label %.preheader.i, !llvm.loop !73
 
-.thread68.i:                                      ; preds = %95, %130, %128, %117
+.thread69.i:                                      ; preds = %95, %130, %128, %117
   %.050.ph.i = phi i32 [ %120, %117 ], [ -12, %130 ], [ -22, %128 ], [ %98, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -331,8 +331,8 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
   tail call void @abort() #7
   unreachable
 
-171:                                              ; preds = %153, %143, %.thread68.i
-  %.1.i = phi i32 [ %151, %143 ], [ -12, %153 ], [ %.050.ph.i, %.thread68.i ]
+171:                                              ; preds = %153, %143, %.thread69.i
+  %.1.i = phi i32 [ %151, %143 ], [ -12, %153 ], [ %.050.ph.i, %.thread69.i ]
   call void @av_refstruct_unref(ptr noundef nonnull %4) #6
   br label %update_frame_pool.exit
 

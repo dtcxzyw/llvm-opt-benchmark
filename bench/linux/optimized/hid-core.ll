@@ -990,9 +990,9 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
-  br i1 %18, label %.loopexit36, label %.preheader35
+  br i1 %18, label %.loopexit37, label %.preheader36
 
-.preheader35:                                     ; preds = %1, %30
+.preheader36:                                     ; preds = %1, %30
   %19 = phi i32 [ %31, %30 ], [ 64, %1 ]
   %20 = phi ptr [ %32, %30 ], [ %17, %1 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2124
@@ -1005,27 +1005,27 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %28 = icmp ult i32 %19, %27
   br i1 %28, label %29, label %30
 
-29:                                               ; preds = %.preheader35
+29:                                               ; preds = %.preheader36
   store i32 %27, ptr %14, align 4
   br label %30
 
-30:                                               ; preds = %29, %.preheader35
-  %31 = phi i32 [ %27, %29 ], [ %19, %.preheader35 ]
+30:                                               ; preds = %29, %.preheader36
+  %31 = phi i32 [ %27, %29 ], [ %19, %.preheader36 ]
   %32 = load ptr, ptr %20, align 8
   %33 = icmp eq ptr %32, %16
-  br i1 %33, label %.loopexit36, label %.preheader35, !llvm.loop !19
+  br i1 %33, label %.loopexit37, label %.preheader36, !llvm.loop !19
 
-.loopexit36:                                      ; preds = %30, %1
+.loopexit37:                                      ; preds = %30, %1
   %34 = phi i32 [ 64, %1 ], [ %31, %30 ]
   %35 = getelementptr i8, ptr %0, i64 2152
   %36 = getelementptr i8, ptr %0, i64 2160
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %36
-  br i1 %38, label %.loopexit34, label %.preheader33
+  br i1 %38, label %.loopexit35, label %.preheader34
 
-.preheader33:                                     ; preds = %.loopexit36, %50
-  %39 = phi i32 [ %51, %50 ], [ %34, %.loopexit36 ]
-  %40 = phi ptr [ %52, %50 ], [ %37, %.loopexit36 ]
+.preheader34:                                     ; preds = %.loopexit37, %50
+  %39 = phi i32 [ %51, %50 ], [ %34, %.loopexit37 ]
+  %40 = phi ptr [ %52, %50 ], [ %37, %.loopexit37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2124
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, -1
@@ -1036,27 +1036,27 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %48 = icmp ult i32 %39, %47
   br i1 %48, label %49, label %50
 
-49:                                               ; preds = %.preheader33
+49:                                               ; preds = %.preheader34
   store i32 %47, ptr %14, align 4
   br label %50
 
-50:                                               ; preds = %49, %.preheader33
-  %51 = phi i32 [ %47, %49 ], [ %39, %.preheader33 ]
+50:                                               ; preds = %49, %.preheader34
+  %51 = phi i32 [ %47, %49 ], [ %39, %.preheader34 ]
   %52 = load ptr, ptr %40, align 8
   %53 = icmp eq ptr %52, %36
-  br i1 %53, label %.loopexit34, label %.preheader33, !llvm.loop !19
+  br i1 %53, label %.loopexit35, label %.preheader34, !llvm.loop !19
 
-.loopexit34:                                      ; preds = %50, %.loopexit36
-  %54 = phi i32 [ %34, %.loopexit36 ], [ %51, %50 ]
+.loopexit35:                                      ; preds = %50, %.loopexit37
+  %54 = phi i32 [ %34, %.loopexit37 ], [ %51, %50 ]
   %55 = getelementptr i8, ptr %0, i64 4224
   %56 = getelementptr i8, ptr %0, i64 4232
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %56
-  br i1 %58, label %.loopexit32, label %.preheader31
+  br i1 %58, label %.loopexit33, label %.preheader32
 
-.preheader31:                                     ; preds = %.loopexit34, %70
-  %59 = phi i32 [ %71, %70 ], [ %54, %.loopexit34 ]
-  %60 = phi ptr [ %72, %70 ], [ %57, %.loopexit34 ]
+.preheader32:                                     ; preds = %.loopexit35, %70
+  %59 = phi i32 [ %71, %70 ], [ %54, %.loopexit35 ]
+  %60 = phi ptr [ %72, %70 ], [ %57, %.loopexit35 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 2124
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, -1
@@ -1067,29 +1067,29 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %68 = icmp ult i32 %59, %67
   br i1 %68, label %69, label %70
 
-69:                                               ; preds = %.preheader31
+69:                                               ; preds = %.preheader32
   store i32 %67, ptr %14, align 4
   br label %70
 
-70:                                               ; preds = %69, %.preheader31
-  %71 = phi i32 [ %67, %69 ], [ %59, %.preheader31 ]
+70:                                               ; preds = %69, %.preheader32
+  %71 = phi i32 [ %67, %69 ], [ %59, %.preheader32 ]
   %72 = load ptr, ptr %60, align 8
   %73 = icmp eq ptr %72, %56
-  br i1 %73, label %.loopexit32, label %.preheader31, !llvm.loop !19
+  br i1 %73, label %.loopexit33, label %.preheader32, !llvm.loop !19
 
-.loopexit32:                                      ; preds = %70, %.loopexit34
-  %74 = phi i32 [ %54, %.loopexit34 ], [ %71, %70 ]
+.loopexit33:                                      ; preds = %70, %.loopexit35
+  %74 = phi i32 [ %54, %.loopexit35 ], [ %71, %70 ]
   %75 = icmp ugt i32 %74, 16384
   br i1 %75, label %76, label %77
 
-76:                                               ; preds = %.loopexit32
+76:                                               ; preds = %.loopexit33
   store i32 16384, ptr %14, align 4
   br label %77
 
-77:                                               ; preds = %76, %.loopexit32
+77:                                               ; preds = %76, %.loopexit33
   %78 = load ptr, ptr %16, align 8
   %79 = icmp eq ptr %78, %16
-  br i1 %79, label %.loopexit30, label %80
+  br i1 %79, label %.loopexit31, label %80
 
 80:                                               ; preds = %77
   %81 = load i32, ptr %15, align 8
@@ -1107,14 +1107,14 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %91 = tail call i32 @llvm.umax.i32(i32 %84, i32 %90)
   %92 = load ptr, ptr %85, align 8
   %93 = icmp eq ptr %92, %16
-  br i1 %93, label %.loopexit30.loopexit, label %83, !llvm.loop !19
+  br i1 %93, label %.loopexit31.loopexit, label %83, !llvm.loop !19
 
-.loopexit30.loopexit:                             ; preds = %83
+.loopexit31.loopexit:                             ; preds = %83
   %94 = tail call i32 @llvm.umin.i32(i32 %91, i32 16384)
-  br label %.loopexit30
+  br label %.loopexit31
 
-.loopexit30:                                      ; preds = %.loopexit30.loopexit, %77
-  %95 = phi i32 [ 0, %77 ], [ %94, %.loopexit30.loopexit ]
+.loopexit31:                                      ; preds = %.loopexit31.loopexit, %77
+  %95 = phi i32 [ 0, %77 ], [ %94, %.loopexit31.loopexit ]
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %98 = load i32, ptr %97, align 4
@@ -1141,25 +1141,25 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   store ptr %114, ptr %115, align 8
   %116 = load ptr, ptr %102, align 8
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %.loopexit28, label %118
+  br i1 %117, label %.loopexit29, label %118
 
-118:                                              ; preds = %.loopexit30
+118:                                              ; preds = %.loopexit31
   %119 = load ptr, ptr %107, align 8
   %120 = icmp eq ptr %119, null
-  br i1 %120, label %.loopexit28, label %121
+  br i1 %120, label %.loopexit29, label %121
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %110, align 8
   %123 = icmp ne ptr %122, null
   %124 = icmp ne ptr %114, null
   %125 = select i1 %123, i1 %124, i1 false
-  br i1 %125, label %126, label %.loopexit28
+  br i1 %125, label %126, label %.loopexit29
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %128 = load i8, ptr %127, align 4
   %129 = icmp eq i8 %128, 0
-  br i1 %129, label %.loopexit29, label %130
+  br i1 %129, label %.loopexit30, label %130
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1251,7 +1251,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %191 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #17
   store ptr %191, ptr %136, align 8
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %.loopexit28, label %193
+  br i1 %192, label %.loopexit29, label %193
 
 193:                                              ; preds = %190
   %194 = load i8, ptr %184, align 1
@@ -1297,7 +1297,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %222 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #17
   store ptr %222, ptr %139, align 8
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %.loopexit28, label %224
+  br i1 %223, label %.loopexit29, label %224
 
 224:                                              ; preds = %221
   %225 = load i8, ptr %184, align 1
@@ -1359,16 +1359,16 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %265 = load i8, ptr %127, align 4
   %266 = zext i8 %265 to i64
   %267 = icmp samesign ult i64 %264, %266
-  br i1 %267, label %142, label %.loopexit29, !llvm.loop !21
+  br i1 %267, label %142, label %.loopexit30, !llvm.loop !21
 
-.loopexit29:                                      ; preds = %263, %126
+.loopexit30:                                      ; preds = %263, %126
   %268 = tail call ptr @usb_alloc_urb(i32 noundef 0, i32 noundef 3264) #17
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %268, ptr %269, align 8
   %270 = icmp eq ptr %268, null
-  br i1 %270, label %.loopexit28, label %271
+  br i1 %270, label %.loopexit29, label %271
 
-271:                                              ; preds = %.loopexit29
+271:                                              ; preds = %.loopexit30
   %272 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds nuw i8, ptr %11, i64 6216
@@ -1410,7 +1410,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   %298 = load ptr, ptr %297, align 8
   %299 = tail call i32 @usb_autopm_get_interface(ptr noundef %298) #17
   %300 = icmp eq i32 %299, 0
-  br i1 %300, label %301, label %.loopexit28
+  br i1 %300, label %301, label %.loopexit29
 
 301:                                              ; preds = %296
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %291, i32 64, ptr elementtype(i8) %291) #17, !srcloc !12
@@ -1448,19 +1448,19 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
 319:                                              ; preds = %315
   %320 = load ptr, ptr %36, align 8
   %321 = icmp eq ptr %320, %36
-  br i1 %321, label %.thread26, label %.preheader
+  br i1 %321, label %.thread27, label %.preheader
 
-.loopexit27:                                      ; preds = %.loopexit, %.preheader
+.loopexit28:                                      ; preds = %.loopexit, %.preheader
   %322 = load ptr, ptr %324, align 8
   %323 = icmp eq ptr %322, %36
-  br i1 %323, label %.thread26, label %.preheader, !llvm.loop !22
+  br i1 %323, label %.thread27, label %.preheader, !llvm.loop !22
 
-.preheader:                                       ; preds = %319, %.loopexit27
-  %324 = phi ptr [ %322, %.loopexit27 ], [ %320, %319 ]
+.preheader:                                       ; preds = %319, %.loopexit28
+  %324 = phi ptr [ %322, %.loopexit28 ], [ %320, %319 ]
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 2120
   %326 = load i32, ptr %325, align 8
   %327 = icmp eq i32 %326, 0
-  br i1 %327, label %.loopexit27, label %328
+  br i1 %327, label %.loopexit28, label %328
 
 328:                                              ; preds = %.preheader
   %329 = getelementptr inbounds nuw i8, ptr %324, i64 64
@@ -1497,25 +1497,25 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
 .loopexit:                                        ; preds = %347, %330
   %350 = add nuw i32 %331, 1
   %351 = icmp eq i32 %350, %326
-  br i1 %351, label %.loopexit27, label %330, !llvm.loop !24
+  br i1 %351, label %.loopexit28, label %330, !llvm.loop !24
 
 352:                                              ; preds = %341
   %353 = icmp eq i32 %342, -1
-  br i1 %353, label %.thread26, label %354
+  br i1 %353, label %.thread27, label %354
 
 354:                                              ; preds = %352
   %355 = tail call i32 @hid_set_field(ptr noundef %334, i32 noundef %342, i32 noundef 0) #17
   %356 = getelementptr inbounds nuw i8, ptr %334, i64 104
   %357 = load ptr, ptr %356, align 8
   tail call fastcc void @usbhid_submit_report(ptr noundef %0, ptr noundef %357, i8 noundef zeroext 0)
-  br label %.thread26
+  br label %.thread27
 
-.thread26:                                        ; preds = %.loopexit27, %319, %354, %352
+.thread27:                                        ; preds = %.loopexit28, %319, %354, %352
   %358 = tail call i32 @device_set_wakeup_enable(ptr noundef %8, i1 noundef zeroext true) #17
   br label %388
 
-.loopexit28:                                      ; preds = %190, %221, %296, %.loopexit29, %121, %118, %.loopexit30
-  %359 = phi i32 [ %299, %296 ], [ -12, %121 ], [ -12, %.loopexit29 ], [ -12, %.loopexit30 ], [ -12, %118 ], [ -12, %221 ], [ -12, %190 ]
+.loopexit29:                                      ; preds = %190, %221, %296, %.loopexit30, %121, %118, %.loopexit31
+  %359 = phi i32 [ %299, %296 ], [ -12, %121 ], [ -12, %.loopexit30 ], [ -12, %.loopexit31 ], [ -12, %118 ], [ -12, %221 ], [ -12, %190 ]
   %360 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %361 = load ptr, ptr %360, align 8
   tail call void @usb_free_urb(ptr noundef %361) #17
@@ -1556,8 +1556,8 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
   tail call void @usb_free_coherent(ptr noundef %9, i64 noundef %383, ptr noundef %385, i64 noundef %387) #17
   br label %388
 
-388:                                              ; preds = %311, %315, %.thread26, %.loopexit28
-  %389 = phi i32 [ %359, %.loopexit28 ], [ 0, %.thread26 ], [ 0, %315 ], [ 0, %311 ]
+388:                                              ; preds = %.loopexit29, %.thread27, %315, %311
+  %389 = phi i32 [ %359, %.loopexit29 ], [ 0, %.thread27 ], [ 0, %315 ], [ 0, %311 ]
   tail call void @mutex_unlock(ptr noundef nonnull %12) #17
   ret i32 %389
 }

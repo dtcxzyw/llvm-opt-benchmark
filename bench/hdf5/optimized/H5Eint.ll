@@ -5030,8 +5030,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5E__clear_entries(ptr noundef capt
   br label %.thread
 
 .thread:                                          ; preds = %50, %40, %26, %2, %._crit_edge
-  %.028 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -1, %26 ], [ -1, %40 ], [ -1, %50 ]
-  ret i32 %.028
+  %.029 = phi i32 [ 0, %._crit_edge ], [ 0, %2 ], [ -1, %26 ], [ -1, %40 ], [ -1, %50 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable

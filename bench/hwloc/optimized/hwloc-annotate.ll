@@ -1852,8 +1852,8 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 .preheader:                                       ; preds = %52
   %54 = load ptr, ptr %3, align 8, !tbaa !58
   %55 = load i32, ptr %54, align 8, !tbaa !60
-  %.not86 = icmp eq i32 %55, 0
-  br i1 %.not86, label %._crit_edge, label %.lr.ph
+  %.not87 = icmp eq i32 %55, 0
+  br i1 %.not87, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %71
   %56 = phi i32 [ %72, %71 ], [ %55, %.preheader ]
@@ -1887,8 +1887,8 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %71, %.preheader
-  %.lcssa73 = phi ptr [ %54, %.preheader ], [ %73, %71 ]
-  %76 = call i32 @hwloc_distances_transform(ptr noundef %0, ptr noundef nonnull %.lcssa73, i32 noundef 0, ptr noundef null, i64 noundef 0) #30
+  %.lcssa74 = phi ptr [ %54, %.preheader ], [ %73, %71 ]
+  %76 = call i32 @hwloc_distances_transform(ptr noundef %0, ptr noundef nonnull %.lcssa74, i32 noundef 0, ptr noundef null, i64 noundef 0) #30
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread, label %81
 
@@ -1928,7 +1928,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %91 = load ptr, ptr @distances_transform_replace_newtype, align 8, !tbaa !4
   %92 = call i32 @strcasecmp(ptr noundef %91, ptr noundef nonnull @.str.118) #29
   %.not62.not.not = icmp eq i32 %92, 0
-  br i1 %.not62.not.not, label %.thread125, label %93
+  br i1 %.not62.not.not, label %.thread126, label %93
 
 93:                                               ; preds = %90
   %94 = call i32 @hwloc_type_sscanf(ptr noundef %91, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #30
@@ -1944,66 +1944,66 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %.050 = phi ptr [ %97, %96 ], [ null, %93 ]
   %99 = load ptr, ptr %3, align 8, !tbaa !58
   %100 = load i32, ptr %99, align 8, !tbaa !60
-  %.not87 = icmp eq i32 %100, 0
-  br i1 %.not87, label %._crit_edge78, label %.lr.ph77.split
+  %.not88 = icmp eq i32 %100, 0
+  br i1 %.not88, label %._crit_edge79, label %.lr.ph78.split
 
-.thread125:                                       ; preds = %90
+.thread126:                                       ; preds = %90
   %101 = load ptr, ptr %3, align 8, !tbaa !58
   %102 = load i32, ptr %101, align 8, !tbaa !60
-  %.not87127 = icmp eq i32 %102, 0
-  br i1 %.not87127, label %._crit_edge78.thread, label %.lr.ph77.thread
+  %.not88128 = icmp eq i32 %102, 0
+  br i1 %.not88128, label %._crit_edge79.thread, label %.lr.ph78.thread
 
-.lr.ph77.thread:                                  ; preds = %.thread125
-  %.not65130 = icmp eq ptr %.051, null
-  br i1 %.not65130, label %.lr.ph77.split.us.split.us, label %.lr.ph77.split.us.split
+.lr.ph78.thread:                                  ; preds = %.thread126
+  %.not65131 = icmp eq ptr %.051, null
+  br i1 %.not65131, label %.lr.ph78.split.us.split.us, label %.lr.ph78.split.us.split
 
-.lr.ph77.split.us.split.us:                       ; preds = %.lr.ph77.thread, %119
-  %103 = phi i32 [ %120, %119 ], [ %102, %.lr.ph77.thread ]
-  %104 = phi ptr [ %121, %119 ], [ %101, %.lr.ph77.thread ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %119 ], [ 0, %.lr.ph77.thread ]
+.lr.ph78.split.us.split.us:                       ; preds = %.lr.ph78.thread, %119
+  %103 = phi i32 [ %120, %119 ], [ %102, %.lr.ph78.thread ]
+  %104 = phi ptr [ %121, %119 ], [ %101, %.lr.ph78.thread ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %119 ], [ 0, %.lr.ph78.thread ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !64
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv106
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv107
   %108 = load ptr, ptr %107, align 8, !tbaa !33
   %109 = load i32, ptr %108, align 8, !tbaa !66
   %110 = load i32, ptr %6, align 4, !tbaa !21
   %.not64.us.us = icmp eq i32 %109, %110
   br i1 %.not64.us.us, label %111, label %119
 
-111:                                              ; preds = %.lr.ph77.split.us.split.us
+111:                                              ; preds = %.lr.ph78.split.us.split.us
   %112 = load ptr, ptr @distances_transform_name, align 8, !tbaa !4
-  %113 = trunc nuw i64 %indvars.iv106 to i32
+  %113 = trunc nuw i64 %indvars.iv107 to i32
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.119, i32 noundef %113, ptr noundef %112)
   %115 = load ptr, ptr %3, align 8, !tbaa !58
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !64
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv106
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv107
   store ptr null, ptr %118, align 8, !tbaa !33
-  %.pre114 = load i32, ptr %115, align 8, !tbaa !60
+  %.pre115 = load i32, ptr %115, align 8, !tbaa !60
   br label %119
 
-119:                                              ; preds = %111, %.lr.ph77.split.us.split.us
-  %120 = phi i32 [ %.pre114, %111 ], [ %103, %.lr.ph77.split.us.split.us ]
-  %121 = phi ptr [ %115, %111 ], [ %104, %.lr.ph77.split.us.split.us ]
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+119:                                              ; preds = %111, %.lr.ph78.split.us.split.us
+  %120 = phi i32 [ %.pre115, %111 ], [ %103, %.lr.ph78.split.us.split.us ]
+  %121 = phi ptr [ %115, %111 ], [ %104, %.lr.ph78.split.us.split.us ]
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %122 = zext i32 %120 to i64
-  %123 = icmp samesign ult i64 %indvars.iv.next107, %122
-  br i1 %123, label %.lr.ph77.split.us.split.us, label %._crit_edge78, !llvm.loop !69
+  %123 = icmp samesign ult i64 %indvars.iv.next108, %122
+  br i1 %123, label %.lr.ph78.split.us.split.us, label %._crit_edge79, !llvm.loop !69
 
-.lr.ph77.split.us.split:                          ; preds = %.lr.ph77.thread, %145
-  %124 = phi i32 [ %146, %145 ], [ %102, %.lr.ph77.thread ]
-  %125 = phi ptr [ %147, %145 ], [ %101, %.lr.ph77.thread ]
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %145 ], [ 0, %.lr.ph77.thread ]
+.lr.ph78.split.us.split:                          ; preds = %.lr.ph78.thread, %145
+  %124 = phi i32 [ %146, %145 ], [ %102, %.lr.ph78.thread ]
+  %125 = phi ptr [ %147, %145 ], [ %101, %.lr.ph78.thread ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %145 ], [ 0, %.lr.ph78.thread ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !64
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv103
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv104
   %129 = load ptr, ptr %128, align 8, !tbaa !33
   %130 = load i32, ptr %129, align 8, !tbaa !66
   %131 = load i32, ptr %6, align 4, !tbaa !21
   %.not64.us = icmp eq i32 %130, %131
   br i1 %.not64.us, label %132, label %145
 
-132:                                              ; preds = %.lr.ph77.split.us.split
+132:                                              ; preds = %.lr.ph78.split.us.split
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !70
   %.not66.us = icmp eq ptr %134, null
@@ -2016,82 +2016,82 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr @distances_transform_name, align 8, !tbaa !4
-  %139 = trunc nuw i64 %indvars.iv103 to i32
+  %139 = trunc nuw i64 %indvars.iv104 to i32
   %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.119, i32 noundef %139, ptr noundef %138)
   %141 = load ptr, ptr %3, align 8, !tbaa !58
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !64
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv103
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv104
   store ptr null, ptr %144, align 8, !tbaa !33
-  %.pre113 = load i32, ptr %141, align 8, !tbaa !60
+  %.pre114 = load i32, ptr %141, align 8, !tbaa !60
   br label %145
 
-145:                                              ; preds = %137, %135, %132, %.lr.ph77.split.us.split
-  %146 = phi i32 [ %.pre113, %137 ], [ %124, %135 ], [ %124, %132 ], [ %124, %.lr.ph77.split.us.split ]
-  %147 = phi ptr [ %141, %137 ], [ %125, %135 ], [ %125, %132 ], [ %125, %.lr.ph77.split.us.split ]
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+145:                                              ; preds = %137, %135, %132, %.lr.ph78.split.us.split
+  %146 = phi i32 [ %.pre114, %137 ], [ %124, %135 ], [ %124, %132 ], [ %124, %.lr.ph78.split.us.split ]
+  %147 = phi ptr [ %141, %137 ], [ %125, %135 ], [ %125, %132 ], [ %125, %.lr.ph78.split.us.split ]
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %148 = zext i32 %146 to i64
-  %149 = icmp samesign ult i64 %indvars.iv.next104, %148
-  br i1 %149, label %.lr.ph77.split.us.split, label %._crit_edge78, !llvm.loop !69
+  %149 = icmp samesign ult i64 %indvars.iv.next105, %148
+  br i1 %149, label %.lr.ph78.split.us.split, label %._crit_edge79, !llvm.loop !69
 
-.lr.ph77.split:                                   ; preds = %98
+.lr.ph78.split:                                   ; preds = %98
   %.not65 = icmp eq ptr %.051, null
-  br i1 %.not65, label %.lr.ph77.split.split.us, label %.lr.ph77.split.split
+  br i1 %.not65, label %.lr.ph78.split.split.us, label %.lr.ph78.split.split
 
-.lr.ph77.split.split.us:                          ; preds = %.lr.ph77.split, %168
-  %150 = phi ptr [ %169, %168 ], [ %99, %.lr.ph77.split ]
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %168 ], [ 0, %.lr.ph77.split ]
+.lr.ph78.split.split.us:                          ; preds = %.lr.ph78.split, %168
+  %150 = phi ptr [ %169, %168 ], [ %99, %.lr.ph78.split ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %168 ], [ 0, %.lr.ph78.split ]
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !64
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv100
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv101
   %154 = load ptr, ptr %153, align 8, !tbaa !33
   %155 = load i32, ptr %154, align 8, !tbaa !66
   %156 = load i32, ptr %6, align 4, !tbaa !21
-  %.not64.us81 = icmp eq i32 %155, %156
-  br i1 %.not64.us81, label %157, label %168
+  %.not64.us82 = icmp eq i32 %155, %156
+  br i1 %.not64.us82, label %157, label %168
 
-157:                                              ; preds = %.lr.ph77.split.split.us
+157:                                              ; preds = %.lr.ph78.split.split.us
   %158 = load i32, ptr %7, align 4, !tbaa !21
   %159 = call ptr @hwloc_get_obj_with_same_locality(ptr noundef %0, ptr noundef nonnull %154, i32 noundef %158, ptr noundef %.050, ptr noundef null, i64 noundef 0) #30
   %.not69.us = icmp eq ptr %159, null
-  br i1 %.not69.us, label %._crit_edge111, label %160
+  br i1 %.not69.us, label %._crit_edge112, label %160
 
-._crit_edge111:                                   ; preds = %157
-  %.pre112 = load ptr, ptr %3, align 8, !tbaa !58
+._crit_edge112:                                   ; preds = %157
+  %.pre113 = load ptr, ptr %3, align 8, !tbaa !58
   br label %168
 
 160:                                              ; preds = %157
   %161 = load ptr, ptr @distances_transform_name, align 8, !tbaa !4
-  %162 = trunc nuw i64 %indvars.iv100 to i32
+  %162 = trunc nuw i64 %indvars.iv101 to i32
   %163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.120, i32 noundef %162, ptr noundef %161)
   %164 = load ptr, ptr %3, align 8, !tbaa !58
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !64
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv100
+  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv101
   store ptr %159, ptr %167, align 8, !tbaa !33
   br label %168
 
-168:                                              ; preds = %._crit_edge111, %160, %.lr.ph77.split.split.us
-  %169 = phi ptr [ %.pre112, %._crit_edge111 ], [ %164, %160 ], [ %150, %.lr.ph77.split.split.us ]
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+168:                                              ; preds = %._crit_edge112, %160, %.lr.ph78.split.split.us
+  %169 = phi ptr [ %.pre113, %._crit_edge112 ], [ %164, %160 ], [ %150, %.lr.ph78.split.split.us ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %170 = load i32, ptr %169, align 8, !tbaa !60
   %171 = zext i32 %170 to i64
-  %172 = icmp samesign ult i64 %indvars.iv.next101, %171
-  br i1 %172, label %.lr.ph77.split.split.us, label %._crit_edge78, !llvm.loop !69
+  %172 = icmp samesign ult i64 %indvars.iv.next102, %171
+  br i1 %172, label %.lr.ph78.split.split.us, label %._crit_edge79, !llvm.loop !69
 
-.lr.ph77.split.split:                             ; preds = %.lr.ph77.split, %196
-  %173 = phi ptr [ %197, %196 ], [ %99, %.lr.ph77.split ]
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %196 ], [ 0, %.lr.ph77.split ]
+.lr.ph78.split.split:                             ; preds = %.lr.ph78.split, %196
+  %173 = phi ptr [ %197, %196 ], [ %99, %.lr.ph78.split ]
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %196 ], [ 0, %.lr.ph78.split ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !64
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv97
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv98
   %177 = load ptr, ptr %176, align 8, !tbaa !33
   %178 = load i32, ptr %177, align 8, !tbaa !66
   %179 = load i32, ptr %6, align 4, !tbaa !21
   %.not64 = icmp eq i32 %178, %179
   br i1 %.not64, label %180, label %196
 
-180:                                              ; preds = %.lr.ph77.split.split
+180:                                              ; preds = %.lr.ph78.split.split
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %182 = load ptr, ptr %181, align 8, !tbaa !70
   %.not66 = icmp eq ptr %182, null
@@ -2106,41 +2106,41 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
   %186 = load i32, ptr %7, align 4, !tbaa !21
   %187 = call ptr @hwloc_get_obj_with_same_locality(ptr noundef %0, ptr noundef nonnull %177, i32 noundef %186, ptr noundef %.050, ptr noundef null, i64 noundef 0) #30
   %.not69 = icmp eq ptr %187, null
-  br i1 %.not69, label %._crit_edge109, label %188
+  br i1 %.not69, label %._crit_edge110, label %188
 
-._crit_edge109:                                   ; preds = %185
-  %.pre110 = load ptr, ptr %3, align 8, !tbaa !58
+._crit_edge110:                                   ; preds = %185
+  %.pre111 = load ptr, ptr %3, align 8, !tbaa !58
   br label %196
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr @distances_transform_name, align 8, !tbaa !4
-  %190 = trunc nuw i64 %indvars.iv97 to i32
+  %190 = trunc nuw i64 %indvars.iv98 to i32
   %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.120, i32 noundef %190, ptr noundef %189)
   %192 = load ptr, ptr %3, align 8, !tbaa !58
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !64
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv97
+  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv98
   store ptr %187, ptr %195, align 8, !tbaa !33
   br label %196
 
-196:                                              ; preds = %._crit_edge109, %180, %183, %.lr.ph77.split.split, %188
-  %197 = phi ptr [ %.pre110, %._crit_edge109 ], [ %173, %180 ], [ %173, %183 ], [ %173, %.lr.ph77.split.split ], [ %192, %188 ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+196:                                              ; preds = %._crit_edge110, %180, %183, %.lr.ph78.split.split, %188
+  %197 = phi ptr [ %.pre111, %._crit_edge110 ], [ %173, %180 ], [ %173, %183 ], [ %173, %.lr.ph78.split.split ], [ %192, %188 ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %198 = load i32, ptr %197, align 8, !tbaa !60
   %199 = zext i32 %198 to i64
-  %200 = icmp samesign ult i64 %indvars.iv.next98, %199
-  br i1 %200, label %.lr.ph77.split.split, label %._crit_edge78, !llvm.loop !69
+  %200 = icmp samesign ult i64 %indvars.iv.next99, %199
+  br i1 %200, label %.lr.ph78.split.split, label %._crit_edge79, !llvm.loop !69
 
-._crit_edge78:                                    ; preds = %196, %168, %145, %119, %98
+._crit_edge79:                                    ; preds = %196, %168, %145, %119, %98
   %.lcssa = phi ptr [ %99, %98 ], [ %121, %119 ], [ %147, %145 ], [ %169, %168 ], [ %197, %196 ]
-  br i1 %.not62.not.not, label %._crit_edge78.thread, label %202
+  br i1 %.not62.not.not, label %._crit_edge79.thread, label %202
 
-._crit_edge78.thread:                             ; preds = %.thread125, %._crit_edge78
-  %.lcssa133 = phi ptr [ %.lcssa, %._crit_edge78 ], [ %101, %.thread125 ]
-  %201 = call i32 @hwloc_distances_transform(ptr noundef %0, ptr noundef nonnull %.lcssa133, i32 noundef 0, ptr noundef null, i64 noundef 0) #30
+._crit_edge79.thread:                             ; preds = %.thread126, %._crit_edge79
+  %.lcssa134 = phi ptr [ %.lcssa, %._crit_edge79 ], [ %101, %.thread126 ]
+  %201 = call i32 @hwloc_distances_transform(ptr noundef %0, ptr noundef nonnull %.lcssa134, i32 noundef 0, ptr noundef null, i64 noundef 0) #30
   br label %202
 
-202:                                              ; preds = %._crit_edge78.thread, %._crit_edge78
+202:                                              ; preds = %._crit_edge79.thread, %._crit_edge79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %203

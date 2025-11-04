@@ -708,10 +708,10 @@ define range(i32 -1, 1) i32 @H5G__stab_lookup_by_idx(ptr noundef %0, i32 noundef
   br label %72
 
 72:                                               ; preds = %17, %27, %4, %68, %65
-  %.021 = phi i32 [ -1, %68 ], [ %.1.ph, %65 ], [ 0, %4 ], [ -1, %17 ], [ -1, %27 ]
+  %.019 = phi i32 [ -1, %68 ], [ %.1.ph, %65 ], [ 0, %4 ], [ -1, %17 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.021
+  ret i32 %.019
 }
 
 declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -979,10 +979,10 @@ define i32 @H5G__stab_iterate(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br label %104
 
 104:                                              ; preds = %6, %100, %97, %.thread
-  %.037 = phi i32 [ -1, %100 ], [ %.4, %97 ], [ %.4, %.thread ], [ -1, %6 ]
+  %.034 = phi i32 [ -1, %100 ], [ %.4, %97 ], [ %.4, %.thread ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.037
+  ret i32 %.034
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1123,7 +1123,7 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   %13 = trunc nuw i8 %12 to i1
   %14 = xor i1 %13, true
   %15 = select i1 %11, i1 true, i1 %14
-  br i1 %15, label %16, label %.thread61, !prof !9
+  br i1 %15, label %16, label %.thread62, !prof !9
 
 16:                                               ; preds = %6
   %17 = call ptr @H5O_msg_read(ptr noundef %0, i32 noundef 17, ptr noundef nonnull %7) #7
@@ -1134,7 +1134,7 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   %20 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !10
   %21 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__stab_get_name_by_idx, i32 noundef 695, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.16) #7
-  br label %.thread61
+  br label %.thread62
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %0, align 8, !tbaa !24
@@ -1148,7 +1148,7 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   %30 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !10
   %31 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__stab_get_name_by_idx, i32 noundef 699, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.3) #7
-  br label %.thread61
+  br label %.thread62
 
 33:                                               ; preds = %23
   %34 = icmp eq i32 %1, 1
@@ -1250,17 +1250,17 @@ define range(i32 -1, 1) i32 @H5G__stab_get_name_by_idx(ptr noundef %0, i32 nound
   %84 = load ptr, ptr %83, align 8
   %85 = icmp ne ptr %84, null
   %or.cond = select i1 %.033.ph, i1 %85, i1 false
-  br i1 %or.cond, label %86, label %.thread61
+  br i1 %or.cond, label %86, label %.thread62
 
 86:                                               ; preds = %82
   %87 = call ptr @H5MM_xfree(ptr noundef nonnull %84) #7
-  br label %.thread61
+  br label %.thread62
 
-.thread61:                                        ; preds = %29, %19, %6, %86, %82
-  %.035 = phi i32 [ %.4, %86 ], [ %.4, %82 ], [ 0, %6 ], [ -1, %19 ], [ -1, %29 ]
+.thread62:                                        ; preds = %29, %19, %6, %86, %82
+  %.032 = phi i32 [ %.4, %86 ], [ %.4, %82 ], [ 0, %6 ], [ -1, %19 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.035
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable

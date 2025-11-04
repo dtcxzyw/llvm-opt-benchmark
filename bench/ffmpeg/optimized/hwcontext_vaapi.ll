@@ -1108,7 +1108,7 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !84
   %.not99 = icmp eq ptr %21, null
-  br i1 %.not99, label %22, label %.thread117
+  br i1 %.not99, label %22, label %.thread118
 
 22:                                               ; preds = %vaapi_format_from_pix_fmt.exit
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1133,14 +1133,14 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.089127 = phi i32 [ %28, %.lr.ph ], [ %spec.select, %33 ]
-  %.091126 = phi i32 [ 1, %.lr.ph ], [ %.192, %33 ]
+  %.089128 = phi i32 [ %28, %.lr.ph ], [ %spec.select, %33 ]
+  %.091127 = phi i32 [ 1, %.lr.ph ], [ %.192, %33 ]
   %34 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %32, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8, !tbaa !60
   %36 = icmp eq i32 %35, 6
-  %spec.select = select i1 %36, i32 0, i32 %.089127
+  %spec.select = select i1 %36, i32 0, i32 %.089128
   %37 = icmp eq i32 %35, 1
-  %.192 = select i1 %37, i32 0, i32 %.091126
+  %.192 = select i1 %37, i32 0, i32 %.091127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !89
@@ -1163,31 +1163,31 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
 .preheader:                                       ; preds = %._crit_edge
   %45 = load i32, ptr %29, align 8, !tbaa !85
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph132, label %._crit_edge133
+  br i1 %46, label %.lr.ph133, label %._crit_edge134
 
-.lr.ph132:                                        ; preds = %.preheader, %.lr.ph132
-  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph132 ], [ 0, %.preheader ]
+.lr.ph133:                                        ; preds = %.preheader, %.lr.ph133
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph133 ], [ 0, %.preheader ]
   %47 = load ptr, ptr %44, align 8, !tbaa !92
-  %48 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %47, i64 %indvars.iv140
+  %48 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %47, i64 %indvars.iv141
   %49 = load ptr, ptr %5, align 8, !tbaa !88
-  %50 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %49, i64 %indvars.iv140
+  %50 = getelementptr inbounds nuw %struct._VASurfaceAttrib, ptr %49, i64 %indvars.iv141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false), !tbaa.struct !93
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %51 = load i32, ptr %29, align 8, !tbaa !85
   %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next141, %52
-  br i1 %53, label %.lr.ph132, label %._crit_edge133.loopexit, !llvm.loop !94
+  %53 = icmp slt i64 %indvars.iv.next142, %52
+  br i1 %53, label %.lr.ph133, label %._crit_edge134.loopexit, !llvm.loop !94
 
-._crit_edge133.loopexit:                          ; preds = %.lr.ph132
-  %54 = trunc nuw nsw i64 %indvars.iv.next141 to i32
-  br label %._crit_edge133
+._crit_edge134.loopexit:                          ; preds = %.lr.ph133
+  %54 = trunc nuw nsw i64 %indvars.iv.next142 to i32
+  br label %._crit_edge134
 
-._crit_edge133:                                   ; preds = %._crit_edge133.loopexit, %.preheader
-  %.187.lcssa = phi i32 [ 0, %.preheader ], [ %54, %._crit_edge133.loopexit ]
+._crit_edge134:                                   ; preds = %._crit_edge134.loopexit, %.preheader
+  %.187.lcssa = phi i32 [ 0, %.preheader ], [ %54, %._crit_edge134.loopexit ]
   %.not103 = icmp eq i32 %.089.lcssa, 0
   br i1 %.not103, label %60, label %55
 
-55:                                               ; preds = %._crit_edge133
+55:                                               ; preds = %._crit_edge134
   %56 = load ptr, ptr %44, align 8, !tbaa !92
   %57 = add nuw nsw i32 %.187.lcssa, 1
   %58 = zext nneg i32 %.187.lcssa to i64
@@ -1205,8 +1205,8 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   store i32 0, ptr %.sroa.66.0..sroa_idx, align 4, !tbaa !22
   br label %60
 
-60:                                               ; preds = %55, %._crit_edge133
-  %.2 = phi i32 [ %57, %55 ], [ %.187.lcssa, %._crit_edge133 ]
+60:                                               ; preds = %55, %._crit_edge134
+  %.2 = phi i32 [ %57, %55 ], [ %.187.lcssa, %._crit_edge134 ]
   %.not104 = icmp eq i32 %.091.lcssa, 0
   br i1 %.not104, label %67, label %61
 
@@ -1283,9 +1283,9 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
 91:                                               ; preds = %88
   %.pr = load ptr, ptr %20, align 8, !tbaa !84
   %.not107 = icmp eq ptr %.pr, null
-  br i1 %.not107, label %94, label %.thread117
+  br i1 %.not107, label %94, label %.thread118
 
-.thread117:                                       ; preds = %vaapi_format_from_pix_fmt.exit, %91
+.thread118:                                       ; preds = %vaapi_format_from_pix_fmt.exit, %91
   %92 = phi ptr [ %.pr, %91 ], [ %21, %vaapi_format_from_pix_fmt.exit ]
   %93 = tail call ptr @av_buffer_pool_get(ptr noundef nonnull %92) #12
   store ptr %93, ptr %2, align 8, !tbaa !81
@@ -1298,8 +1298,8 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   %.not108 = icmp eq ptr %95, null
   br i1 %.not108, label %.sink.split, label %96
 
-96:                                               ; preds = %94, %.thread117
-  %97 = phi ptr [ %95, %94 ], [ %93, %.thread117 ]
+96:                                               ; preds = %94, %.thread118
+  %97 = phi ptr [ %95, %94 ], [ %93, %.thread118 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !103
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -1320,13 +1320,13 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   br label %110
 
 109:                                              ; preds = %110
-  %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
-  %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i
-  br i1 %exitcond.not.i112, label %.loopexit, label %110, !llvm.loop !108
+  %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
+  %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i
+  br i1 %exitcond.not.i113, label %.loopexit, label %110, !llvm.loop !108
 
 110:                                              ; preds = %109, %.lr.ph.i
-  %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i111, %109 ]
-  %111 = getelementptr inbounds nuw %struct.VAAPISurfaceFormat, ptr %108, i64 %indvars.iv.i110
+  %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i112, %109 ]
+  %111 = getelementptr inbounds nuw %struct.VAAPISurfaceFormat, ptr %108, i64 %indvars.iv.i111
   %112 = load i32, ptr %111, align 4, !tbaa !46
   %113 = icmp eq i32 %112, %102
   br i1 %113, label %114, label %109
@@ -1375,8 +1375,8 @@ vaapi_format_from_pix_fmt.exit:                   ; preds = %13
   call void @av_buffer_unref(ptr noundef nonnull %2) #12
   br label %138
 
-.sink.split:                                      ; preds = %94, %.thread117, %88
-  %.str.59.sink = phi ptr [ @.str.57, %88 ], [ @.str.58, %.thread117 ], [ @.str.59, %94 ]
+.sink.split:                                      ; preds = %94, %.thread118, %88
+  %.str.59.sink = phi ptr [ @.str.57, %88 ], [ @.str.58, %.thread118 ], [ @.str.59, %94 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.59.sink) #12
   br label %135
 

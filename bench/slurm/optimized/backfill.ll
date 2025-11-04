@@ -6299,7 +6299,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %45
   %8 = phi i64 [ %49, %45 ], [ %4, %.lr.ph ]
-  %.02029.us = phi i1 [ %.1.us, %45 ], [ false, %.lr.ph ]
+  %.02030.us = phi i1 [ %.1.us, %45 ], [ false, %.lr.ph ]
   %9 = load ptr, ptr @node_record_table_ptr, align 8
   %10 = and i64 %8, 2147483647
   %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
@@ -6347,7 +6347,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   br label %32
 
 32:                                               ; preds = %29, %.thread.us
-  %.2.us = phi i1 [ true, %29 ], [ %.02029.us, %.thread.us ]
+  %.2.us = phi i1 [ true, %29 ], [ %.02030.us, %.thread.us ]
   %33 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %34 = and i64 %33, 4096
   %.not26.us = icmp eq i64 %34, 0
@@ -6372,7 +6372,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   br label %45
 
 45:                                               ; preds = %43, %38, %35, %32
-  %.1.us = phi i1 [ %.2.us, %38 ], [ %.2.us, %35 ], [ %.2.us, %32 ], [ %.02029.us, %43 ]
+  %.1.us = phi i1 [ %.2.us, %38 ], [ %.2.us, %35 ], [ %.2.us, %32 ], [ %.02030.us, %43 ]
   %46 = add nuw nsw i64 %8, 1
   %47 = load ptr, ptr @planned_bitmap, align 8
   %48 = and i64 %46, 4294967295
@@ -6383,7 +6383,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %52 = phi i64 [ %78, %74 ], [ %4, %.lr.ph ]
-  %.02029 = phi i1 [ %.1, %74 ], [ false, %.lr.ph ]
+  %.02030 = phi i1 [ %.1, %74 ], [ false, %.lr.ph ]
   %53 = load ptr, ptr @node_record_table_ptr, align 8
   %54 = and i64 %52, 2147483647
   %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
@@ -6422,7 +6422,7 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
   br label %74
 
 74:                                               ; preds = %59, %69, %66, %57
-  %.1 = phi i1 [ true, %69 ], [ true, %66 ], [ true, %59 ], [ %.02029, %57 ]
+  %.1 = phi i1 [ true, %69 ], [ true, %66 ], [ true, %59 ], [ %.02030, %57 ]
   %75 = add nuw nsw i64 %52, 1
   %76 = load ptr, ptr @planned_bitmap, align 8
   %77 = and i64 %75, 4294967295

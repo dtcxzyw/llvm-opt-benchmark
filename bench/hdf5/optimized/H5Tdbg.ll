@@ -565,8 +565,8 @@ switch.lookup169:                                 ; preds = %37
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %80, %87, %97, %2, %.critedge.thread, %155, %14
-  %.0118 = phi i32 [ 0, %.critedge.thread ], [ -1, %155 ], [ -1, %14 ], [ 0, %2 ], [ -1, %80 ], [ -1, %87 ], [ -1, %97 ], [ -1, %52 ]
-  ret i32 %.0118
+  %.0124 = phi i32 [ 0, %.critedge.thread ], [ -1, %155 ], [ -1, %14 ], [ 0, %2 ], [ -1, %80 ], [ -1, %87 ], [ -1, %97 ], [ -1, %52 ]
+  ret i32 %.0124
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2

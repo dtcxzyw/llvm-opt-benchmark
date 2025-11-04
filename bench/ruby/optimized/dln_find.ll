@@ -50,7 +50,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %6 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread135, label %7
+  br i1 %.not, label %.thread136, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
@@ -63,7 +63,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = select i1 %10, ptr @.str.4, ptr @.str.5
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef nonnull %0, ptr noundef nonnull %13) #11
-  br label %.thread135
+  br label %.thread136
 
 14:                                               ; preds = %7
   %15 = load i8, ptr %0, align 1, !tbaa !7
@@ -82,7 +82,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 22:                                               ; preds = %17, %14
   %23 = phi i8 [ %.pr, %17 ], [ %15, %14 ]
   %24 = icmp eq i8 %23, 47
-  br i1 %24, label %.thread135, label %25
+  br i1 %24, label %.thread136, label %25
 
 25:                                               ; preds = %22
   %.not113 = icmp eq i32 %4, 0
@@ -91,7 +91,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 26:                                               ; preds = %25
   %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #12
   %.not114 = icmp eq ptr %27, null
-  br i1 %.not114, label %28, label %.thread135
+  br i1 %.not114, label %28, label %.thread136
 
 28:                                               ; preds = %26, %25
   %29 = add i64 %3, -2
@@ -126,7 +126,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 47:                                               ; preds = %43
   %48 = load i8, ptr %.092, align 1, !tbaa !7
   %49 = icmp eq i8 %48, 126
-  br i1 %49, label %50, label %.thread124
+  br i1 %49, label %50, label %.thread125
 
 50:                                               ; preds = %47
   %51 = icmp eq i64 %46, 1
@@ -136,7 +136,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %53 = getelementptr i8, ptr %.092, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !7
   %55 = icmp eq i8 %54, 47
-  br i1 %55, label %56, label %.thread124
+  br i1 %55, label %56, label %.thread125
 
 56:                                               ; preds = %52, %50
   %57 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #11
@@ -160,20 +160,20 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %65 = getelementptr i8, ptr %.092, i64 1
   %66 = add i64 %46, -1
   %.not117 = icmp eq i64 %66, 0
-  br i1 %.not117, label %71, label %.thread124
+  br i1 %.not117, label %71, label %.thread125
 
-.thread124:                                       ; preds = %47, %52, %64
-  %.084133 = phi i64 [ %66, %64 ], [ %46, %52 ], [ %46, %47 ]
-  %.190132 = phi i64 [ %.291, %64 ], [ %29, %52 ], [ %29, %47 ]
-  %.193131 = phi ptr [ %65, %64 ], [ %.092, %52 ], [ %.092, %47 ]
-  %.196130 = phi ptr [ %.297, %64 ], [ %2, %52 ], [ %2, %47 ]
-  %67 = icmp ult i64 %.190132, %.084133
+.thread125:                                       ; preds = %47, %52, %64
+  %.084134 = phi i64 [ %66, %64 ], [ %46, %52 ], [ %46, %47 ]
+  %.190133 = phi i64 [ %.291, %64 ], [ %29, %52 ], [ %29, %47 ]
+  %.193132 = phi ptr [ %65, %64 ], [ %.092, %52 ], [ %.092, %47 ]
+  %.196131 = phi ptr [ %.297, %64 ], [ %2, %52 ], [ %2, %47 ]
+  %67 = icmp ult i64 %.190133, %.084134
   br i1 %67, label %89, label %68
 
-68:                                               ; preds = %.thread124
-  %69 = sub nuw i64 %.190132, %.084133
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.196130, ptr noundef nonnull align 1 %.193131, i64 noundef %.084133, i1 noundef false) #11
-  %70 = getelementptr i8, ptr %.196130, i64 %.084133
+68:                                               ; preds = %.thread125
+  %69 = sub nuw i64 %.190133, %.084134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.196131, ptr noundef nonnull align 1 %.193132, i64 noundef %.084134, i1 noundef false) #11
+  %70 = getelementptr i8, ptr %.196131, i64 %.084134
   br label %71
 
 71:                                               ; preds = %68, %64
@@ -208,15 +208,15 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br i1 %84, label %85, label %96
 
 85:                                               ; preds = %81
-  br i1 %.not113, label %.thread135, label %86
+  br i1 %.not113, label %.thread136, label %86
 
 86:                                               ; preds = %85
   %87 = tail call i32 @eaccess(ptr noundef %2, i32 noundef 1) #11
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.thread135, label %96
+  br i1 %88, label %.thread136, label %96
 
-89:                                               ; preds = %58, %76, %.thread124
-  %.499 = phi ptr [ %.196130, %.thread124 ], [ %.095, %76 ], [ %2, %58 ]
+89:                                               ; preds = %58, %76, %.thread125
+  %.499 = phi ptr [ %.196131, %.thread125 ], [ %.095, %76 ], [ %2, %58 ]
   %90 = ptrtoint ptr %.499 to i64
   %91 = sub i64 %90, %32
   %92 = icmp sgt i64 %91, 100
@@ -228,11 +228,11 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 
 96:                                               ; preds = %89, %86, %81, %78
   %97 = load i8, ptr %.0100, align 1, !tbaa !7
-  %.not138 = icmp eq i8 %97, 0
+  %.not139 = icmp eq i8 %97, 0
   %98 = getelementptr i8, ptr %.0100, i64 1
-  br i1 %.not138, label %.thread135, label %37
+  br i1 %.not139, label %.thread136, label %37
 
-.thread135:                                       ; preds = %86, %85, %96, %26, %22, %5, %9
+.thread136:                                       ; preds = %86, %85, %96, %26, %22, %5, %9
   %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ %0, %22 ], [ %0, %26 ], [ %2, %86 ], [ %2, %85 ], [ null, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0

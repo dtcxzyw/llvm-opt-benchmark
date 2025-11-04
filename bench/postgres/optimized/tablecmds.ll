@@ -1803,9 +1803,9 @@ findAttrByName.exit.thread.i:                     ; preds = %397, %findAttrByNam
   %592 = getelementptr inbounds nuw i8, ptr %.2291716.i, i64 4
   %593 = load i32, ptr %592, align 4
   %594 = icmp sgt i32 %593, 0
-  br i1 %594, label %.lr.ph53.i.i, label %._crit_edge.i.i
+  br i1 %594, label %.lr.ph54.i.i, label %._crit_edge.i.i
 
-.lr.ph53.i.i:                                     ; preds = %.lr.ph.i395.i
+.lr.ph54.i.i:                                     ; preds = %.lr.ph.i395.i
   %595 = getelementptr inbounds nuw i8, ptr %.2291716.i, i64 16
   %596 = load ptr, ptr %595, align 8
   %wide.trip.count.i396.i = zext nneg i32 %593 to i64
@@ -1816,8 +1816,8 @@ findAttrByName.exit.thread.i:                     ; preds = %397, %findAttrByNam
   %exitcond.not.i399.i = icmp eq i64 %indvars.iv.next.i398.i, %wide.trip.count.i396.i
   br i1 %exitcond.not.i399.i, label %._crit_edge.i.i, label %598
 
-598:                                              ; preds = %597, %.lr.ph53.i.i
-  %indvars.iv.i397.i = phi i64 [ 0, %.lr.ph53.i.i ], [ %indvars.iv.next.i398.i, %597 ]
+598:                                              ; preds = %597, %.lr.ph54.i.i
+  %indvars.iv.i397.i = phi i64 [ 0, %.lr.ph54.i.i ], [ %indvars.iv.next.i398.i, %597 ]
   %599 = getelementptr inbounds nuw %union.ListCell, ptr %596, i64 %indvars.iv.i397.i
   %600 = load ptr, ptr %599, align 8
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 8

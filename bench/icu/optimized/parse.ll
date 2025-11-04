@@ -5753,39 +5753,34 @@ _ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.ex
   %282 = select i1 %281, i32 24, i32 25
   %283 = select i1 %280, i32 16, i32 %282
   switch i32 %283, label %.unreachabledefault [
-    i32 16, label %289
+    i32 16, label %288
     i32 25, label %284
     i32 24, label %286
-    i32 17, label %288
   ]
 
 284:                                              ; preds = %271
   %285 = or i32 %.5, 1536
-  br label %289
+  br label %288
 
 286:                                              ; preds = %271
   %287 = or i32 %.5, 512
-  br label %289
+  br label %288
 
 .unreachabledefault:                              ; preds = %271
   unreachable
 
-288:                                              ; preds = %271
-  store i32 5, ptr %5, align 4, !tbaa !14
-  br label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit
-
-289:                                              ; preds = %271, %286, %284
+288:                                              ; preds = %286, %284, %271
   %.6 = phi i32 [ %.5, %271 ], [ %285, %284 ], [ %287, %286 ]
-  %290 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %5)
-  %.not.i140 = icmp eq ptr %290, null
-  br i1 %.not.i140, label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit, label %291
+  %289 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %5)
+  %.not.i140 = icmp eq ptr %289, null
+  br i1 %.not.i140, label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit, label %290
 
-291:                                              ; preds = %289
-  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %290, ptr noundef nonnull @.str.94, i32 noundef %.6) #21
-  %293 = call i32 @fclose(ptr noundef nonnull %290)
+290:                                              ; preds = %288
+  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %289, ptr noundef nonnull @.str.94, i32 noundef %.6) #21
+  %292 = call i32 @fclose(ptr noundef nonnull %289)
   br label %_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit
 
-_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit: ; preds = %291, %289, %124, %269, %288, %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.exit, %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7717CollationSettingsEP10UErrorCode.exit, %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %23
+_ZL26writeCollationMetadataTOMLPKcS0_S0_jP10UErrorCode.exit: ; preds = %290, %288, %124, %269, %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7713CollationDataEaiP10UErrorCode.exit, %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7717CollationSettingsEP10UErrorCode.exit, %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit, %23
   ret void
 }
 

@@ -4136,7 +4136,7 @@ define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonl
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 628
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %.loopexit4
+  br i1 %7, label %8, label %.loopexit5
 
 8:                                                ; preds = %1
   store i32 1, ptr %5, align 4
@@ -4149,7 +4149,7 @@ define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonl
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
-  br i1 %15, label %.loopexit4, label %.lr.ph
+  br i1 %15, label %.loopexit5, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.loopexit
   %16 = phi ptr [ %35, %.loopexit ], [ %14, %12 ]
@@ -4185,13 +4185,13 @@ define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonl
 .loopexit:                                        ; preds = %32, %.lr.ph
   %35 = load ptr, ptr %16, align 8
   %36 = icmp eq ptr %35, %13
-  br i1 %36, label %.loopexit4, label %.lr.ph
+  br i1 %36, label %.loopexit5, label %.lr.ph
 
 .thread:                                          ; preds = %24, %28, %8
   store i32 0, ptr %5, align 4
-  br label %.loopexit4
+  br label %.loopexit5
 
-.loopexit4:                                       ; preds = %.loopexit, %12, %1, %.thread
+.loopexit5:                                       ; preds = %.loopexit, %12, %.thread, %1
   %37 = phi i32 [ -22, %1 ], [ -22, %.thread ], [ 0, %12 ], [ 0, %.loopexit ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %4) #24
   ret i32 %37

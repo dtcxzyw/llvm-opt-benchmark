@@ -2070,7 +2070,7 @@ parse_optarg.exit189.i:                           ; preds = %203, %197
   %230 = phi ptr [ %48, %lex_char.exit.thread.i ], [ %56, %61 ], [ %56, %54 ], [ %48, %lex_char.exit.ithread-pre-split ]
   %231 = phi ptr [ %49, %lex_char.exit.thread.i ], [ %55, %61 ], [ %55, %54 ], [ %53, %lex_char.exit.ithread-pre-split ]
   %.076334.i = phi i8 [ %.177.lcssa.i, %lex_char.exit.thread.i ], [ %.076337.i1077, %61 ], [ %.076337.i1077, %54 ], [ %.177.lcssa.i, %lex_char.exit.ithread-pre-split ]
-  switch i8 %.076334.i, label %parse_options.exit.thread [
+  switch i8 %.076334.i, label %.critedge.unreachabledefault.i [
     i8 105, label %232
     i8 112, label %233
     i8 0, label %234
@@ -2139,8 +2139,11 @@ is_space.exit.thread.i.i95:                       ; preds = %.lr.ph.i.i94, %.lr.
   %exitcond.not.i.i96 = icmp eq ptr %253, %230
   br i1 %exitcond.not.i.i96, label %.loopexit, label %.lr.ph.i.i94, !llvm.loop !161
 
-parse_options.exit.thread:                        ; preds = %.critedge.i, %244, %.loopexit261.i, %232, %233, %parse_optarg.exit189.i, %221, %218, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit159.i, %parse_optarg.exit144.i, %147, %parse_optarg.exit129.i, %125, %parse_optarg.exit.i, %97, %223
-  %.0.i.ph = phi i32 [ -1094995529, %223 ], [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1094995529, %parse_optarg.exit189.i ], [ -1163346256, %233 ], [ -1163346256, %232 ], [ -12, %.loopexit261.i ], [ -558323010, %.critedge.i ], [ -1094995529, %244 ]
+.critedge.unreachabledefault.i:                   ; preds = %.critedge.i
+  unreachable
+
+parse_options.exit.thread:                        ; preds = %244, %.loopexit261.i, %232, %233, %parse_optarg.exit189.i, %221, %218, %parse_optarg.exit174.i, %196, %193, %parse_optarg.exit159.i, %parse_optarg.exit144.i, %147, %parse_optarg.exit129.i, %125, %parse_optarg.exit.i, %97, %223
+  %.0.i.ph = phi i32 [ -1094995529, %223 ], [ -1094995529, %97 ], [ -1094995529, %parse_optarg.exit.i ], [ -1094995529, %125 ], [ -1094995529, %parse_optarg.exit129.i ], [ -1094995529, %147 ], [ -1094995529, %parse_optarg.exit144.i ], [ -1094995529, %parse_optarg.exit159.i ], [ -1094995529, %193 ], [ -1163346256, %196 ], [ -1094995529, %parse_optarg.exit174.i ], [ -1094995529, %218 ], [ -1163346256, %221 ], [ -1094995529, %parse_optarg.exit189.i ], [ -1163346256, %233 ], [ -1163346256, %232 ], [ -12, %.loopexit261.i ], [ -1094995529, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %lex_line_end.exit88.thread116
 

@@ -356,6 +356,9 @@ if.end6:                                          ; preds = %if.else, %if.then
   %y.i55.jt0 = getelementptr inbounds nuw i8, ptr %p, i64 24
   br label %do.body.i35
 
+default.unreachable:                              ; preds = %if.end71
+  unreachable
+
 do.body.i35:                                      ; preds = %do.body.i35.backedge, %if.end6
   %call.i36 = call i32 @fgetc(ptr noundef %input)
   switch i32 %call.i36, label %_ZN7msdfgen9readCharFEP8_IO_FILE.exit38 [
@@ -395,9 +398,6 @@ invoke.cont:                                      ; preds = %if.then17
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   br label %do.body.i35.backedge
-
-default.unreachable:                              ; preds = %if.end71
-  unreachable
 
 lpad:                                             ; preds = %if.then17
   %0 = landingpad { ptr, i32 }
@@ -599,7 +599,7 @@ if.end71:                                         ; preds = %FINISH_EDGE, %if.th
     i32 0, label %sw.bb72
     i32 1, label %sw.bb82
     i32 2, label %sw.bb94
-  ]
+  ], !llvm.loop !9
 
 sw.bb72:                                          ; preds = %FINISH_EDGE.jt0, %if.end71
   %color.0111 = phi i32 [ %color.0110, %if.end71 ], [ %color.0.jt0, %FINISH_EDGE.jt0 ]
@@ -1015,6 +1015,9 @@ if.end6:                                          ; preds = %_ZN7msdfgen10readCo
   %agg.tmp102.sroa.2.0.arrayidx103.sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 56
   br label %while.cond
 
+default.unreachable:                              ; preds = %if.end71
+  unreachable
+
 while.cond:                                       ; preds = %while.cond.backedge, %if.end6
   %input.promoted.i36 = load ptr, ptr %input, align 8
   br label %do.body.i37
@@ -1103,9 +1106,6 @@ invoke.cont:                                      ; preds = %if.then17
 
 while.cond.backedge:                              ; preds = %invoke.cont, %invoke.cont33, %invoke.cont79, %invoke.cont91, %invoke.cont105
   br label %while.cond, !llvm.loop !12
-
-default.unreachable:                              ; preds = %if.end71
-  unreachable
 
 lpad:                                             ; preds = %if.then17
   %13 = landingpad { ptr, i32 }
@@ -1454,7 +1454,7 @@ if.end71:                                         ; preds = %_ZN7msdfgen10readCo
     i32 0, label %sw.bb72
     i32 1, label %sw.bb82
     i32 2, label %sw.bb94
-  ]
+  ], !llvm.loop !12
 
 sw.bb72:                                          ; preds = %if.end71
   %call.i114 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp74.sroa.0.0.copyload, double %agg.tmp74.sroa.2.0.copyload, double %agg.tmp76.sroa.0.0.copyload, double %agg.tmp76.sroa.2.0.copyload, i32 noundef %color.0)

@@ -3866,19 +3866,19 @@ define dso_local i32 @dictGetSomeKeys(ptr noundef %0, ptr noundef writeonly capt
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = add i64 %7, %5
   %9 = zext i32 %2 to i64
-  %spec.select121 = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
-  %10 = mul nuw nsw i64 %spec.select121, 10
+  %spec.select122 = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
+  %10 = mul nuw nsw i64 %spec.select122, 10
   %11 = and i64 %10, 4294967294
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.not145 = icmp eq i64 %spec.select121, 0
-  br i1 %.not145, label %._crit_edgethread-pre-split, label %.lr.ph
+  %.not146 = icmp eq i64 %spec.select122, 0
+  br i1 %.not146, label %._crit_edgethread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_dictRehashStep.exit
-  %.093129 = phi i64 [ 0, %.lr.ph ], [ %22, %_dictRehashStep.exit ]
+  %.093130 = phi i64 [ 0, %.lr.ph ], [ %22, %_dictRehashStep.exit ]
   %15 = load i64, ptr %12, align 8, !tbaa !14
   %.not = icmp eq i64 %15, -1
   br i1 %.not, label %._crit_edge, label %16
@@ -3894,8 +3894,8 @@ define dso_local i32 @dictGetSomeKeys(ptr noundef %0, ptr noundef writeonly capt
   br label %_dictRehashStep.exit
 
 _dictRehashStep.exit:                             ; preds = %16, %20
-  %22 = add nuw nsw i64 %.093129, 1
-  %exitcond.not = icmp eq i64 %22, %spec.select121
+  %22 = add nuw nsw i64 %.093130, 1
+  %exitcond.not = icmp eq i64 %22, %spec.select122
   br i1 %exitcond.not, label %._crit_edgethread-pre-split, label %14, !llvm.loop !80
 
 ._crit_edgethread-pre-split:                      ; preds = %_dictRehashStep.exit, %3
@@ -3919,50 +3919,50 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %34 = load i8, ptr %33, align 1, !tbaa !13
   %35 = sext i8 %34 to i64
-  %.not122 = icmp eq i8 %34, -1
+  %.not123 = icmp eq i8 %34, -1
   %36 = and i64 %35, 4294967295
   %notmask107 = shl nsw i64 -1, %36
   %37 = xor i64 %notmask107, -1
   %38 = tail call i64 @llvm.umax.i64(i64 %31, i64 %37)
-  %spec.select120 = select i1 %.not122, i64 %31, i64 %38
+  %spec.select121 = select i1 %.not123, i64 %31, i64 %38
   br label %39
 
 39:                                               ; preds = %32, %._crit_edge
-  %.085 = phi i64 [ %31, %._crit_edge ], [ %spec.select120, %32 ]
+  %.085 = phi i64 [ %31, %._crit_edge ], [ %spec.select121, %32 ]
   %40 = tail call i64 @genrand64_int64() #25
-  br i1 %.not145, label %.loopexit, label %.lr.ph142
+  br i1 %.not146, label %.critedge, label %.lr.ph143
 
-.lr.ph142:                                        ; preds = %39
-  %invariant.umax = tail call i64 @llvm.umax.i64(i64 %spec.select121, i64 4)
+.lr.ph143:                                        ; preds = %39
+  %invariant.umax = tail call i64 @llvm.umax.i64(i64 %spec.select122, i64 4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %43
 
-43:                                               ; preds = %.lr.ph142, %91
-  %.078140 = phi i64 [ 0, %.lr.ph142 ], [ %.2, %91 ]
-  %.pn139 = phi i64 [ %40, %.lr.ph142 ], [ %92, %91 ]
-  %.084138 = phi i64 [ %11, %.lr.ph142 ], [ %44, %91 ]
-  %.086137 = phi i64 [ 0, %.lr.ph142 ], [ %.288, %91 ]
-  %44 = add nsw i64 %.084138, -1
-  %.not109 = icmp eq i64 %.084138, 0
-  br i1 %.not109, label %.loopexit.loopexit147, label %.preheader123.preheader
+43:                                               ; preds = %.lr.ph143, %91
+  %.078141 = phi i64 [ 0, %.lr.ph143 ], [ %.2, %91 ]
+  %.pn140 = phi i64 [ %40, %.lr.ph143 ], [ %92, %91 ]
+  %.084139 = phi i64 [ %11, %.lr.ph143 ], [ %44, %91 ]
+  %.086138 = phi i64 [ 0, %.lr.ph143 ], [ %.288, %91 ]
+  %44 = add nsw i64 %.084139, -1
+  %.not109 = icmp eq i64 %.084139, 0
+  br i1 %.not109, label %.critedge.loopexit148, label %.preheader124.preheader
 
-.preheader123.preheader:                          ; preds = %43
-  %.079 = and i64 %.pn139, %.085
-  br label %.preheader123
+.preheader124.preheader:                          ; preds = %43
+  %.079 = and i64 %.pn140, %.085
+  br label %.preheader124
 
-.preheader123:                                    ; preds = %.preheader123.preheader, %.thread
-  %.1136 = phi i64 [ %.2, %.thread ], [ %.078140, %.preheader123.preheader ]
-  %.180135 = phi i64 [ %.382, %.thread ], [ %.079, %.preheader123.preheader ]
-  %.187134 = phi i64 [ %.288, %.thread ], [ %.086137, %.preheader123.preheader ]
-  %45 = phi i1 [ false, %.thread ], [ true, %.preheader123.preheader ]
-  %.194133 = phi i64 [ 1, %.thread ], [ 0, %.preheader123.preheader ]
+.preheader124:                                    ; preds = %.preheader124.preheader, %.thread
+  %.1137 = phi i64 [ %.2, %.thread ], [ %.078141, %.preheader124.preheader ]
+  %.180136 = phi i64 [ %.382, %.thread ], [ %.079, %.preheader124.preheader ]
+  %.187135 = phi i64 [ %.288, %.thread ], [ %.086138, %.preheader124.preheader ]
+  %45 = phi i1 [ false, %.thread ], [ true, %.preheader124.preheader ]
+  %.194134 = phi i64 [ 1, %.thread ], [ 0, %.preheader124.preheader ]
   %or.cond = and i1 %24, %45
   br i1 %or.cond, label %46, label %55
 
-46:                                               ; preds = %.preheader123
+46:                                               ; preds = %.preheader124
   %47 = load i64, ptr %12, align 8, !tbaa !14
-  %48 = icmp ult i64 %.180135, %47
+  %48 = icmp ult i64 %.180136, %47
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %46
@@ -3970,14 +3970,14 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   %51 = icmp ne i8 %50, -1
   %52 = sext i8 %50 to i64
   %53 = and i64 %52, 4294967295
-  %.180.highbits = lshr i64 %.180135, %53
+  %.180.highbits = lshr i64 %.180136, %53
   %54 = icmp eq i64 %.180.highbits, 0
   %.not110 = select i1 %51, i1 %54, i1 false
   br i1 %.not110, label %.thread, label %55
 
-55:                                               ; preds = %49, %46, %.preheader123
-  %.281 = phi i64 [ %.180135, %46 ], [ %.180135, %.preheader123 ], [ %47, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %25, i64 %.194133
+55:                                               ; preds = %49, %46, %.preheader124
+  %.281 = phi i64 [ %.180136, %46 ], [ %.180136, %.preheader124 ], [ %47, %49 ]
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 %.194134
   %57 = load i8, ptr %56, align 1, !tbaa !13
   %58 = icmp ne i8 %57, -1
   %59 = sext i8 %57 to i64
@@ -3988,7 +3988,7 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   br i1 %.not111, label %62, label %.thread
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw ptr, ptr %42, i64 %.194133
+  %63 = getelementptr inbounds nuw ptr, ptr %42, i64 %.194134
   %64 = load ptr, ptr %63, align 8, !tbaa !11
   %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.281
   %66 = load ptr, ptr %65, align 8, !tbaa !31
@@ -3996,7 +3996,7 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   br i1 %67, label %68, label %.preheader
 
 68:                                               ; preds = %62
-  %69 = add i64 %.1136, 1
+  %69 = add i64 %.1137, 1
   %or.cond114 = icmp ugt i64 %69, %invariant.umax
   br i1 %or.cond114, label %70, label %.thread
 
@@ -4006,33 +4006,33 @@ _dictRehashStep.exit:                             ; preds = %16, %20
   br label %.thread
 
 .preheader:                                       ; preds = %62, %dictGetNext.exit
-  %.077132 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %66, %62 ]
-  %.490131 = phi i64 [ %89, %dictGetNext.exit ], [ %.187134, %62 ]
-  %73 = icmp ult i64 %.490131, %spec.select121
+  %.077133 = phi ptr [ %.0.i, %dictGetNext.exit ], [ %66, %62 ]
+  %.490132 = phi i64 [ %89, %dictGetNext.exit ], [ %.187135, %62 ]
+  %73 = icmp ult i64 %.490132, %spec.select122
   br i1 %73, label %.sink.split, label %74
 
 74:                                               ; preds = %.preheader
   %75 = tail call i64 @genrand64_int64() #25
-  %76 = add i64 %.490131, 1
+  %76 = add i64 %.490132, 1
   %77 = urem i64 %75, %76
-  %78 = icmp ult i64 %77, %spec.select121
+  %78 = icmp ult i64 %77, %spec.select122
   br i1 %78, label %.sink.split, label %80
 
 .sink.split:                                      ; preds = %74, %.preheader
-  %.sink157 = phi i64 [ %.490131, %.preheader ], [ %77, %74 ]
+  %.sink157 = phi i64 [ %.490132, %.preheader ], [ %77, %74 ]
   %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sink157
-  store ptr %.077132, ptr %79, align 8, !tbaa !31
+  store ptr %.077133, ptr %79, align 8, !tbaa !31
   br label %80
 
 80:                                               ; preds = %.sink.split, %74
-  %81 = ptrtoint ptr %.077132 to i64
+  %81 = ptrtoint ptr %.077133 to i64
   %82 = and i64 %81, 3
   %.not.i = icmp eq i64 %82, 0
   br i1 %.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
 dictGetNext.exit.thread:                          ; preds = %80
-  %83 = add i64 %.490131, 1
-  br label %.loopexit155
+  %83 = add i64 %.490132, 1
+  br label %.loopexit
 
 dictGetNext.exit:                                 ; preds = %80
   %84 = and i64 %81, 4
@@ -4040,36 +4040,36 @@ dictGetNext.exit:                                 ; preds = %80
   %85 = and i64 %81, -8
   %86 = inttoptr i64 %85 to ptr
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %.077132, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.077133, i64 16
   %.0.i.in = select i1 %.not5.i, ptr %88, ptr %87
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
-  %89 = add i64 %.490131, 1
+  %89 = add i64 %.490132, 1
   %.not112 = icmp eq ptr %.0.i, null
-  br i1 %.not112, label %.loopexit155, label %.preheader, !llvm.loop !81
+  br i1 %.not112, label %.loopexit, label %.preheader, !llvm.loop !81
 
-.loopexit155:                                     ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
+.loopexit:                                        ; preds = %dictGetNext.exit, %dictGetNext.exit.thread
   %90 = phi i64 [ %83, %dictGetNext.exit.thread ], [ %89, %dictGetNext.exit ]
-  %.not113 = icmp ult i64 %90, %spec.select121
-  br i1 %.not113, label %.thread, label %.loopexit
+  %.not113 = icmp ult i64 %90, %spec.select122
+  br i1 %.not113, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %.loopexit155, %70, %68, %55, %49
-  %.288 = phi i64 [ %.187134, %55 ], [ %.187134, %49 ], [ %.187134, %68 ], [ %.187134, %70 ], [ %90, %.loopexit155 ]
-  %.382 = phi i64 [ %.281, %55 ], [ %.180135, %49 ], [ %.281, %68 ], [ %72, %70 ], [ %.281, %.loopexit155 ]
-  %.2 = phi i64 [ %.1136, %55 ], [ %.1136, %49 ], [ %69, %68 ], [ 0, %70 ], [ 0, %.loopexit155 ]
-  br i1 %or.cond, label %.preheader123, label %91, !llvm.loop !82
+.thread:                                          ; preds = %.loopexit, %70, %68, %55, %49
+  %.288 = phi i64 [ %.187135, %55 ], [ %.187135, %49 ], [ %.187135, %68 ], [ %.187135, %70 ], [ %90, %.loopexit ]
+  %.382 = phi i64 [ %.281, %55 ], [ %.180136, %49 ], [ %.281, %68 ], [ %72, %70 ], [ %.281, %.loopexit ]
+  %.2 = phi i64 [ %.1137, %55 ], [ %.1137, %49 ], [ %69, %68 ], [ 0, %70 ], [ 0, %.loopexit ]
+  br i1 %or.cond, label %.preheader124, label %91, !llvm.loop !82
 
 91:                                               ; preds = %.thread
   %92 = add i64 %.382, 1
-  %93 = icmp ult i64 %.288, %spec.select121
-  br i1 %93, label %43, label %.loopexit.loopexit147, !llvm.loop !83
+  %93 = icmp ult i64 %.288, %spec.select122
+  br i1 %93, label %43, label %.critedge.loopexit148, !llvm.loop !83
 
-.loopexit.loopexit147:                            ; preds = %91, %43
-  %.6.ph = phi i64 [ %.288, %91 ], [ %.086137, %43 ]
-  %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select121)
-  br label %.loopexit
+.critedge.loopexit148:                            ; preds = %43, %91
+  %.6.ph = phi i64 [ %.086138, %43 ], [ %.288, %91 ]
+  %94 = tail call i64 @llvm.umin.i64(i64 %.6.ph, i64 %spec.select122)
+  br label %.critedge
 
-.loopexit:                                        ; preds = %.loopexit155, %.loopexit.loopexit147, %39
-  %.6 = phi i64 [ 0, %39 ], [ %94, %.loopexit.loopexit147 ], [ %spec.select121, %.loopexit155 ]
+.critedge:                                        ; preds = %.loopexit, %.critedge.loopexit148, %39
+  %.6 = phi i64 [ 0, %39 ], [ %94, %.critedge.loopexit148 ], [ %spec.select122, %.loopexit ]
   %95 = trunc nuw i64 %.6 to i32
   ret i32 %95
 }

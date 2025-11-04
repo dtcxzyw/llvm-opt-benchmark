@@ -280,7 +280,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 162, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 217, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 23:                                               ; preds = %6
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -305,7 +305,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 217, ptr noundef null) #4
-  br label %.thread82
+  br label %.thread83
 
 34:                                               ; preds = %30
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.1, ptr noundef nonnull %14, i64 noundef 128) #4
@@ -316,7 +316,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %36 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %28, ptr noundef nonnull %13) #4
   %37 = icmp slt i32 %36, 1
-  br i1 %37, label %.thread82, label %38
+  br i1 %37, label %.thread83, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -328,7 +328,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 198, ptr noundef null) #4
-  br label %.thread82
+  br label %.thread83
 
 43:                                               ; preds = %38
   %.not67 = icmp eq ptr %1, null
@@ -346,7 +346,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 786691, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread82
+  br label %.thread83
 
 46:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -354,32 +354,32 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 47:                                               ; preds = %46, %43
   %.not69 = icmp eq ptr %2, null
-  br i1 %.not69, label %.thread89, label %48
+  br i1 %.not69, label %.thread90, label %48
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %14, ptr %17, align 8, !tbaa !25
   %49 = call ptr @d2i_X509_ALGOR(ptr noundef nonnull %8, ptr noundef nonnull %17, i64 noundef %40) #4
   %.not70 = icmp eq ptr %49, null
-  br i1 %.not70, label %.thread80, label %50
+  br i1 %.not70, label %.thread81, label %50
 
-.thread80:                                        ; preds = %48
+.thread81:                                        ; preds = %48
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 204, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 786691, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread82
+  br label %.thread83
 
 50:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.thread89
+  br label %.thread90
 
-.thread82:                                        ; preds = %33, %42, %34, %.thread, %.thread80
+.thread83:                                        ; preds = %33, %42, %34, %.thread, %.thread81
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread86
+  br label %.thread87
 
-.thread89:                                        ; preds = %50, %47
+.thread90:                                        ; preds = %50, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %92
@@ -388,18 +388,18 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 208
   %53 = load ptr, ptr %52, align 8, !tbaa !51
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %.thread87, label %54
+  br i1 %.not, label %.thread88, label %54
 
 54:                                               ; preds = %51
   %55 = tail call i32 %53(ptr noundef %5, ptr noundef %0, ptr noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %.thread84, label %59
+  br i1 %56, label %.thread85, label %59
 
-.thread84:                                        ; preds = %54
+.thread85:                                        ; preds = %54
   %57 = load i32, ptr %3, align 8, !tbaa !53
   %58 = sext i32 %57 to i64
   store i64 %58, ptr %10, align 8, !tbaa !28
-  br label %.thread86
+  br label %.thread87
 
 59:                                               ; preds = %54
   %60 = icmp slt i32 %55, 1
@@ -409,23 +409,23 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 222, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 62:                                               ; preds = %59
   %63 = icmp eq i32 %55, 2
-  br i1 %63, label %.thread87, label %92
+  br i1 %63, label %.thread88, label %92
 
-.thread87:                                        ; preds = %51, %62
+.thread88:                                        ; preds = %51, %62
   %64 = icmp eq ptr %18, null
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %.thread87
+65:                                               ; preds = %.thread88
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 217, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
-66:                                               ; preds = %.thread87
+66:                                               ; preds = %.thread88
   %67 = tail call i32 @EVP_PKEY_get_id(ptr noundef nonnull %20) #4
   %68 = icmp eq i32 %67, 1172
   br i1 %68, label %72, label %69
@@ -446,7 +446,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 198, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %24, align 8, !tbaa !29
@@ -463,7 +463,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %85 = call ptr @OBJ_nid2obj(i32 noundef %84) #4
   %86 = call i32 @X509_ALGOR_set0(ptr noundef nonnull %1, ptr noundef %85, i32 noundef %82, ptr noundef null) #4
   %.not74 = icmp eq i32 %86, 0
-  br i1 %.not74, label %.thread86, label %87
+  br i1 %.not74, label %.thread87, label %87
 
 87:                                               ; preds = %83, %77
   %.not75 = icmp eq ptr %2, null
@@ -474,9 +474,9 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %90 = call ptr @OBJ_nid2obj(i32 noundef %89) #4
   %91 = call i32 @X509_ALGOR_set0(ptr noundef nonnull %2, ptr noundef %90, i32 noundef %82, ptr noundef null) #4
   %.not76 = icmp eq i32 %91, 0
-  br i1 %.not76, label %.thread86, label %92
+  br i1 %.not76, label %.thread87, label %92
 
-92:                                               ; preds = %.thread89, %87, %88, %62
+92:                                               ; preds = %.thread90, %87, %88, %62
   %93 = call i32 @ASN1_item_i2d(ptr noundef %4, ptr noundef nonnull %9, ptr noundef %0) #4
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %95, label %96
@@ -486,7 +486,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 259, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 786691, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 96:                                               ; preds = %92
   %97 = zext nneg i32 %93 to i64
@@ -500,7 +500,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 101:                                              ; preds = %96
   %102 = load i64, ptr %11, align 8, !tbaa !28
@@ -514,7 +514,7 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 107:                                              ; preds = %101
   store i64 0, ptr %10, align 8, !tbaa !28
-  br label %.thread86
+  br label %.thread87
 
 108:                                              ; preds = %101
   %109 = call i32 @EVP_DigestSign(ptr noundef %5, ptr noundef nonnull %103, ptr noundef nonnull %10, ptr noundef nonnull %104, i64 noundef %97) #4
@@ -526,18 +526,18 @@ define i32 @ASN1_item_sign_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @__func__.ASN1_item_sign_ctx) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 524294, ptr noundef null) #4
-  br label %.thread86
+  br label %.thread87
 
 111:                                              ; preds = %108
   %112 = load i64, ptr %10, align 8, !tbaa !28
   %113 = trunc i64 %112 to i32
   call void @ASN1_STRING_set0(ptr noundef %3, ptr noundef nonnull %103, i32 noundef %113) #4
   call void @ossl_asn1_string_set_bits_left(ptr noundef %3, i32 noundef 0) #4
-  br label %.thread86
+  br label %.thread87
 
-.thread86:                                        ; preds = %61, %.thread84, %22, %65, %76, %95, %100, %107, %110, %111, %83, %88, %.thread82
-  %.053 = phi i64 [ 0, %22 ], [ 0, %65 ], [ 0, %95 ], [ %97, %107 ], [ %97, %111 ], [ %97, %110 ], [ %97, %100 ], [ 0, %88 ], [ 0, %83 ], [ 0, %76 ], [ 0, %.thread82 ], [ 0, %.thread84 ], [ 0, %61 ]
-  %.050 = phi ptr [ null, %22 ], [ null, %65 ], [ null, %95 ], [ %103, %107 ], [ null, %111 ], [ %103, %110 ], [ null, %100 ], [ null, %88 ], [ null, %83 ], [ null, %76 ], [ null, %.thread82 ], [ null, %.thread84 ], [ null, %61 ]
+.thread87:                                        ; preds = %61, %.thread85, %.thread83, %88, %83, %111, %110, %107, %100, %95, %76, %65, %22
+  %.053 = phi i64 [ 0, %22 ], [ 0, %65 ], [ 0, %95 ], [ %97, %107 ], [ %97, %111 ], [ %97, %110 ], [ %97, %100 ], [ 0, %88 ], [ 0, %83 ], [ 0, %76 ], [ 0, %.thread83 ], [ 0, %.thread85 ], [ 0, %61 ]
+  %.050 = phi ptr [ null, %22 ], [ null, %65 ], [ null, %95 ], [ %103, %107 ], [ null, %111 ], [ %103, %110 ], [ null, %100 ], [ null, %88 ], [ null, %83 ], [ null, %76 ], [ null, %.thread83 ], [ null, %.thread85 ], [ null, %61 ]
   %114 = load ptr, ptr %9, align 8, !tbaa !25
   call void @CRYPTO_clear_free(ptr noundef %114, i64 noundef %.053, ptr noundef nonnull @.str, i32 noundef 288) #4
   %115 = load i64, ptr %11, align 8, !tbaa !28

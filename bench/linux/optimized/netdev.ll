@@ -8806,16 +8806,16 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %300 = load i32, ptr %299, align 8
   %301 = and i32 %300, 1
   %302 = icmp eq i32 %301, 0
-  br i1 %302, label %..loopexit_crit_edge13, label %35, !llvm.loop !53
+  br i1 %302, label %..loopexit_crit_edge14, label %35, !llvm.loop !53
 
-..loopexit_crit_edge13:                           ; preds = %297
+..loopexit_crit_edge14:                           ; preds = %297
   br label %.loopexit, !llvm.loop !53
 
-.loopexit:                                        ; preds = %35, %19, %..loopexit_crit_edge13, %3
-  %303 = phi i32 [ %9, %3 ], [ %55, %..loopexit_crit_edge13 ], [ %9, %19 ], [ %55, %35 ]
-  %304 = phi i1 [ false, %3 ], [ true, %..loopexit_crit_edge13 ], [ false, %19 ], [ true, %35 ]
-  %305 = phi i32 [ 0, %3 ], [ %290, %..loopexit_crit_edge13 ], [ 0, %19 ], [ %290, %35 ]
-  %306 = phi i32 [ 0, %3 ], [ %291, %..loopexit_crit_edge13 ], [ 0, %19 ], [ %291, %35 ]
+.loopexit:                                        ; preds = %35, %19, %..loopexit_crit_edge14, %3
+  %303 = phi i32 [ %9, %3 ], [ %55, %..loopexit_crit_edge14 ], [ %9, %19 ], [ %55, %35 ]
+  %304 = phi i1 [ false, %3 ], [ true, %..loopexit_crit_edge14 ], [ false, %19 ], [ true, %35 ]
+  %305 = phi i32 [ 0, %3 ], [ %290, %..loopexit_crit_edge14 ], [ 0, %19 ], [ %290, %35 ]
+  %306 = phi i32 [ 0, %3 ], [ %291, %..loopexit_crit_edge14 ], [ 0, %19 ], [ %291, %35 ]
   %307 = trunc i32 %303 to i16
   store i16 %307, ptr %7, align 2
   %308 = and i32 %303, 65535
@@ -8849,7 +8849,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   tail call void %327(ptr noundef %0, i32 noundef %323, i32 noundef 2080) #22
   br label %328
 
-328:                                              ; preds = %322, %325
+328:                                              ; preds = %325, %322
   %329 = getelementptr inbounds nuw i8, ptr %4, i64 1220
   %330 = load i32, ptr %329, align 4
   %331 = add i32 %330, %305

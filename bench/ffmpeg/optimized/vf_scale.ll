@@ -1784,23 +1784,23 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %83 = load i32, ptr %82, align 16
   %84 = icmp ne i32 %83, 0
   %or.cond15 = select i1 %or.cond12, i1 true, i1 %84
-  br i1 %or.cond15, label %.thread152, label %85
+  br i1 %or.cond15, label %.thread153, label %85
 
 85:                                               ; preds = %69
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %87 = load i32, ptr %86, align 8, !tbaa !35
   %.not131 = icmp eq i32 %87, 0
-  br i1 %.not131, label %.thread152, label %88
+  br i1 %.not131, label %.thread153, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 116
   %90 = load i32, ptr %89, align 4, !tbaa !36
   %.not132 = icmp eq i32 %90, 0
-  br i1 %.not132, label %.thread152, label %166
+  br i1 %.not132, label %.thread153, label %166
 
 91:                                               ; preds = %58
   %92 = icmp eq i32 %67, 0
-  br i1 %92, label %93, label %.thread152
+  br i1 %92, label %93, label %.thread153
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 112
@@ -1815,16 +1815,16 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %103 = load ptr, ptr %102, align 8, !tbaa !33
   %104 = call fastcc i32 @scale_parse_expr(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @.str.16, ptr noundef %103)
   %105 = icmp slt i32 %104, 0
-  br i1 %105, label %.thread154, label %106
+  br i1 %105, label %.thread155, label %106
 
 106:                                              ; preds = %93
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %108 = load ptr, ptr %107, align 8, !tbaa !34
   %109 = call fastcc i32 @scale_parse_expr(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @.str.17, ptr noundef %108)
   %110 = icmp slt i32 %109, 0
-  br i1 %110, label %.thread154, label %.thread152
+  br i1 %110, label %.thread155, label %.thread153
 
-.thread152:                                       ; preds = %69, %85, %88, %106, %91
+.thread153:                                       ; preds = %69, %85, %88, %106, %91
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !31
   %113 = icmp eq ptr %112, @ff_vf_scale2ref
@@ -1833,45 +1833,45 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %116 = sitofp i64 %115 to double
   br i1 %113, label %117, label %123
 
-117:                                              ; preds = %.thread152
+117:                                              ; preds = %.thread153
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 504
   store double %116, ptr %118, align 8, !tbaa !54
   %119 = load ptr, ptr %5, align 8, !tbaa !112
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 136
   %121 = load i64, ptr %120, align 8, !tbaa !127
   %122 = icmp eq i64 %121, -9223372036854775808
-  br i1 %122, label %136, label %.sink.split177
+  br i1 %122, label %136, label %.sink.split178
 
-123:                                              ; preds = %.thread152
+123:                                              ; preds = %.thread153
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 320
   store double %116, ptr %124, align 8, !tbaa !54
   %125 = load ptr, ptr %5, align 8, !tbaa !112
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 136
   %127 = load i64, ptr %126, align 8, !tbaa !127
   %128 = icmp eq i64 %127, -9223372036854775808
-  br i1 %128, label %136, label %.sink.split177
+  br i1 %128, label %136, label %.sink.split178
 
-.sink.split177:                                   ; preds = %123, %117
-  %.sink185 = phi i64 [ %121, %117 ], [ %127, %123 ]
-  %.sink175.ph = phi i64 [ 512, %117 ], [ 328, %123 ]
+.sink.split178:                                   ; preds = %123, %117
+  %.sink186 = phi i64 [ %121, %117 ], [ %127, %123 ]
+  %.sink176.ph = phi i64 [ 512, %117 ], [ 328, %123 ]
   %.ph = phi ptr [ %119, %117 ], [ %125, %123 ]
-  %129 = sitofp i64 %.sink185 to double
+  %129 = sitofp i64 %.sink186 to double
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %131 = load i64, ptr %130, align 8
-  %.sroa.0.0.extract.trunc.i147 = trunc i64 %131 to i32
-  %.sroa.2.0.extract.shift.i148 = lshr i64 %131, 32
-  %.sroa.2.0.extract.trunc.i149 = trunc nuw i64 %.sroa.2.0.extract.shift.i148 to i32
-  %132 = sitofp i32 %.sroa.0.0.extract.trunc.i147 to double
-  %133 = sitofp i32 %.sroa.2.0.extract.trunc.i149 to double
+  %.sroa.0.0.extract.trunc.i148 = trunc i64 %131 to i32
+  %.sroa.2.0.extract.shift.i149 = lshr i64 %131, 32
+  %.sroa.2.0.extract.trunc.i150 = trunc nuw i64 %.sroa.2.0.extract.shift.i149 to i32
+  %132 = sitofp i32 %.sroa.0.0.extract.trunc.i148 to double
+  %133 = sitofp i32 %.sroa.2.0.extract.trunc.i150 to double
   %134 = fdiv nsz double %132, %133
   %135 = fmul nsz double %134, %129
   br label %136
 
-136:                                              ; preds = %.sink.split177, %123, %117
-  %.sink175 = phi i64 [ 512, %117 ], [ 328, %123 ], [ %.sink175.ph, %.sink.split177 ]
-  %.sink = phi double [ 0x7FF8000000000000, %117 ], [ 0x7FF8000000000000, %123 ], [ %135, %.sink.split177 ]
-  %137 = phi ptr [ %119, %117 ], [ %125, %123 ], [ %.ph, %.sink.split177 ]
-  %138 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink175
+136:                                              ; preds = %.sink.split178, %123, %117
+  %.sink176 = phi i64 [ 512, %117 ], [ 328, %123 ], [ %.sink176.ph, %.sink.split178 ]
+  %.sink = phi double [ 0x7FF8000000000000, %117 ], [ 0x7FF8000000000000, %123 ], [ %135, %.sink.split178 ]
+  %137 = phi ptr [ %119, %117 ], [ %125, %123 ], [ %.ph, %.sink.split178 ]
+  %138 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink176
   store double %.sink, ptr %138, align 8, !tbaa !54
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 116
   %140 = load i32, ptr %139, align 4, !tbaa !119
@@ -1907,9 +1907,9 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   store i32 %162, ptr %163, align 8, !tbaa !93
   %164 = call i32 @config_props(ptr noundef %15)
   %165 = icmp slt i32 %164, 0
-  br i1 %165, label %.thread154, label %166
+  br i1 %165, label %.thread155, label %166
 
-.thread154:                                       ; preds = %93, %106, %136
+.thread155:                                       ; preds = %93, %106, %136
   %.0111.ph = phi i32 [ %109, %106 ], [ %104, %93 ], [ %164, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2010,8 +2010,8 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %210, %213
-  %.sink176 = phi i32 [ %214, %213 ], [ %211, %210 ]
-  store i32 %.sink176, ptr %205, align 4, !tbaa !137
+  %.sink177 = phi i32 [ %214, %213 ], [ %211, %210 ]
+  store i32 %.sink177, ptr %205, align 4, !tbaa !137
   br label %215
 
 215:                                              ; preds = %.sink.split, %212
@@ -2079,11 +2079,11 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %249 = getelementptr inbounds nuw i8, ptr %180, i64 264
   %250 = getelementptr inbounds nuw i8, ptr %180, i64 272
   call void @av_frame_side_data_remove_by_props(ptr noundef nonnull %249, ptr noundef nonnull %250, i32 noundef 4) #14
-  %.pre157 = load ptr, ptr %5, align 8, !tbaa !112
+  %.pre158 = load ptr, ptr %5, align 8, !tbaa !112
   br label %251
 
 251:                                              ; preds = %248, %245
-  %252 = phi ptr [ %.pre157, %248 ], [ %242, %245 ]
+  %252 = phi ptr [ %.pre158, %248 ], [ %242, %245 ]
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 284
   %254 = load i32, ptr %253, align 4, !tbaa !132
   %255 = getelementptr inbounds nuw i8, ptr %180, i64 284
@@ -2103,11 +2103,11 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %263 = getelementptr inbounds nuw i8, ptr %180, i64 264
   %264 = getelementptr inbounds nuw i8, ptr %180, i64 272
   call void @av_frame_side_data_remove_by_props(ptr noundef nonnull %263, ptr noundef nonnull %264, i32 noundef 8) #14
-  %.pre158 = load ptr, ptr %5, align 8, !tbaa !112
+  %.pre159 = load ptr, ptr %5, align 8, !tbaa !112
   br label %265
 
 265:                                              ; preds = %262, %257
-  %266 = phi ptr [ %.pre158, %262 ], [ %252, %257 ]
+  %266 = phi ptr [ %.pre159, %262 ], [ %252, %257 ]
   %267 = getelementptr inbounds nuw i8, ptr %180, i64 124
   %268 = getelementptr inbounds nuw i8, ptr %180, i64 128
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 124
@@ -2154,11 +2154,11 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
   %299 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %300 = load ptr, ptr %299, align 8, !tbaa !79
   %301 = call i32 @avpriv_set_systematic_pal2(ptr noundef %300, i32 noundef 17) #14
-  %.pre159 = load ptr, ptr %4, align 8, !tbaa !112
+  %.pre160 = load ptr, ptr %4, align 8, !tbaa !112
   br label %302
 
 302:                                              ; preds = %298, %294
-  %303 = phi ptr [ %.pre159, %298 ], [ %180, %294 ]
+  %303 = phi ptr [ %.pre160, %298 ], [ %180, %294 ]
   %304 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %305 = load ptr, ptr %304, align 8, !tbaa !20
   %306 = load ptr, ptr %5, align 8, !tbaa !112
@@ -2176,16 +2176,16 @@ define internal fastcc i32 @scale_frame(ptr noundef readonly captures(none) %0, 
 
 314:                                              ; preds = %302
   call void @av_frame_free(ptr noundef nonnull %4) #14
-  %.pre160 = load ptr, ptr %4, align 8, !tbaa !112
+  %.pre161 = load ptr, ptr %4, align 8, !tbaa !112
   br label %315
 
 315:                                              ; preds = %314, %302
-  %316 = phi ptr [ %.pre160, %314 ], [ %308, %302 ]
+  %316 = phi ptr [ %.pre161, %314 ], [ %308, %302 ]
   store ptr %316, ptr %2, align 8, !tbaa !112
   br label %318
 
-317:                                              ; preds = %.thread154, %167
-  %.1 = phi i32 [ -12, %167 ], [ %.0111.ph, %.thread154 ]
+317:                                              ; preds = %.thread155, %167
+  %.1 = phi i32 [ -12, %167 ], [ %.0111.ph, %.thread155 ]
   call void @av_frame_free(ptr noundef nonnull %5) #14
   br label %318
 

@@ -1266,28 +1266,28 @@ reftable_ref_record_release.exit:                 ; preds = %3, %3, %3, %7
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %20, i64 %16)
   %21 = tail call ptr @reftable_realloc(ptr noundef %.0.copyload, i64 noundef %spec.select.i) #17
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %reftable_alloc_grow.exit, label %.thread85
+  br i1 %.not.i, label %reftable_alloc_grow.exit, label %.thread87
 
-.thread85:                                        ; preds = %18
+.thread87:                                        ; preds = %18
   store ptr %21, ptr %0, align 8, !tbaa !24
   store i64 %spec.select.i, ptr %4, align 8, !tbaa !42
-  %.pre91 = load ptr, ptr %1, align 8, !tbaa !24
+  %.pre92 = load ptr, ptr %1, align 8, !tbaa !24
   br label %22
 
 reftable_alloc_grow.exit:                         ; preds = %18
   store ptr %.0.copyload, ptr %0, align 8, !tbaa !24
   tail call void @reftable_free(ptr noundef %.0.copyload) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %.thread88
+  br label %.thread90
 
 thread-pre-split:                                 ; preds = %14
   store i64 %.0.copyload71, ptr %4, align 8, !tbaa !42
   %.not76 = icmp eq ptr %.0.copyload, null
-  br i1 %.not76, label %.thread88, label %22
+  br i1 %.not76, label %.thread90, label %22
 
-22:                                               ; preds = %thread-pre-split, %.thread85
-  %23 = phi ptr [ %.pre91, %.thread85 ], [ %13, %thread-pre-split ]
-  %24 = phi ptr [ %21, %.thread85 ], [ %.0.copyload, %thread-pre-split ]
+22:                                               ; preds = %thread-pre-split, %.thread87
+  %23 = phi ptr [ %.pre92, %.thread87 ], [ %13, %thread-pre-split ]
+  %24 = phi ptr [ %21, %.thread87 ], [ %.0.copyload, %thread-pre-split ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %23, i64 %15, i1 false)
   %25 = load ptr, ptr %0, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %15
@@ -1332,14 +1332,14 @@ thread-pre-split:                                 ; preds = %14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %46, ptr %47, align 8, !tbaa !12
   %.not77 = icmp eq ptr %46, null
-  br i1 %.not77, label %.thread88, label %48
+  br i1 %.not77, label %.thread90, label %48
 
 48:                                               ; preds = %43, %37, %33, %27
-  br label %.thread88
+  br label %.thread90
 
-.thread88:                                        ; preds = %reftable_alloc_grow.exit, %thread-pre-split, %48, %43
-  %.067 = phi i32 [ 0, %48 ], [ -13, %43 ], [ -13, %thread-pre-split ], [ -13, %reftable_alloc_grow.exit ]
-  ret i32 %.067
+.thread90:                                        ; preds = %reftable_alloc_grow.exit, %thread-pre-split, %48, %43
+  %.1 = phi i32 [ 0, %48 ], [ -13, %43 ], [ -13, %thread-pre-split ], [ -13, %reftable_alloc_grow.exit ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1611,10 +1611,10 @@ reftable_ref_record_release.exit:                 ; preds = %26, %26, %26, %33
   %45 = or disjoint i64 %44, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %45, i64 %41)
   %46 = tail call ptr @reftable_realloc(ptr noundef %.0.copyload, i64 noundef %spec.select.i) #17
-  %.not.i76 = icmp eq ptr %46, null
-  br i1 %.not.i76, label %reftable_alloc_grow.exit, label %.thread106
+  %.not.i77 = icmp eq ptr %46, null
+  br i1 %.not.i77, label %reftable_alloc_grow.exit, label %.thread107
 
-.thread106:                                       ; preds = %43
+.thread107:                                       ; preds = %43
   store ptr %46, ptr %0, align 8, !tbaa !24
   store i64 %spec.select.i, ptr %30, align 8, !tbaa !42
   br label %47
@@ -1630,8 +1630,8 @@ thread-pre-split:                                 ; preds = %reftable_ref_record
   %.not = icmp eq ptr %.0.copyload, null
   br i1 %.not, label %get_var_int.exit.thread, label %47
 
-47:                                               ; preds = %.thread106, %thread-pre-split
-  %48 = phi ptr [ %46, %.thread106 ], [ %.0.copyload, %thread-pre-split ]
+47:                                               ; preds = %.thread107, %thread-pre-split
+  %48 = phi ptr [ %46, %.thread107 ], [ %.0.copyload, %thread-pre-split ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %50, i64 %40, i1 false)
@@ -2390,9 +2390,9 @@ define internal i32 @reftable_log_record_decode(ptr noundef captures(none) %0, p
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %23)
   %29 = tail call ptr @reftable_realloc(ptr noundef %25, i64 noundef %spec.select.i) #17
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %reftable_alloc_grow.exit, label %.thread136
+  br i1 %.not.i, label %reftable_alloc_grow.exit, label %.thread137
 
-.thread136:                                       ; preds = %26
+.thread137:                                       ; preds = %26
   store ptr %29, ptr %0, align 8, !tbaa !25
   store i64 %spec.select.i, ptr %21, align 8, !tbaa !45
   br label %30
@@ -2407,8 +2407,8 @@ thread-pre-split:                                 ; preds = %20
   %.not107 = icmp eq ptr %25, null
   br i1 %.not107, label %decode_string.exit.thread, label %30
 
-30:                                               ; preds = %.thread136, %thread-pre-split
-  %31 = phi ptr [ %29, %.thread136 ], [ %25, %thread-pre-split ]
+30:                                               ; preds = %.thread137, %thread-pre-split
+  %31 = phi ptr [ %29, %.thread137 ], [ %25, %thread-pre-split ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %16, i64 %23, i1 false)
   %32 = getelementptr inbounds i8, ptr %17, i64 -8
   %33 = load i8, ptr %32, align 1, !tbaa !12
@@ -2557,8 +2557,8 @@ decode_string.exit:                               ; preds = %119
   %.neg.i = add i64 %.0.lcssa.i.i, %96
   %123 = sub i64 %.neg.i, %117
   %124 = and i64 %123, 2147483648
-  %.not147 = icmp eq i64 %124, 0
-  br i1 %.not147, label %125, label %decode_string.exit.thread
+  %.not146 = icmp eq i64 %124, 0
+  br i1 %.not146, label %125, label %decode_string.exit.thread
 
 125:                                              ; preds = %decode_string.exit
   %126 = and i64 %123, 2147483647
@@ -2582,9 +2582,9 @@ decode_string.exit:                               ; preds = %119
   %138 = add i64 %137, 1
   %139 = tail call ptr @reftable_realloc(ptr noundef %130, i64 noundef %138) #17
   %.not111 = icmp eq ptr %139, null
-  br i1 %.not111, label %decode_string.exit.thread, label %.thread140
+  br i1 %.not111, label %decode_string.exit.thread, label %.thread141
 
-.thread140:                                       ; preds = %135
+.thread141:                                       ; preds = %135
   store ptr %139, ptr %129, align 8, !tbaa !12
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !23
@@ -2596,7 +2596,7 @@ decode_string.exit:                               ; preds = %119
   store i8 0, ptr %145, align 1, !tbaa !12
   br label %146
 
-146:                                              ; preds = %.thread140, %131
+146:                                              ; preds = %.thread141, %131
   %147 = tail call fastcc i32 @decode_string(ptr noundef nonnull %6, ptr nonnull %127, i64 %128)
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %decode_string.exit.thread, label %149
@@ -2658,10 +2658,10 @@ decode_string.exit:                               ; preds = %119
   %180 = getelementptr inbounds nuw i8, ptr %151, i64 %174
   %.val = load i8, ptr %180, align 1, !tbaa !12
   %181 = getelementptr i8, ptr %180, i64 1
-  %.val119 = load i8, ptr %181, align 1, !tbaa !12
+  %.val120 = load i8, ptr %181, align 1, !tbaa !12
   %182 = zext i8 %.val to i16
   %183 = shl nuw i16 %182, 8
-  %184 = zext i8 %.val119 to i16
+  %184 = zext i8 %.val120 to i16
   %185 = or disjoint i16 %183, %184
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i16 %185, ptr %186, align 8, !tbaa !12
@@ -2682,30 +2682,30 @@ decode_string.exit:                               ; preds = %119
   %198 = icmp ugt i64 %197, %194
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %200 = load ptr, ptr %199, align 8, !tbaa !12
-  br i1 %198, label %reftable_alloc_grow.exit123, label %._crit_edge
+  br i1 %198, label %reftable_alloc_grow.exit124, label %._crit_edge
 
-reftable_alloc_grow.exit123:                      ; preds = %191
+reftable_alloc_grow.exit124:                      ; preds = %191
   %201 = shl i64 %194, 1
   %202 = or disjoint i64 %201, 1
-  %spec.select.i120 = tail call i64 @llvm.umax.i64(i64 %202, i64 %197)
-  %203 = tail call ptr @reftable_realloc(ptr noundef %200, i64 noundef %spec.select.i120) #17
-  %.not.i121 = icmp eq ptr %203, null
-  %spec.select = select i1 %.not.i121, i64 %194, i64 %spec.select.i120
-  %spec.select146 = select i1 %.not.i121, ptr %200, ptr %203
-  store ptr %spec.select146, ptr %199, align 8, !tbaa !12
+  %spec.select.i121 = tail call i64 @llvm.umax.i64(i64 %202, i64 %197)
+  %203 = tail call ptr @reftable_realloc(ptr noundef %200, i64 noundef %spec.select.i121) #17
+  %.not.i122 = icmp eq ptr %203, null
+  %spec.select = select i1 %.not.i122, i64 %194, i64 %spec.select.i121
+  %spec.select145 = select i1 %.not.i122, ptr %200, ptr %203
+  store ptr %spec.select145, ptr %199, align 8, !tbaa !12
   %204 = load i64, ptr %195, align 8, !tbaa !20
   %205 = add i64 %204, 1
   %206 = icmp ugt i64 %205, %spec.select
   br i1 %206, label %.thread, label %._crit_edge
 
-.thread:                                          ; preds = %reftable_alloc_grow.exit123
-  tail call void @reftable_free(ptr noundef %spec.select146) #17
+.thread:                                          ; preds = %reftable_alloc_grow.exit124
+  tail call void @reftable_free(ptr noundef %spec.select145) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
   br label %decode_string.exit.thread
 
-._crit_edge:                                      ; preds = %191, %reftable_alloc_grow.exit123
-  %207 = phi ptr [ %spec.select146, %reftable_alloc_grow.exit123 ], [ %200, %191 ]
-  %storemerge115 = phi i64 [ %spec.select, %reftable_alloc_grow.exit123 ], [ %194, %191 ]
+._crit_edge:                                      ; preds = %191, %reftable_alloc_grow.exit124
+  %207 = phi ptr [ %spec.select145, %reftable_alloc_grow.exit124 ], [ %200, %191 ]
+  %storemerge115 = phi i64 [ %spec.select, %reftable_alloc_grow.exit124 ], [ %194, %191 ]
   store i64 %storemerge115, ptr %193, align 8, !tbaa !12
   %.not116 = icmp eq ptr %207, null
   br i1 %.not116, label %decode_string.exit.thread, label %208

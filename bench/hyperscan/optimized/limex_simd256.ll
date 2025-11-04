@@ -7223,9 +7223,9 @@ define internal fastcc void @nfaExecLimEx256_Rev_Stream(ptr noundef %0, ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 128
   br label %40
 
 40:                                               ; preds = %5, %processExceptional256.exit.thread
@@ -7368,9 +7368,9 @@ lshift64_m256.exit93:                             ; preds = %lshift64_m256.exit9
   br i1 %.not189, label %125, label %138
 
 125:                                              ; preds = %119
-  %126 = load <4 x i64>, ptr %38, align 32
+  %126 = load <4 x i64>, ptr %37, align 32
   %127 = or <4 x i64> %126, %.6
-  %128 = load ptr, ptr %39, align 8
+  %128 = load ptr, ptr %38, align 8
   %.not54.i = icmp eq ptr %128, null
   br i1 %.not54.i, label %processExceptional256.exit.thread, label %129
 
@@ -7531,9 +7531,9 @@ limexRunReports.exit.i97:                         ; preds = %178, %172
 
 200:                                              ; preds = %198
   store <4 x i64> %110, ptr %33, align 64
-  store <4 x i64> %189, ptr %38, align 32
-  store ptr %.sroa.4119.6, ptr %39, align 8
-  store i8 0, ptr %37, align 64
+  store <4 x i64> %189, ptr %37, align 32
+  store ptr %.sroa.4119.6, ptr %38, align 8
+  store i8 0, ptr %39, align 64
   br label %processExceptional256.exit.thread160
 
 processExceptional256.exit.thread160:             ; preds = %198, %200

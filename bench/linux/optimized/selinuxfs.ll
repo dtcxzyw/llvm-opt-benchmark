@@ -917,7 +917,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 53:                                               ; preds = %44
   %54 = ptrtoint ptr %51 to i64
   %55 = trunc i64 %54 to i32
-  br label %.thread52
+  br label %.thread54
 
 56:                                               ; preds = %44
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -935,7 +935,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 66:                                               ; preds = %56
   %67 = ptrtoint ptr %64 to i64
   %68 = trunc i64 %67 to i32
-  br label %.thread52
+  br label %.thread54
 
 69:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -945,25 +945,25 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %70 = tail call i64 @get_zeroed_page(i32 noundef 3264) #14
   %71 = inttoptr i64 %70 to ptr
   %72 = icmp eq i64 %70, 0
-  br i1 %72, label %.thread31, label %73
+  br i1 %72, label %.thread33, label %73
 
-.thread31:                                        ; preds = %69
+.thread33:                                        ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread52
+  br label %.thread54
 
 73:                                               ; preds = %69
   %74 = call i32 @security_get_bools(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10) #14
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %.thread36
+  br i1 %75, label %76, label %.thread38
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %8, align 4
   %78 = load ptr, ptr %7, align 8
   %79 = icmp eq i32 %77, 0
-  br i1 %79, label %.thread37, label %80
+  br i1 %79, label %.thread39, label %80
 
-.thread37:                                        ; preds = %76
+.thread39:                                        ; preds = %76
   call void @free_pages(i64 noundef %70, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %71, i64 noundef 4096, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.24, ptr noundef %98) #14
   %100 = icmp ugt i32 %99, 4095
-  br i1 %100, label %.thread30, label %101
+  br i1 %100, label %.thread32, label %101
 
 101:                                              ; preds = %94
   %102 = load ptr, ptr %7, align 8
@@ -1010,7 +1010,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr @d_alloc_name(ptr noundef %51, ptr noundef %104) #14
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread30, label %107
+  br i1 %106, label %.thread32, label %107
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr %81, align 8
@@ -1038,7 +1038,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 
 122:                                              ; preds = %107
   call void @dput(ptr noundef nonnull %105) #14
-  br label %.thread30
+  br label %.thread32
 
 123:                                              ; preds = %111
   %124 = call i32 @___ratelimit(ptr noundef nonnull @sel_make_bools._rs, ptr noundef nonnull @__func__.sel_make_bools) #14
@@ -1053,15 +1053,15 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   store i32 2, ptr %9, align 4
   br label %82
 
-.thread30:                                        ; preds = %94, %101, %122
+.thread32:                                        ; preds = %94, %101, %122
   %.ph = phi i32 [ -12, %122 ], [ -36, %94 ], [ -12, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread36
+  br label %.thread38
 
-.thread36:                                        ; preds = %73, %.thread30
-  %.ph33 = phi i32 [ %77, %.thread30 ], [ 0, %73 ]
-  %.ph34 = phi ptr [ %78, %.thread30 ], [ null, %73 ]
-  %.ph35 = phi i32 [ %.ph, %.thread30 ], [ %74, %73 ]
+.thread38:                                        ; preds = %73, %.thread32
+  %.ph35 = phi i32 [ %77, %.thread32 ], [ 0, %73 ]
+  %.ph36 = phi ptr [ %78, %.thread32 ], [ null, %73 ]
+  %.ph37 = phi i32 [ %.ph, %.thread32 ], [ %74, %73 ]
   call void @free_pages(i64 noundef %70, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1073,7 +1073,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %121, label %130, label %269
 
-130:                                              ; preds = %.thread37, %129
+130:                                              ; preds = %.thread39, %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !12
@@ -1081,9 +1081,9 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   store ptr null, ptr %6, align 8, !annotation !12
   %132 = call i32 @security_get_classes(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #14
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %.thread49
+  br i1 %133, label %134, label %.thread51
 
-.thread49:                                        ; preds = %130
+.thread51:                                        ; preds = %130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %269
@@ -1097,9 +1097,9 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %140 = zext nneg i32 %139 to i64
   store i64 %140, ptr %131, align 8
   %141 = icmp eq i32 %135, 0
-  br i1 %141, label %thread-pre-split, label %.preheader56
+  br i1 %141, label %thread-pre-split, label %.preheader58
 
-.preheader56:                                     ; preds = %134, %233
+.preheader58:                                     ; preds = %134, %233
   %142 = phi i64 [ %234, %233 ], [ 0, %134 ]
   %143 = load ptr, ptr %6, align 8
   %144 = getelementptr ptr, ptr %143, i64 %142
@@ -1108,12 +1108,12 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %147 = icmp ugt ptr %146, inttoptr (i64 -4096 to ptr)
   br i1 %147, label %148, label %151
 
-148:                                              ; preds = %.preheader56
+148:                                              ; preds = %.preheader58
   %149 = ptrtoint ptr %146 to i64
   %150 = trunc i64 %149 to i32
   br label %thread-pre-split
 
-151:                                              ; preds = %.preheader56
+151:                                              ; preds = %.preheader58
   %152 = load ptr, ptr %6, align 8
   %153 = getelementptr ptr, ptr %152, i64 %142
   %154 = load ptr, ptr %153, align 8
@@ -1171,7 +1171,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 185:                                              ; preds = %182
   %186 = load i32, ptr %3, align 4
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %.thread40, label %188
+  br i1 %187, label %.thread42, label %188
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %176, i64 112
@@ -1185,7 +1185,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %195 = load ptr, ptr %194, align 8
   %196 = call ptr @d_alloc_name(ptr noundef %176, ptr noundef %195) #14
   %197 = icmp eq ptr %196, null
-  br i1 %197, label %.thread39, label %198
+  br i1 %197, label %.thread41, label %198
 
 198:                                              ; preds = %191
   %199 = load ptr, ptr %189, align 8
@@ -1195,11 +1195,11 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 
 202:                                              ; preds = %198
   call void @dput(ptr noundef nonnull %196) #14
-  br label %.thread39
+  br label %.thread41
 
-.thread39:                                        ; preds = %191, %202
+.thread41:                                        ; preds = %191, %202
   %.pr = load i32, ptr %3, align 4
-  br label %.loopexit55
+  br label %.loopexit57
 
 203:                                              ; preds = %198
   store i16 -32476, ptr %200, align 8
@@ -1217,16 +1217,16 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %212 = load i32, ptr %3, align 4
   %213 = zext i32 %212 to i64
   %214 = icmp samesign ult i64 %211, %213
-  br i1 %214, label %191, label %.loopexit55, !llvm.loop !18
+  br i1 %214, label %191, label %.loopexit57, !llvm.loop !18
 
-.loopexit55:                                      ; preds = %203, %.thread39
-  %215 = phi i32 [ %.pr, %.thread39 ], [ %212, %203 ]
-  %216 = phi i32 [ -12, %.thread39 ], [ 0, %203 ]
+.loopexit57:                                      ; preds = %203, %.thread41
+  %215 = phi i32 [ %.pr, %.thread41 ], [ %212, %203 ]
+  %216 = phi i32 [ -12, %.thread41 ], [ 0, %203 ]
   %217 = icmp eq i32 %215, 0
-  br i1 %217, label %.thread40, label %.preheader54
+  br i1 %217, label %.thread42, label %.preheader56
 
-.preheader54:                                     ; preds = %.loopexit55, %.preheader54
-  %218 = phi i64 [ %222, %.preheader54 ], [ 0, %.loopexit55 ]
+.preheader56:                                     ; preds = %.loopexit57, %.preheader56
+  %218 = phi i64 [ %222, %.preheader56 ], [ 0, %.loopexit57 ]
   %219 = load ptr, ptr %4, align 8
   %220 = getelementptr ptr, ptr %219, i64 %218
   %221 = load ptr, ptr %220, align 8
@@ -1235,16 +1235,16 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %223 = load i32, ptr %3, align 4
   %224 = zext i32 %223 to i64
   %225 = icmp samesign ult i64 %222, %224
-  br i1 %225, label %.preheader54, label %.thread40, !llvm.loop !19
+  br i1 %225, label %.preheader56, label %.thread42, !llvm.loop !19
 
-.thread40:                                        ; preds = %.preheader54, %185, %.loopexit55
-  %226 = phi i32 [ %216, %.loopexit55 ], [ 0, %185 ], [ %216, %.preheader54 ]
+.thread42:                                        ; preds = %.preheader56, %185, %.loopexit57
+  %226 = phi i32 [ %216, %.loopexit57 ], [ 0, %185 ], [ %216, %.preheader56 ]
   %227 = load ptr, ptr %4, align 8
   call void @kfree(ptr noundef %227) #14
   br label %228
 
-228:                                              ; preds = %.thread40, %182
-  %229 = phi i32 [ %226, %.thread40 ], [ %183, %182 ]
+228:                                              ; preds = %.thread42, %182
+  %229 = phi i32 [ %226, %.thread42 ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %230
@@ -1260,21 +1260,21 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %235 = load i32, ptr %5, align 4
   %236 = zext i32 %235 to i64
   %237 = icmp samesign ult i64 %234, %236
-  br i1 %237, label %.preheader56, label %.loopexit57, !llvm.loop !20
+  br i1 %237, label %.preheader58, label %.loopexit59, !llvm.loop !20
 
 thread-pre-split:                                 ; preds = %151, %230, %178, %148, %134
-  %.ph47 = phi i32 [ 0, %134 ], [ %150, %148 ], [ -12, %178 ], [ -12, %151 ], [ %.fr, %230 ]
-  %.pr48 = load i32, ptr %5, align 4
-  br label %.loopexit57
+  %.ph49 = phi i32 [ 0, %134 ], [ %150, %148 ], [ -12, %178 ], [ -12, %151 ], [ %.fr, %230 ]
+  %.pr50 = load i32, ptr %5, align 4
+  br label %.loopexit59
 
-.loopexit57:                                      ; preds = %233, %thread-pre-split
-  %238 = phi i32 [ %.pr48, %thread-pre-split ], [ %235, %233 ]
-  %239 = phi i32 [ %.ph47, %thread-pre-split ], [ 0, %233 ]
+.loopexit59:                                      ; preds = %233, %thread-pre-split
+  %238 = phi i32 [ %.pr50, %thread-pre-split ], [ %235, %233 ]
+  %239 = phi i32 [ %.ph49, %thread-pre-split ], [ 0, %233 ]
   %240 = icmp eq i32 %238, 0
-  br i1 %240, label %.loopexit53, label %.preheader
+  br i1 %240, label %.loopexit55, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit57, %.preheader
-  %241 = phi i64 [ %245, %.preheader ], [ 0, %.loopexit57 ]
+.preheader:                                       ; preds = %.loopexit59, %.preheader
+  %241 = phi i64 [ %245, %.preheader ], [ 0, %.loopexit59 ]
   %242 = load ptr, ptr %6, align 8
   %243 = getelementptr ptr, ptr %242, i64 %241
   %244 = load ptr, ptr %243, align 8
@@ -1283,9 +1283,9 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   %246 = load i32, ptr %5, align 4
   %247 = zext i32 %246 to i64
   %248 = icmp samesign ult i64 %245, %247
-  br i1 %248, label %.preheader, label %.loopexit53, !llvm.loop !21
+  br i1 %248, label %.preheader, label %.loopexit55, !llvm.loop !21
 
-.loopexit53:                                      ; preds = %.preheader, %.loopexit57
+.loopexit55:                                      ; preds = %.preheader, %.loopexit59
   %249 = load ptr, ptr %6, align 8
   call void @kfree(ptr noundef %249) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1293,7 +1293,7 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   %250 = icmp eq i32 %239, 0
   br i1 %250, label %251, label %269
 
-251:                                              ; preds = %.loopexit53
+251:                                              ; preds = %.loopexit55
   %252 = load ptr, ptr %14, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 104
   %254 = load ptr, ptr %253, align 8
@@ -1321,15 +1321,15 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   call void @unlock_rename(ptr noundef nonnull %18, ptr noundef %267) #14
   br label %269
 
-.thread52:                                        ; preds = %53, %66, %.thread31
-  %.ph51 = phi i32 [ -12, %.thread31 ], [ %68, %66 ], [ %55, %53 ]
+.thread54:                                        ; preds = %53, %66, %.thread33
+  %.ph53 = phi i32 [ -12, %.thread33 ], [ %68, %66 ], [ %55, %53 ]
   %268 = load ptr, ptr %10, align 8
   br label %.loopexit
 
-269:                                              ; preds = %.thread49, %.thread36, %251, %.loopexit53, %129
-  %270 = phi i32 [ %258, %251 ], [ %77, %.loopexit53 ], [ %77, %129 ], [ %.ph33, %.thread36 ], [ %77, %.thread49 ]
-  %271 = phi ptr [ %260, %251 ], [ %78, %.loopexit53 ], [ %78, %129 ], [ %.ph34, %.thread36 ], [ %78, %.thread49 ]
-  %272 = phi i32 [ 0, %251 ], [ %239, %.loopexit53 ], [ %120, %129 ], [ %.ph35, %.thread36 ], [ %132, %.thread49 ]
+269:                                              ; preds = %.thread51, %.thread38, %251, %.loopexit55, %129
+  %270 = phi i32 [ %258, %251 ], [ %77, %.loopexit55 ], [ %77, %129 ], [ %.ph35, %.thread38 ], [ %77, %.thread51 ]
+  %271 = phi ptr [ %260, %251 ], [ %78, %.loopexit55 ], [ %78, %129 ], [ %.ph36, %.thread38 ], [ %78, %.thread51 ]
+  %272 = phi i32 [ 0, %251 ], [ %239, %.loopexit55 ], [ %120, %129 ], [ %.ph37, %.thread38 ], [ %132, %.thread51 ]
   %273 = load ptr, ptr %10, align 8
   %274 = icmp eq i32 %270, 0
   br i1 %274, label %.loopexit, label %275
@@ -1347,10 +1347,10 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
   %282 = icmp eq i64 %281, %276
   br i1 %282, label %.loopexit, label %277, !llvm.loop !22
 
-.loopexit:                                        ; preds = %277, %.thread52, %269
-  %283 = phi ptr [ %268, %.thread52 ], [ %273, %269 ], [ %273, %277 ]
-  %284 = phi i32 [ %.ph51, %.thread52 ], [ %272, %269 ], [ %272, %277 ]
-  %285 = phi ptr [ null, %.thread52 ], [ %271, %269 ], [ %271, %277 ]
+.loopexit:                                        ; preds = %277, %.thread54, %269
+  %283 = phi ptr [ %268, %.thread54 ], [ %273, %269 ], [ %273, %277 ]
+  %284 = phi i32 [ %.ph53, %.thread54 ], [ %272, %269 ], [ %272, %277 ]
+  %285 = phi ptr [ null, %.thread54 ], [ %271, %269 ], [ %271, %277 ]
   call void @kfree(ptr noundef %285) #14
   call void @kfree(ptr noundef %283) #14
   call void @simple_recursive_removal(ptr noundef nonnull %18, ptr noundef null) #14

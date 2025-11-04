@@ -1608,11 +1608,11 @@ define internal fastcc void @preallocate_vmalloc_pages() unnamed_addr #3 section
   br i1 %47, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %45
-  %.pre7 = load i64, ptr %38, align 8
+  %.pre4 = load i64, ptr %38, align 8
   br label %48
 
 48:                                               ; preds = %._crit_edge, %41
-  %49 = phi i64 [ %.pre7, %._crit_edge ], [ %42, %41 ]
+  %49 = phi i64 [ %.pre4, %._crit_edge ], [ %42, %41 ]
   %50 = and i64 %49, 4503599627366400
   %51 = load i64, ptr @page_offset_base, align 8
   %52 = add i64 %51, %50

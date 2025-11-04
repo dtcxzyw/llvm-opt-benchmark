@@ -156,10 +156,10 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %130 = icmp slt <16 x i8> %129, zeroinitializer
   %131 = bitcast <16 x i1> %130 to i16
   %.not167 = icmp eq i16 %131, 0
-  br i1 %.not167, label %.thread182, label %132
+  br i1 %.not167, label %.thread184, label %132
 
-.thread182:                                       ; preds = %94
-  %.5185 = or disjoint i64 %.0154.lcssa, 8
+.thread184:                                       ; preds = %94
+  %.5187 = or disjoint i64 %.0154.lcssa, 8
   br label %136
 
 132:                                              ; preds = %94
@@ -169,8 +169,8 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %.5 = or disjoint i64 %.0154.lcssa, %135
   br label %178
 
-136:                                              ; preds = %.thread182, %._crit_edge
-  %.4 = phi i64 [ %.0154.lcssa, %._crit_edge ], [ %.5185, %.thread182 ]
+136:                                              ; preds = %.thread184, %._crit_edge
+  %.4 = phi i64 [ %.0154.lcssa, %._crit_edge ], [ %.5187, %.thread184 ]
   %137 = sub i64 %12, %.4
   %138 = icmp ugt i64 %137, 3
   br i1 %138, label %139, label %162
@@ -196,10 +196,10 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %157 = icmp slt <4 x i32> %156, zeroinitializer
   %158 = bitcast <4 x i1> %157 to i4
   %.not168 = icmp eq i4 %158, 0
-  br i1 %.not168, label %.thread187, label %159
+  br i1 %.not168, label %.thread188, label %159
 
-.thread187:                                       ; preds = %139
-  %.7190 = add i64 %.4, 4
+.thread188:                                       ; preds = %139
+  %.7191 = add i64 %.4, 4
   br label %162
 
 159:                                              ; preds = %139
@@ -208,8 +208,8 @@ define hidden noundef i64 @_ZN5boost7atomics6detail17find_address_sse2EPVKvPKS3_
   %.7 = add i64 %.4, %161
   br label %178
 
-162:                                              ; preds = %.thread187, %136
-  %.6 = phi i64 [ %.4, %136 ], [ %.7190, %.thread187 ]
+162:                                              ; preds = %.thread188, %136
+  %.6 = phi i64 [ %.4, %136 ], [ %.7191, %.thread188 ]
   %163 = icmp ult i64 %.6, %12
   br i1 %163, label %164, label %178
 

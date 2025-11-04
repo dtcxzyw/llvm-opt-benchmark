@@ -615,8 +615,8 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %16 = getelementptr i8, ptr %1, i64 68
   br label %17
 
-17:                                               ; preds = %.thread11, %7
-  %18 = phi ptr [ %10, %7 ], [ %154, %.thread11 ]
+17:                                               ; preds = %.thread12, %7
+  %18 = phi ptr [ %10, %7 ], [ %154, %.thread12 ]
   %19 = load i16, ptr %11, align 2
   %20 = zext i16 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -667,7 +667,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 60:                                               ; preds = %56, %54
   %61 = phi ptr [ %55, %54 ], [ %59, %56 ]
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread11, label %63
+  br i1 %62, label %.thread12, label %63
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -682,7 +682,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %66 = icmp ult i8 %65, 2
   call void @llvm.assume(i1 %66)
   %67 = icmp eq i8 %65, 0
-  br i1 %67, label %.loopexit12, label %.preheader, !prof !18
+  br i1 %67, label %.loopexit13, label %.preheader, !prof !18
 
 .preheader:                                       ; preds = %63, %78
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
@@ -690,18 +690,18 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %69 = icmp ult i8 %68, 2
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %.preheader65, label %71, !prof !10
+  br i1 %70, label %.preheader66, label %71, !prof !10
 
 71:                                               ; preds = %.preheader
   %72 = call i64 @llvm.read_register.i64(metadata !0)
   %73 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %72) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %73)
-  br label %.preheader65
+  br label %.preheader66
 
-.preheader65:                                     ; preds = %71, %.preheader
+.preheader66:                                     ; preds = %71, %.preheader
   br label %74
 
-74:                                               ; preds = %.preheader65, %74
+74:                                               ; preds = %.preheader66, %74
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %75 = load volatile i64, ptr %61, align 8
   %76 = and i64 %75, 1
@@ -715,9 +715,9 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %80 = icmp ult i8 %79, 2
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i8 %79, 0
-  br i1 %81, label %.loopexit12, label %.preheader, !prof !26, !llvm.loop !27
+  br i1 %81, label %.loopexit13, label %.preheader, !prof !26, !llvm.loop !27
 
-.loopexit12:                                      ; preds = %78, %63
+.loopexit13:                                      ; preds = %78, %63
   %82 = load ptr, ptr %61, align 8
   %83 = ptrtoint ptr %82 to i64
   %84 = and i64 %83, -2
@@ -729,14 +729,14 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %.loopexit
 
-91:                                               ; preds = %.loopexit12
+91:                                               ; preds = %.loopexit13
   %92 = inttoptr i64 %88 to ptr
   %93 = icmp eq ptr %9, %92
   br i1 %93, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %91
-  %.lcssa14.in46 = and i64 %64, 512
-  %.lcssa1447 = icmp eq i64 %.lcssa14.in46, 0
+  %.lcssa15.in47 = and i64 %64, 512
+  %.lcssa1548 = icmp eq i64 %.lcssa15.in47, 0
   %94 = load ptr, ptr %9, align 8
   br label %108
 
@@ -745,8 +745,8 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   br i1 %96, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %95
-  %.lcssa14.in = and i64 %64, 512
-  %.lcssa14 = icmp eq i64 %.lcssa14.in, 0
+  %.lcssa15.in = and i64 %64, 512
+  %.lcssa15 = icmp eq i64 %.lcssa15.in, 0
   %97 = load ptr, ptr %9, align 8
   %98 = icmp eq ptr %122, null
   br i1 %98, label %108, label %99
@@ -770,7 +770,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   br label %106
 
 106:                                              ; preds = %103, %99
-  br i1 %.lcssa14, label %137, label %107
+  br i1 %.lcssa15, label %137, label %107
 
 107:                                              ; preds = %106
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
@@ -778,7 +778,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 
 108:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %109 = phi ptr [ %94, %._crit_edge.thread ], [ %97, %._crit_edge ]
-  %.lcssa1448 = phi i1 [ %.lcssa1447, %._crit_edge.thread ], [ %.lcssa14, %._crit_edge ]
+  %.lcssa1549 = phi i1 [ %.lcssa1548, %._crit_edge.thread ], [ %.lcssa15, %._crit_edge ]
   %110 = ptrtoint ptr %109 to i64
   %111 = and i64 %110, 1
   %112 = icmp eq i64 %111, 0
@@ -799,7 +799,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   br label %120
 
 120:                                              ; preds = %117, %108
-  br i1 %.lcssa1448, label %137, label %121
+  br i1 %.lcssa1549, label %137, label %121
 
 121:                                              ; preds = %120
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
@@ -813,7 +813,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %95, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit12
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %61, i32 -2, ptr nonnull elementtype(i8) %61) #15, !srcloc !29
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
@@ -832,17 +832,17 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 133:                                              ; preds = %130, %.loopexit
   %134 = and i64 %64, 512
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.thread11, label %136
+  br i1 %135, label %.thread12, label %136
 
 136:                                              ; preds = %133
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !32
-  br label %.thread11
+  br label %.thread12
 
 137:                                              ; preds = %121, %120, %107, %106
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, ptr nonnull elementtype(i32) %12) #15, !srcloc !44
   %138 = load i8, ptr %13, align 2, !range !45, !noundef !46
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %.thread10, label %140
+  br i1 %139, label %.thread11, label %140
 
 140:                                              ; preds = %137
   %141 = load volatile i32, ptr %12, align 4
@@ -850,37 +850,37 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
   %143 = mul i32 %142, 3
   %144 = udiv i32 %143, 10
   %145 = icmp ult i32 %141, %144
-  br i1 %145, label %146, label %.thread10
+  br i1 %145, label %146, label %.thread11
 
 146:                                              ; preds = %140
   %147 = load i16, ptr %14, align 4
   %148 = zext i16 %147 to i32
   %149 = icmp ugt i32 %142, %148
-  br i1 %149, label %150, label %.thread10, !prof !41
+  br i1 %149, label %150, label %.thread11, !prof !41
 
 150:                                              ; preds = %146
   %151 = load ptr, ptr @system_wq, align 8
   %152 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %151, ptr noundef nonnull %15) #15
-  br label %.thread10
+  br label %.thread11
 
-.thread11:                                        ; preds = %136, %133, %60
+.thread12:                                        ; preds = %136, %133, %60
   %153 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %154 = load volatile ptr, ptr %153, align 16
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %17, !llvm.loop !47
 
-156:                                              ; preds = %.thread11
+156:                                              ; preds = %.thread12
   call void @__rcu_read_unlock() #15
   call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #15, !srcloc !48
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 451, i32 2307, i64 12) #15, !srcloc !49
   call void asm sideeffect "413: nop\0A\09.pushsection .discard.instr_end\0A\09.long 413b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 413) #15, !srcloc !50
   br label %157
 
-.thread10:                                        ; preds = %140, %146, %150, %137
+.thread11:                                        ; preds = %140, %146, %150, %137
   call void @__rcu_read_unlock() #15
   br label %157
 
-157:                                              ; preds = %.thread10, %156, %2
+157:                                              ; preds = %.thread11, %156, %2
   ret void
 }
 

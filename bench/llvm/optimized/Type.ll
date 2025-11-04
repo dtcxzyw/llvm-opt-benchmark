@@ -5739,11 +5739,11 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %7, %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
-16:                                               ; preds = %_ZNK5clang8QualType5splitEv.exit448, %_ZNK5clang8QualType5splitEv.exit
-  %.sroa.0458.0 = phi ptr [ %.sroa.09.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %.sroa.09.0.i444, %_ZNK5clang8QualType5splitEv.exit448 ]
-  %.sroa.0456.0 = phi i64 [ %.sroa.3.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %179, %_ZNK5clang8QualType5splitEv.exit448 ]
-  %.0 = phi ptr [ %.sroa.09.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %spec.select540, %_ZNK5clang8QualType5splitEv.exit448 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 16
+16:                                               ; preds = %_ZNK5clang8QualType5splitEv.exit449, %_ZNK5clang8QualType5splitEv.exit
+  %.sroa.0459.0 = phi ptr [ %.sroa.09.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %.sroa.09.0.i445, %_ZNK5clang8QualType5splitEv.exit449 ]
+  %.sroa.0457.0 = phi i64 [ %.sroa.3.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %179, %_ZNK5clang8QualType5splitEv.exit449 ]
+  %.0 = phi ptr [ %.sroa.09.0.i, %_ZNK5clang8QualType5splitEv.exit ], [ %spec.select541, %_ZNK5clang8QualType5splitEv.exit449 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 16
   %18 = load i8, ptr %17, align 16
   switch i8 %18, label %_ZNK5clang10TypeOfType7desugarEv.exit.thread [
     i8 0, label %19
@@ -5807,84 +5807,84 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %7, %9
   ]
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %20, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 40
-  %.sroa.0.0.copyload.i409 = load i64, ptr %22, align 8, !tbaa !374
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 40
+  %.sroa.0.0.copyload.i410 = load i64, ptr %22, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 48
-  %.sroa.0.0.copyload.i.i410 = load i64, ptr %24, align 16, !tbaa !374
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 48
+  %.sroa.0.0.copyload.i.i411 = load i64, ptr %24, align 16, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
-  %.sroa.0.0.copyload.i.i411 = load i64, ptr %26, align 16, !tbaa !374
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
+  %.sroa.0.0.copyload.i.i412 = load i64, ptr %26, align 16, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
-  %.sroa.0.0.copyload.i412 = load i64, ptr %28, align 16, !tbaa !374
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
+  %.sroa.0.0.copyload.i413 = load i64, ptr %28, align 16, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !488
   %32 = load i24, ptr %31, align 8
   %33 = and i24 %32, 32768
-  %.not.i413 = icmp eq i24 %33, 0
-  br i1 %.not.i413, label %34, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
+  %.not.i414 = icmp eq i24 %33, 0
+  br i1 %.not.i414, label %34, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
-  %.sroa.0.0.copyload.i.i414 = load i64, ptr %35, align 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
+  %.sroa.0.0.copyload.i.i415 = load i64, ptr %35, align 16
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 36:                                               ; preds = %16
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
-  %.0.copyload.i.i.i.i.i415 = load i64, ptr %37, align 8
-  %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i415, 15
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
+  %.0.copyload.i.i.i.i.i416 = load i64, ptr %37, align 8
+  %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i416, 15
   br i1 %.not.i.i.i, label %_ZNK5clang10TypeOfType7desugarEv.exit, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 38:                                               ; preds = %16
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
-  %.0.copyload.i.i.i.i.i417 = load i64, ptr %39, align 8
-  %.not.i.i.i418 = icmp ugt i64 %.0.copyload.i.i.i.i.i417, 15
-  br i1 %.not.i.i.i418, label %_ZNK5clang10TypeOfType7desugarEv.exit, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
+  %.0.copyload.i.i.i.i.i418 = load i64, ptr %39, align 8
+  %.not.i.i.i419 = icmp ugt i64 %.0.copyload.i.i.i.i.i418, 15
+  br i1 %.not.i.i.i419, label %_ZNK5clang10TypeOfType7desugarEv.exit, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 40:                                               ; preds = %16
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 40
-  %.sroa.0.0.copyload.i.i422 = load i64, ptr %41, align 8, !tbaa !374
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 40
+  %.sroa.0.0.copyload.i.i423 = load i64, ptr %41, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 42:                                               ; preds = %16
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
-  %.sroa.0.0.copyload.i.i423 = load i64, ptr %43, align 8, !tbaa !374
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
+  %.sroa.0.0.copyload.i.i424 = load i64, ptr %43, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 44:                                               ; preds = %16
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 8
-  %.sroa.0.0.copyload.i.i424 = load i64, ptr %45, align 8, !tbaa !374
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 8
+  %.sroa.0.0.copyload.i.i425 = load i64, ptr %45, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 46:                                               ; preds = %16
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 17
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 17
   %48 = load i16, ptr %47, align 1
   %49 = and i16 %48, 2
   %.not4.i.i.i = icmp eq i16 %49, 0
   br i1 %.not4.i.i.i, label %50, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 48
   %52 = load ptr, ptr %51, align 16, !tbaa !490
   %53 = load i16, ptr %52, align 8
   %54 = and i16 %53, 511
-  %.not.i.i.i425 = icmp eq i16 %54, 63
-  br i1 %.not.i.i.i425, label %55, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
+  %.not.i.i.i426 = icmp eq i16 %54, 63
+  br i1 %.not.i.i.i426, label %55, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5915,36 +5915,36 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.i.i.i:       ; preds = %55
 
 66:                                               ; preds = %64, %_ZNK4llvm6APSInt11getExtValueEv.exit.i.i.i, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %67 = call i64 @_ZNK5clang16PackIndexingType7desugarEv(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0458.0)
+  %67 = call i64 @_ZNK5clang16PackIndexingType7desugarEv(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.0459.0)
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 68:                                               ; preds = %16
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
-  %.sroa.0.0.copyload.i.i426 = load i64, ptr %69, align 16, !tbaa !374
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
+  %.sroa.0.0.copyload.i.i427 = load i64, ptr %69, align 16, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 70:                                               ; preds = %16
   %71 = load i64, ptr %17, align 16
   %72 = and i64 %71, 524288
-  %.not.i.i427 = icmp eq i64 %72, 0
-  %.sroa.0.0.in.v.i.i = select i1 %.not.i.i427, i64 8, i64 48
-  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 %.sroa.0.0.in.v.i.i
+  %.not.i.i428 = icmp eq i64 %72, 0
+  %.sroa.0.0.in.v.i.i = select i1 %.not.i.i428, i64 8, i64 48
+  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 %.sroa.0.0.in.v.i.i
   %.sroa.0.0.i.i = load i64, ptr %.sroa.0.0.in.i.i, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 73:                                               ; preds = %16
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 17
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 17
   %75 = load i16, ptr %74, align 1
   %76 = and i16 %75, 4
-  %.not.i428 = icmp eq i16 %76, 0
-  br i1 %.not.i428, label %._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge, label %77
+  %.not.i429 = icmp eq i16 %76, 0
+  br i1 %.not.i429, label %._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge, label %77
 
 ._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge: ; preds = %73
   %.pre = load i32, ptr %17, align 16
   br label %_ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %78, align 8, !tbaa !374
   %79 = and i64 %.sroa.0.0.copyload.i.i.i, -16
   %80 = inttoptr i64 %79 to ptr
@@ -5952,52 +5952,52 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.i.i.i:       ; preds = %55
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i8, ptr %82, align 16
   %84 = icmp ne i8 %83, 28
-  %.pre543 = load i32, ptr %17, align 16
-  %85 = and i32 %.pre543, 524288
-  %.not542 = icmp eq i32 %85, 0
-  %or.cond = select i1 %84, i1 %.not542, i1 false
+  %.pre544 = load i32, ptr %17, align 16
+  %85 = and i32 %.pre544, 524288
+  %.not543 = icmp eq i32 %85, 0
+  %or.cond = select i1 %84, i1 %.not543, i1 false
   br i1 %or.cond, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread, label %_ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread
 
 _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge, %77
-  %86 = phi i32 [ %.pre, %._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge ], [ %.pre543, %77 ]
+  %86 = phi i32 [ %.pre, %._ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread_crit_edge ], [ %.pre544, %77 ]
   %87 = and i32 %86, 524288
-  %.not.i429 = icmp eq i32 %87, 0
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 48
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 20
+  %.not.i430 = icmp eq i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 20
   %90 = load i32, ptr %89, align 4
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %88, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 8
-  %.sroa.0.0.in.i = select i1 %.not.i429, ptr %93, ptr %92
-  %.sroa.0.0.i430 = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !374
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 8
+  %.sroa.0.0.in.i = select i1 %.not.i430, ptr %93, ptr %92
+  %.sroa.0.0.i431 = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 94:                                               ; preds = %16
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !492
   %97 = load i24, ptr %96, align 8
   %98 = and i24 %97, 65536
-  %.not.i431 = icmp eq i24 %98, 0
-  br i1 %.not.i431, label %99, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
+  %.not.i432 = icmp eq i24 %98, 0
+  br i1 %.not.i432, label %99, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 99:                                               ; preds = %94
-  %100 = call i64 @_ZNK5clang14TypeOfExprType7desugarEv(ptr noundef nonnull align 16 dereferenceable(40) %.sroa.0458.0)
+  %100 = call i64 @_ZNK5clang14TypeOfExprType7desugarEv(ptr noundef nonnull align 16 dereferenceable(40) %.sroa.0459.0)
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 101:                                              ; preds = %16
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 24
-  %.sroa.0.0.copyload.i455 = load i64, ptr %102, align 8, !tbaa !374
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 24
+  %.sroa.0.0.copyload.i456 = load i64, ptr %102, align 8, !tbaa !374
   %103 = load i24, ptr %17, align 16
   %104 = and i24 %103, 524288
   %.not = icmp eq i24 %104, 0
   br i1 %.not, label %_ZNK5clang10TypeOfType7desugarEv.exit, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
   %107 = load ptr, ptr %106, align 16, !tbaa !494
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !3
-  %108 = call i64 @_ZNK5clang10ASTContext23getUnqualifiedArrayTypeENS_8QualTypeERNS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %107, i64 %.sroa.0.0.copyload.i455, ptr noundef nonnull align 8 dereferenceable(8) %2) #27
+  %108 = call i64 @_ZNK5clang10ASTContext23getUnqualifiedArrayTypeENS_8QualTypeERNS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %107, i64 %.sroa.0.0.copyload.i456, ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %109 = and i64 %108, -16
   %110 = inttoptr i64 %109 to ptr
@@ -6005,9 +6005,9 @@ _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %._ZNK
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i8, ptr %112, align 16
   %114 = icmp ne i8 %113, 7
-  %.not.i.i451.not552 = icmp eq ptr %111, null
-  %.not.i.i451.not = or i1 %114, %.not.i.i451.not552
-  br i1 %.not.i.i451.not, label %115, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548
+  %.not.i.i452.not553 = icmp eq ptr %111, null
+  %.not.i.i452.not = or i1 %114, %.not.i.i452.not553
+  br i1 %.not.i.i452.not, label %115, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549
 
 115:                                              ; preds = %105
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -6022,26 +6022,26 @@ _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %._ZNK
 
 _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i: ; preds = %115
   %123 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %111)
-  %.not.i452 = icmp eq ptr %123, null
-  br i1 %.not.i452, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548
+  %.not.i453 = icmp eq ptr %123, null
+  br i1 %.not.i453, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread, label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549
 
-_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548: ; preds = %105, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i
-  %.1.i.i551 = phi ptr [ %123, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ], [ %111, %105 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.1.i.i551, i64 32
-  %.sroa.0.0.copyload.i.i453 = load i64, ptr %124, align 16, !tbaa !374
-  %.pre544 = and i64 %.sroa.0.0.copyload.i.i453, -16
-  %.pre545 = inttoptr i64 %.pre544 to ptr
+_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549: ; preds = %105, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i
+  %.1.i.i552 = phi ptr [ %123, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ], [ %111, %105 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.1.i.i552, i64 32
+  %.sroa.0.0.copyload.i.i454 = load i64, ptr %124, align 16, !tbaa !374
+  %.pre545 = and i64 %.sroa.0.0.copyload.i.i454, -16
+  %.pre546 = inttoptr i64 %.pre545 to ptr
   br label %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread
 
-_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread: ; preds = %115, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i
-  %.pre-phi546 = phi ptr [ %110, %115 ], [ %.pre545, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548 ], [ %110, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ]
-  %.sroa.0522.0 = phi i64 [ %108, %115 ], [ %.sroa.0.0.copyload.i.i453, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread548 ], [ %108, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ]
-  %125 = load ptr, ptr %.pre-phi546, align 8, !tbaa !371
+_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread: ; preds = %115, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i
+  %.pre-phi547 = phi ptr [ %110, %115 ], [ %.pre546, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549 ], [ %110, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ]
+  %.sroa.0523.0 = phi i64 [ %108, %115 ], [ %.sroa.0.0.copyload.i.i454, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread549 ], [ %108, %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i ]
+  %125 = load ptr, ptr %.pre-phi547, align 8, !tbaa !371
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %126, align 8, !tbaa !374
   %127 = and i64 %.sroa.0.0.copyload.i6.i, 15
-  %.not541 = icmp eq i64 %127, 0
-  br i1 %.not541, label %128, label %131
+  %.not542 = icmp eq i64 %127, 0
+  br i1 %.not542, label %128, label %131
 
 128:                                              ; preds = %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread
   %129 = ptrtoint ptr %125 to i64
@@ -6049,7 +6049,7 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread: ; preds = %115, %_Z
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 131:                                              ; preds = %_ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread
-  %132 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0522.0)
+  %132 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0523.0)
   %133 = extractvalue { ptr, i64 } %132, 0
   %134 = ptrtoint ptr %133 to i64
   %135 = and i64 %134, -16
@@ -6058,50 +6058,50 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.i.thread: ; preds = %115, %_Z
 136:                                              ; preds = %16
   %137 = load i24, ptr %17, align 16
   %138 = and i24 %137, 524288
-  %.not.i.i432 = icmp eq i24 %138, 0
-  br i1 %.not.i.i432, label %139, label %146
+  %.not.i.i433 = icmp eq i24 %138, 0
+  br i1 %.not.i.i433, label %139, label %146
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
   %141 = load ptr, ptr %140, align 16, !tbaa !378
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 80
-  %.0.copyload.i.i.i.i.i.i435 = load i64, ptr %142, align 8
-  %143 = and i64 %.0.copyload.i.i.i.i.i.i435, -8
+  %.0.copyload.i.i.i.i.i.i436 = load i64, ptr %142, align 8
+  %143 = and i64 %.0.copyload.i.i.i.i.i.i436, -8
   %144 = inttoptr i64 %143 to ptr
-  %145 = shl i64 %.0.copyload.i.i.i.i.i.i435, 1
+  %145 = shl i64 %.0.copyload.i.i.i.i.i.i436, 1
   %.sroa.0.0.in.idx.i.i = and i64 %145, 8
-  %.sroa.0.0.in.i.i436 = getelementptr inbounds nuw i8, ptr %144, i64 %.sroa.0.0.in.idx.i.i
+  %.sroa.0.0.in.i.i437 = getelementptr inbounds nuw i8, ptr %144, i64 %.sroa.0.0.in.idx.i.i
   br label %_ZNK5clang11TypedefType7desugarEv.exit
 
 146:                                              ; preds = %136
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 48
   br label %_ZNK5clang11TypedefType7desugarEv.exit
 
 _ZNK5clang11TypedefType7desugarEv.exit:           ; preds = %139, %146
-  %.sroa.0.0.in.i433 = phi ptr [ %.sroa.0.0.in.i.i436, %139 ], [ %147, %146 ]
-  %.sroa.0.0.i434 = load i64, ptr %.sroa.0.0.in.i433, align 8, !tbaa !374
+  %.sroa.0.0.in.i434 = phi ptr [ %.sroa.0.0.in.i.i437, %139 ], [ %147, %146 ]
+  %.sroa.0.0.i435 = load i64, ptr %.sroa.0.0.in.i434, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 148:                                              ; preds = %16
-  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 17
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 17
   %150 = load i16, ptr %149, align 1
   %151 = and i16 %150, 4
-  %.not.i437 = icmp eq i16 %151, 0
-  br i1 %.not.i437, label %152, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
+  %.not.i438 = icmp eq i16 %151, 0
+  br i1 %.not.i438, label %152, label %_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
-  %.sroa.0.0.copyload.i438 = load i64, ptr %153, align 16, !tbaa !374
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
+  %.sroa.0.0.copyload.i439 = load i64, ptr %153, align 16, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 154:                                              ; preds = %16
   %155 = load i24, ptr %17, align 16
   %156 = and i24 %155, 524288
-  %.not.i.i.i439 = icmp eq i24 %156, 0
-  br i1 %.not.i.i.i439, label %157, label %166
+  %.not.i.i.i440 = icmp eq i24 %156, 0
+  br i1 %.not.i.i.i440, label %157, label %166
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 32
   %159 = load ptr, ptr %158, align 16, !tbaa !496
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %161 = load ptr, ptr %160, align 8, !tbaa !499
@@ -6112,43 +6112,43 @@ _ZNK5clang11TypedefType7desugarEv.exit:           ; preds = %139, %146
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 166:                                              ; preds = %154
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0, i64 48
   %168 = load i64, ptr %167, align 8, !tbaa !374
   br label %_ZNK5clang10TypeOfType7desugarEv.exit
 
 _ZNK5clang10TypeOfType7desugarEv.exit:            ; preds = %38, %36, %166, %157, %101, %128, %131, %152, %_ZNK5clang11TypedefType7desugarEv.exit, %99, %_ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread, %70, %68, %66, %44, %42, %40, %34, %27, %25, %23, %21, %19
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %19 ], [ %.sroa.0.0.copyload.i409, %21 ], [ %.sroa.0.0.copyload.i.i410, %23 ], [ %.sroa.0.0.copyload.i.i411, %25 ], [ %.sroa.0.0.copyload.i412, %27 ], [ %.sroa.0.0.copyload.i.i414, %34 ], [ %.sroa.0.0.copyload.i.i422, %40 ], [ %.sroa.0.0.copyload.i.i423, %42 ], [ %.sroa.0.0.copyload.i.i424, %44 ], [ %67, %66 ], [ %.sroa.0.0.copyload.i.i426, %68 ], [ %.sroa.0.0.i.i, %70 ], [ %.sroa.0.0.i430, %_ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread ], [ %100, %99 ], [ %.sroa.0.0.i434, %_ZNK5clang11TypedefType7desugarEv.exit ], [ %.sroa.0.0.copyload.i438, %152 ], [ %.sroa.0.0.copyload.i455, %101 ], [ %135, %131 ], [ %130, %128 ], [ %165, %157 ], [ %168, %166 ], [ %.0.copyload.i.i.i.i.i415, %36 ], [ %.0.copyload.i.i.i.i.i417, %38 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %19 ], [ %.sroa.0.0.copyload.i410, %21 ], [ %.sroa.0.0.copyload.i.i411, %23 ], [ %.sroa.0.0.copyload.i.i412, %25 ], [ %.sroa.0.0.copyload.i413, %27 ], [ %.sroa.0.0.copyload.i.i415, %34 ], [ %.sroa.0.0.copyload.i.i423, %40 ], [ %.sroa.0.0.copyload.i.i424, %42 ], [ %.sroa.0.0.copyload.i.i425, %44 ], [ %67, %66 ], [ %.sroa.0.0.copyload.i.i427, %68 ], [ %.sroa.0.0.i.i, %70 ], [ %.sroa.0.0.i431, %_ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread ], [ %100, %99 ], [ %.sroa.0.0.i435, %_ZNK5clang11TypedefType7desugarEv.exit ], [ %.sroa.0.0.copyload.i439, %152 ], [ %.sroa.0.0.copyload.i456, %101 ], [ %135, %131 ], [ %130, %128 ], [ %165, %157 ], [ %168, %166 ], [ %.0.copyload.i.i.i.i.i416, %36 ], [ %.0.copyload.i.i.i.i.i418, %38 ]
   %169 = and i64 %.sroa.0.0, 8
-  %.not.i442 = icmp eq i64 %169, 0
+  %.not.i443 = icmp eq i64 %169, 0
   %170 = and i64 %.sroa.0.0, -16
   %171 = inttoptr i64 %170 to ptr
-  br i1 %.not.i442, label %_ZNK5clang10TypeOfType7desugarEv.exit.thread, label %174
+  br i1 %.not.i443, label %_ZNK5clang10TypeOfType7desugarEv.exit.thread, label %174
 
 _ZNK5clang10TypeOfType7desugarEv.exit.thread:     ; preds = %16, %_ZNK5clang10TypeOfType7desugarEv.exit
   %172 = phi ptr [ %171, %_ZNK5clang10TypeOfType7desugarEv.exit ], [ null, %16 ]
-  %.sroa.0.0533 = phi i64 [ %.sroa.0.0, %_ZNK5clang10TypeOfType7desugarEv.exit ], [ 0, %16 ]
-  %173 = and i64 %.sroa.0.0533, 7
-  br label %_ZNK5clang8QualType5splitEv.exit448
+  %.sroa.0.0534 = phi i64 [ %.sroa.0.0, %_ZNK5clang10TypeOfType7desugarEv.exit ], [ 0, %16 ]
+  %173 = and i64 %.sroa.0.0534, 7
+  br label %_ZNK5clang8QualType5splitEv.exit449
 
 174:                                              ; preds = %_ZNK5clang10TypeOfType7desugarEv.exit
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  %.sroa.0.0.copyload.i.i443 = load i64, ptr %175, align 8, !tbaa !437
+  %.sroa.0.0.copyload.i.i444 = load i64, ptr %175, align 8, !tbaa !437
   %176 = and i64 %.sroa.0.0, 7
-  %177 = or i64 %.sroa.0.0.copyload.i.i443, %176
+  %177 = or i64 %.sroa.0.0.copyload.i.i444, %176
   %178 = load ptr, ptr %171, align 16, !tbaa !371
-  br label %_ZNK5clang8QualType5splitEv.exit448
+  br label %_ZNK5clang8QualType5splitEv.exit449
 
-_ZNK5clang8QualType5splitEv.exit448:              ; preds = %_ZNK5clang10TypeOfType7desugarEv.exit.thread, %174
-  %.sroa.09.0.i444 = phi ptr [ %178, %174 ], [ %172, %_ZNK5clang10TypeOfType7desugarEv.exit.thread ]
-  %.sroa.3.0.i445 = phi i64 [ %177, %174 ], [ %173, %_ZNK5clang10TypeOfType7desugarEv.exit.thread ]
-  %.not.i449 = icmp eq i64 %.sroa.3.0.i445, 0
-  %179 = or i64 %.sroa.3.0.i445, %.sroa.0456.0
-  %spec.select540 = select i1 %.not.i449, ptr %.0, ptr %.sroa.09.0.i444
+_ZNK5clang8QualType5splitEv.exit449:              ; preds = %_ZNK5clang10TypeOfType7desugarEv.exit.thread, %174
+  %.sroa.09.0.i445 = phi ptr [ %178, %174 ], [ %172, %_ZNK5clang10TypeOfType7desugarEv.exit.thread ]
+  %.sroa.3.0.i446 = phi i64 [ %177, %174 ], [ %173, %_ZNK5clang10TypeOfType7desugarEv.exit.thread ]
+  %.not.i450 = icmp eq i64 %.sroa.3.0.i446, 0
+  %179 = or i64 %.sroa.3.0.i446, %.sroa.0457.0
+  %spec.select541 = select i1 %.not.i450, ptr %.0, ptr %.sroa.09.0.i445
   br label %16
 
-_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread: ; preds = %77, %50, %46, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %148, %94, %38, %36, %29
+_ZNK5clang16PackIndexingType9isSugaredEv.exit.thread: ; preds = %77, %50, %46, %29, %36, %38, %94, %148, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.0456.0, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.0457.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

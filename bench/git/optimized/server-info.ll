@@ -116,8 +116,8 @@ st_mult.exit.i.i:                                 ; preds = %20
 
 .preheader.i.i.i:                                 ; preds = %40
   %42 = call i32 @strbuf_getline(ptr noundef nonnull %3, ptr noundef nonnull %41) #14
-  %.not1126.i.i.i = icmp eq i32 %42, -1
-  br i1 %.not1126.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
+  %.not1127.i.i.i = icmp eq i32 %42, -1
+  br i1 %.not1127.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -125,7 +125,7 @@ st_mult.exit.i.i:                                 ; preds = %20
   br label %45
 
 45:                                               ; preds = %77, %.lr.ph.i.i.i
-  %.0827.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i.i, %77 ]
+  %.0828.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i.i, %77 ]
   %46 = load i64, ptr %43, align 8, !tbaa !20
   %.not12.i.i.i = icmp eq i64 %46, 0
   br i1 %.not12.i.i.i, label %77, label %47, !llvm.loop !24
@@ -151,7 +151,7 @@ st_mult.exit.i.i:                                 ; preds = %20
   br i1 %54, label %49, label %skip_prefix.exit.i.i.i, !llvm.loop !27
 
 55:                                               ; preds = %49
-  %56 = add nsw i32 %.0827.i.i.i, 1
+  %56 = add nsw i32 %.0828.i.i.i, 1
   %57 = load i32, ptr @num_pack, align 4, !tbaa !4
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %.loopexit.i
@@ -178,12 +178,12 @@ find_pack_by_name.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
   %69 = load ptr, ptr @info, align 8, !tbaa !8
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i.i.i.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !11
-  %.not.i14.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i14.i.i.i, label %.loopexit.i, label %72
+  %.not.i15.i.i.i = icmp eq ptr %71, null
+  br i1 %.not.i15.i.i.i, label %.loopexit.i, label %72
 
 72:                                               ; preds = %find_pack_by_name.exit.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 %.0827.i.i.i, ptr %73, align 8, !tbaa !16
+  store i32 %.0828.i.i.i, ptr %73, align 8, !tbaa !16
   br label %77
 
 skip_prefix.exit.i.i.i:                           ; preds = %50
@@ -198,7 +198,7 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
   br label %77
 
 77:                                               ; preds = %75, %72, %45
-  %.1.i.i.i = phi i32 [ %.0827.i.i.i, %45 ], [ %.0827.i.i.i, %75 ], [ %56, %72 ]
+  %.1.i.i.i = phi i32 [ %.0828.i.i.i, %45 ], [ %.0828.i.i.i, %75 ], [ %56, %72 ]
   %78 = call i32 @strbuf_getline(ptr noundef nonnull %3, ptr noundef nonnull %41) #14
   %.not11.i.i.i = icmp eq i32 %78, -1
   br i1 %.not11.i.i.i, label %.loopexit.i, label %45

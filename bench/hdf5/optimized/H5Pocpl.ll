@@ -636,9 +636,9 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
 37:                                               ; preds = %30
   %38 = call i32 @H5E_clear_stack() #10
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread33, label %40
+  br i1 %.not, label %.thread34, label %40
 
-.thread33:                                        ; preds = %37
+.thread34:                                        ; preds = %37
   %39 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %67
 
@@ -654,7 +654,7 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
   %46 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !10
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pget_attr_creation_order, i32 noundef 339, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.8) #10
-  br label %.thread37
+  br label %.thread38
 
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #10
@@ -665,9 +665,9 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pget_attr_creation_order, i32 noundef 343, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.17) #10
-  br label %.thread37
+  br label %.thread38
 
-.thread37:                                        ; preds = %44, %51
+.thread38:                                        ; preds = %44, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %.thread29
@@ -687,14 +687,14 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
   %65 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %67
 
-.thread29:                                        ; preds = %13, %26, %33, %.thread37
+.thread29:                                        ; preds = %13, %26, %33, %.thread38
   %66 = call i32 @H5E_dump_api_stack() #10
   br label %67
 
-67:                                               ; preds = %56, %.thread33, %.thread29
-  %.015 = phi i32 [ -1, %.thread29 ], [ 0, %56 ], [ 0, %.thread33 ]
+67:                                               ; preds = %56, %.thread34, %.thread29
+  %.0182732 = phi i32 [ 0, %56 ], [ -1, %.thread29 ], [ 0, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.015
+  ret i32 %.0182732
 }
 
 ; Function Attrs: nounwind uwtable
@@ -880,9 +880,9 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
 37:                                               ; preds = %30
   %38 = call i32 @H5E_clear_stack() #10
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread29, label %40
+  br i1 %.not, label %.thread30, label %40
 
-.thread29:                                        ; preds = %37
+.thread30:                                        ; preds = %37
   %39 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %61
 
@@ -897,7 +897,7 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
   %46 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !10
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pget_obj_track_times, i32 noundef 431, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.8) #10
-  br label %.thread33
+  br label %.thread34
 
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #10
@@ -908,9 +908,9 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %53 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pget_obj_track_times, i32 noundef 435, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.17) #10
-  br label %.thread33
+  br label %.thread34
 
-.thread33:                                        ; preds = %44, %51
+.thread34:                                        ; preds = %44, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %.thread25
@@ -924,14 +924,14 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
   %59 = call i32 @H5CX_pop(i1 noundef zeroext true) #10
   br label %61
 
-.thread25:                                        ; preds = %13, %26, %33, %.thread33
+.thread25:                                        ; preds = %13, %26, %33, %.thread34
   %60 = call i32 @H5E_dump_api_stack() #10
   br label %61
 
-61:                                               ; preds = %56, %.thread29, %.thread25
-  %.013 = phi i32 [ -1, %.thread25 ], [ 0, %56 ], [ 0, %.thread29 ]
+61:                                               ; preds = %56, %.thread30, %.thread25
+  %.0162328 = phi i32 [ 0, %56 ], [ -1, %.thread25 ], [ 0, %.thread30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.013
+  ret i32 %.0162328
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3803,8 +3803,8 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_pipeline_dec(ptr noundef capture
   br i1 %exitcond129.not, label %.thread, label %.lr.ph122, !llvm.loop !52
 
 .thread:                                          ; preds = %127, %._crit_edge.thread, %._crit_edge, %123, %93, %2, %13
-  %.090 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %93 ], [ -1, %123 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
-  ret i32 %.090
+  %.094 = phi i32 [ -1, %13 ], [ 0, %2 ], [ -1, %93 ], [ -1, %123 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ 0, %127 ]
+  ret i32 %.094
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4008,9 +4008,9 @@ define internal i32 @H5P__ocrt_pipeline_cmp(ptr noundef readonly captures(none) 
   %exitcond128.not = icmp eq i64 %78, %12
   br i1 %exitcond128.not, label %.thread119, label %.preheader121, !llvm.loop !54
 
-.thread119:                                       ; preds = %.preheader121, %33, %35, %41, %49, %50, %51, %.thread116, %58, %66, %67, %.thread118, %.preheader, %76, %24, %3, %27, %10, %16, %25
-  %.089 = phi i32 [ 0, %27 ], [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ 1, %25 ], [ %spec.select, %24 ], [ -1, %.preheader ], [ 1, %76 ], [ 0, %.thread118 ], [ 1, %67 ], [ -1, %66 ], [ 1, %58 ], [ -1, %.thread116 ], [ %52, %51 ], [ 1, %50 ], [ -1, %49 ], [ 1, %41 ], [ -1, %35 ], [ 1, %33 ], [ -1, %.preheader121 ]
-  ret i32 %.089
+.thread119:                                       ; preds = %.thread118, %67, %66, %58, %.thread116, %51, %50, %49, %41, %35, %33, %.preheader121, %.preheader, %76, %24, %3, %27, %10, %16, %25
+  %.087 = phi i32 [ 0, %27 ], [ 0, %3 ], [ -1, %10 ], [ 1, %16 ], [ 1, %25 ], [ %spec.select, %24 ], [ -1, %.preheader ], [ 1, %76 ], [ 0, %.thread118 ], [ 1, %67 ], [ -1, %66 ], [ 1, %58 ], [ -1, %.thread116 ], [ %52, %51 ], [ 1, %50 ], [ -1, %49 ], [ 1, %41 ], [ -1, %35 ], [ 1, %33 ], [ -1, %.preheader121 ]
+  ret i32 %.087
 }
 
 ; Function Attrs: nounwind uwtable

@@ -4109,7 +4109,7 @@ rb_array_len.exit.i101:                           ; preds = %172, %169
   br label %178
 
 178:                                              ; preds = %225, %.lr.ph.i
-  %.0179271.i = phi i64 [ 0, %.lr.ph.i ], [ %229, %225 ]
+  %.0179272.i = phi i64 [ 0, %.lr.ph.i ], [ %229, %225 ]
   %179 = load i64, ptr %166, align 8, !tbaa !69
   %180 = and i64 %179, 8192
   %.not.i.i.i = icmp eq i64 %180, 0
@@ -4121,93 +4121,93 @@ rb_array_len.exit.i101:                           ; preds = %172, %169
 
 RARRAY_AREF.exit.i102:                            ; preds = %181, %178
   %.0.i.i.i103 = phi ptr [ %182, %181 ], [ %176, %178 ]
-  %183 = getelementptr i64, ptr %.0.i.i.i103, i64 %.0179271.i
+  %183 = getelementptr i64, ptr %.0.i.i.i103, i64 %.0179272.i
   %184 = load i64, ptr %183, align 8, !tbaa !43
   %185 = inttoptr i64 %184 to ptr
   %186 = load i64, ptr %185, align 8, !tbaa !69
   %187 = and i64 %186, 8192
-  %.not.i.i210.i = icmp eq i64 %187, 0
-  br i1 %.not.i.i210.i, label %190, label %188
+  %.not.i.i212.i = icmp eq i64 %187, 0
+  br i1 %.not.i.i212.i, label %190, label %188
 
 188:                                              ; preds = %RARRAY_AREF.exit.i102
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  br label %RARRAY_AREF.exit212.i
+  br label %RARRAY_AREF.exit214.i
 
 190:                                              ; preds = %RARRAY_AREF.exit.i102
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %192 = load ptr, ptr %191, align 8, !tbaa !67
-  br label %RARRAY_AREF.exit212.i
+  br label %RARRAY_AREF.exit214.i
 
-RARRAY_AREF.exit212.i:                            ; preds = %190, %188
-  %.0.i.i211.i = phi ptr [ %189, %188 ], [ %192, %190 ]
-  %193 = getelementptr i8, ptr %.0.i.i211.i, i64 8
+RARRAY_AREF.exit214.i:                            ; preds = %190, %188
+  %.0.i.i213.i = phi ptr [ %189, %188 ], [ %192, %190 ]
+  %193 = getelementptr i8, ptr %.0.i.i213.i, i64 8
   %194 = load i64, ptr %193, align 8, !tbaa !43
   %195 = call i64 @rb_fix2int(i64 noundef %194) #28
   %196 = trunc i64 %195 to i32
-  %197 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0179271.i
+  %197 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0179272.i
   store i32 %196, ptr %197, align 8, !tbaa !177
   %198 = load i64, ptr %185, align 8, !tbaa !69
   %199 = and i64 %198, 8192
-  %.not.i.i213.i = icmp eq i64 %199, 0
-  br i1 %.not.i.i213.i, label %202, label %200
+  %.not.i.i215.i = icmp eq i64 %199, 0
+  br i1 %.not.i.i215.i, label %202, label %200
 
-200:                                              ; preds = %RARRAY_AREF.exit212.i
+200:                                              ; preds = %RARRAY_AREF.exit214.i
   %201 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  br label %RARRAY_AREF.exit215.i
+  br label %RARRAY_AREF.exit217.i
 
-202:                                              ; preds = %RARRAY_AREF.exit212.i
+202:                                              ; preds = %RARRAY_AREF.exit214.i
   %203 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %204 = load ptr, ptr %203, align 8, !tbaa !67
-  br label %RARRAY_AREF.exit215.i
+  br label %RARRAY_AREF.exit217.i
 
-RARRAY_AREF.exit215.i:                            ; preds = %202, %200
-  %.0.i.i214.i = phi ptr [ %201, %200 ], [ %204, %202 ]
-  %205 = load i64, ptr %.0.i.i214.i, align 8, !tbaa !43
+RARRAY_AREF.exit217.i:                            ; preds = %202, %200
+  %.0.i.i216.i = phi ptr [ %201, %200 ], [ %204, %202 ]
+  %205 = load i64, ptr %.0.i.i216.i, align 8, !tbaa !43
   %206 = call i64 @rb_fix2int(i64 noundef %205) #28
   %207 = trunc i64 %206 to i32
   %208 = getelementptr inbounds nuw i8, ptr %197, i64 4
   store i32 %207, ptr %208, align 4, !tbaa !179
   %209 = load i64, ptr %185, align 8, !tbaa !69
   %210 = and i64 %209, 8192
-  %.not.i216.i = icmp eq i64 %210, 0
-  br i1 %.not.i216.i, label %rb_array_len.exit218.i, label %rb_array_len.exit218.thread.i
+  %.not.i218.i = icmp eq i64 %210, 0
+  br i1 %.not.i218.i, label %rb_array_len.exit220.i, label %rb_array_len.exit220.thread.i
 
-rb_array_len.exit218.i:                           ; preds = %RARRAY_AREF.exit215.i
+rb_array_len.exit220.i:                           ; preds = %RARRAY_AREF.exit217.i
   %211 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %212 = load i64, ptr %211, align 8, !tbaa !67
   %213 = icmp sgt i64 %212, 2
   br i1 %213, label %217, label %225
 
-rb_array_len.exit218.thread.i:                    ; preds = %RARRAY_AREF.exit215.i
+rb_array_len.exit220.thread.i:                    ; preds = %RARRAY_AREF.exit217.i
   %214 = and i64 %209, 4161536
   %215 = icmp samesign ugt i64 %214, 65536
   br i1 %215, label %.thread.i, label %225
 
-.thread.i:                                        ; preds = %rb_array_len.exit218.thread.i
+.thread.i:                                        ; preds = %rb_array_len.exit220.thread.i
   %216 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  br label %RARRAY_AREF.exit221.i
+  br label %RARRAY_AREF.exit223.i
 
-217:                                              ; preds = %rb_array_len.exit218.i
+217:                                              ; preds = %rb_array_len.exit220.i
   %218 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %219 = load ptr, ptr %218, align 8, !tbaa !67
-  br label %RARRAY_AREF.exit221.i
+  br label %RARRAY_AREF.exit223.i
 
-RARRAY_AREF.exit221.i:                            ; preds = %217, %.thread.i
-  %.0.i.i220.i = phi ptr [ %216, %.thread.i ], [ %219, %217 ]
-  %220 = getelementptr i8, ptr %.0.i.i220.i, i64 16
+RARRAY_AREF.exit223.i:                            ; preds = %217, %.thread.i
+  %.0.i.i222.i = phi ptr [ %216, %.thread.i ], [ %219, %217 ]
+  %220 = getelementptr i8, ptr %.0.i.i222.i, i64 16
   %221 = load i64, ptr %220, align 8, !tbaa !43
   %222 = and i64 %221, -5
   %223 = icmp ne i64 %222, 0
   %224 = zext i1 %223 to i32
   br label %225
 
-225:                                              ; preds = %RARRAY_AREF.exit221.i, %rb_array_len.exit218.thread.i, %rb_array_len.exit218.i
-  %226 = phi i32 [ 0, %rb_array_len.exit218.i ], [ %224, %RARRAY_AREF.exit221.i ], [ 0, %rb_array_len.exit218.thread.i ]
+225:                                              ; preds = %RARRAY_AREF.exit223.i, %rb_array_len.exit220.thread.i, %rb_array_len.exit220.i
+  %226 = phi i32 [ 0, %rb_array_len.exit220.i ], [ %224, %RARRAY_AREF.exit223.i ], [ 0, %rb_array_len.exit220.thread.i ]
   %227 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store i32 %226, ptr %227, align 8, !tbaa !180
   %228 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store i64 -1, ptr %228, align 8, !tbaa !181
-  %229 = add nuw nsw i64 %.0179271.i, 1
+  %229 = add nuw nsw i64 %.0179272.i, 1
   %exitcond.not.i = icmp eq i64 %229, %.0.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %178, !llvm.loop !182
 
@@ -4218,8 +4218,8 @@ RARRAY_AREF.exit221.i:                            ; preds = %217, %.thread.i
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.critedge2.i, %._crit_edge.i
-  %.1180276.i = phi i64 [ 0, %._crit_edge.i ], [ %264, %.critedge2.i ]
-  %231 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.1180276.i
+  %.1180277.i = phi i64 [ 0, %._crit_edge.i ], [ %264, %.critedge2.i ]
+  %231 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.1180277.i
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !179
   br label %.lr.ph.i.i
@@ -4237,8 +4237,8 @@ RARRAY_AREF.exit221.i:                            ; preds = %217, %.thread.i
   br i1 %240, label %244, label %241
 
 241:                                              ; preds = %.lr.ph.i.i
-  %.not.i222.i = icmp eq i32 %233, %238
-  br i1 %.not.i222.i, label %bsearch.exit.i, label %242
+  %.not.i224.i = icmp eq i32 %233, %238
+  br i1 %.not.i224.i, label %bsearch.exit.i, label %242
 
 242:                                              ; preds = %241
   %243 = add nuw nsw i64 %235, 1
@@ -4274,37 +4274,37 @@ bsearch.exit.i:                                   ; preds = %241
 
 .critedge.i106:                                   ; preds = %251, %249
   %255 = icmp ult ptr %.0176.i, %230
-  br i1 %255, label %.lr.ph274.i, label %.critedge2.i
+  br i1 %255, label %.lr.ph275.i, label %.critedge2.i
 
-.lr.ph274.i:                                      ; preds = %.critedge.i106, %259
+.lr.ph275.i:                                      ; preds = %.critedge.i106, %259
   %256 = phi i64 [ %260, %259 ], [ 0, %.critedge.i106 ]
-  %.1177273.i = phi ptr [ %262, %259 ], [ %.0176.i, %.critedge.i106 ]
-  %257 = load i32, ptr %.1177273.i, align 8, !tbaa !177
+  %.1177274.i = phi ptr [ %262, %259 ], [ %.0176.i, %.critedge.i106 ]
+  %257 = load i32, ptr %.1177274.i, align 8, !tbaa !177
   %258 = icmp eq i32 %257, %233
   br i1 %258, label %259, label %.critedge2.i
 
-259:                                              ; preds = %.lr.ph274.i
+259:                                              ; preds = %.lr.ph275.i
   %260 = add i64 %256, 1
   store i64 %260, ptr %248, align 8, !tbaa !183
-  %261 = getelementptr inbounds nuw i8, ptr %.1177273.i, i64 8
-  store i64 %.1180276.i, ptr %261, align 8, !tbaa !181
-  %262 = getelementptr i8, ptr %.1177273.i, i64 32
+  %261 = getelementptr inbounds nuw i8, ptr %.1177274.i, i64 8
+  store i64 %.1180277.i, ptr %261, align 8, !tbaa !181
+  %262 = getelementptr i8, ptr %.1177274.i, i64 32
   %263 = icmp ult ptr %262, %230
-  br i1 %263, label %.lr.ph274.i, label %.critedge2.i, !llvm.loop !185
+  br i1 %263, label %.lr.ph275.i, label %.critedge2.i, !llvm.loop !185
 
-.critedge2.i:                                     ; preds = %259, %.lr.ph274.i, %.critedge.i106, %bsearch.exit.thread.loopexit.i
-  %264 = add nuw nsw i64 %.1180276.i, 1
-  %exitcond297.not.i = icmp eq i64 %264, %.0.i.i
-  br i1 %exitcond297.not.i, label %.lr.ph282.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !186
+.critedge2.i:                                     ; preds = %259, %.lr.ph275.i, %.critedge.i106, %bsearch.exit.thread.loopexit.i
+  %264 = add nuw nsw i64 %.1180277.i, 1
+  %exitcond298.not.i = icmp eq i64 %264, %.0.i.i
+  br i1 %exitcond298.not.i, label %.lr.ph283.preheader.i, label %.lr.ph.i.preheader.i, !llvm.loop !186
 
-.lr.ph282.preheader.i:                            ; preds = %.critedge2.i, %.critedge4.i
-  %.2285.i = phi i64 [ %315, %.critedge4.i ], [ 0, %.critedge2.i ]
-  %265 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.2285.i
+.lr.ph283.preheader.i:                            ; preds = %.critedge2.i, %.critedge4.i
+  %.2286.i = phi i64 [ %315, %.critedge4.i ], [ 0, %.critedge2.i ]
+  %265 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.2286.i
   %266 = load i32, ptr %265, align 8, !tbaa !177
   %.not205.i144 = icmp eq i32 %266, -1
   br i1 %.not205.i144, label %.critedge4.i, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph282.preheader.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph283.preheader.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %265, i64 16
   %.pre152 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !183
   br label %.lr.ph
@@ -4312,12 +4312,12 @@ bsearch.exit.i:                                   ; preds = %241
 .preheader.i:                                     ; preds = %.critedge4.i
   %267 = icmp ne ptr %2, null
   %268 = icmp ne i64 %3, 0
-  %or.cond.i233.i = and i1 %267, %268
+  %or.cond.i235.i = and i1 %267, %268
   br label %316
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph282.i
-  %269 = phi i64 [ %313, %.lr.ph282.i ], [ %.pre152, %.lr.ph.preheader ]
-  %270 = phi ptr [ %310, %.lr.ph282.i ], [ %265, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph283.i
+  %269 = phi i64 [ %313, %.lr.ph283.i ], [ %.pre152, %.lr.ph.preheader ]
+  %270 = phi ptr [ %310, %.lr.ph283.i ], [ %265, %.lr.ph.preheader ]
   %271 = icmp eq i64 %269, 0
   br i1 %271, label %272, label %.critedge4.i
 
@@ -4365,8 +4365,8 @@ bsearch.exit.i:                                   ; preds = %241
 
 297:                                              ; preds = %290
   %298 = and i32 %292, 1
-  %.not.i224.i = icmp eq i32 %298, 0
-  br i1 %.not.i224.i, label %299, label %fd_set_cloexec.exit.i
+  %.not.i226.i = icmp eq i32 %298, 0
+  br i1 %.not.i226.i, label %299, label %fd_set_cloexec.exit.i
 
 299:                                              ; preds = %297
   %300 = or disjoint i32 %292, 1
@@ -4392,9 +4392,9 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
   %308 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %309 = load i64, ptr %308, align 8, !tbaa !181
   %cond.i = icmp eq i64 %309, -1
-  br i1 %cond.i, label %.critedge4.i, label %.lr.ph282.i
+  br i1 %cond.i, label %.critedge4.i, label %.lr.ph283.i
 
-.lr.ph282.i:                                      ; preds = %fd_set_cloexec.exit.i
+.lr.ph283.i:                                      ; preds = %fd_set_cloexec.exit.i
   %310 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %312 = load i64, ptr %311, align 8, !tbaa !183
@@ -4404,15 +4404,15 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
   %.not205.i = icmp eq i32 %314, -1
   br i1 %.not205.i, label %.critedge4.i, label %.lr.ph
 
-.critedge4.i:                                     ; preds = %.lr.ph282.i, %.lr.ph, %fd_set_cloexec.exit.i, %.lr.ph282.preheader.i
-  %315 = add nuw nsw i64 %.2285.i, 1
-  %exitcond298.not.i = icmp eq i64 %315, %.0.i.i
-  br i1 %exitcond298.not.i, label %.preheader.i, label %.lr.ph282.preheader.i, !llvm.loop !187
+.critedge4.i:                                     ; preds = %.lr.ph283.i, %.lr.ph, %fd_set_cloexec.exit.i, %.lr.ph283.preheader.i
+  %315 = add nuw nsw i64 %.2286.i, 1
+  %exitcond299.not.i = icmp eq i64 %315, %.0.i.i
+  br i1 %exitcond299.not.i, label %.preheader.i, label %.lr.ph283.preheader.i, !llvm.loop !187
 
 316:                                              ; preds = %.loopexit.i, %.preheader.i
-  %.3291.i = phi i64 [ 0, %.preheader.i ], [ %388, %.loopexit.i ]
-  %.0181290.i = phi i32 [ -1, %.preheader.i ], [ %.1182.i, %.loopexit.i ]
-  %317 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.3291.i
+  %.3292.i = phi i64 [ 0, %.preheader.i ], [ %388, %.loopexit.i ]
+  %.0181291.i = phi i32 [ -1, %.preheader.i ], [ %.1182.i, %.loopexit.i ]
+  %317 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.3292.i
   %318 = load i32, ptr %317, align 8, !tbaa !177
   %319 = icmp eq i32 %318, -1
   br i1 %319, label %.loopexit.i, label %320
@@ -4429,12 +4429,12 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
   br i1 %326, label %327, label %328
 
 327:                                              ; preds = %324
-  br i1 %or.cond.i233.i, label %.sink.split.i229.i, label %run_exec_pgroup.exit.thread
+  br i1 %or.cond.i235.i, label %.sink.split.i231.i, label %run_exec_pgroup.exit.thread
 
 328:                                              ; preds = %324
   %329 = and i32 %325, 1
-  %.not.i226.i = icmp eq i32 %329, 0
-  br i1 %.not.i226.i, label %fd_clear_cloexec.exit.i, label %330
+  %.not.i228.i = icmp eq i32 %329, 0
+  br i1 %.not.i228.i, label %fd_clear_cloexec.exit.i, label %330
 
 330:                                              ; preds = %328
   %331 = and i32 %325, -2
@@ -4443,11 +4443,11 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
   br i1 %333, label %334, label %fd_clear_cloexec.exit.i
 
 334:                                              ; preds = %330
-  br i1 %or.cond.i233.i, label %.sink.split.i229.i, label %run_exec_pgroup.exit.thread
+  br i1 %or.cond.i235.i, label %.sink.split.i231.i, label %run_exec_pgroup.exit.thread
 
-.sink.split.i229.i:                               ; preds = %334, %327
-  %.str.203.sink.i230.i = phi ptr [ @.str.202, %327 ], [ @.str.203, %334 ]
-  %335 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) %.str.203.sink.i230.i, i64 noundef %3) #28
+.sink.split.i231.i:                               ; preds = %334, %327
+  %.str.203.sink.i232.i = phi ptr [ @.str.202, %327 ], [ @.str.203, %334 ]
+  %335 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) %.str.203.sink.i232.i, i64 noundef %3) #28
   br label %run_exec_pgroup.exit.thread
 
 fd_clear_cloexec.exit.i:                          ; preds = %330, %328
@@ -4455,7 +4455,7 @@ fd_clear_cloexec.exit.i:                          ; preds = %330, %328
   br label %.loopexit.i
 
 336:                                              ; preds = %320
-  %337 = icmp eq i32 %.0181290.i, -1
+  %337 = icmp eq i32 %.0181291.i, -1
   br i1 %337, label %338, label %368
 
 338:                                              ; preds = %336
@@ -4464,7 +4464,7 @@ fd_clear_cloexec.exit.i:                          ; preds = %330, %328
   br i1 %340, label %341, label %344
 
 341:                                              ; preds = %338
-  br i1 %or.cond.i233.i, label %342, label %run_exec_pgroup.exit.thread
+  br i1 %or.cond.i235.i, label %342, label %run_exec_pgroup.exit.thread
 
 342:                                              ; preds = %341
   %343 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str.201, i64 noundef %3) #28
@@ -4477,81 +4477,81 @@ fd_clear_cloexec.exit.i:                          ; preds = %330, %328
   br i1 %347, label %348, label %fd_get_cloexec.exit.i
 
 348:                                              ; preds = %344
-  br i1 %or.cond.i233.i, label %fd_get_cloexec.exit.thread.thread324.i, label %fd_get_cloexec.exit.thread.thread.i
+  br i1 %or.cond.i235.i, label %fd_get_cloexec.exit.thread.thread325.i, label %fd_get_cloexec.exit.thread.thread.i
 
 fd_get_cloexec.exit.i:                            ; preds = %344
   %349 = and i32 %346, 1
   %.not201.i = icmp eq i32 %349, 0
-  br i1 %.not201.i, label %fd_set_cloexec.exit240.i, label %fd_get_cloexec.exit.thread.i
+  br i1 %.not201.i, label %fd_set_cloexec.exit242.i, label %fd_get_cloexec.exit.thread.i
 
 fd_get_cloexec.exit.thread.i:                     ; preds = %fd_get_cloexec.exit.i
   %350 = call i32 (i32, i32, ...) @fcntl(i32 noundef %339, i32 noundef 1) #28
   %351 = icmp eq i32 %350, -1
   br i1 %351, label %357, label %358
 
-fd_get_cloexec.exit.thread.thread324.i:           ; preds = %348
+fd_get_cloexec.exit.thread.thread325.i:           ; preds = %348
   %352 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str.202, i64 noundef %3) #28
   %353 = call i32 (i32, i32, ...) @fcntl(i32 noundef %339, i32 noundef 1) #28
   %354 = icmp eq i32 %353, -1
-  br i1 %354, label %.sink.split.i237.i, label %358
+  br i1 %354, label %.sink.split.i239.i, label %358
 
 fd_get_cloexec.exit.thread.thread.i:              ; preds = %348
   %355 = call i32 (i32, i32, ...) @fcntl(i32 noundef %339, i32 noundef 1) #28
   %356 = icmp eq i32 %355, -1
-  br i1 %356, label %.thread323.i, label %358
+  br i1 %356, label %.thread324.i, label %358
 
 357:                                              ; preds = %fd_get_cloexec.exit.thread.i
-  br i1 %or.cond.i233.i, label %.sink.split.i237.i, label %.thread323.i
+  br i1 %or.cond.i235.i, label %.sink.split.i239.i, label %.thread324.i
 
-358:                                              ; preds = %fd_get_cloexec.exit.thread.thread.i, %fd_get_cloexec.exit.thread.thread324.i, %fd_get_cloexec.exit.thread.i
-  %359 = phi i32 [ %355, %fd_get_cloexec.exit.thread.thread.i ], [ %350, %fd_get_cloexec.exit.thread.i ], [ %353, %fd_get_cloexec.exit.thread.thread324.i ]
+358:                                              ; preds = %fd_get_cloexec.exit.thread.thread.i, %fd_get_cloexec.exit.thread.thread325.i, %fd_get_cloexec.exit.thread.i
+  %359 = phi i32 [ %355, %fd_get_cloexec.exit.thread.thread.i ], [ %350, %fd_get_cloexec.exit.thread.i ], [ %353, %fd_get_cloexec.exit.thread.thread325.i ]
   %360 = and i32 %359, 1
-  %.not.i234.i = icmp eq i32 %360, 0
-  br i1 %.not.i234.i, label %361, label %fd_set_cloexec.exit240.i
+  %.not.i236.i = icmp eq i32 %360, 0
+  br i1 %.not.i236.i, label %361, label %fd_set_cloexec.exit242.i
 
 361:                                              ; preds = %358
   %362 = or disjoint i32 %359, 1
   %363 = call i32 (i32, i32, ...) @fcntl(i32 noundef %339, i32 noundef 2, i32 noundef %362) #28
   %364 = icmp eq i32 %363, -1
-  br i1 %364, label %365, label %fd_set_cloexec.exit240.i
+  br i1 %364, label %365, label %fd_set_cloexec.exit242.i
 
 365:                                              ; preds = %361
-  br i1 %or.cond.i233.i, label %.sink.split.i237.i, label %.thread323.i
+  br i1 %or.cond.i235.i, label %.sink.split.i239.i, label %.thread324.i
 
-.sink.split.i237.i:                               ; preds = %fd_get_cloexec.exit.thread.thread324.i, %365, %357
-  %.str.203.sink.i238.i = phi ptr [ @.str.202, %357 ], [ @.str.203, %365 ], [ @.str.202, %fd_get_cloexec.exit.thread.thread324.i ]
-  %366 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) %.str.203.sink.i238.i, i64 noundef %3) #28
-  br label %.thread323.i
+.sink.split.i239.i:                               ; preds = %fd_get_cloexec.exit.thread.thread325.i, %365, %357
+  %.str.203.sink.i240.i = phi ptr [ @.str.202, %357 ], [ @.str.203, %365 ], [ @.str.202, %fd_get_cloexec.exit.thread.thread325.i ]
+  %366 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) %.str.203.sink.i240.i, i64 noundef %3) #28
+  br label %.thread324.i
 
-.thread323.i:                                     ; preds = %fd_get_cloexec.exit.thread.thread.i, %.sink.split.i237.i, %365, %357
+.thread324.i:                                     ; preds = %fd_get_cloexec.exit.thread.thread.i, %.sink.split.i239.i, %365, %357
   %367 = call i32 @close(i32 noundef %339) #28
   br label %run_exec_pgroup.exit.thread
 
 368:                                              ; preds = %336
-  %369 = call i32 @dup2(i32 noundef %318, i32 noundef %.0181290.i) #28
+  %369 = call i32 @dup2(i32 noundef %318, i32 noundef %.0181291.i) #28
   %370 = icmp eq i32 %369, -1
-  br i1 %370, label %371, label %fd_set_cloexec.exit240.i
+  br i1 %370, label %371, label %fd_set_cloexec.exit242.i
 
 371:                                              ; preds = %368
-  br i1 %or.cond.i233.i, label %372, label %run_exec_pgroup.exit.thread
+  br i1 %or.cond.i235.i, label %372, label %run_exec_pgroup.exit.thread
 
 372:                                              ; preds = %371
   %373 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %3) #28
   br label %run_exec_pgroup.exit.thread
 
-fd_set_cloexec.exit240.i:                         ; preds = %368, %361, %358, %fd_get_cloexec.exit.i
-  %.0181290.sink.i = phi i32 [ %339, %361 ], [ %339, %358 ], [ %339, %fd_get_cloexec.exit.i ], [ %.0181290.i, %368 ]
-  call void @rb_update_max_fd(i32 noundef %.0181290.sink.i) #28
-  store i32 %.0181290.sink.i, ptr %317, align 8, !tbaa !177
+fd_set_cloexec.exit242.i:                         ; preds = %368, %361, %358, %fd_get_cloexec.exit.i
+  %.0181291.sink.i = phi i32 [ %339, %361 ], [ %339, %358 ], [ %339, %fd_get_cloexec.exit.i ], [ %.0181291.i, %368 ]
+  call void @rb_update_max_fd(i32 noundef %.0181291.sink.i) #28
+  store i32 %.0181291.sink.i, ptr %317, align 8, !tbaa !177
   %374 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %375 = load i64, ptr %374, align 8, !tbaa !181
   store i64 -1, ptr %374, align 8, !tbaa !181
-  %.not203286.i = icmp eq i64 %375, -1
-  br i1 %.not203286.i, label %.loopexit.i, label %.lr.ph289.i
+  %.not203287.i = icmp eq i64 %375, -1
+  br i1 %.not203287.i, label %.loopexit.i, label %.lr.ph290.i
 
-.lr.ph289.i:                                      ; preds = %fd_set_cloexec.exit240.i, %385
-  %.0287.i = phi i64 [ %387, %385 ], [ %375, %fd_set_cloexec.exit240.i ]
-  %376 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0287.i
+.lr.ph290.i:                                      ; preds = %fd_set_cloexec.exit242.i, %385
+  %.0288.i = phi i64 [ %387, %385 ], [ %375, %fd_set_cloexec.exit242.i ]
+  %376 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0288.i
   %377 = load i32, ptr %376, align 8, !tbaa !177
   %378 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %379 = load i32, ptr %378, align 4, !tbaa !179
@@ -4559,35 +4559,35 @@ fd_set_cloexec.exit240.i:                         ; preds = %368, %361, %358, %f
   %381 = icmp eq i32 %380, -1
   br i1 %381, label %382, label %385
 
-382:                                              ; preds = %.lr.ph289.i
-  br i1 %or.cond.i233.i, label %383, label %run_exec_pgroup.exit.thread
+382:                                              ; preds = %.lr.ph290.i
+  br i1 %or.cond.i235.i, label %383, label %run_exec_pgroup.exit.thread
 
 383:                                              ; preds = %382
   %384 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str.200, i64 noundef %3) #28
   br label %run_exec_pgroup.exit.thread
 
-385:                                              ; preds = %.lr.ph289.i
+385:                                              ; preds = %.lr.ph290.i
   call void @rb_update_max_fd(i32 noundef %380) #28
   store i32 -1, ptr %376, align 8, !tbaa !177
   %386 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %387 = load i64, ptr %386, align 8, !tbaa !181
   %.not203.i = icmp eq i64 %387, -1
-  br i1 %.not203.i, label %.loopexit.i, label %.lr.ph289.i, !llvm.loop !188
+  br i1 %.not203.i, label %.loopexit.i, label %.lr.ph290.i, !llvm.loop !188
 
-.loopexit.i:                                      ; preds = %385, %fd_set_cloexec.exit240.i, %fd_clear_cloexec.exit.i, %316
-  %.1182.i = phi i32 [ %.0181290.i, %fd_clear_cloexec.exit.i ], [ %.0181290.i, %316 ], [ %.0181290.sink.i, %fd_set_cloexec.exit240.i ], [ %.0181290.sink.i, %385 ]
-  %388 = add nuw nsw i64 %.3291.i, 1
-  %exitcond299.not.i = icmp eq i64 %388, %.0.i.i
-  br i1 %exitcond299.not.i, label %._crit_edge293.i, label %316, !llvm.loop !189
+.loopexit.i:                                      ; preds = %385, %fd_set_cloexec.exit242.i, %fd_clear_cloexec.exit.i, %316
+  %.1182.i = phi i32 [ %.0181291.i, %fd_clear_cloexec.exit.i ], [ %.0181291.i, %316 ], [ %.0181291.sink.i, %fd_set_cloexec.exit242.i ], [ %.0181291.sink.i, %385 ]
+  %388 = add nuw nsw i64 %.3292.i, 1
+  %exitcond300.not.i = icmp eq i64 %388, %.0.i.i
+  br i1 %exitcond300.not.i, label %._crit_edge294.i, label %316, !llvm.loop !189
 
-._crit_edge293.i:                                 ; preds = %.loopexit.i
+._crit_edge294.i:                                 ; preds = %.loopexit.i
   %.not200.i = icmp eq i32 %.1182.i, -1
   br i1 %.not200.i, label %run_exec_dup2.exit, label %389
 
-389:                                              ; preds = %._crit_edge293.i
+389:                                              ; preds = %._crit_edge294.i
   %390 = call i32 @rb_reserved_fd_p(i32 noundef %.1182.i) #28
-  %.not.i241.i = icmp eq i32 %390, 0
-  br i1 %.not.i241.i, label %close_unless_reserved.exit.i, label %run_exec_dup2.exit
+  %.not.i243.i = icmp eq i32 %390, 0
+  br i1 %.not.i243.i, label %close_unless_reserved.exit.i, label %run_exec_dup2.exit
 
 close_unless_reserved.exit.i:                     ; preds = %389
   %391 = call i32 @close(i32 noundef %.1182.i) #28
@@ -4595,7 +4595,7 @@ close_unless_reserved.exit.i:                     ; preds = %389
   br i1 %392, label %393, label %run_exec_dup2.exit
 
 393:                                              ; preds = %close_unless_reserved.exit.i
-  br i1 %or.cond.i233.i, label %394, label %run_exec_pgroup.exit.thread
+  br i1 %or.cond.i235.i, label %394, label %run_exec_pgroup.exit.thread
 
 394:                                              ; preds = %393
   %395 = call i64 @strlcpy(ptr noundef nonnull %2, ptr noundef nonnull dereferenceable(1) @.str.154, i64 noundef %3) #28
@@ -4606,7 +4606,7 @@ close_unless_reserved.exit.i:                     ; preds = %389
   call void @qsort(ptr noundef %165, i64 noundef %.0.i.i, i64 noundef 32, ptr noundef nonnull %intcmp.intrcmp.c.i) #28
   br label %run_exec_dup2.exit
 
-run_exec_dup2.exit:                               ; preds = %.critedge4.thread.critedge.i, %close_unless_reserved.exit.i, %389, %._crit_edge293.i, %157
+run_exec_dup2.exit:                               ; preds = %.critedge4.thread.critedge.i, %close_unless_reserved.exit.i, %389, %._crit_edge294.i, %157
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %397 = load i64, ptr %396, align 8, !tbaa !88
   %.not91 = icmp eq i64 %397, 0
@@ -4983,8 +4983,8 @@ stdfd_clear_nonblock.exit:                        ; preds = %set_blocking.exit.i
   store i32 %568, ptr %577, align 4, !tbaa !60
   br label %run_exec_pgroup.exit.thread
 
-run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %488, %491, %429, %432, %.sink.split.i229.i, %334, %327, %383, %382, %372, %371, %342, %341, %.thread323.i, %.sink.split.i.i, %303, %294, %285, %282, %393, %394, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
-  %.0 = phi i32 [ 0, %stdfd_clear_nonblock.exit ], [ -1, %run_exec_rlimit.exit ], [ -1, %515 ], [ -1, %518 ], [ -1, %528 ], [ -1, %531 ], [ -1, %541 ], [ -1, %544 ], [ -1, %33 ], [ -1, %30 ], [ -1, %394 ], [ -1, %393 ], [ -1, %282 ], [ -1, %285 ], [ -1, %294 ], [ -1, %303 ], [ -1, %.sink.split.i.i ], [ -1, %.thread323.i ], [ -1, %341 ], [ -1, %342 ], [ -1, %371 ], [ -1, %372 ], [ -1, %382 ], [ -1, %383 ], [ -1, %327 ], [ -1, %334 ], [ -1, %.sink.split.i229.i ], [ -1, %432 ], [ -1, %429 ], [ -1, %491 ], [ -1, %488 ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %272 ]
+run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %488, %491, %429, %432, %.sink.split.i231.i, %334, %327, %383, %382, %372, %371, %342, %341, %.thread324.i, %.sink.split.i.i, %303, %294, %285, %282, %393, %394, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
+  %.0 = phi i32 [ 0, %stdfd_clear_nonblock.exit ], [ -1, %run_exec_rlimit.exit ], [ -1, %515 ], [ -1, %518 ], [ -1, %528 ], [ -1, %531 ], [ -1, %541 ], [ -1, %544 ], [ -1, %33 ], [ -1, %30 ], [ -1, %394 ], [ -1, %393 ], [ -1, %282 ], [ -1, %285 ], [ -1, %294 ], [ -1, %303 ], [ -1, %.sink.split.i.i ], [ -1, %.thread324.i ], [ -1, %341 ], [ -1, %342 ], [ -1, %371 ], [ -1, %372 ], [ -1, %382 ], [ -1, %383 ], [ -1, %327 ], [ -1, %334 ], [ -1, %.sink.split.i231.i ], [ -1, %432 ], [ -1, %429 ], [ -1, %491 ], [ -1, %488 ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %272 ]
   ret i32 %.0
 }
 

@@ -257,7 +257,7 @@ _get_job_node_req.exit:                           ; preds = %68, %74, %76, %81
   br i1 %.not74, label %101, label %84
 
 84:                                               ; preds = %_get_job_node_req.exit
-  switch i16 %.0.i, label %.fold.split [
+  switch i16 %.0.i, label %.unreachabledefault [
     i16 -1536, label %87
     i16 0, label %85
     i16 1, label %86
@@ -269,11 +269,11 @@ _get_job_node_req.exit:                           ; preds = %68, %74, %76, %81
 86:                                               ; preds = %84
   br label %87
 
-.fold.split:                                      ; preds = %84
-  br label %87
+.unreachabledefault:                              ; preds = %84
+  unreachable
 
-87:                                               ; preds = %84, %.fold.split, %85, %86
-  %.064 = phi ptr [ @.str.3, %85 ], [ @.str.4, %86 ], [ @.str.2, %84 ], [ @.str.1, %.fold.split ]
+87:                                               ; preds = %84, %85, %86
+  %.064 = phi ptr [ @.str.3, %85 ], [ @.str.4, %86 ], [ @.str.2, %84 ]
   %88 = icmp ult i16 %5, 3
   br i1 %88, label %switch.lookup, label %.fold.split79
 
@@ -627,7 +627,7 @@ _set_sched_weight.exit.i.i:                       ; preds = %197, %180
 234:                                              ; preds = %.critedge.i.i, %230
   %235 = phi i64 [ 0, %230 ], [ %369, %.critedge.i.i ]
   %236 = phi i64 [ 0, %230 ], [ %370, %.critedge.i.i ]
-  %.0124.i.i = phi i1 [ true, %230 ], [ %.21266.i.i, %.critedge.i.i ]
+  %.0124.i.i = phi i1 [ true, %230 ], [ %.21267.i.i, %.critedge.i.i ]
   %.0118.i.i = phi i32 [ 30, %230 ], [ %.5123.i.i, %.critedge.i.i ]
   %.1117.i.i = phi i32 [ %.0116.i.i, %230 ], [ %.4.i.i, %.critedge.i.i ]
   br i1 %.0124.i.i, label %237, label %.thread28.i.i
@@ -669,8 +669,8 @@ _set_sched_weight.exit.i.i:                       ; preds = %197, %180
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 480
   %255 = load i8, ptr %254, align 8
   %256 = and i8 %255, 8
-  %.not.i164.i.i = icmp eq i8 %256, 0
-  br i1 %.not.i164.i.i, label %257, label %264
+  %.not.i165.i.i = icmp eq i8 %256, 0
+  br i1 %.not.i165.i.i, label %257, label %264
 
 257:                                              ; preds = %251
   %258 = getelementptr inbounds nuw i8, ptr %244, i64 672
@@ -698,7 +698,7 @@ _set_sched_weight.exit.i.i:                       ; preds = %197, %180
   br label %_select_topo_bitmap.exit.i.i
 
 _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %257
-  %.0.i165.i.i = phi ptr [ %1, %260 ], [ %1, %257 ], [ %.pre.i.i.i, %266 ], [ %265, %264 ]
+  %.0.i166.i.i = phi ptr [ %1, %260 ], [ %1, %257 ], [ %.pre.i.i.i, %266 ], [ %265, %264 ]
   %269 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %270 = and i64 %269, 1
   %.not149.i.i = icmp eq i64 %270, 0
@@ -707,7 +707,7 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
   br i1 %.not149.i.i, label %278, label %273
 
 273:                                              ; preds = %_select_topo_bitmap.exit.i.i
-  %274 = call i32 @bit_overlap(ptr noundef %.0.i165.i.i, ptr noundef %272) #10
+  %274 = call i32 @bit_overlap(ptr noundef %.0.i166.i.i, ptr noundef %272) #10
   %275 = call i32 @get_log_level() #10
   %276 = icmp sgt i32 %275, 2
   br i1 %276, label %277, label %280
@@ -717,7 +717,7 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
   br label %280
 
 278:                                              ; preds = %_select_topo_bitmap.exit.i.i
-  %279 = call i32 @bit_overlap_any(ptr noundef %.0.i165.i.i, ptr noundef %272) #10
+  %279 = call i32 @bit_overlap_any(ptr noundef %.0.i166.i.i, ptr noundef %272) #10
   br label %280
 
 280:                                              ; preds = %278, %277, %273
@@ -741,7 +741,7 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
 289:                                              ; preds = %283, %282
   %290 = phi i64 [ %288, %283 ], [ %241, %282 ]
   %291 = phi i64 [ %288, %283 ], [ %242, %282 ]
-  %292 = call i32 @job_res_rm_job(ptr noundef nonnull %203, ptr noundef nonnull %207, ptr noundef %212, ptr noundef nonnull %244, i32 noundef 0, ptr noundef %.0.i165.i.i) #10
+  %292 = call i32 @job_res_rm_job(ptr noundef nonnull %203, ptr noundef nonnull %207, ptr noundef %212, ptr noundef nonnull %244, i32 noundef 0, ptr noundef %.0.i166.i.i) #10
   %293 = call ptr @list_peek_next(ptr noundef %232) #10
   %.not151.not.i.not.i.not.not = icmp ne ptr %293, null
   br i1 %.not151.not.i.not.i.not.not, label %294, label %.thread18.i.i
@@ -841,8 +841,8 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
 339:                                              ; preds = %336
   %340 = getelementptr inbounds nuw i8, ptr %.1115.ph24.i.i, i64 672
   %341 = load ptr, ptr %340, align 8
-  %.not.i166.i.i = icmp eq ptr %341, null
-  br i1 %.not.i166.i.i, label %345, label %342
+  %.not.i167.i.i = icmp eq ptr %341, null
+  br i1 %.not.i167.i.i, label %345, label %342
 
 342:                                              ; preds = %339
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 280
@@ -855,8 +855,8 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
   br label %347
 
 347:                                              ; preds = %345, %342
-  %.0.i167.i.i = phi i16 [ %346, %345 ], [ %344, %342 ]
-  switch i16 %.0.i167.i.i, label %361 [
+  %.0.i168.i.i = phi i16 [ %346, %345 ], [ %344, %342 ]
+  switch i16 %.0.i168.i.i, label %361 [
     i16 0, label %348
     i16 -1, label %352
   ]
@@ -885,7 +885,7 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
   br label %_guess_job_end.exit.i.i
 
 361:                                              ; preds = %347
-  %362 = zext i16 %.0.i167.i.i to i64
+  %362 = zext i16 %.0.i168.i.i to i64
   %363 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 606), align 2
   %364 = zext i16 %363 to i64
   %365 = mul nuw nsw i64 %362, 60
@@ -902,7 +902,7 @@ _guess_job_end.exit.i.i:                          ; preds = %361, %359, %355, %3
 .critedge.i.i:                                    ; preds = %299, %.preheader.split.split.us.i.i, %.preheader.split.split.preheader.i.i, %.preheader.split.us.i.i
   %369 = phi i64 [ %308, %.preheader.split.us.i.i ], [ %308, %.preheader.split.split.preheader.i.i ], [ %308, %.preheader.split.split.us.i.i ], [ %290, %299 ]
   %370 = phi i64 [ %308, %.preheader.split.us.i.i ], [ %308, %.preheader.split.split.preheader.i.i ], [ %308, %.preheader.split.split.us.i.i ], [ %291, %299 ]
-  %.21266.i.i = phi i1 [ %.2126.ph23.i.i, %.preheader.split.us.i.i ], [ %.2126.ph23.i.i, %.preheader.split.split.preheader.i.i ], [ %.2126.ph23.i.i, %.preheader.split.split.us.i.i ], [ true, %299 ]
+  %.21267.i.i = phi i1 [ %.2126.ph23.i.i, %.preheader.split.us.i.i ], [ %.2126.ph23.i.i, %.preheader.split.split.preheader.i.i ], [ %.2126.ph23.i.i, %.preheader.split.split.us.i.i ], [ true, %299 ]
   %.5123.i.i = phi i32 [ %.4122.us.i.i, %.preheader.split.us.i.i ], [ %331, %.preheader.split.split.preheader.i.i ], [ %332, %.preheader.split.split.us.i.i ], [ %.0118.i.i, %299 ]
   %.4.i.i = phi i32 [ %313, %.preheader.split.us.i.i ], [ %313, %.preheader.split.split.preheader.i.i ], [ %313, %.preheader.split.split.us.i.i ], [ %.1117.i.i, %299 ]
   %371 = call i32 @gettimeofday(ptr noundef nonnull %22, ptr noundef null) #10
@@ -931,8 +931,8 @@ _guess_job_end.exit.i.i:                          ; preds = %361, %359, %355, %3
   %.not157.i.i = icmp eq i64 %379, 0
   %380 = and i64 %375, 4096
   %.not158.i.i = icmp eq i64 %380, 0
-  %or.cond163.i.i = or i1 %.not158.i.i, %.not157.i.i
-  br i1 %or.cond163.i.i, label %387, label %381
+  %or.cond164.i.i = or i1 %.not158.i.i, %.not157.i.i
+  br i1 %or.cond164.i.i, label %387, label %381
 
 381:                                              ; preds = %377, %.thread28.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %25)

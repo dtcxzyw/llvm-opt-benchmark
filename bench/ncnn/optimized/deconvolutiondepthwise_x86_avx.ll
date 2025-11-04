@@ -292,7 +292,7 @@ define hidden noundef i32 @_ZN4ncnn30DeconvolutionDepthWise_x86_avx15create_pipe
   br i1 %exitcond115.not, label %._crit_edge105, label %.preheader.us, !llvm.loop !53
 
 ._crit_edge105:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %38
-  switch i32 %.040, label %_ZN4ncnn3MataSERKS0_.exit [
+  switch i32 %.040, label %.unreachabledefault [
     i32 8, label %72
     i32 4, label %116
     i32 1, label %160
@@ -596,7 +596,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %181, %182, %177, %1
           cleanup
   br label %242
 
-_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit.i, %160, %_ZN4ncnn3MatD2Ev.exit53, %_ZN4ncnn3MatD2Ev.exit, %._crit_edge105
+.unreachabledefault:                              ; preds = %._crit_edge105
+  unreachable
+
+_ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releaseEv.exit.i, %160, %_ZN4ncnn3MatD2Ev.exit53, %_ZN4ncnn3MatD2Ev.exit
   %205 = load i8, ptr %1, align 8, !tbaa !61, !range !46, !noundef !47
   %206 = trunc nuw i8 %205 to i1
   br i1 %206, label %207, label %225

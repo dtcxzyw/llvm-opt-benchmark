@@ -5545,7 +5545,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
 7:                                                ; preds = %3
   %8 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %.thread88
+  br i1 %9, label %10, label %.thread89
 
 10:                                               ; preds = %7
   %11 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !9
@@ -5559,24 +5559,24 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
   %16 = load i64, ptr @H5E_tools_g, align 8, !tbaa !9
   %17 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !9
   %18 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.copy_user_block, i32 noundef 1642, i64 noundef %13, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.105, ptr noundef %0) #15
-  br label %.thread88
+  br label %.thread89
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr @stderr, align 8, !tbaa !23
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.105, ptr noundef %0) #16
   %22 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc65 = tail call i32 @fputc(i32 10, ptr %22)
-  br label %.thread88
+  br label %.thread89
 
 23:                                               ; preds = %3
   %24 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 1) #15
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %.preheader93
+  br i1 %25, label %26, label %.preheader94
 
 26:                                               ; preds = %23
   %27 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %29, label %.thread77.thread
+  br i1 %28, label %29, label %.thread78.thread
 
 29:                                               ; preds = %26
   %30 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !9
@@ -5590,31 +5590,31 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
   %35 = load i64, ptr @H5E_tools_g, align 8, !tbaa !9
   %36 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !9
   %37 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.copy_user_block, i32 noundef 1644, i64 noundef %32, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.106, ptr noundef %1) #15
-  br label %.thread77.thread
+  br label %.thread78.thread
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr @stderr, align 8, !tbaa !23
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.106, ptr noundef %1) #16
   %41 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc64 = tail call i32 @fputc(i32 10, ptr %41)
-  br label %.thread77.thread
+  br label %.thread78.thread
 
-.preheader93:                                     ; preds = %23, %._crit_edge
-  %.04897 = phi i64 [ %85, %._crit_edge ], [ %2, %23 ]
+.preheader94:                                     ; preds = %23, %._crit_edge
+  %.04898 = phi i64 [ %85, %._crit_edge ], [ %2, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %..04897 = tail call i64 @llvm.umin.i64(i64 %.04897, i64 512)
-  %42 = call i64 @read(i32 noundef %5, ptr noundef nonnull %4, i64 noundef %..04897) #15
+  %..04898 = tail call i64 @llvm.umin.i64(i64 %.04898, i64 512)
+  %42 = call i64 @read(i32 noundef %5, ptr noundef nonnull %4, i64 noundef %..04898) #15
   %43 = icmp slt i64 %42, 0
-  br i1 %43, label %44, label %.preheader92
+  br i1 %43, label %44, label %.preheader93
 
-.preheader92:                                     ; preds = %.preheader93
-  %.not98 = icmp eq i64 %42, 0
-  br i1 %.not98, label %._crit_edge, label %.preheader
+.preheader93:                                     ; preds = %.preheader94
+  %.not99 = icmp eq i64 %42, 0
+  br i1 %.not99, label %._crit_edge, label %.preheader
 
-44:                                               ; preds = %.preheader93
+44:                                               ; preds = %.preheader94
   %45 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %.thread72
+  br i1 %46, label %47, label %.thread73
 
 47:                                               ; preds = %44
   %48 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !9
@@ -5628,22 +5628,22 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
   %53 = load i64, ptr @H5E_tools_g, align 8, !tbaa !9
   %54 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !9
   %55 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %48, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.copy_user_block, i32 noundef 1658, i64 noundef %50, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.107) #15
-  br label %.thread72
+  br label %.thread73
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr @stderr, align 8, !tbaa !23
   %58 = tail call i64 @fwrite(ptr nonnull @.str.107, i64 31, i64 1, ptr %57) #17
   %59 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc63 = tail call i32 @fputc(i32 10, ptr %59)
-  br label %.thread72
+  br label %.thread73
 
-.preheader:                                       ; preds = %.preheader92, %81
-  %.04096 = phi ptr [ %83, %81 ], [ %4, %.preheader92 ]
-  %.04295 = phi i64 [ %82, %81 ], [ %42, %.preheader92 ]
+.preheader:                                       ; preds = %.preheader93, %81
+  %.04097 = phi ptr [ %83, %81 ], [ %4, %.preheader93 ]
+  %.04296 = phi i64 [ %82, %81 ], [ %42, %.preheader93 ]
   br label %60
 
 60:                                               ; preds = %.preheader, %62
-  %61 = call i64 @write(i32 noundef %24, ptr noundef %.04096, i64 noundef %.04295) #15
+  %61 = call i64 @write(i32 noundef %24, ptr noundef %.04097, i64 noundef %.04296) #15
   %.not62 = icmp eq i64 %61, -1
   br i1 %.not62, label %62, label %81
 
@@ -5656,7 +5656,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
 .critedge:                                        ; preds = %62
   %66 = load i32, ptr @enable_error_stack, align 4, !tbaa !22
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %.thread72
+  br i1 %67, label %68, label %.thread73
 
 68:                                               ; preds = %.critedge
   %69 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !9
@@ -5670,44 +5670,44 @@ define internal fastcc range(i32 -1, 1) i32 @copy_user_block(ptr noundef %0, ptr
   %74 = load i64, ptr @H5E_tools_g, align 8, !tbaa !9
   %75 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !9
   %76 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %69, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.copy_user_block, i32 noundef 1671, i64 noundef %71, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.108) #15
-  br label %.thread72
+  br label %.thread73
 
 77:                                               ; preds = %68
   %78 = load ptr, ptr @stderr, align 8, !tbaa !23
   %79 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 14, i64 1, ptr %78) #17
   %80 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc = tail call i32 @fputc(i32 10, ptr %80)
-  br label %.thread72
+  br label %.thread73
 
 81:                                               ; preds = %60
-  %82 = sub nsw i64 %.04295, %61
-  %83 = getelementptr inbounds i8, ptr %.04096, i64 %61
+  %82 = sub nsw i64 %.04296, %61
+  %83 = getelementptr inbounds i8, ptr %.04097, i64 %61
   %84 = icmp sgt i64 %82, 0
   br i1 %84, label %.preheader, label %._crit_edge, !llvm.loop !92
 
-.thread72:                                        ; preds = %44, %56, %52, %73, %77, %.critedge
+.thread73:                                        ; preds = %44, %56, %52, %73, %77, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread77
+  br label %.thread78
 
-._crit_edge:                                      ; preds = %81, %.preheader92
-  %85 = sub i64 %.04897, %42
+._crit_edge:                                      ; preds = %81, %.preheader93
+  %85 = sub i64 %.04898, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %85, 0
-  br i1 %.not, label %.thread77, label %.preheader93
+  br i1 %.not, label %.thread78, label %.preheader94
 
-.thread77.thread:                                 ; preds = %26, %38, %34
+.thread78.thread:                                 ; preds = %26, %38, %34
   %86 = tail call i32 @close(i32 noundef %5) #15
-  br label %.thread88
+  br label %.thread89
 
-.thread77:                                        ; preds = %._crit_edge, %.thread72
-  %.04583 = phi i32 [ -1, %.thread72 ], [ 0, %._crit_edge ]
+.thread78:                                        ; preds = %._crit_edge, %.thread73
+  %.04584 = phi i32 [ -1, %.thread73 ], [ 0, %._crit_edge ]
   %87 = tail call i32 @close(i32 noundef %5) #15
   %88 = tail call i32 @close(i32 noundef %24) #15
-  br label %.thread88
+  br label %.thread89
 
-.thread88:                                        ; preds = %.thread77.thread, %15, %19, %7, %.thread77
-  %.0458291 = phi i32 [ %.04583, %.thread77 ], [ -1, %7 ], [ -1, %19 ], [ -1, %15 ], [ -1, %.thread77.thread ]
-  ret i32 %.0458291
+.thread89:                                        ; preds = %.thread78.thread, %15, %19, %7, %.thread78
+  %.0458392 = phi i32 [ %.04584, %.thread78 ], [ -1, %7 ], [ -1, %19 ], [ -1, %15 ], [ -1, %.thread78.thread ]
+  ret i32 %.0458392
 }
 
 declare i32 @H5Eauto_is_v2(i64 noundef, ptr noundef) local_unnamed_addr #1

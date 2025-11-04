@@ -432,7 +432,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef captures(ad
 
 .thread._crit_edge:                               ; preds = %.thread
   %.pre = load i32, ptr %11, align 8
-  %.pre12 = load i32, ptr %13, align 4
+  %.pre15 = load i32, ptr %13, align 4
   br label %219
 
 207:                                              ; preds = %.thread
@@ -453,7 +453,7 @@ define dso_local range(i32 -109, 1) i32 @skb_gro_receive(ptr noundef captures(ad
   br label %219
 
 219:                                              ; preds = %.thread._crit_edge, %207
-  %220 = phi i32 [ %216, %207 ], [ %.pre12, %.thread._crit_edge ]
+  %220 = phi i32 [ %216, %207 ], [ %.pre15, %.thread._crit_edge ]
   %221 = phi i32 [ %218, %207 ], [ %.pre, %.thread._crit_edge ]
   %222 = phi i32 [ %15, %207 ], [ %10, %.thread._crit_edge ]
   %223 = sub i32 %221, %222

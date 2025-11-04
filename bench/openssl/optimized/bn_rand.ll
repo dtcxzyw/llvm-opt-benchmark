@@ -65,20 +65,20 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 .thread:                                          ; preds = %28
   %33 = tail call i32 @RAND_bytes_ex(ptr noundef %9, ptr noundef nonnull %26, i64 noundef %25, i32 noundef %5) #5
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %89, label %.thread74
+  br i1 %34, label %89, label %.thread75
 
 35:                                               ; preds = %30
   %36 = icmp eq i32 %0, 1
-  br i1 %36, label %.lr.ph.preheader, label %.thread74
+  br i1 %36, label %.lr.ph.preheader, label %.thread75
 
 .lr.ph.preheader:                                 ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
-.thread75:                                        ; preds = %55
+.thread76:                                        ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread74
+  br label %.thread75
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
@@ -121,21 +121,21 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 55:                                               ; preds = %43, %51, %53, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread75, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.thread76, label %.lr.ph, !llvm.loop !6
 
 56:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %89
 
-.thread74:                                        ; preds = %.thread, %.thread75, %35
+.thread75:                                        ; preds = %.thread, %.thread76, %35
   %57 = icmp sgt i32 %3, -1
-  br i1 %57, label %58, label %.thread74._crit_edge
+  br i1 %57, label %58, label %.thread75._crit_edge
 
-.thread74._crit_edge:                             ; preds = %.thread74
+.thread75._crit_edge:                             ; preds = %.thread75
   %.pre = load i8, ptr %26, align 1, !tbaa !3
   br label %77
 
-58:                                               ; preds = %.thread74
+58:                                               ; preds = %.thread75
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %72, label %59
 
@@ -166,8 +166,8 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %76 = or i8 %74, %75
   br label %77
 
-77:                                               ; preds = %.thread74._crit_edge, %72, %66, %62
-  %78 = phi i8 [ %.pre, %.thread74._crit_edge ], [ %76, %72 ], [ %71, %66 ], [ 1, %62 ]
+77:                                               ; preds = %.thread75._crit_edge, %72, %66, %62
+  %78 = phi i8 [ %.pre, %.thread75._crit_edge ], [ %76, %72 ], [ %71, %66 ], [ 1, %62 ]
   %79 = trunc i32 %24 to i8
   %80 = xor i8 %79, -1
   %81 = and i8 %78, %80

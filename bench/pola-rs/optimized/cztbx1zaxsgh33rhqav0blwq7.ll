@@ -27911,15 +27911,15 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %25 = icmp ugt i64 %24, 7
   br i1 %25, label %.lr.ph, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %379
+._crit_edge:                                      ; preds = %380
   %26 = lshr i64 %24, 3
   %27 = icmp samesign ult i64 %24, 4096
   br i1 %27, label %._crit_edge.thread, label %38
 
-.lr.ph:                                           ; preds = %15, %379
-  %.sroa.013.0785 = phi i64 [ %384, %379 ], [ 0, %15 ]
-  %28 = icmp samesign ult i64 %.sroa.013.0785, 4096
-  br i1 %28, label %379, label %387
+.lr.ph:                                           ; preds = %15, %380
+  %.sroa.013.0788 = phi i64 [ %385, %380 ], [ 0, %15 ]
+  %28 = icmp samesign ult i64 %.sroa.013.0788, 4096
+  br i1 %28, label %380, label %388
 
 ._crit_edge.thread:                               ; preds = %15, %._crit_edge
   %29 = phi i64 [ %26, %._crit_edge ], [ 0, %15 ]
@@ -27933,15 +27933,15 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 256
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer": ; preds = %374, %._crit_edge.thread
-  %.sroa.0.0.ph1381.ph = phi i64 [ %.sroa.0.0.ph.jt2, %374 ], [ %3, %._crit_edge.thread ]
-  %.sroa.0119.0.ph1376.ph = phi i64 [ %.sroa.0119.0.ph.jt2, %374 ], [ 0, %._crit_edge.thread ]
-  %.sroa.0162.0.ph1370.ph = phi i64 [ %.sroa.0.0.sroa.speculated.i266, %374 ], [ %.sroa.0.0.sroa.speculated.i, %._crit_edge.thread ]
-  %.sroa.0165.0.ph1368.ph.in = phi i64 [ %370, %374 ], [ %21, %._crit_edge.thread ]
-  %.sroa.0168.0.ph1366.ph = phi i64 [ %377, %374 ], [ %23, %._crit_edge.thread ]
-  %.sroa.0170.0.ph1363.ph = phi i64 [ %.sroa.0170.0.ph.jt2, %374 ], [ 0, %._crit_edge.thread ]
-  %.sroa.0165.0.ph1368.ph = add i64 %.sroa.0165.0.ph1368.ph.in, 3
-  %37 = icmp ugt i64 %.sroa.0168.0.ph1366.ph, 980
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer": ; preds = %375, %._crit_edge.thread
+  %.sroa.0.01384.ph = phi i64 [ %.sroa.0.1.jt2, %375 ], [ %3, %._crit_edge.thread ]
+  %.sroa.0119.01379.ph = phi i64 [ %.sroa.0119.2.jt2, %375 ], [ 0, %._crit_edge.thread ]
+  %.sroa.0162.01373.ph = phi i64 [ %.sroa.0.0.sroa.speculated.i266, %375 ], [ %.sroa.0.0.sroa.speculated.i, %._crit_edge.thread ]
+  %.sroa.0165.01371.ph.in = phi i64 [ %371, %375 ], [ %21, %._crit_edge.thread ]
+  %.sroa.0168.01369.ph = phi i64 [ %378, %375 ], [ %23, %._crit_edge.thread ]
+  %.sroa.0170.01366.ph = phi i64 [ %.sroa.0170.1.jt2, %375 ], [ 0, %._crit_edge.thread ]
+  %.sroa.0165.01371.ph = add i64 %.sroa.0165.01371.ph.in, 3
+  %37 = icmp ugt i64 %.sroa.0168.01369.ph, 980
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit"
 
 38:                                               ; preds = %._crit_edge
@@ -27949,22 +27949,22 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer", %341
-  %.sroa.0.0.ph1381 = phi i64 [ %328, %341 ], [ %.sroa.0.0.ph1381.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
-  %.sroa.0119.0.ph1376 = phi i64 [ %.sroa.0119.0.ph.jt0, %341 ], [ %.sroa.0119.0.ph1376.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
-  %.sroa.0148.0.ph1372 = phi i64 [ %.sroa.0.0.sroa.speculated.i265, %341 ], [ %.sroa.0162.0.ph1370.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
-  %.sroa.0162.0.ph1370 = phi i64 [ %330, %341 ], [ %.sroa.0162.0.ph1370.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
-  %.sroa.0170.0.ph1363 = phi i64 [ %327, %341 ], [ %.sroa.0170.0.ph1363.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
+  %.sroa.0.01384 = phi i64 [ %328, %341 ], [ %.sroa.0.01384.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
+  %.sroa.0119.01379 = phi i64 [ %.sroa.0119.2.jt0, %341 ], [ %.sroa.0119.01379.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
+  %.sroa.0148.01375 = phi i64 [ %.sroa.0.0.sroa.speculated.i265, %341 ], [ %.sroa.0162.01373.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
+  %.sroa.0162.01373 = phi i64 [ %330, %341 ], [ %.sroa.0162.01373.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
+  %.sroa.0170.01366 = phi i64 [ %327, %341 ], [ %.sroa.0170.01366.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %20, ptr noundef nonnull align 4 dereferenceable(512) @_ZN6brotli3enc17compress_fragment13kCmdHistoSeed17hd0c609d761d0f419E, i64 512, i1 false), !alias.scope !1694, !noalias !1698
-  %39 = add i64 %.sroa.0148.0.ph1372, %.sroa.0170.0.ph1363
-  %40 = icmp samesign ugt i64 %.sroa.0148.0.ph1372, 15
-  br i1 %40, label %41, label %.outer.jt0
+  %39 = add i64 %.sroa.0148.01375, %.sroa.0170.01366
+  %40 = icmp samesign ugt i64 %.sroa.0148.01375, 15
+  br i1 %40, label %41, label %.thread288.loopexit
 
 41:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit"
-  %42 = add nsw i64 %.sroa.0148.0.ph1372, -5
-  %43 = add i64 %.sroa.0.0.ph1381, -16
+  %42 = add nsw i64 %.sroa.0148.01375, -5
+  %43 = add i64 %.sroa.0.01384, -16
   %.sroa.0.0.sroa.speculated.i261 = call noundef i64 @llvm.umin.i64(i64 %43, i64 %42)
-  %44 = add i64 %.sroa.0.0.sroa.speculated.i261, %.sroa.0170.0.ph1363
-  %45 = add i64 %.sroa.0170.0.ph1363, 1
+  %44 = add i64 %.sroa.0.0.sroa.speculated.i261, %.sroa.0170.01366
+  %45 = add i64 %.sroa.0170.01366, 1
   %46 = icmp ugt i64 %45, %2
   br i1 %46, label %54, label %47, !prof !3
 
@@ -27972,32 +27972,32 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %48 = sub nuw i64 %2, %45
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   %50 = call noundef i32 @_ZN6brotli3enc17compress_fragment4Hash17h37fe5665fef5887aE(ptr noalias noundef nonnull readonly align 1 %49, i64 noundef %48, i64 noundef %22)
-  %51 = add i64 %.sroa.0170.0.ph1363, 2
+  %51 = add i64 %.sroa.0170.01366, 2
   %52 = icmp ugt i64 %51, %44
-  br i1 %52, label %.outer.jt0, label %.lr.ph789.lr.ph
+  br i1 %52, label %.thread288.loopexit, label %.lr.ph792.lr.ph
 
-.lr.ph789.lr.ph:                                  ; preds = %47
+.lr.ph792.lr.ph:                                  ; preds = %47
   %53 = add i64 %39, -5
-  br label %.lr.ph789
+  br label %.lr.ph792
 
 54:                                               ; preds = %41
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %45, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.512) #20
   unreachable
 
-.lr.ph789:                                        ; preds = %.lr.ph789.lr.ph, %320
-  %55 = phi i64 [ %51, %.lr.ph789.lr.ph ], [ %324, %320 ]
-  %.sroa.010.0806 = phi i32 [ -1, %.lr.ph789.lr.ph ], [ %.sroa.010.2795, %320 ]
-  %.sroa.057.0805 = phi i32 [ %50, %.lr.ph789.lr.ph ], [ %323, %320 ]
-  %.sroa.058.0804 = phi i64 [ %45, %.lr.ph789.lr.ph ], [ %318, %320 ]
-  %.sroa.0119.3803 = phi i64 [ %.sroa.0119.0.ph1376, %.lr.ph789.lr.ph ], [ %.sroa.058.1794, %320 ]
-  %56 = sext i32 %.sroa.010.0806 to i64
+.lr.ph792:                                        ; preds = %.lr.ph792.lr.ph, %320
+  %55 = phi i64 [ %51, %.lr.ph792.lr.ph ], [ %324, %320 ]
+  %.sroa.010.0809 = phi i32 [ -1, %.lr.ph792.lr.ph ], [ %.sroa.010.2798, %320 ]
+  %.sroa.057.0808 = phi i32 [ %50, %.lr.ph792.lr.ph ], [ %323, %320 ]
+  %.sroa.058.0807 = phi i64 [ %45, %.lr.ph792.lr.ph ], [ %318, %320 ]
+  %.sroa.0119.3806 = phi i64 [ %.sroa.0119.01379, %.lr.ph792.lr.ph ], [ %.sroa.058.1797, %320 ]
+  %56 = sext i32 %.sroa.010.0809 to i64
   br label %57
 
-57:                                               ; preds = %.lr.ph789, %.backedge
-  %58 = phi i64 [ %55, %.lr.ph789 ], [ %97, %.backedge ]
-  %59 = phi i32 [ 33, %.lr.ph789 ], [ %95, %.backedge ]
-  %.sroa.025.0787 = phi i64 [ %.sroa.058.0804, %.lr.ph789 ], [ %58, %.backedge ]
-  %.sroa.057.1786 = phi i32 [ %.sroa.057.0805, %.lr.ph789 ], [ %64, %.backedge ]
+57:                                               ; preds = %.lr.ph792, %.backedge
+  %58 = phi i64 [ %55, %.lr.ph792 ], [ %97, %.backedge ]
+  %59 = phi i32 [ 33, %.lr.ph792 ], [ %95, %.backedge ]
+  %.sroa.025.0790 = phi i64 [ %.sroa.058.0807, %.lr.ph792 ], [ %58, %.backedge ]
+  %.sroa.057.1789 = phi i32 [ %.sroa.057.0808, %.lr.ph792 ], [ %64, %.backedge ]
   %60 = icmp ugt i64 %58, %2
   br i1 %60, label %67, label %61, !prof !3
 
@@ -28005,8 +28005,8 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %62 = sub nuw i64 %2, %58
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %58
   %64 = call noundef i32 @_ZN6brotli3enc17compress_fragment4Hash17h37fe5665fef5887aE(ptr noalias noundef nonnull readonly align 1 %63, i64 noundef %62, i64 noundef %22)
-  %65 = sub i64 %.sroa.025.0787, %56
-  %66 = icmp ugt i64 %.sroa.025.0787, %2
+  %65 = sub i64 %.sroa.025.0790, %56
+  %66 = icmp ugt i64 %.sroa.025.0790, %2
   br i1 %66, label %72, label %68, !prof !3
 
 67:                                               ; preds = %57
@@ -28014,22 +28014,22 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   unreachable
 
 68:                                               ; preds = %61
-  %69 = sub nuw i64 %2, %.sroa.025.0787
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.025.0787
+  %69 = sub nuw i64 %2, %.sroa.025.0790
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.025.0790
   %71 = icmp ugt i64 %65, %2
   br i1 %71, label %80, label %73, !prof !3
 
 72:                                               ; preds = %61
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.025.0787, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.484) #20
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.025.0790, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.484) #20
   unreachable
 
 73:                                               ; preds = %68
   %74 = sub nuw i64 %2, %65
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 %65
   %76 = call noundef zeroext i1 @_ZN6brotli3enc17compress_fragment7IsMatch17h4c907e534463d382E(ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %69, ptr noalias noundef nonnull readonly align 1 %75, i64 noundef %74)
-  %77 = icmp ult i64 %65, %.sroa.025.0787
+  %77 = icmp ult i64 %65, %.sroa.025.0790
   %or.cond259 = select i1 %76, i1 %77, i1 false
-  %78 = zext i32 %.sroa.057.1786 to i64
+  %78 = zext i32 %.sroa.057.1789 to i64
   %79 = icmp ugt i64 %6, %78
   br i1 %or.cond259, label %82, label %81
 
@@ -28047,7 +28047,7 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %84 = getelementptr inbounds nuw i32, ptr %5, i64 %78
   %85 = load i32, ptr %84, align 4, !noundef !4
   %86 = sext i32 %85 to i64
-  %87 = trunc i64 %.sroa.025.0787 to i32
+  %87 = trunc i64 %.sroa.025.0790 to i32
   store i32 %87, ptr %84, align 4
   %88 = icmp ult i64 %2, %86
   br i1 %88, label %99, label %90, !prof !3
@@ -28068,7 +28068,7 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %96 = zext nneg i32 %94 to i64
   %97 = add i64 %58, %96
   %98 = icmp ugt i64 %97, %44
-  br i1 %98, label %.outer.jt0, label %57
+  br i1 %98, label %.thread288.loopexit, label %57
 
 99:                                               ; preds = %83
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %86, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.480) #20
@@ -28076,13 +28076,13 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
 
 100:                                              ; preds = %90, %103
   %.sroa.038.1 = phi i64 [ %65, %103 ], [ %86, %90 ]
-  %101 = sub i64 %.sroa.025.0787, %.sroa.038.1
+  %101 = sub i64 %.sroa.025.0790, %.sroa.038.1
   %102 = icmp ugt i64 %101, 262128
   br i1 %102, label %.backedge, label %107
 
 103:                                              ; preds = %82
   %104 = getelementptr inbounds nuw i32, ptr %5, i64 %78
-  %105 = trunc i64 %.sroa.025.0787 to i32
+  %105 = trunc i64 %.sroa.025.0790 to i32
   store i32 %105, ptr %104, align 4
   br label %100
 
@@ -28096,7 +28096,7 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   br i1 %109, label %113, label %110, !prof !3
 
 110:                                              ; preds = %107
-  %111 = add i64 %.sroa.025.0787, 5
+  %111 = add i64 %.sroa.025.0790, 5
   %112 = icmp ugt i64 %111, %2
   br i1 %112, label %126, label %114, !prof !3
 
@@ -28109,12 +28109,12 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %116 = sub nuw i64 %2, %108
   %117 = sub nuw i64 %2, %111
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 %111
-  %119 = sub i64 %53, %.sroa.025.0787
+  %119 = sub i64 %53, %.sroa.025.0790
   %120 = call noundef i64 @_ZN6brotli3enc11static_dict24FindMatchLengthWithLimit17h17523d2199acbaf2E(ptr noalias noundef nonnull readonly align 1 %115, i64 noundef %116, ptr noalias noundef nonnull readonly align 1 %118, i64 noundef %117, i64 noundef %119)
   %121 = add i64 %120, 5
   %122 = trunc nuw nsw i64 %101 to i32
-  %123 = sub i64 %.sroa.025.0787, %.sroa.0119.3803
-  %124 = add i64 %121, %.sroa.025.0787
+  %123 = sub i64 %.sroa.025.0790, %.sroa.0119.3806
+  %124 = add i64 %121, %.sroa.025.0790
   %125 = icmp ult i64 %123, 6210
   br i1 %125, label %131, label %127
 
@@ -28123,7 +28123,7 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   unreachable
 
 127:                                              ; preds = %114
-  %128 = sub i64 %.sroa.0119.3803, %.sroa.0170.0.ph1363.ph
+  %128 = sub i64 %.sroa.0119.3806, %.sroa.0170.01366.ph
   %129 = mul i64 %128, 50
   %130 = icmp ule i64 %129, %123
   %.sroa.031.0 = and i1 %130, %37
@@ -28138,27 +28138,27 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   br label %133
 
 133:                                              ; preds = %132, %131
-  %134 = icmp ugt i64 %.sroa.0119.3803, %2
+  %134 = icmp ugt i64 %.sroa.0119.3806, %2
   br i1 %134, label %144, label %140, !prof !3
 
 135:                                              ; preds = %127
-  %136 = sub nuw i64 %2, %.sroa.0170.0.ph1363.ph
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.0.ph1363.ph
-  %138 = sub i64 %.sroa.025.0787, %.sroa.0170.0.ph1363.ph
-  call void @_ZN6brotli3enc17compress_fragment25EmitUncompressedMetaBlock17h625c7fea50d3c03dE(ptr noalias noundef nonnull readonly align 1 %137, i64 noundef %136, i64 noundef %138, i64 noundef %.sroa.0165.0.ph1368.ph.in, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %.neg = add i64 %.sroa.0.0.ph1381, %.sroa.0170.0.ph1363
-  %139 = sub i64 %.neg, %.sroa.025.0787
-  br label %.outer.jt2
+  %136 = sub nuw i64 %2, %.sroa.0170.01366.ph
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.01366.ph
+  %138 = sub i64 %.sroa.025.0790, %.sroa.0170.01366.ph
+  call void @_ZN6brotli3enc17compress_fragment25EmitUncompressedMetaBlock17h625c7fea50d3c03dE(ptr noalias noundef nonnull readonly align 1 %137, i64 noundef %136, i64 noundef %138, i64 noundef %.sroa.0165.01371.ph.in, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  %.neg = add i64 %.sroa.0.01384, %.sroa.0170.01366
+  %139 = sub i64 %.neg, %.sroa.025.0790
+  br label %368
 
 140:                                              ; preds = %133
-  %141 = sub nuw i64 %2, %.sroa.0119.3803
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.3803
+  %141 = sub nuw i64 %2, %.sroa.0119.3806
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.3806
   call void @_ZN6brotli3enc17compress_fragment12EmitLiterals17hd4b89685d338973dE(ptr noalias noundef nonnull readonly align 1 %142, i64 noundef %141, i64 noundef %123, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef 256, ptr noalias noundef nonnull readonly align 2 %18, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %143 = icmp eq i32 %.sroa.010.0806, %122
+  %143 = icmp eq i32 %.sroa.010.0809, %122
   br i1 %143, label %147, label %145
 
 144:                                              ; preds = %133
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.3803, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.509) #20
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.3806, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.509) #20
   unreachable
 
 145:                                              ; preds = %140
@@ -28166,10 +28166,10 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   br label %146
 
 146:                                              ; preds = %147, %145
-  %.sroa.010.1 = phi i32 [ %.sroa.010.0806, %147 ], [ %122, %145 ]
+  %.sroa.010.1 = phi i32 [ %.sroa.010.0809, %147 ], [ %122, %145 ]
   call void @_ZN6brotli3enc17compress_fragment23EmitCopyLenLastDistance17hd437ec6109f2d11bE(i64 noundef %121, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 128, ptr noalias noundef nonnull readonly align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   %.not257 = icmp ult i64 %124, %44
-  br i1 %.not257, label %154, label %.outer.jt0
+  br i1 %.not257, label %154, label %.thread288.loopexit
 
 147:                                              ; preds = %140
   %148 = load i8, ptr %34, align 1, !noundef !4
@@ -28302,44 +28302,44 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %218 = load i32, ptr %217, align 4, !noundef !4
   store i32 %203, ptr %217, align 4
   %219 = icmp ugt i64 %124, %2
-  br i1 %219, label %._crit_edge799, label %.lr.ph798, !prof !1709
+  br i1 %219, label %._crit_edge802, label %.lr.ph801, !prof !1709
 
 220:                                              ; preds = %211
   call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %189, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.494) #20
   unreachable
 
-.lr.ph798:                                        ; preds = %216, %312
-  %.sroa.038.2796.in = phi i32 [ %314, %312 ], [ %218, %216 ]
-  %.sroa.010.2795 = phi i32 [ %249, %312 ], [ %.sroa.010.1, %216 ]
-  %.sroa.058.1794 = phi i64 [ %248, %312 ], [ %124, %216 ]
-  %.sroa.038.2796 = sext i32 %.sroa.038.2796.in to i64
-  %221 = icmp ult i64 %2, %.sroa.038.2796
+.lr.ph801:                                        ; preds = %216, %312
+  %.sroa.038.2799.in = phi i32 [ %314, %312 ], [ %218, %216 ]
+  %.sroa.010.2798 = phi i32 [ %249, %312 ], [ %.sroa.010.1, %216 ]
+  %.sroa.058.1797 = phi i64 [ %248, %312 ], [ %124, %216 ]
+  %.sroa.038.2799 = sext i32 %.sroa.038.2799.in to i64
+  %221 = icmp ult i64 %2, %.sroa.038.2799
   br i1 %221, label %228, label %222, !prof !3
 
-._crit_edge799:                                   ; preds = %216, %312
+._crit_edge802:                                   ; preds = %216, %312
   %.sroa.058.1.lcssa = phi i64 [ %248, %312 ], [ %124, %216 ]
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.058.1.lcssa, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.507) #20
   unreachable
 
-222:                                              ; preds = %.lr.ph798
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.058.1794
-  %224 = sub nuw i64 %2, %.sroa.058.1794
-  %225 = sub nuw i64 %2, %.sroa.038.2796
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.038.2796
+222:                                              ; preds = %.lr.ph801
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.058.1797
+  %224 = sub nuw i64 %2, %.sroa.058.1797
+  %225 = sub nuw i64 %2, %.sroa.038.2799
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.038.2799
   %227 = call noundef zeroext i1 @_ZN6brotli3enc17compress_fragment7IsMatch17h4c907e534463d382E(ptr noalias noundef nonnull readonly align 1 %223, i64 noundef %224, ptr noalias noundef nonnull readonly align 1 %226, i64 noundef %225)
   br i1 %227, label %229, label %317
 
-228:                                              ; preds = %.lr.ph798
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.038.2796, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.506) #20
+228:                                              ; preds = %.lr.ph801
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.038.2799, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.506) #20
   unreachable
 
 229:                                              ; preds = %222
-  %230 = add nsw i64 %.sroa.038.2796, 5
+  %230 = add nsw i64 %.sroa.038.2799, 5
   %231 = icmp ugt i64 %230, %2
   br i1 %231, label %235, label %232, !prof !3
 
 232:                                              ; preds = %229
-  %233 = add i64 %.sroa.058.1794, 5
+  %233 = add i64 %.sroa.058.1797, 5
   %234 = icmp ugt i64 %233, %2
   br i1 %234, label %245, label %236, !prof !3
 
@@ -28352,9 +28352,9 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %238 = sub nuw i64 %2, %230
   %239 = sub nuw i64 %2, %233
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 %233
-  %241 = sub i64 %53, %.sroa.058.1794
+  %241 = sub i64 %53, %.sroa.058.1797
   %242 = call noundef i64 @_ZN6brotli3enc11static_dict24FindMatchLengthWithLimit17h17523d2199acbaf2E(ptr noalias noundef nonnull readonly align 1 %237, i64 noundef %238, ptr noalias noundef nonnull readonly align 1 %240, i64 noundef %239, i64 noundef %241)
-  %243 = sub i64 %.sroa.058.1794, %.sroa.038.2796
+  %243 = sub i64 %.sroa.058.1797, %.sroa.038.2799
   %244 = icmp ugt i64 %243, 262128
   br i1 %244, label %317, label %246
 
@@ -28364,12 +28364,12 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
 
 246:                                              ; preds = %236
   %247 = add i64 %242, 5
-  %248 = add i64 %247, %.sroa.058.1794
+  %248 = add i64 %247, %.sroa.058.1797
   %249 = trunc nuw nsw i64 %243 to i32
   call void @_ZN6brotli3enc17compress_fragment11EmitCopyLen17haeb99a0d0a4772abE(i64 noundef %247, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 128, ptr noalias noundef nonnull readonly align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc17compress_fragment12EmitDistance17hbab295ec4aecdb66E(i64 noundef %243, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 128, ptr noalias noundef nonnull readonly align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   %.not258 = icmp ult i64 %248, %44
-  br i1 %.not258, label %250, label %.outer.jt0
+  br i1 %.not258, label %250, label %.thread288.loopexit
 
 250:                                              ; preds = %246
   %251 = icmp ugt i64 %248, 2
@@ -28491,14 +28491,14 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %314 = load i32, ptr %313, align 4, !noundef !4
   store i32 %299, ptr %313, align 4
   %315 = icmp ugt i64 %248, %2
-  br i1 %315, label %._crit_edge799, label %.lr.ph798, !prof !1719
+  br i1 %315, label %._crit_edge802, label %.lr.ph801, !prof !1719
 
 316:                                              ; preds = %307
   call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %285, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.500) #20
   unreachable
 
 317:                                              ; preds = %236, %222
-  %318 = add i64 %.sroa.058.1794, 1
+  %318 = add i64 %.sroa.058.1797, 1
   %319 = icmp ugt i64 %318, %2
   br i1 %319, label %326, label %320, !prof !3
 
@@ -28506,30 +28506,30 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
   %321 = sub nuw i64 %2, %318
   %322 = getelementptr inbounds nuw i8, ptr %1, i64 %318
   %323 = call noundef i32 @_ZN6brotli3enc17compress_fragment4Hash17h37fe5665fef5887aE(ptr noalias noundef nonnull readonly align 1 %322, i64 noundef %321, i64 noundef %22)
-  %324 = add i64 %.sroa.058.1794, 2
+  %324 = add i64 %.sroa.058.1797, 2
   %325 = icmp ugt i64 %324, %44
-  br i1 %325, label %.outer.jt0, label %.lr.ph789
+  br i1 %325, label %.thread288.loopexit, label %.lr.ph792
 
 326:                                              ; preds = %317
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %318, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.503) #20
   unreachable
 
-.outer.jt0:                                       ; preds = %146, %320, %.backedge, %246, %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit"
-  %.sroa.0119.0.ph.jt0 = phi i64 [ %.sroa.0119.0.ph1376, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit" ], [ %.sroa.0119.0.ph1376, %47 ], [ %248, %246 ], [ %.sroa.0119.3803, %.backedge ], [ %.sroa.058.1794, %320 ], [ %124, %146 ]
-  %327 = add i64 %.sroa.0148.0.ph1372, %.sroa.0170.0.ph1363
-  %328 = sub i64 %.sroa.0.0.ph1381, %.sroa.0148.0.ph1372
+.thread288.loopexit:                              ; preds = %146, %320, %.backedge, %246, %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit"
+  %.sroa.0119.2.jt0 = phi i64 [ %.sroa.0119.01379, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit" ], [ %.sroa.0119.01379, %47 ], [ %248, %246 ], [ %.sroa.0119.3806, %.backedge ], [ %.sroa.058.1797, %320 ], [ %124, %146 ]
+  %327 = add i64 %.sroa.0148.01375, %.sroa.0170.01366
+  %328 = sub i64 %.sroa.0.01384, %.sroa.0148.01375
   %.sroa.0.0.sroa.speculated.i265 = call noundef i64 @llvm.umin.i64(i64 %328, i64 65536)
   %.not256 = icmp eq i64 %328, 0
   br i1 %.not256, label %332, label %329
 
-329:                                              ; preds = %.outer.jt0
-  %330 = add i64 %.sroa.0.0.sroa.speculated.i265, %.sroa.0162.0.ph1370
+329:                                              ; preds = %.thread288.loopexit
+  %330 = add i64 %.sroa.0.0.sroa.speculated.i265, %.sroa.0162.01373
   %331 = icmp ult i64 %330, 1048577
   br i1 %331, label %334, label %332
 
-332:                                              ; preds = %336, %329, %.outer.jt0
-  %333 = icmp ult i64 %.sroa.0119.0.ph.jt0, %39
-  br i1 %333, label %344, label %.outer.jt2
+332:                                              ; preds = %336, %329, %.thread288.loopexit
+  %333 = icmp ult i64 %.sroa.0119.2.jt0, %39
+  br i1 %333, label %344, label %368
 
 334:                                              ; preds = %329
   %335 = icmp ugt i64 %327, %2
@@ -28548,112 +28548,112 @@ define internal fastcc void @_ZN6brotli3enc17compress_fragment27compress_fragmen
 341:                                              ; preds = %336
   %342 = trunc nuw nsw i64 %330 to i32
   %343 = add nsw i32 %342, -1
-  call void @_ZN6brotli3enc17compress_fragment10UpdateBits17h5f0db9f2bc33c362E(i64 noundef 20, i32 noundef %343, i64 noundef %.sroa.0165.0.ph1368.ph, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  call void @_ZN6brotli3enc17compress_fragment10UpdateBits17h5f0db9f2bc33c362E(i64 noundef 20, i32 noundef %343, i64 noundef %.sroa.0165.01371.ph, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit"
 
 344:                                              ; preds = %332
-  %345 = sub nuw i64 %39, %.sroa.0119.0.ph.jt0
+  %345 = sub nuw i64 %39, %.sroa.0119.2.jt0
   %346 = icmp ult i64 %345, 6210
   br i1 %346, label %352, label %347
 
 347:                                              ; preds = %344
-  %348 = sub i64 %.sroa.0119.0.ph.jt0, %.sroa.0170.0.ph1363.ph
+  %348 = sub i64 %.sroa.0119.2.jt0, %.sroa.0170.01366.ph
   %349 = mul i64 %348, 50
   %350 = icmp ule i64 %349, %345
-  %351 = icmp ugt i64 %.sroa.0168.0.ph1366.ph, 980
+  %351 = icmp ugt i64 %.sroa.0168.01369.ph, 980
   %.sroa.0112.0 = and i1 %350, %351
   br i1 %.sroa.0112.0, label %360, label %354
 
 352:                                              ; preds = %344
   call void @_ZN6brotli3enc17compress_fragment13EmitInsertLen17h732e328b2d803e23E(i64 noundef %345, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 128, ptr noalias noundef nonnull readonly align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %353 = icmp ugt i64 %.sroa.0119.0.ph.jt0, %2
+  %353 = icmp ugt i64 %.sroa.0119.2.jt0, %2
   br i1 %353, label %367, label %364, !prof !3
 
 354:                                              ; preds = %347
   call void @_ZN6brotli3enc17compress_fragment17EmitLongInsertLen17h8ec5169b9f55eda9E(i64 noundef %345, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 128, ptr noalias noundef nonnull readonly align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %355 = icmp ugt i64 %.sroa.0119.0.ph.jt0, %2
+  %355 = icmp ugt i64 %.sroa.0119.2.jt0, %2
   br i1 %355, label %359, label %356, !prof !3
 
 356:                                              ; preds = %354
-  %357 = sub nuw i64 %2, %.sroa.0119.0.ph.jt0
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.0.ph.jt0
+  %357 = sub nuw i64 %2, %.sroa.0119.2.jt0
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.2.jt0
   call void @_ZN6brotli3enc17compress_fragment12EmitLiterals17hd4b89685d338973dE(ptr noalias noundef nonnull readonly align 1 %358, i64 noundef %357, i64 noundef %345, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef 256, ptr noalias noundef nonnull readonly align 2 %18, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %.outer.jt2
+  br label %368
 
 359:                                              ; preds = %354
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.0.ph.jt0, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.513) #20
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.2.jt0, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.513) #20
   unreachable
 
 360:                                              ; preds = %347
-  %361 = sub nuw i64 %2, %.sroa.0170.0.ph1363.ph
-  %362 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.0.ph1363.ph
-  %363 = sub i64 %39, %.sroa.0170.0.ph1363.ph
-  call void @_ZN6brotli3enc17compress_fragment25EmitUncompressedMetaBlock17h625c7fea50d3c03dE(ptr noalias noundef nonnull readonly align 1 %362, i64 noundef %361, i64 noundef %363, i64 noundef %.sroa.0165.0.ph1368.ph.in, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %.outer.jt2
+  %361 = sub nuw i64 %2, %.sroa.0170.01366.ph
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.01366.ph
+  %363 = sub i64 %39, %.sroa.0170.01366.ph
+  call void @_ZN6brotli3enc17compress_fragment25EmitUncompressedMetaBlock17h625c7fea50d3c03dE(ptr noalias noundef nonnull readonly align 1 %362, i64 noundef %361, i64 noundef %363, i64 noundef %.sroa.0165.01371.ph.in, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  br label %368
 
 364:                                              ; preds = %352
-  %365 = sub nuw i64 %2, %.sroa.0119.0.ph.jt0
-  %366 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.0.ph.jt0
+  %365 = sub nuw i64 %2, %.sroa.0119.2.jt0
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0119.2.jt0
   call void @_ZN6brotli3enc17compress_fragment12EmitLiterals17hd4b89685d338973dE(ptr noalias noundef nonnull readonly align 1 %366, i64 noundef %365, i64 noundef %345, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef 256, ptr noalias noundef nonnull readonly align 2 %18, i64 noundef 256, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  br label %.outer.jt2
+  br label %368
 
 367:                                              ; preds = %352
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.0.ph.jt0, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.515) #20
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0119.2.jt0, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.515) #20
   unreachable
 
-.outer.jt2:                                       ; preds = %356, %360, %332, %364, %135
-  %.sroa.0170.0.ph.jt2 = phi i64 [ %.sroa.025.0787, %135 ], [ %327, %364 ], [ %327, %332 ], [ %327, %360 ], [ %327, %356 ]
-  %.sroa.0119.0.ph.jt2 = phi i64 [ %.sroa.025.0787, %135 ], [ %39, %364 ], [ %39, %332 ], [ %39, %360 ], [ %39, %356 ]
-  %.sroa.0.0.ph.jt2 = phi i64 [ %139, %135 ], [ %328, %364 ], [ %328, %332 ], [ %328, %360 ], [ %328, %356 ]
-  %.not = icmp eq i64 %.sroa.0.0.ph.jt2, 0
-  br i1 %.not, label %368, label %369
+368:                                              ; preds = %356, %360, %332, %364, %135
+  %.sroa.0170.1.jt2 = phi i64 [ %.sroa.025.0790, %135 ], [ %327, %364 ], [ %327, %332 ], [ %327, %360 ], [ %327, %356 ]
+  %.sroa.0119.2.jt2 = phi i64 [ %.sroa.025.0790, %135 ], [ %39, %364 ], [ %39, %332 ], [ %39, %360 ], [ %39, %356 ]
+  %.sroa.0.1.jt2 = phi i64 [ %139, %135 ], [ %328, %364 ], [ %328, %332 ], [ %328, %360 ], [ %328, %356 ]
+  %.not = icmp eq i64 %.sroa.0.1.jt2, 0
+  br i1 %.not, label %369, label %370
 
-368:                                              ; preds = %.outer.jt2
-  br i1 %4, label %372, label %373
+369:                                              ; preds = %368
+  br i1 %4, label %373, label %374
 
-369:                                              ; preds = %.outer.jt2
-  %.sroa.0.0.sroa.speculated.i266 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.0.ph.jt2, i64 98304)
-  %370 = load i64, ptr %12, align 8, !noundef !4
+370:                                              ; preds = %368
+  %.sroa.0.0.sroa.speculated.i266 = call noundef i64 @llvm.umin.i64(i64 %.sroa.0.1.jt2, i64 98304)
+  %371 = load i64, ptr %12, align 8, !noundef !4
   call void @_ZN6brotli3enc26compress_fragment_two_pass23store_meta_block_header17h7d73fae3597e2922E(i64 noundef %.sroa.0.0.sroa.speculated.i266, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 13, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %371 = icmp ugt i64 %.sroa.0170.0.ph.jt2, %2
-  br i1 %371, label %378, label %374, !prof !3
+  %372 = icmp ugt i64 %.sroa.0170.1.jt2, %2
+  br i1 %372, label %379, label %375, !prof !3
 
-372:                                              ; preds = %373, %368
+373:                                              ; preds = %374, %369
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 
-373:                                              ; preds = %368
+374:                                              ; preds = %369
   store i8 0, ptr %11, align 1
   store i64 0, ptr %10, align 8
   call void @_ZN6brotli3enc17compress_fragment30BuildAndStoreCommandPrefixCode17heb2ba8f508b092efE(ptr noalias noundef nonnull readonly align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 1 %8, i64 noundef 128, ptr noalias noundef nonnull align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 1 %11, i64 noundef 512)
-  br label %372
+  br label %373
 
-374:                                              ; preds = %369
-  %375 = sub nuw i64 %2, %.sroa.0170.0.ph.jt2
-  %376 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.0.ph.jt2
-  %377 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17hcf7363314cd62e2cE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %376, i64 noundef %375, i64 noundef %.sroa.0.0.sroa.speculated.i266, ptr noalias noundef nonnull align 1 %19, ptr noalias noundef nonnull align 2 %18, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+375:                                              ; preds = %370
+  %376 = sub nuw i64 %2, %.sroa.0170.1.jt2
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0170.1.jt2
+  %378 = call fastcc noundef i64 @_ZN6brotli3enc17compress_fragment30BuildAndStoreLiteralPrefixCode17hcf7363314cd62e2cE(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %377, i64 noundef %376, i64 noundef %.sroa.0.0.sroa.speculated.i266, ptr noalias noundef nonnull align 1 %19, ptr noalias noundef nonnull align 2 %18, ptr noalias noundef align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   call void @_ZN6brotli3enc17compress_fragment30BuildAndStoreCommandPrefixCode17heb2ba8f508b092efE(ptr noalias noundef nonnull readonly align 4 %20, i64 noundef 128, ptr noalias noundef nonnull align 1 %8, i64 noundef 128, ptr noalias noundef nonnull align 2 %9, i64 noundef 128, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h5a34b3fb90c137a3E.exit.outer"
 
-378:                                              ; preds = %369
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0170.0.ph.jt2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.518) #20
+379:                                              ; preds = %370
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %.sroa.0170.1.jt2, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.518) #20
   unreachable
 
-379:                                              ; preds = %.lr.ph
-  %380 = lshr exact i64 %.sroa.013.0785, 3
-  %381 = getelementptr inbounds nuw i8, ptr %11, i64 %380
-  %382 = load i8, ptr %381, align 1, !noundef !4
-  %383 = zext i8 %382 to i64
-  call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 8, i64 noundef %383, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
-  %384 = add nuw nsw i64 %.sroa.013.0785, 8
-  %385 = or disjoint i64 %384, 7
-  %386 = icmp ult i64 %385, %24
-  br i1 %386, label %.lr.ph, label %._crit_edge
+380:                                              ; preds = %.lr.ph
+  %381 = lshr exact i64 %.sroa.013.0788, 3
+  %382 = getelementptr inbounds nuw i8, ptr %11, i64 %381
+  %383 = load i8, ptr %382, align 1, !noundef !4
+  %384 = zext i8 %383 to i64
+  call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hd652c75845dcf5bcE(i64 noundef 8, i64 noundef %384, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14)
+  %385 = add nuw nsw i64 %.sroa.013.0788, 8
+  %386 = or disjoint i64 %385, 7
+  %387 = icmp ult i64 %386, %24
+  br i1 %387, label %.lr.ph, label %._crit_edge
 
-387:                                              ; preds = %.lr.ph
+388:                                              ; preds = %.lr.ph
   call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 512, i64 noundef 512, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.519) #20
   unreachable
 }

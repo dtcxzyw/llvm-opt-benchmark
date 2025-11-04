@@ -2041,14 +2041,14 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
 32:                                               ; preds = %24
   %33 = load i32, ptr %2, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.preheader72
+  br i1 %34, label %35, label %.preheader73
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %11, align 8
   %37 = load i64, ptr %14, align 8
   %38 = or i64 %37, %36
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.preheader72
+  br i1 %39, label %40, label %.preheader73
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 160
@@ -2062,9 +2062,9 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %47 = icmp eq i8 %46, 0
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %49 = load volatile ptr, ptr %48, align 8
-  br i1 %47, label %.thread16, label %55
+  br i1 %47, label %.thread17, label %55
 
-.thread16:                                        ; preds = %44
+.thread17:                                        ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, 10
@@ -2076,13 +2076,13 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %57 = load i16, ptr %56, align 8
   %58 = icmp eq i16 %57, 0
-  br i1 %58, label %.thread15, label %59
+  br i1 %58, label %.thread16, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread15, label %63
+  br i1 %62, label %.thread16, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 128
@@ -2092,24 +2092,24 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %68 = icmp eq i8 %67, 10
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %70 = select i1 %68, ptr %69, ptr null
-  br label %.thread15
+  br label %.thread16
 
-.thread15:                                        ; preds = %55, %59, %63
+.thread16:                                        ; preds = %55, %59, %63
   %71 = phi ptr [ %70, %63 ], [ null, %59 ], [ null, %55 ]
   %72 = load volatile ptr, ptr %48, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i16, ptr %73, align 8
   %75 = icmp ult i16 %74, 2
-  br i1 %75, label %.thread17, label %88
+  br i1 %75, label %.thread18, label %88
 
-.thread17:                                        ; preds = %.thread15
+.thread18:                                        ; preds = %.thread16
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %77 = load ptr, ptr %76, align 8
   br label %78
 
-78:                                               ; preds = %.thread17, %.thread16
-  %79 = phi ptr [ %54, %.thread16 ], [ %71, %.thread17 ]
-  %80 = phi ptr [ %42, %.thread16 ], [ %77, %.thread17 ]
+78:                                               ; preds = %.thread18, %.thread17
+  %79 = phi ptr [ %54, %.thread17 ], [ %71, %.thread18 ]
+  %80 = phi ptr [ %42, %.thread17 ], [ %77, %.thread18 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
   %82 = load volatile ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 25
@@ -2121,19 +2121,19 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %87 = getelementptr inbounds nuw i8, ptr %28, i64 168
   br label %88
 
-88:                                               ; preds = %.thread15, %86, %78
-  %89 = phi ptr [ %79, %78 ], [ %87, %86 ], [ %71, %.thread15 ]
+88:                                               ; preds = %.thread16, %86, %78
+  %89 = phi ptr [ %79, %78 ], [ %87, %86 ], [ %71, %.thread16 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 15
   %91 = load i8, ptr %90, align 1
   %92 = and i8 %91, 1
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %201, label %.preheader72
+  br i1 %93, label %201, label %.preheader73
 
-.preheader72:                                     ; preds = %88, %35, %32
+.preheader73:                                     ; preds = %88, %35, %32
   br label %94
 
-94:                                               ; preds = %.preheader72, %.thread22
-  %95 = phi ptr [ %140, %.thread22 ], [ %28, %.preheader72 ]
+94:                                               ; preds = %.preheader73, %.thread23
+  %95 = phi ptr [ %140, %.thread23 ], [ %28, %.preheader73 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 160
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
@@ -2157,26 +2157,26 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i16, ptr %106, align 8
   %108 = icmp ult i16 %107, 2
-  br i1 %108, label %.thread18, label %118
+  br i1 %108, label %.thread19, label %118
 
-.thread18:                                        ; preds = %103
+.thread19:                                        ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %110 = load ptr, ptr %109, align 8
   br label %111
 
-111:                                              ; preds = %.thread18, %99
-  %112 = phi ptr [ %97, %99 ], [ %110, %.thread18 ]
+111:                                              ; preds = %.thread19, %99
+  %112 = phi ptr [ %97, %99 ], [ %110, %.thread19 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %114 = load volatile ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 25
   %116 = load i8, ptr %115, align 1, !range !18, !noundef !19
   %117 = icmp eq i8 %116, 0
-  br i1 %117, label %118, label %.thread24
+  br i1 %117, label %118, label %.thread25
 
 118:                                              ; preds = %103, %111
   %119 = call i32 @nexthop_for_each_fib6_nh(ptr noundef nonnull %97, ptr noundef nonnull @__rt6_nh_dev_match, ptr noundef nonnull %6) #22
   %120 = icmp eq i32 %119, 0
-  br i1 %120, label %.thread24, label %136
+  br i1 %120, label %.thread25, label %136
 
 121:                                              ; preds = %94
   %122 = getelementptr inbounds nuw i8, ptr %95, i64 168
@@ -2184,7 +2184,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, 1
   %126 = icmp eq i8 %125, 0
-  br i1 %126, label %127, label %.thread22
+  br i1 %126, label %127, label %.thread23
 
 127:                                              ; preds = %121
   %128 = load ptr, ptr %122, align 8
@@ -2194,35 +2194,35 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 216
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, %33
-  br i1 %132, label %.thread20, label %.thread22
+  br i1 %132, label %.thread21, label %.thread23
 
 133:                                              ; preds = %127
   %134 = call i32 @ipv6_chk_addr(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %128, i32 noundef %15) #22
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.thread22, label %.thread20
+  br i1 %135, label %.thread23, label %.thread21
 
-.thread24:                                        ; preds = %111, %118
+.thread25:                                        ; preds = %111, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread22
+  br label %.thread23
 
 136:                                              ; preds = %118
   %137 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq ptr %137, null
-  br i1 %.not, label %.thread22, label %.thread20
+  br i1 %.not, label %.thread23, label %.thread21
 
-.thread20:                                        ; preds = %133, %129, %136
+.thread21:                                        ; preds = %133, %129, %136
   %138 = phi ptr [ %137, %136 ], [ %122, %129 ], [ %122, %133 ]
   store ptr %95, ptr %13, align 8
   br label %201
 
-.thread22:                                        ; preds = %129, %133, %121, %136, %.thread24
+.thread23:                                        ; preds = %129, %133, %121, %136, %.thread25
   %139 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %140 = load volatile ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %94, !llvm.loop !21
 
-142:                                              ; preds = %.thread22
+142:                                              ; preds = %.thread23
   %143 = or i1 %20, %34
   br i1 %143, label %144, label %198
 
@@ -2238,9 +2238,9 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %151 = icmp eq i8 %150, 0
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %153 = load volatile ptr, ptr %152, align 8
-  br i1 %151, label %.thread30, label %159
+  br i1 %151, label %.thread31, label %159
 
-.thread30:                                        ; preds = %148
+.thread31:                                        ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = load i8, ptr %154, align 8
   %156 = icmp eq i8 %155, 10
@@ -2252,13 +2252,13 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %160 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %161 = load i16, ptr %160, align 8
   %162 = icmp eq i16 %161, 0
-  br i1 %162, label %.thread29, label %163
+  br i1 %162, label %.thread30, label %163
 
 163:                                              ; preds = %159
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %.thread29, label %167
+  br i1 %166, label %.thread30, label %167
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 128
@@ -2268,24 +2268,24 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %172 = icmp eq i8 %171, 10
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %174 = select i1 %172, ptr %173, ptr null
-  br label %.thread29
+  br label %.thread30
 
-.thread29:                                        ; preds = %159, %163, %167
+.thread30:                                        ; preds = %159, %163, %167
   %175 = phi ptr [ %174, %167 ], [ null, %163 ], [ null, %159 ]
   %176 = load volatile ptr, ptr %152, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i16, ptr %177, align 8
   %179 = icmp ult i16 %178, 2
-  br i1 %179, label %.thread31, label %192
+  br i1 %179, label %.thread32, label %192
 
-.thread31:                                        ; preds = %.thread29
+.thread32:                                        ; preds = %.thread30
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %181 = load ptr, ptr %180, align 8
   br label %182
 
-182:                                              ; preds = %.thread31, %.thread30
-  %183 = phi ptr [ %158, %.thread30 ], [ %175, %.thread31 ]
-  %184 = phi ptr [ %146, %.thread30 ], [ %181, %.thread31 ]
+182:                                              ; preds = %.thread32, %.thread31
+  %183 = phi ptr [ %158, %.thread31 ], [ %175, %.thread32 ]
+  %184 = phi ptr [ %146, %.thread31 ], [ %181, %.thread32 ]
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 128
   %186 = load volatile ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 25
@@ -2297,8 +2297,8 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %191 = getelementptr inbounds nuw i8, ptr %28, i64 168
   br label %192
 
-192:                                              ; preds = %.thread29, %190, %182
-  %193 = phi ptr [ %183, %182 ], [ %191, %190 ], [ %175, %.thread29 ]
+192:                                              ; preds = %.thread30, %190, %182
+  %193 = phi ptr [ %183, %182 ], [ %191, %190 ], [ %175, %.thread30 ]
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 15
   %195 = load i8, ptr %194, align 1
   %196 = and i8 %195, 1
@@ -2311,9 +2311,9 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 168
   br label %201
 
-201:                                              ; preds = %.thread20, %198, %192, %88
-  %202 = phi ptr [ %28, %192 ], [ %28, %88 ], [ %199, %198 ], [ %95, %.thread20 ]
-  %203 = phi ptr [ %193, %192 ], [ %89, %88 ], [ %200, %198 ], [ %138, %.thread20 ]
+201:                                              ; preds = %.thread21, %198, %192, %88
+  %202 = phi ptr [ %28, %192 ], [ %28, %88 ], [ %199, %198 ], [ %95, %.thread21 ]
+  %203 = phi ptr [ %193, %192 ], [ %89, %88 ], [ %200, %198 ], [ %138, %.thread21 ]
   store ptr %203, ptr %8, align 8
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 133
   %205 = load i8, ptr %204, align 1
@@ -2348,7 +2348,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %217 = phi ptr [ %221, %220 ], [ %26, %.preheader.preheader ]
   %218 = and i16 %216, 1
   %219 = icmp eq i16 %218, 0
-  br i1 %219, label %220, label %.thread32
+  br i1 %219, label %220, label %.thread33
 
 220:                                              ; preds = %.preheader
   %221 = load volatile ptr, ptr %217, align 8
@@ -2360,9 +2360,9 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
 
 226:                                              ; preds = %220
   %227 = icmp eq ptr %221, null
-  br i1 %227, label %.thread32, label %24
+  br i1 %227, label %.thread33, label %24
 
-.thread32:                                        ; preds = %226, %.preheader
+.thread33:                                        ; preds = %226, %.preheader
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %229 = load ptr, ptr %228, align 32
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 64
@@ -2370,17 +2370,17 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %232 = icmp ult i8 %231, 2
   call void @llvm.assume(i1 %232)
   %233 = icmp eq i8 %231, 0
-  br i1 %233, label %.thread38, label %234, !prof !9
+  br i1 %233, label %.thread39, label %234, !prof !9
 
-234:                                              ; preds = %.thread32
+234:                                              ; preds = %.thread33
   %235 = call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %230) #22
-  br i1 %235, label %.thread38, label %236, !prof !9
+  br i1 %235, label %.thread39, label %236, !prof !9
 
 236:                                              ; preds = %234
   call void asm sideeffect "550: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 550b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 550) #22, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.29, i32 238, i32 2305, i64 12) #22, !srcloc !25
   call void asm sideeffect "551: nop\0A\09.pushsection .discard.instr_end\0A\09.long 551b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 551) #22, !srcloc !26
-  br label %.thread38
+  br label %.thread39
 
 237:                                              ; preds = %211
   %238 = and i32 %213, 512
@@ -2401,7 +2401,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %248, ptr %7, align 8
   %249 = call fastcc ptr @__rt6_find_exception_rcu(ptr noundef nonnull %7, ptr noundef nonnull %10)
   %250 = icmp eq ptr %249, null
-  br i1 %250, label %.thread35, label %251
+  br i1 %250, label %.thread36, label %251
 
 251:                                              ; preds = %240
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 16
@@ -2420,7 +2420,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %263 = load volatile i64, ptr @jiffies, align 64
   %264 = sub i64 %262, %263
   %265 = icmp slt i64 %264, 0
-  br i1 %265, label %.thread35, label %283
+  br i1 %265, label %.thread36, label %283
 
 266:                                              ; preds = %251
   %267 = icmp eq ptr %255, null
@@ -2430,7 +2430,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %269 = getelementptr inbounds nuw i8, ptr %253, i64 58
   %270 = load i16, ptr %269, align 2
   %271 = icmp eq i16 %270, -1
-  br i1 %271, label %272, label %.thread35
+  br i1 %271, label %272, label %.thread36
 
 272:                                              ; preds = %268
   %273 = getelementptr inbounds nuw i8, ptr %255, i64 84
@@ -2445,9 +2445,9 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %280 = load volatile i64, ptr @jiffies, align 64
   %281 = sub i64 %279, %280
   %282 = icmp slt i64 %281, 0
-  br i1 %282, label %.thread35, label %283
+  br i1 %282, label %.thread36, label %283
 
-.thread35:                                        ; preds = %240, %260, %268, %277
+.thread36:                                        ; preds = %240, %260, %268, %277
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %312
 
@@ -2462,15 +2462,15 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %288 = icmp ult i8 %287, 2
   call void @llvm.assume(i1 %288)
   %289 = icmp eq i8 %287, 0
-  br i1 %289, label %.thread36, label %290, !prof !9
+  br i1 %289, label %.thread37, label %290, !prof !9
 
 290:                                              ; preds = %285
   %291 = call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %286) #22
-  br i1 %291, label %.thread36, label %292
+  br i1 %291, label %.thread37, label %292
 
 292:                                              ; preds = %290
   %293 = icmp eq ptr %0, null
-  br i1 %293, label %.thread38, label %294
+  br i1 %293, label %.thread39, label %294
 
 294:                                              ; preds = %292
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 1888
@@ -2480,43 +2480,43 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   %299 = icmp ult i8 %298, 2
   call void @llvm.assume(i1 %299)
   %300 = icmp eq i8 %298, 0
-  br i1 %300, label %.thread38, label %301, !prof !9
+  br i1 %300, label %.thread39, label %301, !prof !9
 
 301:                                              ; preds = %294
   %302 = call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %297) #22
-  br i1 %302, label %.thread38, label %303, !prof !9
+  br i1 %302, label %.thread39, label %303, !prof !9
 
 303:                                              ; preds = %301
   call void asm sideeffect "550: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 550b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 550) #22, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.29, i32 238, i32 2305, i64 12) #22, !srcloc !25
   call void asm sideeffect "551: nop\0A\09.pushsection .discard.instr_end\0A\09.long 551b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 551) #22, !srcloc !26
-  br label %.thread38
+  br label %.thread39
 
-.thread36:                                        ; preds = %285, %290
+.thread37:                                        ; preds = %285, %290
   %304 = load volatile i64, ptr @jiffies, align 64
   %305 = getelementptr inbounds nuw i8, ptr %253, i64 72
   %306 = load i64, ptr %305, align 8
   %307 = icmp eq i64 %306, %304
-  br i1 %307, label %.thread38, label %308, !prof !9
+  br i1 %307, label %.thread39, label %308, !prof !9
 
-308:                                              ; preds = %.thread36
+308:                                              ; preds = %.thread37
   %309 = getelementptr inbounds nuw i8, ptr %253, i64 68
   %310 = load i32, ptr %309, align 4
   %311 = add i32 %310, 1
   store i32 %311, ptr %309, align 4
   store i64 %304, ptr %305, align 8
-  br label %.thread38
+  br label %.thread39
 
-312:                                              ; preds = %.thread35, %283, %237
+312:                                              ; preds = %.thread36, %283, %237
   %313 = call fastcc ptr @ip6_create_rt_rcu(ptr noundef nonnull %8)
-  br label %.thread38
+  br label %.thread39
 
-.thread38:                                        ; preds = %303, %301, %294, %292, %312, %308, %.thread36, %236, %234, %.thread32
-  %314 = phi ptr [ %313, %312 ], [ %229, %.thread32 ], [ %229, %234 ], [ %229, %236 ], [ %253, %.thread36 ], [ %253, %308 ], [ %296, %303 ], [ %296, %301 ], [ %296, %294 ], [ null, %292 ]
+.thread39:                                        ; preds = %303, %301, %294, %292, %312, %308, %.thread37, %236, %234, %.thread33
+  %314 = phi ptr [ %313, %312 ], [ %229, %.thread33 ], [ %229, %234 ], [ %229, %236 ], [ %253, %.thread37 ], [ %253, %308 ], [ %296, %303 ], [ %296, %301 ], [ %296, %294 ], [ null, %292 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_fib6_table_lookup, i64 8), i32 2) #22
           to label %335 [label %315], !srcloc !27
 
-315:                                              ; preds = %.thread38
+315:                                              ; preds = %.thread39
   %316 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #22, !srcloc !28
   %317 = zext i32 %316 to i64
   %318 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %317) #22, !srcloc !29
@@ -2552,7 +2552,7 @@ define dso_local ptr @ip6_pol_route_lookup(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.write_register.i64(metadata !0, i64 %334)
   br label %335
 
-335:                                              ; preds = %332, %328, %315, %.thread38
+335:                                              ; preds = %332, %328, %315, %.thread39
   call void @__rcu_read_unlock() #22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %314
@@ -14375,7 +14375,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   store i32 8, ptr %3, align 4
   %26 = call i32 @nexthop_for_each_fib6_nh(ptr noundef nonnull %23, ptr noundef nonnull @rt6_nh_nlmsg_size, ptr noundef nonnull %3) #22
   %.pre = load i32, ptr %3, align 4
-  br label %.loopexit13
+  br label %.loopexit14
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -14386,11 +14386,11 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %.loopexit13, label %.preheader12
+  br i1 %35, label %.loopexit14, label %.preheader13
 
-.preheader12:                                     ; preds = %27, %.preheader12
-  %36 = phi ptr [ %38, %.preheader12 ], [ %33, %27 ]
-  %37 = phi i32 [ %43, %.preheader12 ], [ %31, %27 ]
+.preheader13:                                     ; preds = %27, %.preheader13
+  %36 = phi ptr [ %38, %.preheader13 ], [ %33, %27 ]
+  %37 = phi i32 [ %43, %.preheader13 ], [ %31, %27 ]
   %38 = load ptr, ptr %36, align 8
   %39 = getelementptr i8, ptr %36, i64 160
   %40 = load ptr, ptr %39, align 8
@@ -14399,10 +14399,10 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   %43 = add i32 %42, %37
   %44 = getelementptr i8, ptr %38, i64 -24
   %45 = icmp eq ptr %44, %0
-  br i1 %45, label %.loopexit13, label %.preheader12, !llvm.loop !98
+  br i1 %45, label %.loopexit14, label %.preheader13, !llvm.loop !98
 
-.loopexit13:                                      ; preds = %.preheader12, %27, %25
-  %46 = phi i32 [ %.pre, %25 ], [ %31, %27 ], [ %43, %.preheader12 ]
+.loopexit14:                                      ; preds = %.preheader13, %27, %25
+  %46 = phi i32 [ %.pre, %25 ], [ %31, %27 ], [ %43, %.preheader13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !99
   %48 = and i32 %47, 65280
@@ -14414,7 +14414,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   %54 = icmp eq ptr %53, null
   br i1 %54, label %72, label %55
 
-55:                                               ; preds = %.loopexit13
+55:                                               ; preds = %.loopexit14
   %56 = load ptr, ptr %4, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %61, label %58
@@ -14443,8 +14443,8 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   store i8 %71, ptr %69, align 4
   br label %72
 
-72:                                               ; preds = %68, %67, %.loopexit13
-  %73 = phi ptr [ null, %.loopexit13 ], [ null, %67 ], [ %53, %68 ]
+72:                                               ; preds = %68, %67, %.loopexit14
+  %73 = phi ptr [ null, %.loopexit14 ], [ null, %67 ], [ %53, %68 ]
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %75 = load i8, ptr %74, align 4
   %76 = or i8 %75, 2
@@ -14514,23 +14514,23 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
 
 116:                                              ; preds = %110
   %117 = icmp sgt i32 %114, 0
-  br i1 %117, label %.thread11, label %118, !prof !9
+  br i1 %117, label %.thread12, label %118, !prof !9
 
 118:                                              ; preds = %116
   call void @refcount_warn_saturate(ptr noundef nonnull %113, i32 noundef 3) #22
-  br label %.thread11
+  br label %.thread12
 
 119:                                              ; preds = %110
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !36
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @call_rcu(ptr noundef nonnull %120, ptr noundef nonnull @fib6_info_destroy_rcu) #22
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %116, %118, %119
+.thread12:                                        ; preds = %116, %118, %119
   %121 = icmp eq ptr %112, null
   br i1 %121, label %130, label %122
 
-122:                                              ; preds = %.thread11
+122:                                              ; preds = %.thread12
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %124 = load i32, ptr %123, align 8
   %125 = load ptr, ptr %4, align 8
@@ -14541,7 +14541,7 @@ define internal fastcc i32 @__ip6_del_rt_siblings(ptr noundef nonnull %0, ptr no
   call void @rtnl_notify(ptr noundef nonnull %112, ptr noundef %6, i32 noundef %124, i32 noundef 11, ptr noundef %125, i32 noundef %129) #22
   br label %130
 
-130:                                              ; preds = %122, %.thread11
+130:                                              ; preds = %122, %.thread12
   ret i32 %111
 }
 

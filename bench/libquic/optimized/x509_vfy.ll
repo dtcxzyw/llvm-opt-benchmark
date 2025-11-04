@@ -1008,8 +1008,8 @@ define internal fastcc range(i32 0, 2) i32 @check_chain_extensions(ptr noundef %
   br i1 %171, label %39, label %.thread, !llvm.loop !67
 
 .thread:                                          ; preds = %160, %167, %86, %63, %132, %147, %163, %83, %60, %58, %81, %.critedge, %17
-  %.0106 = phi i32 [ 1, %17 ], [ 0, %58 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %132 ], [ 0, %147 ], [ 1, %163 ], [ 0, %83 ], [ 0, %60 ], [ 0, %160 ], [ 1, %167 ], [ 0, %86 ], [ 0, %63 ]
-  ret i32 %.0106
+  %.9 = phi i32 [ 1, %17 ], [ 0, %58 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %132 ], [ 0, %147 ], [ 1, %163 ], [ 0, %83 ], [ 0, %60 ], [ 0, %160 ], [ 1, %167 ], [ 0, %86 ], [ 0, %63 ]
+  ret i32 %.9
 }
 
 ; Function Attrs: nounwind uwtable

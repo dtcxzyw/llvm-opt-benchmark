@@ -965,17 +965,17 @@ define internal fastcc ptr @_PySequence_BytesToCharpArray(ptr noundef %0) unname
   br i1 %13, label %14, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.not47 = icmp eq i64 %3, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %3, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 14:                                               ; preds = %9
   %15 = tail call ptr @PyErr_NoMemory() #12
   br label %53
 
 .lr.ph:                                           ; preds = %.preheader, %37
-  %.03346 = phi i64 [ %38, %37 ], [ 0, %.preheader ]
+  %.03348 = phi i64 [ %38, %37 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %16 = call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.03346) #12
+  %16 = call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.03348) #12
   %17 = icmp eq ptr %16, null
   br i1 %17, label %40, label %18
 
@@ -985,7 +985,7 @@ define internal fastcc ptr @_PySequence_BytesToCharpArray(ptr noundef %0) unname
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = getelementptr ptr, ptr %12, i64 %.03346
+  %22 = getelementptr ptr, ptr %12, i64 %.03348
   store ptr null, ptr %22, align 8, !tbaa !40
   br label %42
 
@@ -994,7 +994,7 @@ define internal fastcc ptr @_PySequence_BytesToCharpArray(ptr noundef %0) unname
   %.val = load i64, ptr %24, align 8, !tbaa !21
   %25 = add i64 %.val, 1
   %26 = call ptr @PyMem_Malloc(i64 noundef %25) #12
-  %27 = getelementptr ptr, ptr %12, i64 %.03346
+  %27 = getelementptr ptr, ptr %12, i64 %.03348
   store ptr %26, ptr %27, align 8, !tbaa !40
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %30
@@ -1022,7 +1022,7 @@ define internal fastcc ptr @_PySequence_BytesToCharpArray(ptr noundef %0) unname
 
 37:                                               ; preds = %30, %33, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %38 = add nuw nsw i64 %.03346, 1
+  %38 = add nuw nsw i64 %.03348, 1
   %exitcond.not = icmp eq i64 %38, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
@@ -1032,7 +1032,7 @@ define internal fastcc ptr @_PySequence_BytesToCharpArray(ptr noundef %0) unname
   br label %53
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr ptr, ptr %12, i64 %.03346
+  %41 = getelementptr ptr, ptr %12, i64 %.03348
   store ptr null, ptr %41, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Py_XDECREF.exit
@@ -1065,8 +1065,8 @@ Py_XDECREF.exit:                                  ; preds = %40, %42, %44, %47
   %50 = add i64 %.07.i, 1
   %51 = getelementptr ptr, ptr %12, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !40
-  %.not.i39 = icmp eq ptr %52, null
-  br i1 %.not.i39, label %_Py_FreeCharPArray.exit, label %.lr.ph.i, !llvm.loop !41
+  %.not.i40 = icmp eq ptr %52, null
+  br i1 %.not.i40, label %_Py_FreeCharPArray.exit, label %.lr.ph.i, !llvm.loop !41
 
 _Py_FreeCharPArray.exit:                          ; preds = %.lr.ph.i, %Py_XDECREF.exit
   call void @PyMem_Free(ptr noundef nonnull %12) #12

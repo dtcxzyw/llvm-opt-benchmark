@@ -119,15 +119,15 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br label %22
 
 22:                                               ; preds = %7, %50
-  %.0100 = phi i32 [ 0, %7 ], [ %52, %50 ]
-  %.07999 = phi i32 [ %0, %7 ], [ %51, %50 ]
-  %23 = mul nsw i32 %.07999, %13
+  %.0101 = phi i32 [ 0, %7 ], [ %52, %50 ]
+  %.079100 = phi i32 [ %0, %7 ], [ %51, %50 ]
+  %23 = mul nsw i32 %.079100, %13
   %24 = ashr i32 %23, 10
   %25 = add nsw i32 %24, %11
-  %26 = mul nsw i32 %25, %.07999
+  %26 = mul nsw i32 %25, %.079100
   %27 = ashr i32 %26, 10
   %28 = add nsw i32 %27, %8
-  %29 = mul nsw i32 %28, %.07999
+  %29 = mul nsw i32 %28, %.079100
   %30 = ashr i32 %29, 10
   %31 = sub nsw i32 %30, %0
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
@@ -135,10 +135,10 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %22
-  %35 = mul nsw i32 %20, %.07999
+  %35 = mul nsw i32 %20, %.079100
   %36 = ashr i32 %35, 10
   %37 = add nsw i32 %36, %21
-  %38 = mul nsw i32 %37, %.07999
+  %38 = mul nsw i32 %37, %.079100
   %39 = ashr i32 %38, 10
   %40 = add nsw i32 %39, %8
   %41 = tail call i32 @llvm.abs.i32(i32 %40, i1 true)
@@ -155,8 +155,8 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %43
-  %51 = sub nsw i32 %.07999, %48
-  %52 = add nuw nsw i32 %.0100, 1
+  %51 = sub nsw i32 %.079100, %48
+  %52 = add nuw nsw i32 %.0101, 1
   %exitcond.not = icmp eq i32 %52, 8
   br i1 %exitcond.not, label %53, label %22, !llvm.loop !7
 
@@ -201,7 +201,7 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %.preheader, %70, %58, %55, %53
-  %.1 = phi i32 [ 0, %53 ], [ 1024, %55 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.2, %58 ], [ %.07999, %22 ]
+  %.1 = phi i32 [ 0, %53 ], [ 1024, %55 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.2, %58 ], [ %.079100, %22 ]
   %76 = mul nsw i32 %.1, %19
   %77 = ashr i32 %76, 10
   %78 = add nsw i32 %77, %17

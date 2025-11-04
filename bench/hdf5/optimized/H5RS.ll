@@ -521,9 +521,9 @@ H5RS__resize_for_append.exit.thread:              ; preds = %27, %40, %21
   store i64 %56, ptr %22, align 8, !tbaa !23
   br label %57
 
-57:                                               ; preds = %17, %44, %H5RS__resize_for_append.exit.thread, %8, %11
-  %.020 = phi i32 [ 0, %11 ], [ 0, %8 ], [ -1, %17 ], [ -1, %44 ], [ 0, %H5RS__resize_for_append.exit.thread ]
-  ret i32 %.020
+57:                                               ; preds = %8, %11, %H5RS__resize_for_append.exit.thread, %44, %17
+  %.021 = phi i32 [ 0, %11 ], [ 0, %8 ], [ -1, %17 ], [ -1, %44 ], [ 0, %H5RS__resize_for_append.exit.thread ]
+  ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -634,9 +634,9 @@ H5RS__resize_for_append.exit.thread:              ; preds = %33, %46, %27
   store i64 %62, ptr %28, align 8, !tbaa !23
   br label %63
 
-63:                                               ; preds = %23, %50, %H5RS__resize_for_append.exit.thread, %10, %16
-  %.026 = phi i32 [ 0, %16 ], [ 0, %10 ], [ -1, %23 ], [ -1, %50 ], [ 0, %H5RS__resize_for_append.exit.thread ]
-  ret i32 %.026
+63:                                               ; preds = %10, %16, %H5RS__resize_for_append.exit.thread, %50, %23
+  %.027 = phi i32 [ 0, %16 ], [ 0, %10 ], [ -1, %23 ], [ -1, %50 ], [ 0, %H5RS__resize_for_append.exit.thread ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable

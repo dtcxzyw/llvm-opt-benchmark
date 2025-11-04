@@ -4665,25 +4665,25 @@ define internal fastcc i32 @write_sm_data(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %5) #13
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %262, label %.preheader279
+  br i1 %9, label %262, label %.preheader280
 
-.preheader279:                                    ; preds = %4
+.preheader280:                                    ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %11 = load i32, ptr %10, align 8, !tbaa !108
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph297, label %put_v.exit255
+  br i1 %12, label %.lr.ph298, label %put_v.exit256
 
-.lr.ph297:                                        ; preds = %.preheader279
+.lr.ph298:                                        ; preds = %.preheader280
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.not = icmp eq i32 %3, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br i1 %.not, label %.lr.ph297.split.us, label %.lr.ph297.split
+  br i1 %.not, label %.lr.ph298.split.us, label %.lr.ph298.split
 
-.lr.ph297.split.us:                               ; preds = %.lr.ph297, %189
-  %indvars.iv322 = phi i64 [ %indvars.iv.next323, %189 ], [ 0, %.lr.ph297 ]
-  %.057295.us = phi i32 [ %.158.ph.us, %189 ], [ 0, %.lr.ph297 ]
+.lr.ph298.split.us:                               ; preds = %.lr.ph298, %189
+  %indvars.iv323 = phi i64 [ %indvars.iv.next324, %189 ], [ 0, %.lr.ph298 ]
+  %.057296.us = phi i32 [ %.158.ph.us, %189 ], [ 0, %.lr.ph298 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !191
-  %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %15, i64 %indvars.iv322
+  %16 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %15, i64 %indvars.iv323
   %17 = load ptr, ptr %16, align 8, !tbaa !192
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !194
@@ -4693,69 +4693,69 @@ define internal fastcc i32 @write_sm_data(ptr noundef readonly captures(none) %0
     i32 18, label %189
     i32 2, label %82
     i32 11, label %39
-    i32 0, label %put_str.exit101.us
-    i32 1, label %put_str.exit111.us
+    i32 0, label %put_str.exit102.us
+    i32 1, label %put_str.exit112.us
     i32 15, label %20
   ]
 
-20:                                               ; preds = %.lr.ph297.split.us
+20:                                               ; preds = %.lr.ph298.split.us
   %21 = load i64, ptr %17, align 1, !tbaa !78
   %22 = call noundef i64 @llvm.bswap.i64(i64 %21)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 256, ptr noundef nonnull @.str.31, i64 noundef %22) #13
   %24 = load ptr, ptr %5, align 8, !tbaa !104
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
-  %.not5.i.i.i112.us = icmp ult i64 %25, 128
-  br i1 %.not5.i.i.i112.us, label %put_str.exit121.us, label %.lr.ph.i.i.i113.us
+  %.not5.i.i.i113.us = icmp ult i64 %25, 128
+  br i1 %.not5.i.i.i113.us, label %put_str.exit122.us, label %.lr.ph.i.i.i114.us
 
-.lr.ph.i.i.i113.us:                               ; preds = %20, %.lr.ph.i.i.i113.us
-  %.07.i.i.i114.us = phi i32 [ %27, %.lr.ph.i.i.i113.us ], [ 1, %20 ]
-  %.036.i.i.i115.us = phi i64 [ %26, %.lr.ph.i.i.i113.us ], [ %25, %20 ]
-  %26 = lshr i64 %.036.i.i.i115.us, 7
-  %27 = add nuw nsw i32 %.07.i.i.i114.us, 1
-  %.not.i.i.i116.us = icmp ult i64 %.036.i.i.i115.us, 16384
-  br i1 %.not.i.i.i116.us, label %.lr.ph.preheader.i.i117.us, label %.lr.ph.i.i.i113.us, !llvm.loop !129
+.lr.ph.i.i.i114.us:                               ; preds = %20, %.lr.ph.i.i.i114.us
+  %.07.i.i.i115.us = phi i32 [ %27, %.lr.ph.i.i.i114.us ], [ 1, %20 ]
+  %.036.i.i.i116.us = phi i64 [ %26, %.lr.ph.i.i.i114.us ], [ %25, %20 ]
+  %26 = lshr i64 %.036.i.i.i116.us, 7
+  %27 = add nuw nsw i32 %.07.i.i.i115.us, 1
+  %.not.i.i.i117.us = icmp ult i64 %.036.i.i.i116.us, 16384
+  br i1 %.not.i.i.i117.us, label %.lr.ph.preheader.i.i118.us, label %.lr.ph.i.i.i114.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i117.us:                       ; preds = %.lr.ph.i.i.i113.us
+.lr.ph.preheader.i.i118.us:                       ; preds = %.lr.ph.i.i.i114.us
   %28 = zext nneg i32 %27 to i64
-  br label %.lr.ph.i.i118.us
+  br label %.lr.ph.i.i119.us
 
-.lr.ph.i.i118.us:                                 ; preds = %.lr.ph.i.i118.us, %.lr.ph.preheader.i.i117.us
-  %indvars.iv.i.i119.us = phi i64 [ %28, %.lr.ph.preheader.i.i117.us ], [ %indvars.iv.next.i.i120.us, %.lr.ph.i.i118.us ]
-  %indvars.iv.next.i.i120.us = add nsw i64 %indvars.iv.i.i119.us, -1
-  %29 = mul nsw i64 %indvars.iv.next.i.i120.us, 7
+.lr.ph.i.i119.us:                                 ; preds = %.lr.ph.i.i119.us, %.lr.ph.preheader.i.i118.us
+  %indvars.iv.i.i120.us = phi i64 [ %28, %.lr.ph.preheader.i.i118.us ], [ %indvars.iv.next.i.i121.us, %.lr.ph.i.i119.us ]
+  %indvars.iv.next.i.i121.us = add nsw i64 %indvars.iv.i.i120.us, -1
+  %29 = mul nsw i64 %indvars.iv.next.i.i121.us, 7
   %30 = lshr i64 %25, %29
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 127
   %33 = or disjoint i32 %32, 128
   call void @avio_w8(ptr noundef %24, i32 noundef %33) #13
-  %34 = icmp samesign ugt i64 %indvars.iv.i.i119.us, 2
-  br i1 %34, label %.lr.ph.i.i118.us, label %put_str.exit121.us, !llvm.loop !130
+  %34 = icmp samesign ugt i64 %indvars.iv.i.i120.us, 2
+  br i1 %34, label %.lr.ph.i.i119.us, label %put_str.exit122.us, !llvm.loop !130
 
-put_str.exit121.us:                               ; preds = %.lr.ph.i.i118.us, %20
+put_str.exit122.us:                               ; preds = %.lr.ph.i.i119.us, %20
   %35 = trunc i64 %25 to i32
   %36 = and i32 %35, 127
   call void @avio_w8(ptr noundef %24, i32 noundef %36) #13
   call void @avio_write(ptr noundef %24, ptr noundef nonnull %6, i32 noundef %35) #13
-  br label %put_str.exit141.us
+  br label %put_str.exit142.us
 
-put_str.exit111.us:                               ; preds = %.lr.ph297.split.us
+put_str.exit112.us:                               ; preds = %.lr.ph298.split.us
   %37 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %37, i32 noundef 9) #13
   call void @avio_write(ptr noundef %37, ptr noundef nonnull @.str.30, i32 noundef 9) #13
-  br label %put_str.exit141.us
+  br label %put_str.exit142.us
 
-put_str.exit101.us:                               ; preds = %.lr.ph297.split.us
+put_str.exit102.us:                               ; preds = %.lr.ph298.split.us
   %38 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %38, i32 noundef 7) #13
   call void @avio_write(ptr noundef %38, ptr noundef nonnull @.str.29, i32 noundef 7) #13
-  br label %put_str.exit141.us
+  br label %put_str.exit142.us
 
-39:                                               ; preds = %.lr.ph297.split.us
+39:                                               ; preds = %.lr.ph298.split.us
   %40 = load i32, ptr %17, align 1, !tbaa !78
   %.not73.us = icmp eq i32 %40, 0
-  br i1 %.not73.us, label %60, label %put_str.exit213.us
+  br i1 %.not73.us, label %60, label %put_str.exit214.us
 
-put_str.exit213.us:                               ; preds = %39
+put_str.exit214.us:                               ; preds = %39
   %41 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %41, i32 noundef 9) #13
   call void @avio_write(ptr noundef %41, ptr noundef nonnull @.str.39, i32 noundef 9) #13
@@ -4764,50 +4764,50 @@ put_str.exit213.us:                               ; preds = %39
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 1
   %46 = icmp ne i32 %43, 0
-  %.neg.i214.us = sext i1 %46 to i64
-  %47 = add nsw i64 %45, %.neg.i214.us
-  %.not5.i.i.i215.us = icmp ult i64 %47, 128
-  br i1 %.not5.i.i.i215.us, label %put_s.exit224.us, label %.lr.ph.i.i.i216.us
+  %.neg.i215.us = sext i1 %46 to i64
+  %47 = add nsw i64 %45, %.neg.i215.us
+  %.not5.i.i.i216.us = icmp ult i64 %47, 128
+  br i1 %.not5.i.i.i216.us, label %put_s.exit225.us, label %.lr.ph.i.i.i217.us
 
-.lr.ph.i.i.i216.us:                               ; preds = %put_str.exit213.us, %.lr.ph.i.i.i216.us
-  %.07.i.i.i217.us = phi i32 [ %49, %.lr.ph.i.i.i216.us ], [ 1, %put_str.exit213.us ]
-  %.036.i.i.i218.us = phi i64 [ %48, %.lr.ph.i.i.i216.us ], [ %47, %put_str.exit213.us ]
-  %48 = lshr i64 %.036.i.i.i218.us, 7
-  %49 = add nuw nsw i32 %.07.i.i.i217.us, 1
-  %.not.i.i.i219.us = icmp ult i64 %.036.i.i.i218.us, 16384
-  br i1 %.not.i.i.i219.us, label %.lr.ph.preheader.i.i220.us, label %.lr.ph.i.i.i216.us, !llvm.loop !129
+.lr.ph.i.i.i217.us:                               ; preds = %put_str.exit214.us, %.lr.ph.i.i.i217.us
+  %.07.i.i.i218.us = phi i32 [ %49, %.lr.ph.i.i.i217.us ], [ 1, %put_str.exit214.us ]
+  %.036.i.i.i219.us = phi i64 [ %48, %.lr.ph.i.i.i217.us ], [ %47, %put_str.exit214.us ]
+  %48 = lshr i64 %.036.i.i.i219.us, 7
+  %49 = add nuw nsw i32 %.07.i.i.i218.us, 1
+  %.not.i.i.i220.us = icmp ult i64 %.036.i.i.i219.us, 16384
+  br i1 %.not.i.i.i220.us, label %.lr.ph.preheader.i.i221.us, label %.lr.ph.i.i.i217.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i220.us:                       ; preds = %.lr.ph.i.i.i216.us
+.lr.ph.preheader.i.i221.us:                       ; preds = %.lr.ph.i.i.i217.us
   %50 = zext nneg i32 %49 to i64
-  br label %.lr.ph.i.i221.us
+  br label %.lr.ph.i.i222.us
 
-.lr.ph.i.i221.us:                                 ; preds = %.lr.ph.i.i221.us, %.lr.ph.preheader.i.i220.us
-  %indvars.iv.i.i222.us = phi i64 [ %50, %.lr.ph.preheader.i.i220.us ], [ %indvars.iv.next.i.i223.us, %.lr.ph.i.i221.us ]
-  %indvars.iv.next.i.i223.us = add nsw i64 %indvars.iv.i.i222.us, -1
-  %51 = mul nsw i64 %indvars.iv.next.i.i223.us, 7
+.lr.ph.i.i222.us:                                 ; preds = %.lr.ph.i.i222.us, %.lr.ph.preheader.i.i221.us
+  %indvars.iv.i.i223.us = phi i64 [ %50, %.lr.ph.preheader.i.i221.us ], [ %indvars.iv.next.i.i224.us, %.lr.ph.i.i222.us ]
+  %indvars.iv.next.i.i224.us = add nsw i64 %indvars.iv.i.i223.us, -1
+  %51 = mul nsw i64 %indvars.iv.next.i.i224.us, 7
   %52 = lshr i64 %47, %51
   %53 = trunc i64 %52 to i32
   %54 = and i32 %53, 127
   %55 = or disjoint i32 %54, 128
   call void @avio_w8(ptr noundef %42, i32 noundef %55) #13
-  %56 = icmp samesign ugt i64 %indvars.iv.i.i222.us, 2
-  br i1 %56, label %.lr.ph.i.i221.us, label %put_s.exit224.us, !llvm.loop !130
+  %56 = icmp samesign ugt i64 %indvars.iv.i.i223.us, 2
+  br i1 %56, label %.lr.ph.i.i222.us, label %put_s.exit225.us, !llvm.loop !130
 
-put_s.exit224.us:                                 ; preds = %.lr.ph.i.i221.us, %put_str.exit213.us
+put_s.exit225.us:                                 ; preds = %.lr.ph.i.i222.us, %put_str.exit214.us
   %57 = trunc i64 %47 to i32
   %58 = and i32 %57, 127
   call void @avio_w8(ptr noundef %42, i32 noundef %58) #13
-  %59 = add nsw i32 %.057295.us, 1
+  %59 = add nsw i32 %.057296.us, 1
   br label %60
 
-60:                                               ; preds = %put_s.exit224.us, %39
-  %.6.us = phi i32 [ %59, %put_s.exit224.us ], [ %.057295.us, %39 ]
+60:                                               ; preds = %put_s.exit225.us, %39
+  %.6.us = phi i32 [ %59, %put_s.exit225.us ], [ %.057296.us, %39 ]
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %62 = load i32, ptr %61, align 1, !tbaa !78
   %.not74.us = icmp eq i32 %62, 0
-  br i1 %.not74.us, label %189, label %put_str.exit234.us
+  br i1 %.not74.us, label %189, label %put_str.exit235.us
 
-put_str.exit234.us:                               ; preds = %60
+put_str.exit235.us:                               ; preds = %60
   %63 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %63, i32 noundef 7) #13
   call void @avio_write(ptr noundef %63, ptr noundef nonnull @.str.40, i32 noundef 7) #13
@@ -4816,50 +4816,50 @@ put_str.exit234.us:                               ; preds = %60
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 1
   %68 = icmp ne i32 %65, 0
-  %.neg.i235.us = sext i1 %68 to i64
-  %69 = add nsw i64 %67, %.neg.i235.us
-  %.not5.i.i.i236.us = icmp ult i64 %69, 128
-  br i1 %.not5.i.i.i236.us, label %put_s.exit245.us, label %.lr.ph.i.i.i237.us
+  %.neg.i236.us = sext i1 %68 to i64
+  %69 = add nsw i64 %67, %.neg.i236.us
+  %.not5.i.i.i237.us = icmp ult i64 %69, 128
+  br i1 %.not5.i.i.i237.us, label %put_s.exit246.us, label %.lr.ph.i.i.i238.us
 
-.lr.ph.i.i.i237.us:                               ; preds = %put_str.exit234.us, %.lr.ph.i.i.i237.us
-  %.07.i.i.i238.us = phi i32 [ %71, %.lr.ph.i.i.i237.us ], [ 1, %put_str.exit234.us ]
-  %.036.i.i.i239.us = phi i64 [ %70, %.lr.ph.i.i.i237.us ], [ %69, %put_str.exit234.us ]
-  %70 = lshr i64 %.036.i.i.i239.us, 7
-  %71 = add nuw nsw i32 %.07.i.i.i238.us, 1
-  %.not.i.i.i240.us = icmp ult i64 %.036.i.i.i239.us, 16384
-  br i1 %.not.i.i.i240.us, label %.lr.ph.preheader.i.i241.us, label %.lr.ph.i.i.i237.us, !llvm.loop !129
+.lr.ph.i.i.i238.us:                               ; preds = %put_str.exit235.us, %.lr.ph.i.i.i238.us
+  %.07.i.i.i239.us = phi i32 [ %71, %.lr.ph.i.i.i238.us ], [ 1, %put_str.exit235.us ]
+  %.036.i.i.i240.us = phi i64 [ %70, %.lr.ph.i.i.i238.us ], [ %69, %put_str.exit235.us ]
+  %70 = lshr i64 %.036.i.i.i240.us, 7
+  %71 = add nuw nsw i32 %.07.i.i.i239.us, 1
+  %.not.i.i.i241.us = icmp ult i64 %.036.i.i.i240.us, 16384
+  br i1 %.not.i.i.i241.us, label %.lr.ph.preheader.i.i242.us, label %.lr.ph.i.i.i238.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i241.us:                       ; preds = %.lr.ph.i.i.i237.us
+.lr.ph.preheader.i.i242.us:                       ; preds = %.lr.ph.i.i.i238.us
   %72 = zext nneg i32 %71 to i64
-  br label %.lr.ph.i.i242.us
+  br label %.lr.ph.i.i243.us
 
-.lr.ph.i.i242.us:                                 ; preds = %.lr.ph.i.i242.us, %.lr.ph.preheader.i.i241.us
-  %indvars.iv.i.i243.us = phi i64 [ %72, %.lr.ph.preheader.i.i241.us ], [ %indvars.iv.next.i.i244.us, %.lr.ph.i.i242.us ]
-  %indvars.iv.next.i.i244.us = add nsw i64 %indvars.iv.i.i243.us, -1
-  %73 = mul nsw i64 %indvars.iv.next.i.i244.us, 7
+.lr.ph.i.i243.us:                                 ; preds = %.lr.ph.i.i243.us, %.lr.ph.preheader.i.i242.us
+  %indvars.iv.i.i244.us = phi i64 [ %72, %.lr.ph.preheader.i.i242.us ], [ %indvars.iv.next.i.i245.us, %.lr.ph.i.i243.us ]
+  %indvars.iv.next.i.i245.us = add nsw i64 %indvars.iv.i.i244.us, -1
+  %73 = mul nsw i64 %indvars.iv.next.i.i245.us, 7
   %74 = lshr i64 %69, %73
   %75 = trunc i64 %74 to i32
   %76 = and i32 %75, 127
   %77 = or disjoint i32 %76, 128
   call void @avio_w8(ptr noundef %64, i32 noundef %77) #13
-  %78 = icmp samesign ugt i64 %indvars.iv.i.i243.us, 2
-  br i1 %78, label %.lr.ph.i.i242.us, label %put_s.exit245.us, !llvm.loop !130
+  %78 = icmp samesign ugt i64 %indvars.iv.i.i244.us, 2
+  br i1 %78, label %.lr.ph.i.i243.us, label %put_s.exit246.us, !llvm.loop !130
 
-put_s.exit245.us:                                 ; preds = %.lr.ph.i.i242.us, %put_str.exit234.us
+put_s.exit246.us:                                 ; preds = %.lr.ph.i.i243.us, %put_str.exit235.us
   %79 = trunc i64 %69 to i32
   %80 = and i32 %79, 127
   call void @avio_w8(ptr noundef %64, i32 noundef %80) #13
   %81 = add nsw i32 %.6.us, 1
   br label %189
 
-82:                                               ; preds = %.lr.ph297.split.us
+82:                                               ; preds = %.lr.ph298.split.us
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %84 = load i32, ptr %17, align 1, !tbaa !78
   %85 = and i32 %84, 4
   %.not75.us = icmp eq i32 %85, 0
-  br i1 %.not75.us, label %106, label %put_str.exit152.us
+  br i1 %.not75.us, label %106, label %put_str.exit153.us
 
-put_str.exit152.us:                               ; preds = %82
+put_str.exit153.us:                               ; preds = %82
   %86 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %86, i32 noundef 10) #13
   call void @avio_write(ptr noundef %86, ptr noundef nonnull @.str.36, i32 noundef 10) #13
@@ -4871,87 +4871,87 @@ put_str.exit152.us:                               ; preds = %82
   %92 = icmp ne i32 %89, 0
   %.neg.i.us = sext i1 %92 to i64
   %93 = add nsw i64 %91, %.neg.i.us
-  %.not5.i.i.i153.us = icmp ult i64 %93, 128
-  br i1 %.not5.i.i.i153.us, label %put_s.exit.us, label %.lr.ph.i.i.i154.us
+  %.not5.i.i.i154.us = icmp ult i64 %93, 128
+  br i1 %.not5.i.i.i154.us, label %put_s.exit.us, label %.lr.ph.i.i.i155.us
 
-.lr.ph.i.i.i154.us:                               ; preds = %put_str.exit152.us, %.lr.ph.i.i.i154.us
-  %.07.i.i.i155.us = phi i32 [ %95, %.lr.ph.i.i.i154.us ], [ 1, %put_str.exit152.us ]
-  %.036.i.i.i156.us = phi i64 [ %94, %.lr.ph.i.i.i154.us ], [ %93, %put_str.exit152.us ]
-  %94 = lshr i64 %.036.i.i.i156.us, 7
-  %95 = add nuw nsw i32 %.07.i.i.i155.us, 1
-  %.not.i.i.i157.us = icmp ult i64 %.036.i.i.i156.us, 16384
-  br i1 %.not.i.i.i157.us, label %.lr.ph.preheader.i.i158.us, label %.lr.ph.i.i.i154.us, !llvm.loop !129
+.lr.ph.i.i.i155.us:                               ; preds = %put_str.exit153.us, %.lr.ph.i.i.i155.us
+  %.07.i.i.i156.us = phi i32 [ %95, %.lr.ph.i.i.i155.us ], [ 1, %put_str.exit153.us ]
+  %.036.i.i.i157.us = phi i64 [ %94, %.lr.ph.i.i.i155.us ], [ %93, %put_str.exit153.us ]
+  %94 = lshr i64 %.036.i.i.i157.us, 7
+  %95 = add nuw nsw i32 %.07.i.i.i156.us, 1
+  %.not.i.i.i158.us = icmp ult i64 %.036.i.i.i157.us, 16384
+  br i1 %.not.i.i.i158.us, label %.lr.ph.preheader.i.i159.us, label %.lr.ph.i.i.i155.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i158.us:                       ; preds = %.lr.ph.i.i.i154.us
+.lr.ph.preheader.i.i159.us:                       ; preds = %.lr.ph.i.i.i155.us
   %96 = zext nneg i32 %95 to i64
-  br label %.lr.ph.i.i159.us
+  br label %.lr.ph.i.i160.us
 
-.lr.ph.i.i159.us:                                 ; preds = %.lr.ph.i.i159.us, %.lr.ph.preheader.i.i158.us
-  %indvars.iv.i.i160.us = phi i64 [ %96, %.lr.ph.preheader.i.i158.us ], [ %indvars.iv.next.i.i161.us, %.lr.ph.i.i159.us ]
-  %indvars.iv.next.i.i161.us = add nsw i64 %indvars.iv.i.i160.us, -1
-  %97 = mul nsw i64 %indvars.iv.next.i.i161.us, 7
+.lr.ph.i.i160.us:                                 ; preds = %.lr.ph.i.i160.us, %.lr.ph.preheader.i.i159.us
+  %indvars.iv.i.i161.us = phi i64 [ %96, %.lr.ph.preheader.i.i159.us ], [ %indvars.iv.next.i.i162.us, %.lr.ph.i.i160.us ]
+  %indvars.iv.next.i.i162.us = add nsw i64 %indvars.iv.i.i161.us, -1
+  %97 = mul nsw i64 %indvars.iv.next.i.i162.us, 7
   %98 = lshr i64 %93, %97
   %99 = trunc i64 %98 to i32
   %100 = and i32 %99, 127
   %101 = or disjoint i32 %100, 128
   call void @avio_w8(ptr noundef %87, i32 noundef %101) #13
-  %102 = icmp samesign ugt i64 %indvars.iv.i.i160.us, 2
-  br i1 %102, label %.lr.ph.i.i159.us, label %put_s.exit.us, !llvm.loop !130
+  %102 = icmp samesign ugt i64 %indvars.iv.i.i161.us, 2
+  br i1 %102, label %.lr.ph.i.i160.us, label %put_s.exit.us, !llvm.loop !130
 
-put_s.exit.us:                                    ; preds = %.lr.ph.i.i159.us, %put_str.exit152.us
+put_s.exit.us:                                    ; preds = %.lr.ph.i.i160.us, %put_str.exit153.us
   %103 = trunc i64 %93 to i32
   %104 = and i32 %103, 127
   call void @avio_w8(ptr noundef %87, i32 noundef %104) #13
-  %105 = add nsw i32 %.057295.us, 1
+  %105 = add nsw i32 %.057296.us, 1
   br label %106
 
 106:                                              ; preds = %put_s.exit.us, %82
-  %.2267.us = phi ptr [ %83, %82 ], [ %88, %put_s.exit.us ]
-  %.562.us = phi i32 [ %.057295.us, %82 ], [ %105, %put_s.exit.us ]
+  %.2268.us = phi ptr [ %83, %82 ], [ %88, %put_s.exit.us ]
+  %.562.us = phi i32 [ %.057296.us, %82 ], [ %105, %put_s.exit.us ]
   %107 = and i32 %84, 8
   %.not76.us = icmp eq i32 %107, 0
-  br i1 %.not76.us, label %189, label %put_str.exit171.us
+  br i1 %.not76.us, label %189, label %put_str.exit172.us
 
-put_str.exit171.us:                               ; preds = %106
+put_str.exit172.us:                               ; preds = %106
   %108 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %108, i32 noundef 5) #13
   call void @avio_write(ptr noundef %108, ptr noundef nonnull @.str.37, i32 noundef 5) #13
   %109 = load ptr, ptr %5, align 8, !tbaa !104
-  %110 = getelementptr inbounds nuw i8, ptr %.2267.us, i64 4
-  %111 = load i32, ptr %.2267.us, align 1, !tbaa !78
+  %110 = getelementptr inbounds nuw i8, ptr %.2268.us, i64 4
+  %111 = load i32, ptr %.2268.us, align 1, !tbaa !78
   %112 = zext i32 %111 to i64
   %113 = shl nuw nsw i64 %112, 1
   %114 = icmp ne i32 %111, 0
-  %.neg.i172.us = sext i1 %114 to i64
-  %115 = add nsw i64 %113, %.neg.i172.us
-  %.not5.i.i.i173.us = icmp ult i64 %115, 128
-  br i1 %.not5.i.i.i173.us, label %put_s.exit182.us, label %.lr.ph.i.i.i174.us
+  %.neg.i173.us = sext i1 %114 to i64
+  %115 = add nsw i64 %113, %.neg.i173.us
+  %.not5.i.i.i174.us = icmp ult i64 %115, 128
+  br i1 %.not5.i.i.i174.us, label %put_s.exit183.us, label %.lr.ph.i.i.i175.us
 
-.lr.ph.i.i.i174.us:                               ; preds = %put_str.exit171.us, %.lr.ph.i.i.i174.us
-  %.07.i.i.i175.us = phi i32 [ %117, %.lr.ph.i.i.i174.us ], [ 1, %put_str.exit171.us ]
-  %.036.i.i.i176.us = phi i64 [ %116, %.lr.ph.i.i.i174.us ], [ %115, %put_str.exit171.us ]
-  %116 = lshr i64 %.036.i.i.i176.us, 7
-  %117 = add nuw nsw i32 %.07.i.i.i175.us, 1
-  %.not.i.i.i177.us = icmp ult i64 %.036.i.i.i176.us, 16384
-  br i1 %.not.i.i.i177.us, label %.lr.ph.preheader.i.i178.us, label %.lr.ph.i.i.i174.us, !llvm.loop !129
+.lr.ph.i.i.i175.us:                               ; preds = %put_str.exit172.us, %.lr.ph.i.i.i175.us
+  %.07.i.i.i176.us = phi i32 [ %117, %.lr.ph.i.i.i175.us ], [ 1, %put_str.exit172.us ]
+  %.036.i.i.i177.us = phi i64 [ %116, %.lr.ph.i.i.i175.us ], [ %115, %put_str.exit172.us ]
+  %116 = lshr i64 %.036.i.i.i177.us, 7
+  %117 = add nuw nsw i32 %.07.i.i.i176.us, 1
+  %.not.i.i.i178.us = icmp ult i64 %.036.i.i.i177.us, 16384
+  br i1 %.not.i.i.i178.us, label %.lr.ph.preheader.i.i179.us, label %.lr.ph.i.i.i175.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i178.us:                       ; preds = %.lr.ph.i.i.i174.us
+.lr.ph.preheader.i.i179.us:                       ; preds = %.lr.ph.i.i.i175.us
   %118 = zext nneg i32 %117 to i64
-  br label %.lr.ph.i.i179.us
+  br label %.lr.ph.i.i180.us
 
-.lr.ph.i.i179.us:                                 ; preds = %.lr.ph.i.i179.us, %.lr.ph.preheader.i.i178.us
-  %indvars.iv.i.i180.us = phi i64 [ %118, %.lr.ph.preheader.i.i178.us ], [ %indvars.iv.next.i.i181.us, %.lr.ph.i.i179.us ]
-  %indvars.iv.next.i.i181.us = add nsw i64 %indvars.iv.i.i180.us, -1
-  %119 = mul nsw i64 %indvars.iv.next.i.i181.us, 7
+.lr.ph.i.i180.us:                                 ; preds = %.lr.ph.i.i180.us, %.lr.ph.preheader.i.i179.us
+  %indvars.iv.i.i181.us = phi i64 [ %118, %.lr.ph.preheader.i.i179.us ], [ %indvars.iv.next.i.i182.us, %.lr.ph.i.i180.us ]
+  %indvars.iv.next.i.i182.us = add nsw i64 %indvars.iv.i.i181.us, -1
+  %119 = mul nsw i64 %indvars.iv.next.i.i182.us, 7
   %120 = lshr i64 %115, %119
   %121 = trunc i64 %120 to i32
   %122 = and i32 %121, 127
   %123 = or disjoint i32 %122, 128
   call void @avio_w8(ptr noundef %109, i32 noundef %123) #13
-  %124 = icmp samesign ugt i64 %indvars.iv.i.i180.us, 2
-  br i1 %124, label %.lr.ph.i.i179.us, label %put_s.exit182.us, !llvm.loop !130
+  %124 = icmp samesign ugt i64 %indvars.iv.i.i181.us, 2
+  br i1 %124, label %.lr.ph.i.i180.us, label %put_s.exit183.us, !llvm.loop !130
 
-put_s.exit182.us:                                 ; preds = %.lr.ph.i.i179.us, %put_str.exit171.us
+put_s.exit183.us:                                 ; preds = %.lr.ph.i.i180.us, %put_str.exit172.us
   %125 = trunc i64 %115 to i32
   %126 = and i32 %125, 127
   call void @avio_w8(ptr noundef %109, i32 noundef %126) #13
@@ -4963,43 +4963,43 @@ put_s.exit182.us:                                 ; preds = %.lr.ph.i.i179.us, %
   %130 = zext i32 %129 to i64
   %131 = shl nuw nsw i64 %130, 1
   %132 = icmp ne i32 %129, 0
-  %.neg.i193.us = sext i1 %132 to i64
-  %133 = add nsw i64 %131, %.neg.i193.us
-  %.not5.i.i.i194.us = icmp ult i64 %133, 128
-  br i1 %.not5.i.i.i194.us, label %put_s.exit203.us, label %.lr.ph.i.i.i195.us
+  %.neg.i194.us = sext i1 %132 to i64
+  %133 = add nsw i64 %131, %.neg.i194.us
+  %.not5.i.i.i195.us = icmp ult i64 %133, 128
+  br i1 %.not5.i.i.i195.us, label %put_s.exit204.us, label %.lr.ph.i.i.i196.us
 
-.lr.ph.i.i.i195.us:                               ; preds = %put_s.exit182.us, %.lr.ph.i.i.i195.us
-  %.07.i.i.i196.us = phi i32 [ %135, %.lr.ph.i.i.i195.us ], [ 1, %put_s.exit182.us ]
-  %.036.i.i.i197.us = phi i64 [ %134, %.lr.ph.i.i.i195.us ], [ %133, %put_s.exit182.us ]
-  %134 = lshr i64 %.036.i.i.i197.us, 7
-  %135 = add nuw nsw i32 %.07.i.i.i196.us, 1
-  %.not.i.i.i198.us = icmp ult i64 %.036.i.i.i197.us, 16384
-  br i1 %.not.i.i.i198.us, label %.lr.ph.preheader.i.i199.us, label %.lr.ph.i.i.i195.us, !llvm.loop !129
+.lr.ph.i.i.i196.us:                               ; preds = %put_s.exit183.us, %.lr.ph.i.i.i196.us
+  %.07.i.i.i197.us = phi i32 [ %135, %.lr.ph.i.i.i196.us ], [ 1, %put_s.exit183.us ]
+  %.036.i.i.i198.us = phi i64 [ %134, %.lr.ph.i.i.i196.us ], [ %133, %put_s.exit183.us ]
+  %134 = lshr i64 %.036.i.i.i198.us, 7
+  %135 = add nuw nsw i32 %.07.i.i.i197.us, 1
+  %.not.i.i.i199.us = icmp ult i64 %.036.i.i.i198.us, 16384
+  br i1 %.not.i.i.i199.us, label %.lr.ph.preheader.i.i200.us, label %.lr.ph.i.i.i196.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i199.us:                       ; preds = %.lr.ph.i.i.i195.us
+.lr.ph.preheader.i.i200.us:                       ; preds = %.lr.ph.i.i.i196.us
   %136 = zext nneg i32 %135 to i64
-  br label %.lr.ph.i.i200.us
+  br label %.lr.ph.i.i201.us
 
-.lr.ph.i.i200.us:                                 ; preds = %.lr.ph.i.i200.us, %.lr.ph.preheader.i.i199.us
-  %indvars.iv.i.i201.us = phi i64 [ %136, %.lr.ph.preheader.i.i199.us ], [ %indvars.iv.next.i.i202.us, %.lr.ph.i.i200.us ]
-  %indvars.iv.next.i.i202.us = add nsw i64 %indvars.iv.i.i201.us, -1
-  %137 = mul nsw i64 %indvars.iv.next.i.i202.us, 7
+.lr.ph.i.i201.us:                                 ; preds = %.lr.ph.i.i201.us, %.lr.ph.preheader.i.i200.us
+  %indvars.iv.i.i202.us = phi i64 [ %136, %.lr.ph.preheader.i.i200.us ], [ %indvars.iv.next.i.i203.us, %.lr.ph.i.i201.us ]
+  %indvars.iv.next.i.i203.us = add nsw i64 %indvars.iv.i.i202.us, -1
+  %137 = mul nsw i64 %indvars.iv.next.i.i203.us, 7
   %138 = lshr i64 %133, %137
   %139 = trunc i64 %138 to i32
   %140 = and i32 %139, 127
   %141 = or disjoint i32 %140, 128
   call void @avio_w8(ptr noundef %128, i32 noundef %141) #13
-  %142 = icmp samesign ugt i64 %indvars.iv.i.i201.us, 2
-  br i1 %142, label %.lr.ph.i.i200.us, label %put_s.exit203.us, !llvm.loop !130
+  %142 = icmp samesign ugt i64 %indvars.iv.i.i202.us, 2
+  br i1 %142, label %.lr.ph.i.i201.us, label %put_s.exit204.us, !llvm.loop !130
 
-put_s.exit203.us:                                 ; preds = %.lr.ph.i.i200.us, %put_s.exit182.us
+put_s.exit204.us:                                 ; preds = %.lr.ph.i.i201.us, %put_s.exit183.us
   %143 = trunc i64 %133 to i32
   %144 = and i32 %143, 127
   call void @avio_w8(ptr noundef %128, i32 noundef %144) #13
   %145 = add nsw i32 %.562.us, 2
   br label %189
 
-146:                                              ; preds = %.lr.ph297.split.us
+146:                                              ; preds = %.lr.ph298.split.us
   %147 = load i32, ptr %14, align 8, !tbaa !195
   %148 = and i32 %147, 1024
   %.not77.us = icmp eq i32 %148, 0
@@ -5007,41 +5007,41 @@ put_s.exit203.us:                                 ; preds = %.lr.ph.i.i200.us, %
   %150 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 256, ptr noundef nonnull @.str.32, ptr noundef nonnull %149, i32 noundef %19) #13
   %151 = load ptr, ptr %5, align 8, !tbaa !104
   %152 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
-  %.not5.i.i.i122.us = icmp ult i64 %152, 128
-  br i1 %.not5.i.i.i122.us, label %put_str.exit131.us, label %.lr.ph.i.i.i123.us
+  %.not5.i.i.i123.us = icmp ult i64 %152, 128
+  br i1 %.not5.i.i.i123.us, label %put_str.exit132.us, label %.lr.ph.i.i.i124.us
 
-.lr.ph.i.i.i123.us:                               ; preds = %146, %.lr.ph.i.i.i123.us
-  %.07.i.i.i124.us = phi i32 [ %154, %.lr.ph.i.i.i123.us ], [ 1, %146 ]
-  %.036.i.i.i125.us = phi i64 [ %153, %.lr.ph.i.i.i123.us ], [ %152, %146 ]
-  %153 = lshr i64 %.036.i.i.i125.us, 7
-  %154 = add nuw nsw i32 %.07.i.i.i124.us, 1
-  %.not.i.i.i126.us = icmp ult i64 %.036.i.i.i125.us, 16384
-  br i1 %.not.i.i.i126.us, label %.lr.ph.preheader.i.i127.us, label %.lr.ph.i.i.i123.us, !llvm.loop !129
+.lr.ph.i.i.i124.us:                               ; preds = %146, %.lr.ph.i.i.i124.us
+  %.07.i.i.i125.us = phi i32 [ %154, %.lr.ph.i.i.i124.us ], [ 1, %146 ]
+  %.036.i.i.i126.us = phi i64 [ %153, %.lr.ph.i.i.i124.us ], [ %152, %146 ]
+  %153 = lshr i64 %.036.i.i.i126.us, 7
+  %154 = add nuw nsw i32 %.07.i.i.i125.us, 1
+  %.not.i.i.i127.us = icmp ult i64 %.036.i.i.i126.us, 16384
+  br i1 %.not.i.i.i127.us, label %.lr.ph.preheader.i.i128.us, label %.lr.ph.i.i.i124.us, !llvm.loop !129
 
-.lr.ph.preheader.i.i127.us:                       ; preds = %.lr.ph.i.i.i123.us
+.lr.ph.preheader.i.i128.us:                       ; preds = %.lr.ph.i.i.i124.us
   %155 = zext nneg i32 %154 to i64
-  br label %.lr.ph.i.i128.us
+  br label %.lr.ph.i.i129.us
 
-.lr.ph.i.i128.us:                                 ; preds = %.lr.ph.i.i128.us, %.lr.ph.preheader.i.i127.us
-  %indvars.iv.i.i129.us = phi i64 [ %155, %.lr.ph.preheader.i.i127.us ], [ %indvars.iv.next.i.i130.us, %.lr.ph.i.i128.us ]
-  %indvars.iv.next.i.i130.us = add nsw i64 %indvars.iv.i.i129.us, -1
-  %156 = mul nsw i64 %indvars.iv.next.i.i130.us, 7
+.lr.ph.i.i129.us:                                 ; preds = %.lr.ph.i.i129.us, %.lr.ph.preheader.i.i128.us
+  %indvars.iv.i.i130.us = phi i64 [ %155, %.lr.ph.preheader.i.i128.us ], [ %indvars.iv.next.i.i131.us, %.lr.ph.i.i129.us ]
+  %indvars.iv.next.i.i131.us = add nsw i64 %indvars.iv.i.i130.us, -1
+  %156 = mul nsw i64 %indvars.iv.next.i.i131.us, 7
   %157 = lshr i64 %152, %156
   %158 = trunc i64 %157 to i32
   %159 = and i32 %158, 127
   %160 = or disjoint i32 %159, 128
   call void @avio_w8(ptr noundef %151, i32 noundef %160) #13
-  %161 = icmp samesign ugt i64 %indvars.iv.i.i129.us, 2
-  br i1 %161, label %.lr.ph.i.i128.us, label %put_str.exit131.us, !llvm.loop !130
+  %161 = icmp samesign ugt i64 %indvars.iv.i.i130.us, 2
+  br i1 %161, label %.lr.ph.i.i129.us, label %put_str.exit132.us, !llvm.loop !130
 
-put_str.exit131.us:                               ; preds = %.lr.ph.i.i128.us, %146
+put_str.exit132.us:                               ; preds = %.lr.ph.i.i129.us, %146
   %162 = trunc i64 %152 to i32
   %163 = and i32 %162, 127
   call void @avio_w8(ptr noundef %151, i32 noundef %163) #13
   call void @avio_write(ptr noundef %151, ptr noundef nonnull %6, i32 noundef %162) #13
-  br label %put_str.exit141.us
+  br label %put_str.exit142.us
 
-put_str.exit141.us:                               ; preds = %put_str.exit131.us, %put_str.exit101.us, %put_str.exit111.us, %put_str.exit121.us
+put_str.exit142.us:                               ; preds = %put_str.exit132.us, %put_str.exit102.us, %put_str.exit112.us, %put_str.exit122.us
   %164 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %164, i32 noundef 4) #13
   %165 = load ptr, ptr %5, align 8, !tbaa !104
@@ -5049,21 +5049,21 @@ put_str.exit141.us:                               ; preds = %put_str.exit131.us,
   call void @avio_write(ptr noundef %165, ptr noundef nonnull @.str.35, i32 noundef 3) #13
   %166 = load ptr, ptr %5, align 8, !tbaa !104
   %167 = load ptr, ptr %13, align 8, !tbaa !191
-  %168 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %167, i64 %indvars.iv322
+  %168 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %167, i64 %indvars.iv323
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load i64, ptr %169, align 8, !tbaa !196
   %.not5.i.i.us = icmp ult i64 %170, 128
-  br i1 %.not5.i.i.us, label %put_v.exit.us, label %.lr.ph.i.i142.us
+  br i1 %.not5.i.i.us, label %put_v.exit.us, label %.lr.ph.i.i143.us
 
-.lr.ph.i.i142.us:                                 ; preds = %put_str.exit141.us, %.lr.ph.i.i142.us
-  %.07.i.i.us = phi i32 [ %172, %.lr.ph.i.i142.us ], [ 1, %put_str.exit141.us ]
-  %.036.i.i.us = phi i64 [ %171, %.lr.ph.i.i142.us ], [ %170, %put_str.exit141.us ]
+.lr.ph.i.i143.us:                                 ; preds = %put_str.exit142.us, %.lr.ph.i.i143.us
+  %.07.i.i.us = phi i32 [ %172, %.lr.ph.i.i143.us ], [ 1, %put_str.exit142.us ]
+  %.036.i.i.us = phi i64 [ %171, %.lr.ph.i.i143.us ], [ %170, %put_str.exit142.us ]
   %171 = lshr i64 %.036.i.i.us, 7
   %172 = add nuw nsw i32 %.07.i.i.us, 1
   %.not.i.i.us = icmp ult i64 %.036.i.i.us, 16384
-  br i1 %.not.i.i.us, label %.lr.ph.preheader.i.us, label %.lr.ph.i.i142.us, !llvm.loop !129
+  br i1 %.not.i.i.us, label %.lr.ph.preheader.i.us, label %.lr.ph.i.i143.us, !llvm.loop !129
 
-.lr.ph.preheader.i.us:                            ; preds = %.lr.ph.i.i142.us
+.lr.ph.preheader.i.us:                            ; preds = %.lr.ph.i.i143.us
   %173 = zext nneg i32 %172 to i64
   br label %.lr.ph.i.us
 
@@ -5079,32 +5079,32 @@ put_str.exit141.us:                               ; preds = %put_str.exit131.us,
   %179 = icmp samesign ugt i64 %indvars.iv.i.us, 2
   br i1 %179, label %.lr.ph.i.us, label %put_v.exit.us, !llvm.loop !130
 
-put_v.exit.us:                                    ; preds = %.lr.ph.i.us, %put_str.exit141.us
+put_v.exit.us:                                    ; preds = %.lr.ph.i.us, %put_str.exit142.us
   %180 = trunc i64 %170 to i32
   %181 = and i32 %180, 127
   call void @avio_w8(ptr noundef %166, i32 noundef %181) #13
   %182 = load ptr, ptr %5, align 8, !tbaa !104
   %183 = load ptr, ptr %13, align 8, !tbaa !191
-  %184 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %183, i64 %indvars.iv322
+  %184 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %183, i64 %indvars.iv323
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load i64, ptr %185, align 8, !tbaa !196
   %187 = trunc i64 %186 to i32
   call void @avio_write(ptr noundef %182, ptr noundef %17, i32 noundef %187) #13
-  %188 = add nsw i32 %.057295.us, 1
+  %188 = add nsw i32 %.057296.us, 1
   br label %189
 
-189:                                              ; preds = %put_v.exit.us, %put_s.exit203.us, %106, %put_s.exit245.us, %60, %.lr.ph297.split.us, %.lr.ph297.split.us, %.lr.ph297.split.us
-  %.158.ph.us = phi i32 [ %.6.us, %60 ], [ %81, %put_s.exit245.us ], [ %.562.us, %106 ], [ %145, %put_s.exit203.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %.057295.us, %.lr.ph297.split.us ], [ %188, %put_v.exit.us ]
-  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
+189:                                              ; preds = %put_v.exit.us, %put_s.exit204.us, %106, %put_s.exit246.us, %60, %.lr.ph298.split.us, %.lr.ph298.split.us, %.lr.ph298.split.us
+  %.158.ph.us = phi i32 [ %.6.us, %60 ], [ %81, %put_s.exit246.us ], [ %.562.us, %106 ], [ %145, %put_s.exit204.us ], [ %.057296.us, %.lr.ph298.split.us ], [ %.057296.us, %.lr.ph298.split.us ], [ %.057296.us, %.lr.ph298.split.us ], [ %188, %put_v.exit.us ]
+  %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %190 = load i32, ptr %10, align 8, !tbaa !108
   %191 = sext i32 %190 to i64
-  %192 = icmp slt i64 %indvars.iv.next323, %191
-  br i1 %192, label %.lr.ph297.split.us, label %.thread, !llvm.loop !197
+  %192 = icmp slt i64 %indvars.iv.next324, %191
+  br i1 %192, label %.lr.ph298.split.us, label %.thread, !llvm.loop !197
 
-.lr.ph297.split:                                  ; preds = %.lr.ph297, %.loopexit278
-  %193 = phi i32 [ %245, %.loopexit278 ], [ %11, %.lr.ph297 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit278 ], [ 0, %.lr.ph297 ]
-  %.057295 = phi i32 [ %.158.ph, %.loopexit278 ], [ 0, %.lr.ph297 ]
+.lr.ph298.split:                                  ; preds = %.lr.ph298, %.loopexit279
+  %193 = phi i32 [ %245, %.loopexit279 ], [ %11, %.lr.ph298 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit279 ], [ 0, %.lr.ph298 ]
+  %.057296 = phi i32 [ %.158.ph, %.loopexit279 ], [ 0, %.lr.ph298 ]
   %194 = load ptr, ptr %13, align 8, !tbaa !191
   %195 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %194, i64 %indvars.iv
   %196 = load ptr, ptr %195, align 8, !tbaa !192
@@ -5115,12 +5115,12 @@ put_v.exit.us:                                    ; preds = %.lr.ph.i.us, %put_s
   %200 = getelementptr inbounds i8, ptr %196, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %202 = load i32, ptr %201, align 8, !tbaa !194
-  switch i32 %202, label %.loopexit278 [
+  switch i32 %202, label %.loopexit279 [
     i32 18, label %203
     i32 13, label %203
   ]
 
-203:                                              ; preds = %.lr.ph297.split, %.lr.ph297.split
+203:                                              ; preds = %.lr.ph298.split, %.lr.ph298.split
   %204 = and i64 %198, 4294967295
   %.not78 = icmp eq i64 %204, 0
   br i1 %.not78, label %.thread, label %205
@@ -5135,13 +5135,13 @@ put_v.exit.us:                                    ; preds = %.lr.ph.i.us, %put_s
 
 .preheader:                                       ; preds = %205
   %209 = icmp sgt i64 %199, 0
-  br i1 %209, label %.lr.ph, label %.loopexit278
+  br i1 %209, label %.lr.ph, label %.loopexit279
 
 .lr.ph:                                           ; preds = %.preheader, %.loopexit
-  %.259294 = phi i32 [ %243, %.loopexit ], [ %.057295, %.preheader ]
-  %.0265293 = phi ptr [ %242, %.loopexit ], [ %196, %.preheader ]
-  %210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0265293) #16
-  %211 = getelementptr inbounds nuw i8, ptr %.0265293, i64 %210
+  %.259295 = phi i32 [ %243, %.loopexit ], [ %.057296, %.preheader ]
+  %.0266294 = phi ptr [ %242, %.loopexit ], [ %196, %.preheader ]
+  %210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0266294) #16
+  %211 = getelementptr inbounds nuw i8, ptr %.0266294, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 1
   %.not81 = icmp ult ptr %212, %200
   br i1 %.not81, label %213, label %.thread
@@ -5179,39 +5179,39 @@ put_str.exit:                                     ; preds = %.lr.ph.i.i, %213
   %224 = trunc i64 %210 to i32
   %225 = and i32 %224, 127
   call void @avio_w8(ptr noundef %214, i32 noundef %225) #13
-  call void @avio_write(ptr noundef %214, ptr noundef nonnull %.0265293, i32 noundef %224) #13
+  call void @avio_write(ptr noundef %214, ptr noundef nonnull %.0266294, i32 noundef %224) #13
   %226 = load ptr, ptr %5, align 8, !tbaa !104
   call void @avio_w8(ptr noundef %226, i32 noundef 2) #13
   %227 = load ptr, ptr %5, align 8, !tbaa !104
   %228 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #16
-  %.not5.i.i.i82 = icmp ult i64 %228, 128
-  br i1 %.not5.i.i.i82, label %.loopexit, label %.lr.ph.i.i.i83
+  %.not5.i.i.i83 = icmp ult i64 %228, 128
+  br i1 %.not5.i.i.i83, label %.loopexit, label %.lr.ph.i.i.i84
 
-.lr.ph.i.i.i83:                                   ; preds = %put_str.exit, %.lr.ph.i.i.i83
-  %.07.i.i.i84 = phi i32 [ %230, %.lr.ph.i.i.i83 ], [ 1, %put_str.exit ]
-  %.036.i.i.i85 = phi i64 [ %229, %.lr.ph.i.i.i83 ], [ %228, %put_str.exit ]
-  %229 = lshr i64 %.036.i.i.i85, 7
-  %230 = add nuw nsw i32 %.07.i.i.i84, 1
-  %.not.i.i.i86 = icmp ult i64 %.036.i.i.i85, 16384
-  br i1 %.not.i.i.i86, label %.lr.ph.preheader.i.i87, label %.lr.ph.i.i.i83, !llvm.loop !129
+.lr.ph.i.i.i84:                                   ; preds = %put_str.exit, %.lr.ph.i.i.i84
+  %.07.i.i.i85 = phi i32 [ %230, %.lr.ph.i.i.i84 ], [ 1, %put_str.exit ]
+  %.036.i.i.i86 = phi i64 [ %229, %.lr.ph.i.i.i84 ], [ %228, %put_str.exit ]
+  %229 = lshr i64 %.036.i.i.i86, 7
+  %230 = add nuw nsw i32 %.07.i.i.i85, 1
+  %.not.i.i.i87 = icmp ult i64 %.036.i.i.i86, 16384
+  br i1 %.not.i.i.i87, label %.lr.ph.preheader.i.i88, label %.lr.ph.i.i.i84, !llvm.loop !129
 
-.lr.ph.preheader.i.i87:                           ; preds = %.lr.ph.i.i.i83
+.lr.ph.preheader.i.i88:                           ; preds = %.lr.ph.i.i.i84
   %231 = zext nneg i32 %230 to i64
-  br label %.lr.ph.i.i88
+  br label %.lr.ph.i.i89
 
-.lr.ph.i.i88:                                     ; preds = %.lr.ph.i.i88, %.lr.ph.preheader.i.i87
-  %indvars.iv.i.i89 = phi i64 [ %231, %.lr.ph.preheader.i.i87 ], [ %indvars.iv.next.i.i90, %.lr.ph.i.i88 ]
-  %indvars.iv.next.i.i90 = add nsw i64 %indvars.iv.i.i89, -1
-  %232 = mul nsw i64 %indvars.iv.next.i.i90, 7
+.lr.ph.i.i89:                                     ; preds = %.lr.ph.i.i89, %.lr.ph.preheader.i.i88
+  %indvars.iv.i.i90 = phi i64 [ %231, %.lr.ph.preheader.i.i88 ], [ %indvars.iv.next.i.i91, %.lr.ph.i.i89 ]
+  %indvars.iv.next.i.i91 = add nsw i64 %indvars.iv.i.i90, -1
+  %232 = mul nsw i64 %indvars.iv.next.i.i91, 7
   %233 = lshr i64 %228, %232
   %234 = trunc i64 %233 to i32
   %235 = and i32 %234, 127
   %236 = or disjoint i32 %235, 128
   call void @avio_w8(ptr noundef %227, i32 noundef %236) #13
-  %237 = icmp samesign ugt i64 %indvars.iv.i.i89, 2
-  br i1 %237, label %.lr.ph.i.i88, label %.loopexit, !llvm.loop !130
+  %237 = icmp samesign ugt i64 %indvars.iv.i.i90, 2
+  br i1 %237, label %.lr.ph.i.i89, label %.loopexit, !llvm.loop !130
 
-.loopexit:                                        ; preds = %.lr.ph.i.i88, %put_str.exit
+.loopexit:                                        ; preds = %.lr.ph.i.i89, %put_str.exit
   %238 = trunc i64 %228 to i32
   %239 = and i32 %238, 127
   call void @avio_w8(ptr noundef %227, i32 noundef %239) #13
@@ -5219,57 +5219,57 @@ put_str.exit:                                     ; preds = %.lr.ph.i.i, %213
   %240 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #16
   %241 = getelementptr inbounds nuw i8, ptr %212, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 1
-  %243 = add nsw i32 %.259294, 1
+  %243 = add nsw i32 %.259295, 1
   %244 = icmp ult ptr %242, %200
-  br i1 %244, label %.lr.ph, label %.loopexit278.loopexit
+  br i1 %244, label %.lr.ph, label %.loopexit279.loopexit
 
-.loopexit278.loopexit:                            ; preds = %.loopexit
+.loopexit279.loopexit:                            ; preds = %.loopexit
   %.pre = load i32, ptr %10, align 8, !tbaa !108
-  br label %.loopexit278
+  br label %.loopexit279
 
-.loopexit278:                                     ; preds = %.loopexit278.loopexit, %.preheader, %.lr.ph297.split
-  %245 = phi i32 [ %193, %.lr.ph297.split ], [ %193, %.preheader ], [ %.pre, %.loopexit278.loopexit ]
-  %.158.ph = phi i32 [ %.057295, %.lr.ph297.split ], [ %.057295, %.preheader ], [ %243, %.loopexit278.loopexit ]
+.loopexit279:                                     ; preds = %.loopexit279.loopexit, %.preheader, %.lr.ph298.split
+  %245 = phi i32 [ %193, %.lr.ph298.split ], [ %193, %.preheader ], [ %.pre, %.loopexit279.loopexit ]
+  %.158.ph = phi i32 [ %.057296, %.lr.ph298.split ], [ %.057296, %.preheader ], [ %243, %.loopexit279.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %246 = sext i32 %245 to i64
   %247 = icmp slt i64 %indvars.iv.next, %246
-  br i1 %247, label %.lr.ph297.split, label %.thread, !llvm.loop !197
+  br i1 %247, label %.lr.ph298.split, label %.thread, !llvm.loop !197
 
-.thread:                                          ; preds = %.loopexit278, %203, %205, %.lr.ph, %189
-  %.7 = phi i32 [ %.158.ph.us, %189 ], [ %.259294, %.lr.ph ], [ %.158.ph, %.loopexit278 ], [ %.057295, %203 ], [ %.057295, %205 ]
-  %.5 = phi i32 [ %8, %189 ], [ -22, %.lr.ph ], [ %8, %.loopexit278 ], [ -22, %203 ], [ -22, %205 ]
+.thread:                                          ; preds = %.loopexit279, %203, %205, %.lr.ph, %189
+  %.7 = phi i32 [ %.158.ph.us, %189 ], [ %.259295, %.lr.ph ], [ %.158.ph, %.loopexit279 ], [ %.057296, %203 ], [ %.057296, %205 ]
+  %.5 = phi i32 [ %8, %189 ], [ -22, %.lr.ph ], [ %8, %.loopexit279 ], [ -22, %203 ], [ -22, %205 ]
   %248 = sext i32 %.7 to i64
-  %.not5.i.i246 = icmp ult i32 %.7, 128
-  br i1 %.not5.i.i246, label %put_v.exit255, label %.lr.ph.i.i247
+  %.not5.i.i247 = icmp ult i32 %.7, 128
+  br i1 %.not5.i.i247, label %put_v.exit256, label %.lr.ph.i.i248
 
-.lr.ph.i.i247:                                    ; preds = %.thread, %.lr.ph.i.i247
-  %.07.i.i248 = phi i32 [ %250, %.lr.ph.i.i247 ], [ 1, %.thread ]
-  %.036.i.i249 = phi i64 [ %249, %.lr.ph.i.i247 ], [ %248, %.thread ]
-  %249 = lshr i64 %.036.i.i249, 7
-  %250 = add nuw nsw i32 %.07.i.i248, 1
-  %.not.i.i250 = icmp ult i64 %.036.i.i249, 16384
-  br i1 %.not.i.i250, label %.lr.ph.preheader.i251, label %.lr.ph.i.i247, !llvm.loop !129
+.lr.ph.i.i248:                                    ; preds = %.thread, %.lr.ph.i.i248
+  %.07.i.i249 = phi i32 [ %250, %.lr.ph.i.i248 ], [ 1, %.thread ]
+  %.036.i.i250 = phi i64 [ %249, %.lr.ph.i.i248 ], [ %248, %.thread ]
+  %249 = lshr i64 %.036.i.i250, 7
+  %250 = add nuw nsw i32 %.07.i.i249, 1
+  %.not.i.i251 = icmp ult i64 %.036.i.i250, 16384
+  br i1 %.not.i.i251, label %.lr.ph.preheader.i252, label %.lr.ph.i.i248, !llvm.loop !129
 
-.lr.ph.preheader.i251:                            ; preds = %.lr.ph.i.i247
+.lr.ph.preheader.i252:                            ; preds = %.lr.ph.i.i248
   %251 = zext nneg i32 %250 to i64
-  br label %.lr.ph.i252
+  br label %.lr.ph.i253
 
-.lr.ph.i252:                                      ; preds = %.lr.ph.i252, %.lr.ph.preheader.i251
-  %indvars.iv.i253 = phi i64 [ %251, %.lr.ph.preheader.i251 ], [ %indvars.iv.next.i254, %.lr.ph.i252 ]
-  %indvars.iv.next.i254 = add nsw i64 %indvars.iv.i253, -1
-  %252 = mul nsw i64 %indvars.iv.next.i254, 7
+.lr.ph.i253:                                      ; preds = %.lr.ph.i253, %.lr.ph.preheader.i252
+  %indvars.iv.i254 = phi i64 [ %251, %.lr.ph.preheader.i252 ], [ %indvars.iv.next.i255, %.lr.ph.i253 ]
+  %indvars.iv.next.i255 = add nsw i64 %indvars.iv.i254, -1
+  %252 = mul nsw i64 %indvars.iv.next.i255, 7
   %253 = lshr i64 %248, %252
   %254 = trunc i64 %253 to i32
   %255 = and i32 %254, 127
   %256 = or disjoint i32 %255, 128
   call void @avio_w8(ptr noundef %1, i32 noundef %256) #13
-  %257 = icmp samesign ugt i64 %indvars.iv.i253, 2
-  br i1 %257, label %.lr.ph.i252, label %put_v.exit255, !llvm.loop !130
+  %257 = icmp samesign ugt i64 %indvars.iv.i254, 2
+  br i1 %257, label %.lr.ph.i253, label %put_v.exit256, !llvm.loop !130
 
-put_v.exit255:                                    ; preds = %.lr.ph.i252, %.preheader279, %.thread
-  %.5344 = phi i32 [ %.5, %.thread ], [ %8, %.preheader279 ], [ %.5, %.lr.ph.i252 ]
-  %.7343 = phi i32 [ %.7, %.thread ], [ 0, %.preheader279 ], [ %.7, %.lr.ph.i252 ]
-  %258 = and i32 %.7343, 127
+put_v.exit256:                                    ; preds = %.lr.ph.i253, %.preheader280, %.thread
+  %.5345 = phi i32 [ %.5, %.thread ], [ %8, %.preheader280 ], [ %.5, %.lr.ph.i253 ]
+  %.7344 = phi i32 [ %.7, %.thread ], [ 0, %.preheader280 ], [ %.7, %.lr.ph.i253 ]
+  %258 = and i32 %.7344, 127
   call void @avio_w8(ptr noundef %1, i32 noundef %258) #13
   %259 = load ptr, ptr %5, align 8, !tbaa !104
   %260 = call i32 @avio_close_dyn_buf(ptr noundef %259, ptr noundef nonnull %7) #13
@@ -5278,8 +5278,8 @@ put_v.exit255:                                    ; preds = %.lr.ph.i252, %.preh
   call void @av_freep(ptr noundef nonnull %7) #13
   br label %262
 
-262:                                              ; preds = %4, %put_v.exit255
-  %.0 = phi i32 [ %.5344, %put_v.exit255 ], [ %8, %4 ]
+262:                                              ; preds = %4, %put_v.exit256
+  %.0 = phi i32 [ %.5345, %put_v.exit256 ], [ %8, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

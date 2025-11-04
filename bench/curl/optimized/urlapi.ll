@@ -2537,9 +2537,9 @@ switch.early.test.i.i:                            ; preds = %26
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = icmp ne i8 %38, 47
   %or.cond19.i.i = and i1 %20, %39
-  br i1 %or.cond19.i.i, label %.critedge.thread.i, label %Curl_is_absolute_url.exit.thread300.i
+  br i1 %or.cond19.i.i, label %.critedge.thread.i, label %Curl_is_absolute_url.exit.thread306.i
 
-Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
+Curl_is_absolute_url.exit.thread306.i:            ; preds = %35
   call void @Curl_strntolower(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %.1.lcssa.i.i) #10
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.lcssa.i.i
   store i8 0, ptr %40, align 1, !tbaa !3
@@ -2547,7 +2547,7 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %.not238.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not238.i, label %41, label %.preheader
 
-41:                                               ; preds = %Curl_is_absolute_url.exit.thread300.i
+41:                                               ; preds = %Curl_is_absolute_url.exit.thread306.i
   %42 = icmp ult i64 %11, 7
   br i1 %42, label %parseurl.exit, label %43
 
@@ -2580,8 +2580,8 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 58:                                               ; preds = %55
   %59 = and i8 %57, -33
   %60 = add i8 %59, -65
-  %or.cond368.i = icmp ult i8 %60, 26
-  br i1 %or.cond368.i, label %61, label %67
+  %or.cond374.i = icmp ult i8 %60, 26
+  br i1 %or.cond374.i, label %61, label %67
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2635,13 +2635,13 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %81 = load i8, ptr %80, align 1, !tbaa !3
   %82 = and i8 %81, -33
   %83 = add i8 %82, -65
-  %or.cond369.i = icmp ult i8 %83, 26
-  br i1 %or.cond369.i, label %84, label %.thread310.i
+  %or.cond375.i = icmp ult i8 %83, 26
+  br i1 %or.cond375.i, label %84, label %.thread316.i
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %86 = load i8, ptr %85, align 1, !tbaa !3
-  switch i8 %86, label %.thread310.i [
+  switch i8 %86, label %.thread316.i [
     i8 58, label %87
     i8 124, label %87
   ]
@@ -2649,7 +2649,7 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 87:                                               ; preds = %84, %84
   %88 = getelementptr inbounds nuw i8, ptr %.1.i, i64 3
   %89 = load i8, ptr %88, align 1, !tbaa !3
-  switch i8 %89, label %.thread310.i [
+  switch i8 %89, label %.thread316.i [
     i8 47, label %parseurl.exit
     i8 92, label %parseurl.exit
     i8 0, label %parseurl.exit
@@ -2658,13 +2658,13 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 90:                                               ; preds = %76
   %91 = and i8 %77, -33
   %92 = add i8 %91, -65
-  %or.cond370.i = icmp ult i8 %92, 26
-  br i1 %or.cond370.i, label %93, label %.thread310.i
+  %or.cond376.i = icmp ult i8 %92, 26
+  br i1 %or.cond376.i, label %93, label %.thread316.i
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !3
-  switch i8 %95, label %.thread310.i [
+  switch i8 %95, label %.thread316.i [
     i8 58, label %96
     i8 124, label %96
   ]
@@ -2672,15 +2672,15 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 96:                                               ; preds = %93, %93
   %97 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %98 = load i8, ptr %97, align 1, !tbaa !3
-  switch i8 %98, label %.thread310.i [
+  switch i8 %98, label %.thread316.i [
     i8 47, label %parseurl.exit
     i8 92, label %parseurl.exit
     i8 0, label %parseurl.exit
   ]
 
-.preheader:                                       ; preds = %Curl_is_absolute_url.exit.thread300.i, %.preheader
-  %.0186.i = phi i32 [ %103, %.preheader ], [ 0, %Curl_is_absolute_url.exit.thread300.i ]
-  %.pn.i = phi ptr [ %.0185.i, %.preheader ], [ %36, %Curl_is_absolute_url.exit.thread300.i ]
+.preheader:                                       ; preds = %Curl_is_absolute_url.exit.thread306.i, %.preheader
+  %.0186.i = phi i32 [ %103, %.preheader ], [ 0, %Curl_is_absolute_url.exit.thread306.i ]
+  %.pn.i = phi ptr [ %.0185.i, %.preheader ], [ %36, %Curl_is_absolute_url.exit.thread306.i ]
   %.0185.i = getelementptr i8, ptr %.pn.i, i64 1
   %99 = load i8, ptr %.0185.i, align 1, !tbaa !3
   %100 = icmp eq i8 %99, 47
@@ -2694,8 +2694,8 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %.not244.i = icmp eq ptr %105, null
   %106 = and i32 %2, 8
   %.not245.i = icmp eq i32 %106, 0
-  %or.cond284.i = and i1 %.not245.i, %.not244.i
-  br i1 %or.cond284.i, label %parseurl.exit, label %107
+  %or.cond285.i = and i1 %.not245.i, %.not244.i
+  br i1 %or.cond285.i, label %parseurl.exit, label %107
 
 107:                                              ; preds = %104
   %108 = add nsw i32 %.0186.i, -1
@@ -2722,10 +2722,10 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 
 113:                                              ; preds = %110, %.critedge.thread.i
   %114 = phi i1 [ true, %110 ], [ false, %.critedge.thread.i ]
-  %.1188330.i = phi ptr [ %.1188.ph.i, %110 ], [ %0, %.critedge.thread.i ]
+  %.1188336.i = phi ptr [ %.1188.ph.i, %110 ], [ %0, %.critedge.thread.i ]
   %115 = phi i1 [ %.ph.i, %110 ], [ false, %.critedge.thread.i ]
-  %116 = call i64 @strcspn(ptr noundef %.1188330.i, ptr noundef nonnull @.str.25) #11
-  %117 = getelementptr inbounds nuw i8, ptr %.1188330.i, i64 %116
+  %116 = call i64 @strcspn(ptr noundef %.1188336.i, ptr noundef nonnull @.str.25) #11
+  %117 = getelementptr inbounds nuw i8, ptr %.1188336.i, i64 %116
   %118 = ptrtoint ptr %117 to i64
   %119 = ptrtoint ptr %0 to i64
   %.neg247.i = sub i64 %119, %118
@@ -2734,7 +2734,7 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   br i1 %.not248.i, label %146, label %121
 
 121:                                              ; preds = %113
-  %122 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef %.1188330.i, i64 noundef %116, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %115)
+  %122 = call fastcc i32 @parse_authority(ptr noundef nonnull %10, ptr noundef %.1188336.i, i64 noundef %116, i32 noundef %2, ptr noundef %5, i1 noundef zeroext %115)
   %.not251.i = icmp eq i32 %122, 0
   br i1 %.not251.i, label %123, label %parseurl.exit
 
@@ -2742,7 +2742,7 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %124 = and i32 %2, 512
   %125 = icmp eq i32 %124, 0
   %or.cond6.i = or i1 %125, %114
-  br i1 %or.cond6.i, label %.thread310.i, label %126
+  br i1 %or.cond6.i, label %.thread316.i, label %126
 
 126:                                              ; preds = %123
   %127 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %5) #10
@@ -2789,7 +2789,7 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %144 = load i8, ptr %143, align 2
   %145 = or i8 %144, 4
   store i8 %145, ptr %143, align 2
-  br label %.thread310.i
+  br label %.thread316.i
 
 146:                                              ; preds = %113
   %147 = and i32 %2, 1024
@@ -2799,16 +2799,16 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 148:                                              ; preds = %146
   %149 = call i32 @Curl_dyn_add(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #10
   %.not250.i = icmp eq i32 %149, 0
-  br i1 %.not250.i, label %.thread310.i, label %parseurl.exit
+  br i1 %.not250.i, label %.thread316.i, label %parseurl.exit
 
-.thread310.i:                                     ; preds = %148, %142, %123, %96, %93, %90, %87, %84, %79
+.thread316.i:                                     ; preds = %148, %142, %123, %96, %93, %90, %87, %84, %79
   %.3180.i = phi i64 [ %.1178.i, %93 ], [ %.1178.i, %96 ], [ %.1178.i, %84 ], [ %.1178.i, %87 ], [ %120, %142 ], [ %120, %123 ], [ %120, %148 ], [ %.1178.i, %79 ], [ %.1178.i, %90 ]
   %.3.i = phi ptr [ %.1.i, %93 ], [ %.1.i, %96 ], [ %.1.i, %84 ], [ %.1.i, %87 ], [ %117, %142 ], [ %117, %123 ], [ %117, %148 ], [ %.1.i, %79 ], [ %.1.i, %90 ]
   %150 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.3.i, i32 noundef 35) #11
   %.not259.i = icmp eq ptr %150, null
   br i1 %.not259.i, label %174, label %151
 
-151:                                              ; preds = %.thread310.i
+151:                                              ; preds = %.thread316.i
   %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %.3.i to i64
   %154 = sub i64 %152, %153
@@ -2832,9 +2832,9 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %164 = add i64 %155, -1
   %165 = call fastcc i32 @urlencode_str(ptr noundef %6, ptr noundef nonnull %163, i64 noundef %164, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not262.i = icmp eq i32 %165, 0
-  br i1 %.not262.i, label %.thread348.i, label %168
+  br i1 %.not262.i, label %.thread354.i, label %168
 
-.thread348.i:                                     ; preds = %162
+.thread354.i:                                     ; preds = %162
   %166 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #10
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %166, ptr %167, align 8, !tbaa !31
@@ -2854,8 +2854,8 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %.not261.i = icmp eq ptr %172, null
   br i1 %.not261.i, label %parseurl.exit, label %174
 
-174:                                              ; preds = %169, %.thread348.i, %151, %.thread310.i
-  %.5182.i = phi i64 [ %.3180.i, %.thread310.i ], [ %154, %169 ], [ %154, %151 ], [ %154, %.thread348.i ]
+174:                                              ; preds = %169, %.thread354.i, %151, %.thread316.i
+  %.5182.i = phi i64 [ %.3180.i, %.thread316.i ], [ %154, %169 ], [ %154, %151 ], [ %154, %.thread354.i ]
   %175 = call ptr @memchr(ptr noundef nonnull %.3.i, i32 noundef 63, i64 noundef %.5182.i) #11
   %.not263.i = icmp eq ptr %175, null
   br i1 %.not263.i, label %204, label %176
@@ -2887,9 +2887,9 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %190 = add i64 %180, -1
   %191 = call fastcc i32 @urlencode_str(ptr noundef %7, ptr noundef nonnull %189, i64 noundef %190, i1 noundef zeroext true, i1 noundef zeroext true)
   %.not268.i = icmp eq i32 %191, 0
-  br i1 %.not268.i, label %.thread350.i, label %194
+  br i1 %.not268.i, label %.thread356.i, label %194
 
-.thread350.i:                                     ; preds = %188
+.thread356.i:                                     ; preds = %188
   %192 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #10
   %193 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %192, ptr %193, align 8, !tbaa !30
@@ -2917,8 +2917,8 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   %.not265.i = icmp eq ptr %202, null
   br i1 %.not265.i, label %parseurl.exit, label %204
 
-204:                                              ; preds = %200, %195, %.thread350.i, %174
-  %.6183.i = phi i64 [ %.5182.i, %174 ], [ %181, %195 ], [ %181, %200 ], [ %181, %.thread350.i ]
+204:                                              ; preds = %200, %195, %.thread356.i, %174
+  %.6183.i = phi i64 [ %.5182.i, %174 ], [ %181, %195 ], [ %181, %200 ], [ %181, %.thread356.i ]
   %.not269.i = icmp eq i64 %.6183.i, 0
   br i1 %.not269.i, label %262, label %205
 
@@ -2932,9 +2932,9 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   call void @Curl_dyn_init(ptr noundef nonnull %8, i64 noundef 8000000) #10
   %208 = call fastcc i32 @urlencode_str(ptr noundef %8, ptr noundef nonnull %.3.i, i64 noundef %.6183.i, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not271.i = icmp eq i32 %208, 0
-  br i1 %.not271.i, label %.thread356.i, label %212
+  br i1 %.not271.i, label %.thread362.i, label %212
 
-.thread356.i:                                     ; preds = %207
+.thread362.i:                                     ; preds = %207
   %209 = call i64 @Curl_dyn_len(ptr noundef nonnull %8) #10
   %210 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -2946,9 +2946,9 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %parseurl.exit
 
-213:                                              ; preds = %.thread356.i, %205
-  %.7184.i = phi i64 [ %.6183.i, %205 ], [ %209, %.thread356.i ]
-  %.5.i = phi ptr [ %.3.i, %205 ], [ %210, %.thread356.i ]
+213:                                              ; preds = %.thread362.i, %205
+  %.7184.i = phi i64 [ %.6183.i, %205 ], [ %209, %.thread362.i ]
+  %.5.i = phi ptr [ %.3.i, %205 ], [ %210, %.thread362.i ]
   %214 = icmp ult i64 %.7184.i, 2
   br i1 %214, label %262, label %215
 
@@ -2988,15 +2988,15 @@ Curl_is_absolute_url.exit.thread300.i:            ; preds = %35
 228:                                              ; preds = %226
   %229 = load ptr, ptr %9, align 8, !tbaa !16
   %.not277.i = icmp eq ptr %229, null
-  br i1 %.not277.i, label %.thread365.i, label %230
+  br i1 %.not277.i, label %.thread371.i, label %230
 
 230:                                              ; preds = %228
   %231 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
   call void %231(ptr noundef nonnull %224) #10
   store ptr %229, ptr %216, align 8, !tbaa !29
-  br label %.thread365.i
+  br label %.thread371.i
 
-.thread365.i:                                     ; preds = %230, %228
+.thread371.i:                                     ; preds = %230, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %262
 
@@ -3050,7 +3050,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %294
 
-262:                                              ; preds = %204, %213, %223, %.thread365.i
+262:                                              ; preds = %204, %213, %223, %.thread371.i
   %263 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %5) #10
   %264 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %263, ptr %264, align 8, !tbaa !15

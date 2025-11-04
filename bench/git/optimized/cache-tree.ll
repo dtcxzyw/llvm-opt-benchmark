@@ -2532,9 +2532,9 @@ verify_one_sparse.exit:                           ; preds = %65
 
 .preheader:                                       ; preds = %81
   %87 = icmp sgt i32 %82, 0
-  br i1 %87, label %.lr.ph151, label %._crit_edge152
+  br i1 %87, label %.lr.ph154, label %._crit_edge155
 
-.lr.ph151:                                        ; preds = %.preheader
+.lr.ph154:                                        ; preds = %.preheader
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %95
@@ -2549,14 +2549,14 @@ verify_one_sparse.exit:                           ; preds = %65
   br label %_.exit
 
 _.exit:                                           ; preds = %90, %92
-  %.0.i110 = phi ptr [ %93, %92 ], [ @.str.26, %90 ]
-  %94 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i110) #18
+  %.0.i113 = phi ptr [ %93, %92 ], [ @.str.26, %90 ]
+  %94 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i113) #18
   br label %verify_one_sparse.exit.thread
 
-95:                                               ; preds = %.lr.ph151, %168
-  %.1150 = phi i32 [ 0, %.lr.ph151 ], [ %.3, %168 ]
+95:                                               ; preds = %.lr.ph154, %168
+  %.1153 = phi i32 [ 0, %.lr.ph154 ], [ %.3, %168 ]
   %96 = load ptr, ptr %1, align 8, !tbaa !43
-  %97 = add nsw i32 %.1150, %.184
+  %97 = add nsw i32 %.1153, %.184
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds ptr, ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !44
@@ -2568,20 +2568,20 @@ _.exit:                                           ; preds = %90, %92
 
 104:                                              ; preds = %95
   %105 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !20
-  %.not4.i111 = icmp eq i32 %105, 0
-  br i1 %.not4.i111, label %_.exit113, label %106
+  %.not4.i114 = icmp eq i32 %105, 0
+  br i1 %.not4.i114, label %_.exit116, label %106
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %108 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #18
   %.pre = load i32, ptr %107, align 8, !tbaa !20
-  br label %_.exit113
+  br label %_.exit116
 
-_.exit113:                                        ; preds = %104, %106
+_.exit116:                                        ; preds = %104, %106
   %109 = phi i32 [ %.pre, %106 ], [ %102, %104 ]
-  %.0.i112 = phi ptr [ %108, %106 ], [ @.str.27, %104 ]
+  %.0.i115 = phi ptr [ %108, %106 ], [ @.str.27, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 108
-  %111 = call i32 (ptr, ...) @error(ptr noundef %.0.i112, ptr noundef nonnull %110, i32 noundef %109) #18
+  %111 = call i32 (ptr, ...) @error(ptr noundef %.0.i115, ptr noundef nonnull %110, i32 noundef %109) #18
   br label %verify_one_sparse.exit.thread
 
 112:                                              ; preds = %95
@@ -2599,8 +2599,8 @@ _.exit113:                                        ; preds = %104, %106
   %121 = trunc i64 %120 to i32
   %122 = load ptr, ptr %88, align 8, !tbaa !15
   %123 = load i32, ptr %10, align 8, !tbaa !14
-  %sext135 = shl i64 %120, 32
-  %124 = ashr exact i64 %sext135, 32
+  %sext138 = shl i64 %120, 32
+  %124 = ashr exact i64 %sext138, 32
   br label %125
 
 125:                                              ; preds = %subtree_name_cmp.exit.i.i, %117
@@ -2663,16 +2663,16 @@ find_subtree.exit:                                ; preds = %cache_tree_subtree_
 
 find_subtree.exit.thread:                         ; preds = %cache_tree_subtree_pos.exit.i, %150, %find_subtree.exit
   %154 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !20
-  %.not4.i115 = icmp eq i32 %154, 0
-  br i1 %.not4.i115, label %_.exit117, label %155
+  %.not4.i118 = icmp eq i32 %154, 0
+  br i1 %.not4.i118, label %_.exit120, label %155
 
 155:                                              ; preds = %find_subtree.exit.thread
   %156 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #18
-  br label %_.exit117
+  br label %_.exit120
 
-_.exit117:                                        ; preds = %find_subtree.exit.thread, %155
-  %.0.i116 = phi ptr [ %156, %155 ], [ @.str.28, %find_subtree.exit.thread ]
-  %157 = call i32 (ptr, ...) @error(ptr noundef %.0.i116, i32 noundef %121, ptr noundef nonnull %115) #18
+_.exit120:                                        ; preds = %find_subtree.exit.thread, %155
+  %.0.i119 = phi ptr [ %156, %155 ], [ @.str.28, %find_subtree.exit.thread ]
+  %157 = call i32 (ptr, ...) @error(ptr noundef %.0.i119, i32 noundef %121, ptr noundef nonnull %115) #18
   br label %verify_one_sparse.exit.thread
 
 158:                                              ; preds = %150
@@ -2694,7 +2694,7 @@ _.exit117:                                        ; preds = %find_subtree.exit.t
   %.081 = phi ptr [ %159, %158 ], [ %161, %160 ]
   %.079 = phi i32 [ 16384, %158 ], [ %163, %160 ]
   %.0 = phi i32 [ %121, %158 ], [ %167, %160 ]
-  %.3 = add nuw nsw i32 %.pn, %.1150
+  %.3 = add nuw nsw i32 %.pn, %.1153
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.21, i32 noundef %.079, i32 noundef %.0, ptr noundef nonnull %115, i32 noundef 0) #18
   %169 = load ptr, ptr %89, align 8, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -2702,9 +2702,9 @@ _.exit117:                                        ; preds = %find_subtree.exit.t
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %.081, i64 noundef %171) #18
   %172 = load i32, ptr %2, align 8, !tbaa !4
   %173 = icmp slt i32 %.3, %172
-  br i1 %173, label %95, label %._crit_edge152
+  br i1 %173, label %95, label %._crit_edge155
 
-._crit_edge152:                                   ; preds = %168, %.preheader
+._crit_edge155:                                   ; preds = %168, %.preheader
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %175 = load ptr, ptr %174, align 8, !tbaa !57
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2713,34 +2713,34 @@ _.exit117:                                        ; preds = %find_subtree.exit.t
   %179 = load i64, ptr %178, align 8, !tbaa !79
   call void @hash_object_file(ptr noundef %175, ptr noundef %177, i64 noundef %179, i32 noundef 2, ptr noundef nonnull %6) #18
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %6, ptr noundef nonnull readonly dereferenceable(32) %40, i64 32)
-  %.not.i118.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i118.not, label %verify_one_sparse.exit.thread, label %180
+  %.not.i121.not = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i121.not, label %verify_one_sparse.exit.thread, label %180
 
-180:                                              ; preds = %._crit_edge152
+180:                                              ; preds = %._crit_edge155
   %181 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !20
-  %.not4.i119 = icmp eq i32 %181, 0
-  br i1 %.not4.i119, label %_.exit121, label %182
+  %.not4.i122 = icmp eq i32 %181, 0
+  br i1 %.not4.i122, label %_.exit124, label %182
 
 182:                                              ; preds = %180
   %183 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #18
-  br label %_.exit121
+  br label %_.exit124
 
-_.exit121:                                        ; preds = %180, %182
-  %.0.i120 = phi ptr [ %183, %182 ], [ @.str.29, %180 ]
+_.exit124:                                        ; preds = %180, %182
+  %.0.i123 = phi ptr [ %183, %182 ], [ @.str.29, %180 ]
   %184 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %185 = load ptr, ptr %184, align 8, !tbaa !77
   %186 = call ptr @oid_to_hex(ptr noundef nonnull %6) #18
   %187 = call ptr @oid_to_hex(ptr noundef nonnull %40) #18
-  %188 = call i32 (ptr, ...) @error(ptr noundef %.0.i120, i32 noundef %9, ptr noundef %185, ptr noundef %186, ptr noundef %187) #18
+  %188 = call i32 (ptr, ...) @error(ptr noundef %.0.i123, i32 noundef %9, ptr noundef %185, ptr noundef %186, ptr noundef %187) #18
   br label %verify_one_sparse.exit.thread
 
-verify_one_sparse.exit.thread:                    ; preds = %16, %_.exit117, %_.exit113, %_.exit.i, %67, %63, %._crit_edge152, %._crit_edge, %lookup_replace_object.exit, %_.exit121, %_.exit
-  %.188 = phi i32 [ -1, %_.exit ], [ -1, %_.exit121 ], [ 0, %lookup_replace_object.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge152 ], [ 0, %67 ], [ -1, %_.exit.i ], [ 1, %63 ], [ -1, %_.exit113 ], [ -1, %_.exit117 ], [ %25, %16 ]
+verify_one_sparse.exit.thread:                    ; preds = %16, %_.exit120, %_.exit116, %_.exit.i, %67, %63, %._crit_edge155, %._crit_edge, %lookup_replace_object.exit, %_.exit124, %_.exit
+  %.188 = phi i32 [ -1, %_.exit ], [ -1, %_.exit124 ], [ 0, %lookup_replace_object.exit ], [ 0, %._crit_edge ], [ 0, %._crit_edge155 ], [ 0, %67 ], [ -1, %_.exit.i ], [ 1, %63 ], [ -1, %_.exit116 ], [ -1, %_.exit120 ], [ %25, %16 ]
   %sext108 = shl i64 %8, 32
   %189 = ashr exact i64 %sext108, 32
   %190 = load i64, ptr %3, align 8, !tbaa !98
-  %spec.select.i122 = call i64 @llvm.usub.sat.i64(i64 %190, i64 1)
-  %191 = icmp ugt i64 %189, %spec.select.i122
+  %spec.select.i125 = call i64 @llvm.usub.sat.i64(i64 %190, i64 1)
+  %191 = icmp ugt i64 %189, %spec.select.i125
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %verify_one_sparse.exit.thread
@@ -2751,15 +2751,15 @@ verify_one_sparse.exit.thread:                    ; preds = %16, %_.exit117, %_.
   store i64 %189, ptr %7, align 8, !tbaa !79
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !77
-  %.not9.i123 = icmp eq ptr %195, @strbuf_slopbuf
-  br i1 %.not9.i123, label %198, label %196
+  %.not9.i126 = icmp eq ptr %195, @strbuf_slopbuf
+  br i1 %.not9.i126, label %strbuf_setlen.exit127, label %196
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 %189
   store i8 0, ptr %197, align 1, !tbaa !38
-  br label %198
+  br label %strbuf_setlen.exit127
 
-198:                                              ; preds = %196, %193
+strbuf_setlen.exit127:                            ; preds = %193, %196
   call void @strbuf_release(ptr noundef nonnull %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

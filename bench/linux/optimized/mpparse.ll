@@ -545,14 +545,14 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %43 = zext i16 %42 to i64
   %44 = load i64, ptr @mpc_new_length, align 8
   %45 = icmp ult i64 %44, %43
-  br i1 %45, label %46, label %.thread21
+  br i1 %45, label %46, label %.thread22
 
 46:                                               ; preds = %40
   store i64 0, ptr @mpc_new_phys, align 8
   %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, i64 noundef %44) #11
   %.pr.pre = load i64, ptr @mpc_new_phys, align 8
   %48 = icmp eq i64 %.pr.pre, 0
-  br i1 %48, label %.thread, label %.thread21
+  br i1 %48, label %.thread, label %.thread22
 
 .thread:                                          ; preds = %33, %46
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 7
@@ -561,9 +561,9 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %51 = load i16, ptr %50, align 4
   %52 = zext i16 %51 to i32
   %53 = icmp eq i16 %51, 0
-  br i1 %53, label %.thread8, label %.preheader
+  br i1 %53, label %.thread9, label %.preheader
 
-.thread8:                                         ; preds = %.thread
+.thread9:                                         ; preds = %.thread
   store i8 -1, ptr %49, align 1
   %54 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44) #11
   br label %127
@@ -604,18 +604,18 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %79) #11
   br i1 %78, label %127, label %121
 
-.thread21:                                        ; preds = %40, %46
-  %.pr23 = phi i64 [ %.pr.pre, %46 ], [ %38, %40 ]
+.thread22:                                        ; preds = %40, %46
+  %.pr24 = phi i64 [ %.pr.pre, %46 ], [ %38, %40 ]
   %81 = load i64, ptr @mpc_new_length, align 8
-  %82 = call ptr @early_memremap(i64 noundef %.pr23, i64 noundef %81) #10
+  %82 = call ptr @early_memremap(i64 noundef %.pr24, i64 noundef %81) #10
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %86
 
-84:                                               ; preds = %.thread21
+84:                                               ; preds = %.thread22
   %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46) #11
   br label %127
 
-86:                                               ; preds = %.thread21
+86:                                               ; preds = %.thread22
   %87 = load i64, ptr @mpc_new_phys, align 8
   %88 = trunc i64 %87 to i32
   store i32 %88, ptr %18, align 4
@@ -633,9 +633,9 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
 96:                                               ; preds = %86
   %97 = call ptr @early_memremap(i64 noundef 1008, i64 noundef 16) #10
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %103, label %.thread9
+  br i1 %98, label %103, label %.thread10
 
-.thread9:                                         ; preds = %96
+.thread10:                                        ; preds = %96
   %99 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.48, i32 noundef 1008) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
   call void @early_memunmap(ptr noundef nonnull %9, i64 noundef 16) #10
@@ -649,9 +649,9 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %104 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47) #11
   br label %127
 
-105:                                              ; preds = %.thread9, %86
-  %106 = phi i32 [ %93, %86 ], [ %101, %.thread9 ]
-  %107 = phi ptr [ %9, %86 ], [ %97, %.thread9 ]
+105:                                              ; preds = %.thread10, %86
+  %106 = phi i32 [ %93, %86 ], [ %101, %.thread10 ]
+  %107 = phi ptr [ %9, %86 ], [ %97, %.thread10 ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 10
   store i8 0, ptr %108, align 2
   br label %109
@@ -682,10 +682,10 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   call fastcc void @replace_intsrc_all(ptr noundef nonnull %123, i64 noundef %125, i64 noundef %126) #12
   br label %127
 
-127:                                              ; preds = %103, %.thread8, %121, %84, %75, %30
-  %128 = phi i64 [ %91, %103 ], [ %122, %121 ], [ %23, %84 ], [ %23, %75 ], [ %23, %30 ], [ %23, %.thread8 ]
-  %129 = phi ptr [ %82, %103 ], [ %123, %121 ], [ %26, %84 ], [ %26, %75 ], [ %26, %30 ], [ %26, %.thread8 ]
-  %130 = phi ptr [ %9, %103 ], [ %124, %121 ], [ %9, %84 ], [ %9, %75 ], [ %9, %30 ], [ %9, %.thread8 ]
+127:                                              ; preds = %103, %.thread9, %121, %84, %75, %30
+  %128 = phi i64 [ %91, %103 ], [ %122, %121 ], [ %23, %84 ], [ %23, %75 ], [ %23, %30 ], [ %23, %.thread9 ]
+  %129 = phi ptr [ %82, %103 ], [ %123, %121 ], [ %26, %84 ], [ %26, %75 ], [ %26, %30 ], [ %26, %.thread9 ]
+  %130 = phi ptr [ %9, %103 ], [ %124, %121 ], [ %9, %84 ], [ %9, %75 ], [ %9, %30 ], [ %9, %.thread9 ]
   call void @early_memunmap(ptr noundef nonnull %129, i64 noundef %128) #10
   br label %131
 
@@ -1294,21 +1294,21 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, i32 noundef %8) #11
   %10 = load i16, ptr %6, align 4
   %11 = icmp ugt i16 %10, 44
-  br i1 %11, label %.preheader6, label %.loopexit7
+  br i1 %11, label %.preheader7, label %.loopexit8
 
-.loopexit7.loopexit:                              ; preds = %24
-  %.pre16 = load i32, ptr %4, align 4
-  br label %.loopexit7
+.loopexit8.loopexit:                              ; preds = %24
+  %.pre17 = load i32, ptr %4, align 4
+  br label %.loopexit8
 
-.loopexit7:                                       ; preds = %.loopexit7.loopexit, %3
-  %12 = phi i32 [ 0, %3 ], [ %.pre16, %.loopexit7.loopexit ]
-  %13 = phi i32 [ 44, %3 ], [ %29, %.loopexit7.loopexit ]
-  %14 = phi ptr [ %5, %3 ], [ %28, %.loopexit7.loopexit ]
+.loopexit8:                                       ; preds = %.loopexit8.loopexit, %3
+  %12 = phi i32 [ 0, %3 ], [ %.pre17, %.loopexit8.loopexit ]
+  %13 = phi i32 [ 44, %3 ], [ %29, %.loopexit8.loopexit ]
+  %14 = phi ptr [ %5, %3 ], [ %28, %.loopexit8.loopexit ]
   %15 = load i32, ptr @mp_irq_entries, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit5
+  br i1 %16, label %.preheader, label %.loopexit6
 
-.preheader6:                                      ; preds = %3, %24
+.preheader7:                                      ; preds = %3, %24
   %17 = phi i16 [ %25, %24 ], [ %10, %3 ]
   %18 = phi ptr [ %28, %24 ], [ %5, %3 ]
   %19 = phi i32 [ %29, %24 ], [ 44, %3 ]
@@ -1321,34 +1321,34 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
     i8 4, label %21
   ]
 
-21:                                               ; preds = %.preheader6, %.preheader6, %.preheader6
+21:                                               ; preds = %.preheader7, %.preheader7, %.preheader7
   br label %24
 
-22:                                               ; preds = %.preheader6
+22:                                               ; preds = %.preheader7
   call fastcc void @check_irq_src(ptr noundef %18, ptr noundef nonnull %4) #12
   %.pre = load i16, ptr %6, align 4
   br label %24
 
-23:                                               ; preds = %.preheader6
+23:                                               ; preds = %.preheader7
   tail call fastcc void @smp_dump_mptable(ptr noundef nonnull %0, ptr noundef %18) #12
-  br label %.loopexit5
+  br label %.loopexit6
 
-24:                                               ; preds = %22, %21, %.preheader6
-  %25 = phi i16 [ %.pre, %22 ], [ %17, %21 ], [ %17, %.preheader6 ]
-  %26 = phi i64 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader6 ]
-  %27 = phi i32 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader6 ]
+24:                                               ; preds = %22, %21, %.preheader7
+  %25 = phi i16 [ %.pre, %22 ], [ %17, %21 ], [ %17, %.preheader7 ]
+  %26 = phi i64 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader7 ]
+  %27 = phi i32 [ 8, %22 ], [ 8, %21 ], [ 20, %.preheader7 ]
   %28 = getelementptr i8, ptr %18, i64 %26
   %29 = add nuw nsw i32 %27, %19
   %30 = zext i16 %25 to i32
   %31 = icmp samesign ult i32 %29, %30
-  br i1 %31, label %.preheader6, label %.loopexit7.loopexit, !llvm.loop !20
+  br i1 %31, label %.preheader7, label %.loopexit8.loopexit, !llvm.loop !20
 
-.preheader:                                       ; preds = %.loopexit7, %73
-  %32 = phi i32 [ %74, %73 ], [ %15, %.loopexit7 ]
-  %33 = phi i64 [ %78, %73 ], [ 0, %.loopexit7 ]
-  %34 = phi ptr [ %77, %73 ], [ %14, %.loopexit7 ]
-  %35 = phi i32 [ %76, %73 ], [ %13, %.loopexit7 ]
-  %36 = phi i32 [ %75, %73 ], [ %12, %.loopexit7 ]
+.preheader:                                       ; preds = %.loopexit8, %73
+  %32 = phi i32 [ %74, %73 ], [ %15, %.loopexit8 ]
+  %33 = phi i64 [ %78, %73 ], [ 0, %.loopexit8 ]
+  %34 = phi ptr [ %77, %73 ], [ %14, %.loopexit8 ]
+  %35 = phi i32 [ %76, %73 ], [ %13, %.loopexit8 ]
+  %36 = phi i32 [ %75, %73 ], [ %12, %.loopexit8 ]
   %37 = getelementptr i8, ptr @irq_used, i64 %33
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
@@ -1394,7 +1394,7 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   %63 = add i32 %35, 8
   %64 = tail call fastcc i32 @check_slot(i64 noundef %1, i64 noundef %2, i32 noundef %63) #12, !range !5
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %.loopexit5, label %.thread
+  br i1 %65, label %.loopexit6, label %.thread
 
 .thread:                                          ; preds = %62
   %66 = load i64, ptr %41, align 8
@@ -1409,27 +1409,27 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   %71 = phi i32 [ %35, %56 ], [ %63, %.thread ]
   %72 = phi ptr [ %34, %56 ], [ %68, %.thread ]
   tail call fastcc void @print_mp_irq_info(ptr noundef %41) #12
-  %.pre17 = load i32, ptr @mp_irq_entries, align 4
+  %.pre18 = load i32, ptr @mp_irq_entries, align 4
   br label %73
 
 73:                                               ; preds = %69, %45, %40, %.preheader
-  %74 = phi i32 [ %.pre17, %69 ], [ %32, %45 ], [ %32, %40 ], [ %32, %.preheader ]
+  %74 = phi i32 [ %.pre18, %69 ], [ %32, %45 ], [ %32, %40 ], [ %32, %.preheader ]
   %75 = phi i32 [ %70, %69 ], [ %36, %45 ], [ %36, %40 ], [ %36, %.preheader ]
   %76 = phi i32 [ %71, %69 ], [ %35, %45 ], [ %35, %40 ], [ %35, %.preheader ]
   %77 = phi ptr [ %72, %69 ], [ %34, %45 ], [ %34, %40 ], [ %34, %.preheader ]
   %78 = add nuw nsw i64 %33, 1
   %79 = sext i32 %74 to i64
   %80 = icmp slt i64 %78, %79
-  br i1 %80, label %.preheader, label %.loopexit5, !llvm.loop !21
+  br i1 %80, label %.preheader, label %.loopexit6, !llvm.loop !21
 
-.loopexit5:                                       ; preds = %73, %62, %.loopexit7, %23
+.loopexit6:                                       ; preds = %73, %62, %.loopexit8, %23
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 0, ptr %81, align 1
   %82 = load i16, ptr %6, align 4
   %83 = icmp eq i16 %82, 0
   br i1 %83, label %.loopexit, label %84
 
-84:                                               ; preds = %.loopexit5
+84:                                               ; preds = %.loopexit6
   %85 = zext i16 %82 to i32
   br label %86
 
@@ -1444,8 +1444,8 @@ define internal fastcc void @replace_intsrc_all(ptr noundef nonnull %0, i64 noun
   %94 = icmp eq i32 %90, 0
   br i1 %94, label %.loopexit, label %86, !llvm.loop !11
 
-.loopexit:                                        ; preds = %86, %.loopexit5
-  %95 = phi i8 [ 0, %.loopexit5 ], [ %93, %86 ]
+.loopexit:                                        ; preds = %86, %.loopexit6
+  %95 = phi i8 [ 0, %.loopexit6 ], [ %93, %86 ]
   %96 = sub i8 0, %95
   store i8 %96, ptr %81, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

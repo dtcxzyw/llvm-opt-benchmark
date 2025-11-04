@@ -3501,9 +3501,9 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %.3.ph = phi i32 [ %.181.lcssa, %.preheader51 ], [ %152, %148 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %increment_overflow.exit106
-  %.420 = phi i32 [ %173, %increment_overflow.exit106 ], [ %.420.ph, %.preheader.preheader ]
-  %.3 = phi i32 [ %172, %increment_overflow.exit106 ], [ %.3.ph, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %increment_overflow.exit107
+  %.420 = phi i32 [ %173, %increment_overflow.exit107 ], [ %.420.ph, %.preheader.preheader ]
+  %.3 = phi i32 [ %172, %increment_overflow.exit107 ], [ %.3.ph, %.preheader.preheader ]
   %154 = and i32 %.420, 3
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %.thread28
@@ -3539,9 +3539,9 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
 .thread30:                                        ; preds = %.thread122, %.thread28, %164
   %168 = phi i64 [ %167, %164 ], [ 0, %.thread28 ], [ 1, %.thread122 ]
   %169 = icmp eq i32 %.420, 2147483647
-  br i1 %169, label %.thread, label %increment_overflow.exit106
+  br i1 %169, label %.thread, label %increment_overflow.exit107
 
-increment_overflow.exit106:                       ; preds = %.thread30
+increment_overflow.exit107:                       ; preds = %.thread30
   %170 = getelementptr inbounds nuw i32, ptr @year_lengths, i64 %168
   %171 = load i32, ptr %170, align 4
   %172 = sub i32 %.3, %171
@@ -3570,7 +3570,7 @@ increment_overflow.exit106:                       ; preds = %.thread30
   %186 = udiv i32 %182, 400
   %187 = add nsw i32 %185, %186
   %188 = xor i32 %187, -1
-  br label %leaps_thru_end_of.exit109
+  br label %leaps_thru_end_of.exit110
 
 189:                                              ; preds = %176
   %190 = add nsw i32 %.420, -1
@@ -3579,9 +3579,9 @@ increment_overflow.exit106:                       ; preds = %.thread30
   %193 = sub nsw i32 %191, %192
   %194 = udiv i32 %190, 400
   %195 = add nsw i32 %193, %194
-  br label %leaps_thru_end_of.exit109
+  br label %leaps_thru_end_of.exit110
 
-leaps_thru_end_of.exit109:                        ; preds = %181, %189
+leaps_thru_end_of.exit110:                        ; preds = %181, %189
   %196 = phi i32 [ %188, %181 ], [ %195, %189 ]
   %197 = add i32 %.3, -473
   %198 = add i32 %197, %179
@@ -3589,8 +3589,8 @@ leaps_thru_end_of.exit109:                        ; preds = %181, %189
   %200 = srem i32 %199, 7
   %201 = icmp slt i32 %200, 0
   %202 = add nsw i32 %200, 7
-  %spec.select101 = select i1 %201, i32 %202, i32 %200
-  store i32 %spec.select101, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 24), align 8
+  %spec.select102 = select i1 %201, i32 %202, i32 %200
+  store i32 %spec.select102, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 24), align 8
   %203 = udiv i64 %.183.lcssa, 3600
   %204 = trunc nuw nsw i64 %203 to i32
   store i32 %204, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 8), align 8
@@ -3605,7 +3605,7 @@ leaps_thru_end_of.exit109:                        ; preds = %181, %189
   store i32 %210, ptr @tm, align 8
   br i1 %155, label %211, label %217
 
-211:                                              ; preds = %leaps_thru_end_of.exit109
+211:                                              ; preds = %leaps_thru_end_of.exit110
   %212 = srem i32 %.420, 100
   %.not96 = icmp eq i32 %212, 0
   br i1 %.not96, label %213, label %217
@@ -3616,8 +3616,8 @@ leaps_thru_end_of.exit109:                        ; preds = %181, %189
   %216 = zext i1 %215 to i64
   br label %217
 
-217:                                              ; preds = %211, %213, %leaps_thru_end_of.exit109
-  %218 = phi i64 [ 0, %leaps_thru_end_of.exit109 ], [ 1, %211 ], [ %216, %213 ]
+217:                                              ; preds = %211, %213, %leaps_thru_end_of.exit110
+  %218 = phi i64 [ 0, %leaps_thru_end_of.exit110 ], [ 1, %211 ], [ %216, %213 ]
   %219 = getelementptr inbounds nuw [12 x i32], ptr @mon_lengths, i64 %218
   %220 = load i32, ptr %219, align 16
   %.not9880 = icmp slt i32 %.3, %220

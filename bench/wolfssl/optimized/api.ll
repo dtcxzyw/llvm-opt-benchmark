@@ -4180,7 +4180,7 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151
   %31 = load i8, ptr %30, align 1, !tbaa !39
   %.not101 = icmp eq i8 %31, 0
-  br i1 %.not101, label %35, label %.thread.jt0.preheader
+  br i1 %.not101, label %.loopexit181, label %.thread.jt0.preheader
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next152.jt0
@@ -4188,50 +4188,38 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
   %.not101.jt0 = icmp eq i8 %34, 0
   br i1 %.not101.jt0, label %.loopexit181, label %.thread.jt0
 
-35:                                               ; preds = %29
-  switch i32 %.2140, label %.loopexit181 [
-    i32 4, label %.thread.jt0.preheader
-    i32 2, label %.thread.jt0.preheader
-  ]
-
-.loopexit181:                                     ; preds = %32, %35
-  %indvars.iv151172 = phi i64 [ %indvars.iv151, %35 ], [ %indvars.iv.next152.jt0, %32 ]
-  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82658)
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %38 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %37)
-  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %41 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %40)
-  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
+.loopexit181:                                     ; preds = %32, %29
+  %indvars.iv151172 = phi i64 [ %indvars.iv151, %29 ], [ %indvars.iv.next152.jt0, %32 ]
+  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82658)
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %37 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %36)
+  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1067, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %40 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %39)
+  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1070, i32 noundef 0, i32 noundef 0)
   br label %.thread.jt0.sink.split
 
 .loopexit180:                                     ; preds = %25, %23
   %.2140174 = phi i32 [ %.2140, %23 ], [ %.5.jt0, %25 ]
   %indvars.iv151169 = phi i64 [ %indvars.iv151, %23 ], [ %indvars.iv.next152.jt0, %25 ]
   %.not167 = icmp eq i32 %.2140174, 0
-  br i1 %.not167, label %.thread, label %43
+  br i1 %.not167, label %.thread, label %42
 
-43:                                               ; preds = %.loopexit180
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151169
-  %45 = load i8, ptr %44, align 1, !tbaa !39
-  %46 = zext i8 %45 to i32
-  %47 = icmp eq i8 %45, 0
-  br i1 %47, label %.thread.jt0.preheader, label %48
+42:                                               ; preds = %.loopexit180
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv151169
+  %44 = load i8, ptr %43, align 1, !tbaa !39
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %.thread.jt0.preheader, label %46
 
-48:                                               ; preds = %43
-  switch i32 %.2140174, label %49 [
-    i32 4, label %.thread.jt0.preheader
-    i32 2, label %.thread.jt0.preheader
-  ]
-
-49:                                               ; preds = %48
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82661)
-  %51 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %52 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %51)
-  %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
-  %54 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %55 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %54)
-  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %46, i32 noundef 0)
+46:                                               ; preds = %42
+  %47 = zext i8 %44 to i32
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 82661)
+  %49 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %50 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %49)
+  %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1068, ptr noundef nonnull @.str.1069)
+  %52 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %53 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %52)
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %47, i32 noundef 0)
   br label %.thread.jt0.sink.split
 
 .thread:                                          ; preds = %28, %.loopexit180, %27
@@ -4240,18 +4228,18 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 32
   br i1 %exitcond154.not, label %.loopexit, label %23, !llvm.loop !95
 
-.thread.jt0.sink.split:                           ; preds = %.loopexit181, %49
-  %indvars.iv151173.ph = phi i64 [ %indvars.iv151172, %.loopexit181 ], [ %indvars.iv151169, %49 ]
+.thread.jt0.sink.split:                           ; preds = %.loopexit181, %46
+  %indvars.iv151173.ph = phi i64 [ %indvars.iv151172, %.loopexit181 ], [ %indvars.iv151169, %46 ]
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %56 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %55)
   %57 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %58 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %57)
-  %59 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %60 = call i32 @fflush(ptr noundef %59)
+  %58 = call i32 @fflush(ptr noundef %57)
   br label %.thread.jt0.preheader
 
-.thread.jt0.preheader:                            ; preds = %43, %29, %35, %35, %48, %48, %.thread.jt0.sink.split
-  %indvars.iv151173.ph179 = phi i64 [ %indvars.iv151173.ph, %.thread.jt0.sink.split ], [ %indvars.iv151169, %48 ], [ %indvars.iv151169, %48 ], [ %indvars.iv151, %35 ], [ %indvars.iv151, %35 ], [ %indvars.iv151, %29 ], [ %indvars.iv151169, %43 ]
-  %.not166.jt0.ph = phi i1 [ true, %.thread.jt0.sink.split ], [ true, %48 ], [ true, %48 ], [ true, %35 ], [ true, %35 ], [ false, %29 ], [ false, %43 ]
-  %.5.jt0.ph = phi i32 [ 0, %.thread.jt0.sink.split ], [ 0, %48 ], [ 0, %48 ], [ 0, %35 ], [ 0, %35 ], [ 1, %29 ], [ 1, %43 ]
+.thread.jt0.preheader:                            ; preds = %42, %29, %.thread.jt0.sink.split
+  %indvars.iv151173.ph179 = phi i64 [ %indvars.iv151173.ph, %.thread.jt0.sink.split ], [ %indvars.iv151, %29 ], [ %indvars.iv151169, %42 ]
+  %.not166.jt0.ph = phi i1 [ true, %.thread.jt0.sink.split ], [ false, %29 ], [ false, %42 ]
+  %.5.jt0.ph = phi i32 [ 0, %.thread.jt0.sink.split ], [ 1, %29 ], [ 1, %42 ]
   br label %.thread.jt0
 
 .thread.jt0:                                      ; preds = %.thread.jt0.preheader, %32
@@ -4273,13 +4261,13 @@ ForceZero.exit110:                                ; preds = %.lr.ph35.i106, %.pr
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, -1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 32
-  br i1 %exitcond164.not, label %61, label %.preheader134, !llvm.loop !97
+  br i1 %exitcond164.not, label %59, label %.preheader134, !llvm.loop !97
 
-61:                                               ; preds = %._crit_edge
-  %62 = icmp eq i32 %.1.lcssa, 2
-  %63 = select i1 %62, i32 1, i32 %.1.lcssa
+59:                                               ; preds = %._crit_edge
+  %60 = icmp eq i32 %.1.lcssa, 2
+  %61 = select i1 %60, i32 1, i32 %.1.lcssa
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  ret i32 %63
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable

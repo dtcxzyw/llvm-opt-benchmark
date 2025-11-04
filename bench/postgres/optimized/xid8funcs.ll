@@ -455,9 +455,9 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   %11 = icmp eq i64 %10, 0
   %12 = and i64 %9, 4294967295
   %13 = icmp eq i64 %12, 0
-  %or.cond6.not62 = select i1 %11, i1 true, i1 %13
+  %or.cond6.not63 = select i1 %11, i1 true, i1 %13
   %14 = icmp ult i64 %9, %8
-  %or.cond = select i1 %or.cond6.not62, i1 true, i1 %14
+  %or.cond = select i1 %or.cond6.not63, i1 true, i1 %14
   br i1 %or.cond, label %.loopexit, label %15
 
 15:                                               ; preds = %7
@@ -477,11 +477,11 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   br label %22
 
 22:                                               ; preds = %.lr.ph, %35
-  %.sroa.030.066 = phi i64 [ 0, %.lr.ph ], [ %.sroa.030.1.ph, %35 ]
-  %.04465 = phi i32 [ %5, %.lr.ph ], [ %.1.ph, %35 ]
-  %.04564 = phi i32 [ 0, %.lr.ph ], [ %.146.ph, %35 ]
+  %.sroa.030.067 = phi i64 [ 0, %.lr.ph ], [ %.sroa.030.1.ph, %35 ]
+  %.04466 = phi i32 [ %5, %.lr.ph ], [ %.1.ph, %35 ]
+  %.04565 = phi i32 [ 0, %.lr.ph ], [ %.146.ph, %35 ]
   %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
-  %24 = icmp ult i64 %23, %.sroa.030.066
+  %24 = icmp ult i64 %23, %.sroa.030.067
   %25 = icmp ult i64 %23, %8
   %or.cond52 = select i1 %24, i1 true, i1 %25
   %26 = icmp ult i64 %9, %23
@@ -489,43 +489,43 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   br i1 %or.cond53, label %.loopexit, label %27
 
 27:                                               ; preds = %22
-  %28 = icmp eq i64 %23, %.sroa.030.066
+  %28 = icmp eq i64 %23, %.sroa.030.067
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %.04465, -1
+  %30 = add nsw i32 %.04466, -1
   br label %35
 
 31:                                               ; preds = %27
-  %32 = sext i32 %.04564 to i64
+  %32 = sext i32 %.04565 to i64
   %33 = getelementptr inbounds %struct.FullTransactionId, ptr %21, i64 %32
   store i64 %23, ptr %33, align 8
-  %34 = add nsw i32 %.04564, 1
+  %34 = add nsw i32 %.04565, 1
   br label %35
 
 35:                                               ; preds = %29, %31
-  %.146.ph = phi i32 [ %34, %31 ], [ %.04564, %29 ]
-  %.1.ph = phi i32 [ %.04465, %31 ], [ %30, %29 ]
-  %.sroa.030.1.ph = phi i64 [ %23, %31 ], [ %.sroa.030.066, %29 ]
+  %.146.ph = phi i32 [ %34, %31 ], [ %.04565, %29 ]
+  %.1.ph = phi i32 [ %.04466, %31 ], [ %30, %29 ]
+  %.sroa.030.1.ph = phi i64 [ %23, %31 ], [ %.sroa.030.067, %29 ]
   %36 = icmp slt i32 %.146.ph, %.1.ph
   br i1 %36, label %22, label %._crit_edge, !llvm.loop !10
 
-.loopexit:                                        ; preds = %22, %7, %1
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %38 = tail call i32 @errcode(i32 noundef 50462850) #10
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.pg_snapshot_recv) #10
-  unreachable
-
 ._crit_edge:                                      ; preds = %35, %15
   %.044.lcssa = phi i32 [ 0, %15 ], [ %.1.ph, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %.044.lcssa, ptr %40, align 4
-  %41 = shl i32 %.044.lcssa, 5
-  %42 = add i32 %41, 96
-  store i32 %42, ptr %18, align 4
-  %43 = ptrtoint ptr %18 to i64
-  ret i64 %43
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 %.044.lcssa, ptr %37, align 4
+  %38 = shl i32 %.044.lcssa, 5
+  %39 = add i32 %38, 96
+  store i32 %39, ptr %18, align 4
+  %40 = ptrtoint ptr %18 to i64
+  ret i64 %40
+
+.loopexit:                                        ; preds = %22, %7, %1
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %42 = tail call i32 @errcode(i32 noundef 50462850) #10
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.pg_snapshot_recv) #10
+  unreachable
 }
 
 declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1

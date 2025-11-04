@@ -1747,9 +1747,9 @@ define range(i32 -1, 1) i32 @H5HF__hdr_update_iter(ptr noundef %0, i64 noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %217
 
-217:                                              ; preds = %.thread, %2, %19, %22
-  %.0 = phi i32 [ -1, %22 ], [ 0, %19 ], [ %.1, %.thread ], [ 0, %2 ]
-  ret i32 %.0
+217:                                              ; preds = %2, %19, %22, %.thread
+  %.086 = phi i32 [ -1, %22 ], [ 0, %19 ], [ %.1, %.thread ], [ 0, %2 ]
+  ret i32 %.086
 }
 
 declare i32 @H5HF__man_iblock_root_create(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1845,18 +1845,18 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %.critedge3
-  %.06899 = phi i32 [ %40, %.lr.ph ], [ %49, %.critedge3 ]
-  %45 = zext nneg i32 %.06899 to i64
+  %.06898 = phi i32 [ %40, %.lr.ph ], [ %49, %.critedge3 ]
+  %45 = zext nneg i32 %.06898 to i64
   %46 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !91
   %48 = icmp eq i64 %47, %1
   %.not77 = icmp eq i64 %47, -1
-  %or.cond97 = or i1 %48, %.not77
-  br i1 %or.cond97, label %.critedge3, label %.critedge
+  %or.cond96 = or i1 %48, %.not77
+  br i1 %or.cond96, label %.critedge3, label %.critedge
 
 .critedge3:                                       ; preds = %44
-  %49 = add nsw i32 %.06899, -1
-  %50 = icmp sgt i32 %.06899, 0
+  %49 = add nsw i32 %.06898, -1
+  %50 = icmp sgt i32 %.06898, 0
   br i1 %50, label %44, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.critedge3, %39
@@ -1906,15 +1906,15 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %.thread90
 
 .critedge:                                        ; preds = %44
-  store i32 %.06899, ptr %4, align 4, !tbaa !78
+  store i32 %.06898, ptr %4, align 4, !tbaa !78
   %77 = load i32, ptr %34, align 8, !tbaa !48
-  %78 = udiv i32 %.06899, %77
+  %78 = udiv i32 %.06898, %77
   %79 = load i32, ptr %35, align 8, !tbaa !43
   %80 = icmp ult i32 %78, %79
   br i1 %80, label %81, label %108
 
 81:                                               ; preds = %.critedge
-  %82 = add nuw i32 %.06899, 1
+  %82 = add nuw i32 %.06898, 1
   store i32 %82, ptr %4, align 4, !tbaa !78
   %83 = call i32 @H5HF__man_iter_set_entry(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %82) #7
   %84 = icmp slt i32 %83, 0
@@ -2029,10 +2029,10 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %39, !llvm.loop !96
 
 .thread90:                                        ; preds = %89, %70, %.thread, %85, %73, %63, %56, %2, %27, %20
-  %.062 = phi i32 [ -1, %27 ], [ -1, %20 ], [ 0, %2 ], [ -1, %56 ], [ -1, %63 ], [ -1, %73 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ], [ 0, %70 ]
+  %.069 = phi i32 [ -1, %27 ], [ -1, %20 ], [ 0, %2 ], [ -1, %56 ], [ -1, %63 ], [ -1, %73 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.062
+  ret i32 %.069
 }
 
 declare i32 @H5HF__man_iter_set_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2247,8 +2247,8 @@ define range(i32 -1, 1) i32 @H5HF__hdr_delete(ptr noundef %0) local_unnamed_addr
   br label %71
 
 71:                                               ; preds = %1, %67, %60
-  %.032 = phi i32 [ -1, %67 ], [ %.1, %60 ], [ 0, %1 ]
-  ret i32 %.032
+  %.030 = phi i32 [ -1, %67 ], [ %.1, %60 ], [ 0, %1 ]
+  ret i32 %.030
 }
 
 declare i32 @H5HF__space_delete(ptr noundef) local_unnamed_addr #1

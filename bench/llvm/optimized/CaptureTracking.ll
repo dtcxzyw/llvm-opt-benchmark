@@ -322,7 +322,7 @@ _ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit: ; preds = %3, %13
   %20 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %20, align 8, !tbaa !60
   %.not812.i = icmp eq ptr %.val, null
-  br i1 %.not812.i, label %.loopexit51, label %.lr.ph.i
+  br i1 %.not812.i, label %.loopexit52, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit, %_ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43
   %.sroa.02.013.i = phi ptr [ %58, %_ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43 ], [ %.val, %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit ]
@@ -409,7 +409,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43: ; preds = %.lr
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !70
   %.not8.i = icmp eq ptr %58, null
-  br i1 %.not8.i, label %.loopexit51, label %.lr.ph.i
+  br i1 %.not8.i, label %.loopexit52, label %.lr.ph.i
 
 "_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.exit": ; preds = %.lr.ph.i
   %59 = load ptr, ptr %1, align 8, !tbaa !3
@@ -418,14 +418,14 @@ _ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43: ; preds = %.lr
   call void %61(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %123
 
-.loopexit51:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43, %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit
+.loopexit52:                                      ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43, %_ZN4llvm15SmallVectorImplIPKNS_3UseEE7reserveEm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !75
   %62 = load i32, ptr %10, align 8, !tbaa !26
-  %.not.i652 = icmp eq i32 %62, 0
-  br i1 %.not.i652, label %.thread, label %.lr.ph
+  %.not.i653 = icmp eq i32 %62, 0
+  br i1 %.not.i653, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit51
+.lr.ph:                                           ; preds = %.loopexit52
   %63 = ptrtoint ptr %6 to i64
   br label %.backedge
 
@@ -439,7 +439,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i.thread43: ; preds = %.lr
   %70 = add i32 %64, -1
   store i32 %70, ptr %10, align 8, !tbaa !26
   %71 = call noundef i32 @_ZN4llvm23DetermineUseCaptureKindERKNS_3UseENS_12function_refIFbPNS_5ValueERKNS_10DataLayoutEEEE(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr nonnull @"_ZN4llvm12function_refIFbPNS_5ValueERKNS_10DataLayoutEEE11callback_fnIZNS_20PointerMayBeCapturedEPKS1_PNS_14CaptureTrackerEjE3$_1EEblS2_S5_", i64 %63)
-  switch i32 %71, label %default.unreachable66 [
+  switch i32 %71, label %default.unreachable67 [
     i32 0, label %.loopexit
     i32 1, label %72
     i32 2, label %78
@@ -557,7 +557,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i13.thread47: ; preds = %.
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   br label %.thread, !llvm.loop !79
 
-default.unreachable66:                            ; preds = %.backedge
+default.unreachable67:                            ; preds = %.backedge
   unreachable
 
 .loopexit:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_3UseEE6insertES3_.exit.i13.thread47, %78, %.backedge
@@ -569,7 +569,7 @@ default.unreachable66:                            ; preds = %.backedge
   %.be = phi i32 [ %.old, %.loopexit ], [ %77, %72 ]
   br label %.backedge
 
-.thread:                                          ; preds = %.loopexit, %72, %.loopexit51, %"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.exit27"
+.thread:                                          ; preds = %.loopexit, %72, %.loopexit52, %"_ZZN4llvm20PointerMayBeCapturedEPKNS_5ValueEPNS_14CaptureTrackerEjENK3$_0clES2_.exit27"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 

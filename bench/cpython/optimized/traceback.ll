@@ -2912,8 +2912,8 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %7 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %7, align 8, !tbaa !20
   %8 = getelementptr i8, ptr %.val, i64 168
-  %.val64 = load i64, ptr %8, align 8, !tbaa !59
-  %9 = and i64 %.val64, 268435456
+  %.val65 = load i64, ptr %8, align 8, !tbaa !59
+  %9 = and i64 %.val65, 268435456
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %118, label %10
 
@@ -2931,15 +2931,15 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %18 = and i16 %14, 16
   %.not59 = icmp eq i16 %18, 0
   %19 = icmp slt i64 %12, 501
-  br i1 %.not59, label %.thread95, label %.thread101
+  br i1 %.not59, label %.thread96, label %.thread102
 
-.thread101:                                       ; preds = %17
+.thread102:                                       ; preds = %17
   %20 = getelementptr i8, ptr %1, i64 40
   br i1 %19, label %.preheader, label %.lr.ph.preheader
 
-.thread95:                                        ; preds = %17
+.thread96:                                        ; preds = %17
   %21 = getelementptr i8, ptr %1, i64 56
-  br i1 %19, label %.thread, label %.lr.ph81
+  br i1 %19, label %.thread, label %.lr.ph82
 
 22:                                               ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2954,50 +2954,50 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %. = select i1 %28, i64 %12, i64 500
   br i1 %27, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.thread101, %26
-  %.106 = phi i64 [ %., %26 ], [ %12, %.thread101 ]
-  %29 = phi i1 [ %28, %26 ], [ true, %.thread101 ]
-  %.052105 = phi ptr [ %24, %26 ], [ %20, %.thread101 ]
-  %.not6278 = icmp sgt i64 %.106, 0
-  br i1 %.not6278, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %.thread102, %26
+  %.107 = phi i64 [ %., %26 ], [ %12, %.thread102 ]
+  %29 = phi i1 [ %28, %26 ], [ true, %.thread102 ]
+  %.052106 = phi ptr [ %24, %26 ], [ %20, %.thread102 ]
+  %.not6279 = icmp sgt i64 %.107, 0
+  br i1 %.not6279, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.thread101, %.preheader
-  %.052105112 = phi ptr [ %.052105, %.preheader ], [ %20, %.thread101 ]
-  %30 = phi i1 [ %29, %.preheader ], [ false, %.thread101 ]
-  %.106111 = phi i64 [ %.106, %.preheader ], [ 500, %.thread101 ]
+.lr.ph.preheader:                                 ; preds = %.thread102, %.preheader
+  %.052106113 = phi ptr [ %.052106, %.preheader ], [ %20, %.thread102 ]
+  %30 = phi i1 [ %29, %.preheader ], [ false, %.thread102 ]
+  %.107112 = phi i64 [ %.107, %.preheader ], [ 500, %.thread102 ]
   br label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
-  %32 = add nuw nsw i64 %.05079, 1
-  %exitcond.not = icmp eq i64 %32, %.106111
+  %32 = add nuw nsw i64 %.05080, 1
+  %exitcond.not = icmp eq i64 %32, %.107112
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %.05079 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
-  %33 = getelementptr i8, ptr %.052105112, i64 %.05079
+  %.05080 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
+  %33 = getelementptr i8, ptr %.052106113, i64 %.05080
   %34 = load i8, ptr %33, align 1, !tbaa !35
   %35 = add i8 %34, -32
   %or.cond = icmp ult i8 %35, 95
-  br i1 %or.cond, label %31, label %.lr.ph81
+  br i1 %or.cond, label %31, label %.lr.ph82
 
 ._crit_edge:                                      ; preds = %31, %.preheader
-  %.052105113 = phi ptr [ %.052105, %.preheader ], [ %.052105112, %31 ]
+  %.052106114 = phi ptr [ %.052106, %.preheader ], [ %.052106113, %31 ]
   %36 = phi i1 [ %29, %.preheader ], [ %30, %31 ]
-  %.106110 = phi i64 [ %.106, %.preheader ], [ %.106111, %31 ]
-  %37 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %.052105113, i64 noundef %.106110) #10
+  %.107111 = phi i64 [ %.107, %.preheader ], [ %.107112, %31 ]
+  %37 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %.052106114, i64 noundef %.107111) #10
   br i1 %36, label %118, label %116
 
-.thread:                                          ; preds = %.thread95, %26
-  %.100 = phi i64 [ %., %26 ], [ %12, %.thread95 ]
-  %38 = phi i1 [ %28, %26 ], [ true, %.thread95 ]
-  %.05299 = phi ptr [ %24, %26 ], [ %21, %.thread95 ]
-  %39 = icmp sgt i64 %.100, 0
-  br i1 %39, label %.lr.ph81, label %.loopexit
+.thread:                                          ; preds = %.thread96, %26
+  %.101 = phi i64 [ %., %26 ], [ %12, %.thread96 ]
+  %38 = phi i1 [ %28, %26 ], [ true, %.thread96 ]
+  %.052100 = phi ptr [ %24, %26 ], [ %21, %.thread96 ]
+  %39 = icmp sgt i64 %.101, 0
+  br i1 %39, label %.lr.ph82, label %.loopexit
 
-.lr.ph81:                                         ; preds = %.lr.ph, %.thread95, %.thread
-  %.05299118 = phi ptr [ %.05299, %.thread ], [ %21, %.thread95 ], [ %.052105112, %.lr.ph ]
-  %40 = phi i1 [ %38, %.thread ], [ false, %.thread95 ], [ %30, %.lr.ph ]
-  %.100117 = phi i64 [ %.100, %.thread ], [ 500, %.thread95 ], [ %.106111, %.lr.ph ]
+.lr.ph82:                                         ; preds = %.lr.ph, %.thread96, %.thread
+  %.052100119 = phi ptr [ %.052100, %.thread ], [ %21, %.thread96 ], [ %.052106113, %.lr.ph ]
+  %40 = phi i1 [ %38, %.thread ], [ false, %.thread96 ], [ %30, %.lr.ph ]
+  %.101118 = phi i64 [ %.101, %.thread ], [ 500, %.thread96 ], [ %.107112, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3006,27 +3006,27 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %46 = ptrtoint ptr %45 to i64
   br label %47
 
-47:                                               ; preds = %.lr.ph81, %113
-  %.180 = phi i64 [ 0, %.lr.ph81 ], [ %114, %113 ]
+47:                                               ; preds = %.lr.ph82, %113
+  %.181 = phi i64 [ 0, %.lr.ph82 ], [ %114, %113 ]
   switch i16 %15, label %56 [
     i16 1, label %48
     i16 2, label %52
   ]
 
 48:                                               ; preds = %47
-  %49 = getelementptr i8, ptr %.05299118, i64 %.180
+  %49 = getelementptr i8, ptr %.052100119, i64 %.181
   %50 = load i8, ptr %49, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
   br label %PyUnicode_READ.exit
 
 52:                                               ; preds = %47
-  %53 = getelementptr i16, ptr %.05299118, i64 %.180
+  %53 = getelementptr i16, ptr %.052100119, i64 %.181
   %54 = load i16, ptr %53, align 2, !tbaa !54
   %55 = zext i16 %54 to i32
   br label %PyUnicode_READ.exit
 
 56:                                               ; preds = %47
-  %57 = getelementptr i32, ptr %.05299118, i64 %.180
+  %57 = getelementptr i32, ptr %.052100119, i64 %.181
   %58 = load i32, ptr %57, align 4, !tbaa !55
   br label %PyUnicode_READ.exit
 
@@ -3058,17 +3058,17 @@ PyUnicode_READ.exit:                              ; preds = %48, %52, %56
 
 69:                                               ; preds = %69, %66
   %.014.i = phi ptr [ %45, %66 ], [ %70, %69 ]
-  %.0.i65 = phi i64 [ %65, %66 ], [ %74, %69 ]
+  %.0.i66 = phi i64 [ %65, %66 ], [ %74, %69 ]
   %70 = getelementptr i8, ptr %.014.i, i64 -1
-  %71 = and i64 %.0.i65, 15
+  %71 = and i64 %.0.i66, 15
   %72 = getelementptr i8, ptr %68, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !35
   store i8 %73, ptr %70, align 1, !tbaa !35
-  %74 = lshr i64 %.0.i65, 4
+  %74 = lshr i64 %.0.i66, 4
   %75 = ptrtoint ptr %70 to i64
   %76 = sub i64 %46, %75
   %77 = icmp slt i64 %76, 2
-  %78 = icmp samesign ugt i64 %.0.i65, 15
+  %78 = icmp samesign ugt i64 %.0.i66, 15
   %79 = or i1 %78, %77
   br i1 %79, label %69, label %_Py_DumpHexadecimal.exit, !llvm.loop !70
 
@@ -3089,22 +3089,22 @@ _Py_DumpHexadecimal.exit:                         ; preds = %69
   br label %86
 
 86:                                               ; preds = %86, %83
-  %.014.i66 = phi ptr [ %43, %83 ], [ %87, %86 ]
-  %.0.i67 = phi i64 [ %65, %83 ], [ %91, %86 ]
-  %87 = getelementptr i8, ptr %.014.i66, i64 -1
-  %88 = and i64 %.0.i67, 15
+  %.014.i67 = phi ptr [ %43, %83 ], [ %87, %86 ]
+  %.0.i68 = phi i64 [ %65, %83 ], [ %91, %86 ]
+  %87 = getelementptr i8, ptr %.014.i67, i64 -1
+  %88 = and i64 %.0.i68, 15
   %89 = getelementptr i8, ptr %85, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !35
   store i8 %90, ptr %87, align 1, !tbaa !35
-  %91 = lshr i64 %.0.i67, 4
+  %91 = lshr i64 %.0.i68, 4
   %92 = ptrtoint ptr %87 to i64
   %93 = sub i64 %44, %92
   %94 = icmp slt i64 %93, 4
-  %95 = icmp samesign ugt i64 %.0.i67, 15
+  %95 = icmp samesign ugt i64 %.0.i68, 15
   %96 = or i1 %95, %94
-  br i1 %96, label %86, label %_Py_DumpHexadecimal.exit68, !llvm.loop !70
+  br i1 %96, label %86, label %_Py_DumpHexadecimal.exit69, !llvm.loop !70
 
-_Py_DumpHexadecimal.exit68:                       ; preds = %86
+_Py_DumpHexadecimal.exit69:                       ; preds = %86
   %97 = call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull %87, i64 noundef %93) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
@@ -3117,30 +3117,30 @@ _Py_DumpHexadecimal.exit68:                       ; preds = %86
   br label %101
 
 101:                                              ; preds = %101, %98
-  %.014.i69 = phi ptr [ %41, %98 ], [ %102, %101 ]
-  %.0.i70 = phi i64 [ %65, %98 ], [ %106, %101 ]
-  %102 = getelementptr i8, ptr %.014.i69, i64 -1
-  %103 = and i64 %.0.i70, 15
+  %.014.i70 = phi ptr [ %41, %98 ], [ %102, %101 ]
+  %.0.i71 = phi i64 [ %65, %98 ], [ %106, %101 ]
+  %102 = getelementptr i8, ptr %.014.i70, i64 -1
+  %103 = and i64 %.0.i71, 15
   %104 = getelementptr i8, ptr %100, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !35
   store i8 %105, ptr %102, align 1, !tbaa !35
-  %106 = lshr i64 %.0.i70, 4
+  %106 = lshr i64 %.0.i71, 4
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %42, %107
   %109 = icmp slt i64 %108, 8
-  %110 = icmp samesign ugt i64 %.0.i70, 15
+  %110 = icmp samesign ugt i64 %.0.i71, 15
   %111 = or i1 %110, %109
-  br i1 %111, label %101, label %_Py_DumpHexadecimal.exit71, !llvm.loop !70
+  br i1 %111, label %101, label %_Py_DumpHexadecimal.exit72, !llvm.loop !70
 
-_Py_DumpHexadecimal.exit71:                       ; preds = %101
+_Py_DumpHexadecimal.exit72:                       ; preds = %101
   %112 = call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull %102, i64 noundef %108) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %113
 
-113:                                              ; preds = %60, %_Py_DumpHexadecimal.exit68, %_Py_DumpHexadecimal.exit71, %_Py_DumpHexadecimal.exit
-  %114 = add nuw nsw i64 %.180, 1
-  %exitcond87.not = icmp eq i64 %114, %.100117
-  br i1 %exitcond87.not, label %.loopexit, label %47, !llvm.loop !72
+113:                                              ; preds = %60, %_Py_DumpHexadecimal.exit69, %_Py_DumpHexadecimal.exit72, %_Py_DumpHexadecimal.exit
+  %114 = add nuw nsw i64 %.181, 1
+  %exitcond88.not = icmp eq i64 %114, %.101118
+  br i1 %exitcond88.not, label %.loopexit, label %47, !llvm.loop !72
 
 .loopexit:                                        ; preds = %113, %.thread
   %115 = phi i1 [ %38, %.thread ], [ %40, %113 ]

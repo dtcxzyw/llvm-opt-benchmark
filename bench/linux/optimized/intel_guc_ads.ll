@@ -365,7 +365,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %70 = getelementptr inbounds nuw i8, ptr %37, i64 712
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
-  %.pre32.pre33 = load ptr, ptr %12, align 8
+  %.pre33.pre34 = load ptr, ptr %12, align 8
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %68
@@ -374,7 +374,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   br label %76
 
 76:                                               ; preds = %guc_mmio_reg_add.exit, %73
-  %77 = phi ptr [ %137, %guc_mmio_reg_add.exit ], [ %.pre32.pre33, %73 ]
+  %77 = phi ptr [ %137, %guc_mmio_reg_add.exit ], [ %.pre33.pre34, %73 ]
   %78 = phi ptr [ %143, %guc_mmio_reg_add.exit ], [ %75, %73 ]
   %79 = phi i32 [ %142, %guc_mmio_reg_add.exit ], [ 0, %73 ]
   %80 = phi i64 [ %141, %guc_mmio_reg_add.exit ], [ %69, %73 ]
@@ -404,11 +404,11 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
 97:                                               ; preds = %76
   %98 = load i32, ptr %22, align 4
   %99 = icmp ult i32 %86, %98
-  %.pre42 = add i32 %86, 1
+  %.pre43 = add i32 %86, 1
   br i1 %99, label %._crit_edge, label %100
 
 100:                                              ; preds = %97
-  %101 = zext i32 %.pre42 to i64
+  %101 = zext i32 %.pre43 to i64
   %102 = shl nuw nsw i64 %101, 4
   %103 = add nuw nsw i64 %102, 4095
   %104 = and i64 %103, 137438949376
@@ -444,7 +444,7 @@ define dso_local i32 @intel_guc_ads_create(ptr noundef %0) local_unnamed_addr #0
   %115 = phi ptr [ %105, %110 ], [ %87, %97 ]
   %116 = zext i32 %86 to i64
   %117 = getelementptr %struct.guc_mmio_reg, ptr %115, i64 %116
-  store i32 %.pre42, ptr %16, align 8
+  store i32 %.pre43, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %117, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   %118 = icmp ugt ptr %117, inttoptr (i64 -4096 to ptr)
   br i1 %118, label %.thread4.i, label %119
@@ -503,20 +503,20 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   br i1 %145, label %76, label %.loopexit.loopexit, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %guc_mmio_reg_add.exit
-  %.pre32.pre = load ptr, ptr %12, align 8
+  %.pre33.pre = load ptr, ptr %12, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %68
-  %.pre32 = phi ptr [ %.pre32.pre33, %68 ], [ %.pre32.pre, %.loopexit.loopexit ]
+  %.pre33 = phi ptr [ %.pre33.pre34, %68 ], [ %.pre33.pre, %.loopexit.loopexit ]
   %146 = phi i64 [ %69, %68 ], [ %141, %.loopexit.loopexit ]
   %147 = trunc i64 %146 to i32
   %148 = add i32 %43, 1232
   br label %149
 
-149:                                              ; preds = %guc_mmio_reg_add.exit14, %.loopexit
-  %150 = phi ptr [ %.pre32, %.loopexit ], [ %207, %guc_mmio_reg_add.exit14 ]
-  %151 = phi i32 [ 0, %.loopexit ], [ %210, %guc_mmio_reg_add.exit14 ]
-  %152 = phi i32 [ %147, %.loopexit ], [ %209, %guc_mmio_reg_add.exit14 ]
+149:                                              ; preds = %guc_mmio_reg_add.exit15, %.loopexit
+  %150 = phi ptr [ %.pre33, %.loopexit ], [ %207, %guc_mmio_reg_add.exit15 ]
+  %151 = phi i32 [ 0, %.loopexit ], [ %210, %guc_mmio_reg_add.exit15 ]
+  %152 = phi i32 [ %147, %.loopexit ], [ %209, %guc_mmio_reg_add.exit15 ]
   %153 = shl nuw nsw i32 %151, 2
   %154 = add i32 %148, %153
   %155 = load i32, ptr %16, align 8
@@ -535,13 +535,13 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %163 = zext i32 %162 to i64
   %164 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef %150, i64 noundef %163, i64 noundef 16, ptr noundef nonnull @guc_mmio_reg_cmp) #10
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %guc_mmio_reg_add.exit14
+  br i1 %165, label %166, label %guc_mmio_reg_add.exit15
 
 166:                                              ; preds = %149
   %167 = load i32, ptr %22, align 4
   %168 = icmp ult i32 %155, %167
   %.pre = add i32 %155, 1
-  br i1 %168, label %._crit_edge37, label %169
+  br i1 %168, label %._crit_edge38, label %169
 
 169:                                              ; preds = %166
   %170 = zext i32 %.pre to i64
@@ -554,7 +554,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
 
 176:                                              ; preds = %169
   %177 = load i1, ptr @__mmio_reg_add.__already_done, align 1
-  br i1 %177, label %.thread4.i13, label %178, !prof !16
+  br i1 %177, label %.thread4.i14, label %178, !prof !16
 
 178:                                              ; preds = %176
   store i1 true, ptr @__mmio_reg_add.__already_done, align 1
@@ -564,7 +564,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 266, i32 2313, i64 12) #10, !srcloc !19
   call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !20
   call void asm sideeffect "857: nop\0A\09.pushsection .discard.instr_end\0A\09.long 857b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 857) #10, !srcloc !21
-  br label %.thread4.i13
+  br label %.thread4.i14
 
 179:                                              ; preds = %169
   %180 = getelementptr i8, ptr %174, i64 %159
@@ -573,9 +573,9 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %181 = lshr exact i64 %173, 4
   %182 = trunc i64 %181 to i32
   store i32 %182, ptr %22, align 4
-  br label %._crit_edge37
+  br label %._crit_edge38
 
-._crit_edge37:                                    ; preds = %166, %179
+._crit_edge38:                                    ; preds = %166, %179
   %183 = phi ptr [ %180, %179 ], [ %150, %166 ]
   %184 = phi ptr [ %174, %179 ], [ %156, %166 ]
   %185 = zext i32 %155 to i64
@@ -583,37 +583,37 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   store i32 %.pre, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %186, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
   %187 = icmp ugt ptr %186, inttoptr (i64 -4096 to ptr)
-  br i1 %187, label %.thread4.i13, label %188
+  br i1 %187, label %.thread4.i14, label %188
 
-188:                                              ; preds = %._crit_edge37
+188:                                              ; preds = %._crit_edge38
   %189 = load ptr, ptr %12, align 8
   %190 = icmp ugt ptr %186, %189
-  br i1 %190, label %.preheader.i12.preheader, label %guc_mmio_reg_add.exit14
+  br i1 %190, label %.preheader.i13.preheader, label %guc_mmio_reg_add.exit15
 
-.preheader.i12.preheader:                         ; preds = %188
+.preheader.i13.preheader:                         ; preds = %188
   %191 = getelementptr i8, ptr %186, i64 -16
   %192 = load i32, ptr %186, align 1
   %193 = load i32, ptr %191, align 1
   %194 = icmp ugt i32 %192, %193
-  br i1 %194, label %guc_mmio_reg_add.exit14, label %.lr.ph96
+  br i1 %194, label %guc_mmio_reg_add.exit15, label %.lr.ph97
 
-.thread4.i13:                                     ; preds = %._crit_edge37, %178, %176
-  %195 = phi ptr [ %183, %._crit_edge37 ], [ %150, %176 ], [ %150, %178 ]
-  %196 = phi ptr [ %186, %._crit_edge37 ], [ inttoptr (i64 -12 to ptr), %176 ], [ inttoptr (i64 -12 to ptr), %178 ]
+.thread4.i14:                                     ; preds = %._crit_edge38, %178, %176
+  %195 = phi ptr [ %183, %._crit_edge38 ], [ %150, %176 ], [ %150, %178 ]
+  %196 = phi ptr [ %186, %._crit_edge38 ], [ inttoptr (i64 -12 to ptr), %176 ], [ inttoptr (i64 -12 to ptr), %178 ]
   %197 = ptrtoint ptr %196 to i64
   %198 = trunc i64 %197 to i32
-  br label %guc_mmio_reg_add.exit14
+  br label %guc_mmio_reg_add.exit15
 
-.preheader.i12:                                   ; preds = %.lr.ph96
+.preheader.i13:                                   ; preds = %.lr.ph97
   %199 = getelementptr i8, ptr %203, i64 -16
   %200 = load i32, ptr %203, align 1
   %201 = load i32, ptr %199, align 1
   %202 = icmp ugt i32 %200, %201
-  br i1 %202, label %guc_mmio_reg_add.exit14, label %.lr.ph96, !llvm.loop !22
+  br i1 %202, label %guc_mmio_reg_add.exit15, label %.lr.ph97, !llvm.loop !22
 
-.lr.ph96:                                         ; preds = %.preheader.i12.preheader, %.preheader.i12
-  %203 = phi ptr [ %199, %.preheader.i12 ], [ %191, %.preheader.i12.preheader ]
-  %204 = phi ptr [ %203, %.preheader.i12 ], [ %186, %.preheader.i12.preheader ]
+.lr.ph97:                                         ; preds = %.preheader.i13.preheader, %.preheader.i13
+  %203 = phi ptr [ %199, %.preheader.i13 ], [ %191, %.preheader.i13.preheader ]
+  %204 = phi ptr [ %203, %.preheader.i13 ], [ %186, %.preheader.i13.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %204, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %204, ptr noundef align 1 dereferenceable(16) %203, i64 16, i1 false)
@@ -621,23 +621,23 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %205 = load ptr, ptr %12, align 8
   %206 = icmp ugt ptr %203, %205
-  br i1 %206, label %.preheader.i12, label %.guc_mmio_reg_add.exit14.loopexit_crit_edge, !llvm.loop !22
+  br i1 %206, label %.preheader.i13, label %.guc_mmio_reg_add.exit15.loopexit_crit_edge, !llvm.loop !22
 
-.guc_mmio_reg_add.exit14.loopexit_crit_edge:      ; preds = %.lr.ph96
-  br label %guc_mmio_reg_add.exit14, !llvm.loop !22
+.guc_mmio_reg_add.exit15.loopexit_crit_edge:      ; preds = %.lr.ph97
+  br label %guc_mmio_reg_add.exit15, !llvm.loop !22
 
-guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.preheader.i12.preheader, %.guc_mmio_reg_add.exit14.loopexit_crit_edge, %149, %188, %.thread4.i13
-  %207 = phi ptr [ %195, %.thread4.i13 ], [ %150, %149 ], [ %189, %188 ], [ %205, %.guc_mmio_reg_add.exit14.loopexit_crit_edge ], [ %189, %.preheader.i12.preheader ], [ %205, %.preheader.i12 ]
-  %208 = phi i32 [ %198, %.thread4.i13 ], [ 0, %149 ], [ 0, %188 ], [ 0, %.guc_mmio_reg_add.exit14.loopexit_crit_edge ], [ 0, %.preheader.i12.preheader ], [ 0, %.preheader.i12 ]
+guc_mmio_reg_add.exit15:                          ; preds = %.preheader.i13, %.preheader.i13.preheader, %.guc_mmio_reg_add.exit15.loopexit_crit_edge, %149, %188, %.thread4.i14
+  %207 = phi ptr [ %195, %.thread4.i14 ], [ %150, %149 ], [ %189, %188 ], [ %205, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ %189, %.preheader.i13.preheader ], [ %205, %.preheader.i13 ]
+  %208 = phi i32 [ %198, %.thread4.i14 ], [ 0, %149 ], [ 0, %188 ], [ 0, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ 0, %.preheader.i13.preheader ], [ 0, %.preheader.i13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %209 = or i32 %208, %152
   %210 = add nuw nsw i32 %151, 1
   %211 = icmp eq i32 %210, 12
   br i1 %211, label %.preheader, label %149, !llvm.loop !26
 
-.preheader:                                       ; preds = %guc_mmio_reg_add.exit14, %332
-  %212 = phi i32 [ %336, %332 ], [ 0, %guc_mmio_reg_add.exit14 ]
-  %213 = phi i32 [ %335, %332 ], [ %209, %guc_mmio_reg_add.exit14 ]
+.preheader:                                       ; preds = %guc_mmio_reg_add.exit15, %332
+  %212 = phi i32 [ %336, %332 ], [ 0, %guc_mmio_reg_add.exit15 ]
+  %213 = phi i32 [ %335, %332 ], [ %209, %guc_mmio_reg_add.exit15 ]
   %214 = load ptr, ptr %37, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 7176
   %216 = load i8, ptr %215, align 8
@@ -685,16 +685,16 @@ guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.p
   %246 = zext i32 %245 to i64
   %247 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef %238, i64 noundef %246, i64 noundef 16, ptr noundef nonnull @guc_mmio_reg_cmp) #10
   %248 = icmp eq ptr %247, null
-  br i1 %248, label %249, label %guc_mmio_reg_add.exit19
+  br i1 %248, label %249, label %guc_mmio_reg_add.exit20
 
 249:                                              ; preds = %226
   %250 = load i32, ptr %22, align 4
   %251 = icmp ult i32 %237, %250
-  %.pre38 = add i32 %237, 1
-  br i1 %251, label %._crit_edge36, label %252
+  %.pre39 = add i32 %237, 1
+  br i1 %251, label %._crit_edge37, label %252
 
 252:                                              ; preds = %249
-  %253 = zext i32 %.pre38 to i64
+  %253 = zext i32 %.pre39 to i64
   %254 = shl nuw nsw i64 %253, 4
   %255 = add nuw nsw i64 %254, 4095
   %256 = and i64 %255, 137438949376
@@ -704,7 +704,7 @@ guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.p
 
 259:                                              ; preds = %252
   %260 = load i1, ptr @__mmio_reg_add.__already_done, align 1
-  br i1 %260, label %.thread4.i18, label %261, !prof !16
+  br i1 %260, label %.thread4.i19, label %261, !prof !16
 
 261:                                              ; preds = %259
   store i1 true, ptr @__mmio_reg_add.__already_done, align 1
@@ -714,7 +714,7 @@ guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.p
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 266, i32 2313, i64 12) #10, !srcloc !19
   call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !20
   call void asm sideeffect "857: nop\0A\09.pushsection .discard.instr_end\0A\09.long 857b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 857) #10, !srcloc !21
-  br label %.thread4.i18
+  br label %.thread4.i19
 
 262:                                              ; preds = %252
   %263 = getelementptr i8, ptr %257, i64 %242
@@ -723,36 +723,36 @@ guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.p
   %264 = lshr exact i64 %256, 4
   %265 = trunc i64 %264 to i32
   store i32 %265, ptr %22, align 4
-  br label %._crit_edge36
+  br label %._crit_edge37
 
-._crit_edge36:                                    ; preds = %249, %262
+._crit_edge37:                                    ; preds = %249, %262
   %266 = phi ptr [ %263, %262 ], [ %238, %249 ]
   %267 = phi ptr [ %257, %262 ], [ %239, %249 ]
   %268 = zext i32 %237 to i64
   %269 = getelementptr %struct.guc_mmio_reg, ptr %267, i64 %268
-  store i32 %.pre38, ptr %16, align 8
+  store i32 %.pre39, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   %270 = icmp ugt ptr %269, inttoptr (i64 -4096 to ptr)
-  br i1 %270, label %.thread4.i18, label %271
+  br i1 %270, label %.thread4.i19, label %271
 
-271:                                              ; preds = %._crit_edge36
+271:                                              ; preds = %._crit_edge37
   %272 = icmp ugt ptr %269, %266
-  br i1 %272, label %.preheader.i17, label %guc_mmio_reg_add.exit19
+  br i1 %272, label %.preheader.i18, label %guc_mmio_reg_add.exit20
 
-.thread4.i18:                                     ; preds = %._crit_edge36, %261, %259
-  %273 = phi ptr [ %269, %._crit_edge36 ], [ inttoptr (i64 -12 to ptr), %259 ], [ inttoptr (i64 -12 to ptr), %261 ]
+.thread4.i19:                                     ; preds = %._crit_edge37, %261, %259
+  %273 = phi ptr [ %269, %._crit_edge37 ], [ inttoptr (i64 -12 to ptr), %259 ], [ inttoptr (i64 -12 to ptr), %261 ]
   %274 = ptrtoint ptr %273 to i64
-  br label %guc_mmio_reg_add.exit19
+  br label %guc_mmio_reg_add.exit20
 
-.preheader.i17:                                   ; preds = %271, %280
+.preheader.i18:                                   ; preds = %271, %280
   %275 = phi ptr [ %276, %280 ], [ %269, %271 ]
   %276 = getelementptr i8, ptr %275, i64 -16
   %277 = load i32, ptr %275, align 1
   %278 = load i32, ptr %276, align 1
   %279 = icmp ugt i32 %277, %278
-  br i1 %279, label %guc_mmio_reg_add.exit19, label %280
+  br i1 %279, label %guc_mmio_reg_add.exit20, label %280
 
-280:                                              ; preds = %.preheader.i17
+280:                                              ; preds = %.preheader.i18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %275, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %275, ptr noundef align 1 dereferenceable(16) %276, i64 16, i1 false)
@@ -760,10 +760,10 @@ guc_mmio_reg_add.exit14:                          ; preds = %.preheader.i12, %.p
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %281 = load ptr, ptr %12, align 8
   %282 = icmp ugt ptr %276, %281
-  br i1 %282, label %.preheader.i17, label %guc_mmio_reg_add.exit19, !llvm.loop !22
+  br i1 %282, label %.preheader.i18, label %guc_mmio_reg_add.exit20, !llvm.loop !22
 
-guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %280, %226, %271, %.thread4.i18
-  %283 = phi i64 [ %274, %.thread4.i18 ], [ 0, %226 ], [ 0, %271 ], [ 0, %280 ], [ 0, %.preheader.i17 ]
+guc_mmio_reg_add.exit20:                          ; preds = %.preheader.i18, %280, %226, %271, %.thread4.i19
+  %283 = phi i64 [ %274, %.thread4.i19 ], [ 0, %226 ], [ 0, %271 ], [ 0, %280 ], [ 0, %.preheader.i18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -787,16 +787,16 @@ guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %28
   %294 = zext i32 %293 to i64
   %295 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %286, i64 noundef %294, i64 noundef 16, ptr noundef nonnull @guc_mmio_reg_cmp) #10
   %296 = icmp eq ptr %295, null
-  br i1 %296, label %297, label %guc_mmio_reg_add.exit24
+  br i1 %296, label %297, label %guc_mmio_reg_add.exit25
 
 297:                                              ; preds = %284
   %298 = load i32, ptr %22, align 4
   %299 = icmp ult i32 %285, %298
-  %.pre40 = add i32 %285, 1
-  br i1 %299, label %._crit_edge35, label %300
+  %.pre41 = add i32 %285, 1
+  br i1 %299, label %._crit_edge36, label %300
 
 300:                                              ; preds = %297
-  %301 = zext i32 %.pre40 to i64
+  %301 = zext i32 %.pre41 to i64
   %302 = shl nuw nsw i64 %301, 4
   %303 = add nuw nsw i64 %302, 4095
   %304 = and i64 %303, 137438949376
@@ -806,7 +806,7 @@ guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %28
 
 307:                                              ; preds = %300
   %308 = load i1, ptr @__mmio_reg_add.__already_done, align 1
-  br i1 %308, label %.thread4.i23, label %309, !prof !16
+  br i1 %308, label %.thread4.i24, label %309, !prof !16
 
 309:                                              ; preds = %307
   store i1 true, ptr @__mmio_reg_add.__already_done, align 1
@@ -816,7 +816,7 @@ guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %28
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 266, i32 2313, i64 12) #10, !srcloc !19
   call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_end\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #10, !srcloc !20
   call void asm sideeffect "857: nop\0A\09.pushsection .discard.instr_end\0A\09.long 857b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 857) #10, !srcloc !21
-  br label %.thread4.i23
+  br label %.thread4.i24
 
 310:                                              ; preds = %300
   %311 = getelementptr i8, ptr %305, i64 %290
@@ -825,36 +825,36 @@ guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %28
   %312 = lshr exact i64 %304, 4
   %313 = trunc i64 %312 to i32
   store i32 %313, ptr %22, align 4
-  br label %._crit_edge35
+  br label %._crit_edge36
 
-._crit_edge35:                                    ; preds = %297, %310
+._crit_edge36:                                    ; preds = %297, %310
   %314 = phi ptr [ %311, %310 ], [ %286, %297 ]
   %315 = phi ptr [ %305, %310 ], [ %287, %297 ]
   %316 = zext i32 %285 to i64
   %317 = getelementptr %struct.guc_mmio_reg, ptr %315, i64 %316
-  store i32 %.pre40, ptr %16, align 8
+  store i32 %.pre41, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %317, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %318 = icmp ugt ptr %317, inttoptr (i64 -4096 to ptr)
-  br i1 %318, label %.thread4.i23, label %319
+  br i1 %318, label %.thread4.i24, label %319
 
-319:                                              ; preds = %._crit_edge35
+319:                                              ; preds = %._crit_edge36
   %320 = icmp ugt ptr %317, %314
-  br i1 %320, label %.preheader.i22, label %guc_mmio_reg_add.exit24
+  br i1 %320, label %.preheader.i23, label %guc_mmio_reg_add.exit25
 
-.thread4.i23:                                     ; preds = %._crit_edge35, %309, %307
-  %321 = phi ptr [ %317, %._crit_edge35 ], [ inttoptr (i64 -12 to ptr), %307 ], [ inttoptr (i64 -12 to ptr), %309 ]
+.thread4.i24:                                     ; preds = %._crit_edge36, %309, %307
+  %321 = phi ptr [ %317, %._crit_edge36 ], [ inttoptr (i64 -12 to ptr), %307 ], [ inttoptr (i64 -12 to ptr), %309 ]
   %322 = ptrtoint ptr %321 to i64
-  br label %guc_mmio_reg_add.exit24
+  br label %guc_mmio_reg_add.exit25
 
-.preheader.i22:                                   ; preds = %319, %328
+.preheader.i23:                                   ; preds = %319, %328
   %323 = phi ptr [ %324, %328 ], [ %317, %319 ]
   %324 = getelementptr i8, ptr %323, i64 -16
   %325 = load i32, ptr %323, align 1
   %326 = load i32, ptr %324, align 1
   %327 = icmp ugt i32 %325, %326
-  br i1 %327, label %guc_mmio_reg_add.exit24, label %328
+  br i1 %327, label %guc_mmio_reg_add.exit25, label %328
 
-328:                                              ; preds = %.preheader.i22
+328:                                              ; preds = %.preheader.i23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %323, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %323, ptr noundef align 1 dereferenceable(16) %324, i64 16, i1 false)
@@ -862,15 +862,15 @@ guc_mmio_reg_add.exit19:                          ; preds = %.preheader.i17, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %329 = load ptr, ptr %12, align 8
   %330 = icmp ugt ptr %324, %329
-  br i1 %330, label %.preheader.i22, label %guc_mmio_reg_add.exit24, !llvm.loop !22
+  br i1 %330, label %.preheader.i23, label %guc_mmio_reg_add.exit25, !llvm.loop !22
 
-guc_mmio_reg_add.exit24:                          ; preds = %.preheader.i22, %328, %284, %319, %.thread4.i23
-  %331 = phi i64 [ %322, %.thread4.i23 ], [ 0, %284 ], [ 0, %319 ], [ 0, %328 ], [ 0, %.preheader.i22 ]
+guc_mmio_reg_add.exit25:                          ; preds = %.preheader.i23, %328, %284, %319, %.thread4.i24
+  %331 = phi i64 [ %322, %.thread4.i24 ], [ 0, %284 ], [ 0, %319 ], [ 0, %328 ], [ 0, %.preheader.i23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %332
 
-332:                                              ; preds = %guc_mmio_reg_add.exit24, %guc_mmio_reg_add.exit19
-  %333 = phi i64 [ %283, %guc_mmio_reg_add.exit19 ], [ %331, %guc_mmio_reg_add.exit24 ]
+332:                                              ; preds = %guc_mmio_reg_add.exit25, %guc_mmio_reg_add.exit20
+  %333 = phi i64 [ %283, %guc_mmio_reg_add.exit20 ], [ %331, %guc_mmio_reg_add.exit25 ]
   %334 = trunc i64 %333 to i32
   %335 = or i32 %213, %334
   %336 = add nuw nsw i32 %212, 1
@@ -905,7 +905,7 @@ guc_mmio_reg_add.exit24:                          ; preds = %.preheader.i22, %32
 359:                                              ; preds = %343, %338
   %360 = phi i32 [ %358, %343 ], [ %335, %338 ]
   %.not = icmp eq i32 %360, 0
-  br i1 %.not, label %.thread, label %.thread25
+  br i1 %.not, label %.thread, label %.thread26
 
 .thread:                                          ; preds = %359
   %361 = load i32, ptr %16, align 8
@@ -935,7 +935,7 @@ guc_mmio_reg_add.exit24:                          ; preds = %.preheader.i22, %32
   %377 = load ptr, ptr %376, align 8
   br label %379
 
-.thread25:                                        ; preds = %359
+.thread26:                                        ; preds = %359
   %378 = load ptr, ptr %17, align 8
   call void @kfree(ptr noundef %378) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1005,8 +1005,8 @@ guc_mmio_reg_add.exit24:                          ; preds = %.preheader.i22, %32
   call fastcc void @__guc_ads_init(ptr noundef %0)
   br label %425
 
-425:                                              ; preds = %.thread25, %416, %396, %392, %388, %379
-  %426 = phi i32 [ 0, %416 ], [ %386, %379 ], [ %390, %388 ], [ %394, %392 ], [ %414, %396 ], [ -1, %.thread25 ]
+425:                                              ; preds = %.thread26, %416, %396, %392, %388, %379
+  %426 = phi i32 [ 0, %416 ], [ %386, %379 ], [ %390, %388 ], [ %394, %392 ], [ %414, %396 ], [ -1, %.thread26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %426
 }

@@ -151,8 +151,8 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   br i1 %.not260, label %29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26
-  %.pre364 = load ptr, ptr %0, align 8
-  %.pre366 = load i32, ptr %8, align 4
+  %.pre366 = load ptr, ptr %0, align 8
+  %.pre368 = load i32, ptr %8, align 4
   br label %37
 
 29:                                               ; preds = %26
@@ -160,19 +160,19 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   store i32 %30, ptr %7, align 4
   %31 = load i32, ptr %8, align 4
   %32 = icmp eq i32 %30, %31
-  %.pre365 = load ptr, ptr %0, align 8
+  %.pre367 = load ptr, ptr %0, align 8
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %29
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds i8, ptr %.pre365, i64 %34
+  %35 = getelementptr inbounds i8, ptr %.pre367, i64 %34
   %36 = load i8, ptr %35, align 1
   %.not261 = icmp eq i8 %36, 121
   br i1 %.not261, label %43, label %37
 
 37:                                               ; preds = %._crit_edge, %29, %33
-  %38 = phi i32 [ %.pre366, %._crit_edge ], [ %30, %29 ], [ %31, %33 ]
-  %39 = phi ptr [ %.pre364, %._crit_edge ], [ %.pre365, %29 ], [ %.pre365, %33 ]
+  %38 = phi i32 [ %.pre368, %._crit_edge ], [ %30, %29 ], [ %31, %33 ]
+  %39 = phi ptr [ %.pre366, %._crit_edge ], [ %.pre367, %29 ], [ %.pre367, %33 ]
   store i32 %27, ptr %5, align 8
   %40 = tail call i32 @skip_utf8(ptr noundef %39, i32 noundef %27, i32 noundef %38, i32 noundef 1) #3
   %41 = icmp slt i32 %40, 0
@@ -301,8 +301,8 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   store i32 %102, ptr %25, align 8
   %103 = add i32 %102, -1
   %104 = load i32, ptr %80, align 8
-  %.not.i284 = icmp sgt i32 %103, %104
-  br i1 %.not.i284, label %105, label %170
+  %.not.i286 = icmp sgt i32 %103, %104
+  br i1 %.not.i286, label %105, label %170
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %0, align 8
@@ -489,7 +489,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load i32, ptr %197, align 4
   %.not268 = icmp eq i32 %198, 0
-  br i1 %.not268, label %.thread340, label %.preheader
+  br i1 %.not268, label %.thread342, label %.preheader
 
 .preheader:                                       ; preds = %194, %212
   %199 = load i32, ptr %5, align 8
@@ -500,20 +500,20 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   store i32 %201, ptr %7, align 4
   %202 = load i32, ptr %8, align 4
   %203 = icmp eq i32 %201, %202
-  %.pre367 = load ptr, ptr %0, align 8
+  %.pre369 = load ptr, ptr %0, align 8
   br i1 %203, label %208, label %204
 
 204:                                              ; preds = %200
   %205 = sext i32 %201 to i64
-  %206 = getelementptr inbounds i8, ptr %.pre367, i64 %205
+  %206 = getelementptr inbounds i8, ptr %.pre369, i64 %205
   %207 = load i8, ptr %206, align 1
   %.not269 = icmp eq i8 %207, 89
   br i1 %.not269, label %212, label %208
 
 208:                                              ; preds = %200, %204
-  %209 = tail call i32 @skip_utf8(ptr noundef %.pre367, i32 noundef %201, i32 noundef %202, i32 noundef 1) #3
+  %209 = tail call i32 @skip_utf8(ptr noundef %.pre369, i32 noundef %201, i32 noundef %202, i32 noundef 1) #3
   %210 = icmp slt i32 %209, 0
-  br i1 %210, label %.thread340, label %211
+  br i1 %210, label %.thread342, label %211
 
 211:                                              ; preds = %208
   store i32 %209, ptr %5, align 8
@@ -527,12 +527,12 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   %215 = icmp sgt i32 %214, -1
   br i1 %215, label %.preheader, label %.loopexit
 
-.thread340:                                       ; preds = %208, %194
+.thread342:                                       ; preds = %208, %194
   store i32 %195, ptr %5, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %212, %116, %.critedge.i, %147, %155, %165, %92, %95, %98, %.thread340, %190, %186, %182, %178, %174, %170, %16
-  %.3 = phi i32 [ %19, %16 ], [ %172, %170 ], [ %176, %174 ], [ %180, %178 ], [ %184, %182 ], [ %188, %186 ], [ %192, %190 ], [ 1, %.thread340 ], [ %93, %92 ], [ %96, %95 ], [ %99, %98 ], [ %117, %116 ], [ %148, %147 ], [ %156, %155 ], [ %168, %165 ], [ %125, %.critedge.i ], [ %214, %212 ], [ %45, %43 ]
+.loopexit:                                        ; preds = %43, %212, %116, %.critedge.i, %147, %155, %165, %92, %95, %98, %.thread342, %190, %186, %182, %178, %174, %170, %16
+  %.3 = phi i32 [ %19, %16 ], [ %172, %170 ], [ %176, %174 ], [ %180, %178 ], [ %184, %182 ], [ %188, %186 ], [ %192, %190 ], [ 1, %.thread342 ], [ %93, %92 ], [ %96, %95 ], [ %99, %98 ], [ %117, %116 ], [ %148, %147 ], [ %156, %155 ], [ %168, %165 ], [ %125, %.critedge.i ], [ %214, %212 ], [ %45, %43 ]
   ret i32 %.3
 }
 

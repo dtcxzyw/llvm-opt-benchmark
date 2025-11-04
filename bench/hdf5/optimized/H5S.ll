@@ -3272,8 +3272,8 @@ define range(i32 -1, 1) i32 @H5S_encode(ptr noundef %0, ptr noundef %1, ptr noun
   br label %74
 
 74:                                               ; preds = %63, %3, %70, %67
-  %.050 = phi i32 [ -1, %70 ], [ %.1.ph, %67 ], [ -1, %63 ], [ 0, %3 ]
-  ret i32 %.050
+  %.049 = phi i32 [ -1, %70 ], [ %.1.ph, %67 ], [ -1, %63 ], [ 0, %3 ]
+  ret i32 %.049
 }
 
 declare ptr @H5F_fake_alloc(i8 noundef zeroext) local_unnamed_addr #1

@@ -310,7 +310,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %113 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
   %114 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 178, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.15) #7
-  br label %.thread92
+  br label %.thread93
 
 116:                                              ; preds = %106
   %117 = load i64, ptr %17, align 8, !tbaa !10
@@ -328,7 +328,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %124 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
   %125 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 187, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.16, i64 noundef %118) #7
-  br label %.thread92
+  br label %.thread93
 
 127:                                              ; preds = %116, %120
   %.370 = phi ptr [ %121, %120 ], [ %14, %116 ]
@@ -340,7 +340,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %131 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
   %132 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 194, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.17) #7
-  br label %.thread92
+  br label %.thread93
 
 134:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -365,7 +365,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %146 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !10
   %147 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef %.sink, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread92
+  br label %.thread93
 
 148:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -376,7 +376,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %151 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
   %152 = load i64, ptr @H5E_CALLBACK_g, align 8, !tbaa !10
   %153 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 204, i64 noundef %151, i64 noundef %152, ptr noundef nonnull @.str.19) #7
-  br label %.thread92
+  br label %.thread93
 
 154:                                              ; preds = %148
   %155 = load i32, ptr %10, align 4, !tbaa !15
@@ -388,9 +388,9 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %158 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %159 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %160 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 208, i64 noundef %158, i64 noundef %159, ptr noundef nonnull @.str.20) #7
-  br label %.thread92
+  br label %.thread93
 
-.thread92:                                        ; preds = %112, %123, %130, %150, %157, %.thread
+.thread93:                                        ; preds = %112, %123, %130, %150, %157, %.thread
   %.269.ph = phi ptr [ %.370, %.thread ], [ %.370, %157 ], [ %.370, %150 ], [ %.370, %130 ], [ null, %123 ], [ null, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %211
@@ -473,10 +473,10 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %210 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L__extern_traverse, i32 noundef 235, i64 noundef %208, i64 noundef %209, ptr noundef nonnull @.str.28) #7
   br label %211
 
-211:                                              ; preds = %.thread92, %203, %207, %199, %192, %184, %172, %165, %100, %91, %84, %65, %58, %51, %44, %32, %27
-  %.071 = phi i64 [ -1, %27 ], [ -1, %32 ], [ -1, %44 ], [ -1, %51 ], [ -1, %58 ], [ -1, %65 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %165 ], [ -1, %172 ], [ -1, %184 ], [ -1, %192 ], [ -1, %199 ], [ %205, %207 ], [ %205, %203 ], [ -1, %.thread92 ]
-  %.067 = phi ptr [ null, %27 ], [ null, %32 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %84 ], [ null, %91 ], [ null, %100 ], [ %.168, %165 ], [ %.168, %172 ], [ %.168, %184 ], [ %.168, %192 ], [ %.168, %199 ], [ %.168, %207 ], [ %.168, %203 ], [ %.269.ph, %.thread92 ]
-  %.166 = phi i64 [ -1, %27 ], [ -1, %32 ], [ -1, %44 ], [ -1, %51 ], [ -1, %58 ], [ -1, %65 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %165 ], [ -1, %172 ], [ -1, %184 ], [ -1, %192 ], [ -1, %199 ], [ -1, %207 ], [ %205, %203 ], [ -1, %.thread92 ]
+211:                                              ; preds = %.thread93, %203, %207, %199, %192, %184, %172, %165, %100, %91, %84, %65, %58, %51, %44, %32, %27
+  %.071 = phi i64 [ -1, %27 ], [ -1, %32 ], [ -1, %44 ], [ -1, %51 ], [ -1, %58 ], [ -1, %65 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %165 ], [ -1, %172 ], [ -1, %184 ], [ -1, %192 ], [ -1, %199 ], [ %205, %207 ], [ %205, %203 ], [ -1, %.thread93 ]
+  %.067 = phi ptr [ null, %27 ], [ null, %32 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %84 ], [ null, %91 ], [ null, %100 ], [ %.168, %165 ], [ %.168, %172 ], [ %.168, %184 ], [ %.168, %192 ], [ %.168, %199 ], [ %.168, %207 ], [ %.168, %203 ], [ %.269.ph, %.thread93 ]
+  %.166 = phi i64 [ -1, %27 ], [ -1, %32 ], [ -1, %44 ], [ -1, %51 ], [ -1, %58 ], [ -1, %65 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %165 ], [ -1, %172 ], [ -1, %184 ], [ -1, %192 ], [ -1, %199 ], [ -1, %207 ], [ %205, %203 ], [ -1, %.thread93 ]
   %212 = load i64, ptr %12, align 8, !tbaa !10
   %213 = icmp sgt i64 %212, 0
   br i1 %213, label %214, label %221
@@ -540,7 +540,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   br label %247
 
 247:                                              ; preds = %6, %240, %243, %237
-  %.064 = phi i64 [ -1, %243 ], [ -1, %240 ], [ %.5, %237 ], [ -1, %6 ]
+  %.065 = phi i64 [ -1, %243 ], [ -1, %240 ], [ %.5, %237 ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -551,7 +551,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i64 %.064
+  ret i64 %.065
 }
 
 ; Function Attrs: nounwind uwtable

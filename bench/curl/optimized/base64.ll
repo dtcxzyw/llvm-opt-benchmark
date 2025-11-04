@@ -18,14 +18,14 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   %6 = and i64 %5, 3
   %.not83 = icmp eq i64 %6, 0
   %or.cond = and i1 %.not, %.not83
-  br i1 %or.cond, label %.preheader97, label %.loopexit
+  br i1 %or.cond, label %.preheader100, label %.loopexit
 
-.preheader97:                                     ; preds = %3
+.preheader100:                                    ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 %5
   br label %8
 
-8:                                                ; preds = %.preheader97, %13
-  %.075 = phi i64 [ %14, %13 ], [ 0, %.preheader97 ]
+8:                                                ; preds = %.preheader100, %13
+  %.075 = phi i64 [ %14, %13 ], [ 0, %.preheader100 ]
   %9 = xor i64 %.075, -1
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !11
@@ -53,51 +53,51 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 -1, i64 256, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %23, ptr noundef nonnull align 16 dereferenceable(80) @decodetable, i64 80, i1 false)
-  %.not115 = icmp eq i64 %17, 0
-  br i1 %.not115, label %._crit_edge, label %.preheader95
+  %.not118 = icmp eq i64 %17, 0
+  br i1 %.not118, label %._crit_edge, label %.preheader98
 
-.preheader95:                                     ; preds = %22, %36
-  %.067109 = phi ptr [ %scevgep, %36 ], [ %0, %22 ]
-  %.071108 = phi ptr [ %44, %36 ], [ %21, %22 ]
-  %.076107 = phi i64 [ %45, %36 ], [ 0, %22 ]
-  %scevgep = getelementptr i8, ptr %.067109, i64 4
+.preheader98:                                     ; preds = %22, %36
+  %.067112 = phi ptr [ %scevgep, %36 ], [ %0, %22 ]
+  %.071111 = phi ptr [ %44, %36 ], [ %21, %22 ]
+  %.076110 = phi i64 [ %45, %36 ], [ 0, %22 ]
+  %scevgep = getelementptr i8, ptr %.067112, i64 4
   br label %24
 
-24:                                               ; preds = %.preheader95, %30
-  %.065106 = phi i32 [ 0, %.preheader95 ], [ %35, %30 ]
-  %.066105 = phi i32 [ 0, %.preheader95 ], [ %34, %30 ]
-  %.168104 = phi ptr [ %.067109, %.preheader95 ], [ %31, %30 ]
-  %25 = load i8, ptr %.168104, align 1, !tbaa !11
+24:                                               ; preds = %.preheader98, %30
+  %.065109 = phi i32 [ 0, %.preheader98 ], [ %35, %30 ]
+  %.066108 = phi i32 [ 0, %.preheader98 ], [ %34, %30 ]
+  %.168107 = phi ptr [ %.067112, %.preheader98 ], [ %31, %30 ]
+  %25 = load i8, ptr %.168107, align 1, !tbaa !11
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = icmp eq i8 %28, -1
-  br i1 %29, label %.thread92, label %30
+  br i1 %29, label %.thread95, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %.168104, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.168107, i64 1
   %32 = zext i8 %28 to i32
-  %33 = shl i32 %.066105, 6
+  %33 = shl i32 %.066108, 6
   %34 = or i32 %33, %32
-  %35 = add nuw nsw i32 %.065106, 1
-  %exitcond121.not = icmp eq i32 %35, 4
-  br i1 %exitcond121.not, label %36, label %24, !llvm.loop !14
+  %35 = add nuw nsw i32 %.065109, 1
+  %exitcond124.not = icmp eq i32 %35, 4
+  br i1 %exitcond124.not, label %36, label %24, !llvm.loop !14
 
 36:                                               ; preds = %30
   %37 = trunc i32 %34 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %.071108, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.071111, i64 2
   store i8 %37, ptr %38, align 1, !tbaa !11
   %39 = lshr i32 %33, 8
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %.071108, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.071111, i64 1
   store i8 %40, ptr %41, align 1, !tbaa !11
   %42 = lshr i32 %33, 16
   %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %.071108, align 1, !tbaa !11
-  %44 = getelementptr inbounds nuw i8, ptr %.071108, i64 3
-  %45 = add nuw i64 %.076107, 1
-  %exitcond122.not = icmp eq i64 %45, %17
-  br i1 %exitcond122.not, label %._crit_edge, label %.preheader95, !llvm.loop !15
+  store i8 %43, ptr %.071111, align 1, !tbaa !11
+  %44 = getelementptr inbounds nuw i8, ptr %.071111, i64 3
+  %45 = add nuw i64 %.076110, 1
+  %exitcond125.not = icmp eq i64 %45, %17
+  br i1 %exitcond125.not, label %._crit_edge, label %.preheader98, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %36, %22
   %.071.lcssa = phi ptr [ %21, %22 ], [ %44, %36 ]
@@ -105,40 +105,40 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   br i1 %.not84, label %.preheader, label %73
 
 .preheader:                                       ; preds = %._crit_edge, %60
-  %.0114 = phi i64 [ %.1, %60 ], [ 0, %._crit_edge ]
-  %.061113 = phi i32 [ %61, %60 ], [ 0, %._crit_edge ]
-  %.062112 = phi i32 [ %.163, %60 ], [ 0, %._crit_edge ]
-  %.3111 = phi ptr [ %.4, %60 ], [ %.067.lcssa, %._crit_edge ]
-  %46 = load i8, ptr %.3111, align 1, !tbaa !11
+  %.0117 = phi i64 [ %.1, %60 ], [ 0, %._crit_edge ]
+  %.061116 = phi i32 [ %61, %60 ], [ 0, %._crit_edge ]
+  %.062115 = phi i32 [ %.163, %60 ], [ 0, %._crit_edge ]
+  %.3114 = phi ptr [ %.4, %60 ], [ %.067.lcssa, %._crit_edge ]
+  %46 = load i8, ptr %.3114, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 61
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %.preheader
-  %49 = shl i32 %.062112, 6
-  %50 = add nuw nsw i64 %.0114, 1
-  %.not86 = icmp ult i64 %.0114, %.075
-  br i1 %.not86, label %60, label %.thread92
+  %49 = shl i32 %.062115, 6
+  %50 = add nuw nsw i64 %.0117, 1
+  %.not86 = icmp ult i64 %.0117, %.075
+  br i1 %.not86, label %60, label %.thread95
 
 51:                                               ; preds = %.preheader
   %52 = zext i8 %46 to i64
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !11
   %55 = icmp eq i8 %54, -1
-  br i1 %55, label %.thread92, label %56
+  br i1 %55, label %.thread95, label %56
 
 56:                                               ; preds = %51
   %57 = zext i8 %54 to i32
-  %58 = shl i32 %.062112, 6
+  %58 = shl i32 %.062115, 6
   %59 = or i32 %58, %57
   br label %60
 
 60:                                               ; preds = %56, %48
   %.163 = phi i32 [ %49, %48 ], [ %59, %56 ]
-  %.1 = phi i64 [ %50, %48 ], [ %.0114, %56 ]
-  %.4 = getelementptr inbounds nuw i8, ptr %.3111, i64 1
-  %61 = add nuw nsw i32 %.061113, 1
-  %exitcond123.not = icmp eq i32 %61, 4
-  br i1 %exitcond123.not, label %62, label %.preheader, !llvm.loop !16
+  %.1 = phi i64 [ %50, %48 ], [ %.0117, %56 ]
+  %.4 = getelementptr inbounds nuw i8, ptr %.3114, i64 1
+  %61 = add nuw nsw i32 %.061116, 1
+  %exitcond126.not = icmp eq i32 %61, 4
+  br i1 %exitcond126.not, label %62, label %.preheader, !llvm.loop !16
 
 62:                                               ; preds = %60
   %63 = icmp eq i64 %.075, 1
@@ -166,12 +166,12 @@ define dso_local range(i32 0, 62) i32 @curlx_base64_decode(ptr noundef readonly 
   store i64 %19, ptr %2, align 8, !tbaa !9
   br label %.loopexit
 
-.thread92:                                        ; preds = %24, %51, %48
+.thread95:                                        ; preds = %24, %51, %48
   tail call void @free(ptr noundef %21) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %15, %3, %.thread92, %73
-  %.064 = phi i32 [ 61, %.thread92 ], [ 0, %73 ], [ 61, %3 ], [ 27, %15 ], [ 61, %13 ]
+.loopexit:                                        ; preds = %13, %15, %3, %.thread95, %73
+  %.064 = phi i32 [ 61, %.thread95 ], [ 0, %73 ], [ 61, %3 ], [ 27, %15 ], [ 61, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.064
 }

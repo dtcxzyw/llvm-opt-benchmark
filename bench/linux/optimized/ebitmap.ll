@@ -971,20 +971,20 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
 
 24:                                               ; preds = %19
   %25 = icmp eq i32 %12, 0
-  br i1 %25, label %91, label %.preheader20
+  br i1 %25, label %91, label %.preheader21
 
-.preheader20:                                     ; preds = %24, %88
+.preheader21:                                     ; preds = %24, %88
   %26 = phi ptr [ %69, %88 ], [ null, %24 ]
   %27 = phi i32 [ %89, %88 ], [ 0, %24 ]
   %28 = load i64, ptr %3, align 8
   %29 = icmp ult i64 %28, 4
   br i1 %29, label %30, label %32
 
-30:                                               ; preds = %.preheader20
+30:                                               ; preds = %.preheader21
   %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
   br label %91
 
-32:                                               ; preds = %.preheader20
+32:                                               ; preds = %.preheader21
   %33 = load ptr, ptr %1, align 8
   %34 = load i32, ptr %33, align 1
   %35 = getelementptr i8, ptr %33, i64 4
@@ -1026,16 +1026,16 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
   %57 = load ptr, ptr @ebitmap_node_cachep, align 8
   %58 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %57, i32 noundef 3520) #12
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %63, label %.thread16.sink.split
+  br i1 %59, label %63, label %.thread17.sink.split
 
-.thread16.sink.split:                             ; preds = %56
+.thread17.sink.split:                             ; preds = %56
   %60 = urem i32 %34, 384
   %61 = sub i32 %34, %60
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 56
   store i32 %61, ptr %62, align 8
   %. = select i1 %48, ptr %0, ptr %26
   store ptr %58, ptr %., align 8
-  br label %.thread16
+  br label %.thread17
 
 63:                                               ; preds = %56
   %64 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #14
@@ -1043,23 +1043,23 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
 
 65:                                               ; preds = %49
   %66 = icmp ugt i32 %34, %52
-  br i1 %66, label %.thread16, label %67
+  br i1 %66, label %.thread17, label %67
 
 67:                                               ; preds = %65
   %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %34, i32 noundef %52) #14
   br label %91
 
-.thread16:                                        ; preds = %.thread16.sink.split, %65
-  %69 = phi ptr [ %26, %65 ], [ %58, %.thread16.sink.split ]
+.thread17:                                        ; preds = %.thread17.sink.split, %65
+  %69 = phi ptr [ %26, %65 ], [ %58, %.thread17.sink.split ]
   %70 = load i64, ptr %3, align 8
   %71 = icmp ult i64 %70, 8
   br i1 %71, label %72, label %74
 
-72:                                               ; preds = %.thread16
+72:                                               ; preds = %.thread17
   %73 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
   br label %91
 
-74:                                               ; preds = %.thread16
+74:                                               ; preds = %.thread17
   %75 = load ptr, ptr %1, align 8
   %76 = load i64, ptr %75, align 1
   %77 = getelementptr i8, ptr %75, i64 8
@@ -1083,7 +1083,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef capture
 88:                                               ; preds = %80, %74
   %89 = add nuw i32 %27, 1
   %90 = icmp eq i32 %89, %12
-  br i1 %90, label %.thread, label %.preheader20, !llvm.loop !32
+  br i1 %90, label %.thread, label %.preheader21, !llvm.loop !32
 
 91:                                               ; preds = %24, %67, %45, %39, %17, %30, %72, %63
   %92 = phi i32 [ -22, %30 ], [ -22, %72 ], [ -12, %63 ], [ -22, %17 ], [ -22, %39 ], [ -22, %45 ], [ -22, %67 ], [ -22, %24 ]

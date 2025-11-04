@@ -1224,9 +1224,9 @@ _codecs_encode_impl.exit:                         ; preds = %38, %53, %.thread65
   br label %57
 
 57:                                               ; preds = %.thread61, %29, %44, %51, %_codecs_encode_impl.exit, %16, %45
-  %.039 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_encode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
+  %.040 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_encode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.039
+  ret ptr %.040
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1358,9 +1358,9 @@ _codecs_decode_impl.exit:                         ; preds = %38, %53, %.thread65
   br label %57
 
 57:                                               ; preds = %.thread61, %29, %44, %51, %_codecs_decode_impl.exit, %16, %45
-  %.039 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_decode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
+  %.040 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_decode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.039
+  ret ptr %.040
 }
 
 ; Function Attrs: nounwind uwtable

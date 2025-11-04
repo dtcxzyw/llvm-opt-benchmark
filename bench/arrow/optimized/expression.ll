@@ -22976,17 +22976,15 @@ _ZN5arrow6ResultINS_7compute10ExpressionEED2Ev.exit153: ; preds = %450, %_ZN5arr
 
 478:                                              ; preds = %323, %_ZN5arrow6ResultINS_7compute10ExpressionEED2Ev.exit153
   %.348 = phi i32 [ %.853, %_ZN5arrow6ResultINS_7compute10ExpressionEED2Ev.exit153 ], [ %.449, %323 ]
-  switch i32 %.348, label %.loopexit [
-    i32 13, label %.thread195
-    i32 12, label %.thread197
-  ]
+  %cond = icmp eq i32 %.348, 13
+  br i1 %cond, label %.thread195, label %.loopexit
 
 .thread195:                                       ; preds = %478, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i116, %_ZN5arrow6ResultINS_7compute10ExpressionEED2Ev.exit153, %128, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
   %479 = getelementptr inbounds nuw i8, ptr %.sroa.0168.0201, i64 16
   %.not = icmp eq ptr %479, %117
   br i1 %.not, label %.thread197, label %128
 
-.thread197:                                       ; preds = %.thread195, %478, %_ZN5arrow6StatusD2Ev.exit87
+.thread197:                                       ; preds = %.thread195, %_ZN5arrow6StatusD2Ev.exit87
   store ptr null, ptr %0, align 8, !tbaa !266
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %481 = load ptr, ptr %1, align 8, !tbaa !62

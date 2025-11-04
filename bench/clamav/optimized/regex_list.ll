@@ -1346,7 +1346,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 6:                                                ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.40) #14
-  br label %.thread97
+  br label %121
 
 7:                                                ; preds = %4
   %8 = icmp eq ptr %1, null
@@ -1354,7 +1354,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 9:                                                ; preds = %7
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.41) #14
-  br label %.thread97
+  br label %121
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %3, null
@@ -1362,7 +1362,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 12:                                               ; preds = %10
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.42) #14
-  br label %.thread97
+  br label %121
 
 13:                                               ; preds = %10
   %14 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
@@ -1371,7 +1371,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 16:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.43) #14
-  br label %.thread97
+  br label %121
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %3, align 8, !tbaa !42
@@ -1390,7 +1390,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 24:                                               ; preds = %21
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.44) #14
-  br label %.thread97
+  br label %121
 
 25:                                               ; preds = %21, %20
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1413,7 +1413,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 36:                                               ; preds = %31
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.45) #14
-  br label %.thread97
+  br label %121
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1440,7 +1440,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
 
 list_add_tail.exit:                               ; preds = %43, %46
   store ptr %14, ptr %44, align 8, !tbaa !88
-  br label %124
+  br label %.critedge
 
 48:                                               ; preds = %25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1456,7 +1456,7 @@ list_add_tail.exit:                               ; preds = %43, %46
 
 .thread:                                          ; preds = %48
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.46) #14
-  br label %.thread97
+  br label %121
 
 57:                                               ; preds = %48
   store ptr %56, ptr %52, align 8, !tbaa !36
@@ -1592,36 +1592,36 @@ list_add_tail.exit:                               ; preds = %43, %46
   %116 = load ptr, ptr %52, align 8, !tbaa !36
   %117 = tail call ptr @cli_max_realloc(ptr noundef %116, i64 noundef %54) #14
   %.not86 = icmp eq ptr %117, null
-  br i1 %.not86, label %.thread97, label %118
+  br i1 %.not86, label %121, label %118
 
 118:                                              ; preds = %115
   store ptr %117, ptr %52, align 8, !tbaa !36
-  br label %.thread97
+  br label %121
 
 add_newsuffix.exit:                               ; preds = %105
   %119 = load i64, ptr %49, align 8, !tbaa !83
   %120 = add i64 %119, 1
   store i64 %120, ptr %49, align 8, !tbaa !83
+  br label %.critedge
+
+121:                                              ; preds = %6, %9, %12, %16, %36, %24, %118, %115, %.thread
+  %.069.ph = phi i32 [ 20, %.thread ], [ %.064.i.ph, %115 ], [ %.064.i.ph, %118 ], [ 20, %24 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ]
+  %.068.ph = phi ptr [ %14, %.thread ], [ %14, %115 ], [ %14, %118 ], [ %14, %24 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ]
+  %122 = load ptr, ptr %.068.ph, align 8, !tbaa !42
+  %.not89 = icmp eq ptr %122, null
+  br i1 %.not89, label %124, label %123
+
+123:                                              ; preds = %121
+  tail call void @free(ptr noundef nonnull %122) #14
   br label %124
 
-.thread97:                                        ; preds = %115, %6, %9, %12, %16, %36, %24, %.thread, %118
-  %.069.ph = phi i32 [ %.064.i.ph, %118 ], [ 20, %.thread ], [ 20, %24 ], [ 34, %36 ], [ 20, %16 ], [ 2, %12 ], [ 2, %9 ], [ 2, %6 ], [ %.064.i.ph, %115 ]
-  %.068.ph = phi ptr [ %14, %118 ], [ %14, %.thread ], [ %14, %24 ], [ %14, %36 ], [ null, %16 ], [ null, %12 ], [ null, %9 ], [ null, %6 ], [ %14, %115 ]
-  %121 = load ptr, ptr %.068.ph, align 8, !tbaa !42
-  %.not89 = icmp eq ptr %121, null
-  br i1 %.not89, label %123, label %122
-
-122:                                              ; preds = %.thread97
-  tail call void @free(ptr noundef nonnull %121) #14
-  br label %123
-
-123:                                              ; preds = %122, %.thread97
+124:                                              ; preds = %123, %121
   tail call void @free(ptr noundef nonnull %.068.ph) #14
-  br label %124
+  br label %.critedge
 
-124:                                              ; preds = %list_add_tail.exit, %add_newsuffix.exit, %123
-  %.0 = phi i32 [ %.069.ph, %123 ], [ 0, %list_add_tail.exit ], [ 0, %add_newsuffix.exit ]
-  ret i32 %.0
+.critedge:                                        ; preds = %list_add_tail.exit, %add_newsuffix.exit, %124
+  %.06999 = phi i32 [ %.069.ph, %124 ], [ 0, %list_add_tail.exit ], [ 0, %add_newsuffix.exit ]
+  ret i32 %.06999
 }
 
 ; Function Attrs: inlinehint nounwind uwtable

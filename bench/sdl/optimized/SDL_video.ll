@@ -4988,10 +4988,10 @@ define hidden float @SDL_GetWindowDisplayScale_REAL(ptr noundef %0) local_unname
 define hidden noundef zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SDL_Rect, align 4
   %5 = load ptr, ptr @_this, align 8
-  %.not290 = icmp ne ptr %5, null
-  br i1 %.not290, label %.lr.ph295, label %tailrecurse._crit_edge
+  %.not293 = icmp ne ptr %5, null
+  br i1 %.not293, label %.lr.ph298, label %tailrecurse._crit_edge
 
-.lr.ph295:                                        ; preds = %3
+.lr.ph298:                                        ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 269
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 271
@@ -5005,9 +5005,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
   br label %184
 
-14:                                               ; preds = %.lr.ph295, %tailrecurse
-  %ret.known.tr293 = phi i1 [ false, %.lr.ph295 ], [ true, %tailrecurse ]
-  %.tr242291 = phi i32 [ %1, %.lr.ph295 ], [ 0, %tailrecurse ]
+14:                                               ; preds = %.lr.ph298, %tailrecurse
+  %ret.known.tr296 = phi i1 [ false, %.lr.ph298 ], [ true, %tailrecurse ]
+  %.tr245294 = phi i32 [ %1, %.lr.ph298 ], [ 0, %tailrecurse ]
   %15 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 1) #19
   br i1 %15, label %18, label %16
 
@@ -5025,16 +5025,16 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 21:                                               ; preds = %18
   %22 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
-  %.not136 = icmp eq i32 %.tr242291, 0
-  %or.cond384 = or i1 %.not136, %23
-  br i1 %or.cond384, label %.preheader, label %30
+  %.not136 = icmp eq i32 %.tr245294, 0
+  %or.cond387 = or i1 %.not136, %23
+  br i1 %or.cond387, label %.preheader, label %30
 
 .preheader:                                       ; preds = %21, %18
   %24 = load ptr, ptr @_this, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 800
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph, label %.thread180
+  br i1 %27, label %.lr.ph, label %.thread183
 
 .lr.ph:                                           ; preds = %.preheader
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 808
@@ -5045,7 +5045,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 30:                                               ; preds = %21
   %31 = tail call ptr @SDL_GetVideoDisplayForFullscreenWindow(ptr noundef nonnull %0)
   %.not138 = icmp eq ptr %31, null
-  br i1 %.not138, label %.thread192, label %.thread162
+  br i1 %.not138, label %.thread195, label %.thread165
 
 32:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
@@ -5059,19 +5059,19 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 38:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread180, label %32, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread183, label %32, !llvm.loop !28
 
 .thread:                                          ; preds = %32
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = icmp eq i32 %26, %39
-  br i1 %40, label %.thread180, label %.thread206.preheader
+  br i1 %40, label %.thread183, label %.thread209.preheader
 
-.thread162:                                       ; preds = %30
+.thread165:                                       ; preds = %30
   %41 = load ptr, ptr @_this, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %SDL_GetWindowFullscreenMode_REAL.exit.thread.sink.split, label %42
 
-42:                                               ; preds = %.thread162
+42:                                               ; preds = %.thread165
   %43 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 1) #19
   br i1 %43, label %44, label %SDL_GetWindowFullscreenMode_REAL.exit.thread.sink.split
 
@@ -5091,64 +5091,64 @@ SDL_GetWindowFullscreenMode_REAL.exit:            ; preds = %44
 
 49:                                               ; preds = %SDL_GetWindowFullscreenMode_REAL.exit
   store i8 1, ptr %6, align 1
-  br label %.thread206.preheader
+  br label %.thread209.preheader
 
-SDL_GetWindowFullscreenMode_REAL.exit.thread.sink.split: ; preds = %44, %42, %.thread162
-  %.str.1.sink = phi ptr [ @.str.1, %.thread162 ], [ @.str.20, %42 ], [ @.str.22, %44 ]
+SDL_GetWindowFullscreenMode_REAL.exit.thread.sink.split: ; preds = %44, %42, %.thread165
+  %.str.1.sink = phi ptr [ @.str.1, %.thread165 ], [ @.str.20, %42 ], [ @.str.22, %44 ]
   %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.1.sink) #19
   br label %SDL_GetWindowFullscreenMode_REAL.exit.thread
 
 SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullscreenMode_REAL.exit.thread.sink.split, %SDL_GetWindowFullscreenMode_REAL.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
-  br label %.thread206.preheader
+  br label %.thread209.preheader
 
-.thread206.preheader:                             ; preds = %SDL_GetWindowFullscreenMode_REAL.exit.thread, %49, %.thread
-  %.not136350 = phi i1 [ true, %.thread ], [ false, %49 ], [ false, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
-  %.0117348 = phi i32 [ 0, %.thread ], [ %.tr242291, %49 ], [ %.tr242291, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
-  %.0123218.ph = phi ptr [ null, %.thread ], [ %48, %49 ], [ null, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
-  %.1125165211.ph = phi ptr [ %34, %.thread ], [ %31, %49 ], [ %31, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+.thread209.preheader:                             ; preds = %SDL_GetWindowFullscreenMode_REAL.exit.thread, %49, %.thread
+  %.not136353 = phi i1 [ true, %.thread ], [ false, %49 ], [ false, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+  %.0117351 = phi i32 [ 0, %.thread ], [ %.tr245294, %49 ], [ %.tr245294, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+  %.0123221.ph = phi ptr [ null, %.thread ], [ %48, %49 ], [ null, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+  %.1125168214.ph = phi ptr [ %34, %.thread ], [ %31, %49 ], [ %31, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
   %51 = load ptr, ptr @_this, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 800
   %53 = load i32, ptr %52, align 8
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph287, label %.thread206._crit_edge
+  br i1 %54, label %.lr.ph290, label %.thread209._crit_edge
 
-.lr.ph287:                                        ; preds = %.thread206.preheader, %.thread206
-  %55 = phi ptr [ %66, %.thread206 ], [ %51, %.thread206.preheader ]
-  %indvars.iv330 = phi i64 [ %indvars.iv.next331, %.thread206 ], [ 0, %.thread206.preheader ]
+.lr.ph290:                                        ; preds = %.thread209.preheader, %.thread209
+  %55 = phi ptr [ %66, %.thread209 ], [ %51, %.thread209.preheader ]
+  %indvars.iv333 = phi i64 [ %indvars.iv.next334, %.thread209 ], [ 0, %.thread209.preheader ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 808
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv330
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv333
   %59 = load ptr, ptr %58, align 8
-  %.not155 = icmp eq ptr %59, %.1125165211.ph
-  br i1 %.not155, label %.thread206, label %60
+  %.not155 = icmp eq ptr %59, %.1125168214.ph
+  br i1 %.not155, label %.thread209, label %60
 
-60:                                               ; preds = %.lr.ph287
+60:                                               ; preds = %.lr.ph290
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, %0
-  br i1 %63, label %64, label %.thread206
+  br i1 %63, label %64, label %.thread209
 
 64:                                               ; preds = %60
   %65 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %59, ptr noundef null)
   store ptr null, ptr %61, align 8
   %.pre = load ptr, ptr @_this, align 8
-  br label %.thread206
+  br label %.thread209
 
-.thread206:                                       ; preds = %64, %60, %.lr.ph287
-  %66 = phi ptr [ %.pre, %64 ], [ %55, %60 ], [ %55, %.lr.ph287 ]
-  %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
+.thread209:                                       ; preds = %64, %60, %.lr.ph290
+  %66 = phi ptr [ %.pre, %64 ], [ %55, %60 ], [ %55, %.lr.ph290 ]
+  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 800
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next331, %69
-  br i1 %70, label %.lr.ph287, label %.thread206._crit_edge, !llvm.loop !29
+  %70 = icmp slt i64 %indvars.iv.next334, %69
+  br i1 %70, label %.lr.ph290, label %.thread209._crit_edge, !llvm.loop !29
 
-.thread206._crit_edge:                            ; preds = %.thread206, %.thread206.preheader
-  br i1 %.not136350, label %127, label %71
+.thread209._crit_edge:                            ; preds = %.thread209, %.thread209.preheader
+  br i1 %.not136353, label %127, label %71
 
-71:                                               ; preds = %.thread206._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 104
+71:                                               ; preds = %.thread209._crit_edge
+  %72 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 104
   %73 = load ptr, ptr %72, align 8
   %.not145 = icmp eq ptr %73, null
   %.not146 = icmp eq ptr %73, %0
@@ -5161,72 +5161,72 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
 
 76:                                               ; preds = %74, %71
   %77 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %78 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 100
+  %78 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 100
   store i8 %77, ptr %78, align 4
-  %79 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %.1125165211.ph, ptr noundef %.0123218.ph)
+  %79 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %.1125168214.ph, ptr noundef %.0123221.ph)
   br i1 %79, label %80, label %tailrecurse
 
 80:                                               ; preds = %76
-  br i1 %2, label %81, label %.thread172
+  br i1 %2, label %81, label %.thread175
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr @_this, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 256
   %84 = load ptr, ptr %83, align 8
   %.not147 = icmp eq ptr %84, null
-  br i1 %.not147, label %.thread170, label %85
+  br i1 %.not147, label %.thread173, label %85
 
 85:                                               ; preds = %81
-  %86 = tail call i32 %84(ptr noundef nonnull %82, ptr noundef nonnull %0, ptr noundef nonnull %.1125165211.ph, i32 noundef %.0117348) #19
-  switch i32 %86, label %.thread172 [
-    i32 1, label %.thread170
+  %86 = tail call i32 %84(ptr noundef nonnull %82, ptr noundef nonnull %0, ptr noundef nonnull %.1125168214.ph, i32 noundef %.0117351) #19
+  switch i32 %86, label %.thread175 [
+    i32 1, label %.thread173
     i32 0, label %91
   ]
 
-.thread170:                                       ; preds = %81, %85
+.thread173:                                       ; preds = %81, %85
   %87 = load i64, ptr %10, align 8
   %88 = and i64 %87, 1
   %.not148 = icmp eq i64 %88, 0
-  br i1 %.not148, label %89, label %.thread172
+  br i1 %.not148, label %89, label %.thread175
 
-89:                                               ; preds = %.thread170
+89:                                               ; preds = %.thread173
   %90 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 535, i32 noundef 0, i32 noundef 0) #19
-  br label %.thread172
+  br label %.thread175
 
 91:                                               ; preds = %85
   store i8 0, ptr %78, align 4
   br label %tailrecurse
 
-.thread172:                                       ; preds = %85, %80, %89, %.thread170
-  %.0113 = phi i1 [ %.not147, %.thread170 ], [ %.not147, %89 ], [ false, %80 ], [ false, %85 ]
+.thread175:                                       ; preds = %85, %80, %89, %.thread173
+  %.0113 = phi i1 [ %.not147, %.thread173 ], [ %.not147, %89 ], [ false, %80 ], [ false, %85 ]
   %92 = load i64, ptr %10, align 8
   %93 = and i64 %92, 1
   %.not149 = icmp eq i64 %93, 0
-  br i1 %.not149, label %.thread195, label %94
+  br i1 %.not149, label %.thread198, label %94
 
-94:                                               ; preds = %.thread172
-  %95 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 104
+94:                                               ; preds = %.thread175
+  %95 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 104
   store ptr %0, ptr %95, align 8
   %96 = load ptr, ptr @_this, align 8
   %97 = getelementptr i8, ptr %96, i64 908
   %.val = load i32, ptr %97, align 4
   %98 = and i32 %.val, 4
-  %.not238 = icmp eq i32 %98, 0
-  br i1 %.not238, label %99, label %124
+  %.not241 = icmp eq i32 %98, 0
+  br i1 %.not241, label %99, label %124
 
 99:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not150 = icmp eq ptr %.0123218.ph, null
-  %100 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 40
-  %101 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 44
-  %102 = getelementptr inbounds nuw i8, ptr %.0123218.ph, i64 8
-  %103 = getelementptr inbounds nuw i8, ptr %.0123218.ph, i64 12
-  %.1125165211.ph374.sink = select i1 %.not150, ptr %.1125165211.ph, ptr %.0123218.ph
+  %.not150 = icmp eq ptr %.0123221.ph, null
+  %100 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %.0123221.ph, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0123221.ph, i64 12
+  %.1125168214.ph377.sink = select i1 %.not150, ptr %.1125168214.ph, ptr %.0123221.ph
   %.0116.in = select i1 %.not150, ptr %100, ptr %102
   %.0115.in = select i1 %.not150, ptr %101, ptr %103
   %.0115 = load i32, ptr %.0115.in, align 4
   %.0116 = load i32, ptr %.0116.in, align 8
-  %104 = load i32, ptr %.1125165211.ph374.sink, align 8
+  %104 = load i32, ptr %.1125168214.ph377.sink, align 8
   %105 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %104, ptr noundef nonnull %4)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load i32, ptr %106, align 8
@@ -5263,95 +5263,95 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
 
 123:                                              ; preds = %122, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre333 = load ptr, ptr @_this, align 8
-  %.phi.trans.insert = getelementptr i8, ptr %.pre333, i64 908
-  %.val157.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre336 = load ptr, ptr @_this, align 8
+  %.phi.trans.insert = getelementptr i8, ptr %.pre336, i64 908
+  %.val160.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %124
 
 124:                                              ; preds = %123, %94
-  %.val157 = phi i32 [ %.val157.pre, %123 ], [ %.val, %94 ]
-  %125 = and i32 %.val157, 32
-  %.not239 = icmp eq i32 %125, 0
-  br i1 %.not239, label %126, label %.thread195
+  %.val160 = phi i32 [ %.val160.pre, %123 ], [ %.val, %94 ]
+  %125 = and i32 %.val160, 32
+  %.not242 = icmp eq i32 %125, 0
+  br i1 %.not242, label %126, label %.thread198
 
 126:                                              ; preds = %124
   call fastcc void @SDL_RestoreMousePosition(ptr noundef nonnull %0)
-  br label %.thread195
+  br label %.thread198
 
-127:                                              ; preds = %.thread206._crit_edge
-  %128 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 100
+127:                                              ; preds = %.thread209._crit_edge
+  %128 = getelementptr inbounds nuw i8, ptr %.1125168214.ph, i64 100
   store i8 0, ptr %128, align 4
-  %129 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %.1125165211.ph, ptr noundef null)
-  br label %.thread180
+  %129 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef nonnull %.1125168214.ph, ptr noundef null)
+  br label %.thread183
 
-.thread180:                                       ; preds = %.preheader, %.thread, %38, %127
-  %.not140221 = phi i1 [ false, %127 ], [ true, %38 ], [ true, %.thread ], [ true, %.preheader ]
-  %.1125165213 = phi ptr [ %.1125165211.ph, %127 ], [ null, %38 ], [ null, %.thread ], [ null, %.preheader ]
-  br i1 %2, label %130, label %.thread186
+.thread183:                                       ; preds = %.preheader, %.thread, %38, %127
+  %.not140224 = phi i1 [ false, %127 ], [ true, %38 ], [ true, %.thread ], [ true, %.preheader ]
+  %.1125168216 = phi ptr [ %.1125168214.ph, %127 ], [ null, %38 ], [ null, %.thread ], [ null, %.preheader ]
+  br i1 %2, label %130, label %.thread189
 
-130:                                              ; preds = %.thread180
+130:                                              ; preds = %.thread183
   %131 = load ptr, ptr @_this, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 256
   %133 = load ptr, ptr %132, align 8
   %.not141 = icmp eq ptr %133, null
-  br i1 %.not141, label %.thread184, label %134
+  br i1 %.not141, label %.thread187, label %134
 
 134:                                              ; preds = %130
-  br i1 %.not140221, label %135, label %.thread181
+  br i1 %.not140224, label %135, label %.thread184
 
 135:                                              ; preds = %134
   %136 = tail call ptr @SDL_GetVideoDisplayForFullscreenWindow(ptr noundef %0)
   %.not142 = icmp eq ptr %136, null
-  br i1 %.not142, label %.thread184, label %..thread181_crit_edge
+  br i1 %.not142, label %.thread187, label %..thread184_crit_edge
 
-..thread181_crit_edge:                            ; preds = %135
-  %.pre335 = load ptr, ptr @_this, align 8
-  %.phi.trans.insert336 = getelementptr inbounds nuw i8, ptr %.pre335, i64 256
-  %.pre337 = load ptr, ptr %.phi.trans.insert336, align 8
-  br label %.thread181
+..thread184_crit_edge:                            ; preds = %135
+  %.pre338 = load ptr, ptr @_this, align 8
+  %.phi.trans.insert339 = getelementptr inbounds nuw i8, ptr %.pre338, i64 256
+  %.pre340 = load ptr, ptr %.phi.trans.insert339, align 8
+  br label %.thread184
 
-.thread181:                                       ; preds = %..thread181_crit_edge, %134
-  %137 = phi ptr [ %.pre337, %..thread181_crit_edge ], [ %133, %134 ]
-  %138 = phi ptr [ %.pre335, %..thread181_crit_edge ], [ %131, %134 ]
-  %139 = phi ptr [ %136, %..thread181_crit_edge ], [ %.1125165213, %134 ]
+.thread184:                                       ; preds = %..thread184_crit_edge, %134
+  %137 = phi ptr [ %.pre340, %..thread184_crit_edge ], [ %133, %134 ]
+  %138 = phi ptr [ %.pre338, %..thread184_crit_edge ], [ %131, %134 ]
+  %139 = phi ptr [ %136, %..thread184_crit_edge ], [ %.1125168216, %134 ]
   %140 = tail call i32 %137(ptr noundef nonnull %138, ptr noundef %0, ptr noundef nonnull %139, i32 noundef 0) #19
-  switch i32 %140, label %.thread186 [
-    i32 1, label %.thread184
+  switch i32 %140, label %.thread189 [
+    i32 1, label %.thread187
     i32 0, label %184
   ]
 
-.thread184:                                       ; preds = %130, %135, %.thread181
+.thread187:                                       ; preds = %130, %135, %.thread184
   %141 = load i64, ptr %10, align 8
   %142 = and i64 %141, 1
   %.not143 = icmp eq i64 %142, 0
-  br i1 %.not143, label %.thread186, label %143
+  br i1 %.not143, label %.thread189, label %143
 
-143:                                              ; preds = %.thread184
+143:                                              ; preds = %.thread187
   %144 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 536, i32 noundef 0, i32 noundef 0) #19
-  br label %.thread186
+  br label %.thread189
 
-.thread186:                                       ; preds = %.thread181, %.thread184, %143, %.thread180
-  %.0110 = phi i1 [ false, %.thread180 ], [ false, %.thread181 ], [ %.not141, %.thread184 ], [ %.not141, %143 ]
+.thread189:                                       ; preds = %.thread184, %.thread187, %143, %.thread183
+  %.0110 = phi i1 [ false, %.thread183 ], [ false, %.thread184 ], [ %.not141, %.thread187 ], [ %.not141, %143 ]
   %145 = load i64, ptr %10, align 8
   %146 = and i64 %145, 1
   %.not144 = icmp eq i64 %146, 0
   br i1 %.not144, label %147, label %173
 
-147:                                              ; preds = %.thread186
-  br i1 %.not140221, label %150, label %148
+147:                                              ; preds = %.thread189
+  br i1 %.not140224, label %150, label %148
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds nuw i8, ptr %.1125165213, i64 104
+  %149 = getelementptr inbounds nuw i8, ptr %.1125168216, i64 104
   store ptr null, ptr %149, align 8
   br label %150
 
 150:                                              ; preds = %148, %147
   %151 = load ptr, ptr @_this, align 8
   %152 = getelementptr i8, ptr %151, i64 908
-  %.val156 = load i32, ptr %152, align 4
-  %153 = and i32 %.val156, 4
-  %.not240 = icmp eq i32 %153, 0
-  br i1 %.not240, label %154, label %167
+  %.val159 = load i32, ptr %152, align 4
+  %153 = and i32 %.val159, 4
+  %.not243 = icmp eq i32 %153, 0
+  br i1 %.not243, label %154, label %167
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5374,42 +5374,42 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %167
 
 167:                                              ; preds = %160, %166, %150
-  br i1 %.not140221, label %.thread192, label %168
+  br i1 %.not140224, label %.thread195, label %168
 
 168:                                              ; preds = %167
   %169 = load ptr, ptr @_this, align 8
   %170 = getelementptr i8, ptr %169, i64 908
-  %.val158 = load i32, ptr %170, align 4
-  %171 = and i32 %.val158, 32
-  %.not241 = icmp eq i32 %171, 0
-  br i1 %.not241, label %172, label %.thread195
+  %.val161 = load i32, ptr %170, align 4
+  %171 = and i32 %.val161, 32
+  %.not244 = icmp eq i32 %171, 0
+  br i1 %.not244, label %172, label %.thread198
 
 172:                                              ; preds = %168
   tail call fastcc void @SDL_RestoreMousePosition(ptr noundef nonnull %0)
-  br label %.thread195
+  br label %.thread198
 
-173:                                              ; preds = %.thread186
-  %.not153 = icmp eq ptr %.1125165213, null
-  br i1 %.not153, label %.thread192, label %.thread195
+173:                                              ; preds = %.thread189
+  %.not153 = icmp eq ptr %.1125168216, null
+  br i1 %.not153, label %.thread195, label %.thread198
 
-.thread195:                                       ; preds = %172, %168, %124, %126, %.thread172, %173
-  %.0124198 = phi ptr [ %.1125165213, %173 ], [ %.1125165211.ph, %.thread172 ], [ %.1125165211.ph, %126 ], [ %.1125165211.ph, %124 ], [ %.1125165213, %168 ], [ %.1125165213, %172 ]
+.thread198:                                       ; preds = %172, %168, %124, %126, %.thread175, %173
+  %.0124201 = phi ptr [ %.1125168216, %173 ], [ %.1125168214.ph, %.thread175 ], [ %.1125168214.ph, %126 ], [ %.1125168214.ph, %124 ], [ %.1125168216, %168 ], [ %.1125168216, %172 ]
   %174 = load i64, ptr %10, align 8
   %175 = and i64 %174, 1
   %.not154 = icmp eq i64 %175, 0
-  br i1 %.not154, label %.thread192, label %176
+  br i1 %.not154, label %.thread195, label %176
 
-176:                                              ; preds = %.thread195
+176:                                              ; preds = %.thread198
   %177 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %179, label %.thread192
+  br i1 %178, label %179, label %.thread195
 
 179:                                              ; preds = %176
-  %180 = load i32, ptr %.0124198, align 8
-  br label %.thread192
+  %180 = load i32, ptr %.0124201, align 8
+  br label %.thread195
 
-.thread192:                                       ; preds = %30, %167, %173, %.thread195, %176, %179
-  %181 = phi i32 [ %180, %179 ], [ 0, %176 ], [ 0, %.thread195 ], [ 0, %173 ], [ 0, %167 ], [ 0, %30 ]
+.thread195:                                       ; preds = %30, %167, %173, %.thread198, %176, %179
+  %181 = phi i32 [ %180, %179 ], [ 0, %176 ], [ 0, %.thread198 ], [ 0, %173 ], [ 0, %167 ], [ 0, %30 ]
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %181, ptr %182, align 8
   br label %184
@@ -5419,12 +5419,12 @@ tailrecurse:                                      ; preds = %76, %91
   %.not = icmp eq ptr %183, null
   br i1 %.not, label %tailrecurse._crit_edge, label %14
 
-184:                                              ; preds = %.thread181, %.thread192, %16, %tailrecurse._crit_edge
-  %ret.known.tr256 = phi i1 [ %ret.known.tr293, %.thread192 ], [ %ret.known.tr293, %16 ], [ %.not290, %tailrecurse._crit_edge ], [ %ret.known.tr293, %.thread181 ]
-  %.0 = phi i1 [ true, %.thread192 ], [ false, %16 ], [ false, %tailrecurse._crit_edge ], [ false, %.thread181 ]
-  %not.ret.known.tr256 = xor i1 %ret.known.tr256, true
-  %current.ret.tr244 = and i1 %.0, %not.ret.known.tr256
-  ret i1 %current.ret.tr244
+184:                                              ; preds = %.thread184, %.thread195, %16, %tailrecurse._crit_edge
+  %ret.known.tr259 = phi i1 [ %ret.known.tr296, %.thread195 ], [ %ret.known.tr296, %16 ], [ %.not293, %tailrecurse._crit_edge ], [ %ret.known.tr296, %.thread184 ]
+  %.0 = phi i1 [ true, %.thread195 ], [ false, %16 ], [ false, %tailrecurse._crit_edge ], [ false, %.thread184 ]
+  %not.ret.known.tr259 = xor i1 %ret.known.tr259, true
+  %current.ret.tr247 = and i1 %.0, %not.ret.known.tr259
+  ret i1 %current.ret.tr247
 }
 
 ; Function Attrs: nounwind uwtable

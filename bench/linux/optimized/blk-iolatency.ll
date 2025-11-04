@@ -542,7 +542,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   call void @blkg_conf_init(ptr noundef nonnull %5, ptr noundef %1) #14
   %11 = call i32 @blkg_conf_open_bdev(ptr noundef nonnull %5) #14
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %.thread14
+  br i1 %12, label %13, label %.thread15
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -552,7 +552,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 264
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit16, label %.preheader
+  br i1 %20, label %.loopexit17, label %.preheader
 
 .preheader:                                       ; preds = %13, %25
   %21 = phi ptr [ %27, %25 ], [ %19, %13 ]
@@ -565,17 +565,17 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit16, label %.preheader, !llvm.loop !7
+  br i1 %28, label %.loopexit17, label %.preheader, !llvm.loop !7
 
-.loopexit16:                                      ; preds = %25, %13
+.loopexit17:                                      ; preds = %25, %13
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %32 = call noalias noundef align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 120) #18
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread14, label %34
+  br i1 %33, label %.thread15, label %34
 
-34:                                               ; preds = %.loopexit16
+34:                                               ; preds = %.loopexit17
   %35 = call i32 @rq_qos_add(ptr noundef nonnull %32, ptr noundef %30, i32 noundef 1, ptr noundef nonnull @blkcg_iolatency_ops) #14
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %47
@@ -605,12 +605,12 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
 47:                                               ; preds = %46, %34
   %48 = phi i32 [ %35, %34 ], [ %38, %46 ]
   call void @kfree(ptr noundef nonnull %32) #14
-  br label %.thread14
+  br label %.thread15
 
 .loopexit:                                        ; preds = %.preheader, %40
   %49 = call i32 @blkg_conf_prep(ptr noundef %10, ptr noundef nonnull @blkcg_policy_iolatency, ptr noundef nonnull %5) #14
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %.thread14
+  br i1 %50, label %51, label %.thread15
 
 51:                                               ; preds = %.loopexit
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -643,12 +643,12 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(21) %8, i8 0, i64 21, i1 false), !annotation !24
   %68 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %67, ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %69 = icmp eq i32 %68, 2
-  br i1 %69, label %70, label %.thread11
+  br i1 %69, label %70, label %.thread12
 
 70:                                               ; preds = %.lr.ph
   %71 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %7, ptr noundef nonnull dereferenceable(7) @.str.3, i64 7)
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.thread11
+  br i1 %72, label %73, label %.thread12
 
 73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -660,23 +660,23 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
 76:                                               ; preds = %73
   %77 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef nonnull %9)
   %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %.thread12
+  br i1 %78, label %79, label %.thread13
 
-.thread12:                                        ; preds = %76
+.thread13:                                        ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread14
+  br label %.thread15
 
 79:                                               ; preds = %76
   %80 = load i64, ptr %9, align 8
   %81 = mul i64 %80, 1000
   br label %82
 
-.thread11:                                        ; preds = %.lr.ph, %70
+.thread12:                                        ; preds = %.lr.ph, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread14
+  br label %.thread15
 
 82:                                               ; preds = %73, %79
   %83 = phi i64 [ %81, %79 ], [ 0, %73 ]
@@ -692,32 +692,104 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   %86 = load ptr, ptr %52, align 8
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %88 = load i64, ptr %87, align 8
-  call fastcc void @iolatency_set_min_lat_nsec(ptr noundef %86, i64 noundef %.lcssa)
-  %89 = load i64, ptr %87, align 8
-  %90 = icmp eq i64 %88, %89
-  br i1 %90, label %94, label %91
+  %89 = icmp eq ptr %86, null
+  br i1 %89, label %96, label %90
 
-91:                                               ; preds = %._crit_edge
-  %92 = getelementptr i8, ptr %86, i64 48
-  %.val = load ptr, ptr %92, align 8
+90:                                               ; preds = %._crit_edge
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 208
+  %92 = load i32, ptr @blkcg_policy_iolatency, align 8
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr ptr, ptr %91, i64 %93
+  %95 = load ptr, ptr %94, align 8
+  br label %96
+
+96:                                               ; preds = %90, %._crit_edge
+  %97 = phi ptr [ %95, %90 ], [ null, %._crit_edge ]
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 128
+  %101 = load i64, ptr %100, align 8
+  store i64 %.lcssa, ptr %100, align 8
+  %102 = shl i64 %.lcssa, 4
+  %103 = call i64 @llvm.umax.i64(i64 %102, i64 100000000)
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 136
+  %105 = call i64 @llvm.umin.i64(i64 %103, i64 1000000000)
+  store i64 %105, ptr %104, align 8
+  %106 = icmp eq i64 %101, 0
+  %107 = icmp ne i64 %.lcssa, 0
+  %108 = and i1 %107, %106
+  br i1 %108, label %109, label %113
+
+109:                                              ; preds = %96
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 84
+  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, i32 1, ptr nonnull elementtype(i32) %110) #14, !srcloc !17
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %.thread.sink.split.i, label %iolatency_set_min_lat_nsec.exit
+
+113:                                              ; preds = %96
+  %114 = or i1 %107, %106
+  br i1 %114, label %iolatency_set_min_lat_nsec.exit, label %115
+
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %86, i64 288
+  %117 = load volatile i32, ptr %116, align 4
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %129, label %119
+
+119:                                              ; preds = %115
+  %120 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %116, i32 0, ptr nonnull elementtype(i32) %116, i32 %117) #14, !srcloc !15
+  %121 = extractvalue { i8, i32 } %120, 0
+  %122 = icmp ult i8 %121, 2
+  call void @llvm.assume(i1 %122)
+  %123 = icmp eq i8 %121, 0
+  br i1 %123, label %129, label %124
+
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1024
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %128, ptr nonnull elementtype(i32) %128) #14, !srcloc !16
+  br label %129
+
+129:                                              ; preds = %124, %119, %115
+  %130 = getelementptr inbounds nuw i8, ptr %99, i64 84
+  %131 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 -1, ptr nonnull elementtype(i32) %130) #14, !srcloc !17
+  %132 = icmp eq i32 %131, 1
+  br i1 %132, label %.thread.sink.split.i, label %iolatency_set_min_lat_nsec.exit
+
+.thread.sink.split.i:                             ; preds = %129, %109
+  %133 = getelementptr inbounds nuw i8, ptr %99, i64 88
+  %134 = load ptr, ptr @system_wq, align 8
+  %135 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %134, ptr noundef nonnull %133) #14
+  br label %iolatency_set_min_lat_nsec.exit
+
+iolatency_set_min_lat_nsec.exit:                  ; preds = %109, %113, %129, %.thread.sink.split.i
+  %136 = load i64, ptr %87, align 8
+  %137 = icmp eq i64 %88, %136
+  br i1 %137, label %141, label %138
+
+138:                                              ; preds = %iolatency_set_min_lat_nsec.exit
+  %139 = getelementptr i8, ptr %86, i64 48
+  %.val = load ptr, ptr %139, align 8
   call fastcc void @iolatency_clear_scaling(ptr %.val)
-  br label %94
+  br label %141
 
-.thread14:                                        ; preds = %4, %.loopexit, %47, %.loopexit16, %.thread11, %.thread12
-  %.ph = phi i32 [ -22, %.thread12 ], [ -22, %.thread11 ], [ -12, %.loopexit16 ], [ %48, %47 ], [ %49, %.loopexit ], [ %11, %4 ]
+.thread15:                                        ; preds = %4, %.loopexit, %47, %.loopexit17, %.thread12, %.thread13
+  %.ph = phi i32 [ -22, %.thread13 ], [ -22, %.thread12 ], [ -12, %.loopexit17 ], [ %48, %47 ], [ %49, %.loopexit ], [ %11, %4 ]
   call void @blkg_conf_exit(ptr noundef nonnull %5) #14
-  %93 = sext i32 %.ph to i64
-  br label %95
+  %140 = sext i32 %.ph to i64
+  br label %142
 
-94:                                               ; preds = %._crit_edge, %91
+141:                                              ; preds = %iolatency_set_min_lat_nsec.exit, %138
   call void @blkg_conf_exit(ptr noundef nonnull %5) #14
-  br label %95
+  br label %142
 
-95:                                               ; preds = %94, %.thread14
-  %96 = phi i64 [ %2, %94 ], [ %93, %.thread14 ]
+142:                                              ; preds = %.thread15, %141
+  %143 = phi i64 [ %2, %141 ], [ %140, %.thread15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %96
+  ret i64 %143
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -771,84 +843,6 @@ declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
 declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iolatency_set_min_lat_nsec(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %10, label %4
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %6 = load i32, ptr @blkcg_policy_iolatency, align 8
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %5, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  br label %10
-
-10:                                               ; preds = %4, %2
-  %11 = phi ptr [ %9, %4 ], [ null, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %15 = load i64, ptr %14, align 8
-  store i64 %1, ptr %14, align 8
-  %16 = shl i64 %1, 4
-  %17 = tail call i64 @llvm.umax.i64(i64 %16, i64 100000000)
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %19 = tail call i64 @llvm.umin.i64(i64 %17, i64 1000000000)
-  store i64 %19, ptr %18, align 8
-  %20 = icmp eq i64 %15, 0
-  %21 = icmp ne i64 %1, 0
-  %22 = and i1 %21, %20
-  br i1 %22, label %23, label %27
-
-23:                                               ; preds = %10
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 84
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #14, !srcloc !17
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread.sink.split, label %.thread
-
-27:                                               ; preds = %10
-  %28 = or i1 %21, %20
-  br i1 %28, label %.thread, label %29
-
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %31 = load volatile i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %43, label %33
-
-33:                                               ; preds = %29
-  %34 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %30, i32 0, ptr nonnull elementtype(i32) %30, i32 %31) #14, !srcloc !15
-  %35 = extractvalue { i8, i32 } %34, 0
-  %36 = icmp ult i8 %35, 2
-  tail call void @llvm.assume(i1 %36)
-  %37 = icmp eq i8 %35, 0
-  br i1 %37, label %43, label %38
-
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1024
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, ptr nonnull elementtype(i32) %42) #14, !srcloc !16
-  br label %43
-
-43:                                               ; preds = %38, %33, %29
-  %44 = getelementptr inbounds nuw i8, ptr %13, i64 84
-  %45 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 -1, ptr nonnull elementtype(i32) %44) #14, !srcloc !17
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %.thread.sink.split, label %.thread
-
-.thread.sink.split:                               ; preds = %43, %23
-  %47 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %48 = load ptr, ptr @system_wq, align 8
-  %49 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %48, ptr noundef nonnull %47) #14
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.sink.split, %23, %43, %27
-  ret void
-}
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @iolatency_clear_scaling(ptr readonly captures(address_is_null) %.48.val) unnamed_addr #2 align 16 {

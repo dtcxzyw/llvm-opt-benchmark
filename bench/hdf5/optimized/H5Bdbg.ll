@@ -546,9 +546,9 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br i1 %.not114, label %.thread, label %.preheader, !llvm.loop !62
 
 .thread:                                          ; preds = %.preheader, %175, %152, %142, %4, %182, %124, %117, %102, %95, %78, %69, %61, %49, %42, %33, %24, %17
-  %.0102 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ -1, %61 ], [ -1, %69 ], [ -1, %78 ], [ -1, %182 ], [ -1, %117 ], [ -1, %124 ], [ -1, %95 ], [ -1, %102 ], [ 0, %4 ], [ -1, %142 ], [ -1, %152 ], [ -1, %175 ], [ 0, %.preheader ]
+  %.098 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ -1, %61 ], [ -1, %69 ], [ -1, %78 ], [ -1, %182 ], [ -1, %117 ], [ -1, %124 ], [ -1, %95 ], [ -1, %102 ], [ 0, %4 ], [ -1, %142 ], [ -1, %152 ], [ -1, %175 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.0102
+  ret i32 %.098
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

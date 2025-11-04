@@ -551,9 +551,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
-  %.not52 = icmp eq i8 %4, 0
+  %.not53 = icmp eq i8 %4, 0
   %.pre = tail call ptr @__ctype_b_loc() #26
-  br i1 %.not52, label %.critedge, label %.lr.ph
+  br i1 %.not53, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = load ptr, ptr %.pre, align 8
@@ -561,7 +561,7 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
 
 6:                                                ; preds = %.lr.ph, %12
   %7 = phi i8 [ %4, %.lr.ph ], [ %14, %12 ]
-  %.03053 = phi ptr [ %0, %.lr.ph ], [ %13, %12 ]
+  %.03054 = phi ptr [ %0, %.lr.ph ], [ %13, %12 ]
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i16, ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
@@ -570,13 +570,13 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   br i1 %.not34, label %.critedge, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.03053, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.03054, i64 1
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %.critedge, label %6, !llvm.loop !4
 
 .critedge:                                        ; preds = %6, %12, %3
-  %.030.lcssa = phi ptr [ %0, %3 ], [ %13, %12 ], [ %.03053, %6 ]
+  %.030.lcssa = phi ptr [ %0, %3 ], [ %13, %12 ], [ %.03054, %6 ]
   %.lcssa = phi i8 [ 0, %3 ], [ 0, %12 ], [ %7, %6 ]
   %15 = icmp eq i8 %.lcssa, 45
   %16 = icmp eq i8 %.lcssa, 43
@@ -593,7 +593,7 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   br i1 %.not35, label %.critedge4, label %.preheader, !prof !6
 
 .preheader:                                       ; preds = %.critedge, %33
-  %.045 = phi i64 [ %40, %33 ], [ 0, %.critedge ]
+  %.046 = phi i64 [ %40, %33 ], [ 0, %.critedge ]
   %.2 = phi ptr [ %35, %33 ], [ %.1, %.critedge ]
   %24 = load i8, ptr %.2, align 1
   %.not36 = icmp eq i8 %24, 0
@@ -605,10 +605,10 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 2048
   %.not37 = icmp eq i16 %29, 0
-  br i1 %.not37, label %.lr.ph60, label %30
+  br i1 %.not37, label %.lr.ph61, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.045, i64 10)
+  %31 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.046, i64 10)
   %32 = extractvalue { i64, i1 } %31, 1
   br i1 %32, label %.thread, label %33, !prof !6
 
@@ -622,15 +622,15 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   %40 = extractvalue { i64, i1 } %38, 0
   br i1 %39, label %.thread, label %.preheader, !prof !6
 
-41:                                               ; preds = %.lr.ph60
-  %42 = getelementptr inbounds nuw i8, ptr %.359, i64 1
+41:                                               ; preds = %.lr.ph61
+  %42 = getelementptr inbounds nuw i8, ptr %.360, i64 1
   %43 = load i8, ptr %42, align 1
   %.not38 = icmp eq i8 %43, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph60, !llvm.loop !7
+  br i1 %.not38, label %._crit_edge, label %.lr.ph61, !llvm.loop !7
 
-.lr.ph60:                                         ; preds = %25, %41
+.lr.ph61:                                         ; preds = %25, %41
   %44 = phi i8 [ %43, %41 ], [ %24, %25 ]
-  %.359 = phi ptr [ %42, %41 ], [ %.2, %25 ]
+  %.360 = phi ptr [ %42, %41 ], [ %.2, %25 ]
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw i16, ptr %18, i64 %45
   %47 = load i16, ptr %46, align 2
@@ -642,16 +642,16 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   br i1 %15, label %53, label %49
 
 49:                                               ; preds = %._crit_edge
-  %50 = icmp eq i64 %.045, -9223372036854775808
+  %50 = icmp eq i64 %.046, -9223372036854775808
   br i1 %50, label %.thread, label %51, !prof !6
 
 51:                                               ; preds = %49
-  %52 = sub nsw i64 0, %.045
+  %52 = sub nsw i64 0, %.046
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge
-  %.247 = phi i64 [ %.045, %._crit_edge ], [ %52, %51 ]
-  store i64 %.247, ptr %2, align 8
+  %.248 = phi i64 [ %.046, %._crit_edge ], [ %52, %51 ]
+  store i64 %.248, ptr %2, align 8
   br label %56
 
 .thread:                                          ; preds = %33, %30, %49
@@ -661,7 +661,7 @@ define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroe
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %0) #27
   br label %56
 
-.critedge4:                                       ; preds = %.lr.ph60, %.critedge
+.critedge4:                                       ; preds = %.lr.ph61, %.critedge
   br i1 %1, label %56, label %55
 
 55:                                               ; preds = %.critedge4

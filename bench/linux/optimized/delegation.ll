@@ -956,7 +956,7 @@ define internal i32 @nfs_server_return_marked_delegations(ptr noundef %0, ptr re
   tail call void @__rcu_read_unlock() #12
   br label %99
 
-99:                                               ; preds = %.loopexit, %.thread19
+99:                                               ; preds = %.thread19, %.loopexit
   %100 = phi i32 [ 0, %.loopexit ], [ %91, %.thread19 ]
   %101 = phi ptr [ %6, %.loopexit ], [ %79, %.thread19 ]
   tail call void @iput(ptr noundef %101) #12

@@ -1195,7 +1195,7 @@ define internal fastcc i32 @monitor_dataset(i64 noundef range(i64 0, -9223372036
   %96 = call i32 @H5Eset_auto1(ptr noundef %91, ptr noundef %92) #20
   br label %97
 
-97:                                               ; preds = %93, %95
+97:                                               ; preds = %95, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

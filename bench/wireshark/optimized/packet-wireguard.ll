@@ -1253,262 +1253,262 @@ wg_kdf.exit68.i.i:                                ; preds = %410
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br label %414
 
-414:                                              ; preds = %497, %wg_kdf.exit68.i.i
-  %.sroa.077.0.i.i = phi i32 [ 0, %wg_kdf.exit68.i.i ], [ %.sroa.077.1.i.i, %497 ]
-  %.sroa.778.0.i.i = phi ptr [ null, %wg_kdf.exit68.i.i ], [ %430, %497 ]
+414:                                              ; preds = %499, %wg_kdf.exit68.i.i
+  %.sroa.077.0.i.i = phi i32 [ 0, %wg_kdf.exit68.i.i ], [ %.sroa.077.1.i.i, %499 ]
+  %.sroa.778.0.i.i = phi ptr [ null, %wg_kdf.exit68.i.i ], [ %432, %499 ]
   %.not17.i.i.i = icmp eq ptr %.sroa.778.0.i.i, null
-  br i1 %.not17.i.i.i, label %.lr.ph.i.preheader.i.i, label %428
+  br i1 %.not17.i.i.i, label %.lr.ph.i.i.i, label %430
 
 415:                                              ; preds = %wg_kdf.exit69.i.i.jt1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.i.i.jt1 = icmp eq ptr %435, null
-  br i1 %.not17.i.i.i.jt1, label %.loopexit19.i.i.i, label %428
+  %.not17.i.i.i.jt1 = icmp eq ptr %437, null
+  br i1 %.not17.i.i.i.jt1, label %.loopexit19.i.i.i, label %430
 
 416:                                              ; preds = %wg_kdf.exit69.i.i.jt2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.i.i.jt2 = icmp eq ptr %440, null
-  br i1 %.not17.i.i.i.jt2, label %.lr.ph.i.preheader.i.jt2.i, label %428
+  %.not17.i.i.i.jt2 = icmp eq ptr %442, null
+  br i1 %.not17.i.i.i.jt2, label %.lr.ph.i.i.jt2.i, label %430
 
 417:                                              ; preds = %wg_kdf.exit69.i.jt1.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.i.jt1.i = icmp eq ptr %445, null
-  br i1 %.not17.i.i.jt1.i, label %.loopexit19.i.i.i, label %433
+  %.not17.i.i.jt1.i = icmp eq ptr %447, null
+  br i1 %.not17.i.i.jt1.i, label %.loopexit19.i.i.i, label %435
 
 418:                                              ; preds = %wg_kdf.exit69.i.jt2.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.i.jt2.i = icmp eq ptr %450, null
-  br i1 %.not17.i.i.jt2.i, label %.lr.ph.i.preheader.i.jt2.i, label %438
+  %.not17.i.i.jt2.i = icmp eq ptr %452, null
+  br i1 %.not17.i.i.jt2.i, label %.lr.ph.i.i.jt2.i, label %440
 
 419:                                              ; preds = %wg_kdf.exit69.jt1.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.jt1.i.i = icmp eq ptr %457, null
-  br i1 %.not17.i.jt1.i.i, label %.loopexit19.i.i.i, label %443
+  %.not17.i.jt1.i.i = icmp eq ptr %459, null
+  br i1 %.not17.i.jt1.i.i, label %.loopexit19.i.i.i, label %445
 
 420:                                              ; preds = %wg_kdf.exit69.jt2.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.not17.i.jt2.i.i = icmp eq ptr %462, null
-  br i1 %.not17.i.jt2.i.i, label %.lr.ph.i.preheader.i.jt2.i, label %448
+  %.not17.i.jt2.i.i = icmp eq ptr %464, null
+  br i1 %.not17.i.jt2.i.i, label %.lr.ph.i.i.jt2.i, label %450
 
-.lr.ph.i.preheader.i.i:                           ; preds = %414
-  switch i32 %.sroa.077.0.i.i, label %default.unreachable126 [
-    i32 0, label %424
-    i32 1, label %.loopexit19.i.i.i
-    i32 2, label %.lr.ph.i.preheader.i.jt2.i
-  ]
-
-default.unreachable126:                           ; preds = %.lr.ph.i.preheader.i.i
+default.unreachable126:                           ; preds = %.lr.ph.i.i.i
   unreachable
 
-.loopexit19.i.i.i:                                ; preds = %415, %424, %.lr.ph.i.preheader.i.i, %419, %417
-  %421 = load ptr, ptr %342, align 8
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 64
-  %423 = load ptr, ptr %422, align 8
-  %.not.jt2.i.i.i = icmp eq ptr %423, null
-  br i1 %.not.jt2.i.i.i, label %.lr.ph.i.preheader.i.jt2.i, label %460, !llvm.loop !9
+.lr.ph.i.i.i:                                     ; preds = %414
+  switch i32 %.sroa.077.0.i.i, label %default.unreachable126 [
+    i32 0, label %426
+    i32 1, label %.loopexit19.i.i.i
+    i32 2, label %.lr.ph.i.i.jt2.i
+  ], !llvm.loop !9
 
-424:                                              ; preds = %.lr.ph.i.preheader.i.i
-  %425 = load ptr, ptr %335, align 8
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 64
-  %427 = load ptr, ptr %426, align 8
-  %.not.jt1.i.i.i = icmp eq ptr %427, null
-  br i1 %.not.jt1.i.i.i, label %.loopexit19.i.i.i, label %455, !llvm.loop !9
+.lr.ph.i.jt3.i.i:                                 ; preds = %wg_kdf.exit69.jt3.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %334, i64 28
+  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
+  %421 = and i8 %.pre.i.i, 2
+  %422 = icmp eq i8 %421, 0
+  br i1 %422, label %522, label %503
 
-428:                                              ; preds = %415, %416, %414
+.loopexit19.i.i.i:                                ; preds = %415, %426, %.lr.ph.i.i.i, %419, %417
+  %423 = load ptr, ptr %342, align 8
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 64
+  %425 = load ptr, ptr %424, align 8
+  %.not.jt2.i.i.i = icmp eq ptr %425, null
+  br i1 %.not.jt2.i.i.i, label %.lr.ph.i.i.jt2.i, label %462, !llvm.loop !9
+
+426:                                              ; preds = %.lr.ph.i.i.i
+  %427 = load ptr, ptr %335, align 8
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 64
+  %429 = load ptr, ptr %428, align 8
+  %.not.jt1.i.i.i = icmp eq ptr %429, null
+  br i1 %.not.jt1.i.i.i, label %.loopexit19.i.i.i, label %457, !llvm.loop !9
+
+430:                                              ; preds = %415, %416, %414
   %.sroa.077.1.i.i = phi i32 [ %.sroa.077.0.i.i, %414 ], [ 2, %416 ], [ 1, %415 ]
-  %.0.lcssa.i.i.i = phi ptr [ %.sroa.778.0.i.i, %414 ], [ %440, %416 ], [ %435, %415 ]
+  %.0.lcssa.i.i.i = phi ptr [ %.sroa.778.0.i.i, %414 ], [ %442, %416 ], [ %437, %415 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i.i, i64 32, i1 false)
-  %429 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 32
-  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 32
+  %432 = load ptr, ptr %431, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %431 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %432 = icmp eq i32 %431, 0
-  br i1 %432, label %465, label %.loopexit.i.i
+  %433 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %434 = icmp eq i32 %433, 0
+  br i1 %434, label %467, label %.loopexit.i.i
 
-433:                                              ; preds = %417
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %445, i64 32, i1 false)
-  %434 = getelementptr inbounds nuw i8, ptr %445, i64 32
-  %435 = load ptr, ptr %434, align 8
+435:                                              ; preds = %417
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %447, i64 32, i1 false)
+  %436 = getelementptr inbounds nuw i8, ptr %447, i64 32
+  %437 = load ptr, ptr %436, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %436 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %437 = icmp eq i32 %436, 0
-  br i1 %437, label %468, label %.loopexit.i.i
+  %438 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %439 = icmp eq i32 %438, 0
+  br i1 %439, label %470, label %.loopexit.i.i
 
-438:                                              ; preds = %418
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %450, i64 32, i1 false)
-  %439 = getelementptr inbounds nuw i8, ptr %450, i64 32
-  %440 = load ptr, ptr %439, align 8
+440:                                              ; preds = %418
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %452, i64 32, i1 false)
+  %441 = getelementptr inbounds nuw i8, ptr %452, i64 32
+  %442 = load ptr, ptr %441, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %441 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %442 = icmp eq i32 %441, 0
-  br i1 %442, label %471, label %.loopexit.i.i
+  %443 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %444 = icmp eq i32 %443, 0
+  br i1 %444, label %473, label %.loopexit.i.i
 
-443:                                              ; preds = %419
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %457, i64 32, i1 false)
-  %444 = getelementptr inbounds nuw i8, ptr %457, i64 32
-  %445 = load ptr, ptr %444, align 8
+445:                                              ; preds = %419
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %459, i64 32, i1 false)
+  %446 = getelementptr inbounds nuw i8, ptr %459, i64 32
+  %447 = load ptr, ptr %446, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %446 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %447 = icmp eq i32 %446, 0
-  br i1 %447, label %474, label %.loopexit.i.i
+  %448 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %449 = icmp eq i32 %448, 0
+  br i1 %449, label %476, label %.loopexit.i.i
 
-448:                                              ; preds = %420
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %462, i64 32, i1 false)
-  %449 = getelementptr inbounds nuw i8, ptr %462, i64 32
-  %450 = load ptr, ptr %449, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %451 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %452 = icmp eq i32 %451, 0
-  br i1 %452, label %477, label %.loopexit.i.i
-
-.lr.ph.i.preheader.i.jt2.i:                       ; preds = %416, %.loopexit19.i.i.i, %.lr.ph.i.preheader.i.i, %420, %418
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, i8 noundef 0, i64 noundef 32, i1 noundef false) #18
+450:                                              ; preds = %420
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %464, i64 32, i1 false)
+  %451 = getelementptr inbounds nuw i8, ptr %464, i64 32
+  %452 = load ptr, ptr %451, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %453 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
   %454 = icmp eq i32 %453, 0
-  br i1 %454, label %480, label %.loopexit.i.i
+  br i1 %454, label %479, label %.loopexit.i.i
 
-455:                                              ; preds = %424
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %427, i64 32, i1 false)
-  %456 = getelementptr inbounds nuw i8, ptr %427, i64 32
-  %457 = load ptr, ptr %456, align 8
+.lr.ph.i.i.jt2.i:                                 ; preds = %416, %.loopexit19.i.i.i, %.lr.ph.i.i.i, %420, %418
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, i8 noundef 0, i64 noundef 32, i1 noundef false) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %458 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %459 = icmp eq i32 %458, 0
-  br i1 %459, label %483, label %.loopexit.i.i
+  %455 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %456 = icmp eq i32 %455, 0
+  br i1 %456, label %482, label %.loopexit.i.i
 
-460:                                              ; preds = %.loopexit19.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %423, i64 32, i1 false)
-  %461 = getelementptr inbounds nuw i8, ptr %423, i64 32
-  %462 = load ptr, ptr %461, align 8
+457:                                              ; preds = %426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %429, i64 32, i1 false)
+  %458 = getelementptr inbounds nuw i8, ptr %429, i64 32
+  %459 = load ptr, ptr %458, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %463 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
-  %464 = icmp eq i32 %463, 0
-  br i1 %464, label %486, label %.loopexit.i.i
+  %460 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %461 = icmp eq i32 %460, 0
+  br i1 %461, label %485, label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %460, %455, %448, %443, %428, %438, %433, %.lr.ph.i.preheader.i.jt2.i
+462:                                              ; preds = %.loopexit19.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %425, i64 32, i1 false)
+  %463 = getelementptr inbounds nuw i8, ptr %425, i64 32
+  %464 = load ptr, ptr %463, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %465 = call i32 @ws_hmac_buffer(i32 noundef 322, ptr noundef nonnull %12, ptr noundef nonnull %20, i64 noundef range(i64 0, 33) 32, ptr noundef nonnull %16, i64 noundef 32)
+  %466 = icmp eq i32 %465, 0
+  br i1 %466, label %488, label %.loopexit.i.i
+
+.loopexit.i.i:                                    ; preds = %462, %457, %450, %445, %430, %440, %435, %.lr.ph.i.i.jt2.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.106, i32 noundef 424, ptr noundef nonnull @.str.114) #21
   unreachable
 
-465:                                              ; preds = %428
-  %466 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %467 = icmp eq i32 %466, 0
-  br i1 %467, label %wg_kdf.exit69.i.i, label %.loopexit90.i.i
+467:                                              ; preds = %430
+  %468 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %469 = icmp eq i32 %468, 0
+  br i1 %469, label %wg_kdf.exit69.i.i, label %.loopexit89.i.i
 
-468:                                              ; preds = %433
-  %469 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %470 = icmp eq i32 %469, 0
-  br i1 %470, label %wg_kdf.exit69.i.i.jt1, label %.loopexit90.i.i
+470:                                              ; preds = %435
+  %471 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %472 = icmp eq i32 %471, 0
+  br i1 %472, label %wg_kdf.exit69.i.i.jt1, label %.loopexit89.i.i
 
-471:                                              ; preds = %438
-  %472 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %473 = icmp eq i32 %472, 0
-  br i1 %473, label %wg_kdf.exit69.i.i.jt2, label %.loopexit90.i.i
+473:                                              ; preds = %440
+  %474 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %475 = icmp eq i32 %474, 0
+  br i1 %475, label %wg_kdf.exit69.i.i.jt2, label %.loopexit89.i.i
 
-474:                                              ; preds = %443
-  %475 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %476 = icmp eq i32 %475, 0
-  br i1 %476, label %wg_kdf.exit69.i.jt1.i, label %.loopexit90.i.i
+476:                                              ; preds = %445
+  %477 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %478 = icmp eq i32 %477, 0
+  br i1 %478, label %wg_kdf.exit69.i.jt1.i, label %.loopexit89.i.i
 
-477:                                              ; preds = %448
-  %478 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %479 = icmp eq i32 %478, 0
-  br i1 %479, label %wg_kdf.exit69.i.jt2.i, label %.loopexit90.i.i
+479:                                              ; preds = %450
+  %480 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %481 = icmp eq i32 %480, 0
+  br i1 %481, label %wg_kdf.exit69.i.jt2.i, label %.loopexit89.i.i
 
-480:                                              ; preds = %.lr.ph.i.preheader.i.jt2.i
-  %481 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %482 = icmp eq i32 %481, 0
-  br i1 %482, label %wg_kdf.exit69.jt3.i.i, label %.loopexit90.i.i
+482:                                              ; preds = %.lr.ph.i.i.jt2.i
+  %483 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %484 = icmp eq i32 %483, 0
+  br i1 %484, label %wg_kdf.exit69.jt3.i.i, label %.loopexit89.i.i
 
-483:                                              ; preds = %455
-  %484 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %485 = icmp eq i32 %484, 0
-  br i1 %485, label %wg_kdf.exit69.jt1.i.i, label %.loopexit90.i.i
+485:                                              ; preds = %457
+  %486 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %487 = icmp eq i32 %486, 0
+  br i1 %487, label %wg_kdf.exit69.jt1.i.i, label %.loopexit89.i.i
 
-486:                                              ; preds = %460
-  %487 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
-  %488 = icmp eq i32 %487, 0
-  br i1 %488, label %wg_kdf.exit69.jt2.i.i, label %.loopexit90.i.i
+488:                                              ; preds = %462
+  %489 = call i32 @hkdf_expand(i32 noundef 322, ptr noundef nonnull %12, i32 noundef 32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %16, i32 noundef 96)
+  %490 = icmp eq i32 %489, 0
+  br i1 %490, label %wg_kdf.exit69.jt2.i.i, label %.loopexit89.i.i
 
-.loopexit90.i.i:                                  ; preds = %486, %483, %477, %474, %465, %471, %468, %480
+.loopexit89.i.i:                                  ; preds = %488, %485, %479, %476, %467, %473, %470, %482
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.106, i32 noundef 426, ptr noundef nonnull @.str.114) #21
   unreachable
 
-wg_kdf.exit69.i.i:                                ; preds = %465
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
-  %489 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %489, label %wg_psk_iter_next.exit.thread.i.i, label %497
-
-wg_kdf.exit69.i.i.jt1:                            ; preds = %468
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
-  %490 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %490, label %wg_psk_iter_next.exit.thread.i.i, label %415
-
-wg_kdf.exit69.i.i.jt2:                            ; preds = %471
+wg_kdf.exit69.i.i:                                ; preds = %467
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %491 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %491, label %wg_psk_iter_next.exit.thread.i.i, label %416
+  br i1 %491, label %wg_psk_iter_next.exit.thread.i.i, label %499
 
-wg_kdf.exit69.i.jt1.i:                            ; preds = %474
+wg_kdf.exit69.i.i.jt1:                            ; preds = %470
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %492 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %492, label %wg_psk_iter_next.exit.thread.i.i, label %417
+  br i1 %492, label %wg_psk_iter_next.exit.thread.i.i, label %415
 
-wg_kdf.exit69.i.jt2.i:                            ; preds = %477
+wg_kdf.exit69.i.i.jt2:                            ; preds = %473
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %493 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %493, label %wg_psk_iter_next.exit.thread.i.i, label %418
+  br i1 %493, label %wg_psk_iter_next.exit.thread.i.i, label %416
 
-wg_kdf.exit69.jt3.i.i:                            ; preds = %480
+wg_kdf.exit69.i.jt1.i:                            ; preds = %476
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %494 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %494, label %wg_psk_iter_next.exit.thread.i.i, label %wg_psk_iter_next.exit.i.i
+  br i1 %494, label %wg_psk_iter_next.exit.thread.i.i, label %417
 
-wg_kdf.exit69.jt1.i.i:                            ; preds = %483
+wg_kdf.exit69.i.jt2.i:                            ; preds = %479
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %495 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %495, label %wg_psk_iter_next.exit.thread.i.i, label %419
+  br i1 %495, label %wg_psk_iter_next.exit.thread.i.i, label %418
 
-wg_kdf.exit69.jt2.i.i:                            ; preds = %486
+wg_kdf.exit69.jt3.i.i:                            ; preds = %482
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
   %496 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
-  br i1 %496, label %wg_psk_iter_next.exit.thread.i.i, label %420
+  br i1 %496, label %wg_psk_iter_next.exit.thread.i.i, label %.lr.ph.i.jt3.i.i
 
-497:                                              ; preds = %wg_kdf.exit69.i.i
+wg_kdf.exit69.jt1.i.i:                            ; preds = %485
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
+  %497 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
+  br i1 %497, label %wg_psk_iter_next.exit.thread.i.i, label %419
+
+wg_kdf.exit69.jt2.i.i:                            ; preds = %488
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef nonnull %369, i64 noundef 32)
+  %498 = call fastcc zeroext i1 @aead_decrypt(ptr noundef nonnull %370, ptr noundef %368, i32 noundef 16, ptr noundef nonnull %17, ptr noundef null, i32 noundef 0)
+  br i1 %498, label %wg_psk_iter_next.exit.thread.i.i, label %420
+
+499:                                              ; preds = %wg_kdf.exit69.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
   br label %414, !llvm.loop !10
 
 wg_psk_iter_next.exit.thread.i.i:                 ; preds = %wg_kdf.exit69.jt2.i.i, %wg_kdf.exit69.jt1.i.i, %wg_kdf.exit69.i.jt2.i, %wg_kdf.exit69.i.jt1.i, %wg_kdf.exit69.i.i, %wg_kdf.exit69.i.i.jt2, %wg_kdf.exit69.i.i.jt1, %wg_kdf.exit69.jt3.i.i
-  %498 = getelementptr inbounds nuw i8, ptr %334, i64 28
-  %499 = load i8, ptr %498, align 4
-  %500 = or i8 %499, 2
-  store i8 %500, ptr %498, align 4
+  %500 = getelementptr inbounds nuw i8, ptr %334, i64 28
+  %501 = load i8, ptr %500, align 4
+  %502 = or i8 %501, 2
+  store i8 %502, ptr %500, align 4
   br label %503
 
-wg_psk_iter_next.exit.i.i:                        ; preds = %wg_kdf.exit69.jt3.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.08.i.i, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %334, i64 28
-  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
-  %501 = and i8 %.pre.i.i, 2
-  %502 = icmp eq i8 %501, 0
-  br i1 %502, label %522, label %503
-
-503:                                              ; preds = %wg_psk_iter_next.exit.i.i, %wg_psk_iter_next.exit.thread.i.i
+503:                                              ; preds = %wg_psk_iter_next.exit.thread.i.i, %.lr.ph.i.jt3.i.i
   call fastcc void @wg_mix_hash(ptr noundef nonnull %17, ptr noundef %368, i64 noundef 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1575,7 +1575,7 @@ wg_create_cipher.exit76.i.i:                      ; preds = %521, %518, %wg_crea
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %522
 
-522:                                              ; preds = %wg_create_cipher.exit76.i.i, %wg_psk_iter_next.exit.i.i
+522:                                              ; preds = %wg_create_cipher.exit76.i.i, %.lr.ph.i.jt3.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.08.i.i)

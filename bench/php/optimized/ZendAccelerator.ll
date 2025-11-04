@@ -9350,22 +9350,22 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   %69 = zext i32 %68 to i64
   %.idx = shl nuw nsw i64 %69, 5
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx
-  %.not96139 = icmp eq i32 %68, 0
-  br i1 %.not96139, label %.loopexit, label %.lr.ph
+  %.not96137 = icmp eq i32 %68, 0
+  br i1 %.not96137, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %72
 
 72:                                               ; preds = %.lr.ph, %85
-  %.079140 = phi ptr [ %66, %.lr.ph ], [ %86, %85 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.079140, i64 8
+  %.079138 = phi ptr [ %66, %.lr.ph ], [ %86, %85 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.079138, i64 8
   %74 = load i8, ptr %73, align 8, !tbaa !64
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %85, label %76, !prof !53
 
 76:                                               ; preds = %72
-  %77 = load ptr, ptr %.079140, align 8, !tbaa !64
+  %77 = load ptr, ptr %.079138, align 8, !tbaa !64
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !152
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
@@ -9388,7 +9388,7 @@ define internal fastcc i32 @accel_preload(ptr noundef %0, i1 noundef zeroext %1)
   br label %85
 
 85:                                               ; preds = %72, %84
-  %86 = getelementptr inbounds nuw i8, ptr %.079140, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.079138, i64 32
   %.not96 = icmp eq ptr %86, %70
   br i1 %.not96, label %.loopexit, label %72
 
@@ -10784,22 +10784,22 @@ preload_optimize.exit:                            ; preds = %738, %._crit_edge14
   %777 = getelementptr inbounds nuw i8, ptr %774, i64 24
   %778 = load i32, ptr %777, align 8, !tbaa !222
   %779 = zext i32 %778 to i64
-  %.idx147 = shl nuw nsw i64 %779, 5
-  %780 = getelementptr inbounds nuw i8, ptr %776, i64 %.idx147
-  %.not98143 = icmp eq i32 %778, 0
-  br i1 %.not98143, label %._crit_edge, label %.lr.ph146
+  %.idx145 = shl nuw nsw i64 %779, 5
+  %780 = getelementptr inbounds nuw i8, ptr %776, i64 %.idx145
+  %.not98141 = icmp eq i32 %778, 0
+  br i1 %.not98141, label %._crit_edge, label %.lr.ph144
 
-.lr.ph146:                                        ; preds = %764, %800
+.lr.ph144:                                        ; preds = %764, %800
   %781 = phi ptr [ %801, %800 ], [ %772, %764 ]
-  %.075145 = phi ptr [ %802, %800 ], [ %776, %764 ]
-  %.077144 = phi i32 [ %.178, %800 ], [ 0, %764 ]
-  %782 = getelementptr inbounds nuw i8, ptr %.075145, i64 8
+  %.075143 = phi ptr [ %802, %800 ], [ %776, %764 ]
+  %.077142 = phi i32 [ %.178, %800 ], [ 0, %764 ]
+  %782 = getelementptr inbounds nuw i8, ptr %.075143, i64 8
   %783 = load i8, ptr %782, align 8, !tbaa !64
   %784 = icmp eq i8 %783, 0
   br i1 %784, label %800, label %785, !prof !53
 
-785:                                              ; preds = %.lr.ph146
-  %786 = load ptr, ptr %.075145, align 8, !tbaa !64
+785:                                              ; preds = %.lr.ph144
+  %786 = load ptr, ptr %.075143, align 8, !tbaa !64
   %787 = getelementptr inbounds nuw i8, ptr %786, i64 348
   %788 = load i32, ptr %787, align 4, !tbaa !264
   %789 = icmp ugt i32 %788, 1
@@ -10815,18 +10815,18 @@ preload_optimize.exit:                            ; preds = %738, %._crit_edge14
   %794 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 136
   %796 = load ptr, ptr %795, align 8, !tbaa !262
-  %797 = add nsw i32 %.077144, 1
-  %798 = sext i32 %.077144 to i64
+  %797 = add nsw i32 %.077142, 1
+  %798 = sext i32 %.077142 to i64
   %799 = getelementptr inbounds ptr, ptr %796, i64 %798
   store ptr %793, ptr %799, align 8, !tbaa !263
   br label %800
 
-800:                                              ; preds = %.lr.ph146, %792
-  %801 = phi ptr [ %794, %792 ], [ %781, %.lr.ph146 ]
-  %.178 = phi i32 [ %797, %792 ], [ %.077144, %.lr.ph146 ]
-  %802 = getelementptr inbounds nuw i8, ptr %.075145, i64 32
+800:                                              ; preds = %.lr.ph144, %792
+  %801 = phi ptr [ %794, %792 ], [ %781, %.lr.ph144 ]
+  %.178 = phi i32 [ %797, %792 ], [ %.077142, %.lr.ph144 ]
+  %802 = getelementptr inbounds nuw i8, ptr %.075143, i64 32
   %.not98 = icmp eq ptr %802, %780
-  br i1 %.not98, label %._crit_edge.loopexit, label %.lr.ph146
+  br i1 %.not98, label %._crit_edge.loopexit, label %.lr.ph144
 
 ._crit_edge.loopexit:                             ; preds = %800
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %801, i64 136
@@ -10873,8 +10873,8 @@ preload_optimize.exit:                            ; preds = %738, %._crit_edge14
   store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !252
   br label %821
 
-821:                                              ; preds = %820, %96, %819
-  %.4 = phi i32 [ %.2, %820 ], [ 0, %819 ], [ -1, %96 ]
+821:                                              ; preds = %96, %819, %820
+  %.4 = phi i32 [ %.2, %820 ], [ -1, %96 ], [ 0, %819 ]
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !201
   %822 = load ptr, ptr @preload_scripts, align 8, !tbaa !230
   call void @zend_hash_destroy(ptr noundef %822) #26

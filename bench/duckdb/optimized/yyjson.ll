@@ -35669,14 +35669,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   br i1 %234, label %269, label %263, !prof !3
 
 263:                                              ; preds = %262
-  %.sroa.0.0.copyload.i335.i505 = load i32, ptr %.8252.i466, align 1
-  %264 = and i32 %.sroa.0.0.copyload.i335.i505, 12632304
+  %.sroa.0.0.copyload.i339.i505 = load i32, ptr %.8252.i466, align 1
+  %264 = and i32 %.sroa.0.0.copyload.i339.i505, 12632304
   %265 = icmp eq i32 %264, 8421600
-  %266 = trunc i32 %.sroa.0.0.copyload.i335.i505 to i8
+  %266 = trunc i32 %.sroa.0.0.copyload.i339.i505 to i8
   br i1 %265, label %267, label %.thread, !prof !22
 
 267:                                              ; preds = %263
-  %268 = and i32 %.sroa.0.0.copyload.i335.i505, 8207
+  %268 = and i32 %.sroa.0.0.copyload.i339.i505, 8207
   switch i32 %268, label %.critedge.i506 [
     i32 8205, label %.thread
     i32 0, label %.thread
@@ -35703,32 +35703,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   ], !prof !216
 
 .critedge.i506:                                   ; preds = %275, %267
-  %storemerge1828 = phi i32 [ %.sroa.0.0.copyload.i335.i505, %267 ], [ %.sroa.0.0.insert.insert.i, %275 ]
+  %storemerge1828 = phi i32 [ %.sroa.0.0.copyload.i339.i505, %267 ], [ %.sroa.0.0.insert.insert.i, %275 ]
   store i32 %storemerge1828, ptr %.8.i467, align 1
   %277 = getelementptr inbounds nuw i8, ptr %.8.i467, i64 3
   %278 = getelementptr inbounds nuw i8, ptr %.8252.i466, i64 3
   br label %.preheader1872.backedge
 
 279:                                              ; preds = %247
-  %.sroa.0.0.copyload.i334.i496 = load i32, ptr %.8252.i466, align 1
-  %280 = and i32 %.sroa.0.0.copyload.i334.i496, -1061109512
+  %.sroa.0.0.copyload.i338.i496 = load i32, ptr %.8252.i466, align 1
+  %280 = and i32 %.sroa.0.0.copyload.i338.i496, -1061109512
   %281 = icmp ne i32 %280, -2139062032
-  %282 = and i32 %.sroa.0.0.copyload.i334.i496, 12295
+  %282 = and i32 %.sroa.0.0.copyload.i338.i496, 12295
   %.not306.i497 = icmp eq i32 %282, 0
   %or.cond.i498 = or i1 %281, %.not306.i497
-  %283 = trunc i32 %.sroa.0.0.copyload.i334.i496 to i8
+  %283 = trunc i32 %.sroa.0.0.copyload.i338.i496 to i8
   br i1 %or.cond.i498, label %.thread, label %284, !prof !217
 
 284:                                              ; preds = %279
-  %285 = and i32 %.sroa.0.0.copyload.i334.i496, 4
+  %285 = and i32 %.sroa.0.0.copyload.i338.i496, 4
   %286 = icmp ne i32 %285, 0
-  %287 = and i32 %.sroa.0.0.copyload.i334.i496, 12291
+  %287 = and i32 %.sroa.0.0.copyload.i338.i496, 12291
   %288 = icmp ne i32 %287, 0
   %.not309.i499 = and i1 %286, %288
   br i1 %.not309.i499, label %.thread, label %.critedge323.i500, !prof !3
 
 .critedge323.i500:                                ; preds = %284
-  store i32 %.sroa.0.0.copyload.i334.i496, ptr %.8.i467, align 1
+  store i32 %.sroa.0.0.copyload.i338.i496, ptr %.8.i467, align 1
   %289 = getelementptr inbounds nuw i8, ptr %.8.i467, i64 4
   br label %.preheader1872.backedge
 
@@ -35741,9 +35741,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %295 = getelementptr inbounds nuw i8, ptr %.8252.i466, i64 1
   br label %.preheader1872.backedge
 
-.preheader1872.backedge:                          ; preds = %290, %296, %408, %411, %259, %.critedge.i506, %.critedge323.i500, %311, %.critedge328.i482, %.critedge331.i478
-  %.8252.i466.be = phi ptr [ %414, %411 ], [ %409, %408 ], [ %261, %259 ], [ %278, %.critedge.i506 ], [ %233, %.critedge323.i500 ], [ %295, %290 ], [ %304, %296 ], [ %328, %311 ], [ %353, %.critedge328.i482 ], [ %233, %.critedge331.i478 ]
-  %.8.i467.be = phi ptr [ %413, %411 ], [ %410, %408 ], [ %260, %259 ], [ %277, %.critedge.i506 ], [ %289, %.critedge323.i500 ], [ %294, %290 ], [ %303, %296 ], [ %327, %311 ], [ %352, %.critedge328.i482 ], [ %402, %.critedge331.i478 ]
+.preheader1872.backedge:                          ; preds = %290, %296, %408, %411, %259, %.critedge.i506, %.critedge323.i500, %311, %.critedge330.i482, %.critedge335.i478
+  %.8252.i466.be = phi ptr [ %414, %411 ], [ %409, %408 ], [ %261, %259 ], [ %278, %.critedge.i506 ], [ %233, %.critedge323.i500 ], [ %295, %290 ], [ %304, %296 ], [ %328, %311 ], [ %353, %.critedge330.i482 ], [ %233, %.critedge335.i478 ]
+  %.8.i467.be = phi ptr [ %413, %411 ], [ %410, %408 ], [ %260, %259 ], [ %277, %.critedge.i506 ], [ %289, %.critedge323.i500 ], [ %294, %290 ], [ %303, %296 ], [ %327, %311 ], [ %352, %.critedge330.i482 ], [ %402, %.critedge335.i478 ]
   br label %.preheader1872
 
 296:                                              ; preds = %247
@@ -35808,12 +35808,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
 
 334:                                              ; preds = %329
   %335 = and i32 %.sroa.0.0.insert.ext.i572, 8207
-  switch i32 %335, label %.critedge328.i482 [
+  switch i32 %335, label %.critedge330.i482 [
     i32 8205, label %.thread1620
     i32 0, label %.thread1620
   ], !prof !216
 
-.critedge328.i482:                                ; preds = %334
+.critedge330.i482:                                ; preds = %334
   %336 = zext i16 %.sroa.0.0.copyload.i569 to i64
   %337 = shl nuw nsw i64 %336, 12
   %338 = lshr i16 %.sroa.0.0.copyload.i569, 2
@@ -35846,9 +35846,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %356 = icmp ne i32 %355, -2139062032
   %357 = and i32 %.sroa.0.0.copyload.i.i472, 12295
   %.not293.i473 = icmp eq i32 %357, 0
-  %or.cond329.i474 = or i1 %356, %.not293.i473
+  %or.cond333.i474 = or i1 %356, %.not293.i473
   %358 = lshr i32 %.sroa.0.0.copyload.i.i472, 24
-  br i1 %or.cond329.i474, label %.thread1620, label %359, !prof !217
+  br i1 %or.cond333.i474, label %.thread1620, label %359, !prof !217
 
 359:                                              ; preds = %354
   %360 = and i32 %.sroa.0.0.copyload.i.i472, 4
@@ -35856,9 +35856,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %362 = and i32 %.sroa.0.0.copyload.i.i472, 12291
   %363 = icmp ne i32 %362, 0
   %.not296.i475 = and i1 %361, %363
-  br i1 %.not296.i475, label %.thread1620, label %.critedge331.i478, !prof !3
+  br i1 %.not296.i475, label %.thread1620, label %.critedge335.i478, !prof !3
 
-.critedge331.i478:                                ; preds = %359
+.critedge335.i478:                                ; preds = %359
   %364 = shl i32 %.sroa.0.0.copyload.i.i472, 18
   %365 = and i32 %364, 1835008
   %366 = shl i32 %.sroa.0.0.copyload.i.i472, 4
@@ -36373,14 +36373,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   br i1 %611, label %646, label %640, !prof !3
 
 640:                                              ; preds = %639
-  %.sroa.0.0.copyload.i335.i417 = load i32, ptr %.8252.i378, align 1
-  %641 = and i32 %.sroa.0.0.copyload.i335.i417, 12632304
+  %.sroa.0.0.copyload.i339.i417 = load i32, ptr %.8252.i378, align 1
+  %641 = and i32 %.sroa.0.0.copyload.i339.i417, 12632304
   %642 = icmp eq i32 %641, 8421600
-  %643 = trunc i32 %.sroa.0.0.copyload.i335.i417 to i8
+  %643 = trunc i32 %.sroa.0.0.copyload.i339.i417 to i8
   br i1 %642, label %644, label %.thread1630, !prof !22
 
 644:                                              ; preds = %640
-  %645 = and i32 %.sroa.0.0.copyload.i335.i417, 8207
+  %645 = and i32 %.sroa.0.0.copyload.i339.i417, 8207
   switch i32 %645, label %.critedge.i418 [
     i32 8205, label %.thread1630
     i32 0, label %.thread1630
@@ -36407,32 +36407,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   ], !prof !216
 
 .critedge.i418:                                   ; preds = %652, %644
-  %storemerge1829 = phi i32 [ %.sroa.0.0.copyload.i335.i417, %644 ], [ %.sroa.0.0.insert.insert.i578, %652 ]
+  %storemerge1829 = phi i32 [ %.sroa.0.0.copyload.i339.i417, %644 ], [ %.sroa.0.0.insert.insert.i578, %652 ]
   store i32 %storemerge1829, ptr %.8.i379, align 1
   %654 = getelementptr inbounds nuw i8, ptr %.8.i379, i64 3
   %655 = getelementptr inbounds nuw i8, ptr %.8252.i378, i64 3
   br label %.preheader.backedge
 
 656:                                              ; preds = %624
-  %.sroa.0.0.copyload.i334.i408 = load i32, ptr %.8252.i378, align 1
-  %657 = and i32 %.sroa.0.0.copyload.i334.i408, -1061109512
+  %.sroa.0.0.copyload.i338.i408 = load i32, ptr %.8252.i378, align 1
+  %657 = and i32 %.sroa.0.0.copyload.i338.i408, -1061109512
   %658 = icmp ne i32 %657, -2139062032
-  %659 = and i32 %.sroa.0.0.copyload.i334.i408, 12295
+  %659 = and i32 %.sroa.0.0.copyload.i338.i408, 12295
   %.not306.i409 = icmp eq i32 %659, 0
   %or.cond.i410 = or i1 %658, %.not306.i409
-  %660 = trunc i32 %.sroa.0.0.copyload.i334.i408 to i8
+  %660 = trunc i32 %.sroa.0.0.copyload.i338.i408 to i8
   br i1 %or.cond.i410, label %.thread1630, label %661, !prof !217
 
 661:                                              ; preds = %656
-  %662 = and i32 %.sroa.0.0.copyload.i334.i408, 4
+  %662 = and i32 %.sroa.0.0.copyload.i338.i408, 4
   %663 = icmp ne i32 %662, 0
-  %664 = and i32 %.sroa.0.0.copyload.i334.i408, 12291
+  %664 = and i32 %.sroa.0.0.copyload.i338.i408, 12291
   %665 = icmp ne i32 %664, 0
   %.not309.i411 = and i1 %663, %665
   br i1 %.not309.i411, label %.thread1630, label %.critedge323.i412, !prof !3
 
 .critedge323.i412:                                ; preds = %661
-  store i32 %.sroa.0.0.copyload.i334.i408, ptr %.8.i379, align 1
+  store i32 %.sroa.0.0.copyload.i338.i408, ptr %.8.i379, align 1
   %666 = getelementptr inbounds nuw i8, ptr %.8.i379, i64 4
   br label %.preheader.backedge
 
@@ -36445,9 +36445,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %672 = getelementptr inbounds nuw i8, ptr %.8252.i378, i64 1
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %667, %673, %785, %788, %636, %.critedge.i418, %.critedge323.i412, %688, %.critedge328.i394, %.critedge331.i390
-  %.8252.i378.be = phi ptr [ %791, %788 ], [ %786, %785 ], [ %638, %636 ], [ %655, %.critedge.i418 ], [ %610, %.critedge323.i412 ], [ %672, %667 ], [ %681, %673 ], [ %705, %688 ], [ %730, %.critedge328.i394 ], [ %610, %.critedge331.i390 ]
-  %.8.i379.be = phi ptr [ %790, %788 ], [ %787, %785 ], [ %637, %636 ], [ %654, %.critedge.i418 ], [ %666, %.critedge323.i412 ], [ %671, %667 ], [ %680, %673 ], [ %704, %688 ], [ %729, %.critedge328.i394 ], [ %779, %.critedge331.i390 ]
+.preheader.backedge:                              ; preds = %667, %673, %785, %788, %636, %.critedge.i418, %.critedge323.i412, %688, %.critedge330.i394, %.critedge335.i390
+  %.8252.i378.be = phi ptr [ %791, %788 ], [ %786, %785 ], [ %638, %636 ], [ %655, %.critedge.i418 ], [ %610, %.critedge323.i412 ], [ %672, %667 ], [ %681, %673 ], [ %705, %688 ], [ %730, %.critedge330.i394 ], [ %610, %.critedge335.i390 ]
+  %.8.i379.be = phi ptr [ %790, %788 ], [ %787, %785 ], [ %637, %636 ], [ %654, %.critedge.i418 ], [ %666, %.critedge323.i412 ], [ %671, %667 ], [ %680, %673 ], [ %704, %688 ], [ %729, %.critedge330.i394 ], [ %779, %.critedge335.i390 ]
   br label %.preheader
 
 673:                                              ; preds = %624
@@ -36512,12 +36512,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
 
 711:                                              ; preds = %706
   %712 = and i32 %.sroa.0.0.insert.ext.i582, 8207
-  switch i32 %712, label %.critedge328.i394 [
+  switch i32 %712, label %.critedge330.i394 [
     i32 8205, label %.thread1640
     i32 0, label %.thread1640
   ], !prof !216
 
-.critedge328.i394:                                ; preds = %711
+.critedge330.i394:                                ; preds = %711
   %713 = zext i16 %.sroa.0.0.copyload.i579 to i64
   %714 = shl nuw nsw i64 %713, 12
   %715 = lshr i16 %.sroa.0.0.copyload.i579, 2
@@ -36550,9 +36550,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %733 = icmp ne i32 %732, -2139062032
   %734 = and i32 %.sroa.0.0.copyload.i.i384, 12295
   %.not293.i385 = icmp eq i32 %734, 0
-  %or.cond329.i386 = or i1 %733, %.not293.i385
+  %or.cond333.i386 = or i1 %733, %.not293.i385
   %735 = lshr i32 %.sroa.0.0.copyload.i.i384, 24
-  br i1 %or.cond329.i386, label %.thread1640, label %736, !prof !217
+  br i1 %or.cond333.i386, label %.thread1640, label %736, !prof !217
 
 736:                                              ; preds = %731
   %737 = and i32 %.sroa.0.0.copyload.i.i384, 4
@@ -36560,9 +36560,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit59: ; preds = %19, %20
   %739 = and i32 %.sroa.0.0.copyload.i.i384, 12291
   %740 = icmp ne i32 %739, 0
   %.not296.i387 = and i1 %738, %740
-  br i1 %.not296.i387, label %.thread1640, label %.critedge331.i390, !prof !3
+  br i1 %.not296.i387, label %.thread1640, label %.critedge335.i390, !prof !3
 
-.critedge331.i390:                                ; preds = %736
+.critedge335.i390:                                ; preds = %736
   %741 = shl i32 %.sroa.0.0.copyload.i.i384, 18
   %742 = and i32 %741, 1835008
   %743 = shl i32 %.sroa.0.0.copyload.i.i384, 4
@@ -39542,14 +39542,14 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   br i1 %2634, label %2669, label %2663, !prof !3
 
 2663:                                             ; preds = %2662
-  %.sroa.0.0.copyload.i335.i329 = load i32, ptr %.8252.i290, align 1
-  %2664 = and i32 %.sroa.0.0.copyload.i335.i329, 12632304
+  %.sroa.0.0.copyload.i339.i329 = load i32, ptr %.8252.i290, align 1
+  %2664 = and i32 %.sroa.0.0.copyload.i339.i329, 12632304
   %2665 = icmp eq i32 %2664, 8421600
-  %2666 = trunc i32 %.sroa.0.0.copyload.i335.i329 to i8
+  %2666 = trunc i32 %.sroa.0.0.copyload.i339.i329 to i8
   br i1 %2665, label %2667, label %.thread1658, !prof !22
 
 2667:                                             ; preds = %2663
-  %2668 = and i32 %.sroa.0.0.copyload.i335.i329, 8207
+  %2668 = and i32 %.sroa.0.0.copyload.i339.i329, 8207
   switch i32 %2668, label %.critedge.i330 [
     i32 8205, label %.thread1658
     i32 0, label %.thread1658
@@ -39576,32 +39576,32 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   ], !prof !216
 
 .critedge.i330:                                   ; preds = %2675, %2667
-  %storemerge = phi i32 [ %.sroa.0.0.copyload.i335.i329, %2667 ], [ %.sroa.0.0.insert.insert.i588, %2675 ]
+  %storemerge = phi i32 [ %.sroa.0.0.copyload.i339.i329, %2667 ], [ %.sroa.0.0.insert.insert.i588, %2675 ]
   store i32 %storemerge, ptr %.8.i291, align 1
   %2677 = getelementptr inbounds nuw i8, ptr %.8.i291, i64 3
   %2678 = getelementptr inbounds nuw i8, ptr %.8252.i290, i64 3
   br label %.preheader1933.backedge
 
 2679:                                             ; preds = %2647
-  %.sroa.0.0.copyload.i334.i320 = load i32, ptr %.8252.i290, align 1
-  %2680 = and i32 %.sroa.0.0.copyload.i334.i320, -1061109512
+  %.sroa.0.0.copyload.i338.i320 = load i32, ptr %.8252.i290, align 1
+  %2680 = and i32 %.sroa.0.0.copyload.i338.i320, -1061109512
   %2681 = icmp ne i32 %2680, -2139062032
-  %2682 = and i32 %.sroa.0.0.copyload.i334.i320, 12295
+  %2682 = and i32 %.sroa.0.0.copyload.i338.i320, 12295
   %.not306.i321 = icmp eq i32 %2682, 0
   %or.cond.i322 = or i1 %2681, %.not306.i321
-  %2683 = trunc i32 %.sroa.0.0.copyload.i334.i320 to i8
+  %2683 = trunc i32 %.sroa.0.0.copyload.i338.i320 to i8
   br i1 %or.cond.i322, label %.thread1658, label %2684, !prof !217
 
 2684:                                             ; preds = %2679
-  %2685 = and i32 %.sroa.0.0.copyload.i334.i320, 4
+  %2685 = and i32 %.sroa.0.0.copyload.i338.i320, 4
   %2686 = icmp ne i32 %2685, 0
-  %2687 = and i32 %.sroa.0.0.copyload.i334.i320, 12291
+  %2687 = and i32 %.sroa.0.0.copyload.i338.i320, 12291
   %2688 = icmp ne i32 %2687, 0
   %.not309.i323 = and i1 %2686, %2688
   br i1 %.not309.i323, label %.thread1658, label %.critedge323.i324, !prof !3
 
 .critedge323.i324:                                ; preds = %2684
-  store i32 %.sroa.0.0.copyload.i334.i320, ptr %.8.i291, align 1
+  store i32 %.sroa.0.0.copyload.i338.i320, ptr %.8.i291, align 1
   %2689 = getelementptr inbounds nuw i8, ptr %.8.i291, i64 4
   br label %.preheader1933.backedge
 
@@ -39614,9 +39614,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %2695 = getelementptr inbounds nuw i8, ptr %.8252.i290, i64 1
   br label %.preheader1933.backedge
 
-.preheader1933.backedge:                          ; preds = %2690, %2696, %2806, %2809, %2659, %.critedge.i330, %.critedge323.i324, %2711, %.critedge328.i306, %.critedge331.i302
-  %.8252.i290.be = phi ptr [ %2812, %2809 ], [ %2807, %2806 ], [ %2661, %2659 ], [ %2678, %.critedge.i330 ], [ %2633, %.critedge323.i324 ], [ %2695, %2690 ], [ %2704, %2696 ], [ %2728, %2711 ], [ %2753, %.critedge328.i306 ], [ %2633, %.critedge331.i302 ]
-  %.8.i291.be = phi ptr [ %2811, %2809 ], [ %2808, %2806 ], [ %2660, %2659 ], [ %2677, %.critedge.i330 ], [ %2689, %.critedge323.i324 ], [ %2694, %2690 ], [ %2703, %2696 ], [ %2727, %2711 ], [ %2752, %.critedge328.i306 ], [ %2802, %.critedge331.i302 ]
+.preheader1933.backedge:                          ; preds = %2690, %2696, %2806, %2809, %2659, %.critedge.i330, %.critedge323.i324, %2711, %.critedge330.i306, %.critedge335.i302
+  %.8252.i290.be = phi ptr [ %2812, %2809 ], [ %2807, %2806 ], [ %2661, %2659 ], [ %2678, %.critedge.i330 ], [ %2633, %.critedge323.i324 ], [ %2695, %2690 ], [ %2704, %2696 ], [ %2728, %2711 ], [ %2753, %.critedge330.i306 ], [ %2633, %.critedge335.i302 ]
+  %.8.i291.be = phi ptr [ %2811, %2809 ], [ %2808, %2806 ], [ %2660, %2659 ], [ %2677, %.critedge.i330 ], [ %2689, %.critedge323.i324 ], [ %2694, %2690 ], [ %2703, %2696 ], [ %2727, %2711 ], [ %2752, %.critedge330.i306 ], [ %2802, %.critedge335.i302 ]
   br label %.preheader1933
 
 2696:                                             ; preds = %2647
@@ -39681,12 +39681,12 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
 
 2734:                                             ; preds = %2729
   %2735 = and i32 %.sroa.0.0.insert.ext.i592, 8207
-  switch i32 %2735, label %.critedge328.i306 [
+  switch i32 %2735, label %.critedge330.i306 [
     i32 8205, label %.thread1668
     i32 0, label %.thread1668
   ], !prof !216
 
-.critedge328.i306:                                ; preds = %2734
+.critedge330.i306:                                ; preds = %2734
   %2736 = zext i16 %.sroa.0.0.copyload.i589 to i64
   %2737 = shl nuw nsw i64 %2736, 12
   %2738 = lshr i16 %.sroa.0.0.copyload.i589, 2
@@ -39719,9 +39719,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %2756 = icmp ne i32 %2755, -2139062032
   %2757 = and i32 %.sroa.0.0.copyload.i.i296, 12295
   %.not293.i297 = icmp eq i32 %2757, 0
-  %or.cond329.i298 = or i1 %2756, %.not293.i297
+  %or.cond333.i298 = or i1 %2756, %.not293.i297
   %2758 = lshr i32 %.sroa.0.0.copyload.i.i296, 24
-  br i1 %or.cond329.i298, label %.thread1668, label %2759, !prof !217
+  br i1 %or.cond333.i298, label %.thread1668, label %2759, !prof !217
 
 2759:                                             ; preds = %2754
   %2760 = and i32 %.sroa.0.0.copyload.i.i296, 4
@@ -39729,9 +39729,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %2762 = and i32 %.sroa.0.0.copyload.i.i296, 12291
   %2763 = icmp ne i32 %2762, 0
   %.not296.i299 = and i1 %2761, %2763
-  br i1 %.not296.i299, label %.thread1668, label %.critedge331.i302, !prof !3
+  br i1 %.not296.i299, label %.thread1668, label %.critedge335.i302, !prof !3
 
-.critedge331.i302:                                ; preds = %2759
+.critedge335.i302:                                ; preds = %2759
   %2764 = shl i32 %.sroa.0.0.copyload.i.i296, 18
   %2765 = and i32 %2764, 1835008
   %2766 = shl i32 %.sroa.0.0.copyload.i.i296, 4
@@ -40235,14 +40235,14 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   br i1 %3008, label %3043, label %3037, !prof !3
 
 3037:                                             ; preds = %3036
-  %.sroa.0.0.copyload.i335.i241 = load i32, ptr %.8252.i202, align 1
-  %3038 = and i32 %.sroa.0.0.copyload.i335.i241, 12632304
+  %.sroa.0.0.copyload.i339.i241 = load i32, ptr %.8252.i202, align 1
+  %3038 = and i32 %.sroa.0.0.copyload.i339.i241, 12632304
   %3039 = icmp eq i32 %3038, 8421600
-  %3040 = trunc i32 %.sroa.0.0.copyload.i335.i241 to i8
+  %3040 = trunc i32 %.sroa.0.0.copyload.i339.i241 to i8
   br i1 %3039, label %3041, label %.thread1678, !prof !22
 
 3041:                                             ; preds = %3037
-  %3042 = and i32 %.sroa.0.0.copyload.i335.i241, 8207
+  %3042 = and i32 %.sroa.0.0.copyload.i339.i241, 8207
   switch i32 %3042, label %.critedge.i242 [
     i32 8205, label %.thread1678
     i32 0, label %.thread1678
@@ -40269,32 +40269,32 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   ], !prof !216
 
 .critedge.i242:                                   ; preds = %3049, %3041
-  %storemerge1786 = phi i32 [ %.sroa.0.0.copyload.i335.i241, %3041 ], [ %.sroa.0.0.insert.insert.i598, %3049 ]
+  %storemerge1786 = phi i32 [ %.sroa.0.0.copyload.i339.i241, %3041 ], [ %.sroa.0.0.insert.insert.i598, %3049 ]
   store i32 %storemerge1786, ptr %.8.i203, align 1
   %3051 = getelementptr inbounds nuw i8, ptr %.8.i203, i64 3
   %3052 = getelementptr inbounds nuw i8, ptr %.8252.i202, i64 3
   br label %.preheader1919.backedge
 
 3053:                                             ; preds = %3021
-  %.sroa.0.0.copyload.i334.i232 = load i32, ptr %.8252.i202, align 1
-  %3054 = and i32 %.sroa.0.0.copyload.i334.i232, -1061109512
+  %.sroa.0.0.copyload.i338.i232 = load i32, ptr %.8252.i202, align 1
+  %3054 = and i32 %.sroa.0.0.copyload.i338.i232, -1061109512
   %3055 = icmp ne i32 %3054, -2139062032
-  %3056 = and i32 %.sroa.0.0.copyload.i334.i232, 12295
+  %3056 = and i32 %.sroa.0.0.copyload.i338.i232, 12295
   %.not306.i233 = icmp eq i32 %3056, 0
   %or.cond.i234 = or i1 %3055, %.not306.i233
-  %3057 = trunc i32 %.sroa.0.0.copyload.i334.i232 to i8
+  %3057 = trunc i32 %.sroa.0.0.copyload.i338.i232 to i8
   br i1 %or.cond.i234, label %.thread1678, label %3058, !prof !217
 
 3058:                                             ; preds = %3053
-  %3059 = and i32 %.sroa.0.0.copyload.i334.i232, 4
+  %3059 = and i32 %.sroa.0.0.copyload.i338.i232, 4
   %3060 = icmp ne i32 %3059, 0
-  %3061 = and i32 %.sroa.0.0.copyload.i334.i232, 12291
+  %3061 = and i32 %.sroa.0.0.copyload.i338.i232, 12291
   %3062 = icmp ne i32 %3061, 0
   %.not309.i235 = and i1 %3060, %3062
   br i1 %.not309.i235, label %.thread1678, label %.critedge323.i236, !prof !3
 
 .critedge323.i236:                                ; preds = %3058
-  store i32 %.sroa.0.0.copyload.i334.i232, ptr %.8.i203, align 1
+  store i32 %.sroa.0.0.copyload.i338.i232, ptr %.8.i203, align 1
   %3063 = getelementptr inbounds nuw i8, ptr %.8.i203, i64 4
   br label %.preheader1919.backedge
 
@@ -40307,9 +40307,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %3069 = getelementptr inbounds nuw i8, ptr %.8252.i202, i64 1
   br label %.preheader1919.backedge
 
-.preheader1919.backedge:                          ; preds = %3064, %3070, %3180, %3183, %3033, %.critedge.i242, %.critedge323.i236, %3085, %.critedge328.i218, %.critedge331.i214
-  %.8252.i202.be = phi ptr [ %3186, %3183 ], [ %3181, %3180 ], [ %3035, %3033 ], [ %3052, %.critedge.i242 ], [ %3007, %.critedge323.i236 ], [ %3069, %3064 ], [ %3078, %3070 ], [ %3102, %3085 ], [ %3127, %.critedge328.i218 ], [ %3007, %.critedge331.i214 ]
-  %.8.i203.be = phi ptr [ %3185, %3183 ], [ %3182, %3180 ], [ %3034, %3033 ], [ %3051, %.critedge.i242 ], [ %3063, %.critedge323.i236 ], [ %3068, %3064 ], [ %3077, %3070 ], [ %3101, %3085 ], [ %3126, %.critedge328.i218 ], [ %3176, %.critedge331.i214 ]
+.preheader1919.backedge:                          ; preds = %3064, %3070, %3180, %3183, %3033, %.critedge.i242, %.critedge323.i236, %3085, %.critedge330.i218, %.critedge335.i214
+  %.8252.i202.be = phi ptr [ %3186, %3183 ], [ %3181, %3180 ], [ %3035, %3033 ], [ %3052, %.critedge.i242 ], [ %3007, %.critedge323.i236 ], [ %3069, %3064 ], [ %3078, %3070 ], [ %3102, %3085 ], [ %3127, %.critedge330.i218 ], [ %3007, %.critedge335.i214 ]
+  %.8.i203.be = phi ptr [ %3185, %3183 ], [ %3182, %3180 ], [ %3034, %3033 ], [ %3051, %.critedge.i242 ], [ %3063, %.critedge323.i236 ], [ %3068, %3064 ], [ %3077, %3070 ], [ %3101, %3085 ], [ %3126, %.critedge330.i218 ], [ %3176, %.critedge335.i214 ]
   br label %.preheader1919
 
 3070:                                             ; preds = %3021
@@ -40374,12 +40374,12 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
 
 3108:                                             ; preds = %3103
   %3109 = and i32 %.sroa.0.0.insert.ext.i602, 8207
-  switch i32 %3109, label %.critedge328.i218 [
+  switch i32 %3109, label %.critedge330.i218 [
     i32 8205, label %.thread1688
     i32 0, label %.thread1688
   ], !prof !216
 
-.critedge328.i218:                                ; preds = %3108
+.critedge330.i218:                                ; preds = %3108
   %3110 = zext i16 %.sroa.0.0.copyload.i599 to i64
   %3111 = shl nuw nsw i64 %3110, 12
   %3112 = lshr i16 %.sroa.0.0.copyload.i599, 2
@@ -40412,9 +40412,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %3130 = icmp ne i32 %3129, -2139062032
   %3131 = and i32 %.sroa.0.0.copyload.i.i208, 12295
   %.not293.i209 = icmp eq i32 %3131, 0
-  %or.cond329.i210 = or i1 %3130, %.not293.i209
+  %or.cond333.i210 = or i1 %3130, %.not293.i209
   %3132 = lshr i32 %.sroa.0.0.copyload.i.i208, 24
-  br i1 %or.cond329.i210, label %.thread1688, label %3133, !prof !217
+  br i1 %or.cond333.i210, label %.thread1688, label %3133, !prof !217
 
 3133:                                             ; preds = %3128
   %3134 = and i32 %.sroa.0.0.copyload.i.i208, 4
@@ -40422,9 +40422,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit1216:  ; preds = %select.unfold1657, 
   %3136 = and i32 %.sroa.0.0.copyload.i.i208, 12291
   %3137 = icmp ne i32 %3136, 0
   %.not296.i211 = and i1 %3135, %3137
-  br i1 %.not296.i211, label %.thread1688, label %.critedge331.i214, !prof !3
+  br i1 %.not296.i211, label %.thread1688, label %.critedge335.i214, !prof !3
 
-.critedge331.i214:                                ; preds = %3133
+.critedge335.i214:                                ; preds = %3133
   %3138 = shl i32 %.sroa.0.0.copyload.i.i208, 18
   %3139 = and i32 %3138, 1835008
   %3140 = shl i32 %.sroa.0.0.copyload.i.i208, 4
@@ -43883,14 +43883,14 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   br i1 %5291, label %5326, label %5320, !prof !3
 
 5320:                                             ; preds = %5319
-  %.sroa.0.0.copyload.i335.i153 = load i32, ptr %.8252.i114, align 1
-  %5321 = and i32 %.sroa.0.0.copyload.i335.i153, 12632304
+  %.sroa.0.0.copyload.i339.i153 = load i32, ptr %.8252.i114, align 1
+  %5321 = and i32 %.sroa.0.0.copyload.i339.i153, 12632304
   %5322 = icmp eq i32 %5321, 8421600
-  %5323 = trunc i32 %.sroa.0.0.copyload.i335.i153 to i8
+  %5323 = trunc i32 %.sroa.0.0.copyload.i339.i153 to i8
   br i1 %5322, label %5324, label %.thread1712, !prof !22
 
 5324:                                             ; preds = %5320
-  %5325 = and i32 %.sroa.0.0.copyload.i335.i153, 8207
+  %5325 = and i32 %.sroa.0.0.copyload.i339.i153, 8207
   switch i32 %5325, label %.critedge.i154 [
     i32 8205, label %.thread1712
     i32 0, label %.thread1712
@@ -43917,32 +43917,32 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   ], !prof !216
 
 .critedge.i154:                                   ; preds = %5332, %5324
-  %storemerge1806 = phi i32 [ %.sroa.0.0.copyload.i335.i153, %5324 ], [ %.sroa.0.0.insert.insert.i608, %5332 ]
+  %storemerge1806 = phi i32 [ %.sroa.0.0.copyload.i339.i153, %5324 ], [ %.sroa.0.0.insert.insert.i608, %5332 ]
   store i32 %storemerge1806, ptr %.8.i115, align 1
   %5334 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 3
   %5335 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 3
   br label %.preheader1900.backedge
 
 5336:                                             ; preds = %5304
-  %.sroa.0.0.copyload.i334.i144 = load i32, ptr %.8252.i114, align 1
-  %5337 = and i32 %.sroa.0.0.copyload.i334.i144, -1061109512
+  %.sroa.0.0.copyload.i338.i144 = load i32, ptr %.8252.i114, align 1
+  %5337 = and i32 %.sroa.0.0.copyload.i338.i144, -1061109512
   %5338 = icmp ne i32 %5337, -2139062032
-  %5339 = and i32 %.sroa.0.0.copyload.i334.i144, 12295
+  %5339 = and i32 %.sroa.0.0.copyload.i338.i144, 12295
   %.not306.i145 = icmp eq i32 %5339, 0
   %or.cond.i146 = or i1 %5338, %.not306.i145
-  %5340 = trunc i32 %.sroa.0.0.copyload.i334.i144 to i8
+  %5340 = trunc i32 %.sroa.0.0.copyload.i338.i144 to i8
   br i1 %or.cond.i146, label %.thread1712, label %5341, !prof !217
 
 5341:                                             ; preds = %5336
-  %5342 = and i32 %.sroa.0.0.copyload.i334.i144, 4
+  %5342 = and i32 %.sroa.0.0.copyload.i338.i144, 4
   %5343 = icmp ne i32 %5342, 0
-  %5344 = and i32 %.sroa.0.0.copyload.i334.i144, 12291
+  %5344 = and i32 %.sroa.0.0.copyload.i338.i144, 12291
   %5345 = icmp ne i32 %5344, 0
   %.not309.i147 = and i1 %5343, %5345
   br i1 %.not309.i147, label %.thread1712, label %.critedge323.i148, !prof !3
 
 .critedge323.i148:                                ; preds = %5341
-  store i32 %.sroa.0.0.copyload.i334.i144, ptr %.8.i115, align 1
+  store i32 %.sroa.0.0.copyload.i338.i144, ptr %.8.i115, align 1
   %5346 = getelementptr inbounds nuw i8, ptr %.8.i115, i64 4
   br label %.preheader1900.backedge
 
@@ -43955,9 +43955,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5352 = getelementptr inbounds nuw i8, ptr %.8252.i114, i64 1
   br label %.preheader1900.backedge
 
-.preheader1900.backedge:                          ; preds = %5347, %5353, %5463, %5466, %5316, %.critedge.i154, %.critedge323.i148, %5368, %.critedge328.i130, %.critedge331.i126
-  %.8252.i114.be = phi ptr [ %5469, %5466 ], [ %5464, %5463 ], [ %5318, %5316 ], [ %5335, %.critedge.i154 ], [ %5290, %.critedge323.i148 ], [ %5352, %5347 ], [ %5361, %5353 ], [ %5385, %5368 ], [ %5410, %.critedge328.i130 ], [ %5290, %.critedge331.i126 ]
-  %.8.i115.be = phi ptr [ %5468, %5466 ], [ %5465, %5463 ], [ %5317, %5316 ], [ %5334, %.critedge.i154 ], [ %5346, %.critedge323.i148 ], [ %5351, %5347 ], [ %5360, %5353 ], [ %5384, %5368 ], [ %5409, %.critedge328.i130 ], [ %5459, %.critedge331.i126 ]
+.preheader1900.backedge:                          ; preds = %5347, %5353, %5463, %5466, %5316, %.critedge.i154, %.critedge323.i148, %5368, %.critedge330.i130, %.critedge335.i126
+  %.8252.i114.be = phi ptr [ %5469, %5466 ], [ %5464, %5463 ], [ %5318, %5316 ], [ %5335, %.critedge.i154 ], [ %5290, %.critedge323.i148 ], [ %5352, %5347 ], [ %5361, %5353 ], [ %5385, %5368 ], [ %5410, %.critedge330.i130 ], [ %5290, %.critedge335.i126 ]
+  %.8.i115.be = phi ptr [ %5468, %5466 ], [ %5465, %5463 ], [ %5317, %5316 ], [ %5334, %.critedge.i154 ], [ %5346, %.critedge323.i148 ], [ %5351, %5347 ], [ %5360, %5353 ], [ %5384, %5368 ], [ %5409, %.critedge330.i130 ], [ %5459, %.critedge335.i126 ]
   br label %.preheader1900
 
 5353:                                             ; preds = %5304
@@ -44022,12 +44022,12 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
 
 5391:                                             ; preds = %5386
   %5392 = and i32 %.sroa.0.0.insert.ext.i612, 8207
-  switch i32 %5392, label %.critedge328.i130 [
+  switch i32 %5392, label %.critedge330.i130 [
     i32 8205, label %.thread1722
     i32 0, label %.thread1722
   ], !prof !216
 
-.critedge328.i130:                                ; preds = %5391
+.critedge330.i130:                                ; preds = %5391
   %5393 = zext i16 %.sroa.0.0.copyload.i609 to i64
   %5394 = shl nuw nsw i64 %5393, 12
   %5395 = lshr i16 %.sroa.0.0.copyload.i609, 2
@@ -44060,9 +44060,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5413 = icmp ne i32 %5412, -2139062032
   %5414 = and i32 %.sroa.0.0.copyload.i.i120, 12295
   %.not293.i121 = icmp eq i32 %5414, 0
-  %or.cond329.i122 = or i1 %5413, %.not293.i121
+  %or.cond333.i122 = or i1 %5413, %.not293.i121
   %5415 = lshr i32 %.sroa.0.0.copyload.i.i120, 24
-  br i1 %or.cond329.i122, label %.thread1722, label %5416, !prof !217
+  br i1 %or.cond333.i122, label %.thread1722, label %5416, !prof !217
 
 5416:                                             ; preds = %5411
   %5417 = and i32 %.sroa.0.0.copyload.i.i120, 4
@@ -44070,9 +44070,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5419 = and i32 %.sroa.0.0.copyload.i.i120, 12291
   %5420 = icmp ne i32 %5419, 0
   %.not296.i123 = and i1 %5418, %5420
-  br i1 %.not296.i123, label %.thread1722, label %.critedge331.i126, !prof !3
+  br i1 %.not296.i123, label %.thread1722, label %.critedge335.i126, !prof !3
 
-.critedge331.i126:                                ; preds = %5416
+.critedge335.i126:                                ; preds = %5416
   %5421 = shl i32 %.sroa.0.0.copyload.i.i120, 18
   %5422 = and i32 %5421, 1835008
   %5423 = shl i32 %.sroa.0.0.copyload.i.i120, 4
@@ -44576,14 +44576,14 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   br i1 %5665, label %5700, label %5694, !prof !3
 
 5694:                                             ; preds = %5693
-  %.sroa.0.0.copyload.i335.i = load i32, ptr %.8252.i, align 1
-  %5695 = and i32 %.sroa.0.0.copyload.i335.i, 12632304
+  %.sroa.0.0.copyload.i339.i = load i32, ptr %.8252.i, align 1
+  %5695 = and i32 %.sroa.0.0.copyload.i339.i, 12632304
   %5696 = icmp eq i32 %5695, 8421600
-  %5697 = trunc i32 %.sroa.0.0.copyload.i335.i to i8
+  %5697 = trunc i32 %.sroa.0.0.copyload.i339.i to i8
   br i1 %5696, label %5698, label %.thread1732, !prof !22
 
 5698:                                             ; preds = %5694
-  %5699 = and i32 %.sroa.0.0.copyload.i335.i, 8207
+  %5699 = and i32 %.sroa.0.0.copyload.i339.i, 8207
   switch i32 %5699, label %.critedge.i [
     i32 8205, label %.thread1732
     i32 0, label %.thread1732
@@ -44610,32 +44610,32 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   ], !prof !216
 
 .critedge.i:                                      ; preds = %5706, %5698
-  %storemerge1807 = phi i32 [ %.sroa.0.0.copyload.i335.i, %5698 ], [ %.sroa.0.0.insert.insert.i618, %5706 ]
+  %storemerge1807 = phi i32 [ %.sroa.0.0.copyload.i339.i, %5698 ], [ %.sroa.0.0.insert.insert.i618, %5706 ]
   store i32 %storemerge1807, ptr %.8.i92, align 1
   %5708 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 3
   %5709 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 3
   br label %.preheader1886.backedge
 
 5710:                                             ; preds = %5678
-  %.sroa.0.0.copyload.i334.i = load i32, ptr %.8252.i, align 1
-  %5711 = and i32 %.sroa.0.0.copyload.i334.i, -1061109512
+  %.sroa.0.0.copyload.i338.i = load i32, ptr %.8252.i, align 1
+  %5711 = and i32 %.sroa.0.0.copyload.i338.i, -1061109512
   %5712 = icmp ne i32 %5711, -2139062032
-  %5713 = and i32 %.sroa.0.0.copyload.i334.i, 12295
+  %5713 = and i32 %.sroa.0.0.copyload.i338.i, 12295
   %.not306.i = icmp eq i32 %5713, 0
   %or.cond.i = or i1 %5712, %.not306.i
-  %5714 = trunc i32 %.sroa.0.0.copyload.i334.i to i8
+  %5714 = trunc i32 %.sroa.0.0.copyload.i338.i to i8
   br i1 %or.cond.i, label %.thread1732, label %5715, !prof !217
 
 5715:                                             ; preds = %5710
-  %5716 = and i32 %.sroa.0.0.copyload.i334.i, 4
+  %5716 = and i32 %.sroa.0.0.copyload.i338.i, 4
   %5717 = icmp ne i32 %5716, 0
-  %5718 = and i32 %.sroa.0.0.copyload.i334.i, 12291
+  %5718 = and i32 %.sroa.0.0.copyload.i338.i, 12291
   %5719 = icmp ne i32 %5718, 0
   %.not309.i = and i1 %5717, %5719
   br i1 %.not309.i, label %.thread1732, label %.critedge323.i, !prof !3
 
 .critedge323.i:                                   ; preds = %5715
-  store i32 %.sroa.0.0.copyload.i334.i, ptr %.8.i92, align 1
+  store i32 %.sroa.0.0.copyload.i338.i, ptr %.8.i92, align 1
   %5720 = getelementptr inbounds nuw i8, ptr %.8.i92, i64 4
   br label %.preheader1886.backedge
 
@@ -44648,9 +44648,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5726 = getelementptr inbounds nuw i8, ptr %.8252.i, i64 1
   br label %.preheader1886.backedge
 
-.preheader1886.backedge:                          ; preds = %5721, %5727, %5837, %5840, %5690, %.critedge.i, %.critedge323.i, %5742, %.critedge328.i, %.critedge331.i
-  %.8252.i.be = phi ptr [ %5843, %5840 ], [ %5838, %5837 ], [ %5692, %5690 ], [ %5709, %.critedge.i ], [ %5664, %.critedge323.i ], [ %5726, %5721 ], [ %5735, %5727 ], [ %5759, %5742 ], [ %5784, %.critedge328.i ], [ %5664, %.critedge331.i ]
-  %.8.i92.be = phi ptr [ %5842, %5840 ], [ %5839, %5837 ], [ %5691, %5690 ], [ %5708, %.critedge.i ], [ %5720, %.critedge323.i ], [ %5725, %5721 ], [ %5734, %5727 ], [ %5758, %5742 ], [ %5783, %.critedge328.i ], [ %5833, %.critedge331.i ]
+.preheader1886.backedge:                          ; preds = %5721, %5727, %5837, %5840, %5690, %.critedge.i, %.critedge323.i, %5742, %.critedge330.i, %.critedge335.i
+  %.8252.i.be = phi ptr [ %5843, %5840 ], [ %5838, %5837 ], [ %5692, %5690 ], [ %5709, %.critedge.i ], [ %5664, %.critedge323.i ], [ %5726, %5721 ], [ %5735, %5727 ], [ %5759, %5742 ], [ %5784, %.critedge330.i ], [ %5664, %.critedge335.i ]
+  %.8.i92.be = phi ptr [ %5842, %5840 ], [ %5839, %5837 ], [ %5691, %5690 ], [ %5708, %.critedge.i ], [ %5720, %.critedge323.i ], [ %5725, %5721 ], [ %5734, %5727 ], [ %5758, %5742 ], [ %5783, %.critedge330.i ], [ %5833, %.critedge335.i ]
   br label %.preheader1886
 
 5727:                                             ; preds = %5678
@@ -44715,12 +44715,12 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
 
 5765:                                             ; preds = %5760
   %5766 = and i32 %.sroa.0.0.insert.ext.i622, 8207
-  switch i32 %5766, label %.critedge328.i [
+  switch i32 %5766, label %.critedge330.i [
     i32 8205, label %.thread1742
     i32 0, label %.thread1742
   ], !prof !216
 
-.critedge328.i:                                   ; preds = %5765
+.critedge330.i:                                   ; preds = %5765
   %5767 = zext i16 %.sroa.0.0.copyload.i619 to i64
   %5768 = shl nuw nsw i64 %5767, 12
   %5769 = lshr i16 %.sroa.0.0.copyload.i619, 2
@@ -44753,9 +44753,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5787 = icmp ne i32 %5786, -2139062032
   %5788 = and i32 %.sroa.0.0.copyload.i.i, 12295
   %.not293.i = icmp eq i32 %5788, 0
-  %or.cond329.i = or i1 %5787, %.not293.i
+  %or.cond333.i = or i1 %5787, %.not293.i
   %5789 = lshr i32 %.sroa.0.0.copyload.i.i, 24
-  br i1 %or.cond329.i, label %.thread1742, label %5790, !prof !217
+  br i1 %or.cond333.i, label %.thread1742, label %5790, !prof !217
 
 5790:                                             ; preds = %5785
   %5791 = and i32 %.sroa.0.0.copyload.i.i, 4
@@ -44763,9 +44763,9 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit414.i:  ; preds = %5069
   %5793 = and i32 %.sroa.0.0.copyload.i.i, 12291
   %5794 = icmp ne i32 %5793, 0
   %.not296.i = and i1 %5792, %5794
-  br i1 %.not296.i, label %.thread1742, label %.critedge331.i, !prof !3
+  br i1 %.not296.i, label %.thread1742, label %.critedge335.i, !prof !3
 
-.critedge331.i:                                   ; preds = %5790
+.critedge335.i:                                   ; preds = %5790
   %5795 = shl i32 %.sroa.0.0.copyload.i.i, 18
   %5796 = and i32 %5795, 1835008
   %5797 = shl i32 %.sroa.0.0.copyload.i.i, 4
@@ -48258,14 +48258,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   br i1 %235, label %270, label %264, !prof !3
 
 264:                                              ; preds = %263
-  %.sroa.0.0.copyload.i335.i62.i = load i32, ptr %.8252.i23.i, align 1
-  %265 = and i32 %.sroa.0.0.copyload.i335.i62.i, 12632304
+  %.sroa.0.0.copyload.i339.i62.i = load i32, ptr %.8252.i23.i, align 1
+  %265 = and i32 %.sroa.0.0.copyload.i339.i62.i, 12632304
   %266 = icmp eq i32 %265, 8421600
-  %267 = trunc i32 %.sroa.0.0.copyload.i335.i62.i to i8
+  %267 = trunc i32 %.sroa.0.0.copyload.i339.i62.i to i8
   br i1 %266, label %268, label %.thread, !prof !22
 
 268:                                              ; preds = %264
-  %269 = and i32 %.sroa.0.0.copyload.i335.i62.i, 8207
+  %269 = and i32 %.sroa.0.0.copyload.i339.i62.i, 8207
   switch i32 %269, label %.critedge.i63.i [
     i32 8205, label %.thread
     i32 0, label %.thread
@@ -48292,32 +48292,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   ], !prof !216
 
 .critedge.i63.i:                                  ; preds = %276, %268
-  %storemerge1007 = phi i32 [ %.sroa.0.0.copyload.i335.i62.i, %268 ], [ %.sroa.0.0.insert.insert.i.i, %276 ]
+  %storemerge1007 = phi i32 [ %.sroa.0.0.copyload.i339.i62.i, %268 ], [ %.sroa.0.0.insert.insert.i.i, %276 ]
   store i32 %storemerge1007, ptr %.8.i24.i, align 1
   %278 = getelementptr inbounds nuw i8, ptr %.8.i24.i, i64 3
   %279 = getelementptr inbounds nuw i8, ptr %.8252.i23.i, i64 3
   br label %.preheader1051.backedge
 
 280:                                              ; preds = %248
-  %.sroa.0.0.copyload.i334.i53.i = load i32, ptr %.8252.i23.i, align 1
-  %281 = and i32 %.sroa.0.0.copyload.i334.i53.i, -1061109512
+  %.sroa.0.0.copyload.i338.i53.i = load i32, ptr %.8252.i23.i, align 1
+  %281 = and i32 %.sroa.0.0.copyload.i338.i53.i, -1061109512
   %282 = icmp ne i32 %281, -2139062032
-  %283 = and i32 %.sroa.0.0.copyload.i334.i53.i, 12295
+  %283 = and i32 %.sroa.0.0.copyload.i338.i53.i, 12295
   %.not306.i54.i = icmp eq i32 %283, 0
   %or.cond.i55.i = or i1 %282, %.not306.i54.i
-  %284 = trunc i32 %.sroa.0.0.copyload.i334.i53.i to i8
+  %284 = trunc i32 %.sroa.0.0.copyload.i338.i53.i to i8
   br i1 %or.cond.i55.i, label %.thread, label %285, !prof !217
 
 285:                                              ; preds = %280
-  %286 = and i32 %.sroa.0.0.copyload.i334.i53.i, 4
+  %286 = and i32 %.sroa.0.0.copyload.i338.i53.i, 4
   %287 = icmp ne i32 %286, 0
-  %288 = and i32 %.sroa.0.0.copyload.i334.i53.i, 12291
+  %288 = and i32 %.sroa.0.0.copyload.i338.i53.i, 12291
   %289 = icmp ne i32 %288, 0
   %.not309.i56.i = and i1 %287, %289
   br i1 %.not309.i56.i, label %.thread, label %.critedge323.i57.i, !prof !3
 
 .critedge323.i57.i:                               ; preds = %285
-  store i32 %.sroa.0.0.copyload.i334.i53.i, ptr %.8.i24.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i53.i, ptr %.8.i24.i, align 1
   %290 = getelementptr inbounds nuw i8, ptr %.8.i24.i, i64 4
   br label %.preheader1051.backedge
 
@@ -48330,9 +48330,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %296 = getelementptr inbounds nuw i8, ptr %.8252.i23.i, i64 1
   br label %.preheader1051.backedge
 
-.preheader1051.backedge:                          ; preds = %291, %297, %409, %412, %260, %.critedge.i63.i, %.critedge323.i57.i, %312, %.critedge328.i39.i, %.critedge331.i35.i
-  %.8252.i23.i.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %262, %260 ], [ %279, %.critedge.i63.i ], [ %234, %.critedge323.i57.i ], [ %296, %291 ], [ %305, %297 ], [ %329, %312 ], [ %354, %.critedge328.i39.i ], [ %234, %.critedge331.i35.i ]
-  %.8.i24.i.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %261, %260 ], [ %278, %.critedge.i63.i ], [ %290, %.critedge323.i57.i ], [ %295, %291 ], [ %304, %297 ], [ %328, %312 ], [ %353, %.critedge328.i39.i ], [ %403, %.critedge331.i35.i ]
+.preheader1051.backedge:                          ; preds = %291, %297, %409, %412, %260, %.critedge.i63.i, %.critedge323.i57.i, %312, %.critedge330.i39.i, %.critedge335.i35.i
+  %.8252.i23.i.be = phi ptr [ %415, %412 ], [ %410, %409 ], [ %262, %260 ], [ %279, %.critedge.i63.i ], [ %234, %.critedge323.i57.i ], [ %296, %291 ], [ %305, %297 ], [ %329, %312 ], [ %354, %.critedge330.i39.i ], [ %234, %.critedge335.i35.i ]
+  %.8.i24.i.be = phi ptr [ %414, %412 ], [ %411, %409 ], [ %261, %260 ], [ %278, %.critedge.i63.i ], [ %290, %.critedge323.i57.i ], [ %295, %291 ], [ %304, %297 ], [ %328, %312 ], [ %353, %.critedge330.i39.i ], [ %403, %.critedge335.i35.i ]
   br label %.preheader1051
 
 297:                                              ; preds = %248
@@ -48397,12 +48397,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
 
 335:                                              ; preds = %330
   %336 = and i32 %.sroa.0.0.insert.ext.i107.i, 8207
-  switch i32 %336, label %.critedge328.i39.i [
+  switch i32 %336, label %.critedge330.i39.i [
     i32 8205, label %.thread799
     i32 0, label %.thread799
   ], !prof !216
 
-.critedge328.i39.i:                               ; preds = %335
+.critedge330.i39.i:                               ; preds = %335
   %337 = zext i16 %.sroa.0.0.copyload.i104.i to i64
   %338 = shl nuw nsw i64 %337, 12
   %339 = lshr i16 %.sroa.0.0.copyload.i104.i, 2
@@ -48435,9 +48435,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %357 = icmp ne i32 %356, -2139062032
   %358 = and i32 %.sroa.0.0.copyload.i.i29.i, 12295
   %.not293.i30.i = icmp eq i32 %358, 0
-  %or.cond329.i31.i = or i1 %357, %.not293.i30.i
+  %or.cond333.i31.i = or i1 %357, %.not293.i30.i
   %359 = lshr i32 %.sroa.0.0.copyload.i.i29.i, 24
-  br i1 %or.cond329.i31.i, label %.thread799, label %360, !prof !217
+  br i1 %or.cond333.i31.i, label %.thread799, label %360, !prof !217
 
 360:                                              ; preds = %355
   %361 = and i32 %.sroa.0.0.copyload.i.i29.i, 4
@@ -48445,9 +48445,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %363 = and i32 %.sroa.0.0.copyload.i.i29.i, 12291
   %364 = icmp ne i32 %363, 0
   %.not296.i32.i = and i1 %362, %364
-  br i1 %.not296.i32.i, label %.thread799, label %.critedge331.i35.i, !prof !3
+  br i1 %.not296.i32.i, label %.thread799, label %.critedge335.i35.i, !prof !3
 
-.critedge331.i35.i:                               ; preds = %360
+.critedge335.i35.i:                               ; preds = %360
   %365 = shl i32 %.sroa.0.0.copyload.i.i29.i, 18
   %366 = and i32 %365, 1835008
   %367 = shl i32 %.sroa.0.0.copyload.i.i29.i, 4
@@ -48962,14 +48962,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   br i1 %612, label %647, label %641, !prof !3
 
 641:                                              ; preds = %640
-  %.sroa.0.0.copyload.i335.i.i = load i32, ptr %.8252.i.i, align 1
-  %642 = and i32 %.sroa.0.0.copyload.i335.i.i, 12632304
+  %.sroa.0.0.copyload.i339.i.i = load i32, ptr %.8252.i.i, align 1
+  %642 = and i32 %.sroa.0.0.copyload.i339.i.i, 12632304
   %643 = icmp eq i32 %642, 8421600
-  %644 = trunc i32 %.sroa.0.0.copyload.i335.i.i to i8
+  %644 = trunc i32 %.sroa.0.0.copyload.i339.i.i to i8
   br i1 %643, label %645, label %.thread809, !prof !22
 
 645:                                              ; preds = %641
-  %646 = and i32 %.sroa.0.0.copyload.i335.i.i, 8207
+  %646 = and i32 %.sroa.0.0.copyload.i339.i.i, 8207
   switch i32 %646, label %.critedge.i.i [
     i32 8205, label %.thread809
     i32 0, label %.thread809
@@ -48996,32 +48996,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   ], !prof !216
 
 .critedge.i.i:                                    ; preds = %653, %645
-  %storemerge1008 = phi i32 [ %.sroa.0.0.copyload.i335.i.i, %645 ], [ %.sroa.0.0.insert.insert.i113.i, %653 ]
+  %storemerge1008 = phi i32 [ %.sroa.0.0.copyload.i339.i.i, %645 ], [ %.sroa.0.0.insert.insert.i113.i, %653 ]
   store i32 %storemerge1008, ptr %.8.i.i, align 1
   %655 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 3
   %656 = getelementptr inbounds nuw i8, ptr %.8252.i.i, i64 3
   br label %.preheader.backedge
 
 657:                                              ; preds = %625
-  %.sroa.0.0.copyload.i334.i.i = load i32, ptr %.8252.i.i, align 1
-  %658 = and i32 %.sroa.0.0.copyload.i334.i.i, -1061109512
+  %.sroa.0.0.copyload.i338.i.i = load i32, ptr %.8252.i.i, align 1
+  %658 = and i32 %.sroa.0.0.copyload.i338.i.i, -1061109512
   %659 = icmp ne i32 %658, -2139062032
-  %660 = and i32 %.sroa.0.0.copyload.i334.i.i, 12295
+  %660 = and i32 %.sroa.0.0.copyload.i338.i.i, 12295
   %.not306.i.i = icmp eq i32 %660, 0
   %or.cond.i.i = or i1 %659, %.not306.i.i
-  %661 = trunc i32 %.sroa.0.0.copyload.i334.i.i to i8
+  %661 = trunc i32 %.sroa.0.0.copyload.i338.i.i to i8
   br i1 %or.cond.i.i, label %.thread809, label %662, !prof !217
 
 662:                                              ; preds = %657
-  %663 = and i32 %.sroa.0.0.copyload.i334.i.i, 4
+  %663 = and i32 %.sroa.0.0.copyload.i338.i.i, 4
   %664 = icmp ne i32 %663, 0
-  %665 = and i32 %.sroa.0.0.copyload.i334.i.i, 12291
+  %665 = and i32 %.sroa.0.0.copyload.i338.i.i, 12291
   %666 = icmp ne i32 %665, 0
   %.not309.i.i = and i1 %664, %666
   br i1 %.not309.i.i, label %.thread809, label %.critedge323.i.i, !prof !3
 
 .critedge323.i.i:                                 ; preds = %662
-  store i32 %.sroa.0.0.copyload.i334.i.i, ptr %.8.i.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i, ptr %.8.i.i, align 1
   %667 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 4
   br label %.preheader.backedge
 
@@ -49034,9 +49034,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %673 = getelementptr inbounds nuw i8, ptr %.8252.i.i, i64 1
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %668, %674, %786, %789, %637, %.critedge.i.i, %.critedge323.i.i, %689, %.critedge328.i.i, %.critedge331.i.i
-  %.8252.i.i.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %639, %637 ], [ %656, %.critedge.i.i ], [ %611, %.critedge323.i.i ], [ %673, %668 ], [ %682, %674 ], [ %706, %689 ], [ %731, %.critedge328.i.i ], [ %611, %.critedge331.i.i ]
-  %.8.i.i.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %638, %637 ], [ %655, %.critedge.i.i ], [ %667, %.critedge323.i.i ], [ %672, %668 ], [ %681, %674 ], [ %705, %689 ], [ %730, %.critedge328.i.i ], [ %780, %.critedge331.i.i ]
+.preheader.backedge:                              ; preds = %668, %674, %786, %789, %637, %.critedge.i.i, %.critedge323.i.i, %689, %.critedge330.i.i, %.critedge335.i.i
+  %.8252.i.i.be = phi ptr [ %792, %789 ], [ %787, %786 ], [ %639, %637 ], [ %656, %.critedge.i.i ], [ %611, %.critedge323.i.i ], [ %673, %668 ], [ %682, %674 ], [ %706, %689 ], [ %731, %.critedge330.i.i ], [ %611, %.critedge335.i.i ]
+  %.8.i.i.be = phi ptr [ %791, %789 ], [ %788, %786 ], [ %638, %637 ], [ %655, %.critedge.i.i ], [ %667, %.critedge323.i.i ], [ %672, %668 ], [ %681, %674 ], [ %705, %689 ], [ %730, %.critedge330.i.i ], [ %780, %.critedge335.i.i ]
   br label %.preheader
 
 674:                                              ; preds = %625
@@ -49101,12 +49101,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
 
 712:                                              ; preds = %707
   %713 = and i32 %.sroa.0.0.insert.ext.i117.i, 8207
-  switch i32 %713, label %.critedge328.i.i [
+  switch i32 %713, label %.critedge330.i.i [
     i32 8205, label %.thread819
     i32 0, label %.thread819
   ], !prof !216
 
-.critedge328.i.i:                                 ; preds = %712
+.critedge330.i.i:                                 ; preds = %712
   %714 = zext i16 %.sroa.0.0.copyload.i114.i to i64
   %715 = shl nuw nsw i64 %714, 12
   %716 = lshr i16 %.sroa.0.0.copyload.i114.i, 2
@@ -49139,9 +49139,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %734 = icmp ne i32 %733, -2139062032
   %735 = and i32 %.sroa.0.0.copyload.i.i.i, 12295
   %.not293.i.i = icmp eq i32 %735, 0
-  %or.cond329.i.i = or i1 %734, %.not293.i.i
+  %or.cond333.i.i = or i1 %734, %.not293.i.i
   %736 = lshr i32 %.sroa.0.0.copyload.i.i.i, 24
-  br i1 %or.cond329.i.i, label %.thread819, label %737, !prof !217
+  br i1 %or.cond333.i.i, label %.thread819, label %737, !prof !217
 
 737:                                              ; preds = %732
   %738 = and i32 %.sroa.0.0.copyload.i.i.i, 4
@@ -49149,9 +49149,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i: ; preds = %21, %20
   %740 = and i32 %.sroa.0.0.copyload.i.i.i, 12291
   %741 = icmp ne i32 %740, 0
   %.not296.i.i = and i1 %739, %741
-  br i1 %.not296.i.i, label %.thread819, label %.critedge331.i.i, !prof !3
+  br i1 %.not296.i.i, label %.thread819, label %.critedge335.i.i, !prof !3
 
-.critedge331.i.i:                                 ; preds = %737
+.critedge335.i.i:                                 ; preds = %737
   %742 = shl i32 %.sroa.0.0.copyload.i.i.i, 18
   %743 = and i32 %742, 1835008
   %744 = shl i32 %.sroa.0.0.copyload.i.i.i, 4
@@ -52141,14 +52141,14 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   br i1 %2639, label %2674, label %2668, !prof !3
 
 2668:                                             ; preds = %2667
-  %.sroa.0.0.copyload.i335.i622.i = load i32, ptr %.8252.i583.i, align 1
-  %2669 = and i32 %.sroa.0.0.copyload.i335.i622.i, 12632304
+  %.sroa.0.0.copyload.i339.i622.i = load i32, ptr %.8252.i583.i, align 1
+  %2669 = and i32 %.sroa.0.0.copyload.i339.i622.i, 12632304
   %2670 = icmp eq i32 %2669, 8421600
-  %2671 = trunc i32 %.sroa.0.0.copyload.i335.i622.i to i8
+  %2671 = trunc i32 %.sroa.0.0.copyload.i339.i622.i to i8
   br i1 %2670, label %2672, label %.thread837, !prof !22
 
 2672:                                             ; preds = %2668
-  %2673 = and i32 %.sroa.0.0.copyload.i335.i622.i, 8207
+  %2673 = and i32 %.sroa.0.0.copyload.i339.i622.i, 8207
   switch i32 %2673, label %.critedge.i623.i [
     i32 8205, label %.thread837
     i32 0, label %.thread837
@@ -52175,32 +52175,32 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   ], !prof !216
 
 .critedge.i623.i:                                 ; preds = %2680, %2672
-  %storemerge = phi i32 [ %.sroa.0.0.copyload.i335.i622.i, %2672 ], [ %.sroa.0.0.insert.insert.i.i98, %2680 ]
+  %storemerge = phi i32 [ %.sroa.0.0.copyload.i339.i622.i, %2672 ], [ %.sroa.0.0.insert.insert.i.i98, %2680 ]
   store i32 %storemerge, ptr %.8.i584.i, align 1
   %2682 = getelementptr inbounds nuw i8, ptr %.8.i584.i, i64 3
   %2683 = getelementptr inbounds nuw i8, ptr %.8252.i583.i, i64 3
   br label %.preheader1112.backedge
 
 2684:                                             ; preds = %2652
-  %.sroa.0.0.copyload.i334.i613.i = load i32, ptr %.8252.i583.i, align 1
-  %2685 = and i32 %.sroa.0.0.copyload.i334.i613.i, -1061109512
+  %.sroa.0.0.copyload.i338.i613.i = load i32, ptr %.8252.i583.i, align 1
+  %2685 = and i32 %.sroa.0.0.copyload.i338.i613.i, -1061109512
   %2686 = icmp ne i32 %2685, -2139062032
-  %2687 = and i32 %.sroa.0.0.copyload.i334.i613.i, 12295
+  %2687 = and i32 %.sroa.0.0.copyload.i338.i613.i, 12295
   %.not306.i614.i = icmp eq i32 %2687, 0
   %or.cond.i615.i = or i1 %2686, %.not306.i614.i
-  %2688 = trunc i32 %.sroa.0.0.copyload.i334.i613.i to i8
+  %2688 = trunc i32 %.sroa.0.0.copyload.i338.i613.i to i8
   br i1 %or.cond.i615.i, label %.thread837, label %2689, !prof !217
 
 2689:                                             ; preds = %2684
-  %2690 = and i32 %.sroa.0.0.copyload.i334.i613.i, 4
+  %2690 = and i32 %.sroa.0.0.copyload.i338.i613.i, 4
   %2691 = icmp ne i32 %2690, 0
-  %2692 = and i32 %.sroa.0.0.copyload.i334.i613.i, 12291
+  %2692 = and i32 %.sroa.0.0.copyload.i338.i613.i, 12291
   %2693 = icmp ne i32 %2692, 0
   %.not309.i616.i = and i1 %2691, %2693
   br i1 %.not309.i616.i, label %.thread837, label %.critedge323.i617.i, !prof !3
 
 .critedge323.i617.i:                              ; preds = %2689
-  store i32 %.sroa.0.0.copyload.i334.i613.i, ptr %.8.i584.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i613.i, ptr %.8.i584.i, align 1
   %2694 = getelementptr inbounds nuw i8, ptr %.8.i584.i, i64 4
   br label %.preheader1112.backedge
 
@@ -52213,9 +52213,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %2700 = getelementptr inbounds nuw i8, ptr %.8252.i583.i, i64 1
   br label %.preheader1112.backedge
 
-.preheader1112.backedge:                          ; preds = %2695, %2701, %2811, %2814, %2664, %.critedge.i623.i, %.critedge323.i617.i, %2716, %.critedge328.i599.i, %.critedge331.i595.i
-  %.8252.i583.i.be = phi ptr [ %2817, %2814 ], [ %2812, %2811 ], [ %2666, %2664 ], [ %2683, %.critedge.i623.i ], [ %2638, %.critedge323.i617.i ], [ %2700, %2695 ], [ %2709, %2701 ], [ %2733, %2716 ], [ %2758, %.critedge328.i599.i ], [ %2638, %.critedge331.i595.i ]
-  %.8.i584.i.be = phi ptr [ %2816, %2814 ], [ %2813, %2811 ], [ %2665, %2664 ], [ %2682, %.critedge.i623.i ], [ %2694, %.critedge323.i617.i ], [ %2699, %2695 ], [ %2708, %2701 ], [ %2732, %2716 ], [ %2757, %.critedge328.i599.i ], [ %2807, %.critedge331.i595.i ]
+.preheader1112.backedge:                          ; preds = %2695, %2701, %2811, %2814, %2664, %.critedge.i623.i, %.critedge323.i617.i, %2716, %.critedge330.i599.i, %.critedge335.i595.i
+  %.8252.i583.i.be = phi ptr [ %2817, %2814 ], [ %2812, %2811 ], [ %2666, %2664 ], [ %2683, %.critedge.i623.i ], [ %2638, %.critedge323.i617.i ], [ %2700, %2695 ], [ %2709, %2701 ], [ %2733, %2716 ], [ %2758, %.critedge330.i599.i ], [ %2638, %.critedge335.i595.i ]
+  %.8.i584.i.be = phi ptr [ %2816, %2814 ], [ %2813, %2811 ], [ %2665, %2664 ], [ %2682, %.critedge.i623.i ], [ %2694, %.critedge323.i617.i ], [ %2699, %2695 ], [ %2708, %2701 ], [ %2732, %2716 ], [ %2757, %.critedge330.i599.i ], [ %2807, %.critedge335.i595.i ]
   br label %.preheader1112
 
 2701:                                             ; preds = %2652
@@ -52280,12 +52280,12 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
 
 2739:                                             ; preds = %2734
   %2740 = and i32 %.sroa.0.0.insert.ext.i667.i, 8207
-  switch i32 %2740, label %.critedge328.i599.i [
+  switch i32 %2740, label %.critedge330.i599.i [
     i32 8205, label %.thread847
     i32 0, label %.thread847
   ], !prof !216
 
-.critedge328.i599.i:                              ; preds = %2739
+.critedge330.i599.i:                              ; preds = %2739
   %2741 = zext i16 %.sroa.0.0.copyload.i664.i to i64
   %2742 = shl nuw nsw i64 %2741, 12
   %2743 = lshr i16 %.sroa.0.0.copyload.i664.i, 2
@@ -52318,9 +52318,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %2761 = icmp ne i32 %2760, -2139062032
   %2762 = and i32 %.sroa.0.0.copyload.i.i589.i, 12295
   %.not293.i590.i = icmp eq i32 %2762, 0
-  %or.cond329.i591.i = or i1 %2761, %.not293.i590.i
+  %or.cond333.i591.i = or i1 %2761, %.not293.i590.i
   %2763 = lshr i32 %.sroa.0.0.copyload.i.i589.i, 24
-  br i1 %or.cond329.i591.i, label %.thread847, label %2764, !prof !217
+  br i1 %or.cond333.i591.i, label %.thread847, label %2764, !prof !217
 
 2764:                                             ; preds = %2759
   %2765 = and i32 %.sroa.0.0.copyload.i.i589.i, 4
@@ -52328,9 +52328,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %2767 = and i32 %.sroa.0.0.copyload.i.i589.i, 12291
   %2768 = icmp ne i32 %2767, 0
   %.not296.i592.i = and i1 %2766, %2768
-  br i1 %.not296.i592.i, label %.thread847, label %.critedge331.i595.i, !prof !3
+  br i1 %.not296.i592.i, label %.thread847, label %.critedge335.i595.i, !prof !3
 
-.critedge331.i595.i:                              ; preds = %2764
+.critedge335.i595.i:                              ; preds = %2764
   %2769 = shl i32 %.sroa.0.0.copyload.i.i589.i, 18
   %2770 = and i32 %2769, 1835008
   %2771 = shl i32 %.sroa.0.0.copyload.i.i589.i, 4
@@ -52834,14 +52834,14 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   br i1 %3013, label %3048, label %3042, !prof !3
 
 3042:                                             ; preds = %3041
-  %.sroa.0.0.copyload.i335.i.i159 = load i32, ptr %.8252.i.i120, align 1
-  %3043 = and i32 %.sroa.0.0.copyload.i335.i.i159, 12632304
+  %.sroa.0.0.copyload.i339.i.i159 = load i32, ptr %.8252.i.i120, align 1
+  %3043 = and i32 %.sroa.0.0.copyload.i339.i.i159, 12632304
   %3044 = icmp eq i32 %3043, 8421600
-  %3045 = trunc i32 %.sroa.0.0.copyload.i335.i.i159 to i8
+  %3045 = trunc i32 %.sroa.0.0.copyload.i339.i.i159 to i8
   br i1 %3044, label %3046, label %.thread857, !prof !22
 
 3046:                                             ; preds = %3042
-  %3047 = and i32 %.sroa.0.0.copyload.i335.i.i159, 8207
+  %3047 = and i32 %.sroa.0.0.copyload.i339.i.i159, 8207
   switch i32 %3047, label %.critedge.i.i160 [
     i32 8205, label %.thread857
     i32 0, label %.thread857
@@ -52868,32 +52868,32 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   ], !prof !216
 
 .critedge.i.i160:                                 ; preds = %3054, %3046
-  %storemerge965 = phi i32 [ %.sroa.0.0.copyload.i335.i.i159, %3046 ], [ %.sroa.0.0.insert.insert.i673.i, %3054 ]
+  %storemerge965 = phi i32 [ %.sroa.0.0.copyload.i339.i.i159, %3046 ], [ %.sroa.0.0.insert.insert.i673.i, %3054 ]
   store i32 %storemerge965, ptr %.8.i.i121, align 1
   %3056 = getelementptr inbounds nuw i8, ptr %.8.i.i121, i64 3
   %3057 = getelementptr inbounds nuw i8, ptr %.8252.i.i120, i64 3
   br label %.preheader1098.backedge
 
 3058:                                             ; preds = %3026
-  %.sroa.0.0.copyload.i334.i.i150 = load i32, ptr %.8252.i.i120, align 1
-  %3059 = and i32 %.sroa.0.0.copyload.i334.i.i150, -1061109512
+  %.sroa.0.0.copyload.i338.i.i150 = load i32, ptr %.8252.i.i120, align 1
+  %3059 = and i32 %.sroa.0.0.copyload.i338.i.i150, -1061109512
   %3060 = icmp ne i32 %3059, -2139062032
-  %3061 = and i32 %.sroa.0.0.copyload.i334.i.i150, 12295
+  %3061 = and i32 %.sroa.0.0.copyload.i338.i.i150, 12295
   %.not306.i.i151 = icmp eq i32 %3061, 0
   %or.cond.i.i152 = or i1 %3060, %.not306.i.i151
-  %3062 = trunc i32 %.sroa.0.0.copyload.i334.i.i150 to i8
+  %3062 = trunc i32 %.sroa.0.0.copyload.i338.i.i150 to i8
   br i1 %or.cond.i.i152, label %.thread857, label %3063, !prof !217
 
 3063:                                             ; preds = %3058
-  %3064 = and i32 %.sroa.0.0.copyload.i334.i.i150, 4
+  %3064 = and i32 %.sroa.0.0.copyload.i338.i.i150, 4
   %3065 = icmp ne i32 %3064, 0
-  %3066 = and i32 %.sroa.0.0.copyload.i334.i.i150, 12291
+  %3066 = and i32 %.sroa.0.0.copyload.i338.i.i150, 12291
   %3067 = icmp ne i32 %3066, 0
   %.not309.i.i153 = and i1 %3065, %3067
   br i1 %.not309.i.i153, label %.thread857, label %.critedge323.i.i154, !prof !3
 
 .critedge323.i.i154:                              ; preds = %3063
-  store i32 %.sroa.0.0.copyload.i334.i.i150, ptr %.8.i.i121, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i150, ptr %.8.i.i121, align 1
   %3068 = getelementptr inbounds nuw i8, ptr %.8.i.i121, i64 4
   br label %.preheader1098.backedge
 
@@ -52906,9 +52906,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %3074 = getelementptr inbounds nuw i8, ptr %.8252.i.i120, i64 1
   br label %.preheader1098.backedge
 
-.preheader1098.backedge:                          ; preds = %3069, %3075, %3185, %3188, %3038, %.critedge.i.i160, %.critedge323.i.i154, %3090, %.critedge328.i.i136, %.critedge331.i.i132
-  %.8252.i.i120.be = phi ptr [ %3191, %3188 ], [ %3186, %3185 ], [ %3040, %3038 ], [ %3057, %.critedge.i.i160 ], [ %3012, %.critedge323.i.i154 ], [ %3074, %3069 ], [ %3083, %3075 ], [ %3107, %3090 ], [ %3132, %.critedge328.i.i136 ], [ %3012, %.critedge331.i.i132 ]
-  %.8.i.i121.be = phi ptr [ %3190, %3188 ], [ %3187, %3185 ], [ %3039, %3038 ], [ %3056, %.critedge.i.i160 ], [ %3068, %.critedge323.i.i154 ], [ %3073, %3069 ], [ %3082, %3075 ], [ %3106, %3090 ], [ %3131, %.critedge328.i.i136 ], [ %3181, %.critedge331.i.i132 ]
+.preheader1098.backedge:                          ; preds = %3069, %3075, %3185, %3188, %3038, %.critedge.i.i160, %.critedge323.i.i154, %3090, %.critedge330.i.i136, %.critedge335.i.i132
+  %.8252.i.i120.be = phi ptr [ %3191, %3188 ], [ %3186, %3185 ], [ %3040, %3038 ], [ %3057, %.critedge.i.i160 ], [ %3012, %.critedge323.i.i154 ], [ %3074, %3069 ], [ %3083, %3075 ], [ %3107, %3090 ], [ %3132, %.critedge330.i.i136 ], [ %3012, %.critedge335.i.i132 ]
+  %.8.i.i121.be = phi ptr [ %3190, %3188 ], [ %3187, %3185 ], [ %3039, %3038 ], [ %3056, %.critedge.i.i160 ], [ %3068, %.critedge323.i.i154 ], [ %3073, %3069 ], [ %3082, %3075 ], [ %3106, %3090 ], [ %3131, %.critedge330.i.i136 ], [ %3181, %.critedge335.i.i132 ]
   br label %.preheader1098
 
 3075:                                             ; preds = %3026
@@ -52973,12 +52973,12 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
 
 3113:                                             ; preds = %3108
   %3114 = and i32 %.sroa.0.0.insert.ext.i677.i, 8207
-  switch i32 %3114, label %.critedge328.i.i136 [
+  switch i32 %3114, label %.critedge330.i.i136 [
     i32 8205, label %.thread867
     i32 0, label %.thread867
   ], !prof !216
 
-.critedge328.i.i136:                              ; preds = %3113
+.critedge330.i.i136:                              ; preds = %3113
   %3115 = zext i16 %.sroa.0.0.copyload.i674.i to i64
   %3116 = shl nuw nsw i64 %3115, 12
   %3117 = lshr i16 %.sroa.0.0.copyload.i674.i, 2
@@ -53011,9 +53011,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %3135 = icmp ne i32 %3134, -2139062032
   %3136 = and i32 %.sroa.0.0.copyload.i.i.i126, 12295
   %.not293.i.i127 = icmp eq i32 %3136, 0
-  %or.cond329.i.i128 = or i1 %3135, %.not293.i.i127
+  %or.cond333.i.i128 = or i1 %3135, %.not293.i.i127
   %3137 = lshr i32 %.sroa.0.0.copyload.i.i.i126, 24
-  br i1 %or.cond329.i.i128, label %.thread867, label %3138, !prof !217
+  br i1 %or.cond333.i.i128, label %.thread867, label %3138, !prof !217
 
 3138:                                             ; preds = %3133
   %3139 = and i32 %.sroa.0.0.copyload.i.i.i126, 4
@@ -53021,9 +53021,9 @@ _ZN13duckdb_yyjsonL12write_indentEPhmm.exit856.i: ; preds = %select.unfold836, %
   %3141 = and i32 %.sroa.0.0.copyload.i.i.i126, 12291
   %3142 = icmp ne i32 %3141, 0
   %.not296.i.i129 = and i1 %3140, %3142
-  br i1 %.not296.i.i129, label %.thread867, label %.critedge331.i.i132, !prof !3
+  br i1 %.not296.i.i129, label %.thread867, label %.critedge335.i.i132, !prof !3
 
-.critedge331.i.i132:                              ; preds = %3138
+.critedge335.i.i132:                              ; preds = %3138
   %3143 = shl i32 %.sroa.0.0.copyload.i.i.i126, 18
   %3144 = and i32 %3143, 1835008
   %3145 = shl i32 %.sroa.0.0.copyload.i.i.i126, 4
@@ -56519,14 +56519,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   br i1 %5320, label %5355, label %5349, !prof !3
 
 5349:                                             ; preds = %5348
-  %.sroa.0.0.copyload.i335.i482.i = load i32, ptr %.8252.i443.i, align 1
-  %5350 = and i32 %.sroa.0.0.copyload.i335.i482.i, 12632304
+  %.sroa.0.0.copyload.i339.i482.i = load i32, ptr %.8252.i443.i, align 1
+  %5350 = and i32 %.sroa.0.0.copyload.i339.i482.i, 12632304
   %5351 = icmp eq i32 %5350, 8421600
-  %5352 = trunc i32 %.sroa.0.0.copyload.i335.i482.i to i8
+  %5352 = trunc i32 %.sroa.0.0.copyload.i339.i482.i to i8
   br i1 %5351, label %5353, label %.thread891, !prof !22
 
 5353:                                             ; preds = %5349
-  %5354 = and i32 %.sroa.0.0.copyload.i335.i482.i, 8207
+  %5354 = and i32 %.sroa.0.0.copyload.i339.i482.i, 8207
   switch i32 %5354, label %.critedge.i483.i [
     i32 8205, label %.thread891
     i32 0, label %.thread891
@@ -56553,32 +56553,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   ], !prof !216
 
 .critedge.i483.i:                                 ; preds = %5361, %5353
-  %storemerge985 = phi i32 [ %.sroa.0.0.copyload.i335.i482.i, %5353 ], [ %.sroa.0.0.insert.insert.i.i277, %5361 ]
+  %storemerge985 = phi i32 [ %.sroa.0.0.copyload.i339.i482.i, %5353 ], [ %.sroa.0.0.insert.insert.i.i277, %5361 ]
   store i32 %storemerge985, ptr %.8.i444.i, align 1
   %5363 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 3
   %5364 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 3
   br label %.preheader1079.backedge
 
 5365:                                             ; preds = %5333
-  %.sroa.0.0.copyload.i334.i473.i = load i32, ptr %.8252.i443.i, align 1
-  %5366 = and i32 %.sroa.0.0.copyload.i334.i473.i, -1061109512
+  %.sroa.0.0.copyload.i338.i473.i = load i32, ptr %.8252.i443.i, align 1
+  %5366 = and i32 %.sroa.0.0.copyload.i338.i473.i, -1061109512
   %5367 = icmp ne i32 %5366, -2139062032
-  %5368 = and i32 %.sroa.0.0.copyload.i334.i473.i, 12295
+  %5368 = and i32 %.sroa.0.0.copyload.i338.i473.i, 12295
   %.not306.i474.i = icmp eq i32 %5368, 0
   %or.cond.i475.i = or i1 %5367, %.not306.i474.i
-  %5369 = trunc i32 %.sroa.0.0.copyload.i334.i473.i to i8
+  %5369 = trunc i32 %.sroa.0.0.copyload.i338.i473.i to i8
   br i1 %or.cond.i475.i, label %.thread891, label %5370, !prof !217
 
 5370:                                             ; preds = %5365
-  %5371 = and i32 %.sroa.0.0.copyload.i334.i473.i, 4
+  %5371 = and i32 %.sroa.0.0.copyload.i338.i473.i, 4
   %5372 = icmp ne i32 %5371, 0
-  %5373 = and i32 %.sroa.0.0.copyload.i334.i473.i, 12291
+  %5373 = and i32 %.sroa.0.0.copyload.i338.i473.i, 12291
   %5374 = icmp ne i32 %5373, 0
   %.not309.i476.i = and i1 %5372, %5374
   br i1 %.not309.i476.i, label %.thread891, label %.critedge323.i477.i, !prof !3
 
 .critedge323.i477.i:                              ; preds = %5370
-  store i32 %.sroa.0.0.copyload.i334.i473.i, ptr %.8.i444.i, align 1
+  store i32 %.sroa.0.0.copyload.i338.i473.i, ptr %.8.i444.i, align 1
   %5375 = getelementptr inbounds nuw i8, ptr %.8.i444.i, i64 4
   br label %.preheader1079.backedge
 
@@ -56591,9 +56591,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5381 = getelementptr inbounds nuw i8, ptr %.8252.i443.i, i64 1
   br label %.preheader1079.backedge
 
-.preheader1079.backedge:                          ; preds = %5376, %5382, %5492, %5495, %5345, %.critedge.i483.i, %.critedge323.i477.i, %5397, %.critedge328.i459.i, %.critedge331.i455.i
-  %.8252.i443.i.be = phi ptr [ %5498, %5495 ], [ %5493, %5492 ], [ %5347, %5345 ], [ %5364, %.critedge.i483.i ], [ %5319, %.critedge323.i477.i ], [ %5381, %5376 ], [ %5390, %5382 ], [ %5414, %5397 ], [ %5439, %.critedge328.i459.i ], [ %5319, %.critedge331.i455.i ]
-  %.8.i444.i.be = phi ptr [ %5497, %5495 ], [ %5494, %5492 ], [ %5346, %5345 ], [ %5363, %.critedge.i483.i ], [ %5375, %.critedge323.i477.i ], [ %5380, %5376 ], [ %5389, %5382 ], [ %5413, %5397 ], [ %5438, %.critedge328.i459.i ], [ %5488, %.critedge331.i455.i ]
+.preheader1079.backedge:                          ; preds = %5376, %5382, %5492, %5495, %5345, %.critedge.i483.i, %.critedge323.i477.i, %5397, %.critedge330.i459.i, %.critedge335.i455.i
+  %.8252.i443.i.be = phi ptr [ %5498, %5495 ], [ %5493, %5492 ], [ %5347, %5345 ], [ %5364, %.critedge.i483.i ], [ %5319, %.critedge323.i477.i ], [ %5381, %5376 ], [ %5390, %5382 ], [ %5414, %5397 ], [ %5439, %.critedge330.i459.i ], [ %5319, %.critedge335.i455.i ]
+  %.8.i444.i.be = phi ptr [ %5497, %5495 ], [ %5494, %5492 ], [ %5346, %5345 ], [ %5363, %.critedge.i483.i ], [ %5375, %.critedge323.i477.i ], [ %5380, %5376 ], [ %5389, %5382 ], [ %5413, %5397 ], [ %5438, %.critedge330.i459.i ], [ %5488, %.critedge335.i455.i ]
   br label %.preheader1079
 
 5382:                                             ; preds = %5333
@@ -56658,12 +56658,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
 
 5420:                                             ; preds = %5415
   %5421 = and i32 %.sroa.0.0.insert.ext.i527.i, 8207
-  switch i32 %5421, label %.critedge328.i459.i [
+  switch i32 %5421, label %.critedge330.i459.i [
     i32 8205, label %.thread901
     i32 0, label %.thread901
   ], !prof !216
 
-.critedge328.i459.i:                              ; preds = %5420
+.critedge330.i459.i:                              ; preds = %5420
   %5422 = zext i16 %.sroa.0.0.copyload.i524.i to i64
   %5423 = shl nuw nsw i64 %5422, 12
   %5424 = lshr i16 %.sroa.0.0.copyload.i524.i, 2
@@ -56696,9 +56696,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5442 = icmp ne i32 %5441, -2139062032
   %5443 = and i32 %.sroa.0.0.copyload.i.i449.i, 12295
   %.not293.i450.i = icmp eq i32 %5443, 0
-  %or.cond329.i451.i = or i1 %5442, %.not293.i450.i
+  %or.cond333.i451.i = or i1 %5442, %.not293.i450.i
   %5444 = lshr i32 %.sroa.0.0.copyload.i.i449.i, 24
-  br i1 %or.cond329.i451.i, label %.thread901, label %5445, !prof !217
+  br i1 %or.cond333.i451.i, label %.thread901, label %5445, !prof !217
 
 5445:                                             ; preds = %5440
   %5446 = and i32 %.sroa.0.0.copyload.i.i449.i, 4
@@ -56706,9 +56706,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5448 = and i32 %.sroa.0.0.copyload.i.i449.i, 12291
   %5449 = icmp ne i32 %5448, 0
   %.not296.i452.i = and i1 %5447, %5449
-  br i1 %.not296.i452.i, label %.thread901, label %.critedge331.i455.i, !prof !3
+  br i1 %.not296.i452.i, label %.thread901, label %.critedge335.i455.i, !prof !3
 
-.critedge331.i455.i:                              ; preds = %5445
+.critedge335.i455.i:                              ; preds = %5445
   %5450 = shl i32 %.sroa.0.0.copyload.i.i449.i, 18
   %5451 = and i32 %5450, 1835008
   %5452 = shl i32 %.sroa.0.0.copyload.i.i449.i, 4
@@ -57212,14 +57212,14 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   br i1 %5694, label %5729, label %5723, !prof !3
 
 5723:                                             ; preds = %5722
-  %.sroa.0.0.copyload.i335.i.i338 = load i32, ptr %.8252.i.i299, align 1
-  %5724 = and i32 %.sroa.0.0.copyload.i335.i.i338, 12632304
+  %.sroa.0.0.copyload.i339.i.i338 = load i32, ptr %.8252.i.i299, align 1
+  %5724 = and i32 %.sroa.0.0.copyload.i339.i.i338, 12632304
   %5725 = icmp eq i32 %5724, 8421600
-  %5726 = trunc i32 %.sroa.0.0.copyload.i335.i.i338 to i8
+  %5726 = trunc i32 %.sroa.0.0.copyload.i339.i.i338 to i8
   br i1 %5725, label %5727, label %.thread911, !prof !22
 
 5727:                                             ; preds = %5723
-  %5728 = and i32 %.sroa.0.0.copyload.i335.i.i338, 8207
+  %5728 = and i32 %.sroa.0.0.copyload.i339.i.i338, 8207
   switch i32 %5728, label %.critedge.i.i339 [
     i32 8205, label %.thread911
     i32 0, label %.thread911
@@ -57246,32 +57246,32 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   ], !prof !216
 
 .critedge.i.i339:                                 ; preds = %5735, %5727
-  %storemerge986 = phi i32 [ %.sroa.0.0.copyload.i335.i.i338, %5727 ], [ %.sroa.0.0.insert.insert.i533.i, %5735 ]
+  %storemerge986 = phi i32 [ %.sroa.0.0.copyload.i339.i.i338, %5727 ], [ %.sroa.0.0.insert.insert.i533.i, %5735 ]
   store i32 %storemerge986, ptr %.8.i.i300, align 1
   %5737 = getelementptr inbounds nuw i8, ptr %.8.i.i300, i64 3
   %5738 = getelementptr inbounds nuw i8, ptr %.8252.i.i299, i64 3
   br label %.preheader1065.backedge
 
 5739:                                             ; preds = %5707
-  %.sroa.0.0.copyload.i334.i.i329 = load i32, ptr %.8252.i.i299, align 1
-  %5740 = and i32 %.sroa.0.0.copyload.i334.i.i329, -1061109512
+  %.sroa.0.0.copyload.i338.i.i329 = load i32, ptr %.8252.i.i299, align 1
+  %5740 = and i32 %.sroa.0.0.copyload.i338.i.i329, -1061109512
   %5741 = icmp ne i32 %5740, -2139062032
-  %5742 = and i32 %.sroa.0.0.copyload.i334.i.i329, 12295
+  %5742 = and i32 %.sroa.0.0.copyload.i338.i.i329, 12295
   %.not306.i.i330 = icmp eq i32 %5742, 0
   %or.cond.i.i331 = or i1 %5741, %.not306.i.i330
-  %5743 = trunc i32 %.sroa.0.0.copyload.i334.i.i329 to i8
+  %5743 = trunc i32 %.sroa.0.0.copyload.i338.i.i329 to i8
   br i1 %or.cond.i.i331, label %.thread911, label %5744, !prof !217
 
 5744:                                             ; preds = %5739
-  %5745 = and i32 %.sroa.0.0.copyload.i334.i.i329, 4
+  %5745 = and i32 %.sroa.0.0.copyload.i338.i.i329, 4
   %5746 = icmp ne i32 %5745, 0
-  %5747 = and i32 %.sroa.0.0.copyload.i334.i.i329, 12291
+  %5747 = and i32 %.sroa.0.0.copyload.i338.i.i329, 12291
   %5748 = icmp ne i32 %5747, 0
   %.not309.i.i332 = and i1 %5746, %5748
   br i1 %.not309.i.i332, label %.thread911, label %.critedge323.i.i333, !prof !3
 
 .critedge323.i.i333:                              ; preds = %5744
-  store i32 %.sroa.0.0.copyload.i334.i.i329, ptr %.8.i.i300, align 1
+  store i32 %.sroa.0.0.copyload.i338.i.i329, ptr %.8.i.i300, align 1
   %5749 = getelementptr inbounds nuw i8, ptr %.8.i.i300, i64 4
   br label %.preheader1065.backedge
 
@@ -57284,9 +57284,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5755 = getelementptr inbounds nuw i8, ptr %.8252.i.i299, i64 1
   br label %.preheader1065.backedge
 
-.preheader1065.backedge:                          ; preds = %5750, %5756, %5866, %5869, %5719, %.critedge.i.i339, %.critedge323.i.i333, %5771, %.critedge328.i.i315, %.critedge331.i.i311
-  %.8252.i.i299.be = phi ptr [ %5872, %5869 ], [ %5867, %5866 ], [ %5721, %5719 ], [ %5738, %.critedge.i.i339 ], [ %5693, %.critedge323.i.i333 ], [ %5755, %5750 ], [ %5764, %5756 ], [ %5788, %5771 ], [ %5813, %.critedge328.i.i315 ], [ %5693, %.critedge331.i.i311 ]
-  %.8.i.i300.be = phi ptr [ %5871, %5869 ], [ %5868, %5866 ], [ %5720, %5719 ], [ %5737, %.critedge.i.i339 ], [ %5749, %.critedge323.i.i333 ], [ %5754, %5750 ], [ %5763, %5756 ], [ %5787, %5771 ], [ %5812, %.critedge328.i.i315 ], [ %5862, %.critedge331.i.i311 ]
+.preheader1065.backedge:                          ; preds = %5750, %5756, %5866, %5869, %5719, %.critedge.i.i339, %.critedge323.i.i333, %5771, %.critedge330.i.i315, %.critedge335.i.i311
+  %.8252.i.i299.be = phi ptr [ %5872, %5869 ], [ %5867, %5866 ], [ %5721, %5719 ], [ %5738, %.critedge.i.i339 ], [ %5693, %.critedge323.i.i333 ], [ %5755, %5750 ], [ %5764, %5756 ], [ %5788, %5771 ], [ %5813, %.critedge330.i.i315 ], [ %5693, %.critedge335.i.i311 ]
+  %.8.i.i300.be = phi ptr [ %5871, %5869 ], [ %5868, %5866 ], [ %5720, %5719 ], [ %5737, %.critedge.i.i339 ], [ %5749, %.critedge323.i.i333 ], [ %5754, %5750 ], [ %5763, %5756 ], [ %5787, %5771 ], [ %5812, %.critedge330.i.i315 ], [ %5862, %.critedge335.i.i311 ]
   br label %.preheader1065
 
 5756:                                             ; preds = %5707
@@ -57351,12 +57351,12 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
 
 5794:                                             ; preds = %5789
   %5795 = and i32 %.sroa.0.0.insert.ext.i537.i, 8207
-  switch i32 %5795, label %.critedge328.i.i315 [
+  switch i32 %5795, label %.critedge330.i.i315 [
     i32 8205, label %.thread921
     i32 0, label %.thread921
   ], !prof !216
 
-.critedge328.i.i315:                              ; preds = %5794
+.critedge330.i.i315:                              ; preds = %5794
   %5796 = zext i16 %.sroa.0.0.copyload.i534.i to i64
   %5797 = shl nuw nsw i64 %5796, 12
   %5798 = lshr i16 %.sroa.0.0.copyload.i534.i, 2
@@ -57389,9 +57389,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5816 = icmp ne i32 %5815, -2139062032
   %5817 = and i32 %.sroa.0.0.copyload.i.i.i305, 12295
   %.not293.i.i306 = icmp eq i32 %5817, 0
-  %or.cond329.i.i307 = or i1 %5816, %.not293.i.i306
+  %or.cond333.i.i307 = or i1 %5816, %.not293.i.i306
   %5818 = lshr i32 %.sroa.0.0.copyload.i.i.i305, 24
-  br i1 %or.cond329.i.i307, label %.thread921, label %5819, !prof !217
+  br i1 %or.cond333.i.i307, label %.thread921, label %5819, !prof !217
 
 5819:                                             ; preds = %5814
   %5820 = and i32 %.sroa.0.0.copyload.i.i.i305, 4
@@ -57399,9 +57399,9 @@ _ZN13duckdb_yyjsonL23get_enc_table_with_flagEj.exit.i198: ; preds = %5065, %5064
   %5822 = and i32 %.sroa.0.0.copyload.i.i.i305, 12291
   %5823 = icmp ne i32 %5822, 0
   %.not296.i.i308 = and i1 %5821, %5823
-  br i1 %.not296.i.i308, label %.thread921, label %.critedge331.i.i311, !prof !3
+  br i1 %.not296.i.i308, label %.thread921, label %.critedge335.i.i311, !prof !3
 
-.critedge331.i.i311:                              ; preds = %5819
+.critedge335.i.i311:                              ; preds = %5819
   %5824 = shl i32 %.sroa.0.0.copyload.i.i.i305, 18
   %5825 = and i32 %5824, 1835008
   %5826 = shl i32 %.sroa.0.0.copyload.i.i.i305, 4

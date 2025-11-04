@@ -45,8 +45,8 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.03457 = phi ptr [ %.1, %36 ], [ null, %.lr.ph.preheader ]
-  %.03656 = phi i32 [ %.137, %36 ], [ 0, %.lr.ph.preheader ]
+  %.03458 = phi ptr [ %.1, %36 ], [ null, %.lr.ph.preheader ]
+  %.03657 = phi i32 [ %.137, %36 ], [ 0, %.lr.ph.preheader ]
   store i64 524288, ptr %6, align 8
   store ptr %19, ptr %7, align 8
   %20 = call i32 @BrotliDecoderDecompressStream(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
@@ -66,7 +66,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 24:                                               ; preds = %21, %23, %.lr.ph
   %25 = phi i1 [ true, %23 ], [ false, %.lr.ph ], [ false, %21 ]
-  %.137 = phi i32 [ %.03656, %23 ], [ %.03656, %.lr.ph ], [ 1, %21 ]
+  %.137 = phi i32 [ %.03657, %23 ], [ %.03657, %.lr.ph ], [ 1, %21 ]
   %26 = load i64, ptr %8, align 8
   %27 = icmp ugt i64 %26, 2147483647
   br i1 %27, label %.thread, label %28
@@ -78,7 +78,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 30:                                               ; preds = %28
   %31 = sub i64 524288, %29
-  %32 = call ptr @g_realloc(ptr noundef %.03457, i64 noundef %26)
+  %32 = call ptr @g_realloc(ptr noundef %.03458, i64 noundef %26)
   %33 = load i64, ptr %8, align 8
   %34 = sub i64 %33, %31
   %35 = getelementptr i8, ptr %32, i64 %34
@@ -86,7 +86,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %36
 
 36:                                               ; preds = %28, %30
-  %.1 = phi ptr [ %32, %30 ], [ %.03457, %28 ]
+  %.1 = phi ptr [ %32, %30 ], [ %.03458, %28 ]
   %37 = load i64, ptr %4, align 8
   %38 = icmp ne i64 %37, 0
   %39 = or i1 %25, %38
@@ -116,7 +116,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   br label %48
 
 .thread:                                          ; preds = %24, %.lr.ph, %21, %41
-  %.3 = phi ptr [ null, %41 ], [ %.03457, %21 ], [ %.03457, %.lr.ph ], [ %.03457, %24 ]
+  %.3 = phi ptr [ null, %41 ], [ %.03458, %21 ], [ %.03458, %.lr.ph ], [ %.03458, %24 ]
   call void @g_free(ptr noundef %19)
   call void @g_free(ptr noundef %.3)
   call void @wmem_free(ptr noundef null, ptr noundef nonnull %13)

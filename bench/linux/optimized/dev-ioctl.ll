@@ -85,7 +85,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %9 = add nsw i32 %6, -127
   %10 = icmp ult i32 %9, -14
   %11 = select i1 %8, i1 true, i1 %10
-  br i1 %11, label %133, label %12
+  br i1 %11, label %131, label %12
 
 12:                                               ; preds = %3
   switch i32 %6, label %13 [
@@ -95,37 +95,37 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
 
 13:                                               ; preds = %12
   %14 = tail call zeroext i1 @capable(i32 noundef 21) #10
-  br i1 %14, label %15, label %133
+  br i1 %14, label %15, label %131
 
 15:                                               ; preds = %13, %12, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !6
   %16 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %5, i64 noundef 24) #10
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %.thread32
+  br i1 %17, label %18, label %.thread30
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp ult i32 %20, 24
-  br i1 %22, label %.thread32, label %23
+  br i1 %22, label %.thread30, label %23
 
 23:                                               ; preds = %18
   %24 = icmp ugt i32 %20, 4120
-  br i1 %24, label %.thread32, label %25
+  br i1 %24, label %.thread30, label %25
 
 25:                                               ; preds = %23
   %26 = call ptr @memdup_user(ptr noundef %5, i64 noundef %21) #10
   %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
-  br i1 %27, label %.thread32, label %31
+  br i1 %27, label %.thread30, label %31
 
-.thread32:                                        ; preds = %23, %18, %15, %25
+.thread30:                                        ; preds = %23, %18, %15, %25
   %28 = phi ptr [ %26, %25 ], [ inttoptr (i64 -36 to ptr), %23 ], [ inttoptr (i64 -22 to ptr), %18 ], [ inttoptr (i64 -14 to ptr), %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
-  br label %133
+  br label %131
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %19, align 8
@@ -154,7 +154,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   store i32 1, ptr %45, align 4
   %48 = load i32, ptr %43, align 8
   %49 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %48, ptr noundef nonnull @__func__.validate_dev_ioctl, i32 noundef %1) #12
-  br label %.thread15
+  br label %.thread16
 
 50:                                               ; preds = %36
   store i32 1, ptr %26, align 8
@@ -178,12 +178,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1320
   %64 = load i32, ptr %63, align 8
   %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %64, ptr noundef nonnull @__func__.validate_dev_ioctl, i32 noundef %1) #12
-  br label %.thread15
+  br label %.thread16
 
 66:                                               ; preds = %54
   %67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %56, i32 noundef 47) #10
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %.thread13
+  br i1 %68, label %69, label %.thread14
 
 69:                                               ; preds = %66
   %70 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
@@ -191,17 +191,17 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1320
   %73 = load i32, ptr %72, align 8
   %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %73, ptr noundef nonnull @__func__.validate_dev_ioctl, i32 noundef %1) #12
-  br label %.thread15
+  br label %.thread16
 
 75:                                               ; preds = %50
   %76 = trunc i32 %1 to i8
-  switch i8 %76, label %.thread13 [
-    i8 126, label %.thread15
-    i8 123, label %.thread15
-    i8 116, label %.thread15
+  switch i8 %76, label %.thread14 [
+    i8 126, label %.thread16
+    i8 123, label %.thread16
+    i8 116, label %.thread16
   ]
 
-.thread13:                                        ; preds = %75, %66
+.thread14:                                        ; preds = %75, %66
   %77 = add nsw i32 %6, -113
   %78 = zext nneg i32 %77 to i64
   %79 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 14, i64 %78) #10, !srcloc !7
@@ -211,12 +211,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %83 = getelementptr ptr, ptr @lookup_dev_ioctl._ioctls, i64 %82
   %84 = load ptr, ptr %83, align 8
   switch i32 %6, label %85 [
-    i32 117, label %.thread23
-    i32 116, label %.thread23
-    i32 113, label %.thread23
+    i32 117, label %.thread24
+    i32 116, label %.thread24
+    i32 113, label %.thread24
   ]
 
-85:                                               ; preds = %.thread13
+85:                                               ; preds = %.thread14
   %86 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = call ptr @fget(i32 noundef %87) #10
@@ -225,7 +225,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
 
 90:                                               ; preds = %85
   %91 = icmp eq i32 %6, 126
-  br i1 %91, label %122, label %.thread15
+  br i1 %91, label %.thread24, label %.thread16
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 168
@@ -239,7 +239,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
 
 100:                                              ; preds = %92
   call void @fput(ptr noundef nonnull %88) #10
-  br label %.thread15
+  br label %.thread16
 
 101:                                              ; preds = %92
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 872
@@ -248,7 +248,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 1
   %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %.thread16
+  br i1 %107, label %108, label %.thread17
 
 108:                                              ; preds = %101
   %109 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
@@ -262,45 +262,41 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %117 = icmp ne ptr %114, %116
   %118 = icmp ne i32 %6, 121
   %119 = and i1 %118, %117
-  br i1 %119, label %120, label %.thread16
+  br i1 %119, label %120, label %.thread17
 
 120:                                              ; preds = %108
   call void @fput(ptr noundef nonnull %88) #10
-  br label %.thread15
+  br label %.thread16
 
-.thread23:                                        ; preds = %.thread13, %.thread13, %.thread13
+.thread24:                                        ; preds = %.thread14, %.thread14, %.thread14, %90
   %121 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
-  br label %125
+  br label %123
 
-122:                                              ; preds = %90
-  %123 = call i32 %84(ptr noundef null, ptr noundef null, ptr noundef %26) #10
-  br label %125
-
-.thread16:                                        ; preds = %101, %108
-  %124 = call i32 %84(ptr noundef nonnull %88, ptr noundef %103, ptr noundef %26) #10
+.thread17:                                        ; preds = %101, %108
+  %122 = call i32 %84(ptr noundef nonnull %88, ptr noundef %103, ptr noundef %26) #10
   call void @fput(ptr noundef nonnull %88) #10
-  br label %125
+  br label %123
 
-125:                                              ; preds = %122, %.thread23, %.thread16
-  %126 = phi i32 [ %121, %.thread23 ], [ %124, %.thread16 ], [ %123, %122 ]
-  %127 = icmp sgt i32 %126, -1
-  br i1 %127, label %128, label %.thread15
+123:                                              ; preds = %.thread24, %.thread17
+  %124 = phi i32 [ %121, %.thread24 ], [ %122, %.thread17 ]
+  %125 = icmp sgt i32 %124, -1
+  br i1 %125, label %126, label %.thread16
 
-128:                                              ; preds = %125
-  %129 = call i64 @_copy_to_user(ptr noundef %5, ptr noundef %26, i64 noundef 24) #10
-  %130 = icmp eq i64 %129, 0
-  %131 = select i1 %130, i32 %126, i32 -14
-  br label %.thread15
+126:                                              ; preds = %123
+  %127 = call i64 @_copy_to_user(ptr noundef %5, ptr noundef %26, i64 noundef 24) #10
+  %128 = icmp eq i64 %127, 0
+  %129 = select i1 %128, i32 %124, i32 -14
+  br label %.thread16
 
-.thread15:                                        ; preds = %75, %75, %75, %69, %60, %40, %100, %120, %90, %128, %125
-  %132 = phi i32 [ %126, %125 ], [ %131, %128 ], [ -22, %100 ], [ -13, %120 ], [ -9, %90 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -22, %75 ]
+.thread16:                                        ; preds = %90, %120, %100, %75, %75, %75, %69, %60, %40, %126, %123
+  %130 = phi i32 [ %124, %123 ], [ %129, %126 ], [ -22, %40 ], [ -22, %60 ], [ -22, %69 ], [ -22, %75 ], [ -22, %75 ], [ -22, %75 ], [ -9, %90 ], [ -13, %120 ], [ -22, %100 ]
   call void @kfree(ptr noundef %26) #10
-  br label %133
+  br label %131
 
-133:                                              ; preds = %.thread15, %.thread32, %13, %3
-  %134 = phi i32 [ %30, %.thread32 ], [ %132, %.thread15 ], [ -25, %3 ], [ -1, %13 ]
-  %135 = sext i32 %134 to i64
-  ret i64 %135
+131:                                              ; preds = %.thread16, %.thread30, %13, %3
+  %132 = phi i32 [ %30, %.thread30 ], [ %130, %.thread16 ], [ -25, %3 ], [ -1, %13 ]
+  %133 = sext i32 %132 to i64
+  ret i64 %133
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

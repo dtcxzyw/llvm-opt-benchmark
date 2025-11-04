@@ -2292,8 +2292,8 @@ define dso_local range(i32 -1, 1) i32 @functionExtractLibMetaData(ptr noundef %0
 sub_0:
   %3 = alloca i32, align 4
   %4 = load i8, ptr %0, align 1
-  %.not73 = icmp eq i8 %4, 35
-  br i1 %.not73, label %.tail, label %.tail.thread
+  %.not74 = icmp eq i8 %4, 35
+  br i1 %.not74, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2343,11 +2343,11 @@ sub_0:
   call void @sdsrange(ptr noundef %28, i64 noundef 2, i64 noundef -1) #12
   %29 = load i32, ptr %3, align 4, !tbaa !47
   %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %.lr.ph, label %.thread63
+  br i1 %30, label %.lr.ph, label %.thread64
 
 .lr.ph:                                           ; preds = %26, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 1, %26 ]
-  %.04771 = phi ptr [ %39, %38 ], [ null, %26 ]
+  %.04772 = phi ptr [ %39, %38 ], [ null, %26 ]
   %31 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !51
   %33 = call i32 @strncasecmp(ptr noundef %32, ptr noundef nonnull @.str.74, i64 noundef 5) #15
@@ -2355,10 +2355,10 @@ sub_0:
   br i1 %34, label %35, label %71
 
 35:                                               ; preds = %.lr.ph
-  %.not55 = icmp eq ptr %.04771, null
-  br i1 %.not55, label %38, label %.thread65
+  %.not55 = icmp eq ptr %.04772, null
+  br i1 %.not55, label %38, label %.thread66
 
-.thread65:                                        ; preds = %35
+.thread66:                                        ; preds = %35
   %36 = call ptr @sdsempty() #12
   %37 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %36, ptr noundef nonnull @.str.75) #12
   store ptr %37, ptr %2, align 8, !tbaa !51
@@ -2375,9 +2375,9 @@ sub_0:
 
 ._crit_edge:                                      ; preds = %38
   %.not56 = icmp eq ptr %39, null
-  br i1 %.not56, label %.thread63, label %44
+  br i1 %.not56, label %.thread64, label %44
 
-.thread63:                                        ; preds = %26, %._crit_edge
+.thread64:                                        ; preds = %26, %._crit_edge
   %43 = call ptr @sdsnew(ptr noundef nonnull @.str.77) #12
   store ptr %43, ptr %2, align 8, !tbaa !51
   br label %75
@@ -2439,14 +2439,14 @@ sdslen.exit:                                      ; preds = %44, %50, %53, %57, 
   %72 = call ptr @sdsempty() #12
   %73 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %72, ptr noundef nonnull @.str.76, ptr noundef %32) #12
   store ptr %73, ptr %2, align 8, !tbaa !51
-  %.not57 = icmp eq ptr %.04771, null
+  %.not57 = icmp eq ptr %.04772, null
   br i1 %.not57, label %75, label %74
 
-74:                                               ; preds = %.thread65, %71
-  call void @sdsfree(ptr noundef nonnull %.04771) #12
+74:                                               ; preds = %.thread66, %71
+  call void @sdsfree(ptr noundef nonnull %.04772) #12
   br label %75
 
-75:                                               ; preds = %.thread63, %74, %71
+75:                                               ; preds = %.thread64, %74, %71
   %.not58 = icmp eq ptr %28, null
   br i1 %.not58, label %77, label %76
 

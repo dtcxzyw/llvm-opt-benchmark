@@ -1484,9 +1484,9 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 
 64:                                               ; preds = %63, %60, %52
   %65 = getelementptr i8, ptr %24, i64 8
-  %.val155.i = load ptr, ptr %65, align 8, !tbaa !23
-  %.not170.i = icmp eq ptr %.val155.i, @PyBool_Type
-  br i1 %.not170.i, label %66, label %69
+  %.val158.i = load ptr, ptr %65, align 8, !tbaa !23
+  %.not173.i = icmp eq ptr %.val158.i, @PyBool_Type
+  br i1 %.not173.i, label %66, label %69
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @PyExc_RuntimeWarning, align 8, !tbaa !21
@@ -1523,8 +1523,8 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 .critedge144.i:                                   ; preds = %78, %69
   %.0100.i = phi ptr [ %80, %78 ], [ null, %69 ]
   %81 = load i8, ptr %.043, align 1, !tbaa !22
-  %.not125176.i = icmp eq i8 %81, 0
-  br i1 %.not125176.i, label %.loopexit171.i, label %.lr.ph.i
+  %.not125179.i = icmp eq i8 %81, 0
+  br i1 %.not125179.i, label %.loopexit174.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge144.i
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1532,11 +1532,11 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 
 83:                                               ; preds = %113, %.lr.ph.i
   %84 = phi i8 [ %81, %.lr.ph.i ], [ %114, %113 ]
-  %.0101180.i = phi ptr [ %.043, %.lr.ph.i ], [ %85, %113 ]
-  %.0103179.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %113 ]
-  %.0104178.i = phi i32 [ 0, %.lr.ph.i ], [ %.1105.i, %113 ]
-  %.0106177.i = phi i32 [ 0, %.lr.ph.i ], [ %.1107.i, %113 ]
-  %85 = getelementptr i8, ptr %.0101180.i, i64 1
+  %.0101183.i = phi ptr [ %.043, %.lr.ph.i ], [ %85, %113 ]
+  %.0103182.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %113 ]
+  %.0104181.i = phi i32 [ 0, %.lr.ph.i ], [ %.1105.i, %113 ]
+  %.0106180.i = phi i32 [ 0, %.lr.ph.i ], [ %.1107.i, %113 ]
+  %85 = getelementptr i8, ptr %.0101183.i, i64 1
   switch i8 %84, label %110 [
     i8 120, label %86
     i8 114, label %92
@@ -1547,24 +1547,24 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
   ]
 
 86:                                               ; preds = %83
-  %.not140.i = icmp eq i32 %.0103179.i, 0
-  br i1 %.not140.i, label %88, label %.loopexit171.i
+  %.not140.i = icmp eq i32 %.0103182.i, 0
+  br i1 %.not140.i, label %88, label %.loopexit174.i
 
-.loopexit171.i:                                   ; preds = %106, %101, %96, %92, %86, %._crit_edge.i, %.critedge144.i
+.loopexit174.i:                                   ; preds = %106, %101, %96, %92, %86, %._crit_edge.i, %.critedge144.i
   %87 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !21
   call void @PyErr_SetString(ptr noundef %87, ptr noundef nonnull @.str.64) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
 88:                                               ; preds = %86
   %89 = load i8, ptr %82, align 4
   %90 = or i8 %89, 5
   store i8 %90, ptr %82, align 4
-  %91 = or i32 %.0106177.i, 192
+  %91 = or i32 %.0106180.i, 192
   br label %113
 
 92:                                               ; preds = %83
-  %.not139.i = icmp eq i32 %.0103179.i, 0
-  br i1 %.not139.i, label %93, label %.loopexit171.i
+  %.not139.i = icmp eq i32 %.0103182.i, 0
+  br i1 %.not139.i, label %93, label %.loopexit174.i
 
 93:                                               ; preds = %92
   %94 = load i8, ptr %82, align 4
@@ -1573,30 +1573,30 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
   br label %113
 
 96:                                               ; preds = %83
-  %.not138.i = icmp eq i32 %.0103179.i, 0
-  br i1 %.not138.i, label %97, label %.loopexit171.i
+  %.not138.i = icmp eq i32 %.0103182.i, 0
+  br i1 %.not138.i, label %97, label %.loopexit174.i
 
 97:                                               ; preds = %96
   %98 = load i8, ptr %82, align 4
   %99 = or i8 %98, 4
   store i8 %99, ptr %82, align 4
-  %100 = or i32 %.0106177.i, 576
+  %100 = or i32 %.0106180.i, 576
   br label %113
 
 101:                                              ; preds = %83
-  %.not137.i = icmp eq i32 %.0103179.i, 0
-  br i1 %.not137.i, label %102, label %.loopexit171.i
+  %.not137.i = icmp eq i32 %.0103182.i, 0
+  br i1 %.not137.i, label %102, label %.loopexit174.i
 
 102:                                              ; preds = %101
   %103 = load i8, ptr %82, align 4
   %104 = or i8 %103, 12
   store i8 %104, ptr %82, align 4
-  %105 = or i32 %.0106177.i, 1088
+  %105 = or i32 %.0106180.i, 1088
   br label %113
 
 106:                                              ; preds = %83
-  %.not136.i = icmp eq i32 %.0104178.i, 0
-  br i1 %.not136.i, label %107, label %.loopexit171.i
+  %.not136.i = icmp eq i32 %.0104181.i, 0
+  br i1 %.not136.i, label %107, label %.loopexit174.i
 
 107:                                              ; preds = %106
   %108 = load i8, ptr %82, align 4
@@ -1607,19 +1607,19 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 110:                                              ; preds = %83
   %111 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !21
   %112 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %111, ptr noundef nonnull @.str.65, ptr noundef nonnull %.043) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
 113:                                              ; preds = %107, %102, %97, %93, %88, %83
-  %.1107.i = phi i32 [ %91, %88 ], [ %.0106177.i, %93 ], [ %100, %97 ], [ %105, %102 ], [ %.0106177.i, %83 ], [ %.0106177.i, %107 ]
-  %.1105.i = phi i32 [ %.0104178.i, %88 ], [ %.0104178.i, %93 ], [ %.0104178.i, %97 ], [ %.0104178.i, %102 ], [ %.0104178.i, %83 ], [ 1, %107 ]
-  %.1.i = phi i32 [ 1, %88 ], [ 1, %93 ], [ 1, %97 ], [ 1, %102 ], [ %.0103179.i, %83 ], [ %.0103179.i, %107 ]
+  %.1107.i = phi i32 [ %91, %88 ], [ %.0106180.i, %93 ], [ %100, %97 ], [ %105, %102 ], [ %.0106180.i, %83 ], [ %.0106180.i, %107 ]
+  %.1105.i = phi i32 [ %.0104181.i, %88 ], [ %.0104181.i, %93 ], [ %.0104181.i, %97 ], [ %.0104181.i, %102 ], [ %.0104181.i, %83 ], [ 1, %107 ]
+  %.1.i = phi i32 [ 1, %88 ], [ 1, %93 ], [ 1, %97 ], [ 1, %102 ], [ %.0103182.i, %83 ], [ %.0103182.i, %107 ]
   %114 = load i8, ptr %85, align 1, !tbaa !22
   %.not125.i = icmp eq i8 %114, 0
   br i1 %.not125.i, label %._crit_edge.i, label %83, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %113
   %115 = icmp eq i32 %.1.i, 0
-  br i1 %115, label %.loopexit171.i, label %116
+  br i1 %115, label %.loopexit174.i, label %116
 
 116:                                              ; preds = %._crit_edge.i
   %117 = load i8, ptr %82, align 4
@@ -1633,7 +1633,7 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
   %121 = or i32 %.2.i, 524288
   %122 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull %24, ptr noundef nonnull %.043, i32 noundef %121) #10
   %123 = icmp slt i32 %122, 0
-  br i1 %123, label %.thread169.i, label %124
+  br i1 %123, label %.thread172.i, label %124
 
 124:                                              ; preds = %116
   %125 = icmp sgt i32 %70, -1
@@ -1660,7 +1660,7 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 136:                                              ; preds = %133
   %137 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !21
   call void @PyErr_SetString(ptr noundef %137, ptr noundef nonnull @.str.68) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
 138:                                              ; preds = %133
   %139 = tail call ptr @__errno_location() #12
@@ -1685,90 +1685,90 @@ define internal range(i32 -1, 1) i32 @_io_FileIO___init__(ptr noundef %0, ptr no
 148:                                              ; preds = %145
   %149 = call i32 @PyErr_CheckSignals() #10
   %.not133.i = icmp eq i32 %149, 0
-  br i1 %.not133.i, label %.preheader.i, label %.thread169.i, !llvm.loop !44
+  br i1 %.not133.i, label %.preheader.i, label %.thread172.i, !llvm.loop !44
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !21
   %152 = call ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef %151, ptr noundef nonnull %24) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
 153:                                              ; preds = %138
   %154 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %.041, ptr noundef nonnull @.str.69, ptr noundef nonnull %24, i32 noundef %121) #10
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread169.i, label %156
+  br i1 %155, label %.thread172.i, label %156
 
 156:                                              ; preds = %153
   %157 = getelementptr i8, ptr %154, i64 8
   %.val.i = load ptr, ptr %157, align 8, !tbaa !23
   %158 = getelementptr i8, ptr %.val.i, i64 168
-  %.val154.i = load i64, ptr %158, align 8, !tbaa !39
-  %159 = and i64 %.val154.i, 16777216
+  %.val157.i = load i64, ptr %158, align 8, !tbaa !39
+  %159 = and i64 %.val157.i, 16777216
   %.not131.i = icmp eq i64 %159, 0
   br i1 %.not131.i, label %160, label %167
 
 160:                                              ; preds = %156
   %161 = load i32, ptr %154, align 8, !tbaa !22
-  %.not.i149.i = icmp sgt i32 %161, -1
-  br i1 %.not.i149.i, label %162, label %Py_DECREF.exit150.i
+  %.not.i152.i = icmp sgt i32 %161, -1
+  br i1 %.not.i152.i, label %162, label %Py_DECREF.exit153.i
 
 162:                                              ; preds = %160
   %163 = add nsw i32 %161, -1
   store i32 %163, ptr %154, align 8, !tbaa !22
   %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %Py_DECREF.exit150.i
+  br i1 %164, label %165, label %Py_DECREF.exit153.i
 
 165:                                              ; preds = %162
   call void @_Py_Dealloc(ptr noundef nonnull %154) #10
-  br label %Py_DECREF.exit150.i
+  br label %Py_DECREF.exit153.i
 
-Py_DECREF.exit150.i:                              ; preds = %165, %162, %160
+Py_DECREF.exit153.i:                              ; preds = %165, %162, %160
   %166 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !21
   call void @PyErr_SetString(ptr noundef %166, ptr noundef nonnull @.str.70) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
 167:                                              ; preds = %156
   %168 = call i32 @PyLong_AsInt(ptr noundef nonnull %154) #10
   store i32 %168, ptr %53, align 8, !tbaa !4
   %169 = load i32, ptr %154, align 8, !tbaa !22
-  %.not.i147.i = icmp sgt i32 %169, -1
-  br i1 %.not.i147.i, label %170, label %Py_DECREF.exit148.i
+  %.not.i150.i = icmp sgt i32 %169, -1
+  br i1 %.not.i150.i, label %170, label %Py_DECREF.exit151.i
 
 170:                                              ; preds = %167
   %171 = add nsw i32 %169, -1
   store i32 %171, ptr %154, align 8, !tbaa !22
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %Py_DECREF.exit148thread-pre-split.i
+  br i1 %172, label %173, label %Py_DECREF.exit151thread-pre-split.i
 
 173:                                              ; preds = %170
   call void @_Py_Dealloc(ptr noundef nonnull %154) #10
-  br label %Py_DECREF.exit148thread-pre-split.i
+  br label %Py_DECREF.exit151thread-pre-split.i
 
-Py_DECREF.exit148thread-pre-split.i:              ; preds = %173, %170
+Py_DECREF.exit151thread-pre-split.i:              ; preds = %173, %170
   %.pr.i = load i32, ptr %53, align 8, !tbaa !4
-  br label %Py_DECREF.exit148.i
+  br label %Py_DECREF.exit151.i
 
-Py_DECREF.exit148.i:                              ; preds = %Py_DECREF.exit148thread-pre-split.i, %167
-  %174 = phi i32 [ %.pr.i, %Py_DECREF.exit148thread-pre-split.i ], [ %168, %167 ]
+Py_DECREF.exit151.i:                              ; preds = %Py_DECREF.exit151thread-pre-split.i, %167
+  %174 = phi i32 [ %.pr.i, %Py_DECREF.exit151thread-pre-split.i ], [ %168, %167 ]
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %.loopexit.i
 
-176:                                              ; preds = %Py_DECREF.exit148.i
+176:                                              ; preds = %Py_DECREF.exit151.i
   %177 = call ptr @PyErr_Occurred() #10
   %.not132.i = icmp eq ptr %177, null
-  br i1 %.not132.i, label %178, label %.thread169.i
+  br i1 %.not132.i, label %178, label %.thread172.i
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !21
   %180 = load i32, ptr %53, align 8, !tbaa !4
   %181 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %179, ptr noundef nonnull @.str.71, i32 noundef %180) #10
-  br label %.thread169.i
+  br label %.thread172.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %Py_DECREF.exit148.i
-  %182 = phi i32 [ %174, %Py_DECREF.exit148.i ], [ %143, %.preheader.i ]
-  %.0112.i = phi ptr [ null, %Py_DECREF.exit148.i ], [ @_Py_open_cloexec_works, %.preheader.i ]
+.loopexit.i:                                      ; preds = %.preheader.i, %Py_DECREF.exit151.i
+  %182 = phi i32 [ %174, %Py_DECREF.exit151.i ], [ %143, %.preheader.i ]
+  %.0112.i = phi ptr [ null, %Py_DECREF.exit151.i ], [ @_Py_open_cloexec_works, %.preheader.i ]
   %183 = call i32 @_Py_set_inheritable(i32 noundef %182, i32 noundef 0, ptr noundef %.0112.i) #10
   %184 = icmp slt i32 %183, 0
-  br i1 %184, label %.critedge.thread165.i, label %185
+  br i1 %184, label %.critedge.thread168.i, label %185
 
 185:                                              ; preds = %.loopexit.i, %126
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1833,7 +1833,7 @@ Py_DECREF.exit148.i:                              ; preds = %Py_DECREF.exit148th
   %221 = load i8, ptr %82, align 4
   %222 = and i8 %221, 8
   %.not135.i = icmp eq i8 %222, 0
-  br i1 %.not135.i, label %Py_DECREF.exit146.thread.i, label %223
+  br i1 %.not135.i, label %Py_DECREF.exit149.thread.i, label %223
 
 223:                                              ; preds = %220
   %224 = call fastcc ptr @portable_lseek(ptr noundef nonnull %0, ptr noundef null, i32 noundef 2, i1 noundef zeroext true)
@@ -1842,51 +1842,51 @@ Py_DECREF.exit148.i:                              ; preds = %Py_DECREF.exit148th
 
 226:                                              ; preds = %223
   %227 = load i32, ptr %224, align 8, !tbaa !22
-  %.not.i145.i = icmp sgt i32 %227, -1
-  br i1 %.not.i145.i, label %228, label %Py_DECREF.exit146.thread.i
+  %.not.i148.i = icmp sgt i32 %227, -1
+  br i1 %.not.i148.i, label %228, label %Py_DECREF.exit149.thread.i
 
 228:                                              ; preds = %226
   %229 = add nsw i32 %227, -1
   store i32 %229, ptr %224, align 8, !tbaa !22
   %230 = icmp eq i32 %229, 0
-  br i1 %230, label %231, label %Py_DECREF.exit146.thread.i
+  br i1 %230, label %231, label %Py_DECREF.exit149.thread.i
 
 231:                                              ; preds = %228
   call void @_Py_Dealloc(ptr noundef nonnull %224) #10
-  br label %Py_DECREF.exit146.thread.i
+  br label %Py_DECREF.exit149.thread.i
 
 .critedge.i:                                      ; preds = %223, %217, %213, %202, %190
-  br i1 %125, label %.thread169.i, label %.critedge.thread165.i
+  br i1 %125, label %.thread172.i, label %.critedge.thread168.i
 
-.thread169.i:                                     ; preds = %148, %.critedge.i, %178, %176, %Py_DECREF.exit150.i, %153, %150, %136, %116, %110, %.loopexit171.i
+.thread172.i:                                     ; preds = %148, %.critedge.i, %178, %176, %Py_DECREF.exit153.i, %153, %150, %136, %116, %110, %.loopexit174.i
   store i32 -1, ptr %53, align 8, !tbaa !4
   br label %236
 
-.critedge.thread165.i:                            ; preds = %.critedge.i, %.loopexit.i
-  %.pr168.i = load i32, ptr %53, align 8, !tbaa !4
-  %232 = icmp sgt i32 %.pr168.i, -1
+.critedge.thread168.i:                            ; preds = %.critedge.i, %.loopexit.i
+  %.pr171.i = load i32, ptr %53, align 8, !tbaa !4
+  %232 = icmp sgt i32 %.pr171.i, -1
   br i1 %232, label %233, label %236
 
-233:                                              ; preds = %.critedge.thread165.i
+233:                                              ; preds = %.critedge.thread168.i
   %234 = call ptr @PyErr_GetRaisedException() #10
   %235 = call fastcc i32 @internal_close(ptr noundef nonnull %0)
   call void @_PyErr_ChainExceptions1(ptr noundef %234) #10
   br label %236
 
-236:                                              ; preds = %233, %.critedge.thread165.i, %.thread169.i
+236:                                              ; preds = %233, %.critedge.thread168.i, %.thread172.i
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %238 = load ptr, ptr %237, align 8, !tbaa !19
   call void @PyMem_Free(ptr noundef %238) #10
   store ptr null, ptr %237, align 8, !tbaa !19
-  br label %Py_DECREF.exit146.thread.i
+  br label %Py_DECREF.exit149.thread.i
 
-Py_DECREF.exit146.thread.i:                       ; preds = %236, %231, %228, %226, %220
+Py_DECREF.exit149.thread.i:                       ; preds = %236, %231, %228, %226, %220
   %.0102.i = phi i32 [ -1, %236 ], [ 0, %220 ], [ 0, %226 ], [ 0, %228 ], [ 0, %231 ]
   %239 = load ptr, ptr %4, align 8, !tbaa !21
   %.not142.i = icmp eq ptr %239, null
   br i1 %.not142.i, label %_io_FileIO___init___impl.exit, label %240
 
-240:                                              ; preds = %Py_DECREF.exit146.thread.i
+240:                                              ; preds = %Py_DECREF.exit149.thread.i
   store ptr null, ptr %4, align 8, !tbaa !21
   %241 = load i32, ptr %239, align 8, !tbaa !22
   %.not.i.i = icmp sgt i32 %241, -1
@@ -1902,15 +1902,15 @@ Py_DECREF.exit146.thread.i:                       ; preds = %236, %231, %228, %2
   call void @_Py_Dealloc(ptr noundef nonnull %239) #10
   br label %_io_FileIO___init___impl.exit
 
-_io_FileIO___init___impl.exit:                    ; preds = %60, %66, %74, %76, %Py_DECREF.exit146.thread.i, %240, %242, %245
-  %.0.i = phi i32 [ -1, %74 ], [ -1, %60 ], [ -1, %66 ], [ -1, %76 ], [ %.0102.i, %Py_DECREF.exit146.thread.i ], [ %.0102.i, %240 ], [ %.0102.i, %242 ], [ %.0102.i, %245 ]
+_io_FileIO___init___impl.exit:                    ; preds = %60, %66, %74, %76, %Py_DECREF.exit149.thread.i, %240, %242, %245
+  %.0.i = phi i32 [ -1, %74 ], [ -1, %60 ], [ -1, %66 ], [ -1, %76 ], [ %.0102.i, %Py_DECREF.exit149.thread.i ], [ %.0102.i, %240 ], [ %.0102.i, %242 ], [ %.0102.i, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %246
 
 246:                                              ; preds = %.thread73, %32, %_io_FileIO___init___impl.exit, %16, %45
-  %.045 = phi i32 [ -1, %45 ], [ %.0.i, %_io_FileIO___init___impl.exit ], [ -1, %32 ], [ -1, %16 ], [ -1, %.thread73 ]
+  %.048 = phi i32 [ -1, %45 ], [ %.0.i, %_io_FileIO___init___impl.exit ], [ -1, %32 ], [ -1, %16 ], [ -1, %.thread73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.045
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable

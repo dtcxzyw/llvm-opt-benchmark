@@ -92,35 +92,35 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %or.cond = select i1 %11, i1 true, i1 %12
   %13 = icmp eq ptr %9, null
   %or.cond5 = select i1 %or.cond, i1 true, i1 %13
-  br i1 %or.cond5, label %.thread197, label %14
+  br i1 %or.cond5, label %.thread198, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %1, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !4
-  %.not238 = icmp eq ptr %17, null
-  br i1 %.not238, label %.critedge, label %.lr.ph.preheader
+  %.not236 = icmp eq ptr %17, null
+  br i1 %.not236, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
   %18 = load i8, ptr %17, align 1, !tbaa !9
-  %.not154392 = icmp eq i8 %18, 45
-  br i1 %.not154392, label %.critedge, label %.lr.ph394
+  %.not154390 = icmp eq i8 %18, 45
+  br i1 %.not154390, label %.critedge, label %.lr.ph392
 
 .lr.ph:                                           ; preds = %23
   %19 = load i8, ptr %26, align 1, !tbaa !9
   %.not154 = icmp eq i8 %19, 45
-  br i1 %.not154, label %.critedge, label %.lr.ph394, !llvm.loop !10
+  br i1 %.not154, label %.critedge, label %.lr.ph392, !llvm.loop !10
 
-.lr.ph394:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0121240393 = phi i32 [ %24, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+.lr.ph392:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0121238391 = phi i32 [ %24, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %20 = phi ptr [ %25, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %21 = phi ptr [ %26, %.lr.ph ], [ %17, %.lr.ph.preheader ]
   %22 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %21) #7
   %.not183 = icmp eq i32 %22, 0
-  br i1 %.not183, label %.thread197, label %23
+  br i1 %.not183, label %.thread198, label %23
 
-23:                                               ; preds = %.lr.ph394
-  %24 = add nsw i32 %.0121240393, -1
+23:                                               ; preds = %.lr.ph392
+  %24 = add nsw i32 %.0121238391, -1
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %.not = icmp eq ptr %26, null
@@ -136,23 +136,23 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %27 = tail call ptr @opt_init(i32 noundef %.0121.lcssa, ptr noundef nonnull %.0122.lcssa, ptr noundef nonnull @engine_options) #7
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit415, %.critedge
-  %.0138.ph = phi i32 [ %.2140, %.loopexit415 ], [ 0, %.critedge ]
-  %.0136.ph = phi i32 [ %38, %.loopexit415 ], [ 0, %.critedge ]
-  %.0134.ph = phi i32 [ %.0134.ph417, %.loopexit415 ], [ 0, %.critedge ]
-  %.0132.ph = phi i32 [ %.0132.ph420, %.loopexit415 ], [ 0, %.critedge ]
-  br label %.outer416
+.outer:                                           ; preds = %.loopexit413, %.critedge
+  %.0138.ph = phi i32 [ %.2140, %.loopexit413 ], [ 0, %.critedge ]
+  %.0136.ph = phi i32 [ %38, %.loopexit413 ], [ 0, %.critedge ]
+  %.0134.ph = phi i32 [ %.0134.ph415, %.loopexit413 ], [ 0, %.critedge ]
+  %.0132.ph = phi i32 [ %.0132.ph418, %.loopexit413 ], [ 0, %.critedge ]
+  br label %.outer414
 
-.outer416:                                        ; preds = %28, %.outer
-  %.0134.ph417 = phi i32 [ %.0134.ph, %.outer ], [ 1, %28 ]
-  %.0132.ph418 = phi i32 [ %.0132.ph, %.outer ], [ %.0132.ph420, %28 ]
-  br label %.outer419
+.outer414:                                        ; preds = %28, %.outer
+  %.0134.ph415 = phi i32 [ %.0134.ph, %.outer ], [ 1, %28 ]
+  %.0132.ph416 = phi i32 [ %.0132.ph, %.outer ], [ %.0132.ph418, %28 ]
+  br label %.outer417
 
-.outer419:                                        ; preds = %.outer416, %34
-  %.0132.ph420 = phi i32 [ %.0132.ph418, %.outer416 ], [ %spec.select, %34 ]
+.outer417:                                        ; preds = %.outer414, %34
+  %.0132.ph418 = phi i32 [ %.0132.ph416, %.outer414 ], [ %spec.select, %34 ]
   br label %28
 
-28:                                               ; preds = %.backedge, %.outer419
+28:                                               ; preds = %.backedge, %.outer417
   %29 = tail call i32 @opt_next() #7
   switch i32 %29, label %.backedge [
     i32 0, label %47
@@ -163,9 +163,9 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
     i32 102, label %34
     i32 101, label %34
     i32 100, label %34
-    i32 2, label %.outer416
+    i32 2, label %.outer414
     i32 4, label %36
-    i32 3, label %.loopexit415
+    i32 3, label %.loopexit413
     i32 5, label %39
   ], !llvm.loop !12
 
@@ -175,22 +175,22 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 30:                                               ; preds = %28
   %31 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %32 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.28, ptr noundef %15) #7
-  br label %.thread197
+  br label %.thread198
 
 33:                                               ; preds = %28
   tail call void @opt_help(ptr noundef nonnull @engine_options) #7
-  br label %.thread197
+  br label %.thread198
 
 34:                                               ; preds = %28, %28, %28, %28
   %35 = add nsw i32 %29, -99
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0132.ph420, i32 %35)
-  br label %.outer419, !llvm.loop !12
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0132.ph418, i32 %35)
+  br label %.outer417, !llvm.loop !12
 
 36:                                               ; preds = %28
   %37 = add nsw i32 %.0138.ph, 1
-  br label %.loopexit415
+  br label %.loopexit413
 
-.loopexit415:                                     ; preds = %28, %36
+.loopexit413:                                     ; preds = %28, %36
   %.2140 = phi i32 [ %37, %36 ], [ %.0138.ph, %28 ]
   %38 = add nuw nsw i32 %.0136.ph, 1
   br label %.outer, !llvm.loop !12
@@ -199,93 +199,93 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %40 = tail call ptr @opt_arg() #7
   %41 = tail call i32 @OPENSSL_sk_push(ptr noundef %8, ptr noundef %40) #7
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %.thread197, label %.backedge
+  br i1 %42, label %.thread198, label %.backedge
 
 43:                                               ; preds = %28
   %44 = tail call ptr @opt_arg() #7
   %45 = tail call i32 @OPENSSL_sk_push(ptr noundef %9, ptr noundef %44) #7
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %.thread197, label %.backedge
+  br i1 %46, label %.thread198, label %.backedge
 
 47:                                               ; preds = %28
   %48 = tail call i32 @opt_num_rest() #7
   %49 = tail call ptr @opt_rest() #7
   %50 = load ptr, ptr %49, align 8, !tbaa !4
-  %.not156245 = icmp eq ptr %50, null
-  br i1 %.not156245, label %._crit_edge, label %.lr.ph247
+  %.not156243 = icmp eq ptr %50, null
+  br i1 %.not156243, label %._crit_edge, label %.lr.ph245
 
 51:                                               ; preds = %62
-  %52 = getelementptr inbounds nuw i8, ptr %.1123246, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.1123244, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %.not156 = icmp eq ptr %53, null
-  br i1 %.not156, label %._crit_edge, label %.lr.ph247, !llvm.loop !15
+  br i1 %.not156, label %._crit_edge, label %.lr.ph245, !llvm.loop !15
 
-.lr.ph247:                                        ; preds = %47, %51
+.lr.ph245:                                        ; preds = %47, %51
   %54 = phi ptr [ %53, %51 ], [ %50, %47 ]
-  %.1123246 = phi ptr [ %52, %51 ], [ %49, %47 ]
+  %.1123244 = phi ptr [ %52, %51 ], [ %49, %47 ]
   %55 = load i8, ptr %54, align 1, !tbaa !9
   %56 = icmp eq i8 %55, 45
   br i1 %56, label %57, label %62
 
-57:                                               ; preds = %.lr.ph247
+57:                                               ; preds = %.lr.ph245
   %58 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %58, ptr noundef nonnull @.str.29, ptr noundef %15) #7
   %60 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %60, ptr noundef nonnull @.str.28, ptr noundef %15) #7
-  br label %.thread197
+  br label %.thread198
 
-62:                                               ; preds = %.lr.ph247
+62:                                               ; preds = %.lr.ph245
   %63 = tail call i32 @OPENSSL_sk_push(ptr noundef %7, ptr noundef nonnull %54) #7
   %.not182 = icmp eq i32 %63, 0
-  br i1 %.not182, label %.thread197, label %51
+  br i1 %.not182, label %.thread198, label %51
 
 ._crit_edge:                                      ; preds = %51, %47
   %64 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #7
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.loopexit209
+  br i1 %65, label %66, label %.loopexit207
 
 66:                                               ; preds = %._crit_edge
   %67 = tail call ptr @ENGINE_get_first() #7
-  %.not157248 = icmp eq ptr %67, null
-  br i1 %.not157248, label %.loopexit209, label %.lr.ph251
+  %.not157246 = icmp eq ptr %67, null
+  br i1 %.not157246, label %.loopexit207, label %.lr.ph249
 
-.lr.ph251:                                        ; preds = %66, %70
-  %.0141249 = phi ptr [ %71, %70 ], [ %67, %66 ]
-  %68 = tail call ptr @ENGINE_get_id(ptr noundef nonnull %.0141249) #7
+.lr.ph249:                                        ; preds = %66, %70
+  %.0141247 = phi ptr [ %71, %70 ], [ %67, %66 ]
+  %68 = tail call ptr @ENGINE_get_id(ptr noundef nonnull %.0141247) #7
   %69 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %7, ptr noundef %68) #7
   %.not181 = icmp eq i32 %69, 0
-  br i1 %.not181, label %.thread197, label %70
+  br i1 %.not181, label %.thread198, label %70
 
-70:                                               ; preds = %.lr.ph251
-  %71 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %.0141249) #7
+70:                                               ; preds = %.lr.ph249
+  %71 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %.0141247) #7
   %.not157 = icmp eq ptr %71, null
-  br i1 %.not157, label %.loopexit209, label %.lr.ph251, !llvm.loop !16
+  br i1 %.not157, label %.loopexit207, label %.lr.ph249, !llvm.loop !16
 
-.loopexit209:                                     ; preds = %70, %66, %._crit_edge
+.loopexit207:                                     ; preds = %70, %66, %._crit_edge
   %72 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #7
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph264, label %.thread197
+  br i1 %73, label %.lr.ph262, label %.thread198
 
-.lr.ph264:                                        ; preds = %.loopexit209
-  %.not160 = icmp eq i32 %.0134.ph417, 0
+.lr.ph262:                                        ; preds = %.loopexit207
+  %.not160 = icmp eq i32 %.0134.ph415, 0
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.not177 = icmp eq i32 %.0136.ph, 0
   %.not179 = icmp eq i32 %.0138.ph, 0
-  %77 = icmp sgt i32 %.0132.ph420, 0
-  %78 = icmp samesign ugt i32 %.0132.ph420, 3
-  %79 = icmp eq i32 %.0132.ph420, 1
-  %80 = icmp samesign ugt i32 %.0132.ph420, 2
+  %77 = icmp sgt i32 %.0132.ph418, 0
+  %78 = icmp samesign ugt i32 %.0132.ph418, 3
+  %79 = icmp eq i32 %.0132.ph418, 1
+  %80 = icmp samesign ugt i32 %.0132.ph418, 2
   br label %81
 
-81:                                               ; preds = %.lr.ph264, %272
-  %.1128262 = phi i32 [ 0, %.lr.ph264 ], [ %.2129195, %272 ]
-  %.0131261 = phi i32 [ 0, %.lr.ph264 ], [ %273, %272 ]
-  %82 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %7, i32 noundef %.0131261) #7
+81:                                               ; preds = %.lr.ph262, %272
+  %.1128260 = phi i32 [ 0, %.lr.ph262 ], [ %.2129196, %272 ]
+  %.0131259 = phi i32 [ 0, %.lr.ph262 ], [ %273, %272 ]
+  %82 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %7, i32 noundef %.0131259) #7
   %83 = call ptr @ENGINE_by_id(ptr noundef %82) #7
   %.not158 = icmp eq ptr %83, null
-  br i1 %.not158, label %.thread192, label %84
+  br i1 %.not158, label %.thread193, label %84
 
 84:                                               ; preds = %81
   %85 = call ptr @ENGINE_get_name(ptr noundef nonnull %83) #7
@@ -363,24 +363,24 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 114:                                              ; preds = %112, %110
   %115 = call ptr @ENGINE_get_ciphers(ptr noundef nonnull %83) #7
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %.loopexit205, label %117
+  br i1 %116, label %.loopexit203, label %117
 
 117:                                              ; preds = %114
   %118 = call i32 %115(ptr noundef nonnull %83, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0) #7
   %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph254.preheader, label %.loopexit205
+  br i1 %119, label %.lr.ph252.preheader, label %.loopexit203
 
-.lr.ph254.preheader:                              ; preds = %117
+.lr.ph252.preheader:                              ; preds = %117
   %wide.trip.count = zext nneg i32 %118 to i64
-  br label %.lr.ph254
+  br label %.lr.ph252
 
-120:                                              ; preds = %.lr.ph254
+120:                                              ; preds = %.lr.ph252
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit205, label %.lr.ph254, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit203, label %.lr.ph252, !llvm.loop !19
 
-.lr.ph254:                                        ; preds = %.lr.ph254.preheader, %120
-  %indvars.iv = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next, %120 ]
+.lr.ph252:                                        ; preds = %.lr.ph252.preheader, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next, %120 ]
   %121 = load ptr, ptr %5, align 8, !tbaa !20
   %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
   %123 = load i32, ptr %122, align 4, !tbaa !17
@@ -389,65 +389,65 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %.not171 = icmp eq i32 %125, 0
   br i1 %.not171, label %.thread, label %120
 
-.loopexit205:                                     ; preds = %120, %117, %114
+.loopexit203:                                     ; preds = %120, %117, %114
   %126 = call ptr @ENGINE_get_digests(ptr noundef nonnull %83) #7
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.loopexit203, label %128
+  br i1 %127, label %.loopexit201, label %128
 
-128:                                              ; preds = %.loopexit205
+128:                                              ; preds = %.loopexit203
   %129 = call i32 %126(ptr noundef nonnull %83, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0) #7
   %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %.lr.ph257.preheader, label %.loopexit203
+  br i1 %130, label %.lr.ph255.preheader, label %.loopexit201
 
-.lr.ph257.preheader:                              ; preds = %128
-  %wide.trip.count300 = zext nneg i32 %129 to i64
-  br label %.lr.ph257
+.lr.ph255.preheader:                              ; preds = %128
+  %wide.trip.count298 = zext nneg i32 %129 to i64
+  br label %.lr.ph255
 
-131:                                              ; preds = %.lr.ph257
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
-  br i1 %exitcond301.not, label %.loopexit203, label %.lr.ph257, !llvm.loop !22
+131:                                              ; preds = %.lr.ph255
+  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
+  %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
+  br i1 %exitcond299.not, label %.loopexit201, label %.lr.ph255, !llvm.loop !22
 
-.lr.ph257:                                        ; preds = %.lr.ph257.preheader, %131
-  %indvars.iv297 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next298, %131 ]
+.lr.ph255:                                        ; preds = %.lr.ph255.preheader, %131
+  %indvars.iv295 = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next296, %131 ]
   %132 = load ptr, ptr %5, align 8, !tbaa !20
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv297
+  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv295
   %134 = load i32, ptr %133, align 4, !tbaa !17
   %135 = call ptr @OBJ_nid2sn(i32 noundef %134) #7
   %136 = call fastcc i32 @append_buf(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %135)
   %.not172 = icmp eq i32 %136, 0
   br i1 %.not172, label %.thread, label %131
 
-.loopexit203:                                     ; preds = %131, %128, %.loopexit205
+.loopexit201:                                     ; preds = %131, %128, %.loopexit203
   %137 = call ptr @ENGINE_get_pkey_meths(ptr noundef nonnull %83) #7
   %138 = icmp eq ptr %137, null
   br i1 %138, label %.loopexit, label %139
 
-139:                                              ; preds = %.loopexit203
+139:                                              ; preds = %.loopexit201
   %140 = call i32 %137(ptr noundef nonnull %83, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0) #7
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph260.preheader, label %.loopexit
+  br i1 %141, label %.lr.ph258.preheader, label %.loopexit
 
-.lr.ph260.preheader:                              ; preds = %139
-  %wide.trip.count305 = zext nneg i32 %140 to i64
-  br label %.lr.ph260
+.lr.ph258.preheader:                              ; preds = %139
+  %wide.trip.count303 = zext nneg i32 %140 to i64
+  br label %.lr.ph258
 
-142:                                              ; preds = %.lr.ph260
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count305
-  br i1 %exitcond306.not, label %.loopexit, label %.lr.ph260, !llvm.loop !23
+142:                                              ; preds = %.lr.ph258
+  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
+  %exitcond304.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count303
+  br i1 %exitcond304.not, label %.loopexit, label %.lr.ph258, !llvm.loop !23
 
-.lr.ph260:                                        ; preds = %.lr.ph260.preheader, %142
-  %indvars.iv302 = phi i64 [ 0, %.lr.ph260.preheader ], [ %indvars.iv.next303, %142 ]
+.lr.ph258:                                        ; preds = %.lr.ph258.preheader, %142
+  %indvars.iv300 = phi i64 [ 0, %.lr.ph258.preheader ], [ %indvars.iv.next301, %142 ]
   %143 = load ptr, ptr %5, align 8, !tbaa !20
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv302
+  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv300
   %145 = load i32, ptr %144, align 4, !tbaa !17
   %146 = call ptr @OBJ_nid2sn(i32 noundef %145) #7
   %147 = call fastcc i32 @append_buf(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %146)
   %.not173 = icmp eq i32 %147, 0
   br i1 %.not173, label %.thread, label %142
 
-.loopexit:                                        ; preds = %142, %139, %.loopexit203
+.loopexit:                                        ; preds = %142, %139, %.loopexit201
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %83, ptr %6, align 8, !tbaa !24
   store ptr %4, ptr %74, align 8, !tbaa !28
@@ -462,19 +462,19 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 150:                                              ; preds = %.loopexit
   %151 = load ptr, ptr %4, align 8, !tbaa !4
   %.not175 = icmp eq ptr %151, null
-  br i1 %.not175, label %.thread187, label %152
+  br i1 %.not175, label %.thread188, label %152
 
 152:                                              ; preds = %150
   %153 = load i8, ptr %151, align 1, !tbaa !9
   %.not176 = icmp eq i8 %153, 0
-  br i1 %.not176, label %.thread187, label %154
+  br i1 %.not176, label %.thread188, label %154
 
 154:                                              ; preds = %152
   %155 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.37, ptr noundef nonnull %151) #7
   %.pre = load ptr, ptr %4, align 8, !tbaa !4
-  br label %.thread187
+  br label %.thread188
 
-.thread187:                                       ; preds = %150, %152, %154
+.thread188:                                       ; preds = %150, %152, %154
   %156 = phi ptr [ null, %150 ], [ %151, %152 ], [ %.pre, %154 ]
   call void @CRYPTO_free(ptr noundef %156, ptr noundef nonnull @.str.38, i32 noundef 467) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -482,19 +482,19 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %158
 
-.thread:                                          ; preds = %96, %100, %104, %108, %112, %.lr.ph254, %.lr.ph257, %.lr.ph260
+.thread:                                          ; preds = %96, %100, %104, %108, %112, %.lr.ph252, %.lr.ph255, %.lr.ph258
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread197
+  br label %.thread198
 
 157:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread197
+  br label %.thread198
 
-158:                                              ; preds = %.thread187, %93
+158:                                              ; preds = %.thread188, %93
   br i1 %.not177, label %170, label %159
 
 159:                                              ; preds = %158
@@ -523,22 +523,22 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   br label %170
 
 170:                                              ; preds = %162, %169, %158
-  br i1 %77, label %171, label %.thread200
+  br i1 %77, label %171, label %util_verbose.exit.thread
 
 171:                                              ; preds = %170
   %172 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 10, i64 noundef 0, ptr noundef null, ptr noundef null) #7
   %.not.i = icmp eq i32 %172, 0
-  br i1 %.not.i, label %.thread200, label %173
+  br i1 %.not.i, label %util_verbose.exit.thread, label %173
 
 173:                                              ; preds = %171
   %174 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 11, i64 noundef 0, ptr noundef null, ptr noundef null) #7
   %175 = icmp slt i32 %174, 1
-  br i1 %175, label %.thread200, label %176
+  br i1 %175, label %util_verbose.exit.thread, label %176
 
 176:                                              ; preds = %173
   %177 = call ptr @OPENSSL_sk_new_null() #7
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %.thread197.critedge, label %.preheader.i
+  br i1 %178, label %.thread198.critedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %176, %262
   %.069.i = phi i32 [ %263, %262 ], [ %174, %176 ]
@@ -546,7 +546,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %179 = zext nneg i32 %.069.i to i64
   %180 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 18, i64 noundef %179, ptr noundef null, ptr noundef null) #7
   %181 = icmp slt i32 %180, 0
-  br i1 %181, label %.thread197.critedge, label %182
+  br i1 %181, label %.thread198.critedge, label %182
 
 182:                                              ; preds = %.preheader.i
   %183 = and i32 %180, 8
@@ -557,7 +557,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 185:                                              ; preds = %182
   %186 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 14, i64 noundef %179, ptr noundef null, ptr noundef null) #7
   %187 = icmp slt i32 %186, 1
-  br i1 %187, label %.thread197.critedge, label %188
+  br i1 %187, label %.thread198.critedge, label %188
 
 188:                                              ; preds = %185
   %189 = add nuw nsw i32 %186, 1
@@ -565,12 +565,12 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %191 = call ptr @app_malloc(i64 noundef %190, ptr noundef nonnull @.str.48) #7
   %192 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 15, i64 noundef %179, ptr noundef %191, ptr noundef null) #7
   %193 = icmp slt i32 %192, 1
-  br i1 %193, label %.thread197.critedge, label %194
+  br i1 %193, label %.thread198.critedge, label %194
 
 194:                                              ; preds = %188
   %195 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 16, i64 noundef %179, ptr noundef null, ptr noundef null) #7
   %196 = icmp slt i32 %195, 0
-  br i1 %196, label %.thread197.critedge, label %197
+  br i1 %196, label %.thread198.critedge, label %197
 
 197:                                              ; preds = %194
   %.not76.i = icmp eq i32 %195, 0
@@ -582,7 +582,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %201 = call ptr @app_malloc(i64 noundef %200, ptr noundef nonnull @.str.49) #7
   %202 = call i32 @ENGINE_ctrl(ptr noundef nonnull %83, i32 noundef 17, i64 noundef %179, ptr noundef %201, ptr noundef null) #7
   %203 = icmp slt i32 %202, 1
-  br i1 %203, label %.thread197.critedge, label %204
+  br i1 %203, label %.thread198.critedge, label %204
 
 204:                                              ; preds = %198, %197
   %.463.i = phi ptr [ %201, %198 ], [ null, %197 ]
@@ -744,36 +744,36 @@ util_verbose.exit:                                ; preds = %265, %267
   call void @OPENSSL_sk_free(ptr noundef nonnull %177) #7
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 234) #7
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 235) #7
-  br label %.thread200
+  br label %util_verbose.exit.thread
 
-.thread200:                                       ; preds = %util_verbose.exit, %170, %173, %171
-  %269 = call i32 @ENGINE_free(ptr noundef nonnull %83) #7
+.thread193:                                       ; preds = %81
+  %269 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  call void @ERR_print_errors(ptr noundef %269) #7
+  %270 = call i32 @llvm.smin.i32(i32 %.1128260, i32 126)
+  %spec.store.select = add nsw i32 %270, 1
   br label %272
 
-.thread192:                                       ; preds = %81
-  %270 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  call void @ERR_print_errors(ptr noundef %270) #7
-  %271 = call i32 @llvm.smin.i32(i32 %.1128262, i32 126)
-  %spec.store.select = add nsw i32 %271, 1
+util_verbose.exit.thread:                         ; preds = %util_verbose.exit, %171, %173, %170
+  %271 = call i32 @ENGINE_free(ptr noundef nonnull %83) #7
   br label %272
 
-272:                                              ; preds = %.thread200, %.thread192
-  %.2129195 = phi i32 [ %spec.store.select, %.thread192 ], [ %.1128262, %.thread200 ]
-  %273 = add nuw nsw i32 %.0131261, 1
+272:                                              ; preds = %util_verbose.exit.thread, %.thread193
+  %.2129196 = phi i32 [ %spec.store.select, %.thread193 ], [ %.1128260, %util_verbose.exit.thread ]
+  %273 = add nuw nsw i32 %.0131259, 1
   %274 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #7
   %275 = icmp slt i32 %273, %274
-  br i1 %275, label %81, label %.thread197, !llvm.loop !34
+  br i1 %275, label %81, label %.thread198, !llvm.loop !34
 
-.thread197.critedge:                              ; preds = %176, %198, %194, %188, %185, %.preheader.i
+.thread198.critedge:                              ; preds = %176, %198, %194, %188, %185, %.preheader.i
   %.064.i.ph = phi ptr [ null, %.preheader.i ], [ null, %185 ], [ %191, %188 ], [ %191, %194 ], [ %191, %198 ], [ null, %176 ]
   %.059.i.ph = phi ptr [ null, %.preheader.i ], [ null, %185 ], [ null, %188 ], [ null, %194 ], [ %201, %198 ], [ null, %176 ]
   call void @OPENSSL_sk_free(ptr noundef %177) #7
   call void @CRYPTO_free(ptr noundef %.064.i.ph, ptr noundef nonnull @.str.38, i32 noundef 234) #7
   call void @CRYPTO_free(ptr noundef %.059.i.ph, ptr noundef nonnull @.str.38, i32 noundef 235) #7
-  br label %.thread197
+  br label %.thread198
 
-.thread197:                                       ; preds = %.lr.ph394, %43, %39, %62, %.lr.ph251, %272, %.loopexit209, %.thread197.critedge, %157, %.thread, %2, %57, %33, %30
-  %.0127 = phi i32 [ 1, %2 ], [ 1, %30 ], [ 0, %33 ], [ 1, %57 ], [ %.1128262, %157 ], [ %.1128262, %.thread ], [ %.1128262, %.thread197.critedge ], [ 0, %.loopexit209 ], [ %.2129195, %272 ], [ 1, %.lr.ph251 ], [ 1, %62 ], [ 1, %39 ], [ 1, %43 ], [ 1, %.lr.ph394 ]
+.thread198:                                       ; preds = %.lr.ph392, %43, %39, %62, %.lr.ph249, %272, %.loopexit207, %.thread198.critedge, %157, %.thread, %2, %57, %33, %30
+  %.0127 = phi i32 [ 1, %2 ], [ 1, %30 ], [ 0, %33 ], [ 1, %57 ], [ %.1128260, %157 ], [ %.1128260, %.thread ], [ %.1128260, %.thread198.critedge ], [ 0, %.loopexit207 ], [ %.2129196, %272 ], [ 1, %.lr.ph249 ], [ 1, %62 ], [ 1, %39 ], [ 1, %43 ], [ 1, %.lr.ph392 ]
   %276 = load ptr, ptr @bio_err, align 8, !tbaa !13
   call void @ERR_print_errors(ptr noundef %276) #7
   call void @OPENSSL_sk_free(ptr noundef %7) #7

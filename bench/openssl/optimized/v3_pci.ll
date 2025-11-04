@@ -88,8 +88,8 @@ define internal ptr @r2i_pci(ptr readnone captures(none) %0, ptr noundef %1, ptr
   br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3, %46
-  %.05185 = phi i32 [ %47, %46 ], [ 0, %3 ]
-  %10 = call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %.05185) #5
+  %.05186 = phi i32 [ %47, %46 ], [ 0, %3 ]
+  %10 = call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %.05186) #5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %.not57 = icmp eq ptr %12, null
@@ -116,15 +116,15 @@ define internal ptr @r2i_pci(ptr readnone captures(none) %0, ptr noundef %1, ptr
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef nonnull @.str.8, ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef %23) #5
-  br label %.thread70
+  br label %.thread71
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %26 = call ptr @X509V3_get_section(ptr noundef %1, ptr noundef nonnull %25) #5
   %.not61 = icmp eq ptr %26, null
-  br i1 %.not61, label %.thread64, label %.preheader
+  br i1 %.not61, label %.thread65, label %.preheader
 
-.thread64:                                        ; preds = %24
+.thread65:                                        ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 261, ptr noundef nonnull @__func__.r2i_pci) #5
@@ -134,22 +134,22 @@ define internal ptr @r2i_pci(ptr readnone captures(none) %0, ptr noundef %1, ptr
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !26
   call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %28, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef nonnull @.str.9, ptr noundef %31) #5
-  br label %.thread70
+  br label %.thread71
 
 .preheader:                                       ; preds = %24, %34
-  %.05081 = phi i32 [ %37, %34 ], [ 0, %24 ]
+  %.05082 = phi i32 [ %37, %34 ], [ 0, %24 ]
   %32 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %26) #5
-  %33 = icmp slt i32 %.05081, %32
-  br i1 %33, label %34, label %.thread67
+  %33 = icmp slt i32 %.05082, %32
+  br i1 %33, label %34, label %.thread68
 
-.thread67:                                        ; preds = %.preheader
+.thread68:                                        ; preds = %.preheader
   call void @X509V3_section_free(ptr noundef %1, ptr noundef nonnull %26) #5
   br label %46
 
 34:                                               ; preds = %.preheader
-  %35 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %26, i32 noundef %.05081) #5
+  %35 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %26, i32 noundef %.05082) #5
   %36 = call fastcc i32 @process_pci_value(ptr noundef %35, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %37 = add nuw nsw i32 %.05081, 1
+  %37 = add nuw nsw i32 %.05082, 1
   %.not62 = icmp eq i32 %36, 0
   br i1 %.not62, label %select.unfold, label %.preheader, !llvm.loop !28
 
@@ -165,14 +165,14 @@ define internal ptr @r2i_pci(ptr readnone captures(none) %0, ptr noundef %1, ptr
   %44 = load ptr, ptr %41, align 8, !tbaa !23
   %45 = load ptr, ptr %42, align 8, !tbaa !26
   call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %43, ptr noundef nonnull @.str.8, ptr noundef %44, ptr noundef nonnull @.str.9, ptr noundef %45) #5
-  br label %.thread70
+  br label %.thread71
 
 select.unfold:                                    ; preds = %34
   call void @X509V3_section_free(ptr noundef %1, ptr noundef nonnull %26) #5
-  br label %.thread70
+  br label %.thread71
 
-46:                                               ; preds = %.thread67, %38
-  %47 = add nuw nsw i32 %.05185, 1
+46:                                               ; preds = %.thread68, %38
+  %47 = add nuw nsw i32 %.05186, 1
   %48 = call i32 @OPENSSL_sk_num(ptr noundef %7) #5
   %49 = icmp slt i32 %47, %48
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !30
@@ -186,7 +186,7 @@ select.unfold:                                    ; preds = %34
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 284, ptr noundef nonnull @__func__.r2i_pci) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 154, ptr noundef null) #5
-  br label %.thread70
+  br label %.thread71
 
 50:                                               ; preds = %._crit_edge
   %51 = call i32 @OBJ_obj2nid(ptr noundef nonnull %.pre) #5
@@ -201,7 +201,7 @@ select.unfold:                                    ; preds = %34
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 290, ptr noundef nonnull @__func__.r2i_pci) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 159, ptr noundef null) #5
-  br label %.thread70
+  br label %.thread71
 
 56:                                               ; preds = %50
   %57 = call ptr @PROXY_CERT_INFO_EXTENSION_new() #5
@@ -212,7 +212,7 @@ select.unfold:                                    ; preds = %34
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 296, ptr noundef nonnull @__func__.r2i_pci) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524301, ptr noundef null) #5
-  br label %.thread70
+  br label %.thread71
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -225,7 +225,7 @@ select.unfold:                                    ; preds = %34
   store ptr null, ptr %5, align 8, !tbaa !22
   br label %68
 
-.thread70:                                        ; preds = %select.unfold, %.thread64, %18, %40, %59, %55, %._crit_edge.thread
+.thread71:                                        ; preds = %select.unfold, %.thread65, %18, %40, %59, %55, %._crit_edge.thread
   %65 = load ptr, ptr %4, align 8, !tbaa !21
   call void @ASN1_OBJECT_free(ptr noundef %65) #5
   %66 = load ptr, ptr %5, align 8, !tbaa !22
@@ -236,8 +236,8 @@ select.unfold:                                    ; preds = %34
   call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef null) #5
   br label %68
 
-68:                                               ; preds = %60, %.thread70
-  %.149 = phi ptr [ null, %.thread70 ], [ %57, %60 ]
+68:                                               ; preds = %.thread71, %60
+  %.149 = phi ptr [ null, %.thread71 ], [ %57, %60 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %7, ptr noundef nonnull @X509V3_conf_free) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

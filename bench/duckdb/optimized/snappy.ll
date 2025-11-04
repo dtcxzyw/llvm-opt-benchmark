@@ -813,22 +813,22 @@ define noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcm
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
   %19 = trunc i64 %17 to i32
   %20 = icmp slt i64 %1, 17
-  br i1 %20, label %.thread355, label %.lr.ph595.lr.ph, !prof !26
+  br i1 %20, label %.thread355, label %.lr.ph584.lr.ph, !prof !26
 
-.lr.ph595.lr.ph:                                  ; preds = %12
+.lr.ph584.lr.ph:                                  ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  br label %.lr.ph595
+  br label %.lr.ph584
 
-.preheader514.loopexit:                           ; preds = %369
+.loopexit.loopexit:                               ; preds = %369
   %22 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %23 = icmp ugt ptr %22, %13
-  br i1 %23, label %.thread355, label %.lr.ph595, !prof !37
+  br i1 %23, label %.thread355, label %.lr.ph584, !prof !37
 
-.lr.ph595:                                        ; preds = %.lr.ph595.lr.ph, %.preheader514.loopexit
-  %24 = phi ptr [ %21, %.lr.ph595.lr.ph ], [ %22, %.preheader514.loopexit ]
-  %.0175601 = phi ptr [ %2, %.lr.ph595.lr.ph ], [ %.4, %.preheader514.loopexit ]
-  %.0176599 = phi ptr [ %0, %.lr.ph595.lr.ph ], [ %223, %.preheader514.loopexit ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0176599, i64 1
+.lr.ph584:                                        ; preds = %.lr.ph584.lr.ph, %.loopexit.loopexit
+  %24 = phi ptr [ %21, %.lr.ph584.lr.ph ], [ %22, %.loopexit.loopexit ]
+  %.0175590 = phi ptr [ %2, %.lr.ph584.lr.ph ], [ %.4, %.loopexit.loopexit ]
+  %.0176588 = phi ptr [ %0, %.lr.ph584.lr.ph ], [ %223, %.loopexit.loopexit ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0176588, i64 1
   br label %32
 
 26:                                               ; preds = %77
@@ -839,11 +839,11 @@ define noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcm
   %31 = icmp ugt ptr %30, %13
   br i1 %31, label %.thread355, label %32, !prof !27
 
-32:                                               ; preds = %.lr.ph595, %26
-  %33 = phi ptr [ %24, %.lr.ph595 ], [ %30, %26 ]
-  %34 = phi i32 [ 513, %.lr.ph595 ], [ %28, %26 ]
-  %.1177594 = phi ptr [ %25, %.lr.ph595 ], [ %33, %26 ]
-  %.0183 = load i64, ptr %.1177594, align 1
+32:                                               ; preds = %.lr.ph584, %26
+  %33 = phi ptr [ %24, %.lr.ph584 ], [ %30, %26 ]
+  %34 = phi i32 [ 513, %.lr.ph584 ], [ %28, %26 ]
+  %.1177583 = phi ptr [ %25, %.lr.ph584 ], [ %33, %26 ]
+  %.0183 = load i64, ptr %.1177583, align 1
   %35 = mul i64 %.0183, 58295818150454627
   %36 = lshr i64 %35, 49
   %37 = trunc nuw nsw i64 %36 to i32
@@ -854,7 +854,7 @@ define noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcm
   %42 = load i16, ptr %41, align 2, !tbaa !20
   %43 = zext i16 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
-  %45 = ptrtoint ptr %.1177594 to i64
+  %45 = ptrtoint ptr %.1177583 to i64
   %46 = sub i64 %45, %15
   %47 = trunc i64 %46 to i16
   store i16 %47, ptr %41, align 2, !tbaa !20
@@ -866,7 +866,7 @@ define noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcm
 50:                                               ; preds = %32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %.1177594, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.1177583, i64 4
   %.not34.i = icmp ugt ptr %53, %18
   br i1 %.not34.i, label %.critedge28.preheader.i, label %.lr.ph.i
 
@@ -954,7 +954,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.c
 88:                                               ; preds = %77
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 %85
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %.1177594, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.1177583, i64 4
   %.not34.i220 = icmp ugt ptr %91, %18
   br i1 %.not34.i220, label %.critedge28.preheader.i231, label %.lr.ph.i221
 
@@ -1022,7 +1022,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit: ; preds = %.c
 _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit243: ; preds = %.critedge28.i240, %.critedge28.preheader.i231, %.critedge.i226, %.critedge2.loopexit.split.loop.exit.i239
   %.127.i227 = phi i32 [ %107, %.critedge.i226 ], [ %.026.lcssa.i232, %.critedge28.preheader.i231 ], [ %113, %.critedge2.loopexit.split.loop.exit.i239 ], [ %97, %.critedge28.i240 ]
   %114 = add i32 %.127.i227, 4
-  %115 = getelementptr inbounds nuw i8, ptr %.1177594, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.1177583, i64 1
   %.0.copyload.i244 = load i64, ptr %115, align 1
   %116 = mul i64 %.0.copyload.i244, 58295818150454627
   %117 = lshr i64 %116, 49
@@ -1110,36 +1110,36 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit, %151, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268
-  %.2203.jt5 = phi i32 [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %.127.i252, %151 ], [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
-  %.2194.jt5 = phi ptr [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %125, %151 ], [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
-  %.2178.jt5 = phi ptr [ %.1177594, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ], [ %115, %151 ], [ %.1177594, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ]
-  %152 = icmp ugt ptr %.2178.jt5, %.0176599
-  %153 = icmp ugt ptr %.2194.jt5, %0
-  %or.cond411 = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond411, label %.lr.ph, label %.critedge
+  %.2203.ph = phi i32 [ %114, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %.127.i252, %151 ], [ %76, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+  %.2194.ph = phi ptr [ %89, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %125, %151 ], [ %51, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+  %.2178.ph = phi ptr [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268 ], [ %115, %151 ], [ %.1177583, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit ]
+  %152 = icmp ugt ptr %.2178.ph, %.0176588
+  %153 = icmp ugt ptr %.2194.ph, %0
+  %or.cond403 = select i1 %152, i1 %153, i1 false
+  br i1 %or.cond403, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %159
-  %.6182414 = phi ptr [ %154, %159 ], [ %.2178.jt5, %.preheader ]
-  %.6198413 = phi ptr [ %156, %159 ], [ %.2194.jt5, %.preheader ]
-  %.6207412 = phi i32 [ %160, %159 ], [ %.2203.jt5, %.preheader ]
-  %154 = getelementptr inbounds i8, ptr %.6182414, i64 -1
+  %.6182406 = phi ptr [ %154, %159 ], [ %.2178.ph, %.preheader ]
+  %.6198405 = phi ptr [ %156, %159 ], [ %.2194.ph, %.preheader ]
+  %.6207404 = phi i32 [ %160, %159 ], [ %.2203.ph, %.preheader ]
+  %154 = getelementptr inbounds i8, ptr %.6182406, i64 -1
   %155 = load i8, ptr %154, align 1, !tbaa !3
-  %156 = getelementptr inbounds i8, ptr %.6198413, i64 -1
+  %156 = getelementptr inbounds i8, ptr %.6198405, i64 -1
   %157 = load i8, ptr %156, align 1, !tbaa !3
   %158 = icmp eq i8 %155, %157
   br i1 %158, label %159, label %.critedge
 
 159:                                              ; preds = %.lr.ph
-  %160 = add i32 %.6207412, 1
-  %161 = icmp ugt ptr %154, %.0176599
+  %160 = add i32 %.6207404, 1
+  %161 = icmp ugt ptr %154, %.0176588
   %162 = icmp ugt ptr %156, %0
   %or.cond = and i1 %161, %162
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %.lr.ph, %159, %.preheader
-  %.6207.lcssa = phi i32 [ %.2203.jt5, %.preheader ], [ %160, %159 ], [ %.6207412, %.lr.ph ]
-  %.6198.lcssa = phi ptr [ %.2194.jt5, %.preheader ], [ %156, %159 ], [ %.6198413, %.lr.ph ]
-  %.6182.lcssa = phi ptr [ %.2178.jt5, %.preheader ], [ %154, %159 ], [ %.6182414, %.lr.ph ]
+  %.6207.lcssa = phi i32 [ %.2203.ph, %.preheader ], [ %160, %159 ], [ %.6207404, %.lr.ph ]
+  %.6198.lcssa = phi ptr [ %.2194.ph, %.preheader ], [ %156, %159 ], [ %.6198405, %.lr.ph ]
+  %.6182.lcssa = phi ptr [ %.2178.ph, %.preheader ], [ %154, %159 ], [ %.6182406, %.lr.ph ]
   %163 = ptrtoint ptr %.6182.lcssa to i64
   %164 = sub i64 %163, %15
   %165 = trunc i64 %164 to i16
@@ -1173,7 +1173,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   %188 = add i64 %187, %16
   %189 = inttoptr i64 %188 to ptr
   store i16 %166, ptr %189, align 2, !tbaa !20
-  %190 = ptrtoint ptr %.0176599 to i64
+  %190 = ptrtoint ptr %.0176588 to i64
   %191 = sub i64 %163, %190
   %192 = icmp sgt i64 %191, 0
   br i1 %192, label %193, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader
@@ -1187,9 +1187,9 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
 197:                                              ; preds = %193
   %.tr37.i = trunc i32 %195 to i8
   %198 = shl i8 %.tr37.i, 2
-  %199 = getelementptr inbounds nuw i8, ptr %.0175601, i64 1
-  store i8 %198, ptr %.0175601, align 1, !tbaa !3
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %199, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0176599, i64 16, i1 false)
+  %199 = getelementptr inbounds nuw i8, ptr %.0175590, i64 1
+  store i8 %198, ptr %.0175590, align 1, !tbaa !3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %199, ptr noundef nonnull readonly align 1 dereferenceable(16) %.0176588, i64 16, i1 false)
   %sext = shl i64 %191, 32
   %200 = ashr exact i64 %sext, 32
   %201 = getelementptr inbounds i8, ptr %199, i64 %200
@@ -1211,7 +1211,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   %.tr38.i = trunc nuw nsw i32 %209 to i8
   %210 = shl nuw nsw i8 %.tr38.i, 2
   %211 = or disjoint i8 %210, -16
-  %212 = getelementptr inbounds nuw i8, ptr %.0175601, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.0175590, i64 1
   store i32 %195, ptr %212, align 1
   %213 = zext nneg i32 %209 to i64
   %214 = getelementptr i8, ptr %212, i64 %213
@@ -1219,8 +1219,8 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
 
 215:                                              ; preds = %206, %204
   %.sink.i = phi i8 [ %205, %204 ], [ %211, %206 ]
-  %.pn.i = phi ptr [ %.0175601, %204 ], [ %214, %206 ]
-  store i8 %.sink.i, ptr %.0175601, align 1, !tbaa !3
+  %.pn.i = phi ptr [ %.0175590, %204 ], [ %214, %206 ]
+  store i8 %.sink.i, ptr %.0175590, align 1, !tbaa !3
   %.032.i = getelementptr i8, ptr %.pn.i, i64 1
   %216 = and i64 %191, 2147483647
   %217 = getelementptr inbounds nuw i8, ptr %.032.i, i64 %216
@@ -1228,7 +1228,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
 
 218:                                              ; preds = %218, %215
   %.031.i = phi ptr [ %.032.i, %215 ], [ %219, %218 ]
-  %.030.i = phi ptr [ %.0176599, %215 ], [ %220, %218 ]
+  %.030.i = phi ptr [ %.0176588, %215 ], [ %220, %218 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.031.i, ptr noundef nonnull align 1 dereferenceable(16) %.030.i, i64 16, i1 false)
   %219 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %220 = getelementptr inbounds nuw i8, ptr %.030.i, i64 16
@@ -1236,7 +1236,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   br i1 %221, label %218, label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, !llvm.loop !28
 
 _ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader: ; preds = %218, %197, %.critedge
-  %.3.ph = phi ptr [ %.0175601, %.critedge ], [ %201, %197 ], [ %217, %218 ]
+  %.3.ph = phi ptr [ %.0175590, %.critedge ], [ %201, %197 ], [ %217, %218 ]
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
 _ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit: ; preds = %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit.preheader, %_ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308
@@ -1516,7 +1516,7 @@ _ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit:  ; preds = %270, %257, %228
   %.0.copyload.i310 = load i32, ptr %223, align 1
   %.0.copyload.i311 = load i32, ptr %378, align 1
   %379 = icmp eq i32 %.0.copyload.i310, %.0.copyload.i311
-  br i1 %379, label %380, label %.preheader514.loopexit
+  br i1 %379, label %380, label %.loopexit.loopexit
 
 380:                                              ; preds = %369
   %381 = getelementptr inbounds nuw i8, ptr %378, i64 4
@@ -1591,9 +1591,9 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit308: ; preds = 
   %.8209 = add i32 %.8209.in, 4
   br label %_ZN13duckdb_snappyL11EmitLiteralILb1EEEPcS1_PKci.exit
 
-.thread355:                                       ; preds = %.preheader514.loopexit, %26, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
-  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176599, %26 ], [ %223, %.preheader514.loopexit ]
-  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175601, %26 ], [ %.4, %.preheader514.loopexit ]
+.thread355:                                       ; preds = %.loopexit.loopexit, %26, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit, %12, %7
+  %.8 = phi ptr [ %0, %7 ], [ %0, %12 ], [ %223, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0176588, %26 ], [ %223, %.loopexit.loopexit ]
+  %.5 = phi ptr [ %2, %7 ], [ %2, %12 ], [ %.4, %_ZN13duckdb_snappyL8EmitCopyILb0EEEPcS1_mm.exit ], [ %.0175590, %26 ], [ %.4, %.loopexit.loopexit ]
   %405 = icmp ult ptr %.8, %10
   br i1 %405, label %406, label %426
 
@@ -1629,8 +1629,8 @@ _ZN13duckdb_snappyL11EmitLiteralILb0EEEPcS1_PKci.exit: ; preds = %413, %415
   %.pn.i337 = phi ptr [ %.5, %413 ], [ %423, %415 ]
   store i8 %.sink.i336, ptr %.5, align 1, !tbaa !3
   %.0.i338 = getelementptr i8, ptr %.pn.i337, i64 1
-  %sext361 = shl i64 %409, 32
-  %424 = ashr exact i64 %sext361, 32
+  %sext362 = shl i64 %409, 32
+  %424 = ashr exact i64 %sext362, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i338, ptr readonly align 1 %.8, i64 %424, i1 false)
   %425 = getelementptr inbounds i8, ptr %.0.i338, i64 %424
   br label %426

@@ -3726,8 +3726,8 @@ define internal void @vfio_realize(ptr noundef %0, ptr noundef %1) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 3644
   %25 = load i32, ptr %24, align 4
   %.not195 = icmp eq i32 %25, -1
-  %or.cond262 = select i1 %.not194, i1 %.not195, i1 false
-  br i1 %or.cond262, label %26, label %._crit_edge
+  %or.cond263 = select i1 %.not194, i1 %.not195, i1 false
+  br i1 %or.cond263, label %26, label %._crit_edge
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 3648
@@ -4030,8 +4030,8 @@ trace_vfio_populate_device_config.exit.i:         ; preds = %139, %133, %127, %1
 
 vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112, %159, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.val.i234 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %.val.i234) #26
+  %.val.i235 = load ptr, ptr %4, align 8
+  call void @g_free(ptr noundef %.val.i235) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %428
 
@@ -4044,20 +4044,20 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %179 = load ptr, ptr %178, align 16
   %180 = getelementptr i8, ptr %13, i64 1324
-  %.val219 = load i32, ptr %180, align 4
-  %181 = and i32 %.val219, 4
-  %.not.i225 = icmp eq i32 %181, 0
-  %182 = select i1 %.not.i225, i32 256, i32 4096
+  %.val220 = load i32, ptr %180, align 4
+  %181 = and i32 %.val220, 4
+  %.not.i226 = icmp eq i32 %181, 0
+  %182 = select i1 %.not.i226, i32 256, i32 4096
   %183 = load i32, ptr %144, align 8
   %184 = call i32 @llvm.umin.i32(i32 %182, i32 %183)
   %185 = zext nneg i32 %184 to i64
   %186 = load i64, ptr %153, align 8
   %187 = call i64 @pread64(i32 noundef %177, ptr noundef %179, i64 noundef %185, i64 noundef %186) #26
   %188 = trunc i64 %187 to i32
-  %.val220 = load i32, ptr %180, align 4
-  %189 = and i32 %.val220, 4
-  %.not.i226 = icmp eq i32 %189, 0
-  %190 = select i1 %.not.i226, i32 256, i32 4096
+  %.val221 = load i32, ptr %180, align 4
+  %189 = and i32 %.val221, 4
+  %.not.i227 = icmp eq i32 %189, 0
+  %190 = select i1 %.not.i227, i32 256, i32 4096
   %191 = load i32, ptr %144, align 8
   %192 = call i32 @llvm.umin.i32(i32 %190, i32 %191)
   %193 = icmp sgt i32 %192, %188
@@ -4117,8 +4117,8 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
 220:                                              ; preds = %200
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %222 = load ptr, ptr %221, align 16
-  %.val222 = load i16, ptr %222, align 1
-  %223 = zext i16 %.val222 to i32
+  %.val223 = load i16, ptr %222, align 1
+  %223 = zext i16 %.val223 to i32
   store i32 %223, ptr %206, align 8
   br label %224
 
@@ -4158,8 +4158,8 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %244 = load ptr, ptr %243, align 16
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 2
-  %.val221 = load i16, ptr %245, align 1
-  %246 = zext i16 %.val221 to i32
+  %.val222 = load i16, ptr %245, align 1
+  %246 = zext i16 %.val222 to i32
   store i32 %246, ptr %225, align 4
   br label %247
 
@@ -4286,9 +4286,9 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   br label %312
 
 312:                                              ; preds = %.preheader, %312
-  %.0182241 = phi i32 [ %313, %312 ], [ 0, %.preheader ]
-  call void @vfio_bar_quirk_setup(ptr noundef nonnull %13, i32 noundef %.0182241) #26
-  %313 = add nuw nsw i32 %.0182241, 1
+  %.0182242 = phi i32 [ %313, %312 ], [ 0, %.preheader ]
+  call void @vfio_bar_quirk_setup(ptr noundef nonnull %13, i32 noundef %.0182242) #26
+  %313 = add nuw nsw i32 %.0182242, 1
   %exitcond.not = icmp eq i32 %313, 6
   br i1 %exitcond.not, label %314, label %312, !llvm.loop !31
 
@@ -4332,14 +4332,14 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   br i1 %330, label %331, label %.thread
 
 .thread:                                          ; preds = %323, %326, %328
-  %.val218236 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %.val218236) #26
+  %.val219237 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %.val219237) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %423
 
 331:                                              ; preds = %328
-  %.val218 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %.val218) #26
+  %.val219 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %.val219) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %332
 
@@ -4357,11 +4357,11 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   %340 = zext i8 %339 to i64
   %341 = getelementptr inbounds nuw i8, ptr %337, i64 %340
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %341, i8 noundef -1, i64 noundef 12, i1 noundef false) #26
-  %.pre245 = load i32, ptr %333, align 4
+  %.pre246 = load i32, ptr %333, align 4
   br label %342
 
 342:                                              ; preds = %336, %332
-  %343 = phi i32 [ %.pre245, %336 ], [ %334, %332 ]
+  %343 = phi i32 [ %.pre246, %336 ], [ %334, %332 ]
   %344 = and i32 %343, 1
   %.not210 = icmp eq i32 %344, 0
   br i1 %.not210, label %354, label %345
@@ -4557,9 +4557,9 @@ vfio_populate_device.exit.thread:                 ; preds = %93, %99, %106, %112
   %.0 = phi ptr [ null, %32 ], [ %.1, %428 ], [ %storemerge, %409 ], [ null, %39 ]
   call void @g_free(ptr noundef %.0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.val223 = load ptr, ptr %7, align 8
-  %.val224 = load ptr, ptr %10, align 8
-  call void @error_propagate(ptr noundef %.val224, ptr noundef %.val223) #26
+  %.val224 = load ptr, ptr %7, align 8
+  %.val225 = load ptr, ptr %10, align 8
+  call void @error_propagate(ptr noundef %.val225, ptr noundef %.val224) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

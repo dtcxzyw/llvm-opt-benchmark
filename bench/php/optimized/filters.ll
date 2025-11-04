@@ -921,11 +921,11 @@ zval_get_tmp_string.exit.i.i.i:                   ; preds = %55, %53
   br label %php_conv_get_string_prop_ex.exit.i.i
 
 php_conv_get_string_prop_ex.exit.i.i:             ; preds = %73, %68, %64, %zval_get_tmp_string.exit.i.i.i, %47
-  %.1125.i.i = phi ptr [ null, %47 ], [ %60, %zval_get_tmp_string.exit.i.i.i ], [ %60, %73 ], [ %60, %68 ], [ %60, %64 ]
-  %.1123.i.i = phi i64 [ 0, %47 ], [ %61, %zval_get_tmp_string.exit.i.i.i ], [ %61, %73 ], [ %61, %68 ], [ %61, %64 ]
+  %.1126.i.i = phi ptr [ null, %47 ], [ %60, %zval_get_tmp_string.exit.i.i.i ], [ %60, %73 ], [ %60, %68 ], [ %60, %64 ]
+  %.1124.i.i = phi i64 [ 0, %47 ], [ %61, %zval_get_tmp_string.exit.i.i.i ], [ %61, %73 ], [ %61, %68 ], [ %61, %64 ]
   %74 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.15, i64 noundef 11) #18
-  %.not.i.i62.i.i = icmp eq ptr %74, null
-  br i1 %.not.i.i62.i.i, label %php_conv_get_uint_prop_ex.exit.thread.i.i, label %75
+  %.not.i.i63.i.i = icmp eq ptr %74, null
+  br i1 %.not.i.i63.i.i, label %php_conv_get_uint_prop_ex.exit.thread.i.i, label %75
 
 75:                                               ; preds = %php_conv_get_string_prop_ex.exit.i.i
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -949,16 +949,16 @@ php_conv_get_uint_prop_ex.exit.i.i:               ; preds = %81, %79
   br i1 %85, label %php_conv_get_uint_prop_ex.exit.thread.i.i, label %87
 
 php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_prop_ex.exit.i.i, %php_conv_get_string_prop_ex.exit.i.i
-  %.1127129.i.i = phi i32 [ %84, %php_conv_get_uint_prop_ex.exit.i.i ], [ 0, %php_conv_get_string_prop_ex.exit.i.i ]
-  %.not60.i.i = icmp eq ptr %.1125.i.i, null
+  %.1128130.i.i = phi i32 [ %84, %php_conv_get_uint_prop_ex.exit.i.i ], [ 0, %php_conv_get_string_prop_ex.exit.i.i ]
+  %.not60.i.i = icmp eq ptr %.1126.i.i, null
   br i1 %.not60.i.i, label %91, label %86
 
 86:                                               ; preds = %php_conv_get_uint_prop_ex.exit.thread.i.i
-  tail call void @_efree(ptr noundef nonnull %.1125.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.1126.i.i) #18
   br label %91
 
 87:                                               ; preds = %php_conv_get_uint_prop_ex.exit.i.i
-  %88 = icmp eq ptr %.1125.i.i, null
+  %88 = icmp eq ptr %.1126.i.i, null
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
@@ -966,10 +966,10 @@ php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_p
   br label %91
 
 91:                                               ; preds = %89, %87, %86, %php_conv_get_uint_prop_ex.exit.thread.i.i, %46
-  %.0126.i.i = phi i32 [ 0, %46 ], [ %84, %89 ], [ %84, %87 ], [ %.1127129.i.i, %86 ], [ %.1127129.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
-  %.0124.i.i = phi ptr [ null, %46 ], [ %90, %89 ], [ %.1125.i.i, %87 ], [ null, %86 ], [ null, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
-  %.0122.i.i = phi i64 [ undef, %46 ], [ 2, %89 ], [ %.1123.i.i, %87 ], [ %.1123.i.i, %86 ], [ %.1123.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
-  %.not61.i.i = icmp eq ptr %.0124.i.i, null
+  %.0127.i.i = phi i32 [ 0, %46 ], [ %84, %89 ], [ %84, %87 ], [ %.1128130.i.i, %86 ], [ %.1128130.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.0125.i.i = phi ptr [ null, %46 ], [ %90, %89 ], [ %.1126.i.i, %87 ], [ null, %86 ], [ null, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.0123.i.i = phi i64 [ undef, %46 ], [ 2, %89 ], [ %.1124.i.i, %87 ], [ %.1124.i.i, %86 ], [ %.1124.i.i, %php_conv_get_uint_prop_ex.exit.thread.i.i ]
+  %.not61.i.i = icmp eq ptr %.0125.i.i, null
   br i1 %35, label %92, label %.thread.i.i
 
 92:                                               ; preds = %91
@@ -987,10 +987,10 @@ php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_p
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store i64 0, ptr %97, align 8, !tbaa !47
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  store i32 %.0126.i.i, ptr %98, align 8, !tbaa !48
+  store i32 %.0127.i.i, ptr %98, align 8, !tbaa !48
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 44
-  store i32 %.0126.i.i, ptr %99, align 4, !tbaa !49
-  %100 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0124.i.i) #18
+  store i32 %.0127.i.i, ptr %99, align 4, !tbaa !49
+  %100 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0125.i.i) #18
   br label %php_conv_base64_encode_ctor.exit.i.i
 
 101:                                              ; preds = %.thread.i.i
@@ -1000,10 +1000,10 @@ php_conv_get_uint_prop_ex.exit.thread.i.i:        ; preds = %php_conv_get_uint_p
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store i64 0, ptr %103, align 8, !tbaa !47
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  store i32 %.0126.i.i, ptr %104, align 8, !tbaa !48
+  store i32 %.0127.i.i, ptr %104, align 8, !tbaa !48
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 44
-  store i32 %.0126.i.i, ptr %105, align 4, !tbaa !49
-  %106 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0124.i.i) #18
+  store i32 %.0127.i.i, ptr %105, align 4, !tbaa !49
+  %106 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0125.i.i) #18
   br label %php_conv_base64_encode_ctor.exit.i.i
 
 php_conv_base64_encode_ctor.exit.i.i:             ; preds = %101, %95
@@ -1012,12 +1012,12 @@ php_conv_base64_encode_ctor.exit.i.i:             ; preds = %101, %95
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store ptr %108, ptr %109, align 8, !tbaa !50
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store i64 %.0122.i.i, ptr %110, align 8, !tbaa !51
+  store i64 %.0123.i.i, ptr %110, align 8, !tbaa !51
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 48
   store i32 1, ptr %111, align 8, !tbaa !52
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 52
   store i8 %36, ptr %112, align 4, !tbaa !53
-  tail call void @_efree(ptr noundef nonnull %.0124.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.0125.i.i) #18
   br label %281
 
 113:                                              ; preds = %.thread.i.i, %92
@@ -1059,8 +1059,8 @@ php_conv_base64_encode_ctor.exit.i.i:             ; preds = %101, %95
 
 129:                                              ; preds = %128
   %130 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.14, i64 noundef 16) #18
-  %.not.i64.i.i = icmp eq ptr %130, null
-  br i1 %.not.i64.i.i, label %php_conv_get_string_prop_ex.exit71.i.i, label %131
+  %.not.i65.i.i = icmp eq ptr %130, null
+  br i1 %.not.i65.i.i, label %php_conv_get_string_prop_ex.exit72.i.i, label %131
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -1070,54 +1070,54 @@ php_conv_base64_encode_ctor.exit.i.i:             ; preds = %101, %95
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %130, align 8, !tbaa !25
-  br label %zval_get_tmp_string.exit.i65.i.i
+  br label %zval_get_tmp_string.exit.i66.i.i
 
 137:                                              ; preds = %131
   %138 = tail call ptr @zval_get_string_func(ptr noundef nonnull %130) #18
-  br label %zval_get_tmp_string.exit.i65.i.i
+  br label %zval_get_tmp_string.exit.i66.i.i
 
-zval_get_tmp_string.exit.i65.i.i:                 ; preds = %137, %135
-  %.01.i66.i.i = phi ptr [ null, %135 ], [ %138, %137 ]
-  %.0.i.i67.i.i = phi ptr [ %136, %135 ], [ %138, %137 ]
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i67.i.i, i64 16
+zval_get_tmp_string.exit.i66.i.i:                 ; preds = %137, %135
+  %.01.i67.i.i = phi ptr [ null, %135 ], [ %138, %137 ]
+  %.0.i.i68.i.i = phi ptr [ %136, %135 ], [ %138, %137 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i68.i.i, i64 16
   %140 = load i64, ptr %139, align 8, !tbaa !40
   %141 = add i64 %140, 1
   %142 = tail call noalias ptr @_emalloc(i64 noundef %141) #19
   %143 = load i64, ptr %139, align 8, !tbaa !40
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i67.i.i, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i68.i.i, i64 24
   %145 = add i64 %143, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr nonnull align 8 %144, i64 %145, i1 false)
-  %.not.i.i68.i.i = icmp eq ptr %.01.i66.i.i, null
-  br i1 %.not.i.i68.i.i, label %php_conv_get_string_prop_ex.exit71.i.i, label %146, !prof !39
+  %.not.i.i69.i.i = icmp eq ptr %.01.i67.i.i, null
+  br i1 %.not.i.i69.i.i, label %php_conv_get_string_prop_ex.exit72.i.i, label %146, !prof !39
 
-146:                                              ; preds = %zval_get_tmp_string.exit.i65.i.i
-  %147 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 4
+146:                                              ; preds = %zval_get_tmp_string.exit.i66.i.i
+  %147 = getelementptr inbounds nuw i8, ptr %.01.i67.i.i, i64 4
   %148 = load i32, ptr %147, align 4, !tbaa !25
   %149 = and i32 %148, 64
-  %.not.i51.i69.i.i = icmp eq i32 %149, 0
-  br i1 %.not.i51.i69.i.i, label %150, label %php_conv_get_string_prop_ex.exit71.i.i
+  %.not.i51.i70.i.i = icmp eq i32 %149, 0
+  br i1 %.not.i51.i70.i.i, label %150, label %php_conv_get_string_prop_ex.exit72.i.i
 
 150:                                              ; preds = %146
-  %151 = load i32, ptr %.01.i66.i.i, align 4, !tbaa !43
+  %151 = load i32, ptr %.01.i67.i.i, align 4, !tbaa !43
   %152 = icmp ne i32 %151, 0
   tail call void @llvm.assume(i1 %152)
   %153 = add i32 %151, -1
-  store i32 %153, ptr %.01.i66.i.i, align 4, !tbaa !43
+  store i32 %153, ptr %.01.i67.i.i, align 4, !tbaa !43
   %154 = icmp eq i32 %153, 0
-  br i1 %154, label %155, label %php_conv_get_string_prop_ex.exit71.i.i
+  br i1 %154, label %155, label %php_conv_get_string_prop_ex.exit72.i.i
 
 155:                                              ; preds = %150
-  tail call void @_efree(ptr noundef nonnull %.01.i66.i.i) #18
-  br label %php_conv_get_string_prop_ex.exit71.i.i
+  tail call void @_efree(ptr noundef nonnull %.01.i67.i.i) #18
+  br label %php_conv_get_string_prop_ex.exit72.i.i
 
-php_conv_get_string_prop_ex.exit71.i.i:           ; preds = %155, %150, %146, %zval_get_tmp_string.exit.i65.i.i, %129
-  %.2119.i.i = phi ptr [ null, %129 ], [ %142, %zval_get_tmp_string.exit.i65.i.i ], [ %142, %155 ], [ %142, %150 ], [ %142, %146 ]
-  %.2.i.i = phi i64 [ 0, %129 ], [ %143, %zval_get_tmp_string.exit.i65.i.i ], [ %143, %155 ], [ %143, %150 ], [ %143, %146 ]
+php_conv_get_string_prop_ex.exit72.i.i:           ; preds = %155, %150, %146, %zval_get_tmp_string.exit.i66.i.i, %129
+  %.2120.i.i = phi ptr [ null, %129 ], [ %142, %zval_get_tmp_string.exit.i66.i.i ], [ %142, %155 ], [ %142, %150 ], [ %142, %146 ]
+  %.2.i.i = phi i64 [ 0, %129 ], [ %143, %zval_get_tmp_string.exit.i66.i.i ], [ %143, %155 ], [ %143, %150 ], [ %143, %146 ]
   %156 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.15, i64 noundef 11) #18
-  %.not.i.i72.i.i = icmp eq ptr %156, null
-  br i1 %.not.i.i72.i.i, label %php_conv_get_uint_prop_ex.exit75.i.i, label %157
+  %.not.i.i73.i.i = icmp eq ptr %156, null
+  br i1 %.not.i.i73.i.i, label %php_conv_get_uint_prop_ex.exit76.i.i, label %157
 
-157:                                              ; preds = %php_conv_get_string_prop_ex.exit71.i.i
+157:                                              ; preds = %php_conv_get_string_prop_ex.exit72.i.i
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load i8, ptr %158, align 8, !tbaa !25
   %160 = icmp eq i8 %159, 4
@@ -1133,46 +1133,46 @@ php_conv_get_string_prop_ex.exit71.i.i:           ; preds = %155, %150, %146, %z
 
 165:                                              ; preds = %163, %161
   %166 = phi i64 [ %162, %161 ], [ %164, %163 ]
-  %..i.i73.i.i = tail call i64 @llvm.smax.i64(i64 %166, i64 0)
-  %167 = trunc i64 %..i.i73.i.i to i32
-  br label %php_conv_get_uint_prop_ex.exit75.i.i
+  %..i.i74.i.i = tail call i64 @llvm.smax.i64(i64 %166, i64 0)
+  %167 = trunc i64 %..i.i74.i.i to i32
+  br label %php_conv_get_uint_prop_ex.exit76.i.i
 
-php_conv_get_uint_prop_ex.exit75.i.i:             ; preds = %165, %php_conv_get_string_prop_ex.exit71.i.i
-  %.1121.i.i = phi i32 [ 0, %php_conv_get_string_prop_ex.exit71.i.i ], [ %167, %165 ]
+php_conv_get_uint_prop_ex.exit76.i.i:             ; preds = %165, %php_conv_get_string_prop_ex.exit72.i.i
+  %.1122.i.i = phi i32 [ 0, %php_conv_get_string_prop_ex.exit72.i.i ], [ %167, %165 ]
   %168 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.17, i64 noundef 6) #18
-  %.not.i76.i.i = icmp eq ptr %168, null
-  br i1 %.not.i76.i.i, label %php_conv_get_bool_prop_ex.exit.i.i, label %169
+  %.not.i77.i.i = icmp eq ptr %168, null
+  br i1 %.not.i77.i.i, label %php_conv_get_bool_prop_ex.exit.i.i, label %169
 
-169:                                              ; preds = %php_conv_get_uint_prop_ex.exit75.i.i
+169:                                              ; preds = %php_conv_get_uint_prop_ex.exit76.i.i
   %170 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %168) #18
   %171 = zext i1 %170 to i32
   br label %php_conv_get_bool_prop_ex.exit.i.i
 
-php_conv_get_bool_prop_ex.exit.i.i:               ; preds = %169, %php_conv_get_uint_prop_ex.exit75.i.i
-  %storemerge.i.i.i = phi i32 [ %171, %169 ], [ 0, %php_conv_get_uint_prop_ex.exit75.i.i ]
+php_conv_get_bool_prop_ex.exit.i.i:               ; preds = %169, %php_conv_get_uint_prop_ex.exit76.i.i
+  %storemerge.i.i.i = phi i32 [ %171, %169 ], [ 0, %php_conv_get_uint_prop_ex.exit76.i.i ]
   %172 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.18, i64 noundef 18) #18
-  %.not.i78.i.i = icmp eq ptr %172, null
-  br i1 %.not.i78.i.i, label %php_conv_get_bool_prop_ex.exit81.i.i, label %173
+  %.not.i79.i.i = icmp eq ptr %172, null
+  br i1 %.not.i79.i.i, label %php_conv_get_bool_prop_ex.exit82.i.i, label %173
 
 173:                                              ; preds = %php_conv_get_bool_prop_ex.exit.i.i
   %174 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %172) #18
   %175 = select i1 %174, i32 2, i32 0
-  br label %php_conv_get_bool_prop_ex.exit81.i.i
+  br label %php_conv_get_bool_prop_ex.exit82.i.i
 
-php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_bool_prop_ex.exit.i.i
-  %storemerge.i79.i.i = phi i32 [ %175, %173 ], [ 0, %php_conv_get_bool_prop_ex.exit.i.i ]
-  %176 = icmp ult i32 %.1121.i.i, 4
-  %.not54.i.i = icmp eq ptr %.2119.i.i, null
+php_conv_get_bool_prop_ex.exit82.i.i:             ; preds = %173, %php_conv_get_bool_prop_ex.exit.i.i
+  %storemerge.i80.i.i = phi i32 [ %175, %173 ], [ 0, %php_conv_get_bool_prop_ex.exit.i.i ]
+  %176 = icmp ult i32 %.1122.i.i, 4
+  %.not54.i.i = icmp eq ptr %.2120.i.i, null
   br i1 %176, label %177, label %179
 
-177:                                              ; preds = %php_conv_get_bool_prop_ex.exit81.i.i
+177:                                              ; preds = %php_conv_get_bool_prop_ex.exit82.i.i
   br i1 %.not54.i.i, label %182, label %178
 
 178:                                              ; preds = %177
-  tail call void @_efree(ptr noundef nonnull %.2119.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.2120.i.i) #18
   br label %182
 
-179:                                              ; preds = %php_conv_get_bool_prop_ex.exit81.i.i
+179:                                              ; preds = %php_conv_get_bool_prop_ex.exit82.i.i
   br i1 %.not54.i.i, label %180, label %182
 
 180:                                              ; preds = %179
@@ -1180,15 +1180,15 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
   br label %182
 
 182:                                              ; preds = %180, %179, %178, %177
-  %.1118.i.i = phi ptr [ %181, %180 ], [ %.2119.i.i, %179 ], [ null, %178 ], [ null, %177 ]
-  %.1116.i.i = phi i64 [ 2, %180 ], [ %.2.i.i, %179 ], [ %.2.i.i, %178 ], [ %.2.i.i, %177 ]
-  %183 = or disjoint i32 %storemerge.i79.i.i, %storemerge.i.i.i
+  %.1119.i.i = phi ptr [ %181, %180 ], [ %.2120.i.i, %179 ], [ null, %178 ], [ null, %177 ]
+  %.1117.i.i = phi i64 [ 2, %180 ], [ %.2.i.i, %179 ], [ %.2.i.i, %178 ], [ %.2.i.i, %177 ]
+  %183 = or disjoint i32 %storemerge.i80.i.i, %storemerge.i.i.i
   br label %184
 
 184:                                              ; preds = %182, %128
-  %.0120.i.i = phi i32 [ 0, %128 ], [ %.1121.i.i, %182 ]
-  %.0117.i.i = phi ptr [ null, %128 ], [ %.1118.i.i, %182 ]
-  %.0115.i.i = phi i64 [ undef, %128 ], [ %.1116.i.i, %182 ]
+  %.0121.i.i = phi i32 [ 0, %128 ], [ %.1122.i.i, %182 ]
+  %.0118.i.i = phi ptr [ null, %128 ], [ %.1119.i.i, %182 ]
+  %.0116.i.i = phi i64 [ undef, %128 ], [ %.1117.i.i, %182 ]
   %.0.i.i = phi i32 [ 0, %128 ], [ %183, %182 ]
   br i1 %35, label %185, label %187
 
@@ -1202,11 +1202,11 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
 
 189:                                              ; preds = %187, %185
   %190 = phi ptr [ %186, %185 ], [ %188, %187 ]
-  %.not55.i.i = icmp eq ptr %.0117.i.i, null
+  %.not55.i.i = icmp eq ptr %.0118.i.i, null
   br i1 %.not55.i.i, label %210, label %191
 
 191:                                              ; preds = %189
-  %192 = icmp ult i32 %.0120.i.i, 4
+  %192 = icmp ult i32 %.0121.i.i, 4
   br i1 %192, label %274, label %193
 
 193:                                              ; preds = %191
@@ -1214,17 +1214,17 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store ptr @php_conv_qprint_encode_dtor, ptr %194, align 8, !tbaa !59
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 36
-  store i32 %.0120.i.i, ptr %195, align 4, !tbaa !60
+  store i32 %.0121.i.i, ptr %195, align 4, !tbaa !60
   %196 = getelementptr inbounds nuw i8, ptr %190, i64 40
-  store i32 %.0120.i.i, ptr %196, align 8, !tbaa !61
+  store i32 %.0121.i.i, ptr %196, align 8, !tbaa !61
   br i1 %35, label %197, label %199
 
 197:                                              ; preds = %193
-  %198 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0117.i.i) #18
+  %198 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0118.i.i) #18
   br label %201
 
 199:                                              ; preds = %193
-  %200 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0117.i.i) #18
+  %200 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0118.i.i) #18
   br label %201
 
 201:                                              ; preds = %199, %197
@@ -1232,7 +1232,7 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
   %203 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store ptr %202, ptr %203, align 8, !tbaa !62
   %204 = getelementptr inbounds nuw i8, ptr %190, i64 24
-  store i64 %.0115.i.i, ptr %204, align 8, !tbaa !63
+  store i64 %.0116.i.i, ptr %204, align 8, !tbaa !63
   %205 = getelementptr inbounds nuw i8, ptr %190, i64 44
   store i32 1, ptr %205, align 4, !tbaa !64
   %206 = getelementptr inbounds nuw i8, ptr %190, i64 48
@@ -1243,7 +1243,7 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
   store i32 0, ptr %208, align 4, !tbaa !67
   %209 = getelementptr inbounds nuw i8, ptr %190, i64 56
   store i32 0, ptr %209, align 8, !tbaa !68
-  tail call void @_efree(ptr noundef nonnull %.0117.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.0118.i.i) #18
   br label %281
 
 210:                                              ; preds = %189
@@ -1270,12 +1270,12 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
 
 220:                                              ; preds = %42
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %php_conv_get_string_prop_ex.exit91.i.i, label %221
+  br i1 %.not.i.i, label %php_conv_get_string_prop_ex.exit92.i.i, label %221
 
 221:                                              ; preds = %220
   %222 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %34, ptr noundef nonnull @.str.14, i64 noundef 16) #18
-  %.not.i84.i.i = icmp eq ptr %222, null
-  br i1 %.not.i84.i.i, label %php_conv_get_string_prop_ex.exit91.i.i, label %223
+  %.not.i85.i.i = icmp eq ptr %222, null
+  br i1 %.not.i85.i.i, label %php_conv_get_string_prop_ex.exit92.i.i, label %223
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
@@ -1285,62 +1285,62 @@ php_conv_get_bool_prop_ex.exit81.i.i:             ; preds = %173, %php_conv_get_
 
 227:                                              ; preds = %223
   %228 = load ptr, ptr %222, align 8, !tbaa !25
-  br label %zval_get_tmp_string.exit.i85.i.i
+  br label %zval_get_tmp_string.exit.i86.i.i
 
 229:                                              ; preds = %223
   %230 = tail call ptr @zval_get_string_func(ptr noundef nonnull %222) #18
-  br label %zval_get_tmp_string.exit.i85.i.i
+  br label %zval_get_tmp_string.exit.i86.i.i
 
-zval_get_tmp_string.exit.i85.i.i:                 ; preds = %229, %227
-  %.01.i86.i.i = phi ptr [ null, %227 ], [ %230, %229 ]
-  %.0.i.i87.i.i = phi ptr [ %228, %227 ], [ %230, %229 ]
-  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i87.i.i, i64 16
+zval_get_tmp_string.exit.i86.i.i:                 ; preds = %229, %227
+  %.01.i87.i.i = phi ptr [ null, %227 ], [ %230, %229 ]
+  %.0.i.i88.i.i = phi ptr [ %228, %227 ], [ %230, %229 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i.i, i64 16
   %232 = load i64, ptr %231, align 8, !tbaa !40
   %233 = add i64 %232, 1
   %234 = tail call noalias ptr @_emalloc(i64 noundef %233) #19
   %235 = load i64, ptr %231, align 8, !tbaa !40
-  %236 = getelementptr inbounds nuw i8, ptr %.0.i.i87.i.i, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %.0.i.i88.i.i, i64 24
   %237 = add i64 %235, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %234, ptr nonnull align 8 %236, i64 %237, i1 false)
-  %.not.i.i88.i.i = icmp eq ptr %.01.i86.i.i, null
-  br i1 %.not.i.i88.i.i, label %php_conv_get_string_prop_ex.exit91.i.i, label %238, !prof !39
+  %.not.i.i89.i.i = icmp eq ptr %.01.i87.i.i, null
+  br i1 %.not.i.i89.i.i, label %php_conv_get_string_prop_ex.exit92.i.i, label %238, !prof !39
 
-238:                                              ; preds = %zval_get_tmp_string.exit.i85.i.i
-  %239 = getelementptr inbounds nuw i8, ptr %.01.i86.i.i, i64 4
+238:                                              ; preds = %zval_get_tmp_string.exit.i86.i.i
+  %239 = getelementptr inbounds nuw i8, ptr %.01.i87.i.i, i64 4
   %240 = load i32, ptr %239, align 4, !tbaa !25
   %241 = and i32 %240, 64
-  %.not.i51.i89.i.i = icmp eq i32 %241, 0
-  br i1 %.not.i51.i89.i.i, label %242, label %php_conv_get_string_prop_ex.exit91.i.i
+  %.not.i51.i90.i.i = icmp eq i32 %241, 0
+  br i1 %.not.i51.i90.i.i, label %242, label %php_conv_get_string_prop_ex.exit92.i.i
 
 242:                                              ; preds = %238
-  %243 = load i32, ptr %.01.i86.i.i, align 4, !tbaa !43
+  %243 = load i32, ptr %.01.i87.i.i, align 4, !tbaa !43
   %244 = icmp ne i32 %243, 0
   tail call void @llvm.assume(i1 %244)
   %245 = add i32 %243, -1
-  store i32 %245, ptr %.01.i86.i.i, align 4, !tbaa !43
+  store i32 %245, ptr %.01.i87.i.i, align 4, !tbaa !43
   %246 = icmp eq i32 %245, 0
-  br i1 %246, label %247, label %php_conv_get_string_prop_ex.exit91.i.i
+  br i1 %246, label %247, label %php_conv_get_string_prop_ex.exit92.i.i
 
 247:                                              ; preds = %242
-  tail call void @_efree(ptr noundef nonnull %.01.i86.i.i) #18
-  br label %php_conv_get_string_prop_ex.exit91.i.i
+  tail call void @_efree(ptr noundef nonnull %.01.i87.i.i) #18
+  br label %php_conv_get_string_prop_ex.exit92.i.i
 
-php_conv_get_string_prop_ex.exit91.i.i:           ; preds = %247, %242, %238, %zval_get_tmp_string.exit.i85.i.i, %221, %220
-  %.0113.i.i = phi ptr [ null, %220 ], [ null, %221 ], [ %234, %zval_get_tmp_string.exit.i85.i.i ], [ %234, %247 ], [ %234, %242 ], [ %234, %238 ]
-  %.0111.i.i = phi i64 [ undef, %220 ], [ 0, %221 ], [ %235, %zval_get_tmp_string.exit.i85.i.i ], [ %235, %247 ], [ %235, %242 ], [ %235, %238 ]
+php_conv_get_string_prop_ex.exit92.i.i:           ; preds = %247, %242, %238, %zval_get_tmp_string.exit.i86.i.i, %221, %220
+  %.0114.i.i = phi ptr [ null, %220 ], [ null, %221 ], [ %234, %zval_get_tmp_string.exit.i86.i.i ], [ %234, %247 ], [ %234, %242 ], [ %234, %238 ]
+  %.0112.i.i = phi i64 [ undef, %220 ], [ 0, %221 ], [ %235, %zval_get_tmp_string.exit.i86.i.i ], [ %235, %247 ], [ %235, %242 ], [ %235, %238 ]
   br i1 %35, label %248, label %250
 
-248:                                              ; preds = %php_conv_get_string_prop_ex.exit91.i.i
+248:                                              ; preds = %php_conv_get_string_prop_ex.exit92.i.i
   %249 = tail call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #19
   br label %252
 
-250:                                              ; preds = %php_conv_get_string_prop_ex.exit91.i.i
+250:                                              ; preds = %php_conv_get_string_prop_ex.exit92.i.i
   %251 = tail call noalias ptr @_emalloc_56() #18
   br label %252
 
 252:                                              ; preds = %250, %248
   %253 = phi ptr [ %249, %248 ], [ %251, %250 ]
-  %.not52.i.i = icmp eq ptr %.0113.i.i, null
+  %.not52.i.i = icmp eq ptr %.0114.i.i, null
   store ptr @php_conv_qprint_decode_convert, ptr %253, align 8, !tbaa !69
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store ptr @php_conv_qprint_decode_dtor, ptr %254, align 8, !tbaa !71
@@ -1358,11 +1358,11 @@ php_conv_get_string_prop_ex.exit91.i.i:           ; preds = %247, %242, %238, %z
   br i1 %35, label %260, label %262
 
 260:                                              ; preds = %255
-  %261 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0113.i.i) #18
+  %261 = tail call noalias ptr @__zend_strdup(ptr noundef nonnull %.0114.i.i) #18
   br label %php_conv_qprint_decode_ctor.exit.i.i
 
 262:                                              ; preds = %255
-  %263 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0113.i.i) #18
+  %263 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0114.i.i) #18
   br label %php_conv_qprint_decode_ctor.exit.i.i
 
 php_conv_qprint_decode_ctor.exit.i.i:             ; preds = %262, %260
@@ -1370,12 +1370,12 @@ php_conv_qprint_decode_ctor.exit.i.i:             ; preds = %262, %260
   %265 = getelementptr inbounds nuw i8, ptr %253, i64 16
   store ptr %264, ptr %265, align 8, !tbaa !76
   %266 = getelementptr inbounds nuw i8, ptr %253, i64 24
-  store i64 %.0111.i.i, ptr %266, align 8, !tbaa !77
+  store i64 %.0112.i.i, ptr %266, align 8, !tbaa !77
   %267 = getelementptr inbounds nuw i8, ptr %253, i64 40
   store i32 1, ptr %267, align 8, !tbaa !78
   %268 = getelementptr inbounds nuw i8, ptr %253, i64 44
   store i8 %36, ptr %268, align 4, !tbaa !79
-  tail call void @_efree(ptr noundef nonnull %.0113.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.0114.i.i) #18
   br label %281
 
 269:                                              ; preds = %252
@@ -1390,7 +1390,7 @@ php_conv_qprint_decode_ctor.exit.i.i:             ; preds = %262, %260
   br label %281
 
 274:                                              ; preds = %191
-  tail call void @_efree(ptr noundef nonnull %.0117.i.i) #18
+  tail call void @_efree(ptr noundef nonnull %.0118.i.i) #18
   %.not58.i.i = icmp eq ptr %190, null
   br i1 %.not58.i.i, label %thread-pre-split.i, label %275
 

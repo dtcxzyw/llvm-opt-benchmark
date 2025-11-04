@@ -289,10 +289,10 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 112:                                              ; preds = %110
   %113 = load i32, ptr %2, align 8
   store i32 %113, ptr %4, align 4
-  %.val367.i = load ptr, ptr %55, align 8
-  %114 = getelementptr i8, ptr %.val367.i, i64 8
-  %.val367.val.i = load i32, ptr %114, align 4
-  %.not.i.not.i = icmp sgt i32 %.val367.val.i, %113
+  %.val380.i = load ptr, ptr %55, align 8
+  %114 = getelementptr i8, ptr %.val380.i, i64 8
+  %.val380.val.i = load i32, ptr %114, align 4
+  %.not.i.not.i = icmp sgt i32 %.val380.val.i, %113
   br i1 %.not.i.not.i, label %.thread.i, label %115
 
 115:                                              ; preds = %112
@@ -384,11 +384,11 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 156:                                              ; preds = %154
   %157 = load i32, ptr %2, align 8
   store i32 %157, ptr %4, align 4
-  %.val369.i = load ptr, ptr %55, align 8
-  %158 = getelementptr i8, ptr %.val369.i, i64 8
-  %.val369.val.i = load i32, ptr %158, align 4
-  %.not.i378.not.i = icmp sgt i32 %.val369.val.i, %157
-  br i1 %.not.i378.not.i, label %173, label %159
+  %.val382.i = load ptr, ptr %55, align 8
+  %158 = getelementptr i8, ptr %.val382.i, i64 8
+  %.val382.val.i = load i32, ptr %158, align 4
+  %.not.i391.not.i = icmp sgt i32 %.val382.val.i, %157
+  br i1 %.not.i391.not.i, label %173, label %159
 
 159:                                              ; preds = %156
   switch i32 %155, label %173 [
@@ -453,11 +453,11 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 189:                                              ; preds = %187
   %190 = load i32, ptr %2, align 8
   store i32 %190, ptr %4, align 4
-  %.val373.i = load ptr, ptr %55, align 8
-  %191 = getelementptr i8, ptr %.val373.i, i64 4
-  %.val373.val.i = load i32, ptr %191, align 4
-  %.not.i380.not.i = icmp sgt i32 %.val373.val.i, %190
-  br i1 %.not.i380.not.i, label %265, label %192
+  %.val386.i = load ptr, ptr %55, align 8
+  %191 = getelementptr i8, ptr %.val386.i, i64 4
+  %.val386.val.i = load i32, ptr %191, align 4
+  %.not.i393.not.i = icmp sgt i32 %.val386.val.i, %190
+  br i1 %.not.i393.not.i, label %265, label %192
 
 192:                                              ; preds = %189
   switch i32 %188, label %265 [
@@ -496,11 +496,11 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
   br i1 %.not356.i, label %265, label %208
 
 208:                                              ; preds = %202, %199
-  %.val375.i = load ptr, ptr %55, align 8
-  %209 = getelementptr i8, ptr %.val375.i, i64 4
-  %.val375.val.i = load i32, ptr %209, align 4
-  %.not.i382.not.i = icmp sgt i32 %.val375.val.i, %200
-  br i1 %.not.i382.not.i, label %265, label %210
+  %.val388.i = load ptr, ptr %55, align 8
+  %209 = getelementptr i8, ptr %.val388.i, i64 4
+  %.val388.val.i = load i32, ptr %209, align 4
+  %.not.i395.not.i = icmp sgt i32 %.val388.val.i, %200
+  br i1 %.not.i395.not.i, label %265, label %210
 
 210:                                              ; preds = %208
   %211 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
@@ -551,11 +551,11 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 235:                                              ; preds = %231, %227
   %236 = load i32, ptr %2, align 8
   store i32 %236, ptr %4, align 4
-  %.val371.i = load ptr, ptr %55, align 8
-  %237 = getelementptr i8, ptr %.val371.i, i64 8
-  %.val371.val.i = load i32, ptr %237, align 4
-  %.not.i384.not.i = icmp sgt i32 %.val371.val.i, %236
-  br i1 %.not.i384.not.i, label %265, label %238
+  %.val384.i = load ptr, ptr %55, align 8
+  %237 = getelementptr i8, ptr %.val384.i, i64 8
+  %.val384.val.i = load i32, ptr %237, align 4
+  %.not.i397.not.i = icmp sgt i32 %.val384.val.i, %236
+  br i1 %.not.i397.not.i, label %265, label %238
 
 238:                                              ; preds = %235
   %239 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
@@ -570,7 +570,7 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 244:                                              ; preds = %241
   %245 = load i32, ptr %5, align 4
   %246 = load i32, ptr %2, align 8
-  %.neg462.i = sub i32 %246, %245
+  %.neg477.i = sub i32 %246, %245
   store i32 %246, ptr %6, align 8
   %247 = add i32 %246, -1
   %248 = load i32, ptr %97, align 8
@@ -594,15 +594,15 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 256:                                              ; preds = %254
   %257 = load i32, ptr %2, align 8
   store i32 %257, ptr %4, align 4
-  %.val377.i = load ptr, ptr %55, align 8
-  %258 = getelementptr i8, ptr %.val377.i, i64 4
-  %.val377.val.i = load i32, ptr %258, align 4
-  %.not.i386.not.i = icmp sgt i32 %.val377.val.i, %257
-  br i1 %.not.i386.not.i, label %259, label %262
+  %.val390.i = load ptr, ptr %55, align 8
+  %258 = getelementptr i8, ptr %.val390.i, i64 4
+  %.val390.val.i = load i32, ptr %258, align 4
+  %.not.i399.not.i = icmp sgt i32 %.val390.val.i, %257
+  br i1 %.not.i399.not.i, label %259, label %262
 
 259:                                              ; preds = %256
   %260 = load i32, ptr %5, align 4
-  %261 = add i32 %.neg462.i, %260
+  %261 = add i32 %.neg477.i, %260
   store i32 %261, ptr %2, align 8
   br label %265
 

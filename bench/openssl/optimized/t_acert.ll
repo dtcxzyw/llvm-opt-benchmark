@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 42:                                               ; preds = %39, %29
   %43 = and i64 %3, 64
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %.thread166
+  br i1 %44, label %45, label %.thread170
 
 45:                                               ; preds = %42
   %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2) #3
@@ -110,26 +110,26 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 48:                                               ; preds = %45
   %49 = tail call ptr @X509_ACERT_get0_holder_entityName(ptr noundef %1) #3
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %.loopexit188, label %.preheader187
+  br i1 %.not, label %.loopexit191, label %.preheader190
 
-.preheader187:                                    ; preds = %48
+.preheader190:                                    ; preds = %48
   %50 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %49) #3
   %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph, label %.loopexit188
+  br i1 %51, label %.lr.ph, label %.loopexit191
 
-.lr.ph:                                           ; preds = %.preheader187
+.lr.ph:                                           ; preds = %.preheader190
   %52 = zext nneg i8 %spec.store.select to i32
   br label %57
 
 53:                                               ; preds = %64
-  %54 = add nuw nsw i32 %.0118191, 1
+  %54 = add nuw nsw i32 %.0118194, 1
   %55 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %49) #3
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %57, label %.loopexit188, !llvm.loop !3
+  br i1 %56, label %57, label %.loopexit191, !llvm.loop !3
 
 57:                                               ; preds = %.lr.ph, %53
-  %.0118191 = phi i32 [ 0, %.lr.ph ], [ %54, %53 ]
-  %58 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %49, i32 noundef %.0118191) #3
+  %.0118194 = phi i32 [ 0, %.lr.ph ], [ %54, %53 ]
+  %58 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %49, i32 noundef %.0118194) #3
   %59 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef %52) #3
   %60 = icmp slt i32 %59, 1
   br i1 %60, label %.thread, label %61
@@ -144,15 +144,15 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %53, label %.thread
 
-.loopexit188:                                     ; preds = %53, %.preheader187, %48
+.loopexit191:                                     ; preds = %53, %.preheader190, %48
   %67 = tail call ptr @X509_ACERT_get0_holder_baseCertId(ptr noundef %1) #3
   %.not130 = icmp eq ptr %67, null
-  br i1 %.not130, label %.thread166, label %68
+  br i1 %.not130, label %.thread170, label %68
 
-68:                                               ; preds = %.loopexit188
+68:                                               ; preds = %.loopexit191
   %69 = tail call ptr @OSSL_ISSUER_SERIAL_get0_issuer(ptr noundef nonnull %67) #3
   %.not131 = icmp eq ptr %69, null
-  br i1 %.not131, label %.thread166, label %70
+  br i1 %.not131, label %.thread170, label %70
 
 70:                                               ; preds = %68
   %71 = zext nneg i8 %spec.store.select to i32
@@ -199,14 +199,14 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 95:                                               ; preds = %87, %92
   %96 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef 1) #3
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.thread166, label %.thread
+  br i1 %97, label %.thread170, label %.thread
 
-.thread166:                                       ; preds = %.loopexit188, %95, %68, %42
+.thread170:                                       ; preds = %.loopexit191, %95, %68, %42
   %98 = and i64 %3, 16
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %100, label %115
 
-100:                                              ; preds = %.thread166
+100:                                              ; preds = %.thread170
   %101 = zext nneg i8 %spec.store.select to i32
   %102 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef %101) #3
   %103 = icmp slt i32 %102, 1
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
   %114 = icmp slt i32 %113, 1
   br i1 %114, label %.thread, label %115
 
-115:                                              ; preds = %112, %.thread166
+115:                                              ; preds = %112, %.thread170
   %116 = and i64 %3, 32
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %118, label %138
@@ -282,27 +282,27 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
 144:                                              ; preds = %141
   %145 = tail call i32 @X509_ACERT_get_attr_count(ptr noundef %1) #3
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %149, label %.preheader185
+  br i1 %146, label %149, label %.preheader188
 
-.preheader185:                                    ; preds = %144
+.preheader188:                                    ; preds = %144
   %147 = tail call i32 @X509_ACERT_get_attr_count(ptr noundef %1) #3
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph193, label %.loopexit
+  br i1 %148, label %.lr.ph196, label %.loopexit
 
 149:                                              ; preds = %144
   %150 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2) #3
   %151 = icmp slt i32 %150, 1
   br i1 %151, label %.thread, label %.loopexit
 
-.lr.ph193:                                        ; preds = %.preheader185, %print_attribute.exit
-  %.1119192 = phi i32 [ %202, %print_attribute.exit ], [ 0, %.preheader185 ]
-  %152 = tail call ptr @X509_ACERT_get_attr(ptr noundef %1, i32 noundef %.1119192) #3
+.lr.ph196:                                        ; preds = %.preheader188, %print_attribute.exit
+  %.1119195 = phi i32 [ %202, %print_attribute.exit ], [ 0, %.preheader188 ]
+  %152 = tail call ptr @X509_ACERT_get_attr(ptr noundef %1, i32 noundef %.1119195) #3
   %153 = tail call ptr @X509_ATTRIBUTE_get0_object(ptr noundef %152) #3
   %154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2) #3
   %155 = icmp slt i32 %154, 1
   br i1 %155, label %.thread, label %156
 
-156:                                              ; preds = %.lr.ph193
+156:                                              ; preds = %.lr.ph196
   %157 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %153) #3
   %158 = icmp slt i32 %157, 1
   br i1 %158, label %.thread, label %159
@@ -392,20 +392,20 @@ define range(i32 0, 2) i32 @X509_ACERT_print_ex(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond.not.i, label %print_attribute.exit, label %.lr.ph.i, !llvm.loop !17
 
 print_attribute.exit:                             ; preds = %200, %.preheader.i
-  %202 = add nuw nsw i32 %.1119192, 1
+  %202 = add nuw nsw i32 %.1119195, 1
   %203 = tail call i32 @X509_ACERT_get_attr_count(ptr noundef %1) #3
   %204 = icmp slt i32 %202, %203
-  br i1 %204, label %.lr.ph193, label %.loopexit, !llvm.loop !18
+  br i1 %204, label %.lr.ph196, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %print_attribute.exit, %.preheader185, %149, %138
+.loopexit:                                        ; preds = %print_attribute.exit, %.preheader188, %149, %138
   %205 = and i64 %3, 256
   %206 = icmp eq i64 %205, 0
-  br i1 %206, label %207, label %.thread178
+  br i1 %206, label %207, label %.thread182
 
 207:                                              ; preds = %.loopexit
   %208 = tail call ptr @X509_ACERT_get0_extensions(ptr noundef %1) #3
   %.not134 = icmp eq ptr %208, null
-  br i1 %.not134, label %.thread178, label %209
+  br i1 %.not134, label %.thread182, label %209
 
 209:                                              ; preds = %207
   %210 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2) #3
@@ -415,22 +415,22 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
 .preheader:                                       ; preds = %209
   %212 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %208) #3
   %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %.lr.ph195, label %.thread178
+  br i1 %213, label %.lr.ph198, label %.thread182
 
 214:                                              ; preds = %240
-  %215 = add nuw nsw i32 %.2194, 1
+  %215 = add nuw nsw i32 %.2197, 1
   %216 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %208) #3
   %217 = icmp slt i32 %215, %216
-  br i1 %217, label %.lr.ph195, label %.thread178, !llvm.loop !19
+  br i1 %217, label %.lr.ph198, label %.thread182, !llvm.loop !19
 
-.lr.ph195:                                        ; preds = %.preheader, %214
-  %.2194 = phi i32 [ %215, %214 ], [ 0, %.preheader ]
-  %218 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %208, i32 noundef %.2194) #3
+.lr.ph198:                                        ; preds = %.preheader, %214
+  %.2197 = phi i32 [ %215, %214 ], [ 0, %.preheader ]
+  %218 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %208, i32 noundef %.2197) #3
   %219 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2) #3
   %220 = icmp slt i32 %219, 1
   br i1 %220, label %.thread, label %221
 
-221:                                              ; preds = %.lr.ph195
+221:                                              ; preds = %.lr.ph198
   %222 = tail call ptr @X509_EXTENSION_get_object(ptr noundef %218) #3
   %223 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %222) #3
   %224 = icmp slt i32 %223, 1
@@ -465,12 +465,12 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   %242 = icmp sgt i32 %241, 0
   br i1 %242, label %214, label %.thread
 
-.thread178:                                       ; preds = %214, %.preheader, %207, %.loopexit
+.thread182:                                       ; preds = %214, %.preheader, %207, %.loopexit
   %243 = and i64 %3, 512
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %245, label %250
 
-245:                                              ; preds = %.thread178
+245:                                              ; preds = %.thread182
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @X509_ACERT_get0_signature(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #3
@@ -482,10 +482,10 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %249, label %250, label %251
 
-250:                                              ; preds = %245, %.thread178
+250:                                              ; preds = %245, %.thread182
   br label %251
 
-.thread:                                          ; preds = %61, %57, %64, %169, %165, %156, %.lr.ph193, %197, %186, %183, %175, %240, %236, %233, %225, %221, %.lr.ph195, %95, %209, %162, %112, %109, %106, %100, %92, %89, %83, %80, %77, %74, %70, %45, %39, %36, %32, %26, %23, %149, %141, %135, %131, %128, %124, %121, %118, %14, %11
+.thread:                                          ; preds = %61, %57, %64, %169, %165, %156, %.lr.ph196, %197, %186, %183, %175, %240, %236, %233, %225, %221, %.lr.ph198, %95, %209, %162, %112, %109, %106, %100, %92, %89, %83, %80, %77, %74, %70, %45, %39, %36, %32, %26, %23, %149, %141, %135, %131, %128, %124, %121, %118, %14, %11
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.24, i32 noundef 278, ptr noundef nonnull @__func__.X509_ACERT_print_ex) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524295, ptr noundef null) #3

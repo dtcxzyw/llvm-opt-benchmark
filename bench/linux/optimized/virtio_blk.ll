@@ -462,7 +462,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 183:                                              ; preds = %174
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %184, ptr noundef nonnull @.str.7, i32 noundef %178) #15
-  br label %.thread25
+  br label %.thread26
 
 185:                                              ; preds = %174
   call void @blk_queue_logical_block_size(ptr noundef %97, i32 noundef %178) #14
@@ -485,7 +485,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %195 = load i64, ptr %28, align 8
   %196 = and i64 %195, 1024
   %.not = icmp eq i64 %196, 0
-  br i1 %.not, label %.thread20, label %197
+  br i1 %.not, label %.thread21, label %197
 
 197:                                              ; preds = %193
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -496,23 +496,23 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void %200(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %6, i32 noundef 1) #14
   %201 = load i8, ptr %6, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not27 = icmp eq i8 %201, 0
-  br i1 %.not27, label %.thread20, label %202
+  %.not28 = icmp eq i8 %201, 0
+  br i1 %.not28, label %.thread21, label %202
 
 202:                                              ; preds = %197
   %203 = zext nneg i8 %201 to i32
   %204 = shl i32 %194, %203
   call void @blk_queue_physical_block_size(ptr noundef %97, i32 noundef %204) #14
-  br label %.thread20
+  br label %.thread21
 
-.thread20:                                        ; preds = %193, %202, %197
+.thread21:                                        ; preds = %193, %202, %197
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
   %205 = load i64, ptr %28, align 8
   %206 = and i64 %205, 1024
-  %.not28 = icmp eq i64 %206, 0
-  br i1 %.not28, label %.thread21, label %207
+  %.not29 = icmp eq i64 %206, 0
+  br i1 %.not29, label %.thread22, label %207
 
-207:                                              ; preds = %.thread20
+207:                                              ; preds = %.thread21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !annotation !5
   %208 = call i32 @__SCT__might_resched() #14
@@ -521,23 +521,23 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void %210(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %7, i32 noundef 1) #14
   %211 = load i8, ptr %7, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not29 = icmp eq i8 %211, 0
-  br i1 %.not29, label %.thread21, label %212
+  %.not30 = icmp eq i8 %211, 0
+  br i1 %.not30, label %.thread22, label %212
 
 212:                                              ; preds = %207
   %213 = zext i8 %211 to i32
   %214 = mul i32 %194, %213
   call void @blk_queue_alignment_offset(ptr noundef %97, i32 noundef %214) #14
-  br label %.thread21
+  br label %.thread22
 
-.thread21:                                        ; preds = %.thread20, %212, %207
+.thread22:                                        ; preds = %.thread21, %212, %207
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
   %215 = load i64, ptr %28, align 8
   %216 = and i64 %215, 1024
-  %.not30 = icmp eq i64 %216, 0
-  br i1 %.not30, label %.thread22, label %217
+  %.not31 = icmp eq i64 %216, 0
+  br i1 %.not31, label %.thread23, label %217
 
-217:                                              ; preds = %.thread21
+217:                                              ; preds = %.thread22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2, !annotation !5
   %218 = call i32 @__SCT__might_resched() #14
@@ -546,23 +546,23 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void %220(ptr noundef %0, i32 noundef 26, ptr noundef nonnull %8, i32 noundef 2) #14
   %221 = load i16, ptr %8, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not31 = icmp eq i16 %221, 0
-  br i1 %.not31, label %.thread22, label %222
+  %.not32 = icmp eq i16 %221, 0
+  br i1 %.not32, label %.thread23, label %222
 
 222:                                              ; preds = %217
   %223 = zext i16 %221 to i32
   %224 = mul i32 %194, %223
   call void @blk_queue_io_min(ptr noundef %97, i32 noundef %224) #14
-  br label %.thread22
+  br label %.thread23
 
-.thread22:                                        ; preds = %.thread21, %222, %217
+.thread23:                                        ; preds = %.thread22, %222, %217
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 10) #14
   %225 = load i64, ptr %28, align 8
   %226 = and i64 %225, 1024
-  %.not32 = icmp eq i64 %226, 0
-  br i1 %.not32, label %.thread23, label %227
+  %.not33 = icmp eq i64 %226, 0
+  br i1 %.not33, label %.thread24, label %227
 
-227:                                              ; preds = %.thread22
+227:                                              ; preds = %.thread23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !5
   %228 = call i32 @__SCT__might_resched() #14
@@ -571,22 +571,22 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void %230(ptr noundef %0, i32 noundef 28, ptr noundef nonnull %9, i32 noundef 4) #14
   %231 = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not33 = icmp eq i32 %231, 0
-  br i1 %.not33, label %.thread23, label %232
+  %.not34 = icmp eq i32 %231, 0
+  br i1 %.not34, label %.thread24, label %232
 
 232:                                              ; preds = %227
   %233 = mul i32 %231, %194
   call void @blk_queue_io_opt(ptr noundef %97, i32 noundef %233) #14
-  br label %.thread23
+  br label %.thread24
 
-.thread23:                                        ; preds = %.thread22, %232, %227
+.thread24:                                        ; preds = %.thread23, %232, %227
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 13) #14
   %234 = load i64, ptr %28, align 8
   %235 = and i64 %234, 8192
   %236 = icmp eq i64 %235, 0
   br i1 %236, label %252, label %237
 
-237:                                              ; preds = %.thread23
+237:                                              ; preds = %.thread24
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !annotation !5
   %238 = call i32 @__SCT__might_resched() #14
@@ -616,9 +616,9 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %252
 
-252:                                              ; preds = %237, %.thread23
-  %253 = phi i32 [ %241, %237 ], [ 0, %.thread23 ]
-  %254 = phi i32 [ %251, %237 ], [ 0, %.thread23 ]
+252:                                              ; preds = %237, %.thread24
+  %253 = phi i32 [ %241, %237 ], [ 0, %.thread24 ]
+  %254 = phi i32 [ %251, %237 ], [ 0, %.thread24 ]
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 14) #14
   %255 = load i64, ptr %28, align 8
   %256 = and i64 %255, 16384
@@ -661,7 +661,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 275:                                              ; preds = %269
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %276, ptr noundef nonnull @.str.8) #15
-  br label %.thread25
+  br label %.thread26
 
 277:                                              ; preds = %269
   %278 = icmp eq i32 %253, 0
@@ -681,7 +681,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 286:                                              ; preds = %277
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %287, ptr noundef nonnull @.str.9) #15
-  br label %.thread25
+  br label %.thread26
 
 288:                                              ; preds = %277
   call void @blk_queue_max_secure_erase_sectors(ptr noundef %97, i32 noundef %284) #14
@@ -699,7 +699,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 294:                                              ; preds = %288
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %295, ptr noundef nonnull @.str.10) #15
-  br label %.thread25
+  br label %.thread26
 
 296:                                              ; preds = %288
   %297 = icmp eq i32 %254, 0
@@ -782,29 +782,29 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 340:                                              ; preds = %335
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %341, ptr noundef nonnull @.str.23) #15
-  br label %.thread25
+  br label %.thread26
 
 342:                                              ; preds = %335
   %343 = zext i8 %339 to i32
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %344, ptr noundef nonnull @.str.11, i32 noundef %343) #15
-  br label %.thread25
+  br label %.thread26
 
 345:                                              ; preds = %335, %335, %327
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %347 = load ptr, ptr %90, align 8
   %348 = call i32 @device_add_disk(ptr noundef nonnull %346, ptr noundef %347, ptr noundef nonnull @virtblk_attr_groups) #14
   %349 = icmp eq i32 %348, 0
-  br i1 %349, label %365, label %.thread25
+  br i1 %349, label %365, label %.thread26
 
-.thread25:                                        ; preds = %340, %342, %345, %294, %286, %275, %183
+.thread26:                                        ; preds = %340, %342, %345, %294, %286, %275, %183
   %350 = phi i32 [ %348, %345 ], [ -22, %294 ], [ -22, %286 ], [ -22, %275 ], [ -22, %183 ], [ -95, %340 ], [ -22, %342 ]
   %351 = load ptr, ptr %90, align 8
   call void @put_disk(ptr noundef %351) #14
   br label %352
 
-352:                                              ; preds = %.thread25, %92
-  %353 = phi i32 [ %94, %92 ], [ %350, %.thread25 ]
+352:                                              ; preds = %.thread26, %92
+  %353 = phi i32 [ %94, %92 ], [ %350, %.thread26 ]
   call void @blk_mq_free_tag_set(ptr noundef nonnull %71) #14
   br label %354
 

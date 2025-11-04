@@ -4299,7 +4299,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %73 = icmp eq ptr %66, null
-  br i1 %73, label %.thread13, label %.lr.ph
+  br i1 %73, label %.thread14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %62
   %74 = load i64, ptr %63, align 8
@@ -4307,7 +4307,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %76 = trunc i64 %75 to i32
   %77 = and i64 %74, 4294967295
   %.not = icmp eq i64 %77, 0
-  br i1 %.not, label %78, label %.thread13
+  br i1 %.not, label %78, label %.thread14
 
 78:                                               ; preds = %.lr.ph
   %79 = load ptr, ptr %1, align 8
@@ -4318,19 +4318,19 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %68, align 4
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.thread13
+  br i1 %86, label %87, label %.thread14
 
 87:                                               ; preds = %78
   %88 = load i32, ptr %69, align 4
   %89 = load i32, ptr %70, align 8
   %90 = sub i32 %88, %89
   %91 = icmp slt i32 %90, 32
-  br i1 %91, label %.thread13, label %.critedge, !prof !69
+  br i1 %91, label %.thread14, label %.critedge, !prof !69
 
 .critedge:                                        ; preds = %87
   %92 = tail call ptr @__nlmsg_put(ptr noundef %0, i32 noundef %81, i32 noundef %84, i32 noundef 16, i32 noundef 16, i32 noundef 2) #17
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread13, label %94
+  br i1 %93, label %.thread14, label %94
 
 94:                                               ; preds = %.critedge
   %95 = getelementptr i8, ptr %92, i64 16
@@ -4355,17 +4355,17 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   tail call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #17, !srcloc !84
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 1062, i32 2305, i64 12) #17, !srcloc !85
   tail call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #17, !srcloc !86
-  %.pre61 = load ptr, ptr %72, align 8
+  %.pre62 = load ptr, ptr %72, align 8
   br label %108
 
 108:                                              ; preds = %107, %104
-  %109 = phi ptr [ %.pre61, %107 ], [ %105, %104 ]
+  %109 = phi ptr [ %.pre62, %107 ], [ %105, %104 ]
   %110 = ptrtoint ptr %92 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = trunc i64 %112 to i32
   tail call void @skb_trim(ptr noundef %0, i32 noundef %113) #17
-  br label %.thread13
+  br label %.thread14
 
 114:                                              ; preds = %94
   %115 = getelementptr inbounds nuw i8, ptr %66, i64 3596
@@ -4446,7 +4446,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %152 = sub i64 %150, %151
   %153 = trunc i64 %152 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %153) #17
-  br label %.thread13
+  br label %.thread14
 
 154:                                              ; preds = %139
   %155 = load ptr, ptr %71, align 8
@@ -4463,7 +4463,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %164 = getelementptr inbounds nuw i8, ptr %66, i64 3592
   %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %.loopexit14, label %167
+  br i1 %166, label %.loopexit15, label %167
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %66, i64 112
@@ -4488,13 +4488,13 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %184 = sub i64 %182, %183
   %185 = trunc i64 %184 to i32
   store i32 %185, ptr %92, align 4
-  br label %.thread13
+  br label %.thread14
 
 186:                                              ; preds = %290, %167
   %187 = phi i32 [ %165, %167 ], [ %291, %290 ]
   %188 = phi i64 [ 0, %167 ], [ %292, %290 ]
-  %indvars58 = trunc nuw i64 %188 to i32
-  %189 = icmp ult i32 %indvars58, %76
+  %indvars59 = trunc nuw i64 %188 to i32
+  %189 = icmp ult i32 %indvars59, %76
   br i1 %189, label %290, label %190
 
 190:                                              ; preds = %186
@@ -4526,7 +4526,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
 
 208:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 %indvars58, ptr %10, align 4
+  store i32 %indvars59, ptr %10, align 4
   %209 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %10) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %210 = icmp eq i32 %209, 0
@@ -4611,11 +4611,11 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #17, !srcloc !84
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 1062, i32 2305, i64 12) #17, !srcloc !85
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #17, !srcloc !86
-  %.pre59 = load ptr, ptr %72, align 8
+  %.pre60 = load ptr, ptr %72, align 8
   br label %250
 
 250:                                              ; preds = %249, %246
-  %251 = phi ptr [ %.pre59, %249 ], [ %247, %246 ]
+  %251 = phi ptr [ %.pre60, %249 ], [ %247, %246 ]
   %252 = ptrtoint ptr %198 to i64
   %253 = ptrtoint ptr %251 to i64
   %254 = sub i64 %252, %253
@@ -4633,7 +4633,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %263 = sub i64 %261, %262
   %264 = trunc i64 %263 to i16
   store i16 %264, ptr %198, align 2
-  %.pre60 = load i32, ptr %164, align 8
+  %.pre61 = load i32, ptr %164, align 8
   br label %290
 
 .loopexit:                                        ; preds = %194, %250
@@ -4665,16 +4665,16 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %288 = trunc i64 %287 to i32
   store i32 %288, ptr %92, align 4
   %289 = and i64 %188, 4294967295
-  br label %.thread13
+  br label %.thread14
 
 290:                                              ; preds = %256, %190, %186
-  %291 = phi i32 [ %.pre60, %256 ], [ %187, %190 ], [ %187, %186 ]
+  %291 = phi i32 [ %.pre61, %256 ], [ %187, %190 ], [ %187, %186 ]
   %292 = add nuw nsw i64 %188, 1
   %293 = zext i32 %291 to i64
   %294 = icmp samesign ult i64 %292, %293
-  br i1 %294, label %186, label %.loopexit14, !llvm.loop !87
+  br i1 %294, label %186, label %.loopexit15, !llvm.loop !87
 
-.loopexit14:                                      ; preds = %290, %163
+.loopexit15:                                      ; preds = %290, %163
   %295 = load ptr, ptr %71, align 8
   %296 = load i32, ptr %70, align 8
   %297 = zext i32 %296 to i64
@@ -4702,19 +4702,19 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   %317 = sub i64 %315, %316
   %318 = trunc i64 %317 to i32
   store i32 %318, ptr %92, align 4
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %.critedge, %87, %78, %.lr.ph, %.loopexit14, %62, %108, %148, %169, %.loopexit
-  %319 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ 0, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit14 ]
-  %320 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ %289, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit14 ]
+.thread14:                                        ; preds = %.critedge, %87, %78, %.lr.ph, %.loopexit15, %62, %108, %148, %169, %.loopexit
+  %319 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ 0, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit15 ]
+  %320 = phi i64 [ 0, %108 ], [ 0, %148 ], [ 0, %169 ], [ %289, %.loopexit ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit15 ]
   store i64 %320, ptr %64, align 8
   store i64 %319, ptr %63, align 8
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %322 = load i32, ptr %321, align 8
   br label %.thread
 
-.thread:                                          ; preds = %60, %58, %36, %32, %.thread13
-  %323 = phi i32 [ %322, %.thread13 ], [ -22, %32 ], [ -22, %36 ], [ -22, %58 ], [ -22, %60 ]
+.thread:                                          ; preds = %60, %58, %36, %32, %.thread14
+  %323 = phi i32 [ %322, %.thread14 ], [ -22, %32 ], [ -22, %36 ], [ -22, %58 ], [ -22, %60 ]
   ret i32 %323
 }
 

@@ -104,7 +104,7 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
   %.1 = phi ptr [ %.054, %40 ], [ %.054, %49 ], [ %.054, %5 ], [ null, %34 ], [ %.054, %30 ], [ %.054, %26 ], [ %.054, %.thread ], [ %.054, %20 ]
   %7 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.32, ptr noundef %4) #5
-  br label %.thread106
+  br label %.thread107
 
 9:                                                ; preds = %5
   tail call void @opt_help(ptr noundef nonnull @kdf_options) #5
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
 38:                                               ; preds = %5, %5, %5, %5
   %39 = tail call i32 @opt_provider(i32 noundef %6) #5
   %.not103 = icmp eq i32 %39, 0
-  br i1 %.not103, label %.thread106, label %.backedge
+  br i1 %.not103, label %.thread107, label %.backedge
 
 40:                                               ; preds = %5
   %41 = tail call i32 @opt_num_rest() #5
@@ -191,7 +191,7 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
 53:                                               ; preds = %43
   %54 = tail call ptr @EVP_KDF_CTX_new(ptr noundef nonnull %47) #5
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread106, label %56
+  br i1 %55, label %.thread107, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %3, align 8, !tbaa !4
@@ -202,7 +202,7 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
   %59 = tail call ptr @EVP_KDF_settable_ctx_params(ptr noundef nonnull %47) #5
   %60 = tail call ptr @app_params_new_from_opts(ptr noundef nonnull %57, ptr noundef %59) #5
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread106, label %62
+  br i1 %61, label %.thread107, label %62
 
 62:                                               ; preds = %58
   %63 = tail call i32 @EVP_KDF_CTX_set_params(ptr noundef nonnull %54, ptr noundef nonnull %60) #5
@@ -219,14 +219,14 @@ select.unfold:                                    ; preds = %62
   %67 = load ptr, ptr @bio_err, align 8, !tbaa !11
   tail call void @ERR_print_errors(ptr noundef %67) #5
   tail call void @app_params_free(ptr noundef nonnull %60) #5
-  br label %.thread106
+  br label %.thread107
 
 68:                                               ; preds = %64, %56
   %.not101 = icmp eq i32 %.074, 0
   %69 = select i1 %.not101, i32 32769, i32 2
   %70 = tail call ptr @bio_open_default(ptr noundef %.070, i8 noundef signext 119, i32 noundef %69) #5
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread106, label %72
+  br i1 %71, label %.thread107, label %72
 
 72:                                               ; preds = %68
   %73 = icmp eq i64 %.067, 0
@@ -235,12 +235,12 @@ select.unfold:                                    ; preds = %62
 74:                                               ; preds = %72
   %75 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %76 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %75, ptr noundef nonnull @.str.36) #5
-  br label %.thread106
+  br label %.thread107
 
 77:                                               ; preds = %72
   %78 = tail call ptr @app_malloc(i64 noundef %.067, ptr noundef nonnull @.str.37) #5
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread106, label %80
+  br i1 %79, label %.thread107, label %80
 
 80:                                               ; preds = %77
   %81 = tail call i32 @EVP_KDF_derive(ptr noundef nonnull %54, ptr noundef nonnull %78, i64 noundef %.067, ptr noundef null) #5
@@ -250,7 +250,7 @@ select.unfold:                                    ; preds = %62
 82:                                               ; preds = %80
   %83 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %84 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %83, ptr noundef nonnull @.str.38) #5
-  br label %.thread106
+  br label %.thread107
 
 85:                                               ; preds = %80
   br i1 %.not101, label %89, label %86
@@ -268,14 +268,14 @@ select.unfold:                                    ; preds = %62
 92:                                               ; preds = %89
   %93 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %93, ptr noundef nonnull @.str.39) #5
-  br label %.thread106
+  br label %.thread107
 
 95:                                               ; preds = %89
   %96 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %70, ptr noundef nonnull @.str.40, ptr noundef nonnull %90) #5
   br label %98
 
-.thread106:                                       ; preds = %38, %select.unfold, %58, %.loopexit, %53, %68, %74, %77, %92, %82
-  %.067173 = phi i64 [ %.067, %82 ], [ %.067, %92 ], [ %.067, %77 ], [ 0, %74 ], [ %.067, %68 ], [ %.067, %53 ], [ %.067, %.loopexit ], [ %.067, %58 ], [ %.067, %select.unfold ], [ %.067, %38 ]
+.thread107:                                       ; preds = %38, %select.unfold, %58, %.loopexit, %53, %68, %74, %77, %92, %82
+  %.067174 = phi i64 [ %.067, %82 ], [ %.067, %92 ], [ %.067, %77 ], [ 0, %74 ], [ %.067, %68 ], [ %.067, %53 ], [ %.067, %.loopexit ], [ %.067, %58 ], [ %.067, %select.unfold ], [ %.067, %38 ]
   %.069.ph = phi ptr [ %78, %82 ], [ %78, %92 ], [ null, %77 ], [ null, %74 ], [ null, %68 ], [ null, %53 ], [ null, %.loopexit ], [ null, %58 ], [ null, %select.unfold ], [ null, %38 ]
   %.066.ph = phi ptr [ %70, %82 ], [ %70, %92 ], [ %70, %77 ], [ %70, %74 ], [ null, %68 ], [ null, %53 ], [ null, %.loopexit ], [ null, %58 ], [ null, %select.unfold ], [ null, %38 ]
   %.165.ph = phi ptr [ %47, %82 ], [ %47, %92 ], [ %47, %77 ], [ %47, %74 ], [ %47, %68 ], [ %47, %53 ], [ null, %.loopexit ], [ %47, %58 ], [ %47, %select.unfold ], [ null, %38 ]
@@ -287,29 +287,29 @@ select.unfold:                                    ; preds = %62
   tail call void @ERR_print_errors(ptr noundef %97) #5
   br label %98
 
-98:                                               ; preds = %.thread106, %86, %95, %9
-  %.067172 = phi i64 [ %.067173, %.thread106 ], [ %.067, %9 ], [ %.067, %95 ], [ %.067, %86 ]
-  %.2137 = phi ptr [ %.2.ph, %.thread106 ], [ %.054, %9 ], [ %.054, %95 ], [ %.054, %86 ]
-  %.257135 = phi ptr [ %.257.ph, %.thread106 ], [ %.055, %9 ], [ %.055, %95 ], [ %.055, %86 ]
-  %.261133 = phi ptr [ %.261.ph, %.thread106 ], [ %.059, %9 ], [ %.059, %95 ], [ %.059, %86 ]
-  %.063131 = phi ptr [ %.063.ph, %.thread106 ], [ null, %9 ], [ %54, %95 ], [ %54, %86 ]
-  %.165129 = phi ptr [ %.165.ph, %.thread106 ], [ null, %9 ], [ %47, %95 ], [ %47, %86 ]
-  %.066127 = phi ptr [ %.066.ph, %.thread106 ], [ null, %9 ], [ %70, %95 ], [ %70, %86 ]
-  %.069125 = phi ptr [ %.069.ph, %.thread106 ], [ null, %9 ], [ %78, %95 ], [ %78, %86 ]
-  %.072123 = phi ptr [ null, %.thread106 ], [ null, %9 ], [ %90, %95 ], [ null, %86 ]
-  %.076121 = phi i32 [ 1, %.thread106 ], [ 0, %9 ], [ 0, %95 ], [ 0, %86 ]
-  tail call void @CRYPTO_clear_free(ptr noundef %.069125, i64 noundef %.067172, ptr noundef nonnull @.str.33, i32 noundef 201) #5
+98:                                               ; preds = %9, %95, %86, %.thread107
+  %.067173 = phi i64 [ %.067174, %.thread107 ], [ %.067, %9 ], [ %.067, %95 ], [ %.067, %86 ]
+  %.2138 = phi ptr [ %.2.ph, %.thread107 ], [ %.054, %9 ], [ %.054, %95 ], [ %.054, %86 ]
+  %.257136 = phi ptr [ %.257.ph, %.thread107 ], [ %.055, %9 ], [ %.055, %95 ], [ %.055, %86 ]
+  %.261134 = phi ptr [ %.261.ph, %.thread107 ], [ %.059, %9 ], [ %.059, %95 ], [ %.059, %86 ]
+  %.063132 = phi ptr [ %.063.ph, %.thread107 ], [ null, %9 ], [ %54, %95 ], [ %54, %86 ]
+  %.165130 = phi ptr [ %.165.ph, %.thread107 ], [ null, %9 ], [ %47, %95 ], [ %47, %86 ]
+  %.066128 = phi ptr [ %.066.ph, %.thread107 ], [ null, %9 ], [ %70, %95 ], [ %70, %86 ]
+  %.069126 = phi ptr [ %.069.ph, %.thread107 ], [ null, %9 ], [ %78, %95 ], [ %78, %86 ]
+  %.072124 = phi ptr [ null, %.thread107 ], [ null, %9 ], [ %90, %95 ], [ null, %86 ]
+  %.076122 = phi i32 [ 1, %.thread107 ], [ 0, %9 ], [ 0, %95 ], [ 0, %86 ]
+  tail call void @CRYPTO_clear_free(ptr noundef %.069126, i64 noundef %.067173, ptr noundef nonnull @.str.33, i32 noundef 201) #5
   %99 = load ptr, ptr %3, align 8, !tbaa !4
   tail call void @OPENSSL_sk_free(ptr noundef %99) #5
-  tail call void @EVP_KDF_free(ptr noundef %.165129) #5
-  tail call void @EVP_KDF_CTX_free(ptr noundef %.063131) #5
-  %100 = tail call i32 @BIO_free(ptr noundef %.066127) #5
-  tail call void @CRYPTO_free(ptr noundef %.072123, ptr noundef nonnull @.str.33, i32 noundef 206) #5
-  tail call void @CRYPTO_free(ptr noundef %.257135, ptr noundef nonnull @.str.33, i32 noundef 207) #5
-  tail call void @CRYPTO_free(ptr noundef %.261133, ptr noundef nonnull @.str.33, i32 noundef 208) #5
-  tail call void @CRYPTO_free(ptr noundef %.2137, ptr noundef nonnull @.str.33, i32 noundef 209) #5
+  tail call void @EVP_KDF_free(ptr noundef %.165130) #5
+  tail call void @EVP_KDF_CTX_free(ptr noundef %.063132) #5
+  %100 = tail call i32 @BIO_free(ptr noundef %.066128) #5
+  tail call void @CRYPTO_free(ptr noundef %.072124, ptr noundef nonnull @.str.33, i32 noundef 206) #5
+  tail call void @CRYPTO_free(ptr noundef %.257136, ptr noundef nonnull @.str.33, i32 noundef 207) #5
+  tail call void @CRYPTO_free(ptr noundef %.261134, ptr noundef nonnull @.str.33, i32 noundef 208) #5
+  tail call void @CRYPTO_free(ptr noundef %.2138, ptr noundef nonnull @.str.33, i32 noundef 209) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.076121
+  ret i32 %.076122
 }
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

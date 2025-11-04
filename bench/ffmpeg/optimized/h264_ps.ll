@@ -177,40 +177,40 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %51 = load i8, ptr %50, align 1, !tbaa !27
   %52 = icmp slt i32 %spec.select.i, %34
   %53 = zext i1 %52 to i32
-  %spec.select.i219 = add i32 %spec.select.i, %53
-  store i32 %spec.select.i219, ptr %31, align 8, !tbaa !28
-  %54 = lshr i32 %spec.select.i219, 3
+  %spec.select.i221 = add i32 %spec.select.i, %53
+  store i32 %spec.select.i221, ptr %31, align 8, !tbaa !28
+  %54 = lshr i32 %spec.select.i221, 3
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !27
-  %58 = icmp slt i32 %spec.select.i219, %34
+  %58 = icmp slt i32 %spec.select.i221, %34
   %59 = zext i1 %58 to i32
-  %spec.select.i220 = add i32 %spec.select.i219, %59
-  store i32 %spec.select.i220, ptr %31, align 8, !tbaa !28
-  %60 = lshr i32 %spec.select.i220, 3
+  %spec.select.i222 = add i32 %spec.select.i221, %59
+  store i32 %spec.select.i222, ptr %31, align 8, !tbaa !28
+  %60 = lshr i32 %spec.select.i222, 3
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %35, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !27
-  %64 = icmp slt i32 %spec.select.i220, %34
+  %64 = icmp slt i32 %spec.select.i222, %34
   %65 = zext i1 %64 to i32
-  %spec.select.i221 = add i32 %spec.select.i220, %65
-  store i32 %spec.select.i221, ptr %31, align 8, !tbaa !28
-  %66 = lshr i32 %spec.select.i221, 3
+  %spec.select.i223 = add i32 %spec.select.i222, %65
+  store i32 %spec.select.i223, ptr %31, align 8, !tbaa !28
+  %66 = lshr i32 %spec.select.i223, 3
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !27
-  %70 = icmp slt i32 %spec.select.i221, %34
+  %70 = icmp slt i32 %spec.select.i223, %34
   %71 = zext i1 %70 to i32
-  %spec.select.i222 = add i32 %spec.select.i221, %71
-  store i32 %spec.select.i222, ptr %31, align 8, !tbaa !28
-  %72 = lshr i32 %spec.select.i222, 3
+  %spec.select.i224 = add i32 %spec.select.i223, %71
+  store i32 %spec.select.i224, ptr %31, align 8, !tbaa !28
+  %72 = lshr i32 %spec.select.i224, 3
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 %73
   %75 = load i8, ptr %74, align 1, !tbaa !27
-  %76 = icmp slt i32 %spec.select.i222, %34
+  %76 = icmp slt i32 %spec.select.i224, %34
   %77 = zext i1 %76 to i32
-  %spec.select.i223 = add i32 %spec.select.i222, 2
-  %78 = add i32 %spec.select.i223, %77
+  %spec.select.i225 = add i32 %spec.select.i224, 2
+  %78 = add i32 %spec.select.i225, %77
   %79 = tail call i32 @llvm.umin.i32(i32 %34, i32 %78)
   store i32 %79, ptr %31, align 8, !tbaa !28
   %80 = lshr i32 %79, 3
@@ -251,16 +251,16 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %107 = shl i32 %105, %106
   %108 = lshr i32 %107, 24
   %109 = zext i8 %75 to i32
-  %110 = and i32 %spec.select.i222, 7
+  %110 = and i32 %spec.select.i224, 7
   %111 = shl nuw nsw i32 %109, %110
   %112 = zext i8 %69 to i32
-  %113 = and i32 %spec.select.i221, 7
+  %113 = and i32 %spec.select.i223, 7
   %114 = shl nuw nsw i32 %112, %113
   %115 = zext i8 %63 to i32
-  %116 = and i32 %spec.select.i220, 7
+  %116 = and i32 %spec.select.i222, 7
   %117 = shl nuw nsw i32 %115, %116
   %118 = zext i8 %57 to i32
-  %119 = and i32 %spec.select.i219, 7
+  %119 = and i32 %spec.select.i221, 7
   %120 = shl nuw nsw i32 %118, %119
   %121 = zext i8 %51 to i32
   %122 = and i32 %spec.select.i, 7
@@ -339,8 +339,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %171 = load i8, ptr %170, align 1, !tbaa !27
   %172 = zext i8 %171 to i32
   %173 = add i32 %158, %172
-  %..i224 = tail call i32 @llvm.umin.i32(i32 %159, i32 %173)
-  store i32 %..i224, ptr %31, align 8, !tbaa !28
+  %..i226 = tail call i32 @llvm.umin.i32(i32 %159, i32 %173)
+  store i32 %..i226, ptr %31, align 8, !tbaa !28
   %174 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %169
   %175 = load i8, ptr %174, align 1, !tbaa !27
   %176 = zext i8 %175 to i32
@@ -358,18 +358,18 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br i1 %181, label %182, label %196
 
 182:                                              ; preds = %180
-  %183 = lshr i32 %..i224, 3
+  %183 = lshr i32 %..i226, 3
   %184 = zext nneg i32 %183 to i64
   %185 = getelementptr inbounds nuw i8, ptr %160, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !27
-  %187 = icmp slt i32 %..i224, %159
+  %187 = icmp slt i32 %..i226, %159
   %188 = zext i1 %187 to i32
-  %spec.select.i225 = add i32 %..i224, %188
+  %spec.select.i227 = add i32 %..i226, %188
   %189 = zext i8 %186 to i32
-  %190 = and i32 %..i224, 7
+  %190 = and i32 %..i226, 7
   %191 = shl nuw nsw i32 %189, %190
   %192 = lshr i32 %191, 7
-  store i32 %spec.select.i225, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i227, ptr %31, align 8, !tbaa !28
   %193 = and i32 %192, 1
   %194 = getelementptr inbounds nuw i8, ptr %6, i64 2012
   store i32 %193, ptr %194, align 4, !tbaa !39
@@ -381,7 +381,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br label %618
 
 196:                                              ; preds = %180, %182
-  %197 = phi i32 [ %..i224, %180 ], [ %spec.select.i225, %182 ]
+  %197 = phi i32 [ %..i226, %180 ], [ %spec.select.i227, %182 ]
   %198 = lshr i32 %197, 3
   %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds nuw i8, ptr %160, i64 %199
@@ -395,29 +395,29 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %208 = load i8, ptr %207, align 1, !tbaa !27
   %209 = zext i8 %208 to i32
   %210 = add i32 %197, %209
-  %..i226 = tail call i32 @llvm.umin.i32(i32 %159, i32 %210)
-  store i32 %..i226, ptr %31, align 8, !tbaa !28
+  %..i228 = tail call i32 @llvm.umin.i32(i32 %159, i32 %210)
+  store i32 %..i228, ptr %31, align 8, !tbaa !28
   %211 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %206
   %212 = load i8, ptr %211, align 1, !tbaa !27
   %213 = zext i8 %212 to i32
   %214 = add nuw nsw i32 %213, 8
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 2004
   store i32 %214, ptr %215, align 4, !tbaa !40
-  %216 = lshr i32 %..i226, 3
+  %216 = lshr i32 %..i228, 3
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw i8, ptr %160, i64 %217
   %219 = load i32, ptr %218, align 1, !tbaa !27
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
-  %221 = and i32 %..i226, 7
+  %221 = and i32 %..i228, 7
   %222 = shl i32 %220, %221
   %223 = lshr i32 %222, 23
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !27
   %227 = zext i8 %226 to i32
-  %228 = add i32 %..i226, %227
-  %..i227 = tail call i32 @llvm.umin.i32(i32 %159, i32 %228)
-  store i32 %..i227, ptr %31, align 8, !tbaa !28
+  %228 = add i32 %..i228, %227
+  %..i229 = tail call i32 @llvm.umin.i32(i32 %159, i32 %228)
+  store i32 %..i229, ptr %31, align 8, !tbaa !28
   %229 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %224
   %230 = load i8, ptr %229, align 1, !tbaa !27
   %231 = zext i8 %230 to i32
@@ -440,33 +440,33 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br label %618
 
 238:                                              ; preds = %235
-  %239 = lshr i32 %..i227, 3
+  %239 = lshr i32 %..i229, 3
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw i8, ptr %160, i64 %240
   %242 = load i8, ptr %241, align 1, !tbaa !27
-  %243 = icmp slt i32 %..i227, %159
+  %243 = icmp slt i32 %..i229, %159
   %244 = zext i1 %243 to i32
-  %spec.select.i228 = add i32 %..i227, %244
+  %spec.select.i230 = add i32 %..i229, %244
   %245 = zext i8 %242 to i32
-  %246 = and i32 %..i227, 7
+  %246 = and i32 %..i229, 7
   %247 = shl nuw nsw i32 %245, %246
   %248 = lshr i32 %247, 7
-  store i32 %spec.select.i228, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i230, ptr %31, align 8, !tbaa !28
   %249 = and i32 %248, 1
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %249, ptr %250, align 8, !tbaa !42
-  %251 = lshr i32 %spec.select.i228, 3
+  %251 = lshr i32 %spec.select.i230, 3
   %252 = zext nneg i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %160, i64 %252
   %254 = load i8, ptr %253, align 1, !tbaa !27
-  %255 = icmp slt i32 %spec.select.i228, %159
+  %255 = icmp slt i32 %spec.select.i230, %159
   %256 = zext i1 %255 to i32
-  %spec.select.i229 = add i32 %spec.select.i228, %256
+  %spec.select.i231 = add i32 %spec.select.i230, %256
   %257 = zext i8 %254 to i32
-  %258 = and i32 %spec.select.i228, 7
+  %258 = and i32 %spec.select.i230, 7
   %259 = shl nuw nsw i32 %257, %258
   %260 = lshr i32 %259, 7
-  store i32 %spec.select.i229, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i231, ptr %31, align 8, !tbaa !28
   %261 = and i32 %260, 1
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 1224
   %263 = tail call fastcc i32 @decode_scaling_matrices(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef null, i32 noundef 1, i32 noundef %261, ptr noundef nonnull %262, ptr noundef nonnull %153, ptr noundef nonnull %154)
@@ -505,8 +505,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %286 = load i8, ptr %285, align 1, !tbaa !27
   %287 = zext i8 %286 to i32
   %288 = add i32 %273, %287
-  %..i230 = tail call i32 @llvm.umin.i32(i32 %274, i32 %288)
-  store i32 %..i230, ptr %31, align 8, !tbaa !28
+  %..i232 = tail call i32 @llvm.umin.i32(i32 %274, i32 %288)
+  store i32 %..i232, ptr %31, align 8, !tbaa !28
   %289 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %284
   %290 = load i8, ptr %289, align 1, !tbaa !27
   %291 = zext i8 %290 to i32
@@ -521,21 +521,21 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %295 = add nuw nsw i32 %291, 4
   %296 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %295, ptr %296, align 4, !tbaa !43
-  %297 = lshr i32 %..i230, 3
+  %297 = lshr i32 %..i232, 3
   %298 = zext nneg i32 %297 to i64
   %299 = getelementptr inbounds nuw i8, ptr %275, i64 %298
   %300 = load i32, ptr %299, align 1, !tbaa !27
   %301 = tail call i32 @llvm.bswap.i32(i32 %300)
-  %302 = and i32 %..i230, 7
+  %302 = and i32 %..i232, 7
   %303 = shl i32 %301, %302
   %304 = lshr i32 %303, 23
   %305 = zext nneg i32 %304 to i64
   %306 = getelementptr inbounds nuw i8, ptr @ff_golomb_vlc_len, i64 %305
   %307 = load i8, ptr %306, align 1, !tbaa !27
   %308 = zext i8 %307 to i32
-  %309 = add i32 %..i230, %308
-  %..i231 = tail call i32 @llvm.umin.i32(i32 %274, i32 %309)
-  store i32 %..i231, ptr %31, align 8, !tbaa !28
+  %309 = add i32 %..i232, %308
+  %..i233 = tail call i32 @llvm.umin.i32(i32 %274, i32 %309)
+  store i32 %..i233, ptr %31, align 8, !tbaa !28
   %310 = getelementptr inbounds nuw i8, ptr @ff_ue_golomb_vlc_code, i64 %305
   %311 = load i8, ptr %310, align 1, !tbaa !27
   %312 = zext i8 %311 to i32
@@ -544,7 +544,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   switch i8 %311, label %356 [
     i8 0, label %314
     i8 1, label %320
-    i8 2, label %.loopexit246
+    i8 2, label %.loopexit248
   ]
 
 314:                                              ; preds = %294
@@ -556,25 +556,25 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %317 = add nuw nsw i32 %315, 4
   %318 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %317, ptr %318, align 4, !tbaa !45
-  br label %.loopexit246
+  br label %.loopexit248
 
 319:                                              ; preds = %314
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %315) #11
   br label %618
 
 320:                                              ; preds = %294
-  %321 = lshr i32 %..i231, 3
+  %321 = lshr i32 %..i233, 3
   %322 = zext nneg i32 %321 to i64
   %323 = getelementptr inbounds nuw i8, ptr %275, i64 %322
   %324 = load i8, ptr %323, align 1, !tbaa !27
-  %325 = icmp slt i32 %..i231, %274
+  %325 = icmp slt i32 %..i233, %274
   %326 = zext i1 %325 to i32
-  %spec.select.i232 = add i32 %..i231, %326
+  %spec.select.i234 = add i32 %..i233, %326
   %327 = zext i8 %324 to i32
-  %328 = and i32 %..i231, 7
+  %328 = and i32 %..i233, 7
   %329 = shl nuw nsw i32 %327, %328
   %330 = lshr i32 %329, 7
-  store i32 %spec.select.i232, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i234, ptr %31, align 8, !tbaa !28
   %331 = and i32 %330, 1
   %332 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %331, ptr %332, align 8, !tbaa !46
@@ -602,8 +602,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br i1 %344, label %346, label %.preheader
 
 .preheader:                                       ; preds = %341
-  %.not275 = icmp eq i32 %342, 0
-  br i1 %.not275, label %.loopexit246, label %.lr.ph
+  %.not277 = icmp eq i32 %342, 0
+  br i1 %.not277, label %.loopexit248, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %345 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -618,7 +618,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %348 = load i32, ptr %343, align 4, !tbaa !49
   %349 = sext i32 %348 to i64
   %350 = icmp slt i64 %indvars.iv.next, %349
-  br i1 %350, label %351, label %.loopexit246, !llvm.loop !50
+  br i1 %350, label %351, label %.loopexit248, !llvm.loop !50
 
 351:                                              ; preds = %.lr.ph, %347
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %347 ]
@@ -636,7 +636,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %312) #11
   br label %618
 
-.loopexit246:                                     ; preds = %347, %.preheader, %.thread, %294
+.loopexit248:                                     ; preds = %347, %.preheader, %.thread, %294
   %357 = tail call fastcc i32 @get_ue_golomb_31(ptr noundef nonnull %0)
   %358 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %357, ptr %358, align 8, !tbaa !52
@@ -645,13 +645,13 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %361 = icmp eq i32 %360, 844516691
   br i1 %361, label %362, label %363
 
-362:                                              ; preds = %.loopexit246
+362:                                              ; preds = %.loopexit248
   %spec.select = tail call i32 @llvm.umax.i32(i32 %357, i32 2)
   store i32 %spec.select, ptr %358, align 8, !tbaa !52
   br label %363
 
-363:                                              ; preds = %362, %.loopexit246
-  %364 = phi i32 [ %spec.select, %362 ], [ %357, %.loopexit246 ]
+363:                                              ; preds = %362, %.loopexit248
+  %364 = phi i32 [ %spec.select, %362 ], [ %357, %.loopexit248 ]
   %365 = icmp samesign ugt i32 %364, 16
   br i1 %365, label %366, label %367
 
@@ -669,12 +669,12 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %374 = load i32, ptr %33, align 8, !tbaa !29
   %375 = icmp slt i32 %368, %374
   %376 = zext i1 %375 to i32
-  %spec.select.i233 = add i32 %368, %376
+  %spec.select.i235 = add i32 %368, %376
   %377 = zext i8 %373 to i32
   %378 = and i32 %368, 7
   %379 = shl nuw nsw i32 %377, %378
   %380 = lshr i32 %379, 7
-  store i32 %spec.select.i233, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i235, ptr %31, align 8, !tbaa !28
   %381 = and i32 %380, 1
   %382 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 %381, ptr %382, align 4, !tbaa !69
@@ -695,12 +695,12 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %395 = load i32, ptr %33, align 8, !tbaa !29
   %396 = icmp slt i32 %389, %395
   %397 = zext i1 %396 to i32
-  %spec.select.i234 = add i32 %389, %397
+  %spec.select.i236 = add i32 %389, %397
   %398 = zext i8 %394 to i32
   %399 = and i32 %389, 7
   %400 = shl nuw nsw i32 %398, %399
   %401 = lshr i32 %400, 7
-  store i32 %spec.select.i234, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i236, ptr %31, align 8, !tbaa !28
   %402 = and i32 %401, 1
   %403 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 %402, ptr %403, align 8, !tbaa !72
@@ -719,18 +719,18 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br i1 %.not190, label %409, label %421
 
 409:                                              ; preds = %406
-  %410 = lshr i32 %spec.select.i234, 3
+  %410 = lshr i32 %spec.select.i236, 3
   %411 = zext nneg i32 %410 to i64
   %412 = getelementptr inbounds nuw i8, ptr %390, i64 %411
   %413 = load i8, ptr %412, align 1, !tbaa !27
-  %414 = icmp slt i32 %spec.select.i234, %395
+  %414 = icmp slt i32 %spec.select.i236, %395
   %415 = zext i1 %414 to i32
-  %spec.select.i235 = add i32 %spec.select.i234, %415
+  %spec.select.i237 = add i32 %spec.select.i236, %415
   %416 = zext i8 %413 to i32
-  %417 = and i32 %spec.select.i234, 7
+  %417 = and i32 %spec.select.i236, 7
   %418 = shl nuw nsw i32 %416, %417
   %419 = lshr i32 %418, 7
-  store i32 %spec.select.i235, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i237, ptr %31, align 8, !tbaa !28
   %420 = and i32 %419, 1
   br label %421
 
@@ -763,27 +763,27 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %437 = load i32, ptr %33, align 8, !tbaa !29
   %438 = icmp slt i32 %431, %437
   %439 = zext i1 %438 to i32
-  %spec.select.i236 = add i32 %431, %439
+  %spec.select.i238 = add i32 %431, %439
   %440 = zext i8 %436 to i32
   %441 = and i32 %431, 7
   %442 = shl nuw nsw i32 %440, %441
   %443 = lshr i32 %442, 7
-  store i32 %spec.select.i236, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i238, ptr %31, align 8, !tbaa !28
   %444 = and i32 %443, 1
   %445 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %444, ptr %445, align 8, !tbaa !74
-  %446 = lshr i32 %spec.select.i236, 3
+  %446 = lshr i32 %spec.select.i238, 3
   %447 = zext nneg i32 %446 to i64
   %448 = getelementptr inbounds nuw i8, ptr %432, i64 %447
   %449 = load i8, ptr %448, align 1, !tbaa !27
-  %450 = icmp slt i32 %spec.select.i236, %437
+  %450 = icmp slt i32 %spec.select.i238, %437
   %451 = zext i1 %450 to i32
-  %spec.select.i237 = add i32 %spec.select.i236, %451
+  %spec.select.i239 = add i32 %spec.select.i238, %451
   %452 = zext i8 %449 to i32
-  %453 = and i32 %spec.select.i236, 7
+  %453 = and i32 %spec.select.i238, 7
   %454 = shl nuw nsw i32 %452, %453
   %455 = lshr i32 %454, 7
-  store i32 %spec.select.i237, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i239, ptr %31, align 8, !tbaa !28
   %456 = and i32 %455, 1
   %457 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 %456, ptr %457, align 4, !tbaa !75
@@ -809,7 +809,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.15, i32 noundef %459, i32 noundef %460, i32 noundef %461, i32 noundef %462) #11
   %471 = getelementptr inbounds nuw i8, ptr %6, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %471, i8 0, i64 16, i1 false)
-  br label %.thread243
+  br label %.thread245
 
 472:                                              ; preds = %458
   %473 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -845,9 +845,9 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %493 = add nuw nsw i32 %462, %461
   %494 = mul i32 %481, %493
   %.not195 = icmp ult i32 %494, %466
-  br i1 %.not195, label %.thread240, label %503
+  br i1 %.not195, label %.thread242, label %503
 
-.thread240:                                       ; preds = %492
+.thread242:                                       ; preds = %492
   %495 = shl nuw nsw i32 %459, %478
   %496 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 %495, ptr %496, align 8, !tbaa !77
@@ -860,7 +860,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %501 = mul i32 %481, %462
   %502 = getelementptr inbounds nuw i8, ptr %6, i64 92
   store i32 %501, ptr %502, align 4, !tbaa !80
-  br label %.thread243
+  br label %.thread245
 
 503:                                              ; preds = %492, %489, %485, %472
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %459, i32 noundef %460, i32 noundef %461, i32 noundef %462, i32 noundef %464, i32 noundef %466) #11
@@ -868,9 +868,9 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
 
 504:                                              ; preds = %430
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %457, i8 0, i64 20, i1 false)
-  br label %.thread243
+  br label %.thread245
 
-.thread243:                                       ; preds = %470, %.thread240, %504
+.thread245:                                       ; preds = %470, %.thread242, %504
   %505 = load i32, ptr %31, align 8, !tbaa !28
   %506 = load ptr, ptr %0, align 8, !tbaa !19
   %507 = lshr i32 %505, 3
@@ -880,19 +880,19 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %511 = load i32, ptr %33, align 8, !tbaa !29
   %512 = icmp slt i32 %505, %511
   %513 = zext i1 %512 to i32
-  %spec.select.i238 = add i32 %505, %513
+  %spec.select.i240 = add i32 %505, %513
   %514 = zext i8 %510 to i32
   %515 = and i32 %505, 7
   %516 = shl nuw nsw i32 %514, %515
   %517 = lshr i32 %516, 7
-  store i32 %spec.select.i238, ptr %31, align 8, !tbaa !28
+  store i32 %spec.select.i240, ptr %31, align 8, !tbaa !28
   %518 = and i32 %517, 1
   %519 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 %518, ptr %519, align 8, !tbaa !81
   %.not196 = icmp eq i32 %518, 0
   br i1 %.not196, label %523, label %520
 
-520:                                              ; preds = %.thread243
+520:                                              ; preds = %.thread245
   %521 = tail call fastcc i32 @decode_vui_parameters(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %522 = icmp slt i32 %521, 0
   br i1 %522, label %618, label %._crit_edge
@@ -901,10 +901,10 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %.val.pre = load i32, ptr %31, align 8, !tbaa !28
   br label %523
 
-523:                                              ; preds = %._crit_edge, %.thread243
-  %.val = phi i32 [ %.val.pre, %._crit_edge ], [ %spec.select.i238, %.thread243 ]
-  %.val216 = load i32, ptr %21, align 4, !tbaa !26
-  %524 = sub nsw i32 %.val216, %.val
+523:                                              ; preds = %._crit_edge, %.thread245
+  %.val = phi i32 [ %.val.pre, %._crit_edge ], [ %spec.select.i240, %.thread245 ]
+  %.val218 = load i32, ptr %21, align 4, !tbaa !26
+  %524 = sub nsw i32 %.val218, %.val
   %525 = icmp slt i32 %524, 0
   br i1 %525, label %526, label %534
 
@@ -945,19 +945,19 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br label %547
 
 546:                                              ; preds = %547
-  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next253, 16
+  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next255, 16
   br i1 %exitcond.not, label %.loopexit, label %547, !llvm.loop !85
 
 547:                                              ; preds = %543, %546
-  %indvars.iv252 = phi i64 [ 0, %543 ], [ %indvars.iv.next253, %546 ]
-  %548 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv252
+  %indvars.iv254 = phi i64 [ 0, %543 ], [ %indvars.iv.next255, %546 ]
+  %548 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv254
   %549 = load i32, ptr %548, align 8, !tbaa !51
   %550 = icmp eq i32 %549, %545
   br i1 %550, label %551, label %546
 
 551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv252
+  %552 = getelementptr inbounds nuw [2 x i32], ptr @level_max_dpb_mbs, i64 %indvars.iv254
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %554 = load i32, ptr %553, align 4, !tbaa !51
   %555 = load i32, ptr %385, align 8, !tbaa !70
@@ -1025,29 +1025,29 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   %595 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %596 = load i32, ptr %595, align 8, !tbaa !88
   %.not207 = icmp eq i32 %596, 0
-  br i1 %.not207, label %.thread245, label %597
+  br i1 %.not207, label %.thread247, label %597
 
 597:                                              ; preds = %577
   %598 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %599 = load i32, ptr %598, align 4, !tbaa !89
   %600 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %601 = load i32, ptr %600, align 8, !tbaa !90
-  br label %.thread245
+  br label %.thread247
 
-.thread245:                                       ; preds = %577, %597
+.thread247:                                       ; preds = %577, %597
   %602 = phi i32 [ %599, %597 ], [ 0, %577 ]
   %603 = phi i32 [ %601, %597 ], [ 0, %577 ]
   %604 = getelementptr inbounds nuw i8, ptr %6, i64 2004
   %605 = load i32, ptr %604, align 4, !tbaa !40
   br i1 %.not199, label %609, label %606
 
-606:                                              ; preds = %.thread245
+606:                                              ; preds = %.thread247
   %607 = getelementptr inbounds nuw i8, ptr %6, i64 1212
   %608 = load i32, ptr %607, align 4, !tbaa !84
   br label %609
 
-609:                                              ; preds = %.thread245, %606
-  %610 = phi i32 [ %608, %606 ], [ -1, %.thread245 ]
+609:                                              ; preds = %.thread247, %606
+  %610 = phi i32 [ %608, %606 ], [ -1, %.thread247 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.20, i32 noundef %101, i32 noundef %567, i32 noundef %568, i32 noundef %569, i32 noundef %570, i32 noundef %571, i32 noundef %572, ptr noundef nonnull %578, ptr noundef nonnull %580, i32 noundef %582, i32 noundef %584, i32 noundef %586, i32 noundef %588, ptr noundef nonnull %590, ptr noundef nonnull %594, i32 noundef %602, i32 noundef %603, i32 noundef %605, i32 noundef %610) #11
   br label %611
 

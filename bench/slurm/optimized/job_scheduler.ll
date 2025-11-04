@@ -7405,7 +7405,7 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.133, ptr noundef %1, ptr noundef nonnull %0) #16
   br label %180
 
-180:                                              ; preds = %171, %179, %176
+180:                                              ; preds = %171, %176, %179
   %.4199277 = phi i32 [ 2029, %176 ], [ 2029, %179 ], [ 0, %171 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

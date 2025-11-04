@@ -4435,8 +4435,8 @@ list_length.exit:                                 ; preds = %11
 
 16:                                               ; preds = %list_length.exit
   %17 = getelementptr i8, ptr %13, i64 16
-  %.val110 = load ptr, ptr %17, align 8
-  %18 = load ptr, ptr %.val110, align 8
+  %.val111 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %.val111, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 4
@@ -4460,7 +4460,7 @@ list_length.exit:                                 ; preds = %11
 33:                                               ; preds = %29
   %34 = load ptr, ptr %30, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %contain_subplans.exit.thread124, label %36
+  br i1 %35, label %contain_subplans.exit.thread125, label %36
 
 36:                                               ; preds = %33
   %37 = load i32, ptr %34, align 4
@@ -4470,15 +4470,15 @@ list_length.exit:                                 ; preds = %11
 
 contain_subplans.exit:                            ; preds = %36
   %38 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %34, ptr noundef nonnull @contain_subplans_walker, ptr noundef null) #8
-  br i1 %38, label %list_length.exit.thread, label %contain_subplans.exit.thread124
+  br i1 %38, label %list_length.exit.thread, label %contain_subplans.exit.thread125
 
-contain_subplans.exit.thread124:                  ; preds = %33, %contain_subplans.exit
+contain_subplans.exit.thread125:                  ; preds = %33, %contain_subplans.exit
   %39 = tail call i32 @GetUserId() #8
   %40 = tail call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %25, i32 noundef %39, i64 noundef 128) #8
   %.not95 = icmp eq i32 %40, 0
   br i1 %.not95, label %41, label %list_length.exit.thread
 
-41:                                               ; preds = %contain_subplans.exit.thread124
+41:                                               ; preds = %contain_subplans.exit.thread125
   %42 = load ptr, ptr @needs_fmgr_hook, align 8
   %.not96 = icmp eq ptr %42, null
   br i1 %.not96, label %45, label %43
@@ -4501,11 +4501,11 @@ contain_subplans.exit.thread124:                  ; preds = %33, %contain_subpla
 
 51:                                               ; preds = %45
   %52 = getelementptr i8, ptr %47, i64 16
-  %.val111 = load ptr, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.val111, i64 22
+  %.val112 = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.val112, i64 22
   %54 = load i8, ptr %53, align 2
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.val111, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %.val112, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 76
   %58 = load i32, ptr %57, align 4
   %.not98 = icmp eq i32 %58, 14
@@ -4549,15 +4549,15 @@ contain_subplans.exit.thread124:                  ; preds = %33, %contain_subpla
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %30, align 8
-  %.not.i112 = icmp eq ptr %83, null
-  br i1 %.not.i112, label %list_length.exit113, label %84
+  %.not.i113 = icmp eq ptr %83, null
+  br i1 %.not.i113, label %list_length.exit114, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %86 = load i32, ptr %85, align 4
-  br label %list_length.exit113
+  br label %list_length.exit114
 
-list_length.exit113:                              ; preds = %82, %84
+list_length.exit114:                              ; preds = %82, %84
   %87 = phi i32 [ %86, %84 ], [ 0, %82 ]
   %88 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %89 = load i16, ptr %88, align 4
@@ -4565,11 +4565,11 @@ list_length.exit113:                              ; preds = %82, %84
   %.not100 = icmp eq i32 %87, %90
   br i1 %.not100, label %91, label %93
 
-91:                                               ; preds = %list_length.exit113
+91:                                               ; preds = %list_length.exit114
   %92 = tail call zeroext i1 @heap_attisnull(ptr noundef nonnull %47, i32 noundef 29, ptr noundef null) #8
   br i1 %92, label %94, label %93
 
-93:                                               ; preds = %91, %list_length.exit113, %78, %74, %70, %66, %62, %59, %51
+93:                                               ; preds = %91, %list_length.exit114, %78, %74, %70, %66, %62, %59, %51
   tail call void @ReleaseSysCache(ptr noundef nonnull %47) #8
   br label %list_length.exit.thread
 
@@ -4607,8 +4607,8 @@ list_length.exit113:                              ; preds = %82, %84
 
 115:                                              ; preds = %109
   %116 = getelementptr i8, ptr %112, i64 16
-  %.val109 = load ptr, ptr %116, align 8
-  %117 = load ptr, ptr %.val109, align 8
+  %.val110 = load ptr, ptr %116, align 8
+  %117 = load ptr, ptr %.val110, align 8
   br label %120
 
 118:                                              ; preds = %109
@@ -4617,25 +4617,25 @@ list_length.exit113:                              ; preds = %82, %84
 
 120:                                              ; preds = %118, %115
   %.088 = phi ptr [ %117, %115 ], [ %119, %118 ]
-  %.not.i114 = icmp eq ptr %.088, null
-  br i1 %.not.i114, label %.thread, label %list_length.exit115
+  %.not.i115 = icmp eq ptr %.088, null
+  br i1 %.not.i115, label %.thread, label %list_length.exit116
 
-list_length.exit115:                              ; preds = %120
+list_length.exit116:                              ; preds = %120
   %121 = getelementptr inbounds nuw i8, ptr %.088, i64 4
   %122 = load i32, ptr %121, align 4
   %.not101 = icmp eq i32 %122, 1
   br i1 %.not101, label %123, label %.thread
 
-123:                                              ; preds = %list_length.exit115
+123:                                              ; preds = %list_length.exit116
   %124 = getelementptr i8, ptr %.088, i64 16
   %.088.val = load ptr, ptr %124, align 8
   %125 = load ptr, ptr %.088.val, align 8
   call void @AcquireRewriteLocks(ptr noundef %125, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %126 = call ptr @pg_rewrite_query(ptr noundef %125) #8
-  %.not.i116 = icmp eq ptr %126, null
-  br i1 %.not.i116, label %.thread, label %list_length.exit117
+  %.not.i117 = icmp eq ptr %126, null
+  br i1 %.not.i117, label %.thread, label %list_length.exit118
 
-list_length.exit117:                              ; preds = %123
+list_length.exit118:                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4
   %.not102 = icmp eq i32 %128, 1
@@ -4646,31 +4646,31 @@ list_length.exit117:                              ; preds = %123
   %131 = load i32, ptr %130, align 8
   %132 = call ptr @prepare_sql_fn_parse_info(ptr noundef nonnull %47, ptr noundef nonnull %20, i32 noundef %131) #8
   %133 = call ptr @pg_parse_query(ptr noundef %100) #8
-  %.not.i118 = icmp eq ptr %133, null
-  br i1 %.not.i118, label %.thread, label %list_length.exit119
+  %.not.i119 = icmp eq ptr %133, null
+  br i1 %.not.i119, label %.thread, label %list_length.exit120
 
-list_length.exit119:                              ; preds = %129
+list_length.exit120:                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %.not103 = icmp eq i32 %135, 1
   br i1 %.not103, label %136, label %.thread
 
-136:                                              ; preds = %list_length.exit119
+136:                                              ; preds = %list_length.exit120
   %137 = getelementptr i8, ptr %133, i64 16
-  %.val107 = load ptr, ptr %137, align 8
-  %138 = load ptr, ptr %.val107, align 8
+  %.val108 = load ptr, ptr %137, align 8
+  %138 = load ptr, ptr %.val108, align 8
   %139 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef %138, ptr noundef %100, ptr noundef nonnull @sql_fn_parser_setup, ptr noundef %132, ptr noundef null) #8
-  %.not.i120 = icmp eq ptr %139, null
-  br i1 %.not.i120, label %.thread, label %list_length.exit121
+  %.not.i121 = icmp eq ptr %139, null
+  br i1 %.not.i121, label %.thread, label %list_length.exit122
 
-list_length.exit121:                              ; preds = %136
+list_length.exit122:                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4
   %.not104 = icmp eq i32 %141, 1
   br i1 %.not104, label %142, label %.thread
 
-142:                                              ; preds = %list_length.exit121, %list_length.exit117
-  %.2 = phi ptr [ %126, %list_length.exit117 ], [ %139, %list_length.exit121 ]
+142:                                              ; preds = %list_length.exit122, %list_length.exit118
+  %.2 = phi ptr [ %126, %list_length.exit118 ], [ %139, %list_length.exit122 ]
   %.191.in.in = getelementptr i8, ptr %.2, i64 16
   %.191.in = load ptr, ptr %.191.in.in, align 8
   %.191 = load ptr, ptr %.191.in, align 8
@@ -4751,7 +4751,7 @@ list_length.exit121:                              ; preds = %136
   store i8 1, ptr %186, align 1
   br label %list_length.exit.thread
 
-.thread:                                          ; preds = %136, %129, %123, %120, %list_length.exit117, %list_length.exit115, %163, %157, %160, %list_length.exit121, %list_length.exit119
+.thread:                                          ; preds = %136, %129, %123, %120, %list_length.exit118, %list_length.exit116, %163, %157, %160, %list_length.exit122, %list_length.exit120
   store ptr %97, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %96) #8
   %187 = load ptr, ptr %6, align 8
@@ -4759,8 +4759,8 @@ list_length.exit121:                              ; preds = %136
   call void @ReleaseSysCache(ptr noundef nonnull %47) #8
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %36, %11, %170, %183, %43, %contain_subplans.exit.thread124, %29, %contain_subplans.exit, %23, %16, %list_length.exit, %2, %.thread, %93
-  %.0 = phi ptr [ null, %93 ], [ null, %.thread ], [ null, %2 ], [ null, %list_length.exit ], [ null, %16 ], [ null, %23 ], [ null, %contain_subplans.exit ], [ null, %29 ], [ null, %contain_subplans.exit.thread124 ], [ null, %43 ], [ %178, %183 ], [ %178, %170 ], [ null, %11 ], [ null, %36 ]
+list_length.exit.thread:                          ; preds = %36, %11, %170, %183, %43, %contain_subplans.exit.thread125, %29, %contain_subplans.exit, %23, %16, %list_length.exit, %2, %.thread, %93
+  %.0 = phi ptr [ null, %93 ], [ null, %.thread ], [ null, %2 ], [ null, %list_length.exit ], [ null, %16 ], [ null, %23 ], [ null, %contain_subplans.exit ], [ null, %29 ], [ null, %contain_subplans.exit.thread125 ], [ null, %43 ], [ %178, %183 ], [ %178, %170 ], [ null, %11 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

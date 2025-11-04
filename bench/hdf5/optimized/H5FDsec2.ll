@@ -704,8 +704,8 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   br i1 %.not66, label %.thread, label %28
 
 .thread:                                          ; preds = %46, %.preheader, %.critedge, %45, %6, %24, %15
-  %.048 = phi i32 [ -1, %24 ], [ -1, %15 ], [ 0, %6 ], [ -1, %.critedge ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %46 ]
-  ret i32 %.048
+  %.050 = phi i32 [ -1, %24 ], [ -1, %15 ], [ 0, %6 ], [ -1, %.critedge ], [ 0, %45 ], [ 0, %.preheader ], [ 0, %46 ]
+  ret i32 %.050
 }
 
 ; Function Attrs: nounwind uwtable
@@ -808,8 +808,8 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   br label %54
 
 54:                                               ; preds = %.thread, %6, %._crit_edge, %53, %24, %15
-  %.050 = phi i32 [ -1, %24 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -1, %15 ], [ 0, %6 ], [ -1, %.thread ]
-  ret i32 %.050
+  %.052 = phi i32 [ -1, %24 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -1, %15 ], [ 0, %6 ], [ -1, %.thread ]
+  ret i32 %.052
 }
 
 ; Function Attrs: nounwind uwtable

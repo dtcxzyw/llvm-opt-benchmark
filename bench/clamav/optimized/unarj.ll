@@ -90,8 +90,8 @@ is_arj_archive.exit:                              ; preds = %13
   %19 = load ptr, ptr %8, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %21 = load i64, ptr %20, align 8, !tbaa !17
-  %or.cond123.not.i = icmp ult i64 %15, %21
-  br i1 %or.cond123.not.i, label %22, label %arj_read_main_header.exit.thread
+  %or.cond124.not.i = icmp ult i64 %15, %21
+  br i1 %or.cond124.not.i, label %22, label %arj_read_main_header.exit.thread
 
 22:                                               ; preds = %is_arj_archive.exit
   %23 = sub nuw i64 %21, %15
@@ -111,14 +111,14 @@ fmap_readn.exit.i:                                ; preds = %22
   %28 = load i64, ptr %9, align 8, !tbaa !12
   %29 = add i64 %28, 2
   store i64 %29, ptr %9, align 8, !tbaa !12
-  %.0..0..0..0..0.101.i = load i16, ptr %4, align 2, !tbaa !18
-  %30 = zext i16 %.0..0..0..0..0.101.i to i32
+  %.0..0..0..0..0.102.i = load i16, ptr %4, align 2, !tbaa !18
+  %30 = zext i16 %.0..0..0..0..0.102.i to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %30) #12
-  %31 = icmp eq i16 %.0..0..0..0..0.101.i, 0
+  %31 = icmp eq i16 %.0..0..0..0..0.102.i, 0
   br i1 %31, label %arj_read_main_header.exit.thread, label %32
 
 32:                                               ; preds = %27
-  %33 = icmp ugt i16 %.0..0..0..0..0.101.i, 2600
+  %33 = icmp ugt i16 %.0..0..0..0..0.102.i, 2600
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
@@ -126,7 +126,7 @@ fmap_readn.exit.i:                                ; preds = %22
   br label %arj_read_main_header.exit.thread
 
 35:                                               ; preds = %32
-  %narrow.i = add nuw nsw i16 %.0..0..0..0..0.101.i, 2
+  %narrow.i = add nuw nsw i16 %.0..0..0..0..0.102.i, 2
   %36 = zext nneg i16 %narrow.i to i64
   %37 = load ptr, ptr %8, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
@@ -141,23 +141,23 @@ fmap_readn.exit.i:                                ; preds = %22
   br label %arj_read_main_header.exit.thread
 
 44:                                               ; preds = %35
-  %or.cond124.not.i = icmp ult i64 %40, %39
-  br i1 %or.cond124.not.i, label %45, label %arj_read_main_header.exit.thread
+  %or.cond125.not.i = icmp ult i64 %40, %39
+  br i1 %or.cond125.not.i, label %45, label %arj_read_main_header.exit.thread
 
 45:                                               ; preds = %44
-  %spec.select.i96.i = tail call i64 @llvm.umin.i64(i64 %41, i64 30)
+  %spec.select.i97.i = tail call i64 @llvm.umin.i64(i64 %41, i64 30)
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %47 = load ptr, ptr %46, align 8, !tbaa !13
-  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef %spec.select.i96.i, i32 noundef 0) #12
-  %.not26.i97.i = icmp eq ptr %48, null
-  br i1 %.not26.i97.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit99.i
+  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef %spec.select.i97.i, i32 noundef 0) #12
+  %.not26.i98.i = icmp eq ptr %48, null
+  br i1 %.not26.i98.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit100.i
 
-fmap_readn.exit99.i:                              ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i96.i, i1 false)
+fmap_readn.exit100.i:                             ; preds = %45
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %48, i64 %spec.select.i97.i, i1 false)
   %.not87.i = icmp ugt i64 %41, 29
   br i1 %.not87.i, label %49, label %arj_read_main_header.exit.thread
 
-49:                                               ; preds = %fmap_readn.exit99.i
+49:                                               ; preds = %fmap_readn.exit100.i
   %50 = load i64, ptr %9, align 8, !tbaa !12
   %51 = add i64 %50, 30
   store i64 %51, ptr %9, align 8, !tbaa !12
@@ -211,7 +211,7 @@ fmap_readn.exit99.i:                              ; preds = %45
 
 67:                                               ; preds = %63, %62
   %68 = phi i64 [ %66, %63 ], [ %.pre.i, %62 ]
-  %69 = zext nneg i16 %.0..0..0..0..0.101.i to i64
+  %69 = zext nneg i16 %.0..0..0..0..0.102.i to i64
   %70 = add nuw nsw i64 %69, 2
   %.neg.i = sub i64 %15, %68
   %71 = add i64 %.neg.i, %70
@@ -241,11 +241,11 @@ fmap_readn.exit99.i:                              ; preds = %45
 
 85:                                               ; preds = %75
   %86 = tail call i64 @strnlen(ptr noundef nonnull %82, i64 noundef %71) #13
-  %.pre128.i = load i64, ptr %9, align 8, !tbaa !12
+  %.pre129.i = load i64, ptr %9, align 8, !tbaa !12
   br label %87
 
 87:                                               ; preds = %85, %74
-  %88 = phi i64 [ %.pre128.i, %85 ], [ %68, %74 ]
+  %88 = phi i64 [ %.pre129.i, %85 ], [ %68, %74 ]
   %.175.i = phi ptr [ %77, %85 ], [ null, %74 ]
   %.070.i = phi i64 [ %86, %85 ], [ 0, %74 ]
   %.068.i = phi ptr [ %82, %85 ], [ null, %74 ]
@@ -276,11 +276,11 @@ fmap_readn.exit99.i:                              ; preds = %45
 
 104:                                              ; preds = %94
   %105 = tail call i64 @strnlen(ptr noundef nonnull %101, i64 noundef %91) #13
-  %.pre129.i = load i64, ptr %9, align 8, !tbaa !12
+  %.pre130.i = load i64, ptr %9, align 8, !tbaa !12
   br label %106
 
 106:                                              ; preds = %104, %93
-  %107 = phi i64 [ %.pre129.i, %104 ], [ %90, %93 ]
+  %107 = phi i64 [ %.pre130.i, %104 ], [ %90, %93 ]
   %.076.i = phi ptr [ %101, %104 ], [ null, %93 ]
   %.173.i = phi ptr [ %96, %104 ], [ null, %93 ]
   %.069.i = phi i64 [ %105, %104 ], [ 0, %93 ]
@@ -300,8 +300,8 @@ fmap_readn.exit99.i:                              ; preds = %45
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %118 = load ptr, ptr %117, align 8, !tbaa !13
   %119 = call ptr %118(ptr noundef %116, i64 noundef %115, i64 noundef 2, i32 noundef 0) #12
-  %.not92125.i = icmp eq ptr %119, null
-  br i1 %.not92125.i, label %.thread.i, label %.lr.ph.i
+  %.not92126.i = icmp eq ptr %119, null
+  br i1 %.not92126.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %106, %125
   %120 = phi ptr [ %133, %125 ], [ %119, %106 ]
@@ -353,7 +353,7 @@ fmap_readn.exit99.i:                              ; preds = %45
   call void @free(ptr noundef nonnull %.072.i) #12
   br label %arj_read_main_header.exit
 
-arj_read_main_header.exit.thread:                 ; preds = %fmap_readn.exit.i, %is_arj_archive.exit, %22, %45, %44, %fmap_readn.exit99.i, %27, %73, %61, %43, %34
+arj_read_main_header.exit.thread:                 ; preds = %fmap_readn.exit.i, %is_arj_archive.exit, %22, %45, %44, %fmap_readn.exit100.i, %27, %73, %61, %43, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

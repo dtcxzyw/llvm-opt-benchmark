@@ -2120,7 +2120,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
 95:                                               ; preds = %93, %81
   %96 = icmp eq i32 %82, -114
   %97 = select i1 %96, i32 0, i32 %82
-  switch i32 %97, label %.thread22 [
+  switch i32 %97, label %.thread23 [
     i32 -35, label %98
     i32 0, label %107
   ]
@@ -2134,14 +2134,14 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   %102 = add i32 %99, 1
   %103 = or i32 %102, %99
   %104 = icmp sgt i32 %103, -1
-  br i1 %104, label %.thread23, label %105, !prof !11
+  br i1 %104, label %.thread24, label %105, !prof !11
 
 105:                                              ; preds = %101, %98
   %106 = phi i32 [ 2, %98 ], [ 1, %101 ]
   call void @refcount_warn_saturate(ptr noundef %9, i32 noundef %106) #13
-  br label %.thread23
+  br label %.thread24
 
-.thread23:                                        ; preds = %105, %101
+.thread24:                                        ; preds = %105, %101
   store ptr %9, ptr %71, align 8
   br label %271
 
@@ -2150,7 +2150,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   %109 = and i64 %108, 512
   %110 = icmp ne i64 %109, 0
   %111 = and i1 %20, %110
-  br i1 %111, label %.thread22, label %112
+  br i1 %111, label %.thread23, label %112
 
 112:                                              ; preds = %107
   %113 = load volatile i32, ptr %49, align 4
@@ -2165,7 +2165,7 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   %119 = icmp ult i8 %118, 2
   call void @llvm.assume(i1 %119)
   %120 = icmp eq i8 %118, 0
-  br i1 %120, label %121, label %.thread17, !prof !7
+  br i1 %120, label %121, label %.thread18, !prof !7
 
 121:                                              ; preds = %.lr.ph
   %122 = extractvalue { i8, i32 } %117, 1
@@ -2175,15 +2175,15 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
 ._crit_edge:                                      ; preds = %121, %112
   %124 = call i32 @__i915_gem_object_get_pages(ptr noundef %9) #13
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.thread17, label %268
+  br i1 %125, label %.thread18, label %268
 
-.thread17:                                        ; preds = %.lr.ph, %._crit_edge
+.thread18:                                        ; preds = %.lr.ph, %._crit_edge
   %126 = load ptr, ptr %50, align 8
   %127 = call i32 @intel_gt_reset_lock_interruptible(ptr noundef %126, ptr noundef nonnull %3) #13
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %266
 
-129:                                              ; preds = %.thread17
+129:                                              ; preds = %.thread18
   %130 = call ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %9, ptr noundef nonnull %2, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 13) #13
   %131 = icmp ule ptr %130, inttoptr (i64 -4096 to ptr)
   %132 = icmp eq ptr %130, inttoptr (i64 -35 to ptr)
@@ -2250,36 +2250,36 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   %170 = phi ptr [ %168, %167 ], [ %163, %160 ]
   %171 = phi i32 [ 8, %167 ], [ %161, %160 ]
   %172 = icmp eq ptr %170, inttoptr (i64 -28 to ptr)
-  br i1 %172, label %173, label %.thread19
+  br i1 %172, label %173, label %.thread20
 
 173:                                              ; preds = %169
   %174 = call i32 @mutex_lock_interruptible(ptr noundef nonnull %55) #13
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.thread18
+  br i1 %175, label %176, label %.thread19
 
 176:                                              ; preds = %173
   %177 = call i32 @i915_gem_evict_vm(ptr noundef %16, ptr noundef nonnull %2, ptr noundef null) #13
   call void @mutex_unlock(ptr noundef nonnull %55) #13
   %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %.thread18
+  br i1 %178, label %179, label %.thread19
 
 179:                                              ; preds = %176
   %180 = zext nneg i32 %171 to i64
   %181 = call ptr @i915_gem_object_ggtt_pin_ww(ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef 0, i64 noundef 0, i64 noundef %180) #13
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %179, %169
+.thread20:                                        ; preds = %179, %169
   %.ph = phi ptr [ %170, %169 ], [ %181, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %183
 
-.thread18:                                        ; preds = %173, %176
+.thread19:                                        ; preds = %173, %176
   %182 = phi i32 [ %177, %176 ], [ %174, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %262
 
-183:                                              ; preds = %.thread19, %129
-  %184 = phi ptr [ %130, %129 ], [ %.ph, %.thread19 ]
+183:                                              ; preds = %.thread20, %129
+  %184 = phi ptr [ %130, %129 ], [ %.ph, %.thread20 ]
   %185 = icmp ugt ptr %184, inttoptr (i64 -4096 to ptr)
   br i1 %185, label %186, label %189
 
@@ -2400,29 +2400,29 @@ define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr noundef readonly
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %261, ptr nonnull elementtype(i32) %261) #13, !srcloc !28
   br label %262
 
-262:                                              ; preds = %.thread18, %259, %186
-  %263 = phi i32 [ %182, %.thread18 ], [ %188, %186 ], [ %260, %259 ]
+262:                                              ; preds = %.thread19, %259, %186
+  %263 = phi i32 [ %182, %.thread19 ], [ %188, %186 ], [ %260, %259 ]
   %264 = load ptr, ptr %50, align 8
   %265 = load i32, ptr %3, align 4
   call void @intel_gt_reset_unlock(ptr noundef %264, i32 noundef %265) #13
   br label %266
 
-266:                                              ; preds = %262, %.thread17
-  %267 = phi i32 [ %127, %.thread17 ], [ %263, %262 ]
+266:                                              ; preds = %262, %.thread18
+  %267 = phi i32 [ %127, %.thread18 ], [ %263, %262 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %49, ptr nonnull elementtype(i32) %49) #13, !srcloc !28
   br label %268
 
 268:                                              ; preds = %266, %._crit_edge
   %269 = phi i32 [ %124, %._crit_edge ], [ %267, %266 ]
   %270 = icmp eq i32 %269, -35
-  br i1 %270, label %271, label %.thread22
+  br i1 %270, label %271, label %.thread23
 
-271:                                              ; preds = %.thread23, %268
+271:                                              ; preds = %.thread24, %268
   %272 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %2) #13
   %273 = icmp eq i32 %272, 0
-  br i1 %273, label %73, label %.thread22
+  br i1 %273, label %73, label %.thread23
 
-.thread22:                                        ; preds = %95, %107, %268, %271
+.thread23:                                        ; preds = %95, %107, %271, %268
   %274 = phi i32 [ %272, %271 ], [ %269, %268 ], [ -14, %107 ], [ %82, %95 ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %2) #13
   call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %12) #13

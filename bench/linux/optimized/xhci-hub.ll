@@ -399,8 +399,8 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %106 = zext i32 %86 to i64
   br label %107
 
-107:                                              ; preds = %._crit_edge66, %105
-  %108 = phi i64 [ 0, %105 ], [ %.pre67, %._crit_edge66 ]
+107:                                              ; preds = %._crit_edge68, %105
+  %108 = phi i64 [ 0, %105 ], [ %.pre69, %._crit_edge68 ]
   %109 = load ptr, ptr %84, align 8
   %110 = getelementptr ptr, ptr %109, i64 %108
   %111 = load ptr, ptr %110, align 8
@@ -408,32 +408,32 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %113 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %112) #13, !srcloc !11
   %114 = and i32 %113, 1073741824
   %115 = icmp eq i32 %114, 0
-  %.pre67 = add nuw nsw i64 %108, 1
-  br i1 %115, label %._crit_edge66, label %116
+  %.pre69 = add nuw nsw i64 %108, 1
+  br i1 %115, label %._crit_edge68, label %116
 
 116:                                              ; preds = %107
-  %117 = trunc i64 %.pre67 to i8
+  %117 = trunc i64 %.pre69 to i8
   %118 = and i8 %117, 7
   %119 = shl nuw i8 1, %118
-  %120 = lshr i64 %.pre67, 3
+  %120 = lshr i64 %.pre69, 3
   %121 = and i64 %120, 536870911
   %122 = getelementptr i8, ptr %7, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = or i8 %123, %119
   store i8 %124, ptr %122, align 1
-  br label %._crit_edge66
+  br label %._crit_edge68
 
-._crit_edge66:                                    ; preds = %107, %116
-  %125 = icmp eq i64 %.pre67, %106
+._crit_edge68:                                    ; preds = %107, %116
+  %125 = icmp eq i64 %.pre69, %106
   br i1 %125, label %126, label %107, !llvm.loop !14
 
-126:                                              ; preds = %._crit_edge66
+126:                                              ; preds = %._crit_edge68
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i32 -1, ptr %127, align 1
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i32 -1, ptr %128, align 1
   %129 = icmp ugt i32 %86, -16
-  br i1 %129, label %.loopexit43, label %130
+  br i1 %129, label %.loopexit45, label %130
 
 130:                                              ; preds = %.thread, %126
   %131 = add nuw i32 %86, 8
@@ -451,9 +451,9 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(1) %138, i8 %140, i64 1, i1 false)
   %141 = add nuw nsw i64 %137, 1
   %142 = icmp eq i64 %141, %134
-  br i1 %142, label %.loopexit43, label %136, !llvm.loop !15
+  br i1 %142, label %.loopexit45, label %136, !llvm.loop !15
 
-.loopexit43:                                      ; preds = %136, %126
+.loopexit45:                                      ; preds = %136, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1050
 
@@ -478,7 +478,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %153 = getelementptr inbounds nuw i8, ptr %15, i64 3296
   %154 = load i32, ptr %153, align 8
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.thread37, label %156
+  br i1 %155, label %.thread39, label %156
 
 156:                                              ; preds = %149
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 3288
@@ -510,7 +510,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
 
 180:                                              ; preds = %159
   %181 = icmp ugt i16 %176, 783
-  br i1 %181, label %182, label %.thread37
+  br i1 %181, label %182, label %.thread39
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -562,9 +562,9 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %217 = zext i8 %213 to i32
   %218 = shl nuw nsw i32 %217, 5
   %219 = and i32 %218, 480
-  br label %.thread37
+  br label %.thread39
 
-.thread37:                                        ; preds = %149, %210, %180
+.thread39:                                        ; preds = %149, %210, %180
   %220 = phi ptr [ %177, %210 ], [ %177, %180 ], [ null, %149 ]
   %221 = phi i16 [ %176, %210 ], [ %176, %180 ], [ 0, %149 ]
   %222 = phi i32 [ %219, %210 ], [ 0, %180 ], [ 0, %149 ]
@@ -572,7 +572,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %224 = icmp ult i16 %5, 15
   br i1 %224, label %375, label %225
 
-225:                                              ; preds = %.thread37
+225:                                              ; preds = %.thread39
   %226 = getelementptr i8, ptr %4, i64 5
   store i8 10, ptr %226, align 1
   %227 = getelementptr i8, ptr %4, i64 6
@@ -684,7 +684,7 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %298 = trunc nuw i32 %297 to i16
   %299 = and i32 %292, 192
   %300 = icmp eq i8 %296, 3
-  br i1 %300, label %.loopexit44, label %.preheader.preheader
+  br i1 %300, label %.loopexit46, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %283
   %301 = udiv i16 %298, 1000
@@ -695,9 +695,9 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %303 = phi i8 [ %304, %.preheader ], [ %296, %.preheader.preheader ]
   %304 = add nuw nsw i8 %303, 1
   %305 = icmp samesign ult i8 %303, 2
-  br i1 %305, label %.preheader, label %.loopexit44, !llvm.loop !18
+  br i1 %305, label %.preheader, label %.loopexit46, !llvm.loop !18
 
-.loopexit44:                                      ; preds = %.preheader, %283
+.loopexit46:                                      ; preds = %.preheader, %283
   %306 = phi i16 [ %298, %283 ], [ %302, %.preheader ]
   %307 = zext i16 %306 to i32
   %308 = add nsw i32 %286, -1
@@ -708,9 +708,9 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %313 = icmp eq i32 %299, 0
   %314 = and i1 %276, %313
   %315 = and i32 %292, 15
-  br i1 %314, label %316, label %.loopexit44._crit_edge
+  br i1 %314, label %316, label %.loopexit46._crit_edge
 
-316:                                              ; preds = %.loopexit44
+316:                                              ; preds = %.loopexit46
   %317 = icmp eq i32 %315, 6
   %318 = icmp eq i16 %306, 10
   %319 = select i1 %317, i1 %318, i1 false
@@ -733,11 +733,11 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %332 = icmp ugt i16 %306, 10
   %333 = select i1 %332, i8 3, i8 %330
   %334 = select i1 %332, i32 10, i32 %331
-  br label %.loopexit44._crit_edge
+  br label %.loopexit46._crit_edge
 
-.loopexit44._crit_edge:                           ; preds = %.loopexit44, %329
-  %335 = phi i8 [ %333, %329 ], [ %296, %.loopexit44 ]
-  %336 = phi i32 [ %334, %329 ], [ %297, %.loopexit44 ]
+.loopexit46._crit_edge:                           ; preds = %.loopexit46, %329
+  %335 = phi i8 [ %333, %329 ], [ %296, %.loopexit46 ]
+  %336 = phi i32 [ %334, %329 ], [ %297, %.loopexit46 ]
   %337 = select i1 %312, i32 16384, i32 %294
   %338 = zext nneg i8 %335 to i32
   %339 = shl nuw nsw i32 %338, 4
@@ -756,20 +756,20 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
     i8 3, label %361
   ]
 
-348:                                              ; preds = %.loopexit44._crit_edge
+348:                                              ; preds = %.loopexit46._crit_edge
   %349 = add i32 %288, 1
   %350 = sext i32 %288 to i64
   %351 = getelementptr i32, ptr %277, i64 %350
   store i32 %345, ptr %351, align 1
   br label %353
 
-352:                                              ; preds = %.loopexit44._crit_edge
+352:                                              ; preds = %.loopexit46._crit_edge
   br label %353
 
-353:                                              ; preds = %.loopexit44._crit_edge, %352, %348
-  %354 = phi i32 [ 192, %352 ], [ 128, %348 ], [ 64, %.loopexit44._crit_edge ]
-  %355 = phi i32 [ 1, %352 ], [ 2, %348 ], [ 1, %.loopexit44._crit_edge ]
-  %356 = phi i32 [ %288, %352 ], [ %349, %348 ], [ %288, %.loopexit44._crit_edge ]
+353:                                              ; preds = %.loopexit46._crit_edge, %352, %348
+  %354 = phi i32 [ 192, %352 ], [ 128, %348 ], [ 64, %.loopexit46._crit_edge ]
+  %355 = phi i32 [ 1, %352 ], [ 2, %348 ], [ 1, %.loopexit46._crit_edge ]
+  %356 = phi i32 [ %288, %352 ], [ %349, %348 ], [ %288, %.loopexit46._crit_edge ]
   %357 = or disjoint i32 %354, %345
   %358 = add i32 %355, %288
   %359 = sext i32 %356 to i64
@@ -778,12 +778,12 @@ define dso_local i32 @xhci_hub_control(ptr noundef %0, i16 noundef zeroext %1, i
   %.pre = load i8, ptr %272, align 8
   br label %361
 
-default.unreachable:                              ; preds = %.loopexit44._crit_edge
+default.unreachable:                              ; preds = %.loopexit46._crit_edge
   unreachable
 
-361:                                              ; preds = %.loopexit44._crit_edge, %353
-  %362 = phi i8 [ %284, %.loopexit44._crit_edge ], [ %.pre, %353 ]
-  %363 = phi i32 [ %288, %.loopexit44._crit_edge ], [ %358, %353 ]
+361:                                              ; preds = %.loopexit46._crit_edge, %353
+  %362 = phi i8 [ %284, %.loopexit46._crit_edge ], [ %.pre, %353 ]
+  %363 = phi i32 [ %288, %.loopexit46._crit_edge ], [ %358, %353 ]
   %364 = add nuw nsw i64 %285, 1
   %365 = zext i8 %362 to i64
   %366 = icmp samesign ult i64 %364, %365
@@ -793,18 +793,18 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %368 = and i8 %310, 15
   %369 = zext nneg i8 %368 to i16
   %370 = or disjoint i16 %369, 4352
-  %.pre63 = load i16, ptr %151, align 1
+  %.pre65 = load i16, ptr %151, align 1
   br label %371
 
 371:                                              ; preds = %367, %278
-  %372 = phi i16 [ %256, %278 ], [ %.pre63, %367 ]
+  %372 = phi i16 [ %256, %278 ], [ %.pre65, %367 ]
   %373 = phi i16 [ 4356, %278 ], [ %370, %367 ]
   %374 = getelementptr i8, ptr %4, i64 23
   store i16 %373, ptr %374, align 1
   br label %375
 
-375:                                              ; preds = %371, %258, %255, %.thread37
-  %376 = phi i16 [ %372, %371 ], [ %5, %.thread37 ], [ %5, %255 ], [ %256, %258 ]
+375:                                              ; preds = %371, %258, %255, %.thread39
+  %376 = phi i16 [ %372, %371 ], [ %5, %.thread39 ], [ %5, %255 ], [ %256, %258 ]
   %377 = zext i16 %376 to i32
   br label %1053
 
@@ -956,23 +956,23 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %477 = shl nuw i32 1, %462
   %478 = and i32 %476, %477
   %479 = icmp eq i32 %478, 0
-  %.pre70 = xor i32 %477, -1
-  br i1 %479, label %._crit_edge65, label %480
+  %.pre72 = xor i32 %477, -1
+  br i1 %479, label %._crit_edge67, label %480
 
 480:                                              ; preds = %474
-  %481 = and i32 %476, %.pre70
+  %481 = and i32 %476, %.pre72
   store i32 %481, ptr %475, align 8
   tail call void @usb_hcd_end_port_resume(ptr noundef %459, i32 noundef %462) #13
-  br label %._crit_edge65
+  br label %._crit_edge67
 
-._crit_edge65:                                    ; preds = %474, %480
+._crit_edge67:                                    ; preds = %474, %480
   %482 = getelementptr inbounds nuw i8, ptr %445, i64 44
   %483 = load i32, ptr %482, align 4
-  %484 = and i32 %483, %.pre70
+  %484 = and i32 %483, %.pre72
   store i32 %484, ptr %482, align 4
   br label %485
 
-485:                                              ; preds = %._crit_edge65, %454, %454, %454
+485:                                              ; preds = %._crit_edge67, %454, %454, %454
   %486 = and i32 %388, 16777216
   %487 = icmp eq i32 %486, 0
   br i1 %487, label %491, label %488
@@ -1015,7 +1015,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %513 = load i64, ptr %512, align 8
   %514 = and i64 %513, 16384
   %515 = icmp eq i64 %514, 0
-  br i1 %515, label %.thread40, label %516
+  br i1 %515, label %.thread42, label %516
 
 516:                                              ; preds = %506
   %517 = icmp ne i32 %460, 0
@@ -1023,7 +1023,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %519 = load i32, ptr %518, align 8
   %520 = icmp eq i32 %519, %511
   %521 = or i1 %517, %520
-  br i1 %521, label %.thread40, label %522
+  br i1 %521, label %.thread42, label %522
 
 522:                                              ; preds = %516
   %523 = and i32 %462, 65535
@@ -1031,14 +1031,14 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %525 = or i32 %519, %524
   store i32 %525, ptr %518, align 8
   %526 = icmp eq i32 %525, %511
-  br i1 %526, label %527, label %.thread40
+  br i1 %526, label %527, label %.thread42
 
 527:                                              ; preds = %522
   %528 = getelementptr inbounds nuw i8, ptr %455, i64 3304
   %529 = tail call i32 @timer_delete_sync(ptr noundef nonnull %528) #13
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef nonnull %456, ptr noundef nonnull @trace_xhci_dbg_quirks, ptr noundef nonnull @.str.7) #13
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef nonnull %456, ptr noundef nonnull @trace_xhci_dbg_quirks, ptr noundef nonnull @.str.8) #13
-  br label %.thread40
+  br label %.thread42
 
 530:                                              ; preds = %440
   %531 = and i32 %388, 480
@@ -1046,20 +1046,20 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %533 = load i32, ptr %532, align 4
   %534 = and i32 %388, 512
   %535 = icmp eq i32 %534, 0
-  br i1 %535, label %.thread38, label %536
+  br i1 %535, label %.thread40, label %536
 
 536:                                              ; preds = %530
   %537 = icmp eq i32 %531, 96
   %538 = select i1 %537, i32 260, i32 256
   %539 = or i32 %443, %538
   switch i32 %531, label %706 [
-    i32 64, label %.thread39
+    i32 64, label %.thread41
     i32 0, label %541
     i32 480, label %553
-    i32 96, label %.thread40
+    i32 96, label %.thread42
   ]
 
-.thread39:                                        ; preds = %536
+.thread41:                                        ; preds = %536
   %540 = or i32 %539, 32
   br label %706
 
@@ -1099,7 +1099,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %564 = load i32, ptr %532, align 4
   %565 = and i32 %388, 18
   %566 = icmp eq i32 %565, 2
-  br i1 %566, label %567, label %.thread40
+  br i1 %566, label %567, label %.thread42
 
 567:                                              ; preds = %561
   %568 = getelementptr inbounds nuw i8, ptr %428, i64 40
@@ -1208,12 +1208,12 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
 635:                                              ; preds = %630, %623, %619, %614
   %636 = add nuw nsw i64 %615, 1
   %637 = icmp eq i64 %636, 256
-  br i1 %637, label %.thread38, label %614, !llvm.loop !6
+  br i1 %637, label %.thread40, label %614, !llvm.loop !6
 
 638:                                              ; preds = %630
   %639 = trunc i64 %615 to i32
   %640 = icmp eq i32 %639, 0
-  br i1 %640, label %.thread38, label %641
+  br i1 %640, label %.thread40, label %641
 
 641:                                              ; preds = %638
   %sext = shl i64 %615, 32
@@ -1221,8 +1221,8 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %643 = getelementptr i8, ptr %612, i64 %642
   br label %644
 
-644:                                              ; preds = %.loopexit45, %641
-  %645 = phi i64 [ 0, %641 ], [ %678, %.loopexit45 ]
+644:                                              ; preds = %.loopexit47, %641
+  %645 = phi i64 [ 0, %641 ], [ %678, %.loopexit47 ]
   %646 = load ptr, ptr %643, align 8
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 32
   %648 = getelementptr %struct.xhci_virt_ep, ptr %647, i64 %645
@@ -1238,7 +1238,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %657 = load i32, ptr %656, align 8
   %658 = icmp ugt i32 %657, 1
-  br i1 %658, label %659, label %.loopexit45
+  br i1 %658, label %659, label %.loopexit47
 
 659:                                              ; preds = %653
   %660 = trunc i64 %645 to i32
@@ -1252,29 +1252,29 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 8
   %666 = load i32, ptr %665, align 8
   %667 = icmp ult i32 %663, %666
-  br i1 %667, label %661, label %.loopexit45, !llvm.loop !9
+  br i1 %667, label %661, label %.loopexit47, !llvm.loop !9
 
 668:                                              ; preds = %644
   %669 = getelementptr inbounds nuw i8, ptr %648, i64 16
   %670 = load ptr, ptr %669, align 8
   %671 = icmp eq ptr %670, null
-  br i1 %671, label %.loopexit45, label %672
+  br i1 %671, label %.loopexit47, label %672
 
 672:                                              ; preds = %668
   %673 = getelementptr inbounds nuw i8, ptr %670, i64 32
   %674 = load ptr, ptr %673, align 8
   %675 = icmp eq ptr %674, null
-  br i1 %675, label %.loopexit45, label %676
+  br i1 %675, label %.loopexit47, label %676
 
 676:                                              ; preds = %672
   %677 = trunc i64 %645 to i32
   tail call void @xhci_ring_ep_doorbell(ptr noundef nonnull %563, i32 noundef %639, i32 noundef %677, i32 noundef 0) #13
-  br label %.loopexit45
+  br label %.loopexit47
 
-.loopexit45:                                      ; preds = %661, %676, %672, %668, %653
+.loopexit47:                                      ; preds = %661, %676, %672, %668, %653
   %678 = add nuw nsw i64 %645, 1
   %679 = icmp eq i64 %678, 31
-  br i1 %679, label %.loopexit46, label %644, !llvm.loop !10
+  br i1 %679, label %.loopexit48, label %644, !llvm.loop !10
 
 680:                                              ; preds = %598
   %681 = load ptr, ptr %428, align 8
@@ -1285,9 +1285,9 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %686 = load i32, ptr %685, align 8
   %687 = add i32 %564, 1
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %684, ptr noundef nonnull @.str.9, i32 noundef %686, i32 noundef %687, i32 noundef %682) #14
-  br label %.loopexit46
+  br label %.loopexit48
 
-.loopexit46:                                      ; preds = %.loopexit45, %680
+.loopexit48:                                      ; preds = %.loopexit47, %680
   tail call void @usb_hcd_end_port_resume(ptr noundef %555, i32 noundef %564) #13
   %688 = shl nuw i32 1, %564
   %689 = getelementptr inbounds nuw i8, ptr %445, i64 40
@@ -1301,7 +1301,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   store i32 %695, ptr %693, align 4
   br label %696
 
-696:                                              ; preds = %.loopexit46, %582, %577, %571
+696:                                              ; preds = %.loopexit48, %582, %577, %571
   %697 = load i64, ptr %568, align 8
   %698 = icmp eq i64 %697, 0
   br i1 %698, label %699, label %703
@@ -1310,28 +1310,28 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %700 = getelementptr inbounds nuw i8, ptr %428, i64 48
   %701 = load i8, ptr %700, align 8, !range !31, !noundef !32
   %702 = icmp eq i8 %701, 0
-  br i1 %702, label %.thread38, label %703
+  br i1 %702, label %.thread40, label %703
 
 703:                                              ; preds = %699, %696
   %704 = or i32 %443, 260
-  br label %.thread38
+  br label %.thread40
 
-.thread38:                                        ; preds = %635, %703, %699, %638, %530
+.thread40:                                        ; preds = %635, %703, %699, %638, %530
   %705 = phi i32 [ %443, %530 ], [ %539, %699 ], [ %704, %703 ], [ -1, %638 ], [ -1, %635 ]
   switch i32 %531, label %706 [
-    i32 480, label %.thread40
-    i32 96, label %.thread40
+    i32 480, label %.thread42
+    i32 96, label %.thread42
   ]
 
-706:                                              ; preds = %.thread39, %541, %547, %.thread38, %536
-  %707 = phi i32 [ %705, %.thread38 ], [ %539, %536 ], [ %539, %547 ], [ %539, %541 ], [ %540, %.thread39 ]
+706:                                              ; preds = %.thread41, %541, %547, %.thread40, %536
+  %707 = phi i32 [ %705, %.thread40 ], [ %539, %536 ], [ %539, %547 ], [ %539, %541 ], [ %540, %.thread41 ]
   %708 = getelementptr inbounds nuw i8, ptr %428, i64 40
   %709 = load i64, ptr %708, align 8
   %710 = icmp eq i64 %709, 0
-  br i1 %710, label %711, label %._crit_edge64
+  br i1 %710, label %711, label %._crit_edge66
 
-._crit_edge64:                                    ; preds = %706
-  %.pre72 = zext i32 %533 to i64
+._crit_edge66:                                    ; preds = %706
+  %.pre74 = zext i32 %533 to i64
   br label %717
 
 711:                                              ; preds = %706
@@ -1343,11 +1343,11 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %716 = icmp eq i8 %714, 0
   br i1 %716, label %722, label %717
 
-717:                                              ; preds = %._crit_edge64, %711
-  %.pre-phi73 = phi i64 [ %.pre72, %._crit_edge64 ], [ %713, %711 ]
+717:                                              ; preds = %._crit_edge66, %711
+  %.pre-phi75 = phi i64 [ %.pre74, %._crit_edge66 ], [ %713, %711 ]
   store i64 0, ptr %708, align 8
   %718 = getelementptr inbounds nuw i8, ptr %445, i64 56
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %718, i64 %.pre-phi73) #13, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %718, i64 %.pre-phi75) #13, !srcloc !30
   %719 = load ptr, ptr %444, align 8
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 16
   %721 = load ptr, ptr %720, align 8
@@ -1363,10 +1363,10 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %727 = load i32, ptr %726, align 4
   %728 = and i32 %727, %725
   store i32 %728, ptr %726, align 4
-  br label %.thread40
+  br label %.thread42
 
-.thread40:                                        ; preds = %561, %722, %.thread38, %.thread38, %536, %527, %522, %516, %506
-  %729 = phi i32 [ %507, %506 ], [ %507, %516 ], [ %507, %522 ], [ %507, %527 ], [ %707, %722 ], [ %705, %.thread38 ], [ %705, %.thread38 ], [ %539, %536 ], [ -1, %561 ]
+.thread42:                                        ; preds = %561, %722, %.thread40, %.thread40, %536, %527, %522, %516, %506
+  %729 = phi i32 [ %507, %506 ], [ %507, %516 ], [ %507, %522 ], [ %507, %527 ], [ %707, %722 ], [ %705, %.thread40 ], [ %705, %.thread40 ], [ %539, %536 ], [ -1, %561 ]
   %730 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %731 = load i32, ptr %730, align 8
   %732 = zext nneg i16 %392 to i32
@@ -1378,7 +1378,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %738 = icmp eq i32 %737, -1
   br i1 %738, label %1050, label %739
 
-739:                                              ; preds = %.thread40
+739:                                              ; preds = %.thread42
   store i32 %737, ptr %4, align 1
   %740 = icmp eq i16 %2, 2
   br i1 %740, label %741, label %1050
@@ -1522,7 +1522,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %826 = load i32, ptr %825, align 4
   %827 = or i32 %826, %824
   store i32 %827, ptr %825, align 4
-  br label %.thread41
+  br label %.thread43
 
 828:                                              ; preds = %779
   %829 = load ptr, ptr %773, align 8
@@ -1541,7 +1541,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %834, ptr elementtype(i32) %835) #13, !srcloc !12
   %836 = load ptr, ptr %773, align 8
   %837 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %836) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 838:                                              ; preds = %828
   %839 = load ptr, ptr %773, align 8
@@ -1552,14 +1552,14 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %842, ptr elementtype(i32) %843) #13, !srcloc !12
   %844 = load ptr, ptr %773, align 8
   %845 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %844) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 846:                                              ; preds = %828
   %847 = getelementptr inbounds nuw i8, ptr %15, i64 672
   %848 = load i32, ptr %847, align 8
   %849 = and i32 %848, 8
   %850 = icmp eq i32 %849, 0
-  br i1 %850, label %.thread41, label %851
+  br i1 %850, label %.thread43, label %851
 
 851:                                              ; preds = %846
   %852 = and i32 %830, 1
@@ -1581,12 +1581,12 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %861, ptr elementtype(i32) %862) #13, !srcloc !12
   %863 = load ptr, ptr %773, align 8
   %864 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %863) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 865:                                              ; preds = %828
   %866 = and i32 %830, 2
   %867 = icmp eq i32 %866, 0
-  br i1 %867, label %.thread41, label %868
+  br i1 %867, label %.thread43, label %868
 
 868:                                              ; preds = %865
   %869 = icmp samesign ugt i16 %763, 96
@@ -1601,7 +1601,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   br label %1050
 
 875:                                              ; preds = %868
-  switch i16 %763, label %.thread41 [
+  switch i16 %763, label %.thread43 [
     i16 0, label %876
     i16 96, label %897
   ]
@@ -1609,7 +1609,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
 876:                                              ; preds = %875
   %877 = and i32 %830, 480
   switch i32 %877, label %880 [
-    i32 0, label %.thread41
+    i32 0, label %.thread43
     i32 480, label %878
     i32 256, label %878
     i32 96, label %878
@@ -1642,7 +1642,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
 
 889:                                              ; preds = %888
   %890 = icmp samesign ugt i32 %877, 96
-  br i1 %890, label %1050, label %.thread41
+  br i1 %890, label %1050, label %.thread43
 
 891:                                              ; preds = %888, %888, %888
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %34, i64 noundef %35) #13
@@ -1652,7 +1652,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   store i64 %894, ptr %8, align 8
   %895 = load ptr, ptr %773, align 8
   %896 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %895) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 897:                                              ; preds = %875
   %898 = tail call i32 @xhci_find_slot_id_by_port(ptr noundef %0, ptr noundef nonnull %16, i16 noundef zeroext %32)
@@ -1701,11 +1701,11 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %925 = load i32, ptr %924, align 4
   %926 = or i32 %925, %923
   store i32 %926, ptr %924, align 4
-  br label %.thread41
+  br label %.thread43
 
 927:                                              ; preds = %779
   call fastcc void @xhci_set_port_power(ptr noundef nonnull %16, ptr noundef %773, i1 noundef zeroext true, ptr noundef nonnull %8)
-  br label %.thread41
+  br label %.thread43
 
 928:                                              ; preds = %779
   %929 = or disjoint i32 %780, 16
@@ -1713,13 +1713,13 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %929, ptr elementtype(i32) %930) #13, !srcloc !12
   %931 = load ptr, ptr %773, align 8
   %932 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %931) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 933:                                              ; preds = %779
   tail call fastcc void @xhci_set_remote_wake_mask(ptr noundef %773, i16 noundef zeroext %764)
   %934 = load ptr, ptr %773, align 8
   %935 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %934) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 936:                                              ; preds = %779
   %937 = or disjoint i32 %780, -2147483648
@@ -1727,7 +1727,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %937, ptr elementtype(i32) %938) #13, !srcloc !12
   %939 = load ptr, ptr %773, align 8
   %940 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %939) #13, !srcloc !11
-  br label %.thread41
+  br label %.thread43
 
 941:                                              ; preds = %779
   %942 = load i32, ptr %24, align 8
@@ -1744,7 +1744,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %951 = load ptr, ptr %773, align 8
   %952 = getelementptr i8, ptr %951, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %950, ptr elementtype(i32) %952) #13, !srcloc !12
-  br label %.thread41
+  br label %.thread43
 
 953:                                              ; preds = %779
   %954 = load i32, ptr %24, align 8
@@ -1761,7 +1761,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %963 = load ptr, ptr %773, align 8
   %964 = getelementptr i8, ptr %963, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %962, ptr elementtype(i32) %964) #13, !srcloc !12
-  br label %.thread41
+  br label %.thread43
 
 965:                                              ; preds = %779
   %966 = load i32, ptr %24, align 8
@@ -1773,9 +1773,9 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
 
 971:                                              ; preds = %965
   %972 = call fastcc i32 @xhci_enter_test_mode(ptr noundef nonnull %16, i16 noundef zeroext %765, i16 noundef zeroext %774, ptr noundef nonnull %8)
-  br label %.thread41
+  br label %.thread43
 
-.thread41:                                        ; preds = %889, %876, %891, %971, %956, %944, %936, %933, %928, %927, %918, %875, %865, %857, %846, %838, %832, %813
+.thread43:                                        ; preds = %889, %876, %891, %971, %956, %944, %936, %933, %928, %927, %918, %875, %865, %857, %846, %838, %832, %813
   %973 = phi i32 [ %972, %971 ], [ 0, %956 ], [ 0, %944 ], [ 0, %936 ], [ 0, %933 ], [ 0, %928 ], [ 0, %927 ], [ 0, %832 ], [ 0, %838 ], [ 0, %857 ], [ 0, %846 ], [ 0, %918 ], [ 0, %813 ], [ -19, %865 ], [ 0, %875 ], [ 0, %891 ], [ %877, %876 ], [ 0, %889 ]
   %974 = load ptr, ptr %773, align 8
   %975 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %974) #13, !srcloc !11
@@ -1806,7 +1806,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %991 = and i32 %987, 1308688361
   switch i16 %2, label %1050 [
     i16 2, label %992
-    i16 18, label %.thread42
+    i16 18, label %.thread44
     i16 20, label %1033
     i16 29, label %1033
     i16 16, label %1033
@@ -1832,7 +1832,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   br i1 %999, label %1000, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %997
-  %.pre74 = zext nneg i16 %985 to i32
+  %.pre76 = zext nneg i16 %985 to i32
   br label %1018
 
 1000:                                             ; preds = %997
@@ -1867,8 +1867,8 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   br label %1018
 
 1018:                                             ; preds = %._crit_edge, %1003
-  %.pre-phi75 = phi i32 [ %.pre74, %._crit_edge ], [ %1006, %1003 ]
-  %1019 = shl nuw i32 1, %.pre-phi75
+  %.pre-phi77 = phi i32 [ %.pre76, %._crit_edge ], [ %1006, %1003 ]
+  %1019 = shl nuw i32 1, %.pre-phi77
   %1020 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %1021 = load i32, ptr %1020, align 8
   %1022 = or i32 %1021, %1019
@@ -1881,7 +1881,7 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   tail call void @xhci_ring_device(ptr noundef nonnull %16, i32 noundef %1023)
   br label %1050
 
-.thread42:                                        ; preds = %990
+.thread44:                                        ; preds = %990
   %1026 = zext nneg i16 %985 to i32
   %1027 = shl nuw i32 1, %1026
   %1028 = xor i32 %1027, -1
@@ -1923,9 +1923,9 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
 1040:                                             ; preds = %1033
   br label %1041
 
-1041:                                             ; preds = %.thread42, %1040, %1039, %1038, %1037, %1036, %1035, %1033
-  %1042 = phi ptr [ %1034, %1040 ], [ %1034, %1038 ], [ %1034, %1037 ], [ %1034, %1036 ], [ %1034, %1035 ], [ %1034, %1033 ], [ %1032, %.thread42 ], [ %1034, %1039 ]
-  %1043 = phi i32 [ 8388608, %1040 ], [ 262144, %1038 ], [ 1048576, %1037 ], [ 131072, %1036 ], [ 524288, %1035 ], [ 2097152, %1033 ], [ 4194304, %.thread42 ], [ 4194304, %1039 ]
+1041:                                             ; preds = %.thread44, %1040, %1039, %1038, %1037, %1036, %1035, %1033
+  %1042 = phi ptr [ %1034, %1040 ], [ %1034, %1038 ], [ %1034, %1037 ], [ %1034, %1036 ], [ %1034, %1035 ], [ %1034, %1033 ], [ %1032, %.thread44 ], [ %1034, %1039 ]
+  %1043 = phi i32 [ 8388608, %1040 ], [ 262144, %1038 ], [ 1048576, %1037 ], [ 131072, %1036 ], [ 524288, %1035 ], [ 2097152, %1033 ], [ 4194304, %.thread44 ], [ 4194304, %1039 ]
   %1044 = or disjoint i32 %1043, %991
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1044, ptr elementtype(i32) %1042) #13, !srcloc !12
   %1045 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1042) #13, !srcloc !11
@@ -1943,12 +1943,12 @@ default.unreachable:                              ; preds = %.loopexit44._crit_e
   %1049 = tail call fastcc i32 @xhci_exit_test_mode(ptr noundef nonnull %16)
   br label %1050
 
-1050:                                             ; preds = %889, %1048, %1047, %1046, %1041, %1033, %1025, %1018, %1000, %992, %990, %989, %976, %.thread41, %965, %953, %941, %870, %854, %810, %802, %779, %778, %761, %749, %746, %739, %.thread40, %390, %378, %146, %143, %.loopexit43, %.loopexit, %40, %36, %22
-  %1051 = phi i32 [ -19, %989 ], [ %1049, %1048 ], [ 0, %1047 ], [ 0, %1046 ], [ 0, %1025 ], [ -19, %778 ], [ %973, %.thread41 ], [ -19, %390 ], [ 0, %739 ], [ 0, %36 ], [ -22, %746 ], [ 0, %749 ], [ -32, %22 ], [ -32, %990 ], [ -32, %1018 ], [ -32, %1000 ], [ -32, %992 ], [ -32, %976 ], [ -32, %779 ], [ -32, %965 ], [ -32, %953 ], [ -32, %941 ], [ -32, %761 ], [ -32, %.thread40 ], [ -32, %378 ], [ -32, %146 ], [ -32, %143 ], [ -32, %40 ], [ -32, %870 ], [ -32, %854 ], [ -32, %810 ], [ -32, %802 ], [ 0, %.loopexit ], [ 0, %.loopexit43 ], [ 0, %1033 ], [ 0, %1041 ], [ -32, %889 ]
+1050:                                             ; preds = %889, %1048, %1047, %1046, %1041, %1033, %1025, %1018, %1000, %992, %990, %989, %976, %.thread43, %965, %953, %941, %870, %854, %810, %802, %779, %778, %761, %749, %746, %739, %.thread42, %390, %378, %146, %143, %.loopexit45, %.loopexit, %40, %36, %22
+  %1051 = phi i32 [ -19, %989 ], [ %1049, %1048 ], [ 0, %1047 ], [ 0, %1046 ], [ 0, %1025 ], [ -19, %778 ], [ %973, %.thread43 ], [ -19, %390 ], [ 0, %739 ], [ 0, %36 ], [ -22, %746 ], [ 0, %749 ], [ -32, %22 ], [ -32, %990 ], [ -32, %1018 ], [ -32, %1000 ], [ -32, %992 ], [ -32, %976 ], [ -32, %779 ], [ -32, %965 ], [ -32, %953 ], [ -32, %941 ], [ -32, %761 ], [ -32, %.thread42 ], [ -32, %378 ], [ -32, %146 ], [ -32, %143 ], [ -32, %40 ], [ -32, %870 ], [ -32, %854 ], [ -32, %810 ], [ -32, %802 ], [ 0, %.loopexit ], [ 0, %.loopexit45 ], [ 0, %1033 ], [ 0, %1041 ], [ -32, %889 ]
   %1052 = load i64, ptr %8, align 8
   br label %1053
 
-1053:                                             ; preds = %375, %1050
+1053:                                             ; preds = %1050, %375
   %1054 = phi i64 [ %1052, %1050 ], [ %35, %375 ]
   %1055 = phi i32 [ %1051, %1050 ], [ %377, %375 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %34, i64 noundef %1054) #13
@@ -2035,19 +2035,19 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
   %36 = getelementptr i8, ptr %6, i64 48
   br label %37
 
-37:                                               ; preds = %.thread, %32
-  %38 = phi i64 [ 30, %32 ], [ %61, %.thread ]
+37:                                               ; preds = %61, %32
+  %38 = phi i64 [ 30, %32 ], [ %62, %61 ]
   %.idx = mul nuw nsw i64 %38, 144
   %39 = getelementptr i8, ptr %36, i64 %.idx
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %61, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread, label %46
+  br i1 %45, label %61, label %46
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %35, align 8
@@ -2056,7 +2056,7 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 7
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %53, label %.thread
+  br i1 %52, label %53, label %61
 
 53:                                               ; preds = %46
   %54 = tail call ptr @xhci_alloc_command(ptr noundef %0, i1 noundef zeroext false, i32 noundef 10240) #13
@@ -2065,55 +2065,55 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
 
 56:                                               ; preds = %53
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #13
-  br label %77
+  br label %.thread
 
 57:                                               ; preds = %53
   %58 = tail call i32 @xhci_queue_stop_endpoint(ptr noundef %0, ptr noundef nonnull %54, i32 noundef %1, i32 noundef %48, i32 noundef 1) #13
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread, label %60
+  br i1 %59, label %61, label %60
 
 60:                                               ; preds = %57
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #13
   tail call void @xhci_free_command(ptr noundef %0, ptr noundef nonnull %54) #13
-  br label %77
+  br label %.thread
 
-.thread:                                          ; preds = %57, %46, %42, %37
-  %61 = add nsw i64 %38, -1
-  %62 = icmp ugt i64 %38, 1
-  br i1 %62, label %37, label %63, !llvm.loop !38
+61:                                               ; preds = %46, %57, %42, %37
+  %62 = add nsw i64 %38, -1
+  %63 = icmp ugt i64 %38, 1
+  br i1 %63, label %37, label %64, !llvm.loop !38
 
-63:                                               ; preds = %.thread
-  %64 = tail call i32 @xhci_queue_stop_endpoint(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %1, i32 noundef 0, i32 noundef 1) #13
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %67, label %66
+64:                                               ; preds = %61
+  %65 = tail call i32 @xhci_queue_stop_endpoint(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %1, i32 noundef 0, i32 noundef 1) #13
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %68, label %67
 
-66:                                               ; preds = %63
+67:                                               ; preds = %64
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #13
-  br label %77
+  br label %.thread
 
-67:                                               ; preds = %63
+68:                                               ; preds = %64
   tail call void @xhci_ring_cmd_db(ptr noundef %0) #13
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %33, i64 noundef %34) #13
-  %68 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %69 = load ptr, ptr %68, align 8
-  tail call void @wait_for_completion(ptr noundef %69) #13
-  %70 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %71 = load i32, ptr %70, align 8
-  %72 = and i32 %71, -2
-  %73 = icmp eq i32 %72, 24
-  br i1 %73, label %74, label %77
+  %69 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %70 = load ptr, ptr %69, align 8
+  tail call void @wait_for_completion(ptr noundef %70) #13
+  %71 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %72 = load i32, ptr %71, align 8
+  %73 = and i32 %72, -2
+  %74 = icmp eq i32 %73, 24
+  br i1 %74, label %75, label %.thread
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %0, align 8
-  %76 = load ptr, ptr %75, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %76, ptr noundef nonnull @.str.10) #14
-  br label %77
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %0, align 8
+  %77 = load ptr, ptr %76, align 8
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %77, ptr noundef nonnull @.str.10) #14
+  br label %.thread
 
-77:                                               ; preds = %56, %60, %74, %67, %66
+.thread:                                          ; preds = %56, %60, %75, %68, %67
   tail call void @xhci_free_command(ptr noundef %0, ptr noundef nonnull %30) #13
   br label %78
 
-78:                                               ; preds = %77, %29, %2
+78:                                               ; preds = %.thread, %29, %2
   ret void
 }
 

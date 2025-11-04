@@ -2953,7 +2953,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %29 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %28, i32 noundef 3520, i64 noundef 72) #14
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit25.loopexit, label %31
+  br i1 %30, label %.loopexit24.loopexit, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -3011,7 +3011,7 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
 .critedge:                                        ; preds = %54, %58, %51
   %62 = load volatile ptr, ptr %3, align 8
   %63 = icmp eq ptr %62, %3
-  br i1 %63, label %.loopexit, label %64
+  br i1 %63, label %free_list.exit, label %64
 
 64:                                               ; preds = %.critedge
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -3030,14 +3030,14 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
 70:                                               ; preds = %64
   %71 = load volatile ptr, ptr %5, align 8
   %72 = icmp eq ptr %71, %5
-  br i1 %72, label %73, label %.loopexit25
+  br i1 %72, label %73, label %.loopexit24
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %3, align 8
   %75 = icmp eq ptr %74, %3
-  br i1 %75, label %.loopexit24, label %.preheader23
+  br i1 %75, label %.loopexit23, label %.preheader22
 
-.preheader23:                                     ; preds = %73, %84
+.preheader22:                                     ; preds = %73, %84
   %76 = phi ptr [ %86, %84 ], [ %74, %73 ]
   %77 = phi ptr [ %85, %84 ], [ %10, %73 ]
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -3045,30 +3045,30 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   %80 = icmp eq ptr %77, %79
   br i1 %80, label %84, label %81
 
-81:                                               ; preds = %.preheader23
+81:                                               ; preds = %.preheader22
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %83 = load ptr, ptr %82, align 8
   call void @pcibios_setup_bridge(ptr noundef %83, i64 noundef 8960)
   call fastcc void @__pci_setup_bridge(ptr noundef %83, i64 noundef 8960)
   br label %84
 
-84:                                               ; preds = %81, %.preheader23
-  %85 = phi ptr [ %77, %.preheader23 ], [ %79, %81 ]
+84:                                               ; preds = %81, %.preheader22
+  %85 = phi ptr [ %77, %.preheader22 ], [ %79, %81 ]
   %86 = load ptr, ptr %76, align 8
   %87 = icmp eq ptr %86, %3
-  br i1 %87, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !49
+  br i1 %87, label %.loopexit23.loopexit, label %.preheader22, !llvm.loop !49
 
-.loopexit24.loopexit:                             ; preds = %84
+.loopexit23.loopexit:                             ; preds = %84
   %.pre = load ptr, ptr %3, align 8
-  br label %.loopexit24
+  br label %.loopexit23
 
-.loopexit24:                                      ; preds = %.loopexit24.loopexit, %73
-  %88 = phi ptr [ %.pre, %.loopexit24.loopexit ], [ %74, %73 ]
+.loopexit23:                                      ; preds = %.loopexit23.loopexit, %73
+  %88 = phi ptr [ %.pre, %.loopexit23.loopexit ], [ %74, %73 ]
   %89 = icmp eq ptr %88, %3
-  br i1 %89, label %.loopexit, label %.preheader.i
+  br i1 %89, label %free_list.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit24, %.preheader.i
-  %90 = phi ptr [ %91, %.preheader.i ], [ %88, %.loopexit24 ]
+.preheader.i:                                     ; preds = %.loopexit23, %.preheader.i
+  %90 = phi ptr [ %91, %.preheader.i ], [ %88, %.loopexit23 ]
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load ptr, ptr %92, align 8
@@ -3079,20 +3079,20 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %92, align 8
   call void @kfree(ptr noundef %90) #13
   %95 = icmp eq ptr %91, %3
-  br i1 %95, label %.loopexit, label %.preheader.i, !llvm.loop !32
+  br i1 %95, label %free_list.exit, label %.preheader.i, !llvm.loop !32
 
-.loopexit25.loopexit:                             ; preds = %27
-  %.pre48 = load ptr, ptr %5, align 8
-  br label %.loopexit25
+.loopexit24.loopexit:                             ; preds = %27
+  %.pre47 = load ptr, ptr %5, align 8
+  br label %.loopexit24
 
-.loopexit25:                                      ; preds = %.loopexit25.loopexit, %70
-  %96 = phi ptr [ %71, %70 ], [ %.pre48, %.loopexit25.loopexit ]
-  %97 = phi i32 [ -28, %70 ], [ -12, %.loopexit25.loopexit ]
+.loopexit24:                                      ; preds = %.loopexit24.loopexit, %70
+  %96 = phi ptr [ %71, %70 ], [ %.pre47, %.loopexit24.loopexit ]
+  %97 = phi i32 [ -28, %70 ], [ -12, %.loopexit24.loopexit ]
   %98 = icmp eq ptr %96, %5
-  br i1 %98, label %.loopexit21, label %.preheader20
+  br i1 %98, label %.loopexit20, label %.preheader19
 
-.preheader20:                                     ; preds = %.loopexit25, %.preheader20
-  %99 = phi ptr [ %110, %.preheader20 ], [ %96, %.loopexit25 ]
+.preheader19:                                     ; preds = %.loopexit24, %.preheader19
+  %99 = phi ptr [ %110, %.preheader19 ], [ %96, %.loopexit24 ]
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
@@ -3108,19 +3108,19 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store i64 %108, ptr %109, align 8
   %110 = load ptr, ptr %99, align 8
   %111 = icmp eq ptr %110, %5
-  br i1 %111, label %.loopexit21.loopexit, label %.preheader20, !llvm.loop !50
+  br i1 %111, label %.loopexit20.loopexit, label %.preheader19, !llvm.loop !50
 
-.loopexit21.loopexit:                             ; preds = %.preheader20
-  %.pre49 = load ptr, ptr %5, align 8
-  br label %.loopexit21
+.loopexit20.loopexit:                             ; preds = %.preheader19
+  %.pre48 = load ptr, ptr %5, align 8
+  br label %.loopexit20
 
-.loopexit21:                                      ; preds = %.loopexit21.loopexit, %.loopexit25
-  %112 = phi ptr [ %.pre49, %.loopexit21.loopexit ], [ %96, %.loopexit25 ]
+.loopexit20:                                      ; preds = %.loopexit20.loopexit, %.loopexit24
+  %112 = phi ptr [ %.pre48, %.loopexit20.loopexit ], [ %96, %.loopexit24 ]
   %113 = icmp eq ptr %112, %5
-  br i1 %113, label %.loopexit19, label %.preheader18
+  br i1 %113, label %.loopexit18, label %.preheader17
 
-.preheader18:                                     ; preds = %.loopexit21, %.preheader18
-  %114 = phi ptr [ %115, %.preheader18 ], [ %112, %.loopexit21 ]
+.preheader17:                                     ; preds = %.loopexit20, %.preheader17
+  %114 = phi ptr [ %115, %.preheader17 ], [ %112, %.loopexit20 ]
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8
@@ -3131,15 +3131,15 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %116, align 8
   call void @kfree(ptr noundef %114) #13
   %119 = icmp eq ptr %115, %5
-  br i1 %119, label %.loopexit19, label %.preheader18, !llvm.loop !32
+  br i1 %119, label %.loopexit18, label %.preheader17, !llvm.loop !32
 
-.loopexit19:                                      ; preds = %.preheader18, %.loopexit21
+.loopexit18:                                      ; preds = %.preheader17, %.loopexit20
   %120 = load ptr, ptr %3, align 8
   %121 = icmp eq ptr %120, %3
-  br i1 %121, label %.loopexit17, label %.preheader16
+  br i1 %121, label %.loopexit, label %.preheader16
 
-.preheader16:                                     ; preds = %.loopexit19, %.preheader16
-  %122 = phi ptr [ %144, %.preheader16 ], [ %120, %.loopexit19 ]
+.preheader16:                                     ; preds = %.loopexit18, %.preheader16
+  %122 = phi ptr [ %144, %.preheader16 ], [ %120, %.loopexit18 ]
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 24
@@ -3168,19 +3168,19 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   call fastcc void @__pci_setup_bridge(ptr noundef %143, i64 noundef 8960)
   %144 = load ptr, ptr %122, align 8
   %145 = icmp eq ptr %144, %3
-  br i1 %145, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !51
+  br i1 %145, label %.loopexit.loopexit, label %.preheader16, !llvm.loop !51
 
-.loopexit17.loopexit:                             ; preds = %.preheader16
-  %.pre50 = load ptr, ptr %3, align 8
-  br label %.loopexit17
+.loopexit.loopexit:                               ; preds = %.preheader16
+  %.pre49 = load ptr, ptr %3, align 8
+  br label %.loopexit
 
-.loopexit17:                                      ; preds = %.loopexit17.loopexit, %.loopexit19
-  %146 = phi ptr [ %.pre50, %.loopexit17.loopexit ], [ %120, %.loopexit19 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit18
+  %146 = phi ptr [ %.pre49, %.loopexit.loopexit ], [ %120, %.loopexit18 ]
   %147 = icmp eq ptr %146, %3
-  br i1 %147, label %.loopexit, label %.preheader
+  br i1 %147, label %free_list.exit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit17, %.preheader
-  %148 = phi ptr [ %149, %.preheader ], [ %146, %.loopexit17 ]
+.preheader:                                       ; preds = %.loopexit, %.preheader
+  %148 = phi ptr [ %149, %.preheader ], [ %146, %.loopexit ]
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %151 = load ptr, ptr %150, align 8
@@ -3191,10 +3191,10 @@ define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr nounde
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %150, align 8
   call void @kfree(ptr noundef %148) #13
   %153 = icmp eq ptr %149, %3
-  br i1 %153, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %153, label %free_list.exit, label %.preheader, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.preheader.i, %.preheader, %.critedge, %.loopexit17, %.loopexit24
-  %154 = phi i32 [ -2, %.critedge ], [ %97, %.loopexit17 ], [ 0, %.loopexit24 ], [ %97, %.preheader ], [ 0, %.preheader.i ]
+free_list.exit:                                   ; preds = %.preheader.i, %.preheader, %.loopexit23, %.loopexit, %.critedge
+  %154 = phi i32 [ -2, %.critedge ], [ %97, %.loopexit ], [ 0, %.loopexit23 ], [ %97, %.preheader ], [ 0, %.preheader.i ]
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

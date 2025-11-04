@@ -133,12 +133,12 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 10:                                               ; preds = %.loopexit, %37
   %11 = load ptr, ptr @bio_err, align 8, !tbaa !9
   %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %11, ptr noundef nonnull @.str.48, ptr noundef %6) #7
-  br label %.thread149
+  br label %.thread150
 
 13:                                               ; preds = %7
   store ptr %8, ptr %3, align 8
   tail call void @opt_help(ptr noundef nonnull @passwd_options) #7
-  br label %.thread149
+  br label %.thread150
 
 14:                                               ; preds = %7
   %.not136 = icmp eq i32 %.095, 0
@@ -204,12 +204,12 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 29:                                               ; preds = %7, %7
   %30 = tail call i32 @opt_rand(i32 noundef %9) #7
   %.not128 = icmp eq i32 %30, 0
-  br i1 %.not128, label %.thread149.loopexit154, label %.backedge
+  br i1 %.not128, label %.thread150.loopexit155, label %.backedge
 
 31:                                               ; preds = %7, %7, %7, %7
   %32 = tail call i32 @opt_provider(i32 noundef %9) #7
   %.not129 = icmp eq i32 %32, 0
-  br i1 %.not129, label %.thread149.loopexit154, label %.backedge
+  br i1 %.not129, label %.thread150.loopexit155, label %.backedge
 
 33:                                               ; preds = %7
   store ptr %8, ptr %3, align 8
@@ -227,7 +227,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   %.0103 = phi ptr [ null, %33 ], [ %35, %37 ]
   %39 = tail call i32 @app_RAND_load() #7
   %.not117 = icmp eq i32 %39, 0
-  br i1 %.not117, label %.thread149, label %40
+  br i1 %.not117, label %.thread150, label %40
 
 40:                                               ; preds = %38
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.082, i32 1)
@@ -239,44 +239,44 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 43:                                               ; preds = %40
   %44 = load ptr, ptr @bio_err, align 8, !tbaa !9
   %45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.49, ptr noundef %6) #7
-  br label %.thread149
+  br label %.thread150
 
 46:                                               ; preds = %40
   %or.cond4 = or i1 %41, %42
-  br i1 %or.cond4, label %47, label %.thread223
+  br i1 %or.cond4, label %47, label %.thread224
 
 47:                                               ; preds = %46
   %48 = tail call ptr @bio_open_default(ptr noundef %.0107, i8 noundef signext 114, i32 noundef 32769) #7
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread149, label %50
+  br i1 %49, label %.thread150, label %50
 
 50:                                               ; preds = %47
   %51 = icmp eq ptr %.0103, null
-  br i1 %51, label %53, label %.preheader151
+  br i1 %51, label %53, label %.preheader152
 
-.thread223:                                       ; preds = %46
+.thread224:                                       ; preds = %46
   %52 = icmp eq ptr %.0103, null
   br i1 %52, label %55, label %.thread..preheader_crit_edge
 
-.thread..preheader_crit_edge:                     ; preds = %.thread223
+.thread..preheader_crit_edge:                     ; preds = %.thread224
   %.pre.pre = load ptr, ptr %.0103, align 8, !tbaa !4
   br label %.preheader
 
 53:                                               ; preds = %50
   %54 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.50) #7
-  br label %.preheader151
+  br label %.preheader152
 
-.preheader151:                                    ; preds = %53, %50
-  %.1102140142.ph = phi ptr [ %54, %53 ], [ null, %50 ]
+.preheader152:                                    ; preds = %53, %50
+  %.1102141143.ph = phi ptr [ %54, %53 ], [ null, %50 ]
   br label %68
 
-55:                                               ; preds = %.thread223
+55:                                               ; preds = %.thread224
   %56 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.50) #7
   %57 = or i32 %.091, %.093
   %58 = xor i32 %57, 1
   %59 = tail call i32 @EVP_read_pw_string(ptr noundef %56, i32 noundef 258, ptr noundef nonnull @.str.51, i32 noundef %58) #7
   %.not121 = icmp eq i32 %59, 0
-  br i1 %.not121, label %60, label %.thread149
+  br i1 %.not121, label %60, label %.thread150
 
 60:                                               ; preds = %55
   store ptr %56, ptr @passwd_main.passwds_static, align 16, !tbaa !4
@@ -284,7 +284,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %.thread..preheader_crit_edge, %60
   %.pre = phi ptr [ %.pre.pre, %.thread..preheader_crit_edge ], [ %56, %60 ]
-  %.1102140143.ph = phi ptr [ null, %.thread..preheader_crit_edge ], [ %56, %60 ]
+  %.1102141144.ph = phi ptr [ null, %.thread..preheader_crit_edge ], [ %56, %60 ]
   %.2105.ph = phi ptr [ %.0103, %.thread..preheader_crit_edge ], [ @passwd_main.passwds_static, %60 ]
   br label %61
 
@@ -294,21 +294,21 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   %63 = load ptr, ptr @bio_out, align 8, !tbaa !9
   %64 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef %62, ptr noundef %63, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
   %.not126 = icmp eq i32 %64, 0
-  br i1 %.not126, label %.thread149, label %65
+  br i1 %.not126, label %.thread150, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %.2105, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %.not127 = icmp eq ptr %67, null
-  br i1 %.not127, label %.thread149, label %61, !llvm.loop !13
+  br i1 %.not127, label %.thread150, label %61, !llvm.loop !13
 
-68:                                               ; preds = %81, %.preheader151
-  %69 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef %.1102140142.ph, i32 noundef 257) #7
+68:                                               ; preds = %81, %.preheader152
+  %69 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef %.1102141143.ph, i32 noundef 257) #7
   %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %.thread149
+  br i1 %70, label %71, label %.thread150
 
 71:                                               ; preds = %68
-  %72 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1102140142.ph, i32 noundef 10) #8
+  %72 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1102141143.ph, i32 noundef 10) #8
   %.not122 = icmp eq ptr %72, null
   br i1 %.not122, label %74, label %73
 
@@ -338,23 +338,23 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 81:                                               ; preds = %.critedge, %73
   %.178 = phi i1 [ false, %73 ], [ %80, %.critedge ]
   %82 = load ptr, ptr @bio_out, align 8, !tbaa !9
-  %83 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %.1102140142.ph, ptr noundef %82, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
+  %83 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %.1102141143.ph, ptr noundef %82, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
   %.not124.not = icmp eq i32 %83, 0
   %brmerge = or i1 %.not124.not, %.178
-  br i1 %brmerge, label %.thread149.loopexit.split.loop.exit, label %68
+  br i1 %brmerge, label %.thread150.loopexit.split.loop.exit, label %68
 
-.thread149.loopexit154:                           ; preds = %29, %31
+.thread150.loopexit155:                           ; preds = %29, %31
   store ptr %8, ptr %3, align 8
-  br label %.thread149
+  br label %.thread150
 
-.thread149.loopexit.split.loop.exit:              ; preds = %81
+.thread150.loopexit.split.loop.exit:              ; preds = %81
   %.mux.le = xor i32 %83, 1
-  br label %.thread149
+  br label %.thread150
 
-.thread149:                                       ; preds = %65, %61, %.thread149.loopexit.split.loop.exit, %68, %.thread149.loopexit154, %55, %47, %38, %43, %13, %10
-  %.0101 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ %56, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %.1102140142.ph, %68 ], [ %.1102140142.ph, %.thread149.loopexit.split.loop.exit ], [ %.1102140143.ph, %61 ], [ %.1102140143.ph, %65 ]
-  %.099 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ null, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %48, %68 ], [ %48, %.thread149.loopexit.split.loop.exit ], [ null, %61 ], [ null, %65 ]
-  %.084 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %43 ], [ 1, %47 ], [ 1, %55 ], [ 1, %38 ], [ 1, %.thread149.loopexit154 ], [ %.mux.le, %.thread149.loopexit.split.loop.exit ], [ 0, %68 ], [ 0, %65 ], [ 1, %61 ]
+.thread150:                                       ; preds = %65, %61, %.thread150.loopexit.split.loop.exit, %68, %.thread150.loopexit155, %55, %47, %38, %43, %13, %10
+  %.0101 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ %56, %55 ], [ null, %38 ], [ null, %.thread150.loopexit155 ], [ %.1102141143.ph, %68 ], [ %.1102141143.ph, %.thread150.loopexit.split.loop.exit ], [ %.1102141144.ph, %61 ], [ %.1102141144.ph, %65 ]
+  %.099 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ null, %55 ], [ null, %38 ], [ null, %.thread150.loopexit155 ], [ %48, %68 ], [ %48, %.thread150.loopexit.split.loop.exit ], [ null, %61 ], [ null, %65 ]
+  %.084 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %43 ], [ 1, %47 ], [ 1, %55 ], [ 1, %38 ], [ 1, %.thread150.loopexit155 ], [ %.mux.le, %.thread150.loopexit.split.loop.exit ], [ 0, %68 ], [ 0, %65 ], [ 1, %61 ]
   %84 = load ptr, ptr %4, align 8, !tbaa !4
   call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str.52, i32 noundef 299) #7
   call void @CRYPTO_free(ptr noundef %.0101, ptr noundef nonnull @.str.52, i32 noundef 300) #7

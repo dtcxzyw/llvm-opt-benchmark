@@ -1979,9 +1979,9 @@ define internal fastcc i32 @cpool_add_pollfds(ptr noundef %0, ptr noundef %1) un
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
-18:                                               ; preds = %.loopexit, %2
-  %.014 = phi i32 [ %.1, %.loopexit ], [ 0, %2 ]
-  ret i32 %.014
+18:                                               ; preds = %2, %.loopexit
+  %.2 = phi i32 [ %.1, %.loopexit ], [ 0, %2 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable

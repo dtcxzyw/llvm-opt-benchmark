@@ -61,10 +61,10 @@ async_unlock.exit:                                ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %18 = load i64, ptr %17, align 8, !tbaa !39
-  %.not80 = icmp eq i64 %18, 0
-  br i1 %.not80, label %.lr.ph81, label %.critedge
+  %.not81 = icmp eq i64 %18, 0
+  br i1 %.not81, label %.lr.ph82, label %.critedge
 
-.lr.ph81:                                         ; preds = %async_unlock.exit
+.lr.ph82:                                         ; preds = %async_unlock.exit
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 240
@@ -84,7 +84,7 @@ async_unlock.exit:                                ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 656
   br label %36
 
-36:                                               ; preds = %.lr.ph81, %214
+36:                                               ; preds = %.lr.ph82, %214
   %37 = load i32, ptr %19, align 8, !tbaa !40
   %.not54 = icmp eq i32 %37, 0
   br i1 %.not54, label %38, label %227
@@ -122,8 +122,8 @@ async_unlock.exit:                                ; preds = %2
   %62 = load ptr, ptr %59, align 8, !tbaa !51
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !52
-  %.not.i61 = icmp eq ptr %64, null
-  br i1 %.not.i61, label %65, label %._crit_edge73.i
+  %.not.i62 = icmp eq ptr %64, null
+  br i1 %.not.i62, label %65, label %._crit_edge73.i
 
 ._crit_edge73.i:                                  ; preds = %44
   %.pre.i = load ptr, ptr %53, align 8, !tbaa !49
@@ -276,7 +276,7 @@ submit_packet.exit.thread:                        ; preds = %72
   br i1 %.not70.i, label %152, label %150
 
 150:                                              ; preds = %145
-  br i1 %149, label %151, label %submit_packet.exit.thread66
+  br i1 %149, label %151, label %submit_packet.exit.thread67
 
 151:                                              ; preds = %150
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4, i32 noundef 548) #11
@@ -284,7 +284,7 @@ submit_packet.exit.thread:                        ; preds = %72
   unreachable
 
 152:                                              ; preds = %145
-  br i1 %149, label %153, label %submit_packet.exit.thread66
+  br i1 %149, label %153, label %submit_packet.exit.thread67
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %50, i64 248
@@ -305,9 +305,9 @@ submit_packet.exit.thread:                        ; preds = %72
   %165 = load ptr, ptr %164, align 8, !tbaa !82
   store ptr %165, ptr %160, align 8, !tbaa !81
   store ptr %161, ptr %164, align 8, !tbaa !82
-  br label %submit_packet.exit.thread66
+  br label %submit_packet.exit.thread67
 
-submit_packet.exit.thread66:                      ; preds = %150, %152, %153
+submit_packet.exit.thread67:                      ; preds = %150, %152, %153
   %166 = getelementptr inbounds nuw i8, ptr %48, i64 292
   store atomic i32 1, ptr %166 seq_cst, align 4
   %167 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -329,7 +329,7 @@ submit_packet.exit:                               ; preds = %141
   %178 = icmp slt i32 %144, 0
   br i1 %178, label %.thread, label %179
 
-179:                                              ; preds = %submit_packet.exit.thread66, %submit_packet.exit
+179:                                              ; preds = %submit_packet.exit.thread67, %submit_packet.exit
   %180 = load i32, ptr %21, align 8, !tbaa !43
   %181 = load i32, ptr %34, align 4, !tbaa !84
   %.not55 = icmp eq i32 %180, %181
@@ -359,8 +359,8 @@ submit_packet.exit:                               ; preds = %141
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 208
   %197 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %196) #11
   %198 = load atomic i32, ptr %193 monotonic, align 4
-  %.not5879 = icmp eq i32 %198, 0
-  br i1 %.not5879, label %._crit_edge, label %.lr.ph
+  %.not5880 = icmp eq i32 %198, 0
+  br i1 %.not5880, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %195
   %199 = getelementptr inbounds nuw i8, ptr %189, i64 120
@@ -430,15 +430,15 @@ submit_packet.exit:                               ; preds = %141
   %228 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #11
   %229 = load i32, ptr %10, align 8, !tbaa !34
   %.not6.i = icmp eq i32 %229, 0
-  br i1 %.not6.i, label %.loopexit, label %.lr.ph.i62
+  br i1 %.not6.i, label %async_lock.exit, label %.lr.ph.i63
 
-.lr.ph.i62:                                       ; preds = %.thread, %.lr.ph.i62
+.lr.ph.i63:                                       ; preds = %.thread, %.lr.ph.i63
   %230 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %13, ptr noundef nonnull %8) #11
   %231 = load i32, ptr %10, align 8, !tbaa !34
-  %.not.i63 = icmp eq i32 %231, 0
-  br i1 %.not.i63, label %.loopexit, label %.lr.ph.i62, !llvm.loop !95
+  %.not.i64 = icmp eq i32 %231, 0
+  br i1 %.not.i64, label %async_lock.exit, label %.lr.ph.i63, !llvm.loop !95
 
-.loopexit:                                        ; preds = %.lr.ph.i62, %.thread
+async_lock.exit:                                  ; preds = %.lr.ph.i63, %.thread
   store i32 1, ptr %10, align 8, !tbaa !34
   %232 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #11
   ret i32 %.1
@@ -2140,8 +2140,8 @@ hwaccel_serial.exit.thread:                       ; preds = %hwaccel_serial.exit
 59:                                               ; preds = %hwaccel_serial.exit.thread
   %60 = add i64 %56, 1
   %61 = call ptr @av_realloc_array(ptr noundef %.pre.i, i64 noundef %60, i64 noundef 8) #11
-  %.not.i68 = icmp eq ptr %61, null
-  br i1 %.not.i68, label %.thread, label %62
+  %.not.i69 = icmp eq ptr %61, null
+  br i1 %.not.i69, label %.thread, label %62
 
 62:                                               ; preds = %59
   store ptr %61, ptr %25, align 8, !tbaa !92
@@ -2261,8 +2261,8 @@ decoded_frames_get_free.exit:                     ; preds = %70
   %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull %112) #11
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 192
   %115 = load i32, ptr %114, align 8, !tbaa !34
-  %.not.i69 = icmp eq i32 %115, 0
-  br i1 %.not.i69, label %116, label %async_unlock.exit
+  %.not.i70 = icmp eq i32 %115, 0
+  br i1 %.not.i70, label %116, label %async_unlock.exit
 
 116:                                              ; preds = %110
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 178) #11

@@ -10484,9 +10484,9 @@ define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %0, ptr noun
   %.sroa.8.0..sroa_idx498 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %.sroa.4548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 160
   %.sroa.5549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %58
@@ -10801,13 +10801,13 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
   br i1 %or.cond, label %260, label %diff384.exit.thread
 
 260:                                              ; preds = %253
-  %.sroa.0547.0.copyload = load <2 x i64>, ptr %56, align 16
+  %.sroa.0547.0.copyload = load <2 x i64>, ptr %55, align 16
   %.sroa.4548.0.copyload = load <2 x i64>, ptr %.sroa.4548.0..sroa_idx, align 16
   %.sroa.5549.0.copyload = load <2 x i64>, ptr %.sroa.5549.0..sroa_idx, align 16
   %261 = or <2 x i64> %.sroa.0547.0.copyload, %.sroa.0216.6
   %262 = or <2 x i64> %.sroa.4548.0.copyload, %.sroa.25.6
   %263 = or <2 x i64> %.sroa.5549.0.copyload, %.sroa.33.6
-  %264 = load ptr, ptr %57, align 8
+  %264 = load ptr, ptr %56, align 8
   %.not54.i = icmp eq ptr %264, null
   br i1 %.not54.i, label %processExceptional384.exit.thread, label %265
 
@@ -11002,9 +11002,9 @@ limexRunReports.exit.i113:                        ; preds = %313, %307
   store <2 x i64> %226, ptr %51, align 32
   store <2 x i64> %227, ptr %.sroa.4561.0..sroa_idx, align 16
   store <2 x i64> %228, ptr %.sroa.5562.0..sroa_idx, align 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %56, ptr noundef nonnull align 16 dereferenceable(48) %52, i64 48, i1 false)
-  store ptr %.sroa.4528.6, ptr %57, align 8
-  store i8 0, ptr %55, align 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %55, ptr noundef nonnull align 16 dereferenceable(48) %52, i64 48, i1 false)
+  store ptr %.sroa.4528.6, ptr %56, align 8
+  store i8 0, ptr %57, align 64
   br label %processExceptional384.exit.thread631
 
 processExceptional384.exit.thread631:             ; preds = %344, %348

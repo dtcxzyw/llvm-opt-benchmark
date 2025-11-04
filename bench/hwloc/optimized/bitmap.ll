@@ -518,7 +518,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_bitmap_sscanf(ptr noundef captures(none) %0, ptr noalias noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_sscanf(ptr noundef captures(none) %0, ptr noalias noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   br label %4
 
@@ -710,7 +710,6 @@ hwloc_flsl_manual.exit.i.i:                       ; preds = %35, %31
     i32 0, label %64
     i32 8, label %86
     i32 9, label %87
-    i32 1, label %hwloc_bitmap_reset_by_ulongs.exit.thread
   ], !llvm.loop !25
 
 86:                                               ; preds = %80, %64
@@ -757,8 +756,8 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
 .unreachabledefault:                              ; preds = %80
   unreachable
 
-hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %80, %54, %hwloc_bitmap_zero.exit, %86, %hwloc_bitmap_fill.exit
-  %.0 = phi i32 [ 0, %86 ], [ -1, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %54 ], [ undef, %80 ]
+hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %54, %hwloc_bitmap_zero.exit, %86, %hwloc_bitmap_fill.exit
+  %.0 = phi i32 [ 0, %86 ], [ -1, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_fill.exit ], [ -1, %54 ]
   ret i32 %.0
 }
 

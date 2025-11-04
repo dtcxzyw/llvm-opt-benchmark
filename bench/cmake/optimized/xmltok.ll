@@ -6409,9 +6409,9 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   br label %14
 
 14:                                               ; preds = %.lr.ph, %96
-  %.04768 = phi ptr [ %7, %.lr.ph ], [ %.2, %96 ]
-  %.04867 = phi ptr [ %6, %.lr.ph ], [ %.250, %96 ]
-  %15 = load i8, ptr %.04768, align 1, !tbaa !9
+  %.04769 = phi ptr [ %7, %.lr.ph ], [ %.2, %96 ]
+  %.04868 = phi ptr [ %6, %.lr.ph ], [ %.250, %96 ]
+  %15 = load i8, ptr %.04769, align 1, !tbaa !9
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !9
@@ -6422,7 +6422,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   ]
 
 19:                                               ; preds = %14
-  %20 = ptrtoint ptr %.04768 to i64
+  %20 = ptrtoint ptr %.04769 to i64
   %21 = sub i64 %13, %20
   %22 = icmp slt i64 %21, 2
   br i1 %22, label %.thread, label %23
@@ -6431,18 +6431,18 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   %24 = and i8 %15, 31
   %25 = zext nneg i8 %24 to i16
   %26 = shl nuw nsw i16 %25, 6
-  %27 = getelementptr inbounds nuw i8, ptr %.04768, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.04769, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !9
   %29 = and i8 %28, 63
   %30 = zext nneg i8 %29 to i16
   %31 = or disjoint i16 %26, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.04867, i64 2
-  store i16 %31, ptr %.04867, align 2, !tbaa !12
-  %33 = getelementptr inbounds nuw i8, ptr %.04768, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.04868, i64 2
+  store i16 %31, ptr %.04868, align 2, !tbaa !12
+  %33 = getelementptr inbounds nuw i8, ptr %.04769, i64 2
   br label %96
 
 34:                                               ; preds = %14
-  %35 = ptrtoint ptr %.04768 to i64
+  %35 = ptrtoint ptr %.04769 to i64
   %36 = sub i64 %13, %35
   %37 = icmp slt i64 %36, 3
   br i1 %37, label %.thread, label %38
@@ -6450,30 +6450,30 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
 38:                                               ; preds = %34
   %39 = zext i8 %15 to i16
   %40 = shl i16 %39, 12
-  %41 = getelementptr inbounds nuw i8, ptr %.04768, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.04769, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !9
   %43 = and i8 %42, 63
   %44 = zext nneg i8 %43 to i16
   %45 = shl nuw nsw i16 %44, 6
   %46 = or disjoint i16 %45, %40
-  %47 = getelementptr inbounds nuw i8, ptr %.04768, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.04769, i64 2
   %48 = load i8, ptr %47, align 1, !tbaa !9
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i16
   %51 = or disjoint i16 %46, %50
-  %52 = getelementptr inbounds nuw i8, ptr %.04867, i64 2
-  store i16 %51, ptr %.04867, align 2, !tbaa !12
-  %53 = getelementptr inbounds nuw i8, ptr %.04768, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.04868, i64 2
+  store i16 %51, ptr %.04868, align 2, !tbaa !12
+  %53 = getelementptr inbounds nuw i8, ptr %.04769, i64 3
   br label %96
 
 54:                                               ; preds = %14
-  %55 = ptrtoint ptr %.04867 to i64
+  %55 = ptrtoint ptr %.04868 to i64
   %56 = sub i64 %12, %55
   %57 = icmp slt i64 %56, 3
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %54
-  %59 = ptrtoint ptr %.04768 to i64
+  %59 = ptrtoint ptr %.04769 to i64
   %60 = sub i64 %13, %59
   %61 = icmp slt i64 %60, 4
   br i1 %61, label %.thread, label %62
@@ -6482,17 +6482,17 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   %63 = and i8 %15, 7
   %64 = zext nneg i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 18
-  %66 = getelementptr inbounds nuw i8, ptr %.04768, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.04769, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !9
   %68 = and i8 %67, 63
   %69 = zext nneg i8 %68 to i64
   %70 = shl nuw nsw i64 %69, 12
-  %71 = getelementptr inbounds nuw i8, ptr %.04768, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.04769, i64 2
   %72 = load i8, ptr %71, align 1, !tbaa !9
   %73 = and i8 %72, 63
   %74 = zext nneg i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 6
-  %76 = getelementptr inbounds nuw i8, ptr %.04768, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.04769, i64 3
   %77 = load i8, ptr %76, align 1, !tbaa !9
   %78 = and i8 %77, 63
   %79 = zext nneg i8 %78 to i64
@@ -6502,21 +6502,21 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   %83 = lshr i64 %82, 10
   %84 = trunc nuw nsw i64 %83 to i16
   %85 = or i16 %84, -10240
-  store i16 %85, ptr %.04867, align 2, !tbaa !12
+  store i16 %85, ptr %.04868, align 2, !tbaa !12
   %86 = or disjoint i64 %75, %79
   %87 = trunc nuw nsw i64 %86 to i16
   %88 = or i16 %87, -9216
-  %89 = getelementptr inbounds nuw i8, ptr %.04867, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.04868, i64 2
   store i16 %88, ptr %89, align 2, !tbaa !12
-  %90 = getelementptr inbounds nuw i8, ptr %.04867, i64 4
-  %91 = getelementptr inbounds nuw i8, ptr %.04768, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.04868, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.04769, i64 4
   br label %96
 
 92:                                               ; preds = %14
-  %93 = getelementptr inbounds nuw i8, ptr %.04768, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.04769, i64 1
   %94 = sext i8 %15 to i16
-  %95 = getelementptr inbounds nuw i8, ptr %.04867, i64 2
-  store i16 %94, ptr %.04867, align 2, !tbaa !12
+  %95 = getelementptr inbounds nuw i8, ptr %.04868, i64 2
+  store i16 %94, ptr %.04868, align 2, !tbaa !12
   br label %96
 
 96:                                               ; preds = %62, %92, %38, %23
@@ -6534,12 +6534,12 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr noundef readonly captures(
   %spec.select = select i1 %.lcssa, i32 2, i32 0
   br label %.thread
 
-.thread:                                          ; preds = %58, %54, %19, %34, %._crit_edge
-  %.04866 = phi ptr [ %.048.lcssa, %._crit_edge ], [ %.04867, %34 ], [ %.04867, %19 ], [ %.04867, %54 ], [ %.04867, %58 ]
-  %.04764 = phi ptr [ %.047.lcssa, %._crit_edge ], [ %.04768, %34 ], [ %.04768, %19 ], [ %.04768, %54 ], [ %.04768, %58 ]
-  %.153 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %58 ], [ 2, %54 ], [ 1, %19 ], [ 1, %34 ]
-  store ptr %.04764, ptr %1, align 8, !tbaa !4
-  store ptr %.04866, ptr %3, align 8, !tbaa !34
+.thread:                                          ; preds = %58, %54, %34, %19, %._crit_edge
+  %.04867 = phi ptr [ %.048.lcssa, %._crit_edge ], [ %.04868, %19 ], [ %.04868, %34 ], [ %.04868, %54 ], [ %.04868, %58 ]
+  %.04765 = phi ptr [ %.047.lcssa, %._crit_edge ], [ %.04769, %19 ], [ %.04769, %34 ], [ %.04769, %54 ], [ %.04769, %58 ]
+  %.153 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %58 ], [ 2, %54 ], [ 1, %34 ], [ 1, %19 ]
+  store ptr %.04765, ptr %1, align 8, !tbaa !4
+  store ptr %.04867, ptr %3, align 8, !tbaa !34
   ret i32 %.153
 }
 

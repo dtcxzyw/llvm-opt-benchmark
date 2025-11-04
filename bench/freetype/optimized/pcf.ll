@@ -1067,12 +1067,12 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   %119 = load ptr, ptr %11, align 8, !tbaa !45
   %120 = load i64, ptr %20, align 8, !tbaa !133
   %.not26.i.i = icmp eq i64 %120, 0
-  br i1 %.not26.i.i, label %.thread126.sink.split.i, label %.lr.ph.i.i
+  br i1 %.not26.i.i, label %.thread127.sink.split.i, label %.lr.ph.i.i
 
 121:                                              ; preds = %.lr.ph.i.i
   %122 = add nuw i64 %.025.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %122, %120
-  br i1 %exitcond.not.i.i, label %.thread126.sink.split.i, label %.lr.ph.i.i, !llvm.loop !134
+  br i1 %exitcond.not.i.i, label %.thread127.sink.split.i, label %.lr.ph.i.i, !llvm.loop !134
 
 .lr.ph.i.i:                                       ; preds = %118, %121
   %.025.i.i = phi i64 [ %122, %121 ], [ 0, %118 ]
@@ -1087,13 +1087,13 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %130 = load i64, ptr %129, align 8, !tbaa !124
   %131 = icmp ugt i64 %128, %130
-  br i1 %131, label %.thread126.sink.split.i, label %132
+  br i1 %131, label %.thread127.sink.split.i, label %132
 
 132:                                              ; preds = %126
   %133 = sub nuw i64 %130, %128
   %134 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %133) #16
   %.not.i.i = icmp eq i32 %134, 0
-  br i1 %.not.i.i, label %135, label %.thread126.sink.split.i
+  br i1 %.not.i.i, label %135, label %.thread127.sink.split.i
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -1129,13 +1129,13 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
 149:                                              ; preds = %147
   %150 = udiv i64 %137, 9
   %151 = icmp samesign ult i64 %150, %.091.i
-  br i1 %151, label %.thread126.sink.split.i, label %152
+  br i1 %151, label %.thread127.sink.split.i, label %152
 
 152:                                              ; preds = %149
-  %..091130.i = call i32 @llvm.umin.i32(i32 %.091.in.i, i32 256)
-  %..091.i = zext nneg i32 %..091130.i to i64
+  %..091131.i = call i32 @llvm.umin.i32(i32 %.091.in.i, i32 256)
+  %..091.i = zext nneg i32 %..091131.i to i64
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  store i32 %..091130.i, ptr %153, align 8, !tbaa !49
+  store i32 %..091131.i, ptr %153, align 8, !tbaa !49
   %154 = call ptr @ft_mem_qrealloc(ptr noundef %119, i64 noundef 24, i64 noundef 0, i64 noundef %..091.i, ptr noundef null, ptr noundef nonnull %7) #16
   %155 = load i32, ptr %7, align 4, !tbaa !101
   %.not99.i = icmp eq i32 %155, 0
@@ -1149,28 +1149,28 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   br i1 %.not97.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i197, %158
-  %.089133.us.i = phi i64 [ %159, %158 ], [ 0, %.lr.ph.i197 ]
-  %156 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.089133.us.i
+  %.089134.us.i = phi i64 [ %159, %158 ], [ 0, %.lr.ph.i197 ]
+  %156 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.089134.us.i
   %157 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull @pcf_property_header, ptr noundef %156) #16
   store i32 %157, ptr %7, align 4, !tbaa !101
   %.not112.us.i = icmp eq i32 %157, 0
   br i1 %.not112.us.i, label %158, label %pcf_get_properties.exit
 
 158:                                              ; preds = %.lr.ph.split.us.i
-  %159 = add nuw nsw i64 %.089133.us.i, 1
-  %exitcond143.not.i = icmp eq i64 %159, %..091.i
-  br i1 %exitcond143.not.i, label %._crit_edge.i198, label %.lr.ph.split.us.i, !llvm.loop !137
+  %159 = add nuw nsw i64 %.089134.us.i, 1
+  %exitcond144.not.i = icmp eq i64 %159, %..091.i
+  br i1 %exitcond144.not.i, label %._crit_edge.i198, label %.lr.ph.split.us.i, !llvm.loop !137
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i197, %162
-  %.089133.i = phi i64 [ %163, %162 ], [ 0, %.lr.ph.i197 ]
-  %160 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.089133.i
+  %.089134.i = phi i64 [ %163, %162 ], [ 0, %.lr.ph.i197 ]
+  %160 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.089134.i
   %161 = call i32 @FT_Stream_ReadFields(ptr noundef nonnull %0, ptr noundef nonnull @pcf_property_msb_header, ptr noundef %160) #16
   store i32 %161, ptr %7, align 4, !tbaa !101
   %.not113.i = icmp eq i32 %161, 0
   br i1 %.not113.i, label %162, label %pcf_get_properties.exit
 
 162:                                              ; preds = %.lr.ph.split.i
-  %163 = add nuw nsw i64 %.089133.i, 1
+  %163 = add nuw nsw i64 %.089134.i, 1
   %exitcond.not.i = icmp eq i64 %163, %..091.i
   br i1 %exitcond.not.i, label %._crit_edge.i198, label %.lr.ph.split.i, !llvm.loop !137
 
@@ -1180,7 +1180,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   %166 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %165) #16
   store i32 %166, ptr %7, align 4, !tbaa !101
   %.not100.i199 = icmp eq i32 %166, 0
-  br i1 %.not100.i199, label %167, label %.thread126.sink.split.i
+  br i1 %.not100.i199, label %167, label %.thread127.sink.split.i
 
 167:                                              ; preds = %._crit_edge.i198
   %168 = and i64 %.091.i, 3
@@ -1192,7 +1192,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   %171 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %170) #16
   store i32 %171, ptr %7, align 4, !tbaa !101
   %.not102.i201 = icmp eq i32 %171, 0
-  br i1 %.not102.i201, label %172, label %.thread126.sink.split.i
+  br i1 %.not102.i201, label %172, label %.thread127.sink.split.i
 
 172:                                              ; preds = %169, %167
   br i1 %.not97.i, label %175, label %173
@@ -1216,7 +1216,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   %.neg.i203 = mul nsw i64 %.091.i, -9
   %180 = add i64 %.neg.i203, %137
   %181 = icmp ult i64 %180, %.088.i
-  br i1 %181, label %.thread126.sink.split.i, label %182
+  br i1 %181, label %.thread127.sink.split.i, label %182
 
 182:                                              ; preds = %179
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.088.i, i64 16777472)
@@ -1243,19 +1243,19 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
 192:                                              ; preds = %188
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 512
   store ptr %190, ptr %193, align 8, !tbaa !48
-  br i1 %.not.i196, label %.thread126.sink.split.i, label %.lr.ph136.i
+  br i1 %.not.i196, label %.thread127.sink.split.i, label %.lr.ph137.i
 
-.lr.ph136.i:                                      ; preds = %192, %.thread128.i
-  %.190134.i = phi i64 [ %217, %.thread128.i ], [ 0, %192 ]
-  %194 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.190134.i
+.lr.ph137.i:                                      ; preds = %192, %.thread129.i
+  %.190135.i = phi i64 [ %217, %.thread129.i ], [ 0, %192 ]
+  %194 = getelementptr inbounds nuw %struct.PCF_ParsePropertyRec_, ptr %154, i64 %.190135.i
   %195 = load i64, ptr %194, align 8, !tbaa !138
   %196 = icmp ugt i64 %195, %spec.store.select.i
-  br i1 %196, label %.thread126.sink.split.i, label %197
+  br i1 %196, label %.thread127.sink.split.i, label %197
 
-197:                                              ; preds = %.lr.ph136.i
+197:                                              ; preds = %.lr.ph137.i
   %198 = getelementptr inbounds nuw i8, ptr %184, i64 %195
   %199 = call ptr @ft_mem_strdup(ptr noundef %119, ptr noundef %198, ptr noundef nonnull %7) #16
-  %200 = getelementptr inbounds nuw %struct.PCF_PropertyRec_, ptr %190, i64 %.190134.i
+  %200 = getelementptr inbounds nuw %struct.PCF_PropertyRec_, ptr %190, i64 %.190135.i
   store ptr %199, ptr %200, align 8, !tbaa !50
   %201 = load i32, ptr %7, align 4, !tbaa !101
   %.not108.i = icmp eq i32 %201, 0
@@ -1273,7 +1273,7 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
 
 208:                                              ; preds = %202
   %209 = icmp ugt i64 %207, %spec.store.select.i
-  br i1 %209, label %.thread126.sink.split.i, label %210
+  br i1 %209, label %.thread127.sink.split.i, label %210
 
 210:                                              ; preds = %208
   %211 = getelementptr inbounds nuw i8, ptr %184, i64 %207
@@ -1282,28 +1282,28 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   store ptr %212, ptr %213, align 8, !tbaa !38
   %214 = load i32, ptr %7, align 4, !tbaa !101
   %.not110.i = icmp eq i32 %214, 0
-  br i1 %.not110.i, label %.thread128.i, label %pcf_get_properties.exit
+  br i1 %.not110.i, label %.thread129.i, label %pcf_get_properties.exit
 
 215:                                              ; preds = %202
   %216 = getelementptr inbounds nuw i8, ptr %200, i64 16
   store i64 %207, ptr %216, align 8, !tbaa !38
-  br label %.thread128.i
+  br label %.thread129.i
 
-.thread128.i:                                     ; preds = %215, %210
-  %217 = add nuw nsw i64 %.190134.i, 1
-  %exitcond144.not.i = icmp eq i64 %217, %..091.i
-  br i1 %exitcond144.not.i, label %.thread126.sink.split.i, label %.lr.ph136.i, !llvm.loop !142
+.thread129.i:                                     ; preds = %215, %210
+  %217 = add nuw nsw i64 %.190135.i, 1
+  %exitcond145.not.i = icmp eq i64 %217, %..091.i
+  br i1 %exitcond145.not.i, label %.thread127.sink.split.i, label %.lr.ph137.i, !llvm.loop !142
 
-.thread126.sink.split.i:                          ; preds = %121, %.thread128.i, %208, %.lr.ph136.i, %192, %179, %169, %._crit_edge.i198, %149, %132, %126, %118
-  %.sink.i = phi i32 [ 3, %118 ], [ 83, %132 ], [ 83, %126 ], [ 8, %149 ], [ 83, %._crit_edge.i198 ], [ 83, %169 ], [ 8, %179 ], [ 0, %192 ], [ 0, %.thread128.i ], [ 9, %208 ], [ 9, %.lr.ph136.i ], [ 3, %121 ]
-  %.087.ph.i = phi ptr [ null, %118 ], [ null, %132 ], [ null, %126 ], [ null, %149 ], [ null, %._crit_edge.i198 ], [ null, %169 ], [ null, %179 ], [ %184, %192 ], [ %184, %.lr.ph136.i ], [ %184, %208 ], [ %184, %.thread128.i ], [ null, %121 ]
-  %.086.ph.i = phi ptr [ null, %118 ], [ null, %132 ], [ null, %126 ], [ null, %149 ], [ %154, %._crit_edge.i198 ], [ %154, %169 ], [ %154, %179 ], [ %154, %192 ], [ %154, %.lr.ph136.i ], [ %154, %208 ], [ %154, %.thread128.i ], [ null, %121 ]
+.thread127.sink.split.i:                          ; preds = %121, %.thread129.i, %208, %.lr.ph137.i, %192, %179, %169, %._crit_edge.i198, %149, %132, %126, %118
+  %.sink.i = phi i32 [ 3, %118 ], [ 83, %132 ], [ 83, %126 ], [ 8, %149 ], [ 83, %._crit_edge.i198 ], [ 83, %169 ], [ 8, %179 ], [ 0, %192 ], [ 0, %.thread129.i ], [ 9, %208 ], [ 9, %.lr.ph137.i ], [ 3, %121 ]
+  %.087.ph.i = phi ptr [ null, %118 ], [ null, %132 ], [ null, %126 ], [ null, %149 ], [ null, %._crit_edge.i198 ], [ null, %169 ], [ null, %179 ], [ %184, %192 ], [ %184, %.lr.ph137.i ], [ %184, %208 ], [ %184, %.thread129.i ], [ null, %121 ]
+  %.086.ph.i = phi ptr [ null, %118 ], [ null, %132 ], [ null, %126 ], [ null, %149 ], [ %154, %._crit_edge.i198 ], [ %154, %169 ], [ %154, %179 ], [ %154, %192 ], [ %154, %.lr.ph137.i ], [ %154, %208 ], [ %154, %.thread129.i ], [ null, %121 ]
   store i32 %.sink.i, ptr %7, align 4, !tbaa !101
   br label %pcf_get_properties.exit
 
-pcf_get_properties.exit:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %197, %210, %135, %147, %152, %177, %182, %186, %188, %.thread126.sink.split.i
-  %.087.i = phi ptr [ null, %135 ], [ null, %147 ], [ null, %152 ], [ null, %177 ], [ %184, %182 ], [ %184, %186 ], [ %184, %188 ], [ %.087.ph.i, %.thread126.sink.split.i ], [ %184, %210 ], [ %184, %197 ], [ null, %.lr.ph.split.us.i ], [ null, %.lr.ph.split.i ]
-  %.086.i = phi ptr [ null, %135 ], [ null, %147 ], [ %154, %152 ], [ %154, %177 ], [ %154, %182 ], [ %154, %186 ], [ %154, %188 ], [ %.086.ph.i, %.thread126.sink.split.i ], [ %154, %210 ], [ %154, %197 ], [ %154, %.lr.ph.split.us.i ], [ %154, %.lr.ph.split.i ]
+pcf_get_properties.exit:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %197, %210, %135, %147, %152, %177, %182, %186, %188, %.thread127.sink.split.i
+  %.087.i = phi ptr [ null, %135 ], [ null, %147 ], [ null, %152 ], [ null, %177 ], [ %184, %182 ], [ %184, %186 ], [ %184, %188 ], [ %.087.ph.i, %.thread127.sink.split.i ], [ %184, %210 ], [ %184, %197 ], [ null, %.lr.ph.split.us.i ], [ null, %.lr.ph.split.i ]
+  %.086.i = phi ptr [ null, %135 ], [ null, %147 ], [ %154, %152 ], [ %154, %177 ], [ %154, %182 ], [ %154, %186 ], [ %154, %188 ], [ %.086.ph.i, %.thread127.sink.split.i ], [ %154, %210 ], [ %154, %197 ], [ %154, %.lr.ph.split.us.i ], [ %154, %.lr.ph.split.i ]
   call void @ft_mem_free(ptr noundef %119, ptr noundef %.086.i) #16
   call void @ft_mem_free(ptr noundef %119, ptr noundef %.087.i) #16
   %218 = load i32, ptr %7, align 4, !tbaa !101

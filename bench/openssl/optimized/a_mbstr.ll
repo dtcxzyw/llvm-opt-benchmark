@@ -22,7 +22,6 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   %11 = alloca ptr, align 8
   store i64 %4, ptr %9, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 0, ptr %10, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i32 %2, -1
   br i1 %12, label %13, label %16
@@ -110,7 +109,7 @@ define range(i32 -1, 31) i32 @ASN1_mbstring_ncopy(ptr noundef captures(address_i
   %42 = getelementptr inbounds nuw i8, ptr %.02636.i, i64 %41
   %43 = sub nsw i32 %.02735.i, %32
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %traverse_string.exit, label %.lr.ph.split.split.i, !llvm.loop !9
+  br i1 %.not.i, label %traverse_string.exit, label %.lr.ph.split.split.i, !llvm.loop !7
 
 traverse_string.exit:                             ; preds = %39, %31
   %.2 = phi i32 [ 0, %31 ], [ %40, %39 ]
@@ -207,14 +206,14 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br i1 %.not76, label %110, label %72
 
 72:                                               ; preds = %71
-  %73 = load ptr, ptr %0, align 8, !tbaa !11
+  %73 = load ptr, ptr %0, align 8, !tbaa !9
   %.not77.not.not = icmp eq ptr %73, null
   br i1 %.not77.not.not, label %76, label %74
 
 74:                                               ; preds = %72
   call void @ASN1_STRING_set0(ptr noundef nonnull %73, ptr noundef null, i32 noundef 0) #7
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 %.059, ptr %75, align 4, !tbaa !14
+  store i32 %.059, ptr %75, align 4, !tbaa !12
   br label %81
 
 76:                                               ; preds = %72
@@ -229,7 +228,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %110
 
 80:                                               ; preds = %76
-  store ptr %77, ptr %0, align 8, !tbaa !11
+  store ptr %77, ptr %0, align 8, !tbaa !9
   br label %81
 
 81:                                               ; preds = %80, %74
@@ -247,7 +246,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
 
 86:                                               ; preds = %85
   call void @ASN1_STRING_free(ptr noundef nonnull %.055) #7
-  store ptr null, ptr %0, align 8, !tbaa !11
+  store ptr null, ptr %0, align 8, !tbaa !9
   br label %87
 
 87:                                               ; preds = %86, %85
@@ -257,7 +256,7 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   br label %110
 
 88:                                               ; preds = %81
-  switch i32 %.056, label %96 [
+  switch i32 %.056, label %.unreachabledefault [
     i32 4097, label %89
     i32 4098, label %90
     i32 4100, label %92
@@ -265,28 +264,31 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
   ]
 
 89:                                               ; preds = %88
-  store i32 %.093, ptr %10, align 4, !tbaa !7
+  store i32 %.093, ptr %10, align 4, !tbaa !16
   br label %96
 
 90:                                               ; preds = %88
   %91 = shl i32 %.093, 1
-  store i32 %91, ptr %10, align 4, !tbaa !7
+  store i32 %91, ptr %10, align 4, !tbaa !16
   br label %96
 
 92:                                               ; preds = %88
   %93 = shl i32 %.093, 2
-  store i32 %93, ptr %10, align 4, !tbaa !7
+  store i32 %93, ptr %10, align 4, !tbaa !16
   br label %96
 
 94:                                               ; preds = %88
-  store i32 0, ptr %10, align 4, !tbaa !7
+  store i32 0, ptr %10, align 4, !tbaa !16
   %95 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.060, i32 noundef %3, ptr noundef nonnull @out_utf8, ptr noundef %10)
-  %.pre = load i32, ptr %10, align 4, !tbaa !7
+  %.pre = load i32, ptr %10, align 4, !tbaa !16
   br label %96
 
-96:                                               ; preds = %94, %92, %90, %89, %88
-  %97 = phi i32 [ 0, %88 ], [ %.093, %89 ], [ %91, %90 ], [ %93, %92 ], [ %.pre, %94 ]
-  %.0 = phi ptr [ null, %88 ], [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ], [ @cpy_utf8, %94 ]
+.unreachabledefault:                              ; preds = %88
+  unreachable
+
+96:                                               ; preds = %94, %92, %90, %89
+  %97 = phi i32 [ %.093, %89 ], [ %91, %90 ], [ %93, %92 ], [ %.pre, %94 ]
+  %.0 = phi ptr [ @cpy_asc, %89 ], [ @cpy_bmp, %90 ], [ @cpy_univ, %92 ], [ @cpy_utf8, %94 ]
   %98 = add nsw i32 %97, 1
   %99 = sext i32 %98 to i64
   %100 = call noalias ptr @CRYPTO_malloc(i64 noundef %99, ptr noundef nonnull @.str, i32 noundef 189) #7
@@ -299,18 +301,18 @@ in_utf8.exit.thread:                              ; preds = %34, %.lr.ph.split.s
 
 103:                                              ; preds = %102
   call void @ASN1_STRING_free(ptr noundef nonnull %.055) #7
-  store ptr null, ptr %0, align 8, !tbaa !11
+  store ptr null, ptr %0, align 8, !tbaa !9
   br label %110
 
 104:                                              ; preds = %96
-  %105 = load i32, ptr %10, align 4, !tbaa !7
+  %105 = load i32, ptr %10, align 4, !tbaa !16
   store i32 %105, ptr %.055, align 8, !tbaa !18
   %106 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   store ptr %100, ptr %106, align 8, !tbaa !19
   %107 = sext i32 %105 to i64
   %108 = getelementptr inbounds i8, ptr %100, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !20
-  %109 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.060, i32 noundef %3, ptr noundef %.0, ptr noundef %11)
+  %109 = call fastcc i32 @traverse_string(ptr noundef %1, i32 noundef %.060, i32 noundef %3, ptr noundef nonnull %.0, ptr noundef %11)
   br label %110
 
 110:                                              ; preds = %102, %103, %83, %71, %18, %104, %87, %79, %57, %53, %49, %44, %in_utf8.exit.thread, %28, %23
@@ -360,7 +362,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %12 = add nsw i32 %.02735.us, -1
   %13 = getelementptr inbounds nuw i8, ptr %.02636.us, i64 1
   %.not.us = icmp eq i32 %12, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !9
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !7
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph
   br i1 %.not33, label %._crit_edge, label %.lr.ph.split.us42.split
@@ -383,7 +385,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %24 = add nsw i32 %.02735.us44, -2
   %25 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 2
   %.not.us47 = icmp eq i32 %24, 0
-  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42.split, !llvm.loop !9
+  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42.split, !llvm.loop !7
 
 .lr.ph.split.us52:                                ; preds = %.lr.ph, %48
   %.02636.us53 = phi ptr [ %26, %48 ], [ %0, %.lr.ph ]
@@ -416,7 +418,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
 
 48:                                               ; preds = %28, %.lr.ph.split.us52
   %.not.us57 = icmp eq i32 %27, 0
-  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !9
+  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -433,7 +435,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %53 = zext nneg i32 %49 to i64
   %54 = getelementptr inbounds nuw i8, ptr %.02636.us62, i64 %53
   %.not.us64 = icmp eq i32 %52, 0
-  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
+  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !7
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %61
   %.02636 = phi ptr [ %63, %61 ], [ %0, %.lr.ph.split ]
@@ -453,7 +455,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
   %63 = getelementptr inbounds nuw i8, ptr %.02636, i64 %62
   %64 = sub nsw i32 %.02735, %55
   %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %28, %48, %.lr.ph.split.us42.split, %23, %.lr.ph.split.us.split, %11, %.lr.ph.split.split, %57, %61, %.lr.ph.split.split.us, %51, %.lr.ph.split.us42, %.lr.ph.split.us, %5
   %.0 = phi i32 [ 1, %5 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us42 ], [ 1, %51 ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ %59, %57 ], [ -1, %.lr.ph.split.split ], [ 1, %11 ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %48 ], [ %46, %28 ]
@@ -594,9 +596,9 @@ define internal range(i32 -2147483648, 2) i32 @out_utf8(i64 noundef %0, ptr noun
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr %1, align 4, !tbaa !7
+  %6 = load i32, ptr %1, align 4, !tbaa !16
   %7 = add nsw i32 %6, %3
-  store i32 %7, ptr %1, align 4, !tbaa !7
+  store i32 %7, ptr %1, align 4, !tbaa !16
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -652,17 +654,17 @@ attributes #7 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS14asn1_string_st", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!15, !8, i64 4}
-!15 = !{!"asn1_string_st", !8, i64 0, !8, i64 4, !16, i64 8, !4, i64 16}
-!16 = !{!"p1 omnipotent char", !13, i64 0}
-!17 = !{!16, !16, i64 0}
-!18 = !{!15, !8, i64 0}
-!19 = !{!15, !16, i64 8}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS14asn1_string_st", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !14, i64 4}
+!13 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !15, i64 8, !4, i64 16}
+!14 = !{!"int", !5, i64 0}
+!15 = !{!"p1 omnipotent char", !11, i64 0}
+!16 = !{!14, !14, i64 0}
+!17 = !{!15, !15, i64 0}
+!18 = !{!13, !14, i64 0}
+!19 = !{!13, !15, i64 8}
 !20 = !{!5, !5, i64 0}

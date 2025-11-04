@@ -2201,11 +2201,11 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %41 = select i1 %40, i32 -14, i32 -133
   br label %42
 
-42:                                               ; preds = %.thread33, %10
-  %43 = phi ptr [ %256, %.thread33 ], [ null, %10 ]
-  %44 = phi i64 [ %286, %.thread33 ], [ 0, %10 ]
-  %45 = phi i64 [ %289, %.thread33 ], [ %2, %10 ]
-  %46 = phi i64 [ %288, %.thread33 ], [ %1, %10 ]
+42:                                               ; preds = %.thread34, %10
+  %43 = phi ptr [ null, %10 ], [ %256, %.thread34 ]
+  %44 = phi i64 [ 0, %10 ], [ %286, %.thread34 ]
+  %45 = phi i64 [ %2, %10 ], [ %289, %.thread34 ]
+  %46 = phi i64 [ %1, %10 ], [ %288, %.thread34 ]
   %47 = icmp eq ptr %43, null
   br i1 %47, label %52, label %48
 
@@ -2261,11 +2261,11 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 83:                                               ; preds = %73, %52, %58, %66
   %84 = call i32 @in_gate_area(ptr noundef %0, i64 noundef %46) #9
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread37, label %86
+  br i1 %85, label %.thread38, label %86
 
 86:                                               ; preds = %83
   %87 = and i64 %46, -4096
-  br i1 %13, label %88, label %.thread22.loopexit
+  br i1 %13, label %88, label %.thread23.loopexit
 
 88:                                               ; preds = %86
   %89 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !52
@@ -2303,7 +2303,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 
 113:                                              ; preds = %102, %102
   %114 = icmp eq i64 %112, 0
-  br i1 %114, label %.thread22.loopexit, label %115
+  br i1 %114, label %.thread23.loopexit, label %115
 
 115:                                              ; preds = %113, %102
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #9
@@ -2328,7 +2328,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, -97
   %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.thread22.loopexit, label %133
+  br i1 %132, label %.thread23.loopexit, label %133
 
 133:                                              ; preds = %128
   %134 = and i64 %130, 4503599627366400
@@ -2341,7 +2341,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %141 = load i64, ptr %140, align 8
   %142 = and i64 %141, -97
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.thread22.loopexit, label %144
+  br i1 %143, label %.thread23.loopexit, label %144
 
 144:                                              ; preds = %133
   %145 = and i64 %141, 128
@@ -2356,12 +2356,12 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %154, 385
   %156 = icmp eq i64 %155, 0
-  br i1 %156, label %.thread22.loopexit, label %157
+  br i1 %156, label %.thread23.loopexit, label %157
 
 157:                                              ; preds = %144
   %158 = call ptr @__pte_offset_map(ptr noundef %153, i64 noundef %87, ptr noundef null) #9
   %159 = icmp eq ptr %158, null
-  br i1 %159, label %.thread22.loopexit, label %160
+  br i1 %159, label %.thread23.loopexit, label %160
 
 160:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2370,13 +2370,13 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %162 = and i64 %161, -97
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %.thread24, label %164
+  br i1 %163, label %.thread25, label %164
 
 164:                                              ; preds = %160
   %165 = call ptr @get_gate_vma(ptr noundef %0) #9
-  br i1 %11, label %.thread25, label %166
+  br i1 %11, label %.thread26, label %166
 
-.thread25:                                        ; preds = %164
+.thread26:                                        ; preds = %164
   call void @__rcu_read_unlock() #9
   br label %186
 
@@ -2386,7 +2386,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   br i1 %168, label %169, label %181
 
 169:                                              ; preds = %166
-  br i1 %16, label %170, label %.thread24
+  br i1 %16, label %170, label %.thread25
 
 170:                                              ; preds = %169
   %171 = and i64 %161, 1
@@ -2396,7 +2396,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %174 = and i64 %173, 1099511627775
   %175 = load i64, ptr @zero_pfn, align 8
   %176 = icmp eq i64 %175, %174
-  br i1 %176, label %177, label %.thread24
+  br i1 %176, label %177, label %.thread25
 
 177:                                              ; preds = %170
   %178 = load i64, ptr @vmemmap_base, align 8
@@ -2404,24 +2404,24 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %180 = getelementptr %struct.page, ptr %179, i64 %174
   br label %181
 
-.thread24:                                        ; preds = %160, %170, %169
+.thread25:                                        ; preds = %160, %170, %169
   call void @__rcu_read_unlock() #9
-  br label %.thread37
+  br label %.thread38
 
 181:                                              ; preds = %166, %177
   %182 = phi ptr [ %180, %177 ], [ %167, %166 ]
   %183 = call i32 @try_grab_page(ptr noundef %182, i32 noundef %3), !range !51
   call void @__rcu_read_unlock() #9
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %186, label %.thread22.loopexit
+  br i1 %184, label %186, label %.thread23.loopexit
 
-.thread22.loopexit:                               ; preds = %181, %113, %128, %133, %144, %157, %86
-  %.ph94 = phi i32 [ %183, %181 ], [ -14, %113 ], [ -14, %128 ], [ -14, %133 ], [ -14, %144 ], [ -14, %157 ], [ -14, %86 ]
-  %185 = sext i32 %.ph94 to i64
-  br label %.thread37
+.thread23.loopexit:                               ; preds = %181, %113, %128, %133, %144, %157, %86
+  %.ph96 = phi i32 [ %183, %181 ], [ -14, %113 ], [ -14, %128 ], [ -14, %133 ], [ -14, %144 ], [ -14, %157 ], [ -14, %86 ]
+  %185 = sext i32 %.ph96 to i64
+  br label %.thread38
 
-186:                                              ; preds = %.thread25, %181
-  %187 = phi ptr [ null, %.thread25 ], [ %182, %181 ]
+186:                                              ; preds = %.thread26, %181
+  %187 = phi ptr [ null, %.thread26 ], [ %182, %181 ]
   store i32 0, ptr %17, align 8
   br label %254
 
@@ -2432,7 +2432,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 
 191:                                              ; preds = %188
   %192 = sext i32 %189 to i64
-  br label %.thread37
+  br label %.thread38
 
 193:                                              ; preds = %188, %48
   %194 = phi ptr [ %53, %188 ], [ %43, %48 ]
@@ -2441,7 +2441,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 1936
   br i1 %20, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %193, %.thread28.us
+.split.us:                                        ; preds = %193, %.thread29.us
   %198 = load volatile i64, ptr %196, align 8
   %199 = and i64 %198, 4
   %200 = icmp eq i64 %199, 0
@@ -2451,7 +2451,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %202 = load i64, ptr %197, align 8
   %203 = and i64 %202, 256
   %204 = icmp eq i64 %203, 0
-  br i1 %204, label %.critedge.us, label %.thread37
+  br i1 %204, label %.critedge.us, label %.thread38
 
 .critedge.us:                                     ; preds = %201, %.split.us
   %205 = call i32 @__SCT__cond_resched() #9
@@ -2461,9 +2461,9 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 
 208:                                              ; preds = %.critedge.us
   %209 = ptrtoint ptr %206 to i64
-  switch i64 %209, label %.split64.us [
+  switch i64 %209, label %.split66.us [
     i64 -31, label %210
-    i64 -17, label %.split68.us
+    i64 -17, label %.split70.us
   ]
 
 210:                                              ; preds = %208, %.critedge.us
@@ -2493,37 +2493,37 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 223:                                              ; preds = %220
   %224 = and i32 %213, 1
   %225 = icmp eq i32 %224, 0
-  br i1 %225, label %226, label %.thread30.loopexit
+  br i1 %225, label %226, label %.thread31.loopexit
 
 226:                                              ; preds = %223
   %227 = and i32 %213, 48
   %228 = icmp eq i32 %227, 0
-  br i1 %228, label %.split73.us, label %.thread28.us
+  br i1 %228, label %.split75.us, label %.thread29.us
 
 229:                                              ; preds = %220
   %230 = and i32 %213, 1024
   %231 = icmp eq i32 %230, 0
-  br i1 %231, label %.thread28.us, label %232
+  br i1 %231, label %.thread29.us, label %232
 
 232:                                              ; preds = %229
   %233 = and i32 %212, 8
   %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %.thread37
+  br i1 %234, label %235, label %.thread38
 
 235:                                              ; preds = %232, %219, %216
   %236 = phi i32 [ -11, %219 ], [ -11, %216 ], [ -16, %232 ]
   store i32 0, ptr %5, align 4
-  br label %.thread28.us
+  br label %.thread29.us
 
-.thread28.us:                                     ; preds = %235, %229, %226
+.thread29.us:                                     ; preds = %235, %229, %226
   %237 = phi i32 [ 0, %229 ], [ %236, %235 ], [ %41, %226 ]
-  switch i32 %237, label %.split77.us [
+  switch i32 %237, label %.split79.us [
     i32 0, label %.split.us
-    i32 -16, label %.thread37
-    i32 -11, label %.thread37
-    i32 -14, label %.thread30.loopexit
-    i32 -12, label %.thread30.loopexit
-    i32 -133, label %.thread30.loopexit
+    i32 -16, label %.thread38
+    i32 -11, label %.thread38
+    i32 -14, label %.thread31.loopexit
+    i32 -12, label %.thread31.loopexit
+    i32 -133, label %.thread31.loopexit
   ]
 
 .split:                                           ; preds = %193
@@ -2536,49 +2536,49 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %242 = load i64, ptr %197, align 8
   %243 = and i64 %242, 256
   %244 = icmp eq i64 %243, 0
-  br i1 %244, label %.critedge, label %.thread37
+  br i1 %244, label %.critedge, label %.thread38
 
 .critedge:                                        ; preds = %.split, %241
   %245 = call i32 @__SCT__cond_resched() #9
   %246 = call fastcc ptr @follow_page_mask(ptr noundef nonnull %194, i64 noundef %46, i32 noundef %3, ptr noundef nonnull %8)
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %.thread37, label %248
+  br i1 %247, label %.thread38, label %248
 
 248:                                              ; preds = %.critedge
   %249 = ptrtoint ptr %246 to i64
-  switch i64 %249, label %.split64.us [
-    i64 -31, label %.thread37
-    i64 -17, label %.split68.us
+  switch i64 %249, label %.split66.us [
+    i64 -31, label %.thread38
+    i64 -17, label %.split70.us
   ]
 
-.split73.us:                                      ; preds = %226
+.split75.us:                                      ; preds = %226
   %250 = and i32 %213, 66
   %251 = icmp eq i32 %250, 0
-  br i1 %251, label %252, label %.thread37
+  br i1 %251, label %252, label %.thread38
 
-252:                                              ; preds = %.split73.us
+252:                                              ; preds = %.split75.us
   call void asm sideeffect "489: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 489b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 489) #9, !srcloc !61
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 983, i32 0, i64 12) #9, !srcloc !62
   unreachable
 
-.split77.us:                                      ; preds = %.thread28.us
+.split79.us:                                      ; preds = %.thread29.us
   call void asm sideeffect "490: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 490b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 490) #9, !srcloc !63
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1255, i32 0, i64 12) #9, !srcloc !64
   unreachable
 
-.split68.us:                                      ; preds = %208, %248
-  %.us-phi69 = phi ptr [ %246, %248 ], [ %206, %208 ]
-  br i1 %11, label %254, label %.thread37
+.split70.us:                                      ; preds = %208, %248
+  %.us-phi71 = phi ptr [ %246, %248 ], [ %206, %208 ]
+  br i1 %11, label %254, label %.thread38
 
-.split64.us:                                      ; preds = %208, %248
-  %.us-phi65 = phi ptr [ %246, %248 ], [ %206, %208 ]
-  %.us-phi66 = phi i64 [ %249, %248 ], [ %209, %208 ]
-  %253 = icmp ugt ptr %.us-phi65, inttoptr (i64 -4096 to ptr)
-  br i1 %253, label %.thread37, label %254
+.split66.us:                                      ; preds = %208, %248
+  %.us-phi67 = phi ptr [ %246, %248 ], [ %206, %208 ]
+  %.us-phi68 = phi i64 [ %249, %248 ], [ %209, %208 ]
+  %253 = icmp ugt ptr %.us-phi67, inttoptr (i64 -4096 to ptr)
+  br i1 %253, label %.thread38, label %254
 
-254:                                              ; preds = %.split64.us, %.split68.us, %186
-  %255 = phi ptr [ %.us-phi69, %.split68.us ], [ %.us-phi65, %.split64.us ], [ %187, %186 ]
-  %256 = phi ptr [ %194, %.split68.us ], [ %194, %.split64.us ], [ %165, %186 ]
+254:                                              ; preds = %.split66.us, %.split70.us, %186
+  %255 = phi ptr [ %.us-phi71, %.split70.us ], [ %.us-phi67, %.split66.us ], [ %187, %186 ]
+  %256 = phi ptr [ %194, %.split70.us ], [ %194, %.split66.us ], [ %165, %186 ]
   %257 = lshr i64 %46, 12
   %258 = load i32, ptr %17, align 8
   %259 = trunc i64 %257 to i32
@@ -2588,7 +2588,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %263 = zext i32 %262 to i64
   %264 = call i64 @llvm.umin.i64(i64 %45, i64 %263)
   %265 = trunc nuw i64 %264 to i32
-  br i1 %11, label %.thread33, label %266
+  br i1 %11, label %.thread34, label %266
 
 266:                                              ; preds = %254
   %267 = icmp samesign ugt i64 %264, 1
@@ -2602,7 +2602,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
 
 272:                                              ; preds = %268, %266
   %273 = icmp eq i32 %262, 0
-  br i1 %273, label %.thread33, label %274
+  br i1 %273, label %.thread34, label %274
 
 274:                                              ; preds = %272
   %275 = getelementptr ptr, ptr %4, i64 %44
@@ -2615,7 +2615,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   store ptr %278, ptr %279, align 8
   %280 = add nuw nsw i64 %277, 1
   %281 = icmp eq i64 %280, %264
-  br i1 %281, label %.thread33, label %276, !llvm.loop !65
+  br i1 %281, label %.thread34, label %276, !llvm.loop !65
 
 282:                                              ; preds = %268
   call void asm sideeffect "491: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 491b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 491) #9, !srcloc !66
@@ -2624,29 +2624,29 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   %283 = call fastcc i64 @_compound_head(ptr noundef %255)
   %284 = inttoptr i64 %283 to ptr
   call fastcc void @gup_put_folio(ptr noundef %284, i32 noundef 1, i32 noundef %3)
-  br label %.thread37
+  br label %.thread38
 
-.thread30.loopexit:                               ; preds = %223, %.thread28.us, %.thread28.us, %.thread28.us
-  %.ph89 = phi i32 [ %237, %.thread28.us ], [ %237, %.thread28.us ], [ %237, %.thread28.us ], [ -12, %223 ]
-  %285 = sext i32 %.ph89 to i64
-  br label %.thread37
+.thread31.loopexit:                               ; preds = %223, %.thread29.us, %.thread29.us, %.thread29.us
+  %.ph91 = phi i32 [ %237, %.thread29.us ], [ %237, %.thread29.us ], [ %237, %.thread29.us ], [ -12, %223 ]
+  %285 = sext i32 %.ph91 to i64
+  br label %.thread38
 
-.thread33:                                        ; preds = %276, %272, %254
+.thread34:                                        ; preds = %276, %272, %254
   %286 = add i64 %264, %44
   %287 = shl nuw nsw i64 %264, 12
   %288 = add i64 %287, %46
   %289 = sub i64 %45, %264
   %290 = icmp eq i64 %289, 0
-  br i1 %290, label %.thread37, label %42, !llvm.loop !69
+  br i1 %290, label %.thread38, label %42, !llvm.loop !69
 
-.thread37:                                        ; preds = %83, %.split64.us, %.split68.us, %.thread33, %241, %248, %.critedge, %.thread28.us, %.thread28.us, %232, %201, %.split73.us, %.thread30.loopexit, %.thread24, %.thread22.loopexit, %191, %282
-  %291 = phi i64 [ %192, %191 ], [ -14, %282 ], [ -14, %.thread24 ], [ %185, %.thread22.loopexit ], [ -14, %.split73.us ], [ %285, %.thread30.loopexit ], [ 0, %232 ], [ 0, %.thread28.us ], [ 0, %.thread28.us ], [ -4, %201 ], [ -4, %241 ], [ -17, %.split68.us ], [ %.us-phi66, %.split64.us ], [ -14, %83 ], [ 0, %.thread33 ], [ -14, %.critedge ], [ -14, %248 ]
-  %292 = phi i64 [ %44, %191 ], [ %44, %282 ], [ %44, %.thread24 ], [ %44, %.thread22.loopexit ], [ %44, %.split73.us ], [ %44, %.thread30.loopexit ], [ %44, %201 ], [ %44, %232 ], [ %44, %.thread28.us ], [ %44, %.thread28.us ], [ %44, %241 ], [ %44, %.split68.us ], [ %44, %.split64.us ], [ %44, %83 ], [ %286, %.thread33 ], [ %44, %.critedge ], [ %44, %248 ]
+.thread38:                                        ; preds = %83, %.split66.us, %.split70.us, %.thread34, %241, %248, %.critedge, %.thread29.us, %.thread29.us, %232, %201, %.split75.us, %.thread31.loopexit, %.thread25, %.thread23.loopexit, %191, %282
+  %291 = phi i64 [ %192, %191 ], [ -14, %282 ], [ -14, %.thread25 ], [ %185, %.thread23.loopexit ], [ -14, %.split75.us ], [ %285, %.thread31.loopexit ], [ 0, %232 ], [ 0, %.thread29.us ], [ 0, %.thread29.us ], [ -4, %201 ], [ -4, %241 ], [ -17, %.split70.us ], [ %.us-phi68, %.split66.us ], [ -14, %83 ], [ 0, %.thread34 ], [ -14, %.critedge ], [ -14, %248 ]
+  %292 = phi i64 [ %44, %191 ], [ %44, %282 ], [ %44, %.thread25 ], [ %44, %.thread23.loopexit ], [ %44, %.split75.us ], [ %44, %.thread31.loopexit ], [ %44, %201 ], [ %44, %232 ], [ %44, %.thread29.us ], [ %44, %.thread29.us ], [ %44, %241 ], [ %44, %.split70.us ], [ %44, %.split66.us ], [ %44, %83 ], [ %286, %.thread34 ], [ %44, %.critedge ], [ %44, %248 ]
   %293 = load ptr, ptr %8, align 8
   %294 = icmp eq ptr %293, null
   br i1 %294, label %313, label %295
 
-295:                                              ; preds = %.thread37
+295:                                              ; preds = %.thread38
   %296 = getelementptr inbounds nuw i8, ptr %293, i64 48
   call void @__rcu_read_lock() #9
   %297 = load volatile i64, ptr %296, align 8
@@ -2679,7 +2679,7 @@ define internal fastcc i64 @__get_user_pages(ptr noundef %0, i64 noundef %1, i64
   call void @__rcu_read_unlock() #9
   br label %313
 
-313:                                              ; preds = %312, %.thread37
+313:                                              ; preds = %312, %.thread38
   %314 = icmp eq i64 %292, 0
   %315 = select i1 %314, i64 %291, i64 %292
   br label %316

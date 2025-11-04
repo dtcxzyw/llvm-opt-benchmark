@@ -453,11 +453,11 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 29:                                               ; preds = %28
   tail call void @wolfSSL_Free(ptr noundef nonnull %25) #17
-  %.pre73.i = load ptr, ptr %24, align 8, !tbaa !8
+  %.pre76.i = load ptr, ptr %24, align 8, !tbaa !8
   br label %30
 
 30:                                               ; preds = %29, %28
-  %31 = phi ptr [ %.pre73.i, %29 ], [ %23, %28 ]
+  %31 = phi ptr [ %.pre76.i, %29 ], [ %23, %28 ]
   %.not171.i = icmp eq ptr %31, null
   br i1 %.not171.i, label %33, label %32
 
@@ -469,7 +469,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   store ptr null, ptr %24, align 8, !tbaa !8
   store ptr null, ptr %22, align 8, !tbaa !8
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.104, ptr noundef nonnull @.str.113)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 35:                                               ; preds = %.critedge.i
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @hash_input)
@@ -480,7 +480,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 38:                                               ; preds = %35
   %39 = tail call noalias ptr @fopen(ptr noundef nonnull %37, ptr noundef nonnull @.str.105)
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread.i, label %41
+  br i1 %40, label %bench_ecc_curve.exit189.i, label %41
 
 41:                                               ; preds = %38
   %42 = tail call i32 @fseek(ptr noundef nonnull %39, i64 noundef 0, i32 noundef 2)
@@ -489,7 +489,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 43:                                               ; preds = %41
   %44 = tail call i32 @fclose(ptr noundef nonnull %39)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 45:                                               ; preds = %41
   %46 = tail call i64 @ftell(ptr noundef nonnull %39)
@@ -499,7 +499,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 48:                                               ; preds = %45
   %49 = tail call i32 @fclose(ptr noundef nonnull %39)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %22, align 8, !tbaa !8
@@ -526,13 +526,13 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 60:                                               ; preds = %53
   %61 = tail call i32 @fclose(ptr noundef nonnull %39)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 62:                                               ; preds = %53
   %63 = tail call i64 @fread(ptr noundef nonnull %58, i64 noundef 1, i64 noundef %46, ptr noundef nonnull %39)
   %.not123.i = icmp eq i64 %63, %46
   %64 = tail call i32 @fclose(ptr noundef nonnull %39)
-  br i1 %.not123.i, label %66, label %.thread.i
+  br i1 %.not123.i, label %66, label %bench_ecc_curve.exit189.i
 
 65:                                               ; preds = %35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %25, i8 0, i64 %.066.i, i1 false)
@@ -548,7 +548,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 69:                                               ; preds = %66
   %70 = tail call noalias ptr @fopen(ptr noundef nonnull %68, ptr noundef nonnull @.str.105)
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread.i, label %72
+  br i1 %71, label %bench_ecc_curve.exit189.i, label %72
 
 72:                                               ; preds = %69
   %73 = tail call i32 @fseek(ptr noundef nonnull %70, i64 noundef 0, i32 noundef 2)
@@ -557,7 +557,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 74:                                               ; preds = %72
   %75 = tail call i32 @fclose(ptr noundef nonnull %70)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 76:                                               ; preds = %72
   %77 = tail call i64 @ftell(ptr noundef nonnull %70)
@@ -567,7 +567,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 79:                                               ; preds = %76
   %80 = tail call i32 @fclose(ptr noundef nonnull %70)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %24, align 8, !tbaa !8
@@ -602,13 +602,13 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 
 95:                                               ; preds = %91
   %96 = tail call i32 @fclose(ptr noundef nonnull %70)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
 97:                                               ; preds = %91
   %98 = tail call i64 @fread(ptr noundef nonnull %93, i64 noundef 1, i64 noundef %77, ptr noundef nonnull %70)
   %.not130.i = icmp eq i64 %98, %77
   %99 = tail call i32 @fclose(ptr noundef nonnull %70)
-  br i1 %.not130.i, label %102, label %.thread.i
+  br i1 %.not130.i, label %102, label %bench_ecc_curve.exit189.i
 
 100:                                              ; preds = %66
   %101 = load ptr, ptr %24, align 8, !tbaa !8
@@ -638,7 +638,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %109 = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
   %110 = and i32 %109, 1
   %.not132.i = icmp eq i32 %110, 0
-  br i1 %.not132.i, label %.thread90.i, label %111
+  br i1 %.not132.i, label %.thread.i, label %111
 
 111:                                              ; preds = %.thread7.i, %108
   %112 = load ptr, ptr %103, align 8, !tbaa !8
@@ -651,19 +651,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %117 = load ptr, ptr %104, align 8, !tbaa !8
   tail call fastcc void @bench_aescbc_internal(ptr noundef %116, i32 noundef 32, ptr noundef %117, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %.b114.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b114.pre.i, label %..thread90.i_crit_edge, label %120
+  br i1 %.b114.pre.i, label %..thread.i_crit_edge, label %120
 
-..thread90.i_crit_edge:                           ; preds = %111
+..thread.i_crit_edge:                             ; preds = %111
   %.pre = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
-  br label %.thread90.i
+  br label %.thread.i
 
-.thread90.i:                                      ; preds = %..thread90.i_crit_edge, %.thread7.i
-  %118 = phi i32 [ %.pre, %..thread90.i_crit_edge ], [ %109, %.thread7.i ]
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %.thread7.i
+  %118 = phi i32 [ %.pre, %..thread.i_crit_edge ], [ %109, %.thread7.i ]
   %119 = and i32 %118, 2
   %.not133.i = icmp eq i32 %119, 0
   br i1 %.not133.i, label %.thread9.i, label %120
 
-120:                                              ; preds = %.thread90.i, %111
+120:                                              ; preds = %.thread.i, %111
   %121 = load i32, ptr @aesAuthAddSz, align 4, !tbaa !4
   %122 = load i32, ptr @aes_aad_options, align 4, !tbaa !4
   %.not1.i.i = icmp eq i32 %122, 0
@@ -741,222 +741,222 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre.i = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
   br label %.thread9.i
 
-.thread9.i:                                       ; preds = %.loopexit..thread9_crit_edge.i, %.thread90.i
-  %159 = phi i32 [ %.pre.i, %.loopexit..thread9_crit_edge.i ], [ %118, %.thread90.i ]
+.thread9.i:                                       ; preds = %.loopexit..thread9_crit_edge.i, %.thread.i
+  %159 = phi i32 [ %.pre.i, %.loopexit..thread9_crit_edge.i ], [ %118, %.thread.i ]
   %160 = and i32 %159, 4096
   %.not134.i = icmp eq i32 %160, 0
-  br i1 %.not134.i, label %.thread92.i, label %161
+  br i1 %.not134.i, label %.thread94.i, label %161
 
 161:                                              ; preds = %.thread9.i, %.loopexit.i
   tail call void @bench_chacha()
   %.b112.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b112.pre.i, label %..thread92.i_crit_edge, label %164
+  br i1 %.b112.pre.i, label %..thread94.i_crit_edge, label %164
 
-..thread92.i_crit_edge:                           ; preds = %161
+..thread94.i_crit_edge:                           ; preds = %161
   %.pre7 = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
-  br label %.thread92.i
+  br label %.thread94.i
 
-.thread92.i:                                      ; preds = %..thread92.i_crit_edge, %.thread9.i
-  %162 = phi i32 [ %.pre7, %..thread92.i_crit_edge ], [ %159, %.thread9.i ]
+.thread94.i:                                      ; preds = %..thread94.i_crit_edge, %.thread9.i
+  %162 = phi i32 [ %.pre7, %..thread94.i_crit_edge ], [ %159, %.thread9.i ]
   %163 = and i32 %162, 8192
   %.not135.i = icmp eq i32 %163, 0
   br i1 %.not135.i, label %.thread11.i, label %164
 
-164:                                              ; preds = %.thread92.i, %161
+164:                                              ; preds = %.thread94.i, %161
   tail call void @bench_chacha20_poly1305_aead()
   %.b111.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b111.pr.i, label %.thread11.i, label %167
 
-.thread11.i:                                      ; preds = %164, %.thread92.i
+.thread11.i:                                      ; preds = %164, %.thread94.i
   %165 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   %166 = and i32 %165, 1
   %.not136.i = icmp eq i32 %166, 0
-  br i1 %.not136.i, label %.thread94.i, label %167
+  br i1 %.not136.i, label %.thread96.i, label %167
 
 167:                                              ; preds = %.thread11.i, %164
   tail call void @bench_md5(i32 poison)
   %.b110.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b110.pre.i, label %..thread94.i_crit_edge, label %170
+  br i1 %.b110.pre.i, label %..thread96.i_crit_edge, label %170
 
-..thread94.i_crit_edge:                           ; preds = %167
+..thread96.i_crit_edge:                           ; preds = %167
   %.pre8 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread94.i
+  br label %.thread96.i
 
-.thread94.i:                                      ; preds = %..thread94.i_crit_edge, %.thread11.i
-  %168 = phi i32 [ %.pre8, %..thread94.i_crit_edge ], [ %165, %.thread11.i ]
+.thread96.i:                                      ; preds = %..thread96.i_crit_edge, %.thread11.i
+  %168 = phi i32 [ %.pre8, %..thread96.i_crit_edge ], [ %165, %.thread11.i ]
   %169 = and i32 %168, 2
   %.not137.i = icmp eq i32 %169, 0
   br i1 %.not137.i, label %.thread13.i, label %170
 
-170:                                              ; preds = %.thread94.i, %167
+170:                                              ; preds = %.thread96.i, %167
   tail call void @bench_poly1305()
   %.b109.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b109.pr.i, label %..thread13_crit_edge.i, label %173
 
 ..thread13_crit_edge.i:                           ; preds = %170
-  %.pre42.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre45.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread13.i
 
-.thread13.i:                                      ; preds = %..thread13_crit_edge.i, %.thread94.i
-  %171 = phi i32 [ %.pre42.i, %..thread13_crit_edge.i ], [ %168, %.thread94.i ]
+.thread13.i:                                      ; preds = %..thread13_crit_edge.i, %.thread96.i
+  %171 = phi i32 [ %.pre45.i, %..thread13_crit_edge.i ], [ %168, %.thread96.i ]
   %172 = and i32 %171, 4
   %.not138.i = icmp eq i32 %172, 0
-  br i1 %.not138.i, label %.thread96.i, label %173
+  br i1 %.not138.i, label %.thread98.i, label %173
 
 173:                                              ; preds = %.thread13.i, %170
   tail call void @bench_sha(i32 poison)
   %.b108.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b108.pre.i, label %..thread96.i_crit_edge, label %176
+  br i1 %.b108.pre.i, label %..thread98.i_crit_edge, label %176
 
-..thread96.i_crit_edge:                           ; preds = %173
+..thread98.i_crit_edge:                           ; preds = %173
   %.pre9 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread96.i
+  br label %.thread98.i
 
-.thread96.i:                                      ; preds = %..thread96.i_crit_edge, %.thread13.i
-  %174 = phi i32 [ %.pre9, %..thread96.i_crit_edge ], [ %171, %.thread13.i ]
+.thread98.i:                                      ; preds = %..thread98.i_crit_edge, %.thread13.i
+  %174 = phi i32 [ %.pre9, %..thread98.i_crit_edge ], [ %171, %.thread13.i ]
   %175 = and i32 %174, 16
   %.not139.i = icmp eq i32 %175, 0
   br i1 %.not139.i, label %.thread15.i, label %176
 
-176:                                              ; preds = %.thread96.i, %173
+176:                                              ; preds = %.thread98.i, %173
   tail call void @bench_sha224(i32 poison)
   %.b107.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b107.pr.i, label %..thread15_crit_edge.i, label %179
 
 ..thread15_crit_edge.i:                           ; preds = %176
-  %.pre45.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre48.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread15.i
 
-.thread15.i:                                      ; preds = %..thread15_crit_edge.i, %.thread96.i
-  %177 = phi i32 [ %.pre45.i, %..thread15_crit_edge.i ], [ %174, %.thread96.i ]
+.thread15.i:                                      ; preds = %..thread15_crit_edge.i, %.thread98.i
+  %177 = phi i32 [ %.pre48.i, %..thread15_crit_edge.i ], [ %174, %.thread98.i ]
   %178 = and i32 %177, 32
   %.not140.i = icmp eq i32 %178, 0
-  br i1 %.not140.i, label %.thread98.i, label %179
+  br i1 %.not140.i, label %.thread100.i, label %179
 
 179:                                              ; preds = %.thread15.i, %176
   tail call void @bench_sha256(i32 poison)
   %.b106.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b106.pre.i, label %..thread98.i_crit_edge, label %182
+  br i1 %.b106.pre.i, label %..thread100.i_crit_edge, label %182
 
-..thread98.i_crit_edge:                           ; preds = %179
+..thread100.i_crit_edge:                          ; preds = %179
   %.pre10 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread98.i
+  br label %.thread100.i
 
-.thread98.i:                                      ; preds = %..thread98.i_crit_edge, %.thread15.i
-  %180 = phi i32 [ %.pre10, %..thread98.i_crit_edge ], [ %177, %.thread15.i ]
+.thread100.i:                                     ; preds = %..thread100.i_crit_edge, %.thread15.i
+  %180 = phi i32 [ %.pre10, %..thread100.i_crit_edge ], [ %177, %.thread15.i ]
   %181 = and i32 %180, 64
   %.not141.i = icmp eq i32 %181, 0
   br i1 %.not141.i, label %.thread17.i, label %182
 
-182:                                              ; preds = %.thread98.i, %179
+182:                                              ; preds = %.thread100.i, %179
   tail call void @bench_sha384(i32 poison)
   %.b105.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b105.pr.i, label %..thread17_crit_edge.i, label %185
 
 ..thread17_crit_edge.i:                           ; preds = %182
-  %.pre48.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre51.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread17.i
 
-.thread17.i:                                      ; preds = %..thread17_crit_edge.i, %.thread98.i
-  %183 = phi i32 [ %.pre48.i, %..thread17_crit_edge.i ], [ %180, %.thread98.i ]
+.thread17.i:                                      ; preds = %..thread17_crit_edge.i, %.thread100.i
+  %183 = phi i32 [ %.pre51.i, %..thread17_crit_edge.i ], [ %180, %.thread100.i ]
   %184 = and i32 %183, 128
   %.not142.i = icmp eq i32 %184, 0
-  br i1 %.not142.i, label %.thread103.i, label %185
+  br i1 %.not142.i, label %.thread105.i, label %185
 
 185:                                              ; preds = %.thread17.i, %182
   tail call void @bench_sha512(i32 poison)
   %.b104.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b104.pre.i, label %.thread100.i, label %187
+  br i1 %.b104.pre.i, label %.thread102.i, label %187
 
-.thread100.i:                                     ; preds = %185
+.thread102.i:                                     ; preds = %185
   %.pre11 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   %.pre18 = and i32 %.pre11, 128
   %186 = icmp eq i32 %.pre18, 0
-  br i1 %186, label %.thread103.i, label %187
+  br i1 %186, label %.thread105.i, label %187
 
-187:                                              ; preds = %.thread100.i, %185
+187:                                              ; preds = %.thread102.i, %185
   tail call void @bench_sha512_224(i32 poison)
   %.b103.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b103.pr.i, label %.thread19.i, label %189
 
 .thread19.i:                                      ; preds = %187
-  %.pre51.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  %.pre74.i = and i32 %.pre51.i, 128
-  %188 = icmp eq i32 %.pre74.i, 0
-  br i1 %188, label %.thread103.i, label %189
+  %.pre54.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre77.i = and i32 %.pre54.i, 128
+  %188 = icmp eq i32 %.pre77.i, 0
+  br i1 %188, label %.thread105.i, label %189
 
 189:                                              ; preds = %.thread19.i, %187
   tail call void @bench_sha512_256(i32 poison)
   %.b102.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b102.pre.i, label %..thread103.i_crit_edge, label %192
+  br i1 %.b102.pre.i, label %..thread105.i_crit_edge, label %192
 
-..thread103.i_crit_edge:                          ; preds = %189
+..thread105.i_crit_edge:                          ; preds = %189
   %.pre12 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread103.i
+  br label %.thread105.i
 
-.thread103.i:                                     ; preds = %.thread17.i, %..thread103.i_crit_edge, %.thread19.i, %.thread100.i
-  %190 = phi i32 [ %.pre12, %..thread103.i_crit_edge ], [ %.pre51.i, %.thread19.i ], [ %.pre11, %.thread100.i ], [ %183, %.thread17.i ]
+.thread105.i:                                     ; preds = %.thread17.i, %..thread105.i_crit_edge, %.thread19.i, %.thread102.i
+  %190 = phi i32 [ %.pre12, %..thread105.i_crit_edge ], [ %.pre54.i, %.thread19.i ], [ %.pre11, %.thread102.i ], [ %183, %.thread17.i ]
   %191 = and i32 %190, 256
   %.not145.i = icmp eq i32 %191, 0
   br i1 %.not145.i, label %.thread21.i, label %192
 
-192:                                              ; preds = %.thread103.i, %189
+192:                                              ; preds = %.thread105.i, %189
   tail call void @bench_sha3_224(i32 poison)
   %.b101.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b101.pr.i, label %..thread21_crit_edge.i, label %195
 
 ..thread21_crit_edge.i:                           ; preds = %192
-  %.pre54.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre57.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread21.i
 
-.thread21.i:                                      ; preds = %..thread21_crit_edge.i, %.thread103.i
-  %193 = phi i32 [ %.pre54.i, %..thread21_crit_edge.i ], [ %190, %.thread103.i ]
+.thread21.i:                                      ; preds = %..thread21_crit_edge.i, %.thread105.i
+  %193 = phi i32 [ %.pre57.i, %..thread21_crit_edge.i ], [ %190, %.thread105.i ]
   %194 = and i32 %193, 512
   %.not146.i = icmp eq i32 %194, 0
-  br i1 %.not146.i, label %.thread105.i, label %195
+  br i1 %.not146.i, label %.thread107.i, label %195
 
 195:                                              ; preds = %.thread21.i, %192
   tail call void @bench_sha3_256(i32 poison)
   %.b100.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b100.pre.i, label %..thread105.i_crit_edge, label %198
+  br i1 %.b100.pre.i, label %..thread107.i_crit_edge, label %198
 
-..thread105.i_crit_edge:                          ; preds = %195
+..thread107.i_crit_edge:                          ; preds = %195
   %.pre13 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread105.i
+  br label %.thread107.i
 
-.thread105.i:                                     ; preds = %..thread105.i_crit_edge, %.thread21.i
-  %196 = phi i32 [ %.pre13, %..thread105.i_crit_edge ], [ %193, %.thread21.i ]
+.thread107.i:                                     ; preds = %..thread107.i_crit_edge, %.thread21.i
+  %196 = phi i32 [ %.pre13, %..thread107.i_crit_edge ], [ %193, %.thread21.i ]
   %197 = and i32 %196, 1024
   %.not147.i = icmp eq i32 %197, 0
   br i1 %.not147.i, label %.thread23.i, label %198
 
-198:                                              ; preds = %.thread105.i, %195
+198:                                              ; preds = %.thread107.i, %195
   tail call void @bench_sha3_384(i32 poison)
   %.b99.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b99.pr.i, label %..thread23_crit_edge.i, label %201
 
 ..thread23_crit_edge.i:                           ; preds = %198
-  %.pre57.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
+  %.pre60.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread23.i
 
-.thread23.i:                                      ; preds = %..thread23_crit_edge.i, %.thread105.i
-  %199 = phi i32 [ %.pre57.i, %..thread23_crit_edge.i ], [ %196, %.thread105.i ]
+.thread23.i:                                      ; preds = %..thread23_crit_edge.i, %.thread107.i
+  %199 = phi i32 [ %.pre60.i, %..thread23_crit_edge.i ], [ %196, %.thread107.i ]
   %200 = and i32 %199, 2048
   %.not148.i = icmp eq i32 %200, 0
-  br i1 %.not148.i, label %.thread107.i, label %201
+  br i1 %.not148.i, label %.thread109.i, label %201
 
 201:                                              ; preds = %.thread23.i, %198
   tail call void @bench_sha3_512(i32 poison)
   %.b98.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b98.pre.i, label %.thread107.i, label %204
+  br i1 %.b98.pre.i, label %.thread109.i, label %204
 
-.thread107.i:                                     ; preds = %201, %.thread23.i
+.thread109.i:                                     ; preds = %201, %.thread23.i
   %202 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   %203 = and i32 %202, 2
   %.not149.i = icmp eq i32 %203, 0
   br i1 %.not149.i, label %.thread25.i, label %204
 
-204:                                              ; preds = %.thread107.i, %201
+204:                                              ; preds = %.thread109.i, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 11, i64 16, i1 false)
   call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.64)
@@ -965,14 +965,14 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.b97.pr.i, label %..thread25_crit_edge.i, label %207
 
 ..thread25_crit_edge.i:                           ; preds = %204
-  %.pre60.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
+  %.pre63.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread25.i
 
-.thread25.i:                                      ; preds = %..thread25_crit_edge.i, %.thread107.i
-  %205 = phi i32 [ %.pre60.i, %..thread25_crit_edge.i ], [ %202, %.thread107.i ]
+.thread25.i:                                      ; preds = %..thread25_crit_edge.i, %.thread109.i
+  %205 = phi i32 [ %.pre63.i, %..thread25_crit_edge.i ], [ %202, %.thread109.i ]
   %206 = and i32 %205, 4
   %.not150.i = icmp eq i32 %206, 0
-  br i1 %.not150.i, label %.thread109.i, label %207
+  br i1 %.not150.i, label %.thread111.i, label %207
 
 207:                                              ; preds = %.thread25.i, %204
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -980,19 +980,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %6, i32 noundef 20, ptr noundef nonnull @.str.65)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.b96.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b96.pre.i, label %..thread109.i_crit_edge, label %210
+  br i1 %.b96.pre.i, label %..thread111.i_crit_edge, label %210
 
-..thread109.i_crit_edge:                          ; preds = %207
+..thread111.i_crit_edge:                          ; preds = %207
   %.pre14 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread109.i
+  br label %.thread111.i
 
-.thread109.i:                                     ; preds = %..thread109.i_crit_edge, %.thread25.i
-  %208 = phi i32 [ %.pre14, %..thread109.i_crit_edge ], [ %205, %.thread25.i ]
+.thread111.i:                                     ; preds = %..thread111.i_crit_edge, %.thread25.i
+  %208 = phi i32 [ %.pre14, %..thread111.i_crit_edge ], [ %205, %.thread25.i ]
   %209 = and i32 %208, 16
   %.not151.i = icmp eq i32 %209, 0
   br i1 %.not151.i, label %.thread27.i, label %210
 
-210:                                              ; preds = %.thread109.i, %207
+210:                                              ; preds = %.thread111.i, %207
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %5, i8 11, i64 28, i1 false)
   call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %5, i32 noundef 28, ptr noundef nonnull @.str.66)
@@ -1001,14 +1001,14 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.b95.pr.i, label %..thread27_crit_edge.i, label %213
 
 ..thread27_crit_edge.i:                           ; preds = %210
-  %.pre63.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
+  %.pre66.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread27.i
 
-.thread27.i:                                      ; preds = %..thread27_crit_edge.i, %.thread109.i
-  %211 = phi i32 [ %.pre63.i, %..thread27_crit_edge.i ], [ %208, %.thread109.i ]
+.thread27.i:                                      ; preds = %..thread27_crit_edge.i, %.thread111.i
+  %211 = phi i32 [ %.pre66.i, %..thread27_crit_edge.i ], [ %208, %.thread111.i ]
   %212 = and i32 %211, 32
   %.not152.i = icmp eq i32 %212, 0
-  br i1 %.not152.i, label %.thread111.i, label %213
+  br i1 %.not152.i, label %.thread113.i, label %213
 
 213:                                              ; preds = %.thread27.i, %210
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1016,19 +1016,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %4, i32 noundef 32, ptr noundef nonnull @.str.67)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.b94.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b94.pre.i, label %..thread111.i_crit_edge, label %216
+  br i1 %.b94.pre.i, label %..thread113.i_crit_edge, label %216
 
-..thread111.i_crit_edge:                          ; preds = %213
+..thread113.i_crit_edge:                          ; preds = %213
   %.pre15 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread111.i
+  br label %.thread113.i
 
-.thread111.i:                                     ; preds = %..thread111.i_crit_edge, %.thread27.i
-  %214 = phi i32 [ %.pre15, %..thread111.i_crit_edge ], [ %211, %.thread27.i ]
+.thread113.i:                                     ; preds = %..thread113.i_crit_edge, %.thread27.i
+  %214 = phi i32 [ %.pre15, %..thread113.i_crit_edge ], [ %211, %.thread27.i ]
   %215 = and i32 %214, 64
   %.not153.i = icmp eq i32 %215, 0
   br i1 %.not153.i, label %.thread29.i, label %216
 
-216:                                              ; preds = %.thread111.i, %213
+216:                                              ; preds = %.thread113.i, %213
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 11, i64 48, i1 false)
   call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.68)
@@ -1037,14 +1037,14 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.b93.pr.i, label %..thread29_crit_edge.i, label %219
 
 ..thread29_crit_edge.i:                           ; preds = %216
-  %.pre66.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
+  %.pre69.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread29.i
 
-.thread29.i:                                      ; preds = %..thread29_crit_edge.i, %.thread111.i
-  %217 = phi i32 [ %.pre66.i, %..thread29_crit_edge.i ], [ %214, %.thread111.i ]
+.thread29.i:                                      ; preds = %..thread29_crit_edge.i, %.thread113.i
+  %217 = phi i32 [ %.pre69.i, %..thread29_crit_edge.i ], [ %214, %.thread113.i ]
   %218 = and i32 %217, 128
   %.not154.i = icmp eq i32 %218, 0
-  br i1 %.not154.i, label %.thread113.i, label %219
+  br i1 %.not154.i, label %.thread115.i, label %219
 
 219:                                              ; preds = %.thread29.i, %216
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1052,58 +1052,59 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %2, i32 noundef 64, ptr noundef nonnull @.str.69)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.b92.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b92.pre.i, label %..thread113.i_crit_edge, label %222
+  br i1 %.b92.pre.i, label %..thread115.i_crit_edge, label %222
 
-..thread113.i_crit_edge:                          ; preds = %219
+..thread115.i_crit_edge:                          ; preds = %219
   %.pre16 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread113.i
+  br label %.thread115.i
 
-.thread113.i:                                     ; preds = %..thread113.i_crit_edge, %.thread29.i
-  %220 = phi i32 [ %.pre16, %..thread113.i_crit_edge ], [ %217, %.thread29.i ]
+.thread115.i:                                     ; preds = %..thread115.i_crit_edge, %.thread29.i
+  %220 = phi i32 [ %.pre16, %..thread115.i_crit_edge ], [ %217, %.thread29.i ]
   %221 = and i32 %220, 256
   %.not155.i = icmp eq i32 %221, 0
   br i1 %.not155.i, label %.thread31.i, label %222
 
-222:                                              ; preds = %.thread113.i, %219
+222:                                              ; preds = %.thread115.i, %219
   call void @bench_pbkdf2()
   %.b91.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b91.pr.i, label %.thread31.i, label %225
 
-.thread31.i:                                      ; preds = %222, %.thread113.i
+.thread31.i:                                      ; preds = %222, %.thread115.i
   %223 = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
   %224 = and i32 %223, 2
   %.not156.i = icmp eq i32 %224, 0
-  br i1 %.not156.i, label %.thread115.i, label %225
+  br i1 %.not156.i, label %.thread117.i, label %225
 
 225:                                              ; preds = %.thread31.i, %222
   call void @bench_rsa(i32 poison)
   %.b90.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b90.pre.i, label %..thread115.i_crit_edge, label %228
+  br i1 %.b90.pre.i, label %..thread117.i_crit_edge, label %228
 
-..thread115.i_crit_edge:                          ; preds = %225
+..thread117.i_crit_edge:                          ; preds = %225
   %.pre17 = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
-  br label %.thread115.i
+  br label %.thread117.i
 
-.thread115.i:                                     ; preds = %..thread115.i_crit_edge, %.thread31.i
-  %226 = phi i32 [ %.pre17, %..thread115.i_crit_edge ], [ %223, %.thread31.i ]
+.thread117.i:                                     ; preds = %..thread117.i_crit_edge, %.thread31.i
+  %226 = phi i32 [ %.pre17, %..thread117.i_crit_edge ], [ %223, %.thread31.i ]
   %227 = and i32 %226, 16
   %.not157.i = icmp eq i32 %227, 0
   br i1 %.not157.i, label %.thread33.i, label %228
 
-228:                                              ; preds = %.thread115.i, %225
+228:                                              ; preds = %.thread117.i, %225
   call void @bench_dh(i32 poison)
   %.b89.pr.i = load i1, ptr @bench_all, align 4
-  %.pre72.i = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
+  %.pre75.i = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
   br i1 %.b89.pr.i, label %.thread33.i, label %231
 
-.thread33.i:                                      ; preds = %228, %.thread115.i
-  %229 = phi i32 [ %226, %.thread115.i ], [ %.pre72.i, %228 ]
+.thread33.i:                                      ; preds = %228, %.thread117.i
+  %229 = phi i32 [ %226, %.thread117.i ], [ %.pre75.i, %228 ]
   %230 = and i32 %229, 61440
-  %or.cond177.i = icmp eq i32 %230, 0
-  br i1 %or.cond177.i, label %.thread.i, label %231
+  %or.cond180.i = icmp eq i32 %230, 0
+  br i1 %or.cond180.i, label %bench_ecc_curve.exit189.i, label %231
 
 231:                                              ; preds = %.thread33.i, %228
-  %232 = phi i32 [ %229, %.thread33.i ], [ %.pre72.i, %228 ]
+  %232 = phi i32 [ %229, %.thread33.i ], [ %.pre75.i, %228 ]
+  %.b8935.i = phi i1 [ true, %.thread33.i ], [ false, %228 ]
   %233 = and i32 %232, 32768
   %.not162.i = icmp eq i32 %233, 0
   br i1 %.not162.i, label %251, label %234
@@ -1134,8 +1135,8 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
 241:                                              ; preds = %240
   %242 = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
   %243 = and i32 %242, 4096
-  %.not.i178.i = icmp eq i32 %243, 0
-  br i1 %.not.i178.i, label %.thread.i.i, label %244
+  %.not.i181.i = icmp eq i32 %243, 0
+  br i1 %.not.i181.i, label %.thread.i.i, label %244
 
 244:                                              ; preds = %241, %240
   call void @bench_eccMakeKey(i32 poison, i32 noundef %.068.i)
@@ -1167,73 +1168,94 @@ bench_ecc_curve.exit.i:                           ; preds = %247, %.thread.i.i
 249:                                              ; preds = %248, %bench_ecc_curve.exit.i, %238
   %250 = add nuw nsw i32 %.068.i, 1
   %.not169.i = icmp eq i32 %250, 29
-  br i1 %.not169.i, label %.thread.i, label %238, !llvm.loop !13
+  br i1 %.not169.i, label %bench_ecc_curve.exit189.i, label %238, !llvm.loop !13
 
 251:                                              ; preds = %231
   %252 = and i32 %232, 16777216
   %.not163.i = icmp eq i32 %252, 0
-  br i1 %.not163.i, label %254, label %253
+  br i1 %.not163.i, label %259, label %253
 
 253:                                              ; preds = %251
-  call void @bench_ecc_curve(i32 noundef 7)
-  br label %.thread.i
+  %254 = and i32 %232, 4096
+  %.not.i188.i = icmp eq i32 %254, 0
+  %or.cond37.i = and i1 %.b8935.i, %.not.i188.i
+  br i1 %or.cond37.i, label %.thread.i186.i, label %255
 
-254:                                              ; preds = %251
-  %255 = and i32 %232, 33554432
-  %.not164.i = icmp eq i32 %255, 0
-  br i1 %.not164.i, label %257, label %256
+255:                                              ; preds = %253
+  call void @bench_eccMakeKey(i32 poison, i32 noundef 7)
+  %.b.pr.i183.i = load i1, ptr @bench_all, align 4
+  br i1 %.b.pr.i183.i, label %..thread_crit_edge.i184.i, label %258
 
-256:                                              ; preds = %254
+..thread_crit_edge.i184.i:                        ; preds = %255
+  %.pre.i185.i = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
+  br label %.thread.i186.i
+
+.thread.i186.i:                                   ; preds = %..thread_crit_edge.i184.i, %253
+  %256 = phi i32 [ %.pre.i185.i, %..thread_crit_edge.i184.i ], [ %232, %253 ]
+  %257 = and i32 %256, 8192
+  %.not3.i187.i = icmp eq i32 %257, 0
+  br i1 %.not3.i187.i, label %bench_ecc_curve.exit189.i, label %258
+
+258:                                              ; preds = %.thread.i186.i, %255
+  call void @bench_ecc(i32 poison, i32 noundef 7)
+  br label %bench_ecc_curve.exit189.i
+
+259:                                              ; preds = %251
+  %260 = and i32 %232, 33554432
+  %.not164.i = icmp eq i32 %260, 0
+  br i1 %.not164.i, label %262, label %261
+
+261:                                              ; preds = %259
   call void @bench_ecc_curve(i32 noundef 15)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
-257:                                              ; preds = %254
-  %258 = and i32 %232, 67108864
-  %.not165.i = icmp eq i32 %258, 0
-  br i1 %.not165.i, label %260, label %259
+262:                                              ; preds = %259
+  %263 = and i32 %232, 67108864
+  %.not165.i = icmp eq i32 %263, 0
+  br i1 %.not165.i, label %265, label %264
 
-259:                                              ; preds = %257
+264:                                              ; preds = %262
   call void @bench_ecc_curve(i32 noundef 16)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
-260:                                              ; preds = %257
+265:                                              ; preds = %262
   call void @bench_ecc_curve(i32 noundef 7)
-  br label %.thread.i
+  br label %bench_ecc_curve.exit189.i
 
-.thread.i:                                        ; preds = %249, %260, %259, %256, %253, %.thread33.i, %97, %95, %79, %74, %69, %62, %60, %48, %43, %38, %33
-  %261 = load ptr, ptr %22, align 8, !tbaa !8
-  %.not172.i = icmp eq ptr %261, null
-  br i1 %.not172.i, label %263, label %262
+bench_ecc_curve.exit189.i:                        ; preds = %249, %265, %264, %261, %258, %.thread.i186.i, %.thread33.i, %97, %95, %79, %74, %69, %62, %60, %48, %43, %38, %33
+  %266 = load ptr, ptr %22, align 8, !tbaa !8
+  %.not172.i = icmp eq ptr %266, null
+  br i1 %.not172.i, label %268, label %267
 
-262:                                              ; preds = %.thread.i
-  call void @wolfSSL_Free(ptr noundef nonnull %261) #17
-  br label %263
+267:                                              ; preds = %bench_ecc_curve.exit189.i
+  call void @wolfSSL_Free(ptr noundef nonnull %266) #17
+  br label %268
 
-263:                                              ; preds = %262, %.thread.i
-  %264 = load ptr, ptr %24, align 8, !tbaa !8
-  %.not173.i = icmp eq ptr %264, null
-  br i1 %.not173.i, label %266, label %265
+268:                                              ; preds = %267, %bench_ecc_curve.exit189.i
+  %269 = load ptr, ptr %24, align 8, !tbaa !8
+  %.not173.i = icmp eq ptr %269, null
+  br i1 %.not173.i, label %271, label %270
 
-265:                                              ; preds = %263
-  call void @wolfSSL_Free(ptr noundef nonnull %264) #17
-  br label %266
+270:                                              ; preds = %268
+  call void @wolfSSL_Free(ptr noundef nonnull %269) #17
+  br label %271
 
-266:                                              ; preds = %265, %263
-  %267 = call i32 @wc_FreeRng(ptr noundef nonnull %10) #17
+271:                                              ; preds = %270, %268
+  %272 = call i32 @wc_FreeRng(ptr noundef nonnull %10) #17
   br label %benchmarks_do.exit
 
-benchmarks_do.exit:                               ; preds = %13, %266
-  %268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @info_prefix)
-  %269 = call i32 @wolfCrypt_Cleanup() #17
-  %.not.i5 = icmp eq i32 %269, 0
-  br i1 %.not.i5, label %benchmark_free.exit, label %270
+benchmarks_do.exit:                               ; preds = %13, %271
+  %273 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @info_prefix)
+  %274 = call i32 @wolfCrypt_Cleanup() #17
+  %.not.i5 = icmp eq i32 %274, 0
+  br i1 %.not.i5, label %benchmark_free.exit, label %275
 
-270:                                              ; preds = %benchmarks_do.exit
-  %271 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.113, i32 noundef %269)
+275:                                              ; preds = %benchmarks_do.exit
+  %276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.113, i32 noundef %274)
   br label %benchmark_free.exit
 
-benchmark_free.exit:                              ; preds = %270, %benchmarks_do.exit, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %benchmarks_do.exit ], [ %269, %270 ]
+benchmark_free.exit:                              ; preds = %275, %benchmarks_do.exit, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %benchmarks_do.exit ], [ %274, %275 ]
   ret i32 %.0
 }
 

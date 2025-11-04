@@ -3550,8 +3550,8 @@ Q_.exit.i:                                        ; preds = %219, %216
 228:                                              ; preds = %Q_.exit.i, %202
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = load i64, ptr %229, align 8, !tbaa !200
-  %.not37.i = icmp eq i64 %230, 0
-  br i1 %.not37.i, label %.thread.i, label %.lr.ph.i
+  %.not38.i = icmp eq i64 %230, 0
+  br i1 %.not38.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %228
   %sext.i = shl i64 %209, 32
@@ -3561,7 +3561,7 @@ Q_.exit.i:                                        ; preds = %219, %216
 
 233:                                              ; preds = %256, %.lr.ph.i
   %234 = phi i64 [ 0, %.lr.ph.i ], [ %259, %256 ]
-  %.02436.i = phi i32 [ 0, %.lr.ph.i ], [ %258, %256 ]
+  %.02437.i = phi i32 [ 0, %.lr.ph.i ], [ %258, %256 ]
   %235 = load i64, ptr %21, align 8, !tbaa !205
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %235, i64 1)
   %236 = icmp ugt i64 %231, %spec.select.i.i
@@ -3607,14 +3607,14 @@ strbuf_setlen.exit.i:                             ; preds = %240, %238
 
 254:                                              ; preds = %252
   %255 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
-  %.not4.i30.i = icmp eq i32 %255, 0
-  br i1 %.not4.i30.i, label %.thread.sink.split.i, label %.thread.sink.split.sink.split.i
+  %.not4.i31.i = icmp eq i32 %255, 0
+  br i1 %.not4.i31.i, label %.thread.sink.split.i, label %.thread.sink.split.sink.split.i
 
 256:                                              ; preds = %252
   %257 = call i32 @for_each_object_in_pack(ptr noundef nonnull %249, ptr noundef nonnull @add_packed_commits, ptr noundef nonnull %45, i32 noundef 4) #24
   call void @close_pack(ptr noundef nonnull %249) #24
   call void @free(ptr noundef nonnull %249) #24
-  %258 = add i32 %.02436.i, 1
+  %258 = add i32 %.02437.i, 1
   %259 = zext i32 %258 to i64
   %260 = load i64, ptr %229, align 8, !tbaa !200
   %261 = icmp ugt i64 %260, %259
@@ -3626,9 +3626,9 @@ strbuf_setlen.exit.i:                             ; preds = %240, %238
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %.thread.sink.split.sink.split.i, %254, %250
-  %.0.i29.sink.i = phi ptr [ @.str.63, %250 ], [ @.str.64, %254 ], [ %262, %.thread.sink.split.sink.split.i ]
+  %.0.i30.sink.i = phi ptr [ @.str.63, %250 ], [ @.str.64, %254 ], [ %262, %.thread.sink.split.sink.split.i ]
   %263 = load ptr, ptr %232, align 8, !tbaa !108
-  %264 = call i32 (ptr, ...) @error(ptr noundef %.0.i29.sink.i, ptr noundef %263) #24
+  %264 = call i32 (ptr, ...) @error(ptr noundef %.0.i30.sink.i, ptr noundef %263) #24
   br label %.thread.i
 
 .thread.i:                                        ; preds = %256, %.thread.sink.split.i, %228

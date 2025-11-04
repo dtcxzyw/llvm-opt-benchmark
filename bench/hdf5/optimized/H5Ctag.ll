@@ -1127,9 +1127,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__iter_tagged_entries_real(ptr n
   %117 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__iter_tagged_entries_real, i32 noundef 349, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.8) #11
   br label %.thread
 
-.thread:                                          ; preds = %99, %109, %22, %19, %114, %4
-  %.0178 = phi i32 [ 0, %4 ], [ -1, %114 ], [ 0, %19 ], [ 0, %22 ], [ 0, %109 ], [ 0, %99 ]
-  ret i32 %.0178
+.thread:                                          ; preds = %99, %109, %22, %19, %4, %114
+  %.0202 = phi i32 [ 0, %4 ], [ -1, %114 ], [ 0, %19 ], [ 0, %22 ], [ 0, %109 ], [ 0, %99 ]
+  ret i32 %.0202
 }
 
 ; Function Attrs: nounwind uwtable

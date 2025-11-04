@@ -993,41 +993,41 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %26, label %44, label %.loopexit
 
 .lr.ph.split.us.jt2:                              ; preds = %.lr.ph.lr.ph.jt2
-  %.not79.us.jt2 = icmp eq i8 %.us-phi192354, 0
+  %.not79.us.jt2 = icmp eq i8 %.us-phi194357, 0
   br i1 %.not79.us.jt2, label %.outer86.backedge, label %27
 
 .lr.ph.split.us.jt0:                              ; preds = %.outer86.backedge
-  %.not79.us.jt0 = icmp ne i8 %.165.us255, 0
+  %.not79.us.jt0 = icmp ne i8 %.165.us258, 0
   br i1 %.not79.us.jt0, label %32, label %.backedge
 
 .lr.ph.split.us.jt1:                              ; preds = %48
   br i1 %.not79.us.jt1, label %.split.us, label %38
 
 27:                                               ; preds = %.lr.ph.split.us.jt2
-  %28 = add nsw i32 %.us-phi194356, 1
-  %29 = sext i32 %.us-phi194356 to i64
+  %28 = add nsw i32 %.us-phi196359, 1
+  %29 = sext i32 %.us-phi196359 to i64
   %30 = getelementptr inbounds i16, ptr %0, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !4
   br label %.outer86.backedge
 
 32:                                               ; preds = %.lr.ph.split.us.jt0
-  %33 = add nsw i32 %.154.us263, 1
-  %34 = sext i32 %.154.us263 to i64
+  %33 = add nsw i32 %.154.us266, 1
+  %34 = sext i32 %.154.us266 to i64
   %35 = getelementptr inbounds i16, ptr %0, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !4
   %37 = lshr i16 %36, 8
   br label %.backedge
 
 .backedge:                                        ; preds = %32, %.lr.ph.split.us.jt0
-  %.049.in.us264.be = phi i16 [ %37, %32 ], [ %.163.us259, %.lr.ph.split.us.jt0 ]
-  %.154.us261.be = phi i32 [ %33, %32 ], [ %.154.us263, %.lr.ph.split.us.jt0 ]
-  %.163.us257.be = phi i16 [ %36, %32 ], [ %.163.us259, %.lr.ph.split.us.jt0 ]
-  %.165.us253.be = phi i8 [ 0, %32 ], [ 1, %.lr.ph.split.us.jt0 ]
+  %.049.in.us267.be = phi i16 [ %37, %32 ], [ %.163.us262, %.lr.ph.split.us.jt0 ]
+  %.154.us264.be = phi i32 [ %33, %32 ], [ %.154.us266, %.lr.ph.split.us.jt0 ]
+  %.163.us260.be = phi i16 [ %36, %32 ], [ %.163.us262, %.lr.ph.split.us.jt0 ]
+  %.165.us256.be = phi i8 [ 0, %32 ], [ 1, %.lr.ph.split.us.jt0 ]
   br label %48
 
 38:                                               ; preds = %.lr.ph.split.us.jt1
-  %39 = add nsw i32 %.154.us261, 1
-  %40 = sext i32 %.154.us261 to i64
+  %39 = add nsw i32 %.154.us264, 1
+  %40 = sext i32 %.154.us264 to i64
   %41 = getelementptr inbounds i16, ptr %0, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !4
   %43 = lshr i16 %42, 8
@@ -1040,95 +1040,98 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   br label %48
 
 48:                                               ; preds = %.backedge, %44
-  %.051.ph91161267 = phi i32 [ 0, %44 ], [ %.051.ph91.be, %.backedge ]
-  %.049.in.us264 = phi i16 [ %47, %44 ], [ %.049.in.us264.be, %.backedge ]
-  %.154.us261 = phi i32 [ 3, %44 ], [ %.154.us261.be, %.backedge ]
-  %.163.us257 = phi i16 [ %46, %44 ], [ %.163.us257.be, %.backedge ]
+  %.051.ph92161270 = phi i32 [ 0, %44 ], [ %.051.ph92.be, %.backedge ]
+  %.049.in.us267 = phi i16 [ %47, %44 ], [ %.049.in.us267.be, %.backedge ]
+  %.154.us264 = phi i32 [ 3, %44 ], [ %.154.us264.be, %.backedge ]
+  %.163.us260 = phi i16 [ %46, %44 ], [ %.163.us260.be, %.backedge ]
   %.not79.us.jt1 = phi i1 [ true, %44 ], [ %.not79.us.jt0, %.backedge ]
-  %.165.us253 = phi i8 [ 0, %44 ], [ %.165.us253.be, %.backedge ]
-  %.049.mask81.us = and i16 %.049.in.us264, 255
+  %.165.us256 = phi i8 [ 0, %44 ], [ %.165.us256.be, %.backedge ]
+  %.049.mask81.us = and i16 %.049.in.us267, 255
   %49 = icmp eq i16 %.049.mask81.us, 165
-  br i1 %49, label %.lr.ph.split.us.jt1, label %.split141.us
+  br i1 %49, label %.lr.ph.split.us.jt1, label %.split142.us, !llvm.loop !20
 
-.split141.us:                                     ; preds = %48
-  %.049.le = trunc i16 %.049.in.us264 to i8
-  %50 = add nsw i32 %.051.ph91161267, 1
-  %51 = sext i32 %.051.ph91161267 to i64
+default.unreachable:                              ; preds = %83
+  unreachable
+
+.split142.us:                                     ; preds = %48
+  %.049.le = trunc i16 %.049.in.us267 to i8
+  %50 = add nsw i32 %.051.ph92161270, 1
+  %51 = sext i32 %.051.ph92161270 to i64
   %52 = getelementptr inbounds i8, ptr %2, i64 %51
   store i8 %.049.le, ptr %52, align 1, !tbaa !13
   br label %.outer86.backedge
 
-.split.us:                                        ; preds = %38, %.lr.ph.split.us.jt1
-  %.049.in.us265 = phi i16 [ %.163.us257, %.lr.ph.split.us.jt1 ], [ %43, %38 ]
-  %.154.us262 = phi i32 [ %.154.us261, %.lr.ph.split.us.jt1 ], [ %39, %38 ]
-  %.163.us258 = phi i16 [ %.163.us257, %.lr.ph.split.us.jt1 ], [ %42, %38 ]
-  %.165.us254 = phi i8 [ 1, %.lr.ph.split.us.jt1 ], [ 0, %38 ]
-  %.049.mask = and i16 %.049.in.us265, 255
+.split.us:                                        ; preds = %.lr.ph.split.us.jt1, %38
+  %.049.in.us268 = phi i16 [ %.163.us260, %.lr.ph.split.us.jt1 ], [ %43, %38 ]
+  %.154.us265 = phi i32 [ %.154.us264, %.lr.ph.split.us.jt1 ], [ %39, %38 ]
+  %.163.us261 = phi i16 [ %.163.us260, %.lr.ph.split.us.jt1 ], [ %42, %38 ]
+  %.165.us257 = phi i8 [ 1, %.lr.ph.split.us.jt1 ], [ 0, %38 ]
+  %.049.mask = and i16 %.049.in.us268, 255
   %53 = icmp eq i16 %.049.mask, 165
   br i1 %53, label %55, label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %.split.us
-  %54 = icmp slt i32 %.051.ph91161267, %3
+  %54 = icmp slt i32 %.051.ph92161270, %3
   br i1 %54, label %.lr.ph.lr.ph.jt2.lr.ph, label %.outer.preheader..sink.split.loopexit_crit_edge, !llvm.loop !20
 
 .lr.ph.lr.ph.jt2.lr.ph:                           ; preds = %.outer.preheader
   br label %.lr.ph.lr.ph.jt2, !llvm.loop !20
 
 55:                                               ; preds = %.split.us
-  %56 = add nsw i32 %.051.ph91161267, 1
-  %57 = sext i32 %.051.ph91161267 to i64
+  %56 = add nsw i32 %.051.ph92161270, 1
+  %57 = sext i32 %.051.ph92161270 to i64
   %58 = getelementptr inbounds i8, ptr %2, i64 %57
   store i8 -91, ptr %58, align 1, !tbaa !13
   br label %.outer86.backedge
 
-.outer86.backedge:                                ; preds = %27, %.lr.ph.split.us.jt2, %55, %.split141.us
-  %.154.us263 = phi i32 [ %.154.us262, %55 ], [ %.154.us261, %.split141.us ], [ %.us-phi194356, %.lr.ph.split.us.jt2 ], [ %28, %27 ]
-  %.163.us259 = phi i16 [ %.163.us258, %55 ], [ %.163.us257, %.split141.us ], [ %.us-phi193355, %.lr.ph.split.us.jt2 ], [ %31, %27 ]
-  %.165.us255 = phi i8 [ %.165.us254, %55 ], [ %.165.us253, %.split141.us ], [ 1, %.lr.ph.split.us.jt2 ], [ 0, %27 ]
-  %.051.ph91.be = phi i32 [ %56, %55 ], [ %50, %.split141.us ], [ %.us-phi190352, %.lr.ph.split.us.jt2 ], [ %.us-phi190352, %27 ]
-  %59 = icmp slt i32 %.051.ph91.be, %3
+.outer86.backedge:                                ; preds = %27, %.lr.ph.split.us.jt2, %55, %.split142.us
+  %.154.us266 = phi i32 [ %.154.us265, %55 ], [ %.154.us264, %.split142.us ], [ %.us-phi196359, %.lr.ph.split.us.jt2 ], [ %28, %27 ]
+  %.163.us262 = phi i16 [ %.163.us261, %55 ], [ %.163.us260, %.split142.us ], [ %.us-phi195358, %.lr.ph.split.us.jt2 ], [ %31, %27 ]
+  %.165.us258 = phi i8 [ %.165.us257, %55 ], [ %.165.us256, %.split142.us ], [ 1, %.lr.ph.split.us.jt2 ], [ 0, %27 ]
+  %.051.ph92.be = phi i32 [ %56, %55 ], [ %50, %.split142.us ], [ %.us-phi192355, %.lr.ph.split.us.jt2 ], [ %.us-phi192355, %27 ]
+  %59 = icmp slt i32 %.051.ph92.be, %3
   br i1 %59, label %.lr.ph.split.us.jt0, label %.loopexit, !llvm.loop !20
 
-.outer.loopexit:                                  ; preds = %.split.us172
-  %60 = icmp slt i32 %.051.ph91161.us, %3
+.outer.loopexit:                                  ; preds = %.split.us.us
+  %60 = icmp slt i32 %.051.ph92161.us, %3
   br i1 %60, label %.lr.ph.lr.ph.jt2, label %.outer..sink.split.loopexit_crit_edge, !llvm.loop !20
 
 .lr.ph.lr.ph.jt2:                                 ; preds = %.lr.ph.lr.ph.jt2.lr.ph, %.outer.loopexit
-  %.us-phi194356 = phi i32 [ %.154.us262, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.154.us.us, %.outer.loopexit ]
-  %.us-phi193355 = phi i16 [ %.163.us258, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.163.us.us, %.outer.loopexit ]
-  %.us-phi192354 = phi i8 [ %.165.us254, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.165.us.us, %.outer.loopexit ]
-  %.us-phi191353 = phi i16 [ %.049.mask, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.049.mask.us, %.outer.loopexit ]
-  %.us-phi190352 = phi i32 [ %.051.ph91161267, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.051.ph91161.us, %.outer.loopexit ]
-  %.us-phi191.fr = freeze i16 %.us-phi191353
-  %61 = zext nneg i16 %.us-phi191.fr to i32
-  %.not80152.not.jt2 = icmp eq i16 %.us-phi191.fr, 0
+  %.us-phi196359 = phi i32 [ %.154.us265, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.154.us.us, %.outer.loopexit ]
+  %.us-phi195358 = phi i16 [ %.163.us261, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.163.us.us, %.outer.loopexit ]
+  %.us-phi194357 = phi i8 [ %.165.us257, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.165.us.us, %.outer.loopexit ]
+  %.us-phi193356 = phi i16 [ %.049.mask, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.049.mask.us, %.outer.loopexit ]
+  %.us-phi192355 = phi i32 [ %.051.ph92161270, %.lr.ph.lr.ph.jt2.lr.ph ], [ %.051.ph92161.us, %.outer.loopexit ]
+  %.us-phi193.fr = freeze i16 %.us-phi193356
+  %61 = zext nneg i16 %.us-phi193.fr to i32
+  %.not80152.not.jt2 = icmp eq i16 %.us-phi193.fr, 0
   br i1 %.not80152.not.jt2, label %.lr.ph.split.us.jt2, label %.lr.ph.split.us.us.preheader
 
 .lr.ph.split.us.us.preheader:                     ; preds = %.lr.ph.lr.ph.jt2, %.outer86.backedge.us
-  %.051.ph91161.us = phi i32 [ %.051.ph91.be.us, %.outer86.backedge.us ], [ %.us-phi190352, %.lr.ph.lr.ph.jt2 ]
-  %.053.ph90160.us = phi i32 [ %.154.us.us, %.outer86.backedge.us ], [ %.us-phi194356, %.lr.ph.lr.ph.jt2 ]
-  %.058.ph89159.us = phi i32 [ 0, %.outer86.backedge.us ], [ 2, %.lr.ph.lr.ph.jt2 ]
-  %.062.ph88158.us = phi i16 [ %.163.us.us, %.outer86.backedge.us ], [ %.us-phi193355, %.lr.ph.lr.ph.jt2 ]
-  %.064.ph87157.us = phi i8 [ %.165.us.us, %.outer86.backedge.us ], [ %.us-phi192354, %.lr.ph.lr.ph.jt2 ]
+  %.051.ph92161.us = phi i32 [ %.051.ph92.be.us, %.outer86.backedge.us ], [ %.us-phi192355, %.lr.ph.lr.ph.jt2 ]
+  %.053.ph91160.us = phi i32 [ %.154.us.us, %.outer86.backedge.us ], [ %.us-phi196359, %.lr.ph.lr.ph.jt2 ]
+  %.058.ph90159.us = phi i32 [ 0, %.outer86.backedge.us ], [ 2, %.lr.ph.lr.ph.jt2 ]
+  %.062.ph88158.us = phi i16 [ %.163.us.us, %.outer86.backedge.us ], [ %.us-phi195358, %.lr.ph.lr.ph.jt2 ]
+  %.064.ph87157.us = phi i8 [ %.165.us.us, %.outer86.backedge.us ], [ %.us-phi194357, %.lr.ph.lr.ph.jt2 ]
   br label %.lr.ph.split.us.us
 
 62:                                               ; preds = %.preheader.us, %63
-  %indvars.iv = phi i64 [ %73, %.preheader.us ], [ %indvars.iv.next, %63 ]
+  %indvars.iv = phi i64 [ %72, %.preheader.us ], [ %indvars.iv.next, %63 ]
   %.0154.us = phi i32 [ 0, %.preheader.us ], [ %65, %63 ]
-  %exitcond.not = icmp eq i32 %.0154.us, %74
+  %exitcond.not = icmp eq i32 %.0154.us, %73
   br i1 %exitcond.not, label %.thread, label %63
 
 63:                                               ; preds = %62
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %64 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  store i8 %.049.le122.us, ptr %64, align 1, !tbaa !13
+  store i8 %.049.le123.us, ptr %64, align 1, !tbaa !13
   %65 = add nuw i32 %.0154.us, 1
-  %exitcond246.not = icmp eq i32 %65, %61
-  br i1 %exitcond246.not, label %.outer86.backedge.us.loopexit, label %62, !llvm.loop !21
+  %exitcond249.not = icmp eq i32 %65, %61
+  br i1 %exitcond249.not, label %.outer86.backedge.us.loopexit, label %62, !llvm.loop !21
 
-66:                                               ; preds = %.split.us172
-  %67 = add nsw i32 %.051.ph91161.us, 1
-  %68 = sext i32 %.051.ph91161.us to i64
+66:                                               ; preds = %.split.us.us
+  %67 = add nsw i32 %.051.ph92161.us, 1
+  %68 = sext i32 %.051.ph92161.us to i64
   %69 = getelementptr inbounds i8, ptr %2, i64 %68
   store i8 -91, ptr %69, align 1, !tbaa !13
   br label %.outer86.backedge.us
@@ -1137,73 +1140,70 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   %70 = trunc nsw i64 %indvars.iv.next to i32
   br label %.outer86.backedge.us
 
-.outer86.backedge.us:                             ; preds = %.outer86.backedge.us.loopexit, %.split141.us174, %66
-  %.051.ph91.be.us = phi i32 [ %75, %.split141.us174 ], [ %67, %66 ], [ %70, %.outer86.backedge.us.loopexit ]
-  %71 = icmp slt i32 %.051.ph91.be.us, %3
+.outer86.backedge.us:                             ; preds = %.outer86.backedge.us.loopexit, %.split142.us174, %66
+  %.051.ph92.be.us = phi i32 [ %74, %.split142.us174 ], [ %67, %66 ], [ %70, %.outer86.backedge.us.loopexit ]
+  %71 = icmp slt i32 %.051.ph92.be.us, %3
   br i1 %71, label %.lr.ph.split.us.us.preheader, label %.loopexit, !llvm.loop !20
 
-.split.us172:                                     ; preds = %84
-  %.049.mask.us = and i16 %.049.in.us.us, 255
-  %72 = icmp eq i16 %.049.mask.us, 165
-  br i1 %72, label %66, label %.outer.loopexit
-
-.preheader.us:                                    ; preds = %84
-  %.049.le122.us = trunc i16 %.049.in.us.us to i8
-  %73 = sext i32 %.051.ph91161.us to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.051.ph91161.us, i32 %3)
-  %74 = sub i32 %smax, %.051.ph91161.us
+.preheader.us:                                    ; preds = %83
+  %.049.le123.us = trunc i16 %.049.in.us.us to i8
+  %72 = sext i32 %.051.ph92161.us to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %.051.ph92161.us, i32 %3)
+  %73 = sub i32 %smax, %.051.ph92161.us
   br label %62
 
-.split141.us174:                                  ; preds = %85
+.split142.us174:                                  ; preds = %84
   %.049.le.us = trunc i16 %.049.in.us.us to i8
-  %75 = add nsw i32 %.051.ph91161.us, 1
-  %76 = sext i32 %.051.ph91161.us to i64
-  %77 = getelementptr inbounds i8, ptr %2, i64 %76
-  store i8 %.049.le.us, ptr %77, align 1, !tbaa !13
+  %74 = add nsw i32 %.051.ph92161.us, 1
+  %75 = sext i32 %.051.ph92161.us to i64
+  %76 = getelementptr inbounds i8, ptr %2, i64 %75
+  store i8 %.049.le.us, ptr %76, align 1, !tbaa !13
   br label %.outer86.backedge.us
 
-.lr.ph.split.us.us:                               ; preds = %85, %.lr.ph.split.us.us.preheader
-  %.053127.us.us = phi i32 [ %.053.ph90160.us, %.lr.ph.split.us.us.preheader ], [ %.154.us.us, %85 ]
-  %.058126.us.us = phi i32 [ %.058.ph89159.us, %.lr.ph.split.us.us.preheader ], [ 1, %85 ]
-  %.062125.us.us = phi i16 [ %.062.ph88158.us, %.lr.ph.split.us.us.preheader ], [ %.163.us.us, %85 ]
-  %.064124.us.us = phi i8 [ %.064.ph87157.us, %.lr.ph.split.us.us.preheader ], [ %.165.us.us, %85 ]
-  %.not79.us.us = icmp eq i8 %.064124.us.us, 0
-  br i1 %.not79.us.us, label %84, label %78
+.lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %84
+  %.053128.us.us = phi i32 [ %.154.us.us, %84 ], [ %.053.ph91160.us, %.lr.ph.split.us.us.preheader ]
+  %.058127.us.us = phi i32 [ 1, %84 ], [ %.058.ph90159.us, %.lr.ph.split.us.us.preheader ]
+  %.062126.us.us = phi i16 [ %.163.us.us, %84 ], [ %.062.ph88158.us, %.lr.ph.split.us.us.preheader ]
+  %.064125.us.us = phi i8 [ %.165.us.us, %84 ], [ %.064.ph87157.us, %.lr.ph.split.us.us.preheader ]
+  %.not79.us.us = icmp eq i8 %.064125.us.us, 0
+  br i1 %.not79.us.us, label %83, label %77
 
-78:                                               ; preds = %.lr.ph.split.us.us
-  %79 = add nsw i32 %.053127.us.us, 1
-  %80 = sext i32 %.053127.us.us to i64
-  %81 = getelementptr inbounds i16, ptr %0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !4
-  %83 = lshr i16 %82, 8
-  br label %84
+77:                                               ; preds = %.lr.ph.split.us.us
+  %78 = add nsw i32 %.053128.us.us, 1
+  %79 = sext i32 %.053128.us.us to i64
+  %80 = getelementptr inbounds i16, ptr %0, i64 %79
+  %81 = load i16, ptr %80, align 2, !tbaa !4
+  %82 = lshr i16 %81, 8
+  br label %83
 
-84:                                               ; preds = %78, %.lr.ph.split.us.us
-  %.165.us.us = phi i8 [ 0, %78 ], [ 1, %.lr.ph.split.us.us ]
-  %.163.us.us = phi i16 [ %82, %78 ], [ %.062125.us.us, %.lr.ph.split.us.us ]
-  %.154.us.us = phi i32 [ %79, %78 ], [ %.053127.us.us, %.lr.ph.split.us.us ]
-  %.049.in.us.us = phi i16 [ %83, %78 ], [ %.062125.us.us, %.lr.ph.split.us.us ]
-  switch i32 %.058126.us.us, label %default.unreachable [
-    i32 0, label %85
-    i32 1, label %.split.us172
+83:                                               ; preds = %77, %.lr.ph.split.us.us
+  %.165.us.us = phi i8 [ 0, %77 ], [ 1, %.lr.ph.split.us.us ]
+  %.163.us.us = phi i16 [ %81, %77 ], [ %.062126.us.us, %.lr.ph.split.us.us ]
+  %.154.us.us = phi i32 [ %78, %77 ], [ %.053128.us.us, %.lr.ph.split.us.us ]
+  %.049.in.us.us = phi i16 [ %82, %77 ], [ %.062126.us.us, %.lr.ph.split.us.us ]
+  switch i32 %.058127.us.us, label %default.unreachable [
+    i32 0, label %84
+    i32 1, label %.split.us.us
     i32 2, label %.preheader.us
   ]
 
-85:                                               ; preds = %84
+84:                                               ; preds = %83
   %.049.mask81.us.us = and i16 %.049.in.us.us, 255
-  %86 = icmp eq i16 %.049.mask81.us.us, 165
-  br i1 %86, label %.lr.ph.split.us.us, label %.split141.us174
+  %85 = icmp eq i16 %.049.mask81.us.us, 165
+  br i1 %85, label %.lr.ph.split.us.us, label %.split142.us174, !llvm.loop !20
+
+.split.us.us:                                     ; preds = %83
+  %.049.mask.us = and i16 %.049.in.us.us, 255
+  %86 = icmp eq i16 %.049.mask.us, 165
+  br i1 %86, label %66, label %.outer.loopexit
 
 .thread:                                          ; preds = %62
   %87 = trunc nsw i64 %indvars.iv to i32
   br label %.sink.split
 
-default.unreachable:                              ; preds = %84
-  unreachable
-
 .loopexit:                                        ; preds = %.outer86.backedge, %.outer86.backedge.us, %.preheader85
-  %.051.ph91.lcssa121.ph = phi i32 [ 0, %.preheader85 ], [ %.051.ph91.be.us, %.outer86.backedge.us ], [ %.051.ph91.be, %.outer86.backedge ]
-  %.053.lcssa.ph = phi i32 [ 2, %.preheader85 ], [ %.154.us.us, %.outer86.backedge.us ], [ %.154.us263, %.outer86.backedge ]
+  %.051.ph92.lcssa122.ph = phi i32 [ 0, %.preheader85 ], [ %.051.ph92.be.us, %.outer86.backedge.us ], [ %.051.ph92.be, %.outer86.backedge ]
+  %.053.lcssa.ph = phi i32 [ 2, %.preheader85 ], [ %.154.us.us, %.outer86.backedge.us ], [ %.154.us266, %.outer86.backedge ]
   %.not78 = icmp eq i32 %.053.lcssa.ph, %.070
   br i1 %.not78, label %88, label %.sink.split
 
@@ -1215,12 +1215,12 @@ default.unreachable:                              ; preds = %84
 
 .sink.split:                                      ; preds = %.outer.preheader..sink.split.loopexit_crit_edge, %.outer..sink.split.loopexit_crit_edge, %.loopexit, %24, %.thread
   %.sink = phi i32 [ 15, %.thread ], [ 15, %24 ], [ 5, %.loopexit ], [ 5, %.outer..sink.split.loopexit_crit_edge ], [ 5, %.outer.preheader..sink.split.loopexit_crit_edge ]
-  %.066.ph = phi i32 [ %87, %.thread ], [ %22, %24 ], [ %.051.ph91.lcssa121.ph, %.loopexit ], [ 0, %.outer..sink.split.loopexit_crit_edge ], [ 0, %.outer.preheader..sink.split.loopexit_crit_edge ]
+  %.066.ph = phi i32 [ %87, %.thread ], [ %22, %24 ], [ %.051.ph92.lcssa122.ph, %.loopexit ], [ 0, %.outer..sink.split.loopexit_crit_edge ], [ 0, %.outer.preheader..sink.split.loopexit_crit_edge ]
   store i32 %.sink, ptr %4, align 4, !tbaa !8
   br label %88
 
 88:                                               ; preds = %.sink.split, %.loopexit, %15, %13, %5, %6
-  %.066 = phi i32 [ 0, %6 ], [ 0, %5 ], [ 2, %13 ], [ %22, %15 ], [ %.051.ph91.lcssa121.ph, %.loopexit ], [ %.066.ph, %.sink.split ]
+  %.066 = phi i32 [ 0, %6 ], [ 0, %5 ], [ 2, %13 ], [ %22, %15 ], [ %.051.ph92.lcssa122.ph, %.loopexit ], [ %.066.ph, %.sink.split ]
   ret i32 %.066
 }
 

@@ -16271,24 +16271,24 @@ define dso_local range(i32 -34, -35) i32 @intel_initial_commit(ptr noundef %0) l
 
 67:                                               ; preds = %64
   %68 = icmp sgt i32 %65, 0
-  br i1 %68, label %.thread12, label %69, !prof !6
+  br i1 %68, label %.thread13, label %69, !prof !6
 
 69:                                               ; preds = %67
   call void @refcount_warn_saturate(ptr noundef nonnull %3, i32 noundef 3) #26
-  br label %.thread12
+  br label %.thread13
 
 70:                                               ; preds = %64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !205
   call void @__drm_atomic_state_free(ptr noundef nonnull %3) #26, !callees !206
-  br label %.thread12
+  br label %.thread13
 
-.thread12:                                        ; preds = %67, %69, %70
+.thread13:                                        ; preds = %67, %69, %70
   call void @drm_modeset_drop_locks(ptr noundef nonnull %2) #26
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %2) #26
   br label %71
 
-71:                                               ; preds = %.thread12, %1
-  %72 = phi i32 [ %60, %.thread12 ], [ -12, %1 ]
+71:                                               ; preds = %.thread13, %1
+  %72 = phi i32 [ %60, %.thread13 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %72
 }

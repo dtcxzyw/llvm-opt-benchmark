@@ -503,10 +503,10 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr 
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.177 = phi ptr [ %25, %23 ], [ %29, %26 ]
-  %.075 = phi ptr [ %25, %23 ], [ %31, %26 ]
-  %.not.i50 = icmp eq ptr %20, null
-  br i1 %.not.i50, label %.thread, label %32, !prof !18
+  %.180 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.078 = phi ptr [ %25, %23 ], [ %31, %26 ]
+  %.not.i53 = icmp eq ptr %20, null
+  br i1 %.not.i53, label %.thread, label %32, !prof !18
 
 32:                                               ; preds = %extract_min_max.exit
   %33 = load i32, ptr %20, align 8, !tbaa !12
@@ -518,7 +518,7 @@ extract_min_max.exit:                             ; preds = %26, %23
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !11
-  br label %extract_min_max.exit54
+  br label %extract_min_max.exit57
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -526,22 +526,22 @@ extract_min_max.exit:                             ; preds = %26, %23
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !17
-  br label %extract_min_max.exit54
+  br label %extract_min_max.exit57
 
-extract_min_max.exit54:                           ; preds = %37, %34
-  %.174 = phi ptr [ %36, %34 ], [ %40, %37 ]
-  %.072 = phi ptr [ %36, %34 ], [ %42, %37 ]
-  %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.177, ptr noundef %.174) #6
+extract_min_max.exit57:                           ; preds = %37, %34
+  %.177 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.075 = phi ptr [ %36, %34 ], [ %42, %37 ]
+  %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.180, ptr noundef %.177) #6
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %.thread, label %45
 
-45:                                               ; preds = %extract_min_max.exit54
-  %46 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.177, ptr noundef %.075) #6
+45:                                               ; preds = %extract_min_max.exit57
+  %46 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.180, ptr noundef %.078) #6
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.174, ptr noundef %.072) #6
+  %49 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.177, ptr noundef %.075) #6
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.thread, label %51
 
@@ -556,7 +556,7 @@ extract_min_max.exit54:                           ; preds = %37, %34
 
 56:                                               ; preds = %53, %51
   %.234 = phi ptr [ %54, %53 ], [ %.032, %51 ]
-  %57 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %.075, ptr noundef nonnull %.234) #6
+  %57 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %.078, ptr noundef nonnull %.234) #6
   %58 = icmp eq ptr %57, null
   br i1 %58, label %61, label %59
 
@@ -584,9 +584,9 @@ extract_min_max.exit54:                           ; preds = %37, %34
   br label %.thread
 
 66:                                               ; preds = %62
-  %67 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %63, ptr noundef %.174) #6
+  %67 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %63, ptr noundef %.177) #6
   %68 = icmp sgt i32 %67, -1
-  br i1 %68, label %.thread, label %.preheader
+  br i1 %68, label %.thread, label %.preheader, !llvm.loop !24
 
 69:                                               ; preds = %.preheader
   %70 = tail call i32 @OPENSSL_sk_num(ptr noundef %15) #6
@@ -614,10 +614,10 @@ extract_min_max.exit54:                           ; preds = %37, %34
 85:                                               ; preds = %69, %74, %77
   br label %.thread
 
-.thread:                                          ; preds = %66, %32, %extract_min_max.exit, %21, %16, %extract_min_max.exit54, %45, %48, %65, %61, %77, %85
-  %.037 = phi i32 [ 1, %85 ], [ 0, %77 ], [ 0, %61 ], [ 0, %65 ], [ 0, %48 ], [ 0, %45 ], [ 0, %extract_min_max.exit54 ], [ 0, %16 ], [ 0, %21 ], [ 0, %extract_min_max.exit ], [ 0, %32 ], [ 0, %66 ]
-  %.4 = phi ptr [ %.032, %85 ], [ %.032, %77 ], [ %.3, %61 ], [ %.234, %65 ], [ %.234, %66 ], [ %.032, %32 ], [ %.032, %extract_min_max.exit ], [ %.032, %21 ], [ %.032, %16 ], [ %.032, %extract_min_max.exit54 ], [ %.032, %45 ], [ %.032, %48 ]
-  %.2 = phi ptr [ %.031, %85 ], [ %.031, %77 ], [ %.031, %61 ], [ %.031, %65 ], [ %63, %66 ], [ %.031, %32 ], [ %.031, %extract_min_max.exit ], [ %.031, %21 ], [ %.031, %16 ], [ %.031, %extract_min_max.exit54 ], [ %.031, %45 ], [ %.031, %48 ]
+.thread:                                          ; preds = %66, %32, %extract_min_max.exit, %21, %16, %extract_min_max.exit57, %45, %48, %65, %61, %85, %77
+  %.037 = phi i32 [ 1, %85 ], [ 0, %77 ], [ 0, %61 ], [ 0, %65 ], [ 0, %48 ], [ 0, %45 ], [ 0, %extract_min_max.exit57 ], [ 0, %16 ], [ 0, %21 ], [ 0, %extract_min_max.exit ], [ 0, %32 ], [ 0, %66 ]
+  %.4 = phi ptr [ %.032, %85 ], [ %.032, %77 ], [ %.3, %61 ], [ %.234, %65 ], [ %.234, %66 ], [ %.032, %32 ], [ %.032, %extract_min_max.exit ], [ %.032, %21 ], [ %.032, %16 ], [ %.032, %extract_min_max.exit57 ], [ %.032, %45 ], [ %.032, %48 ]
+  %.2 = phi ptr [ %.031, %85 ], [ %.031, %77 ], [ %.031, %61 ], [ %.031, %65 ], [ %63, %66 ], [ %.031, %32 ], [ %.031, %extract_min_max.exit ], [ %.031, %21 ], [ %.031, %16 ], [ %.031, %extract_min_max.exit57 ], [ %.031, %45 ], [ %.031, %48 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %.2) #6
   tail call void @BN_free(ptr noundef %.4) #6
   br label %86
@@ -683,13 +683,13 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noun
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %96
-  %.048129 = phi ptr [ %67, %96 ], [ null, %11 ]
-  %.049128 = phi ptr [ %.251, %96 ], [ null, %11 ]
-  %.052127 = phi i32 [ %.pre-phi, %96 ], [ 0, %11 ]
+  %.048132 = phi ptr [ %67, %96 ], [ null, %11 ]
+  %.049131 = phi ptr [ %.251, %96 ], [ null, %11 ]
+  %.052130 = phi i32 [ %.pre-phi, %96 ], [ 0, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !11
-  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.052127) #6
+  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.052130) #6
   %18 = load ptr, ptr %6, align 8, !tbaa !11
-  %19 = add nsw i32 %.052127, 1
+  %19 = add nsw i32 %.052130, 1
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef %18, i32 noundef %19) #6
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.thread, label %21, !prof !18
@@ -715,10 +715,10 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noun
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.1104 = phi ptr [ %25, %23 ], [ %29, %26 ]
-  %.0102 = phi ptr [ %25, %23 ], [ %31, %26 ]
-  %.not.i72 = icmp eq ptr %20, null
-  br i1 %.not.i72, label %.thread, label %32, !prof !18
+  %.1107 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.0105 = phi ptr [ %25, %23 ], [ %31, %26 ]
+  %.not.i75 = icmp eq ptr %20, null
+  br i1 %.not.i75, label %.thread, label %32, !prof !18
 
 32:                                               ; preds = %extract_min_max.exit
   %33 = load i32, ptr %20, align 8, !tbaa !12
@@ -730,7 +730,7 @@ extract_min_max.exit:                             ; preds = %26, %23
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !11
-  br label %extract_min_max.exit76
+  br label %extract_min_max.exit79
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -738,27 +738,27 @@ extract_min_max.exit:                             ; preds = %26, %23
   %40 = load ptr, ptr %39, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !17
-  br label %extract_min_max.exit76
+  br label %extract_min_max.exit79
 
-extract_min_max.exit76:                           ; preds = %37, %34
-  %.1101 = phi ptr [ %36, %34 ], [ %40, %37 ]
-  %.099 = phi ptr [ %36, %34 ], [ %42, %37 ]
-  %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1104, ptr noundef %.1101) #6
+extract_min_max.exit79:                           ; preds = %37, %34
+  %.1104 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.0102 = phi ptr [ %36, %34 ], [ %42, %37 ]
+  %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1107, ptr noundef %.1104) #6
   %44 = icmp slt i32 %43, 1
-  br i1 %44, label %45, label %.thread, !prof !24
+  br i1 %44, label %45, label %.thread, !prof !26
 
-45:                                               ; preds = %extract_min_max.exit76
-  %46 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1104, ptr noundef %.0102) #6
+45:                                               ; preds = %extract_min_max.exit79
+  %46 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1107, ptr noundef %.0105) #6
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1101, ptr noundef %.099) #6
+  %49 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1104, ptr noundef %.0102) #6
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.0102, ptr noundef %.1101) #6
+  %52 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.0105, ptr noundef %.1104) #6
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %55
 
@@ -769,7 +769,7 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br label %.thread
 
 55:                                               ; preds = %51
-  %56 = icmp eq ptr %.049128, null
+  %56 = icmp eq ptr %.049131, null
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
@@ -778,8 +778,8 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %57, %55
-  %.251 = phi ptr [ %58, %57 ], [ %.049128, %55 ]
-  %61 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %.0102, ptr noundef nonnull %.251) #6
+  %.251 = phi ptr [ %58, %57 ], [ %.049131, %55 ]
+  %61 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %.0105, ptr noundef nonnull %.251) #6
   %62 = icmp eq ptr %61, null
   br i1 %62, label %65, label %63
 
@@ -796,7 +796,7 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br label %.thread
 
 66:                                               ; preds = %63
-  %67 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %.251, ptr noundef %.048129) #6
+  %67 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %.251, ptr noundef %.048132) #6
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %70
 
@@ -807,7 +807,7 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br label %.thread
 
 70:                                               ; preds = %66
-  %71 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %67, ptr noundef %.1101) #6
+  %71 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %67, ptr noundef %.1104) #6
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %96
 
@@ -824,9 +824,9 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br i1 %77, label %.thread, label %78
 
 78:                                               ; preds = %75
-  store ptr %.1104, ptr %76, align 8, !tbaa !14
+  store ptr %.1107, ptr %76, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %.099, ptr %79, align 8, !tbaa !17
+  store ptr %.0102, ptr %79, align 8, !tbaa !17
   store i32 1, ptr %17, align 8, !tbaa !12
   br label %.sink.split
 
@@ -840,43 +840,43 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %80
-  %.sink158 = phi ptr [ %85, %80 ], [ %17, %78 ]
-  %.099.sink = phi ptr [ %.099, %80 ], [ %76, %78 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink158, i64 8
-  store ptr %.099.sink, ptr %86, align 8, !tbaa !11
+  %.sink161 = phi ptr [ %85, %80 ], [ %17, %78 ]
+  %.0102.sink = phi ptr [ %.0102, %80 ], [ %76, %78 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.sink161, i64 8
+  store ptr %.0102.sink, ptr %86, align 8, !tbaa !11
   br label %87
 
 87:                                               ; preds = %.sink.split, %73
   %88 = load i32, ptr %20, align 8, !tbaa !12
   switch i32 %88, label %93 [
-    i32 0, label %.sink.split159
+    i32 0, label %.sink.split162
     i32 1, label %89
   ]
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !11
-  br label %.sink.split159
+  br label %.sink.split162
 
-.sink.split159:                                   ; preds = %87, %89
-  %.sink160 = phi ptr [ %91, %89 ], [ %20, %87 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink160, i64 8
+.sink.split162:                                   ; preds = %87, %89
+  %.sink163 = phi ptr [ %91, %89 ], [ %20, %87 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sink163, i64 8
   store ptr null, ptr %92, align 8, !tbaa !11
   br label %93
 
-93:                                               ; preds = %.sink.split159, %87
+93:                                               ; preds = %.sink.split162, %87
   tail call void @ASN1_item_free(ptr noundef nonnull %20, ptr noundef nonnull @ASIdOrRange_it.local_it) #6
   %94 = load ptr, ptr %6, align 8, !tbaa !11
   %95 = tail call ptr @OPENSSL_sk_delete(ptr noundef %94, i32 noundef %19) #6
   br label %96
 
 96:                                               ; preds = %93, %70
-  %.pre-phi = phi i32 [ %.052127, %93 ], [ %19, %70 ]
+  %.pre-phi = phi i32 [ %.052130, %93 ], [ %19, %70 ]
   %97 = load ptr, ptr %6, align 8, !tbaa !11
   %98 = tail call i32 @OPENSSL_sk_num(ptr noundef %97) #6
   %99 = add nsw i32 %98, -1
   %100 = icmp slt i32 %.pre-phi, %99
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %96, %11
   %.049.lcssa = phi ptr [ null, %11 ], [ %.251, %96 ]
@@ -908,10 +908,10 @@ extract_min_max.exit76:                           ; preds = %37, %34
   %118 = tail call fastcc i32 @ASIdentifierChoice_is_canonical(ptr noundef nonnull %0)
   br label %.thread
 
-.thread:                                          ; preds = %32, %extract_min_max.exit, %21, %.lr.ph, %75, %45, %48, %extract_min_max.exit76, %69, %65, %54, %109, %117
-  %.058 = phi i32 [ %118, %117 ], [ 0, %109 ], [ 0, %54 ], [ 0, %65 ], [ 0, %69 ], [ 0, %extract_min_max.exit76 ], [ 0, %48 ], [ 0, %45 ], [ 0, %75 ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %extract_min_max.exit ], [ 0, %32 ]
-  %.4 = phi ptr [ %.049.lcssa, %117 ], [ %.049.lcssa, %109 ], [ %.049128, %54 ], [ %.3, %65 ], [ %.251, %69 ], [ %.049128, %32 ], [ %.049128, %extract_min_max.exit ], [ %.049128, %21 ], [ %.049128, %.lr.ph ], [ %.251, %75 ], [ %.049128, %45 ], [ %.049128, %48 ], [ %.049128, %extract_min_max.exit76 ]
-  %.2 = phi ptr [ %.048.lcssa, %117 ], [ %.048.lcssa, %109 ], [ %.048129, %54 ], [ %.048129, %65 ], [ %.048129, %69 ], [ %.048129, %32 ], [ %.048129, %extract_min_max.exit ], [ %.048129, %21 ], [ %.048129, %.lr.ph ], [ %67, %75 ], [ %.048129, %45 ], [ %.048129, %48 ], [ %.048129, %extract_min_max.exit76 ]
+.thread:                                          ; preds = %32, %extract_min_max.exit, %21, %.lr.ph, %75, %45, %48, %extract_min_max.exit79, %69, %65, %54, %109, %117
+  %.058 = phi i32 [ %118, %117 ], [ 0, %109 ], [ 0, %54 ], [ 0, %65 ], [ 0, %69 ], [ 0, %extract_min_max.exit79 ], [ 0, %48 ], [ 0, %45 ], [ 0, %75 ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %extract_min_max.exit ], [ 0, %32 ]
+  %.4 = phi ptr [ %.049.lcssa, %117 ], [ %.049.lcssa, %109 ], [ %.049131, %54 ], [ %.3, %65 ], [ %.251, %69 ], [ %.049131, %32 ], [ %.049131, %extract_min_max.exit ], [ %.049131, %21 ], [ %.049131, %.lr.ph ], [ %.251, %75 ], [ %.049131, %45 ], [ %.049131, %48 ], [ %.049131, %extract_min_max.exit79 ]
+  %.2 = phi ptr [ %.048.lcssa, %117 ], [ %.048.lcssa, %109 ], [ %.048132, %54 ], [ %.048132, %65 ], [ %.048132, %69 ], [ %.048132, %32 ], [ %.048132, %extract_min_max.exit ], [ %.048132, %21 ], [ %.048132, %.lr.ph ], [ %67, %75 ], [ %.048132, %45 ], [ %.048132, %48 ], [ %.048132, %extract_min_max.exit79 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %.2) #6
   tail call void @BN_free(ptr noundef %.4) #6
   br label %119
@@ -925,7 +925,7 @@ extract_min_max.exit76:                           ; preds = %37, %34
 define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !28
   %5 = tail call ptr @ASN1_item_new(ptr noundef nonnull @ASIdentifiers_it.local_it) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %.preheader
@@ -942,16 +942,16 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   br label %110
 
 .lr.ph:                                           ; preds = %.preheader, %100
-  %.064136 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
-  %10 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.064136) #6
+  %.064137 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
+  %10 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.064137) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = call i32 @ossl_v3_name_cmp(ptr noundef %12, ptr noundef nonnull @.str.13) #6
   %.not70 = icmp eq i32 %13, 0
   br i1 %.not70, label %21, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %11, align 8, !tbaa !28
+  %15 = load ptr, ptr %11, align 8, !tbaa !29
   %16 = call i32 @ossl_v3_name_cmp(ptr noundef %15, ptr noundef nonnull @.str.14) #6
   %.not71 = icmp eq i32 %16, 0
   br i1 %.not71, label %21, label %17
@@ -960,16 +960,16 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 543, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 115, ptr noundef null) #6
-  %18 = load ptr, ptr %11, align 8, !tbaa !28
+  %18 = load ptr, ptr %11, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %18, ptr noundef nonnull @.str.16, ptr noundef %20) #6
-  br label %.thread92
+  br label %.thread93
 
 21:                                               ; preds = %14, %.lr.ph
   %.058 = phi i32 [ 0, %.lr.ph ], [ 1, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !31
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -977,7 +977,7 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 549, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #6
-  br label %.thread92
+  br label %.thread93
 
 26:                                               ; preds = %21
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.17) #7
@@ -1004,31 +1004,31 @@ define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %0, ptr readn
   store ptr %36, ptr %38, align 8, !tbaa !11
   %39 = icmp eq ptr %36, null
   %40 = load ptr, ptr %spec.select, align 8, !tbaa !3
-  br i1 %39, label %41, label %X509v3_asid_add_inherit.exit.thread85
+  br i1 %39, label %41, label %X509v3_asid_add_inherit.exit.thread86
 
 41:                                               ; preds = %35
   call void @ASN1_item_free(ptr noundef %40, ptr noundef nonnull @ASIdentifierChoice_it.local_it) #6
   store ptr null, ptr %spec.select, align 8, !tbaa !3
   br label %X509v3_asid_add_inherit.exit.thread
 
-X509v3_asid_add_inherit.exit.thread85:            ; preds = %35
+X509v3_asid_add_inherit.exit.thread86:            ; preds = %35
   store i32 0, ptr %40, align 8, !tbaa !8
   br label %100
 
 X509v3_asid_add_inherit.exit:                     ; preds = %29
   %.pre.i = load i32, ptr %30, align 8, !tbaa !8
-  %.not96 = icmp eq i32 %.pre.i, 0
-  br i1 %.not96, label %100, label %X509v3_asid_add_inherit.exit.thread
+  %.not97 = icmp eq i32 %.pre.i, 0
+  br i1 %.not97, label %100, label %X509v3_asid_add_inherit.exit.thread
 
 X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_add_inherit.exit, %41
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 559, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #6
-  %43 = load ptr, ptr %11, align 8, !tbaa !28
-  %44 = load ptr, ptr %42, align 8, !tbaa !31
+  %43 = load ptr, ptr %11, align 8, !tbaa !29
+  %44 = load ptr, ptr %42, align 8, !tbaa !32
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %43, ptr noundef nonnull @.str.16, ptr noundef %44) #6
-  br label %.thread92
+  br label %.thread93
 
 45:                                               ; preds = %26
   %46 = call i64 @strspn(ptr noundef nonnull %23, ptr noundef nonnull @.str.18) #7
@@ -1054,10 +1054,10 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 574, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 162, ptr noundef null) #6
-  %59 = load ptr, ptr %11, align 8, !tbaa !28
-  %60 = load ptr, ptr %58, align 8, !tbaa !31
+  %59 = load ptr, ptr %11, align 8, !tbaa !29
+  %60 = load ptr, ptr %58, align 8, !tbaa !32
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %59, ptr noundef nonnull @.str.16, ptr noundef %60) #6
-  br label %.thread92
+  br label %.thread93
 
 61:                                               ; preds = %51
   %sext74 = add i64 %sext72, 4294967296
@@ -1082,10 +1082,10 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 582, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 163, ptr noundef null) #6
-  %75 = load ptr, ptr %11, align 8, !tbaa !28
-  %76 = load ptr, ptr %74, align 8, !tbaa !31
+  %75 = load ptr, ptr %11, align 8, !tbaa !29
+  %76 = load ptr, ptr %74, align 8, !tbaa !32
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %75, ptr noundef nonnull @.str.16, ptr noundef %76) #6
-  br label %.thread92
+  br label %.thread93
 
 .critedge:                                        ; preds = %45
   %77 = call i32 @X509V3_get_value_int(ptr noundef nonnull %10, ptr noundef nonnull %4) #6
@@ -1096,22 +1096,22 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 593, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread92
+  br label %.thread93
 
 79:                                               ; preds = %61
   %80 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %23, ptr noundef nonnull @.str.12, i32 noundef 597) #6
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %.thread92, label %82
+  br i1 %81, label %.thread93, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %80, i64 %47
   store i8 0, ptr %83, align 1, !tbaa !11
   %84 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %80) #6
-  store ptr %84, ptr %4, align 8, !tbaa !27
+  store ptr %84, ptr %4, align 8, !tbaa !28
   %85 = getelementptr inbounds i8, ptr %80, i64 %66
   %86 = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %85) #6
   call void @CRYPTO_free(ptr noundef nonnull %80, ptr noundef nonnull @.str.12, i32 noundef 603) #6
-  %87 = load ptr, ptr %4, align 8, !tbaa !27
+  %87 = load ptr, ptr %4, align 8, !tbaa !28
   %88 = icmp eq ptr %87, null
   %89 = icmp eq ptr %86, null
   %or.cond = select i1 %88, i1 true, i1 %89
@@ -1121,7 +1121,7 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 605, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread92
+  br label %.thread93
 
 91:                                               ; preds = %82
   %92 = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %87, ptr noundef nonnull %86) #6
@@ -1132,11 +1132,11 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 609, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #6
-  br label %.thread92
+  br label %.thread93
 
 95:                                               ; preds = %91, %.critedge
   %.2 = phi ptr [ null, %.critedge ], [ %86, %91 ]
-  %96 = load ptr, ptr %4, align 8, !tbaa !27
+  %96 = load ptr, ptr %4, align 8, !tbaa !28
   %97 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %5, i32 noundef %.058, ptr noundef %96, ptr noundef %.2)
   %.not81 = icmp eq i32 %97, 0
   br i1 %.not81, label %98, label %99
@@ -1145,41 +1145,41 @@ X509v3_asid_add_inherit.exit.thread:              ; preds = %32, %X509v3_asid_ad
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 614, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #6
-  br label %.thread92
+  br label %.thread93
 
 99:                                               ; preds = %95
-  store ptr null, ptr %4, align 8, !tbaa !27
+  store ptr null, ptr %4, align 8, !tbaa !28
   br label %100
 
-100:                                              ; preds = %99, %X509v3_asid_add_inherit.exit, %X509v3_asid_add_inherit.exit.thread85
-  %101 = add nuw nsw i32 %.064136, 1
+100:                                              ; preds = %99, %X509v3_asid_add_inherit.exit, %X509v3_asid_add_inherit.exit.thread86
+  %101 = add nuw nsw i32 %.064137, 1
   %102 = call i32 @OPENSSL_sk_num(ptr noundef %2) #6
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %100, %.preheader
   %104 = load ptr, ptr %5, align 8, !tbaa !21
   %105 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %104)
   %.not.i = icmp eq i32 %105, 0
-  br i1 %.not.i, label %.thread92, label %X509v3_asid_canonize.exit
+  br i1 %.not.i, label %.thread93, label %X509v3_asid_canonize.exit
 
 X509v3_asid_canonize.exit:                        ; preds = %._crit_edge
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !23
   %108 = call fastcc i32 @ASIdentifierChoice_canonize(ptr noundef %107)
   %.not = icmp eq i32 %108, 0
-  br i1 %.not, label %.thread92, label %110
+  br i1 %.not, label %.thread93, label %110
 
-.thread92:                                        ; preds = %79, %._crit_edge, %94, %90, %73, %57, %78, %98, %X509v3_asid_add_inherit.exit.thread, %25, %17, %X509v3_asid_canonize.exit
+.thread93:                                        ; preds = %79, %._crit_edge, %94, %90, %73, %57, %78, %98, %X509v3_asid_add_inherit.exit.thread, %25, %17, %X509v3_asid_canonize.exit
   %.4 = phi ptr [ null, %X509v3_asid_canonize.exit ], [ null, %73 ], [ null, %57 ], [ null, %78 ], [ %.2, %98 ], [ null, %X509v3_asid_add_inherit.exit.thread ], [ null, %25 ], [ null, %17 ], [ %86, %94 ], [ %86, %90 ], [ null, %._crit_edge ], [ null, %79 ]
   call void @ASN1_item_free(ptr noundef nonnull %5, ptr noundef nonnull @ASIdentifiers_it.local_it) #6
-  %109 = load ptr, ptr %4, align 8, !tbaa !27
+  %109 = load ptr, ptr %4, align 8, !tbaa !28
   call void @ASN1_INTEGER_free(ptr noundef %109) #6
   call void @ASN1_INTEGER_free(ptr noundef %.4) #6
   br label %110
 
-110:                                              ; preds = %X509v3_asid_canonize.exit, %.thread92, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %.thread92 ], [ %5, %X509v3_asid_canonize.exit ]
+110:                                              ; preds = %X509v3_asid_canonize.exit, %.thread93, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %.thread93 ], [ %5, %X509v3_asid_canonize.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -1349,7 +1349,7 @@ define internal fastcc range(i32 0, 2) i32 @asid_contains(ptr noundef %0, ptr no
   %10 = add nuw nsw i32 %.053, 1
   %11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #6
   %12 = icmp slt i32 %10, %11
-  br i1 %12, label %.lr.ph54, label %extract_min_max.exit.thread, !llvm.loop !33
+  br i1 %12, label %.lr.ph54, label %extract_min_max.exit.thread, !llvm.loop !34
 
 .lr.ph54:                                         ; preds = %.preheader, %9
   %.053 = phi i32 [ %10, %9 ], [ 0, %.preheader ]
@@ -1437,7 +1437,7 @@ extract_min_max.exit.thread:                      ; preds = %40, %9, %.lr.ph54, 
 ; Function Attrs: nounwind uwtable
 define i32 @X509v3_asid_validate_path(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
@@ -1448,17 +1448,17 @@ define i32 @X509v3_asid_validate_path(ptr noundef %0) local_unnamed_addr #1 {
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %10 = load ptr, ptr %9, align 8, !tbaa !50
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8, %5, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 1, ptr %13, align 8, !tbaa !50
+  store i32 1, ptr %13, align 8, !tbaa !51
   br label %17
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %2, align 8, !tbaa !34
+  %15 = load ptr, ptr %2, align 8, !tbaa !35
   %16 = tail call fastcc i32 @asid_validate_path_internal(ptr noundef nonnull %0, ptr noundef %15, ptr noundef null)
   br label %17
 
@@ -1477,13 +1477,13 @@ define internal fastcc i32 @asid_validate_path_internal(ptr noundef %0, ptr noun
 4:                                                ; preds = %3
   %5 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #6
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %.critedge, !prof !24
+  br i1 %6, label %7, label %.critedge, !prof !26
 
 7:                                                ; preds = %4
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %2, null
   %10 = or i1 %8, %9
-  br i1 %10, label %11, label %.critedge.thread, !prof !24
+  br i1 %10, label %11, label %.critedge.thread, !prof !26
 
 11:                                               ; preds = %7
   %12 = icmp eq ptr %0, null
@@ -1491,7 +1491,7 @@ define internal fastcc i32 @asid_validate_path_internal(ptr noundef %0, ptr noun
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !49
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %.not271 = icmp eq ptr %15, null
   br i1 %.not271, label %.critedge.thread222, label %.critedge216, !prof !18
 
@@ -1501,7 +1501,7 @@ define internal fastcc i32 @asid_validate_path_internal(ptr noundef %0, ptr noun
 
 .critedge.thread222:                              ; preds = %13, %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 1, ptr %16, align 8, !tbaa !50
+  store i32 1, ptr %16, align 8, !tbaa !51
   br label %.critedge.thread
 
 .critedge216:                                     ; preds = %11, %13
@@ -1510,7 +1510,7 @@ define internal fastcc i32 @asid_validate_path_internal(ptr noundef %0, ptr noun
 17:                                               ; preds = %.critedge216
   %18 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef 0) #6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 304
-  %20 = load ptr, ptr %19, align 8, !tbaa !51
+  %20 = load ptr, ptr %19, align 8, !tbaa !52
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.critedge.thread, label %22
 
@@ -1535,13 +1535,13 @@ X509v3_asid_is_canonical.exit.thread:             ; preds = %22, %X509v3_asid_is
 
 28:                                               ; preds = %X509v3_asid_is_canonical.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 41, ptr %29, align 8, !tbaa !50
+  store i32 41, ptr %29, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.0153, ptr %30, align 4, !tbaa !74
+  store i32 %.0153, ptr %30, align 4, !tbaa !75
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.0, ptr %31, align 8, !tbaa !75
+  store ptr %.0, ptr %31, align 8, !tbaa !76
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !49
+  %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not193 = icmp eq i32 %34, 0
   br i1 %.not193, label %.critedge.thread, label %35
@@ -1620,12 +1620,12 @@ X509v3_asid_is_canonical.exit.thread:             ; preds = %22, %X509v3_asid_is
   br i1 %8, label %62, label %.critedge.thread
 
 62:                                               ; preds = %61
-  store i32 1, ptr %55, align 8, !tbaa !50
+  store i32 1, ptr %55, align 8, !tbaa !51
   br label %.critedge.thread
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 304
-  %65 = load ptr, ptr %64, align 8, !tbaa !51
+  %65 = load ptr, ptr %64, align 8, !tbaa !52
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %74
 
@@ -1639,10 +1639,10 @@ X509v3_asid_is_canonical.exit.thread:             ; preds = %22, %X509v3_asid_is
   br i1 %8, label %71, label %.critedge.thread
 
 71:                                               ; preds = %70
-  store i32 46, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %72 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 46, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %72 = load ptr, ptr %58, align 8, !tbaa !50
   %73 = tail call i32 %72(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not214 = icmp eq i32 %73, 0
   br i1 %.not214, label %.critedge.thread, label %147
@@ -1664,16 +1664,16 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %8, label %80, label %.critedge.thread
 
 80:                                               ; preds = %X509v3_asid_is_canonical.exit220.thread
-  store i32 41, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %81 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 41, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %81 = load ptr, ptr %58, align 8, !tbaa !50
   %82 = tail call i32 %81(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not203 = icmp eq i32 %82, 0
   br i1 %.not203, label %.critedge.thread, label %.thread234
 
 83:                                               ; preds = %X509v3_asid_is_canonical.exit220
-  %84 = load ptr, ptr %64, align 8, !tbaa !51
+  %84 = load ptr, ptr %64, align 8, !tbaa !52
   %85 = load ptr, ptr %84, align 8, !tbaa !21
   %86 = icmp eq ptr %85, null
   %87 = icmp ne ptr %.1160280, null
@@ -1681,7 +1681,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %or.cond3, label %92, label %95
 
 .thread234:                                       ; preds = %80
-  %88 = load ptr, ptr %64, align 8, !tbaa !51
+  %88 = load ptr, ptr %64, align 8, !tbaa !52
   %89 = load ptr, ptr %88, align 8, !tbaa !21
   %90 = icmp eq ptr %89, null
   %91 = icmp ne ptr %.1160280, null
@@ -1692,16 +1692,16 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %8, label %.thread237, label %.critedge.thread
 
 .thread237:                                       ; preds = %.thread234, %92
-  store i32 46, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %93 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 46, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %93 = load ptr, ptr %58, align 8, !tbaa !50
   %94 = tail call i32 %93(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not204 = icmp eq i32 %94, 0
   br i1 %.not204, label %.critedge.thread, label %.thread237._crit_edge
 
 .thread237._crit_edge:                            ; preds = %.thread237
-  %.pre = load ptr, ptr %64, align 8, !tbaa !51
+  %.pre = load ptr, ptr %64, align 8, !tbaa !52
   %.pre293 = load ptr, ptr %.pre, align 8, !tbaa !21
   br label %95
 
@@ -1731,7 +1731,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %.not207, label %111, label %._crit_edge294
 
 ._crit_edge294:                                   ; preds = %102
-  %.pre295 = load ptr, ptr %64, align 8, !tbaa !51
+  %.pre295 = load ptr, ptr %64, align 8, !tbaa !52
   %.pre296 = load ptr, ptr %.pre295, align 8, !tbaa !21
   br label %106
 
@@ -1746,10 +1746,10 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %8, label %112, label %.critedge.thread
 
 112:                                              ; preds = %111
-  store i32 46, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %113 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 46, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %113 = load ptr, ptr %58, align 8, !tbaa !50
   %114 = tail call i32 %113(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not208 = icmp eq i32 %114, 0
   br i1 %.not208, label %.critedge.thread, label %.thread244
@@ -1766,7 +1766,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %or.cond5, label %126, label %129
 
 .thread244:                                       ; preds = %112
-  %121 = load ptr, ptr %64, align 8, !tbaa !51
+  %121 = load ptr, ptr %64, align 8, !tbaa !52
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !23
   %124 = icmp eq ptr %123, null
@@ -1780,16 +1780,16 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
 .thread253:                                       ; preds = %.thread244, %126
   %.4163250259 = phi ptr [ %.4163, %126 ], [ %.3162, %.thread244 ]
   %.4252257 = phi i32 [ %.4, %126 ], [ 0, %.thread244 ]
-  store i32 46, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %127 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 46, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %127 = load ptr, ptr %58, align 8, !tbaa !50
   %128 = tail call i32 %127(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not209 = icmp eq i32 %128, 0
   br i1 %.not209, label %.critedge.thread, label %.thread253._crit_edge
 
 .thread253._crit_edge:                            ; preds = %.thread253
-  %.pre297 = load ptr, ptr %64, align 8, !tbaa !51
+  %.pre297 = load ptr, ptr %64, align 8, !tbaa !52
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre297, i64 8
   %.pre298 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %129
@@ -1821,7 +1821,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %.not212, label %143, label %._crit_edge299
 
 ._crit_edge299:                                   ; preds = %135
-  %.pre300 = load ptr, ptr %64, align 8, !tbaa !51
+  %.pre300 = load ptr, ptr %64, align 8, !tbaa !52
   %.phi.trans.insert301 = getelementptr inbounds nuw i8, ptr %.pre300, i64 8
   %.pre302 = load ptr, ptr %.phi.trans.insert301, align 8, !tbaa !23
   br label %139
@@ -1836,10 +1836,10 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br i1 %8, label %144, label %.critedge.thread
 
 144:                                              ; preds = %143
-  store i32 46, ptr %55, align 8, !tbaa !50
-  store i32 %.1154287, ptr %56, align 4, !tbaa !74
-  store ptr %60, ptr %57, align 8, !tbaa !75
-  %145 = load ptr, ptr %58, align 8, !tbaa !49
+  store i32 46, ptr %55, align 8, !tbaa !51
+  store i32 %.1154287, ptr %56, align 4, !tbaa !75
+  store ptr %60, ptr %57, align 8, !tbaa !76
+  %145 = load ptr, ptr %58, align 8, !tbaa !50
   %146 = tail call i32 %145(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not213 = icmp eq i32 %146, 0
   br i1 %.not213, label %.critedge.thread, label %147
@@ -1853,18 +1853,18 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   %.1154 = add nuw nsw i32 %.1154287, 1
   %148 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #6
   %149 = icmp slt i32 %.1154, %148
-  br i1 %149, label %59, label %._crit_edge.thread, !llvm.loop !76
+  br i1 %149, label %59, label %._crit_edge.thread, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %52
   %.not196 = icmp eq ptr %.0, null
-  br i1 %.not196, label %150, label %._crit_edge.thread, !prof !77
+  br i1 %.not196, label %150, label %._crit_edge.thread, !prof !78
 
 150:                                              ; preds = %._crit_edge
   br i1 %8, label %151, label %.critedge.thread
 
 151:                                              ; preds = %150
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 1, ptr %152, align 8, !tbaa !50
+  store i32 1, ptr %152, align 8, !tbaa !51
   br label %.critedge.thread
 
 ._crit_edge.thread:                               ; preds = %147, %._crit_edge
@@ -1872,7 +1872,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   %.1.lcssa336 = phi ptr [ %.0, %._crit_edge ], [ %60, %147 ]
   %.3151.lcssa335 = phi i32 [ %.1149, %._crit_edge ], [ %.5, %147 ]
   %153 = getelementptr inbounds nuw i8, ptr %.1.lcssa336, i64 304
-  %154 = load ptr, ptr %153, align 8, !tbaa !51
+  %154 = load ptr, ptr %153, align 8, !tbaa !52
   %.not197 = icmp eq ptr %154, null
   br i1 %.not197, label %.critedge.thread, label %155
 
@@ -1891,19 +1891,19 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
 
 161:                                              ; preds = %160
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 46, ptr %162, align 8, !tbaa !50
+  store i32 46, ptr %162, align 8, !tbaa !51
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.1154.lcssa337, ptr %163, align 4, !tbaa !74
+  store i32 %.1154.lcssa337, ptr %163, align 4, !tbaa !75
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.1.lcssa336, ptr %164, align 8, !tbaa !75
+  store ptr %.1.lcssa336, ptr %164, align 8, !tbaa !76
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %166 = load ptr, ptr %165, align 8, !tbaa !49
+  %166 = load ptr, ptr %165, align 8, !tbaa !50
   %167 = tail call i32 %166(i32 noundef 0, ptr noundef nonnull %0) #6
   %.not199 = icmp eq i32 %167, 0
   br i1 %.not199, label %.critedge.thread, label %._crit_edge303
 
 ._crit_edge303:                                   ; preds = %161
-  %.pre304 = load ptr, ptr %153, align 8, !tbaa !51
+  %.pre304 = load ptr, ptr %153, align 8, !tbaa !52
   br label %168
 
 168:                                              ; preds = %._crit_edge303, %157, %155
@@ -1923,13 +1923,13 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 46, ptr %176, align 8, !tbaa !50
+  store i32 46, ptr %176, align 8, !tbaa !51
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.1154.lcssa337, ptr %177, align 4, !tbaa !74
+  store i32 %.1154.lcssa337, ptr %177, align 4, !tbaa !75
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.1.lcssa336, ptr %178, align 8, !tbaa !75
+  store ptr %.1.lcssa336, ptr %178, align 8, !tbaa !76
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %180 = load ptr, ptr %179, align 8, !tbaa !49
+  %180 = load ptr, ptr %179, align 8, !tbaa !50
   %181 = tail call i32 %180(i32 noundef 0, ptr noundef nonnull %0) #6
   br label %.critedge.thread
 
@@ -2110,7 +2110,7 @@ define internal fastcc range(i32 0, 2) i32 @i2r_ASIdentifierChoice(ptr noundef %
   %44 = load ptr, ptr %10, align 8, !tbaa !11
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef %44) #6
   %46 = icmp slt i32 %43, %45
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !78
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !79
 
 .critedge:                                        ; preds = %42, %.lr.ph, %33, %27, %20, %.preheader, %14, %6, %4
   %.0 = phi i32 [ 1, %4 ], [ 0, %6 ], [ 1, %14 ], [ 1, %.preheader ], [ 1, %42 ], [ 0, %.lr.ph ], [ 0, %33 ], [ 0, %27 ], [ 0, %20 ]
@@ -2162,58 +2162,59 @@ attributes #7 = { nounwind willreturn memory(read) }
 !21 = !{!22, !4, i64 0}
 !22 = !{!"ASIdentifiers_st", !4, i64 0, !4, i64 8}
 !23 = !{!22, !4, i64 8}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!16, !16, i64 0}
-!28 = !{!29, !30, i64 8}
-!29 = !{!"", !30, i64 0, !30, i64 8, !30, i64 16}
-!30 = !{!"p1 omnipotent char", !5, i64 0}
-!31 = !{!29, !30, i64 16}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = !{!35, !38, i64 152}
-!35 = !{!"x509_store_ctx_st", !36, i64 0, !37, i64 8, !38, i64 16, !39, i64 24, !40, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !10, i64 144, !10, i64 148, !38, i64 152, !41, i64 160, !10, i64 168, !10, i64 172, !10, i64 176, !37, i64 184, !37, i64 192, !42, i64 200, !10, i64 208, !10, i64 212, !43, i64 216, !44, i64 224, !47, i64 240, !10, i64 248, !48, i64 256, !45, i64 264, !30, i64 272}
-!36 = !{!"p1 _ZTS13x509_store_st", !5, i64 0}
-!37 = !{!"p1 _ZTS7x509_st", !5, i64 0}
-!38 = !{!"p1 _ZTS13stack_st_X509", !5, i64 0}
-!39 = !{!"p1 _ZTS17stack_st_X509_CRL", !5, i64 0}
-!40 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !5, i64 0}
-!41 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !5, i64 0}
-!42 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
-!43 = !{!"p1 _ZTS17x509_store_ctx_st", !5, i64 0}
-!44 = !{!"crypto_ex_data_st", !45, i64 0, !46, i64 8}
-!45 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
-!46 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
-!47 = !{!"p1 _ZTS11ssl_dane_st", !5, i64 0}
-!48 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
-!49 = !{!35, !5, i64 56}
-!50 = !{!35, !10, i64 176}
-!51 = !{!52, !72, i64 304}
-!52 = !{!"x509_st", !53, i64 0, !56, i64 136, !54, i64 152, !64, i64 176, !65, i64 192, !44, i64 200, !55, i64 216, !55, i64 224, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !16, i64 248, !66, i64 256, !67, i64 264, !68, i64 272, !69, i64 280, !70, i64 288, !71, i64 296, !72, i64 304, !6, i64 312, !73, i64 336, !5, i64 344, !10, i64 352, !16, i64 360, !45, i64 368, !30, i64 376}
-!53 = !{!"x509_cinf_st", !16, i64 0, !54, i64 8, !56, i64 32, !59, i64 48, !60, i64 56, !59, i64 72, !61, i64 80, !16, i64 88, !16, i64 96, !62, i64 104, !63, i64 112}
-!54 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !30, i64 8, !55, i64 16}
-!55 = !{!"long", !6, i64 0}
-!56 = !{!"X509_algor_st", !57, i64 0, !58, i64 8}
-!57 = !{!"p1 _ZTS14asn1_object_st", !5, i64 0}
-!58 = !{!"p1 _ZTS12asn1_type_st", !5, i64 0}
-!59 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
-!60 = !{!"X509_val_st", !16, i64 0, !16, i64 8}
-!61 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
-!62 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
-!63 = !{!"ASN1_ENCODING_st", !30, i64 0, !55, i64 8, !10, i64 16}
-!64 = !{!"x509_sig_info_st", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!65 = !{!"", !6, i64 0}
-!66 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !5, i64 0}
-!67 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !5, i64 0}
-!68 = !{!"p1 _ZTS19stack_st_DIST_POINT", !5, i64 0}
-!69 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !5, i64 0}
-!70 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !5, i64 0}
-!71 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !5, i64 0}
-!72 = !{!"p1 _ZTS16ASIdentifiers_st", !5, i64 0}
-!73 = !{!"p1 _ZTS16x509_cert_aux_st", !5, i64 0}
-!74 = !{!35, !10, i64 172}
-!75 = !{!35, !37, i64 184}
-!76 = distinct !{!76, !26}
-!77 = !{!"branch_weights", !"expected", i32 1383174, i32 2146100474}
-!78 = distinct !{!78, !26}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = distinct !{!27, !25}
+!28 = !{!16, !16, i64 0}
+!29 = !{!30, !31, i64 8}
+!30 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"p1 omnipotent char", !5, i64 0}
+!32 = !{!30, !31, i64 16}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25}
+!35 = !{!36, !39, i64 152}
+!36 = !{!"x509_store_ctx_st", !37, i64 0, !38, i64 8, !39, i64 16, !40, i64 24, !41, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !10, i64 144, !10, i64 148, !39, i64 152, !42, i64 160, !10, i64 168, !10, i64 172, !10, i64 176, !38, i64 184, !38, i64 192, !43, i64 200, !10, i64 208, !10, i64 212, !44, i64 216, !45, i64 224, !48, i64 240, !10, i64 248, !49, i64 256, !46, i64 264, !31, i64 272}
+!37 = !{!"p1 _ZTS13x509_store_st", !5, i64 0}
+!38 = !{!"p1 _ZTS7x509_st", !5, i64 0}
+!39 = !{!"p1 _ZTS13stack_st_X509", !5, i64 0}
+!40 = !{!"p1 _ZTS17stack_st_X509_CRL", !5, i64 0}
+!41 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !5, i64 0}
+!42 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !5, i64 0}
+!43 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
+!44 = !{!"p1 _ZTS17x509_store_ctx_st", !5, i64 0}
+!45 = !{!"crypto_ex_data_st", !46, i64 0, !47, i64 8}
+!46 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
+!47 = !{!"p1 _ZTS13stack_st_void", !5, i64 0}
+!48 = !{!"p1 _ZTS11ssl_dane_st", !5, i64 0}
+!49 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
+!50 = !{!36, !5, i64 56}
+!51 = !{!36, !10, i64 176}
+!52 = !{!53, !73, i64 304}
+!53 = !{!"x509_st", !54, i64 0, !57, i64 136, !55, i64 152, !65, i64 176, !66, i64 192, !45, i64 200, !56, i64 216, !56, i64 224, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !16, i64 248, !67, i64 256, !68, i64 264, !69, i64 272, !70, i64 280, !71, i64 288, !72, i64 296, !73, i64 304, !6, i64 312, !74, i64 336, !5, i64 344, !10, i64 352, !16, i64 360, !46, i64 368, !31, i64 376}
+!54 = !{!"x509_cinf_st", !16, i64 0, !55, i64 8, !57, i64 32, !60, i64 48, !61, i64 56, !60, i64 72, !62, i64 80, !16, i64 88, !16, i64 96, !63, i64 104, !64, i64 112}
+!55 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !31, i64 8, !56, i64 16}
+!56 = !{!"long", !6, i64 0}
+!57 = !{!"X509_algor_st", !58, i64 0, !59, i64 8}
+!58 = !{!"p1 _ZTS14asn1_object_st", !5, i64 0}
+!59 = !{!"p1 _ZTS12asn1_type_st", !5, i64 0}
+!60 = !{!"p1 _ZTS12X509_name_st", !5, i64 0}
+!61 = !{!"X509_val_st", !16, i64 0, !16, i64 8}
+!62 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
+!63 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
+!64 = !{!"ASN1_ENCODING_st", !31, i64 0, !56, i64 8, !10, i64 16}
+!65 = !{!"x509_sig_info_st", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!66 = !{!"", !6, i64 0}
+!67 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !5, i64 0}
+!68 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !5, i64 0}
+!69 = !{!"p1 _ZTS19stack_st_DIST_POINT", !5, i64 0}
+!70 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !5, i64 0}
+!71 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !5, i64 0}
+!72 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !5, i64 0}
+!73 = !{!"p1 _ZTS16ASIdentifiers_st", !5, i64 0}
+!74 = !{!"p1 _ZTS16x509_cert_aux_st", !5, i64 0}
+!75 = !{!36, !10, i64 172}
+!76 = !{!36, !38, i64 184}
+!77 = distinct !{!77, !25}
+!78 = !{!"branch_weights", !"expected", i32 1383174, i32 2146100474}
+!79 = distinct !{!79, !25}

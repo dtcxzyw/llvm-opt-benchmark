@@ -367,9 +367,9 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
 45:                                               ; preds = %39
   %46 = tail call noalias ptr @kstrdup(ptr noundef nonnull %2, i32 noundef 3264) #7
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread26, label %48
+  br i1 %47, label %.thread27, label %48
 
-.thread26:                                        ; preds = %45
+.thread27:                                        ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -379,9 +379,9 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   store ptr %46, ptr %5, align 8
   %49 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #7
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread30, label %51
+  br i1 %50, label %.thread31, label %51
 
-.thread30:                                        ; preds = %48
+.thread31:                                        ; preds = %48
   call void @kfree(ptr noundef nonnull %46) #7
   br label %.sink.split
 
@@ -391,7 +391,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
 
 53:                                               ; preds = %176, %51
   %54 = phi ptr [ %49, %51 ], [ %177, %176 ]
-  %55 = phi i32 [ 0, %51 ], [ %.ph24, %176 ]
+  %55 = phi i32 [ 0, %51 ], [ %.ph25, %176 ]
   %56 = load i8, ptr %54, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %176, label %58, !llvm.loop !6
@@ -465,7 +465,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %87 = call ptr @match_strdup(ptr noundef nonnull %6) #7
   store ptr %87, ptr %10, align 8
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %.thread29, label %176
+  br i1 %88, label %.thread30, label %176
 
 89:                                               ; preds = %58
   %90 = load ptr, ptr %14, align 8
@@ -473,7 +473,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %91 = call ptr @match_strdup(ptr noundef nonnull %6) #7
   store ptr %91, ptr %14, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread29, label %176
+  br i1 %92, label %.thread30, label %176
 
 93:                                               ; preds = %58
   store i8 1, ptr %52, align 4
@@ -500,7 +500,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
 103:                                              ; preds = %58
   %104 = call ptr @match_strdup(ptr noundef nonnull %6) #7
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread29, label %106
+  br i1 %105, label %.thread30, label %106
 
 106:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -563,7 +563,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
 132:                                              ; preds = %58
   %133 = call ptr @match_strdup(ptr noundef nonnull %6) #7
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %.thread29, label %135
+  br i1 %134, label %.thread30, label %135
 
 135:                                              ; preds = %132
   %136 = load i32, ptr %0, align 8
@@ -608,14 +608,14 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %157 = load i32, ptr %8, align 4
   store i32 %157, ptr %18, align 4
   %158 = icmp eq i32 %157, -1
-  br i1 %158, label %159, label %.thread21
+  br i1 %158, label %159, label %.thread22
 
 159:                                              ; preds = %156
   %160 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %133) #8
-  br label %.thread21
+  br label %.thread22
 
-.thread21:                                        ; preds = %159, %156
-  %.ph20 = phi i32 [ %55, %156 ], [ -22, %159 ]
+.thread22:                                        ; preds = %159, %156
+  %.ph21 = phi i32 [ %55, %156 ], [ -22, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %165
 
@@ -630,8 +630,8 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   store i32 %164, ptr %0, align 8
   br label %165
 
-165:                                              ; preds = %.thread21, %163
-  %166 = phi i32 [ %55, %163 ], [ %.ph20, %.thread21 ]
+165:                                              ; preds = %.thread22, %163
+  %166 = phi i32 [ %55, %163 ], [ %.ph21, %.thread22 ]
   call void @kfree(ptr noundef nonnull %133) #7
   br label %176
 
@@ -652,12 +652,12 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   br label %176
 
 176:                                              ; preds = %60, %63, %69, %76, %80, %83, %85, %89, %93, %94, %97, %100, %130, %165, %173, %161, %53, %66, %73, %167, %170, %58
-  %.ph24 = phi i32 [ -22, %170 ], [ %168, %167 ], [ %74, %73 ], [ %67, %66 ], [ %55, %53 ], [ %154, %161 ], [ %55, %173 ], [ %166, %165 ], [ %131, %130 ], [ %55, %100 ], [ %55, %97 ], [ %55, %94 ], [ %55, %93 ], [ %55, %89 ], [ %55, %85 ], [ %55, %83 ], [ %55, %63 ], [ %61, %60 ], [ %72, %69 ], [ %79, %76 ], [ %81, %80 ], [ %55, %58 ]
+  %.ph25 = phi i32 [ -22, %170 ], [ %168, %167 ], [ %74, %73 ], [ %67, %66 ], [ %55, %53 ], [ %154, %161 ], [ %55, %173 ], [ %166, %165 ], [ %131, %130 ], [ %55, %100 ], [ %55, %97 ], [ %55, %94 ], [ %55, %93 ], [ %55, %89 ], [ %55, %85 ], [ %55, %83 ], [ %55, %63 ], [ %61, %60 ], [ %72, %69 ], [ %79, %76 ], [ %81, %80 ], [ %55, %58 ]
   %177 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.19) #7
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %53, !llvm.loop !6
 
-.thread29:                                        ; preds = %85, %89, %103, %132
+.thread30:                                        ; preds = %85, %89, %103, %132
   call void @kfree(ptr noundef nonnull %46) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -669,10 +669,10 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %180 = icmp slt i32 %.ph24, 0
+  %180 = icmp slt i32 %.ph25, 0
   br i1 %180, label %226, label %181
 
-.sink.split:                                      ; preds = %39, %.thread30
+.sink.split:                                      ; preds = %39, %.thread31
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -757,8 +757,8 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_sessionlist_lock) #7
   br label %236
 
-226:                                              ; preds = %.thread29, %.thread26, %210, %179
-  %227 = phi i32 [ %.ph24, %179 ], [ %212, %210 ], [ -12, %.thread26 ], [ -12, %.thread29 ]
+226:                                              ; preds = %.thread30, %.thread27, %210, %179
+  %227 = phi i32 [ %.ph25, %179 ], [ %212, %210 ], [ -12, %.thread27 ], [ -12, %.thread30 ]
   %228 = load ptr, ptr %22, align 8
   call void @p9_client_destroy(ptr noundef %228) #7
   br label %229

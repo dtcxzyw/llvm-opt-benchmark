@@ -6383,8 +6383,8 @@ define i32 @tls1_check_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 40
   %20 = trunc i64 %19 to i32
-  %sext391 = shl i64 %19, 32
-  %.pre = ashr exact i64 %sext391, 32
+  %sext392 = shl i64 %19, 32
+  %.pre = ashr exact i64 %sext392, 32
   br label %26
 
 21:                                               ; preds = %5
@@ -6443,8 +6443,8 @@ tls12_rpk_and_privkey.exit:                       ; preds = %46
 
 53:                                               ; preds = %51
   %54 = tail call i32 @EVP_PKEY_is_a(ptr noundef %33, ptr noundef nonnull @.str.3) #14
-  %.not.i284 = icmp eq i32 %54, 0
-  br i1 %.not.i284, label %tls1_check_pkey_comp.exit, label %55
+  %.not.i287 = icmp eq i32 %54, 0
+  br i1 %.not.i287, label %tls1_check_pkey_comp.exit, label %55
 
 55:                                               ; preds = %53
   %56 = tail call i32 @EVP_PKEY_get_ec_point_conv_form(ptr noundef %33) #14
@@ -6515,7 +6515,7 @@ tls12_rpk_and_privkey.exit.thread:                ; preds = %38, %42, %46, %tls1
   %83 = icmp eq ptr %31, null
   %84 = icmp eq ptr %33, null
   %or.cond = select i1 %83, i1 true, i1 %84
-  br i1 %or.cond, label %.thread311, label %102
+  br i1 %or.cond, label %.thread309, label %102
 
 85:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6566,7 +6566,7 @@ tls12_rpk_and_privkey.exit.thread:                ; preds = %38, %42, %46, %tls1
   %107 = icmp eq i32 %106, 0
   %.3198 = select i1 %107, i32 2048, i32 0
   %108 = select i1 %107, i1 true, i1 %.not225
-  br i1 %108, label %109, label %.thread311
+  br i1 %108, label %109, label %.thread309
 
 109:                                              ; preds = %103, %102
   %.4211 = phi i32 [ %spec.select, %103 ], [ %.1208, %102 ]
@@ -6604,34 +6604,34 @@ tls12_rpk_and_privkey.exit.thread:                ; preds = %38, %42, %46, %tls1
   %switch.maskindex = trunc i32 %.1184 to i8
   %switch.shifted = lshr i8 125, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond407 = select i1 %124, i1 %switch.lobit, i1 false
-  br i1 %or.cond407, label %switch.lookup, label %156
+  %or.cond406 = select i1 %124, i1 %switch.lobit, i1 false
+  br i1 %or.cond406, label %switch.lookup, label %156
 
 switch.lookup:                                    ; preds = %123
   %125 = zext nneg i32 %.1184 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.tls1_check_chain, i64 %125
   %switch.load = load i32, ptr %switch.gep, align 4
   %126 = zext nneg i32 %.1184 to i64
-  %switch.gep405 = getelementptr inbounds nuw i32, ptr @switch.table.tls1_check_chain.9, i64 %126
-  %switch.load406 = load i32, ptr %switch.gep405, align 4
+  %switch.gep404 = getelementptr inbounds nuw i32, ptr @switch.table.tls1_check_chain.9, i64 %126
+  %switch.load405 = load i32, ptr %switch.gep404, align 4
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %128 = load ptr, ptr %127, align 8, !tbaa !209
   %.not230 = icmp eq ptr %128, null
-  br i1 %.not230, label %156, label %.preheader337
+  br i1 %.not230, label %156, label %.preheader340
 
-.preheader337:                                    ; preds = %switch.lookup
+.preheader340:                                    ; preds = %switch.lookup
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %130 = load i64, ptr %129, align 8, !tbaa !210
-  %.not363 = icmp eq i64 %130, 0
-  br i1 %.not363, label %._crit_edge.thread393, label %.lr.ph
+  %.not365 = icmp eq i64 %130, 0
+  br i1 %.not365, label %._crit_edge.thread394, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader337
+.lr.ph:                                           ; preds = %.preheader340
   %131 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %131, align 8, !tbaa !126
   %132 = getelementptr inbounds nuw i8, ptr %.val, i64 1632
   %133 = load i64, ptr %132, align 8, !tbaa !194
   %.not4.i = icmp eq i64 %133, 0
-  br i1 %.not4.i, label %._crit_edge.thread393, label %.lr.ph.split
+  br i1 %.not4.i, label %._crit_edge.thread394, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %134 = getelementptr inbounds nuw i8, ptr %.val, i64 1640
@@ -6639,12 +6639,12 @@ switch.lookup:                                    ; preds = %123
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.split, %tls1_lookup_sigalg.exit.thread
-  %.0179342 = phi ptr [ %128, %.lr.ph.split ], [ %154, %tls1_lookup_sigalg.exit.thread ]
-  %.0180341 = phi i64 [ 0, %.lr.ph.split ], [ %153, %tls1_lookup_sigalg.exit.thread ]
-  %136 = load i16, ptr %.0179342, align 2, !tbaa !93
-  br label %.lr.ph.i285
+  %.0179344 = phi ptr [ %128, %.lr.ph.split ], [ %154, %tls1_lookup_sigalg.exit.thread ]
+  %.0180343 = phi i64 [ 0, %.lr.ph.split ], [ %153, %tls1_lookup_sigalg.exit.thread ]
+  %136 = load i16, ptr %.0179344, align 2, !tbaa !93
+  br label %.lr.ph.i288
 
-.lr.ph.i285:                                      ; preds = %143, %.lr.ph.preheader.i
+.lr.ph.i288:                                      ; preds = %143, %.lr.ph.preheader.i
   %.03.i = phi ptr [ %144, %143 ], [ %135, %.lr.ph.preheader.i ]
   %.092.i = phi i64 [ %145, %143 ], [ 0, %.lr.ph.preheader.i ]
   %137 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
@@ -6652,17 +6652,17 @@ switch.lookup:                                    ; preds = %123
   %139 = icmp eq i16 %138, %136
   br i1 %139, label %140, label %143
 
-140:                                              ; preds = %.lr.ph.i285
+140:                                              ; preds = %.lr.ph.i288
   %141 = getelementptr inbounds nuw i8, ptr %.03.i, i64 36
   %142 = load i32, ptr %141, align 4, !tbaa !182
-  %.not.i287 = icmp eq i32 %142, 0
-  br i1 %.not.i287, label %tls1_lookup_sigalg.exit.thread, label %tls1_lookup_sigalg.exit
+  %.not.i290 = icmp eq i32 %142, 0
+  br i1 %.not.i290, label %tls1_lookup_sigalg.exit.thread, label %tls1_lookup_sigalg.exit
 
-143:                                              ; preds = %.lr.ph.i285
+143:                                              ; preds = %.lr.ph.i288
   %144 = getelementptr inbounds nuw i8, ptr %.03.i, i64 40
   %145 = add nuw i64 %.092.i, 1
-  %exitcond.not.i286 = icmp eq i64 %145, %133
-  br i1 %exitcond.not.i286, label %tls1_lookup_sigalg.exit.thread, label %.lr.ph.i285, !llvm.loop !206
+  %exitcond.not.i289 = icmp eq i64 %145, %133
+  br i1 %exitcond.not.i289, label %tls1_lookup_sigalg.exit.thread, label %.lr.ph.i288, !llvm.loop !206
 
 tls1_lookup_sigalg.exit:                          ; preds = %140
   %146 = getelementptr inbounds nuw i8, ptr %.03.i, i64 12
@@ -6673,21 +6673,21 @@ tls1_lookup_sigalg.exit:                          ; preds = %140
 149:                                              ; preds = %tls1_lookup_sigalg.exit
   %150 = getelementptr inbounds nuw i8, ptr %.03.i, i64 20
   %151 = load i32, ptr %150, align 4, !tbaa !183
-  %152 = icmp eq i32 %151, %switch.load406
+  %152 = icmp eq i32 %151, %switch.load405
   br i1 %152, label %._crit_edge, label %tls1_lookup_sigalg.exit.thread
 
 tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lookup_sigalg.exit, %149
-  %153 = add nuw i64 %.0180341, 1
-  %154 = getelementptr inbounds nuw i8, ptr %.0179342, i64 2
+  %153 = add nuw i64 %.0180343, 1
+  %154 = getelementptr inbounds nuw i8, ptr %.0179344, i64 2
   %exitcond.not = icmp eq i64 %153, %130
-  br i1 %exitcond.not, label %._crit_edge.thread393, label %.lr.ph.preheader.i, !llvm.loop !287
+  br i1 %exitcond.not, label %._crit_edge.thread394, label %.lr.ph.preheader.i, !llvm.loop !287
 
 ._crit_edge:                                      ; preds = %149
-  %155 = icmp eq i64 %.0180341, %130
-  br i1 %155, label %._crit_edge.thread393, label %156
+  %155 = icmp eq i64 %.0180343, %130
+  br i1 %155, label %._crit_edge.thread394, label %156
 
 156:                                              ; preds = %123, %120, %117, %._crit_edge, %switch.lookup
-  %.0182297 = phi i32 [ %switch.load, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 0, %120 ], [ 0, %117 ], [ -1, %123 ]
+  %.0182300 = phi i32 [ %switch.load, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 0, %120 ], [ 0, %117 ], [ -1, %123 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %158 = load ptr, ptr %157, align 8, !tbaa !136
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 216
@@ -6713,13 +6713,13 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lo
   br label %175
 
 170:                                              ; preds = %164, %156
-  %171 = call fastcc i32 @tls1_check_sig_alg(ptr noundef nonnull %0, ptr noundef %.0176, i32 noundef %.0182297)
+  %171 = call fastcc i32 @tls1_check_sig_alg(ptr noundef nonnull %0, ptr noundef %.0176, i32 noundef %.0182300)
   %.not237 = icmp eq i32 %171, 0
   br i1 %.not237, label %172, label %173
 
 172:                                              ; preds = %170
   %.not238 = icmp eq i32 %.4211, 0
-  br i1 %.not238, label %.thread311, label %175
+  br i1 %.not238, label %.thread309, label %175
 
 173:                                              ; preds = %170
   %174 = or disjoint i32 %.1196, 16
@@ -6730,51 +6730,51 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lo
   %176 = or i32 %.5200, 32
   %177 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph350, label %.thread306
+  br i1 %178, label %.lr.ph352, label %.thread314
 
-179:                                              ; preds = %.lr.ph350
-  %180 = add nuw nsw i32 %.0189348, 1
+179:                                              ; preds = %.lr.ph352
+  %180 = add nuw nsw i32 %.0189350, 1
   %181 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %182 = icmp slt i32 %180, %181
-  br i1 %182, label %.lr.ph350, label %.thread306, !llvm.loop !288
+  br i1 %182, label %.lr.ph352, label %.thread314, !llvm.loop !288
 
-.lr.ph350:                                        ; preds = %175, %179
-  %.0189348 = phi i32 [ %180, %179 ], [ 0, %175 ]
-  %183 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.0189348) #14
-  %184 = call fastcc i32 @tls1_check_sig_alg(ptr noundef nonnull %0, ptr noundef %183, i32 noundef %.0182297)
+.lr.ph352:                                        ; preds = %175, %179
+  %.0189350 = phi i32 [ %180, %179 ], [ 0, %175 ]
+  %183 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.0189350) #14
+  %184 = call fastcc i32 @tls1_check_sig_alg(ptr noundef nonnull %0, ptr noundef %183, i32 noundef %.0182300)
   %.not239 = icmp eq i32 %184, 0
   br i1 %.not239, label %185, label %179
 
-185:                                              ; preds = %.lr.ph350
+185:                                              ; preds = %.lr.ph352
   %.not240 = icmp eq i32 %.4211, 0
   %186 = and i32 %.5200, -33
-  br i1 %.not240, label %.thread311, label %.thread306
+  br i1 %.not240, label %.thread309, label %.thread314
 
-._crit_edge.thread393:                            ; preds = %tls1_lookup_sigalg.exit.thread, %.lr.ph, %.preheader337, %._crit_edge
+._crit_edge.thread394:                            ; preds = %tls1_lookup_sigalg.exit.thread, %.lr.ph, %.preheader340, %._crit_edge
   %.not232 = icmp eq i32 %.4211, 0
-  br i1 %.not232, label %.thread311, label %.thread306
+  br i1 %.not232, label %.thread309, label %.thread314
 
 187:                                              ; preds = %.thread, %113
   %188 = phi i1 [ %112, %.thread ], [ %116, %113 ]
   %.not227 = icmp eq i32 %.4211, 0
   %189 = or disjoint i32 %.1196, 48
-  %spec.select265 = select i1 %.not227, i32 %.1196, i32 %189
-  br label %.thread306
+  %spec.select267 = select i1 %.not227, i32 %.1196, i32 %189
+  br label %.thread314
 
-.thread306:                                       ; preds = %179, %175, %._crit_edge.thread393, %185, %187
-  %190 = phi i1 [ true, %._crit_edge.thread393 ], [ %188, %187 ], [ true, %185 ], [ true, %175 ], [ true, %179 ]
-  %.7202 = phi i32 [ %.1196, %._crit_edge.thread393 ], [ %spec.select265, %187 ], [ %186, %185 ], [ %176, %175 ], [ %176, %179 ]
+.thread314:                                       ; preds = %179, %175, %185, %187, %._crit_edge.thread394
+  %190 = phi i1 [ true, %._crit_edge.thread394 ], [ %188, %187 ], [ true, %185 ], [ true, %175 ], [ true, %179 ]
+  %.7202 = phi i32 [ %.1196, %._crit_edge.thread394 ], [ %spec.select267, %187 ], [ %186, %185 ], [ %176, %175 ], [ %176, %179 ]
   %191 = call fastcc i32 @tls1_check_cert_param(ptr noundef nonnull %0, ptr noundef %.0176, i32 noundef 1)
   %.not241 = icmp eq i32 %191, 0
   br i1 %.not241, label %194, label %192
 
-192:                                              ; preds = %.thread306
+192:                                              ; preds = %.thread314
   %193 = or i32 %.7202, 64
   br label %195
 
-194:                                              ; preds = %.thread306
+194:                                              ; preds = %.thread314
   %.not242 = icmp eq i32 %.4211, 0
-  br i1 %.not242, label %.thread311, label %195
+  br i1 %.not242, label %.thread309, label %195
 
 195:                                              ; preds = %194, %192
   %.8203 = phi i32 [ %193, %192 ], [ %.7202, %194 ]
@@ -6785,109 +6785,109 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lo
 
 198:                                              ; preds = %195
   %199 = or i32 %.8203, 128
-  br label %.loopexit336
+  br label %.loopexit339
 
 200:                                              ; preds = %195
-  br i1 %190, label %201, label %.thread314
+  br i1 %190, label %201, label %.thread317
 
 201:                                              ; preds = %200
   %202 = or i32 %.8203, 128
   %203 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %.lr.ph354, label %.loopexit336
+  br i1 %204, label %.lr.ph356, label %.loopexit339
 
-.lr.ph354:                                        ; preds = %201
+.lr.ph356:                                        ; preds = %201
   %.not245 = icmp eq i32 %.4211, 0
-  %spec.select280 = select i1 %.not245, i32 2, i32 11
+  %spec.select283 = select i1 %.not245, i32 2, i32 11
   br label %205
 
-205:                                              ; preds = %.lr.ph354, %209
-  %.1190352 = phi i32 [ 0, %.lr.ph354 ], [ %210, %209 ]
-  %.10351 = phi i32 [ %202, %.lr.ph354 ], [ %.11, %209 ]
-  %206 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.1190352) #14
+205:                                              ; preds = %.lr.ph356, %209
+  %.1190354 = phi i32 [ 0, %.lr.ph356 ], [ %210, %209 ]
+  %.10353 = phi i32 [ %202, %.lr.ph356 ], [ %.11, %209 ]
+  %206 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.1190354) #14
   %207 = call fastcc i32 @tls1_check_cert_param(ptr noundef nonnull %0, ptr noundef %206, i32 noundef 0)
   %.not244 = icmp eq i32 %207, 0
-  %208 = and i32 %.10351, -129
-  %spec.select279 = select i1 %.not245, i32 %.10351, i32 %208
-  %.11 = select i1 %.not244, i32 %spec.select279, i32 %.10351
-  %.5 = select i1 %.not244, i32 %spec.select280, i32 0
-  switch i32 %.5, label %tls1_check_pkey_comp.exit.thread [
+  %208 = and i32 %.10353, -129
+  %spec.select282 = select i1 %.not245, i32 %.10353, i32 %208
+  %.11 = select i1 %.not244, i32 %spec.select282, i32 %.10353
+  %.5 = select i1 %.not244, i32 %spec.select283, i32 0
+  switch i32 %.5, label %.unreachabledefault268 [
     i32 0, label %209
-    i32 11, label %.loopexit336
-    i32 2, label %.thread311
+    i32 11, label %.loopexit339
+    i32 2, label %.thread309
   ]
 
 209:                                              ; preds = %205
-  %210 = add nuw nsw i32 %.1190352, 1
+  %210 = add nuw nsw i32 %.1190354, 1
   %211 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %212 = icmp slt i32 %210, %211
-  br i1 %212, label %205, label %.loopexit336, !llvm.loop !289
+  br i1 %212, label %205, label %.loopexit339, !llvm.loop !289
 
-.loopexit336:                                     ; preds = %209, %205, %201, %198
+.loopexit339:                                     ; preds = %209, %205, %201, %198
   %.9 = phi i32 [ %199, %198 ], [ %202, %201 ], [ %.11, %205 ], [ %.11, %209 ]
   %213 = load i32, ptr %196, align 8, !tbaa !151
   %214 = icmp eq i32 %213, 0
   %or.cond9 = select i1 %214, i1 %190, i1 false
-  br i1 %or.cond9, label %215, label %.thread314
+  br i1 %or.cond9, label %215, label %.thread317
 
-215:                                              ; preds = %.loopexit336
+215:                                              ; preds = %.loopexit339
   %216 = call i32 @EVP_PKEY_is_a(ptr noundef %.0177, ptr noundef nonnull @.str.13) #14
   %.not246 = icmp eq i32 %216, 0
-  br i1 %.not246, label %217, label %.thread319
+  br i1 %.not246, label %217, label %.thread322
 
 217:                                              ; preds = %215
   %218 = call i32 @EVP_PKEY_is_a(ptr noundef %.0177, ptr noundef nonnull @.str.14) #14
   %.not247 = icmp eq i32 %218, 0
-  br i1 %.not247, label %219, label %.thread319
+  br i1 %.not247, label %219, label %.thread322
 
 219:                                              ; preds = %217
   %220 = call i32 @EVP_PKEY_is_a(ptr noundef %.0177, ptr noundef nonnull @.str.3) #14
   %.not248 = icmp eq i32 %220, 0
-  br i1 %.not248, label %235, label %.thread319
+  br i1 %.not248, label %235, label %.thread322
 
-.thread319:                                       ; preds = %217, %215, %219
-  %.0175322 = phi i32 [ 64, %219 ], [ 2, %217 ], [ 1, %215 ]
+.thread322:                                       ; preds = %217, %215, %219
+  %.0175325 = phi i32 [ 64, %219 ], [ 2, %217 ], [ 1, %215 ]
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %222 = load i64, ptr %221, align 8, !tbaa !290
-  %.not364 = icmp eq i64 %222, 0
-  br i1 %.not364, label %.loopexit335, label %.lr.ph360.preheader
+  %.not366 = icmp eq i64 %222, 0
+  br i1 %.not366, label %.loopexit338, label %.lr.ph362.preheader
 
-.lr.ph360.preheader:                              ; preds = %.thread319
+.lr.ph362.preheader:                              ; preds = %.thread322
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %224 = load ptr, ptr %223, align 8, !tbaa !291
-  br label %.lr.ph360
+  br label %.lr.ph362
 
-.lr.ph360:                                        ; preds = %.lr.ph360.preheader, %230
-  %.0173359 = phi i64 [ %231, %230 ], [ 0, %.lr.ph360.preheader ]
-  %.0174358 = phi ptr [ %232, %230 ], [ %224, %.lr.ph360.preheader ]
-  %225 = load i8, ptr %.0174358, align 1, !tbaa !141
+.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %230
+  %.0173361 = phi i64 [ %231, %230 ], [ 0, %.lr.ph362.preheader ]
+  %.0174360 = phi ptr [ %232, %230 ], [ %224, %.lr.ph362.preheader ]
+  %225 = load i8, ptr %.0174360, align 1, !tbaa !141
   %226 = zext i8 %225 to i32
-  %227 = icmp eq i32 %.0175322, %226
+  %227 = icmp eq i32 %.0175325, %226
   br i1 %227, label %228, label %230
 
-228:                                              ; preds = %.lr.ph360
+228:                                              ; preds = %.lr.ph362
   %229 = or i32 %.9, 1024
-  br label %.loopexit335
+  br label %.loopexit338
 
-230:                                              ; preds = %.lr.ph360
-  %231 = add nuw i64 %.0173359, 1
-  %232 = getelementptr inbounds nuw i8, ptr %.0174358, i64 1
-  %exitcond370.not = icmp eq i64 %231, %222
-  br i1 %exitcond370.not, label %.loopexit335, label %.lr.ph360, !llvm.loop !292
+230:                                              ; preds = %.lr.ph362
+  %231 = add nuw i64 %.0173361, 1
+  %232 = getelementptr inbounds nuw i8, ptr %.0174360, i64 1
+  %exitcond371.not = icmp eq i64 %231, %222
+  br i1 %exitcond371.not, label %.loopexit338, label %.lr.ph362, !llvm.loop !292
 
-.loopexit335:                                     ; preds = %230, %.thread319, %228
-  %.12 = phi i32 [ %229, %228 ], [ %.9, %.thread319 ], [ %.9, %230 ]
+.loopexit338:                                     ; preds = %230, %.thread322, %228
+  %.12 = phi i32 [ %229, %228 ], [ %.9, %.thread322 ], [ %.9, %230 ]
   %233 = and i32 %.12, 1024
   %234 = or i32 %233, %.4211
   %or.cond11.not.not = icmp eq i32 %234, 0
-  br i1 %or.cond11.not.not, label %.thread311, label %237
+  br i1 %or.cond11.not.not, label %.thread309, label %237
 
 235:                                              ; preds = %219
   %236 = or i32 %.9, 1024
   br label %237
 
-237:                                              ; preds = %.loopexit335, %235
-  %.14 = phi i32 [ %.12, %.loopexit335 ], [ %236, %235 ]
+237:                                              ; preds = %.loopexit338, %235
+  %.14 = phi i32 [ %.12, %.loopexit338 ], [ %236, %235 ]
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %239 = load ptr, ptr %238, align 8, !tbaa !293
   %240 = icmp eq ptr %239, null
@@ -6906,93 +6906,93 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %143, %140, %tls1_lo
 .preheader:                                       ; preds = %244
   %246 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %.lr.ph362, label %.loopexit334
+  br i1 %247, label %.lr.ph364, label %.loopexit337
 
 248:                                              ; preds = %244, %241, %237
   %249 = or i32 %.14, 512
-  br label %.loopexit334
+  br label %.loopexit337
 
-.lr.ph362:                                        ; preds = %.preheader, %.loopexit
-  %.2191361 = phi i32 [ %261, %.loopexit ], [ 0, %.preheader ]
-  %250 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.2191361) #14
+.lr.ph364:                                        ; preds = %.preheader, %.loopexit
+  %.2191363 = phi i32 [ %261, %.loopexit ], [ 0, %.preheader ]
+  %250 = call ptr @OPENSSL_sk_value(ptr noundef %.0178, i32 noundef %.2191363) #14
   %251 = call ptr @X509_get_issuer_name(ptr noundef %250) #14
   %252 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %239) #14
   %253 = icmp sgt i32 %252, 0
-  br i1 %253, label %.lr.ph.i288, label %.loopexit
+  br i1 %253, label %.lr.ph.i291, label %.loopexit
 
-254:                                              ; preds = %.lr.ph.i288
+254:                                              ; preds = %.lr.ph.i291
   %255 = add nuw nsw i32 %.08.i, 1
   %256 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %239) #14
   %257 = icmp slt i32 %255, %256
-  br i1 %257, label %.lr.ph.i288, label %.loopexit, !llvm.loop !294
+  br i1 %257, label %.lr.ph.i291, label %.loopexit, !llvm.loop !294
 
-.lr.ph.i288:                                      ; preds = %.lr.ph362, %254
-  %.08.i = phi i32 [ %255, %254 ], [ 0, %.lr.ph362 ]
+.lr.ph.i291:                                      ; preds = %.lr.ph364, %254
+  %.08.i = phi i32 [ %255, %254 ], [ 0, %.lr.ph364 ]
   %258 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %239, i32 noundef %.08.i) #14
   %259 = call i32 @X509_NAME_cmp(ptr noundef %251, ptr noundef %258) #14
-  %.not.i289 = icmp eq i32 %259, 0
-  br i1 %.not.i289, label %ssl_check_ca_name.exit, label %254
+  %.not.i292 = icmp eq i32 %259, 0
+  br i1 %.not.i292, label %ssl_check_ca_name.exit, label %254
 
-ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i288
+ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i291
   %260 = or i32 %.14, 512
-  br label %.loopexit334
+  br label %.loopexit337
 
-.loopexit:                                        ; preds = %254, %.lr.ph362
-  %261 = add nuw nsw i32 %.2191361, 1
+.loopexit:                                        ; preds = %254, %.lr.ph364
+  %261 = add nuw nsw i32 %.2191363, 1
   %262 = call i32 @OPENSSL_sk_num(ptr noundef %.0178) #14
   %263 = icmp slt i32 %261, %262
-  br i1 %263, label %.lr.ph362, label %.loopexit334, !llvm.loop !295
+  br i1 %263, label %.lr.ph364, label %.loopexit337, !llvm.loop !295
 
-.loopexit334:                                     ; preds = %.loopexit, %.preheader, %ssl_check_ca_name.exit, %248
+.loopexit337:                                     ; preds = %.loopexit, %.preheader, %ssl_check_ca_name.exit, %248
   %.15 = phi i32 [ %249, %248 ], [ %260, %ssl_check_ca_name.exit ], [ %.14, %.preheader ], [ %.14, %.loopexit ]
   %.not252 = icmp eq i32 %.4211, 0
   %264 = and i32 %.15, 512
   %.not253 = icmp eq i32 %264, 0
-  %or.cond269 = select i1 %.not252, i1 %.not253, i1 false
-  br i1 %or.cond269, label %.thread311, label %.thread328
+  %or.cond272 = select i1 %.not252, i1 %.not253, i1 false
+  br i1 %or.cond272, label %.thread309, label %.thread331
 
-.thread314:                                       ; preds = %200, %.loopexit336
-  %.9317 = phi i32 [ %.9, %.loopexit336 ], [ %.8203, %200 ]
-  %265 = or i32 %.9317, 1536
-  br label %.thread328
+.thread317:                                       ; preds = %200, %.loopexit339
+  %.9320 = phi i32 [ %.9, %.loopexit339 ], [ %.8203, %200 ]
+  %265 = or i32 %.9320, 1536
+  br label %.thread331
 
-.thread328:                                       ; preds = %.loopexit334, %.thread314
-  %.18 = phi i32 [ %265, %.thread314 ], [ %.15, %.loopexit334 ]
+.thread331:                                       ; preds = %.loopexit337, %.thread317
+  %.18 = phi i32 [ %265, %.thread317 ], [ %.15, %.loopexit337 ]
   %.not254 = icmp eq i32 %.4211, 0
   %266 = and i32 %.18, %.4211
   %267 = icmp eq i32 %266, %.4211
-  %or.cond273 = select i1 %.not254, i1 true, i1 %267
-  %spec.select282 = select i1 %or.cond273, i32 %.4211, i32 1
-  %268 = zext i1 %or.cond273 to i32
-  %spec.select283 = or i32 %.18, %268
-  br label %.thread311
+  %or.cond276 = select i1 %.not254, i1 true, i1 %267
+  %spec.select285 = select i1 %or.cond276, i32 %.4211, i32 1
+  %268 = zext i1 %or.cond276 to i32
+  %spec.select286 = or i32 %.18, %268
+  br label %.thread309
 
-.thread311:                                       ; preds = %205, %.loopexit335, %._crit_edge.thread393, %.loopexit334, %185, %172, %.thread328, %103, %194, %tls12_rpk_and_privkey.exit.thread
-  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ 0, %194 ], [ 0, %._crit_edge.thread393 ], [ %spec.select, %103 ], [ %spec.select282, %.thread328 ], [ 0, %172 ], [ 0, %185 ], [ 0, %.loopexit334 ], [ %.4211, %.loopexit335 ], [ %.4211, %205 ]
-  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.7202, %194 ], [ %.1196, %._crit_edge.thread393 ], [ %.3198, %103 ], [ %spec.select283, %.thread328 ], [ %.1196, %172 ], [ %176, %185 ], [ %.15, %.loopexit334 ], [ %.12, %.loopexit335 ], [ %.11, %205 ]
-  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %194 ], [ %.1193, %._crit_edge.thread393 ], [ %.1193, %103 ], [ %.1193, %.thread328 ], [ %.1193, %172 ], [ %.1193, %185 ], [ %.1193, %.loopexit334 ], [ %.1193, %.loopexit335 ], [ %.1193, %205 ]
+.thread309:                                       ; preds = %205, %.loopexit338, %.loopexit337, %185, %172, %.thread331, %._crit_edge.thread394, %103, %194, %tls12_rpk_and_privkey.exit.thread
+  %.0207 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ 0, %194 ], [ 0, %._crit_edge.thread394 ], [ %spec.select, %103 ], [ %spec.select285, %.thread331 ], [ 0, %172 ], [ 0, %185 ], [ 0, %.loopexit337 ], [ %.4211, %.loopexit338 ], [ %.4211, %205 ]
+  %.0195 = phi i32 [ 0, %tls12_rpk_and_privkey.exit.thread ], [ %.7202, %194 ], [ %.1196, %._crit_edge.thread394 ], [ %.3198, %103 ], [ %spec.select286, %.thread331 ], [ %.1196, %172 ], [ %176, %185 ], [ %.15, %.loopexit337 ], [ %.12, %.loopexit338 ], [ %.11, %205 ]
+  %.0192 = phi ptr [ %30, %tls12_rpk_and_privkey.exit.thread ], [ %.1193, %194 ], [ %.1193, %._crit_edge.thread394 ], [ %.1193, %103 ], [ %.1193, %.thread331 ], [ %.1193, %172 ], [ %.1193, %185 ], [ %.1193, %.loopexit337 ], [ %.1193, %.loopexit338 ], [ %.1193, %205 ]
   %269 = call i32 @SSL_version(ptr noundef %0) #14
   %.mask255 = and i32 %269, -256
   %270 = icmp eq i32 %.mask255, 768
-  br i1 %270, label %271, label %.critedge275
+  br i1 %270, label %271, label %.critedge278
 
-271:                                              ; preds = %.thread311
+271:                                              ; preds = %.thread309
   %272 = call i32 @SSL_version(ptr noundef %0) #14
   %273 = icmp sgt i32 %272, 770
-  br i1 %273, label %274, label %.critedge275
+  br i1 %273, label %274, label %.critedge278
 
 274:                                              ; preds = %271
   %275 = load i32, ptr %.0192, align 4, !tbaa !135
   %276 = and i32 %275, 258
-  br label %.critedge275
+  br label %.critedge278
 
-.critedge275:                                     ; preds = %271, %.thread311, %274
-  %.pn = phi i32 [ %276, %274 ], [ 258, %.thread311 ], [ 258, %271 ]
+.critedge278:                                     ; preds = %271, %.thread309, %274
+  %.pn = phi i32 [ %276, %274 ], [ 258, %.thread309 ], [ 258, %271 ]
   %.19 = or i32 %.pn, %.0195
   %.not256 = icmp eq i32 %.0207, 0
   br i1 %.not256, label %277, label %tls1_check_pkey_comp.exit.thread
 
-277:                                              ; preds = %.critedge275
+277:                                              ; preds = %.critedge278
   %278 = and i32 %.0195, 1
   %.not257 = icmp eq i32 %278, 0
   br i1 %.not257, label %280, label %279
@@ -7011,8 +7011,11 @@ ssl_check_ca_name.exit:                           ; preds = %.lr.ph.i288
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %tls1_check_pkey_comp.exit.thread
 
-tls1_check_pkey_comp.exit.thread:                 ; preds = %77, %205, %.preheader.i, %68, %55, %.critedge275, %279, %.critedge, %280, %tls1_check_pkey_comp.exit
-  %.0 = phi i32 [ 4096, %tls1_check_pkey_comp.exit ], [ 0, %280 ], [ 0, %.critedge ], [ %.19, %279 ], [ %.19, %.critedge275 ], [ %56, %55 ], [ 0, %68 ], [ 0, %.preheader.i ], [ 0, %205 ], [ 0, %77 ]
+.unreachabledefault268:                           ; preds = %205
+  unreachable
+
+tls1_check_pkey_comp.exit.thread:                 ; preds = %77, %.preheader.i, %68, %55, %.critedge278, %279, %.critedge, %280, %tls1_check_pkey_comp.exit
+  %.0 = phi i32 [ 4096, %tls1_check_pkey_comp.exit ], [ 0, %280 ], [ 0, %.critedge ], [ %.19, %279 ], [ %.19, %.critedge278 ], [ %56, %55 ], [ 0, %68 ], [ 0, %.preheader.i ], [ 0, %77 ]
   ret i32 %.0
 }
 

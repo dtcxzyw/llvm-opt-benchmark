@@ -1246,7 +1246,7 @@ dec_thread_init.exit.thread:                      ; preds = %1, %26
   call void @av_packet_free(ptr noundef nonnull %29) #13
   call void @av_frame_free(ptr noundef nonnull %21) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  br label %.thread121
+  br label %.thread122
 
 dec_thread_init.exit:                             ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1263,8 +1263,8 @@ dec_thread_init.exit:                             ; preds = %26
 35:                                               ; preds = %dec_thread_init.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %37 = load ptr, ptr %36, align 8, !tbaa !68
-  %.not.i87 = icmp eq ptr %37, null
-  br i1 %.not.i87, label %40, label %38
+  %.not.i88 = icmp eq ptr %37, null
+  br i1 %.not.i88, label %40, label %38
 
 38:                                               ; preds = %35
   %39 = call i64 @av_strlcat(ptr noundef nonnull %20, ptr noundef nonnull %37, i64 noundef 16) #13
@@ -1322,7 +1322,7 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
   br label %82
 
 82:                                               ; preds = %dec_thread_set_name.exit, %651
-  %.163171 = phi i32 [ 0, %dec_thread_set_name.exit ], [ %.3, %651 ]
+  %.163172 = phi i32 [ 0, %dec_thread_set_name.exit ], [ %.3, %651 ]
   %83 = load ptr, ptr %49, align 8, !tbaa !35
   %84 = load i32, ptr %50, align 8, !tbaa !26
   %85 = load ptr, ptr %28, align 8, !tbaa !181
@@ -1334,13 +1334,13 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
   %89 = load ptr, ptr %28, align 8, !tbaa !181
   %90 = load ptr, ptr %89, align 8, !tbaa !183
   %.not77 = icmp eq ptr %90, null
-  br i1 %.not77, label %91, label %.thread102
+  br i1 %.not77, label %91, label %.thread103
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %93 = load i32, ptr %92, align 8, !tbaa !185
   %.not78 = icmp eq i32 %93, 0
-  br i1 %.not78, label %94, label %.thread102
+  br i1 %.not78, label %94, label %.thread103
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 80
@@ -1355,52 +1355,52 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
 
 101:                                              ; preds = %82, %94
   %102 = phi ptr [ @.str.10, %94 ], [ @.str.11, %82 ]
-  %.not82101 = phi i1 [ %spec.select, %94 ], [ true, %82 ]
+  %.not82102 = phi i1 [ %spec.select, %94 ], [ true, %82 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.9, ptr noundef nonnull %102) #13
   %103 = load ptr, ptr %41, align 8, !tbaa !73
   %.not79 = icmp eq ptr %103, null
-  br i1 %.not79, label %107, label %.thread114
+  br i1 %.not79, label %107, label %.thread115
 
 .thread:                                          ; preds = %94
   %104 = load ptr, ptr %41, align 8, !tbaa !73
-  %.not79263 = icmp eq ptr %104, null
-  br i1 %.not79263, label %..thread110_crit_edge, label %.thread268
+  %.not79264 = icmp eq ptr %104, null
+  br i1 %.not79264, label %..thread111_crit_edge, label %.thread269
 
-.thread268:                                       ; preds = %.thread
+.thread269:                                       ; preds = %.thread
   %105 = load ptr, ptr %28, align 8
-  br label %.thread114
+  br label %.thread115
 
-.thread102:                                       ; preds = %88, %91
+.thread103:                                       ; preds = %88, %91
   %106 = load ptr, ptr %41, align 8, !tbaa !73
-  %.not79104 = icmp eq ptr %106, null
-  br i1 %.not79104, label %.thread110, label %.thread114
+  %.not79105 = icmp eq ptr %106, null
+  br i1 %.not79105, label %.thread111, label %.thread115
 
 107:                                              ; preds = %101
-  br i1 %.not82101, label %108, label %651, !llvm.loop !187
+  br i1 %.not82102, label %108, label %651, !llvm.loop !187
 
 108:                                              ; preds = %107
-  br i1 %87, label %110, label %..thread110_crit_edge
+  br i1 %87, label %110, label %..thread111_crit_edge
 
-..thread110_crit_edge:                            ; preds = %.thread, %108
+..thread111_crit_edge:                            ; preds = %.thread, %108
   %109 = phi i1 [ false, %108 ], [ true, %.thread ]
   %.pre = load ptr, ptr %28, align 8, !tbaa !181
-  br label %.thread110
+  br label %.thread111
 
 110:                                              ; preds = %108
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12) #13
-  br label %.thread121
+  br label %.thread122
 
-.thread110:                                       ; preds = %..thread110_crit_edge, %.thread102
-  %111 = phi ptr [ %.pre, %..thread110_crit_edge ], [ %89, %.thread102 ]
-  %112 = phi i1 [ %109, %..thread110_crit_edge ], [ true, %.thread102 ]
+.thread111:                                       ; preds = %..thread111_crit_edge, %.thread103
+  %111 = phi ptr [ %.pre, %..thread111_crit_edge ], [ %89, %.thread103 ]
+  %112 = phi i1 [ %109, %..thread111_crit_edge ], [ true, %.thread103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %114 = load ptr, ptr %113, align 8, !tbaa !188
-  %.not.i88 = icmp eq ptr %114, null
-  br i1 %.not.i88, label %dec_standalone_open.exit.thread, label %115
+  %.not.i89 = icmp eq ptr %114, null
+  br i1 %.not.i89, label %dec_standalone_open.exit.thread, label %115
 
-115:                                              ; preds = %.thread110
+115:                                              ; preds = %.thread111
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !189
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 104
@@ -1444,11 +1444,11 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef %136) #13
   br label %dec_standalone_open.exit.thread
 
-dec_standalone_open.exit.thread:                  ; preds = %.thread110, %115, %135
-  %.0.i89.ph = phi i32 [ -1128613112, %135 ], [ -558323010, %115 ], [ -558323010, %.thread110 ]
+dec_standalone_open.exit.thread:                  ; preds = %.thread111, %115, %135
+  %.0.i90.ph = phi i32 [ -1128613112, %135 ], [ -558323010, %115 ], [ -558323010, %.thread111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread121
+  br label %.thread122
 
 dec_standalone_open.exit:                         ; preds = %120, %124
   %137 = load i32, ptr %30, align 4, !tbaa !44
@@ -1458,18 +1458,18 @@ dec_standalone_open.exit:                         ; preds = %120, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %140 = icmp slt i32 %139, 0
-  br i1 %140, label %.thread121, label %141
+  br i1 %140, label %.thread122, label %141
 
 141:                                              ; preds = %dec_standalone_open.exit
-  %.pre198.pre = load ptr, ptr %41, align 8, !tbaa !73
+  %.pre199.pre = load ptr, ptr %41, align 8, !tbaa !73
   %142 = load ptr, ptr %28, align 8
-  %spec.select304 = select i1 %112, ptr %142, ptr null
-  br label %.thread114
+  %spec.select305 = select i1 %112, ptr %142, ptr null
+  br label %.thread115
 
-.thread114:                                       ; preds = %141, %101, %.thread268, %.thread102
-  %143 = phi ptr [ %106, %.thread102 ], [ %104, %.thread268 ], [ %103, %101 ], [ %.pre198.pre, %141 ]
-  %.not8298106117 = phi i1 [ true, %.thread102 ], [ true, %.thread268 ], [ %.not82101, %101 ], [ true, %141 ]
-  %144 = phi ptr [ %89, %.thread102 ], [ %105, %.thread268 ], [ null, %101 ], [ %spec.select304, %141 ]
+.thread115:                                       ; preds = %141, %101, %.thread269, %.thread103
+  %143 = phi ptr [ %106, %.thread103 ], [ %104, %.thread269 ], [ %103, %101 ], [ %.pre199.pre, %141 ]
+  %.not8299107118 = phi i1 [ true, %.thread103 ], [ true, %.thread269 ], [ %.not82102, %101 ], [ true, %141 ]
+  %144 = phi ptr [ %89, %.thread103 ], [ %105, %.thread269 ], [ null, %101 ], [ %spec.select305, %141 ]
   %145 = load ptr, ptr %21, align 8, !tbaa !179
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1480,7 +1480,7 @@ dec_standalone_open.exit:                         ; preds = %120, %124
   %150 = icmp eq i32 %149, 3
   br i1 %150, label %151, label %319
 
-151:                                              ; preds = %.thread114
+151:                                              ; preds = %.thread115
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !199
@@ -1576,8 +1576,8 @@ dec_standalone_open.exit:                         ; preds = %120, %124
   %200 = load i64, ptr %188, align 8, !tbaa !208
   store i64 %200, ptr %81, align 8, !tbaa !208
   %201 = load i32, ptr %185, align 4, !tbaa !204
-  %.not.i.i92 = icmp eq i32 %201, 0
-  br i1 %.not.i.i92, label %.loopexit.i, label %202
+  %.not.i.i93 = icmp eq i32 %201, 0
+  br i1 %.not.i.i93, label %.loopexit.i, label %202
 
 202:                                              ; preds = %194
   %203 = zext i32 %201 to i64
@@ -1728,8 +1728,8 @@ dec_standalone_open.exit:                         ; preds = %120, %124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !229
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %275 = call ptr @av_buffer_create(ptr noundef nonnull %193, i64 noundef 32, ptr noundef nonnull @subtitle_free, ptr noundef null, i32 noundef 0) #13
-  %.not14.i93 = icmp eq ptr %275, null
-  br i1 %.not14.i93, label %276, label %277
+  %.not14.i94 = icmp eq ptr %275, null
+  br i1 %.not14.i94, label %276, label %277
 
 276:                                              ; preds = %.loopexit.i
   call void @avsubtitle_free(ptr noundef nonnull %193) #13
@@ -1839,7 +1839,7 @@ transcode_subtitles.exit.i:                       ; preds = %subtitle_wrap_frame
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %packet_decode.exit
 
-319:                                              ; preds = %.thread114
+319:                                              ; preds = %.thread115
   %320 = icmp ne ptr %144, null
   br i1 %320, label %321, label %.critedge122.i
 
@@ -1852,8 +1852,8 @@ transcode_subtitles.exit.i:                       ; preds = %subtitle_wrap_frame
 325:                                              ; preds = %321
   %326 = load i32, ptr %57, align 8, !tbaa !50
   %327 = and i32 %326, 2
-  %.not.i91 = icmp eq i32 %327, 0
-  br i1 %.not.i91, label %.critedge.i, label %328
+  %.not.i92 = icmp eq i32 %327, 0
+  br i1 %.not.i92, label %.critedge.i, label %328
 
 328:                                              ; preds = %325
   %329 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -2553,24 +2553,24 @@ av_ts_make_string.exit69.i.i:                     ; preds = %579, %578
   br label %packet_decode.exit
 
 packet_decode.exit:                               ; preds = %select.unfold.i, %374, %384, %614, %transcode_subtitles.exit.i, %321, %.critedge.i, %340, %341, %345, %370, %390, %601, %624
-  %.0.i90 = phi i32 [ %.0.i.i, %transcode_subtitles.exit.i ], [ -558323010, %340 ], [ 0, %321 ], [ -541478725, %341 ], [ %335, %345 ], [ -12, %.critedge.i ], [ 0, %370 ], [ -12, %390 ], [ %.2.i.ph.i, %601 ], [ %626, %624 ], [ %616, %614 ], [ -1094995529, %384 ], [ %368, %374 ], [ %368, %select.unfold.i ]
+  %.0.i91 = phi i32 [ %.0.i.i, %transcode_subtitles.exit.i ], [ -558323010, %340 ], [ 0, %321 ], [ -541478725, %341 ], [ %335, %345 ], [ -12, %.critedge.i ], [ 0, %370 ], [ -12, %390 ], [ %.2.i.ph.i, %601 ], [ %626, %624 ], [ %616, %614 ], [ -1094995529, %384 ], [ %368, %374 ], [ %368, %select.unfold.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %627 = load ptr, ptr %28, align 8, !tbaa !181
   call void @av_packet_unref(ptr noundef %627) #13
   %628 = load ptr, ptr %21, align 8, !tbaa !179
   call void @av_frame_unref(ptr noundef %628) #13
-  switch i32 %.0.i90, label %647 [
+  switch i32 %.0.i91, label %647 [
     i32 -541478725, label %629
     i32 -1414092869, label %629
   ]
 
 629:                                              ; preds = %packet_decode.exit, %packet_decode.exit
-  %630 = icmp eq i32 %.0.i90, -1414092869
-  %spec.select85 = or i1 %.not8298106117, %630
+  %630 = icmp eq i32 %.0.i91, -1414092869
+  %spec.select85 = or i1 %.not8299107118, %630
   %631 = select i1 %spec.select85, ptr @.str.15, ptr @.str.14
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.13, ptr noundef nonnull %631) #13
-  br i1 %spec.select85, label %.thread134, label %632
+  br i1 %spec.select85, label %.thread135, label %632
 
 632:                                              ; preds = %629
   %633 = load ptr, ptr %41, align 8, !tbaa !73
@@ -2589,37 +2589,37 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   %643 = getelementptr inbounds nuw i8, ptr %641, i64 96
   %644 = load i64, ptr %65, align 8
   store i64 %644, ptr %643, align 8
-  %.pre199 = load ptr, ptr %41, align 8, !tbaa !73
+  %.pre200 = load ptr, ptr %41, align 8, !tbaa !73
   br label %645
 
 645:                                              ; preds = %637, %632
-  %646 = phi ptr [ %.pre199, %637 ], [ %633, %632 ]
+  %646 = phi ptr [ %.pre200, %637 ], [ %633, %632 ]
   call void @avcodec_flush_buffers(ptr noundef %646) #13
   br label %651
 
 647:                                              ; preds = %packet_decode.exit
-  %648 = icmp slt i32 %.0.i90, 0
+  %648 = icmp slt i32 %.0.i91, 0
   br i1 %648, label %649, label %651
 
 649:                                              ; preds = %647
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %22, i8 0, i64 64, i1 false)
-  %650 = call i32 @av_strerror(i32 noundef %.0.i90, ptr noundef nonnull %22, i64 noundef 64) #13
+  %650 = call i32 @av_strerror(i32 noundef %.0.i91, ptr noundef nonnull %22, i64 noundef 64) #13
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.16, ptr noundef nonnull %22) #13
-  br label %.thread126
+  br label %.thread127
 
 651:                                              ; preds = %645, %647, %107
-  %.3 = phi i32 [ %.163171, %107 ], [ %.0.i90, %647 ], [ -541478725, %645 ]
+  %.3 = phi i32 [ %.163172, %107 ], [ %.0.i91, %647 ], [ -541478725, %645 ]
   %.not = icmp eq i32 %86, 0
-  br i1 %.not, label %82, label %.thread126
+  br i1 %.not, label %82, label %.thread127
 
-.thread126:                                       ; preds = %651, %649
-  %.2 = phi i32 [ %.0.i90, %649 ], [ %.3, %651 ]
+.thread127:                                       ; preds = %651, %649
+  %.2 = phi i32 [ %.0.i91, %649 ], [ %.3, %651 ]
   %652 = icmp eq i32 %.2, -541478725
   %653 = icmp sgt i32 %.2, -1
-  %or.cond136 = or i1 %652, %653
-  br i1 %or.cond136, label %.thread134, label %.thread121
+  %or.cond137 = or i1 %652, %653
+  br i1 %or.cond137, label %.thread135, label %.thread122
 
-.thread134:                                       ; preds = %629, %.thread126
+.thread135:                                       ; preds = %629, %.thread127
   %654 = load ptr, ptr %21, align 8, !tbaa !179
   call void @av_frame_unref(ptr noundef %654) #13
   %655 = load ptr, ptr %21, align 8, !tbaa !179
@@ -2629,13 +2629,13 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   %658 = icmp eq i64 %657, -9223372036854775808
   br i1 %658, label %662, label %659
 
-659:                                              ; preds = %.thread134
+659:                                              ; preds = %.thread135
   %660 = load i64, ptr %63, align 8, !tbaa !250
   %661 = add nsw i64 %660, %657
   br label %662
 
-662:                                              ; preds = %.thread134, %659
-  %663 = phi i64 [ %661, %659 ], [ -9223372036854775808, %.thread134 ]
+662:                                              ; preds = %.thread135, %659
+  %663 = phi i64 [ %661, %659 ], [ -9223372036854775808, %.thread135 ]
   %664 = getelementptr inbounds nuw i8, ptr %655, i64 136
   store i64 %663, ptr %664, align 8, !tbaa !201
   %665 = getelementptr inbounds nuw i8, ptr %655, i64 152
@@ -2653,48 +2653,48 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   %673 = call i32 @av_strerror(i32 noundef %669, ptr noundef nonnull %23, i64 noundef 64) #13
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str.17, ptr noundef nonnull %23) #13
-  br label %.thread121
+  br label %.thread122
 
 674:                                              ; preds = %662
   %675 = load i64, ptr %72, align 8, !tbaa !234
   %.not83 = icmp eq i64 %675, 0
-  %.pre200 = load i64, ptr %58, align 8, !tbaa !233
-  %.not84 = icmp eq i64 %.pre200, 0
-  %or.cond305 = select i1 %.not83, i1 %.not84, i1 false
-  br i1 %or.cond305, label %.thread129, label %676
+  %.pre201 = load i64, ptr %58, align 8, !tbaa !233
+  %.not84 = icmp eq i64 %.pre201, 0
+  %or.cond306 = select i1 %.not83, i1 %.not84, i1 false
+  br i1 %or.cond306, label %.thread130, label %676
 
 676:                                              ; preds = %674
-  %677 = add i64 %.pre200, %675
-  %678 = udiv i64 %.pre200, %677
+  %677 = add i64 %.pre201, %675
+  %678 = udiv i64 %.pre201, %677
   %679 = uitofp i64 %678 to float
   %680 = load float, ptr @max_error_rate, align 4, !tbaa !263
   %681 = fcmp nsz olt float %680, %679
   br i1 %681, label %684, label %689
 
-.thread129:                                       ; preds = %674
+.thread130:                                       ; preds = %674
   %682 = load float, ptr @max_error_rate, align 4, !tbaa !263
   %683 = fcmp nsz olt float %682, 0.000000e+00
-  br i1 %683, label %684, label %.thread121
+  br i1 %683, label %684, label %.thread122
 
-684:                                              ; preds = %.thread129, %676
-  %685 = phi float [ %682, %.thread129 ], [ %680, %676 ]
-  %686 = phi float [ 0.000000e+00, %.thread129 ], [ %679, %676 ]
+684:                                              ; preds = %.thread130, %676
+  %685 = phi float [ %682, %.thread130 ], [ %680, %676 ]
+  %686 = phi float [ 0.000000e+00, %.thread130 ], [ %679, %676 ]
   %687 = fpext nsz float %686 to double
   %688 = fpext nsz float %685 to double
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str.18, double noundef %687, double noundef %688) #13
-  br label %.thread121
+  br label %.thread122
 
 689:                                              ; preds = %676
-  %.not137 = icmp ugt i64 %677, %.pre200
-  br i1 %.not137, label %.thread121, label %690
+  %.not138 = icmp ugt i64 %677, %.pre201
+  br i1 %.not138, label %.thread122, label %690
 
 690:                                              ; preds = %689
   %691 = fpext nsz float %679 to double
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.19, double noundef %691) #13
-  br label %.thread121
+  br label %.thread122
 
-.thread121:                                       ; preds = %dec_standalone_open.exit, %.thread126, %.thread129, %dec_standalone_open.exit.thread, %110, %684, %690, %689, %672, %dec_thread_init.exit.thread
-  %.062 = phi i32 [ %669, %672 ], [ -1145393733, %684 ], [ 0, %690 ], [ 0, %689 ], [ -12, %dec_thread_init.exit.thread ], [ %.0.i89.ph, %dec_standalone_open.exit.thread ], [ %86, %110 ], [ 0, %.thread129 ], [ %.2, %.thread126 ], [ %139, %dec_standalone_open.exit ]
+.thread122:                                       ; preds = %dec_standalone_open.exit, %.thread127, %.thread130, %dec_standalone_open.exit.thread, %110, %dec_thread_init.exit.thread, %672, %689, %690, %684
+  %.062 = phi i32 [ %669, %672 ], [ -1145393733, %684 ], [ 0, %690 ], [ 0, %689 ], [ -12, %dec_thread_init.exit.thread ], [ %.0.i90.ph, %dec_standalone_open.exit.thread ], [ %86, %110 ], [ 0, %.thread130 ], [ %.2, %.thread127 ], [ %139, %dec_standalone_open.exit ]
   %692 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @av_packet_free(ptr noundef nonnull %692) #13
   call void @av_frame_free(ptr noundef nonnull %21) #13

@@ -636,13 +636,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 25:                                               ; preds = %19
   %26 = tail call i32 @H5open() #7
-  %.pre42 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre43 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre43 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre44 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %27
 
 27:                                               ; preds = %19, %25
-  %28 = phi i8 [ %22, %19 ], [ %.pre43, %25 ]
-  %29 = phi i8 [ %20, %19 ], [ %.pre42, %25 ]
+  %28 = phi i8 [ %22, %19 ], [ %.pre44, %25 ]
+  %29 = phi i8 [ %20, %19 ], [ %.pre43, %25 ]
   %30 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %31 = trunc nuw i8 %29 to i1
   %32 = trunc nuw i8 %28 to i1
@@ -668,13 +668,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 45:                                               ; preds = %39
   %46 = tail call i32 @H5open() #7
-  %.pre40 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre41 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre41 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre42 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %47
 
 47:                                               ; preds = %39, %45
-  %48 = phi i8 [ %42, %39 ], [ %.pre41, %45 ]
-  %49 = phi i8 [ %40, %39 ], [ %.pre40, %45 ]
+  %48 = phi i8 [ %42, %39 ], [ %.pre42, %45 ]
+  %49 = phi i8 [ %40, %39 ], [ %.pre41, %45 ]
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %51 = trunc nuw i8 %49 to i1
   %52 = trunc nuw i8 %48 to i1
@@ -721,13 +721,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 78:                                               ; preds = %72
   %79 = call i32 @H5open() #7
-  %.pre38 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre39 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre39 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre40 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %80
 
 80:                                               ; preds = %72, %78
-  %81 = phi i8 [ %75, %72 ], [ %.pre39, %78 ]
-  %82 = phi i8 [ %73, %72 ], [ %.pre38, %78 ]
+  %81 = phi i8 [ %75, %72 ], [ %.pre40, %78 ]
+  %82 = phi i8 [ %73, %72 ], [ %.pre39, %78 ]
   %83 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %84 = trunc nuw i8 %82 to i1
   %85 = trunc nuw i8 %81 to i1
@@ -766,13 +766,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 105:                                              ; preds = %99
   %106 = call i32 @H5open() #7
-  %.pre36 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre37 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre37 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre38 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %107
 
 107:                                              ; preds = %99, %105
-  %108 = phi i8 [ %102, %99 ], [ %.pre37, %105 ]
-  %109 = phi i8 [ %100, %99 ], [ %.pre36, %105 ]
+  %108 = phi i8 [ %102, %99 ], [ %.pre38, %105 ]
+  %109 = phi i8 [ %100, %99 ], [ %.pre37, %105 ]
   %110 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %111 = trunc nuw i8 %109 to i1
   %112 = trunc nuw i8 %108 to i1
@@ -810,13 +810,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 129:                                              ; preds = %123
   %130 = call i32 @H5open() #7
-  %.pre34 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre35 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre35 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre36 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %131
 
 131:                                              ; preds = %123, %129
-  %132 = phi i8 [ %126, %123 ], [ %.pre35, %129 ]
-  %133 = phi i8 [ %124, %123 ], [ %.pre34, %129 ]
+  %132 = phi i8 [ %126, %123 ], [ %.pre36, %129 ]
+  %133 = phi i8 [ %124, %123 ], [ %.pre35, %129 ]
   %134 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %135 = trunc nuw i8 %133 to i1
   %136 = trunc nuw i8 %132 to i1
@@ -850,11 +850,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 154:                                              ; preds = %148
   %155 = call i32 @H5open() #7
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre33 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre34 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %156
 
 156:                                              ; preds = %148, %154
-  %157 = phi i8 [ %151, %148 ], [ %.pre33, %154 ]
+  %157 = phi i8 [ %151, %148 ], [ %.pre34, %154 ]
   %158 = phi i8 [ %149, %148 ], [ %.pre, %154 ]
   %159 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %160 = trunc nuw i8 %158 to i1
@@ -883,7 +883,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
   br i1 %.not, label %194, label %.thread
 
 .thread:                                          ; preds = %56, %89, %119, %168, %169
-  %.12432 = phi i32 [ -1, %169 ], [ %.3, %168 ], [ %.2, %119 ], [ -1, %89 ], [ -1, %56 ]
+  %.12433 = phi i32 [ -1, %169 ], [ %.3, %168 ], [ %.2, %119 ], [ -1, %89 ], [ -1, %56 ]
   %172 = call i32 @H5I_dec_ref(i64 noundef %17) #7
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %174, label %194
@@ -898,13 +898,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 180:                                              ; preds = %174
   %181 = call i32 @H5open() #7
-  %.pre44 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre45 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre45 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre46 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %182
 
 182:                                              ; preds = %174, %180
-  %183 = phi i8 [ %177, %174 ], [ %.pre45, %180 ]
-  %184 = phi i8 [ %175, %174 ], [ %.pre44, %180 ]
+  %183 = phi i8 [ %177, %174 ], [ %.pre46, %180 ]
+  %184 = phi i8 [ %175, %174 ], [ %.pre45, %180 ]
   %185 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %186 = trunc nuw i8 %184 to i1
   %187 = trunc nuw i8 %183 to i1
@@ -921,10 +921,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
   br label %194
 
 194:                                              ; preds = %5, %191, %.thread, %169
-  %.025 = phi i32 [ -1, %191 ], [ %.12432, %.thread ], [ -1, %169 ], [ 0, %5 ]
+  %.023 = phi i32 [ -1, %191 ], [ %.12433, %.thread ], [ -1, %169 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.025
+  ret i32 %.023
 }
 
 declare i32 @H5VL_object_get(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -1489,24 +1489,24 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 20:                                               ; preds = %5
   %21 = tail call i32 @H5_init_library() #7
   %22 = icmp slt i32 %21, 0
-  %.pre119 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre121 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br i1 %22, label %23, label %42, !prof !12
 
 23:                                               ; preds = %20
   %24 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
-  %26 = trunc nuw i8 %.pre119 to i1
+  %26 = trunc nuw i8 %.pre121 to i1
   %27 = select i1 %25, i1 true, i1 %26
   br i1 %27, label %30, label %28, !prof !11
 
 28:                                               ; preds = %23
   %29 = tail call i32 @H5open() #7
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre118 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre120 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %30
 
 30:                                               ; preds = %23, %28
-  %31 = phi i8 [ %.pre119, %23 ], [ %.pre118, %28 ]
+  %31 = phi i8 [ %.pre121, %23 ], [ %.pre120, %28 ]
   %32 = phi i8 [ %24, %23 ], [ %.pre, %28 ]
   %33 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !13
   %34 = trunc nuw i8 %32 to i1
@@ -1521,10 +1521,10 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 39:                                               ; preds = %30, %37
   %40 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !13
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 408, i64 noundef %33, i64 noundef %40, ptr noundef nonnull @.str.1) #7
-  br label %.thread107
+  br label %.thread108
 
 42:                                               ; preds = %20, %5
-  %43 = phi i8 [ %.pre119, %20 ], [ %17, %5 ]
+  %43 = phi i8 [ %.pre121, %20 ], [ %17, %5 ]
   %44 = load i8, ptr @H5R_init_g, align 1, !tbaa !7, !range !9, !noundef !10
   %45 = trunc nuw i8 %44 to i1
   %46 = trunc nuw i8 %43 to i1
@@ -1548,13 +1548,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 57:                                               ; preds = %51
   %58 = tail call i32 @H5open() #7
-  %.pre120 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre121 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre122 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre123 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %59
 
 59:                                               ; preds = %51, %57
-  %60 = phi i8 [ %54, %51 ], [ %.pre121, %57 ]
-  %61 = phi i8 [ %52, %51 ], [ %.pre120, %57 ]
+  %60 = phi i8 [ %54, %51 ], [ %.pre123, %57 ]
+  %61 = phi i8 [ %52, %51 ], [ %.pre122, %57 ]
   %62 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !13
   %63 = trunc nuw i8 %61 to i1
   %64 = trunc nuw i8 %60 to i1
@@ -1568,7 +1568,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 68:                                               ; preds = %59, %66
   %69 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !13
   %70 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 408, i64 noundef %62, i64 noundef %69, ptr noundef nonnull @.str.2) #7
-  br label %.thread107
+  br label %.thread108
 
 71:                                               ; preds = %42, %48
   %72 = call i32 @H5CX_push(ptr noundef nonnull %12) #7
@@ -1585,13 +1585,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 80:                                               ; preds = %74
   %81 = call i32 @H5open() #7
-  %.pre160 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre161 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre162 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre163 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %82
 
 82:                                               ; preds = %74, %80
-  %83 = phi i8 [ %77, %74 ], [ %.pre161, %80 ]
-  %84 = phi i8 [ %75, %74 ], [ %.pre160, %80 ]
+  %83 = phi i8 [ %77, %74 ], [ %.pre163, %80 ]
+  %84 = phi i8 [ %75, %74 ], [ %.pre162, %80 ]
   %85 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !13
   %86 = trunc nuw i8 %84 to i1
   %87 = trunc nuw i8 %83 to i1
@@ -1605,7 +1605,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 91:                                               ; preds = %82, %89
   %92 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !13
   %93 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 408, i64 noundef %85, i64 noundef %92, ptr noundef nonnull @.str.3) #7
-  br label %.thread107
+  br label %.thread108
 
 94:                                               ; preds = %71
   %95 = call i32 @H5E_clear_stack() #7
@@ -1622,13 +1622,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 103:                                              ; preds = %97
   %104 = call i32 @H5open() #7
-  %.pre158 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre159 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre160 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre161 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %105
 
 105:                                              ; preds = %97, %103
-  %106 = phi i8 [ %100, %97 ], [ %.pre159, %103 ]
-  %107 = phi i8 [ %98, %97 ], [ %.pre158, %103 ]
+  %106 = phi i8 [ %100, %97 ], [ %.pre161, %103 ]
+  %107 = phi i8 [ %98, %97 ], [ %.pre160, %103 ]
   %108 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %109 = trunc nuw i8 %107 to i1
   %110 = trunc nuw i8 %106 to i1
@@ -1642,7 +1642,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 114:                                              ; preds = %105, %112
   %115 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
   %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 412, i64 noundef %108, i64 noundef %115, ptr noundef nonnull @.str.4) #7
-  br label %.thread111
+  br label %.thread113
 
 117:                                              ; preds = %94
   %.not = icmp eq ptr %2, null
@@ -1663,13 +1663,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 126:                                              ; preds = %120
   %127 = call i32 @H5open() #7
-  %.pre156 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre157 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre158 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre159 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %128
 
 128:                                              ; preds = %120, %126
-  %129 = phi i8 [ %123, %120 ], [ %.pre157, %126 ]
-  %130 = phi i8 [ %121, %120 ], [ %.pre156, %126 ]
+  %129 = phi i8 [ %123, %120 ], [ %.pre159, %126 ]
+  %130 = phi i8 [ %121, %120 ], [ %.pre158, %126 ]
   %131 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %132 = trunc nuw i8 %130 to i1
   %133 = trunc nuw i8 %129 to i1
@@ -1683,7 +1683,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 137:                                              ; preds = %128, %135
   %138 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
   %139 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 414, i64 noundef %131, i64 noundef %138, ptr noundef nonnull @.str.14) #7
-  br label %.thread111
+  br label %.thread113
 
 140:                                              ; preds = %118
   %or.cond = icmp ugt i32 %3, 1
@@ -1699,13 +1699,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 147:                                              ; preds = %141
   %148 = call i32 @H5open() #7
-  %.pre154 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre155 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre156 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre157 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %149
 
 149:                                              ; preds = %141, %147
-  %150 = phi i8 [ %144, %141 ], [ %.pre155, %147 ]
-  %151 = phi i8 [ %142, %141 ], [ %.pre154, %147 ]
+  %150 = phi i8 [ %144, %141 ], [ %.pre157, %147 ]
+  %151 = phi i8 [ %142, %141 ], [ %.pre156, %147 ]
   %152 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %153 = trunc nuw i8 %151 to i1
   %154 = trunc nuw i8 %150 to i1
@@ -1719,7 +1719,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 158:                                              ; preds = %149, %156
   %159 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !13
   %160 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 416, i64 noundef %152, i64 noundef %159, ptr noundef nonnull @.str.5) #7
-  br label %.thread111
+  br label %.thread113
 
 161:                                              ; preds = %140
   %162 = call i32 @H5CX_set_loc(i64 noundef %1) #7
@@ -1736,13 +1736,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 170:                                              ; preds = %164
   %171 = call i32 @H5open() #7
-  %.pre152 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre153 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre154 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre155 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %172
 
 172:                                              ; preds = %164, %170
-  %173 = phi i8 [ %167, %164 ], [ %.pre153, %170 ]
-  %174 = phi i8 [ %165, %164 ], [ %.pre152, %170 ]
+  %173 = phi i8 [ %167, %164 ], [ %.pre155, %170 ]
+  %174 = phi i8 [ %165, %164 ], [ %.pre154, %170 ]
   %175 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %176 = trunc nuw i8 %174 to i1
   %177 = trunc nuw i8 %173 to i1
@@ -1756,7 +1756,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 181:                                              ; preds = %172, %179
   %182 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !13
   %183 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 420, i64 noundef %175, i64 noundef %182, ptr noundef nonnull @.str.15) #7
-  br label %.thread111
+  br label %.thread113
 
 184:                                              ; preds = %161
   %185 = call ptr @H5VL_vol_object(i64 noundef %1) #7
@@ -1773,13 +1773,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 193:                                              ; preds = %187
   %194 = call i32 @H5open() #7
-  %.pre150 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre151 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre152 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre153 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %195
 
 195:                                              ; preds = %187, %193
-  %196 = phi i8 [ %190, %187 ], [ %.pre151, %193 ]
-  %197 = phi i8 [ %188, %187 ], [ %.pre150, %193 ]
+  %196 = phi i8 [ %190, %187 ], [ %.pre153, %193 ]
+  %197 = phi i8 [ %188, %187 ], [ %.pre152, %193 ]
   %198 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %199 = trunc nuw i8 %197 to i1
   %200 = trunc nuw i8 %196 to i1
@@ -1793,7 +1793,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 204:                                              ; preds = %195, %202
   %205 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %206 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 424, i64 noundef %198, i64 noundef %205, ptr noundef nonnull @.str.6) #7
-  br label %.thread111
+  br label %.thread113
 
 207:                                              ; preds = %184
   %208 = call i32 @H5VL_object_is_native(ptr noundef nonnull %185, ptr noundef nonnull %11) #7
@@ -1810,13 +1810,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 216:                                              ; preds = %210
   %217 = call i32 @H5open() #7
-  %.pre148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre149 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre150 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre151 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %218
 
 218:                                              ; preds = %210, %216
-  %219 = phi i8 [ %213, %210 ], [ %.pre149, %216 ]
-  %220 = phi i8 [ %211, %210 ], [ %.pre148, %216 ]
+  %219 = phi i8 [ %213, %210 ], [ %.pre151, %216 ]
+  %220 = phi i8 [ %211, %210 ], [ %.pre150, %216 ]
   %221 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %222 = trunc nuw i8 %220 to i1
   %223 = trunc nuw i8 %219 to i1
@@ -1830,7 +1830,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 227:                                              ; preds = %218, %225
   %228 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !13
   %229 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 428, i64 noundef %221, i64 noundef %228, ptr noundef nonnull @.str.16) #7
-  br label %.thread111
+  br label %.thread113
 
 230:                                              ; preds = %207
   %231 = load i8, ptr %11, align 1, !tbaa !7, !range !9, !noundef !10
@@ -1847,13 +1847,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 239:                                              ; preds = %233
   %240 = call i32 @H5open() #7
-  %.pre122 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre123 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre124 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre125 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %241
 
 241:                                              ; preds = %233, %239
-  %242 = phi i8 [ %236, %233 ], [ %.pre123, %239 ]
-  %243 = phi i8 [ %234, %233 ], [ %.pre122, %239 ]
+  %242 = phi i8 [ %236, %233 ], [ %.pre125, %239 ]
+  %243 = phi i8 [ %234, %233 ], [ %.pre124, %239 ]
   %244 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %245 = trunc nuw i8 %243 to i1
   %246 = trunc nuw i8 %242 to i1
@@ -1867,7 +1867,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 250:                                              ; preds = %241, %248
   %251 = load i64, ptr @H5E_VOL_g, align 8, !tbaa !13
   %252 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 432, i64 noundef %244, i64 noundef %251, ptr noundef nonnull @.str.17) #7
-  br label %.thread111
+  br label %.thread113
 
 253:                                              ; preds = %230
   %254 = call i32 @H5I_get_type(i64 noundef %1) #7
@@ -1884,13 +1884,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 262:                                              ; preds = %256
   %263 = call i32 @H5open() #7
-  %.pre146 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre147 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre149 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %264
 
 264:                                              ; preds = %256, %262
-  %265 = phi i8 [ %259, %256 ], [ %.pre147, %262 ]
-  %266 = phi i8 [ %257, %256 ], [ %.pre146, %262 ]
+  %265 = phi i8 [ %259, %256 ], [ %.pre149, %262 ]
+  %266 = phi i8 [ %257, %256 ], [ %.pre148, %262 ]
   %267 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %268 = trunc nuw i8 %266 to i1
   %269 = trunc nuw i8 %265 to i1
@@ -1904,7 +1904,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 273:                                              ; preds = %264, %271
   %274 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %275 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 436, i64 noundef %267, i64 noundef %274, ptr noundef nonnull @.str.6) #7
-  br label %.thread111
+  br label %.thread113
 
 276:                                              ; preds = %253
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1920,13 +1920,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 284:                                              ; preds = %276
   %285 = call i32 @H5open() #7
-  %.pre124 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre125 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre126 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre127 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %286
 
 286:                                              ; preds = %276, %284
-  %287 = phi i8 [ %281, %276 ], [ %.pre125, %284 ]
-  %288 = phi i8 [ %279, %276 ], [ %.pre124, %284 ]
+  %287 = phi i8 [ %281, %276 ], [ %.pre127, %284 ]
+  %288 = phi i8 [ %279, %276 ], [ %.pre126, %284 ]
   %289 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8, !tbaa !13
   %290 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %289, ptr %290, align 8, !tbaa !17
@@ -1959,13 +1959,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 307:                                              ; preds = %301
   %308 = call i32 @H5open() #7
-  %.pre144 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre145 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre146 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre147 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %309
 
 309:                                              ; preds = %301, %307
-  %310 = phi i8 [ %304, %301 ], [ %.pre145, %307 ]
-  %311 = phi i8 [ %302, %301 ], [ %.pre144, %307 ]
+  %310 = phi i8 [ %304, %301 ], [ %.pre147, %307 ]
+  %311 = phi i8 [ %302, %301 ], [ %.pre146, %307 ]
   %312 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %313 = trunc nuw i8 %311 to i1
   %314 = trunc nuw i8 %310 to i1
@@ -1979,7 +1979,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 318:                                              ; preds = %309, %316
   %319 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !13
   %320 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 451, i64 noundef %312, i64 noundef %319, ptr noundef nonnull @.str.18) #7
-  br label %.thread111
+  br label %.thread113
 
 321:                                              ; preds = %297
   %322 = call i64 @H5F_get_file_id(ptr noundef nonnull %185, i32 noundef %254, i1 noundef zeroext false) #7
@@ -1996,13 +1996,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 330:                                              ; preds = %324
   %331 = call i32 @H5open() #7
-  %.pre140 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre141 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre142 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre143 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %332
 
 332:                                              ; preds = %324, %330
-  %333 = phi i8 [ %327, %324 ], [ %.pre141, %330 ]
-  %334 = phi i8 [ %325, %324 ], [ %.pre140, %330 ]
+  %333 = phi i8 [ %327, %324 ], [ %.pre143, %330 ]
+  %334 = phi i8 [ %325, %324 ], [ %.pre142, %330 ]
   %335 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %336 = trunc nuw i8 %334 to i1
   %337 = trunc nuw i8 %333 to i1
@@ -2028,13 +2028,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 350:                                              ; preds = %344
   %351 = call i32 @H5open() #7
-  %.pre138 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre139 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre140 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre141 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %352
 
 352:                                              ; preds = %344, %350
-  %353 = phi i8 [ %347, %344 ], [ %.pre139, %350 ]
-  %354 = phi i8 [ %345, %344 ], [ %.pre138, %350 ]
+  %353 = phi i8 [ %347, %344 ], [ %.pre141, %350 ]
+  %354 = phi i8 [ %345, %344 ], [ %.pre140, %350 ]
   %355 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %356 = trunc nuw i8 %354 to i1
   %357 = trunc nuw i8 %353 to i1
@@ -2048,7 +2048,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 361:                                              ; preds = %352, %359
   %362 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %363 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 459, i64 noundef %355, i64 noundef %362, ptr noundef nonnull @.str.6) #7
-  br label %.thread84
+  br label %.thread85
 
 364:                                              ; preds = %341
   store i32 0, ptr %10, align 8, !tbaa !21
@@ -2081,13 +2081,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 383:                                              ; preds = %377
   %384 = call i32 @H5open() #7
-  %.pre136 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre137 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre138 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre139 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %385
 
 385:                                              ; preds = %377, %383
-  %386 = phi i8 [ %380, %377 ], [ %.pre137, %383 ]
-  %387 = phi i8 [ %378, %377 ], [ %.pre136, %383 ]
+  %386 = phi i8 [ %380, %377 ], [ %.pre139, %383 ]
+  %387 = phi i8 [ %378, %377 ], [ %.pre138, %383 ]
   %388 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %389 = trunc nuw i8 %387 to i1
   %390 = trunc nuw i8 %386 to i1
@@ -2101,7 +2101,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 394:                                              ; preds = %385, %392
   %395 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !13
   %396 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 467, i64 noundef %388, i64 noundef %395, ptr noundef nonnull @.str.20) #7
-  br label %.thread84
+  br label %.thread85
 
 397:                                              ; preds = %373
   %398 = icmp eq i32 %3, 0
@@ -2126,13 +2126,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 410:                                              ; preds = %404
   %411 = call i32 @H5open() #7
-  %.pre134 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre135 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre136 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre137 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %412
 
 412:                                              ; preds = %404, %410
-  %413 = phi i8 [ %407, %404 ], [ %.pre135, %410 ]
-  %414 = phi i8 [ %405, %404 ], [ %.pre134, %410 ]
+  %413 = phi i8 [ %407, %404 ], [ %.pre137, %410 ]
+  %414 = phi i8 [ %405, %404 ], [ %.pre136, %410 ]
   %415 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %416 = trunc nuw i8 %414 to i1
   %417 = trunc nuw i8 %413 to i1
@@ -2151,7 +2151,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 424:                                              ; preds = %399, %421
   %.158 = phi i32 [ -1, %421 ], [ %402, %399 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread84
+  br label %.thread85
 
 425:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2169,13 +2169,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 433:                                              ; preds = %427
   %434 = call i32 @H5open() #7
-  %.pre132 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre133 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre134 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre135 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %435
 
 435:                                              ; preds = %427, %433
-  %436 = phi i8 [ %430, %427 ], [ %.pre133, %433 ]
-  %437 = phi i8 [ %428, %427 ], [ %.pre132, %433 ]
+  %436 = phi i8 [ %430, %427 ], [ %.pre135, %433 ]
+  %437 = phi i8 [ %428, %427 ], [ %.pre134, %433 ]
   %438 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %439 = trunc nuw i8 %437 to i1
   %440 = trunc nuw i8 %436 to i1
@@ -2206,13 +2206,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 456:                                              ; preds = %450
   %457 = call i32 @H5open() #7
-  %.pre130 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre131 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre132 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre133 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %458
 
 458:                                              ; preds = %450, %456
-  %459 = phi i8 [ %453, %450 ], [ %.pre131, %456 ]
-  %460 = phi i8 [ %451, %450 ], [ %.pre130, %456 ]
+  %459 = phi i8 [ %453, %450 ], [ %.pre133, %456 ]
+  %460 = phi i8 [ %451, %450 ], [ %.pre132, %456 ]
   %461 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %462 = trunc nuw i8 %460 to i1
   %463 = trunc nuw i8 %459 to i1
@@ -2243,13 +2243,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 479:                                              ; preds = %473
   %480 = call i32 @H5open() #7
-  %.pre128 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre129 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre130 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre131 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %481
 
 481:                                              ; preds = %473, %479
-  %482 = phi i8 [ %476, %473 ], [ %.pre129, %479 ]
-  %483 = phi i8 [ %474, %473 ], [ %.pre128, %479 ]
+  %482 = phi i8 [ %476, %473 ], [ %.pre131, %479 ]
+  %483 = phi i8 [ %474, %473 ], [ %.pre130, %479 ]
   %484 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %485 = trunc nuw i8 %483 to i1
   %486 = trunc nuw i8 %482 to i1
@@ -2282,13 +2282,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 504:                                              ; preds = %498
   %505 = call i32 @H5open() #7
-  %.pre126 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre127 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre128 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre129 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %506
 
 506:                                              ; preds = %498, %504
-  %507 = phi i8 [ %501, %498 ], [ %.pre127, %504 ]
-  %508 = phi i8 [ %499, %498 ], [ %.pre126, %504 ]
+  %507 = phi i8 [ %501, %498 ], [ %.pre129, %504 ]
+  %508 = phi i8 [ %499, %498 ], [ %.pre128, %504 ]
   %509 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %510 = trunc nuw i8 %508 to i1
   %511 = trunc nuw i8 %507 to i1
@@ -2308,22 +2308,22 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   %.259 = phi i32 [ -1, %444 ], [ -1, %467 ], [ -1, %490 ], [ -1, %515 ], [ 0, %493 ]
   %.2 = phi i1 [ true, %444 ], [ true, %467 ], [ true, %490 ], [ true, %515 ], [ false, %493 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread84
+  br label %.thread85
 
 519:                                              ; preds = %339, %332
   %520 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !13
   %521 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 455, i64 noundef %335, i64 noundef %520, ptr noundef nonnull @.str.19) #7
   %.not76 = icmp eq i64 %322, -1
-  br i1 %.not76, label %.thread115, label %.thread84
+  br i1 %.not76, label %.thread117, label %.thread85
 
-.thread84:                                        ; preds = %518, %424, %394, %361, %519
-  %.05493 = phi i1 [ true, %519 ], [ %.2, %518 ], [ %403, %424 ], [ true, %394 ], [ true, %361 ]
-  %.05791 = phi i32 [ -1, %519 ], [ %.259, %518 ], [ %.158, %424 ], [ -1, %394 ], [ -1, %361 ]
+.thread85:                                        ; preds = %518, %424, %394, %361, %519
+  %.05494 = phi i1 [ true, %519 ], [ %.2, %518 ], [ %403, %424 ], [ true, %394 ], [ true, %361 ]
+  %.05792 = phi i32 [ -1, %519 ], [ %.259, %518 ], [ %.158, %424 ], [ -1, %394 ], [ -1, %361 ]
   %522 = call i32 @H5I_dec_ref(i64 noundef %322) #7
   %523 = icmp slt i32 %522, 0
   br i1 %523, label %524, label %546
 
-524:                                              ; preds = %.thread84
+524:                                              ; preds = %.thread85
   %525 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9, !noundef !10
   %526 = trunc nuw i8 %525 to i1
   %527 = load i8, ptr @H5_libterm_g, align 1, !range !9
@@ -2333,13 +2333,13 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 530:                                              ; preds = %524
   %531 = call i32 @H5open() #7
-  %.pre142 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre143 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre144 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre145 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %532
 
 532:                                              ; preds = %524, %530
-  %533 = phi i8 [ %527, %524 ], [ %.pre143, %530 ]
-  %534 = phi i8 [ %525, %524 ], [ %.pre142, %530 ]
+  %533 = phi i8 [ %527, %524 ], [ %.pre145, %530 ]
+  %534 = phi i8 [ %525, %524 ], [ %.pre144, %530 ]
   %535 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %536 = trunc nuw i8 %534 to i1
   %537 = trunc nuw i8 %533 to i1
@@ -2353,27 +2353,27 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 541:                                              ; preds = %532, %539
   %542 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !13
   %543 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Rcreate, i32 noundef 500, i64 noundef %535, i64 noundef %542, ptr noundef nonnull @.str.26) #7
-  br label %.thread115
+  br label %.thread117
 
-.thread111:                                       ; preds = %114, %158, %181, %204, %227, %273, %318, %250, %137
+.thread113:                                       ; preds = %114, %158, %181, %204, %227, %273, %318, %250, %137
   %544 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br label %.thread107
+  br label %.thread108
 
-.thread115:                                       ; preds = %519, %541
+.thread117:                                       ; preds = %519, %541
   %545 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br label %.thread107
+  br label %.thread108
 
-546:                                              ; preds = %.thread84
+546:                                              ; preds = %.thread85
   %547 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
-  br i1 %.05493, label %.thread107, label %549, !prof !27
+  br i1 %.05494, label %.thread108, label %549, !prof !27
 
-.thread107:                                       ; preds = %91, %68, %39, %.thread115, %.thread111, %546
-  %.36099110 = phi i32 [ %.05791, %546 ], [ -1, %.thread111 ], [ -1, %.thread115 ], [ -1, %39 ], [ -1, %68 ], [ -1, %91 ]
+.thread108:                                       ; preds = %91, %68, %39, %.thread117, %.thread113, %546
+  %.360100112 = phi i32 [ %.05792, %546 ], [ -1, %.thread113 ], [ -1, %.thread117 ], [ -1, %39 ], [ -1, %68 ], [ -1, %91 ]
   %548 = call i32 @H5E_dump_api_stack() #7
   br label %549
 
-549:                                              ; preds = %546, %.thread107
-  %.061 = phi i32 [ %.36099110, %.thread107 ], [ %.05791, %546 ]
+549:                                              ; preds = %546, %.thread108
+  %.360100111 = phi i32 [ %.05792, %546 ], [ %.360100112, %.thread108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2381,7 +2381,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.061
+  ret i32 %.360100111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2429,13 +2429,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 24:                                               ; preds = %18
   %25 = call i32 @H5open() #7
-  %.pre48 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre49 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre49 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre50 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %26
 
 26:                                               ; preds = %18, %24
-  %27 = phi i8 [ %21, %18 ], [ %.pre49, %24 ]
-  %28 = phi i8 [ %19, %18 ], [ %.pre48, %24 ]
+  %27 = phi i8 [ %21, %18 ], [ %.pre50, %24 ]
+  %28 = phi i8 [ %19, %18 ], [ %.pre49, %24 ]
   %29 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %30 = trunc nuw i8 %28 to i1
   %31 = trunc nuw i8 %27 to i1
@@ -2476,13 +2476,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 52:                                               ; preds = %46
   %53 = call i32 @H5open() #7
-  %.pre45 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre46 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre46 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre47 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %54
 
 54:                                               ; preds = %46, %52
-  %55 = phi i8 [ %49, %46 ], [ %.pre46, %52 ]
-  %56 = phi i8 [ %47, %46 ], [ %.pre45, %52 ]
+  %55 = phi i8 [ %49, %46 ], [ %.pre47, %52 ]
+  %56 = phi i8 [ %47, %46 ], [ %.pre46, %52 ]
   %57 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %58 = trunc nuw i8 %56 to i1
   %59 = trunc nuw i8 %55 to i1
@@ -2514,13 +2514,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 76:                                               ; preds = %70
   %77 = call i32 @H5open() #7
-  %.pre43 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre44 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre44 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre45 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %78
 
 78:                                               ; preds = %70, %76
-  %79 = phi i8 [ %73, %70 ], [ %.pre44, %76 ]
-  %80 = phi i8 [ %71, %70 ], [ %.pre43, %76 ]
+  %79 = phi i8 [ %73, %70 ], [ %.pre45, %76 ]
+  %80 = phi i8 [ %71, %70 ], [ %.pre44, %76 ]
   %81 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %82 = trunc nuw i8 %80 to i1
   %83 = trunc nuw i8 %79 to i1
@@ -2554,13 +2554,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 100:                                              ; preds = %94
   %101 = call i32 @H5open() #7
-  %.pre41 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre42 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre42 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
+  %.pre43 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %102
 
 102:                                              ; preds = %94, %100
-  %103 = phi i8 [ %97, %94 ], [ %.pre42, %100 ]
-  %104 = phi i8 [ %95, %94 ], [ %.pre41, %100 ]
+  %103 = phi i8 [ %97, %94 ], [ %.pre43, %100 ]
+  %104 = phi i8 [ %95, %94 ], [ %.pre42, %100 ]
   %105 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !13
   %106 = trunc nuw i8 %104 to i1
   %107 = trunc nuw i8 %103 to i1
@@ -2592,11 +2592,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 123:                                              ; preds = %117
   %124 = call i32 @H5open() #7
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9
-  %.pre40 = load i8, ptr @H5_libterm_g, align 1, !range !9
+  %.pre41 = load i8, ptr @H5_libterm_g, align 1, !range !9
   br label %125
 
 125:                                              ; preds = %117, %123
-  %126 = phi i8 [ %120, %117 ], [ %.pre40, %123 ]
+  %126 = phi i8 [ %120, %117 ], [ %.pre41, %123 ]
   %127 = phi i8 [ %118, %117 ], [ %.pre, %123 ]
   %128 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !13
   %129 = trunc nuw i8 %127 to i1
@@ -2620,11 +2620,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
 
 137:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre47 = load i64, ptr %7, align 8, !tbaa !13
+  %.pre48 = load i64, ptr %7, align 8, !tbaa !13
   br label %138
 
 138:                                              ; preds = %137, %38
-  %139 = phi i64 [ %.pre47, %137 ], [ %40, %38 ]
+  %139 = phi i64 [ %.pre48, %137 ], [ %40, %38 ]
   %.130 = phi ptr [ %68, %137 ], [ null, %38 ]
   store i64 %139, ptr %5, align 8, !tbaa !13
   br label %140
@@ -2636,9 +2636,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
   br label %141
 
 141:                                              ; preds = %6, %140
-  %.032 = phi i32 [ %.1, %140 ], [ 0, %6 ]
+  %.028 = phi i32 [ %.1, %140 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.032
+  ret i32 %.028
 }
 
 declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #2

@@ -2314,11 +2314,11 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %._crit_edge.loopexit.i
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader.preheader ], [ %indvars.iv.next, %._crit_edge.loopexit.i ]
-  %.0150177 = phi ptr [ %55, %.lr.ph.i.preheader.preheader ], [ %scevgep.i, %._crit_edge.loopexit.i ]
+  %.0177 = phi ptr [ %55, %.lr.ph.i.preheader.preheader ], [ %scevgep.i, %._crit_edge.loopexit.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.013.i = phi ptr [ %59, %.lr.ph.i ], [ %.0150177, %.lr.ph.i.preheader ]
+  %.013.i = phi ptr [ %59, %.lr.ph.i ], [ %.0177, %.lr.ph.i.preheader ]
   %.0812.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0911.i = phi i32 [ %63, %.lr.ph.i ], [ %53, %.lr.ph.i.preheader ]
   %58 = shl i64 %.0812.i, 8
@@ -2331,7 +2331,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !259
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %scevgep.i = getelementptr i8, ptr %.0150177, i64 %54
+  %scevgep.i = getelementptr i8, ptr %.0177, i64 %54
   %64 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv
   store i64 %62, ptr %64, align 8, !tbaa !104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

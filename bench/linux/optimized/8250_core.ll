@@ -524,15 +524,15 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   tail call void @mutex_lock(ptr noundef nonnull @serial_mutex) #12
   %6 = load i32, ptr @nr_uarts, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread31.thread, label %.preheader37
+  br i1 %7, label %.thread32.thread, label %.preheader38
 
-8:                                                ; preds = %.preheader37
+8:                                                ; preds = %.preheader38
   %9 = add nuw i32 %12, 1
   %10 = load i32, ptr @nr_uarts, align 4
   %11 = icmp ult i32 %9, %10
-  br i1 %11, label %.preheader37, label %16, !llvm.loop !11
+  br i1 %11, label %.preheader38, label %16, !llvm.loop !11
 
-.preheader37:                                     ; preds = %5, %8
+.preheader38:                                     ; preds = %5, %8
   %12 = phi i32 [ %9, %8 ], [ 0, %5 ]
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %13
@@ -551,23 +551,23 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 296
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.preheader35.preheader
+  br i1 %25, label %26, label %.preheader36.preheader
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.loopexit, label %.preheader35.preheader
+  br i1 %29, label %.loopexit, label %.preheader36.preheader
 
 30:                                               ; preds = %16
   %31 = icmp eq i32 %10, 0
-  br i1 %31, label %.thread31.thread, label %.preheader35.preheader
+  br i1 %31, label %.thread32.thread, label %.preheader36.preheader
 
-.preheader35.preheader:                           ; preds = %20, %26, %30
-  br label %.preheader35
+.preheader36.preheader:                           ; preds = %20, %26, %30
+  br label %.preheader36
 
-.preheader35:                                     ; preds = %.preheader35.preheader, %42
-  %32 = phi i32 [ %43, %42 ], [ 0, %.preheader35.preheader ]
+.preheader36:                                     ; preds = %.preheader36.preheader, %42
+  %32 = phi i32 [ %43, %42 ], [ 0, %.preheader36.preheader ]
   %33 = sext i32 %32 to i64
   %34 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 296
@@ -575,21 +575,21 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %42
 
-38:                                               ; preds = %.preheader35
+38:                                               ; preds = %.preheader36
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %42
 
-42:                                               ; preds = %38, %.preheader35
+42:                                               ; preds = %38, %.preheader36
   %43 = add nuw i32 %32, 1
   %44 = icmp eq i32 %43, %10
-  br i1 %44, label %.preheader, label %.preheader35, !llvm.loop !12
+  br i1 %44, label %.preheader, label %.preheader36, !llvm.loop !12
 
 45:                                               ; preds = %.preheader
   %46 = add nuw i32 %48, 1
   %47 = icmp eq i32 %46, %10
-  br i1 %47, label %.thread31, label %.preheader, !llvm.loop !13
+  br i1 %47, label %.thread32, label %.preheader, !llvm.loop !13
 
 .preheader:                                       ; preds = %42, %45
   %48 = phi i32 [ %46, %45 ], [ 0, %42 ]
@@ -600,22 +600,22 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.loopexit, label %45
 
-.loopexit:                                        ; preds = %.preheader37, %38, %.preheader, %26
-  %54 = phi ptr [ %22, %26 ], [ %50, %.preheader ], [ %34, %38 ], [ %14, %.preheader37 ]
+.loopexit:                                        ; preds = %.preheader38, %38, %.preheader, %26
+  %54 = phi ptr [ %22, %26 ], [ %50, %.preheader ], [ %34, %38 ], [ %14, %.preheader38 ]
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit..thread31_crit_edge, label %75
+  br i1 %55, label %.loopexit..thread32_crit_edge, label %75
 
-.loopexit..thread31_crit_edge:                    ; preds = %.loopexit
+.loopexit..thread32_crit_edge:                    ; preds = %.loopexit
   %.pr.pre = load i32, ptr @nr_uarts, align 4
-  br label %.thread31
+  br label %.thread32
 
-.thread31:                                        ; preds = %45, %.loopexit..thread31_crit_edge
-  %.pr = phi i32 [ %.pr.pre, %.loopexit..thread31_crit_edge ], [ %10, %45 ]
+.thread32:                                        ; preds = %45, %.loopexit..thread32_crit_edge
+  %.pr = phi i32 [ %.pr.pre, %.loopexit..thread32_crit_edge ], [ %10, %45 ]
   %56 = icmp sgt i32 %.pr, 31
-  br i1 %56, label %.thread32, label %.thread31.thread
+  br i1 %56, label %.thread33, label %.thread32.thread
 
-.thread31.thread:                                 ; preds = %30, %5, %.thread31
-  %57 = phi i32 [ %.pr, %.thread31 ], [ 0, %5 ], [ 0, %30 ]
+.thread32.thread:                                 ; preds = %30, %5, %.thread32
+  %57 = phi i32 [ %.pr, %.thread32 ], [ 0, %5 ], [ 0, %30 ]
   %58 = sext i32 %57 to i64
   %59 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 316
@@ -627,13 +627,13 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %67
 
-64:                                               ; preds = %.thread31.thread
+64:                                               ; preds = %.thread32.thread
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 304
   %66 = load ptr, ptr %65, align 16
   store ptr %66, ptr @base_ops, align 8
   br label %67
 
-67:                                               ; preds = %.thread31.thread, %64
+67:                                               ; preds = %.thread32.thread, %64
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 304
   store ptr @univ8250_port_ops, ptr %68, align 16
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 528
@@ -642,7 +642,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   store ptr @univ8250_driver_ops, ptr %70, align 16
   tail call void @serial8250_set_defaults(ptr noundef %59) #12
   %71 = icmp eq ptr %59, null
-  br i1 %71, label %.thread32, label %72
+  br i1 %71, label %.thread33, label %72
 
 72:                                               ; preds = %67
   %73 = load i32, ptr @nr_uarts, align 4
@@ -655,7 +655,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 296
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 23
-  br i1 %79, label %.thread32, label %80
+  br i1 %79, label %.thread33, label %80
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 344
@@ -1049,24 +1049,24 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   store ptr @serial_8250_overrun_backoff_work, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %76, i64 720
   tail call void @init_timer_key(ptr noundef nonnull %316, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
-  br label %.thread32
+  br label %.thread33
 
 317:                                              ; preds = %306
   store i32 0, ptr %310, align 8
-  br label %.thread32
+  br label %.thread33
 
 318:                                              ; preds = %170, %284
   %319 = phi i32 [ %171, %170 ], [ %291, %284 ]
   store ptr null, ptr %81, align 8
-  br label %.thread32
+  br label %.thread33
 
-.thread32:                                        ; preds = %311, %317, %.thread31, %318, %75, %67
-  %320 = phi i32 [ %319, %318 ], [ -28, %75 ], [ -28, %67 ], [ -28, %.thread31 ], [ %302, %317 ], [ %302, %311 ]
+.thread33:                                        ; preds = %311, %317, %.thread32, %318, %75, %67
+  %320 = phi i32 [ %319, %318 ], [ -28, %75 ], [ -28, %67 ], [ -28, %.thread32 ], [ %302, %317 ], [ %302, %311 ]
   tail call void @mutex_unlock(ptr noundef nonnull @serial_mutex) #12
   br label %321
 
-321:                                              ; preds = %.thread32, %1
-  %322 = phi i32 [ -22, %1 ], [ %320, %.thread32 ]
+321:                                              ; preds = %.thread33, %1
+  %322 = phi i32 [ -22, %1 ], [ %320, %.thread33 ]
   ret i32 %322
 }
 

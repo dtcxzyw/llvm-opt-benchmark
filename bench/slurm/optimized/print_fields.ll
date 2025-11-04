@@ -1199,7 +1199,7 @@ define dso_local ptr @expand_stdio_fields(ptr noundef %0, ptr noundef readonly c
   %.050 = phi i32 [ %.1, %66 ], [ 0, %.lr.ph ]
   %.02449 = phi ptr [ %67, %66 ], [ %0, %.lr.ph ]
   %.12848 = phi i32 [ %.229, %66 ], [ %spec.select, %.lr.ph ]
-  switch i32 %.12848, label %66 [
+  switch i32 %.12848, label %.unreachabledefault [
     i32 3, label %24
     i32 0, label %27
     i32 1, label %31
@@ -1332,10 +1332,13 @@ _expand_wildcard.exit:                            ; preds = %63, %61, %60, %58, 
   %spec.select44 = zext i1 %.not42 to i32
   br label %66
 
-66:                                               ; preds = %_expand_wildcard.exit, %27, %22, %29, %24, %25
-  %.229 = phi i32 [ %.12848, %22 ], [ 3, %25 ], [ 3, %24 ], [ 0, %29 ], [ 1, %27 ], [ %spec.select44, %_expand_wildcard.exit ]
-  %.125 = phi ptr [ %.02449, %22 ], [ %.02449, %25 ], [ %.02449, %24 ], [ %.02449, %29 ], [ %.02449, %27 ], [ %.226, %_expand_wildcard.exit ]
-  %.1 = phi i32 [ %.050, %22 ], [ %.050, %25 ], [ %.050, %24 ], [ %.050, %29 ], [ %.050, %27 ], [ %.3, %_expand_wildcard.exit ]
+.unreachabledefault:                              ; preds = %22
+  unreachable
+
+66:                                               ; preds = %_expand_wildcard.exit, %27, %29, %24, %25
+  %.229 = phi i32 [ 3, %25 ], [ 3, %24 ], [ 0, %29 ], [ 1, %27 ], [ %spec.select44, %_expand_wildcard.exit ]
+  %.125 = phi ptr [ %.02449, %25 ], [ %.02449, %24 ], [ %.02449, %29 ], [ %.02449, %27 ], [ %.226, %_expand_wildcard.exit ]
+  %.1 = phi i32 [ %.050, %25 ], [ %.050, %24 ], [ %.050, %29 ], [ %.050, %27 ], [ %.3, %_expand_wildcard.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %.125, i64 1
   %68 = load i8, ptr %67, align 1
   %.not40 = icmp eq i8 %68, 0

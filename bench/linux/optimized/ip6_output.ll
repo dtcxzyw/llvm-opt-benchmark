@@ -4356,7 +4356,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %124 = sub i32 %123, %73
   %125 = tail call i32 @llvm.smax.i32(i32 %124, i32 0)
   tail call void @ipv6_local_error(ptr noundef %0, i32 noundef 90, ptr noundef nonnull %14, i32 noundef %125) #13
-  br label %.critedge29
+  br label %.critedge31
 
 126:                                              ; preds = %111
   %127 = icmp eq i32 %8, 0
@@ -4427,7 +4427,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %173 = icmp eq ptr %172, null
   %174 = icmp eq ptr %157, %172
   %or.cond = or i1 %173, %174
-  br i1 %or.cond, label %.critedge, label %.critedge29
+  br i1 %or.cond, label %.critedge, label %.critedge31
 
 .critedge:                                        ; preds = %160, %159, %170
   %175 = getelementptr inbounds nuw i8, ptr %48, i64 176
@@ -4435,20 +4435,20 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %177 = and i64 %176, 1
   %178 = icmp ne i64 %177, 0
   %179 = and i1 %147, %178
-  br i1 %179, label %180, label %.critedge29.thread
+  br i1 %179, label %180, label %.critedge31.thread
 
 180:                                              ; preds = %.critedge
-  br label %.critedge29.thread
+  br label %.critedge31.thread
 
 181:                                              ; preds = %155, %153
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %183 = load volatile i64, ptr %182, align 8
   %184 = and i64 %183, 262144
   %185 = icmp eq i64 %184, 0
-  br i1 %185, label %.critedge29.thread, label %186
+  br i1 %185, label %.critedge31.thread, label %186
 
 186:                                              ; preds = %181
-  br i1 %22, label %.thread32, label %187
+  br i1 %22, label %.thread36, label %187
 
 187:                                              ; preds = %186
   %188 = getelementptr inbounds nuw i8, ptr %21, i64 192
@@ -4471,12 +4471,12 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %201 = phi ptr [ %199, %197 ], [ null, %187 ]
   %202 = tail call ptr @msg_zerocopy_realloc(ptr noundef %0, i64 noundef %7, ptr noundef %201) #13
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %.critedge29, label %206
+  br i1 %203, label %.critedge31, label %206
 
-.thread32:                                        ; preds = %186
+.thread36:                                        ; preds = %186
   %204 = tail call ptr @msg_zerocopy_realloc(ptr noundef %0, i64 noundef %7, ptr noundef null) #13
   %205 = icmp eq ptr %204, null
-  br i1 %205, label %.critedge29, label %.thread33
+  br i1 %205, label %.critedge31, label %.thread37
 
 206:                                              ; preds = %200
   %207 = load ptr, ptr %188, align 8
@@ -4486,18 +4486,18 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %211 = load i8, ptr %210, align 8
   %212 = and i8 %211, 1
   %213 = icmp eq i8 %212, 0
-  br i1 %213, label %.thread33, label %214
+  br i1 %213, label %.thread37, label %214
 
 214:                                              ; preds = %206
   %215 = getelementptr inbounds nuw i8, ptr %210, i64 40
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, null
   %218 = zext i1 %217 to i8
-  br label %.thread33
+  br label %.thread37
 
-.thread33:                                        ; preds = %.thread32, %214, %206
-  %219 = phi ptr [ %202, %214 ], [ %202, %206 ], [ %204, %.thread32 ]
-  %220 = phi i8 [ %218, %214 ], [ 1, %206 ], [ 1, %.thread32 ]
+.thread37:                                        ; preds = %.thread36, %214, %206
+  %219 = phi ptr [ %202, %214 ], [ %202, %206 ], [ %204, %.thread36 ]
+  %220 = phi i8 [ %218, %214 ], [ 1, %206 ], [ 1, %.thread36 ]
   store i8 %220, ptr %13, align 1
   %221 = load ptr, ptr %16, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 176
@@ -4505,28 +4505,28 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %224 = and i64 %223, 1
   %225 = icmp ne i64 %224, 0
   %226 = and i1 %147, %225
-  br i1 %226, label %.critedge29.thread, label %227
+  br i1 %226, label %.critedge31.thread, label %227
 
-227:                                              ; preds = %.thread33
+227:                                              ; preds = %.thread37
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 22
   %229 = load i8, ptr %228, align 2
   %230 = and i8 %229, -2
   store i8 %230, ptr %228, align 2
   call fastcc void @skb_zcopy_set(ptr noundef %21, ptr noundef nonnull %219, ptr noundef nonnull %13)
-  br label %.critedge29.thread
+  br label %.critedge31.thread
 
 231:                                              ; preds = %146
   %232 = and i32 %9, 134217728
   %233 = icmp ne i32 %232, 0
   %234 = and i1 %151, %233
-  br i1 %234, label %235, label %.critedge29.thread
+  br i1 %234, label %235, label %.critedge31.thread
 
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %237 = load volatile i64, ptr %236, align 8
   %238 = and i64 %237, 4096
   %239 = icmp eq i64 %238, 0
-  br i1 %239, label %240, label %.critedge29
+  br i1 %239, label %240, label %.critedge31
 
 240:                                              ; preds = %235
   %241 = getelementptr inbounds nuw i8, ptr %48, i64 176
@@ -4539,54 +4539,54 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %247 = and i32 %9, -134217729
   %248 = or i1 %42, %246
   %249 = select i1 %246, i32 %9, i32 %247
-  br label %.critedge29.thread
+  br label %.critedge31.thread
 
-.critedge29.thread:                               ; preds = %180, %.critedge, %227, %181, %.thread33, %240, %231
-  %250 = phi i1 [ %42, %231 ], [ %248, %240 ], [ true, %180 ], [ %42, %.critedge ], [ %42, %227 ], [ %42, %181 ], [ true, %.thread33 ]
-  %251 = phi i1 [ false, %231 ], [ false, %240 ], [ true, %180 ], [ false, %.critedge ], [ false, %227 ], [ false, %181 ], [ true, %.thread33 ]
-  %252 = phi ptr [ null, %231 ], [ null, %240 ], [ %157, %180 ], [ null, %.critedge ], [ %219, %227 ], [ null, %181 ], [ %219, %.thread33 ]
-  %.fr122 = phi i32 [ %9, %231 ], [ %249, %240 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread33 ]
+.critedge31.thread:                               ; preds = %180, %.critedge, %227, %181, %.thread37, %240, %231
+  %250 = phi i1 [ %42, %231 ], [ %248, %240 ], [ true, %180 ], [ %42, %.critedge ], [ %42, %227 ], [ %42, %181 ], [ true, %.thread37 ]
+  %251 = phi i1 [ false, %231 ], [ false, %240 ], [ true, %180 ], [ false, %.critedge ], [ false, %227 ], [ false, %181 ], [ true, %.thread37 ]
+  %252 = phi ptr [ null, %231 ], [ null, %240 ], [ %157, %180 ], [ null, %.critedge ], [ %219, %227 ], [ null, %181 ], [ %219, %.thread37 ]
+  %.fr126 = phi i32 [ %9, %231 ], [ %249, %240 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread37 ]
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %254 = load i8, ptr %253, align 8
   %255 = and i8 %254, 75
   %256 = icmp eq i8 %255, 0
-  br i1 %256, label %.thread36, label %257
+  br i1 %256, label %.thread40, label %257
 
-257:                                              ; preds = %.critedge29.thread
+257:                                              ; preds = %.critedge31.thread
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %259 = load volatile i32, ptr %258, align 8
   %260 = and i32 %259, 128
-  %.not48 = icmp eq i32 %260, 0
-  br i1 %.not48, label %.thread36, label %261
+  %.not52 = icmp eq i32 %260, 0
+  br i1 %.not52, label %.thread40, label %261
 
 261:                                              ; preds = %257
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %263 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %262, i32 1, ptr nonnull elementtype(i32) %262) #13, !srcloc !81
-  br label %.thread36
+  br label %.thread40
 
-.thread36:                                        ; preds = %.critedge29.thread, %261, %257
-  %264 = phi i1 [ true, %261 ], [ false, %257 ], [ false, %.critedge29.thread ]
-  %265 = phi i32 [ %263, %261 ], [ 0, %257 ], [ 0, %.critedge29.thread ]
+.thread40:                                        ; preds = %.critedge31.thread, %261, %257
+  %264 = phi i1 [ true, %261 ], [ false, %257 ], [ false, %.critedge31.thread ]
+  %265 = phi i32 [ %263, %261 ], [ 0, %257 ], [ 0, %.critedge31.thread ]
   %266 = load i32, ptr %85, align 4
   %267 = trunc i64 %7 to i32
   %268 = add i32 %266, %267
   store i32 %268, ptr %85, align 4
   br i1 %22, label %.loopexit, label %269
 
-269:                                              ; preds = %743, %.thread36
-  %270 = phi i32 [ %81, %.thread36 ], [ %521, %743 ]
-  %271 = phi i32 [ %47, %.thread36 ], [ %522, %743 ]
-  %272 = phi i32 [ 0, %.thread36 ], [ %744, %743 ]
-  %273 = phi i32 [ %265, %.thread36 ], [ 0, %743 ]
-  %274 = phi i32 [ 0, %.thread36 ], [ %671, %743 ]
-  %275 = phi i32 [ %38, %.thread36 ], [ 0, %743 ]
-  %276 = phi i16 [ %39, %.thread36 ], [ 0, %743 ]
-  %277 = phi ptr [ null, %.thread36 ], [ %493, %743 ]
-  %278 = phi ptr [ %19, %.thread36 ], [ %598, %743 ]
-  %279 = phi i32 [ %8, %.thread36 ], [ 0, %743 ]
-  %280 = phi i64 [ %7, %.thread36 ], [ %674, %743 ]
+269:                                              ; preds = %743, %.thread40
+  %270 = phi i32 [ %81, %.thread40 ], [ %521, %743 ]
+  %271 = phi i32 [ %47, %.thread40 ], [ %522, %743 ]
+  %272 = phi i32 [ 0, %.thread40 ], [ %744, %743 ]
+  %273 = phi i32 [ %265, %.thread40 ], [ 0, %743 ]
+  %274 = phi i32 [ 0, %.thread40 ], [ %671, %743 ]
+  %275 = phi i32 [ %38, %.thread40 ], [ 0, %743 ]
+  %276 = phi i16 [ %39, %.thread40 ], [ 0, %743 ]
+  %277 = phi ptr [ null, %.thread40 ], [ %493, %743 ]
+  %278 = phi ptr [ %19, %.thread40 ], [ %598, %743 ]
+  %279 = phi i32 [ %8, %.thread40 ], [ 0, %743 ]
+  %280 = phi i64 [ %7, %.thread40 ], [ %674, %743 ]
   %281 = icmp eq i64 %280, 0
-  br i1 %281, label %.loopexit56, label %282
+  br i1 %281, label %.loopexit60, label %282
 
 282:                                              ; preds = %269
   %283 = getelementptr inbounds nuw i8, ptr %278, i64 112
@@ -4595,7 +4595,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 184
   %287 = getelementptr inbounds nuw i8, ptr %278, i64 200
   %288 = getelementptr inbounds nuw i8, ptr %278, i64 192
-  %289 = and i32 %.fr122, 134217728
+  %289 = and i32 %.fr126, 134217728
   %290 = icmp eq i32 %289, 0
   %291 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %292 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4609,9 +4609,9 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 .split.us:                                        ; preds = %282
   br i1 %251, label %.split.us.split.us, label %.split.us.split
 
-.split.us.split.us:                               ; preds = %.split.us, %.thread43.us.us
-  %298 = phi i64 [ %335, %.thread43.us.us ], [ %280, %.split.us ]
-  %299 = phi i32 [ %334, %.thread43.us.us ], [ %274, %.split.us ]
+.split.us.split.us:                               ; preds = %.split.us, %.thread47.us.us
+  %298 = phi i64 [ %335, %.thread47.us.us ], [ %280, %.split.us ]
+  %299 = phi i32 [ %334, %.thread47.us.us ], [ %274, %.split.us ]
   %300 = load i32, ptr %85, align 4
   %301 = icmp ugt i32 %300, %271
   %302 = select i1 %301, i32 %270, i32 %271
@@ -4633,43 +4633,43 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %316 = load i64, ptr %315, align 8
   %317 = and i64 %316, 1
   %318 = icmp eq i64 %317, 0
-  br i1 %318, label %319, label %.critedge31.us.us
+  br i1 %318, label %319, label %.critedge33.us.us
 
 319:                                              ; preds = %310
   %320 = load i32, ptr %284, align 4
   %321 = icmp eq i32 %320, 0
-  br i1 %321, label %322, label %.critedge31.us.us
+  br i1 %321, label %322, label %.critedge33.us.us
 
 322:                                              ; preds = %319
   %323 = load i32, ptr %285, align 4
   %324 = load i32, ptr %286, align 8
   %325 = sub i32 %323, %324
   %326 = icmp slt i32 %325, %313
-  br i1 %326, label %.critedge31.us.us, label %327
+  br i1 %326, label %.critedge33.us.us, label %327
 
 327:                                              ; preds = %322
   %328 = call ptr @skb_put(ptr noundef nonnull %278, i32 noundef %313) #13
   %329 = call i32 %5(ptr noundef %6, ptr noundef %328, i32 noundef %299, i32 noundef %313, i32 noundef %303, ptr noundef nonnull %278) #13
   %330 = icmp slt i32 %329, 0
-  br i1 %330, label %.split84.us, label %.thread43.us.us
+  br i1 %330, label %.split88.us, label %.thread47.us.us
 
-.critedge31.us.us:                                ; preds = %322, %319, %310
+.critedge33.us.us:                                ; preds = %322, %319, %310
   %331 = load ptr, ptr %297, align 8
   %332 = call i32 @__zerocopy_sg_from_iter(ptr noundef %6, ptr noundef %331, ptr noundef nonnull %278, ptr noundef nonnull %292, i64 noundef %312) #13
   store i32 %332, ptr %12, align 4
   %333 = icmp slt i32 %332, 0
-  br i1 %333, label %.thread44, label %.thread43.us.us
+  br i1 %333, label %.thread48, label %.thread47.us.us
 
-.thread43.us.us:                                  ; preds = %.critedge31.us.us, %327
+.thread47.us.us:                                  ; preds = %.critedge33.us.us, %327
   %334 = add i32 %299, %313
   %335 = sub i64 %298, %312
   %336 = icmp eq i64 %335, 0
-  br i1 %336, label %.loopexit56, label %.split.us.split.us, !llvm.loop !82
+  br i1 %336, label %.loopexit60, label %.split.us.split.us, !llvm.loop !82
 
-.split.us.split:                                  ; preds = %.split.us, %.thread43.us
-  %337 = phi i64 [ %469, %.thread43.us ], [ %280, %.split.us ]
-  %338 = phi i32 [ %467, %.thread43.us ], [ %274, %.split.us ]
-  %339 = phi i32 [ %465, %.thread43.us ], [ %272, %.split.us ]
+.split.us.split:                                  ; preds = %.split.us, %.thread47.us
+  %337 = phi i64 [ %469, %.thread47.us ], [ %280, %.split.us ]
+  %338 = phi i32 [ %467, %.thread47.us ], [ %274, %.split.us ]
+  %339 = phi i32 [ %465, %.thread47.us ], [ %272, %.split.us ]
   %340 = load i32, ptr %85, align 4
   %341 = icmp ugt i32 %340, %271
   %342 = select i1 %341, i32 %270, i32 %271
@@ -4691,32 +4691,32 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %356 = load i64, ptr %355, align 8
   %357 = and i64 %356, 1
   %358 = icmp eq i64 %357, 0
-  br i1 %358, label %359, label %..critedge31.us_crit_edge
+  br i1 %358, label %359, label %..critedge33.us_crit_edge
 
-..critedge31.us_crit_edge:                        ; preds = %350
-  %.pre182 = load i32, ptr %285, align 4
-  br label %.critedge31.us
+..critedge33.us_crit_edge:                        ; preds = %350
+  %.pre186 = load i32, ptr %285, align 4
+  br label %.critedge33.us
 
 359:                                              ; preds = %350
   %360 = load i32, ptr %284, align 4
   %361 = icmp eq i32 %360, 0
-  %.pre183 = load i32, ptr %285, align 4
-  br i1 %361, label %362, label %.critedge31.us
+  %.pre187 = load i32, ptr %285, align 4
+  br i1 %361, label %362, label %.critedge33.us
 
 362:                                              ; preds = %359
   %363 = load i32, ptr %286, align 8
-  %364 = sub i32 %.pre183, %363
+  %364 = sub i32 %.pre187, %363
   %365 = icmp slt i32 %364, %353
-  br i1 %365, label %.critedge31.us, label %366
+  br i1 %365, label %.critedge33.us, label %366
 
 366:                                              ; preds = %362
   %367 = call ptr @skb_put(ptr noundef nonnull %278, i32 noundef %353) #13
   %368 = call i32 %5(ptr noundef %6, ptr noundef %367, i32 noundef %338, i32 noundef %353, i32 noundef %343, ptr noundef nonnull %278) #13
   %369 = icmp slt i32 %368, 0
-  br i1 %369, label %.split84.us, label %.thread43.us
+  br i1 %369, label %.split88.us, label %.thread47.us
 
-.critedge31.us:                                   ; preds = %..critedge31.us_crit_edge, %362, %359
-  %370 = phi i32 [ %.pre182, %..critedge31.us_crit_edge ], [ %.pre183, %362 ], [ %.pre183, %359 ]
+.critedge33.us:                                   ; preds = %..critedge33.us_crit_edge, %362, %359
+  %370 = phi i32 [ %.pre186, %..critedge33.us_crit_edge ], [ %.pre187, %362 ], [ %.pre187, %359 ]
   %371 = load ptr, ptr %288, align 8
   %372 = zext i32 %370 to i64
   %373 = getelementptr i8, ptr %371, i64 %372
@@ -4725,9 +4725,9 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %376 = zext i8 %375 to i32
   store i32 -12, ptr %12, align 4
   %377 = call zeroext i1 @sk_page_frag_refill(ptr noundef %0, ptr noundef %4) #13
-  br i1 %377, label %378, label %.thread44
+  br i1 %377, label %378, label %.thread48
 
-378:                                              ; preds = %.critedge31.us
+378:                                              ; preds = %.critedge33.us
   %379 = load ptr, ptr %288, align 8
   %380 = load i32, ptr %285, align 4
   %381 = zext i32 %380 to i64
@@ -4739,20 +4739,20 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 
 386:                                              ; preds = %378
   call void @__skb_zcopy_downgrade_managed(ptr noundef nonnull %278) #13
-  %.pre184 = load ptr, ptr %288, align 8
-  %.pre185 = load i32, ptr %285, align 4
-  %.phi.trans.insert186 = zext i32 %.pre185 to i64
-  %.phi.trans.insert187 = getelementptr i8, ptr %.pre184, i64 %.phi.trans.insert186
-  %.pre188 = load i8, ptr %.phi.trans.insert187, align 8
+  %.pre188 = load ptr, ptr %288, align 8
+  %.pre189 = load i32, ptr %285, align 4
+  %.phi.trans.insert190 = zext i32 %.pre189 to i64
+  %.phi.trans.insert191 = getelementptr i8, ptr %.pre188, i64 %.phi.trans.insert190
+  %.pre192 = load i8, ptr %.phi.trans.insert191, align 8
   br label %387
 
 387:                                              ; preds = %386, %378
-  %.pre-phi196 = phi i64 [ %.phi.trans.insert186, %386 ], [ %381, %378 ]
-  %388 = phi i8 [ %.pre188, %386 ], [ %383, %378 ]
-  %389 = phi ptr [ %.pre184, %386 ], [ %379, %378 ]
+  %.pre-phi200 = phi i64 [ %.phi.trans.insert190, %386 ], [ %381, %378 ]
+  %388 = phi i8 [ %.pre192, %386 ], [ %383, %378 ]
+  %389 = phi ptr [ %.pre188, %386 ], [ %379, %378 ]
   %390 = load ptr, ptr %4, align 8
   %391 = load i32, ptr %294, align 8
-  %392 = getelementptr i8, ptr %389, i64 %.pre-phi196
+  %392 = getelementptr i8, ptr %389, i64 %.pre-phi200
   %393 = and i8 %388, 1
   %394 = icmp eq i8 %393, 0
   br i1 %394, label %399, label %395
@@ -4789,7 +4789,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 416:                                              ; preds = %409, %403, %399
   store i32 -90, ptr %12, align 4
   %417 = icmp eq i8 %375, 17
-  br i1 %417, label %.thread44, label %418
+  br i1 %417, label %.thread48, label %418
 
 418:                                              ; preds = %416
   call fastcc void @__skb_fill_page_desc(ptr noundef nonnull %278, i32 noundef %376, ptr noundef %390, i32 noundef %391)
@@ -4803,13 +4803,13 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   store i8 %420, ptr %425, align 2
   %426 = load ptr, ptr %4, align 8
   call fastcc void @get_page(ptr noundef %426)
-  %.pre189 = load i32, ptr %294, align 8
-  %.pre190 = load ptr, ptr %4, align 8
+  %.pre193 = load i32, ptr %294, align 8
+  %.pre194 = load ptr, ptr %4, align 8
   br label %427
 
 427:                                              ; preds = %418, %409
-  %428 = phi ptr [ %390, %409 ], [ %.pre190, %418 ]
-  %429 = phi i32 [ %391, %409 ], [ %.pre189, %418 ]
+  %428 = phi ptr [ %390, %409 ], [ %.pre194, %418 ]
+  %429 = phi i32 [ %391, %409 ], [ %.pre193, %418 ]
   %430 = phi i32 [ %376, %409 ], [ %419, %418 ]
   %431 = load i32, ptr %295, align 4
   %432 = sub i32 %431, %429
@@ -4826,9 +4826,9 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %443 = load i32, ptr %283, align 8
   %444 = call i32 %5(ptr noundef %6, ptr noundef %442, i32 noundef %338, i32 noundef %433, i32 noundef %443, ptr noundef nonnull %278) #13
   %445 = icmp slt i32 %444, 0
-  br i1 %445, label %.split91.us, label %.thread47.us
+  br i1 %445, label %.split95.us, label %.thread51.us
 
-.thread47.us:                                     ; preds = %427
+.thread51.us:                                     ; preds = %427
   %446 = load i32, ptr %294, align 8
   %447 = add i32 %446, %433
   store i32 %447, ptr %294, align 8
@@ -4854,21 +4854,21 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %463 = add i32 %462, %433
   store i32 %463, ptr %296, align 8
   %464 = add i32 %433, %339
-  br label %.thread43.us
+  br label %.thread47.us
 
-.thread43.us:                                     ; preds = %.thread47.us, %366
-  %465 = phi i32 [ %464, %.thread47.us ], [ %339, %366 ]
-  %466 = phi i32 [ %433, %.thread47.us ], [ %353, %366 ]
+.thread47.us:                                     ; preds = %.thread51.us, %366
+  %465 = phi i32 [ %464, %.thread51.us ], [ %339, %366 ]
+  %466 = phi i32 [ %433, %.thread51.us ], [ %353, %366 ]
   %467 = add i32 %466, %338
   %468 = sext i32 %466 to i64
   %469 = sub i64 %337, %468
   %470 = icmp eq i64 %469, 0
-  br i1 %470, label %.loopexit56, label %.split.us.split, !llvm.loop !82
+  br i1 %470, label %.loopexit60, label %.split.us.split, !llvm.loop !82
 
-.split:                                           ; preds = %282, %.thread43
-  %471 = phi i64 [ %797, %.thread43 ], [ %280, %282 ]
-  %472 = phi i32 [ %795, %.thread43 ], [ %274, %282 ]
-  %473 = phi i32 [ %793, %.thread43 ], [ %272, %282 ]
+.split:                                           ; preds = %282, %.thread47
+  %471 = phi i64 [ %797, %.thread47 ], [ %280, %282 ]
+  %472 = phi i32 [ %795, %.thread47 ], [ %274, %282 ]
+  %473 = phi i32 [ %793, %.thread47 ], [ %272, %282 ]
   %474 = load i32, ptr %85, align 4
   %475 = icmp ugt i32 %474, %271
   %476 = select i1 %475, i32 %270, i32 %271
@@ -4881,28 +4881,28 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %483 = icmp slt i32 %482, 1
   br i1 %483, label %.loopexit, label %750
 
-.loopexit:                                        ; preds = %.split, %.split.us.split, %.split.us.split.us, %.thread36
-  %484 = phi i32 [ %268, %.thread36 ], [ %300, %.split.us.split.us ], [ %340, %.split.us.split ], [ %474, %.split ]
-  %485 = phi i32 [ %81, %.thread36 ], [ %270, %.split.us.split.us ], [ %270, %.split.us.split ], [ %270, %.split ]
-  %486 = phi i32 [ %47, %.thread36 ], [ %271, %.split.us.split.us ], [ %271, %.split.us.split ], [ %271, %.split ]
-  %487 = phi i32 [ 0, %.thread36 ], [ %272, %.split.us.split.us ], [ %339, %.split.us.split ], [ %473, %.split ]
-  %488 = phi i32 [ %265, %.thread36 ], [ %273, %.split.us.split.us ], [ %273, %.split.us.split ], [ %273, %.split ]
-  %489 = phi i32 [ 0, %.thread36 ], [ %299, %.split.us.split.us ], [ %338, %.split.us.split ], [ %472, %.split ]
-  %490 = phi i32 [ %38, %.thread36 ], [ %275, %.split.us.split.us ], [ %275, %.split.us.split ], [ %275, %.split ]
-  %491 = phi i16 [ %39, %.thread36 ], [ %276, %.split.us.split.us ], [ %276, %.split.us.split ], [ %276, %.split ]
-  %492 = phi ptr [ null, %.thread36 ], [ %277, %.split.us.split.us ], [ %277, %.split.us.split ], [ %277, %.split ]
-  %493 = phi ptr [ null, %.thread36 ], [ %278, %.split.us.split.us ], [ %278, %.split.us.split ], [ %278, %.split ]
-  %494 = phi i32 [ %8, %.thread36 ], [ %279, %.split.us.split.us ], [ %279, %.split.us.split ], [ %279, %.split ]
-  %495 = phi i64 [ %7, %.thread36 ], [ %298, %.split.us.split.us ], [ %337, %.split.us.split ], [ %471, %.split ]
+.loopexit:                                        ; preds = %.split, %.split.us.split, %.split.us.split.us, %.thread40
+  %484 = phi i32 [ %268, %.thread40 ], [ %300, %.split.us.split.us ], [ %340, %.split.us.split ], [ %474, %.split ]
+  %485 = phi i32 [ %81, %.thread40 ], [ %270, %.split.us.split.us ], [ %270, %.split.us.split ], [ %270, %.split ]
+  %486 = phi i32 [ %47, %.thread40 ], [ %271, %.split.us.split.us ], [ %271, %.split.us.split ], [ %271, %.split ]
+  %487 = phi i32 [ 0, %.thread40 ], [ %272, %.split.us.split.us ], [ %339, %.split.us.split ], [ %473, %.split ]
+  %488 = phi i32 [ %265, %.thread40 ], [ %273, %.split.us.split.us ], [ %273, %.split.us.split ], [ %273, %.split ]
+  %489 = phi i32 [ 0, %.thread40 ], [ %299, %.split.us.split.us ], [ %338, %.split.us.split ], [ %472, %.split ]
+  %490 = phi i32 [ %38, %.thread40 ], [ %275, %.split.us.split.us ], [ %275, %.split.us.split ], [ %275, %.split ]
+  %491 = phi i16 [ %39, %.thread40 ], [ %276, %.split.us.split.us ], [ %276, %.split.us.split ], [ %276, %.split ]
+  %492 = phi ptr [ null, %.thread40 ], [ %277, %.split.us.split.us ], [ %277, %.split.us.split ], [ %277, %.split ]
+  %493 = phi ptr [ null, %.thread40 ], [ %278, %.split.us.split.us ], [ %278, %.split.us.split ], [ %278, %.split ]
+  %494 = phi i32 [ %8, %.thread40 ], [ %279, %.split.us.split.us ], [ %279, %.split.us.split ], [ %279, %.split ]
+  %495 = phi i64 [ %7, %.thread40 ], [ %298, %.split.us.split.us ], [ %337, %.split.us.split ], [ %471, %.split ]
   %496 = icmp ne ptr %493, null
-  br i1 %496, label %497, label %.thread38
+  br i1 %496, label %497, label %.thread42
 
 497:                                              ; preds = %.loopexit
   %498 = getelementptr inbounds nuw i8, ptr %493, i64 112
   %499 = load i32, ptr %498, align 8
   %500 = sub i32 %499, %485
-  %.not49 = icmp eq ptr %492, null
-  br i1 %.not49, label %501, label %._crit_edge
+  %.not53 = icmp eq ptr %492, null
+  br i1 %.not53, label %501, label %._crit_edge
 
 501:                                              ; preds = %497
   %502 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -4911,34 +4911,34 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %505 = icmp eq i16 %504, 0
   br i1 %505, label %515, label %._crit_edge
 
-.thread38:                                        ; preds = %.loopexit
+.thread42:                                        ; preds = %.loopexit
   %506 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %507 = load i16, ptr %506, align 8
   %508 = and i16 %507, 32
   %509 = icmp eq i16 %508, 0
   br i1 %509, label %510, label %._crit_edge
 
-510:                                              ; preds = %.thread38
+510:                                              ; preds = %.thread42
   %511 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %512 = load i16, ptr %511, align 4
   %513 = zext i16 %512 to i32
   %514 = sub i32 %47, %513
-  %.pre191 = sub i32 %514, %71
-  %.pre192 = and i32 %.pre191, -8
+  %.pre195 = sub i32 %514, %71
+  %.pre196 = and i32 %.pre195, -8
   br label %515
 
 515:                                              ; preds = %501, %510
-  %.pre-phi193 = phi i32 [ %77, %501 ], [ %.pre192, %510 ]
+  %.pre-phi197 = phi i32 [ %77, %501 ], [ %.pre196, %510 ]
   %516 = phi i32 [ %500, %501 ], [ 0, %510 ]
   %517 = phi i32 [ %47, %501 ], [ %514, %510 ]
   %518 = add nsw i32 %71, -8
-  %519 = add i32 %518, %.pre-phi193
+  %519 = add i32 %518, %.pre-phi197
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread38, %515, %501, %497
-  %520 = phi i32 [ %500, %497 ], [ %516, %515 ], [ %500, %501 ], [ 0, %.thread38 ]
-  %521 = phi i32 [ %485, %497 ], [ %519, %515 ], [ %485, %501 ], [ %485, %.thread38 ]
-  %522 = phi i32 [ %486, %497 ], [ %517, %515 ], [ %486, %501 ], [ %486, %.thread38 ]
+._crit_edge:                                      ; preds = %.thread42, %515, %501, %497
+  %520 = phi i32 [ %500, %497 ], [ %516, %515 ], [ %500, %501 ], [ 0, %.thread42 ]
+  %521 = phi i32 [ %485, %497 ], [ %519, %515 ], [ %485, %501 ], [ %485, %.thread42 ]
+  %522 = phi i32 [ %486, %497 ], [ %517, %515 ], [ %486, %501 ], [ %486, %.thread42 ]
   %523 = zext i32 %520 to i64
   %524 = add i64 %495, %523
   %525 = trunc i64 %524 to i32
@@ -4956,7 +4956,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %537 = add nuw nsw i32 %56, 24
   %538 = add nsw i32 %537, %490
   %539 = add nsw i32 %538, %532
-  %540 = and i32 %.fr122, 32768
+  %540 = and i32 %.fr126, 32768
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %548, label %542
 
@@ -5002,14 +5002,14 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %571 = sub i32 %568, %570
   %572 = add i32 %571, %563
   %573 = icmp slt i32 %572, 0
-  %574 = and i32 %.fr122, 134217728
+  %574 = and i32 %.fr126, 134217728
   %575 = icmp eq i32 %574, 0
   %576 = and i1 %575, %573
   br i1 %576, label %577, label %578
 
 577:                                              ; preds = %561
   store i32 -22, ptr %12, align 4
-  br label %.thread44
+  br label %.thread48
 
 578:                                              ; preds = %561
   %579 = icmp eq i32 %494, 0
@@ -5023,27 +5023,27 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %585 = load i32, ptr %584, align 4
   %586 = shl i32 %585, 1
   %587 = icmp ugt i32 %583, %586
-  br i1 %587, label %.thread41, label %588
+  br i1 %587, label %.thread45, label %588
 
 588:                                              ; preds = %580
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %590 = load i32, ptr %589, align 8
   %591 = call ptr @__alloc_skb(i32 noundef %564, i32 noundef %590, i32 noundef 0, i32 noundef -1) #13
   %592 = icmp eq ptr %591, null
-  br i1 %592, label %.thread41, label %.thread42, !prof !83
+  br i1 %592, label %.thread45, label %.thread46, !prof !83
 
-.thread41:                                        ; preds = %588, %580
+.thread45:                                        ; preds = %588, %580
   store i32 -105, ptr %12, align 4
-  br label %.thread44
+  br label %.thread48
 
 593:                                              ; preds = %578
   %594 = zext i32 %564 to i64
-  %595 = and i32 %.fr122, 64
+  %595 = and i32 %.fr126, 64
   %596 = call ptr @sock_alloc_send_pskb(ptr noundef %0, i64 noundef %594, i64 noundef 0, i32 noundef %595, ptr noundef nonnull %12, i32 noundef 0) #13
   %597 = icmp eq ptr %596, null
-  br i1 %597, label %.thread44, label %.thread42
+  br i1 %597, label %.thread48, label %.thread46
 
-.thread42:                                        ; preds = %588, %593
+.thread46:                                        ; preds = %588, %593
   %598 = phi ptr [ %596, %593 ], [ %591, %588 ]
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 128
   %600 = getelementptr inbounds nuw i8, ptr %598, i64 176
@@ -5084,7 +5084,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %628 = icmp eq i32 %520, 0
   br i1 %628, label %660, label %629
 
-629:                                              ; preds = %.thread42
+629:                                              ; preds = %.thread46
   %630 = sext i32 %494 to i64
   %631 = getelementptr i8, ptr %624, i64 %630
   %632 = call i32 @skb_copy_and_csum_bits(ptr noundef %493, i32 noundef %521, ptr noundef %631, i32 noundef %520) #13
@@ -5131,8 +5131,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3099, i32 0, i64 12) #13, !srcloc !86
   unreachable
 
-660:                                              ; preds = %648, %645, %629, %.thread42
-  %661 = phi ptr [ %624, %.thread42 ], [ %637, %629 ], [ %637, %645 ], [ %637, %648 ]
+660:                                              ; preds = %648, %645, %629, %.thread46
+  %661 = phi ptr [ %624, %.thread46 ], [ %637, %629 ], [ %637, %645 ], [ %637, %648 ]
   %662 = icmp sgt i32 %572, 0
   br i1 %662, label %663, label %669
 
@@ -5146,7 +5146,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 668:                                              ; preds = %663
   store i32 -14, ptr %12, align 4
   call void @kfree_skb_reason(ptr noundef nonnull %598, i32 noundef 2) #13
-  br label %.thread44
+  br label %.thread48
 
 669:                                              ; preds = %663, %660
   %670 = select i1 %575, i32 %572, i32 0
@@ -5236,7 +5236,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %727
 
 727:                                              ; preds = %713, %695, %669
-  %728 = and i32 %.fr122, 2048
+  %728 = and i32 %.fr126, 2048
   %729 = icmp eq i32 %728, 0
   %730 = or i1 %729, %496
   br i1 %730, label %734, label %731
@@ -5285,106 +5285,106 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %756 = load i64, ptr %755, align 8
   %757 = and i64 %756, 1
   %758 = icmp eq i64 %757, 0
-  br i1 %758, label %759, label %.critedge31
+  br i1 %758, label %759, label %.critedge33
 
 759:                                              ; preds = %750
   %760 = load i32, ptr %284, align 4
   %761 = icmp eq i32 %760, 0
-  br i1 %761, label %762, label %.critedge31
+  br i1 %761, label %762, label %.critedge33
 
 762:                                              ; preds = %759
   %763 = load i32, ptr %285, align 4
   %764 = load i32, ptr %286, align 8
   %765 = sub i32 %763, %764
   %766 = icmp slt i32 %765, %753
-  br i1 %766, label %.critedge31, label %767
+  br i1 %766, label %.critedge33, label %767
 
 767:                                              ; preds = %762
   %768 = call ptr @skb_put(ptr noundef nonnull %278, i32 noundef %753) #13
   %769 = call i32 %5(ptr noundef %6, ptr noundef %768, i32 noundef %472, i32 noundef %753, i32 noundef %477, ptr noundef nonnull %278) #13
   %770 = icmp slt i32 %769, 0
-  br i1 %770, label %.split84.us, label %.thread43
+  br i1 %770, label %.split88.us, label %.thread47
 
-.split84.us:                                      ; preds = %767, %366, %327
-  %.us-phi85 = phi i64 [ %298, %327 ], [ %337, %366 ], [ %471, %767 ]
-  %.us-phi86 = phi i32 [ %272, %327 ], [ %339, %366 ], [ %473, %767 ]
-  %.us-phi87 = phi i32 [ %303, %327 ], [ %343, %366 ], [ %477, %767 ]
+.split88.us:                                      ; preds = %767, %366, %327
+  %.us-phi89 = phi i64 [ %298, %327 ], [ %337, %366 ], [ %471, %767 ]
+  %.us-phi90 = phi i32 [ %272, %327 ], [ %339, %366 ], [ %473, %767 ]
+  %.us-phi91 = phi i32 [ %303, %327 ], [ %343, %366 ], [ %477, %767 ]
   %771 = load i32, ptr %284, align 4
   %772 = icmp eq i32 %771, 0
   br i1 %772, label %774, label %773, !prof !5
 
-773:                                              ; preds = %.split84.us
+773:                                              ; preds = %.split88.us
   call void asm sideeffect "425: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 425b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 425) #13, !srcloc !87
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3061, i32 2305, i64 12) #13, !srcloc !88
   call void asm sideeffect "426: nop\0A\09.pushsection .discard.instr_end\0A\09.long 426b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 426) #13, !srcloc !89
   br label %782
 
-774:                                              ; preds = %.split84.us
-  store i32 %.us-phi87, ptr %283, align 8
+774:                                              ; preds = %.split88.us
+  store i32 %.us-phi91, ptr %283, align 8
   %775 = load ptr, ptr %287, align 8
   %776 = load ptr, ptr %288, align 8
   %777 = ptrtoint ptr %775 to i64
   %778 = ptrtoint ptr %776 to i64
   %779 = sub i64 %777, %778
   %780 = trunc i64 %779 to i32
-  %781 = add i32 %.us-phi87, %780
+  %781 = add i32 %.us-phi91, %780
   store i32 %781, ptr %286, align 8
   br label %782
 
 782:                                              ; preds = %773, %774
   store i32 -14, ptr %12, align 4
-  br label %.thread44
+  br label %.thread48
 
-.critedge31:                                      ; preds = %759, %762, %750
+.critedge33:                                      ; preds = %759, %762, %750
   store i32 -5, ptr %12, align 4
   %783 = load i64, ptr %291, align 8
   %784 = icmp ult i64 %783, %752
   br i1 %784, label %785, label %786, !prof !6
 
-785:                                              ; preds = %.critedge31
+785:                                              ; preds = %.critedge33
   call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #13, !srcloc !90
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1738, i32 2307, i64 12) #13, !srcloc !91
   call void asm sideeffect "1048: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1048) #13, !srcloc !92
-  br label %.thread44
+  br label %.thread48
 
-786:                                              ; preds = %.critedge31
+786:                                              ; preds = %.critedge33
   %787 = load i32, ptr %293, align 8
   %788 = call i64 @skb_splice_from_iter(ptr noundef nonnull %278, ptr noundef nonnull %292, i64 noundef %752, i32 noundef %787) #13
   %789 = trunc i64 %788 to i32
   store i32 %789, ptr %12, align 4
   %790 = icmp slt i32 %789, 0
-  br i1 %790, label %.thread44, label %791
+  br i1 %790, label %.thread48, label %791
 
 791:                                              ; preds = %786
   %792 = add i32 %473, %789
-  br label %.thread43
+  br label %.thread47
 
-.thread43:                                        ; preds = %767, %791
+.thread47:                                        ; preds = %767, %791
   %793 = phi i32 [ %792, %791 ], [ %473, %767 ]
   %794 = phi i32 [ %789, %791 ], [ %753, %767 ]
   %795 = add i32 %794, %472
   %796 = zext nneg i32 %794 to i64
   %797 = sub i64 %471, %796
   %798 = icmp eq i64 %797, 0
-  br i1 %798, label %.loopexit56, label %.split, !llvm.loop !82
+  br i1 %798, label %.loopexit60, label %.split, !llvm.loop !82
 
-.loopexit56:                                      ; preds = %.thread43, %.thread43.us, %.thread43.us.us, %269
-  %799 = phi i32 [ %272, %269 ], [ %272, %.thread43.us.us ], [ %465, %.thread43.us ], [ %793, %.thread43 ]
+.loopexit60:                                      ; preds = %.thread47, %.thread47.us, %.thread47.us.us, %269
+  %799 = phi i32 [ %272, %269 ], [ %272, %.thread47.us.us ], [ %465, %.thread47.us ], [ %793, %.thread47 ]
   %800 = icmp eq i32 %799, 0
-  br i1 %800, label %.critedge29, label %801
+  br i1 %800, label %.critedge31, label %801
 
-801:                                              ; preds = %.loopexit56
+801:                                              ; preds = %.loopexit60
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 340
   call fastcc void @refcount_add(i32 noundef %799, ptr noundef nonnull %802)
-  br label %.critedge29
+  br label %.critedge31
 
-.split91.us:                                      ; preds = %427
+.split95.us:                                      ; preds = %427
   store i32 -14, ptr %12, align 4
-  br label %.thread44
+  br label %.thread48
 
-.thread44:                                        ; preds = %786, %.critedge31.us, %416, %.critedge31.us.us, %785, %782, %.thread41, %.split91.us, %668, %593, %577
-  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split91.us ], [ %.us-phi86, %782 ], [ %487, %.thread41 ], [ %473, %785 ], [ %272, %.critedge31.us.us ], [ %339, %416 ], [ %339, %.critedge31.us ], [ %473, %786 ]
-  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split91.us ], [ %.us-phi85, %782 ], [ %495, %.thread41 ], [ %471, %785 ], [ %298, %.critedge31.us.us ], [ %337, %416 ], [ %337, %.critedge31.us ], [ %471, %786 ]
+.thread48:                                        ; preds = %786, %.critedge33.us, %416, %.critedge33.us.us, %785, %782, %.thread45, %.split95.us, %668, %593, %577
+  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %.us-phi90, %782 ], [ %487, %.thread45 ], [ %473, %785 ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %339, %.critedge33.us ], [ %473, %786 ]
+  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %.us-phi89, %782 ], [ %495, %.thread45 ], [ %471, %785 ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %337, %.critedge33.us ], [ %471, %786 ]
   %805 = load i8, ptr %13, align 1, !range !73, !noundef !74
   %806 = icmp ne i8 %805, 0
   call fastcc void @net_zcopy_put_abort(ptr noundef %252, i1 noundef zeroext %806)
@@ -5397,14 +5397,14 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %812 = icmp eq ptr %811, null
   br i1 %812, label %817, label %813, !prof !6
 
-813:                                              ; preds = %.thread44
+813:                                              ; preds = %.thread48
   %814 = getelementptr inbounds nuw i8, ptr %811, i64 912
   %815 = load ptr, ptr %814, align 8
   %816 = getelementptr i8, ptr %815, i64 112
   call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %816, ptr elementtype(i64) %816) #13, !srcloc !93
   br label %817
 
-817:                                              ; preds = %813, %.thread44
+817:                                              ; preds = %813, %.thread48
   %818 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %819 = load ptr, ptr %818, align 8
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 416
@@ -5422,10 +5422,10 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 
 826:                                              ; preds = %824, %817
   %827 = load i32, ptr %12, align 4
-  br label %.critedge29
+  br label %.critedge31
 
-.critedge29:                                      ; preds = %170, %200, %.thread32, %826, %801, %.loopexit56, %235, %122
-  %828 = phi i32 [ -90, %122 ], [ %827, %826 ], [ -1, %235 ], [ 0, %801 ], [ 0, %.loopexit56 ], [ -105, %200 ], [ -105, %.thread32 ], [ -22, %170 ]
+.critedge31:                                      ; preds = %170, %200, %.thread36, %826, %801, %.loopexit60, %235, %122
+  %828 = phi i32 [ -90, %122 ], [ %827, %826 ], [ -1, %235 ], [ 0, %801 ], [ 0, %.loopexit60 ], [ -105, %200 ], [ -105, %.thread36 ], [ -22, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %828

@@ -3678,7 +3678,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %13, i8 0, i64 176, i1 false)
   %15 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #24
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.thread28, label %17
+  br i1 %16, label %.thread29, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -3697,7 +3697,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %23, ptr %24, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread28, label %25
+  br i1 %.not, label %.thread29, label %25
 
 25:                                               ; preds = %.thread, %21
   %26 = phi ptr [ %20, %.thread ], [ %24, %21 ]
@@ -3722,7 +3722,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread28
+  br label %.thread29
 
 33:                                               ; preds = %29
   store i32 0, ptr %12, align 4, !annotation !9
@@ -3739,7 +3739,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %40 = lshr i32 %39, 22
   %41 = call ptr @sunrpc_cache_lookup_rcu(ptr noundef %0, ptr noundef nonnull %13, i32 noundef %40) #24
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.thread28, label %43
+  br i1 %42, label %.thread29, label %43
 
 43:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3748,7 +3748,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   store ptr null, ptr %7, align 8, !annotation !9
   %44 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef nonnull %6, i32 noundef 50) #24
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %.thread29, label %46
+  br i1 %45, label %.thread30, label %46
 
 46:                                               ; preds = %43
   %47 = icmp eq i32 %44, 0
@@ -3759,9 +3759,9 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %50 = load ptr, ptr %7, align 8
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %54, label %.thread29
+  br i1 %52, label %54, label %.thread30
 
-.thread29:                                        ; preds = %48, %43
+.thread30:                                        ; preds = %48, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @rsc_free(ptr noundef nonnull %13)
@@ -3787,8 +3787,8 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !annotation !9
   %57 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 50) #24
-  %or.cond32 = icmp slt i32 %57, 1
-  br i1 %or.cond32, label %get_int.exit.thread, label %58
+  %or.cond33 = icmp slt i32 %57, 1
+  br i1 %or.cond33, label %get_int.exit.thread, label %58
 
 58:                                               ; preds = %54
   %59 = call i64 @simple_strtol(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0) #24
@@ -3800,7 +3800,7 @@ define internal i32 @rsc_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 get_int.exit.thread:                              ; preds = %54, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread25
+  br label %.thread26
 
 63:                                               ; preds = %58
   %64 = trunc i64 %59 to i32
@@ -3811,19 +3811,19 @@ get_int.exit.thread:                              ; preds = %54, %58
   store i32 %64, ptr %65, align 4
   %66 = call fastcc i32 @get_int(ptr noundef nonnull %11, ptr noundef nonnull %14), !range !37
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.thread25
+  br i1 %67, label %68, label %.thread26
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %14, align 4
   %70 = icmp ugt i32 %69, 65536
-  br i1 %70, label %.thread25, label %71
+  br i1 %70, label %.thread26, label %71
 
 71:                                               ; preds = %68
   %72 = call ptr @groups_alloc(i32 noundef %69) #24
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %72, ptr %73, align 8
   %74 = icmp eq ptr %72, null
-  br i1 %74, label %.thread25, label %75
+  br i1 %74, label %.thread26, label %75
 
 75:                                               ; preds = %71
   %76 = icmp eq i32 %69, 0
@@ -3846,12 +3846,12 @@ get_int.exit.thread:                              ; preds = %54, %58
   %86 = phi i64 [ 0, %77 ], [ %83, %79 ]
   %87 = call fastcc i32 @get_int(ptr noundef nonnull %11, ptr noundef nonnull %12), !range !37
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %.thread25
+  br i1 %88, label %89, label %.thread26
 
 89:                                               ; preds = %85
   %90 = load i32, ptr %12, align 4
   %91 = icmp eq i32 %90, -1
-  br i1 %91, label %.thread25, label %79
+  br i1 %91, label %.thread26, label %79
 
 .loopexit.loopexit:                               ; preds = %79
   %.pre = load ptr, ptr %73, align 8
@@ -3862,26 +3862,26 @@ get_int.exit.thread:                              ; preds = %54, %58
   call void @groups_sort(ptr noundef %92) #24
   %93 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #24
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.thread25, label %95
+  br i1 %94, label %.thread26, label %95
 
 95:                                               ; preds = %.loopexit
   %96 = call ptr @gss_mech_get_by_name(ptr noundef %1) #24
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %96, ptr %97, align 8
   %98 = icmp eq ptr %96, null
-  br i1 %98, label %.thread25, label %99
+  br i1 %98, label %.thread26, label %99
 
 99:                                               ; preds = %95
   %100 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #24
   %101 = icmp slt i32 %100, 0
-  br i1 %101, label %.thread25, label %102
+  br i1 %101, label %.thread26, label %102
 
 102:                                              ; preds = %99
   %103 = zext nneg i32 %100 to i64
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %105 = call i32 @gss_import_sec_context(ptr noundef %1, i64 noundef %103, ptr noundef nonnull %96, ptr noundef nonnull %104, ptr noundef null, i32 noundef 3264) #24
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %.thread25
+  br i1 %106, label %107, label %.thread26
 
 107:                                              ; preds = %102
   %108 = call i32 @qword_get(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2) #24
@@ -3893,10 +3893,10 @@ get_int.exit.thread:                              ; preds = %54, %58
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %111, ptr %112, align 8
   %113 = icmp eq ptr %111, null
-  br i1 %113, label %.thread25, label %114
+  br i1 %113, label %.thread26, label %114
 
-.thread25:                                        ; preds = %85, %89, %63, %68, %71, %.loopexit, %95, %99, %102, %110, %get_int.exit.thread
-  %.ph24 = phi i32 [ -22, %get_int.exit.thread ], [ -12, %110 ], [ %105, %102 ], [ -22, %99 ], [ -95, %95 ], [ -22, %.loopexit ], [ -12, %71 ], [ -22, %68 ], [ -22, %63 ], [ -22, %89 ], [ -22, %85 ]
+.thread26:                                        ; preds = %85, %89, %63, %68, %71, %.loopexit, %95, %99, %102, %110, %get_int.exit.thread
+  %.ph25 = phi i32 [ -22, %get_int.exit.thread ], [ -12, %110 ], [ %105, %102 ], [ -22, %99 ], [ -95, %95 ], [ -22, %.loopexit ], [ -12, %71 ], [ -22, %68 ], [ -22, %63 ], [ -22, %89 ], [ -22, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %122
 
@@ -3914,20 +3914,20 @@ get_int.exit.thread:                              ; preds = %54, %58
   %121 = call ptr @sunrpc_cache_update(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %41, i32 noundef %120) #24
   br label %122
 
-.thread28:                                        ; preds = %3, %21, %32, %33
+.thread29:                                        ; preds = %3, %21, %32, %33
   call fastcc void @rsc_free(ptr noundef nonnull %13)
-  br label %.thread31
+  br label %.thread32
 
-122:                                              ; preds = %.thread25, %115
-  %123 = phi ptr [ %121, %115 ], [ %41, %.thread25 ]
-  %124 = phi i32 [ 0, %115 ], [ %.ph24, %.thread25 ]
+122:                                              ; preds = %.thread26, %115
+  %123 = phi ptr [ %121, %115 ], [ %41, %.thread26 ]
+  %124 = phi i32 [ 0, %115 ], [ %.ph25, %.thread26 ]
   call fastcc void @rsc_free(ptr noundef nonnull %13)
   %125 = icmp eq ptr %123, null
-  br i1 %125, label %.thread31, label %126
+  br i1 %125, label %.thread32, label %126
 
-126:                                              ; preds = %.thread29, %122
-  %127 = phi i32 [ -22, %.thread29 ], [ %124, %122 ]
-  %128 = phi ptr [ %41, %.thread29 ], [ %123, %122 ]
+126:                                              ; preds = %.thread30, %122
+  %127 = phi i32 [ -22, %.thread30 ], [ %124, %122 ]
+  %128 = phi ptr [ %41, %.thread30 ], [ %123, %122 ]
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load volatile i32, ptr %129, align 4
   %131 = icmp ult i32 %130, 3
@@ -3954,19 +3954,19 @@ get_int.exit.thread:                              ; preds = %54, %58
 
 144:                                              ; preds = %139
   %145 = icmp sgt i32 %142, 0
-  br i1 %145, label %.thread31, label %146, !prof !17
+  br i1 %145, label %.thread32, label %146, !prof !17
 
 146:                                              ; preds = %144
   call void @refcount_warn_saturate(ptr noundef nonnull %129, i32 noundef 3) #24
-  br label %.thread31
+  br label %.thread32
 
 147:                                              ; preds = %139
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !39
   call void %141(ptr noundef nonnull %129) #24
-  br label %.thread31
+  br label %.thread32
 
-.thread31:                                        ; preds = %144, %146, %.thread28, %147, %122
-  %148 = phi i32 [ -12, %122 ], [ %127, %147 ], [ -12, %.thread28 ], [ %127, %146 ], [ %127, %144 ]
+.thread32:                                        ; preds = %144, %146, %.thread29, %147, %122
+  %148 = phi i32 [ -12, %122 ], [ %127, %147 ], [ -12, %.thread29 ], [ %127, %146 ], [ %127, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %148

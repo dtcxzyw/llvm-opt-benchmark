@@ -3577,7 +3577,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %848 = call i32 @ff_get_chomp_line(ptr noundef %847, ptr noundef nonnull %3, i32 noundef 4096) #17
   %lhsv.i = load i64, ptr %3, align 16
   %.not.i319 = icmp eq i64 %lhsv.i, 23981780240975139
-  br i1 %.not.i319, label %849, label %.thread112.i
+  br i1 %.not.i319, label %849, label %.thread114.i
 
 849:                                              ; preds = %846
   %850 = getelementptr inbounds nuw i8, ptr %462, i64 184
@@ -3601,7 +3601,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %860 = load ptr, ptr %2, align 8, !tbaa !178
   %861 = call i32 @avio_feof(ptr noundef %860) #17
   %.not90.i = icmp eq i32 %861, 0
-  br i1 %.not90.i, label %862, label %.thread112.i
+  br i1 %.not90.i, label %862, label %.thread114.i
 
 862:                                              ; preds = %859
   %863 = load ptr, ptr %2, align 8, !tbaa !178
@@ -3755,7 +3755,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread112.i
+  br label %.thread114.i
 
 925:                                              ; preds = %906
   %926 = call i32 @av_strstart(ptr noundef nonnull %3, ptr noundef nonnull @.str.289, ptr noundef null) #17
@@ -3772,7 +3772,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
 931:                                              ; preds = %927
   %932 = call noalias ptr @av_strdup(ptr noundef nonnull %3) #17
   %.not97.i = icmp eq ptr %932, null
-  br i1 %.not97.i, label %.thread112.i, label %933
+  br i1 %.not97.i, label %.thread114.i, label %933
 
 933:                                              ; preds = %931
   %934 = load ptr, ptr %659, align 8, !tbaa !29
@@ -3791,7 +3791,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %942 = ashr exact i64 %sext.i, 32
   %943 = call noalias ptr @av_mallocz(i64 noundef %942) #17
   %.not99.not.i = icmp eq ptr %943, null
-  br i1 %.not99.not.i, label %.thread112.i, label %944
+  br i1 %.not99.not.i, label %.thread114.i, label %944
 
 944:                                              ; preds = %936
   %945 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %943, i64 noundef %942, ptr noundef nonnull %939, i32 noundef %937) #17
@@ -3823,7 +3823,7 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
 962:                                              ; preds = %957, %947
   %.473.i = phi nsz double [ %961, %957 ], [ %.069.ph.i, %947 ]
   %963 = icmp slt i32 %955, 0
-  br i1 %963, label %.thread112.i, label %964
+  br i1 %963, label %.thread114.i, label %964
 
 964:                                              ; preds = %962
   store i64 %951, ptr %785, align 8, !tbaa !90
@@ -3834,12 +3834,12 @@ hls_mux_init.exit.thread:                         ; preds = %658, %663, %684, %8
   %.066.ph.i.be = phi i32 [ 1, %876 ], [ 1, %879 ], [ %.066.ph.i, %899 ], [ %.066.ph.i, %904 ], [ %.066.ph.i, %893 ], [ 0, %964 ], [ %.066.ph.i, %927 ], [ %.066.ph.i, %873 ], [ %.066.ph.i, %871 ], [ %.066.ph.i, %.thread.i323 ]
   br label %.outer.i, !llvm.loop !189
 
-.thread112.i:                                     ; preds = %962, %936, %931, %859, %924, %846
+.thread114.i:                                     ; preds = %962, %936, %931, %859, %924, %846
   %965 = load ptr, ptr %2, align 8, !tbaa !178
   %966 = call i32 @avio_close(ptr noundef %965) #17
   br label %parse_playlist.exit
 
-parse_playlist.exit:                              ; preds = %839, %.thread112.i
+parse_playlist.exit:                              ; preds = %839, %.thread114.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

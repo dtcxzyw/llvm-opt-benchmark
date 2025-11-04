@@ -2279,37 +2279,37 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__udp_try_send2(ptr nou
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [20 x %struct.mmsghdr], align 16
   %7 = icmp ugt i32 %1, 1
-  br i1 %7, label %.preheader75.preheader, label %.preheader77
+  br i1 %7, label %.preheader76.preheader, label %.preheader78
 
-.preheader75.preheader:                           ; preds = %5
+.preheader76.preheader:                           ; preds = %5
   %8 = zext i32 %1 to i64
-  br label %.preheader75
+  br label %.preheader76
 
-.preheader77:                                     ; preds = %5
+.preheader78:                                     ; preds = %5
   %9 = icmp eq i32 %1, 1
-  br i1 %9, label %.lr.ph.split, label %.thread71
+  br i1 %9, label %.lr.ph.split, label %.thread72
 
-.preheader75:                                     ; preds = %.preheader75.preheader, %uv__udp_prep_pkt.exit
-  %.04196 = phi i32 [ %44, %uv__udp_prep_pkt.exit ], [ 0, %.preheader75.preheader ]
-  %.04595 = phi i32 [ %45, %uv__udp_prep_pkt.exit ], [ 0, %.preheader75.preheader ]
+.preheader76:                                     ; preds = %.preheader76.preheader, %uv__udp_prep_pkt.exit
+  %.04197 = phi i32 [ %44, %uv__udp_prep_pkt.exit ], [ 0, %.preheader76.preheader ]
+  %.04596 = phi i32 [ %45, %uv__udp_prep_pkt.exit ], [ 0, %.preheader76.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = zext i32 %.04595 to i64
+  %10 = zext i32 %.04596 to i64
   br label %13
 
 .preheader:                                       ; preds = %32
-  %11 = trunc nuw i64 %indvars.iv.next110 to i32
+  %11 = trunc nuw i64 %indvars.iv.next111 to i32
   %12 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %36
 
-13:                                               ; preds = %.preheader75, %32
-  %indvars.iv109 = phi i64 [ %10, %.preheader75 ], [ %indvars.iv.next110, %32 ]
-  %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %32 ]
+13:                                               ; preds = %.preheader76, %32
+  %indvars.iv110 = phi i64 [ %10, %.preheader76 ], [ %indvars.iv.next111, %32 ]
+  %indvars.iv = phi i64 [ 0, %.preheader76 ], [ %indvars.iv.next, %32 ]
   %14 = getelementptr inbounds nuw %struct.mmsghdr, ptr %6, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv109
+  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv110
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv109
+  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv110
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv109
+  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv110
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)
@@ -2324,7 +2324,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
 
 26:                                               ; preds = %13
   %27 = load i16, ptr %20, align 2
-  switch i16 %27, label %uv__udp_prep_pkt.exit.thread63 [
+  switch i16 %27, label %uv__udp_prep_pkt.exit.thread64 [
     i16 2, label %28
     i16 10, label %29
     i16 1, label %30
@@ -2348,9 +2348,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   br label %32
 
 32:                                               ; preds = %28, %29, %30, %31, %13
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = icmp samesign ult i64 %indvars.iv.next110, %8
+  %33 = icmp samesign ult i64 %indvars.iv.next111, %8
   %34 = icmp samesign ult i64 %indvars.iv, 19
   %35 = select i1 %33, i1 %34, i1 false
   br i1 %35, label %13, label %.preheader
@@ -2364,57 +2364,57 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   %40 = tail call ptr @__errno_location() #11
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %36, label %uv__udp_prep_pkt.exit.thread63
+  br i1 %42, label %36, label %uv__udp_prep_pkt.exit.thread64
 
 .critedge:                                        ; preds = %36
   %43 = icmp slt i32 %37, 1
-  br i1 %43, label %uv__udp_prep_pkt.exit.thread63, label %uv__udp_prep_pkt.exit
+  br i1 %43, label %uv__udp_prep_pkt.exit.thread64, label %uv__udp_prep_pkt.exit
 
-uv__udp_prep_pkt.exit.thread63:                   ; preds = %.critedge, %26, %39
+uv__udp_prep_pkt.exit.thread64:                   ; preds = %.critedge, %26, %39
   %.1.ph = phi i32 [ -1, %39 ], [ -22, %26 ], [ %37, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 uv__udp_prep_pkt.exit:                            ; preds = %.critedge
-  %44 = add nuw nsw i32 %37, %.04196
+  %44 = add nuw nsw i32 %37, %.04197
   %45 = add i32 %37, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = icmp ult i32 %45, %1
-  br i1 %46, label %.preheader75, label %.loopexit
+  br i1 %46, label %.preheader76, label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.preheader77
+.lr.ph.split:                                     ; preds = %.preheader78
   %47 = load ptr, ptr %2, align 8
   %48 = load i32, ptr %3, align 4
   %49 = load ptr, ptr %4, align 8
   %50 = tail call fastcc i32 @uv__udp_sendmsg1(i32 noundef %0, ptr noundef %47, i32 noundef %48, ptr noundef %49)
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %.thread71, label %.loopexit.thread
+  br i1 %.not, label %.thread72, label %.loopexit.thread
 
-.loopexit:                                        ; preds = %uv__udp_prep_pkt.exit, %uv__udp_prep_pkt.exit.thread63
-  %.243 = phi i32 [ %.04196, %uv__udp_prep_pkt.exit.thread63 ], [ %44, %uv__udp_prep_pkt.exit ]
-  %.2 = phi i32 [ %.1.ph, %uv__udp_prep_pkt.exit.thread63 ], [ %37, %uv__udp_prep_pkt.exit ]
+.loopexit:                                        ; preds = %uv__udp_prep_pkt.exit, %uv__udp_prep_pkt.exit.thread64
+  %.243 = phi i32 [ %.04197, %uv__udp_prep_pkt.exit.thread64 ], [ %44, %uv__udp_prep_pkt.exit ]
+  %.2 = phi i32 [ %.1.ph, %uv__udp_prep_pkt.exit.thread64 ], [ %37, %uv__udp_prep_pkt.exit ]
   %51 = icmp sgt i32 %.243, 0
-  br i1 %51, label %.thread71, label %.loopexit.thread
+  br i1 %51, label %.thread72, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph.split, %.loopexit
-  %.2120 = phi i32 [ %.2, %.loopexit ], [ %50, %.lr.ph.split ]
-  %52 = icmp slt i32 %.2120, 0
-  br i1 %52, label %53, label %.thread71
+  %.2121 = phi i32 [ %.2, %.loopexit ], [ %50, %.lr.ph.split ]
+  %52 = icmp slt i32 %.2121, 0
+  br i1 %52, label %53, label %.thread72
 
 53:                                               ; preds = %.loopexit.thread
   %54 = tail call ptr @__errno_location() #11
   %55 = load i32, ptr %54, align 4
   %56 = sub nsw i32 0, %55
-  switch i32 %55, label %.thread71 [
+  switch i32 %55, label %.thread72 [
     i32 11, label %57
     i32 105, label %57
   ]
 
 57:                                               ; preds = %53, %53
-  br label %.thread71
+  br label %.thread72
 
-.thread71:                                        ; preds = %.lr.ph.split, %.preheader77, %.loopexit.thread, %57, %53, %.loopexit
-  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %.2120, %.loopexit.thread ], [ %56, %53 ], [ 0, %.preheader77 ], [ 1, %.lr.ph.split ]
+.thread72:                                        ; preds = %.lr.ph.split, %.preheader78, %.loopexit.thread, %57, %53, %.loopexit
+  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %.2121, %.loopexit.thread ], [ %56, %53 ], [ 0, %.preheader78 ], [ 1, %.lr.ph.split ]
   ret i32 %.049
 }
 

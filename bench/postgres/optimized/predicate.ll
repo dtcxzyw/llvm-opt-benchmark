@@ -2650,9 +2650,9 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not80 = icmp eq ptr %65, null
-  %.not818892 = icmp eq ptr %65, %63
-  %.not8188 = select i1 %.not80, i1 true, i1 %.not818892
-  br i1 %.not8188, label %._crit_edge, label %.lr.ph
+  %.not818791 = icmp eq ptr %65, %63
+  %.not8187 = select i1 %.not80, i1 true, i1 %.not818791
+  br i1 %.not8187, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -2661,31 +2661,31 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br label %69
 
 69:                                               ; preds = %.lr.ph, %DeleteLockTarget.exit
-  %.sroa.0.089 = phi ptr [ %65, %.lr.ph ], [ %.sroa.8.091, %DeleteLockTarget.exit ]
-  %.sroa.8.0.in90 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 8
-  %.sroa.8.091 = load ptr, ptr %.sroa.8.0.in90, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 32
+  %.sroa.0.088 = phi ptr [ %65, %.lr.ph ], [ %.sroa.8.090, %DeleteLockTarget.exit ]
+  %.sroa.8.0.in89 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 8
+  %.sroa.8.090 = load ptr, ptr %.sroa.8.0.in89, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.sroa.0.089, i64 -8
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 -8
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %66, align 8
   br i1 %4, label %74, label %93
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.089, i64 -16
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 16
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 24
+  %75 = getelementptr inbounds i8, ptr %.sroa.0.088, i64 -16
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %76, align 8
   store ptr %81, ptr %78, align 8
-  %82 = load ptr, ptr %.sroa.8.0.in90, align 8
-  %83 = load ptr, ptr %.sroa.0.089, align 8
+  %82 = load ptr, ptr %.sroa.8.0.in89, align 8
+  %83 = load ptr, ptr %.sroa.0.088, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %82, ptr %84, align 8
-  %85 = load ptr, ptr %.sroa.0.089, align 8
+  %85 = load ptr, ptr %.sroa.0.088, align 8
   store ptr %85, ptr %82, align 8
   %86 = load ptr, ptr @PredicateLockHash, align 8
   %87 = load ptr, ptr %72, align 8
@@ -2828,7 +2828,7 @@ dlist_push_tail.exit83:                           ; preds = %dlist_push_tail.exi
   br label %DeleteLockTarget.exit
 
 DeleteLockTarget.exit:                            ; preds = %dlist_push_tail.exit83, %161, %157
-  %.not81 = icmp eq ptr %.sroa.8.091, %63
+  %.not81 = icmp eq ptr %.sroa.8.090, %63
   br i1 %.not81, label %._crit_edge, label %69, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %DeleteLockTarget.exit, %59
@@ -2863,9 +2863,9 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132
   br i1 %174, label %.sink.split, label %175
 
 .sink.split:                                      ; preds = %173, %172
-  %.sink103 = phi ptr [ %27, %172 ], [ %23, %173 ]
+  %.sink102 = phi ptr [ %27, %172 ], [ %23, %173 ]
   %.sink.ph = phi ptr [ %23, %172 ], [ %27, %173 ]
-  call void @LWLockRelease(ptr noundef nonnull %.sink103) #11
+  call void @LWLockRelease(ptr noundef nonnull %.sink102) #11
   br label %175
 
 175:                                              ; preds = %.sink.split, %173
@@ -2885,7 +2885,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 
-183:                                              ; preds = %175, %176
+183:                                              ; preds = %176, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.3
 }

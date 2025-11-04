@@ -443,9 +443,9 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr noundef readonly
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %54
 
-54:                                               ; preds = %53, %1, %10
-  %.013 = phi i32 [ %.1, %53 ], [ 0, %10 ], [ 0, %1 ]
-  ret i32 %.013
+54:                                               ; preds = %1, %10, %53
+  %.012 = phi i32 [ %.1, %53 ], [ 0, %10 ], [ 0, %1 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1712,9 +1712,9 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr noundef readonly
   %exitcond70.not = icmp eq i32 %87, %14
   br i1 %exitcond70.not, label %.loopexit, label %59, !llvm.loop !74
 
-.loopexit:                                        ; preds = %85, %20, %64, %81, %3, %16
-  %.056 = phi i32 [ -1, %16 ], [ 0, %3 ], [ -1, %64 ], [ -1, %81 ], [ 0, %20 ], [ 0, %85 ]
-  ret i32 %.056
+.loopexit:                                        ; preds = %85, %20, %3, %16, %81, %64
+  %.054 = phi i32 [ -1, %16 ], [ 0, %3 ], [ -1, %64 ], [ -1, %81 ], [ 0, %20 ], [ 0, %85 ]
+  ret i32 %.054
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

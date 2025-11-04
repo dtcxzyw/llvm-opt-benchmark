@@ -1024,8 +1024,8 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %11 = load volatile ptr, ptr @handshake_rhashtbl, align 64
   br label %12
 
-12:                                               ; preds = %.thread12, %9
-  %13 = phi ptr [ %11, %9 ], [ %154, %.thread12 ]
+12:                                               ; preds = %.thread13, %9
+  %13 = phi ptr [ %11, %9 ], [ %154, %.thread13 ]
   %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 22), align 2
   %15 = zext i16 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -1081,7 +1081,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
 60:                                               ; preds = %56, %54
   %61 = phi ptr [ %55, %54 ], [ %59, %56 ]
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread12, label %63
+  br i1 %62, label %.thread13, label %63
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1096,7 +1096,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %66 = icmp ult i8 %65, 2
   call void @llvm.assume(i1 %66)
   %67 = icmp eq i8 %65, 0
-  br i1 %67, label %.loopexit13, label %.preheader, !prof !22
+  br i1 %67, label %.loopexit14, label %.preheader, !prof !22
 
 .preheader:                                       ; preds = %63, %78
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !23
@@ -1104,18 +1104,18 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %69 = icmp ult i8 %68, 2
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
-  br i1 %70, label %.preheader67, label %71, !prof !6
+  br i1 %70, label %.preheader68, label %71, !prof !6
 
 71:                                               ; preds = %.preheader
   %72 = call i64 @llvm.read_register.i64(metadata !0)
   %73 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %72) #11, !srcloc !25
   call void @llvm.write_register.i64(metadata !0, i64 %73)
-  br label %.preheader67
+  br label %.preheader68
 
-.preheader67:                                     ; preds = %71, %.preheader
+.preheader68:                                     ; preds = %71, %.preheader
   br label %74
 
-74:                                               ; preds = %.preheader67, %74
+74:                                               ; preds = %.preheader68, %74
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
   %75 = load volatile i64, ptr %61, align 8
   %76 = and i64 %75, 1
@@ -1129,9 +1129,9 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %80 = icmp ult i8 %79, 2
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i8 %79, 0
-  br i1 %81, label %.loopexit13, label %.preheader, !prof !29, !llvm.loop !30
+  br i1 %81, label %.loopexit14, label %.preheader, !prof !29, !llvm.loop !30
 
-.loopexit13:                                      ; preds = %78, %63
+.loopexit14:                                      ; preds = %78, %63
   %82 = load ptr, ptr %61, align 8
   %83 = ptrtoint ptr %82 to i64
   %84 = and i64 %83, -2
@@ -1143,14 +1143,14 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %.loopexit
 
-91:                                               ; preds = %.loopexit13
+91:                                               ; preds = %.loopexit14
   %92 = inttoptr i64 %88 to ptr
   %93 = icmp eq ptr %10, %92
   br i1 %93, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %91
-  %.lcssa15.in48 = and i64 %64, 512
-  %.lcssa1549 = icmp eq i64 %.lcssa15.in48, 0
+  %.lcssa16.in49 = and i64 %64, 512
+  %.lcssa1650 = icmp eq i64 %.lcssa16.in49, 0
   %94 = load ptr, ptr %10, align 8
   br label %108
 
@@ -1159,8 +1159,8 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br i1 %96, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %95
-  %.lcssa15.in = and i64 %64, 512
-  %.lcssa15 = icmp eq i64 %.lcssa15.in, 0
+  %.lcssa16.in = and i64 %64, 512
+  %.lcssa16 = icmp eq i64 %.lcssa16.in, 0
   %97 = load ptr, ptr %10, align 8
   %98 = icmp eq ptr %122, null
   br i1 %98, label %108, label %99
@@ -1184,7 +1184,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br label %106
 
 106:                                              ; preds = %103, %99
-  br i1 %.lcssa15, label %137, label %107
+  br i1 %.lcssa16, label %137, label %107
 
 107:                                              ; preds = %106
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !35
@@ -1192,7 +1192,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
 
 108:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %109 = phi ptr [ %94, %._crit_edge.thread ], [ %97, %._crit_edge ]
-  %.lcssa1550 = phi i1 [ %.lcssa1549, %._crit_edge.thread ], [ %.lcssa15, %._crit_edge ]
+  %.lcssa1651 = phi i1 [ %.lcssa1650, %._crit_edge.thread ], [ %.lcssa16, %._crit_edge ]
   %110 = ptrtoint ptr %109 to i64
   %111 = and i64 %110, 1
   %112 = icmp eq i64 %111, 0
@@ -1213,7 +1213,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br label %120
 
 120:                                              ; preds = %117, %108
-  br i1 %.lcssa1550, label %137, label %121
+  br i1 %.lcssa1651, label %137, label %121
 
 121:                                              ; preds = %120
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !35
@@ -1227,7 +1227,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %95, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit13
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit14
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %61, i32 -2, ptr nonnull elementtype(i8) %61) #11, !srcloc !32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !33
@@ -1246,17 +1246,17 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
 133:                                              ; preds = %130, %.loopexit
   %134 = and i64 %64, 512
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.thread12, label %136
+  br i1 %135, label %.thread13, label %136
 
 136:                                              ; preds = %133
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !35
-  br label %.thread12
+  br label %.thread13
 
 137:                                              ; preds = %121, %120, %107, %106
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 132), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 132)) #11, !srcloc !65
   %138 = load i8, ptr getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 30), align 2, !range !66, !noundef !67
   %139 = icmp eq i8 %138, 0
-  br i1 %139, label %.thread11, label %140
+  br i1 %139, label %.thread12, label %140
 
 140:                                              ; preds = %137
   %141 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 132), align 4
@@ -1268,20 +1268,20 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %147 = zext i16 %146 to i32
   %148 = icmp ugt i32 %142, %147
   %149 = select i1 %145, i1 %148, i1 false
-  br i1 %149, label %150, label %.thread11, !prof !37
+  br i1 %149, label %150, label %.thread12, !prof !37
 
 150:                                              ; preds = %140
   %151 = load ptr, ptr @system_wq, align 8
   %152 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %151, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @handshake_rhashtbl, i64 64)) #11
-  br label %.thread11
+  br label %.thread12
 
-.thread12:                                        ; preds = %136, %133, %60
+.thread13:                                        ; preds = %136, %133, %60
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %154 = load volatile ptr, ptr %153, align 16
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread11, label %12, !llvm.loop !68
+  br i1 %155, label %.thread12, label %12, !llvm.loop !68
 
-.thread11:                                        ; preds = %.thread12, %140, %150, %137
+.thread12:                                        ; preds = %.thread13, %140, %150, %137
   call void @__rcu_read_unlock() #11
   call void @kfree(ptr noundef nonnull %0) #11
   ret void

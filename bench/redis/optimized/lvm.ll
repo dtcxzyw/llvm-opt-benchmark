@@ -1128,7 +1128,7 @@ define hidden void @luaV_execute(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.0.ph = phi i32 [ %1, %2 ], [ %.0.ph.be, %.loopexit.outer.backedge ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.outer, %._crit_edge877
+.loopexit:                                        ; preds = %.loopexit.outer, %._crit_edge875
   %21 = load ptr, ptr %8, align 8, !tbaa !41
   %22 = load ptr, ptr %9, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1141,11 +1141,11 @@ define hidden void @luaV_execute(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %30 = load ptr, ptr %29, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  br label %.backedge
+  br label %.critedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.loopexit
-  %.0716 = phi ptr [ %21, %.loopexit ], [ %.0716.be, %.backedge.backedge ]
-  %.0712 = phi ptr [ %26, %.loopexit ], [ %.0712.be, %.backedge.backedge ]
+.critedge:                                        ; preds = %.critedge.backedge, %.loopexit
+  %.0716 = phi ptr [ %21, %.loopexit ], [ %.0716.be, %.critedge.backedge ]
+  %.0712 = phi ptr [ %26, %.loopexit ], [ %.0712.be, %.critedge.backedge ]
   %33 = getelementptr inbounds nuw i8, ptr %.0716, i64 4
   %34 = load i32, ptr %.0716, align 4, !tbaa !53
   %35 = load i8, ptr %11, align 4, !tbaa !54
@@ -1153,7 +1153,7 @@ define hidden void @luaV_execute(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.not = icmp eq i8 %36, 0
   br i1 %.not, label %91, label %37
 
-37:                                               ; preds = %.backedge
+37:                                               ; preds = %.critedge
   %38 = load i32, ptr %12, align 4, !tbaa !55
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %12, align 4, !tbaa !55
@@ -1256,14 +1256,14 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %90 = load ptr, ptr %10, align 8, !tbaa !37
   br label %91
 
-91:                                               ; preds = %89, %41, %.backedge
-  %.1713 = phi ptr [ %90, %89 ], [ %.0712, %41 ], [ %.0712, %.backedge ]
+91:                                               ; preds = %89, %41, %.critedge
+  %.1713 = phi ptr [ %90, %89 ], [ %.0712, %41 ], [ %.0712, %.critedge ]
   %92 = lshr i32 %34, 6
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %94
   %96 = and i32 %34, 63
-  switch i32 %96, label %.backedge.backedge [
+  switch i32 %96, label %.critedge.backedge [
     i32 0, label %97
     i32 1, label %105
     i32 2, label %113
@@ -1314,12 +1314,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %103 = load i32, ptr %102, align 8, !tbaa !4
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %103, ptr %104, align 8, !tbaa !4
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %962, %873, %122, %97, %105, %113, %125, %136, %142, %152, %180, %208, %210, %413, %449, %458, %492, %516, %585, %605, %629, %769, %816, %875, %913, %179, %175, %170, %158, %250, %245, %277, %272, %304, %299, %331, %326, %361, %353, %388, %383, %401, %397, %436, %427, %422, %648, %694, %726, %724, %722, %839, %91, %851, %948
-  %.0716.be = phi ptr [ %33, %97 ], [ %33, %105 ], [ %spec.select, %113 ], [ %33, %125 ], [ %33, %136 ], [ %33, %142 ], [ %33, %152 ], [ %33, %180 ], [ %33, %208 ], [ %33, %210 ], [ %33, %413 ], [ %33, %449 ], [ %462, %458 ], [ %494, %492 ], [ %518, %516 ], [ %587, %585 ], [ %606, %605 ], [ %630, %629 ], [ %776, %769 ], [ %817, %816 ], [ %33, %875 ], [ %.12728.lcssa, %913 ], [ %33, %179 ], [ %33, %175 ], [ %33, %170 ], [ %33, %158 ], [ %33, %250 ], [ %33, %245 ], [ %33, %277 ], [ %33, %272 ], [ %33, %304 ], [ %33, %299 ], [ %33, %331 ], [ %33, %326 ], [ %33, %361 ], [ %33, %353 ], [ %33, %388 ], [ %33, %383 ], [ %33, %401 ], [ %33, %397 ], [ %33, %436 ], [ %33, %427 ], [ %33, %422 ], [ %33, %648 ], [ %33, %694 ], [ %730, %726 ], [ %33, %724 ], [ %33, %722 ], [ %.11727, %839 ], [ %33, %91 ], [ %.11727, %851 ], [ %33, %948 ], [ %33, %122 ], [ %.11727, %873 ], [ %33, %962 ]
-  %.0712.be = phi ptr [ %.1713, %97 ], [ %.1713, %105 ], [ %.1713, %113 ], [ %.1713, %125 ], [ %141, %136 ], [ %151, %142 ], [ %157, %152 ], [ %193, %180 ], [ %209, %208 ], [ %224, %210 ], [ %.1713, %413 ], [ %450, %449 ], [ %.1713, %458 ], [ %493, %492 ], [ %517, %516 ], [ %586, %585 ], [ %.1713, %605 ], [ %.1713, %629 ], [ %.1713, %769 ], [ %798, %816 ], [ %.1713, %875 ], [ %914, %913 ], [ %.1713, %179 ], [ %.1713, %175 ], [ %.1713, %170 ], [ %.1713, %158 ], [ %251, %250 ], [ %.1713, %245 ], [ %278, %277 ], [ %.1713, %272 ], [ %305, %304 ], [ %.1713, %299 ], [ %332, %331 ], [ %.1713, %326 ], [ %362, %361 ], [ %.1713, %353 ], [ %389, %388 ], [ %.1713, %383 ], [ %402, %401 ], [ %.1713, %397 ], [ %437, %436 ], [ %.1713, %427 ], [ %.1713, %422 ], [ %649, %648 ], [ %695, %694 ], [ %.1713, %726 ], [ %.1713, %724 ], [ %.1713, %722 ], [ %.1713, %839 ], [ %.1713, %91 ], [ %.1713, %851 ], [ %.13, %948 ], [ %.1713, %122 ], [ %.1713, %873 ], [ %.13, %962 ]
-  br label %.backedge
+  br label %.critedge.backedge
 
 105:                                              ; preds = %91
   %106 = lshr i32 %34, 14
@@ -1331,7 +1326,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %111 = load i32, ptr %110, align 8, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %111, ptr %112, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 113:                                              ; preds = %91
   %114 = lshr i32 %34, 23
@@ -1342,7 +1337,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %.not805 = icmp eq i32 %116, 0
   %117 = getelementptr inbounds nuw i8, ptr %.0716, i64 8
   %spec.select = select i1 %.not805, ptr %33, ptr %117
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 118:                                              ; preds = %91
   %119 = lshr i32 %34, 23
@@ -1356,7 +1351,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %124 = getelementptr inbounds nuw i8, ptr %.0738, i64 8
   store i32 0, ptr %124, align 8, !tbaa !4
   %.not804 = icmp ult ptr %123, %95
-  br i1 %.not804, label %.backedge.backedge, label %122, !llvm.loop !60
+  br i1 %.not804, label %.critedge.backedge, label %122, !llvm.loop !60
 
 125:                                              ; preds = %91
   %126 = lshr i32 %34, 23
@@ -1371,7 +1366,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %134 = load i32, ptr %133, align 8, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %134, ptr %135, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 136:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1385,7 +1380,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   call void @luaV_gettable(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %139, ptr noundef %95)
   %141 = load ptr, ptr %10, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 142:                                              ; preds = %91
   store ptr %33, ptr %8, align 8, !tbaa !41
@@ -1397,11 +1392,11 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %.not803 = icmp eq i32 %147, 0
   %148 = and i32 %146, 255
   %149 = zext nneg i32 %148 to i64
-  %.v851 = select i1 %.not803, ptr %.1713, ptr %30
-  %150 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v851, i64 %149
+  %.v852 = select i1 %.not803, ptr %.1713, ptr %30
+  %150 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v852, i64 %149
   call void @luaV_gettable(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %150, ptr noundef %95)
   %151 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 152:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1415,7 +1410,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   call void @luaV_settable(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %156, ptr noundef %95)
   %157 = load ptr, ptr %10, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 158:                                              ; preds = %91
   %159 = lshr i32 %34, 23
@@ -1431,7 +1426,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 %167, ptr %168, align 8, !tbaa !4
   %169 = icmp sgt i32 %167, 3
-  br i1 %169, label %170, label %.backedge.backedge
+  br i1 %169, label %170, label %.critedge.backedge
 
 170:                                              ; preds = %158
   %171 = load ptr, ptr %95, align 8, !tbaa !9
@@ -1439,18 +1434,18 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %173 = load i8, ptr %172, align 1, !tbaa !9
   %174 = and i8 %173, 3
   %.not801 = icmp eq i8 %174, 0
-  br i1 %.not801, label %.backedge.backedge, label %175
+  br i1 %.not801, label %.critedge.backedge, label %175
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %162, i64 9
   %177 = load i8, ptr %176, align 1, !tbaa !9
   %178 = and i8 %177, 4
   %.not802 = icmp eq i8 %178, 0
-  br i1 %.not802, label %.backedge.backedge, label %179
+  br i1 %.not802, label %.critedge.backedge, label %179
 
 179:                                              ; preds = %175
   call void @luaC_barrierf(ptr noundef nonnull %0, ptr noundef nonnull %162, ptr noundef nonnull %171) #9
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 180:                                              ; preds = %91
   store ptr %33, ptr %8, align 8, !tbaa !41
@@ -1460,18 +1455,18 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %184 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %183
   %185 = zext nneg i32 %181 to i64
   %186 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %185
-  %.not799849 = icmp slt i32 %34, 0
-  %187 = select i1 %.not799849, ptr %184, ptr %186
+  %.not799850 = icmp slt i32 %34, 0
+  %187 = select i1 %.not799850, ptr %184, ptr %186
   %188 = lshr i32 %34, 14
   %189 = and i32 %34, 4194304
   %.not800 = icmp eq i32 %189, 0
   %190 = and i32 %188, 255
   %191 = zext nneg i32 %190 to i64
-  %.v850 = select i1 %.not800, ptr %.1713, ptr %30
-  %192 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v850, i64 %191
+  %.v851 = select i1 %.not800, ptr %.1713, ptr %30
+  %192 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v851, i64 %191
   call void @luaV_settable(ptr noundef nonnull %0, ptr noundef %95, ptr noundef %187, ptr noundef %192)
   %193 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 194:                                              ; preds = %91
   %195 = lshr i32 %34, 23
@@ -1498,7 +1493,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 
 208:                                              ; preds = %207, %194
   %209 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 210:                                              ; preds = %91
   %211 = lshr i32 %34, 23
@@ -1517,11 +1512,11 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %.not797 = icmp eq i32 %220, 0
   %221 = and i32 %219, 255
   %222 = zext nneg i32 %221 to i64
-  %.v848 = select i1 %.not797, ptr %.1713, ptr %30
-  %223 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v848, i64 %222
+  %.v849 = select i1 %.not797, ptr %.1713, ptr %30
+  %223 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v849, i64 %222
   call void @luaV_gettable(ptr noundef nonnull %0, ptr noundef nonnull %213, ptr noundef %223, ptr noundef %95)
   %224 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 225:                                              ; preds = %91
   %226 = lshr i32 %34, 23
@@ -1530,15 +1525,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %229 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %228
   %230 = zext nneg i32 %226 to i64
   %231 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %230
-  %.not795846 = icmp slt i32 %34, 0
-  %232 = select i1 %.not795846, ptr %229, ptr %231
+  %.not795847 = icmp slt i32 %34, 0
+  %232 = select i1 %.not795847, ptr %229, ptr %231
   %233 = lshr i32 %34, 14
   %234 = and i32 %34, 4194304
   %.not796 = icmp eq i32 %234, 0
   %235 = and i32 %233, 255
   %236 = zext nneg i32 %235 to i64
-  %.v847 = select i1 %.not796, ptr %.1713, ptr %30
-  %237 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v847, i64 %236
+  %.v848 = select i1 %.not796, ptr %.1713, ptr %30
+  %237 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v848, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %239 = load i32, ptr %238, align 8, !tbaa !4
   %240 = icmp eq i32 %239, 3
@@ -1557,13 +1552,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %248, ptr %95, align 8, !tbaa !9
   %249 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %249, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 250:                                              ; preds = %241, %225
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %232, ptr noundef %237, i32 noundef 5)
   %251 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 252:                                              ; preds = %91
   %253 = lshr i32 %34, 23
@@ -1572,15 +1567,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %256 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %255
   %257 = zext nneg i32 %253 to i64
   %258 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %257
-  %.not793844 = icmp slt i32 %34, 0
-  %259 = select i1 %.not793844, ptr %256, ptr %258
+  %.not793845 = icmp slt i32 %34, 0
+  %259 = select i1 %.not793845, ptr %256, ptr %258
   %260 = lshr i32 %34, 14
   %261 = and i32 %34, 4194304
   %.not794 = icmp eq i32 %261, 0
   %262 = and i32 %260, 255
   %263 = zext nneg i32 %262 to i64
-  %.v845 = select i1 %.not794, ptr %.1713, ptr %30
-  %264 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v845, i64 %263
+  %.v846 = select i1 %.not794, ptr %.1713, ptr %30
+  %264 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v846, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %266 = load i32, ptr %265, align 8, !tbaa !4
   %267 = icmp eq i32 %266, 3
@@ -1599,13 +1594,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %275, ptr %95, align 8, !tbaa !9
   %276 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %276, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 277:                                              ; preds = %268, %252
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %259, ptr noundef %264, i32 noundef 6)
   %278 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 279:                                              ; preds = %91
   %280 = lshr i32 %34, 23
@@ -1614,15 +1609,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %283 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %282
   %284 = zext nneg i32 %280 to i64
   %285 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %284
-  %.not791842 = icmp slt i32 %34, 0
-  %286 = select i1 %.not791842, ptr %283, ptr %285
+  %.not791843 = icmp slt i32 %34, 0
+  %286 = select i1 %.not791843, ptr %283, ptr %285
   %287 = lshr i32 %34, 14
   %288 = and i32 %34, 4194304
   %.not792 = icmp eq i32 %288, 0
   %289 = and i32 %287, 255
   %290 = zext nneg i32 %289 to i64
-  %.v843 = select i1 %.not792, ptr %.1713, ptr %30
-  %291 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v843, i64 %290
+  %.v844 = select i1 %.not792, ptr %.1713, ptr %30
+  %291 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v844, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %293 = load i32, ptr %292, align 8, !tbaa !4
   %294 = icmp eq i32 %293, 3
@@ -1641,13 +1636,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %302, ptr %95, align 8, !tbaa !9
   %303 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %303, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 304:                                              ; preds = %295, %279
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %286, ptr noundef %291, i32 noundef 7)
   %305 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 306:                                              ; preds = %91
   %307 = lshr i32 %34, 23
@@ -1656,15 +1651,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %310 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %309
   %311 = zext nneg i32 %307 to i64
   %312 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %311
-  %.not789840 = icmp slt i32 %34, 0
-  %313 = select i1 %.not789840, ptr %310, ptr %312
+  %.not789841 = icmp slt i32 %34, 0
+  %313 = select i1 %.not789841, ptr %310, ptr %312
   %314 = lshr i32 %34, 14
   %315 = and i32 %34, 4194304
   %.not790 = icmp eq i32 %315, 0
   %316 = and i32 %314, 255
   %317 = zext nneg i32 %316 to i64
-  %.v841 = select i1 %.not790, ptr %.1713, ptr %30
-  %318 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v841, i64 %317
+  %.v842 = select i1 %.not790, ptr %.1713, ptr %30
+  %318 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v842, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %320 = load i32, ptr %319, align 8, !tbaa !4
   %321 = icmp eq i32 %320, 3
@@ -1683,13 +1678,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %329, ptr %95, align 8, !tbaa !9
   %330 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %330, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 331:                                              ; preds = %322, %306
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %313, ptr noundef %318, i32 noundef 8)
   %332 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 333:                                              ; preds = %91
   %334 = lshr i32 %34, 23
@@ -1698,15 +1693,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %337 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %336
   %338 = zext nneg i32 %334 to i64
   %339 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %338
-  %.not787838 = icmp slt i32 %34, 0
-  %340 = select i1 %.not787838, ptr %337, ptr %339
+  %.not787839 = icmp slt i32 %34, 0
+  %340 = select i1 %.not787839, ptr %337, ptr %339
   %341 = lshr i32 %34, 14
   %342 = and i32 %34, 4194304
   %.not788 = icmp eq i32 %342, 0
   %343 = and i32 %341, 255
   %344 = zext nneg i32 %343 to i64
-  %.v839 = select i1 %.not788, ptr %.1713, ptr %30
-  %345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v839, i64 %344
+  %.v840 = select i1 %.not788, ptr %.1713, ptr %30
+  %345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v840, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %347 = load i32, ptr %346, align 8, !tbaa !4
   %348 = icmp eq i32 %347, 3
@@ -1728,13 +1723,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %359, ptr %95, align 8, !tbaa !9
   %360 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %360, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 361:                                              ; preds = %349, %333
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %340, ptr noundef %345, i32 noundef 9)
   %362 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 363:                                              ; preds = %91
   %364 = lshr i32 %34, 23
@@ -1743,15 +1738,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %367 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %366
   %368 = zext nneg i32 %364 to i64
   %369 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %368
-  %.not785836 = icmp slt i32 %34, 0
-  %370 = select i1 %.not785836, ptr %367, ptr %369
+  %.not785837 = icmp slt i32 %34, 0
+  %370 = select i1 %.not785837, ptr %367, ptr %369
   %371 = lshr i32 %34, 14
   %372 = and i32 %34, 4194304
   %.not786 = icmp eq i32 %372, 0
   %373 = and i32 %371, 255
   %374 = zext nneg i32 %373 to i64
-  %.v837 = select i1 %.not786, ptr %.1713, ptr %30
-  %375 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v837, i64 %374
+  %.v838 = select i1 %.not786, ptr %.1713, ptr %30
+  %375 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v838, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %377 = load i32, ptr %376, align 8, !tbaa !4
   %378 = icmp eq i32 %377, 3
@@ -1770,13 +1765,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %386, ptr %95, align 8, !tbaa !9
   %387 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %387, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 388:                                              ; preds = %379, %363
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %370, ptr noundef %375, i32 noundef 10)
   %389 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 390:                                              ; preds = %91
   %391 = lshr i32 %34, 23
@@ -1793,13 +1788,13 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %399, ptr %95, align 8, !tbaa !9
   %400 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %400, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 401:                                              ; preds = %390
   store ptr %33, ptr %8, align 8, !tbaa !41
   call fastcc void @Arith(ptr noundef nonnull %0, ptr noundef nonnull %95, ptr noundef nonnull %393, ptr noundef nonnull %393, i32 noundef 11)
   %402 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 403:                                              ; preds = %91
   %404 = lshr i32 %34, 23
@@ -1826,7 +1821,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store i32 %414, ptr %95, align 8, !tbaa !9
   %415 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 1, ptr %415, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 416:                                              ; preds = %91
   %417 = lshr i32 %34, 23
@@ -1846,7 +1841,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %425, ptr %95, align 8, !tbaa !9
   %426 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %426, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 427:                                              ; preds = %416
   %428 = load ptr, ptr %419, align 8, !tbaa !9
@@ -1856,7 +1851,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store double %431, ptr %95, align 8, !tbaa !9
   %432 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 3, ptr %432, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 433:                                              ; preds = %416
   store ptr %33, ptr %8, align 8, !tbaa !41
@@ -1870,7 +1865,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 
 436:                                              ; preds = %435, %433
   %437 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 438:                                              ; preds = %91
   %439 = lshr i32 %34, 23
@@ -1903,14 +1898,14 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %456 = load i32, ptr %455, align 8, !tbaa !4
   %457 = getelementptr inbounds nuw i8, ptr %453, i64 8
   store i32 %456, ptr %457, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 458:                                              ; preds = %91
   %459 = lshr i32 %34, 14
   %460 = zext nneg i32 %459 to i64
   %461 = getelementptr i32, ptr %33, i64 %460
   %462 = getelementptr i8, ptr %461, i64 -524284
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 463:                                              ; preds = %91
   %464 = lshr i32 %34, 23
@@ -1919,15 +1914,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %467 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %466
   %468 = zext nneg i32 %464 to i64
   %469 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %468
-  %.not781834 = icmp slt i32 %34, 0
-  %470 = select i1 %.not781834, ptr %467, ptr %469
+  %.not781835 = icmp slt i32 %34, 0
+  %470 = select i1 %.not781835, ptr %467, ptr %469
   %471 = lshr i32 %34, 14
   %472 = and i32 %34, 4194304
   %.not782 = icmp eq i32 %472, 0
   %473 = and i32 %471, 255
   %474 = zext nneg i32 %473 to i64
-  %.v835 = select i1 %.not782, ptr %.1713, ptr %30
-  %475 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v835, i64 %474
+  %.v836 = select i1 %.not782, ptr %.1713, ptr %30
+  %475 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v836, i64 %474
   store ptr %33, ptr %8, align 8, !tbaa !41
   %476 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %477 = load i32, ptr %476, align 8, !tbaa !4
@@ -1957,7 +1952,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %.4720 = phi ptr [ %491, %486 ], [ %33, %483 ]
   %493 = load ptr, ptr %10, align 8, !tbaa !37
   %494 = getelementptr inbounds nuw i8, ptr %.4720, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 495:                                              ; preds = %91
   store ptr %33, ptr %8, align 8, !tbaa !41
@@ -1967,15 +1962,15 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %499 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %498
   %500 = zext nneg i32 %496 to i64
   %501 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %500
-  %.not779832 = icmp slt i32 %34, 0
-  %502 = select i1 %.not779832, ptr %499, ptr %501
+  %.not779833 = icmp slt i32 %34, 0
+  %502 = select i1 %.not779833, ptr %499, ptr %501
   %503 = lshr i32 %34, 14
   %504 = and i32 %34, 4194304
   %.not780 = icmp eq i32 %504, 0
   %505 = and i32 %503, 255
   %506 = zext nneg i32 %505 to i64
-  %.v833 = select i1 %.not780, ptr %.1713, ptr %30
-  %507 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v833, i64 %506
+  %.v834 = select i1 %.not780, ptr %.1713, ptr %30
+  %507 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v834, i64 %506
   %508 = call i32 @luaV_lessthan(ptr noundef nonnull %0, ptr noundef %502, ptr noundef %507)
   %509 = icmp eq i32 %508, %93
   br i1 %509, label %510, label %516
@@ -1992,7 +1987,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %.5721 = phi ptr [ %515, %510 ], [ %33, %495 ]
   %517 = load ptr, ptr %10, align 8, !tbaa !37
   %518 = getelementptr inbounds nuw i8, ptr %.5721, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 519:                                              ; preds = %91
   store ptr %33, ptr %8, align 8, !tbaa !41
@@ -2002,8 +1997,8 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %523 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %522
   %524 = zext nneg i32 %520 to i64
   %525 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %524
-  %.not777831 = icmp slt i32 %34, 0
-  %526 = select i1 %.not777831, ptr %523, ptr %525
+  %.not777832 = icmp slt i32 %34, 0
+  %526 = select i1 %.not777832, ptr %523, ptr %525
   %527 = lshr i32 %34, 14
   %528 = and i32 %34, 4194304
   %.not778 = icmp eq i32 %528, 0
@@ -2121,7 +2116,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %.6722 = phi ptr [ %584, %579 ], [ %33, %lessequal.exit ]
   %586 = load ptr, ptr %10, align 8, !tbaa !37
   %587 = getelementptr inbounds nuw i8, ptr %.6722, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 588:                                              ; preds = %91
   %589 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -2158,7 +2153,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 605:                                              ; preds = %599, %595
   %.7723 = phi ptr [ %604, %599 ], [ %33, %595 ]
   %606 = getelementptr inbounds nuw i8, ptr %.7723, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 607:                                              ; preds = %91
   %608 = lshr i32 %34, 23
@@ -2202,7 +2197,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 629:                                              ; preds = %621, %617
   %.8724 = phi ptr [ %628, %621 ], [ %33, %617 ]
   %630 = getelementptr inbounds nuw i8, ptr %.8724, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 631:                                              ; preds = %91
   %632 = lshr i32 %34, 14
@@ -2230,10 +2225,6 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %642 = add nsw i32 %.0.ph, 1
   br label %.loopexit.outer.backedge
 
-.loopexit.outer.backedge:                         ; preds = %641, %710, %709
-  %.0.ph.be = phi i32 [ %707, %709 ], [ %707, %710 ], [ %642, %641 ]
-  br label %.loopexit.outer
-
 643:                                              ; preds = %639
   %.not774 = icmp eq i32 %633, 0
   br i1 %.not774, label %648, label %644
@@ -2247,7 +2238,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 648:                                              ; preds = %644, %643
   %649 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 650:                                              ; preds = %91
   %.not771 = icmp ult i32 %34, 8388608
@@ -2296,27 +2287,27 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   store ptr %673, ptr %10, align 8, !tbaa !37
   %674 = load ptr, ptr %16, align 8, !tbaa !33
   %675 = icmp ult ptr %663, %674
-  br i1 %675, label %.lr.ph876, label %._crit_edge877
+  br i1 %675, label %.lr.ph874, label %._crit_edge875
 
-.lr.ph876:                                        ; preds = %667, %.lr.ph876
-  %indvars.iv899 = phi i64 [ %indvars.iv.next900, %.lr.ph876 ], [ 0, %667 ]
-  %676 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv899
-  %677 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %indvars.iv899
+.lr.ph874:                                        ; preds = %667, %.lr.ph874
+  %indvars.iv895 = phi i64 [ %indvars.iv.next896, %.lr.ph874 ], [ 0, %667 ]
+  %676 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv895
+  %677 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %indvars.iv895
   %678 = load i64, ptr %676, align 8, !tbaa !9
   store i64 %678, ptr %677, align 8, !tbaa !9
   %679 = getelementptr inbounds nuw i8, ptr %676, i64 8
   %680 = load i32, ptr %679, align 8, !tbaa !4
   %681 = getelementptr inbounds nuw i8, ptr %677, i64 8
   store i32 %680, ptr %681, align 8, !tbaa !4
-  %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
-  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv.next900
+  %indvars.iv.next896 = add nuw nsw i64 %indvars.iv895, 1
+  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv.next896
   %683 = load ptr, ptr %16, align 8, !tbaa !33
   %684 = icmp ult ptr %682, %683
-  br i1 %684, label %.lr.ph876, label %._crit_edge877, !llvm.loop !77
+  br i1 %684, label %.lr.ph874, label %._crit_edge875, !llvm.loop !77
 
-._crit_edge877:                                   ; preds = %.lr.ph876, %667
-  %.lcssa854 = phi i64 [ 0, %667 ], [ %indvars.iv.next900, %.lr.ph876 ]
-  %685 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %.lcssa854
+._crit_edge875:                                   ; preds = %.lr.ph874, %667
+  %.lcssa855 = phi i64 [ 0, %667 ], [ %indvars.iv.next896, %.lr.ph874 ]
+  %685 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %.lcssa855
   store ptr %685, ptr %16, align 8, !tbaa !33
   %686 = getelementptr inbounds i8, ptr %658, i64 -24
   store ptr %685, ptr %686, align 8, !tbaa !74
@@ -2334,7 +2325,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 694:                                              ; preds = %655
   %695 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 696:                                              ; preds = %91
   %.not768 = icmp ult i32 %34, 8388608
@@ -2368,6 +2359,10 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %.not770 = icmp eq i32 %706, 0
   br i1 %.not770, label %.loopexit.outer.backedge, label %710
 
+.loopexit.outer.backedge:                         ; preds = %709, %710, %641
+  %.0.ph.be = phi i32 [ %642, %641 ], [ %707, %710 ], [ %707, %709 ]
+  br label %.loopexit.outer
+
 710:                                              ; preds = %709
   %711 = load ptr, ptr %9, align 8, !tbaa !42
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 16
@@ -2387,11 +2382,11 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 722:                                              ; preds = %714
   %723 = fcmp ugt double %718, %720
-  br i1 %723, label %.backedge.backedge, label %726
+  br i1 %723, label %.critedge.backedge, label %726
 
 724:                                              ; preds = %714
   %725 = fcmp ugt double %720, %718
-  br i1 %725, label %.backedge.backedge, label %726
+  br i1 %725, label %.critedge.backedge, label %726
 
 726:                                              ; preds = %724, %722
   %727 = lshr i32 %34, 14
@@ -2405,7 +2400,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   store double %718, ptr %732, align 8, !tbaa !9
   %733 = getelementptr inbounds nuw i8, ptr %95, i64 56
   store i32 3, ptr %733, align 8, !tbaa !4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 734:                                              ; preds = %91
   %735 = getelementptr inbounds nuw i8, ptr %95, i64 16
@@ -2448,8 +2443,8 @@ luaV_tonumber.exit.thread:                        ; preds = %741
 
 751:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %cond953 = icmp eq i32 %749, 4
-  br i1 %cond953, label %752, label %757
+  %cond954 = icmp eq i32 %749, 4
+  br i1 %cond954, label %752, label %757
 
 752:                                              ; preds = %751
   %753 = load ptr, ptr %735, align 8, !tbaa !9
@@ -2478,8 +2473,8 @@ luaV_tonumber.exit815.thread:                     ; preds = %752
 
 762:                                              ; preds = %758
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %cond954 = icmp eq i32 %760, 4
-  br i1 %cond954, label %763, label %768
+  %cond955 = icmp eq i32 %760, 4
+  br i1 %cond955, label %763, label %768
 
 763:                                              ; preds = %762
   %764 = load ptr, ptr %736, align 8, !tbaa !9
@@ -2510,7 +2505,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %774 = zext nneg i32 %773 to i64
   %775 = getelementptr i32, ptr %33, i64 %774
   %776 = getelementptr i8, ptr %775, i64 -524284
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 777:                                              ; preds = %91
   %778 = getelementptr inbounds nuw i8, ptr %95, i64 48
@@ -2570,7 +2565,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 816:                                              ; preds = %806, %777
   %.10726 = phi ptr [ %33, %777 ], [ %815, %806 ]
   %817 = getelementptr inbounds nuw i8, ptr %.10726, i64 4
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 818:                                              ; preds = %91
   %819 = lshr i32 %34, 23
@@ -2609,7 +2604,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %840 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %841 = load i32, ptr %840, align 8, !tbaa !4
   %.not762 = icmp eq i32 %841, 5
-  br i1 %.not762, label %842, label %.backedge.backedge
+  br i1 %.not762, label %842, label %.critedge.backedge
 
 842:                                              ; preds = %839
   %843 = load ptr, ptr %95, align 8, !tbaa !9
@@ -2627,19 +2622,19 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 
 851:                                              ; preds = %850, %842
   %852 = icmp sgt i32 %.0743, 0
-  br i1 %852, label %.lr.ph873, label %.backedge.backedge
+  br i1 %852, label %.lr.ph871, label %.critedge.backedge
 
-.lr.ph873:                                        ; preds = %851
+.lr.ph871:                                        ; preds = %851
   %853 = getelementptr inbounds nuw i8, ptr %843, i64 9
   %854 = zext nneg i32 %.0743 to i64
   br label %855
 
-855:                                              ; preds = %.lr.ph873, %873
-  %indvars.iv896 = phi i64 [ %854, %.lr.ph873 ], [ %indvars.iv.next897, %873 ]
-  %.0741871 = phi i32 [ %846, %.lr.ph873 ], [ %857, %873 ]
-  %856 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %indvars.iv896
-  %857 = add nsw i32 %.0741871, -1
-  %858 = call ptr @luaH_setnum(ptr noundef %0, ptr noundef %843, i32 noundef %.0741871) #9
+855:                                              ; preds = %.lr.ph871, %873
+  %indvars.iv892 = phi i64 [ %854, %.lr.ph871 ], [ %indvars.iv.next893, %873 ]
+  %.0741869 = phi i32 [ %846, %.lr.ph871 ], [ %857, %873 ]
+  %856 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %indvars.iv892
+  %857 = add nsw i32 %.0741869, -1
+  %858 = call ptr @luaH_setnum(ptr noundef %0, ptr noundef %843, i32 noundef %.0741869) #9
   %859 = load i64, ptr %856, align 8, !tbaa !9
   store i64 %859, ptr %858, align 8, !tbaa !9
   %860 = getelementptr inbounds nuw i8, ptr %856, i64 8
@@ -2668,13 +2663,13 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   br label %873
 
 873:                                              ; preds = %872, %869, %864, %855
-  %indvars.iv.next897 = add nsw i64 %indvars.iv896, -1
-  %874 = icmp sgt i64 %indvars.iv896, 1
-  br i1 %874, label %855, label %.backedge.backedge, !llvm.loop !81
+  %indvars.iv.next893 = add nsw i64 %indvars.iv892, -1
+  %874 = icmp sgt i64 %indvars.iv892, 1
+  br i1 %874, label %855, label %.critedge.backedge, !llvm.loop !81
 
 875:                                              ; preds = %91
   call void @luaF_close(ptr noundef nonnull %0, ptr noundef %95) #9
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 876:                                              ; preds = %91
   %877 = load ptr, ptr %27, align 8, !tbaa !45
@@ -2691,23 +2686,23 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %888 = call ptr @luaF_newLclosure(ptr noundef nonnull %0, i32 noundef %886, ptr noundef %887) #9
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 32
   store ptr %883, ptr %889, align 8, !tbaa !9
-  %.not879 = icmp eq i8 %885, 0
-  br i1 %.not879, label %._crit_edge, label %.lr.ph869
+  %.not877 = icmp eq i8 %885, 0
+  br i1 %.not877, label %._crit_edge, label %.lr.ph867
 
-.lr.ph869:                                        ; preds = %876
+.lr.ph867:                                        ; preds = %876
   %890 = getelementptr inbounds nuw i8, ptr %888, i64 40
-  %wide.trip.count894 = zext i8 %885 to i64
+  %wide.trip.count890 = zext i8 %885 to i64
   br label %891
 
-891:                                              ; preds = %.lr.ph869, %904
-  %indvars.iv891 = phi i64 [ 0, %.lr.ph869 ], [ %indvars.iv.next892, %904 ]
-  %.12728868 = phi ptr [ %33, %.lr.ph869 ], [ %905, %904 ]
-  %892 = load i32, ptr %.12728868, align 4, !tbaa !53
+891:                                              ; preds = %.lr.ph867, %904
+  %indvars.iv887 = phi i64 [ 0, %.lr.ph867 ], [ %indvars.iv.next888, %904 ]
+  %.12728866 = phi ptr [ %33, %.lr.ph867 ], [ %905, %904 ]
+  %892 = load i32, ptr %.12728866, align 4, !tbaa !53
   %893 = and i32 %892, 63
   %894 = icmp eq i32 %893, 4
   %895 = lshr i32 %892, 23
   %896 = zext nneg i32 %895 to i64
-  %897 = getelementptr inbounds nuw ptr, ptr %890, i64 %indvars.iv891
+  %897 = getelementptr inbounds nuw ptr, ptr %890, i64 %indvars.iv887
   br i1 %894, label %898, label %901
 
 898:                                              ; preds = %891
@@ -2723,10 +2718,10 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 904:                                              ; preds = %898, %901
   %.sink = phi ptr [ %900, %898 ], [ %903, %901 ]
   store ptr %.sink, ptr %897, align 8, !tbaa !9
-  %indvars.iv.next892 = add nuw nsw i64 %indvars.iv891, 1
-  %905 = getelementptr inbounds nuw i8, ptr %.12728868, i64 4
-  %exitcond895.not = icmp eq i64 %indvars.iv.next892, %wide.trip.count894
-  br i1 %exitcond895.not, label %._crit_edge, label %891, !llvm.loop !85
+  %indvars.iv.next888 = add nuw nsw i64 %indvars.iv887, 1
+  %905 = getelementptr inbounds nuw i8, ptr %.12728866, i64 4
+  %exitcond891.not = icmp eq i64 %indvars.iv.next888, %wide.trip.count890
+  br i1 %exitcond891.not, label %._crit_edge, label %891, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %904, %876
   %.12728.lcssa = phi ptr [ %33, %876 ], [ %905, %904 ]
@@ -2748,7 +2743,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 
 913:                                              ; preds = %912, %._crit_edge
   %914 = load ptr, ptr %10, align 8, !tbaa !37
-  br label %.backedge.backedge
+  br label %.critedge.backedge
 
 915:                                              ; preds = %91
   %916 = lshr i32 %34, 23
@@ -2800,7 +2795,12 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %.0729 = phi ptr [ %945, %943 ], [ %95, %915 ]
   %.13 = phi ptr [ %944, %943 ], [ %.1713, %915 ]
   %949 = icmp sgt i32 %.0731, 0
-  br i1 %949, label %.lr.ph, label %.backedge.backedge
+  br i1 %949, label %.lr.ph, label %.critedge.backedge
+
+.critedge.backedge:                               ; preds = %962, %873, %122, %948, %851, %91, %839, %722, %724, %726, %694, %648, %422, %427, %436, %397, %401, %383, %388, %353, %361, %326, %331, %299, %304, %272, %277, %245, %250, %158, %170, %175, %179, %913, %875, %816, %769, %629, %605, %585, %516, %492, %458, %449, %413, %210, %208, %180, %152, %142, %136, %125, %113, %105, %97
+  %.0716.be = phi ptr [ %33, %97 ], [ %33, %105 ], [ %spec.select, %113 ], [ %33, %125 ], [ %33, %136 ], [ %33, %142 ], [ %33, %152 ], [ %33, %180 ], [ %33, %208 ], [ %33, %210 ], [ %33, %413 ], [ %33, %449 ], [ %462, %458 ], [ %494, %492 ], [ %518, %516 ], [ %587, %585 ], [ %606, %605 ], [ %630, %629 ], [ %776, %769 ], [ %817, %816 ], [ %33, %875 ], [ %.12728.lcssa, %913 ], [ %33, %179 ], [ %33, %175 ], [ %33, %170 ], [ %33, %158 ], [ %33, %250 ], [ %33, %245 ], [ %33, %277 ], [ %33, %272 ], [ %33, %304 ], [ %33, %299 ], [ %33, %331 ], [ %33, %326 ], [ %33, %361 ], [ %33, %353 ], [ %33, %388 ], [ %33, %383 ], [ %33, %401 ], [ %33, %397 ], [ %33, %436 ], [ %33, %427 ], [ %33, %422 ], [ %33, %648 ], [ %33, %694 ], [ %730, %726 ], [ %33, %724 ], [ %33, %722 ], [ %.11727, %839 ], [ %33, %91 ], [ %.11727, %851 ], [ %33, %948 ], [ %33, %122 ], [ %.11727, %873 ], [ %33, %962 ]
+  %.0712.be = phi ptr [ %.1713, %97 ], [ %.1713, %105 ], [ %.1713, %113 ], [ %.1713, %125 ], [ %141, %136 ], [ %151, %142 ], [ %157, %152 ], [ %193, %180 ], [ %209, %208 ], [ %224, %210 ], [ %.1713, %413 ], [ %450, %449 ], [ %.1713, %458 ], [ %493, %492 ], [ %517, %516 ], [ %586, %585 ], [ %.1713, %605 ], [ %.1713, %629 ], [ %.1713, %769 ], [ %798, %816 ], [ %.1713, %875 ], [ %914, %913 ], [ %.1713, %179 ], [ %.1713, %175 ], [ %.1713, %170 ], [ %.1713, %158 ], [ %251, %250 ], [ %.1713, %245 ], [ %278, %277 ], [ %.1713, %272 ], [ %305, %304 ], [ %.1713, %299 ], [ %332, %331 ], [ %.1713, %326 ], [ %362, %361 ], [ %.1713, %353 ], [ %389, %388 ], [ %.1713, %383 ], [ %402, %401 ], [ %.1713, %397 ], [ %437, %436 ], [ %.1713, %427 ], [ %.1713, %422 ], [ %649, %648 ], [ %695, %694 ], [ %.1713, %726 ], [ %.1713, %724 ], [ %.1713, %722 ], [ %.1713, %839 ], [ %.1713, %91 ], [ %.1713, %851 ], [ %.13, %948 ], [ %.1713, %122 ], [ %.1713, %873 ], [ %.13, %962 ]
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %948
   %950 = sext i32 %932 to i64
@@ -2825,13 +2825,13 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   br label %962
 
 962:                                              ; preds = %952, %954
-  %.sink955 = phi i32 [ %961, %954 ], [ 0, %952 ]
+  %.sink956 = phi i32 [ %961, %954 ], [ 0, %952 ]
   %963 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0729, i64 %indvars.iv
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 8
-  store i32 %.sink955, ptr %964, align 8, !tbaa !4
+  store i32 %.sink956, ptr %964, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.backedge.backedge, label %952, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge.backedge, label %952, !llvm.loop !87
 
 .critedge.thread:                                 ; preds = %705, %655, %639, %88
   ret void

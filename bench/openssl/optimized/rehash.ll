@@ -202,9 +202,9 @@ define dso_local i32 @rehash_main(i32 noundef %0, ptr noundef %1) local_unnamed_
   %43 = tail call fastcc i32 @do_dir(ptr noundef %42, i32 noundef %.023.ph)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %.preheader, %33, %._crit_edge, %6, %9, %15, %41
-  %.024 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %15 ], [ %43, %41 ], [ 1, %33 ], [ %.3.lcssa, %._crit_edge ], [ %26, %.preheader ], [ 0, %13 ]
-  ret i32 %.024
+.loopexit:                                        ; preds = %13, %.preheader, %6, %9, %15, %41, %._crit_edge, %33
+  %.025 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %15 ], [ %43, %41 ], [ 1, %33 ], [ %.3.lcssa, %._crit_edge ], [ %26, %.preheader ], [ 0, %13 ]
+  ret i32 %.025
 }
 
 declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

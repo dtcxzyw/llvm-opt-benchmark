@@ -4646,8 +4646,8 @@ define internal fastcc ptr @_get_aia_uri(ptr noundef %0, i32 noundef range(i32 1
   br label %Py_XDECREF.exit
 
 .lr.ph:                                           ; preds = %.preheader, %43
-  %.03044 = phi i32 [ %44, %43 ], [ 0, %.preheader ]
-  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.03044) #11
+  %.03045 = phi i32 [ %44, %43 ], [ 0, %.preheader ]
+  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.03045) #11
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   %16 = tail call i32 @OBJ_obj2nid(ptr noundef %15) #11
   %.not = icmp eq i32 %16, %1
@@ -4674,24 +4674,24 @@ define internal fastcc ptr @_get_aia_uri(ptr noundef %0, i32 noundef range(i32 1
 30:                                               ; preds = %21
   %31 = tail call i32 @PyList_Append(ptr noundef nonnull %10, ptr noundef nonnull %28) #11
   %32 = load i32, ptr %28, align 8, !tbaa !25
-  %.not.i38 = icmp sgt i32 %32, -1
-  br i1 %.not.i38, label %33, label %Py_DECREF.exit39
+  %.not.i39 = icmp sgt i32 %32, -1
+  br i1 %.not.i39, label %33, label %Py_DECREF.exit40
 
 33:                                               ; preds = %30
   %34 = add nsw i32 %32, -1
   store i32 %34, ptr %28, align 8, !tbaa !25
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %Py_DECREF.exit39
+  br i1 %35, label %36, label %Py_DECREF.exit40
 
 36:                                               ; preds = %33
   tail call void @_Py_Dealloc(ptr noundef nonnull %28) #11
-  br label %Py_DECREF.exit39
+  br label %Py_DECREF.exit40
 
-Py_DECREF.exit39:                                 ; preds = %30, %33, %36
+Py_DECREF.exit40:                                 ; preds = %30, %33, %36
   %37 = icmp slt i32 %31, 0
   br i1 %37, label %select.unfold, label %43
 
-select.unfold:                                    ; preds = %Py_DECREF.exit39, %21
+select.unfold:                                    ; preds = %Py_DECREF.exit40, %21
   tail call void @AUTHORITY_INFO_ACCESS_free(ptr noundef nonnull %3) #11
   %38 = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i = icmp sgt i32 %38, -1
@@ -4707,8 +4707,8 @@ select.unfold:                                    ; preds = %Py_DECREF.exit39, %
   tail call void @_Py_Dealloc(ptr noundef nonnull %10) #11
   br label %Py_XDECREF.exit
 
-43:                                               ; preds = %17, %.lr.ph, %Py_DECREF.exit39
-  %44 = add nuw nsw i32 %.03044, 1
+43:                                               ; preds = %17, %.lr.ph, %Py_DECREF.exit40
+  %44 = add nuw nsw i32 %.03045, 1
   %45 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %3) #11
   %46 = icmp slt i32 %44, %45
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !65
@@ -4721,8 +4721,8 @@ select.unfold:                                    ; preds = %Py_DECREF.exit39, %
 
 49:                                               ; preds = %._crit_edge
   %50 = load i32, ptr %10, align 8, !tbaa !25
-  %.not.i36 = icmp sgt i32 %50, -1
-  br i1 %.not.i36, label %51, label %Py_XDECREF.exit
+  %.not.i37 = icmp sgt i32 %50, -1
+  br i1 %.not.i37, label %51, label %Py_XDECREF.exit
 
 51:                                               ; preds = %49
   %52 = add nsw i32 %50, -1
@@ -8574,8 +8574,8 @@ define internal ptr @_ssl__SSLContext_get_ca_certs(ptr noundef readonly captures
   %25 = load ptr, ptr %24, align 8, !tbaa !94
   %26 = call ptr @SSL_CTX_get_cert_store(ptr noundef %25) #11
   %27 = call i32 @X509_STORE_lock(ptr noundef %26) #11
-  %.not.i37.i = icmp eq i32 %27, 0
-  br i1 %.not.i37.i, label %.split.i, label %X509_STORE_get1_objects.exit.i
+  %.not.i38.i = icmp eq i32 %27, 0
+  br i1 %.not.i38.i, label %.split.i, label %X509_STORE_get1_objects.exit.i
 
 X509_STORE_get1_objects.exit.i:                   ; preds = %23
   %28 = call ptr @X509_STORE_get0_objects(ptr noundef %26) #11
@@ -8595,8 +8595,8 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br i1 %.not36.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %53
-  %.02650.us.i = phi i32 [ %54, %53 ], [ 0, %.lr.ph.i ]
-  %35 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.02650.us.i) #11
+  %.02651.us.i = phi i32 [ %54, %53 ], [ 0, %.lr.ph.i ]
+  %35 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.02651.us.i) #11
   %36 = call i32 @X509_OBJECT_get_type(ptr noundef %35) #11
   %.not.us.i = icmp eq i32 %36, 1
   br i1 %.not.us.i, label %37, label %53
@@ -8616,7 +8616,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
 44:                                               ; preds = %40
   %45 = call i32 @PyList_Append(ptr noundef nonnull %21, ptr noundef nonnull %42) #11
   %46 = icmp eq i32 %45, -1
-  br i1 %46, label %.split52.us.i, label %47
+  br i1 %46, label %.split53.us.i, label %47
 
 47:                                               ; preds = %44
   %48 = load i32, ptr %42, align 8, !tbaa !25
@@ -8634,7 +8634,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br label %53
 
 53:                                               ; preds = %52, %49, %47, %37, %.lr.ph.split.us.i
-  %54 = add nuw nsw i32 %.02650.us.i, 1
+  %54 = add nuw nsw i32 %.02651.us.i, 1
   %55 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #11
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !115
@@ -8645,8 +8645,8 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br label %.split32.thread.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %76
-  %.02650.i = phi i32 [ %77, %76 ], [ 0, %.lr.ph.i ]
-  %58 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.02650.i) #11
+  %.02651.i = phi i32 [ %77, %76 ], [ 0, %.lr.ph.i ]
+  %58 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %29, i32 noundef %.02651.i) #11
   %59 = call i32 @X509_OBJECT_get_type(ptr noundef %58) #11
   %.not.i = icmp eq i32 %59, 1
   br i1 %.not.i, label %60, label %76
@@ -8666,7 +8666,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
 67:                                               ; preds = %63
   %68 = call i32 @PyList_Append(ptr noundef nonnull %21, ptr noundef nonnull %65) #11
   %69 = icmp eq i32 %68, -1
-  br i1 %69, label %.split52.us.i, label %70
+  br i1 %69, label %.split53.us.i, label %70
 
 70:                                               ; preds = %67
   %71 = load i32, ptr %65, align 8, !tbaa !25
@@ -8684,7 +8684,7 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   br label %76
 
 76:                                               ; preds = %75, %72, %70, %60, %.lr.ph.split.i
-  %77 = add nuw nsw i32 %.02650.i, 1
+  %77 = add nuw nsw i32 %.02651.i, 1
   %78 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %29) #11
   %79 = icmp slt i32 %77, %78
   br i1 %79, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !115
@@ -8698,14 +8698,14 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   call void @OPENSSL_sk_pop_free(ptr noundef %phi.call.ph.i, ptr noundef nonnull @X509_OBJECT_free) #11
   br label %Py_XDECREF.exit.i
 
-.split52.us.i:                                    ; preds = %67, %44
+.split53.us.i:                                    ; preds = %67, %44
   %.us-phi.i = phi ptr [ %42, %44 ], [ %65, %67 ]
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %29, ptr noundef nonnull @X509_OBJECT_free) #11
   %80 = load i32, ptr %.us-phi.i, align 8, !tbaa !25
   %.not.i.i.i = icmp sgt i32 %80, -1
   br i1 %.not.i.i.i, label %81, label %Py_XDECREF.exit.i
 
-81:                                               ; preds = %.split52.us.i
+81:                                               ; preds = %.split53.us.i
   %82 = add nsw i32 %80, -1
   store i32 %82, ptr %.us-phi.i, align 8, !tbaa !25
   %83 = icmp eq i32 %82, 0
@@ -8715,10 +8715,10 @@ X509_STORE_get1_objects.exit.i:                   ; preds = %23
   call void @_Py_Dealloc(ptr noundef nonnull %.us-phi.i) #11
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %84, %81, %.split52.us.i, %.split32.thread.i
+Py_XDECREF.exit.i:                                ; preds = %84, %81, %.split53.us.i, %.split32.thread.i
   %85 = load i32, ptr %21, align 8, !tbaa !25
-  %.not.i.i40.i = icmp sgt i32 %85, -1
-  br i1 %.not.i.i40.i, label %86, label %_ssl__SSLContext_get_ca_certs_impl.exit
+  %.not.i.i41.i = icmp sgt i32 %85, -1
+  br i1 %.not.i.i41.i, label %86, label %_ssl__SSLContext_get_ca_certs_impl.exit
 
 86:                                               ; preds = %Py_XDECREF.exit.i
   %87 = add nsw i32 %85, -1

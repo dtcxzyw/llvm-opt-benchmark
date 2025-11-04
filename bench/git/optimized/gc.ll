@@ -4717,8 +4717,8 @@ xstrdup_or_null.exit:                             ; preds = %3
 13:                                               ; preds = %12, %11
   %14 = call i32 @string_list_split_in_place(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull @.str.182, i32 noundef -1) #21
   %15 = load ptr, ptr %4, align 8, !tbaa !83
-  %.not2936 = icmp eq ptr %15, null
-  br i1 %.not2936, label %.critedge, label %.lr.ph
+  %.not2937 = icmp eq ptr %15, null
+  br i1 %.not2937, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4726,18 +4726,18 @@ xstrdup_or_null.exit:                             ; preds = %3
   %18 = load i64, ptr %16, align 8, !tbaa !62
   %19 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %18
   %20 = icmp ult ptr %15, %19
-  br i1 %20, label %.lr.ph45, label %.critedge
+  br i1 %20, label %.lr.ph46, label %.critedge
 
-.lr.ph45:                                         ; preds = %.lr.ph, %36
-  %.0213744 = phi ptr [ %37, %36 ], [ %15, %.lr.ph ]
+.lr.ph46:                                         ; preds = %.lr.ph, %36
+  %.0213845 = phi ptr [ %37, %36 ], [ %15, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %21 = load ptr, ptr %.0213744, align 8, !tbaa !84
+  %21 = load ptr, ptr %.0213845, align 8, !tbaa !84
   %22 = call i32 @string_list_split_in_place(ptr noundef nonnull %5, ptr noundef %21, ptr noundef nonnull @.str.183, i32 noundef 2) #21
   %.not31 = icmp eq i32 %22, 2
   br i1 %.not31, label %23, label %36
 
-23:                                               ; preds = %.lr.ph45
+23:                                               ; preds = %.lr.ph46
   %24 = load ptr, ptr %5, align 8, !tbaa !83
   %25 = load ptr, ptr %24, align 8, !tbaa !84
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %25) #25
@@ -4771,14 +4771,14 @@ xstrdup_or_null.exit:                             ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
-36:                                               ; preds = %34, %.lr.ph45
+36:                                               ; preds = %34, %.lr.ph46
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %37 = getelementptr inbounds nuw i8, ptr %.0213744, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0213845, i64 16
   %38 = load ptr, ptr %4, align 8, !tbaa !83
   %39 = load i64, ptr %16, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %39
   %41 = icmp ult ptr %37, %40
-  br i1 %41, label %.lr.ph45, label %.critedge
+  br i1 %41, label %.lr.ph46, label %.critedge
 
 .critedge:                                        ; preds = %36, %.lr.ph, %13
   %.not30 = icmp eq ptr %2, null

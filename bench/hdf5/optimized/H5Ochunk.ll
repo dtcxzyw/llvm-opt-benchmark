@@ -204,7 +204,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread43, !prof !25
+  br i1 %13, label %14, label %.thread44, !prof !25
 
 14:                                               ; preds = %3
   %15 = icmp eq i32 %2, 0
@@ -219,7 +219,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %20 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
   %21 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !3
   %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_protect, i32 noundef 159, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.2) #4
-  br label %.thread43
+  br label %.thread44
 
 23:                                               ; preds = %16
   %24 = call i32 @H5O__inc_rc(ptr noundef nonnull %1) #4
@@ -233,7 +233,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   store ptr %1, ptr %28, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 264
   store i32 0, ptr %29, align 8, !tbaa !31
-  br label %.thread43
+  br label %.thread44
 
 30:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -260,11 +260,11 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %45 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !3
   %46 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_protect, i32 noundef 183, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread43
+  br label %.thread44
 
 47:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread43
+  br label %.thread44
 
 48:                                               ; preds = %23
   %49 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
@@ -276,7 +276,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %55 = trunc nuw i8 %54 to i1
   %56 = xor i1 %55, true
   %57 = select i1 %53, i1 true, i1 %56
-  br i1 %57, label %58, label %.thread43, !prof !25
+  br i1 %57, label %58, label %.thread44, !prof !25
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 256
@@ -287,7 +287,7 @@ define ptr @H5O__chunk_protect(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 H5O__chunk_dest.exit:                             ; preds = %58
   %63 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_chunk_proxy_t_reg_free_list, ptr noundef nonnull %17) #4
-  br label %.thread43
+  br label %.thread44
 
 64:                                               ; preds = %58
   %65 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
@@ -297,9 +297,9 @@ H5O__chunk_dest.exit:                             ; preds = %58
   %69 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !3
   %70 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !3
   %71 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__chunk_protect, i32 noundef 197, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.6) #4
-  br label %.thread43
+  br label %.thread44
 
-.thread43:                                        ; preds = %48, %19, %43, %3, %64, %26, %47, %H5O__chunk_dest.exit
+.thread44:                                        ; preds = %48, %19, %43, %H5O__chunk_dest.exit, %26, %47, %64, %3
   %.028 = phi ptr [ null, %64 ], [ null, %H5O__chunk_dest.exit ], [ null, %3 ], [ %17, %26 ], [ %41, %47 ], [ null, %43 ], [ null, %19 ], [ null, %48 ]
   %72 = load i64, ptr %4, align 8, !tbaa !3
   call void @H5AC_tag(i64 noundef %72, ptr noundef null) #4

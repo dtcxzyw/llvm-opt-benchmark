@@ -2954,24 +2954,24 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
 244:                                              ; preds = %239
   store i32 1, ptr %240, align 4, !tbaa !67
   %245 = load i32, ptr %62, align 8, !tbaa !20
-  %.not185 = icmp eq i32 %245, 0
-  br i1 %.not185, label %.preheader109, label %.lr.ph
+  %.not195 = icmp eq i32 %245, 0
+  br i1 %.not195, label %.preheader115, label %.lr.ph
 
 .lr.ph:                                           ; preds = %244
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %249
 
-.preheader109:                                    ; preds = %261, %244
+.preheader115:                                    ; preds = %261, %244
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %248 = load i32, ptr %56, align 8, !tbaa !49
-  %.not106158.not = icmp eq i32 %248, 0
-  br i1 %.not106158.not, label %.preheader108, label %.lr.ph161
+  %.not110164.not = icmp eq i32 %248, 0
+  br i1 %.not110164.not, label %.preheader114, label %.lr.ph167
 
 249:                                              ; preds = %.lr.ph, %261
   %250 = phi i32 [ %245, %.lr.ph ], [ %262, %261 ]
-  %indvars.iv240 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next241, %261 ]
+  %indvars.iv248 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next249, %261 ]
   %251 = load ptr, ptr %246, align 8, !tbaa !35
-  %252 = getelementptr inbounds nuw %struct.SchMux, ptr %251, i64 %indvars.iv240
+  %252 = getelementptr inbounds nuw %struct.SchMux, ptr %251, i64 %indvars.iv248
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 20
   %254 = load i32, ptr %253, align 4, !tbaa !136
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -2982,129 +2982,129 @@ start_prepare.exit:                               ; preds = %check_acyclic_for_o
 258:                                              ; preds = %249
   %259 = call fastcc i32 @mux_init(ptr noundef nonnull %0, ptr noundef nonnull %252)
   %260 = icmp slt i32 %259, 0
-  br i1 %260, label %.thread95, label %._crit_edge255
+  br i1 %260, label %.thread95, label %._crit_edge263
 
-._crit_edge255:                                   ; preds = %258
+._crit_edge263:                                   ; preds = %258
   %.pre = load i32, ptr %62, align 8, !tbaa !20
   br label %261
 
-261:                                              ; preds = %._crit_edge255, %249
-  %262 = phi i32 [ %.pre, %._crit_edge255 ], [ %250, %249 ]
-  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
+261:                                              ; preds = %._crit_edge263, %249
+  %262 = phi i32 [ %.pre, %._crit_edge263 ], [ %250, %249 ]
+  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %263 = zext i32 %262 to i64
-  %264 = icmp samesign ult i64 %indvars.iv.next241, %263
-  br i1 %264, label %249, label %.preheader109, !llvm.loop !167
+  %264 = icmp samesign ult i64 %indvars.iv.next249, %263
+  br i1 %264, label %249, label %.preheader115, !llvm.loop !167
 
-265:                                              ; preds = %.lr.ph161
-  %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
+265:                                              ; preds = %.lr.ph167
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %266 = load i32, ptr %56, align 8, !tbaa !49
   %267 = zext i32 %266 to i64
-  %.not106 = icmp samesign ult i64 %indvars.iv.next244, %267
-  br i1 %.not106, label %.lr.ph161, label %.preheader108, !llvm.loop !168
+  %.not110 = icmp samesign ult i64 %indvars.iv.next252, %267
+  br i1 %.not110, label %.lr.ph167, label %.preheader114, !llvm.loop !168
 
-.lr.ph161:                                        ; preds = %.preheader109, %265
-  %indvars.iv243 = phi i64 [ %indvars.iv.next244, %265 ], [ 0, %.preheader109 ]
+.lr.ph167:                                        ; preds = %.preheader115, %265
+  %indvars.iv251 = phi i64 [ %indvars.iv.next252, %265 ], [ 0, %.preheader115 ]
   %268 = load ptr, ptr %247, align 8, !tbaa !60
-  %269 = getelementptr inbounds nuw %struct.SchEnc, ptr %268, i64 %indvars.iv243
+  %269 = getelementptr inbounds nuw %struct.SchEnc, ptr %268, i64 %indvars.iv251
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 72
   %271 = call fastcc i32 @task_start(ptr noundef nonnull %270)
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %.thread95, label %265
 
-.preheader108:                                    ; preds = %265, %.preheader109
+.preheader114:                                    ; preds = %265, %.preheader115
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %274 = load i32, ptr %131, align 8, !tbaa !62
-  %.not186 = icmp eq i32 %274, 0
-  br i1 %.not186, label %.preheader107, label %.lr.ph167
+  %.not111172.not = icmp eq i32 %274, 0
+  br i1 %.not111172.not, label %.preheader113, label %.lr.ph175
 
-275:                                              ; preds = %.lr.ph167
-  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
+275:                                              ; preds = %.lr.ph175
+  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %276 = load i32, ptr %131, align 8, !tbaa !62
   %277 = zext i32 %276 to i64
-  %278 = icmp samesign ult i64 %indvars.iv.next247, %277
-  br i1 %278, label %.lr.ph167, label %.preheader107, !llvm.loop !169
+  %.not111 = icmp samesign ult i64 %indvars.iv.next255, %277
+  br i1 %.not111, label %.lr.ph175, label %.preheader113, !llvm.loop !169
 
-.lr.ph167:                                        ; preds = %.preheader108, %275
-  %indvars.iv246 = phi i64 [ %indvars.iv.next247, %275 ], [ 0, %.preheader108 ]
-  %279 = load ptr, ptr %273, align 8, !tbaa !65
-  %280 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %279, i64 %indvars.iv246
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 48
-  %282 = call fastcc i32 @task_start(ptr noundef nonnull %281)
-  %283 = icmp sgt i32 %282, -1
-  br i1 %283, label %275, label %.thread95
+.lr.ph175:                                        ; preds = %.preheader114, %275
+  %indvars.iv254 = phi i64 [ %indvars.iv.next255, %275 ], [ 0, %.preheader114 ]
+  %278 = load ptr, ptr %273, align 8, !tbaa !65
+  %279 = getelementptr inbounds nuw %struct.SchFilterGraph, ptr %278, i64 %indvars.iv254
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 48
+  %281 = call fastcc i32 @task_start(ptr noundef nonnull %280)
+  %282 = icmp slt i32 %281, 0
+  br i1 %282, label %.thread95, label %275
 
-.preheader107:                                    ; preds = %275, %.preheader108
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %285 = load i32, ptr %29, align 8, !tbaa !34
-  %.not187 = icmp eq i32 %285, 0
-  br i1 %.not187, label %.preheader, label %.lr.ph175
+.preheader113:                                    ; preds = %275, %.preheader114
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %284 = load i32, ptr %29, align 8, !tbaa !34
+  %.not112182.not = icmp eq i32 %284, 0
+  br i1 %.not112182.not, label %.preheader, label %.lr.ph185
 
-286:                                              ; preds = %.lr.ph175
-  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %287 = load i32, ptr %29, align 8, !tbaa !34
-  %288 = zext i32 %287 to i64
-  %289 = icmp samesign ult i64 %indvars.iv.next250, %288
-  br i1 %289, label %.lr.ph175, label %.preheader, !llvm.loop !170
+285:                                              ; preds = %.lr.ph185
+  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
+  %286 = load i32, ptr %29, align 8, !tbaa !34
+  %287 = zext i32 %286 to i64
+  %.not112 = icmp samesign ult i64 %indvars.iv.next258, %287
+  br i1 %.not112, label %.lr.ph185, label %.preheader, !llvm.loop !170
 
-.lr.ph175:                                        ; preds = %.preheader107, %286
-  %indvars.iv249 = phi i64 [ %indvars.iv.next250, %286 ], [ 0, %.preheader107 ]
-  %290 = load ptr, ptr %284, align 8, !tbaa !50
-  %291 = getelementptr inbounds nuw %struct.SchDec, ptr %290, i64 %indvars.iv249
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
-  %293 = call fastcc i32 @task_start(ptr noundef nonnull %292)
-  %294 = icmp sgt i32 %293, -1
-  br i1 %294, label %286, label %.thread95
+.lr.ph185:                                        ; preds = %.preheader113, %285
+  %indvars.iv257 = phi i64 [ %indvars.iv.next258, %285 ], [ 0, %.preheader113 ]
+  %288 = load ptr, ptr %283, align 8, !tbaa !50
+  %289 = getelementptr inbounds nuw %struct.SchDec, ptr %288, i64 %indvars.iv257
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
+  %291 = call fastcc i32 @task_start(ptr noundef nonnull %290)
+  %292 = icmp slt i32 %291, 0
+  br i1 %292, label %.thread95, label %285
 
-.preheader:                                       ; preds = %286, %.preheader107
-  %295 = load i32, ptr %4, align 8, !tbaa !9
-  %.not188 = icmp eq i32 %295, 0
-  br i1 %.not188, label %._crit_edge184, label %.lr.ph183
+.preheader:                                       ; preds = %285, %.preheader113
+  %293 = load i32, ptr %4, align 8, !tbaa !9
+  %.not196 = icmp eq i32 %293, 0
+  br i1 %.not196, label %._crit_edge194, label %.lr.ph193
 
-.lr.ph183:                                        ; preds = %.preheader
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %297
+.lr.ph193:                                        ; preds = %.preheader
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %295
 
-297:                                              ; preds = %.lr.ph183, %307
-  %298 = phi i32 [ %295, %.lr.ph183 ], [ %308, %307 ]
-  %indvars.iv252 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next253, %307 ]
-  %299 = load ptr, ptr %296, align 8, !tbaa !21
-  %300 = getelementptr inbounds nuw %struct.SchDemux, ptr %299, i64 %indvars.iv252
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  %302 = load i32, ptr %301, align 8, !tbaa !22
-  %.not = icmp eq i32 %302, 0
-  br i1 %.not, label %307, label %303
+295:                                              ; preds = %.lr.ph193, %305
+  %296 = phi i32 [ %293, %.lr.ph193 ], [ %306, %305 ]
+  %indvars.iv260 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next261, %305 ]
+  %297 = load ptr, ptr %294, align 8, !tbaa !21
+  %298 = getelementptr inbounds nuw %struct.SchDemux, ptr %297, i64 %indvars.iv260
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  %300 = load i32, ptr %299, align 8, !tbaa !22
+  %.not = icmp eq i32 %300, 0
+  br i1 %.not, label %305, label %301
 
-303:                                              ; preds = %297
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 24
-  %305 = call fastcc i32 @task_start(ptr noundef nonnull %304)
-  %306 = icmp slt i32 %305, 0
-  br i1 %306, label %.thread95, label %._crit_edge256
+301:                                              ; preds = %295
+  %302 = getelementptr inbounds nuw i8, ptr %298, i64 24
+  %303 = call fastcc i32 @task_start(ptr noundef nonnull %302)
+  %304 = icmp slt i32 %303, 0
+  br i1 %304, label %.thread95, label %._crit_edge264
 
-._crit_edge256:                                   ; preds = %303
-  %.pre257 = load i32, ptr %4, align 8, !tbaa !9
-  br label %307
+._crit_edge264:                                   ; preds = %301
+  %.pre265 = load i32, ptr %4, align 8, !tbaa !9
+  br label %305
 
-307:                                              ; preds = %._crit_edge256, %297
-  %308 = phi i32 [ %.pre257, %._crit_edge256 ], [ %298, %297 ]
-  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %309 = zext i32 %308 to i64
-  %310 = icmp samesign ult i64 %indvars.iv.next253, %309
-  br i1 %310, label %297, label %._crit_edge184, !llvm.loop !171
+305:                                              ; preds = %._crit_edge264, %295
+  %306 = phi i32 [ %.pre265, %._crit_edge264 ], [ %296, %295 ]
+  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
+  %307 = zext i32 %306 to i64
+  %308 = icmp samesign ult i64 %indvars.iv.next261, %307
+  br i1 %308, label %295, label %._crit_edge194, !llvm.loop !171
 
-._crit_edge184:                                   ; preds = %307, %.preheader
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %312 = call i32 @pthread_mutex_lock(ptr noundef nonnull %311) #9
+._crit_edge194:                                   ; preds = %305, %.preheader
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %310 = call i32 @pthread_mutex_lock(ptr noundef nonnull %309) #9
   call fastcc void @schedule_update_locked(ptr noundef nonnull %0)
-  %313 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %311) #9
+  %311 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %309) #9
   br label %start_prepare.exit.thread
 
-.thread95:                                        ; preds = %258, %.lr.ph161, %.lr.ph167, %.lr.ph175, %303
-  %.4 = phi i32 [ %305, %303 ], [ %293, %.lr.ph175 ], [ %282, %.lr.ph167 ], [ %271, %.lr.ph161 ], [ %259, %258 ]
-  %314 = call i32 @sch_stop(ptr noundef nonnull %0, ptr noundef null)
+.thread95:                                        ; preds = %258, %.lr.ph167, %.lr.ph175, %.lr.ph185, %301
+  %.4 = phi i32 [ %303, %301 ], [ %291, %.lr.ph185 ], [ %281, %.lr.ph175 ], [ %271, %.lr.ph167 ], [ %259, %258 ]
+  %312 = call i32 @sch_stop(ptr noundef nonnull %0, ptr noundef null)
   br label %start_prepare.exit.thread
 
-start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread253.i, %.thread251.i, %72, %76, %.thread222.thread.i, %check_acyclic.exit.thread.i, %start_prepare.exit, %.thread95, %._crit_edge184
-  %.0 = phi i32 [ 0, %._crit_edge184 ], [ %.4, %.thread95 ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %72 ], [ -22, %76 ], [ -22, %.thread222.thread.i ], [ -12, %check_acyclic.exit.thread.i ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %47 ], [ -12, %20 ]
+start_prepare.exit.thread:                        ; preds = %20, %47, %77, %._crit_edge375.i, %.thread239.i, %.thread218.i, %.thread.i, %.thread253.i, %.thread251.i, %72, %76, %.thread222.thread.i, %check_acyclic.exit.thread.i, %start_prepare.exit, %.thread95, %._crit_edge194
+  %.0 = phi i32 [ 0, %._crit_edge194 ], [ %.4, %.thread95 ], [ %spec.select.i, %start_prepare.exit ], [ -22, %.thread239.i ], [ -22, %.thread218.i ], [ -22, %.thread.i ], [ -22, %.thread253.i ], [ -22, %.thread251.i ], [ -22, %72 ], [ -22, %76 ], [ -22, %.thread222.thread.i ], [ -12, %check_acyclic.exit.thread.i ], [ -12, %._crit_edge375.i ], [ -12, %77 ], [ -12, %47 ], [ -12, %20 ]
   ret i32 %.0
 }
 

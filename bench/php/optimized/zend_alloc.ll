@@ -9309,9 +9309,9 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15, %21
-  %.1127209 = phi i32 [ %17, %21 ], [ %.0126, %15 ]
-  %.1133208 = phi ptr [ %22, %21 ], [ %.0132, %15 ]
-  %17 = add i32 %.1127209, 64
+  %.1127210 = phi i32 [ %17, %21 ], [ %.0126, %15 ]
+  %.1133209 = phi ptr [ %22, %21 ], [ %.0132, %15 ]
+  %17 = add i32 %.1127210, 64
   %18 = icmp eq i32 %17, 512
   br i1 %18, label %19, label %21
 
@@ -9320,8 +9320,8 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   br i1 %20, label %.thread, label %57
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.1133208, i64 8
-  %23 = load i64, ptr %.1133208, align 8, !tbaa !32
+  %22 = getelementptr inbounds nuw i8, ptr %.1133209, i64 8
+  %23 = load i64, ptr %.1133209, align 8, !tbaa !32
   %24 = icmp eq i64 %23, -1
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -9336,18 +9336,18 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %29 = add nuw i64 %.1130.lcssa, 1
   %30 = and i64 %29, %.1130.lcssa
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph215, label %._crit_edge216
+  br i1 %31, label %.lr.ph216, label %._crit_edge217
 
-.lr.ph215:                                        ; preds = %._crit_edge, %42
-  %.2128213 = phi i32 [ %32, %42 ], [ %.1127.lcssa, %._crit_edge ]
-  %.2134212 = phi ptr [ %43, %42 ], [ %.1133.lcssa, %._crit_edge ]
-  %32 = add i32 %.2128213, 64
+.lr.ph216:                                        ; preds = %._crit_edge, %42
+  %.2128214 = phi i32 [ %32, %42 ], [ %.1127.lcssa, %._crit_edge ]
+  %.2134213 = phi ptr [ %43, %42 ], [ %.1133.lcssa, %._crit_edge ]
+  %32 = add i32 %.2128214, 64
   %33 = icmp uge i32 %32, %11
   %34 = icmp eq i32 %32, 512
   %or.cond = or i1 %33, %34
   br i1 %or.cond, label %35, label %42
 
-35:                                               ; preds = %.lr.ph215
+35:                                               ; preds = %.lr.ph216
   %36 = sub i32 512, %28
   %.not154 = icmp uge i32 %36, %1
   %37 = icmp ult i32 %36, %.0139
@@ -9364,13 +9364,13 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %41 = icmp sgt i32 %.0141, 0
   br i1 %41, label %.thread, label %57
 
-42:                                               ; preds = %.lr.ph215
-  %43 = getelementptr inbounds nuw i8, ptr %.2134212, i64 8
-  %44 = load i64, ptr %.2134212, align 8, !tbaa !32
+42:                                               ; preds = %.lr.ph216
+  %43 = getelementptr inbounds nuw i8, ptr %.2134213, i64 8
+  %44 = load i64, ptr %.2134213, align 8, !tbaa !32
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.lr.ph215, label %._crit_edge216
+  br i1 %45, label %.lr.ph216, label %._crit_edge217
 
-._crit_edge216:                                   ; preds = %42, %._crit_edge
+._crit_edge217:                                   ; preds = %42, %._crit_edge
   %.2134.lcssa = phi ptr [ %.1133.lcssa, %._crit_edge ], [ %43, %42 ]
   %.2131.lcssa = phi i64 [ %30, %._crit_edge ], [ %44, %42 ]
   %.2128.lcssa = phi i32 [ %.1127.lcssa, %._crit_edge ], [ %32, %42 ]
@@ -9381,7 +9381,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %.not = icmp ult i32 %49, %1
   br i1 %.not, label %54, label %50
 
-50:                                               ; preds = %._crit_edge216
+50:                                               ; preds = %._crit_edge217
   %51 = icmp eq i32 %49, %1
   br i1 %51, label %.thread, label %52
 
@@ -9391,9 +9391,9 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %spec.select164 = tail call i32 @llvm.umin.i32(i32 %49, i32 %.0139)
   br label %54
 
-54:                                               ; preds = %52, %._crit_edge216
-  %.1142 = phi i32 [ %.0141, %._crit_edge216 ], [ %spec.select, %52 ]
-  %.1140 = phi i32 [ %.0139, %._crit_edge216 ], [ %spec.select164, %52 ]
+54:                                               ; preds = %52, %._crit_edge217
+  %.1142 = phi i32 [ %.0141, %._crit_edge217 ], [ %spec.select, %52 ]
+  %.1140 = phi i32 [ %.0139, %._crit_edge217 ], [ %spec.select164, %52 ]
   %55 = add i64 %.2131.lcssa, -1
   %56 = or i64 %55, %.2131.lcssa
   br label %15
@@ -9453,8 +9453,8 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 .loopexit:                                        ; preds = %72, %79
   %87 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %87, align 8, !tbaa !44
-  %.not.i167 = icmp eq ptr %.val, null
-  br i1 %.not.i167, label %96, label %88, !prof !23
+  %.not.i168 = icmp eq ptr %.val, null
+  br i1 %.not.i168, label %96, label %88, !prof !23
 
 88:                                               ; preds = %.loopexit
   %89 = load ptr, ptr %.val, align 8, !tbaa !78
@@ -9472,8 +9472,8 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   br label %zend_mm_chunk_alloc.exit
 
 zend_mm_chunk_alloc.exit:                         ; preds = %88, %96
-  %.0.i168 = phi ptr [ %90, %88 ], [ %97, %96 ]
-  %98 = icmp eq ptr %.0.i168, null
+  %.0.i169 = phi ptr [ %90, %88 ], [ %97, %96 ]
+  %98 = icmp eq ptr %.0.i169, null
   br i1 %98, label %99, label %116, !prof !29
 
 99:                                               ; preds = %zend_mm_chunk_alloc.exit
@@ -9482,46 +9482,46 @@ zend_mm_chunk_alloc.exit:                         ; preds = %88, %96
   br i1 %.not157, label %112, label %101
 
 101:                                              ; preds = %99
-  %.val166 = load ptr, ptr %87, align 8, !tbaa !44
-  %.not.i169 = icmp eq ptr %.val166, null
-  br i1 %.not.i169, label %110, label %102, !prof !23
+  %.val167 = load ptr, ptr %87, align 8, !tbaa !44
+  %.not.i170 = icmp eq ptr %.val167, null
+  br i1 %.not.i170, label %110, label %102, !prof !23
 
 102:                                              ; preds = %101
-  %103 = load ptr, ptr %.val166, align 8, !tbaa !78
-  %104 = tail call ptr %103(ptr noundef nonnull %.val166, i64 noundef 2097152, i64 noundef 2097152) #41
+  %103 = load ptr, ptr %.val167, align 8, !tbaa !78
+  %104 = tail call ptr %103(ptr noundef nonnull %.val167, i64 noundef 2097152, i64 noundef 2097152) #41
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2097151
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, 2097151
   %108 = ptrtoint ptr %104 to i64
   %109 = icmp eq i64 %107, %108
   tail call void @llvm.assume(i1 %109)
-  br label %zend_mm_chunk_alloc.exit171
+  br label %zend_mm_chunk_alloc.exit172
 
 110:                                              ; preds = %101
   %111 = tail call fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef 2097152)
-  br label %zend_mm_chunk_alloc.exit171
+  br label %zend_mm_chunk_alloc.exit172
 
-zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
-  %.0.i170 = phi ptr [ %104, %102 ], [ %111, %110 ]
-  %.not158 = icmp eq ptr %.0.i170, null
+zend_mm_chunk_alloc.exit172:                      ; preds = %102, %110
+  %.0.i171 = phi ptr [ %104, %102 ], [ %111, %110 ]
+  %.not158 = icmp eq ptr %.0.i171, null
   br i1 %.not158, label %112, label %116
 
-112:                                              ; preds = %zend_mm_chunk_alloc.exit171, %99
+112:                                              ; preds = %zend_mm_chunk_alloc.exit172, %99
   %113 = load i64, ptr %63, align 8, !tbaa !42
   %114 = shl i32 %1, 12
   %115 = zext i32 %114 to i64
   tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %113, i64 noundef %115) #42
   unreachable
 
-116:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit171
-  %.3 = phi ptr [ %.0.i170, %zend_mm_chunk_alloc.exit171 ], [ %.0.i168, %zend_mm_chunk_alloc.exit ]
+116:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit172
+  %.3 = phi ptr [ %.0.i171, %zend_mm_chunk_alloc.exit172 ], [ %.0.i169, %zend_mm_chunk_alloc.exit ]
   %117 = load i64, ptr %63, align 8, !tbaa !42
   %118 = add i64 %117, 2097152
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %120 = load i64, ptr %119, align 16, !tbaa !69
-  %.165 = tail call i64 @llvm.umax.i64(i64 %120, i64 %118)
+  %.166 = tail call i64 @llvm.umax.i64(i64 %120, i64 %118)
   store i64 %118, ptr %63, align 8, !tbaa !42
-  store i64 %.165, ptr %119, align 16, !tbaa !69
+  store i64 %.166, ptr %119, align 16, !tbaa !69
   br label %121
 
 121:                                              ; preds = %116, %66
@@ -9655,11 +9655,11 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   %193 = load i64, ptr %192, align 8, !tbaa !32
   %194 = or i64 %193, %190
   store i64 %194, ptr %192, align 8, !tbaa !32
-  %.0.i220 = add nsw i32 %183, 1
-  %.not33.i221 = icmp eq i32 %.0.i220, %186
-  br i1 %.not33.i221, label %._crit_edge225, label %.lr.ph224.preheader
+  %.0.i221 = add nsw i32 %183, 1
+  %.not33.i222 = icmp eq i32 %.0.i221, %186
+  br i1 %.not33.i222, label %._crit_edge226, label %.lr.ph225.preheader
 
-.lr.ph224.preheader:                              ; preds = %188
+.lr.ph225.preheader:                              ; preds = %188
   %195 = shl nsw i64 %191, 3
   %196 = getelementptr i8, ptr %.1, i64 %195
   %scevgep = getelementptr i8, ptr %196, i64 552
@@ -9669,9 +9669,9 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   %200 = shl nuw nsw i64 %199, 3
   %201 = add nuw nsw i64 %200, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %201, i1 false), !tbaa !32
-  br label %._crit_edge225
+  br label %._crit_edge226
 
-._crit_edge225:                                   ; preds = %188, %.lr.ph224.preheader
+._crit_edge226:                                   ; preds = %188, %.lr.ph225.preheader
   %.pre-phi = sext i32 %186 to i64
   %202 = and i32 %185, 63
   %203 = xor i32 %202, 63
@@ -9690,12 +9690,12 @@ zend_mm_chunk_alloc.exit171:                      ; preds = %102, %110
   %214 = sext i32 %183 to i64
   br label %zend_mm_bitset_set_range.exit
 
-zend_mm_bitset_set_range.exit:                    ; preds = %177, %._crit_edge225, %206
-  %.sink309 = phi i64 [ %181, %177 ], [ %.pre-phi, %._crit_edge225 ], [ %214, %206 ]
-  %.sink308 = phi i64 [ %180, %177 ], [ %205, %._crit_edge225 ], [ %213, %206 ]
-  %215 = getelementptr inbounds i64, ptr %175, i64 %.sink309
+zend_mm_bitset_set_range.exit:                    ; preds = %177, %._crit_edge226, %206
+  %.sink310 = phi i64 [ %181, %177 ], [ %.pre-phi, %._crit_edge226 ], [ %214, %206 ]
+  %.sink309 = phi i64 [ %180, %177 ], [ %205, %._crit_edge226 ], [ %213, %206 ]
+  %215 = getelementptr inbounds i64, ptr %175, i64 %.sink310
   %216 = load i64, ptr %215, align 8, !tbaa !32
-  %217 = or i64 %216, %.sink308
+  %217 = or i64 %216, %.sink309
   store i64 %217, ptr %215, align 8, !tbaa !32
   %218 = or i32 %1, 1073741824
   %219 = getelementptr inbounds nuw i8, ptr %.1, i64 608
@@ -9711,7 +9711,7 @@ zend_mm_bitset_set_range.exit:                    ; preds = %177, %._crit_edge22
   store i32 %225, ptr %224, align 4, !tbaa !31
   br label %226
 
-226:                                              ; preds = %zend_mm_bitset_set_range.exit, %223
+226:                                              ; preds = %223, %zend_mm_bitset_set_range.exit
   %227 = getelementptr inbounds nuw %struct._zend_mm_page, ptr %.1, i64 %220
   ret ptr %227
 }

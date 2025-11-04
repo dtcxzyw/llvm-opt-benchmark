@@ -464,8 +464,8 @@ gif_read_palette.exit.i.i:                        ; preds = %184, %202
   %229 = getelementptr inbounds nuw i32, ptr %.01519.us.i.i.i, i64 %indvars.iv.i.i.i
   store i32 %217, ptr %229, align 4, !tbaa !55
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i237.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i237.i.i, label %._crit_edge.us.i.i.i, label %228, !llvm.loop !66
+  %exitcond.not.i238.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i238.i.i, label %._crit_edge.us.i.i.i, label %228, !llvm.loop !66
 
 ._crit_edge.us.i.i.i:                             ; preds = %228
   %230 = getelementptr inbounds i8, ptr %.01519.us.i.i.i, i64 %220
@@ -485,34 +485,34 @@ gif_read_palette.exit.i.i:                        ; preds = %184, %202
   %241 = load i32, ptr %240, align 4, !tbaa !65
   %242 = icmp sgt i32 %241, 0
   %243 = icmp sgt i32 %239, 0
-  %or.cond.i238.i.i = select i1 %242, i1 %243, i1 false
-  br i1 %or.cond.i238.i.i, label %.preheader.us.preheader.i239.i.i, label %gif_fill.exit.i.i
+  %or.cond.i239.i.i = select i1 %242, i1 %243, i1 false
+  br i1 %or.cond.i239.i.i, label %.preheader.us.preheader.i240.i.i, label %gif_fill.exit.i.i
 
-.preheader.us.preheader.i239.i.i:                 ; preds = %232
+.preheader.us.preheader.i240.i.i:                 ; preds = %232
   %244 = load ptr, ptr %129, align 8, !tbaa !45
-  %wide.trip.count.i240.i.i = zext nneg i32 %239 to i64
-  br label %.preheader.us.i241.i.i
+  %wide.trip.count.i241.i.i = zext nneg i32 %239 to i64
+  br label %.preheader.us.i242.i.i
 
-.preheader.us.i241.i.i:                           ; preds = %._crit_edge.us.i247.i.i, %.preheader.us.preheader.i239.i.i
-  %.01519.us.i242.i.i = phi ptr [ %247, %._crit_edge.us.i247.i.i ], [ %244, %.preheader.us.preheader.i239.i.i ]
-  %.01618.us.i243.i.i = phi i32 [ %248, %._crit_edge.us.i247.i.i ], [ 0, %.preheader.us.preheader.i239.i.i ]
+.preheader.us.i242.i.i:                           ; preds = %._crit_edge.us.i248.i.i, %.preheader.us.preheader.i240.i.i
+  %.01519.us.i243.i.i = phi ptr [ %247, %._crit_edge.us.i248.i.i ], [ %244, %.preheader.us.preheader.i240.i.i ]
+  %.01618.us.i244.i.i = phi i32 [ %248, %._crit_edge.us.i248.i.i ], [ 0, %.preheader.us.preheader.i240.i.i ]
   br label %245
 
-245:                                              ; preds = %245, %.preheader.us.i241.i.i
-  %indvars.iv.i244.i.i = phi i64 [ 0, %.preheader.us.i241.i.i ], [ %indvars.iv.next.i245.i.i, %245 ]
-  %246 = getelementptr inbounds nuw i32, ptr %.01519.us.i242.i.i, i64 %indvars.iv.i244.i.i
+245:                                              ; preds = %245, %.preheader.us.i242.i.i
+  %indvars.iv.i245.i.i = phi i64 [ 0, %.preheader.us.i242.i.i ], [ %indvars.iv.next.i246.i.i, %245 ]
+  %246 = getelementptr inbounds nuw i32, ptr %.01519.us.i243.i.i, i64 %indvars.iv.i245.i.i
   store i32 %234, ptr %246, align 4, !tbaa !55
-  %indvars.iv.next.i245.i.i = add nuw nsw i64 %indvars.iv.i244.i.i, 1
-  %exitcond.not.i246.i.i = icmp eq i64 %indvars.iv.next.i245.i.i, %wide.trip.count.i240.i.i
-  br i1 %exitcond.not.i246.i.i, label %._crit_edge.us.i247.i.i, label %245, !llvm.loop !66
+  %indvars.iv.next.i246.i.i = add nuw nsw i64 %indvars.iv.i245.i.i, 1
+  %exitcond.not.i247.i.i = icmp eq i64 %indvars.iv.next.i246.i.i, %wide.trip.count.i241.i.i
+  br i1 %exitcond.not.i247.i.i, label %._crit_edge.us.i248.i.i, label %245, !llvm.loop !66
 
-._crit_edge.us.i247.i.i:                          ; preds = %245
-  %247 = getelementptr inbounds i8, ptr %.01519.us.i242.i.i, i64 %237
-  %248 = add nuw nsw i32 %.01618.us.i243.i.i, 1
-  %exitcond23.not.i248.i.i = icmp eq i32 %248, %241
-  br i1 %exitcond23.not.i248.i.i, label %gif_fill.exit.i.i, label %.preheader.us.i241.i.i, !llvm.loop !67
+._crit_edge.us.i248.i.i:                          ; preds = %245
+  %247 = getelementptr inbounds i8, ptr %.01519.us.i243.i.i, i64 %237
+  %248 = add nuw nsw i32 %.01618.us.i244.i.i, 1
+  %exitcond23.not.i249.i.i = icmp eq i32 %248, %241
+  br i1 %exitcond23.not.i249.i.i, label %gif_fill.exit.i.i, label %.preheader.us.i242.i.i, !llvm.loop !67
 
-gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.i, %._crit_edge.us.i247.i.i, %232, %215, %gif_read_palette.exit.i.i
+gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.i, %._crit_edge.us.i248.i.i, %232, %215, %gif_read_palette.exit.i.i
   %.not225.i.i = icmp eq i16 %165, 0
   br i1 %.not225.i.i, label %253, label %249
 
@@ -619,8 +619,8 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   %304 = load i32, ptr %303, align 8, !tbaa !72
   %.val.i.i = load ptr, ptr %129, align 8, !tbaa !45
   %305 = getelementptr i8, ptr %129, i64 64
-  %.val236.i.i = load i32, ptr %305, align 8, !tbaa !55
-  %306 = sext i32 %.val236.i.i to i64
+  %.val237.i.i = load i32, ptr %305, align 8, !tbaa !55
+  %306 = sext i32 %.val237.i.i to i64
   %307 = icmp sgt i32 %304, 0
   br i1 %307, label %.lr.ph5.i.i.i, label %gif_fill_rect.exit.i.i
 
@@ -635,24 +635,24 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   %312 = sext i32 %300 to i64
   %313 = mul nsw i64 %306, %312
   %314 = getelementptr inbounds i8, ptr %.val.i.i, i64 %313
-  %wide.trip.count.i250.i.i = zext nneg i32 %302 to i64
+  %wide.trip.count.i251.i.i = zext nneg i32 %302 to i64
   br label %.lr.ph.us.i.i.i
 
-.lr.ph.us.i.i.i:                                  ; preds = %._crit_edge.us.i254.i.i, %.lr.ph.us.preheader.i.i.i
-  %.0163.us.i.i.i = phi ptr [ %318, %._crit_edge.us.i254.i.i ], [ %314, %.lr.ph.us.preheader.i.i.i ]
-  %.0172.us.i.i.i = phi i32 [ %319, %._crit_edge.us.i254.i.i ], [ 0, %.lr.ph.us.preheader.i.i.i ]
+.lr.ph.us.i.i.i:                                  ; preds = %._crit_edge.us.i255.i.i, %.lr.ph.us.preheader.i.i.i
+  %.0163.us.i.i.i = phi ptr [ %318, %._crit_edge.us.i255.i.i ], [ %314, %.lr.ph.us.preheader.i.i.i ]
+  %.0172.us.i.i.i = phi i32 [ %319, %._crit_edge.us.i255.i.i ], [ 0, %.lr.ph.us.preheader.i.i.i ]
   %315 = getelementptr inbounds i32, ptr %.0163.us.i.i.i, i64 %310
   br label %316
 
 316:                                              ; preds = %316, %.lr.ph.us.i.i.i
-  %indvars.iv.i251.i.i = phi i64 [ 0, %.lr.ph.us.i.i.i ], [ %indvars.iv.next.i252.i.i, %316 ]
-  %317 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv.i251.i.i
+  %indvars.iv.i252.i.i = phi i64 [ 0, %.lr.ph.us.i.i.i ], [ %indvars.iv.next.i253.i.i, %316 ]
+  %317 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv.i252.i.i
   store i32 %298, ptr %317, align 4, !tbaa !55
-  %indvars.iv.next.i252.i.i = add nuw nsw i64 %indvars.iv.i251.i.i, 1
-  %exitcond.not.i253.i.i = icmp eq i64 %indvars.iv.next.i252.i.i, %wide.trip.count.i250.i.i
-  br i1 %exitcond.not.i253.i.i, label %._crit_edge.us.i254.i.i, label %316, !llvm.loop !74
+  %indvars.iv.next.i253.i.i = add nuw nsw i64 %indvars.iv.i252.i.i, 1
+  %exitcond.not.i254.i.i = icmp eq i64 %indvars.iv.next.i253.i.i, %wide.trip.count.i251.i.i
+  br i1 %exitcond.not.i254.i.i, label %._crit_edge.us.i255.i.i, label %316, !llvm.loop !74
 
-._crit_edge.us.i254.i.i:                          ; preds = %316
+._crit_edge.us.i255.i.i:                          ; preds = %316
   %318 = getelementptr inbounds i8, ptr %.0163.us.i.i.i, i64 %306
   %319 = add nuw nsw i32 %.0172.us.i.i.i, 1
   %exitcond9.not.i.i.i = icmp eq i32 %319, %304
@@ -700,14 +700,14 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   %350 = getelementptr inbounds nuw i8, ptr %.02021.i.i.i, i64 %324
   %351 = getelementptr inbounds i8, ptr %.01922.i.i.i, i64 %325
   %352 = add nuw nsw i32 %.023.i.i.i, 1
-  %exitcond.not.i255.i.i = icmp eq i32 %352, %327
-  br i1 %exitcond.not.i255.i.i, label %gif_fill_rect.exit.i.i, label %347, !llvm.loop !77
+  %exitcond.not.i256.i.i = icmp eq i32 %352, %327
+  br i1 %exitcond.not.i256.i.i, label %gif_fill_rect.exit.i.i, label %347, !llvm.loop !77
 
-gif_fill_rect.exit.i.i:                           ; preds = %347, %._crit_edge.us.i254.i.i, %320, %.lr.ph5.i.i.i, %296, %293
+gif_fill_rect.exit.i.i:                           ; preds = %347, %._crit_edge.us.i255.i.i, %320, %.lr.ph5.i.i.i, %296, %293
   %353 = load i32, ptr %139, align 8, !tbaa !78
   store i32 %353, ptr %294, align 4, !tbaa !43
   %.not229.i.i = icmp eq i32 %353, 0
-  br i1 %.not229.i.i, label %gif_copy_img_rect.exit261.i.i, label %354
+  br i1 %.not229.i.i, label %gif_copy_img_rect.exit262.i.i, label %354
 
 354:                                              ; preds = %gif_fill_rect.exit.i.i
   %355 = getelementptr inbounds nuw i8, ptr %7, i64 68
@@ -718,12 +718,12 @@ gif_fill_rect.exit.i.i:                           ; preds = %347, %._crit_edge.u
   store i32 %.0186.i.i, ptr %357, align 4, !tbaa !71
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i32 %.1.i.i, ptr %358, align 8, !tbaa !72
-  switch i32 %353, label %gif_copy_img_rect.exit261.i.i [
-    i32 2, label %gif_copy_img_rect.exit261.sink.split.i.i
+  switch i32 %353, label %gif_copy_img_rect.exit262.i.i [
+    i32 2, label %gif_copy_img_rect.exit262.sink.split.i.i
     i32 3, label %364
   ]
 
-gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
+gif_copy_img_rect.exit262.sink.split.i.i:         ; preds = %354
   %359 = load i32, ptr %138, align 8, !tbaa !44
   %360 = icmp sgt i32 %359, -1
   %361 = getelementptr inbounds nuw i8, ptr %7, i64 100
@@ -731,7 +731,7 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 %..i.i
   %363 = load i32, ptr %362, align 8, !tbaa !55
   store i32 %363, ptr %361, align 4, !tbaa !69
-  br label %gif_copy_img_rect.exit261.i.i
+  br label %gif_copy_img_rect.exit262.i.i
 
 364:                                              ; preds = %354
   %365 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -754,9 +754,9 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %378 = tail call i32 @llvm.abs.i32(i32 %376, i1 true)
   %379 = zext nneg i32 %378 to i64
   %380 = icmp sgt i32 %.1.i.i, 0
-  br i1 %380, label %.lr.ph.i256.i.i, label %gif_copy_img_rect.exit261.i.i
+  br i1 %380, label %.lr.ph.i257.i.i, label %gif_copy_img_rect.exit262.i.i
 
-.lr.ph.i256.i.i:                                  ; preds = %375
+.lr.ph.i257.i.i:                                  ; preds = %375
   %381 = load ptr, ptr %129, align 8, !tbaa !45
   %382 = zext i16 %162 to i64
   %383 = mul nuw nsw i64 %379, %382
@@ -769,20 +769,20 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %390 = sext i32 %389 to i64
   br label %391
 
-391:                                              ; preds = %391, %.lr.ph.i256.i.i
-  %.023.i257.i.i = phi i32 [ 0, %.lr.ph.i256.i.i ], [ %396, %391 ]
-  %.01922.i258.i.i = phi ptr [ %384, %.lr.ph.i256.i.i ], [ %395, %391 ]
-  %.02021.i259.i.i = phi ptr [ %386, %.lr.ph.i256.i.i ], [ %394, %391 ]
-  %392 = getelementptr inbounds nuw i8, ptr %.01922.i258.i.i, i64 %388
-  %393 = getelementptr inbounds nuw i8, ptr %.02021.i259.i.i, i64 %388
+391:                                              ; preds = %391, %.lr.ph.i257.i.i
+  %.023.i258.i.i = phi i32 [ 0, %.lr.ph.i257.i.i ], [ %396, %391 ]
+  %.01922.i259.i.i = phi ptr [ %384, %.lr.ph.i257.i.i ], [ %395, %391 ]
+  %.02021.i260.i.i = phi ptr [ %386, %.lr.ph.i257.i.i ], [ %394, %391 ]
+  %392 = getelementptr inbounds nuw i8, ptr %.01922.i259.i.i, i64 %388
+  %393 = getelementptr inbounds nuw i8, ptr %.02021.i260.i.i, i64 %388
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %392, ptr align 1 %393, i64 %390, i1 false)
-  %394 = getelementptr inbounds i8, ptr %.02021.i259.i.i, i64 %377
-  %395 = getelementptr inbounds nuw i8, ptr %.01922.i258.i.i, i64 %379
-  %396 = add nuw nsw i32 %.023.i257.i.i, 1
-  %exitcond.not.i260.i.i = icmp eq i32 %396, %.1.i.i
-  br i1 %exitcond.not.i260.i.i, label %gif_copy_img_rect.exit261.i.i, label %391, !llvm.loop !77
+  %394 = getelementptr inbounds i8, ptr %.02021.i260.i.i, i64 %377
+  %395 = getelementptr inbounds nuw i8, ptr %.01922.i259.i.i, i64 %379
+  %396 = add nuw nsw i32 %.023.i258.i.i, 1
+  %exitcond.not.i261.i.i = icmp eq i32 %396, %.1.i.i
+  br i1 %exitcond.not.i261.i.i, label %gif_copy_img_rect.exit262.i.i, label %391, !llvm.loop !77
 
-gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_copy_img_rect.exit261.sink.split.i.i, %354, %gif_fill_rect.exit.i.i
+gif_copy_img_rect.exit262.i.i:                    ; preds = %391, %375, %gif_copy_img_rect.exit262.sink.split.i.i, %354, %gif_fill_rect.exit.i.i
   %397 = load ptr, ptr %18, align 8, !tbaa !40
   %398 = load ptr, ptr %8, align 8, !tbaa !38
   %399 = ptrtoint ptr %397 to i64
@@ -792,7 +792,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %403 = icmp slt i32 %402, 2
   br i1 %403, label %gif_parse_next_image.exit.thread, label %404
 
-404:                                              ; preds = %gif_copy_img_rect.exit261.i.i
+404:                                              ; preds = %gif_copy_img_rect.exit262.i.i
   %405 = getelementptr inbounds nuw i8, ptr %398, i64 1
   store ptr %405, ptr %8, align 8, !tbaa !45
   %406 = load i8, ptr %398, align 1, !tbaa !46
@@ -822,9 +822,9 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %425 = zext i16 %159 to i64
   %426 = getelementptr inbounds nuw i32, ptr %424, i64 %425
   %427 = icmp sgt i32 %.1.i.i, 0
-  br i1 %427, label %.lr.ph289.i.i, label %.loopexit
+  br i1 %427, label %.lr.ph290.i.i, label %.loopexit
 
-.lr.ph289.i.i:                                    ; preds = %417
+.lr.ph290.i.i:                                    ; preds = %417
   %428 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %429 = sext i32 %.0186.i.i to i64
   %430 = getelementptr inbounds nuw i8, ptr %7, i64 %207
@@ -833,18 +833,18 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %.sext.i.i = sext i32 %431 to i64
   %.idx.i.i = shl nsw i64 %420, 3
   %432 = sdiv i32 %419, 4
-  %.sext328.i.i = sext i32 %432 to i64
-  %.pre296.i.i = load ptr, ptr %428, align 8, !tbaa !59
-  %.idx290.i.i = shl nsw i64 %429, 2
+  %.sext329.i.i = sext i32 %432 to i64
+  %.pre297.i.i = load ptr, ptr %428, align 8, !tbaa !59
+  %.idx291.i.i = shl nsw i64 %429, 2
   %433 = icmp sgt i32 %.0186.i.i, 0
   br label %434
 
-434:                                              ; preds = %.loopexit.i.i, %.lr.ph289.i.i
-  %435 = phi ptr [ %.pre296.i.i, %.lr.ph289.i.i ], [ %443, %.loopexit.i.i ]
-  %.0187287.i.i = phi i32 [ 0, %.lr.ph289.i.i ], [ %473, %.loopexit.i.i ]
-  %.0190286.i.i = phi ptr [ %426, %.lr.ph289.i.i ], [ %.1191.ph.i.i, %.loopexit.i.i ]
-  %.0192285.i.i = phi i32 [ 0, %.lr.ph289.i.i ], [ %.1193.ph.i.i, %.loopexit.i.i ]
-  %.0196284.i.i = phi i32 [ 0, %.lr.ph289.i.i ], [ %.1197.ph.i.i, %.loopexit.i.i ]
+434:                                              ; preds = %.loopexit.i.i, %.lr.ph290.i.i
+  %435 = phi ptr [ %.pre297.i.i, %.lr.ph290.i.i ], [ %443, %.loopexit.i.i ]
+  %.0187288.i.i = phi i32 [ 0, %.lr.ph290.i.i ], [ %473, %.loopexit.i.i ]
+  %.0190287.i.i = phi ptr [ %426, %.lr.ph290.i.i ], [ %.1191.ph.i.i, %.loopexit.i.i ]
+  %.0192286.i.i = phi i32 [ 0, %.lr.ph290.i.i ], [ %.1193.ph.i.i, %.loopexit.i.i ]
+  %.0196285.i.i = phi i32 [ 0, %.lr.ph290.i.i ], [ %.1197.ph.i.i, %.loopexit.i.i ]
   %436 = load ptr, ptr %408, align 8, !tbaa !34
   %437 = tail call i32 @ff_lzw_decode(ptr noundef %436, ptr noundef %435, i32 noundef %.0184.i.i) #8
   %.not231.i.i = icmp eq i32 %437, %.0184.i.i
@@ -860,14 +860,14 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   br label %.loopexit
 
 441:                                              ; preds = %434
-  %442 = getelementptr inbounds i8, ptr %.0190286.i.i, i64 %.idx290.i.i
+  %442 = getelementptr inbounds i8, ptr %.0190287.i.i, i64 %.idx291.i.i
   %443 = load ptr, ptr %428, align 8, !tbaa !59
   br i1 %433, label %.lr.ph.i.i54, label %._crit_edge.i.i
 
 .lr.ph.i.i54:                                     ; preds = %441, %451
-  %.0183273.i.i = phi ptr [ %453, %451 ], [ %443, %441 ]
-  %.0188272.i.i = phi ptr [ %452, %451 ], [ %.0190286.i.i, %441 ]
-  %444 = load i8, ptr %.0183273.i.i, align 1, !tbaa !46
+  %.0183274.i.i = phi ptr [ %453, %451 ], [ %443, %441 ]
+  %.0188273.i.i = phi ptr [ %452, %451 ], [ %.0190287.i.i, %441 ]
+  %444 = load i8, ptr %.0183274.i.i, align 1, !tbaa !46
   %445 = zext i8 %444 to i32
   %446 = load i32, ptr %138, align 8, !tbaa !44
   %.not234.i.i = icmp eq i32 %446, %445
@@ -877,12 +877,12 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %448 = zext i8 %444 to i64
   %449 = getelementptr inbounds nuw i32, ptr %430, i64 %448
   %450 = load i32, ptr %449, align 4, !tbaa !55
-  store i32 %450, ptr %.0188272.i.i, align 4, !tbaa !55
+  store i32 %450, ptr %.0188273.i.i, align 4, !tbaa !55
   br label %451
 
 451:                                              ; preds = %447, %.lr.ph.i.i54
-  %452 = getelementptr inbounds nuw i8, ptr %.0188272.i.i, i64 4
-  %453 = getelementptr inbounds nuw i8, ptr %.0183273.i.i, i64 1
+  %452 = getelementptr inbounds nuw i8, ptr %.0188273.i.i, i64 4
+  %453 = getelementptr inbounds nuw i8, ptr %.0183274.i.i, i64 1
   %454 = icmp ult ptr %452, %442
   br i1 %454, label %.lr.ph.i.i54, label %._crit_edge.i.i, !llvm.loop !79
 
@@ -890,54 +890,54 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   br i1 %.not232.i.i, label %468, label %455
 
 455:                                              ; preds = %._crit_edge.i.i
-  switch i32 %.0192285.i.i, label %456 [
+  switch i32 %.0192286.i.i, label %456 [
     i32 3, label %462
     i32 2, label %459
   ]
 
 456:                                              ; preds = %455
-  %457 = add nsw i32 %.0196284.i.i, 8
-  %458 = getelementptr inbounds i8, ptr %.0190286.i.i, i64 %.idx.i.i
+  %457 = add nsw i32 %.0196285.i.i, 8
+  %458 = getelementptr inbounds i8, ptr %.0190287.i.i, i64 %.idx.i.i
   br label %465
 
 459:                                              ; preds = %455
-  %460 = add nsw i32 %.0196284.i.i, 4
-  %461 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %420
+  %460 = add nsw i32 %.0196285.i.i, 4
+  %461 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %420
   br label %465
 
 462:                                              ; preds = %455
-  %463 = add nsw i32 %.0196284.i.i, 2
-  %464 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %.sext.i.i
+  %463 = add nsw i32 %.0196285.i.i, 2
+  %464 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %.sext.i.i
   br label %465
 
 465:                                              ; preds = %462, %459, %456
   %.2198.i.i = phi i32 [ %457, %456 ], [ %463, %462 ], [ %460, %459 ]
   %.2.i.i = phi ptr [ %458, %456 ], [ %464, %462 ], [ %461, %459 ]
-  %.not233274.i.i = icmp slt i32 %.2198.i.i, %.1.i.i
-  br i1 %.not233274.i.i, label %.loopexit.i.i, label %.lr.ph277.i.i
+  %.not233275.i.i = icmp slt i32 %.2198.i.i, %.1.i.i
+  br i1 %.not233275.i.i, label %.loopexit.i.i, label %.lr.ph278.i.i
 
-.lr.ph277.i.i:                                    ; preds = %465, %.lr.ph277.i.i
-  %.2194275.i.i = phi i32 [ %467, %.lr.ph277.i.i ], [ %.0192285.i.i, %465 ]
-  %466 = lshr i32 4, %.2194275.i.i
-  %467 = add nsw i32 %.2194275.i.i, 1
+.lr.ph278.i.i:                                    ; preds = %465, %.lr.ph278.i.i
+  %.2194276.i.i = phi i32 [ %467, %.lr.ph278.i.i ], [ %.0192286.i.i, %465 ]
+  %466 = lshr i32 4, %.2194276.i.i
+  %467 = add nsw i32 %.2194276.i.i, 1
   %.not233.i.i = icmp slt i32 %466, %.1.i.i
-  br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph277.i.i, !llvm.loop !80
+  br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph278.i.i, !llvm.loop !80
 
 468:                                              ; preds = %._crit_edge.i.i
-  %469 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %.sext328.i.i
+  %469 = getelementptr inbounds i32, ptr %.0190287.i.i, i64 %.sext329.i.i
   br label %.loopexit.i.i
 
-..loopexit_crit_edge.i.i:                         ; preds = %.lr.ph277.i.i
+..loopexit_crit_edge.i.i:                         ; preds = %.lr.ph278.i.i
   %470 = zext nneg i32 %466 to i64
-  %471 = mul nsw i64 %470, %.sext328.i.i
+  %471 = mul nsw i64 %470, %.sext329.i.i
   %472 = getelementptr inbounds i32, ptr %426, i64 %471
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %..loopexit_crit_edge.i.i, %468, %465
-  %.1197.ph.i.i = phi i32 [ %.0196284.i.i, %468 ], [ %466, %..loopexit_crit_edge.i.i ], [ %.2198.i.i, %465 ]
-  %.1193.ph.i.i = phi i32 [ %.0192285.i.i, %468 ], [ %467, %..loopexit_crit_edge.i.i ], [ %.0192285.i.i, %465 ]
+  %.1197.ph.i.i = phi i32 [ %.0196285.i.i, %468 ], [ %466, %..loopexit_crit_edge.i.i ], [ %.2198.i.i, %465 ]
+  %.1193.ph.i.i = phi i32 [ %.0192286.i.i, %468 ], [ %467, %..loopexit_crit_edge.i.i ], [ %.0192286.i.i, %465 ]
   %.1191.ph.i.i = phi ptr [ %469, %468 ], [ %472, %..loopexit_crit_edge.i.i ], [ %.2.i.i, %465 ]
-  %473 = add nuw nsw i32 %.0187287.i.i, 1
+  %473 = add nuw nsw i32 %.0187288.i.i, 1
   %exitcond.not.i.i53 = icmp eq i32 %473, %.1.i.i
   br i1 %exitcond.not.i.i53, label %.loopexit, label %434, !llvm.loop !81
 
@@ -1074,8 +1074,8 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
 gif_parse_next_image.exit.thread.loopexit139:     ; preds = %bytestream2_get_byte.exit.i
   br label %gif_parse_next_image.exit.thread
 
-gif_parse_next_image.exit.thread:                 ; preds = %488, %474, %.loopexit.i, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit139, %128, %bytestream2_get_byte.exit.thread.i, %260, %274, %415, %205, %149, %174, %364, %gif_copy_img_rect.exit261.i.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
-  %.0 = phi i32 [ %548, %532 ], [ -1094995529, %121 ], [ %107, %104 ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ -1094995529, %gif_read_header1.exit.thread ], [ -541478725, %128 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ %413, %415 ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %174 ], [ -12, %364 ], [ -1094995529, %gif_copy_img_rect.exit261.i.i ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %.lr.ph.i16.i ], [ -541478725, %.loopexit.i ], [ -1094995529, %474 ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit139 ]
+gif_parse_next_image.exit.thread:                 ; preds = %488, %474, %.loopexit.i, %.lr.ph.i16.i, %bytestream2_get_byte.exit.i, %gif_parse_next_image.exit.thread.loopexit139, %128, %bytestream2_get_byte.exit.thread.i, %260, %274, %415, %205, %149, %174, %364, %gif_copy_img_rect.exit262.i.i, %gif_read_header1.exit.thread, %.loopexit, %122, %109, %104, %532, %121
+  %.0 = phi i32 [ %548, %532 ], [ -1094995529, %121 ], [ %107, %104 ], [ -12, %109 ], [ %126, %122 ], [ %530, %.loopexit ], [ -1094995529, %gif_read_header1.exit.thread ], [ -541478725, %128 ], [ -1094995529, %bytestream2_get_byte.exit.thread.i ], [ -1094995529, %260 ], [ -1094995529, %274 ], [ %413, %415 ], [ -1094995529, %205 ], [ -1094995529, %149 ], [ -1094995529, %174 ], [ -12, %364 ], [ -1094995529, %gif_copy_img_rect.exit262.i.i ], [ -541478725, %bytestream2_get_byte.exit.i ], [ -1094995529, %.lr.ph.i16.i ], [ -541478725, %.loopexit.i ], [ -1094995529, %474 ], [ -1094995529, %488 ], [ -1094995529, %gif_parse_next_image.exit.thread.loopexit139 ]
   ret i32 %.0
 }
 

@@ -2521,7 +2521,7 @@ CloseAndCleanupSocket.exit143:                    ; preds = %.thread168, %260
   call void @wolfSSL_Free(ptr noundef nonnull %.098164) #17
   br label %267
 
-267:                                              ; preds = %265, %266
+267:                                              ; preds = %266, %265
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.0103160, ptr %268, align 8, !tbaa !89
   ret i32 %.0103160

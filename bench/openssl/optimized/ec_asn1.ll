@@ -365,7 +365,7 @@ define noundef ptr @EC_GROUP_get_ecparameters(ptr noundef %0, ptr noundef %1) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %64 = call i32 @EC_GROUP_get_pentanomial_basis(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not.i = icmp eq i32 %64, 0
-  br i1 %.not.i, label %.thread63.i, label %65
+  br i1 %.not.i, label %.thread64.i, label %65
 
 65:                                               ; preds = %63
   %66 = call ptr @ASN1_item_new(ptr noundef nonnull @X9_62_PENTANOMIAL_it.local_it) #8
@@ -378,9 +378,9 @@ define noundef ptr @EC_GROUP_get_ecparameters(ptr noundef %0, ptr noundef %1) lo
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 279, ptr noundef nonnull @__func__.ec_asn1_group2fieldid) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524301, ptr noundef null) #8
-  br label %.thread63.i
+  br label %.thread64.i
 
-.thread63.i:                                      ; preds = %69, %63
+.thread64.i:                                      ; preds = %69, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -421,13 +421,13 @@ define noundef ptr @EC_GROUP_get_ecparameters(ptr noundef %0, ptr noundef %1) lo
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 131, ptr noundef null) #8
   br label %ec_asn1_group2fieldid.exit.thread51
 
-ec_asn1_group2fieldid.exit.thread51:              ; preds = %24, %29, %36, %32, %83, %40, %45, %50, %82, %.thread.i, %.thread63.i
-  %.046.i.ph = phi ptr [ null, %.thread63.i ], [ null, %.thread.i ], [ null, %82 ], [ null, %50 ], [ null, %45 ], [ null, %40 ], [ null, %83 ], [ %27, %32 ], [ %27, %36 ], [ null, %29 ], [ null, %24 ]
+ec_asn1_group2fieldid.exit.thread51:              ; preds = %24, %29, %36, %32, %83, %40, %45, %50, %82, %.thread.i, %.thread64.i
+  %.046.i.ph = phi ptr [ null, %.thread64.i ], [ null, %.thread.i ], [ null, %82 ], [ null, %50 ], [ null, %45 ], [ null, %40 ], [ null, %83 ], [ %27, %32 ], [ %27, %36 ], [ null, %29 ], [ null, %24 ]
   call void @BN_free(ptr noundef %.046.i.ph) #8
   br label %ec_asn1_group2fieldid.exit.thread
 
 84:                                               ; preds = %78, %70, %62, %33
-  %.046.i = phi ptr [ %27, %33 ], [ null, %70 ], [ null, %62 ], [ null, %78 ]
+  %.046.i = phi ptr [ %27, %33 ], [ null, %78 ], [ null, %62 ], [ null, %70 ]
   call void @BN_free(ptr noundef %.046.i) #8
   %85 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !27
@@ -771,53 +771,53 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread212.sink.split, label %5
+  br i1 %4, label %.thread214.sink.split, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !15
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread212.sink.split, label %8
+  br i1 %7, label %.thread214.sink.split, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread212.sink.split, label %12
+  br i1 %11, label %.thread214.sink.split, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread212.sink.split, label %16
+  br i1 %15, label %.thread214.sink.split, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %14, align 8, !tbaa !28
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread212.sink.split, label %19
+  br i1 %18, label %.thread214.sink.split, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread212.sink.split, label %23
+  br i1 %22, label %.thread214.sink.split, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread212.sink.split, label %27
+  br i1 %26, label %.thread214.sink.split, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread212.sink.split, label %31
+  br i1 %30, label %.thread214.sink.split, label %31
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %17, align 8, !tbaa !48
   %33 = tail call ptr @BN_bin2bn(ptr noundef nonnull %21, i32 noundef %32, ptr noundef null) #8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread212.sink.split, label %35
+  br i1 %34, label %.thread214.sink.split, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %13, align 8, !tbaa !27
@@ -828,13 +828,13 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %41 = load i32, ptr %38, align 8, !tbaa !48
   %42 = tail call ptr @BN_bin2bn(ptr noundef %40, i32 noundef %41, ptr noundef null) #8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread212.sink.split, label %44
+  br i1 %43, label %.thread214.sink.split, label %44
 
 44:                                               ; preds = %35
   %45 = load ptr, ptr %2, align 8, !tbaa !14
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = tail call i32 @OBJ_obj2nid(ptr noundef %46) #8
-  switch i32 %47, label %.thread212.sink.split [
+  switch i32 %47, label %.thread214.sink.split [
     i32 407, label %48
     i32 406, label %109
   ]
@@ -845,12 +845,12 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %51 = load ptr, ptr %50, align 8, !tbaa !18
   %52 = load i32, ptr %51, align 8, !tbaa !19
   %53 = icmp sgt i32 %52, 661
-  br i1 %53, label %.thread212.sink.split, label %54
+  br i1 %53, label %.thread214.sink.split, label %54
 
 54:                                               ; preds = %48
   %55 = tail call ptr @BN_new() #8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread212.sink.split, label %57
+  br i1 %56, label %.thread214.sink.split, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -859,14 +859,14 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   switch i32 %60, label %107 [
     i32 682, label %61
     i32 683, label %77
-    i32 681, label %.thread212.sink.split
+    i32 681, label %.thread214.sink.split
   ]
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !18
   %.not186 = icmp eq ptr %63, null
-  br i1 %.not186, label %.thread212.sink.split, label %64
+  br i1 %.not186, label %.thread214.sink.split, label %64
 
 64:                                               ; preds = %61
   %65 = tail call i64 @ASN1_INTEGER_get(ptr noundef nonnull %63) #8
@@ -875,82 +875,82 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %68 = icmp slt i64 %65, %67
   %69 = icmp sgt i64 %65, 0
   %or.cond = and i1 %69, %68
-  br i1 %or.cond, label %70, label %.thread212.sink.split
+  br i1 %or.cond, label %70, label %.thread214.sink.split
 
 70:                                               ; preds = %64
   %71 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %66) #8
   %.not187 = icmp eq i32 %71, 0
-  br i1 %.not187, label %.thread212, label %72
+  br i1 %.not187, label %.thread214, label %72
 
 72:                                               ; preds = %70
   %73 = trunc nuw nsw i64 %65 to i32
   %74 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %73) #8
   %.not188 = icmp eq i32 %74, 0
-  br i1 %.not188, label %.thread212, label %75
+  br i1 %.not188, label %.thread214, label %75
 
 75:                                               ; preds = %72
   %76 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef 0) #8
   %.not189.not = icmp eq i32 %76, 0
-  br i1 %.not189.not, label %.thread212, label %.thread216
+  br i1 %.not189.not, label %.thread214, label %.thread218
 
 77:                                               ; preds = %57
   %78 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !18
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %.thread212.sink.split, label %81
+  br i1 %80, label %.thread214.sink.split, label %81
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %51, align 8, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %84 = load i32, ptr %83, align 4, !tbaa !26
   %85 = icmp sgt i32 %82, %84
-  br i1 %85, label %86, label %.thread212.sink.split
+  br i1 %85, label %86, label %.thread214.sink.split
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !25
   %89 = icmp sgt i32 %84, %88
-  br i1 %89, label %90, label %.thread212.sink.split
+  br i1 %89, label %90, label %.thread214.sink.split
 
 90:                                               ; preds = %86
   %91 = load i32, ptr %79, align 4, !tbaa !23
   %92 = icmp sgt i32 %88, %91
   %93 = icmp sgt i32 %91, 0
   %or.cond201 = and i1 %92, %93
-  br i1 %or.cond201, label %94, label %.thread212.sink.split
+  br i1 %or.cond201, label %94, label %.thread214.sink.split
 
 94:                                               ; preds = %90
   %95 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %82) #8
   %.not181 = icmp eq i32 %95, 0
-  br i1 %.not181, label %.thread212, label %96
+  br i1 %.not181, label %.thread214, label %96
 
 96:                                               ; preds = %94
   %97 = load i32, ptr %79, align 4, !tbaa !23
   %98 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %97) #8
   %.not182 = icmp eq i32 %98, 0
-  br i1 %.not182, label %.thread212, label %99
+  br i1 %.not182, label %.thread214, label %99
 
 99:                                               ; preds = %96
   %100 = load i32, ptr %87, align 4, !tbaa !25
   %101 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %100) #8
   %.not183 = icmp eq i32 %101, 0
-  br i1 %.not183, label %.thread212, label %102
+  br i1 %.not183, label %.thread214, label %102
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %83, align 4, !tbaa !26
   %104 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef %103) #8
   %.not184 = icmp eq i32 %104, 0
-  br i1 %.not184, label %.thread212, label %105
+  br i1 %.not184, label %.thread214, label %105
 
 105:                                              ; preds = %102
   %106 = tail call i32 @BN_set_bit(ptr noundef nonnull %55, i32 noundef 0) #8
   %.not185.not = icmp eq i32 %106, 0
-  br i1 %.not185.not, label %.thread212, label %.thread216
+  br i1 %.not185.not, label %.thread214, label %.thread218
 
 107:                                              ; preds = %57
-  br label %.thread212.sink.split
+  br label %.thread214.sink.split
 
-.thread216:                                       ; preds = %75, %105
+.thread218:                                       ; preds = %75, %105
   %108 = tail call ptr @EC_GROUP_new_curve_GF2m(ptr noundef nonnull %55, ptr noundef nonnull %33, ptr noundef nonnull %42, ptr noundef null) #8
   br label %126
 
@@ -959,38 +959,38 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !18
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.thread212.sink.split, label %114
+  br i1 %113, label %.thread214.sink.split, label %114
 
 114:                                              ; preds = %109
   %115 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %112, ptr noundef null) #8
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %.thread212.sink.split, label %117
+  br i1 %116, label %.thread214.sink.split, label %117
 
 117:                                              ; preds = %114
   %118 = tail call i32 @BN_is_negative(ptr noundef nonnull %115) #8
   %.not = icmp eq i32 %118, 0
-  br i1 %.not, label %119, label %.thread212.sink.split
+  br i1 %.not, label %119, label %.thread214.sink.split
 
 119:                                              ; preds = %117
   %120 = tail call i32 @BN_is_zero(ptr noundef nonnull %115) #8
   %.not180 = icmp eq i32 %120, 0
-  br i1 %.not180, label %121, label %.thread212.sink.split
+  br i1 %.not180, label %121, label %.thread214.sink.split
 
 121:                                              ; preds = %119
   %122 = tail call i32 @BN_num_bits(ptr noundef nonnull %115) #8
   %123 = icmp sgt i32 %122, 661
-  br i1 %123, label %.thread212.sink.split, label %124
+  br i1 %123, label %.thread214.sink.split, label %124
 
 124:                                              ; preds = %121
   %125 = tail call ptr @EC_GROUP_new_curve_GFp(ptr noundef nonnull %115, ptr noundef nonnull %33, ptr noundef nonnull %42, ptr noundef null) #8
   br label %126
 
-126:                                              ; preds = %.thread216, %124
-  %.2143 = phi ptr [ %125, %124 ], [ %108, %.thread216 ]
-  %.2139 = phi ptr [ %115, %124 ], [ %55, %.thread216 ]
-  %.0132.in = phi i32 [ %122, %124 ], [ %52, %.thread216 ]
+126:                                              ; preds = %.thread218, %124
+  %.2143 = phi ptr [ %125, %124 ], [ %108, %.thread218 ]
+  %.2139 = phi ptr [ %115, %124 ], [ %55, %.thread218 ]
+  %.0132.in = phi i32 [ %122, %124 ], [ %52, %.thread218 ]
   %127 = icmp eq ptr %.2143, null
-  br i1 %127, label %.thread212.sink.split, label %128
+  br i1 %127, label %.thread214.sink.split, label %128
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr %13, align 8, !tbaa !27
@@ -1002,7 +1002,7 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
 132:                                              ; preds = %128
   %133 = load i32, ptr %131, align 8, !tbaa !48
   %134 = icmp eq i32 %133, 0
-  br i1 %134, label %.thread212.sink.split, label %135
+  br i1 %134, label %.thread214.sink.split, label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %.2143, i64 48
@@ -1016,7 +1016,7 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %143 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %142, ptr noundef nonnull @.str.2, i32 noundef 699) #8
   store ptr %143, ptr %136, align 8, !tbaa !31
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.thread212, label %145
+  br i1 %144, label %.thread214, label %145
 
 145:                                              ; preds = %135
   %146 = load ptr, ptr %13, align 8, !tbaa !27
@@ -1038,29 +1038,29 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %159 = load ptr, ptr %158, align 8, !tbaa !42
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread212.sink.split, label %161
+  br i1 %160, label %.thread214.sink.split, label %161
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %163 = load ptr, ptr %162, align 8, !tbaa !41
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %.thread212.sink.split, label %165
+  br i1 %164, label %.thread214.sink.split, label %165
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !46
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %.thread212.sink.split, label %169
+  br i1 %168, label %.thread214.sink.split, label %169
 
 169:                                              ; preds = %165
   %170 = load i32, ptr %163, align 8, !tbaa !48
   %171 = icmp eq i32 %170, 0
-  br i1 %171, label %.thread212.sink.split, label %172
+  br i1 %171, label %.thread214.sink.split, label %172
 
 172:                                              ; preds = %169
   %173 = tail call ptr @EC_POINT_new(ptr noundef nonnull %.2143) #8
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %.thread212, label %175
+  br i1 %174, label %.thread214, label %175
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr %162, align 8, !tbaa !41
@@ -1077,29 +1077,29 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %186 = sext i32 %185 to i64
   %187 = tail call i32 @EC_POINT_oct2point(ptr noundef nonnull %.2143, ptr noundef nonnull %173, ptr noundef %184, i64 noundef %186, ptr noundef null) #8
   %.not191 = icmp eq i32 %187, 0
-  br i1 %.not191, label %.thread212.sink.split, label %188
+  br i1 %.not191, label %.thread214.sink.split, label %188
 
 188:                                              ; preds = %175
   %189 = load ptr, ptr %158, align 8, !tbaa !42
   %190 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %189, ptr noundef nonnull %33) #8
   %191 = icmp eq ptr %190, null
-  br i1 %191, label %.thread212.sink.split, label %192
+  br i1 %191, label %.thread214.sink.split, label %192
 
 192:                                              ; preds = %188
   %193 = tail call i32 @BN_is_negative(ptr noundef nonnull %33) #8
   %.not192 = icmp eq i32 %193, 0
-  br i1 %.not192, label %194, label %.thread212.sink.split
+  br i1 %.not192, label %194, label %.thread214.sink.split
 
 194:                                              ; preds = %192
   %195 = tail call i32 @BN_is_zero(ptr noundef nonnull %33) #8
   %.not193 = icmp eq i32 %195, 0
-  br i1 %.not193, label %196, label %.thread212.sink.split
+  br i1 %.not193, label %196, label %.thread214.sink.split
 
 196:                                              ; preds = %194
   %197 = tail call i32 @BN_num_bits(ptr noundef nonnull %33) #8
   %198 = add nsw i32 %.0132.in, 1
   %199 = icmp sgt i32 %197, %198
-  br i1 %199, label %.thread212.sink.split, label %200
+  br i1 %199, label %.thread214.sink.split, label %200
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1114,33 +1114,33 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
 205:                                              ; preds = %200
   %206 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %202, ptr noundef nonnull %42) #8
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %.thread212.sink.split, label %208
+  br i1 %207, label %.thread214.sink.split, label %208
 
 208:                                              ; preds = %205, %204
   %.1135 = phi ptr [ null, %204 ], [ %42, %205 ]
   %209 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %.2143, ptr noundef nonnull %173, ptr noundef nonnull %33, ptr noundef %.1135) #8
   %.not194 = icmp eq i32 %209, 0
-  br i1 %.not194, label %.thread212.sink.split, label %210
+  br i1 %.not194, label %.thread214.sink.split, label %210
 
 210:                                              ; preds = %208
   %211 = tail call ptr @BN_CTX_new() #8
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %.thread212.sink.split, label %213
+  br i1 %212, label %.thread214.sink.split, label %213
 
 213:                                              ; preds = %210
   %214 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %.2143) #8
   %215 = icmp eq ptr %214, null
-  br i1 %215, label %.thread212.sink.split, label %216
+  br i1 %215, label %.thread214.sink.split, label %216
 
 216:                                              ; preds = %213
   %217 = tail call i64 @EC_GROUP_set_seed(ptr noundef nonnull %214, ptr noundef null, i64 noundef 0) #8
   %.not195 = icmp eq i64 %217, 1
-  br i1 %.not195, label %218, label %.thread212.sink.split
+  br i1 %.not195, label %218, label %.thread214.sink.split
 
 218:                                              ; preds = %216
   %219 = tail call i32 @EC_GROUP_set_generator(ptr noundef nonnull %214, ptr noundef nonnull %173, ptr noundef nonnull %33, ptr noundef null) #8
   %.not196 = icmp eq i32 %219, 0
-  br i1 %.not196, label %.thread212.sink.split, label %220
+  br i1 %.not196, label %.thread214.sink.split, label %220
 
 220:                                              ; preds = %218
   %221 = tail call i32 @ossl_ec_curve_nid_from_params(ptr noundef nonnull %214, ptr noundef nonnull %211) #8
@@ -1150,7 +1150,7 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
 222:                                              ; preds = %220
   %223 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %221) #8
   %224 = icmp eq ptr %223, null
-  br i1 %224, label %.thread212.sink.split, label %225
+  br i1 %224, label %.thread214.sink.split, label %225
 
 225:                                              ; preds = %222
   tail call void @EC_GROUP_free(ptr noundef nonnull %.2143) #8
@@ -1164,10 +1164,10 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
 230:                                              ; preds = %225
   %231 = tail call i64 @EC_GROUP_set_seed(ptr noundef nonnull %223, ptr noundef null, i64 noundef 0) #8
   %.not198 = icmp eq i64 %231, 1
-  br i1 %.not198, label %232, label %.thread212
+  br i1 %.not198, label %232, label %.thread214
 
-.thread212.sink.split:                            ; preds = %222, %213, %216, %218, %210, %208, %205, %196, %192, %194, %188, %175, %157, %161, %165, %169, %132, %126, %44, %121, %117, %119, %114, %109, %57, %81, %86, %90, %77, %64, %61, %54, %48, %35, %31, %12, %16, %19, %23, %27, %1, %5, %8, %107
-  %.sink280 = phi i32 [ 642, %107 ], [ 533, %8 ], [ 533, %5 ], [ 533, %1 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 546, %12 ], [ 551, %31 ], [ 556, %35 ], [ 576, %48 ], [ 581, %54 ], [ 592, %61 ], [ 599, %64 ], [ 615, %77 ], [ 622, %90 ], [ 622, %86 ], [ 622, %81 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 664, %119 ], [ 664, %117 ], [ 670, %121 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 710, %157 ], [ 724, %175 ], [ 730, %188 ], [ 734, %194 ], [ 734, %192 ], [ 738, %196 ], [ 747, %205 ], [ 752, %208 ], [ 769, %210 ], [ 775, %218 ], [ 775, %216 ], [ 775, %213 ], [ 800, %222 ]
+.thread214.sink.split:                            ; preds = %222, %213, %216, %218, %210, %208, %205, %196, %192, %194, %188, %175, %157, %161, %165, %169, %132, %126, %44, %121, %117, %119, %114, %109, %57, %81, %86, %90, %77, %64, %61, %54, %48, %35, %31, %12, %16, %19, %23, %27, %1, %5, %8, %107
+  %.sink281 = phi i32 [ 642, %107 ], [ 533, %8 ], [ 533, %5 ], [ 533, %1 ], [ 546, %27 ], [ 546, %23 ], [ 546, %19 ], [ 546, %16 ], [ 546, %12 ], [ 551, %31 ], [ 556, %35 ], [ 576, %48 ], [ 581, %54 ], [ 592, %61 ], [ 599, %64 ], [ 615, %77 ], [ 622, %90 ], [ 622, %86 ], [ 622, %81 ], [ 638, %57 ], [ 654, %109 ], [ 659, %114 ], [ 664, %119 ], [ 664, %117 ], [ 670, %121 ], [ 677, %44 ], [ 682, %126 ], [ 695, %132 ], [ 710, %169 ], [ 710, %165 ], [ 710, %161 ], [ 710, %157 ], [ 724, %175 ], [ 730, %188 ], [ 734, %194 ], [ 734, %192 ], [ 738, %196 ], [ 747, %205 ], [ 752, %208 ], [ 769, %210 ], [ 775, %218 ], [ 775, %216 ], [ 775, %213 ], [ 800, %222 ]
   %.sink = phi i32 [ 115, %107 ], [ 115, %8 ], [ 115, %5 ], [ 115, %1 ], [ 115, %27 ], [ 115, %23 ], [ 115, %19 ], [ 115, %16 ], [ 115, %12 ], [ 524291, %31 ], [ 524291, %35 ], [ 143, %48 ], [ 524291, %54 ], [ 115, %61 ], [ 137, %64 ], [ 115, %77 ], [ 132, %90 ], [ 132, %86 ], [ 132, %81 ], [ 126, %57 ], [ 115, %109 ], [ 524301, %114 ], [ 103, %119 ], [ 103, %117 ], [ 143, %121 ], [ 103, %44 ], [ 524304, %126 ], [ 115, %132 ], [ 115, %169 ], [ 115, %165 ], [ 115, %161 ], [ 115, %157 ], [ 524304, %175 ], [ 524301, %188 ], [ 122, %194 ], [ 122, %192 ], [ 122, %196 ], [ 524301, %205 ], [ 524304, %208 ], [ 524291, %210 ], [ 524304, %218 ], [ 524304, %216 ], [ 524304, %213 ], [ 524304, %222 ]
   %.0141.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ %.2143, %132 ], [ %.2143, %169 ], [ %.2143, %165 ], [ %.2143, %161 ], [ %.2143, %157 ], [ %.2143, %175 ], [ %.2143, %188 ], [ %.2143, %194 ], [ %.2143, %192 ], [ %.2143, %196 ], [ %.2143, %205 ], [ %.2143, %208 ], [ %.2143, %210 ], [ %.2143, %218 ], [ %.2143, %216 ], [ %.2143, %213 ], [ %.2143, %222 ]
   %.0140.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %214, %218 ], [ %214, %216 ], [ %214, %213 ], [ %214, %222 ]
@@ -1177,35 +1177,35 @@ define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %
   %.0133.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ %173, %175 ], [ %173, %188 ], [ %173, %194 ], [ %173, %192 ], [ %173, %196 ], [ %173, %205 ], [ %173, %208 ], [ %173, %210 ], [ %173, %218 ], [ %173, %216 ], [ %173, %213 ], [ %173, %222 ]
   %.0131.ph.ph = phi ptr [ null, %107 ], [ null, %8 ], [ null, %5 ], [ null, %1 ], [ null, %27 ], [ null, %23 ], [ null, %19 ], [ null, %16 ], [ null, %12 ], [ null, %31 ], [ null, %35 ], [ null, %48 ], [ null, %54 ], [ null, %61 ], [ null, %64 ], [ null, %77 ], [ null, %90 ], [ null, %86 ], [ null, %81 ], [ null, %57 ], [ null, %109 ], [ null, %114 ], [ null, %119 ], [ null, %117 ], [ null, %121 ], [ null, %44 ], [ null, %126 ], [ null, %132 ], [ null, %169 ], [ null, %165 ], [ null, %161 ], [ null, %157 ], [ null, %175 ], [ null, %188 ], [ null, %194 ], [ null, %192 ], [ null, %196 ], [ null, %205 ], [ null, %208 ], [ null, %210 ], [ %211, %218 ], [ %211, %216 ], [ %211, %213 ], [ %211, %222 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink280, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink281, ptr noundef nonnull @__func__.EC_GROUP_new_from_ecparameters) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
-  br label %.thread212
+  br label %.thread214
 
-.thread212:                                       ; preds = %.thread212.sink.split, %105, %75, %230, %102, %99, %96, %94, %72, %70, %135, %172
-  %.0141.ph = phi ptr [ %.2143, %172 ], [ %.2143, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %223, %230 ], [ null, %75 ], [ null, %105 ], [ %.0141.ph.ph, %.thread212.sink.split ]
-  %.0140.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %214, %230 ], [ null, %75 ], [ null, %105 ], [ %.0140.ph.ph, %.thread212.sink.split ]
-  %.0137.ph = phi ptr [ %.2139, %172 ], [ %.2139, %135 ], [ %55, %70 ], [ %55, %72 ], [ %55, %94 ], [ %55, %96 ], [ %55, %99 ], [ %55, %102 ], [ %.2139, %230 ], [ %55, %75 ], [ %55, %105 ], [ %.0137.ph.ph, %.thread212.sink.split ]
-  %.0136.ph = phi ptr [ %33, %172 ], [ %33, %135 ], [ %33, %70 ], [ %33, %72 ], [ %33, %94 ], [ %33, %96 ], [ %33, %99 ], [ %33, %102 ], [ %33, %230 ], [ %33, %75 ], [ %33, %105 ], [ %.0136.ph.ph, %.thread212.sink.split ]
-  %.0134.ph = phi ptr [ %42, %172 ], [ %42, %135 ], [ %42, %70 ], [ %42, %72 ], [ %42, %94 ], [ %42, %96 ], [ %42, %99 ], [ %42, %102 ], [ %.1135, %230 ], [ %42, %75 ], [ %42, %105 ], [ %.0134.ph.ph, %.thread212.sink.split ]
-  %.0133.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %173, %230 ], [ null, %75 ], [ null, %105 ], [ %.0133.ph.ph, %.thread212.sink.split ]
-  %.0131.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %211, %230 ], [ null, %75 ], [ null, %105 ], [ %.0131.ph.ph, %.thread212.sink.split ]
+.thread214:                                       ; preds = %.thread214.sink.split, %105, %75, %230, %102, %99, %96, %94, %72, %70, %135, %172
+  %.0141.ph = phi ptr [ %.2143, %172 ], [ %.2143, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %223, %230 ], [ null, %75 ], [ null, %105 ], [ %.0141.ph.ph, %.thread214.sink.split ]
+  %.0140.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %214, %230 ], [ null, %75 ], [ null, %105 ], [ %.0140.ph.ph, %.thread214.sink.split ]
+  %.0137.ph = phi ptr [ %.2139, %172 ], [ %.2139, %135 ], [ %55, %70 ], [ %55, %72 ], [ %55, %94 ], [ %55, %96 ], [ %55, %99 ], [ %55, %102 ], [ %.2139, %230 ], [ %55, %75 ], [ %55, %105 ], [ %.0137.ph.ph, %.thread214.sink.split ]
+  %.0136.ph = phi ptr [ %33, %172 ], [ %33, %135 ], [ %33, %70 ], [ %33, %72 ], [ %33, %94 ], [ %33, %96 ], [ %33, %99 ], [ %33, %102 ], [ %33, %230 ], [ %33, %75 ], [ %33, %105 ], [ %.0136.ph.ph, %.thread214.sink.split ]
+  %.0134.ph = phi ptr [ %42, %172 ], [ %42, %135 ], [ %42, %70 ], [ %42, %72 ], [ %42, %94 ], [ %42, %96 ], [ %42, %99 ], [ %42, %102 ], [ %.1135, %230 ], [ %42, %75 ], [ %42, %105 ], [ %.0134.ph.ph, %.thread214.sink.split ]
+  %.0133.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %173, %230 ], [ null, %75 ], [ null, %105 ], [ %.0133.ph.ph, %.thread214.sink.split ]
+  %.0131.ph = phi ptr [ null, %172 ], [ null, %135 ], [ null, %70 ], [ null, %72 ], [ null, %94 ], [ null, %96 ], [ null, %99 ], [ null, %102 ], [ %211, %230 ], [ null, %75 ], [ null, %105 ], [ %.0131.ph.ph, %.thread214.sink.split ]
   tail call void @EC_GROUP_free(ptr noundef %.0141.ph) #8
   br label %232
 
-232:                                              ; preds = %220, %225, %230, %.thread212
-  %.0131251 = phi ptr [ %.0131.ph, %.thread212 ], [ %211, %220 ], [ %211, %225 ], [ %211, %230 ]
-  %.0133249 = phi ptr [ %.0133.ph, %.thread212 ], [ %173, %220 ], [ %173, %225 ], [ %173, %230 ]
-  %.0134247 = phi ptr [ %.0134.ph, %.thread212 ], [ %.1135, %220 ], [ %.1135, %225 ], [ %.1135, %230 ]
-  %.0136245 = phi ptr [ %.0136.ph, %.thread212 ], [ %33, %220 ], [ %33, %225 ], [ %33, %230 ]
-  %.0137243 = phi ptr [ %.0137.ph, %.thread212 ], [ %.2139, %220 ], [ %.2139, %225 ], [ %.2139, %230 ]
-  %.0140241 = phi ptr [ %.0140.ph, %.thread212 ], [ %214, %220 ], [ %214, %225 ], [ %214, %230 ]
-  %.5 = phi ptr [ null, %.thread212 ], [ %.2143, %220 ], [ %223, %225 ], [ %223, %230 ]
-  tail call void @EC_GROUP_free(ptr noundef %.0140241) #8
-  tail call void @BN_free(ptr noundef %.0137243) #8
-  tail call void @BN_free(ptr noundef %.0136245) #8
-  tail call void @BN_free(ptr noundef %.0134247) #8
-  tail call void @EC_POINT_free(ptr noundef %.0133249) #8
-  tail call void @BN_CTX_free(ptr noundef %.0131251) #8
+232:                                              ; preds = %220, %225, %230, %.thread214
+  %.0131253 = phi ptr [ %.0131.ph, %.thread214 ], [ %211, %220 ], [ %211, %225 ], [ %211, %230 ]
+  %.0133251 = phi ptr [ %.0133.ph, %.thread214 ], [ %173, %220 ], [ %173, %225 ], [ %173, %230 ]
+  %.0134249 = phi ptr [ %.0134.ph, %.thread214 ], [ %.1135, %220 ], [ %.1135, %225 ], [ %.1135, %230 ]
+  %.0136247 = phi ptr [ %.0136.ph, %.thread214 ], [ %33, %220 ], [ %33, %225 ], [ %33, %230 ]
+  %.0137245 = phi ptr [ %.0137.ph, %.thread214 ], [ %.2139, %220 ], [ %.2139, %225 ], [ %.2139, %230 ]
+  %.0140243 = phi ptr [ %.0140.ph, %.thread214 ], [ %214, %220 ], [ %214, %225 ], [ %214, %230 ]
+  %.5 = phi ptr [ null, %.thread214 ], [ %.2143, %220 ], [ %223, %225 ], [ %223, %230 ]
+  tail call void @EC_GROUP_free(ptr noundef %.0140243) #8
+  tail call void @BN_free(ptr noundef %.0137245) #8
+  tail call void @BN_free(ptr noundef %.0136247) #8
+  tail call void @BN_free(ptr noundef %.0134249) #8
+  tail call void @EC_POINT_free(ptr noundef %.0133251) #8
+  tail call void @BN_CTX_free(ptr noundef %.0131253) #8
   ret ptr %.5
 }
 

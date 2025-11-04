@@ -450,11 +450,11 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
 
 34:                                               ; preds = %29
   %35 = icmp slt i32 %.pre146, 12
-  br i1 %35, label %.lr.ph.preheader.i, label %.lr.ph41.i.preheader
+  br i1 %35, label %.lr.ph.preheader.i, label %.lr.ph43.i.preheader
 
-.lr.ph41.i.preheader:                             ; preds = %.preheader.i, %34
-  %.239.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
-  br label %.lr.ph41.i
+.lr.ph43.i.preheader:                             ; preds = %.preheader.i, %34
+  %.241.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
+  br label %.lr.ph43.i
 
 .lr.ph.preheader.i:                               ; preds = %34
   %36 = sext i32 %.pre146 to i64
@@ -464,11 +464,11 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
 .preheader.i:                                     ; preds = %41
   %.pre.i = load i32, ptr %17, align 8
   %38 = icmp sgt i32 %.pre.i, 0
-  br i1 %38, label %.lr.ph41.i.preheader, label %._crit_edge.i
+  br i1 %38, label %.lr.ph43.i.preheader, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %36, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %.02537.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %42, %41 ]
+  %.02539.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %42, %41 ]
   %39 = load ptr, ptr %16, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %40 = call i32 @slurm_bit_test(ptr noundef %39, i64 noundef %indvars.iv.next.i) #7
@@ -476,32 +476,32 @@ define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %
   br i1 %.not29.i, label %41, label %.thread.i
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = add nuw i32 %.02537.i, 1
+  %42 = add nuw i32 %.02539.i, 1
   %exitcond.not.i = icmp eq i32 %42, %37
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !8
 
-.lr.ph41.i:                                       ; preds = %.lr.ph41.i.preheader, %45
-  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %45 ], [ 0, %.lr.ph41.i.preheader ]
-  %.239.i = phi i32 [ %46, %45 ], [ %.239.i.ph, %.lr.ph41.i.preheader ]
+.lr.ph43.i:                                       ; preds = %.lr.ph43.i.preheader, %45
+  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %45 ], [ 0, %.lr.ph43.i.preheader ]
+  %.241.i = phi i32 [ %46, %45 ], [ %.241.i.ph, %.lr.ph43.i.preheader ]
   %43 = load ptr, ptr %16, align 8
-  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %44 = call i32 @slurm_bit_test(ptr noundef %43, i64 noundef %indvars.iv.next47.i) #7
+  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
+  %44 = call i32 @slurm_bit_test(ptr noundef %43, i64 noundef %indvars.iv.next49.i) #7
   %.not30.i = icmp eq i32 %44, 0
   br i1 %.not30.i, label %45, label %.thread.i
 
-45:                                               ; preds = %.lr.ph41.i
-  %46 = add nuw nsw i32 %.239.i, 1
+45:                                               ; preds = %.lr.ph43.i
+  %46 = add nuw nsw i32 %.241.i, 1
   %47 = load i32, ptr %17, align 8
   %48 = sext i32 %47 to i64
-  %49 = icmp slt i64 %indvars.iv.next47.i, %48
-  br i1 %49, label %.lr.ph41.i, label %._crit_edge.i, !llvm.loop !11
+  %49 = icmp slt i64 %indvars.iv.next49.i, %48
+  br i1 %49, label %.lr.ph43.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %45
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #8
   unreachable
 
-.thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph41.i
-  %.126.i = phi i32 [ %.239.i, %.lr.ph41.i ], [ %.02537.i, %.lr.ph.i ]
+.thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph43.i
+  %.126.i = phi i32 [ %.241.i, %.lr.ph43.i ], [ %.02539.i, %.lr.ph.i ]
   %50 = load i32, ptr %17, align 8
   %51 = add nsw i32 %50, %.126.i
   store i32 %51, ptr %17, align 8

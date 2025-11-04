@@ -723,7 +723,7 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias noundef align 8 dereferenceable_or_null(344) ptr @kmalloc_node_trace(ptr noundef %18, i32 noundef %16, i32 noundef %7, i64 noundef 344) #19
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit10, label %21
+  br i1 %20, label %.loopexit11, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
@@ -830,7 +830,7 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
 85:                                               ; preds = %77, %64, %59
   %86 = add nuw nsw i64 %60, 1
   %87 = icmp eq i64 %86, 6
-  br i1 %87, label %.loopexit10, label %59, !llvm.loop !24
+  br i1 %87, label %.loopexit11, label %59, !llvm.loop !24
 
 .preheader:                                       ; preds = %82, %96
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ %60, %82 ]
@@ -868,9 +868,9 @@ define internal fastcc noundef ptr @blkg_alloc(ptr noundef %0, ptr noundef %1, i
 
 102:                                              ; preds = %101, %21
   tail call void @kfree(ptr noundef nonnull %19) #16
-  br label %.loopexit10
+  br label %.loopexit11
 
-.loopexit10:                                      ; preds = %85, %102, %14
+.loopexit11:                                      ; preds = %85, %102, %14
   %103 = phi ptr [ null, %102 ], [ null, %14 ], [ %19, %85 ]
   ret ptr %103
 }
@@ -1726,9 +1726,9 @@ define internal noundef nonnull ptr @blkcg_css_alloc(ptr noundef readnone captur
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 304
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
-  br i1 %11, label %79, label %.preheader11
+  br i1 %11, label %79, label %.preheader12
 
-.preheader11:                                     ; preds = %7, %21
+.preheader12:                                     ; preds = %7, %21
   %12 = phi i64 [ %30, %21 ], [ 0, %7 ]
   %13 = load i64, ptr @__cpu_possible_mask, align 8
   %14 = shl nsw i64 -1, %12
@@ -1736,7 +1736,7 @@ define internal noundef nonnull ptr @blkcg_css_alloc(ptr noundef readnone captur
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %.preheader11
+17:                                               ; preds = %.preheader12
   %18 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %15) #17, !srcloc !21
   %19 = and i64 %18, 4294967232
   %20 = icmp eq i64 %19, 0
@@ -1754,9 +1754,9 @@ define internal noundef nonnull ptr @blkcg_css_alloc(ptr noundef readnone captur
   %29 = add nuw nsw i64 %18, 1
   %30 = and i64 %29, 127
   %31 = icmp samesign ugt i64 %30, 63
-  br i1 %31, label %.thread, label %.preheader11, !prof !22, !llvm.loop !53
+  br i1 %31, label %.thread, label %.preheader12, !prof !22, !llvm.loop !53
 
-.thread:                                          ; preds = %.preheader11, %21, %17
+.thread:                                          ; preds = %.preheader12, %21, %17
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 240
   br label %33
 
@@ -1853,7 +1853,7 @@ define internal noundef nonnull ptr @blkcg_css_alloc(ptr noundef readnone captur
   tail call void @kfree(ptr noundef nonnull %8) #16
   br label %82
 
-82:                                               ; preds = %3, %55, %79, %81
+82:                                               ; preds = %81, %79, %55, %3
   %83 = phi ptr [ %8, %55 ], [ inttoptr (i64 -12 to ptr), %79 ], [ inttoptr (i64 -12 to ptr), %81 ], [ inttoptr (i64 -12 to ptr), %3 ]
   tail call void @mutex_unlock(ptr noundef nonnull @blkcg_pol_mutex) #16
   ret ptr %83
@@ -2472,7 +2472,7 @@ define dso_local range(i32 -28, 1) i32 @blkcg_policy_register(ptr noundef %0) #1
   %33 = load ptr, ptr @all_blkcgs, align 8
   %34 = icmp eq ptr %33, @all_blkcgs
   %or.cond = select i1 %17, i1 true, i1 %34
-  br i1 %or.cond, label %.loopexit11, label %.lr.ph
+  br i1 %or.cond, label %.loopexit12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30, %39
   %35 = phi ptr [ %47, %39 ], [ %33, %30 ]
@@ -2494,16 +2494,16 @@ define dso_local range(i32 -28, 1) i32 @blkcg_policy_register(ptr noundef %0) #1
   store i32 %45, ptr %46, align 8
   %47 = load ptr, ptr %35, align 8
   %48 = icmp eq ptr %47, @all_blkcgs
-  br i1 %48, label %.loopexit11, label %.lr.ph
+  br i1 %48, label %.loopexit12, label %.lr.ph
 
-.loopexit11:                                      ; preds = %39, %30
+.loopexit12:                                      ; preds = %39, %30
   tail call void @mutex_unlock(ptr noundef nonnull @blkcg_pol_mutex) #16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %56, label %52
 
-52:                                               ; preds = %.loopexit11
+52:                                               ; preds = %.loopexit12
   %53 = tail call i32 @cgroup_add_dfl_cftypes(ptr noundef nonnull @io_cgrp_subsys, ptr noundef nonnull %50) #16
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %56, label %55, !prof !17
@@ -2514,7 +2514,7 @@ define dso_local range(i32 -28, 1) i32 @blkcg_policy_register(ptr noundef %0) #1
   tail call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_end\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #16, !srcloc !64
   br label %56
 
-56:                                               ; preds = %55, %52, %.loopexit11
+56:                                               ; preds = %55, %52, %.loopexit12
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
@@ -2574,7 +2574,7 @@ define dso_local range(i32 -28, 1) i32 @blkcg_policy_register(ptr noundef %0) #1
   tail call void @mutex_unlock(ptr noundef nonnull @blkcg_pol_mutex) #16
   br label %89
 
-89:                                               ; preds = %56, %60, %63, %88
+89:                                               ; preds = %88, %63, %60, %56
   %90 = phi i32 [ -28, %88 ], [ 0, %60 ], [ 0, %63 ], [ 0, %56 ]
   tail call void @mutex_unlock(ptr noundef nonnull @blkcg_pol_register_mutex) #16
   ret i32 %90

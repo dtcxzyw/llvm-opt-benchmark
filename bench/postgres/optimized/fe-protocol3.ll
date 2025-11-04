@@ -579,13 +579,13 @@ getParameterStatus.exit209:                       ; preds = %152
 191:                                              ; preds = %81
   %192 = call ptr @PQmakeEmptyPGresult(ptr noundef nonnull %0, i32 noundef 1) #16
   %.not.i210 = icmp eq ptr %192, null
-  br i1 %.not.i210, label %.thread67.i, label %193
+  br i1 %.not.i210, label %.thread68.i, label %193
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 28
   %195 = call i32 @pqGetInt(ptr noundef nonnull %194, i64 noundef 2, ptr noundef nonnull %0) #16
   %.not57.i = icmp eq i32 %195, 0
-  br i1 %.not57.i, label %196, label %.thread63.i
+  br i1 %.not57.i, label %196, label %.thread64.i
 
 196:                                              ; preds = %193
   %197 = load i32, ptr %194, align 4
@@ -599,20 +599,20 @@ getParameterStatus.exit209:                       ; preds = %152
   %203 = getelementptr inbounds nuw i8, ptr %192, i64 32
   store ptr %202, ptr %203, align 8
   %.not58.i = icmp eq ptr %202, null
-  br i1 %.not58.i, label %.thread63.i, label %204
+  br i1 %.not58.i, label %.thread64.i, label %204
 
 204:                                              ; preds = %199
   %205 = ptrtoint ptr %202 to i64
   %206 = and i64 %205, 7
   %207 = icmp eq i64 %206, 0
-  br i1 %207, label %208, label %.lr.ph71.i
+  br i1 %207, label %208, label %.lr.ph72.i
 
 208:                                              ; preds = %204
   %209 = and i64 %200, 1
   %210 = icmp eq i64 %209, 0
   %211 = icmp samesign ult i32 %197, 257
   %or.cond3.i = and i1 %211, %210
-  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %.lr.ph71.i
+  br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %.lr.ph72.i
 
 .lr.ph.preheader.i:                               ; preds = %208
   %212 = add i64 %201, %205
@@ -622,15 +622,15 @@ getParameterStatus.exit209:                       ; preds = %152
   %215 = add i64 %umax.i, %214
   %216 = and i64 %215, -8
   %217 = add i64 %216, 8
-  br label %.lr.ph71.i
+  br label %.lr.ph72.i
 
-.lr.ph71.i:                                       ; preds = %204, %208, %.lr.ph.preheader.i
+.lr.ph72.i:                                       ; preds = %204, %208, %.lr.ph.preheader.i
   %.sink = phi i64 [ %217, %.lr.ph.preheader.i ], [ %201, %208 ], [ %201, %204 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %202, i8 0, i64 %.sink, i1 false)
   br label %218
 
-218:                                              ; preds = %220, %.lr.ph71.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph71.i ], [ %indvars.iv.next.i, %220 ]
+218:                                              ; preds = %220, %.lr.ph72.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next.i, %220 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %219 = call i32 @pqGetInt(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %0) #16
   %.not59.i = icmp eq i32 %219, 0
@@ -652,22 +652,22 @@ getParameterStatus.exit209:                       ; preds = %152
 
 224:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread63.i
+  br label %.thread64.i
 
-.thread63.i:                                      ; preds = %224, %199, %193
-  %.not6165.i = phi ptr [ @.str.37, %224 ], [ @.str.37, %193 ], [ @.str.1, %199 ]
+.thread64.i:                                      ; preds = %224, %199, %193
+  %.not6166.i = phi ptr [ @.str.37, %224 ], [ @.str.37, %193 ], [ @.str.1, %199 ]
   %225 = load ptr, ptr %20, align 8
   %.not60.i = icmp eq ptr %192, %225
-  br i1 %.not60.i, label %.thread67.i, label %226
+  br i1 %.not60.i, label %.thread68.i, label %226
 
-226:                                              ; preds = %.thread63.i
+226:                                              ; preds = %.thread64.i
   call void @PQclear(ptr noundef nonnull %192) #16
-  br label %.thread67.i
+  br label %.thread68.i
 
-.thread67.i:                                      ; preds = %226, %.thread63.i, %191
-  %.not6166.i = phi ptr [ %.not6165.i, %226 ], [ %.not6165.i, %.thread63.i ], [ @.str.1, %191 ]
+.thread68.i:                                      ; preds = %226, %.thread64.i, %191
+  %.not6167.i = phi ptr [ %.not6166.i, %226 ], [ %.not6166.i, %.thread64.i ], [ @.str.1, %191 ]
   call void @pqClearAsyncResult(ptr noundef nonnull %0) #16
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %24, ptr noundef nonnull @.str.8, ptr noundef nonnull %.not6166.i) #16
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %24, ptr noundef nonnull @.str.8, ptr noundef nonnull %.not6167.i) #16
   call void @pqSaveErrorResult(ptr noundef nonnull %0) #16
   %227 = load i32, ptr %11, align 4
   %228 = add nuw i32 %.fr, 1
@@ -867,7 +867,7 @@ getAnotherTuple.exit:                             ; preds = %._crit_edge.i213, %
   store i32 %302, ptr %12, align 8
   br label %getParamDescriptions.exit
 
-getParamDescriptions.exit:                        ; preds = %.thread67.i, %._crit_edge.i, %getParameterStatus.exit209.thread228, %getParameterStatus.exit.thread220, %getAnotherTuple.exit, %.thread231, %64, %81, %81, %.thread328, %98, %121, %290, %293, %296, %297, %299, %110, %111, %112, %135, %124, %122, %149, %138, %136, %158, %169, %190, %179, %177, %282, %284, %69, %77, %62
+getParamDescriptions.exit:                        ; preds = %.thread68.i, %._crit_edge.i, %getParameterStatus.exit209.thread228, %getParameterStatus.exit.thread220, %getAnotherTuple.exit, %.thread231, %64, %81, %81, %.thread328, %98, %121, %290, %293, %296, %297, %299, %110, %111, %112, %135, %124, %122, %149, %138, %136, %158, %169, %190, %179, %177, %282, %284, %69, %77, %62
   %303 = load i32, ptr %12, align 8
   %304 = load i32, ptr %11, align 4
   %305 = add i32 %304, 5

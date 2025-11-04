@@ -1254,14 +1254,17 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  switch i8 %.sroa.0.0.ph, label %default.unreachable [
+  switch i8 %.sroa.0.0.ph, label %.unreachabledefault [
     i8 0, label %212
     i8 1, label %212
     i8 2, label %213
     i8 3, label %215
   ]
 
-default.unreachable:                              ; preds = %300, %276, %258, %211
+.unreachabledefault:                              ; preds = %211
+  unreachable
+
+default.unreachable:                              ; preds = %300, %276, %258
   unreachable
 
 212:                                              ; preds = %211, %211

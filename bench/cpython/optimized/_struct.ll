@@ -1348,34 +1348,34 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = load ptr, ptr %10, align 8, !tbaa !44
-  %.not61 = icmp eq ptr %11, null
-  br i1 %.not61, label %Py_DECREF.exit, label %.lr.ph65
+  %.not62 = icmp eq ptr %11, null
+  br i1 %.not62, label %Py_DECREF.exit, label %.lr.ph66
 
-.lr.ph65:                                         ; preds = %8
+.lr.ph66:                                         ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %13
 
-13:                                               ; preds = %.lr.ph65, %._crit_edge
-  %14 = phi ptr [ %11, %.lr.ph65 ], [ %48, %._crit_edge ]
-  %.04163 = phi ptr [ %10, %.lr.ph65 ], [ %47, %._crit_edge ]
-  %.04262 = phi i64 [ 0, %.lr.ph65 ], [ %.143.lcssa, %._crit_edge ]
-  %15 = getelementptr inbounds nuw i8, ptr %.04163, i64 24
+13:                                               ; preds = %.lr.ph66, %._crit_edge
+  %14 = phi ptr [ %11, %.lr.ph66 ], [ %48, %._crit_edge ]
+  %.04164 = phi ptr [ %10, %.lr.ph66 ], [ %47, %._crit_edge ]
+  %.04263 = phi i64 [ 0, %.lr.ph66 ], [ %.143.lcssa, %._crit_edge ]
+  %15 = getelementptr inbounds nuw i8, ptr %.04164, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !47
-  %.not4958 = icmp eq i64 %16, 0
-  br i1 %.not4958, label %._crit_edge, label %.lr.ph
+  %.not4959 = icmp eq i64 %16, 0
+  br i1 %.not4959, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.04163, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.04164, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !48
   %19 = getelementptr i8, ptr %1, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %.04163, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.04164, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br label %22
 
 22:                                               ; preds = %.lr.ph, %42
   %.in = phi i64 [ %16, %.lr.ph ], [ %23, %42 ]
-  %.03760 = phi ptr [ %19, %.lr.ph ], [ %46, %42 ]
-  %.14359 = phi i64 [ %.04262, %.lr.ph ], [ %43, %42 ]
+  %.03761 = phi ptr [ %19, %.lr.ph ], [ %46, %42 ]
+  %.14360 = phi i64 [ %.04263, %.lr.ph ], [ %43, %42 ]
   %23 = add i64 %.in, -1
   %24 = load i8, ptr %14, align 8, !tbaa !49
   switch i8 %24, label %38 [
@@ -1385,7 +1385,7 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
 
 25:                                               ; preds = %22
   %26 = load i64, ptr %20, align 8, !tbaa !59
-  %27 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %.03760, i64 noundef %26) #7
+  %27 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %.03761, i64 noundef %26) #7
   br label %41
 
 28:                                               ; preds = %22
@@ -1394,7 +1394,7 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = load i8, ptr %.03760, align 1, !tbaa !18
+  %32 = load i8, ptr %.03761, align 1, !tbaa !18
   %33 = zext i8 %32 to i64
   %.not50 = icmp sgt i64 %29, %33
   %34 = add i64 %29, -1
@@ -1403,13 +1403,13 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
 
 35:                                               ; preds = %31, %28
   %.0 = phi i64 [ 0, %28 ], [ %spec.select, %31 ]
-  %36 = getelementptr i8, ptr %.03760, i64 1
+  %36 = getelementptr i8, ptr %.03761, i64 1
   %37 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %36, i64 noundef %.0) #7
   br label %41
 
 38:                                               ; preds = %22
   %39 = load ptr, ptr %21, align 8, !tbaa !64
-  %40 = tail call ptr %39(ptr noundef %2, ptr noundef %.03760, ptr noundef nonnull %14) #7
+  %40 = tail call ptr %39(ptr noundef %2, ptr noundef %.03761, ptr noundef nonnull %14) #7
   br label %41
 
 41:                                               ; preds = %35, %38, %25
@@ -1418,17 +1418,17 @@ define internal fastcc ptr @s_unpack_internal(ptr noundef readonly captures(none
   br i1 %.not51, label %49, label %42
 
 42:                                               ; preds = %41
-  %43 = add i64 %.14359, 1
-  %44 = getelementptr ptr, ptr %12, i64 %.14359
+  %43 = add i64 %.14360, 1
+  %44 = getelementptr ptr, ptr %12, i64 %.14360
   store ptr %.035, ptr %44, align 8, !tbaa !17
   %45 = load i64, ptr %20, align 8, !tbaa !59
-  %46 = getelementptr i8, ptr %.03760, i64 %45
+  %46 = getelementptr i8, ptr %.03761, i64 %45
   %.not49 = icmp eq i64 %23, 0
   br i1 %.not49, label %._crit_edge, label %22, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %42, %13
-  %.143.lcssa = phi i64 [ %.04262, %13 ], [ %43, %42 ]
-  %47 = getelementptr i8, ptr %.04163, i64 32
+  %.143.lcssa = phi i64 [ %.04263, %13 ], [ %43, %42 ]
+  %47 = getelementptr i8, ptr %.04164, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !44
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %Py_DECREF.exit, label %13, !llvm.loop !66

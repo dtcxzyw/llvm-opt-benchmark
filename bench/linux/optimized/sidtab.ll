@@ -623,24 +623,24 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   %10 = tail call fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   store i32 %10, ptr %2, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %.thread14
+  br i1 %11, label %12, label %.thread15
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i8, ptr %13, align 8, !range !14, !noundef !15
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %.thread14, !prof !16
+  br i1 %15, label %16, label %.thread15, !prof !16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %.thread14, label %20
+  br i1 %19, label %.thread15, label %20
 
 20:                                               ; preds = %16
   %21 = tail call fastcc ptr @sidtab_do_lookup(ptr noundef %0, i32 noundef %18)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread14, label %23
+  br i1 %22, label %.thread15, label %23
 
 23:                                               ; preds = %20
   %24 = add i32 %18, 28
@@ -668,7 +668,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
-  br i1 %40, label %.thread14, label %41
+  br i1 %40, label %.thread15, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -716,13 +716,13 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   tail call void @kfree(ptr noundef %67) #13
   store ptr null, ptr %66, align 8
   store i32 0, ptr %48, align 4
-  br label %.thread14
+  br label %.thread15
 
 68:                                               ; preds = %56
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread16, label %72
+  br i1 %71, label %.thread17, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -733,7 +733,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
 
 77:                                               ; preds = %72
   tail call fastcc void @context_destroy(ptr noundef nonnull %26)
-  br label %.thread14
+  br label %.thread15
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr %70, align 8
@@ -744,7 +744,7 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
 
 83:                                               ; preds = %78
   tail call fastcc void @context_destroy(ptr noundef nonnull %26)
-  br label %.thread14
+  br label %.thread15
 
 84:                                               ; preds = %78
   store i32 %24, ptr %75, align 8
@@ -768,25 +768,25 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile ptr %89, ptr %95, align 8
   %98 = icmp eq ptr %96, null
-  br i1 %98, label %.thread16, label %99
+  br i1 %98, label %.thread17, label %99
 
 99:                                               ; preds = %84
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store volatile ptr %89, ptr %100, align 8
-  br label %.thread16
+  br label %.thread17
 
-.thread16:                                        ; preds = %99, %84, %68
+.thread17:                                        ; preds = %99, %84, %68
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %107, label %104
 
-104:                                              ; preds = %.thread16
+104:                                              ; preds = %.thread17
   %105 = load ptr, ptr %34, align 8
   %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %105) #14
   br label %107
 
-107:                                              ; preds = %104, %.thread16
+107:                                              ; preds = %104, %.thread17
   store i32 %24, ptr %2, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
   %108 = add nuw i32 %18, 1
@@ -805,20 +805,20 @@ define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   store volatile ptr %109, ptr %115, align 8
   %118 = icmp eq ptr %116, null
-  br i1 %118, label %.thread14, label %119
+  br i1 %118, label %.thread15, label %119
 
 119:                                              ; preds = %107
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store volatile ptr %109, ptr %120, align 8
-  br label %.thread14
+  br label %.thread15
 
-.thread14:                                        ; preds = %37, %65, %77, %83, %119, %107, %20, %16, %12, %7
+.thread15:                                        ; preds = %37, %65, %77, %83, %119, %107, %20, %16, %12, %7
   %121 = phi i32 [ 0, %7 ], [ -75, %16 ], [ -12, %20 ], [ -116, %12 ], [ 0, %107 ], [ 0, %119 ], [ %81, %83 ], [ -12, %77 ], [ -12, %37 ], [ %.ph, %65 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %9) #13
   br label %122
 
-122:                                              ; preds = %.thread14, %3
-  %123 = phi i32 [ %121, %.thread14 ], [ 0, %3 ]
+122:                                              ; preds = %.thread15, %3
+  %123 = phi i32 [ %121, %.thread15 ], [ 0, %3 ]
   ret i32 %123
 }
 

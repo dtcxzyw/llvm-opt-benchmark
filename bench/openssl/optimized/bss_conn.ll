@@ -1061,11 +1061,11 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   %62 = tail call i32 @BIO_ADDRINFO_socktype(ptr noundef %61) #11
   %63 = icmp eq i32 %62, 1
   %64 = or i32 %60, 4
-  %spec.select98 = select i1 %63, i32 %64, i32 %60
+  %spec.select99 = select i1 %63, i32 %64, i32 %60
   %65 = load i32, ptr %5, align 8, !tbaa !22
   %66 = load ptr, ptr %6, align 8, !tbaa !31
   %67 = tail call ptr @BIO_ADDRINFO_address(ptr noundef %66) #11
-  %68 = tail call i32 @BIO_connect(i32 noundef %65, ptr noundef %67, i32 noundef %spec.select98) #11
+  %68 = tail call i32 @BIO_connect(i32 noundef %65, ptr noundef %67, i32 noundef %spec.select99) #11
   store i32 0, ptr %10, align 4, !tbaa !44
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %87
@@ -1169,17 +1169,17 @@ conn_create_dgram_bio.exit:                       ; preds = %90
 
 112:                                              ; preds = %100
   %113 = load i32, ptr %7, align 8, !tbaa !35
-  %.not.i99 = icmp eq i32 %113, 2
-  br i1 %.not.i99, label %114, label %118
+  %.not.i100 = icmp eq i32 %113, 2
+  br i1 %.not.i100, label %114, label %118
 
 114:                                              ; preds = %112
   %115 = load i32, ptr %5, align 8, !tbaa !22
   %116 = tail call ptr @BIO_new_dgram(i32 noundef %115, i32 noundef 0) #11
   store ptr %116, ptr %8, align 8, !tbaa !20
   %117 = icmp eq ptr %116, null
-  br i1 %117, label %conn_create_dgram_bio.exit101, label %118
+  br i1 %117, label %conn_create_dgram_bio.exit102, label %118
 
-conn_create_dgram_bio.exit101:                    ; preds = %114
+conn_create_dgram_bio.exit102:                    ; preds = %114
   store i32 7, ptr %1, align 8, !tbaa !17
   br label %120
 
@@ -1193,8 +1193,8 @@ conn_create_dgram_bio.exit101:                    ; preds = %114
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 103, ptr noundef null) #11
   br label %.thread
 
-120:                                              ; preds = %conn_create_dgram_bio.exit101, %conn_create_dgram_bio.exit, %95, %118, %106, %94, %81, %77, %57, %42, %26
-  %.2 = phi i32 [ %.080, %26 ], [ %.080, %42 ], [ %50, %57 ], [ 0, %77 ], [ 0, %81 ], [ %68, %94 ], [ %68, %conn_create_dgram_bio.exit ], [ %.080, %95 ], [ %.080, %106 ], [ %.080, %118 ], [ %.080, %conn_create_dgram_bio.exit101 ]
+120:                                              ; preds = %conn_create_dgram_bio.exit102, %conn_create_dgram_bio.exit, %95, %118, %106, %94, %81, %77, %57, %42, %26
+  %.2 = phi i32 [ %.080, %26 ], [ %.080, %42 ], [ %50, %57 ], [ 0, %77 ], [ 0, %81 ], [ %68, %94 ], [ %68, %conn_create_dgram_bio.exit ], [ %.080, %95 ], [ %.080, %106 ], [ %.080, %118 ], [ %.080, %conn_create_dgram_bio.exit102 ]
   br i1 %.not, label %.backedge, label %121
 
 121:                                              ; preds = %120
@@ -1220,8 +1220,8 @@ conn_create_dgram_bio.exit101:                    ; preds = %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %125, %.thread
-  %.079 = phi i32 [ %127, %125 ], [ %.1, %.thread ], [ 0, %121 ]
-  ret i32 %.079
+  %.4 = phi i32 [ %127, %125 ], [ %.1, %.thread ], [ 0, %121 ]
+  ret i32 %.4
 }
 
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2

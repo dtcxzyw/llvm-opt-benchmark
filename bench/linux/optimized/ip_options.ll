@@ -568,7 +568,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %.thread21, label %26
+  br i1 %25, label %.thread24, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr i8, ptr %21, i64 -20
@@ -602,7 +602,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %46 = getelementptr i8, ptr %43, i64 1
   store ptr %46, ptr %5, align 8
   %47 = icmp samesign ugt i32 %42, 1
-  br i1 %47, label %.preheader, label %.thread21
+  br i1 %47, label %.preheader, label %.thread24
 
 .preheader:                                       ; preds = %45, %56
   %48 = phi i32 [ %50, %56 ], [ %42, %45 ]
@@ -625,18 +625,18 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %58 = getelementptr i8, ptr %57, i64 1
   store ptr %58, ptr %5, align 8
   %59 = icmp samesign ugt i32 %48, 2
-  br i1 %59, label %.preheader, label %.thread21, !llvm.loop !10
+  br i1 %59, label %.preheader, label %.thread24, !llvm.loop !10
 
 60:                                               ; preds = %41
   %61 = add nsw i32 %42, -1
   %62 = getelementptr i8, ptr %43, i64 1
   store ptr %62, ptr %5, align 8
   %63 = icmp sgt i32 %42, 1
-  br i1 %63, label %41, label %.thread21, !llvm.loop !11
+  br i1 %63, label %41, label %.thread24, !llvm.loop !11
 
 64:                                               ; preds = %41
   %65 = icmp eq i32 %42, 1
-  br i1 %65, label %.loopexit26, label %66, !prof !12
+  br i1 %65, label %.loopexit29, label %66, !prof !12
 
 66:                                               ; preds = %64
   %67 = getelementptr i8, ptr %43, i64 1
@@ -645,7 +645,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %70 = icmp ult i8 %68, 2
   %71 = icmp slt i32 %42, %69
   %72 = or i1 %70, %71
-  br i1 %72, label %.loopexit26, label %73
+  br i1 %72, label %.loopexit29, label %73
 
 73:                                               ; preds = %66
   switch i8 %44, label %287 [
@@ -659,18 +659,18 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 74:                                               ; preds = %73, %73
   %75 = icmp eq i8 %68, 2
-  br i1 %75, label %.loopexit26.loopexit.split.loop.exit191, label %76
+  br i1 %75, label %.loopexit29.loopexit.split.loop.exit194, label %76
 
 76:                                               ; preds = %74
   %77 = getelementptr i8, ptr %43, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = icmp ult i8 %78, 4
-  br i1 %79, label %.loopexit26.loopexit.split.loop.exit179, label %80
+  br i1 %79, label %.loopexit29.loopexit.split.loop.exit182, label %80
 
 80:                                               ; preds = %76
   %81 = load i8, ptr %36, align 1
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %.loopexit26
+  br i1 %82, label %83, label %.loopexit29
 
 83:                                               ; preds = %80
   br i1 %6, label %84, label %97
@@ -678,11 +678,11 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 84:                                               ; preds = %83
   %85 = icmp eq i8 %78, 4
   %86 = icmp ugt i8 %68, 6
-  %.not24 = and i1 %86, %85
+  %.not27 = and i1 %86, %85
   %87 = and i32 %69, 3
   %88 = icmp eq i32 %87, 3
-  %or.cond = and i1 %88, %.not24
-  br i1 %or.cond, label %89, label %.loopexit26.loopexit.split.loop.exit193
+  %or.cond = and i1 %88, %.not27
+  br i1 %or.cond, label %89, label %.loopexit29.loopexit.split.loop.exit196
 
 89:                                               ; preds = %84
   %90 = getelementptr i8, ptr %43, i64 3
@@ -696,11 +696,11 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %95 = add nsw i32 %69, -7
   %96 = zext nneg i32 %95 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %90, ptr align 1 %94, i64 %96, i1 false)
-  %.pre139 = load ptr, ptr %5, align 8
+  %.pre142 = load ptr, ptr %5, align 8
   br label %97
 
 97:                                               ; preds = %93, %89, %83
-  %98 = phi ptr [ %.pre139, %93 ], [ %43, %89 ], [ %43, %83 ]
+  %98 = phi ptr [ %.pre142, %93 ], [ %43, %89 ], [ %43, %83 ]
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, -119
   %101 = zext i1 %100 to i8
@@ -717,18 +717,18 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 108:                                              ; preds = %73
   %109 = load i8, ptr %35, align 2
   %110 = icmp eq i8 %109, 0
-  br i1 %110, label %111, label %.loopexit26
+  br i1 %110, label %111, label %.loopexit29
 
 111:                                              ; preds = %108
   %112 = icmp eq i8 %68, 2
-  br i1 %112, label %.loopexit26.loopexit.split.loop.exit181, label %113
+  br i1 %112, label %.loopexit29.loopexit.split.loop.exit184, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr i8, ptr %43, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = icmp ult i8 %115, 4
-  br i1 %117, label %.loopexit26.loopexit.split.loop.exit183, label %118
+  br i1 %117, label %.loopexit29.loopexit.split.loop.exit186, label %118
 
 118:                                              ; preds = %113
   %119 = icmp ugt i8 %115, %68
@@ -737,7 +737,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 120:                                              ; preds = %118
   %121 = add nuw nsw i32 %116, 3
   %122 = icmp samesign ugt i32 %121, %69
-  br i1 %122, label %.loopexit26.loopexit.split.loop.exit185, label %123
+  br i1 %122, label %.loopexit29.loopexit.split.loop.exit188, label %123
 
 123:                                              ; preds = %120
   br i1 %22, label %137, label %124
@@ -748,14 +748,14 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 126:                                              ; preds = %124
   %127 = call i32 @fib_compute_spec_dst(ptr noundef %2) #11
-  %.pre132 = load ptr, ptr %5, align 8
-  %.phi.trans.insert133 = getelementptr i8, ptr %.pre132, i64 2
-  %.pre134 = load i8, ptr %.phi.trans.insert133, align 1
+  %.pre135 = load ptr, ptr %5, align 8
+  %.phi.trans.insert136 = getelementptr i8, ptr %.pre135, i64 2
+  %.pre137 = load i8, ptr %.phi.trans.insert136, align 1
   br label %128
 
 128:                                              ; preds = %126, %124
-  %129 = phi i8 [ %.pre134, %126 ], [ %115, %124 ]
-  %130 = phi ptr [ %.pre132, %126 ], [ %43, %124 ]
+  %129 = phi i8 [ %.pre137, %126 ], [ %115, %124 ]
+  %130 = phi ptr [ %.pre135, %126 ], [ %43, %124 ]
   %131 = phi i32 [ %127, %126 ], [ %40, %124 ]
   %132 = zext i8 %129 to i64
   %133 = getelementptr i8, ptr %130, i64 %132
@@ -764,14 +764,14 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %135 = load i8, ptr %34, align 4
   %136 = or i8 %135, 4
   store i8 %136, ptr %34, align 4
-  %.pre135 = load ptr, ptr %5, align 8
-  %.phi.trans.insert136 = getelementptr i8, ptr %.pre135, i64 2
-  %.pre137 = load i8, ptr %.phi.trans.insert136, align 1
+  %.pre138 = load ptr, ptr %5, align 8
+  %.phi.trans.insert139 = getelementptr i8, ptr %.pre138, i64 2
+  %.pre140 = load i8, ptr %.phi.trans.insert139, align 1
   br label %137
 
 137:                                              ; preds = %128, %123
-  %138 = phi i8 [ %115, %123 ], [ %.pre137, %128 ]
-  %139 = phi ptr [ %43, %123 ], [ %.pre135, %128 ]
+  %138 = phi i8 [ %115, %123 ], [ %.pre140, %128 ]
+  %139 = phi ptr [ %43, %123 ], [ %.pre138, %128 ]
   %140 = phi i32 [ %40, %123 ], [ %131, %128 ]
   %141 = getelementptr i8, ptr %139, i64 2
   %142 = add i8 %138, 4
@@ -779,11 +779,11 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %143 = load i8, ptr %34, align 4
   %144 = or i8 %143, 8
   store i8 %144, ptr %34, align 4
-  %.pre138 = load ptr, ptr %5, align 8
+  %.pre141 = load ptr, ptr %5, align 8
   br label %145
 
 145:                                              ; preds = %137, %118
-  %146 = phi ptr [ %43, %118 ], [ %.pre138, %137 ]
+  %146 = phi ptr [ %43, %118 ], [ %.pre141, %137 ]
   %147 = phi i32 [ %40, %118 ], [ %140, %137 ]
   %148 = ptrtoint ptr %146 to i64
   %149 = sub i64 %148, %31
@@ -794,18 +794,18 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 151:                                              ; preds = %73
   %152 = load i8, ptr %33, align 1
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %154, label %.loopexit26
+  br i1 %153, label %154, label %.loopexit29
 
 154:                                              ; preds = %151
   %155 = icmp ult i8 %68, 4
-  br i1 %155, label %.loopexit26.loopexit.split.loop.exit187, label %156
+  br i1 %155, label %.loopexit29.loopexit.split.loop.exit190, label %156
 
 156:                                              ; preds = %154
   %157 = getelementptr i8, ptr %43, i64 2
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
   %160 = icmp ult i8 %158, 5
-  br i1 %160, label %.loopexit26, label %161
+  br i1 %160, label %.loopexit29, label %161
 
 161:                                              ; preds = %156
   %162 = icmp ugt i8 %158, %68
@@ -814,7 +814,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 163:                                              ; preds = %161
   %164 = add nuw nsw i32 %159, 3
   %165 = icmp samesign ugt i32 %164, %69
-  br i1 %165, label %.loopexit26, label %166
+  br i1 %165, label %.loopexit29, label %166
 
 166:                                              ; preds = %163
   %167 = getelementptr i8, ptr %43, i64 3
@@ -833,12 +833,12 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %174 = load i8, ptr %34, align 4
   %175 = or i8 %174, 16
   store i8 %175, ptr %34, align 4
-  br i1 %6, label %.thread17, label %227
+  br i1 %6, label %.thread20, label %227
 
 176:                                              ; preds = %166
   %177 = add nuw nsw i32 %159, 7
   %178 = icmp samesign ugt i32 %177, %69
-  br i1 %178, label %.loopexit26, label %179
+  br i1 %178, label %.loopexit29, label %179
 
 179:                                              ; preds = %176
   br i1 %22, label %.sink.split, label %180
@@ -849,14 +849,14 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 182:                                              ; preds = %180
   %183 = call i32 @fib_compute_spec_dst(ptr noundef %2) #11
-  %.pre130 = load ptr, ptr %5, align 8
-  %.phi.trans.insert = getelementptr i8, ptr %.pre130, i64 2
-  %.pre131 = load i8, ptr %.phi.trans.insert, align 1
+  %.pre133 = load ptr, ptr %5, align 8
+  %.phi.trans.insert = getelementptr i8, ptr %.pre133, i64 2
+  %.pre134 = load i8, ptr %.phi.trans.insert, align 1
   br label %184
 
 184:                                              ; preds = %182, %180
-  %185 = phi i8 [ %.pre131, %182 ], [ %158, %180 ]
-  %186 = phi ptr [ %.pre130, %182 ], [ %43, %180 ]
+  %185 = phi i8 [ %.pre134, %182 ], [ %158, %180 ]
+  %186 = phi ptr [ %.pre133, %182 ], [ %43, %180 ]
   %187 = phi i32 [ %183, %182 ], [ %40, %180 ]
   %188 = zext i8 %185 to i64
   %189 = getelementptr i8, ptr %186, i64 %188
@@ -873,7 +873,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 197:                                              ; preds = %166
   %198 = add nuw nsw i32 %159, 7
   %199 = icmp samesign ugt i32 %198, %69
-  br i1 %199, label %.loopexit26, label %200
+  br i1 %199, label %.loopexit29, label %200
 
 200:                                              ; preds = %197
   %201 = zext i8 %158 to i64
@@ -895,38 +895,38 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.sink.split
 
 214:                                              ; preds = %200
-  br i1 %206, label %.thread19, label %._crit_edge128
+  br i1 %206, label %.thread22, label %._crit_edge131
 
-._crit_edge128:                                   ; preds = %214
-  %.pre129 = load ptr, ptr %5, align 8
+._crit_edge131:                                   ; preds = %214
+  %.pre132 = load ptr, ptr %5, align 8
   br label %.sink.split
 
 215:                                              ; preds = %166
-  br i1 %6, label %216, label %.thread19
+  br i1 %6, label %216, label %.thread22
 
 216:                                              ; preds = %215
   %217 = load ptr, ptr %29, align 16
   %218 = call zeroext i1 @ns_capable(ptr noundef %217, i32 noundef 13) #11
-  br i1 %218, label %.thread19, label %219
+  br i1 %218, label %.thread22, label %219
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %5, align 8
   %221 = getelementptr i8, ptr %220, i64 3
-  br label %.loopexit26
+  br label %.loopexit29
 
-.thread17:                                        ; preds = %170
+.thread20:                                        ; preds = %170
   %222 = load i8, ptr %157, align 1
   %223 = add i8 %222, 4
   store i8 %223, ptr %157, align 1
-  br label %.thread19
+  br label %.thread22
 
-.sink.split:                                      ; preds = %.thread, %._crit_edge128, %179, %184
-  %.sink227 = phi i8 [ 48, %184 ], [ 48, %179 ], [ 16, %._crit_edge128 ], [ 16, %.thread ]
-  %.sink = phi ptr [ %191, %184 ], [ %43, %179 ], [ %.pre129, %._crit_edge128 ], [ %208, %.thread ]
-  %.ph223 = phi i32 [ %187, %184 ], [ %40, %179 ], [ %40, %._crit_edge128 ], [ %40, %.thread ]
-  %.ph224 = phi ptr [ %196, %184 ], [ null, %179 ], [ null, %._crit_edge128 ], [ %213, %.thread ]
+.sink.split:                                      ; preds = %.thread, %._crit_edge131, %179, %184
+  %.sink230 = phi i8 [ 48, %184 ], [ 48, %179 ], [ 16, %._crit_edge131 ], [ 16, %.thread ]
+  %.sink = phi ptr [ %191, %184 ], [ %43, %179 ], [ %.pre132, %._crit_edge131 ], [ %208, %.thread ]
+  %.ph226 = phi i32 [ %187, %184 ], [ %40, %179 ], [ %40, %._crit_edge131 ], [ %40, %.thread ]
+  %.ph227 = phi ptr [ %196, %184 ], [ null, %179 ], [ null, %._crit_edge131 ], [ %213, %.thread ]
   %224 = load i8, ptr %34, align 4
-  %225 = or i8 %224, %.sink227
+  %225 = or i8 %224, %.sink230
   store i8 %225, ptr %34, align 4
   %226 = getelementptr i8, ptr %.sink, i64 2
   br label %227
@@ -934,13 +934,13 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 227:                                              ; preds = %.sink.split, %170
   %228 = phi ptr [ %157, %170 ], [ %226, %.sink.split ]
   %229 = phi i8 [ 4, %170 ], [ 8, %.sink.split ]
-  %230 = phi i32 [ %40, %170 ], [ %.ph223, %.sink.split ]
-  %231 = phi ptr [ %173, %170 ], [ %.ph224, %.sink.split ]
+  %230 = phi i32 [ %40, %170 ], [ %.ph226, %.sink.split ]
+  %231 = phi ptr [ %173, %170 ], [ %.ph227, %.sink.split ]
   %232 = load i8, ptr %228, align 1
   %233 = add i8 %232, %229
   store i8 %233, ptr %228, align 1
   %234 = icmp eq ptr %231, null
-  br i1 %234, label %.thread19, label %235
+  br i1 %234, label %.thread22, label %235
 
 235:                                              ; preds = %227
   %236 = call i32 @inet_current_timestamp() #11
@@ -948,7 +948,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %237 = load i8, ptr %34, align 4
   %238 = or i8 %237, 4
   store i8 %238, ptr %34, align 4
-  br label %.thread19
+  br label %.thread22
 
 239:                                              ; preds = %161
   %240 = getelementptr i8, ptr %43, i64 3
@@ -956,15 +956,15 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %242 = zext i8 %241 to i32
   %243 = and i32 %242, 15
   %244 = icmp eq i32 %243, 3
-  br i1 %244, label %.thread19, label %245
+  br i1 %244, label %.thread22, label %245
 
 245:                                              ; preds = %239
   %246 = and i32 %242, 240
   %247 = icmp eq i32 %246, 240
   %248 = or i1 %6, %247
-  br i1 %248, label %254, label %.thread20
+  br i1 %248, label %254, label %.thread23
 
-.thread20:                                        ; preds = %245
+.thread23:                                        ; preds = %245
   %249 = add nuw nsw i32 %246, 16
   %250 = or disjoint i32 %249, %243
   %251 = trunc nuw i32 %250 to i8
@@ -972,13 +972,13 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %252 = load i8, ptr %34, align 4
   %253 = or i8 %252, 4
   store i8 %253, ptr %34, align 4
-  br label %.thread19
+  br label %.thread22
 
 254:                                              ; preds = %245
-  br i1 %247, label %.loopexit26, label %.thread19
+  br i1 %247, label %.loopexit29, label %.thread22
 
-.thread19:                                        ; preds = %254, %214, %215, %216, %.thread17, %235, %227, %.thread20, %239
-  %255 = phi i32 [ %40, %239 ], [ %40, %254 ], [ %40, %.thread20 ], [ %40, %.thread17 ], [ %230, %235 ], [ %230, %227 ], [ %40, %216 ], [ %40, %215 ], [ %40, %214 ]
+.thread22:                                        ; preds = %214, %215, %216, %.thread20, %235, %227, %.thread23, %254, %239
+  %255 = phi i32 [ %40, %239 ], [ %40, %254 ], [ %40, %.thread23 ], [ %40, %.thread20 ], [ %230, %235 ], [ %230, %227 ], [ %40, %216 ], [ %40, %215 ], [ %40, %214 ]
   %256 = load ptr, ptr %5, align 8
   %257 = ptrtoint ptr %256 to i64
   %258 = sub i64 %257, %31
@@ -988,7 +988,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 260:                                              ; preds = %73
   %261 = icmp ult i8 %68, 4
-  br i1 %261, label %.loopexit26.loopexit.split.loop.exit189, label %262
+  br i1 %261, label %.loopexit29.loopexit.split.loop.exit192, label %262
 
 262:                                              ; preds = %260
   %263 = getelementptr i8, ptr %43, i64 2
@@ -1015,24 +1015,24 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 275:                                              ; preds = %274
   %276 = load ptr, ptr %29, align 16
   %277 = call zeroext i1 @ns_capable(ptr noundef %276, i32 noundef 13) #11
-  %.pre127.pre = load ptr, ptr %5, align 8
-  br i1 %277, label %278, label %.loopexit26
+  %.pre130.pre = load ptr, ptr %5, align 8
+  br i1 %277, label %278, label %.loopexit29
 
 278:                                              ; preds = %275, %274
-  %.pre127 = phi ptr [ %.pre127.pre, %275 ], [ %43, %274 ]
+  %.pre130 = phi ptr [ %.pre130.pre, %275 ], [ %43, %274 ]
   %279 = load i8, ptr %30, align 2
   %280 = icmp eq i8 %279, 0
-  br i1 %280, label %281, label %.loopexit26
+  br i1 %280, label %281, label %.loopexit29
 
 281:                                              ; preds = %278
-  %282 = ptrtoint ptr %.pre127 to i64
+  %282 = ptrtoint ptr %.pre130 to i64
   %283 = sub i64 %282, %31
   %284 = trunc i64 %283 to i8
   store i8 %284, ptr %30, align 2
   %285 = call i32 @cipso_v4_validate(ptr noundef %2, ptr noundef nonnull %5) #11
   %286 = icmp eq i32 %285, 0
-  %.pre141 = load ptr, ptr %5, align 8
-  br i1 %286, label %291, label %.loopexit26
+  %.pre144 = load ptr, ptr %5, align 8
+  br i1 %286, label %291, label %.loopexit29
 
 287:                                              ; preds = %73
   br i1 %6, label %288, label %291
@@ -1040,66 +1040,66 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 288:                                              ; preds = %287
   %289 = load ptr, ptr %29, align 16
   %290 = call zeroext i1 @ns_capable(ptr noundef %289, i32 noundef 13) #11
-  %.pre140 = load ptr, ptr %5, align 8
-  br i1 %290, label %291, label %.loopexit26
+  %.pre143 = load ptr, ptr %5, align 8
+  br i1 %290, label %291, label %.loopexit29
 
-291:                                              ; preds = %288, %287, %281, %270, %266, %262, %.thread19, %145, %97
-  %292 = phi ptr [ %.pre140, %288 ], [ %43, %287 ], [ %.pre141, %281 ], [ %43, %270 ], [ %43, %266 ], [ %43, %262 ], [ %256, %.thread19 ], [ %146, %145 ], [ %98, %97 ]
-  %293 = phi i32 [ %40, %288 ], [ %40, %287 ], [ %40, %281 ], [ %40, %270 ], [ %40, %266 ], [ %40, %262 ], [ %255, %.thread19 ], [ %147, %145 ], [ %40, %97 ]
+291:                                              ; preds = %288, %287, %281, %270, %266, %262, %.thread22, %145, %97
+  %292 = phi ptr [ %.pre143, %288 ], [ %43, %287 ], [ %.pre144, %281 ], [ %43, %270 ], [ %43, %266 ], [ %43, %262 ], [ %256, %.thread22 ], [ %146, %145 ], [ %98, %97 ]
+  %293 = phi i32 [ %40, %288 ], [ %40, %287 ], [ %40, %281 ], [ %40, %270 ], [ %40, %266 ], [ %40, %262 ], [ %255, %.thread22 ], [ %147, %145 ], [ %40, %97 ]
   %294 = sub nsw i32 %42, %69
   %295 = zext i8 %68 to i64
   %296 = getelementptr i8, ptr %292, i64 %295
   store ptr %296, ptr %5, align 8
   %297 = icmp sgt i32 %294, 0
-  br i1 %297, label %37, label %.thread21, !llvm.loop !11
+  br i1 %297, label %37, label %.thread24, !llvm.loop !11
 
-.loopexit26.loopexit.split.loop.exit179:          ; preds = %76
+.loopexit29.loopexit.split.loop.exit182:          ; preds = %76
   %298 = getelementptr i8, ptr %43, i64 2
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit181:          ; preds = %111
+.loopexit29.loopexit.split.loop.exit184:          ; preds = %111
   %299 = getelementptr i8, ptr %43, i64 1
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit183:          ; preds = %113
+.loopexit29.loopexit.split.loop.exit186:          ; preds = %113
   %300 = getelementptr i8, ptr %43, i64 2
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit185:          ; preds = %120
+.loopexit29.loopexit.split.loop.exit188:          ; preds = %120
   %301 = getelementptr i8, ptr %43, i64 2
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit187:          ; preds = %154
+.loopexit29.loopexit.split.loop.exit190:          ; preds = %154
   %302 = getelementptr i8, ptr %43, i64 1
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit189:          ; preds = %260
+.loopexit29.loopexit.split.loop.exit192:          ; preds = %260
   %303 = getelementptr i8, ptr %43, i64 1
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit191:          ; preds = %74
+.loopexit29.loopexit.split.loop.exit194:          ; preds = %74
   %304 = getelementptr i8, ptr %43, i64 1
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26.loopexit.split.loop.exit193:          ; preds = %84
+.loopexit29.loopexit.split.loop.exit196:          ; preds = %84
   %305 = getelementptr i8, ptr %43, i64 1
-  br label %.loopexit26
+  br label %.loopexit29
 
-.loopexit26:                                      ; preds = %278, %275, %281, %288, %254, %163, %176, %197, %156, %151, %108, %80, %66, %64, %.loopexit26.loopexit.split.loop.exit179, %.loopexit26.loopexit.split.loop.exit181, %.loopexit26.loopexit.split.loop.exit183, %.loopexit26.loopexit.split.loop.exit185, %.loopexit26.loopexit.split.loop.exit187, %.loopexit26.loopexit.split.loop.exit189, %.loopexit26.loopexit.split.loop.exit191, %.loopexit26.loopexit.split.loop.exit193, %219
-  %306 = phi ptr [ %221, %219 ], [ %298, %.loopexit26.loopexit.split.loop.exit179 ], [ %299, %.loopexit26.loopexit.split.loop.exit181 ], [ %300, %.loopexit26.loopexit.split.loop.exit183 ], [ %301, %.loopexit26.loopexit.split.loop.exit185 ], [ %302, %.loopexit26.loopexit.split.loop.exit187 ], [ %303, %.loopexit26.loopexit.split.loop.exit189 ], [ %304, %.loopexit26.loopexit.split.loop.exit191 ], [ %305, %.loopexit26.loopexit.split.loop.exit193 ], [ %.pre127, %278 ], [ %.pre127.pre, %275 ], [ %.pre141, %281 ], [ %.pre140, %288 ], [ %240, %254 ], [ %157, %163 ], [ %157, %176 ], [ %157, %197 ], [ %157, %156 ], [ %43, %151 ], [ %43, %108 ], [ %43, %80 ], [ %43, %66 ], [ %43, %64 ]
+.loopexit29:                                      ; preds = %278, %275, %281, %288, %163, %176, %197, %254, %156, %151, %108, %80, %66, %64, %.loopexit29.loopexit.split.loop.exit182, %.loopexit29.loopexit.split.loop.exit184, %.loopexit29.loopexit.split.loop.exit186, %.loopexit29.loopexit.split.loop.exit188, %.loopexit29.loopexit.split.loop.exit190, %.loopexit29.loopexit.split.loop.exit192, %.loopexit29.loopexit.split.loop.exit194, %.loopexit29.loopexit.split.loop.exit196, %219
+  %306 = phi ptr [ %221, %219 ], [ %298, %.loopexit29.loopexit.split.loop.exit182 ], [ %299, %.loopexit29.loopexit.split.loop.exit184 ], [ %300, %.loopexit29.loopexit.split.loop.exit186 ], [ %301, %.loopexit29.loopexit.split.loop.exit188 ], [ %302, %.loopexit29.loopexit.split.loop.exit190 ], [ %303, %.loopexit29.loopexit.split.loop.exit192 ], [ %304, %.loopexit29.loopexit.split.loop.exit194 ], [ %305, %.loopexit29.loopexit.split.loop.exit196 ], [ %.pre130, %278 ], [ %.pre130.pre, %275 ], [ %.pre144, %281 ], [ %.pre143, %288 ], [ %157, %163 ], [ %157, %176 ], [ %157, %197 ], [ %240, %254 ], [ %157, %156 ], [ %43, %151 ], [ %43, %108 ], [ %43, %80 ], [ %43, %66 ], [ %43, %64 ]
   %307 = icmp eq ptr %3, null
-  br i1 %307, label %.thread21, label %308
+  br i1 %307, label %.thread24, label %308
 
-308:                                              ; preds = %.loopexit26
+308:                                              ; preds = %.loopexit29
   %309 = ptrtoint ptr %306 to i64
   %310 = sub i64 %309, %31
   %311 = trunc i64 %310 to i32
   %312 = and i32 %311, 255
   store i32 %312, ptr %3, align 4
-  br label %.thread21
+  br label %.thread24
 
-.thread21:                                        ; preds = %291, %60, %56, %45, %20, %308, %.loopexit26
-  %313 = phi i32 [ -22, %308 ], [ -22, %.loopexit26 ], [ 0, %20 ], [ 0, %45 ], [ 0, %56 ], [ 0, %60 ], [ 0, %291 ]
+.thread24:                                        ; preds = %291, %60, %56, %45, %20, %308, %.loopexit29
+  %313 = phi i32 [ -22, %308 ], [ -22, %.loopexit29 ], [ 0, %20 ], [ 0, %45 ], [ 0, %56 ], [ 0, %60 ], [ 0, %291 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %313
 }

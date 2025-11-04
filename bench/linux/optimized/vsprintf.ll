@@ -913,7 +913,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 102:                                              ; preds = %.lr.ph
   %103 = and i64 %25, 8589934592
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %105, label %.loopexit26
+  br i1 %104, label %105, label %.loopexit27
 
 105:                                              ; preds = %102
   %106 = lshr i64 %25, 8
@@ -925,21 +925,21 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %111, ptr %5, align 8
   %112 = shl nuw i64 %108, 40
   %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %.preheader25, label %.loopexit26
+  br i1 %113, label %.preheader26, label %.loopexit27
 
-.preheader25:                                     ; preds = %105, %118
+.preheader26:                                     ; preds = %105, %118
   %114 = phi i64 [ %126, %118 ], [ %111, %105 ]
   %115 = phi ptr [ %120, %118 ], [ %20, %105 ]
   %116 = icmp ult ptr %115, %13
   br i1 %116, label %117, label %118
 
-117:                                              ; preds = %.preheader25
+117:                                              ; preds = %.preheader26
   store i8 32, ptr %115, align 1
   %.pre = load i64, ptr %5, align 8
   br label %118
 
-118:                                              ; preds = %117, %.preheader25
-  %119 = phi i64 [ %.pre, %117 ], [ %114, %.preheader25 ]
+118:                                              ; preds = %117, %.preheader26
+  %119 = phi i64 [ %.pre, %117 ], [ %114, %.preheader26 ]
   %120 = getelementptr i8, ptr %115, i64 1
   %121 = lshr i64 %119, 8
   %122 = add nuw nsw i64 %121, 16777215
@@ -950,16 +950,16 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i64 %126, ptr %5, align 8
   %127 = shl nuw i64 %123, 40
   %128 = icmp sgt i64 %127, 0
-  br i1 %128, label %.preheader25, label %.loopexit26, !llvm.loop !28
+  br i1 %128, label %.preheader26, label %.loopexit27, !llvm.loop !28
 
-.loopexit26:                                      ; preds = %118, %105, %102
+.loopexit27:                                      ; preds = %118, %105, %102
   %129 = phi i64 [ %25, %102 ], [ %111, %105 ], [ %126, %118 ]
   %130 = phi ptr [ %20, %102 ], [ %20, %105 ], [ %120, %118 ]
   %131 = load i32, ptr %3, align 8
   %132 = icmp ult i32 %131, 41
   br i1 %132, label %133, label %138
 
-133:                                              ; preds = %.loopexit26
+133:                                              ; preds = %.loopexit27
   %134 = load ptr, ptr %16, align 8
   %135 = zext nneg i32 %131 to i64
   %136 = getelementptr i8, ptr %134, i64 %135
@@ -967,7 +967,7 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   store i32 %137, ptr %3, align 8
   br label %141
 
-138:                                              ; preds = %.loopexit26
+138:                                              ; preds = %.loopexit27
   %139 = load ptr, ptr %15, align 8
   %140 = getelementptr i8, ptr %139, i64 8
   store ptr %140, ptr %15, align 8
@@ -982,11 +982,11 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   %145 = load i32, ptr %142, align 4
   %146 = trunc i32 %145 to i8
   store i8 %146, ptr %130, align 1
-  %.pre36 = load i64, ptr %5, align 8
+  %.pre37 = load i64, ptr %5, align 8
   br label %147
 
 147:                                              ; preds = %144, %141
-  %148 = phi i64 [ %.pre36, %144 ], [ %129, %141 ]
+  %148 = phi i64 [ %.pre37, %144 ], [ %129, %141 ]
   %149 = getelementptr i8, ptr %130, i64 1
   %150 = lshr i64 %148, 8
   %151 = add nuw nsw i64 %150, 16777215
@@ -1007,11 +1007,11 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 
 161:                                              ; preds = %.preheader
   store i8 32, ptr %159, align 1
-  %.pre37 = load i64, ptr %5, align 8
+  %.pre38 = load i64, ptr %5, align 8
   br label %162
 
 162:                                              ; preds = %161, %.preheader
-  %163 = phi i64 [ %.pre37, %161 ], [ %158, %.preheader ]
+  %163 = phi i64 [ %.pre38, %161 ], [ %158, %.preheader ]
   %164 = getelementptr i8, ptr %159, i64 1
   %165 = lshr i64 %163, 8
   %166 = add nuw nsw i64 %165, 16777215
@@ -1413,19 +1413,19 @@ define dso_local i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
   br i1 %404, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.loopexit, %.lr.ph, %8
-  %.lcssa30 = phi ptr [ %0, %8 ], [ %20, %.lr.ph ], [ %402, %.loopexit ]
+  %.lcssa31 = phi ptr [ %0, %8 ], [ %20, %.lr.ph ], [ %402, %.loopexit ]
   %405 = icmp eq i64 %14, 0
   br i1 %405, label %410, label %406
 
 406:                                              ; preds = %.thread
-  %407 = icmp ult ptr %.lcssa30, %13
+  %407 = icmp ult ptr %.lcssa31, %13
   %408 = getelementptr i8, ptr %13, i64 -1
-  %409 = select i1 %407, ptr %.lcssa30, ptr %408
+  %409 = select i1 %407, ptr %.lcssa31, ptr %408
   store i8 0, ptr %409, align 1
   br label %410
 
 410:                                              ; preds = %406, %.thread
-  %411 = ptrtoint ptr %.lcssa30 to i64
+  %411 = ptrtoint ptr %.lcssa31 to i64
   %412 = sub i64 %411, %11
   %413 = trunc i64 %412 to i32
   br label %414
@@ -9305,20 +9305,20 @@ define dso_local i32 @vbin_printf(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 .loopexitthread-pre-split:                        ; preds = %179, %55, %56, %74, %78, %92, %107, %203, %207, %224, %228, %245, %249, %266, %270, %283, %287, %305, %309, %327, %331, %.lr.ph, %.lr.ph
   %.ph = phi ptr [ %13, %.lr.ph ], [ %13, %.lr.ph ], [ %37, %56 ], [ %37, %55 ], [ %329, %327 ], [ %329, %331 ], [ %307, %305 ], [ %307, %309 ], [ %285, %283 ], [ %285, %287 ], [ %268, %266 ], [ %268, %270 ], [ %247, %245 ], [ %247, %249 ], [ %226, %224 ], [ %226, %228 ], [ %205, %203 ], [ %205, %207 ], [ %105, %92 ], [ %105, %107 ], [ %76, %74 ], [ %76, %78 ], [ %178, %179 ]
-  %.ph76 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %56 ], [ %16, %55 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
-  %.pr = load i8, ptr %.ph76, align 1
+  %.ph77 = phi ptr [ %16, %.lr.ph ], [ %16, %.lr.ph ], [ %16, %56 ], [ %16, %55 ], [ %16, %327 ], [ %16, %331 ], [ %16, %305 ], [ %16, %309 ], [ %16, %283 ], [ %16, %287 ], [ %16, %266 ], [ %16, %270 ], [ %16, %245 ], [ %16, %249 ], [ %16, %224 ], [ %16, %228 ], [ %16, %203 ], [ %16, %207 ], [ %16, %92 ], [ %16, %107 ], [ %16, %74 ], [ %16, %78 ], [ %180, %179 ]
+  %.pr = load i8, ptr %.ph77, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %40
   %333 = phi i8 [ %.pr, %.loopexitthread-pre-split ], [ %41, %40 ]
   %334 = phi ptr [ %.ph, %.loopexitthread-pre-split ], [ %37, %40 ]
-  %335 = phi ptr [ %.ph76, %.loopexitthread-pre-split ], [ %16, %40 ]
+  %335 = phi ptr [ %.ph77, %.loopexitthread-pre-split ], [ %16, %40 ]
   %336 = icmp eq i8 %333, 0
   br i1 %336, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.loopexit, %.lr.ph, %4
-  %.lcssa37 = phi ptr [ %0, %4 ], [ %13, %.lr.ph ], [ %334, %.loopexit ]
-  %337 = ptrtoint ptr %.lcssa37 to i64
+  %.lcssa38 = phi ptr [ %0, %4 ], [ %13, %.lr.ph ], [ %334, %.loopexit ]
+  %337 = ptrtoint ptr %.lcssa38 to i64
   %338 = add i64 %337, 3
   %339 = and i64 %338, 17179869180
   %340 = ptrtoint ptr %0 to i64

@@ -6428,8 +6428,8 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %.0207 = phi i32 [ %1, %.lr.ph.preheader ], [ %.2, %37 ]
-  %.0129206 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2131, %37 ]
+  %.0209 = phi i32 [ %1, %.lr.ph.preheader ], [ %.2, %37 ]
+  %.0129208 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2131, %37 ]
   %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !146
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6439,7 +6439,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not, label %17, label %19
 
 17:                                               ; preds = %.lr.ph
-  %18 = or i32 %.0207, 2
+  %18 = or i32 %.0209, 2
   br label %37
 
 19:                                               ; preds = %.lr.ph
@@ -6448,7 +6448,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not154, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = or i32 %.0207, 4
+  %22 = or i32 %.0209, 4
   br label %37
 
 23:                                               ; preds = %19
@@ -6462,7 +6462,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not156, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = or i32 %.0207, 1
+  %28 = or i32 %.0209, 1
   br label %37
 
 29:                                               ; preds = %25
@@ -6471,7 +6471,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not157, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = or i32 %.0207, 8
+  %32 = or i32 %.0209, 8
   br label %37
 
 33:                                               ; preds = %29
@@ -6480,12 +6480,12 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not158, label %35, label %.thread.loopexit.split.loop.exit
 
 35:                                               ; preds = %33
-  %36 = or i32 %.0207, 16
+  %36 = or i32 %.0209, 16
   br label %37
 
 37:                                               ; preds = %17, %31, %35, %27, %21, %23
-  %.2131 = phi i32 [ %.0129206, %35 ], [ %.0129206, %31 ], [ %.0129206, %27 ], [ %.0129206, %21 ], [ %.0129206, %17 ], [ 1, %23 ]
-  %.2 = phi i32 [ %36, %35 ], [ %32, %31 ], [ %28, %27 ], [ %22, %21 ], [ %18, %17 ], [ %.0207, %23 ]
+  %.2131 = phi i32 [ %.0129208, %35 ], [ %.0129208, %31 ], [ %.0129208, %27 ], [ %.0129208, %21 ], [ %.0129208, %17 ], [ 1, %23 ]
+  %.2 = phi i32 [ %36, %35 ], [ %32, %31 ], [ %28, %27 ], [ %22, %21 ], [ %18, %17 ], [ %.0209, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread.loopexit, label %.lr.ph
@@ -6496,8 +6496,8 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 
 .thread.loopexit:                                 ; preds = %37, %.thread.loopexit.split.loop.exit
   %.0135.lcssa.ph = phi i32 [ %38, %.thread.loopexit.split.loop.exit ], [ %10, %37 ]
-  %.0129.lcssa.ph = phi i32 [ %.0129206, %.thread.loopexit.split.loop.exit ], [ %.2131, %37 ]
-  %.0.lcssa.ph = phi i32 [ %.0207, %.thread.loopexit.split.loop.exit ], [ %.2, %37 ]
+  %.0129.lcssa.ph = phi i32 [ %.0129208, %.thread.loopexit.split.loop.exit ], [ %.2131, %37 ]
+  %.0.lcssa.ph = phi i32 [ %.0209, %.thread.loopexit.split.loop.exit ], [ %.2, %37 ]
   %39 = icmp eq i32 %.0129.lcssa.ph, 0
   br label %.thread
 
@@ -6560,26 +6560,26 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %63 = shl nsw i64 %62, 3
   %64 = tail call noalias ptr @zmalloc(i64 noundef %63) #18
   %65 = icmp sgt i32 %50, 0
-  br i1 %65, label %.lr.ph217.preheader, label %._crit_edge
+  br i1 %65, label %.lr.ph219.preheader, label %._crit_edge
 
-.lr.ph217.preheader:                              ; preds = %61
+.lr.ph219.preheader:                              ; preds = %61
   %66 = zext i32 %.0135.lcssa to i64
-  %wide.trip.count234 = zext nneg i32 %50 to i64
-  br label %.lr.ph217
+  %wide.trip.count236 = zext nneg i32 %50 to i64
+  br label %.lr.ph219
 
-67:                                               ; preds = %.lr.ph217
-  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %._crit_edge, label %.lr.ph217, !llvm.loop !149
+67:                                               ; preds = %.lr.ph219
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
+  %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
+  br i1 %exitcond237.not, label %._crit_edge, label %.lr.ph219, !llvm.loop !149
 
-.lr.ph217:                                        ; preds = %.lr.ph217.preheader, %67
-  %indvars.iv231 = phi i64 [ 0, %.lr.ph217.preheader ], [ %indvars.iv.next232, %67 ]
+.lr.ph219:                                        ; preds = %.lr.ph219.preheader, %67
+  %indvars.iv233 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next234, %67 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !136
-  %.idx = shl nuw nsw i64 %indvars.iv231, 4
+  %.idx = shl nuw nsw i64 %indvars.iv233, 4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %66
   %71 = load ptr, ptr %70, align 8, !tbaa !146
-  %72 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv231
+  %72 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv233
   %73 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %72, ptr noundef null) #19
   %.not166 = icmp eq i32 %73, 0
   br i1 %.not166, label %67, label %.loopexit
@@ -6597,7 +6597,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   br i1 %79, label %80, label %93
 
 80:                                               ; preds = %78
-  br i1 %.not159, label %81, label %.thread183
+  br i1 %.not159, label %81, label %.thread185
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr %5, align 8, !tbaa !136
@@ -6629,26 +6629,26 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %.0123 = phi ptr [ %90, %81 ], [ %76, %93 ], [ %76, %99 ]
   %100 = tail call i64 @zsetLength(ptr noundef %.0123)
-  br i1 %65, label %.lr.ph222, label %._crit_edge223
+  br i1 %65, label %.lr.ph224, label %._crit_edge225
 
-.lr.ph222:                                        ; preds = %zsetTypeMaybeConvert.exit
+.lr.ph224:                                        ; preds = %zsetTypeMaybeConvert.exit
   %101 = add nuw nsw i32 %.0135.lcssa, 1
   %102 = zext i32 %101 to i64
-  %wide.trip.count239 = zext nneg i32 %50 to i64
+  %wide.trip.count241 = zext nneg i32 %50 to i64
   br label %103
 
-103:                                              ; preds = %.lr.ph222, %115
-  %indvars.iv236 = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next237, %115 ]
-  %.1139220 = phi i32 [ 0, %.lr.ph222 ], [ %.3141, %115 ]
-  %.2144219 = phi i32 [ 0, %.lr.ph222 ], [ %.4, %115 ]
-  %.2148218 = phi i32 [ 0, %.lr.ph222 ], [ %spec.select, %115 ]
+103:                                              ; preds = %.lr.ph224, %115
+  %indvars.iv238 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next239, %115 ]
+  %.1139222 = phi i32 [ 0, %.lr.ph224 ], [ %.3141, %115 ]
+  %.2144221 = phi i32 [ 0, %.lr.ph224 ], [ %.4, %115 ]
+  %.2148220 = phi i32 [ 0, %.lr.ph224 ], [ %spec.select, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %104 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv236
+  %104 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv238
   %105 = load double, ptr %104, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %106 = load ptr, ptr %5, align 8, !tbaa !136
-  %.idx244 = shl nuw nsw i64 %indvars.iv236, 4
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx244
+  %.idx246 = shl nuw nsw i64 %indvars.iv238, 4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx246
   %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %102
   %109 = load ptr, ptr %108, align 8, !tbaa !146
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -6667,29 +6667,29 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %116 = load i32, ptr %4, align 4, !tbaa !78
   %117 = lshr i32 %116, 2
   %118 = and i32 %117, 1
-  %spec.select = add nuw nsw i32 %118, %.2148218
+  %spec.select = add nuw nsw i32 %118, %.2148220
   %119 = lshr i32 %116, 3
   %120 = and i32 %119, 1
-  %.4 = add nuw nsw i32 %120, %.2144219
+  %.4 = add nuw nsw i32 %120, %.2144221
   %121 = and i32 %116, 1
   %122 = xor i32 %121, 1
-  %.3141 = add nuw nsw i32 %122, %.1139220
+  %.3141 = add nuw nsw i32 %122, %.1139222
   %123 = load double, ptr %3, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %._crit_edge223.loopexit, label %103, !llvm.loop !151
+  %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
+  %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
+  br i1 %exitcond242.not, label %._crit_edge225.loopexit, label %103, !llvm.loop !151
 
-._crit_edge223.loopexit:                          ; preds = %115
+._crit_edge225.loopexit:                          ; preds = %115
   %124 = icmp eq i32 %.3141, 0
-  br label %._crit_edge223
+  br label %._crit_edge225
 
-._crit_edge223:                                   ; preds = %._crit_edge223.loopexit, %zsetTypeMaybeConvert.exit
-  %.2148.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %spec.select, %._crit_edge223.loopexit ]
-  %.2144.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %.4, %._crit_edge223.loopexit ]
-  %.1139.lcssa = phi i1 [ true, %zsetTypeMaybeConvert.exit ], [ %124, %._crit_edge223.loopexit ]
-  %.1125.lcssa = phi double [ 0.000000e+00, %zsetTypeMaybeConvert.exit ], [ %123, %._crit_edge223.loopexit ]
+._crit_edge225:                                   ; preds = %._crit_edge225.loopexit, %zsetTypeMaybeConvert.exit
+  %.2148.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %spec.select, %._crit_edge225.loopexit ]
+  %.2144.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %.4, %._crit_edge225.loopexit ]
+  %.1139.lcssa = phi i1 [ true, %zsetTypeMaybeConvert.exit ], [ %124, %._crit_edge225.loopexit ]
+  %.1125.lcssa = phi double [ 0.000000e+00, %zsetTypeMaybeConvert.exit ], [ %123, %._crit_edge225.loopexit ]
   %125 = add nuw nsw i32 %.2144.lcssa, %.2148.lcssa
   %126 = zext nneg i32 %125 to i64
   %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
@@ -6704,34 +6704,34 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   call void @updateKeysizesHist(ptr noundef %129, i32 noundef %132, i32 noundef 3, i64 noundef %100, i64 noundef %134) #19
   br i1 %41, label %135, label %137
 
-.thread183:                                       ; preds = %80
-  br i1 %41, label %.thread194, label %137
+.thread185:                                       ; preds = %80
+  br i1 %41, label %.thread196, label %137
 
-135:                                              ; preds = %._crit_edge223
-  br i1 %.1139.lcssa, label %.thread194, label %136
+135:                                              ; preds = %._crit_edge225
+  br i1 %.1139.lcssa, label %.thread196, label %136
 
 136:                                              ; preds = %135
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.1125.lcssa) #19
   br label %.loopexit
 
-.thread194:                                       ; preds = %.thread183, %135
-  %.1147188200 = phi i32 [ %.2148.lcssa, %135 ], [ 0, %.thread183 ]
-  %.1143190199 = phi i32 [ %.2144.lcssa, %135 ], [ 0, %.thread183 ]
+.thread196:                                       ; preds = %.thread185, %135
+  %.1147190202 = phi i32 [ %.2148.lcssa, %135 ], [ 0, %.thread185 ]
+  %.1143192201 = phi i32 [ %.2144.lcssa, %135 ], [ 0, %.thread185 ]
   call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %.loopexit
 
-137:                                              ; preds = %.thread183, %._crit_edge223
-  %.1143191 = phi i32 [ 0, %.thread183 ], [ %.2144.lcssa, %._crit_edge223 ]
-  %.1147189 = phi i32 [ 0, %.thread183 ], [ %.2148.lcssa, %._crit_edge223 ]
-  %138 = select i1 %.0129.lcssa, i32 0, i32 %.1143191
-  %139 = add nsw i32 %.1147189, %138
+137:                                              ; preds = %.thread185, %._crit_edge225
+  %.1143193 = phi i32 [ 0, %.thread185 ], [ %.2144.lcssa, %._crit_edge225 ]
+  %.1147191 = phi i32 [ 0, %.thread185 ], [ %.2148.lcssa, %._crit_edge225 ]
+  %138 = select i1 %.0129.lcssa, i32 0, i32 %.1143193
+  %139 = add nsw i32 %.1147191, %138
   %140 = sext i32 %139 to i64
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %140) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph217, %114, %137, %.thread194, %136, %._crit_edge
-  %.0146 = phi i32 [ 0, %._crit_edge ], [ %.2148.lcssa, %136 ], [ %.1147188200, %.thread194 ], [ %.1147189, %137 ], [ %.2148218, %114 ], [ 0, %.lr.ph217 ]
-  %.0142 = phi i32 [ 0, %._crit_edge ], [ %.2144.lcssa, %136 ], [ %.1143190199, %.thread194 ], [ %.1143191, %137 ], [ %.2144219, %114 ], [ 0, %.lr.ph217 ]
+.loopexit:                                        ; preds = %.lr.ph219, %114, %137, %.thread196, %136, %._crit_edge
+  %.0146 = phi i32 [ 0, %._crit_edge ], [ %.2148.lcssa, %136 ], [ %.1147190202, %.thread196 ], [ %.1147191, %137 ], [ %.2148220, %114 ], [ 0, %.lr.ph219 ]
+  %.0142 = phi i32 [ 0, %._crit_edge ], [ %.2144.lcssa, %136 ], [ %.1143192201, %.thread196 ], [ %.1143193, %137 ], [ %.2144221, %114 ], [ 0, %.lr.ph219 ]
   call void @zfree(ptr noundef %64) #19
   %141 = icmp ne i32 %.0146, 0
   %142 = icmp ne i32 %.0142, 0

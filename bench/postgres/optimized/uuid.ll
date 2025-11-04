@@ -40,20 +40,20 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
 
 12:                                               ; preds = %46, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %46 ]
-  %.135.i = phi ptr [ %spec.select.i, %1 ], [ %.2.i, %46 ]
+  %.136.i = phi ptr [ %spec.select.i, %1 ], [ %.2.i, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = load i8, ptr %.135.i, align 1
+  %13 = load i8, ptr %.136.i, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.thread.i, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.135.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.136.i, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread.i, label %19
 
 19:                                               ; preds = %15
-  %20 = load i16, ptr %.135.i, align 1
+  %20 = load i16, ptr %.136.i, align 1
   store i16 %20, ptr %2, align 2
   %21 = tail call ptr @__ctype_b_loc() #15
   %22 = load ptr, ptr %21, align 8
@@ -80,7 +80,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %36 = trunc i64 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %.135.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.136.i, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 45
   br i1 %40, label %41, label %46
@@ -90,7 +90,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %43 = icmp ne i64 %42, 0
   %44 = icmp ne i64 %indvars.iv.i, 15
   %or.cond.i = and i1 %44, %43
-  %45 = getelementptr inbounds nuw i8, ptr %.135.i, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.136.i, i64 3
   %spec.select30.i = select i1 %or.cond.i, ptr %45, ptr %38
   br label %46
 

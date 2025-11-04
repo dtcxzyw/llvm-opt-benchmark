@@ -394,9 +394,9 @@ define internal range(i32 -1, 1) i32 @H5D__none_idx_copy_setup(ptr readnone capt
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
-42:                                               ; preds = %41, %2
-  %.05 = phi i32 [ %.1, %41 ], [ 0, %2 ]
-  ret i32 %.05
+42:                                               ; preds = %2, %41
+  %.04 = phi i32 [ %.1, %41 ], [ 0, %2 ]
+  ret i32 %.04
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable

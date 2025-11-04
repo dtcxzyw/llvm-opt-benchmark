@@ -223,25 +223,25 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
   br i1 %77, label %.lr.ph.i, label %start_req.exit.thread
 
 .lr.ph.i:                                         ; preds = %72, %81
-  %.082159.i = phi i64 [ %82, %81 ], [ %68, %72 ]
-  %78 = getelementptr inbounds nuw i8, ptr %64, i64 %.082159.i
+  %.082160.i = phi i64 [ %82, %81 ], [ %68, %72 ]
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 %.082160.i
   %79 = load i8, ptr %78, align 1, !tbaa !21
   %80 = icmp eq i8 %79, 32
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %.lr.ph.i
-  %82 = add i64 %.082159.i, -1
+  %82 = add i64 %.082160.i, -1
   %83 = icmp ugt i64 %82, %75
   br i1 %83, label %.lr.ph.i, label %start_req.exit.thread, !llvm.loop !22
 
 84:                                               ; preds = %.lr.ph.i
-  %85 = getelementptr inbounds nuw i8, ptr %64, i64 %.082159.i
+  %85 = getelementptr inbounds nuw i8, ptr %64, i64 %.082160.i
   %86 = getelementptr i8, ptr %85, i64 1
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %76 to i64
   %89 = xor i64 %88, -1
   %90 = add i64 %87, %89
-  %91 = icmp ne i64 %68, %.082159.i
+  %91 = icmp ne i64 %68, %.082160.i
   %92 = icmp ne i64 %90, 0
   %or.cond.i = and i1 %91, %92
   br i1 %or.cond.i, label %93, label %start_req.exit.thread
@@ -253,22 +253,22 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
 95:                                               ; preds = %93
   %96 = load i8, ptr %76, align 1, !tbaa !21
   %97 = icmp eq i8 %96, 42
-  br i1 %97, label %.thread126.i, label %98
+  br i1 %97, label %.thread127.i, label %98
 
 98:                                               ; preds = %95, %93
   %99 = call i32 @strncmp(ptr noundef nonnull @.str.4, ptr noundef nonnull %64, i64 noundef %75) #7
   %.not95.i = icmp eq i32 %99, 0
-  br i1 %.not95.i, label %.thread126.i, label %100
+  br i1 %.not95.i, label %.thread127.i, label %100
 
 100:                                              ; preds = %98
   %101 = load i8, ptr %76, align 1, !tbaa !21
   %102 = icmp eq i8 %101, 47
-  br i1 %102, label %.thread126.i, label %103
+  br i1 %102, label %.thread127.i, label %103
 
 103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = icmp ugt i64 %90, 8191
-  br i1 %104, label %.thread117.i, label %105
+  br i1 %104, label %.thread118.i, label %105
 
 105:                                              ; preds = %103
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %76, i64 %90, i1 false)
@@ -281,55 +281,55 @@ next_line.exit.thread.loopexit:                   ; preds = %28, %55
 108:                                              ; preds = %105
   %109 = call ptr @curl_url() #6
   %.not97.i = icmp eq ptr %109, null
-  br i1 %.not97.i, label %.thread117.i, label %110
+  br i1 %.not97.i, label %.thread118.i, label %110
 
 110:                                              ; preds = %108
   %111 = call i32 @curl_url_set(ptr noundef nonnull %109, i32 noundef 0, ptr noundef nonnull %7, i32 noundef %spec.select.i) #6
   %.not99.i = icmp eq i32 %111, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not99.i, label %.thread137.i, label %start_req.exit.thread
+  br i1 %.not99.i, label %.thread138.i, label %start_req.exit.thread
 
 112:                                              ; preds = %105
-  br i1 %.not18.i.i, label %.thread155.i, label %.thread117.i
+  br i1 %.not18.i.i, label %.thread156.i, label %.thread118.i
 
-.thread117.i:                                     ; preds = %112, %108, %103
+.thread118.i:                                     ; preds = %112, %108, %103
   %.177.ph.i = phi i32 [ 3, %112 ], [ 3, %103 ], [ 27, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %start_req.exit.thread
 
-.thread155.i:                                     ; preds = %112
+.thread156.i:                                     ; preds = %112
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread126.i
+  br label %.thread127.i
 
-.thread137.i:                                     ; preds = %110
+.thread138.i:                                     ; preds = %110
   %113 = call i32 @Curl_http_req_make2(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef nonnull %109, ptr noundef %3) #6
   br label %start_req.exit
 
-.thread126.i:                                     ; preds = %.thread155.i, %100, %98, %95
-  %.083136.i = phi i64 [ %90, %100 ], [ 0, %98 ], [ 1, %95 ], [ %90, %.thread155.i ]
-  %.084135.i = phi i64 [ 0, %100 ], [ %90, %98 ], [ 0, %95 ], [ 0, %.thread155.i ]
-  %.088134.i = phi ptr [ %76, %100 ], [ null, %98 ], [ %76, %95 ], [ %76, %.thread155.i ]
-  %.089133.i = phi ptr [ null, %100 ], [ %76, %98 ], [ null, %95 ], [ null, %.thread155.i ]
+.thread127.i:                                     ; preds = %.thread156.i, %100, %98, %95
+  %.083137.i = phi i64 [ %90, %100 ], [ 0, %98 ], [ 1, %95 ], [ %90, %.thread156.i ]
+  %.084136.i = phi i64 [ 0, %100 ], [ %90, %98 ], [ 0, %95 ], [ 0, %.thread156.i ]
+  %.088135.i = phi ptr [ %76, %100 ], [ null, %98 ], [ %76, %95 ], [ %76, %.thread156.i ]
+  %.089134.i = phi ptr [ null, %100 ], [ %76, %98 ], [ null, %95 ], [ null, %.thread156.i ]
   br i1 %.not103.i, label %116, label %114
 
-114:                                              ; preds = %.thread126.i
+114:                                              ; preds = %.thread127.i
   %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   br label %116
 
-116:                                              ; preds = %114, %.thread126.i
-  %.085.i = phi i64 [ %115, %114 ], [ 0, %.thread126.i ]
-  %117 = call i32 @Curl_http_req_make(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef %3, i64 noundef %.085.i, ptr noundef %.089133.i, i64 noundef %.084135.i, ptr noundef %.088134.i, i64 noundef %.083136.i) #6
+116:                                              ; preds = %114, %.thread127.i
+  %.085.i = phi i64 [ %115, %114 ], [ 0, %.thread127.i ]
+  %117 = call i32 @Curl_http_req_make(ptr noundef nonnull %0, ptr noundef nonnull %64, i64 noundef %75, ptr noundef %3, i64 noundef %.085.i, ptr noundef %.089134.i, i64 noundef %.084136.i, ptr noundef %.088135.i, i64 noundef %.083137.i) #6
   br label %start_req.exit
 
-start_req.exit.thread:                            ; preds = %84, %69, %72, %110, %81, %.thread117.i
-  %.078.i.ph = phi ptr [ null, %.thread117.i ], [ null, %81 ], [ null, %84 ], [ null, %69 ], [ null, %72 ], [ %109, %110 ]
-  %.076.i.ph = phi i32 [ %.177.ph.i, %.thread117.i ], [ 3, %81 ], [ 3, %110 ], [ 3, %72 ], [ 3, %69 ], [ 3, %84 ]
+start_req.exit.thread:                            ; preds = %84, %69, %72, %110, %81, %.thread118.i
+  %.078.i.ph = phi ptr [ null, %.thread118.i ], [ null, %81 ], [ null, %84 ], [ null, %69 ], [ null, %72 ], [ %109, %110 ]
+  %.076.i.ph = phi i32 [ %.177.ph.i, %.thread118.i ], [ 3, %81 ], [ 3, %110 ], [ 3, %72 ], [ 3, %69 ], [ 3, %84 ]
   call void @curl_url_cleanup(ptr noundef %.078.i.ph) #6
   br label %.loopexit.sink.split
 
-start_req.exit:                                   ; preds = %.thread137.i, %116
-  %.078.i = phi ptr [ %109, %.thread137.i ], [ null, %116 ]
-  %.076.i = phi i32 [ %113, %.thread137.i ], [ %117, %116 ]
+start_req.exit:                                   ; preds = %.thread138.i, %116
+  %.078.i = phi ptr [ %109, %.thread138.i ], [ null, %116 ]
+  %.076.i = phi i32 [ %113, %.thread138.i ], [ %117, %116 ]
   call void @curl_url_cleanup(ptr noundef %.078.i) #6
   store i32 %.076.i, ptr %5, align 4, !tbaa !15
   %.not42 = icmp eq i32 %.076.i, 0

@@ -1073,18 +1073,18 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
-53:                                               ; preds = %102, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i
-  %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %102 ]
-  %.04040.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %102 ]
-  %.04539.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %102 ]
+53:                                               ; preds = %101, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %101 ]
+  %.04042.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %101 ]
+  %.04541.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %101 ]
   %54 = getelementptr inbounds nuw %"struct.url::Component", ptr %6, i64 %indvars.iv.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !22
   %57 = icmp slt i32 %56, 1
-  br i1 %57, label %102, label %58
+  br i1 %57, label %101, label %58
 
 58:                                               ; preds = %53
-  %59 = sext i32 %.04539.i to i64
+  %59 = sext i32 %.04541.i to i64
   %60 = getelementptr inbounds i32, ptr %7, i64 %59
   %.val.i = load i32, ptr %54, align 8, !tbaa !35
   %61 = sext i32 %.val.i to i64
@@ -1108,13 +1108,13 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br i1 %70, label %.lr.ph.preheader.i.i, label %.critedge.i.jt8.i
 
 .lr.ph.preheader.i.i:                             ; preds = %69, %66, %58
-  %.033.i78.i = phi i32 [ 8, %69 ], [ 16, %58 ], [ 32, %66 ]
-  %.041.i77.i = phi i64 [ 2, %69 ], [ 0, %58 ], [ 1, %66 ]
+  %.033.i80.i = phi i32 [ 8, %69 ], [ 16, %58 ], [ 32, %66 ]
+  %.041.i79.i = phi i64 [ 2, %69 ], [ 0, %58 ], [ 1, %66 ]
   %wide.trip.count.i.i = zext nneg i32 %56 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %73, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %.041.i77.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %73 ]
+  %indvars.iv.i.i = phi i64 [ %.041.i79.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %73 ]
   %gep.i.i = getelementptr i8, ptr %62, i64 %indvars.iv.i.i
   %71 = load i8, ptr %gep.i.i, align 1, !tbaa !3
   %72 = icmp eq i8 %71, 48
@@ -1156,7 +1156,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %82 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !3
   %84 = zext i8 %83 to i32
-  %85 = and i32 %.033.i78.i, %84
+  %85 = and i32 %.033.i80.i, %84
   %86 = icmp ne i32 %85, 0
   %87 = icmp slt i32 %.03710.i.i, 16
   %or.cond47.i.i = select i1 %86, i1 %87, i1 false
@@ -1170,7 +1170,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %92
 
 91:                                               ; preds = %.lr.ph12.i.i
-  br i1 %86, label %92, label %103
+  br i1 %86, label %92, label %102
 
 92:                                               ; preds = %91, %.thread.i.i
   %.2392.i.i = phi i32 [ %88, %.thread.i.i ], [ %.03710.i.i, %91 ]
@@ -1186,7 +1186,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %.037.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %93, %._crit_edge.loopexit.i.i ], [ 0, %.critedge.thread.i.i ]
   %94 = getelementptr inbounds i8, ptr %5, i64 %.037.lcssa.i.i
   store i8 0, ptr %94, align 1, !tbaa !3
-  switch i32 %.033.i78.i, label %97 [
+  switch i32 %.033.i80.i, label %.unreachabledefault.i.i [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
     i32 16, label %95
     i32 32, label %96
@@ -1198,104 +1198,104 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 96:                                               ; preds = %._crit_edge.i.i
   br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
 
-97:                                               ; preds = %._crit_edge.i.i
-  br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
+.unreachabledefault.i.i:                          ; preds = %._crit_edge.i.i
+  unreachable
 
-_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %97, %96, %95, %._crit_edge.i.i, %.critedge.i.jt8.i
-  %.0.i.i.i = phi i32 [ 0, %97 ], [ 10, %95 ], [ 8, %96 ], [ 16, %._crit_edge.i.i ], [ 16, %.critedge.i.jt8.i ]
-  %98 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
-  %99 = icmp ugt i64 %98, 4294967295
-  br i1 %99, label %.thread.i, label %.fold.split.i
+_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %96, %95, %._crit_edge.i.i, %.critedge.i.jt8.i
+  %.0.i.i.i = phi i32 [ 10, %95 ], [ 8, %96 ], [ 16, %._crit_edge.i.i ], [ 16, %.critedge.i.jt8.i ]
+  %97 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
+  %98 = icmp ugt i64 %97, 4294967295
+  br i1 %98, label %.thread.i, label %.fold.split.i
 
 .fold.split.i:                                    ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %100 = trunc nuw i64 %98 to i32
-  store i32 %100, ptr %60, align 4, !tbaa !40
+  %99 = trunc nuw i64 %97 to i32
+  store i32 %99, ptr %60, align 4, !tbaa !40
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %.343.i = phi i1 [ %.04040.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
+  %.343.i = phi i1 [ %.04042.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %101 = add nsw i32 %.04539.i, 1
-  br label %102
+  %100 = add nsw i32 %.04541.i, 1
+  br label %101
 
-102:                                              ; preds = %.thread.i, %53
-  %.247.i = phi i32 [ %.04539.i, %53 ], [ %101, %.thread.i ]
-  %.242.i = phi i1 [ %.04040.i, %53 ], [ %.343.i, %.thread.i ]
+101:                                              ; preds = %.thread.i, %53
+  %.247.i = phi i32 [ %.04541.i, %53 ], [ %100, %.thread.i ]
+  %.242.i = phi i1 [ %.04042.i, %53 ], [ %.343.i, %.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.i, label %.thread12.i, label %53, !llvm.loop !41
 
-103:                                              ; preds = %91
+102:                                              ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread19.i
 
-.thread12.i:                                      ; preds = %102
+.thread12.i:                                      ; preds = %101
   br i1 %.242.i, label %.thread19.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread12.i
-  %104 = add i32 %.247.i, -1
-  %.not5442.i = icmp sgt i32 %.247.i, 1
-  br i1 %.not5442.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
+  %103 = add i32 %.247.i, -1
+  %.not5444.i = icmp sgt i32 %.247.i, 1
+  br i1 %.not5444.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %7, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !40
-  br label %.lr.ph48.preheader.i
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i32, ptr %7, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !40
+  br label %.lr.ph50.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %104 to i64
+  %wide.trip.count.i = zext nneg i32 %103 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %111, %.lr.ph.preheader.i
-  %indvars.iv66.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next67.i, %111 ]
-  %108 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv66.i
-  %109 = load i32, ptr %108, align 4, !tbaa !40
-  %110 = icmp ugt i32 %109, 255
-  br i1 %110, label %.thread19.i, label %111
+.lr.ph.i:                                         ; preds = %110, %.lr.ph.preheader.i
+  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next69.i, %110 ]
+  %107 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv68.i
+  %108 = load i32, ptr %107, align 4, !tbaa !40
+  %109 = icmp ugt i32 %108, 255
+  br i1 %109, label %.thread19.i, label %110
 
-111:                                              ; preds = %.lr.ph.i
-  %112 = trunc nuw i32 %109 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv66.i
-  store i8 %112, ptr %113, align 1, !tbaa !3
-  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i
-  br i1 %exitcond69.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
+110:                                              ; preds = %.lr.ph.i
+  %111 = trunc nuw i32 %108 to i8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv68.i
+  store i8 %111, ptr %112, align 1, !tbaa !3
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i
+  br i1 %exitcond71.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !42
 
-._crit_edge.i:                                    ; preds = %111
-  %114 = sext i32 %104 to i64
-  %115 = getelementptr inbounds i32, ptr %7, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !40
-  %.not5544.i = icmp sgt i32 %.247.i, 4
-  br i1 %.not5544.i, label %._crit_edge49.i, label %.lr.ph48.preheader.i
+._crit_edge.i:                                    ; preds = %110
+  %113 = sext i32 %103 to i64
+  %114 = getelementptr inbounds i32, ptr %7, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !40
+  %.not5546.i = icmp sgt i32 %.247.i, 4
+  br i1 %.not5546.i, label %._crit_edge51.i, label %.lr.ph50.preheader.i
 
-.lr.ph48.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %117 = phi i32 [ %107, %._crit_edge.thread.i ], [ %116, %._crit_edge.i ]
-  %118 = sext i32 %.247.i to i64
-  br label %.lr.ph48.i
+.lr.ph50.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %116 = phi i32 [ %106, %._crit_edge.thread.i ], [ %115, %._crit_edge.i ]
+  %117 = sext i32 %.247.i to i64
+  br label %.lr.ph50.i
 
-._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %._crit_edge.i
-  %.036.lcssa.i = phi i32 [ %116, %._crit_edge.i ], [ %121, %.lr.ph48.i ]
+._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %._crit_edge.i
+  %.036.lcssa.i = phi i32 [ %115, %._crit_edge.i ], [ %120, %.lr.ph50.i ]
   %.not56.i = icmp eq i32 %.036.lcssa.i, 0
-  br i1 %.not56.i, label %122, label %.thread19.i
+  br i1 %.not56.i, label %121, label %.thread19.i
 
-.lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
-  %indvars.iv70.i = phi i64 [ 3, %.lr.ph48.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph48.i ]
-  %.03645.i = phi i32 [ %117, %.lr.ph48.preheader.i ], [ %121, %.lr.ph48.i ]
-  %119 = trunc i32 %.03645.i to i8
-  %120 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv70.i
-  store i8 %119, ptr %120, align 1, !tbaa !3
-  %121 = lshr i32 %.03645.i, 8
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %.not55.i = icmp slt i64 %indvars.iv70.i, %118
-  br i1 %.not55.i, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !43
+.lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
+  %indvars.iv72.i = phi i64 [ 3, %.lr.ph50.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph50.i ]
+  %.03647.i = phi i32 [ %116, %.lr.ph50.preheader.i ], [ %120, %.lr.ph50.i ]
+  %118 = trunc i32 %.03647.i to i8
+  %119 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv72.i
+  store i8 %118, ptr %119, align 1, !tbaa !3
+  %120 = lshr i32 %.03647.i, 8
+  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
+  %.not55.i = icmp slt i64 %indvars.iv72.i, %117
+  br i1 %.not55.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !43
 
-122:                                              ; preds = %._crit_edge49.i
+121:                                              ; preds = %._crit_edge51.i
   store i32 %.247.i, ptr %3, align 4, !tbaa !40
   br label %.thread19.i
 
-.thread19.i:                                      ; preds = %.lr.ph.i, %122, %._crit_edge49.i, %.thread12.i, %103
-  %.5.i = phi i32 [ 0, %103 ], [ 1, %.thread12.i ], [ 2, %122 ], [ 1, %._crit_edge49.i ], [ 1, %.lr.ph.i ]
+.thread19.i:                                      ; preds = %.lr.ph.i, %121, %._crit_edge51.i, %.thread12.i, %102
+  %.5.i = phi i32 [ 0, %102 ], [ 1, %.thread12.i ], [ 2, %121 ], [ 1, %._crit_edge51.i ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
@@ -1428,18 +1428,18 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
-53:                                               ; preds = %103, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i
-  %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %103 ]
-  %.04040.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %103 ]
-  %.04539.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %103 ]
+53:                                               ; preds = %102, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i
+  %indvars.iv.i = phi i64 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %indvars.iv.next.i, %102 ]
+  %.04042.i = phi i1 [ false, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.242.i, %102 ]
+  %.04541.i = phi i32 [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i ], [ %.247.i, %102 ]
   %54 = getelementptr inbounds nuw %"struct.url::Component", ptr %6, i64 %indvars.iv.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !22
   %57 = icmp slt i32 %56, 1
-  br i1 %57, label %103, label %58
+  br i1 %57, label %102, label %58
 
 58:                                               ; preds = %53
-  %59 = sext i32 %.04539.i to i64
+  %59 = sext i32 %.04541.i to i64
   %60 = getelementptr inbounds i32, ptr %7, i64 %59
   %.val.i = load i32, ptr %54, align 8, !tbaa !35
   %61 = sext i32 %.val.i to i64
@@ -1463,13 +1463,13 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br i1 %70, label %.lr.ph.preheader.i.i, label %.critedge.i.jt8.i
 
 .lr.ph.preheader.i.i:                             ; preds = %69, %66, %58
-  %.033.i78.i = phi i32 [ 8, %69 ], [ 16, %58 ], [ 32, %66 ]
-  %.041.i77.i = phi i64 [ 2, %69 ], [ 0, %58 ], [ 1, %66 ]
+  %.033.i80.i = phi i32 [ 8, %69 ], [ 16, %58 ], [ 32, %66 ]
+  %.041.i79.i = phi i64 [ 2, %69 ], [ 0, %58 ], [ 1, %66 ]
   %wide.trip.count.i.i = zext nneg i32 %56 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %73, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %.041.i77.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %73 ]
+  %indvars.iv.i.i = phi i64 [ %.041.i79.i, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %73 ]
   %gep.i.i = getelementptr i16, ptr %62, i64 %indvars.iv.i.i
   %71 = load i16, ptr %gep.i.i, align 2, !tbaa !26
   %72 = icmp eq i16 %71, 48
@@ -1512,7 +1512,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %82 = getelementptr inbounds nuw i8, ptr @_ZN3url20kSharedCharTypeTableE, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !3
   %84 = zext i8 %83 to i32
-  %85 = and i32 %.033.i78.i, %84
+  %85 = and i32 %.033.i80.i, %84
   %86 = icmp ne i32 %85, 0
   %87 = icmp slt i32 %.03710.i.i, 16
   %or.cond47.i.i = select i1 %86, i1 %87, i1 false
@@ -1527,7 +1527,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br label %93
 
 92:                                               ; preds = %.lr.ph12.i.i
-  br i1 %86, label %93, label %104
+  br i1 %86, label %93, label %103
 
 93:                                               ; preds = %92, %.thread.i.i
   %.2392.i.i = phi i32 [ %89, %.thread.i.i ], [ %.03710.i.i, %92 ]
@@ -1543,7 +1543,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   %.037.lcssa.i.i = phi i64 [ 0, %.critedge.i.i ], [ %94, %._crit_edge.loopexit.i.i ], [ 0, %.critedge.thread.i.i ]
   %95 = getelementptr inbounds i8, ptr %5, i64 %.037.lcssa.i.i
   store i8 0, ptr %95, align 1, !tbaa !3
-  switch i32 %.033.i78.i, label %98 [
+  switch i32 %.033.i80.i, label %.unreachabledefault.i.i [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
     i32 16, label %96
     i32 32, label %97
@@ -1555,104 +1555,104 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 97:                                               ; preds = %._crit_edge.i.i
   br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
 
-98:                                               ; preds = %._crit_edge.i.i
-  br label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
+.unreachabledefault.i.i:                          ; preds = %._crit_edge.i.i
+  unreachable
 
-_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %98, %97, %96, %._crit_edge.i.i, %.critedge.i.jt8.i
-  %.0.i.i.i = phi i32 [ 0, %98 ], [ 10, %96 ], [ 8, %97 ], [ 16, %._crit_edge.i.i ], [ 16, %.critedge.i.jt8.i ]
-  %99 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
-  %100 = icmp ugt i64 %99, 4294967295
-  br i1 %100, label %.thread.i, label %.fold.split.i
+_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %97, %96, %._crit_edge.i.i, %.critedge.i.jt8.i
+  %.0.i.i.i = phi i32 [ 10, %96 ], [ 8, %97 ], [ 16, %._crit_edge.i.i ], [ 16, %.critedge.i.jt8.i ]
+  %98 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef %.0.i.i.i) #9
+  %99 = icmp ugt i64 %98, 4294967295
+  br i1 %99, label %.thread.i, label %.fold.split.i
 
 .fold.split.i:                                    ; preds = %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %101 = trunc nuw i64 %99 to i32
-  store i32 %101, ptr %60, align 4, !tbaa !40
+  %100 = trunc nuw i64 %98 to i32
+  store i32 %100, ptr %60, align 4, !tbaa !40
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
-  %.343.i = phi i1 [ %.04040.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
+  %.343.i = phi i1 [ %.04042.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %102 = add nsw i32 %.04539.i, 1
-  br label %103
+  %101 = add nsw i32 %.04541.i, 1
+  br label %102
 
-103:                                              ; preds = %.thread.i, %53
-  %.247.i = phi i32 [ %.04539.i, %53 ], [ %102, %.thread.i ]
-  %.242.i = phi i1 [ %.04040.i, %53 ], [ %.343.i, %.thread.i ]
+102:                                              ; preds = %.thread.i, %53
+  %.247.i = phi i32 [ %.04541.i, %53 ], [ %101, %.thread.i ]
+  %.242.i = phi i1 [ %.04042.i, %53 ], [ %.343.i, %.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.i, label %.thread12.i, label %53, !llvm.loop !46
 
-104:                                              ; preds = %92
+103:                                              ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread19.i
 
-.thread12.i:                                      ; preds = %103
+.thread12.i:                                      ; preds = %102
   br i1 %.242.i, label %.thread19.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread12.i
-  %105 = add i32 %.247.i, -1
-  %.not5442.i = icmp sgt i32 %.247.i, 1
-  br i1 %.not5442.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
+  %104 = add i32 %.247.i, -1
+  %.not5444.i = icmp sgt i32 %.247.i, 1
+  br i1 %.not5444.i, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %7, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !40
-  br label %.lr.ph48.preheader.i
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i32, ptr %7, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !40
+  br label %.lr.ph50.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %105 to i64
+  %wide.trip.count.i = zext nneg i32 %104 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %112, %.lr.ph.preheader.i
-  %indvars.iv66.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next67.i, %112 ]
-  %109 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv66.i
-  %110 = load i32, ptr %109, align 4, !tbaa !40
-  %111 = icmp ugt i32 %110, 255
-  br i1 %111, label %.thread19.i, label %112
+.lr.ph.i:                                         ; preds = %111, %.lr.ph.preheader.i
+  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next69.i, %111 ]
+  %108 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv68.i
+  %109 = load i32, ptr %108, align 4, !tbaa !40
+  %110 = icmp ugt i32 %109, 255
+  br i1 %110, label %.thread19.i, label %111
 
-112:                                              ; preds = %.lr.ph.i
-  %113 = trunc nuw i32 %110 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv66.i
-  store i8 %113, ptr %114, align 1, !tbaa !3
-  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i
-  br i1 %exitcond69.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+111:                                              ; preds = %.lr.ph.i
+  %112 = trunc nuw i32 %109 to i8
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv68.i
+  store i8 %112, ptr %113, align 1, !tbaa !3
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i
+  br i1 %exitcond71.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
-._crit_edge.i:                                    ; preds = %112
-  %115 = sext i32 %105 to i64
-  %116 = getelementptr inbounds i32, ptr %7, i64 %115
-  %117 = load i32, ptr %116, align 4, !tbaa !40
-  %.not5544.i = icmp sgt i32 %.247.i, 4
-  br i1 %.not5544.i, label %._crit_edge49.i, label %.lr.ph48.preheader.i
+._crit_edge.i:                                    ; preds = %111
+  %114 = sext i32 %104 to i64
+  %115 = getelementptr inbounds i32, ptr %7, i64 %114
+  %116 = load i32, ptr %115, align 4, !tbaa !40
+  %.not5546.i = icmp sgt i32 %.247.i, 4
+  br i1 %.not5546.i, label %._crit_edge51.i, label %.lr.ph50.preheader.i
 
-.lr.ph48.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %118 = phi i32 [ %108, %._crit_edge.thread.i ], [ %117, %._crit_edge.i ]
-  %119 = sext i32 %.247.i to i64
-  br label %.lr.ph48.i
+.lr.ph50.preheader.i:                             ; preds = %._crit_edge.i, %._crit_edge.thread.i
+  %117 = phi i32 [ %107, %._crit_edge.thread.i ], [ %116, %._crit_edge.i ]
+  %118 = sext i32 %.247.i to i64
+  br label %.lr.ph50.i
 
-._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %._crit_edge.i
-  %.036.lcssa.i = phi i32 [ %117, %._crit_edge.i ], [ %122, %.lr.ph48.i ]
+._crit_edge51.i:                                  ; preds = %.lr.ph50.i, %._crit_edge.i
+  %.036.lcssa.i = phi i32 [ %116, %._crit_edge.i ], [ %121, %.lr.ph50.i ]
   %.not56.i = icmp eq i32 %.036.lcssa.i, 0
-  br i1 %.not56.i, label %123, label %.thread19.i
+  br i1 %.not56.i, label %122, label %.thread19.i
 
-.lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
-  %indvars.iv70.i = phi i64 [ 3, %.lr.ph48.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph48.i ]
-  %.03645.i = phi i32 [ %118, %.lr.ph48.preheader.i ], [ %122, %.lr.ph48.i ]
-  %120 = trunc i32 %.03645.i to i8
-  %121 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv70.i
-  store i8 %120, ptr %121, align 1, !tbaa !3
-  %122 = lshr i32 %.03645.i, 8
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, -1
-  %.not55.i = icmp slt i64 %indvars.iv70.i, %119
-  br i1 %.not55.i, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !48
+.lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.lr.ph50.preheader.i
+  %indvars.iv72.i = phi i64 [ 3, %.lr.ph50.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph50.i ]
+  %.03647.i = phi i32 [ %117, %.lr.ph50.preheader.i ], [ %121, %.lr.ph50.i ]
+  %119 = trunc i32 %.03647.i to i8
+  %120 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv72.i
+  store i8 %119, ptr %120, align 1, !tbaa !3
+  %121 = lshr i32 %.03647.i, 8
+  %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
+  %.not55.i = icmp slt i64 %indvars.iv72.i, %118
+  br i1 %.not55.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !48
 
-123:                                              ; preds = %._crit_edge49.i
+122:                                              ; preds = %._crit_edge51.i
   store i32 %.247.i, ptr %3, align 4, !tbaa !40
   br label %.thread19.i
 
-.thread19.i:                                      ; preds = %.lr.ph.i, %123, %._crit_edge49.i, %.thread12.i, %104
-  %.5.i = phi i32 [ 0, %104 ], [ 1, %.thread12.i ], [ 2, %123 ], [ 1, %._crit_edge49.i ], [ 1, %.lr.ph.i ]
+.thread19.i:                                      ; preds = %.lr.ph.i, %122, %._crit_edge51.i, %.thread12.i, %103
+  %.5.i = phi i32 [ 0, %103 ], [ 1, %.thread12.i ], [ 2, %122 ], [ 1, %._crit_edge51.i ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 

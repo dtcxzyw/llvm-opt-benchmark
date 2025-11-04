@@ -174,9 +174,9 @@ define dso_local void @page_counter_charge(ptr noundef %0, i64 noundef %1) local
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.loopexit, label %.preheader7
+  br i1 %4, label %.loopexit, label %.preheader8
 
-.preheader7:                                      ; preds = %3, %53
+.preheader8:                                      ; preds = %3, %53
   %5 = phi ptr [ %54, %53 ], [ %0, %3 ]
   %6 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %1, ptr nonnull elementtype(i64) %5) #5, !srcloc !5
   %7 = add i64 %6, %1
@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %48, label %11
 
-11:                                               ; preds = %.preheader7
+11:                                               ; preds = %.preheader8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %13 = load ptr, ptr %12, align 32
   %14 = icmp eq ptr %13, null
@@ -243,7 +243,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
   store volatile i64 %7, ptr %44, align 16
   br label %53
 
-48:                                               ; preds = %.preheader7
+48:                                               ; preds = %.preheader8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %1, ptr nonnull elementtype(i64) %5) #5, !srcloc !17
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %50 = load i64, ptr %49, align 8
@@ -256,7 +256,7 @@ define dso_local noundef zeroext i1 @page_counter_try_charge(ptr noundef %0, i64
 53:                                               ; preds = %47, %43
   %54 = load ptr, ptr %12, align 32
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %.preheader7, !llvm.loop !18
+  br i1 %55, label %.loopexit, label %.preheader8, !llvm.loop !18
 
 .preheader:                                       ; preds = %48, %.preheader
   %56 = phi ptr [ %58, %.preheader ], [ %0, %48 ]

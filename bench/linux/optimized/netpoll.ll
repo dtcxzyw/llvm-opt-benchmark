@@ -1535,7 +1535,7 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %43 = load volatile i64, ptr %27, align 8
   %44 = and i64 %43, 4
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.thread7, label %.lr.ph
+  br i1 %45, label %.thread12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %52
   %46 = load volatile i64, ptr @jiffies, align 64
@@ -1546,16 +1546,16 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
 49:                                               ; preds = %.lr.ph
   %50 = load ptr, ptr %32, align 8
   %51 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %50) #17
-  br label %.thread7
+  br label %.thread12
 
 52:                                               ; preds = %.lr.ph
   tail call void @msleep(i32 noundef 1) #14
   %53 = load volatile i64, ptr %27, align 8
   %54 = and i64 %53, 4
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.thread7, label %.lr.ph, !llvm.loop !69
+  br i1 %55, label %.thread12, label %.lr.ph, !llvm.loop !69
 
-.thread7:                                         ; preds = %52, %37, %49
+.thread12:                                        ; preds = %52, %37, %49
   tail call void @rtnl_lock() #14
   br label %60
 
@@ -1565,7 +1565,7 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %57, ptr noundef nonnull %58) #17
   br label %121
 
-60:                                               ; preds = %.thread7, %26
+60:                                               ; preds = %.thread12, %26
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 0
@@ -1587,9 +1587,9 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %78, label %.thread8
+  br i1 %75, label %78, label %.thread13
 
-.thread8:                                         ; preds = %72
+.thread13:                                        ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %77 = load i32, ptr %76, align 8
   store i32 %77, ptr %61, align 8
@@ -1605,7 +1605,7 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %84 = load volatile ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread9, label %86
+  br i1 %85, label %.thread14, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 616
@@ -1627,25 +1627,25 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %98 = xor i32 %97, %96
   %99 = and i32 %98, 32
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.thread11, label %90, !llvm.loop !70
+  br i1 %100, label %.thread16, label %90, !llvm.loop !70
 
 101:                                              ; preds = %90
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %87) #14
-  br label %.thread9
+  br label %.thread14
 
-.thread11:                                        ; preds = %94
+.thread16:                                        ; preds = %94
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef align 8 dereferenceable(16) %95, i64 16, i1 false)
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %87) #14
   br label %.sink.split
 
-.thread9:                                         ; preds = %82, %101
+.thread14:                                        ; preds = %82, %101
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load ptr, ptr %.in, align 8
   %103 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %102, ptr noundef nonnull %2) #17
   br label %121
 
-.sink.split:                                      ; preds = %.thread8, %.thread11
-  %.str.20.sink = phi ptr [ @.str.20, %.thread11 ], [ @.str.18, %.thread8 ]
+.sink.split:                                      ; preds = %.thread13, %.thread16
+  %.str.20.sink = phi ptr [ @.str.20, %.thread16 ], [ @.str.18, %.thread13 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %.str.20.sink, ptr noundef %105, ptr noundef nonnull %61) #17
@@ -1681,13 +1681,13 @@ define dso_local i32 @netpoll_setup(ptr noundef %0) #0 align 16 {
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %124, label %121
 
-121:                                              ; preds = %.thread9, %78, %56, %.loopexit, %22
-  %122 = phi i32 [ -16, %22 ], [ %119, %.loopexit ], [ -89, %.thread9 ], [ -89, %78 ], [ %35, %56 ]
+121:                                              ; preds = %.thread14, %78, %56, %.loopexit, %22
+  %122 = phi i32 [ -16, %22 ], [ %119, %.loopexit ], [ -89, %.thread14 ], [ -89, %78 ], [ %35, %56 ]
   %123 = load ptr, ptr %18, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %123, ptr elementtype(i32) %123) #14, !srcloc !71
   br label %124
 
-124:                                              ; preds = %.thread, %.loopexit, %121
+124:                                              ; preds = %121, %.loopexit, %.thread
   %125 = phi i32 [ 0, %.loopexit ], [ %122, %121 ], [ -19, %.thread ]
   tail call void @rtnl_unlock() #14
   ret i32 %125

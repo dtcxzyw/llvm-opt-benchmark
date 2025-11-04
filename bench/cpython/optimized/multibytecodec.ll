@@ -1381,7 +1381,7 @@ define internal fastcc ptr @multibytecodec_encode(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %6
   %11 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 0) #8
-  br label %Py_XDECREF.exit66
+  br label %Py_XDECREF.exit67
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1419,7 +1419,7 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 
 27:                                               ; preds = %_PyUnicode_DATA.exit
   %28 = tail call ptr @PyErr_NoMemory() #8
-  br label %.thread68
+  br label %.thread69
 
 29:                                               ; preds = %_PyUnicode_DATA.exit
   %30 = shl i64 %.val, 1
@@ -1427,29 +1427,29 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
   %32 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %31) #8
   store ptr %32, ptr %14, align 8, !tbaa !65
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread68, label %34
+  br i1 %33, label %.thread69, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %35, ptr %36, align 8, !tbaa !66
   %37 = getelementptr i8, ptr %32, i64 16
-  %.val57 = load i64, ptr %37, align 8, !tbaa !40
-  %38 = getelementptr i8, ptr %35, i64 %.val57
+  %.val58 = load i64, ptr %37, align 8, !tbaa !40
+  %38 = getelementptr i8, ptr %35, i64 %.val58
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %38, ptr %39, align 8, !tbaa !67
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = and i32 %5, 1
   %.not48 = icmp eq i32 %41, 0
-  br i1 %.not48, label %.split76.us, label %.split76
+  br i1 %.not48, label %.split77.us, label %.split77
 
-.split76.us:                                      ; preds = %34, %.split.us
+.split77.us:                                      ; preds = %34, %.split.us
   %42 = load i64, ptr %15, align 8, !tbaa !63
   %43 = load i64, ptr %16, align 8, !tbaa !64
   %44 = icmp slt i64 %42, %43
   br i1 %44, label %45, label %.thread
 
-45:                                               ; preds = %.split76.us
+45:                                               ; preds = %.split77.us
   %46 = load ptr, ptr %39, align 8, !tbaa !67
   %47 = load ptr, ptr %36, align 8, !tbaa !66
   %48 = ptrtoint ptr %46 to i64
@@ -1465,15 +1465,15 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 .split.us:                                        ; preds = %45
   %53 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, ptr noundef %4, i64 noundef %52)
   %.not49.us = icmp eq i32 %53, 0
-  br i1 %.not49.us, label %.split76.us, label %.thread68
+  br i1 %.not49.us, label %.split77.us, label %.thread69
 
-.split76:                                         ; preds = %34, %68
+.split77:                                         ; preds = %34, %68
   %54 = load i64, ptr %15, align 8, !tbaa !63
   %55 = load i64, ptr %16, align 8, !tbaa !64
   %56 = icmp slt i64 %54, %55
   br i1 %56, label %57, label %.thread
 
-57:                                               ; preds = %.split76
+57:                                               ; preds = %.split77
   %58 = load ptr, ptr %39, align 8, !tbaa !67
   %59 = load ptr, ptr %36, align 8, !tbaa !66
   %60 = ptrtoint ptr %58 to i64
@@ -1487,18 +1487,18 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 66:                                               ; preds = %57
   %67 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, ptr noundef %4, i64 noundef %64)
   %.not49 = icmp eq i32 %67, 0
-  br i1 %.not49, label %68, label %.thread68
+  br i1 %.not49, label %68, label %.thread69
 
 68:                                               ; preds = %66
   %69 = icmp eq i64 %64, -2
-  br i1 %69, label %.thread, label %.split76
+  br i1 %69, label %.thread, label %.split77
 
-.thread:                                          ; preds = %.split76, %57, %68, %.split76.us, %45, %45
+.thread:                                          ; preds = %.split77, %57, %68, %.split77.us, %45, %45
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = load ptr, ptr %70, align 8, !tbaa !69
   %.not50 = icmp eq ptr %71, null
   %or.cond55 = select i1 %.not50, i1 true, i1 %.not
-  br i1 %or.cond55, label %.thread71, label %.preheader
+  br i1 %or.cond55, label %.thread72, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %80
   %72 = load ptr, ptr %39, align 8, !tbaa !67
@@ -1509,14 +1509,14 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
   %77 = load ptr, ptr %70, align 8, !tbaa !69
   %78 = call i64 %77(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %76) #8
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %.thread71, label %80
+  br i1 %79, label %.thread72, label %80
 
 80:                                               ; preds = %.preheader
   %81 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, ptr noundef %4, i64 noundef %78)
   %.not52 = icmp eq i32 %81, 0
-  br i1 %.not52, label %.preheader, label %.thread68
+  br i1 %.not52, label %.preheader, label %.thread69
 
-.thread71:                                        ; preds = %.preheader, %.thread
+.thread72:                                        ; preds = %.preheader, %.thread
   %82 = load ptr, ptr %36, align 8, !tbaa !66
   %83 = load ptr, ptr %14, align 8, !tbaa !65
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
@@ -1524,16 +1524,16 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
   %88 = getelementptr i8, ptr %83, i64 16
-  %.val58 = load i64, ptr %88, align 8, !tbaa !40
-  %.not53 = icmp eq i64 %87, %.val58
+  %.val59 = load i64, ptr %88, align 8, !tbaa !40
+  %.not53 = icmp eq i64 %87, %.val59
   br i1 %.not53, label %92, label %89
 
-89:                                               ; preds = %.thread71
+89:                                               ; preds = %.thread72
   %90 = call i32 @_PyBytes_Resize(ptr noundef nonnull %14, i64 noundef %87) #8
   %91 = icmp eq i32 %90, -1
-  br i1 %91, label %.thread68, label %92
+  br i1 %91, label %.thread69, label %92
 
-92:                                               ; preds = %89, %.thread71
+92:                                               ; preds = %89, %.thread72
   %.not54 = icmp eq ptr %3, null
   br i1 %.not54, label %95, label %93
 
@@ -1544,13 +1544,13 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 
 95:                                               ; preds = %93, %92
   %96 = load ptr, ptr %13, align 8, !tbaa !70
-  %.not.i59 = icmp eq ptr %96, null
-  br i1 %.not.i59, label %Py_XDECREF.exit, label %97
+  %.not.i60 = icmp eq ptr %96, null
+  br i1 %.not.i60, label %Py_XDECREF.exit, label %97
 
 97:                                               ; preds = %95
   %98 = load i32, ptr %96, align 8, !tbaa !15
-  %.not.i.i60 = icmp sgt i32 %98, -1
-  br i1 %.not.i.i60, label %99, label %Py_XDECREF.exit
+  %.not.i.i61 = icmp sgt i32 %98, -1
+  br i1 %.not.i.i61, label %99, label %Py_XDECREF.exit
 
 99:                                               ; preds = %97
   %100 = add nsw i32 %98, -1
@@ -1564,50 +1564,50 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 
 Py_XDECREF.exit:                                  ; preds = %95, %97, %99, %102
   %103 = load ptr, ptr %14, align 8, !tbaa !65
-  br label %Py_XDECREF.exit66
+  br label %Py_XDECREF.exit67
 
-.thread68:                                        ; preds = %66, %.split.us, %80, %89, %29, %27
+.thread69:                                        ; preds = %66, %.split.us, %80, %89, %29, %27
   %104 = load ptr, ptr %13, align 8, !tbaa !70
-  %.not.i61 = icmp eq ptr %104, null
-  br i1 %.not.i61, label %Py_XDECREF.exit63, label %105
+  %.not.i62 = icmp eq ptr %104, null
+  br i1 %.not.i62, label %Py_XDECREF.exit64, label %105
 
-105:                                              ; preds = %.thread68
+105:                                              ; preds = %.thread69
   %106 = load i32, ptr %104, align 8, !tbaa !15
-  %.not.i.i62 = icmp sgt i32 %106, -1
-  br i1 %.not.i.i62, label %107, label %Py_XDECREF.exit63
+  %.not.i.i63 = icmp sgt i32 %106, -1
+  br i1 %.not.i.i63, label %107, label %Py_XDECREF.exit64
 
 107:                                              ; preds = %105
   %108 = add nsw i32 %106, -1
   store i32 %108, ptr %104, align 8, !tbaa !15
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %Py_XDECREF.exit63
+  br i1 %109, label %110, label %Py_XDECREF.exit64
 
 110:                                              ; preds = %107
   call void @_Py_Dealloc(ptr noundef nonnull %104) #8
-  br label %Py_XDECREF.exit63
+  br label %Py_XDECREF.exit64
 
-Py_XDECREF.exit63:                                ; preds = %.thread68, %105, %107, %110
+Py_XDECREF.exit64:                                ; preds = %.thread69, %105, %107, %110
   %111 = load ptr, ptr %14, align 8, !tbaa !65
-  %.not.i64 = icmp eq ptr %111, null
-  br i1 %.not.i64, label %Py_XDECREF.exit66, label %112
+  %.not.i65 = icmp eq ptr %111, null
+  br i1 %.not.i65, label %Py_XDECREF.exit67, label %112
 
-112:                                              ; preds = %Py_XDECREF.exit63
+112:                                              ; preds = %Py_XDECREF.exit64
   %113 = load i32, ptr %111, align 8, !tbaa !15
-  %.not.i.i65 = icmp sgt i32 %113, -1
-  br i1 %.not.i.i65, label %114, label %Py_XDECREF.exit66
+  %.not.i.i66 = icmp sgt i32 %113, -1
+  br i1 %.not.i.i66, label %114, label %Py_XDECREF.exit67
 
 114:                                              ; preds = %112
   %115 = add nsw i32 %113, -1
   store i32 %115, ptr %111, align 8, !tbaa !15
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %Py_XDECREF.exit66
+  br i1 %116, label %117, label %Py_XDECREF.exit67
 
 117:                                              ; preds = %114
   call void @_Py_Dealloc(ptr noundef nonnull %111) #8
-  br label %Py_XDECREF.exit66
+  br label %Py_XDECREF.exit67
 
-Py_XDECREF.exit66:                                ; preds = %117, %114, %112, %Py_XDECREF.exit63, %Py_XDECREF.exit, %10
-  %.0 = phi ptr [ %103, %Py_XDECREF.exit ], [ %11, %10 ], [ null, %Py_XDECREF.exit63 ], [ null, %112 ], [ null, %114 ], [ null, %117 ]
+Py_XDECREF.exit67:                                ; preds = %117, %114, %112, %Py_XDECREF.exit64, %Py_XDECREF.exit, %10
+  %.0 = phi ptr [ %103, %Py_XDECREF.exit ], [ %11, %10 ], [ null, %Py_XDECREF.exit64 ], [ null, %112 ], [ null, %114 ], [ null, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }

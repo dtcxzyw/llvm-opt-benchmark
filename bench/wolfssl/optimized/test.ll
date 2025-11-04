@@ -1999,7 +1999,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %15 = and i32 %14, 2047
   %narrow.neg103 = mul nsw i32 %15, -100000
   %16 = add nsw i32 %narrow.neg103, -536874160
-  br label %77
+  br label %78
 
 17:                                               ; preds = %0
   %18 = call i32 @wc_InitMd5_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
@@ -2012,7 +2012,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %21 = and i32 %20, 2047
   %narrow.neg100 = mul nsw i32 %21, -100000
   %22 = add nsw i32 %narrow.neg100, -536874164
-  br label %77
+  br label %78
 
 .preheader105:                                    ; preds = %17, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %17 ]
@@ -2029,7 +2029,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg97 = mul nsw i32 %30, -100000
   %31 = add nsw i32 %narrow.neg97, -1610615995
-  br label %76
+  br label %77
 
 32:                                               ; preds = %.preheader105
   %33 = call i32 @wc_Md5GetHash(ptr noundef nonnull %1, ptr noundef nonnull %4) #19
@@ -2040,7 +2040,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg94 = mul nsw i32 %35, -100000
   %36 = add nsw i32 %narrow.neg94, -1610615999
-  br label %76
+  br label %77
 
 37:                                               ; preds = %32
   %38 = call i32 @wc_Md5Copy(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
@@ -2051,7 +2051,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg91 = mul nsw i32 %40, -100000
   %41 = add nsw i32 %narrow.neg91, -1610616003
-  br label %76
+  br label %77
 
 42:                                               ; preds = %37
   %43 = call i32 @wc_Md5Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2062,7 +2062,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg88 = mul nsw i32 %45, -100000
   %46 = add nsw i32 %narrow.neg88, -1610616007
-  br label %76
+  br label %77
 
 47:                                               ; preds = %42
   call void @wc_Md5Free(ptr noundef nonnull %2) #19
@@ -2076,7 +2076,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg85 = mul nsw i32 %51, -100000
   %52 = add nsw i32 %narrow.neg85, -1610616012
-  br label %76
+  br label %77
 
 53:                                               ; preds = %47
   %bcmp78 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) %4, i64 16)
@@ -2087,7 +2087,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg82 = mul nsw i32 %55, -100000
   %56 = add nsw i32 %narrow.neg82, -1610616015
-  br label %76
+  br label %77
 
 57:                                               ; preds = %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2123,7 +2123,7 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %67 = and i32 %66, 2047
   %narrow.neg71 = mul nsw i32 %67, -100000
   %68 = add nsw i32 %narrow.neg71, -536874211
-  br label %select.unfold
+  br label %76
 
 69:                                               ; preds = %62
   %70 = call i32 @wc_Md5Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2135,27 +2135,27 @@ define dso_local range(i32 -1611116015, 1) i32 @md5_test() local_unnamed_addr #0
   %73 = and i32 %72, 2047
   %narrow.neg = mul nsw i32 %73, -100000
   %74 = add nsw i32 %narrow.neg, -536874215
-  br label %select.unfold
+  br label %76
 
 75:                                               ; preds = %69
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @.str.109, i64 16)
   %.not65 = icmp eq i32 %bcmp, 0
   %. = select i1 %.not65, i32 0, i32 -3305
-  br label %select.unfold
-
-select.unfold:                                    ; preds = %75, %71, %65
-  %.157 = phi i32 [ %68, %65 ], [ %74, %71 ], [ %., %75 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
-76:                                               ; preds = %select.unfold, %54, %50, %44, %39, %34, %29
-  %.056 = phi i32 [ %31, %29 ], [ %36, %34 ], [ %41, %39 ], [ %46, %44 ], [ %52, %50 ], [ %56, %54 ], [ %.157, %select.unfold ]
-  call void @wc_Md5Free(ptr noundef nonnull %1) #19
-  call void @wc_Md5Free(ptr noundef nonnull %2) #19
+76:                                               ; preds = %75, %71, %65
+  %.157 = phi i32 [ %68, %65 ], [ %74, %71 ], [ %., %75 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %77
 
-77:                                               ; preds = %76, %19, %13
-  %.0 = phi i32 [ %16, %13 ], [ %22, %19 ], [ %.056, %76 ]
+77:                                               ; preds = %76, %54, %50, %44, %39, %34, %29
+  %.056 = phi i32 [ %31, %29 ], [ %36, %34 ], [ %41, %39 ], [ %46, %44 ], [ %52, %50 ], [ %56, %54 ], [ %.157, %76 ]
+  call void @wc_Md5Free(ptr noundef nonnull %1) #19
+  call void @wc_Md5Free(ptr noundef nonnull %2) #19
+  br label %78
+
+78:                                               ; preds = %77, %19, %13
+  %.0 = phi i32 [ %16, %13 ], [ %22, %19 ], [ %.056, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2215,7 +2215,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %14 = and i32 %13, 2047
   %narrow.neg99 = mul nsw i32 %14, -100000
   %15 = add nsw i32 %narrow.neg99, -536874364
-  br label %76
+  br label %77
 
 16:                                               ; preds = %0
   %17 = call i32 @wc_InitSha_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
@@ -2228,7 +2228,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %20 = and i32 %19, 2047
   %narrow.neg96 = mul nsw i32 %20, -100000
   %21 = add nsw i32 %narrow.neg96, -536874368
-  br label %76
+  br label %77
 
 .preheader101:                                    ; preds = %16, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %16 ]
@@ -2245,7 +2245,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg93 = mul nsw i32 %29, -100000
   %30 = add nsw i32 %narrow.neg93, -1610616199
-  br label %75
+  br label %76
 
 31:                                               ; preds = %.preheader101
   %32 = call i32 @wc_ShaGetHash(ptr noundef nonnull %1, ptr noundef nonnull %4) #19
@@ -2256,7 +2256,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg90 = mul nsw i32 %34, -100000
   %35 = add nsw i32 %narrow.neg90, -1610616202
-  br label %75
+  br label %76
 
 36:                                               ; preds = %31
   %37 = call i32 @wc_ShaCopy(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
@@ -2267,7 +2267,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg87 = mul nsw i32 %39, -100000
   %40 = add nsw i32 %narrow.neg87, -1610616205
-  br label %75
+  br label %76
 
 41:                                               ; preds = %36
   %42 = call i32 @wc_ShaFinal(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2278,7 +2278,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg84 = mul nsw i32 %44, -100000
   %45 = add nsw i32 %narrow.neg84, -1610616208
-  br label %75
+  br label %76
 
 46:                                               ; preds = %41
   call void @wc_ShaFree(ptr noundef nonnull %2) #19
@@ -2292,7 +2292,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg81 = mul nsw i32 %50, -100000
   %51 = add nsw i32 %narrow.neg81, -1610616212
-  br label %75
+  br label %76
 
 52:                                               ; preds = %46
   %bcmp74 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %4, i64 20)
@@ -2303,7 +2303,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg78 = mul nsw i32 %54, -100000
   %55 = add nsw i32 %narrow.neg78, -1610616214
-  br label %75
+  br label %76
 
 56:                                               ; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2339,7 +2339,7 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %66 = and i32 %65, 2047
   %narrow.neg67 = mul nsw i32 %66, -100000
   %67 = add nsw i32 %narrow.neg67, -536874422
-  br label %select.unfold
+  br label %75
 
 68:                                               ; preds = %61
   %69 = call i32 @wc_ShaFinal(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2351,27 +2351,27 @@ define dso_local range(i32 -1611016214, 1) i32 @sha_test() local_unnamed_addr #0
   %72 = and i32 %71, 2047
   %narrow.neg = mul nsw i32 %72, -100000
   %73 = add nsw i32 %narrow.neg, -536874426
-  br label %select.unfold
+  br label %75
 
 74:                                               ; preds = %68
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) @.str.118, i64 20)
   %.not61 = icmp eq i32 %bcmp, 0
   %. = select i1 %.not61, i32 0, i32 -3516
-  br label %select.unfold
-
-select.unfold:                                    ; preds = %74, %70, %64
-  %.153 = phi i32 [ %67, %64 ], [ %73, %70 ], [ %., %74 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
-75:                                               ; preds = %select.unfold, %53, %49, %43, %38, %33, %28
-  %.052 = phi i32 [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %51, %49 ], [ %55, %53 ], [ %.153, %select.unfold ]
-  call void @wc_ShaFree(ptr noundef nonnull %1) #19
-  call void @wc_ShaFree(ptr noundef nonnull %2) #19
+75:                                               ; preds = %74, %70, %64
+  %.153 = phi i32 [ %67, %64 ], [ %73, %70 ], [ %., %74 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
-76:                                               ; preds = %75, %18, %12
-  %.0 = phi i32 [ %15, %12 ], [ %21, %18 ], [ %.052, %75 ]
+76:                                               ; preds = %75, %53, %49, %43, %38, %33, %28
+  %.052 = phi i32 [ %30, %28 ], [ %35, %33 ], [ %40, %38 ], [ %45, %43 ], [ %51, %49 ], [ %55, %53 ], [ %.153, %75 ]
+  call void @wc_ShaFree(ptr noundef nonnull %1) #19
+  call void @wc_ShaFree(ptr noundef nonnull %2) #19
+  br label %77
+
+77:                                               ; preds = %76, %18, %12
+  %.0 = phi i32 [ %15, %12 ], [ %21, %18 ], [ %.052, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2608,7 +2608,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %21 = and i32 %20, 2047
   %narrow.neg189 = mul nsw i32 %21, -100000
   %22 = add nsw i32 %narrow.neg189, -536874793
-  br label %135
+  br label %136
 
 23:                                               ; preds = %0
   %24 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #19
@@ -2620,7 +2620,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %27 = and i32 %26, 2047
   %narrow.neg186 = mul nsw i32 %27, -100000
   %28 = add nsw i32 %narrow.neg186, -536874798
-  br label %135
+  br label %136
 
 29:                                               ; preds = %23
   %30 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
@@ -2633,7 +2633,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %33 = and i32 %32, 2047
   %narrow.neg183 = mul nsw i32 %33, -100000
   %34 = add nsw i32 %narrow.neg183, -536874804
-  br label %135
+  br label %136
 
 35:                                               ; preds = %29
   %36 = call i32 @wc_InitSha256_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #19
@@ -2647,7 +2647,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %39 = and i32 %38, 2047
   %narrow.neg180 = mul nsw i32 %39, -100000
   %40 = add nsw i32 %narrow.neg180, -536874811
-  br label %135
+  br label %136
 
 .preheader192:                                    ; preds = %35, %118
   %indvars.iv = phi i64 [ %indvars.iv.next, %118 ], [ 0, %35 ]
@@ -2664,7 +2664,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg177 = mul nsw i32 %48, -100000
   %49 = add nsw i32 %narrow.neg177, -1610616643
-  br label %select.unfold
+  br label %135
 
 50:                                               ; preds = %.preheader192
   %51 = getelementptr inbounds nuw %struct.testVector, ptr %8, i64 %indvars.iv
@@ -2680,7 +2680,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg174 = mul nsw i32 %58, -100000
   %59 = add nsw i32 %narrow.neg174, -1610616649
-  br label %select.unfold
+  br label %135
 
 60:                                               ; preds = %50
   %61 = call i32 @wc_Sha256GetHash(ptr noundef nonnull %1, ptr noundef nonnull %4) #19
@@ -2691,7 +2691,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %63 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg171 = mul nsw i32 %63, -100000
   %64 = add nsw i32 %narrow.neg171, -1610616655
-  br label %select.unfold
+  br label %135
 
 65:                                               ; preds = %60
   %66 = call i32 @wc_Sha256GetHash(ptr noundef nonnull %9, ptr noundef nonnull %7) #19
@@ -2702,7 +2702,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg168 = mul nsw i32 %68, -100000
   %69 = add nsw i32 %narrow.neg168, -1610616659
-  br label %select.unfold
+  br label %135
 
 70:                                               ; preds = %65
   %71 = call i32 @wc_Sha256Copy(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
@@ -2713,7 +2713,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg165 = mul nsw i32 %73, -100000
   %74 = add nsw i32 %narrow.neg165, -1610616664
-  br label %select.unfold
+  br label %135
 
 75:                                               ; preds = %70
   %76 = call i32 @wc_Sha256Copy(ptr noundef nonnull %9, ptr noundef nonnull %10) #19
@@ -2724,7 +2724,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %78 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg162 = mul nsw i32 %78, -100000
   %79 = add nsw i32 %narrow.neg162, -1610616668
-  br label %select.unfold
+  br label %135
 
 80:                                               ; preds = %75
   %81 = call i32 @wc_Sha256Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2735,7 +2735,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %83 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg159 = mul nsw i32 %83, -100000
   %84 = add nsw i32 %narrow.neg159, -1610616673
-  br label %select.unfold
+  br label %135
 
 85:                                               ; preds = %80
   %86 = call i32 @wc_Sha256Final(ptr noundef nonnull %9, ptr noundef nonnull %6) #19
@@ -2746,7 +2746,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %88 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg156 = mul nsw i32 %88, -100000
   %89 = add nsw i32 %narrow.neg156, -1610616677
-  br label %select.unfold
+  br label %135
 
 90:                                               ; preds = %85
   call void @wc_Sha256Free(ptr noundef nonnull %2) #19
@@ -2761,7 +2761,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %94 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg153 = mul nsw i32 %94, -100000
   %95 = add nsw i32 %narrow.neg153, -1610616686
-  br label %select.unfold
+  br label %135
 
 96:                                               ; preds = %90
   %bcmp126 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %4, i64 32)
@@ -2772,7 +2772,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg150 = mul nsw i32 %98, -100000
   %99 = add nsw i32 %narrow.neg150, -1610616689
-  br label %select.unfold
+  br label %135
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -2785,7 +2785,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg147 = mul nsw i32 %104, -100000
   %105 = add nsw i32 %narrow.neg147, -1610616694
-  br label %select.unfold
+  br label %135
 
 106:                                              ; preds = %100
   %bcmp130 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %6, ptr noundef nonnull dereferenceable(32) %7, i64 32)
@@ -2796,7 +2796,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg144 = mul nsw i32 %108, -100000
   %109 = add nsw i32 %narrow.neg144, -1610616697
-  br label %select.unfold
+  br label %135
 
 110:                                              ; preds = %106
   %bcmp132 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %6, ptr noundef nonnull dereferenceable(32) %92, i64 32)
@@ -2807,7 +2807,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %112 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg141 = mul nsw i32 %112, -100000
   %113 = add nsw i32 %narrow.neg141, -1610616700
-  br label %select.unfold
+  br label %135
 
 114:                                              ; preds = %110
   %bcmp134 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %6, ptr noundef nonnull dereferenceable(32) %4, i64 32)
@@ -2818,7 +2818,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %116 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg138 = mul nsw i32 %116, -100000
   %117 = add nsw i32 %narrow.neg138, -1610616703
-  br label %select.unfold
+  br label %135
 
 118:                                              ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2850,7 +2850,7 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %126 = and i32 %125, 2047
   %narrow.neg115 = mul nsw i32 %126, -100000
   %127 = add nsw i32 %narrow.neg115, -536874920
-  br label %select.unfold
+  br label %135
 
 128:                                              ; preds = %121
   %129 = call i32 @wc_Sha256Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2862,24 +2862,24 @@ define dso_local range(i32 -1610916703, 1) i32 @sha256_test() local_unnamed_addr
   %132 = and i32 %131, 2047
   %narrow.neg = mul nsw i32 %132, -100000
   %133 = add nsw i32 %narrow.neg, -536874924
-  br label %select.unfold
+  br label %135
 
 134:                                              ; preds = %128
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) @.str.126, i64 32)
   %.not109 = icmp eq i32 %bcmp, 0
   %. = select i1 %.not109, i32 0, i32 -4014
-  br label %select.unfold
+  br label %135
 
-select.unfold:                                    ; preds = %134, %124, %130, %115, %111, %107, %103, %97, %93, %87, %82, %77, %72, %67, %62, %57, %47
+135:                                              ; preds = %124, %130, %134, %115, %111, %107, %103, %97, %93, %87, %82, %77, %72, %67, %62, %57, %47
   %.096 = phi i32 [ %49, %47 ], [ %59, %57 ], [ %64, %62 ], [ %69, %67 ], [ %74, %72 ], [ %79, %77 ], [ %84, %82 ], [ %89, %87 ], [ %95, %93 ], [ %99, %97 ], [ %105, %103 ], [ %109, %107 ], [ %113, %111 ], [ %117, %115 ], [ %127, %124 ], [ %133, %130 ], [ %., %134 ]
   call void @wc_Sha256Free(ptr noundef nonnull %1) #19
   call void @wc_Sha256Free(ptr noundef nonnull %2) #19
   call void @wc_Sha256Free(ptr noundef nonnull %9) #19
   call void @wc_Sha256Free(ptr noundef nonnull %10) #19
-  br label %135
+  br label %136
 
-135:                                              ; preds = %select.unfold, %37, %31, %25, %19
-  %.0 = phi i32 [ %22, %19 ], [ %28, %25 ], [ %34, %31 ], [ %40, %37 ], [ %.096, %select.unfold ]
+136:                                              ; preds = %135, %37, %31, %25, %19
+  %.0 = phi i32 [ %22, %19 ], [ %28, %25 ], [ %34, %31 ], [ %40, %37 ], [ %.096, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2933,7 +2933,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %12 = and i32 %11, 2047
   %narrow.neg91 = mul nsw i32 %12, -100000
   %13 = add nsw i32 %narrow.neg91, -536875554
-  br label %74
+  br label %75
 
 14:                                               ; preds = %0
   %15 = call i32 @wc_InitSha384_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
@@ -2946,7 +2946,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %18 = and i32 %17, 2047
   %narrow.neg88 = mul nsw i32 %18, -100000
   %19 = add nsw i32 %narrow.neg88, -536875558
-  br label %74
+  br label %75
 
 .preheader93:                                     ; preds = %14, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %14 ]
@@ -2963,7 +2963,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg85 = mul nsw i32 %27, -100000
   %28 = add nsw i32 %narrow.neg85, -1610617389
-  br label %73
+  br label %74
 
 29:                                               ; preds = %.preheader93
   %30 = call i32 @wc_Sha384GetHash(ptr noundef nonnull %1, ptr noundef nonnull %4) #19
@@ -2974,7 +2974,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg82 = mul nsw i32 %32, -100000
   %33 = add nsw i32 %narrow.neg82, -1610617392
-  br label %73
+  br label %74
 
 34:                                               ; preds = %29
   %35 = call i32 @wc_Sha384Copy(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
@@ -2985,7 +2985,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg79 = mul nsw i32 %37, -100000
   %38 = add nsw i32 %narrow.neg79, -1610617395
-  br label %73
+  br label %74
 
 39:                                               ; preds = %34
   %40 = call i32 @wc_Sha384Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -2996,7 +2996,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg76 = mul nsw i32 %42, -100000
   %43 = add nsw i32 %narrow.neg76, -1610617398
-  br label %73
+  br label %74
 
 44:                                               ; preds = %39
   call void @wc_Sha384Free(ptr noundef nonnull %2) #19
@@ -3010,7 +3010,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg73 = mul nsw i32 %48, -100000
   %49 = add nsw i32 %narrow.neg73, -1610617402
-  br label %73
+  br label %74
 
 50:                                               ; preds = %44
   %bcmp66 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %3, ptr noundef nonnull dereferenceable(48) %4, i64 48)
@@ -3021,7 +3021,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   %narrow.neg70 = mul nsw i32 %52, -100000
   %53 = add nsw i32 %narrow.neg70, -1610617404
-  br label %73
+  br label %74
 
 54:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3057,7 +3057,7 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %64 = and i32 %63, 2047
   %narrow.neg59 = mul nsw i32 %64, -100000
   %65 = add nsw i32 %narrow.neg59, -536875610
-  br label %select.unfold
+  br label %73
 
 66:                                               ; preds = %59
   %67 = call i32 @wc_Sha384Final(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
@@ -3069,27 +3069,27 @@ define dso_local range(i32 -1610817404, 1) i32 @sha384_test() local_unnamed_addr
   %70 = and i32 %69, 2047
   %narrow.neg = mul nsw i32 %70, -100000
   %71 = add nsw i32 %narrow.neg, -536875614
-  br label %select.unfold
+  br label %73
 
 72:                                               ; preds = %66
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %3, ptr noundef nonnull dereferenceable(48) @.str.143, i64 48)
   %.not53 = icmp eq i32 %bcmp, 0
   %. = select i1 %.not53, i32 0, i32 -4704
-  br label %select.unfold
-
-select.unfold:                                    ; preds = %72, %68, %62
-  %.145 = phi i32 [ %65, %62 ], [ %71, %68 ], [ %., %72 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
-73:                                               ; preds = %select.unfold, %51, %47, %41, %36, %31, %26
-  %.044 = phi i32 [ %28, %26 ], [ %33, %31 ], [ %38, %36 ], [ %43, %41 ], [ %49, %47 ], [ %53, %51 ], [ %.145, %select.unfold ]
-  call void @wc_Sha384Free(ptr noundef nonnull %1) #19
-  call void @wc_Sha384Free(ptr noundef nonnull %2) #19
+73:                                               ; preds = %72, %68, %62
+  %.145 = phi i32 [ %65, %62 ], [ %71, %68 ], [ %., %72 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
-74:                                               ; preds = %73, %16, %10
-  %.0 = phi i32 [ %13, %10 ], [ %19, %16 ], [ %.044, %73 ]
+74:                                               ; preds = %73, %51, %47, %41, %36, %31, %26
+  %.044 = phi i32 [ %28, %26 ], [ %33, %31 ], [ %38, %36 ], [ %43, %41 ], [ %49, %47 ], [ %53, %51 ], [ %.145, %73 ]
+  call void @wc_Sha384Free(ptr noundef nonnull %1) #19
+  call void @wc_Sha384Free(ptr noundef nonnull %2) #19
+  br label %75
+
+75:                                               ; preds = %74, %16, %10
+  %.0 = phi i32 [ %13, %10 ], [ %19, %16 ], [ %.044, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3979,7 +3979,7 @@ sha3_224_test.exit.thread:                        ; preds = %0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %215
+  br label %216
 
 .preheader80.i:                                   ; preds = %0, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %0 ]
@@ -3990,29 +3990,29 @@ sha3_224_test.exit.thread:                        ; preds = %0
   %32 = trunc i64 %31 to i32
   %33 = call i32 @wc_Sha3_224_Update(ptr noundef nonnull %17, ptr noundef %29, i32 noundef %32) #19
   %.not54.i = icmp eq i32 %33, 0
-  br i1 %.not54.i, label %34, label %sha3_224_test.exit.thread90
+  br i1 %.not54.i, label %34, label %sha3_224_test.exit.thread88
 
 34:                                               ; preds = %.preheader80.i
   %35 = call i32 @wc_Sha3_224_GetHash(ptr noundef nonnull %17, ptr noundef nonnull %19) #19
   %.not55.i = icmp eq i32 %35, 0
-  br i1 %.not55.i, label %36, label %sha3_224_test.exit.thread90
+  br i1 %.not55.i, label %36, label %sha3_224_test.exit.thread88
 
 36:                                               ; preds = %34
   %37 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %17, ptr noundef nonnull %18) #19
   %.not56.i = icmp eq i32 %37, 0
-  br i1 %.not56.i, label %38, label %sha3_224_test.exit.thread90
+  br i1 %.not56.i, label %38, label %sha3_224_test.exit.thread88
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !36
   %bcmp57.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %18, ptr noundef nonnull dereferenceable(28) %40, i64 28)
   %.not58.i = icmp eq i32 %bcmp57.i, 0
-  br i1 %.not58.i, label %41, label %sha3_224_test.exit.thread90
+  br i1 %.not58.i, label %41, label %sha3_224_test.exit.thread88
 
 41:                                               ; preds = %38
   %bcmp59.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %18, ptr noundef nonnull dereferenceable(28) %19, i64 28)
   %.not60.i = icmp eq i32 %bcmp59.i, 0
-  br i1 %.not60.i, label %42, label %sha3_224_test.exit.thread90
+  br i1 %.not60.i, label %42, label %sha3_224_test.exit.thread88
 
 42:                                               ; preds = %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4048,7 +4048,7 @@ sha3_224_test.exit.thread:                        ; preds = %0
   %52 = and i32 %51, 2047
   %narrow.neg53.i = mul nsw i32 %52, -100000
   %53 = add nsw i32 %narrow.neg53.i, -536875701
-  br label %sha3_224_test.exit.thread94
+  br label %sha3_224_test.exit.thread92
 
 54:                                               ; preds = %47
   %55 = call i32 @wc_Sha3_224_Final(ptr noundef nonnull %17, ptr noundef nonnull %18) #19
@@ -4060,14 +4060,14 @@ sha3_224_test.exit.thread:                        ; preds = %0
   %58 = and i32 %57, 2047
   %narrow.neg.i = mul nsw i32 %58, -100000
   %59 = add nsw i32 %narrow.neg.i, -536875705
-  br label %sha3_224_test.exit.thread94
+  br label %sha3_224_test.exit.thread92
 
 60:                                               ; preds = %54
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %18, ptr noundef nonnull dereferenceable(28) @.str.222, i64 28)
   %.not47.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not47.i, label %63, label %sha3_224_test.exit.thread94
+  br i1 %.not47.i, label %63, label %sha3_224_test.exit.thread92
 
-sha3_224_test.exit.thread90:                      ; preds = %41, %38, %36, %34, %.preheader80.i
+sha3_224_test.exit.thread88:                      ; preds = %41, %38, %36, %34, %.preheader80.i
   %.sink = phi i32 [ -1610617496, %.preheader80.i ], [ -1610617499, %34 ], [ -1610617502, %36 ], [ -1610617505, %38 ], [ -1610617507, %41 ]
   %61 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow.neg75.i = mul nsw i32 %61, -100000
@@ -4077,9 +4077,9 @@ sha3_224_test.exit.thread90:                      ; preds = %41, %38, %36, %34, 
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %215
+  br label %216
 
-sha3_224_test.exit.thread94:                      ; preds = %50, %56, %60
+sha3_224_test.exit.thread92:                      ; preds = %50, %56, %60
   %.141.i.ph = phi i32 [ -4795, %60 ], [ %59, %56 ], [ %53, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @wc_Sha3_224_Free(ptr noundef nonnull %17) #19
@@ -4087,7 +4087,7 @@ sha3_224_test.exit.thread94:                      ; preds = %50, %56, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %215
+  br label %216
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -4132,7 +4132,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %215
+  br label %216
 
 .preheader77.i:                                   ; preds = %63, %99
   %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i23, %99 ], [ 0, %63 ]
@@ -4149,7 +4149,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %77 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %narrow.neg72.i18 = mul nsw i32 %77, -100000
   %78 = add nsw i32 %narrow.neg72.i18, -1610617602
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 79:                                               ; preds = %.preheader77.i
   %80 = call i32 @wc_Sha3_256_GetHash(ptr noundef nonnull %12, ptr noundef nonnull %14) #19
@@ -4160,7 +4160,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %82 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %narrow.neg69.i19 = mul nsw i32 %82, -100000
   %83 = add nsw i32 %narrow.neg69.i19, -1610617605
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 84:                                               ; preds = %79
   %85 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %12, ptr noundef nonnull %13) #19
@@ -4171,7 +4171,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %87 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %narrow.neg66.i20 = mul nsw i32 %87, -100000
   %88 = add nsw i32 %narrow.neg66.i20, -1610617608
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -4184,7 +4184,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %93 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %narrow.neg63.i22 = mul nsw i32 %93, -100000
   %94 = add nsw i32 %narrow.neg63.i22, -1610617611
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 95:                                               ; preds = %89
   %bcmp56.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %13, ptr noundef nonnull dereferenceable(32) %14, i64 32)
@@ -4195,7 +4195,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %97 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %narrow.neg60.i = mul nsw i32 %97, -100000
   %98 = add nsw i32 %narrow.neg60.i, -1610617613
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 99:                                               ; preds = %95
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i17, 1
@@ -4227,7 +4227,7 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %107 = and i32 %106, 2047
   %narrow.neg50.i = mul nsw i32 %107, -100000
   %108 = add nsw i32 %narrow.neg50.i, -536875802
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 109:                                              ; preds = %102
   %110 = call i32 @wc_Sha3_256_Final(ptr noundef nonnull %12, ptr noundef nonnull %13) #19
@@ -4239,14 +4239,14 @@ sha3_256_test.exit.thread:                        ; preds = %63
   %113 = and i32 %112, 2047
   %narrow.neg.i27 = mul nsw i32 %113, -100000
   %114 = add nsw i32 %narrow.neg.i27, -536875806
-  br label %sha3_256_test.exit.thread100
+  br label %sha3_256_test.exit.thread98
 
 115:                                              ; preds = %109
   %bcmp.i28 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %13, ptr noundef nonnull dereferenceable(32) @.str.223, i64 32)
   %.not44.i = icmp eq i32 %bcmp.i28, 0
-  br i1 %.not44.i, label %116, label %sha3_256_test.exit.thread100
+  br i1 %.not44.i, label %116, label %sha3_256_test.exit.thread98
 
-sha3_256_test.exit.thread100:                     ; preds = %76, %81, %86, %92, %96, %105, %111, %115
+sha3_256_test.exit.thread98:                      ; preds = %76, %81, %86, %92, %96, %105, %111, %115
   %.038.i.ph = phi i32 [ -4896, %115 ], [ %114, %111 ], [ %108, %105 ], [ %98, %96 ], [ %94, %92 ], [ %88, %86 ], [ %83, %81 ], [ %78, %76 ]
   call void @wc_Sha3_256_Free(ptr noundef nonnull %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -4254,7 +4254,7 @@ sha3_256_test.exit.thread100:                     ; preds = %76, %81, %86, %92, 
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %215
+  br label %216
 
 116:                                              ; preds = %115
   call void @wc_Sha3_256_Free(ptr noundef nonnull %12) #19
@@ -4299,7 +4299,7 @@ sha3_384_test.exit.thread:                        ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %215
+  br label %216
 
 .preheader81.i:                                   ; preds = %116, %137
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i37, %137 ], [ 0, %116 ]
@@ -4311,29 +4311,29 @@ sha3_384_test.exit.thread:                        ; preds = %116
   %127 = trunc i64 %126 to i32
   %128 = call i32 @wc_Sha3_384_Update(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %127) #19
   %.not55.i34 = icmp eq i32 %128, 0
-  br i1 %.not55.i34, label %129, label %sha3_384_test.exit.thread105
+  br i1 %.not55.i34, label %129, label %sha3_384_test.exit.thread103
 
 129:                                              ; preds = %.preheader81.i
   %130 = call i32 @wc_Sha3_384_GetHash(ptr noundef nonnull %6, ptr noundef nonnull %9) #19
   %.not56.i35 = icmp eq i32 %130, 0
-  br i1 %.not56.i35, label %131, label %sha3_384_test.exit.thread105
+  br i1 %.not56.i35, label %131, label %sha3_384_test.exit.thread103
 
 131:                                              ; preds = %129
   %132 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #19
   %.not57.i36 = icmp eq i32 %132, 0
-  br i1 %.not57.i36, label %133, label %sha3_384_test.exit.thread105
+  br i1 %.not57.i36, label %133, label %sha3_384_test.exit.thread103
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !36
   %bcmp58.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %7, ptr noundef nonnull dereferenceable(48) %135, i64 48)
   %.not59.i = icmp eq i32 %bcmp58.i, 0
-  br i1 %.not59.i, label %136, label %sha3_384_test.exit.thread105
+  br i1 %.not59.i, label %136, label %sha3_384_test.exit.thread103
 
 136:                                              ; preds = %133
   %bcmp60.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %7, ptr noundef nonnull dereferenceable(48) %9, i64 48)
   %.not61.i = icmp eq i32 %bcmp60.i, 0
-  br i1 %.not61.i, label %137, label %sha3_384_test.exit.thread105
+  br i1 %.not61.i, label %137, label %sha3_384_test.exit.thread103
 
 137:                                              ; preds = %136
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i33, 1
@@ -4369,39 +4369,39 @@ sha3_384_test.exit.thread:                        ; preds = %116
   %147 = and i32 %146, 2047
   %narrow.neg54.i = mul nsw i32 %147, -100000
   %148 = add nsw i32 %narrow.neg54.i, -536875943
-  br label %sha3_384_test.exit.thread110
+  br label %sha3_384_test.exit.thread108
 
 149:                                              ; preds = %142
   %150 = call i32 @wc_Sha3_384_Final(ptr noundef nonnull %6, ptr noundef nonnull %7) #19
-  %.not47.i43 = icmp eq i32 %150, 0
-  br i1 %.not47.i43, label %155, label %151
+  %.not47.i42 = icmp eq i32 %150, 0
+  br i1 %.not47.i42, label %155, label %151
 
 151:                                              ; preds = %149
   %152 = sub nsw i32 0, %150
   %153 = and i32 %152, 2047
-  %narrow.neg.i44 = mul nsw i32 %153, -100000
-  %154 = add nsw i32 %narrow.neg.i44, -536875947
-  br label %sha3_384_test.exit.thread110
+  %narrow.neg.i43 = mul nsw i32 %153, -100000
+  %154 = add nsw i32 %narrow.neg.i43, -536875947
+  br label %sha3_384_test.exit.thread108
 
 155:                                              ; preds = %149
-  %bcmp.i45 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %7, ptr noundef nonnull dereferenceable(48) @.str.230, i64 48)
-  %.not48.i = icmp eq i32 %bcmp.i45, 0
-  br i1 %.not48.i, label %158, label %sha3_384_test.exit.thread110
+  %bcmp.i44 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %7, ptr noundef nonnull dereferenceable(48) @.str.230, i64 48)
+  %.not48.i = icmp eq i32 %bcmp.i44, 0
+  br i1 %.not48.i, label %158, label %sha3_384_test.exit.thread108
 
-sha3_384_test.exit.thread105:                     ; preds = %136, %133, %131, %129, %.preheader81.i
-  %.sink211 = phi i32 [ -1610617733, %.preheader81.i ], [ -1610617737, %129 ], [ -1610617741, %131 ], [ -1610617744, %133 ], [ -1610617747, %136 ]
+sha3_384_test.exit.thread103:                     ; preds = %136, %133, %131, %129, %.preheader81.i
+  %.sink209 = phi i32 [ -1610617733, %.preheader81.i ], [ -1610617737, %129 ], [ -1610617741, %131 ], [ -1610617744, %133 ], [ -1610617747, %136 ]
   %156 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %narrow.neg76.i = mul nsw i32 %156, -100000
-  %157 = add nsw i32 %narrow.neg76.i, %.sink211
+  %157 = add nsw i32 %narrow.neg76.i, %.sink209
   call void @wc_Sha3_384_Free(ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %215
+  br label %216
 
-sha3_384_test.exit.thread110:                     ; preds = %145, %151, %155
+sha3_384_test.exit.thread108:                     ; preds = %145, %151, %155
   %.142.i.ph = phi i32 [ -5037, %155 ], [ %154, %151 ], [ %148, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @wc_Sha3_384_Free(ptr noundef nonnull %6) #19
@@ -4410,7 +4410,7 @@ sha3_384_test.exit.thread110:                     ; preds = %145, %151, %155
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %215
+  br label %216
 
 158:                                              ; preds = %155
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4425,170 +4425,170 @@ sha3_384_test.exit.thread110:                     ; preds = %145, %151, %155
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.97, ptr %4, align 16, !tbaa !29
-  %.sroa.534.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.231, ptr %.sroa.534.0..sroa_idx.i47, align 8, !tbaa !29
-  %.sroa.635.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %.sroa.635.0..sroa_idx.i48, align 16, !tbaa !27
+  %.sroa.534.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @.str.231, ptr %.sroa.534.0..sroa_idx.i46, align 8, !tbaa !29
+  %.sroa.635.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.635.0..sroa_idx.i47, align 16, !tbaa !27
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @.str.99, ptr %159, align 16, !tbaa !29
-  %.sroa.530.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @.str.232, ptr %.sroa.530.0..sroa_idx.i49, align 8, !tbaa !29
-  %.sroa.631.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 3, ptr %.sroa.631.0..sroa_idx.i50, align 16, !tbaa !27
+  %.sroa.530.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr @.str.232, ptr %.sroa.530.0..sroa_idx.i48, align 8, !tbaa !29
+  %.sroa.631.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 3, ptr %.sroa.631.0..sroa_idx.i49, align 16, !tbaa !27
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @.str.112, ptr %160, align 16, !tbaa !29
-  %.sroa.5.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @.str.233, ptr %.sroa.5.0..sroa_idx.i51, align 8, !tbaa !29
-  %.sroa.6.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i64 56, ptr %.sroa.6.0..sroa_idx.i52, align 16, !tbaa !27
+  %.sroa.5.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @.str.233, ptr %.sroa.5.0..sroa_idx.i50, align 8, !tbaa !29
+  %.sroa.6.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i64 56, ptr %.sroa.6.0..sroa_idx.i51, align 16, !tbaa !27
   %161 = call i32 @wc_InitSha3_512(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #19
-  %.not.i53 = icmp eq i32 %161, 0
-  br i1 %.not.i53, label %.preheader80.i56, label %162
+  %.not.i52 = icmp eq i32 %161, 0
+  br i1 %.not.i52, label %.preheader80.i55, label %162
 
 162:                                              ; preds = %158
   %163 = sub nsw i32 0, %161
   %164 = and i32 %163, 2047
-  %narrow.neg78.i54 = mul nsw i32 %164, -100000
-  %165 = add nsw i32 %narrow.neg78.i54, -536876008
+  %narrow.neg78.i53 = mul nsw i32 %164, -100000
+  %165 = add nsw i32 %narrow.neg78.i53, -536876008
   br label %sha3_512_test.exit
 
-.preheader80.i56:                                 ; preds = %158, %195
-  %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i71, %195 ], [ 0, %158 ]
-  %166 = getelementptr inbounds nuw %struct.testVector, ptr %4, i64 %indvars.iv.i57
+.preheader80.i55:                                 ; preds = %158, %195
+  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i70, %195 ], [ 0, %158 ]
+  %166 = getelementptr inbounds nuw %struct.testVector, ptr %4, i64 %indvars.iv.i56
   %167 = load ptr, ptr %166, align 16, !tbaa !33
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %169 = load i64, ptr %168, align 16, !tbaa !35
   %170 = trunc i64 %169 to i32
   %171 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %1, ptr noundef %167, i32 noundef %170) #19
-  %.not54.i58 = icmp eq i32 %171, 0
-  br i1 %.not54.i58, label %175, label %172
+  %.not54.i57 = icmp eq i32 %171, 0
+  br i1 %.not54.i57, label %175, label %172
 
-172:                                              ; preds = %.preheader80.i56
-  %173 = trunc nuw nsw i64 %indvars.iv.i57 to i32
-  %narrow.neg75.i59 = mul nsw i32 %173, -100000
-  %174 = add nsw i32 %narrow.neg75.i59, -1610617838
-  br label %214
+172:                                              ; preds = %.preheader80.i55
+  %173 = trunc nuw nsw i64 %indvars.iv.i56 to i32
+  %narrow.neg75.i58 = mul nsw i32 %173, -100000
+  %174 = add nsw i32 %narrow.neg75.i58, -1610617838
+  br label %215
 
-175:                                              ; preds = %.preheader80.i56
+175:                                              ; preds = %.preheader80.i55
   %176 = call i32 @wc_Sha3_512_GetHash(ptr noundef nonnull %1, ptr noundef nonnull %3) #19
-  %.not55.i61 = icmp eq i32 %176, 0
-  br i1 %.not55.i61, label %180, label %177
+  %.not55.i60 = icmp eq i32 %176, 0
+  br i1 %.not55.i60, label %180, label %177
 
 177:                                              ; preds = %175
-  %178 = trunc nuw nsw i64 %indvars.iv.i57 to i32
-  %narrow.neg72.i62 = mul nsw i32 %178, -100000
-  %179 = add nsw i32 %narrow.neg72.i62, -1610617841
-  br label %214
+  %178 = trunc nuw nsw i64 %indvars.iv.i56 to i32
+  %narrow.neg72.i61 = mul nsw i32 %178, -100000
+  %179 = add nsw i32 %narrow.neg72.i61, -1610617841
+  br label %215
 
 180:                                              ; preds = %175
   %181 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
-  %.not56.i63 = icmp eq i32 %181, 0
-  br i1 %.not56.i63, label %185, label %182
+  %.not56.i62 = icmp eq i32 %181, 0
+  br i1 %.not56.i62, label %185, label %182
 
 182:                                              ; preds = %180
-  %183 = trunc nuw nsw i64 %indvars.iv.i57 to i32
-  %narrow.neg69.i64 = mul nsw i32 %183, -100000
-  %184 = add nsw i32 %narrow.neg69.i64, -1610617844
-  br label %214
+  %183 = trunc nuw nsw i64 %indvars.iv.i56 to i32
+  %narrow.neg69.i63 = mul nsw i32 %183, -100000
+  %184 = add nsw i32 %narrow.neg69.i63, -1610617844
+  br label %215
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %187 = load ptr, ptr %186, align 8, !tbaa !36
-  %bcmp57.i65 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) %187, i64 64)
-  %.not58.i66 = icmp eq i32 %bcmp57.i65, 0
-  br i1 %.not58.i66, label %191, label %188
+  %bcmp57.i64 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) %187, i64 64)
+  %.not58.i65 = icmp eq i32 %bcmp57.i64, 0
+  br i1 %.not58.i65, label %191, label %188
 
 188:                                              ; preds = %185
-  %189 = trunc nuw nsw i64 %indvars.iv.i57 to i32
-  %narrow.neg66.i67 = mul nsw i32 %189, -100000
-  %190 = add nsw i32 %narrow.neg66.i67, -1610617847
-  br label %214
+  %189 = trunc nuw nsw i64 %indvars.iv.i56 to i32
+  %narrow.neg66.i66 = mul nsw i32 %189, -100000
+  %190 = add nsw i32 %narrow.neg66.i66, -1610617847
+  br label %215
 
 191:                                              ; preds = %185
-  %bcmp59.i68 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) %3, i64 64)
-  %.not60.i69 = icmp eq i32 %bcmp59.i68, 0
-  br i1 %.not60.i69, label %195, label %192
+  %bcmp59.i67 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) %3, i64 64)
+  %.not60.i68 = icmp eq i32 %bcmp59.i67, 0
+  br i1 %.not60.i68, label %195, label %192
 
 192:                                              ; preds = %191
-  %193 = trunc nuw nsw i64 %indvars.iv.i57 to i32
-  %narrow.neg63.i70 = mul nsw i32 %193, -100000
-  %194 = add nsw i32 %narrow.neg63.i70, -1610617849
-  br label %214
+  %193 = trunc nuw nsw i64 %indvars.iv.i56 to i32
+  %narrow.neg63.i69 = mul nsw i32 %193, -100000
+  %194 = add nsw i32 %narrow.neg63.i69, -1610617849
+  br label %215
 
 195:                                              ; preds = %191
-  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i57, 1
-  %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 3
-  br i1 %exitcond.not.i72, label %196, label %.preheader80.i56, !llvm.loop !71
+  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i56, 1
+  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, 3
+  br i1 %exitcond.not.i71, label %196, label %.preheader80.i55, !llvm.loop !71
 
 196:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %197
 
 197:                                              ; preds = %197, %196
-  %indvars.iv96.i73 = phi i64 [ 0, %196 ], [ %indvars.iv.next97.i74, %197 ]
-  %198 = trunc i64 %indvars.iv96.i73 to i8
-  %199 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv96.i73
+  %indvars.iv96.i72 = phi i64 [ 0, %196 ], [ %indvars.iv.next97.i73, %197 ]
+  %198 = trunc i64 %indvars.iv96.i72 to i8
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv96.i72
   store i8 %198, ptr %199, align 1, !tbaa !19
-  %indvars.iv.next97.i74 = add nuw nsw i64 %indvars.iv96.i73, 1
-  %exitcond99.not.i75 = icmp eq i64 %indvars.iv.next97.i74, 1024
-  br i1 %exitcond99.not.i75, label %.preheader.i76, label %197, !llvm.loop !72
+  %indvars.iv.next97.i73 = add nuw nsw i64 %indvars.iv96.i72, 1
+  %exitcond99.not.i74 = icmp eq i64 %indvars.iv.next97.i73, 1024
+  br i1 %exitcond99.not.i74, label %.preheader.i75, label %197, !llvm.loop !72
 
-200:                                              ; preds = %.preheader.i76
-  %201 = add nuw nsw i32 %.288.i77, 1
-  %exitcond100.not.i82 = icmp eq i32 %201, 100
-  br i1 %exitcond100.not.i82, label %207, label %.preheader.i76, !llvm.loop !73
+200:                                              ; preds = %.preheader.i75
+  %201 = add nuw nsw i32 %.288.i76, 1
+  %exitcond100.not.i80 = icmp eq i32 %201, 100
+  br i1 %exitcond100.not.i80, label %207, label %.preheader.i75, !llvm.loop !73
 
-.preheader.i76:                                   ; preds = %197, %200
-  %.288.i77 = phi i32 [ %201, %200 ], [ 0, %197 ]
+.preheader.i75:                                   ; preds = %197, %200
+  %.288.i76 = phi i32 [ %201, %200 ], [ 0, %197 ]
   %202 = call i32 @wc_Sha3_512_Update(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 1024) #19
-  %.not50.i78 = icmp eq i32 %202, 0
-  br i1 %.not50.i78, label %200, label %203
+  %.not50.i77 = icmp eq i32 %202, 0
+  br i1 %.not50.i77, label %200, label %203
 
-203:                                              ; preds = %.preheader.i76
+203:                                              ; preds = %.preheader.i75
   %204 = sub nsw i32 0, %202
   %205 = and i32 %204, 2047
-  %narrow.neg53.i79 = mul nsw i32 %205, -100000
-  %206 = add nsw i32 %narrow.neg53.i79, -536876045
-  br label %select.unfold.i80
+  %narrow.neg53.i78 = mul nsw i32 %205, -100000
+  %206 = add nsw i32 %narrow.neg53.i78, -536876045
+  br label %214
 
 207:                                              ; preds = %200
   %208 = call i32 @wc_Sha3_512_Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
-  %.not46.i83 = icmp eq i32 %208, 0
-  br i1 %.not46.i83, label %213, label %209
+  %.not46.i81 = icmp eq i32 %208, 0
+  br i1 %.not46.i81, label %213, label %209
 
 209:                                              ; preds = %207
   %210 = sub nsw i32 0, %208
   %211 = and i32 %210, 2047
-  %narrow.neg.i84 = mul nsw i32 %211, -100000
-  %212 = add nsw i32 %narrow.neg.i84, -536876049
-  br label %select.unfold.i80
-
-213:                                              ; preds = %207
-  %bcmp.i85 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) @.str.234, i64 64)
-  %.not47.i86 = icmp eq i32 %bcmp.i85, 0
-  %..i87 = select i1 %.not47.i86, i32 0, i32 -5139
-  br label %select.unfold.i80
-
-select.unfold.i80:                                ; preds = %213, %209, %203
-  %.141.i81 = phi i32 [ %206, %203 ], [ %212, %209 ], [ %..i87, %213 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %narrow.neg.i82 = mul nsw i32 %211, -100000
+  %212 = add nsw i32 %narrow.neg.i82, -536876049
   br label %214
 
-214:                                              ; preds = %select.unfold.i80, %192, %188, %182, %177, %172
-  %.040.i60 = phi i32 [ %174, %172 ], [ %179, %177 ], [ %184, %182 ], [ %190, %188 ], [ %194, %192 ], [ %.141.i81, %select.unfold.i80 ]
+213:                                              ; preds = %207
+  %bcmp.i83 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) @.str.234, i64 64)
+  %.not47.i84 = icmp eq i32 %bcmp.i83, 0
+  %..i85 = select i1 %.not47.i84, i32 0, i32 -5139
+  br label %214
+
+214:                                              ; preds = %213, %209, %203
+  %.141.i79 = phi i32 [ %206, %203 ], [ %212, %209 ], [ %..i85, %213 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %215
+
+215:                                              ; preds = %214, %192, %188, %182, %177, %172
+  %.040.i59 = phi i32 [ %174, %172 ], [ %179, %177 ], [ %184, %182 ], [ %190, %188 ], [ %194, %192 ], [ %.141.i79, %214 ]
   call void @wc_Sha3_512_Free(ptr noundef nonnull %1) #19
   br label %sha3_512_test.exit
 
-sha3_512_test.exit:                               ; preds = %162, %214
-  %.0.i55 = phi i32 [ %165, %162 ], [ %.040.i60, %214 ]
+sha3_512_test.exit:                               ; preds = %162, %215
+  %.0.i54 = phi i32 [ %165, %162 ], [ %.040.i59, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %215
+  br label %216
 
-215:                                              ; preds = %sha3_384_test.exit.thread110, %sha3_384_test.exit.thread105, %sha3_384_test.exit.thread, %sha3_256_test.exit.thread100, %sha3_256_test.exit.thread, %sha3_224_test.exit.thread94, %sha3_224_test.exit.thread90, %sha3_224_test.exit.thread, %sha3_512_test.exit
-  %.0 = phi i32 [ %.0.i55, %sha3_512_test.exit ], [ %27, %sha3_224_test.exit.thread ], [ %62, %sha3_224_test.exit.thread90 ], [ %.141.i.ph, %sha3_224_test.exit.thread94 ], [ %69, %sha3_256_test.exit.thread ], [ %.038.i.ph, %sha3_256_test.exit.thread100 ], [ %122, %sha3_384_test.exit.thread ], [ %157, %sha3_384_test.exit.thread105 ], [ %.142.i.ph, %sha3_384_test.exit.thread110 ]
+216:                                              ; preds = %sha3_384_test.exit.thread108, %sha3_384_test.exit.thread103, %sha3_384_test.exit.thread, %sha3_256_test.exit.thread98, %sha3_256_test.exit.thread, %sha3_224_test.exit.thread92, %sha3_224_test.exit.thread88, %sha3_224_test.exit.thread, %sha3_512_test.exit
+  %.0 = phi i32 [ %.0.i54, %sha3_512_test.exit ], [ %27, %sha3_224_test.exit.thread ], [ %62, %sha3_224_test.exit.thread88 ], [ %.141.i.ph, %sha3_224_test.exit.thread92 ], [ %69, %sha3_256_test.exit.thread ], [ %.038.i.ph, %sha3_256_test.exit.thread98 ], [ %122, %sha3_384_test.exit.thread ], [ %157, %sha3_384_test.exit.thread103 ], [ %.142.i.ph, %sha3_384_test.exit.thread108 ]
   ret i32 %.0
 }
 
@@ -6470,9 +6470,9 @@ define dso_local range(i32 -741587091, 1) i32 @gmac_test() local_unnamed_addr #0
   br i1 %.not31, label %35, label %.thread
 
 .thread:                                          ; preds = %30, %28, %26, %24, %22, %20
-  %.sink58 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink59 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ -536887062, %20 ], [ -536887072, %22 ], [ -536887076, %24 ], [ -536887080, %26 ], [ -536887087, %28 ], [ -536887091, %30 ]
-  %32 = sub nsw i32 0, %.sink58
+  %32 = sub nsw i32 0, %.sink59
   %33 = and i32 %32, 2047
   %narrow.neg48 = mul nsw i32 %33, -100000
   %34 = add nsw i32 %narrow.neg48, %.sink
@@ -6489,7 +6489,7 @@ define dso_local range(i32 -741587091, 1) i32 @gmac_test() local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %37
 
-37:                                               ; preds = %.sink.split, %0, %17
+37:                                               ; preds = %.sink.split, %17, %0
   %.015 = phi i32 [ -16125, %0 ], [ -16134, %17 ], [ %.015.ph, %.sink.split ]
   call void @wc_AesFree(ptr noundef nonnull %1) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7000,7 +7000,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   br i1 %exitcond495.not, label %.thread, label %.preheader279, !llvm.loop !93
 
 .thread:                                          ; preds = %228, %225, %221, %216, %210, %198, %192, %185, %177, %171, %165, %44, %52, %60, %67, %71, %80, %88, %97, %107, %115, %123, %135, %143, %151, %157, %160, %101, %127, %128
-  %.0120 = phi i32 [ %47, %44 ], [ %55, %52 ], [ %63, %60 ], [ %69, %67 ], [ %73, %71 ], [ %83, %80 ], [ %91, %88 ], [ %100, %97 ], [ %110, %107 ], [ %118, %115 ], [ %126, %123 ], [ %138, %135 ], [ %146, %143 ], [ %154, %151 ], [ %158, %157 ], [ %161, %160 ], [ -7936, %101 ], [ -7959, %127 ], [ -7962, %128 ], [ %227, %225 ], [ %223, %221 ], [ %219, %216 ], [ %213, %210 ], [ %201, %198 ], [ %195, %192 ], [ %188, %185 ], [ %180, %177 ], [ %174, %171 ], [ %168, %165 ], [ 0, %228 ]
+  %.1124 = phi i32 [ %47, %44 ], [ %55, %52 ], [ %63, %60 ], [ %69, %67 ], [ %73, %71 ], [ %83, %80 ], [ %91, %88 ], [ %100, %97 ], [ %110, %107 ], [ %118, %115 ], [ %126, %123 ], [ %138, %135 ], [ %146, %143 ], [ %154, %151 ], [ %158, %157 ], [ %161, %160 ], [ -7936, %101 ], [ -7959, %127 ], [ -7962, %128 ], [ %227, %225 ], [ %223, %221 ], [ %219, %216 ], [ %213, %210 ], [ %201, %198 ], [ %195, %192 ], [ %188, %185 ], [ %180, %177 ], [ %174, %171 ], [ %168, %165 ], [ 0, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -7024,7 +7024,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.0120
+  ret i32 %.1124
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8802,7 +8802,7 @@ define dso_local range(i32 -741585384, 1) i32 @aes_cbc_test() local_unnamed_addr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %95
 
-95:                                               ; preds = %13, %19, %.thread, %94
+95:                                               ; preds = %.thread, %94, %19, %13
   %.028 = phi i32 [ %16, %13 ], [ %22, %19 ], [ %.2, %94 ], [ %.129.ph, %.thread ]
   call void @wc_AesFree(ptr noundef nonnull %1) #19
   call void @wc_AesFree(ptr noundef nonnull %2) #19
@@ -10321,7 +10321,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %22 = and i32 %21, 2047
   %narrow.neg = mul nsw i32 %22, -100000
   %23 = add nsw i32 %narrow.neg, -1073765104
-  br label %.thread180
+  br label %.thread181
 
 24:                                               ; preds = %0
   %25 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %18)
@@ -10336,7 +10336,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %32 = and i32 %31, 2047
   %narrow.neg78 = mul nsw i32 %32, -100000
   %33 = add nsw i32 %narrow.neg78, -1073765109
-  br label %.thread180
+  br label %.thread181
 
 34:                                               ; preds = %24
   store i32 256, ptr %3, align 4, !tbaa !22
@@ -10353,7 +10353,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %38 = and i32 %37, 2047
   %narrow.neg142 = mul nsw i32 %38, -100000
   %39 = add nsw i32 %narrow.neg142, -536894220
-  br label %.thread180
+  br label %.thread181
 
 40:                                               ; preds = %34
   %41 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
@@ -10366,7 +10366,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %45 = and i32 %44, 2047
   %narrow.neg139 = mul nsw i32 %45, -100000
   %46 = add nsw i32 %narrow.neg139, -536894225
-  br label %.thread180
+  br label %.thread181
 
 47:                                               ; preds = %40
   %48 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #19
@@ -10376,18 +10376,18 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
 49:                                               ; preds = %47
   %50 = call i32 @wc_DhKeyDecode(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %26) #19
   %.not82 = icmp eq i32 %50, 0
-  br i1 %.not82, label %51, label %.thread192
+  br i1 %.not82, label %51, label %.thread193
 
 51:                                               ; preds = %49
   store i32 0, ptr %1, align 4, !tbaa !22
   %52 = call i32 @wc_DhKeyDecode(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef %26) #19
   %.not83 = icmp eq i32 %52, 0
-  br i1 %.not83, label %53, label %.thread192
+  br i1 %.not83, label %53, label %.thread193
 
 53:                                               ; preds = %51
   %54 = call i32 @wc_InitRng_ex(ptr noundef nonnull %6, ptr noundef null, i32 noundef -2) #19
   %.not84 = icmp eq i32 %54, 0
-  br i1 %.not84, label %55, label %.thread192
+  br i1 %.not84, label %55, label %.thread193
 
 55:                                               ; preds = %53
   %56 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %13, ptr noundef nonnull %3) #19
@@ -10399,7 +10399,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %59 = and i32 %58, 2047
   %narrow.neg124 = mul nsw i32 %59, -100000
   %60 = add nsw i32 %narrow.neg124, -536894278
-  br label %.thread188
+  br label %.thread189
 
 61:                                               ; preds = %55
   %62 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull %5) #19
@@ -10411,7 +10411,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %65 = and i32 %64, 2047
   %narrow.neg121 = mul nsw i32 %65, -100000
   %66 = add nsw i32 %narrow.neg121, -536894285
-  br label %.thread188
+  br label %.thread189
 
 67:                                               ; preds = %61
   %68 = load i32, ptr %2, align 4, !tbaa !22
@@ -10425,7 +10425,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %73 = and i32 %72, 2047
   %narrow.neg118 = mul nsw i32 %73, -100000
   %74 = add nsw i32 %narrow.neg118, -536894292
-  br label %.thread188
+  br label %.thread189
 
 75:                                               ; preds = %67
   %76 = load i32, ptr %4, align 4, !tbaa !22
@@ -10439,19 +10439,19 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %81 = and i32 %80, 2047
   %narrow.neg115 = mul nsw i32 %81, -100000
   %82 = add nsw i32 %narrow.neg115, -536894299
-  br label %.thread188
+  br label %.thread189
 
 83:                                               ; preds = %75
   %84 = load i32, ptr %7, align 4, !tbaa !22
   %85 = load i32, ptr %8, align 4, !tbaa !22
   %.not89 = icmp eq i32 %84, %85
-  br i1 %.not89, label %86, label %.thread188
+  br i1 %.not89, label %86, label %.thread189
 
 86:                                               ; preds = %83
   %87 = zext i32 %84 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %16, ptr nonnull %17, i64 %87)
   %.not90 = icmp eq i32 %bcmp, 0
-  br i1 %.not90, label %88, label %.thread188
+  br i1 %.not90, label %88, label %.thread189
 
 88:                                               ; preds = %86
   store i32 256, ptr %7, align 4, !tbaa !22
@@ -10467,7 +10467,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %94 = and i32 %93, 2047
   %narrow.neg112 = mul nsw i32 %94, -100000
   %95 = add nsw i32 %narrow.neg112, -536894312
-  br label %.thread188
+  br label %.thread189
 
 96:                                               ; preds = %88
   %97 = load i32, ptr %4, align 4, !tbaa !22
@@ -10481,34 +10481,34 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %102 = and i32 %101, 2047
   %narrow.neg109 = mul nsw i32 %102, -100000
   %103 = add nsw i32 %narrow.neg109, -536894316
-  br label %.thread188
+  br label %.thread189
 
 104:                                              ; preds = %96
   %105 = load i32, ptr %7, align 4, !tbaa !22
   %106 = load i32, ptr %8, align 4, !tbaa !22
   %.not93 = icmp eq i32 %105, %106
-  br i1 %.not93, label %107, label %.thread188
+  br i1 %.not93, label %107, label %.thread189
 
 107:                                              ; preds = %104
   %108 = zext i32 %105 to i64
   %bcmp94 = call i32 @bcmp(ptr nonnull %16, ptr nonnull %17, i64 %108)
   %.not95 = icmp eq i32 %bcmp94, 0
-  br i1 %.not95, label %109, label %.thread188
+  br i1 %.not95, label %109, label %.thread189
 
 109:                                              ; preds = %107
   %110 = call fastcc i32 @dh_generate_test()
   %.not96 = icmp eq i32 %110, 0
-  br i1 %.not96, label %111, label %.thread188
+  br i1 %.not96, label %111, label %.thread189
 
 111:                                              ; preds = %109
   %112 = call fastcc i32 @dh_fips_generate_test(ptr noundef %6)
   %.not97 = icmp eq i32 %112, 0
-  br i1 %.not97, label %113, label %.thread188
+  br i1 %.not97, label %113, label %.thread189
 
 113:                                              ; preds = %111
   %114 = call fastcc i32 @dh_test_check_pubvalue()
   %.not98 = icmp eq i32 %114, 0
-  br i1 %.not98, label %115, label %.thread188
+  br i1 %.not98, label %115, label %.thread189
 
 115:                                              ; preds = %113
   %116 = call ptr @wc_Dh_ffdhe2048_Get() #19
@@ -10521,21 +10521,21 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %120 = and i32 %119, 2047
   %narrow.neg106 = mul nsw i32 %120, -100000
   %121 = add nsw i32 %narrow.neg106, -536894483
-  br label %.thread188
+  br label %.thread189
 
 122:                                              ; preds = %115
   %123 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
   %124 = call i32 @wc_DhSetCheckKey(ptr noundef nonnull %9, ptr noundef nonnull @dh_p, i32 noundef 128, ptr noundef nonnull @dh_g, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #19
   %.not100 = icmp eq i32 %124, 0
-  br i1 %.not100, label %.thread188, label %.thread184
+  br i1 %.not100, label %.thread189, label %.thread185
 
-.thread188:                                       ; preds = %57, %63, %71, %79, %92, %100, %118, %83, %86, %104, %107, %109, %111, %113, %122
+.thread189:                                       ; preds = %57, %63, %71, %79, %92, %100, %118, %83, %86, %104, %107, %109, %111, %113, %122
   %.1.ph.ph = phi i32 [ %60, %57 ], [ %66, %63 ], [ %74, %71 ], [ %82, %79 ], [ %95, %92 ], [ %103, %100 ], [ %121, %118 ], [ -23390, %83 ], [ -23390, %86 ], [ -23415, %104 ], [ -23420, %107 ], [ %110, %109 ], [ %112, %111 ], [ %114, %113 ], [ 0, %122 ]
   %125 = call i32 @wc_FreeRng(ptr noundef nonnull %6) #19
   %126 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
   br label %140
 
-.thread184:                                       ; preds = %122
+.thread185:                                       ; preds = %122
   %127 = sub nsw i32 0, %124
   %128 = and i32 %127, 2047
   %narrow.neg103 = mul nsw i32 %128, -100000
@@ -10543,10 +10543,10 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %130 = call i32 @wc_FreeRng(ptr noundef nonnull %6) #19
   br label %140
 
-.thread192:                                       ; preds = %53, %51, %49
-  %.sink217 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
+.thread193:                                       ; preds = %53, %51, %49
+  %.sink218 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
   %.sink = phi i32 [ -536894255, %49 ], [ -536894260, %51 ], [ -536894270, %53 ]
-  %131 = sub nsw i32 0, %.sink217
+  %131 = sub nsw i32 0, %.sink218
   %132 = and i32 %131, 2047
   %narrow.neg127 = mul nsw i32 %132, -100000
   %133 = add nsw i32 %narrow.neg127, %.sink
@@ -10559,15 +10559,15 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   %narrow.neg136 = mul nsw i32 %137, -100000
   %138 = add nsw i32 %narrow.neg136, -536894229
   %139 = call i32 @wc_FreeDhKey(ptr noundef nonnull %9) #19
-  br label %.thread180
+  br label %.thread181
 
-140:                                              ; preds = %.thread192, %.thread188, %.thread184
-  %.1156169187 = phi i32 [ %129, %.thread184 ], [ %.1.ph.ph, %.thread188 ], [ %133, %.thread192 ]
+140:                                              ; preds = %.thread193, %.thread189, %.thread185
+  %.1157170188 = phi i32 [ %129, %.thread185 ], [ %.1.ph.ph, %.thread189 ], [ %133, %.thread193 ]
   %141 = call i32 @wc_FreeDhKey(ptr noundef nonnull %10) #19
-  br label %.thread180
+  br label %.thread181
 
-.thread180:                                       ; preds = %36, %43, %29, %19, %135, %140
-  %.1156169183 = phi i32 [ %138, %135 ], [ %.1156169187, %140 ], [ %46, %43 ], [ %39, %36 ], [ %23, %19 ], [ %33, %29 ]
+.thread181:                                       ; preds = %36, %43, %29, %19, %135, %140
+  %.1157170184 = phi i32 [ %138, %135 ], [ %.1157170188, %140 ], [ %46, %43 ], [ %39, %36 ], [ %23, %19 ], [ %33, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -10585,7 +10585,7 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.1156169183
+  ret i32 %.1157170184
 }
 
 ; Function Attrs: nounwind uwtable

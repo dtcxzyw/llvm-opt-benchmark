@@ -3991,9 +3991,9 @@ define internal ptr @tcp_v6_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr no
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %208 = load volatile ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %.thread20, label %.thread
+  br i1 %209, label %.thread21, label %.thread
 
-.thread20:                                        ; preds = %206
+.thread21:                                        ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %72, i64 1214
   store i16 0, ptr %210, align 2
   br label %221
@@ -4016,7 +4016,7 @@ define internal ptr @tcp_v6_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr no
   store i16 %220, ptr %213, align 2
   br label %221
 
-221:                                              ; preds = %.thread20, %215, %.thread
+221:                                              ; preds = %.thread21, %215, %.thread
   call void @tcp_ca_openreq_child(ptr noundef nonnull %72, ptr noundef nonnull %71) #15
   %222 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %223 = load ptr, ptr %222, align 8
@@ -4077,34 +4077,34 @@ define internal ptr @tcp_v6_syn_recv_sock(ptr noundef %0, ptr noundef %1, ptr no
   %260 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 100663423, ptr %260, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @tcp_md5_needed, i32 2) #15
-          to label %.thread21 [label %261], !srcloc !6
+          to label %.thread22 [label %261], !srcloc !6
 
 261:                                              ; preds = %250
   %262 = call ptr @__tcp_md5_do_lookup(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %146, i32 noundef 10, i1 noundef zeroext false) #15
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %.thread21, label %264
+  br i1 %263, label %.thread22, label %264
 
 264:                                              ; preds = %261
   %265 = call i32 @tcp_md5_key_copy(ptr noundef nonnull %72, ptr noundef nonnull %146, i32 noundef 10, i8 noundef zeroext -128, i32 noundef 0, ptr noundef nonnull %262) #15
   %266 = icmp eq i32 %265, 0
-  br i1 %266, label %.thread21, label %267
+  br i1 %266, label %.thread22, label %267
 
 267:                                              ; preds = %264
   call void @inet_csk_prepare_forced_close(ptr noundef nonnull %72) #15
   call void @tcp_done(ptr noundef nonnull %72) #15
   br label %304
 
-.thread21:                                        ; preds = %264, %250, %261
+.thread22:                                        ; preds = %264, %250, %261
   %268 = call i32 @__inet_inherit_port(ptr noundef %0, ptr noundef nonnull %72) #15
   %269 = icmp slt i32 %268, 0
   br i1 %269, label %270, label %271
 
-270:                                              ; preds = %.thread21
+270:                                              ; preds = %.thread22
   call void @inet_csk_prepare_forced_close(ptr noundef nonnull %72) #15
   call void @tcp_done(ptr noundef nonnull %72) #15
   br label %304
 
-271:                                              ; preds = %.thread21
+271:                                              ; preds = %.thread22
   %272 = call zeroext i1 @inet_ehash_nolisten(ptr noundef nonnull %72, ptr noundef %4, ptr noundef nonnull %7) #15
   %273 = zext i1 %272 to i8
   store i8 %273, ptr %5, align 1

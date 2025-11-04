@@ -17566,10 +17566,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4crow7requestERNS0_8response
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !464, !noalias !461
-  %.not83.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not83.i.i.i.i.i, label %.thread31.i.i.i.i.i, label %.lr.ph87.i.i.i.i.i
+  %.not81.i.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not81.i.i.i.i.i, label %.thread31.i.i.i.i.i, label %.lr.ph85.i.i.i.i.i
 
-.lr.ph87.i.i.i.i.i:                               ; preds = %3
+.lr.ph85.i.i.i.i.i:                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 376
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 376
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -17598,10 +17598,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4crow7requestERNS0_8response
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 376
   br label %52
 
-52:                                               ; preds = %.thread28.i.i.i.i.i, %.lr.ph87.i.i.i.i.i
-  %.sroa.021.084.i.i.i.i.i = phi ptr [ %25, %.lr.ph87.i.i.i.i.i ], [ %336, %.thread28.i.i.i.i.i ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 24
+52:                                               ; preds = %.thread28.i.i.i.i.i, %.lr.ph85.i.i.i.i.i
+  %.sroa.021.082.i.i.i.i.i = phi ptr [ %25, %.lr.ph85.i.i.i.i.i ], [ %336, %.thread28.i.i.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 24
   %55 = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %57, label %70
@@ -17623,13 +17623,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4crow7requestERNS0_8response
 
 _ZN4crow6loggerlsIA7_cEERS0_RKT_.exit.i.i.i.i.i:  ; preds = %60
   %.pre.i.i.i.i.i = load i32, ptr %26, align 8, !tbaa !127, !noalias !461
-  %.pre90.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %62 = icmp slt i32 %.pre.i.i.i.i.i, %.pre90.i.i.i.i.i
+  %.pre88.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %62 = icmp slt i32 %.pre.i.i.i.i.i, %.pre88.i.i.i.i.i
   br i1 %62, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit.i.i.i.i.i, label %63
 
 63:                                               ; preds = %_ZN4crow6loggerlsIA7_cEERS0_RKT_.exit.i.i.i.i.i
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %10, ptr noundef %.sroa.2.0.copyload.i.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit.i.i.i.i.i unwind label %67, !noalias !461
@@ -17661,7 +17661,7 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit.i.i.
   br i1 %71, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, label %304
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %70
-  %.sroa.216.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 16
+  %.sroa.216.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 16
   %.sroa.216.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.216.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.259, ptr noundef nonnull dereferenceable(9) %.sroa.216.0.copyload.i.i.i.i.i, i64 9), !noalias !461
   %72 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -17846,22 +17846,22 @@ _ZN4crow6loggerlsIA46_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %102, %99
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 %125
   store i8 0, ptr %127, align 1, !tbaa !14, !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !461
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 40
-  %.sroa.08.079.i.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !151, !noalias !461
-  %.not3480.i.i.i.i.i = icmp eq ptr %.sroa.08.079.i.i.i.i.i, null
-  br i1 %.not3480.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph82.preheader.i.i.i.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 40
+  %.sroa.08.077.i.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !151, !noalias !461
+  %.not3478.i.i.i.i.i = icmp eq ptr %.sroa.08.077.i.i.i.i.i, null
+  br i1 %.not3478.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph80.preheader.i.i.i.i.i
 
-.lr.ph82.preheader.i.i.i.i.i:                     ; preds = %124
-  %.pre114.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  br label %.lr.ph82.i.i.i.i.i
+.lr.ph80.preheader.i.i.i.i.i:                     ; preds = %124
+  %.pre112.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  br label %.lr.ph80.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %220, %.lr.ph.i.i.i.i.i, %167
-  %.pre102118.i.i.i.i.i = phi i32 [ %.pre102.i.i.i.i.i, %167 ], [ %.pre102.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.pre102115.i.i.i.i.i, %220 ]
+  %.pre100116.i.i.i.i.i = phi i32 [ %.pre100.i.i.i.i.i, %167 ], [ %.pre100.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.pre100113.i.i.i.i.i, %220 ]
   %129 = phi i32 [ %168, %167 ], [ %168, %.lr.ph.i.i.i.i.i ], [ %221, %220 ]
   %130 = phi i32 [ %169, %167 ], [ %168, %.lr.ph.i.i.i.i.i ], [ %221, %220 ]
-  %.sroa.08.0.i.i.i.i.i = load ptr, ptr %.sroa.08.081.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
+  %.sroa.08.0.i.i.i.i.i = load ptr, ptr %.sroa.08.079.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
   %.not34.i.i.i.i.i = icmp eq ptr %.sroa.08.0.i.i.i.i.i, null
-  br i1 %.not34.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph82.i.i.i.i.i
+  br i1 %.not34.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph80.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.loopexit.i.i.i.i.i, %124
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !461
@@ -17878,17 +17878,17 @@ _ZN4crow6loggerlsIA46_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %102, %99
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.i.i.i.i.i
 
-.lr.ph82.i.i.i.i.i:                               ; preds = %.loopexit.i.i.i.i.i, %.lr.ph82.preheader.i.i.i.i.i
-  %.pre102117.i.i.i.i.i = phi i32 [ %.pre102118.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.pre114.i.i.i.i.i, %.lr.ph82.preheader.i.i.i.i.i ]
-  %131 = phi i32 [ %129, %.loopexit.i.i.i.i.i ], [ %.pre114.i.i.i.i.i, %.lr.ph82.preheader.i.i.i.i.i ]
-  %132 = phi i32 [ %130, %.loopexit.i.i.i.i.i ], [ %.pre114.i.i.i.i.i, %.lr.ph82.preheader.i.i.i.i.i ]
-  %.sroa.08.081.i.i.i.i.i = phi ptr [ %.sroa.08.0.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.08.079.i.i.i.i.i, %.lr.ph82.preheader.i.i.i.i.i ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.081.i.i.i.i.i, i64 8
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.081.i.i.i.i.i, i64 24
+.lr.ph80.i.i.i.i.i:                               ; preds = %.loopexit.i.i.i.i.i, %.lr.ph80.preheader.i.i.i.i.i
+  %.pre100115.i.i.i.i.i = phi i32 [ %.pre100116.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.pre112.i.i.i.i.i, %.lr.ph80.preheader.i.i.i.i.i ]
+  %131 = phi i32 [ %129, %.loopexit.i.i.i.i.i ], [ %.pre112.i.i.i.i.i, %.lr.ph80.preheader.i.i.i.i.i ]
+  %132 = phi i32 [ %130, %.loopexit.i.i.i.i.i ], [ %.pre112.i.i.i.i.i, %.lr.ph80.preheader.i.i.i.i.i ]
+  %.sroa.08.079.i.i.i.i.i = phi ptr [ %.sroa.08.0.i.i.i.i.i, %.loopexit.i.i.i.i.i ], [ %.sroa.08.077.i.i.i.i.i, %.lr.ph80.preheader.i.i.i.i.i ]
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.079.i.i.i.i.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.079.i.i.i.i.i, i64 24
   %135 = icmp slt i32 %132, 1
   br i1 %135, label %136, label %167
 
-136:                                              ; preds = %.lr.ph82.i.i.i.i.i
+136:                                              ; preds = %.lr.ph80.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !461
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(380) %16)
           to label %137 unwind label %159, !noalias !461
@@ -17904,22 +17904,22 @@ _ZN4crow6loggerlsIA46_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %102, %99
           to label %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit.i.i.i.i.i unwind label %161, !noalias !461
 
 _ZN4crow6loggerlsIA9_cEERS0_RKT_.exit.i.i.i.i.i:  ; preds = %139
-  %.pre95.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
-  %.pre96.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %141 = icmp slt i32 %.pre95.i.i.i.i.i, %.pre96.i.i.i.i.i
+  %.pre93.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
+  %.pre94.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %141 = icmp slt i32 %.pre93.i.i.i.i.i, %.pre94.i.i.i.i.i
   br i1 %141, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i, label %142
 
 142:                                              ; preds = %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit.i.i.i.i.i
   %.sroa.0.0.copyload.i115.i.i.i.i.i = load i64, ptr %133, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i116.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.081.i.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i116.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.079.i.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i117.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i116.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %16, ptr noundef %.sroa.2.0.copyload.i117.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i115.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit119.i.i.i.i.i unwind label %161, !noalias !461
 
 _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit119.i.i.i.i.i: ; preds = %142
-  %.pre97.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
-  %.pre98.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %144 = icmp slt i32 %.pre97.i.i.i.i.i, %.pre98.i.i.i.i.i
+  %.pre95.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
+  %.pre96.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %144 = icmp slt i32 %.pre95.i.i.i.i.i, %.pre96.i.i.i.i.i
   br i1 %144, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i, label %145
 
 145:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit119.i.i.i.i.i
@@ -17944,14 +17944,14 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit119.i
 
 _ZN4crow6loggerlsIcEERS0_RKT_.exit.i.i.i.i.i:     ; preds = %154, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !461
-  %.pre99.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
-  %.pre100.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %156 = icmp slt i32 %.pre99.i.i.i.i.i, %.pre100.i.i.i.i.i
+  %.pre97.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !127, !noalias !461
+  %.pre98.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %156 = icmp slt i32 %.pre97.i.i.i.i.i, %.pre98.i.i.i.i.i
   br i1 %156, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i, label %157
 
 157:                                              ; preds = %_ZN4crow6loggerlsIcEERS0_RKT_.exit.i.i.i.i.i
   %.sroa.0.0.copyload.i124.i.i.i.i.i = load i64, ptr %134, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i125.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.081.i.i.i.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i125.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.079.i.i.i.i.i, i64 32
   %.sroa.2.0.copyload.i126.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i125.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %16, ptr noundef %.sroa.2.0.copyload.i126.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i124.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i unwind label %163, !noalias !461
@@ -17959,7 +17959,7 @@ _ZN4crow6loggerlsIcEERS0_RKT_.exit.i.i.i.i.i:     ; preds = %154, %152
 _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i: ; preds = %157, %_ZN4crow6loggerlsIcEERS0_RKT_.exit.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit119.i.i.i.i.i, %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit.i.i.i.i.i, %137
   call void @_ZN4crow6loggerD2Ev(ptr noundef nonnull align 8 dereferenceable(380) %16) #38, !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !461
-  %.pre113.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %.pre111.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
   br label %167
 
 159:                                              ; preds = %136
@@ -17987,25 +17987,25 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !461
   br label %299
 
-167:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i, %.lr.ph82.i.i.i.i.i
-  %.pre102.i.i.i.i.i = phi i32 [ %.pre113.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %.pre102117.i.i.i.i.i, %.lr.ph82.i.i.i.i.i ]
-  %168 = phi i32 [ %.pre113.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %131, %.lr.ph82.i.i.i.i.i ]
-  %169 = phi i32 [ %.pre113.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %132, %.lr.ph82.i.i.i.i.i ]
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.08.081.i.i.i.i.i, i64 56
-  %.sroa.03.076.i.i.i.i.i = load ptr, ptr %170, align 8, !tbaa !151, !noalias !461
-  %.not3677.i.i.i.i.i = icmp eq ptr %.sroa.03.076.i.i.i.i.i, null
-  br i1 %.not3677.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+167:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i, %.lr.ph80.i.i.i.i.i
+  %.pre100.i.i.i.i.i = phi i32 [ %.pre111.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %.pre100115.i.i.i.i.i, %.lr.ph80.i.i.i.i.i ]
+  %168 = phi i32 [ %.pre111.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %131, %.lr.ph80.i.i.i.i.i ]
+  %169 = phi i32 [ %.pre111.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i.i.i.i.i ], [ %132, %.lr.ph80.i.i.i.i.i ]
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.08.079.i.i.i.i.i, i64 56
+  %.sroa.03.074.i.i.i.i.i = load ptr, ptr %170, align 8, !tbaa !151, !noalias !461
+  %.not3675.i.i.i.i.i = icmp eq ptr %.sroa.03.074.i.i.i.i.i, null
+  br i1 %.not3675.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %167
   %171 = icmp slt i32 %168, 1
   br i1 %171, label %.lr.ph.split.i.i.i.i.i, label %.loopexit.i.i.i.i.i
 
 .lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i, %220
-  %.pre102116.i.i.i.i.i = phi i32 [ %.pre102115.i.i.i.i.i, %220 ], [ %.pre102.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %172 = phi i32 [ %221, %220 ], [ %.pre102.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %.sroa.03.078.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i.i, %220 ], [ %.sroa.03.076.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.03.078.i.i.i.i.i, i64 8
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.03.078.i.i.i.i.i, i64 24
+  %.pre100114.i.i.i.i.i = phi i32 [ %.pre100113.i.i.i.i.i, %220 ], [ %.pre100.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %172 = phi i32 [ %221, %220 ], [ %.pre100.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.03.076.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i.i, %220 ], [ %.sroa.03.074.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.03.076.i.i.i.i.i, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.03.076.i.i.i.i.i, i64 24
   %175 = icmp slt i32 %172, 1
   br i1 %175, label %176, label %220
 
@@ -18073,22 +18073,22 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit128.i
           to label %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit133.i.i.i.i.i unwind label %215, !noalias !461
 
 _ZN4crow6loggerlsIA9_cEERS0_RKT_.exit133.i.i.i.i.i: ; preds = %195
-  %.pre103.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
-  %.pre104.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %197 = icmp slt i32 %.pre103.i.i.i.i.i, %.pre104.i.i.i.i.i
+  %.pre101.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
+  %.pre102.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %197 = icmp slt i32 %.pre101.i.i.i.i.i, %.pre102.i.i.i.i.i
   br i1 %197, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i, label %198
 
 198:                                              ; preds = %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit133.i.i.i.i.i
   %.sroa.0.0.copyload.i135.i.i.i.i.i = load i64, ptr %173, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i136.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.078.i.i.i.i.i, i64 16
+  %.sroa.2.0..sroa_idx.i136.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.076.i.i.i.i.i, i64 16
   %.sroa.2.0.copyload.i137.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i136.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %199 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %17, ptr noundef %.sroa.2.0.copyload.i137.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i135.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit139.i.i.i.i.i unwind label %215, !noalias !461
 
 _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit139.i.i.i.i.i: ; preds = %198
-  %.pre105.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
-  %.pre106.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %200 = icmp slt i32 %.pre105.i.i.i.i.i, %.pre106.i.i.i.i.i
+  %.pre103.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
+  %.pre104.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %200 = icmp slt i32 %.pre103.i.i.i.i.i, %.pre104.i.i.i.i.i
   br i1 %200, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i, label %201
 
 201:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit139.i.i.i.i.i
@@ -18113,14 +18113,14 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit139.i
 
 _ZN4crow6loggerlsIcEERS0_RKT_.exit145.i.i.i.i.i:  ; preds = %210, %208
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !461
-  %.pre107.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
-  %.pre108.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %212 = icmp slt i32 %.pre107.i.i.i.i.i, %.pre108.i.i.i.i.i
+  %.pre105.i.i.i.i.i = load i32, ptr %48, align 8, !tbaa !127, !noalias !461
+  %.pre106.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %212 = icmp slt i32 %.pre105.i.i.i.i.i, %.pre106.i.i.i.i.i
   br i1 %212, label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i, label %213
 
 213:                                              ; preds = %_ZN4crow6loggerlsIcEERS0_RKT_.exit145.i.i.i.i.i
   %.sroa.0.0.copyload.i147.i.i.i.i.i = load i64, ptr %174, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i148.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.078.i.i.i.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i148.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.03.076.i.i.i.i.i, i64 32
   %.sroa.2.0.copyload.i149.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i148.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %214 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %17, ptr noundef %.sroa.2.0.copyload.i149.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i147.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i unwind label %217, !noalias !461
@@ -18128,7 +18128,7 @@ _ZN4crow6loggerlsIcEERS0_RKT_.exit145.i.i.i.i.i:  ; preds = %210, %208
 _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i: ; preds = %213, %_ZN4crow6loggerlsIcEERS0_RKT_.exit145.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit139.i.i.i.i.i, %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit133.i.i.i.i.i, %193
   call void @_ZN4crow6loggerD2Ev(ptr noundef nonnull align 8 dereferenceable(380) %17) #38, !noalias !461
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !461
-  %.pre101.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %.pre99.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
   br label %220
 
 215:                                              ; preds = %198, %195
@@ -18152,9 +18152,9 @@ _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i
   br label %299
 
 220:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i
-  %.pre102115.i.i.i.i.i = phi i32 [ %.pre101.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i ], [ %.pre102116.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
-  %221 = phi i32 [ %.pre101.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i ], [ %172, %.lr.ph.split.i.i.i.i.i ]
-  %.sroa.03.0.i.i.i.i.i = load ptr, ptr %.sroa.03.078.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
+  %.pre100113.i.i.i.i.i = phi i32 [ %.pre99.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i ], [ %.pre100114.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
+  %221 = phi i32 [ %.pre99.i.i.i.i.i, %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit151.i.i.i.i.i ], [ %172, %.lr.ph.split.i.i.i.i.i ]
+  %.sroa.03.0.i.i.i.i.i = load ptr, ptr %.sroa.03.076.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
   %.not36.i.i.i.i.i = icmp eq ptr %.sroa.03.0.i.i.i.i.i, null
   br i1 %.not36.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i, !llvm.loop !474
 
@@ -18221,9 +18221,9 @@ _ZN4crow6loggerlsIA23_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %236, %234
   br label %297
 
 247:                                              ; preds = %222
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 80
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 80
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %248, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 88
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 88
   %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %249 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %.sroa.2.0.copyload.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i.i.i.i.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit.i.i.i.i.i unwind label %240, !noalias !461
@@ -18268,9 +18268,9 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
           to label %_ZN4crow6loggerlsIA22_cEERS0_RKT_.exit.i.i.i.i.i unwind label %286, !noalias !461
 
 _ZN4crow6loggerlsIA22_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %265
-  %.pre109.i.i.i.i.i = load i32, ptr %51, align 8, !tbaa !127, !noalias !461
-  %.pre110.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %267 = icmp slt i32 %.pre109.i.i.i.i.i, %.pre110.i.i.i.i.i
+  %.pre107.i.i.i.i.i = load i32, ptr %51, align 8, !tbaa !127, !noalias !461
+  %.pre108.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %267 = icmp slt i32 %.pre107.i.i.i.i.i, %.pre108.i.i.i.i.i
   br i1 %267, label %_ZN4crow6loggerlsIcEERS0_RKT_.exit171.i.i.i.i.i, label %268
 
 268:                                              ; preds = %_ZN4crow6loggerlsIA22_cEERS0_RKT_.exit.i.i.i.i.i
@@ -18280,9 +18280,9 @@ _ZN4crow6loggerlsIA22_cEERS0_RKT_.exit.i.i.i.i.i: ; preds = %265
           to label %_ZN4crow6loggerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i.i.i.i.i unwind label %286, !noalias !461
 
 _ZN4crow6loggerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i.i.i.i.i: ; preds = %268
-  %.pre111.i.i.i.i.i = load i32, ptr %51, align 8, !tbaa !127, !noalias !461
-  %.pre112.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %272 = icmp slt i32 %.pre111.i.i.i.i.i, %.pre112.i.i.i.i.i
+  %.pre109.i.i.i.i.i = load i32, ptr %51, align 8, !tbaa !127, !noalias !461
+  %.pre110.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %272 = icmp slt i32 %.pre109.i.i.i.i.i, %.pre110.i.i.i.i.i
   br i1 %272, label %_ZN4crow6loggerlsIcEERS0_RKT_.exit171.i.i.i.i.i, label %273
 
 273:                                              ; preds = %_ZN4crow6loggerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i.i.i.i.i
@@ -18344,15 +18344,15 @@ _ZN4crow6loggerlsIcEERS0_RKT_.exit171.i.i.i.i.i:  ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !461
   %293 = load ptr, ptr %15, align 8, !tbaa !12, !noalias !461
   %294 = icmp eq ptr %293, %30
-  br i1 %294, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.jt3.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.jt3.i.i.i.i.i
+  br i1 %294, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.jt3.i.i.i.i.i: ; preds = %292
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %292
   %295 = load i64, ptr %30, align 8, !tbaa !14, !noalias !461
   %296 = add i64 %295, 1
   call void @_ZdlPvm(ptr noundef %293, i64 noundef %296) #39, !noalias !461
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.jt3.i.i.i.i.i
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.jt3.i.i.i.i.i: ; preds = %292, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.jt3.i.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %292, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !461
   br label %.thread28.i.i.i.i.i
 
@@ -18404,23 +18404,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174.i.i.i.i.i: ; p
           to label %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit179.i.i.i.i.i unwind label %330, !noalias !461
 
 _ZN4crow6loggerlsIA9_cEERS0_RKT_.exit179.i.i.i.i.i: ; preds = %310
-  %.pre91.i.i.i.i.i = load i32, ptr %27, align 8, !tbaa !127, !noalias !461
-  %.pre92.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %312 = icmp slt i32 %.pre91.i.i.i.i.i, %.pre92.i.i.i.i.i
+  %.pre89.i.i.i.i.i = load i32, ptr %27, align 8, !tbaa !127, !noalias !461
+  %.pre90.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %312 = icmp slt i32 %.pre89.i.i.i.i.i, %.pre90.i.i.i.i.i
   br i1 %312, label %_ZN4crow6loggerlsIcEERS0_RKT_.exit191.i.i.i.i.i, label %313
 
 313:                                              ; preds = %_ZN4crow6loggerlsIA9_cEERS0_RKT_.exit179.i.i.i.i.i
-  %314 = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 80
+  %314 = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 80
   %.sroa.0.0.copyload.i181.i.i.i.i.i = load i64, ptr %314, align 8, !tbaa !10, !noalias !461
-  %.sroa.2.0..sroa_idx.i182.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.084.i.i.i.i.i, i64 88
+  %.sroa.2.0..sroa_idx.i182.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.021.082.i.i.i.i.i, i64 88
   %.sroa.2.0.copyload.i183.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i182.i.i.i.i.i, align 8, !tbaa !401, !noalias !461
   %315 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(380) %21, ptr noundef %.sroa.2.0.copyload.i183.i.i.i.i.i, i64 noundef %.sroa.0.0.copyload.i181.i.i.i.i.i)
           to label %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit185.i.i.i.i.i unwind label %330, !noalias !461
 
 _ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit185.i.i.i.i.i: ; preds = %313
-  %.pre93.i.i.i.i.i = load i32, ptr %27, align 8, !tbaa !127, !noalias !461
-  %.pre94.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
-  %316 = icmp slt i32 %.pre93.i.i.i.i.i, %.pre94.i.i.i.i.i
+  %.pre91.i.i.i.i.i = load i32, ptr %27, align 8, !tbaa !127, !noalias !461
+  %.pre92.i.i.i.i.i = load i32, ptr @_ZZN4crow6logger17get_log_level_refEvE13current_level, align 4, !tbaa !36, !noalias !461
+  %316 = icmp slt i32 %.pre91.i.i.i.i.i, %.pre92.i.i.i.i.i
   br i1 %316, label %_ZN4crow6loggerlsIcEERS0_RKT_.exit191.i.i.i.i.i, label %317
 
 317:                                              ; preds = %_ZN4crow6loggerlsISt17basic_string_viewIcSt11char_traitsIcEEEERS0_RKT_.exit185.i.i.i.i.i
@@ -18477,8 +18477,8 @@ _ZN4crow6loggerlsIcEERS0_RKT_.exit191.i.i.i.i.i:  ; preds = %_ZStlsISt11char_tra
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !461
   br label %381
 
-.thread28.i.i.i.i.i:                              ; preds = %_ZN4crow6loggerlsIcEERS0_RKT_.exit191.i.i.i.i.i, %304, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.jt3.i.i.i.i.i
-  %336 = load ptr, ptr %.sroa.021.084.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
+.thread28.i.i.i.i.i:                              ; preds = %_ZN4crow6loggerlsIcEERS0_RKT_.exit191.i.i.i.i.i, %304, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
+  %336 = load ptr, ptr %.sroa.021.082.i.i.i.i.i, align 8, !tbaa !151, !noalias !461
   %.not.i.i.i.i.i = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i.i, label %.thread31.i.i.i.i.i, label %52
 
@@ -18676,8 +18676,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i.i.i, i64 noundef 80) #39
-  %.not.i.i.i7.i.i.i.i = icmp eq ptr %403, null
-  br i1 %.not.i.i.i7.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE5clearEv.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !152
+  %.not.i.i.i9.i.i.i.i = icmp eq ptr %403, null
+  br i1 %.not.i.i.i9.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE5clearEv.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !152
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE5clearEv.exit.i.i.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i.i.i.i, %_ZNSt14_Function_baseD2Ev.exit2.i.i.i.i.i
   %416 = load ptr, ptr %340, align 8, !tbaa !379
@@ -18698,15 +18698,15 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev.exit.i.i.i.i: ; preds = %421, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE5clearEv.exit.i.i.i.i.i
   %424 = load ptr, ptr %337, align 8, !tbaa !12
   %425 = icmp eq ptr %424, %338
-  br i1 %425, label %"_ZSt10__invoke_rIvRZN4crow10TaggedRuleIJEEclIZ4mainE3$_0EEvOT_EUlRNS0_7requestERNS0_8responseEE_JS8_SA_EENSt9enable_ifIX16is_invocable_r_vIS5_T0_DpT1_EES5_E4typeEOSE_DpOSF_.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  br i1 %425, label %"_ZSt10__invoke_rIvRZN4crow10TaggedRuleIJEEclIZ4mainE3$_0EEvOT_EUlRNS0_7requestERNS0_8responseEE_JS8_SA_EENSt9enable_ifIX16is_invocable_r_vIS5_T0_DpT1_EES5_E4typeEOSE_DpOSF_.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev.exit.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i.i.i: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev.exit.i.i.i.i
   %426 = load i64, ptr %338, align 8, !tbaa !14
   %427 = add i64 %426, 1
   call void @_ZdlPvm(ptr noundef %424, i64 noundef %427) #39
   br label %"_ZSt10__invoke_rIvRZN4crow10TaggedRuleIJEEclIZ4mainE3$_0EEvOT_EUlRNS0_7requestERNS0_8responseEE_JS8_SA_EENSt9enable_ifIX16is_invocable_r_vIS5_T0_DpT1_EES5_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIvRZN4crow10TaggedRuleIJEEclIZ4mainE3$_0EEvOT_EUlRNS0_7requestERNS0_8responseEE_JS8_SA_EENSt9enable_ifIX16is_invocable_r_vIS5_T0_DpT1_EES5_E4typeEOSE_DpOSF_.exit": ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4crow10TaggedRuleIJEEclIZ4mainE3$_0EEvOT_EUlRNS0_7requestERNS0_8responseEE_JS8_SA_EENSt9enable_ifIX16is_invocable_r_vIS5_T0_DpT1_EES5_E4typeEOSE_DpOSF_.exit": ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN4crow9ci_key_eqENSC_7ci_hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN4crow8response3endEv(ptr noundef nonnull align 8 dereferenceable(352) %2)
   ret void

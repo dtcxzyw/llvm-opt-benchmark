@@ -1166,13 +1166,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %.thread106, !prof !9
+  br i1 %7, label %8, label %.thread107, !prof !9
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i64, ptr %9, align 8, !tbaa !42
-  %.not121 = icmp eq i64 %10, 1
-  br i1 %.not121, label %.thread106, label %.lr.ph
+  %.not122 = icmp eq i64 %10, 1
+  br i1 %.not122, label %.thread107, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1180,16 +1180,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i64, ptr %11, align 8, !tbaa !45
-  %.pre130 = load i64, ptr %12, align 8, !tbaa !19
+  %.pre131 = load i64, ptr %12, align 8, !tbaa !19
   br label %15
 
 15:                                               ; preds = %.lr.ph, %115
-  %16 = phi i64 [ %.pre130, %.lr.ph ], [ %105, %115 ]
+  %16 = phi i64 [ %.pre131, %.lr.ph ], [ %105, %115 ]
   %17 = phi i64 [ %.pre, %.lr.ph ], [ %37, %115 ]
-  %.088123 = phi i64 [ %10, %.lr.ph ], [ %.391, %115 ]
-  %.092122 = phi ptr [ null, %.lr.ph ], [ %26, %115 ]
+  %.088124 = phi i64 [ %10, %.lr.ph ], [ %.391, %115 ]
+  %.092123 = phi ptr [ null, %.lr.ph ], [ %26, %115 ]
   %18 = shl i64 %17, 1
-  %19 = add i64 %18, %.088123
+  %19 = add i64 %18, %.088124
   %20 = icmp ugt i64 %19, %16
   br i1 %20, label %21, label %25
 
@@ -1197,7 +1197,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %22 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %23 = load i64, ptr @H5E_BADRANGE_g, align 8, !tbaa !10
   %24 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5HL__fl_deserialize, i32 noundef 236, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.8) #9
-  br label %.thread106
+  br label %.thread107
 
 25:                                               ; preds = %15
   %26 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HL_free_t_reg_free_list) #9
@@ -1208,16 +1208,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %29 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %30 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !10
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5HL__fl_deserialize, i32 noundef 240, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.12) #9
-  br label %.thread106
+  br label %.thread107
 
 32:                                               ; preds = %25
-  store i64 %.088123, ptr %26, align 8, !tbaa !40
+  store i64 %.088124, ptr %26, align 8, !tbaa !40
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %.092122, ptr %33, align 8, !tbaa !56
+  store ptr %.092123, ptr %33, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr null, ptr %34, align 8, !tbaa !57
   %35 = load ptr, ptr %13, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.088123
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.088124
   %37 = load i64, ptr %11, align 8, !tbaa !45
   switch i64 %37, label %57 [
     i64 4, label %38
@@ -1236,21 +1236,21 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %44
 
 44:                                               ; preds = %42, %44
-  %.083118 = phi i64 [ 0, %42 ], [ %50, %44 ]
-  %.084117 = phi ptr [ %43, %42 ], [ %46, %44 ]
-  %.290116 = phi i64 [ 0, %42 ], [ %49, %44 ]
-  %45 = shl i64 %.290116, 8
-  %46 = getelementptr inbounds i8, ptr %.084117, i64 -1
+  %.083119 = phi i64 [ 0, %42 ], [ %50, %44 ]
+  %.084118 = phi ptr [ %43, %42 ], [ %46, %44 ]
+  %.290117 = phi i64 [ 0, %42 ], [ %49, %44 ]
+  %45 = shl i64 %.290117, 8
+  %46 = getelementptr inbounds i8, ptr %.084118, i64 -1
   %47 = load i8, ptr %46, align 1, !tbaa !43
   %48 = zext i8 %47 to i64
   %49 = or disjoint i64 %45, %48
-  %50 = add nuw nsw i64 %.083118, 1
+  %50 = add nuw nsw i64 %.083119, 1
   %exitcond.not = icmp eq i64 %50, 8
   br i1 %exitcond.not, label %51, label %44, !llvm.loop !58
 
 51:                                               ; preds = %44
-  %scevgep128 = getelementptr i8, ptr %35, i64 %.088123
-  %52 = getelementptr i8, ptr %scevgep128, i64 8
+  %scevgep129 = getelementptr i8, ptr %35, i64 %.088124
+  %52 = getelementptr i8, ptr %scevgep129, i64 8
   br label %57
 
 53:                                               ; preds = %32
@@ -1260,7 +1260,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %57
 
 57:                                               ; preds = %32, %53, %51, %38
-  %.391 = phi i64 [ %.088123, %32 ], [ %40, %38 ], [ %49, %51 ], [ %55, %53 ]
+  %.391 = phi i64 [ %.088124, %32 ], [ %40, %38 ], [ %49, %51 ], [ %55, %53 ]
   %.1 = phi ptr [ %36, %32 ], [ %41, %38 ], [ %52, %51 ], [ %56, %53 ]
   %58 = icmp eq i64 %.391, 0
   br i1 %58, label %59, label %63
@@ -1280,7 +1280,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 
 ..loopexit_crit_edge:                             ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.pre131 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre132 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !59
   br label %.loopexit
 
 64:                                               ; preds = %63
@@ -1315,18 +1315,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %86
 
 86:                                               ; preds = %83, %86
-  %.082120 = phi i64 [ 0, %83 ], [ %93, %86 ]
-  %.2119 = phi ptr [ %85, %83 ], [ %89, %86 ]
+  %.082121 = phi i64 [ 0, %83 ], [ %93, %86 ]
+  %.2120 = phi ptr [ %85, %83 ], [ %89, %86 ]
   %87 = phi i64 [ 0, %83 ], [ %92, %86 ]
   %88 = shl i64 %87, 8
-  %89 = getelementptr inbounds i8, ptr %.2119, i64 -1
+  %89 = getelementptr inbounds i8, ptr %.2120, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !43
   %91 = zext i8 %90 to i64
   %92 = or disjoint i64 %88, %91
   store i64 %92, ptr %84, align 8, !tbaa !59
-  %93 = add nuw nsw i64 %.082120, 1
-  %exitcond129.not = icmp eq i64 %93, 8
-  br i1 %exitcond129.not, label %.loopexit, label %86, !llvm.loop !60
+  %93 = add nuw nsw i64 %.082121, 1
+  %exitcond130.not = icmp eq i64 %93, 8
+  br i1 %exitcond130.not, label %.loopexit, label %86, !llvm.loop !60
 
 94:                                               ; preds = %63
   %95 = load i8, ptr %.1, align 1, !tbaa !43
@@ -1342,8 +1342,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %86, %..loopexit_crit_edge, %94, %64
-  %103 = phi i64 [ %.pre131, %..loopexit_crit_edge ], [ %102, %94 ], [ %82, %64 ], [ %92, %86 ]
-  %104 = add i64 %103, %.088123
+  %103 = phi i64 [ %.pre132, %..loopexit_crit_edge ], [ %102, %94 ], [ %82, %64 ], [ %92, %86 ]
+  %104 = add i64 %103, %.088124
   %105 = load i64, ptr %12, align 8, !tbaa !19
   %106 = icmp ugt i64 %104, %105
   br i1 %106, label %107, label %111
@@ -1355,11 +1355,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br label %116
 
 111:                                              ; preds = %.loopexit
-  %.not100 = icmp eq ptr %.092122, null
+  %.not100 = icmp eq ptr %.092123, null
   br i1 %.not100, label %114, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %.092122, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %.092123, i64 24
   store ptr %26, ptr %113, align 8, !tbaa !57
   br label %115
 
@@ -1369,15 +1369,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 
 115:                                              ; preds = %112, %114
   %.not = icmp eq i64 %.391, 1
-  br i1 %.not, label %.thread106, label %15
+  br i1 %.not, label %.thread107, label %15
 
 116:                                              ; preds = %107, %59
   %117 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5HL_free_t_reg_free_list, ptr noundef nonnull %26) #9
-  br label %.thread106
+  br label %.thread107
 
-.thread106:                                       ; preds = %115, %8, %21, %28, %1, %116
-  %.097 = phi i32 [ -1, %116 ], [ 0, %1 ], [ -1, %28 ], [ -1, %21 ], [ 0, %8 ], [ 0, %115 ]
-  ret i32 %.097
+.thread107:                                       ; preds = %115, %8, %21, %28, %1, %116
+  %.085 = phi i32 [ -1, %116 ], [ 0, %1 ], [ -1, %28 ], [ -1, %21 ], [ 0, %8 ], [ 0, %115 ]
+  ret i32 %.085
 }
 
 declare i32 @H5HL__prfx_dest(ptr noundef) local_unnamed_addr #5

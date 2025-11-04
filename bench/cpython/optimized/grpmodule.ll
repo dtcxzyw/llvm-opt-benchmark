@@ -417,11 +417,11 @@ define internal ptr @grp_getgrall(ptr noundef %0, ptr readnone captures(none) %1
 _PyMutex_Lock.exit.i:                             ; preds = %8, %5
   tail call void @setgrent() #4
   %9 = tail call ptr @getgrent() #4
-  %.not30.i = icmp eq ptr %9, null
-  br i1 %.not30.i, label %Py_DECREF.exit24.thread.i, label %.lr.ph.i
+  %.not31.i = icmp eq ptr %9, null
+  br i1 %.not31.i, label %Py_DECREF.exit25.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_PyMutex_Lock.exit.i, %Py_DECREF.exit24.i
-  %10 = phi ptr [ %30, %Py_DECREF.exit24.i ], [ %9, %_PyMutex_Lock.exit.i ]
+.lr.ph.i:                                         ; preds = %_PyMutex_Lock.exit.i, %Py_DECREF.exit25.i
+  %10 = phi ptr [ %30, %Py_DECREF.exit25.i ], [ %9, %_PyMutex_Lock.exit.i ]
   %11 = tail call fastcc ptr @mkgrent(ptr noundef %0, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.split.i, label %13
@@ -448,50 +448,50 @@ _PyMutex_Lock.exit.i:                             ; preds = %8, %5
 
 .split.i:                                         ; preds = %.lr.ph.i, %19, %16, %.split17.i
   %20 = load i32, ptr %3, align 8, !tbaa !10
-  %.not.i23.i = icmp sgt i32 %20, -1
-  br i1 %.not.i23.i, label %21, label %Py_DECREF.exit24.thread.i
+  %.not.i24.i = icmp sgt i32 %20, -1
+  br i1 %.not.i24.i, label %21, label %Py_DECREF.exit25.thread.i
 
 21:                                               ; preds = %.split.i
   %22 = add nsw i32 %20, -1
   store i32 %22, ptr %3, align 8, !tbaa !10
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %Py_DECREF.exit24.thread.i
+  br i1 %23, label %24, label %Py_DECREF.exit25.thread.i
 
 24:                                               ; preds = %21
   tail call void @_Py_Dealloc(ptr noundef nonnull %3) #4
-  br label %Py_DECREF.exit24.thread.i
+  br label %Py_DECREF.exit25.thread.i
 
 25:                                               ; preds = %13
-  br i1 %.not.i.i, label %26, label %Py_DECREF.exit24.i
+  br i1 %.not.i.i, label %26, label %Py_DECREF.exit25.i
 
 26:                                               ; preds = %25
   %27 = add nsw i32 %15, -1
   store i32 %27, ptr %11, align 8, !tbaa !10
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %Py_DECREF.exit24.i
+  br i1 %28, label %29, label %Py_DECREF.exit25.i
 
 29:                                               ; preds = %26
   tail call void @_Py_Dealloc(ptr noundef nonnull %11) #4
-  br label %Py_DECREF.exit24.i
+  br label %Py_DECREF.exit25.i
 
-Py_DECREF.exit24.i:                               ; preds = %29, %26, %25
+Py_DECREF.exit25.i:                               ; preds = %29, %26, %25
   %30 = tail call ptr @getgrent() #4
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %Py_DECREF.exit24.thread.i, label %.lr.ph.i
+  br i1 %.not.i, label %Py_DECREF.exit25.thread.i, label %.lr.ph.i
 
-Py_DECREF.exit24.thread.i:                        ; preds = %Py_DECREF.exit24.i, %24, %21, %.split.i, %_PyMutex_Lock.exit.i
-  %.3.i = phi ptr [ null, %.split.i ], [ null, %21 ], [ null, %24 ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit24.i ]
+Py_DECREF.exit25.thread.i:                        ; preds = %Py_DECREF.exit25.i, %24, %21, %.split.i, %_PyMutex_Lock.exit.i
+  %.3.i = phi ptr [ null, %.split.i ], [ null, %21 ], [ null, %24 ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit25.i ]
   tail call void @endgrent() #4
   %31 = cmpxchg ptr @grp_getgrall_impl.getgrall_mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %32 = extractvalue { i8, i1 } %31, 1
   br i1 %32, label %grp_getgrall_impl.exit, label %33
 
-33:                                               ; preds = %Py_DECREF.exit24.thread.i
+33:                                               ; preds = %Py_DECREF.exit25.thread.i
   tail call void @PyMutex_Unlock(ptr noundef nonnull @grp_getgrall_impl.getgrall_mutex) #4
   br label %grp_getgrall_impl.exit
 
-grp_getgrall_impl.exit:                           ; preds = %2, %Py_DECREF.exit24.thread.i, %33
-  %.0.i = phi ptr [ null, %2 ], [ %.3.i, %Py_DECREF.exit24.thread.i ], [ %.3.i, %33 ]
+grp_getgrall_impl.exit:                           ; preds = %2, %Py_DECREF.exit25.thread.i, %33
+  %.0.i = phi ptr [ null, %2 ], [ %.3.i, %Py_DECREF.exit25.thread.i ], [ %.3.i, %33 ]
   ret ptr %.0.i
 }
 

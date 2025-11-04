@@ -52,8 +52,8 @@ validDatabase.exit:                               ; preds = %11
 
 27:                                               ; preds = %23
   %28 = load i32, ptr %4, align 64
-  %.not.i125 = icmp eq i32 %28, 1414480473
-  br i1 %.not.i125, label %29, label %markScratchInUse.exit
+  %.not.i126 = icmp eq i32 %28, 1414480473
+  br i1 %.not.i126, label %29, label %markScratchInUse.exit
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 372
@@ -74,8 +74,8 @@ validDatabase.exit:                               ; preds = %11
 validScratch.exit:                                ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %42 = load i8, ptr %41, align 4
-  %.not.i127 = icmp eq i8 %42, 0
-  br i1 %.not.i127, label %43, label %markScratchInUse.exit
+  %.not.i128 = icmp eq i8 %42, 0
+  br i1 %.not.i128, label %43, label %markScratchInUse.exit
 
 43:                                               ; preds = %validScratch.exit
   store i8 1, ptr %41, align 4
@@ -102,8 +102,8 @@ validScratch.exit:                                ; preds = %35
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store ptr %6, ptr %57, align 8
-  %.not.i129 = icmp eq ptr %5, null
-  %58 = select i1 %.not.i129, ptr @null_onEvent, ptr %5
+  %.not.i130 = icmp eq ptr %5, null
+  %58 = select i1 %.not.i130, ptr @null_onEvent, ptr %5
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -138,8 +138,8 @@ validScratch.exit:                                ; preds = %35
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   %78 = load i32, ptr %77, align 4
-  %.not.i140 = icmp eq i32 %78, 0
-  br i1 %.not.i140, label %mmbit_clear.exit142, label %79
+  %.not.i141 = icmp eq i32 %78, 0
+  br i1 %.not.i141, label %mmbit_clear.exit143, label %79
 
 79:                                               ; preds = %48
   %80 = icmp ugt i32 %78, 256
@@ -150,19 +150,19 @@ validScratch.exit:                                ; preds = %35
   %83 = lshr i32 %82, 3
   %84 = zext nneg i32 %83 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %65, i8 0, i64 %84, i1 false)
-  br label %mmbit_clear.exit142
+  br label %mmbit_clear.exit143
 
 85:                                               ; preds = %79
   store i64 0, ptr %65, align 1
-  br label %mmbit_clear.exit142
+  br label %mmbit_clear.exit143
 
-mmbit_clear.exit142:                              ; preds = %48, %81, %85
+mmbit_clear.exit143:                              ; preds = %48, %81, %85
   %86 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %87 = load i32, ptr %86, align 8
   %.not108 = icmp eq i32 %87, 0
   br i1 %.not108, label %mmbit_clear.exit, label %88
 
-88:                                               ; preds = %mmbit_clear.exit142
+88:                                               ; preds = %mmbit_clear.exit143
   %89 = load ptr, ptr %55, align 8
   %90 = getelementptr inbounds nuw i8, ptr %17, i64 296
   %91 = load i32, ptr %90, align 4
@@ -183,8 +183,8 @@ mmbit_clear.exit142:                              ; preds = %48, %81, %85
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, %102
-  %.not.i137 = icmp eq i32 %105, 0
-  br i1 %.not.i137, label %mmbit_clear.exit139, label %106
+  %.not.i138 = icmp eq i32 %105, 0
+  br i1 %.not.i138, label %mmbit_clear.exit140, label %106
 
 106:                                              ; preds = %88
   %107 = icmp ugt i32 %105, 256
@@ -195,18 +195,18 @@ mmbit_clear.exit142:                              ; preds = %48, %81, %85
   %110 = lshr i32 %109, 3
   %111 = zext nneg i32 %110 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %93, i8 0, i64 %111, i1 false)
-  br label %mmbit_clear.exit139
+  br label %mmbit_clear.exit140
 
 112:                                              ; preds = %106
   store i64 0, ptr %93, align 1
-  br label %mmbit_clear.exit139
+  br label %mmbit_clear.exit140
 
-mmbit_clear.exit139:                              ; preds = %88, %108, %112
+mmbit_clear.exit140:                              ; preds = %88, %108, %112
   %113 = load i32, ptr %86, align 8
-  %.not.i135 = icmp eq i32 %113, 0
-  br i1 %.not.i135, label %mmbit_clear.exit, label %114
+  %.not.i136 = icmp eq i32 %113, 0
+  br i1 %.not.i136, label %mmbit_clear.exit, label %114
 
-114:                                              ; preds = %mmbit_clear.exit139
+114:                                              ; preds = %mmbit_clear.exit140
   %115 = icmp ugt i32 %113, 256
   br i1 %115, label %120, label %116
 
@@ -221,7 +221,7 @@ mmbit_clear.exit139:                              ; preds = %88, %108, %112
   store i64 0, ptr %98, align 1
   br label %mmbit_clear.exit
 
-mmbit_clear.exit:                                 ; preds = %120, %116, %mmbit_clear.exit139, %mmbit_clear.exit142
+mmbit_clear.exit:                                 ; preds = %120, %116, %mmbit_clear.exit140, %mmbit_clear.exit143
   %.not109 = icmp eq i32 %2, 0
   br i1 %.not109, label %121, label %126
 
@@ -277,8 +277,8 @@ mmbit_clear.exit:                                 ; preds = %120, %116, %mmbit_c
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = zext i32 %152 to i64
-  %.not.i132 = icmp ugt i64 %150, %153
-  br i1 %.not.i132, label %154, label %runSmallWriteEngine.exit.thread
+  %.not.i133 = icmp ugt i64 %150, %153
+  br i1 %.not.i133, label %154, label %runSmallWriteEngine.exit.thread
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %68, align 8
@@ -320,8 +320,8 @@ runSmallWriteEngine.exit:                         ; preds = %144, %141
   %174 = load i32, ptr %173, align 4
   %175 = zext i32 %174 to i64
   %176 = getelementptr inbounds nuw i8, ptr %170, i64 %175
-  %.not.i6.i143 = icmp eq i32 %172, 0
-  br i1 %.not.i6.i143, label %initSomState.exit148, label %177
+  %.not.i6.i144 = icmp eq i32 %172, 0
+  br i1 %.not.i6.i144, label %initSomState.exit149, label %177
 
 177:                                              ; preds = %169
   %178 = icmp ugt i32 %172, 256
@@ -340,7 +340,7 @@ runSmallWriteEngine.exit:                         ; preds = %144, %141
   %188 = lshr i32 %187, 3
   %189 = zext nneg i32 %188 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %186, i8 0, i64 %189, i1 false)
-  br label %initSomState.exit148
+  br label %initSomState.exit149
 
 190:                                              ; preds = %177
   store i64 0, ptr %176, align 1
@@ -349,19 +349,19 @@ runSmallWriteEngine.exit:                         ; preds = %144, %141
   %193 = zext i32 %192 to i64
   %194 = getelementptr inbounds nuw i8, ptr %170, i64 %193
   store i64 0, ptr %194, align 1
-  br label %initSomState.exit148
+  br label %initSomState.exit149
 
-initSomState.exit148:                             ; preds = %169, %179, %190
+initSomState.exit149:                             ; preds = %169, %179, %190
   tail call void @roseBlockExec(ptr noundef nonnull %17, ptr noundef nonnull %4) #13
   br label %runSmallWriteEngine.exit.thread
 
 195:                                              ; preds = %runSmallWriteEngine.exit
   %196 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %197 = load i32, ptr %196, align 8
-  %.not.i149 = icmp eq i32 %197, 0
+  %.not.i150 = icmp eq i32 %197, 0
   %198 = zext i32 %197 to i64
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 %198
-  %.0.i150 = select i1 %.not.i149, ptr null, ptr %199
+  %.0.i151 = select i1 %.not.i150, ptr null, ptr %199
   %200 = load ptr, ptr %61, align 8
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %202 = load i32, ptr %201, align 8
@@ -418,14 +418,14 @@ initSomState.exit:                                ; preds = %195, %209, %220
   %234 = getelementptr inbounds nuw i8, ptr %17, i64 248
   %235 = load i64, ptr %234, align 8
   %236 = and i64 %235, %232
-  %237 = tail call i32 @hwlmExec(ptr noundef %.0.i150, ptr noundef %225, i64 noundef %226, i64 noundef 0, ptr noundef nonnull @roseCallback, ptr noundef nonnull %4, i64 noundef %236) #13
+  %237 = tail call i32 @hwlmExec(ptr noundef %.0.i151, ptr noundef %225, i64 noundef %226, i64 noundef 0, ptr noundef nonnull @roseCallback, ptr noundef nonnull %4, i64 noundef %236) #13
   br label %runSmallWriteEngine.exit.thread
 
 238:                                              ; preds = %runSmallWriteEngine.exit
   tail call fastcc void @soleOutfixBlockExec(ptr noundef nonnull %17, ptr noundef nonnull %4)
   br label %runSmallWriteEngine.exit.thread
 
-runSmallWriteEngine.exit.thread:                  ; preds = %165, %163, %161, %149, %137, %initSomState.exit148, %initSomState.exit, %238, %133
+runSmallWriteEngine.exit.thread:                  ; preds = %165, %163, %161, %149, %137, %initSomState.exit149, %initSomState.exit, %238, %133
   %239 = load i8, ptr %67, align 8
   %240 = and i8 %239, 8
   %.not114 = icmp eq i8 %240, 0
@@ -452,8 +452,8 @@ runSmallWriteEngine.exit.thread:                  ; preds = %165, %163, %161, %1
 
 248:                                              ; preds = %245
   %249 = load i8, ptr %73, align 16
-  %.not.i133 = icmp eq i8 %249, 0
-  br i1 %.not.i133, label %.critedge, label %flushStoredSomMatches.exit
+  %.not.i134 = icmp eq i8 %249, 0
+  br i1 %.not.i134, label %.critedge, label %flushStoredSomMatches.exit
 
 flushStoredSomMatches.exit:                       ; preds = %248
   %250 = tail call i32 @flushStoredSomMatches_i(ptr noundef nonnull %4, i64 noundef -1) #13
@@ -499,7 +499,7 @@ flushStoredSomMatches.exit:                       ; preds = %248
   %266 = and i8 %.pre, 8
   %.not122 = icmp eq i8 %266, 0
   store i8 0, ptr %41, align 4
-  %.123 = select i1 %.not122, i32 -3, i32 -13, !prof !6
+  %.124 = select i1 %.not122, i32 -3, i32 -13, !prof !6
   br label %markScratchInUse.exit
 
 267:                                              ; preds = %259, %262
@@ -511,7 +511,7 @@ flushStoredSomMatches.exit:                       ; preds = %248
   br label %markScratchInUse.exit
 
 markScratchInUse.exit:                            ; preds = %35, %29, %27, %23, %11, %9, %validScratch.exit, %251, %265, %20, %validDatabase.exit, %267, %258, %244, %241, %47, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %47 ], [ -13, %241 ], [ -3, %244 ], [ -13, %258 ], [ %270, %267 ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ %.123, %265 ], [ -10, %validScratch.exit ], [ -5, %11 ], [ -1, %9 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ], [ -1, %35 ]
+  %.0 = phi i32 [ -1, %7 ], [ 0, %47 ], [ -13, %241 ], [ -3, %244 ], [ -13, %258 ], [ %270, %267 ], [ -3, %251 ], [ -1, %validDatabase.exit ], [ -7, %20 ], [ %.124, %265 ], [ -10, %validScratch.exit ], [ -5, %11 ], [ -1, %9 ], [ -1, %23 ], [ -1, %27 ], [ -1, %29 ], [ -1, %35 ]
   ret i32 %.0
 }
 

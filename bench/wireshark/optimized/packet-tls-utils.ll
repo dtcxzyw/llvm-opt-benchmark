@@ -3407,7 +3407,7 @@ ssl_get_cipher_export_keymat_size.exit:           ; preds = %.critedge237
   br label %ssl_get_cipher_export_keymat_size.exit.thread
 
 ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %.critedge237, %141, %143, %ssl_get_cipher_export_keymat_size.exit
-  %.not225255 = phi i1 [ true, %143 ], [ true, %ssl_get_cipher_export_keymat_size.exit ], [ false, %141 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ]
+  %.not225262 = phi i1 [ true, %143 ], [ true, %ssl_get_cipher_export_keymat_size.exit ], [ false, %141 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ], [ false, %.critedge237 ]
   %.0188 = phi i32 [ %145, %143 ], [ 0, %ssl_get_cipher_export_keymat_size.exit ], [ 7, %141 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ], [ 5, %.critedge237 ]
   %146 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %147 = load i32, ptr %146, align 4
@@ -3433,8 +3433,8 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
 152:                                              ; preds = %ssl_get_cipher_export_keymat_size.exit.thread, %ssl_get_cipher_export_keymat_size.exit.thread, %ssl_get_cipher_export_keymat_size.exit.thread, %.fold.split, %151, %148
   %.1211 = phi i32 [ %150, %148 ], [ 12, %151 ], [ 4, %ssl_get_cipher_export_keymat_size.exit.thread ], [ 4, %ssl_get_cipher_export_keymat_size.exit.thread ], [ 4, %ssl_get_cipher_export_keymat_size.exit.thread ], [ 0, %.fold.split ]
   %153 = getelementptr i8, ptr %21, i64 12
-  %.val247 = load i32, ptr %153, align 4
-  %154 = add i32 %.val247, -64
+  %.val254 = load i32, ptr %153, align 4
+  %154 = add i32 %.val254, -64
   %155 = sext i32 %154 to i64
   %156 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -3468,8 +3468,8 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   br i1 %switch, label %176, label %185
 
 176:                                              ; preds = %170
-  %.val248 = load i32, ptr %153, align 4
-  %177 = add i32 %.val248, -64
+  %.val255 = load i32, ptr %153, align 4
+  %177 = add i32 %.val255, -64
   %178 = sext i32 %177 to i64
   %179 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -3491,7 +3491,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %190 = getelementptr i8, ptr %188, i64 %189
   %.1206 = select i1 %.not227, ptr null, ptr %188
   %.1202 = select i1 %.not227, ptr null, ptr %190
-  br i1 %.not225255, label %241, label %191
+  br i1 %.not225262, label %241, label %191
 
 191:                                              ; preds = %185
   %192 = icmp eq i32 %175, 1
@@ -3545,9 +3545,9 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   store ptr %12, ptr %13, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.547, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   %206 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.548, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %13, i32 noundef %159)
-  br i1 %206, label %.thread257, label %211
+  br i1 %206, label %.thread264, label %211
 
-.thread257:                                       ; preds = %204
+.thread264:                                       ; preds = %204
   %207 = load ptr, ptr %13, align 8
   %208 = call ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef %207, i64 noundef %189, i64 noundef 16) #31, !alias.scope !26
   %209 = getelementptr i8, ptr %207, i64 %189
@@ -3566,9 +3566,9 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %300
 
-212:                                              ; preds = %.thread257, %203, %191
-  %.3208 = phi ptr [ %.1206, %191 ], [ %5, %203 ], [ %5, %.thread257 ]
-  %.3204 = phi ptr [ %.1202, %191 ], [ %6, %203 ], [ %6, %.thread257 ]
+212:                                              ; preds = %.thread264, %203, %191
+  %.3208 = phi ptr [ %.1206, %191 ], [ %5, %203 ], [ %5, %.thread264 ]
+  %.3204 = phi ptr [ %.1202, %191 ], [ %6, %203 ], [ %6, %.thread264 ]
   %213 = load i16, ptr %22, align 8
   %214 = icmp eq i16 %213, 768
   br i1 %214, label %215, label %235
@@ -3578,7 +3578,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.550, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   %216 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
   %.not228 = icmp eq i32 %216, 0
-  br i1 %.not228, label %217, label %.thread260
+  br i1 %.not228, label %217, label %.thread267
 
 217:                                              ; preds = %215
   %.val = load ptr, ptr %16, align 8
@@ -3587,45 +3587,45 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   %219 = load ptr, ptr %167, align 8
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %221 = load i32, ptr %220, align 8
-  %.val238 = load ptr, ptr %16, align 8
+  %.val245 = load ptr, ptr %16, align 8
   %222 = sext i32 %221 to i64
-  call void @gcry_md_write(ptr noundef %.val238, ptr noundef %219, i64 noundef %222)
+  call void @gcry_md_write(ptr noundef %.val245, ptr noundef %219, i64 noundef %222)
   %223 = load ptr, ptr %166, align 8
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %225 = load i32, ptr %224, align 8
-  %.val239 = load ptr, ptr %16, align 8
+  %.val246 = load ptr, ptr %16, align 8
   %226 = sext i32 %225 to i64
-  call void @gcry_md_write(ptr noundef %.val239, ptr noundef %223, i64 noundef %226)
-  %.val243 = load ptr, ptr %16, align 8
-  call fastcc void @ssl_md5_final(ptr noundef nonnull %7, ptr %.val243)
-  %.val245 = load ptr, ptr %16, align 8
-  call void @gcry_md_close(ptr noundef %.val245)
+  call void @gcry_md_write(ptr noundef %.val246, ptr noundef %223, i64 noundef %226)
+  %.val250 = load ptr, ptr %16, align 8
+  call fastcc void @ssl_md5_final(ptr noundef nonnull %7, ptr %.val250)
+  %.val252 = load ptr, ptr %16, align 8
+  call void @gcry_md_close(ptr noundef %.val252)
   %227 = call fastcc i32 @ssl_md5_init(ptr noundef nonnull %16)
   %.not229 = icmp eq i32 %227, 0
-  br i1 %.not229, label %228, label %.thread260
+  br i1 %.not229, label %228, label %.thread267
 
-.thread260:                                       ; preds = %215, %217
+.thread267:                                       ; preds = %215, %217
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %300
 
 228:                                              ; preds = %217
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.551, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
-  %.val240 = load ptr, ptr %16, align 8
-  call void @gcry_md_write(ptr noundef %.val240, ptr noundef %187, i64 noundef %218)
+  %.val247 = load ptr, ptr %16, align 8
+  call void @gcry_md_write(ptr noundef %.val247, ptr noundef %187, i64 noundef %218)
   %229 = load ptr, ptr %166, align 8
   %230 = load i32, ptr %224, align 8
-  %.val241 = load ptr, ptr %16, align 8
+  %.val248 = load ptr, ptr %16, align 8
   %231 = sext i32 %230 to i64
-  call void @gcry_md_write(ptr noundef %.val241, ptr noundef %229, i64 noundef %231)
+  call void @gcry_md_write(ptr noundef %.val248, ptr noundef %229, i64 noundef %231)
   %232 = load ptr, ptr %167, align 8
   %233 = load i32, ptr %220, align 8
-  %.val242 = load ptr, ptr %16, align 8
+  %.val249 = load ptr, ptr %16, align 8
   %234 = sext i32 %233 to i64
-  call void @gcry_md_write(ptr noundef %.val242, ptr noundef %232, i64 noundef %234)
-  %.val244 = load ptr, ptr %16, align 8
-  call fastcc void @ssl_md5_final(ptr noundef nonnull %8, ptr %.val244)
-  %.val246 = load ptr, ptr %16, align 8
-  call void @gcry_md_close(ptr noundef %.val246)
+  call void @gcry_md_write(ptr noundef %.val249, ptr noundef %232, i64 noundef %234)
+  %.val251 = load ptr, ptr %16, align 8
+  call fastcc void @ssl_md5_final(ptr noundef nonnull %8, ptr %.val251)
+  %.val253 = load ptr, ptr %16, align 8
+  call void @gcry_md_close(ptr noundef %.val253)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %241
 
@@ -3640,16 +3640,16 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   store i32 %.0188, ptr %236, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.552, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   %237 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.553, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %17, i32 noundef 32)
-  br i1 %237, label %238, label %.thread265
+  br i1 %237, label %238, label %.thread272
 
 238:                                              ; preds = %235
   store ptr %187, ptr %19, align 8
   store i32 %.0188, ptr %236, align 8
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.555, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   %239 = call fastcc zeroext i1 @prf(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.556, ptr noundef nonnull %167, ptr noundef nonnull %166, ptr noundef nonnull %18, i32 noundef 32)
-  br i1 %239, label %240, label %.thread265
+  br i1 %239, label %240, label %.thread272
 
-.thread265:                                       ; preds = %238, %235
+.thread272:                                       ; preds = %238, %235
   %.str.557.sink = phi ptr [ @.str.554, %235 ], [ @.str.557, %238 ]
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull %.str.557.sink, ptr noundef nonnull @__func__.ssl_generate_keyring_material)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -3672,16 +3672,16 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   br i1 %.not230, label %255, label %242
 
 242:                                              ; preds = %241
-  %.val250 = load i32, ptr %153, align 4
-  %243 = add i32 %.val250, -64
+  %.val257 = load i32, ptr %153, align 4
+  %243 = add i32 %.val257, -64
   %244 = sext i32 %243 to i64
   %245 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %244
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load i32, ptr %246, align 8
   %248 = zext i32 %247 to i64
   call void @ssl_print_data(ptr noundef nonnull @.str.558, ptr noundef nonnull %.1192, i64 noundef %248)
-  %.val251 = load i32, ptr %153, align 4
-  %249 = add i32 %.val251, -64
+  %.val258 = load i32, ptr %153, align 4
+  %249 = add i32 %.val258, -64
   %250 = sext i32 %249 to i64
   %251 = getelementptr %struct.SslDigestAlgo, ptr @digests, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
@@ -3788,7 +3788,7 @@ ssl_get_cipher_export_keymat_size.exit.thread:    ; preds = %.critedge237, %.cri
   store i32 %299, ptr %26, align 8
   br label %302
 
-300:                                              ; preds = %.thread265, %.thread260, %211, %.thread, %267, %262, %195, %169
+300:                                              ; preds = %.thread272, %.thread267, %211, %.thread, %267, %262, %195, %169
   %301 = load ptr, ptr %4, align 8
   call void @g_free(ptr noundef %301)
   br label %302

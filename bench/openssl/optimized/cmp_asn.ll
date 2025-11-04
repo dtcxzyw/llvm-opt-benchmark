@@ -1140,9 +1140,9 @@ define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get1_certReqTemplate(ptr noundef reado
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %44
-  %.04769 = phi i32 [ %46, %44 ], [ 0, %.preheader ]
+  %.04768 = phi i32 [ %46, %44 ], [ 0, %.preheader ]
   %29 = load ptr, ptr %22, align 8, !tbaa !26
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %.04769) #6
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %.04768) #6
   %31 = icmp eq ptr %30, null
   br i1 %31, label %OSSL_CMP_ATAV_get0_type.exit.thread, label %OSSL_CMP_ATAV_get0_type.exit
 
@@ -1154,7 +1154,7 @@ OSSL_CMP_ATAV_get0_type.exit:                     ; preds = %.lr.ph
 OSSL_CMP_ATAV_get0_type.exit.thread:              ; preds = %.lr.ph, %OSSL_CMP_ATAV_get0_type.exit
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 443, ptr noundef nonnull @__func__.OSSL_CMP_ITAV_get1_certReqTemplate) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 202, ptr noundef nonnull @.str.13, i32 noundef %.04769) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 202, ptr noundef nonnull @.str.13, i32 noundef %.04768) #6
   br label %.thread
 
 34:                                               ; preds = %OSSL_CMP_ATAV_get0_type.exit
@@ -1178,12 +1178,12 @@ OSSL_CMP_ATAV_get0_type.exit.thread:              ; preds = %.lr.ph, %OSSL_CMP_A
   %spec.store.select = select i1 %43, ptr @.str.14, ptr %.0
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 457, ptr noundef nonnull @__func__.OSSL_CMP_ITAV_get1_certReqTemplate) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 202, ptr noundef nonnull @.str.15, i32 noundef %.04769, ptr noundef nonnull %spec.store.select) #6
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 202, ptr noundef nonnull @.str.15, i32 noundef %.04768, ptr noundef nonnull %spec.store.select) #6
   br label %.thread
 
 44:                                               ; preds = %34
   %45 = tail call i32 @OSSL_CMP_ATAV_push1(ptr noundef nonnull %2, ptr noundef nonnull %30)
-  %46 = add nuw nsw i32 %.04769, 1
+  %46 = add nuw nsw i32 %.04768, 1
   %exitcond.not = icmp eq i32 %46, %25
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 

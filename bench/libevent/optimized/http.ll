@@ -6019,22 +6019,22 @@ evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %8
   %.034 = phi ptr [ null, %19 ], [ null, %9 ], [ %17, %.thread ]
   %.015.i = load ptr, ptr %1, align 8
   %.not16.i = icmp eq ptr %.015.i, null
-  br i1 %.not16.i, label %.critedge, label %.lr.ph.i56
+  br i1 %.not16.i, label %.critedge, label %.lr.ph.i57
 
-.lr.ph.i56:                                       ; preds = %102, %109
-  %.017.i = phi ptr [ %.0.i57, %109 ], [ %.015.i, %102 ]
+.lr.ph.i57:                                       ; preds = %102, %109
+  %.017.i = phi ptr [ %.0.i58, %109 ], [ %.015.i, %102 ]
   %103 = load ptr, ptr %.017.i, align 8
   %.not14.i = icmp eq ptr %103, null
   %104 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %105 = load ptr, ptr %104, align 8
   br i1 %.not14.i, label %108, label %106
 
-106:                                              ; preds = %.lr.ph.i56
+106:                                              ; preds = %.lr.ph.i57
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %105, ptr %107, align 8
   br label %109
 
-108:                                              ; preds = %.lr.ph.i56
+108:                                              ; preds = %.lr.ph.i57
   store ptr %105, ptr %8, align 8
   br label %109
 
@@ -6048,9 +6048,9 @@ evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %8
   %114 = load ptr, ptr %113, align 8
   call void @event_mm_free_(ptr noundef %114) #19
   call void @event_mm_free_(ptr noundef nonnull %.017.i) #19
-  %.0.i57 = load ptr, ptr %1, align 8
-  %.not.i58 = icmp eq ptr %.0.i57, null
-  br i1 %.not.i58, label %.critedge, label %.lr.ph.i56, !llvm.loop !8
+  %.0.i58 = load ptr, ptr %1, align 8
+  %.not.i59 = icmp eq ptr %.0.i58, null
+  br i1 %.not.i59, label %.critedge, label %.lr.ph.i57, !llvm.loop !8
 
 .critedge:                                        ; preds = %25, %thread-pre-split, %109, %102
   %.038 = phi i32 [ -1, %102 ], [ -1, %109 ], [ 0, %thread-pre-split ], [ 0, %25 ]
@@ -6064,18 +6064,18 @@ evhttp_remove_header.exit:                        ; preds = %.preheader, %91, %8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %15, %115, %.critedge
-  %.265 = phi ptr [ %.2, %115 ], [ %.2, %.critedge ], [ %.137, %15 ], [ %.137, %14 ]
-  %.03864 = phi i32 [ %.038, %115 ], [ %.038, %.critedge ], [ 0, %15 ], [ 0, %14 ]
-  %.not55 = icmp eq ptr %.265, null
+  %.266 = phi ptr [ %.2, %115 ], [ %.2, %.critedge ], [ %.137, %15 ], [ %.137, %14 ]
+  %.03865 = phi i32 [ %.038, %115 ], [ %.038, %.critedge ], [ 0, %15 ], [ 0, %14 ]
+  %.not55 = icmp eq ptr %.266, null
   br i1 %.not55, label %117, label %116
 
 116:                                              ; preds = %.critedge.thread
-  call void @evhttp_uri_free(ptr noundef nonnull %.265)
+  call void @evhttp_uri_free(ptr noundef nonnull %.266)
   br label %117
 
 117:                                              ; preds = %.critedge.thread, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.03864
+  ret i32 %.03865
 }
 
 ; Function Attrs: nounwind uwtable

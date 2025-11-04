@@ -336,8 +336,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %9 = load ptr, ptr %0, align 8, !tbaa !31
   %10 = tail call i32 @ffurl_read_complete(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 8) #7
-  %.not199.i = icmp eq i32 %10, 8
-  br i1 %.not199.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not200.i = icmp eq i32 %10, 8
+  br i1 %.not200.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.critedge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -373,15 +373,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   br label %47
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.critedge
-  %.lcssa177.i = phi i32 [ %10, %.critedge ], [ %144, %.backedge.i ]
-  %41 = icmp slt i32 %.lcssa177.i, 0
+  %.lcssa178.i = phi i32 [ %10, %.critedge ], [ %157, %.backedge.i ]
+  %41 = icmp slt i32 %.lcssa178.i, 0
   %42 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %41, label %43, label %46
 
 43:                                               ; preds = %._crit_edge.i
-  %44 = sub nsw i32 0, %.lcssa177.i
+  %44 = sub nsw i32 0, %.lcssa178.i
   %45 = tail call ptr @strerror(i32 noundef %44) #7
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %42, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %.lcssa177.i, ptr noundef %45) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %42, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %.lcssa178.i, ptr noundef %45) #7
   br label %get_tcp_server_response.exit.thread
 
 46:                                               ; preds = %._crit_edge.i
@@ -552,8 +552,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
 137:                                              ; preds = %126, %117
   %138 = load i32, ptr %13, align 8, !tbaa !25
   %.fr.i = freeze i32 %138
-  %.not159.i = icmp eq i32 %.fr.i, 4
-  br i1 %.not159.i, label %.backedge.i, label %get_tcp_server_response.exit
+  %.not160.i = icmp eq i32 %.fr.i, 4
+  br i1 %.not160.i, label %.backedge.i, label %get_tcp_server_response.exit
 
 139:                                              ; preds = %114
   %140 = load i32, ptr %17, align 4, !tbaa !19
@@ -565,26 +565,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %142, i32 noundef 56, ptr noundef nonnull @.str.18, i32 noundef %97) #7
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %156, %145, %.thread.i, %137
-  %143 = load ptr, ptr %0, align 8, !tbaa !31
-  %144 = tail call i32 @ffurl_read_complete(ptr noundef %143, ptr noundef nonnull %8, i32 noundef 8) #7
-  %.not.i = icmp eq i32 %144, 8
-  br i1 %.not.i, label %47, label %._crit_edge.i
-
 .thread149.i:                                     ; preds = %85, %82
   switch i16 %83, label %get_tcp_server_response.exit.loopexit.split.loop.exit [
-    i16 27, label %145
+    i16 27, label %143
     i16 32, label %158
   ]
 
-145:                                              ; preds = %.thread149.i
+143:                                              ; preds = %.thread149.i
   store i32 1, ptr %26, align 1, !tbaa !36
   store i32 -1341392178, ptr %28, align 1, !tbaa !36
   store i32 542330189, ptr %30, align 1, !tbaa !36
-  %146 = load i32, ptr %33, align 8, !tbaa !37
-  %147 = add nsw i32 %146, 1
-  store i32 %147, ptr %33, align 8, !tbaa !37
-  store i32 %146, ptr %32, align 4, !tbaa !36
+  %144 = load i32, ptr %33, align 8, !tbaa !37
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %33, align 8, !tbaa !37
+  store i32 %144, ptr %32, align 4, !tbaa !36
   store i64 0, ptr %34, align 8, !tbaa !36
   store i16 27, ptr %36, align 4, !tbaa !36
   store i16 3, ptr %37, align 2, !tbaa !36
@@ -594,25 +588,31 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mms_safe_send_recv(ptr nou
   store i32 32, ptr %29, align 8, !tbaa !36
   store i32 4, ptr %31, align 8, !tbaa !36
   store i32 2, ptr %35, align 8, !tbaa !36
-  %148 = load ptr, ptr %0, align 8, !tbaa !31
-  %149 = tail call i32 @ffurl_write2(ptr noundef %148, ptr noundef nonnull %26, i32 noundef range(i32 0, -7) 48) #7
-  %.not.i.i.i = icmp eq i32 %149, 48
-  br i1 %.not.i.i.i, label %.backedge.i, label %150
+  %146 = load ptr, ptr %0, align 8, !tbaa !31
+  %147 = tail call i32 @ffurl_write2(ptr noundef %146, ptr noundef nonnull %26, i32 noundef range(i32 0, -7) 48) #7
+  %.not.i.i.i = icmp eq i32 %147, 48
+  br i1 %.not.i.i.i, label %.backedge.i, label %148
 
-150:                                              ; preds = %145
-  %151 = load ptr, ptr %0, align 8, !tbaa !31
-  %152 = icmp slt i32 %149, 0
-  br i1 %152, label %153, label %156
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %0, align 8, !tbaa !31
+  %150 = icmp slt i32 %147, 0
+  br i1 %150, label %151, label %154
 
-153:                                              ; preds = %150
-  %154 = sub nsw i32 0, %149
-  %155 = tail call ptr @strerror(i32 noundef %154) #7
-  br label %156
+151:                                              ; preds = %148
+  %152 = sub nsw i32 0, %147
+  %153 = tail call ptr @strerror(i32 noundef %152) #7
+  br label %154
 
-156:                                              ; preds = %153, %150
-  %157 = phi ptr [ %155, %153 ], [ @.str.11, %150 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %151, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef 48, i32 noundef %149, ptr noundef %157) #7
+154:                                              ; preds = %151, %148
+  %155 = phi ptr [ %153, %151 ], [ @.str.11, %148 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %149, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef 48, i32 noundef %147, ptr noundef %155) #7
   br label %.backedge.i
+
+.backedge.i:                                      ; preds = %154, %143, %.thread.i, %137
+  %156 = load ptr, ptr %0, align 8, !tbaa !31
+  %157 = tail call i32 @ffurl_read_complete(ptr noundef %156, ptr noundef nonnull %8, i32 noundef 8) #7
+  %.not.i = icmp eq i32 %157, 8
+  br i1 %.not.i, label %47, label %._crit_edge.i
 
 158:                                              ; preds = %.thread149.i
   %159 = load ptr, ptr %0, align 8, !tbaa !31

@@ -3353,8 +3353,8 @@ thread-pre-split:                                 ; preds = %instanceof_function
 68:                                               ; preds = %65
   tail call void @xmlSetTreeDoc(ptr noundef nonnull %50, ptr noundef nonnull %67) #11
   %69 = load ptr, ptr %55, align 8, !tbaa !29
-  %.not.i94.i = icmp eq ptr %69, null
-  br i1 %.not.i94.i, label %dom_set_document_ref_pointers.exit.i, label %70
+  %.not.i95.i = icmp eq ptr %69, null
+  br i1 %.not.i95.i, label %dom_set_document_ref_pointers.exit.i, label %70
 
 70:                                               ; preds = %68
   %71 = tail call fastcc zeroext i1 @dom_set_document_ref_pointers_node(ptr noundef nonnull %50, ptr noundef %69)
@@ -3519,8 +3519,8 @@ dom_set_document_ref_pointers.exit.i:             ; preds = %php_dom_next_in_tre
   %141 = load ptr, ptr %140, align 8, !tbaa !43
   %142 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %143 = load ptr, ptr %142, align 8, !tbaa !38
-  %.not.i95.i = icmp eq ptr %143, null
-  br i1 %.not.i95.i, label %dom_insert_fragment.exit.i, label %144
+  %.not.i96.i = icmp eq ptr %143, null
+  br i1 %.not.i96.i, label %dom_insert_fragment.exit.i, label %144
 
 144:                                              ; preds = %137
   %145 = icmp eq ptr %141, null

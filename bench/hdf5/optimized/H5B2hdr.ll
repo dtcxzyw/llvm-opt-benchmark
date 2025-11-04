@@ -697,8 +697,8 @@ define range(i32 -1, 1) i32 @H5B2__hdr_free(ptr noundef %0) local_unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %57, %45, %1, %88, %83, %18
-  %.042 = phi i32 [ -1, %18 ], [ -1, %83 ], [ 0, %88 ], [ 0, %1 ], [ -1, %45 ], [ -1, %57 ]
-  ret i32 %.042
+  %.041 = phi i32 [ -1, %18 ], [ -1, %83 ], [ 0, %88 ], [ 0, %1 ], [ -1, %45 ], [ -1, %57 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable

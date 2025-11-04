@@ -8731,8 +8731,8 @@ declare i32 @cmsPipelineCheckAndRetreiveStages(ptr noundef, i32 noundef, ...) lo
 define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @cmsStageOutputChannels(ptr noundef %2) #14
   %5 = tail call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %2) #14
-  %.not54 = icmp eq i32 %4, 0
-  br i1 %.not54, label %Type_Curve_Write.exit.thread, label %.lr.ph.preheader
+  %.not55 = icmp eq i32 %4, 0
+  br i1 %.not55, label %Type_Curve_Write.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %4 to i64
@@ -8750,7 +8750,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonl
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %.lr.ph._crit_edge [
-    i32 0, label %23
+    i32 0, label %22
     i32 3, label %11
   ]
 
@@ -8765,85 +8765,85 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonl
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %23, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %.lr.ph._crit_edge, %11
   %18 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %13, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %23, label %spec.select.si.unfold.false.jt1885434465
+  %spec.select = select i1 %21, i32 1668641398, i32 1885434465
+  br label %22
 
-spec.select.si.unfold.false.jt1885434465:         ; preds = %17
-  %22 = tail call i32 @_cmsWriteTypeBase(ptr noundef %1, i32 noundef 1885434465) #14
-  %.not.jt1885434465 = icmp eq i32 %22, 0
-  br i1 %.not.jt1885434465, label %Type_Curve_Write.exit.thread, label %52
+22:                                               ; preds = %17, %11, %.lr.ph
+  %.028 = phi i32 [ 1668641398, %.lr.ph ], [ 1668641398, %11 ], [ %spec.select, %17 ]
+  %23 = tail call i32 @_cmsWriteTypeBase(ptr noundef %1, i32 noundef %.028) #14
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %Type_Curve_Write.exit.thread, label %24
 
-23:                                               ; preds = %17, %11, %.lr.ph
-  %24 = tail call i32 @_cmsWriteTypeBase(ptr noundef %1, i32 noundef 1668641398) #14
-  %.not.jt1668641398 = icmp eq i32 %24, 0
-  br i1 %.not.jt1668641398, label %Type_Curve_Write.exit.thread, label %25
-
-25:                                               ; preds = %23
+24:                                               ; preds = %22
+  %25 = icmp eq i32 %.028, 1668641398
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %43
+  br i1 %25, label %27, label %53
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %43
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %31, label %44
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = load double, ptr %37, align 8
-  %39 = tail call zeroext i16 @_cmsDoubleTo8Fixed8(double noundef %38) #14
-  %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 1) #14
-  %.not12.i = icmp eq i32 %40, 0
-  br i1 %.not12.i, label %Type_Curve_Write.exit.thread, label %41
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %44
 
-41:                                               ; preds = %36
-  %42 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %39) #14
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %39 = load double, ptr %38, align 8
+  %40 = tail call zeroext i16 @_cmsDoubleTo8Fixed8(double noundef %39) #14
+  %41 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef 1) #14
+  %.not12.i = icmp eq i32 %41, 0
+  br i1 %.not12.i, label %Type_Curve_Write.exit.thread, label %42
+
+42:                                               ; preds = %37
+  %43 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %40) #14
   br label %Type_Curve_Write.exit
 
-43:                                               ; preds = %30, %25
-  %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %45 = load i32, ptr %44, align 8
-  %46 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %45) #14
-  %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %Type_Curve_Write.exit.thread, label %47
+44:                                               ; preds = %31, %27
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %46 = load i32, ptr %45, align 8
+  %47 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %46) #14
+  %.not.i = icmp eq i32 %47, 0
+  br i1 %.not.i, label %Type_Curve_Write.exit.thread, label %48
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %44, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 @_cmsWriteUInt16Array(ptr noundef %1, i32 noundef %48, ptr noundef %50) #14
+48:                                               ; preds = %44
+  %49 = load i32, ptr %45, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 @_cmsWriteUInt16Array(ptr noundef %1, i32 noundef %49, ptr noundef %51) #14
   br label %Type_Curve_Write.exit
 
-Type_Curve_Write.exit:                            ; preds = %41, %47
-  %.0.i.in = phi i32 [ %51, %47 ], [ %42, %41 ]
+Type_Curve_Write.exit:                            ; preds = %42, %48
+  %.0.i.in = phi i32 [ %52, %48 ], [ %43, %42 ]
   %.0.i = icmp eq i32 %.0.i.in, 0
   br i1 %.0.i, label %Type_Curve_Write.exit.thread, label %Type_ParametricCurve_Write.exit
 
-52:                                               ; preds = %spec.select.si.unfold.false.jt1885434465
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+53:                                               ; preds = %24
+  %54 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, 1
   %61 = icmp slt i32 %57, 1
   %or.cond.i = select i1 %60, i1 true, i1 %61
   br i1 %or.cond.i, label %.loopexit.sink.split.i, label %62
 
-62:                                               ; preds = %52
+62:                                               ; preds = %53
   %63 = icmp samesign ugt i32 %57, 5
   br i1 %63, label %.loopexit.sink.split.i, label %64
 
@@ -8854,8 +8854,8 @@ Type_Curve_Write.exit:                            ; preds = %41, %47
   %68 = trunc nuw nsw i32 %57 to i16
   %69 = add nsw i16 %68, -1
   %70 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %69) #14
-  %.not.i34 = icmp eq i32 %70, 0
-  br i1 %.not.i34, label %Type_Curve_Write.exit.thread, label %71
+  %.not.i35 = icmp eq i32 %70, 0
+  br i1 %.not.i35, label %Type_Curve_Write.exit.thread, label %71
 
 71:                                               ; preds = %64
   %72 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext 0) #14
@@ -8882,8 +8882,8 @@ Type_Curve_Write.exit:                            ; preds = %41, %47
   %.not21.i = icmp eq i32 %78, 0
   br i1 %.not21.i, label %Type_Curve_Write.exit.thread, label %73
 
-.loopexit.sink.split.i:                           ; preds = %62, %52
-  %.str.6.sink.i = phi ptr [ @.str.5, %52 ], [ @.str.6, %62 ]
+.loopexit.sink.split.i:                           ; preds = %62, %53
+  %.str.6.sink.i = phi ptr [ @.str.5, %53 ], [ @.str.6, %62 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %80, i32 noundef 8, ptr noundef nonnull %.str.6.sink.i) #14
@@ -8894,8 +8894,8 @@ Type_ParametricCurve_Write.exit:                  ; preds = %73, %Type_Curve_Wri
   %.not33 = icmp eq i32 %81, 0
   br i1 %.not33, label %Type_Curve_Write.exit.thread, label %6
 
-Type_Curve_Write.exit.thread:                     ; preds = %Type_Curve_Write.exit, %Type_ParametricCurve_Write.exit, %6, %36, %43, %64, %71, %23, %spec.select.si.unfold.false.jt1885434465, %.lr.ph.i, %3, %.loopexit.sink.split.i
-  %.0 = phi i32 [ 0, %.loopexit.sink.split.i ], [ 1, %3 ], [ 0, %.lr.ph.i ], [ 0, %spec.select.si.unfold.false.jt1885434465 ], [ 0, %23 ], [ 0, %Type_Curve_Write.exit ], [ 0, %Type_ParametricCurve_Write.exit ], [ 1, %6 ], [ 0, %36 ], [ 0, %43 ], [ 0, %64 ], [ 0, %71 ]
+Type_Curve_Write.exit.thread:                     ; preds = %22, %Type_Curve_Write.exit, %Type_ParametricCurve_Write.exit, %6, %37, %44, %64, %71, %.lr.ph.i, %3, %.loopexit.sink.split.i
+  %.0 = phi i32 [ 0, %.loopexit.sink.split.i ], [ 1, %3 ], [ 0, %.lr.ph.i ], [ 0, %22 ], [ 0, %Type_Curve_Write.exit ], [ 0, %Type_ParametricCurve_Write.exit ], [ 1, %6 ], [ 0, %37 ], [ 0, %44 ], [ 0, %64 ], [ 0, %71 ]
   ret i32 %.0
 }
 

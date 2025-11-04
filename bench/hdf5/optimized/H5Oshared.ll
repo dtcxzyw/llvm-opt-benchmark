@@ -419,19 +419,19 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
 215:                                              ; preds = %210
   %216 = call ptr @H5O_msg_read_oh(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %138, ptr noundef null) #7
   %217 = icmp eq ptr %216, null
-  br i1 %217, label %.thread79.i, label %.thread70.i
+  br i1 %217, label %.thread82.i, label %.thread73.i
 
 218:                                              ; preds = %210, %205
   %219 = call ptr @H5O_msg_read(ptr noundef nonnull %10, i32 noundef %138, ptr noundef null) #7
   %220 = icmp eq ptr %219, null
-  br i1 %220, label %.thread79.i, label %.thread70.i
+  br i1 %220, label %.thread82.i, label %.thread73.i
 
-.thread70.i:                                      ; preds = %218, %215
+.thread73.i:                                      ; preds = %218, %215
   %.4.ph.i = phi ptr [ %219, %218 ], [ %216, %215 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %224
 
-.thread79.i:                                      ; preds = %218, %215
+.thread82.i:                                      ; preds = %218, %215
   %.sink = phi i32 [ 166, %215 ], [ 171, %218 ]
   %221 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %222 = load i64, ptr @H5E_READERROR_g, align 8, !tbaa !11
@@ -439,10 +439,10 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %H5O__shared_read.exit.thread
 
-224:                                              ; preds = %.thread70.i, %204
-  %.253.i = phi ptr [ %158, %204 ], [ null, %.thread70.i ]
-  %.250.i = phi ptr [ %173, %204 ], [ null, %.thread70.i ]
-  %.3.i = phi ptr [ %198, %204 ], [ %.4.ph.i, %.thread70.i ]
+224:                                              ; preds = %.thread73.i, %204
+  %.253.i = phi ptr [ %158, %204 ], [ null, %.thread73.i ]
+  %.250.i = phi ptr [ %173, %204 ], [ null, %.thread73.i ]
+  %.3.i = phi ptr [ %198, %204 ], [ %.4.ph.i, %.thread73.i ]
   %225 = load i32, ptr %5, align 8, !tbaa !21
   %226 = call i32 @H5O_msg_set_share(i32 noundef %225, ptr noundef nonnull %12, ptr noundef nonnull %.3.i) #7
   %227 = icmp slt i32 %226, 0
@@ -488,7 +488,7 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   %247 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_read, i32 noundef 183, i64 noundef %245, i64 noundef %246, ptr noundef nonnull @.str.31) #7
   br label %H5O__shared_read.exit.thread
 
-H5O__shared_read.exit.thread:                     ; preds = %244, %136, %.thread79.i
+H5O__shared_read.exit.thread:                     ; preds = %244, %136, %.thread82.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %249
 
@@ -735,9 +735,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0
   %60 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_link_adj, i32 noundef 270, i64 noundef %58, i64 noundef %59, ptr noundef nonnull @.str.33) #7
   br label %61
 
-61:                                               ; preds = %42, %5, %52, %53, %45, %57, %48
-  %.027 = phi i32 [ %.2, %42 ], [ -1, %48 ], [ 0, %45 ], [ -1, %57 ], [ 0, %53 ], [ 0, %52 ], [ 0, %5 ]
-  ret i32 %.027
+61:                                               ; preds = %5, %52, %53, %45, %57, %48, %42
+  %.025 = phi i32 [ %.2, %42 ], [ -1, %48 ], [ 0, %45 ], [ -1, %57 ], [ 0, %53 ], [ 0, %52 ], [ 0, %5 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: nounwind uwtable
@@ -820,9 +820,9 @@ define range(i32 -1, 1) i32 @H5O__shared_copy_file(ptr noundef readnone captures
   store i32 %36, ptr %6, align 4, !tbaa !45
   br label %37
 
-37:                                               ; preds = %28, %9, %29
-  %.019 = phi i32 [ %.1, %28 ], [ 0, %29 ], [ 0, %9 ]
-  ret i32 %.019
+37:                                               ; preds = %9, %29, %28
+  %.018 = phi i32 [ %.1, %28 ], [ 0, %29 ], [ 0, %9 ]
+  ret i32 %.018
 }
 
 declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -901,9 +901,9 @@ define range(i32 -1, 1) i32 @H5O__shared_post_copy_file(ptr noundef %0, ptr noun
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__shared_post_copy_file, i32 noundef 656, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.7) #7
   br label %48
 
-48:                                               ; preds = %39, %6, %40, %44
-  %.021 = phi i32 [ %.1, %39 ], [ -1, %44 ], [ 0, %40 ], [ 0, %6 ]
-  ret i32 %.021
+48:                                               ; preds = %6, %40, %44, %39
+  %.020 = phi i32 [ %.1, %39 ], [ -1, %44 ], [ 0, %40 ], [ 0, %6 ]
+  ret i32 %.020
 }
 
 declare i32 @H5O_loc_reset(ptr noundef) local_unnamed_addr #1

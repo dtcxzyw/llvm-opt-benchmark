@@ -4176,13 +4176,13 @@ define noundef i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = icmp eq ptr %0, null
-  br i1 %24, label %.thread621, label %25
+  br i1 %24, label %.thread622, label %25
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %33 [
-    i32 1, label %.thread621
+    i32 1, label %.thread622
     i32 0, label %28
     i32 4, label %29
     i32 5, label %29
@@ -4199,7 +4199,7 @@ define noundef i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 28:                                               ; preds = %25
-  br label %.thread621
+  br label %.thread622
 
 29:                                               ; preds = %25, %25, %25, %25, %25
   %30 = tail call i32 @pqReadData(ptr noundef nonnull %0) #25
@@ -4207,14 +4207,14 @@ define noundef i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 {
   %32 = icmp eq i32 %30, 0
   %. = select i1 %32, i32 1, i32 2
   %.0411 = select i1 %31, i32 3, i32 %.
-  switch i32 %.0411, label %.thread621 [
+  switch i32 %.0411, label %.thread622 [
     i32 2, label %34
-    i32 3, label %.thread618
+    i32 3, label %.thread619
   ]
 
 33:                                               ; preds = %25
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #25
-  br label %.thread618
+  br label %.thread619
 
 34:                                               ; preds = %25, %25, %25, %25, %25, %25, %25, %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 876
@@ -4334,11 +4334,11 @@ define noundef i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 {
 109:                                              ; preds = %107
   call void @free(ptr noundef nonnull %108) #25
   store ptr null, ptr %61, align 8
-  %.pre784 = load i32, ptr %59, align 4
+  %.pre785 = load i32, ptr %59, align 4
   br label %release_conn_addrinfo.exit
 
 release_conn_addrinfo.exit:                       ; preds = %107, %109
-  %110 = phi i32 [ %storemerge, %107 ], [ %.pre784, %109 ]
+  %110 = phi i32 [ %storemerge, %107 ], [ %.pre785, %109 ]
   %111 = load ptr, ptr %62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   %112 = sext i32 %110 to i64
@@ -4365,8 +4365,8 @@ release_conn_addrinfo.exit:                       ; preds = %107, %109
 
 125:                                              ; preds = %120
   %126 = load i32, ptr %121, align 4
-  %.not.i508 = icmp eq i32 %126, 0
-  br i1 %.not.i508, label %127, label %pqParseIntParam.exit
+  %.not.i509 = icmp eq i32 %126, 0
+  br i1 %.not.i509, label %127, label %pqParseIntParam.exit
 
 127:                                              ; preds = %125
   %128 = trunc i64 %122 to i32
@@ -4377,7 +4377,7 @@ release_conn_addrinfo.exit:                       ; preds = %107, %109
 .preheader.i:                                     ; preds = %127
   %130 = load i8, ptr %123, align 1
   %.not1115.i = icmp eq i8 %130, 0
-  br i1 %.not1115.i, label %.loopexit640, label %.lr.ph.i
+  br i1 %.not1115.i, label %.loopexit641, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %131 = tail call ptr @__ctype_b_loc() #28
@@ -4398,27 +4398,27 @@ release_conn_addrinfo.exit:                       ; preds = %107, %109
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %142 = load i8, ptr %141, align 1
   %.not11.i = icmp eq i8 %142, 0
-  br i1 %.not11.i, label %.loopexit640, label %133, !llvm.loop !15
+  br i1 %.not11.i, label %.loopexit641, label %133, !llvm.loop !15
 
 pqParseIntParam.exit:                             ; preds = %120, %125, %127, %133
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.102, ptr noundef nonnull %115, ptr noundef nonnull @.str.59) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-.loopexit640:                                     ; preds = %140, %.preheader.i
+.loopexit641:                                     ; preds = %140, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %143 = add i32 %128, -65536
   %or.cond7 = icmp ult i32 %143, -65535
   br i1 %or.cond7, label %144, label %146
 
-144:                                              ; preds = %.loopexit640
+144:                                              ; preds = %.loopexit641
   %145 = load ptr, ptr %114, align 8
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %145) #25
   br label %232
 
-146:                                              ; preds = %release_conn_addrinfo.exit, %117, %.loopexit640
-  %.0530 = phi i32 [ %128, %.loopexit640 ], [ 5432, %117 ], [ 5432, %release_conn_addrinfo.exit ]
-  %147 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %.0530) #25
+146:                                              ; preds = %release_conn_addrinfo.exit, %117, %.loopexit641
+  %.0531 = phi i32 [ %128, %.loopexit641 ], [ 5432, %117 ], [ 5432, %release_conn_addrinfo.exit ]
+  %147 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %.0531) #25
   %148 = load i32, ptr %113, align 8
   switch i32 %148, label %183 [
     i32 0, label %149
@@ -4434,7 +4434,7 @@ pqParseIntParam.exit:                             ; preds = %120, %125, %127, %1
   %154 = load ptr, ptr %10, align 8
   %155 = icmp ne ptr %154, null
   %or.cond9 = select i1 %153, i1 %155, i1 false
-  br i1 %or.cond9, label %.thread826, label %156
+  br i1 %or.cond9, label %.thread827, label %156
 
 156:                                              ; preds = %149
   %157 = load ptr, ptr %150, align 8
@@ -4451,7 +4451,7 @@ pqParseIntParam.exit:                             ; preds = %120, %125, %127, %1
   %164 = load ptr, ptr %10, align 8
   %165 = icmp ne ptr %164, null
   %or.cond11 = select i1 %163, i1 %165, i1 false
-  br i1 %or.cond11, label %.thread826, label %166
+  br i1 %or.cond11, label %.thread827, label %166
 
 166:                                              ; preds = %159
   %167 = load ptr, ptr %160, align 8
@@ -4463,7 +4463,7 @@ pqParseIntParam.exit:                             ; preds = %120, %125, %127, %1
   store i32 1, ptr %64, align 4
   %170 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %171 = load ptr, ptr %170, align 8
-  %172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef %171, i32 noundef %.0530) #25
+  %172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef %171, i32 noundef %.0531) #25
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #26
   %174 = icmp ugt i64 %173, 107
   br i1 %174, label %175, label %176
@@ -4478,56 +4478,56 @@ pqParseIntParam.exit:                             ; preds = %120, %125, %127, %1
   %179 = load ptr, ptr %10, align 8
   %180 = icmp ne ptr %179, null
   %or.cond13 = select i1 %178, i1 %180, i1 false
-  br i1 %or.cond13, label %.thread826, label %181
+  br i1 %or.cond13, label %.thread827, label %181
 
 181:                                              ; preds = %176
   %182 = call ptr @gai_strerror(i32 noundef %177) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull %11, ptr noundef %182) #25
   br label %232
 
-.thread826:                                       ; preds = %176, %159, %149
+.thread827:                                       ; preds = %176, %159, %149
   %.ph = phi ptr [ %154, %149 ], [ %164, %159 ], [ %179, %176 ]
   store i32 0, ptr %37, align 4
   store i32 0, ptr %38, align 8
-  br label %.lr.ph.i509.preheader
+  br label %.lr.ph.i510.preheader
 
 183:                                              ; preds = %146
   %.pr = load ptr, ptr %10, align 8
   store i32 0, ptr %37, align 4
   store i32 0, ptr %38, align 8
   %.not27.i = icmp eq ptr %.pr, null
-  br i1 %.not27.i, label %._crit_edge.i511, label %.lr.ph.i509.preheader
+  br i1 %.not27.i, label %._crit_edge.i512, label %.lr.ph.i510.preheader
 
-.lr.ph.i509.preheader:                            ; preds = %.thread826, %183
-  %184 = phi ptr [ %.ph, %.thread826 ], [ %.pr, %183 ]
-  br label %.lr.ph.i509
+.lr.ph.i510.preheader:                            ; preds = %.thread827, %183
+  %184 = phi ptr [ %.ph, %.thread827 ], [ %.pr, %183 ]
+  br label %.lr.ph.i510
 
-.lr.ph.i509:                                      ; preds = %.lr.ph.i509.preheader, %.lr.ph.i509
-  %.02529.i = phi ptr [ %186, %.lr.ph.i509 ], [ %184, %.lr.ph.i509.preheader ]
-  %storemerge28.i = phi i32 [ %187, %.lr.ph.i509 ], [ 0, %.lr.ph.i509.preheader ]
+.lr.ph.i510:                                      ; preds = %.lr.ph.i510.preheader, %.lr.ph.i510
+  %.02529.i = phi ptr [ %186, %.lr.ph.i510 ], [ %184, %.lr.ph.i510.preheader ]
+  %storemerge28.i = phi i32 [ %187, %.lr.ph.i510 ], [ 0, %.lr.ph.i510.preheader ]
   %185 = getelementptr inbounds nuw i8, ptr %.02529.i, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = add i32 %storemerge28.i, 1
   store i32 %187, ptr %38, align 8
-  %.not.i510 = icmp eq ptr %186, null
-  br i1 %.not.i510, label %._crit_edge.i511, label %.lr.ph.i509, !llvm.loop !32
+  %.not.i511 = icmp eq ptr %186, null
+  br i1 %.not.i511, label %._crit_edge.i512, label %.lr.ph.i510, !llvm.loop !32
 
-._crit_edge.i511:                                 ; preds = %.lr.ph.i509, %183
-  %188 = phi ptr [ null, %183 ], [ %184, %.lr.ph.i509 ]
-  %189 = phi i32 [ 0, %183 ], [ %187, %.lr.ph.i509 ]
+._crit_edge.i512:                                 ; preds = %.lr.ph.i510, %183
+  %188 = phi ptr [ null, %183 ], [ %184, %.lr.ph.i510 ]
+  %189 = phi i32 [ 0, %183 ], [ %187, %.lr.ph.i510 ]
   %190 = sext i32 %189 to i64
   %191 = call noalias ptr @calloc(i64 noundef %190, i64 noundef 144) #29
   store ptr %191, ptr %61, align 8
   %.not = icmp eq ptr %191, null
-  br i1 %.not, label %store_conn_addrinfo.exit, label %.preheader.i512
+  br i1 %.not, label %store_conn_addrinfo.exit, label %.preheader.i513
 
-.preheader.i512:                                  ; preds = %._crit_edge.i511
+.preheader.i513:                                  ; preds = %._crit_edge.i512
   %192 = icmp sgt i32 %189, 0
-  br i1 %192, label %.lr.ph32.i, label %.loopexit832
+  br i1 %192, label %.lr.ph32.i, label %.loopexit833
 
-.lr.ph32.i:                                       ; preds = %.preheader.i512, %.lr.ph32.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph32.i ], [ 0, %.preheader.i512 ]
-  %.130.i = phi ptr [ %210, %.lr.ph32.i ], [ %188, %.preheader.i512 ]
+.lr.ph32.i:                                       ; preds = %.preheader.i513, %.lr.ph32.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph32.i ], [ 0, %.preheader.i513 ]
+  %.130.i = phi ptr [ %210, %.lr.ph32.i ], [ %188, %.preheader.i513 ]
   %193 = getelementptr inbounds nuw i8, ptr %.130.i, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %61, align 8
@@ -4553,27 +4553,27 @@ pqParseIntParam.exit:                             ; preds = %120, %125, %127, %1
   %211 = load i32, ptr %38, align 8
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %indvars.iv.next.i, %212
-  br i1 %213, label %.lr.ph32.i, label %.loopexit832, !llvm.loop !33
+  br i1 %213, label %.lr.ph32.i, label %.loopexit833, !llvm.loop !33
 
-store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
+store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i512
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
   %214 = load i32, ptr %64, align 4
   %215 = load ptr, ptr %10, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %214, ptr noundef %215) #25
   br label %.thread
 
-.loopexit832:                                     ; preds = %.lr.ph32.i, %.preheader.i512
+.loopexit833:                                     ; preds = %.lr.ph32.i, %.preheader.i513
   %216 = load i32, ptr %64, align 4
   %217 = load ptr, ptr %10, align 8
   call void @pg_freeaddrinfo_all(i32 noundef %216, ptr noundef %217) #25
   %218 = load i32, ptr %65, align 8
   %219 = icmp eq i32 %218, 1
-  br i1 %219, label %.preheader, label %.thread539
+  br i1 %219, label %.preheader, label %.thread540
 
-.preheader:                                       ; preds = %.loopexit832
+.preheader:                                       ; preds = %.loopexit833
   %220 = load i32, ptr %38, align 8
   %221 = icmp sgt i32 %220, 1
-  br i1 %221, label %.lr.ph, label %.thread539
+  br i1 %221, label %.lr.ph, label %.thread540
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
@@ -4594,20 +4594,20 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   %229 = load i32, ptr %38, align 8
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next, %230
-  br i1 %231, label %.lr.ph, label %.thread539, !llvm.loop !34
+  br i1 %231, label %.lr.ph, label %.thread540, !llvm.loop !34
 
-.thread539:                                       ; preds = %.lr.ph, %.preheader, %.loopexit832
+.thread540:                                       ; preds = %.lr.ph, %.preheader, %.loopexit833
   store i8 0, ptr %36, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread541
+  br label %.thread542
 
 .thread:                                          ; preds = %103, %99, %store_conn_addrinfo.exit, %pqParseIntParam.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread618
+  br label %.thread619
 
 232:                                              ; preds = %181, %175, %166, %156, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4616,20 +4616,20 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   br label %.backedge.backedge
 
 233:                                              ; preds = %91
-  br i1 %.1401, label %.thread541, label %234
+  br i1 %.1401, label %.thread542, label %234
 
-.thread541:                                       ; preds = %233, %.thread539
+.thread542:                                       ; preds = %233, %.thread540
   store i32 196608, ptr %67, align 8
   store i8 1, ptr %45, align 8
   store i8 0, ptr %68, align 1
   store i8 0, ptr %69, align 2
   store i8 0, ptr %70, align 4
-  br label %.thread548
+  br label %.thread549
 
 234:                                              ; preds = %233
-  br i1 %.0406, label %.thread548, label %235
+  br i1 %.0406, label %.thread549, label %235
 
-.thread548:                                       ; preds = %234, %.thread541
+.thread549:                                       ; preds = %234, %.thread542
   call void @pqDropConnection(ptr noundef nonnull %0, i1 noundef zeroext true)
   call fastcc void @pqDropServerData(ptr noundef nonnull %0)
   store i32 0, ptr %56, align 4
@@ -4640,13 +4640,13 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   br label %236
 
 235:                                              ; preds = %234
-  %.pr547 = load i32, ptr %26, align 8
-  switch i32 %.pr547, label %690 [
+  %.pr548 = load i32, ptr %26, align 8
+  switch i32 %.pr548, label %690 [
     i32 8, label %236
     i32 2, label %360
     i32 3, label %411
-    i32 7, label %.thread618
-    i32 11, label %.thread618
+    i32 7, label %.thread619
+    i32 11, label %.thread619
     i32 4, label %439
     i32 15, label %525
     i32 5, label %541
@@ -4656,7 +4656,7 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
     i32 13, label %665
   ]
 
-236:                                              ; preds = %.thread548, %235
+236:                                              ; preds = %.thread549, %235
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %237 = load i32, ptr %37, align 4
   %238 = load i32, ptr %38, align 8
@@ -4690,7 +4690,7 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.232) #25
   store i8 0, ptr %70, align 4
   store i8 0, ptr %69, align 2
-  br label %init_allowed_encryption_methods.exit.thread577
+  br label %init_allowed_encryption_methods.exit.thread578
 
 255:                                              ; preds = %248
   store i8 1, ptr %70, align 4
@@ -4700,7 +4700,7 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   store i8 0, ptr %70, align 4
   %257 = load ptr, ptr %73, align 8
   %258 = load i8, ptr %257, align 1
-  switch i8 %258, label %.loopexit642 [
+  switch i8 %258, label %.loopexit643 [
     i8 100, label %259
     i8 112, label %259
     i8 97, label %259
@@ -4724,11 +4724,11 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
   %266 = zext i8 %265 to i32
   %267 = or i32 %264, %266
   %.not.i.i = icmp eq i32 %267, -1
-  br i1 %.not.i.i, label %.loopexit642, label %268
+  br i1 %.not.i.i, label %.loopexit643, label %268
 
-.loopexit642:                                     ; preds = %263, %256
+.loopexit643:                                     ; preds = %263, %256
   store i8 0, ptr %69, align 2
-  br label %init_allowed_encryption_methods.exit.thread577
+  br label %init_allowed_encryption_methods.exit.thread578
 
 268:                                              ; preds = %263, %255
   store i8 1, ptr %69, align 2
@@ -4739,11 +4739,11 @@ store_conn_addrinfo.exit:                         ; preds = %._crit_edge.i511
 270:                                              ; preds = %268
   call void @free(ptr noundef nonnull %269) #25
   store ptr null, ptr %75, align 8
-  %.pre785 = load i16, ptr %58, align 8
+  %.pre786 = load i16, ptr %58, align 8
   br label %271
 
 271:                                              ; preds = %270, %268
-  %272 = phi i16 [ %.pre785, %270 ], [ %246, %268 ]
+  %272 = phi i16 [ %.pre786, %270 ], [ %246, %268 ]
   switch i16 %272, label %getHostaddr.exit.thread [
     i16 2, label %273
     i16 10, label %276
@@ -4764,8 +4764,8 @@ getHostaddr.exit.thread:                          ; preds = %271, %273, %276
   br label %281
 
 getHostaddr.exit:                                 ; preds = %273, %276
-  %.pr554 = load i8, ptr %13, align 16
-  %.not496 = icmp eq i8 %.pr554, 0
+  %.pr555 = load i8, ptr %13, align 16
+  %.not496 = icmp eq i8 %.pr555, 0
   br i1 %.not496, label %281, label %279
 
 279:                                              ; preds = %getHostaddr.exit
@@ -4803,13 +4803,13 @@ getHostaddr.exit:                                 ; preds = %273, %276
   call fastcc void @emitHostIdentityInfo(ptr noundef %0, ptr noundef %13)
   %298 = call ptr @pg_strerror_r(i32 noundef %297, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.67, ptr noundef %298) #25
-  br label %init_allowed_encryption_methods.exit.thread577
+  br label %init_allowed_encryption_methods.exit.thread578
 
 299:                                              ; preds = %281
   call fastcc void @emitHostIdentityInfo(ptr noundef %0, ptr noundef %13)
   %300 = load i32, ptr %244, align 8
   %.not497 = icmp eq i32 %300, 1
-  br i1 %.not497, label %.thread559, label %301
+  br i1 %.not497, label %.thread560, label %301
 
 301:                                              ; preds = %299
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4832,16 +4832,16 @@ getHostaddr.exit:                                 ; preds = %273, %276
 
 309:                                              ; preds = %301
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pr558 = load i32, ptr %244, align 8
-  %.not499 = icmp eq i32 %.pr558, 1
-  br i1 %.not499, label %.thread559, label %310
+  %.pr559 = load i32, ptr %244, align 8
+  %.not499 = icmp eq i32 %.pr559, 1
+  br i1 %.not499, label %.thread560, label %310
 
 310:                                              ; preds = %309
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 4
   %311 = load ptr, ptr %78, align 8
   %312 = icmp eq ptr %311, null
-  br i1 %312, label %.thread563, label %313
+  br i1 %312, label %.thread564, label %313
 
 313:                                              ; preds = %310
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4854,10 +4854,10 @@ getHostaddr.exit:                                 ; preds = %273, %276
 
 318:                                              ; preds = %313
   %319 = load i32, ptr %314, align 4
-  %.not.i.i515 = icmp eq i32 %319, 0
+  %.not.i.i516 = icmp eq i32 %319, 0
   %320 = add i64 %315, 2147483648
   %.not10.i.i = icmp ult i64 %320, 4294967296
-  %or.cond.i = select i1 %.not.i.i515, i1 %.not10.i.i, i1 false
+  %or.cond.i = select i1 %.not.i.i516, i1 %.not10.i.i, i1 false
   br i1 %or.cond.i, label %.preheader.i.i, label %useKeepalives.exit
 
 .preheader.i.i:                                   ; preds = %318
@@ -4877,8 +4877,8 @@ getHostaddr.exit:                                 ; preds = %273, %276
   %328 = getelementptr inbounds nuw i16, ptr %323, i64 %327
   %329 = load i16, ptr %328, align 2
   %330 = and i16 %329, 8192
-  %.not12.i.i517 = icmp eq i16 %330, 0
-  br i1 %.not12.i.i517, label %useKeepalives.exit, label %331
+  %.not12.i.i518 = icmp eq i16 %330, 0
+  br i1 %.not12.i.i518, label %useKeepalives.exit, label %331
 
 331:                                              ; preds = %324
   %332 = getelementptr inbounds nuw i8, ptr %326, i64 1
@@ -4889,57 +4889,57 @@ getHostaddr.exit:                                 ; preds = %273, %276
 useKeepalives.exit:                               ; preds = %324, %313, %318
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.102, ptr noundef nonnull %311, ptr noundef nonnull @.str.142) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread566
+  br label %.thread567
 
 .loopexit:                                        ; preds = %331, %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %334 = and i64 %315, 4294967295
-  %.not.i518.not = icmp eq i64 %334, 0
-  br i1 %.not.i518.not, label %.thread573, label %.thread563
+  %.not.i519.not = icmp eq i64 %334, 0
+  br i1 %.not.i519.not, label %.thread574, label %.thread564
 
-.thread563:                                       ; preds = %310, %.loopexit
+.thread564:                                       ; preds = %310, %.loopexit
   %335 = load i32, ptr %41, align 8
   %336 = call i32 @setsockopt(i32 noundef %335, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %14, i32 noundef 4) #25
   %337 = icmp slt i32 %336, 0
   br i1 %337, label %338, label %342
 
-338:                                              ; preds = %.thread563
+338:                                              ; preds = %.thread564
   %339 = tail call ptr @__errno_location() #28
   %340 = load i32, ptr %339, align 4
   %341 = call ptr @pg_strerror_r(i32 noundef %340, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef %341) #25
-  br label %.thread566
+  br label %.thread567
 
-342:                                              ; preds = %.thread563
+342:                                              ; preds = %.thread564
   %343 = call fastcc i32 @setKeepalivesIdle(ptr noundef %0)
   %.not500 = icmp eq i32 %343, 0
-  br i1 %.not500, label %.thread566, label %344
+  br i1 %.not500, label %.thread567, label %344
 
 344:                                              ; preds = %342
   %345 = call fastcc i32 @setKeepalivesInterval(ptr noundef %0)
   %.not501 = icmp eq i32 %345, 0
-  br i1 %.not501, label %.thread566, label %346
+  br i1 %.not501, label %.thread567, label %346
 
 346:                                              ; preds = %344
   %347 = call fastcc i32 @setKeepalivesCount(ptr noundef %0)
   %.not502 = icmp eq i32 %347, 0
-  br i1 %.not502, label %.thread566, label %348
+  br i1 %.not502, label %.thread567, label %348
 
 348:                                              ; preds = %346
   %349 = call fastcc i32 @setTCPUserTimeout(ptr noundef %0)
   %.not503.not = icmp eq i32 %349, 0
-  br i1 %.not503.not, label %.thread566, label %.thread573
+  br i1 %.not503.not, label %.thread567, label %.thread574
 
-.thread573:                                       ; preds = %348, %.loopexit
+.thread574:                                       ; preds = %348, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread559
+  br label %.thread560
 
-.thread566:                                       ; preds = %342, %344, %346, %useKeepalives.exit, %338, %348
+.thread567:                                       ; preds = %342, %344, %346, %useKeepalives.exit, %338, %348
   store i8 1, ptr %35, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %init_allowed_encryption_methods.exit
 
-.thread559:                                       ; preds = %299, %.thread573, %309
+.thread560:                                       ; preds = %299, %.thread574, %309
   store i8 0, ptr %79, align 1
   store i8 1, ptr %80, align 4
   %350 = load i32, ptr %41, align 8
@@ -4949,20 +4949,20 @@ useKeepalives.exit:                               ; preds = %324, %313, %318
   %354 = icmp slt i32 %353, 0
   br i1 %354, label %355, label %358
 
-355:                                              ; preds = %.thread559
+355:                                              ; preds = %.thread560
   %356 = tail call ptr @__errno_location() #28
   %357 = load i32, ptr %356, align 4
   switch i32 %357, label %359 [
-    i32 115, label %init_allowed_encryption_methods.exit.thread580
-    i32 4, label %init_allowed_encryption_methods.exit.thread580
+    i32 115, label %init_allowed_encryption_methods.exit.thread581
+    i32 4, label %init_allowed_encryption_methods.exit.thread581
   ]
 
-init_allowed_encryption_methods.exit.thread580:   ; preds = %355, %355
+init_allowed_encryption_methods.exit.thread581:   ; preds = %355, %355
   store i32 2, ptr %26, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread621
+  br label %.thread622
 
-358:                                              ; preds = %.thread559
+358:                                              ; preds = %.thread560
   store i32 2, ptr %26, align 8
   br label %init_allowed_encryption_methods.exit
 
@@ -4971,11 +4971,11 @@ init_allowed_encryption_methods.exit.thread580:   ; preds = %355, %355
   store i8 1, ptr %35, align 4
   br label %init_allowed_encryption_methods.exit
 
-init_allowed_encryption_methods.exit.thread577:   ; preds = %295, %254, %.loopexit642
+init_allowed_encryption_methods.exit.thread578:   ; preds = %295, %254, %.loopexit643
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread618
+  br label %.thread619
 
-init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %359, %358, %305, %240
+init_allowed_encryption_methods.exit:             ; preds = %.thread567, %294, %359, %358, %305, %240
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge.backedge
 
@@ -4992,7 +4992,7 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %366 = load i32, ptr %365, align 4
   %367 = call ptr @pg_strerror_r(i32 noundef %366, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef %367) #25
-  br label %.thread588
+  br label %.thread589
 
 368:                                              ; preds = %360
   %369 = load i32, ptr %8, align 4
@@ -5013,23 +5013,23 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %378 = load i32, ptr %377, align 4
   %379 = call ptr @pg_strerror_r(i32 noundef %378, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.72, ptr noundef %379) #25
-  br label %.thread588
+  br label %.thread589
 
 380:                                              ; preds = %370
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %382 = load ptr, ptr %381, align 8
   %.not491 = icmp eq ptr %382, null
-  br i1 %.not491, label %.thread591, label %383
+  br i1 %.not491, label %.thread592, label %383
 
 383:                                              ; preds = %380
   %384 = load i8, ptr %382, align 1
   %.not492 = icmp eq i8 %384, 0
-  br i1 %.not492, label %.thread591, label %385
+  br i1 %.not492, label %.thread592, label %385
 
 385:                                              ; preds = %383
   %386 = load i16, ptr %58, align 8
   %387 = icmp eq i16 %386, 1
-  br i1 %387, label %388, label %.thread591
+  br i1 %387, label %388, label %.thread592
 
 388:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -5048,18 +5048,18 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 395:                                              ; preds = %392
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.73) #25
-  br label %.thread584
+  br label %.thread585
 
 396:                                              ; preds = %392
   %397 = call ptr @pg_strerror_r(i32 noundef %393, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.74, ptr noundef %397) #25
-  br label %.thread584
+  br label %.thread585
 
 398:                                              ; preds = %388
   %399 = load i32, ptr %16, align 4
   %400 = call ptr @pg_fe_getusername(i32 noundef %399, ptr noundef nonnull %57) #25
   %401 = icmp eq ptr %400, null
-  br i1 %401, label %.thread584, label %402
+  br i1 %401, label %.thread585, label %402
 
 402:                                              ; preds = %398
   %403 = load ptr, ptr %381, align 8
@@ -5070,27 +5070,27 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 405:                                              ; preds = %402
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.75, ptr noundef nonnull %403, ptr noundef nonnull %400) #25
   call void @free(ptr noundef nonnull %400) #25
-  br label %.thread584
+  br label %.thread585
 
-.thread584:                                       ; preds = %405, %396, %395, %398
+.thread585:                                       ; preds = %405, %396, %395, %398
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread588
+  br label %.thread589
 
 406:                                              ; preds = %402
   call void @free(ptr noundef nonnull %400) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread591
+  br label %.thread592
 
-.thread591:                                       ; preds = %380, %383, %385, %406
+.thread592:                                       ; preds = %380, %383, %385, %406
   store i32 3, ptr %26, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread621
+  br label %.thread622
 
-.thread588:                                       ; preds = %364, %376, %.thread584
+.thread589:                                       ; preds = %364, %376, %.thread585
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread618
+  br label %.thread619
 
 407:                                              ; preds = %368
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5126,16 +5126,16 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   store i32 %421, ptr %422, align 4
   %423 = call i32 @pqPacketSend(ptr noundef nonnull %0, i8 noundef signext 0, ptr noundef nonnull %19, i64 noundef 12)
   %.not489.not = icmp eq i32 %423, 0
-  br i1 %.not489.not, label %438, label %.thread601
+  br i1 %.not489.not, label %438, label %.thread602
 
-.thread601:                                       ; preds = %414
+.thread602:                                       ; preds = %414
   %424 = tail call ptr @__errno_location() #28
   %425 = load i32, ptr %424, align 4
   %426 = call ptr @pg_strerror_r(i32 noundef %425, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.76, ptr noundef %426) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread618
+  br label %.thread619
 
 427:                                              ; preds = %411
   %428 = call ptr @pqBuildStartupPacket3(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @EnvironmentOptions) #25
@@ -5144,14 +5144,14 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 429:                                              ; preds = %427
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str) #25
-  br label %.thread595
+  br label %.thread596
 
 430:                                              ; preds = %427
   %431 = load i32, ptr %18, align 4
   %432 = sext i32 %431 to i64
   %433 = call i32 @pqPacketSend(ptr noundef nonnull %0, i8 noundef signext 0, ptr noundef nonnull %428, i64 noundef %432)
   %.not488 = icmp eq i32 %433, 0
-  br i1 %.not488, label %.thread598, label %434
+  br i1 %.not488, label %.thread599, label %434
 
 434:                                              ; preds = %430
   %435 = tail call ptr @__errno_location() #28
@@ -5159,23 +5159,23 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %437 = call ptr @pg_strerror_r(i32 noundef %436, ptr noundef nonnull %7, i64 noundef 256) #25
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, ptr noundef %437) #25
   call void @free(ptr noundef nonnull %428) #25
-  br label %.thread595
+  br label %.thread596
 
-.thread598:                                       ; preds = %430
+.thread599:                                       ; preds = %430
   call void @free(ptr noundef nonnull %428) #25
   store i32 4, ptr %26, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread621
+  br label %.thread622
 
-.thread595:                                       ; preds = %434, %429
+.thread596:                                       ; preds = %434, %429
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread618
+  br label %.thread619
 
 438:                                              ; preds = %414
   store i32 4, ptr %26, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread621
+  br label %.thread622
 
 439:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -5186,7 +5186,7 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   store i32 %440, ptr %52, align 8
   %441 = call i32 @pqGetc(ptr noundef nonnull %20, ptr noundef nonnull %0) #25
   %.not477 = icmp eq i32 %441, 0
-  br i1 %.not477, label %442, label %.thread613
+  br i1 %.not477, label %442, label %.thread614
 
 442:                                              ; preds = %439
   %443 = load i8, ptr %20, align 1
@@ -5199,44 +5199,44 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 444:                                              ; preds = %442
   %445 = sext i8 %443 to i32
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, i32 noundef %445) #25
-  br label %.thread608
+  br label %.thread609
 
 446:                                              ; preds = %442, %442, %442
   %447 = call i32 @pqGetInt(ptr noundef nonnull %21, i64 noundef 4, ptr noundef nonnull %0) #25
   %.not478 = icmp eq i32 %447, 0
-  br i1 %.not478, label %448, label %.thread613
+  br i1 %.not478, label %448, label %.thread614
 
 448:                                              ; preds = %446
   %449 = load i8, ptr %20, align 1
-  %.pre783 = load i32, ptr %21, align 4
-  switch i8 %449, label %.thread605 [
+  %.pre784 = load i32, ptr %21, align 4
+  switch i8 %449, label %.thread606 [
     i8 82, label %450
     i8 118, label %453
     i8 69, label %456
   ]
 
 450:                                              ; preds = %448
-  %451 = add i32 %.pre783, -2001
+  %451 = add i32 %.pre784, -2001
   %or.cond21 = icmp ult i32 %451, -1993
-  br i1 %or.cond21, label %452, label %.thread605
+  br i1 %or.cond21, label %452, label %.thread606
 
 452:                                              ; preds = %450
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.79) #25
-  br label %.thread608
+  br label %.thread609
 
 453:                                              ; preds = %448
-  %454 = add i32 %.pre783, -2001
+  %454 = add i32 %.pre784, -2001
   %or.cond23 = icmp ult i32 %454, -1993
-  br i1 %or.cond23, label %455, label %.thread605
+  br i1 %or.cond23, label %455, label %.thread606
 
 455:                                              ; preds = %453
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.80) #25
-  br label %.thread608
+  br label %.thread609
 
 456:                                              ; preds = %448
-  %457 = add i32 %.pre783, -30001
+  %457 = add i32 %.pre784, -30001
   %or.cond25 = icmp ult i32 %457, -29993
-  br i1 %or.cond25, label %458, label %.thread605
+  br i1 %or.cond25, label %458, label %.thread606
 
 458:                                              ; preds = %456
   %459 = load i32, ptr %51, align 4
@@ -5251,11 +5251,11 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %464 = load i32, ptr %52, align 8
   %465 = sub i32 %463, %464
   %466 = icmp sgt i32 %465, 30000
-  br i1 %466, label %467, label %.thread613
+  br i1 %466, label %467, label %.thread614
 
 467:                                              ; preds = %462
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.81) #25
-  br label %.thread608
+  br label %.thread609
 
 468:                                              ; preds = %458
   %469 = load i32, ptr %52, align 8
@@ -5271,14 +5271,14 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %476 = getelementptr i8, ptr %475, i64 -1
   %477 = load i8, ptr %476, align 1
   %.not486 = icmp eq i8 %477, 10
-  br i1 %.not486, label %.thread608, label %478
+  br i1 %.not486, label %.thread609, label %478
 
 478:                                              ; preds = %473, %468
   call void @appendPQExpBufferChar(ptr noundef nonnull %57, i8 noundef signext 10) #25
-  br label %.thread608
+  br label %.thread609
 
-.thread605:                                       ; preds = %448, %450, %453, %456
-  %479 = add i32 %.pre783, -4
+.thread606:                                       ; preds = %448, %450, %453, %456
+  %479 = add i32 %.pre784, -4
   store i32 %479, ptr %21, align 4
   %480 = load i32, ptr %53, align 4
   %481 = load i32, ptr %52, align 8
@@ -5286,15 +5286,15 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
   %483 = icmp slt i32 %482, %479
   br i1 %483, label %484, label %489
 
-484:                                              ; preds = %.thread605
+484:                                              ; preds = %.thread606
   %485 = sext i32 %481 to i64
   %486 = sext i32 %479 to i64
   %487 = add nsw i64 %485, %486
   %488 = call i32 @pqCheckInBufferSpace(i64 noundef %487, ptr noundef nonnull %0) #25
   %.not484 = icmp eq i32 %488, 0
-  br i1 %.not484, label %.thread613, label %.thread608
+  br i1 %.not484, label %.thread614, label %.thread609
 
-489:                                              ; preds = %.thread605
+489:                                              ; preds = %.thread606
   switch i8 %449, label %505 [
     i8 69, label %490
     i8 118, label %500
@@ -5307,7 +5307,7 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 492:                                              ; preds = %490
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.81) #25
-  br label %.thread608
+  br label %.thread609
 
 493:                                              ; preds = %490
   %494 = load i32, ptr %52, align 8
@@ -5318,12 +5318,12 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 497:                                              ; preds = %493
   store i8 1, ptr %36, align 1
-  br label %select.unfold606
+  br label %select.unfold607
 
 498:                                              ; preds = %493
   call fastcc void @pgpassfileWarning(ptr noundef %0)
   %499 = call fastcc zeroext i1 @connection_failed(ptr noundef %0)
-  br i1 %499, label %select.unfold606, label %.thread608
+  br i1 %499, label %select.unfold607, label %.thread609
 
 500:                                              ; preds = %489
   %501 = call i32 @pqGetNegotiateProtocolVersion3(ptr noundef nonnull %0) #25
@@ -5332,12 +5332,12 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 502:                                              ; preds = %500
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.80) #25
-  br label %.thread608
+  br label %.thread609
 
 503:                                              ; preds = %500
   %504 = load i32, ptr %52, align 8
   call void @pqParseDone(ptr noundef nonnull %0, i32 noundef %504) #25
-  br label %.thread608
+  br label %.thread609
 
 505:                                              ; preds = %489
   store i8 1, ptr %55, align 8
@@ -5347,7 +5347,7 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 507:                                              ; preds = %505
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.79) #25
-  br label %.thread608
+  br label %.thread609
 
 508:                                              ; preds = %505
   %509 = load i32, ptr %21, align 4
@@ -5363,43 +5363,43 @@ init_allowed_encryption_methods.exit:             ; preds = %.thread566, %294, %
 
 516:                                              ; preds = %508
   store i32 15, ptr %26, align 8
-  br label %select.unfold606
+  br label %select.unfold607
 
 517:                                              ; preds = %508
   %518 = load i32, ptr %52, align 8
   store i32 %518, ptr %51, align 4
-  br i1 %515, label %519, label %.thread608
+  br i1 %515, label %519, label %.thread609
 
 519:                                              ; preds = %517
   %520 = call i32 @pqFlush(ptr noundef nonnull %0) #25
   %.not481 = icmp eq i32 %520, 0
-  br i1 %.not481, label %521, label %.thread608
+  br i1 %.not481, label %521, label %.thread609
 
 521:                                              ; preds = %519
   %522 = load i32, ptr %22, align 4
   %523 = icmp eq i32 %522, 0
-  br i1 %523, label %524, label %select.unfold606
+  br i1 %523, label %524, label %select.unfold607
 
 524:                                              ; preds = %521
   store i32 5, ptr %26, align 8
   store i32 1, ptr %56, align 4
-  br label %select.unfold606
+  br label %select.unfold607
 
-.thread608:                                       ; preds = %498, %517, %519, %444, %452, %455, %467, %492, %502, %503, %507, %478, %473, %484
+.thread609:                                       ; preds = %498, %517, %519, %444, %452, %455, %467, %492, %502, %503, %507, %478, %473, %484
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread618
+  br label %.thread619
 
-.thread613:                                       ; preds = %439, %446, %462, %484
+.thread614:                                       ; preds = %439, %446, %462, %484
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread621
+  br label %.thread622
 
-select.unfold606:                                 ; preds = %498, %521, %524, %516, %497
+select.unfold607:                                 ; preds = %498, %521, %524, %516, %497
   %.3409 = phi i1 [ false, %497 ], [ false, %516 ], [ false, %524 ], [ false, %521 ], [ true, %498 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -5419,12 +5419,12 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 
 529:                                              ; preds = %527, %525
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.83) #25
-  br label %.thread618
+  br label %.thread619
 
 530:                                              ; preds = %527
   %531 = call i32 %526(ptr noundef nonnull %0) #25
   switch i32 %531, label %536 [
-    i32 0, label %.thread618
+    i32 0, label %.thread619
     i32 3, label %532
   ]
 
@@ -5438,16 +5438,16 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 
 535:                                              ; preds = %532
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.84) #25
-  br label %.thread618
+  br label %.thread619
 
 536:                                              ; preds = %530
   %537 = load i32, ptr %50, align 8
   %538 = icmp eq i32 %537, -1
-  br i1 %538, label %539, label %.thread621
+  br i1 %538, label %539, label %.thread622
 
 539:                                              ; preds = %536
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.85) #25
-  br label %.thread618
+  br label %.thread619
 
 540:                                              ; preds = %532
   store i32 4, ptr %26, align 8
@@ -5456,7 +5456,7 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 541:                                              ; preds = %235
   %542 = call i32 @PQisBusy(ptr noundef nonnull %0) #25
   %.not467 = icmp eq i32 %542, 0
-  br i1 %.not467, label %543, label %.thread621
+  br i1 %.not467, label %543, label %.thread622
 
 543:                                              ; preds = %541
   %544 = call ptr @PQgetResult(ptr noundef nonnull %0) #25
@@ -5471,12 +5471,12 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 
 548:                                              ; preds = %545
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.86) #25
-  br label %.thread625
+  br label %.thread626
 
 549:                                              ; preds = %545
   %550 = load i8, ptr %45, align 8, !range !13, !noundef !14
   %551 = trunc nuw i8 %550 to i1
-  br i1 %551, label %552, label %.thread625
+  br i1 %551, label %552, label %.thread626
 
 552:                                              ; preds = %549
   %553 = load ptr, ptr %46, align 8
@@ -5486,30 +5486,30 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 554:                                              ; preds = %552
   %555 = load ptr, ptr %47, align 8
   %.not471 = icmp eq ptr %555, null
-  br i1 %.not471, label %.thread625, label %556
+  br i1 %.not471, label %.thread626, label %556
 
 556:                                              ; preds = %554, %552
   %557 = call ptr @PQresultErrorField(ptr noundef nonnull %544, i32 noundef 67) #25
   %.not472 = icmp eq ptr %557, null
-  br i1 %.not472, label %.thread625, label %558
+  br i1 %.not472, label %.thread626, label %558
 
 558:                                              ; preds = %556
   %559 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %557, ptr noundef nonnull dereferenceable(6) @.str.87) #26
   %560 = icmp eq i32 %559, 0
-  br i1 %560, label %561, label %.thread625
+  br i1 %560, label %561, label %.thread626
 
 561:                                              ; preds = %558
   call void @PQclear(ptr noundef nonnull %544) #25
   store i8 0, ptr %45, align 8
   br label %.backedge.backedge
 
-.thread625:                                       ; preds = %556, %558, %549, %554, %548
+.thread626:                                       ; preds = %556, %558, %549, %554, %548
   %562 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %563 = load i64, ptr %562, align 8
   %564 = icmp eq i64 %563, 0
   br i1 %564, label %570, label %565
 
-565:                                              ; preds = %.thread625
+565:                                              ; preds = %.thread626
   %566 = load ptr, ptr %57, align 8
   %567 = getelementptr i8, ptr %566, i64 %563
   %568 = getelementptr i8, ptr %567, i64 -1
@@ -5517,26 +5517,26 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
   %.not473 = icmp eq i8 %569, 10
   br i1 %.not473, label %571, label %570
 
-570:                                              ; preds = %565, %.thread625
+570:                                              ; preds = %565, %.thread626
   call void @appendPQExpBufferChar(ptr noundef nonnull %57, i8 noundef signext 10) #25
   br label %571
 
 571:                                              ; preds = %570, %565
   call void @PQclear(ptr noundef nonnull %544) #25
-  br label %.thread618
+  br label %.thread619
 
 572:                                              ; preds = %543
   store i32 12, ptr %26, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %572, %sendTerminateConn.exit521, %636, %655, %sendTerminateConn.exit525, %678, %sendTerminateConn.exit527, %232, %init_allowed_encryption_methods.exit, %407, %select.unfold606, %540, %561, %598
-  %.0406.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %407 ], [ %.3409, %select.unfold606 ], [ false, %540 ], [ true, %561 ], [ false, %572 ], [ false, %598 ], [ false, %sendTerminateConn.exit521 ], [ false, %636 ], [ false, %655 ], [ false, %sendTerminateConn.exit525 ], [ false, %678 ], [ false, %sendTerminateConn.exit527 ], [ %.0406, %232 ]
-  %.0400.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %407 ], [ false, %select.unfold606 ], [ false, %540 ], [ false, %561 ], [ false, %572 ], [ false, %598 ], [ false, %sendTerminateConn.exit521 ], [ false, %636 ], [ false, %655 ], [ false, %sendTerminateConn.exit525 ], [ false, %678 ], [ false, %sendTerminateConn.exit527 ], [ %.1401, %232 ]
+.backedge.backedge:                               ; preds = %572, %sendTerminateConn.exit522, %636, %655, %sendTerminateConn.exit526, %678, %sendTerminateConn.exit528, %232, %init_allowed_encryption_methods.exit, %407, %select.unfold607, %540, %561, %598
+  %.0406.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %407 ], [ %.3409, %select.unfold607 ], [ false, %540 ], [ true, %561 ], [ false, %572 ], [ false, %598 ], [ false, %sendTerminateConn.exit522 ], [ false, %636 ], [ false, %655 ], [ false, %sendTerminateConn.exit526 ], [ false, %678 ], [ false, %sendTerminateConn.exit528 ], [ %.0406, %232 ]
+  %.0400.be = phi i1 [ false, %init_allowed_encryption_methods.exit ], [ false, %407 ], [ false, %select.unfold607 ], [ false, %540 ], [ false, %561 ], [ false, %572 ], [ false, %598 ], [ false, %sendTerminateConn.exit522 ], [ false, %636 ], [ false, %655 ], [ false, %sendTerminateConn.exit526 ], [ false, %678 ], [ false, %sendTerminateConn.exit528 ], [ %.1401, %232 ]
   br label %.backedge
 
 573:                                              ; preds = %235
   %574 = load i32, ptr %43, align 4
-  switch i32 %574, label %.thread630 [
+  switch i32 %574, label %.thread631 [
     i32 1, label %575
     i32 2, label %575
     i32 3, label %599
@@ -5558,24 +5558,24 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
   store i32 0, ptr %26, align 8
   %582 = call i32 @PQsendQueryContinue(ptr noundef nonnull %0, ptr noundef nonnull @.str.88) #25
   %.not466 = icmp eq i32 %582, 0
-  br i1 %.not466, label %.thread618, label %.thread633
+  br i1 %.not466, label %.thread619, label %.thread634
 
-.thread633:                                       ; preds = %581
+.thread634:                                       ; preds = %581
   store i32 9, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 583:                                              ; preds = %578
   %584 = icmp eq i32 %576, 1
   %585 = icmp eq i32 %579, 1
-  %spec.select507 = or i1 %584, %585
+  %spec.select508 = or i1 %584, %585
   %586 = icmp eq i32 %574, 1
   br i1 %586, label %587, label %588
 
 587:                                              ; preds = %583
-  br i1 %spec.select507, label %589, label %.thread630
+  br i1 %spec.select508, label %589, label %.thread631
 
 588:                                              ; preds = %583
-  br i1 %spec.select507, label %.thread630, label %589
+  br i1 %spec.select508, label %.thread631, label %589
 
 589:                                              ; preds = %588, %587
   %.str.90.sink = phi ptr [ @.str.89, %587 ], [ @.str.90, %588 ]
@@ -5587,8 +5587,8 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 
 592:                                              ; preds = %589
   %593 = load i32, ptr %41, align 8
-  %.not.i519 = icmp eq i32 %593, -1
-  br i1 %.not.i519, label %598, label %594
+  %.not.i520 = icmp eq i32 %593, -1
+  br i1 %.not.i520, label %598, label %594
 
 594:                                              ; preds = %592
   %595 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #25
@@ -5603,7 +5603,7 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
 599:                                              ; preds = %573, %573, %573
   %600 = load i32, ptr %44, align 4
   %601 = icmp slt i32 %600, 90000
-  br i1 %601, label %.thread829, label %602
+  br i1 %601, label %.thread830, label %602
 
 602:                                              ; preds = %599
   %.pre = load i32, ptr %39, align 4
@@ -5614,79 +5614,79 @@ select.unfold606:                                 ; preds = %498, %521, %524, %5
   store i32 0, ptr %26, align 8
   %605 = call i32 @PQsendQueryContinue(ptr noundef nonnull %0, ptr noundef nonnull @.str.91) #25
   %.not465 = icmp eq i32 %605, 0
-  br i1 %.not465, label %.thread618, label %606
+  br i1 %.not465, label %.thread619, label %606
 
 606:                                              ; preds = %604
   store i32 13, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 607:                                              ; preds = %602
   %608 = icmp eq i32 %574, 3
   br i1 %608, label %610, label %612
 
-.thread829:                                       ; preds = %599
+.thread830:                                       ; preds = %599
   store i32 2, ptr %39, align 4
   %609 = icmp eq i32 %574, 3
-  br i1 %609, label %.thread630, label %.thread831
+  br i1 %609, label %.thread631, label %.thread832
 
 610:                                              ; preds = %607
   %611 = icmp eq i32 %.pre, 1
-  br i1 %611, label %.thread831, label %.thread630
+  br i1 %611, label %.thread832, label %.thread631
 
 612:                                              ; preds = %607
   %613 = icmp eq i32 %.pre, 2
-  br i1 %613, label %.thread831, label %.thread630
+  br i1 %613, label %.thread832, label %.thread631
 
-.thread831:                                       ; preds = %612, %.thread829, %610
-  %.str.93.sink = phi ptr [ @.str.92, %610 ], [ @.str.93, %.thread829 ], [ @.str.93, %612 ]
+.thread832:                                       ; preds = %612, %.thread830, %610
+  %.str.93.sink = phi ptr [ @.str.92, %610 ], [ @.str.93, %.thread830 ], [ @.str.93, %612 ]
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull %.str.93.sink) #25
   store i32 0, ptr %26, align 8
   %614 = load i8, ptr %40, align 8, !range !13, !noundef !14
   %615 = trunc nuw i8 %614 to i1
-  br i1 %615, label %sendTerminateConn.exit521, label %616
+  br i1 %615, label %sendTerminateConn.exit522, label %616
 
-616:                                              ; preds = %.thread831
+616:                                              ; preds = %.thread832
   %617 = load i32, ptr %41, align 8
-  %.not.i520 = icmp eq i32 %617, -1
-  br i1 %.not.i520, label %sendTerminateConn.exit521, label %618
+  %.not.i521 = icmp eq i32 %617, -1
+  br i1 %.not.i521, label %sendTerminateConn.exit522, label %618
 
 618:                                              ; preds = %616
   %619 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #25
   %620 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #25
   %621 = call i32 @pqFlush(ptr noundef nonnull %0) #25
-  br label %sendTerminateConn.exit521
+  br label %sendTerminateConn.exit522
 
-sendTerminateConn.exit521:                        ; preds = %.thread831, %616, %618
+sendTerminateConn.exit522:                        ; preds = %.thread832, %616, %618
   store i8 1, ptr %36, align 1
   br label %.backedge.backedge
 
-.thread630:                                       ; preds = %.thread829, %587, %588, %573, %612, %610
+.thread631:                                       ; preds = %.thread830, %587, %588, %573, %612, %610
   %622 = load i8, ptr %40, align 8, !range !13, !noundef !14
   %623 = trunc nuw i8 %622 to i1
-  br i1 %623, label %release_conn_addrinfo.exit523, label %624
+  br i1 %623, label %release_conn_addrinfo.exit524, label %624
 
-624:                                              ; preds = %.thread630
+624:                                              ; preds = %.thread631
   %625 = load ptr, ptr %61, align 8
-  %.not.i522 = icmp eq ptr %625, null
-  br i1 %.not.i522, label %release_conn_addrinfo.exit523, label %626
+  %.not.i523 = icmp eq ptr %625, null
+  br i1 %.not.i523, label %release_conn_addrinfo.exit524, label %626
 
 626:                                              ; preds = %624
   call void @free(ptr noundef nonnull %625) #25
   store ptr null, ptr %61, align 8
-  br label %release_conn_addrinfo.exit523
+  br label %release_conn_addrinfo.exit524
 
-release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread630
+release_conn_addrinfo.exit524:                    ; preds = %626, %624, %.thread631
   call void @resetPQExpBuffer(ptr noundef nonnull %57) #25
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %627, align 8
   store i32 0, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 628:                                              ; preds = %235
   store i32 0, ptr %26, align 8
   %629 = call i32 @PQconsumeInput(ptr noundef nonnull %0) #25
   %.not462 = icmp eq i32 %629, 0
-  br i1 %.not462, label %.thread618, label %630
+  br i1 %.not462, label %.thread619, label %630
 
 630:                                              ; preds = %628
   %631 = call i32 @PQisBusy(ptr noundef nonnull %0) #25
@@ -5695,7 +5695,7 @@ release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread
 
 632:                                              ; preds = %630
   store i32 10, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 633:                                              ; preds = %630
   %634 = call ptr @PQgetResult(ptr noundef nonnull %0) #25
@@ -5705,7 +5705,7 @@ release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread
 635:                                              ; preds = %633
   call void @PQclear(ptr noundef nonnull %634) #25
   store i32 10, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 636:                                              ; preds = %633
   store i32 12, ptr %26, align 8
@@ -5715,7 +5715,7 @@ release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread
   store i32 0, ptr %26, align 8
   %638 = call i32 @PQconsumeInput(ptr noundef nonnull %0) #25
   %.not459 = icmp eq i32 %638, 0
-  br i1 %.not459, label %.thread618, label %639
+  br i1 %.not459, label %.thread619, label %639
 
 639:                                              ; preds = %637
   %640 = call i32 @PQisBusy(ptr noundef nonnull %0) #25
@@ -5724,7 +5724,7 @@ release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread
 
 641:                                              ; preds = %639
   store i32 9, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 642:                                              ; preds = %639
   %643 = call ptr @PQgetResult(ptr noundef nonnull %0) #25
@@ -5744,8 +5744,8 @@ release_conn_addrinfo.exit523:                    ; preds = %626, %624, %.thread
 sub_0:                                            ; preds = %647
   %650 = call ptr @PQgetvalue(ptr noundef nonnull %643, i32 noundef 0, i32 noundef 0) #25
   %651 = load i8, ptr %650, align 1
-  %.not727 = icmp eq i8 %651, 111
-  br i1 %.not727, label %.tail, label %.tail.thread
+  %.not728 = icmp eq i8 %651, 111
+  br i1 %.not728, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %652 = getelementptr inbounds nuw i8, ptr %650, i64 1
@@ -5757,9 +5757,9 @@ sub_0:                                            ; preds = %647
   br label %655
 
 655:                                              ; preds = %.tail, %.tail.thread
-  %storemerge824 = phi i32 [ 2, %.tail.thread ], [ 1, %.tail ]
-  store i32 %storemerge824, ptr %42, align 8
-  store i32 %storemerge824, ptr %39, align 4
+  %storemerge825 = phi i32 [ 2, %.tail.thread ], [ 1, %.tail ]
+  store i32 %storemerge825, ptr %42, align 8
+  store i32 %storemerge825, ptr %39, align 4
   call void @PQclear(ptr noundef nonnull %643) #25
   store i32 10, ptr %26, align 8
   br label %.backedge.backedge
@@ -5770,20 +5770,20 @@ sub_0:                                            ; preds = %647
   store i32 0, ptr %26, align 8
   %657 = load i8, ptr %40, align 8, !range !13, !noundef !14
   %658 = trunc nuw i8 %657 to i1
-  br i1 %658, label %sendTerminateConn.exit525, label %659
+  br i1 %658, label %sendTerminateConn.exit526, label %659
 
 659:                                              ; preds = %656
   %660 = load i32, ptr %41, align 8
-  %.not.i524 = icmp eq i32 %660, -1
-  br i1 %.not.i524, label %sendTerminateConn.exit525, label %661
+  %.not.i525 = icmp eq i32 %660, -1
+  br i1 %.not.i525, label %sendTerminateConn.exit526, label %661
 
 661:                                              ; preds = %659
   %662 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #25
   %663 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #25
   %664 = call i32 @pqFlush(ptr noundef nonnull %0) #25
-  br label %sendTerminateConn.exit525
+  br label %sendTerminateConn.exit526
 
-sendTerminateConn.exit525:                        ; preds = %656, %659, %661
+sendTerminateConn.exit526:                        ; preds = %656, %659, %661
   store i8 1, ptr %36, align 1
   br label %.backedge.backedge
 
@@ -5791,7 +5791,7 @@ sendTerminateConn.exit525:                        ; preds = %656, %659, %661
   store i32 0, ptr %26, align 8
   %666 = call i32 @PQconsumeInput(ptr noundef nonnull %0) #25
   %.not456 = icmp eq i32 %666, 0
-  br i1 %.not456, label %.thread618, label %667
+  br i1 %.not456, label %.thread619, label %667
 
 667:                                              ; preds = %665
   %668 = call i32 @PQisBusy(ptr noundef nonnull %0) #25
@@ -5800,7 +5800,7 @@ sendTerminateConn.exit525:                        ; preds = %656, %659, %661
 
 669:                                              ; preds = %667
   store i32 13, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
 670:                                              ; preds = %667
   %671 = call ptr @PQgetResult(ptr noundef nonnull %0) #25
@@ -5833,33 +5833,33 @@ sendTerminateConn.exit525:                        ; preds = %656, %659, %661
   store i32 0, ptr %26, align 8
   %682 = load i8, ptr %40, align 8, !range !13, !noundef !14
   %683 = trunc nuw i8 %682 to i1
-  br i1 %683, label %sendTerminateConn.exit527, label %684
+  br i1 %683, label %sendTerminateConn.exit528, label %684
 
 684:                                              ; preds = %681
   %685 = load i32, ptr %41, align 8
-  %.not.i526 = icmp eq i32 %685, -1
-  br i1 %.not.i526, label %sendTerminateConn.exit527, label %686
+  %.not.i527 = icmp eq i32 %685, -1
+  br i1 %.not.i527, label %sendTerminateConn.exit528, label %686
 
 686:                                              ; preds = %684
   %687 = call i32 @pqPutMsgStart(i8 noundef signext 88, ptr noundef nonnull %0) #25
   %688 = call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #25
   %689 = call i32 @pqFlush(ptr noundef nonnull %0) #25
-  br label %sendTerminateConn.exit527
+  br label %sendTerminateConn.exit528
 
-sendTerminateConn.exit527:                        ; preds = %681, %684, %686
+sendTerminateConn.exit528:                        ; preds = %681, %684, %686
   store i8 1, ptr %36, align 1
   br label %.backedge.backedge
 
 690:                                              ; preds = %235
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %.pr547) #25
-  br label %.thread618
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %.pr548) #25
+  br label %.thread619
 
-.thread618:                                       ; preds = %530, %665, %637, %628, %235, %235, %581, %529, %539, %535, %.thread608, %.thread601, %.thread595, %.thread588, %init_allowed_encryption_methods.exit.thread577, %.thread, %604, %690, %571, %33, %29
+.thread619:                                       ; preds = %530, %665, %637, %628, %235, %235, %581, %529, %539, %535, %.thread609, %.thread602, %.thread596, %.thread589, %init_allowed_encryption_methods.exit.thread578, %.thread, %604, %690, %571, %33, %29
   store i32 1, ptr %26, align 8
-  br label %.thread621
+  br label %.thread622
 
-.thread621:                                       ; preds = %541, %536, %.thread633, %.thread613, %438, %.thread598, %.thread591, %init_allowed_encryption_methods.exit.thread580, %25, %1, %.thread618, %669, %641, %635, %632, %release_conn_addrinfo.exit523, %606, %29, %28
-  %.0 = phi i32 [ 0, %.thread618 ], [ 3, %28 ], [ 1, %29 ], [ 1, %438 ], [ 3, %release_conn_addrinfo.exit523 ], [ 1, %606 ], [ 1, %632 ], [ 1, %635 ], [ 1, %641 ], [ 1, %669 ], [ 0, %1 ], [ 0, %25 ], [ 2, %init_allowed_encryption_methods.exit.thread580 ], [ 2, %.thread591 ], [ 1, %.thread598 ], [ 1, %.thread613 ], [ 1, %.thread633 ], [ %531, %536 ], [ 1, %541 ]
+.thread622:                                       ; preds = %541, %536, %.thread634, %.thread614, %438, %.thread599, %.thread592, %init_allowed_encryption_methods.exit.thread581, %25, %1, %.thread619, %669, %641, %635, %632, %release_conn_addrinfo.exit524, %606, %29, %28
+  %.0 = phi i32 [ 0, %.thread619 ], [ 3, %28 ], [ 1, %29 ], [ 1, %438 ], [ 3, %release_conn_addrinfo.exit524 ], [ 1, %606 ], [ 1, %632 ], [ 1, %635 ], [ 1, %641 ], [ 1, %669 ], [ 0, %1 ], [ 0, %25 ], [ 2, %init_allowed_encryption_methods.exit.thread581 ], [ 2, %.thread592 ], [ 1, %.thread599 ], [ 1, %.thread614 ], [ 1, %.thread634 ], [ %531, %536 ], [ 1, %541 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -9318,32 +9318,32 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   store i8 0, ptr %4, align 1
   %7 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.255)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %10, label %.preheader97
+  br i1 %8, label %10, label %.preheader98
 
-.preheader97:                                     ; preds = %5
+.preheader98:                                     ; preds = %5
   %9 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %7)
-  %.not114 = icmp eq ptr %9, null
-  br i1 %.not114, label %.thread94, label %.lr.ph116
+  %.not115 = icmp eq ptr %9, null
+  br i1 %.not115, label %.thread95, label %.lr.ph117
 
 10:                                               ; preds = %5
   tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.256, ptr noundef nonnull %0) #25
   br label %89
 
-.lr.ph116:                                        ; preds = %.preheader97, %.critedge2.thread
-  %11 = phi ptr [ %87, %.critedge2.thread ], [ %9, %.preheader97 ]
-  %.074115 = phi i32 [ %12, %.critedge2.thread ], [ 0, %.preheader97 ]
-  %12 = add i32 %.074115, 1
+.lr.ph117:                                        ; preds = %.preheader98, %.critedge2.thread
+  %11 = phi ptr [ %87, %.critedge2.thread ], [ %9, %.preheader98 ]
+  %.074116 = phi i32 [ %12, %.critedge2.thread ], [ 0, %.preheader98 ]
+  %12 = add i32 %.074116, 1
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #26
   %14 = icmp ugt i64 %13, 1022
   br i1 %14, label %15, label %16
 
-15:                                               ; preds = %.lr.ph116
+15:                                               ; preds = %.lr.ph117
   call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.257, i32 noundef %12, ptr noundef nonnull %0) #25
-  br label %.thread94
+  br label %.thread95
 
-16:                                               ; preds = %.lr.ph116
-  %.not118 = icmp eq i64 %13, 0
-  br i1 %.not118, label %.critedge, label %.lr.ph
+16:                                               ; preds = %.lr.ph117
+  %.not119 = icmp eq i64 %13, 0
+  br i1 %.not119, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %17 = trunc nuw nsw i64 %13 to i32
@@ -9351,9 +9351,9 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   br label %19
 
 19:                                               ; preds = %.lr.ph, %29
-  %.068105 = phi i32 [ %17, %.lr.ph ], [ %30, %29 ]
+  %.068106 = phi i32 [ %17, %.lr.ph ], [ %30, %29 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = zext nneg i32 %.068105 to i64
+  %21 = zext nneg i32 %.068106 to i64
   %22 = getelementptr i8, ptr %11, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -1
   %24 = load i8, ptr %23, align 1
@@ -9365,26 +9365,26 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   br i1 %.not80, label %.critedge, label %29
 
 29:                                               ; preds = %19
-  %30 = add nsw i32 %.068105, -1
+  %30 = add nsw i32 %.068106, -1
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 %31
   store i8 0, ptr %32, align 1
-  %33 = icmp sgt i32 %.068105, 1
+  %33 = icmp sgt i32 %.068106, 1
   br i1 %33, label %19, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %19, %29, %16
   %34 = load i8, ptr %11, align 1
-  %.not81107 = icmp eq i8 %34, 0
-  br i1 %.not81107, label %.critedge2.thread, label %.lr.ph109
+  %.not81108 = icmp eq i8 %34, 0
+  br i1 %.not81108, label %.critedge2.thread, label %.lr.ph110
 
-.lr.ph109:                                        ; preds = %.critedge
+.lr.ph110:                                        ; preds = %.critedge
   %35 = tail call ptr @__ctype_b_loc() #28
   %36 = load ptr, ptr %35, align 8
   br label %37
 
-37:                                               ; preds = %.lr.ph109, %43
-  %38 = phi i8 [ %34, %.lr.ph109 ], [ %45, %43 ]
-  %.070108 = phi ptr [ %11, %.lr.ph109 ], [ %44, %43 ]
+37:                                               ; preds = %.lr.ph110, %43
+  %38 = phi i8 [ %34, %.lr.ph110 ], [ %45, %43 ]
+  %.070109 = phi ptr [ %11, %.lr.ph110 ], [ %44, %43 ]
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw i16, ptr %36, i64 %39
   %41 = load i16, ptr %40, align 2
@@ -9393,7 +9393,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   br i1 %.not82, label %.critedge2, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %.070108, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.070109, i64 1
   %45 = load i8, ptr %44, align 1
   %.not81 = icmp eq i8 %45, 0
   br i1 %.not81, label %.critedge2.thread, label %37, !llvm.loop !58
@@ -9407,17 +9407,17 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
 46:                                               ; preds = %.critedge2
   %47 = load i8, ptr %4, align 1, !range !13, !noundef !14
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %.thread94, label %49
+  br i1 %48, label %.thread95, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %.070108, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.070109, i64 1
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %52 = call i32 @strncmp(ptr noundef nonnull %50, ptr noundef nonnull %1, i64 noundef %51) #26
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %49
-  %55 = getelementptr i8, ptr %.070108, i64 %51
+  %55 = getelementptr i8, ptr %.070109, i64 %51
   %56 = getelementptr i8, ptr %55, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 93
@@ -9432,57 +9432,57 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
   br i1 %62, label %63, label %.critedge2.thread
 
 63:                                               ; preds = %60
-  %64 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070108, i32 noundef 61) #26
+  %64 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070109, i32 noundef 61) #26
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %63
   call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.258, ptr noundef nonnull %0, i32 noundef %12) #25
-  br label %.thread94
+  br label %.thread95
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 0, ptr %64, align 1
-  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.070108, ptr noundef nonnull dereferenceable(8) @.str.103) #26
+  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.070109, ptr noundef nonnull dereferenceable(8) @.str.103) #26
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %74, label %.preheader
 
 .preheader:                                       ; preds = %67
   %71 = load ptr, ptr %2, align 8
-  %.not83.not110 = icmp eq ptr %71, null
-  br i1 %.not83.not110, label %.critedge86, label %.lr.ph112.preheader
+  %.not83.not111 = icmp eq ptr %71, null
+  br i1 %.not83.not111, label %.critedge86, label %.lr.ph113.preheader
 
-.lr.ph112.preheader:                              ; preds = %.preheader
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %.070108) #26
+.lr.ph113.preheader:                              ; preds = %.preheader
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %.070109) #26
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.lr.ph112._crit_edge, label %.lr.ph164
+  br i1 %73, label %.lr.ph113._crit_edge, label %.lr.ph165
 
 74:                                               ; preds = %67
   call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.259, ptr noundef nonnull %0, i32 noundef %12) #25
-  br label %.thread94
+  br label %.thread95
 
-.lr.ph164:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %.073111163 = phi i32 [ %75, %.lr.ph112 ], [ 0, %.lr.ph112.preheader ]
-  %75 = add i32 %.073111163, 1
+.lr.ph165:                                        ; preds = %.lr.ph113.preheader, %.lr.ph113
+  %.073112164 = phi i32 [ %75, %.lr.ph113 ], [ 0, %.lr.ph113.preheader ]
+  %75 = add i32 %.073112164, 1
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct._PQconninfoOption, ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8
   %.not83.not = icmp eq ptr %78, null
-  br i1 %.not83.not, label %.critedge86, label %.lr.ph112, !llvm.loop !59
+  br i1 %.not83.not, label %.critedge86, label %.lr.ph113, !llvm.loop !59
 
-.lr.ph112:                                        ; preds = %.lr.ph164
-  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %.070108) #26
+.lr.ph113:                                        ; preds = %.lr.ph165
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %.070109) #26
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %.lr.ph112._crit_edge, label %.lr.ph164, !llvm.loop !59
+  br i1 %80, label %.lr.ph113._crit_edge, label %.lr.ph165, !llvm.loop !59
 
-.lr.ph112._crit_edge:                             ; preds = %.lr.ph112, %.lr.ph112.preheader
-  %.lcssa154 = phi ptr [ %2, %.lr.ph112.preheader ], [ %77, %.lr.ph112 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 24
+.lr.ph113._crit_edge:                             ; preds = %.lr.ph113, %.lr.ph113.preheader
+  %.lcssa155 = phi ptr [ %2, %.lr.ph113.preheader ], [ %77, %.lr.ph113 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.lcssa155, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %.critedge2.thread
 
-84:                                               ; preds = %.lr.ph112._crit_edge
+84:                                               ; preds = %.lr.ph113._crit_edge
   %85 = call noalias ptr @strdup(ptr noundef nonnull %68) #25
   store ptr %85, ptr %81, align 8
   %.not84 = icmp eq ptr %85, null
@@ -9490,29 +9490,29 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull
 
 86:                                               ; preds = %84
   call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str) #25
-  br label %.thread94
+  br label %.thread95
 
-.critedge86:                                      ; preds = %.preheader, %.lr.ph164
+.critedge86:                                      ; preds = %.preheader, %.lr.ph165
   call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.258, ptr noundef nonnull %0, i32 noundef %12) #25
-  br label %.thread94
+  br label %.thread95
 
 .critedge2.thread.sink.split:                     ; preds = %54, %59
   %.sink = phi i8 [ 0, %59 ], [ 1, %54 ]
   store i8 %.sink, ptr %4, align 1
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %43, %.critedge2.thread.sink.split, %.critedge, %.lr.ph112._crit_edge, %84, %60, %.critedge2
+.critedge2.thread:                                ; preds = %43, %.critedge2.thread.sink.split, %.critedge, %.lr.ph113._crit_edge, %84, %60, %.critedge2
   %87 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %7)
   %.not = icmp eq ptr %87, null
-  br i1 %.not, label %.thread94, label %.lr.ph116
+  br i1 %.not, label %.thread95, label %.lr.ph117
 
-.thread94:                                        ; preds = %.critedge2.thread, %46, %.preheader97, %86, %.critedge86, %74, %66, %15
-  %.4 = phi i32 [ 2, %15 ], [ 3, %66 ], [ 3, %74 ], [ 3, %.critedge86 ], [ 3, %86 ], [ 0, %.preheader97 ], [ 0, %46 ], [ 0, %.critedge2.thread ]
+.thread95:                                        ; preds = %.critedge2.thread, %46, %.preheader98, %86, %.critedge86, %74, %66, %15
+  %.4 = phi i32 [ 2, %15 ], [ 3, %66 ], [ 3, %74 ], [ 3, %.critedge86 ], [ 3, %86 ], [ 0, %.preheader98 ], [ 0, %46 ], [ 0, %.critedge2.thread ]
   %88 = call i32 @fclose(ptr noundef nonnull %7)
   br label %89
 
-89:                                               ; preds = %.thread94, %10
-  %.067 = phi i32 [ 1, %10 ], [ %.4, %.thread94 ]
+89:                                               ; preds = %.thread95, %10
+  %.067 = phi i32 [ 1, %10 ], [ %.4, %.thread95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.067
 }

@@ -1844,8 +1844,8 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
 
 .lr.ph139:                                        ; preds = %cf_ssl_scache_match_auth.exit.thread, %cf_ssl_scache_match_auth.exit.thread.us
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not.i95 = icmp eq ptr %3, null
-  br i1 %.not.i95, label %.lr.ph139.split.us.split, label %.lr.ph139.split.preheader
+  %.not.i96 = icmp eq ptr %3, null
+  br i1 %.not.i96, label %.lr.ph139.split.us.split, label %.lr.ph139.split.preheader
 
 .lr.ph139.split.preheader:                        ; preds = %.lr.ph139.thread182, %.lr.ph139
   %59 = phi ptr [ %31, %.lr.ph139.thread182 ], [ %58, %.lr.ph139 ]
@@ -1865,40 +1865,40 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   %.pre = load ptr, ptr %1, align 8, !tbaa !30
   br label %.lr.ph149
 
-.lr.ph149:                                        ; preds = %.lr.ph149.preheader, %cf_ssl_scache_match_auth.exit102.thread.us
-  %64 = phi i64 [ %92, %cf_ssl_scache_match_auth.exit102.thread.us ], [ %.pr, %.lr.ph149.preheader ]
-  %65 = phi ptr [ %93, %cf_ssl_scache_match_auth.exit102.thread.us ], [ %.pre, %.lr.ph149.preheader ]
-  %.170137.us148 = phi i64 [ %94, %cf_ssl_scache_match_auth.exit102.thread.us ], [ 0, %.lr.ph149.preheader ]
-  %.066138.us147 = phi i64 [ %.268.us, %cf_ssl_scache_match_auth.exit102.thread.us ], [ 0, %.lr.ph149.preheader ]
+.lr.ph149:                                        ; preds = %.lr.ph149.preheader, %cf_ssl_scache_match_auth.exit103.thread.us
+  %64 = phi i64 [ %92, %cf_ssl_scache_match_auth.exit103.thread.us ], [ %.pr, %.lr.ph149.preheader ]
+  %65 = phi ptr [ %93, %cf_ssl_scache_match_auth.exit103.thread.us ], [ %.pre, %.lr.ph149.preheader ]
+  %.170137.us148 = phi i64 [ %94, %cf_ssl_scache_match_auth.exit103.thread.us ], [ 0, %.lr.ph149.preheader ]
+  %.066138.us147 = phi i64 [ %.268.us, %cf_ssl_scache_match_auth.exit103.thread.us ], [ 0, %.lr.ph149.preheader ]
   %66 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %65, i64 %.170137.us148
   %67 = load ptr, ptr %66, align 8, !tbaa !42
   %.not84.us = icmp eq ptr %67, null
-  br i1 %.not84.us, label %68, label %cf_ssl_scache_match_auth.exit102.thread.us
+  br i1 %.not84.us, label %68, label %cf_ssl_scache_match_auth.exit103.thread.us
 
 68:                                               ; preds = %.lr.ph149
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 160
   %70 = load i8, ptr %69, align 8
   %71 = and i8 %70, 1
   %.not85.us = icmp eq i8 %71, 0
-  br i1 %.not85.us, label %cf_ssl_scache_match_auth.exit102.thread.us, label %72
+  br i1 %.not85.us, label %cf_ssl_scache_match_auth.exit103.thread.us, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !39
-  %.not12.i99.us = icmp eq ptr %74, null
-  br i1 %.not12.i99.us, label %75, label %cf_ssl_scache_match_auth.exit102.thread.us
+  %.not12.i100.us = icmp eq ptr %74, null
+  br i1 %.not12.i100.us, label %75, label %cf_ssl_scache_match_auth.exit103.thread.us
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !40
-  %.not13.i100.us = icmp eq ptr %77, null
-  br i1 %.not13.i100.us, label %78, label %cf_ssl_scache_match_auth.exit102.thread.us
+  %.not13.i101.us = icmp eq ptr %77, null
+  br i1 %.not13.i101.us, label %78, label %cf_ssl_scache_match_auth.exit103.thread.us
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !41
-  %.not14.i101.us = icmp eq ptr %80, null
-  br i1 %.not14.i101.us, label %81, label %cf_ssl_scache_match_auth.exit102.thread.us
+  %.not14.i102.us = icmp eq ptr %80, null
+  br i1 %.not14.i102.us, label %81, label %cf_ssl_scache_match_auth.exit103.thread.us
 
 81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1927,9 +1927,9 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
 91:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre167 = load i64, ptr %58, align 8, !tbaa !29
-  br label %cf_ssl_scache_match_auth.exit102.thread.us
+  br label %cf_ssl_scache_match_auth.exit103.thread.us
 
-cf_ssl_scache_match_auth.exit102.thread.us:       ; preds = %91, %78, %75, %72, %68, %.lr.ph149
+cf_ssl_scache_match_auth.exit103.thread.us:       ; preds = %91, %78, %75, %72, %68, %.lr.ph149
   %92 = phi i64 [ %64, %.lr.ph149 ], [ %.pre167, %91 ], [ %64, %68 ], [ %64, %78 ], [ %64, %72 ], [ %64, %75 ]
   %93 = phi ptr [ %65, %.lr.ph149 ], [ %88, %91 ], [ %65, %68 ], [ %65, %78 ], [ %65, %72 ], [ %65, %75 ]
   %.268.us = phi i64 [ %.066138.us147, %.lr.ph149 ], [ %.167.us, %91 ], [ %.066138.us147, %68 ], [ %.066138.us147, %78 ], [ %.066138.us147, %72 ], [ %.066138.us147, %75 ]
@@ -1937,46 +1937,46 @@ cf_ssl_scache_match_auth.exit102.thread.us:       ; preds = %91, %78, %75, %72, 
   %95 = icmp ult i64 %94, %92
   br i1 %95, label %.lr.ph149, label %.critedge2
 
-.lr.ph215:                                        ; preds = %.lr.ph139.split.preheader, %cf_ssl_scache_match_auth.exit102.thread
-  %.170137214 = phi i64 [ %151, %cf_ssl_scache_match_auth.exit102.thread ], [ 0, %.lr.ph139.split.preheader ]
-  %.066138213 = phi i64 [ %.268, %cf_ssl_scache_match_auth.exit102.thread ], [ 0, %.lr.ph139.split.preheader ]
+.lr.ph215:                                        ; preds = %.lr.ph139.split.preheader, %cf_ssl_scache_match_auth.exit103.thread
+  %.170137214 = phi i64 [ %151, %cf_ssl_scache_match_auth.exit103.thread ], [ 0, %.lr.ph139.split.preheader ]
+  %.066138213 = phi i64 [ %.268, %cf_ssl_scache_match_auth.exit103.thread ], [ 0, %.lr.ph139.split.preheader ]
   %96 = load ptr, ptr %1, align 8, !tbaa !30
   %97 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %96, i64 %.170137214
   %98 = load ptr, ptr %97, align 8, !tbaa !42
   %.not84 = icmp eq ptr %98, null
-  br i1 %.not84, label %99, label %cf_ssl_scache_match_auth.exit102.thread
+  br i1 %.not84, label %99, label %cf_ssl_scache_match_auth.exit103.thread
 
 99:                                               ; preds = %.lr.ph215
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 160
   %101 = load i8, ptr %100, align 8
   %102 = and i8 %101, 1
   %.not85 = icmp eq i8 %102, 0
-  br i1 %.not85, label %cf_ssl_scache_match_auth.exit102.thread, label %103
+  br i1 %.not85, label %cf_ssl_scache_match_auth.exit103.thread, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !39
   %106 = load ptr, ptr %60, align 8, !tbaa !148
   %107 = call zeroext i1 @Curl_safecmp(ptr noundef %105, ptr noundef %106) #9
-  br i1 %107, label %108, label %cf_ssl_scache_match_auth.exit102.thread
+  br i1 %107, label %108, label %cf_ssl_scache_match_auth.exit103.thread
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !40
   %111 = load ptr, ptr %61, align 8, !tbaa !149
   %112 = call i32 @Curl_timestrcmp(ptr noundef %110, ptr noundef %111) #9
-  %.not15.i97 = icmp eq i32 %112, 0
-  br i1 %.not15.i97, label %cf_ssl_scache_match_auth.exit102, label %cf_ssl_scache_match_auth.exit102.thread
+  %.not15.i98 = icmp eq i32 %112, 0
+  br i1 %.not15.i98, label %cf_ssl_scache_match_auth.exit103, label %cf_ssl_scache_match_auth.exit103.thread
 
-cf_ssl_scache_match_auth.exit102:                 ; preds = %108
+cf_ssl_scache_match_auth.exit103:                 ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !41
   %115 = load ptr, ptr %62, align 8, !tbaa !150
   %116 = call i32 @Curl_timestrcmp(ptr noundef %114, ptr noundef %115) #9
-  %.not16.i98 = icmp eq i32 %116, 0
-  br i1 %.not16.i98, label %117, label %cf_ssl_scache_match_auth.exit102.thread
+  %.not16.i99 = icmp eq i32 %116, 0
+  br i1 %.not16.i99, label %117, label %cf_ssl_scache_match_auth.exit103.thread
 
-117:                                              ; preds = %cf_ssl_scache_match_auth.exit102
+117:                                              ; preds = %cf_ssl_scache_match_auth.exit103
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not86 = icmp eq i64 %.066138213, 0
   br i1 %.not86, label %118, label %120
@@ -2058,16 +2058,16 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %108
 
 150:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %cf_ssl_scache_match_auth.exit102.thread
+  br label %cf_ssl_scache_match_auth.exit103.thread
 
-cf_ssl_scache_match_auth.exit102.thread:          ; preds = %108, %103, %150, %.lr.ph215, %99, %cf_ssl_scache_match_auth.exit102
-  %.268 = phi i64 [ %.066138213, %.lr.ph215 ], [ %.167, %150 ], [ %.066138213, %cf_ssl_scache_match_auth.exit102 ], [ %.066138213, %99 ], [ %.066138213, %103 ], [ %.066138213, %108 ]
+cf_ssl_scache_match_auth.exit103.thread:          ; preds = %108, %103, %150, %.lr.ph215, %99, %cf_ssl_scache_match_auth.exit103
+  %.268 = phi i64 [ %.066138213, %.lr.ph215 ], [ %.167, %150 ], [ %.066138213, %cf_ssl_scache_match_auth.exit103 ], [ %.066138213, %99 ], [ %.066138213, %103 ], [ %.066138213, %108 ]
   %151 = add nuw i64 %.170137214, 1
   %152 = load i64, ptr %59, align 8, !tbaa !29
   %153 = icmp ult i64 %151, %152
   br i1 %153, label %.lr.ph215, label %.critedge2
 
-.critedge2:                                       ; preds = %cf_ssl_scache_match_auth.exit102.thread, %cf_ssl_scache_match_auth.exit102.thread.us, %.lr.ph139.split.preheader, %.lr.ph.split.us.split, %5, %.lr.ph139.split.us.split
+.critedge2:                                       ; preds = %cf_ssl_scache_match_auth.exit103.thread, %cf_ssl_scache_match_auth.exit103.thread.us, %.lr.ph139.split.preheader, %.lr.ph.split.us.split, %5, %.lr.ph139.split.us.split
   %.not81 = icmp eq ptr %0, null
   br i1 %.not81, label %169, label %154
 
@@ -2103,8 +2103,8 @@ cf_ssl_scache_match_auth.exit102.thread:          ; preds = %108, %103, %150, %.
   br label %169
 
 169:                                              ; preds = %.thread, %.split.us, %168, %167, %161, %154, %.critedge2
-  %.071 = phi i32 [ 0, %.split.us ], [ 0, %168 ], [ 0, %161 ], [ 0, %167 ], [ 0, %154 ], [ 0, %.critedge2 ], [ %.2.ph, %.thread ]
-  ret i32 %.071
+  %.065 = phi i32 [ 0, %.split.us ], [ 0, %168 ], [ 0, %161 ], [ 0, %167 ], [ 0, %154 ], [ 0, %.critedge2 ], [ %.2.ph, %.thread ]
+  ret i32 %.065
 }
 
 ; Function Attrs: nounwind uwtable

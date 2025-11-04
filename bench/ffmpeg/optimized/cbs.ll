@@ -2537,12 +2537,12 @@ cbs_alloc_content.exit.i:                         ; preds = %23
   br label %cbs_clone_noncomplex_unit_content.exit
 
 select.unfold.i:                                  ; preds = %56, %55
-  %.1.i = phi i32 [ -22, %55 ], [ -12, %56 ]
+  %.1.ph.i = phi i32 [ -22, %55 ], [ -12, %56 ]
   call void @av_refstruct_unref(ptr noundef nonnull %2) #10
   br label %cbs_clone_noncomplex_unit_content.exit
 
 cbs_clone_noncomplex_unit_content.exit:           ; preds = %cbs_alloc_content.exit.i, %._crit_edge.i, %select.unfold.i
-  %.0.i = phi i32 [ %.1.i, %select.unfold.i ], [ 0, %._crit_edge.i ], [ -12, %cbs_alloc_content.exit.i ]
+  %.0.i = phi i32 [ %.1.ph.i, %select.unfold.i ], [ 0, %._crit_edge.i ], [ -12, %cbs_alloc_content.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %68
 

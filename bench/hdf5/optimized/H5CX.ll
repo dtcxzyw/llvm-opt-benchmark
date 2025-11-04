@@ -684,9 +684,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
 
 ._crit_edge:                                      ; preds = %8
   %.pre = load i8, ptr @H5CX_init_g, align 1, !tbaa !3, !range !7
-  %.pre88 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre100 = trunc nuw i8 %.pre to i1
-  %.pre101 = trunc nuw i8 %.pre88 to i1
+  %.pre89 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre101 = trunc nuw i8 %.pre to i1
+  %.pre102 = trunc nuw i8 %.pre89 to i1
   br label %15
 
 11:                                               ; preds = %8
@@ -697,9 +697,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   br label %193
 
 15:                                               ; preds = %._crit_edge, %1
-  %.pre-phi102 = phi i1 [ %.pre101, %._crit_edge ], [ %6, %1 ]
-  %.pre-phi = phi i1 [ %.pre100, %._crit_edge ], [ %4, %1 ]
-  %16 = xor i1 %.pre-phi102, true
+  %.pre-phi103 = phi i1 [ %.pre102, %._crit_edge ], [ %6, %1 ]
+  %.pre-phi = phi i1 [ %.pre101, %._crit_edge ], [ %4, %1 ]
+  %16 = xor i1 %.pre-phi103, true
   %17 = select i1 %.pre-phi, i1 true, i1 %16
   br i1 %17, label %18, label %203, !prof !9
 
@@ -749,10 +749,10 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   %46 = load ptr, ptr %0, align 8, !tbaa !36
   store i64 %45, ptr %46, align 8, !tbaa !40
   %47 = icmp slt i64 %45, 0
-  br i1 %47, label %48, label %._crit_edge89
+  br i1 %47, label %48, label %._crit_edge90
 
-._crit_edge89:                                    ; preds = %43
-  %.pre90 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
+._crit_edge90:                                    ; preds = %43
+  %.pre91 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
   br label %53
 
 48:                                               ; preds = %43
@@ -765,9 +765,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   store i64 %26, ptr %19, align 8, !tbaa !40
   br label %53
 
-53:                                               ; preds = %._crit_edge89, %52
-  %54 = phi ptr [ %46, %._crit_edge89 ], [ %19, %52 ]
-  %55 = phi ptr [ %.pre90, %._crit_edge89 ], [ %27, %52 ]
+53:                                               ; preds = %._crit_edge90, %52
+  %54 = phi ptr [ %46, %._crit_edge90 ], [ %19, %52 ]
+  %55 = phi ptr [ %.pre91, %._crit_edge90 ], [ %27, %52 ]
   %56 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !10
   %57 = load i64, ptr %55, align 8, !tbaa !16
   %.not76 = icmp eq i64 %56, %57
@@ -800,10 +800,10 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %73, ptr %75, align 8, !tbaa !43
   %76 = icmp slt i64 %73, 0
-  br i1 %76, label %77, label %._crit_edge91
+  br i1 %76, label %77, label %._crit_edge92
 
-._crit_edge91:                                    ; preds = %71
-  %.pre92 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
+._crit_edge92:                                    ; preds = %71
+  %.pre93 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
   br label %83
 
 77:                                               ; preds = %71
@@ -817,9 +817,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   store i64 %56, ptr %82, align 8, !tbaa !43
   br label %83
 
-83:                                               ; preds = %._crit_edge91, %81
-  %84 = phi ptr [ %74, %._crit_edge91 ], [ %54, %81 ]
-  %85 = phi ptr [ %.pre92, %._crit_edge91 ], [ %55, %81 ]
+83:                                               ; preds = %._crit_edge92, %81
+  %84 = phi ptr [ %74, %._crit_edge92 ], [ %54, %81 ]
+  %85 = phi ptr [ %.pre93, %._crit_edge92 ], [ %55, %81 ]
   %86 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8, !tbaa !10
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %88 = load i64, ptr %87, align 8, !tbaa !31
@@ -853,10 +853,10 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i64 %104, ptr %106, align 8, !tbaa !45
   %107 = icmp slt i64 %104, 0
-  br i1 %107, label %108, label %._crit_edge93
+  br i1 %107, label %108, label %._crit_edge94
 
-._crit_edge93:                                    ; preds = %102
-  %.pre94 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
+._crit_edge94:                                    ; preds = %102
+  %.pre95 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
   br label %114
 
 108:                                              ; preds = %102
@@ -870,9 +870,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   store i64 %86, ptr %113, align 8, !tbaa !45
   br label %114
 
-114:                                              ; preds = %._crit_edge93, %112
-  %115 = phi ptr [ %105, %._crit_edge93 ], [ %84, %112 ]
-  %116 = phi ptr [ %.pre94, %._crit_edge93 ], [ %85, %112 ]
+114:                                              ; preds = %._crit_edge94, %112
+  %115 = phi ptr [ %105, %._crit_edge94 ], [ %84, %112 ]
+  %116 = phi ptr [ %.pre95, %._crit_edge94 ], [ %85, %112 ]
   %117 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8, !tbaa !10
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %119 = load i64, ptr %118, align 8, !tbaa !30
@@ -906,10 +906,10 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 %135, ptr %137, align 8, !tbaa !47
   %138 = icmp slt i64 %135, 0
-  br i1 %138, label %139, label %._crit_edge95
+  br i1 %138, label %139, label %._crit_edge96
 
-._crit_edge95:                                    ; preds = %133
-  %.pre96 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
+._crit_edge96:                                    ; preds = %133
+  %.pre97 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
   br label %145
 
 139:                                              ; preds = %133
@@ -923,9 +923,9 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   store i64 %117, ptr %144, align 8, !tbaa !47
   br label %145
 
-145:                                              ; preds = %._crit_edge95, %143
-  %146 = phi ptr [ %136, %._crit_edge95 ], [ %115, %143 ]
-  %147 = phi ptr [ %.pre96, %._crit_edge95 ], [ %116, %143 ]
+145:                                              ; preds = %._crit_edge96, %143
+  %146 = phi ptr [ %136, %._crit_edge96 ], [ %115, %143 ]
+  %147 = phi ptr [ %.pre97, %._crit_edge96 ], [ %116, %143 ]
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 456
   %149 = load ptr, ptr %148, align 8, !tbaa !48
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -936,10 +936,10 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
 151:                                              ; preds = %145
   %152 = tail call i32 @H5VL_inc_vol_wrapper(ptr noundef nonnull %149) #11
   %153 = icmp slt i32 %152, 0
-  br i1 %153, label %154, label %._crit_edge97
+  br i1 %153, label %154, label %._crit_edge98
 
-._crit_edge97:                                    ; preds = %151
-  %.pre98 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
+._crit_edge98:                                    ; preds = %151
+  %.pre99 = load ptr, ptr @H5CX_head_g, align 8, !tbaa !13
   br label %158
 
 154:                                              ; preds = %151
@@ -948,8 +948,8 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   %157 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5CX_retrieve_state, i32 noundef 651, i64 noundef %155, i64 noundef %156, ptr noundef nonnull @.str.58) #11
   br label %193
 
-158:                                              ; preds = %._crit_edge97, %145
-  %159 = phi ptr [ %.pre98, %._crit_edge97 ], [ %147, %145 ]
+158:                                              ; preds = %._crit_edge98, %145
+  %159 = phi ptr [ %.pre99, %._crit_edge98 ], [ %147, %145 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 448
   %161 = load i8, ptr %160, align 8, !tbaa !50, !range !7, !noundef !8
   %162 = trunc nuw i8 %161 to i1
@@ -991,7 +991,7 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   store ptr %178, ptr %180, align 8, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %.pre99 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
+  %.pre100 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %185
 
 181:                                              ; preds = %175
@@ -1002,7 +1002,7 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   br label %193
 
 185:                                              ; preds = %.thread, %172
-  %186 = phi ptr [ %.pre99, %.thread ], [ %171, %172 ]
+  %186 = phi ptr [ %.pre100, %.thread ], [ %171, %172 ]
   %187 = call i64 @H5VL_conn_inc_rc(ptr noundef %186) #11
   %188 = icmp slt i64 %187, 0
   br i1 %188, label %189, label %203
@@ -1034,8 +1034,8 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr noundef captures(none) %0) 
   br label %203
 
 203:                                              ; preds = %166, %185, %163, %158, %15, %193, %202
-  %.064 = phi i32 [ -1, %202 ], [ -1, %193 ], [ 0, %15 ], [ 0, %158 ], [ 0, %163 ], [ 0, %185 ], [ 0, %166 ]
-  ret i32 %.064
+  %.1 = phi i32 [ -1, %202 ], [ -1, %193 ], [ 0, %15 ], [ 0, %158 ], [ 0, %163 ], [ 0, %185 ], [ 0, %166 ]
+  ret i32 %.1
 }
 
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #2
@@ -1608,9 +1608,9 @@ define range(i32 -1, 1) i32 @H5CX_set_apl(ptr noundef captures(none) %0, ptr nou
   store i64 %73, ptr %75, align 8, !tbaa !32
   br label %76
 
-76:                                               ; preds = %35, %51, %67, %71, %72, %17, %23, %13
-  %.021 = phi i32 [ -1, %13 ], [ 0, %23 ], [ 0, %17 ], [ -1, %35 ], [ -1, %51 ], [ -1, %67 ], [ 0, %71 ], [ 0, %72 ]
-  ret i32 %.021
+76:                                               ; preds = %17, %23, %13, %72, %71, %67, %51, %35
+  %.022 = phi i32 [ -1, %13 ], [ 0, %23 ], [ 0, %17 ], [ -1, %35 ], [ -1, %51 ], [ -1, %67 ], [ 0, %71 ], [ 0, %72 ]
+  ret i32 %.022
 }
 
 declare i32 @H5P_class_isa(ptr noundef, ptr noundef) local_unnamed_addr #2

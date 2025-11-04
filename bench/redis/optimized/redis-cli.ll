@@ -1978,8 +1978,8 @@ define internal range(i32 0, 2) i32 @clusterManagerCommandCreate(i32 noundef %0,
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge372
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge372 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge374
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge374 ]
   %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 64) #36
@@ -2046,9 +2046,9 @@ define internal range(i32 0, 2) i32 @clusterManagerCommandCreate(i32 noundef %0,
 45:                                               ; preds = %42
   %46 = load i32, ptr %43, align 8, !tbaa !56
   %47 = icmp eq i32 %46, 6
-  br i1 %47, label %clusterManagerNodeIsCluster.exit.thread397, label %clusterManagerNodeIsCluster.exit
+  br i1 %47, label %clusterManagerNodeIsCluster.exit.thread399, label %clusterManagerNodeIsCluster.exit
 
-clusterManagerNodeIsCluster.exit.thread397:       ; preds = %45
+clusterManagerNodeIsCluster.exit.thread399:       ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !64
   %50 = add i64 %49, 1
@@ -2070,16 +2070,16 @@ clusterManagerNodeIsCluster.exit:                 ; preds = %45
   %.not359 = icmp eq i64 %60, 0
   br i1 %.not359, label %clusterManagerNodeIsCluster.exit.thread, label %65
 
-clusterManagerNodeIsCluster.exit.thread:          ; preds = %42, %clusterManagerNodeIsCluster.exit, %clusterManagerNodeIsCluster.exit.thread397
-  %61 = phi ptr [ %51, %clusterManagerNodeIsCluster.exit.thread397 ], [ null, %clusterManagerNodeIsCluster.exit ], [ null, %42 ]
+clusterManagerNodeIsCluster.exit.thread:          ; preds = %42, %clusterManagerNodeIsCluster.exit, %clusterManagerNodeIsCluster.exit.thread399
+  %61 = phi ptr [ %51, %clusterManagerNodeIsCluster.exit.thread399 ], [ null, %clusterManagerNodeIsCluster.exit ], [ null, %42 ]
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.val373 = load ptr, ptr %63, align 8, !tbaa !74
-  %.val374 = load i32, ptr %62, align 8, !tbaa !77
-  %.not.i378 = icmp eq ptr %61, null
-  %64 = select i1 %.not.i378, ptr @.str.191, ptr %61
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.192, ptr noundef %.val373, i32 noundef %.val374, ptr noundef nonnull %64)
-  br i1 %.not.i378, label %82, label %.sink.split
+  %.val375 = load ptr, ptr %63, align 8, !tbaa !74
+  %.val376 = load i32, ptr %62, align 8, !tbaa !77
+  %.not.i380 = icmp eq ptr %61, null
+  %64 = select i1 %.not.i380, ptr @.str.191, ptr %61
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.192, ptr noundef %.val375, i32 noundef %.val376, ptr noundef nonnull %64)
+  br i1 %.not.i380, label %82, label %.sink.split
 
 65:                                               ; preds = %clusterManagerNodeIsCluster.exit
   %66 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %28, i32 noundef 0, ptr noundef %8)
@@ -2102,20 +2102,20 @@ clusterManagerNodeIsCluster.exit.thread:          ; preds = %42, %clusterManager
 74:                                               ; preds = %65
   %75 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %28, ptr noundef %8)
   %.not363 = icmp eq i32 %75, 0
-  br i1 %.not363, label %76, label %.critedge372
+  br i1 %.not363, label %76, label %.critedge374
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %79 = load ptr, ptr %8, align 8, !tbaa !24
-  %.val375 = load ptr, ptr %77, align 8, !tbaa !74
-  %.val376 = load i32, ptr %78, align 8, !tbaa !77
-  %.not.i379 = icmp eq ptr %79, null
-  %.str.211..i = select i1 %.not.i379, ptr @.str.211, ptr %79
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.192, ptr noundef %.val375, i32 noundef %.val376, ptr noundef nonnull %.str.211..i)
-  br i1 %.not.i379, label %82, label %.sink.split
+  %.val377 = load ptr, ptr %77, align 8, !tbaa !74
+  %.val378 = load i32, ptr %78, align 8, !tbaa !77
+  %.not.i381 = icmp eq ptr %79, null
+  %.str.211..i = select i1 %.not.i381, ptr @.str.211, ptr %79
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.192, ptr noundef %.val377, i32 noundef %.val378, ptr noundef nonnull %.str.211..i)
+  br i1 %.not.i381, label %82, label %.sink.split
 
-.critedge372:                                     ; preds = %74
+.critedge374:                                     ; preds = %74
   %80 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   %81 = tail call ptr @listAddNodeTail(ptr noundef %80, ptr noundef nonnull %28) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2133,7 +2133,7 @@ clusterManagerNodeIsCluster.exit.thread:          ; preds = %42, %clusterManager
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-._crit_edge.loopexit:                             ; preds = %.critedge372
+._crit_edge.loopexit:                             ; preds = %.critedge374
   %.pre = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   br label %._crit_edge
 
@@ -2168,42 +2168,42 @@ clusterManagerNodeIsCluster.exit.thread:          ; preds = %42, %clusterManager
   %101 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %101, ptr noundef nonnull %9) #34
   %102 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not525 = icmp eq ptr %102, null
-  br i1 %.not525, label %.preheader463.thread, label %.lr.ph528
+  %.not527 = icmp eq ptr %102, null
+  br i1 %.not527, label %.preheader465.thread, label %.lr.ph530
 
-.preheader463:                                    ; preds = %147
+.preheader465:                                    ; preds = %147
   %103 = icmp sgt i32 %86, 0
-  br i1 %103, label %.preheader462.lr.ph, label %.lr.ph546
+  br i1 %103, label %.preheader464.lr.ph, label %.lr.ph548
 
-.preheader463.thread:                             ; preds = %93
+.preheader465.thread:                             ; preds = %93
   %104 = icmp sgt i32 %86, 0
-  br i1 %104, label %.preheader462.preheader, label %.lr.ph546
+  br i1 %104, label %.preheader464.preheader, label %.lr.ph548
 
-.preheader462.lr.ph:                              ; preds = %.preheader463
+.preheader464.lr.ph:                              ; preds = %.preheader465
   %105 = icmp sgt i32 %.1275, 0
-  br i1 %105, label %.preheader462.us.preheader, label %.preheader462.preheader
+  br i1 %105, label %.preheader464.us.preheader, label %.preheader464.preheader
 
-.preheader462.preheader:                          ; preds = %.preheader463.thread, %.preheader462.lr.ph
-  br label %.preheader462
+.preheader464.preheader:                          ; preds = %.preheader465.thread, %.preheader464.lr.ph
+  br label %.preheader464
 
-.preheader462.us.preheader:                       ; preds = %.preheader462.lr.ph
-  %wide.trip.count650 = zext nneg i32 %.1275 to i64
-  br label %.preheader462.us
+.preheader464.us.preheader:                       ; preds = %.preheader464.lr.ph
+  %wide.trip.count652 = zext nneg i32 %.1275 to i64
+  br label %.preheader464.us
 
-.preheader462.us:                                 ; preds = %.preheader462.us.backedge, %.preheader462.us.preheader
-  %indvars.iv647 = phi i64 [ 0, %.preheader462.us.preheader ], [ %indvars.iv647.be, %.preheader462.us.backedge ]
-  %.1266530.us = phi i32 [ 0, %.preheader462.us.preheader ], [ %.2267.us, %.preheader462.us.backedge ]
-  %106 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv647
+.preheader464.us:                                 ; preds = %.preheader464.us.backedge, %.preheader464.us.preheader
+  %indvars.iv649 = phi i64 [ 0, %.preheader464.us.preheader ], [ %indvars.iv649.be, %.preheader464.us.backedge ]
+  %.1266532.us = phi i32 [ 0, %.preheader464.us.preheader ], [ %.2267.us, %.preheader464.us.backedge ]
+  %106 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv649
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 20
   %108 = load i32, ptr %107, align 4, !tbaa !88
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %110, label %122
 
-110:                                              ; preds = %.preheader462.us
+110:                                              ; preds = %.preheader464.us
   %111 = load ptr, ptr %106, align 8, !tbaa !91
   %112 = load ptr, ptr %111, align 8, !tbaa !92
-  %.not.i380.us = icmp eq ptr %112, null
-  br i1 %.not.i380.us, label %clusterManagerNodeArrayShift.exit.us, label %113
+  %.not.i382.us = icmp eq ptr %112, null
+  br i1 %.not.i382.us, label %clusterManagerNodeArrayShift.exit.us, label %113
 
 113:                                              ; preds = %110
   %114 = add nsw i32 %108, -1
@@ -2217,77 +2217,77 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %117 = load i32, ptr %116, align 8, !tbaa !94
   %118 = add nsw i32 %117, -1
   store i32 %118, ptr %116, align 8, !tbaa !94
-  %119 = add nsw i32 %.1266530.us, 1
-  %120 = sext i32 %.1266530.us to i64
+  %119 = add nsw i32 %.1266532.us, 1
+  %120 = sext i32 %.1266532.us to i64
   %121 = getelementptr inbounds ptr, ptr %96, i64 %120
   store ptr %112, ptr %121, align 8, !tbaa !92
   br label %122
 
-122:                                              ; preds = %clusterManagerNodeArrayShift.exit.us, %.preheader462.us
-  %.2267.us = phi i32 [ %119, %clusterManagerNodeArrayShift.exit.us ], [ %.1266530.us, %.preheader462.us ]
-  %indvars.iv.next648 = add nuw nsw i64 %indvars.iv647, 1
-  %exitcond651.not = icmp eq i64 %indvars.iv.next648, %wide.trip.count650
-  br i1 %exitcond651.not, label %..loopexit_crit_edge.us, label %.preheader462.us.backedge
+122:                                              ; preds = %clusterManagerNodeArrayShift.exit.us, %.preheader464.us
+  %.2267.us = phi i32 [ %119, %clusterManagerNodeArrayShift.exit.us ], [ %.1266532.us, %.preheader464.us ]
+  %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
+  %exitcond653.not = icmp eq i64 %indvars.iv.next650, %wide.trip.count652
+  br i1 %exitcond653.not, label %..loopexit_crit_edge.us, label %.preheader464.us.backedge
 
-.preheader462.us.backedge:                        ; preds = %122, %..loopexit_crit_edge.us
-  %indvars.iv647.be = phi i64 [ %indvars.iv.next648, %122 ], [ 0, %..loopexit_crit_edge.us ]
-  br label %.preheader462.us, !llvm.loop !95
+.preheader464.us.backedge:                        ; preds = %122, %..loopexit_crit_edge.us
+  %indvars.iv649.be = phi i64 [ %indvars.iv.next650, %122 ], [ 0, %..loopexit_crit_edge.us ]
+  br label %.preheader464.us, !llvm.loop !95
 
 ..loopexit_crit_edge.us:                          ; preds = %122
   %123 = icmp slt i32 %.2267.us, %86
-  br i1 %123, label %.preheader462.us.backedge, label %.lr.ph546
+  br i1 %123, label %.preheader464.us.backedge, label %.lr.ph548
 
-.lr.ph528:                                        ; preds = %93, %147
+.lr.ph530:                                        ; preds = %93, %147
   %124 = phi ptr [ %154, %147 ], [ %102, %93 ]
-  %.0274526 = phi i32 [ %.1275, %147 ], [ 0, %93 ]
+  %.0274528 = phi i32 [ %.1275, %147 ], [ 0, %93 ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !96
-  %.not456521 = icmp sgt i32 %.0274526, 0
+  %.not458523 = icmp sgt i32 %.0274528, 0
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !74
-  br i1 %.not456521, label %.lr.ph524, label %.critedge460.loopexit
+  br i1 %.not458523, label %.lr.ph526, label %.critedge462.loopexit
 
-.lr.ph524:                                        ; preds = %.lr.ph528
-  %wide.trip.count645 = zext nneg i32 %.0274526 to i64
+.lr.ph526:                                        ; preds = %.lr.ph530
+  %wide.trip.count647 = zext nneg i32 %.0274528 to i64
   br label %129
 
-129:                                              ; preds = %.lr.ph524, %133
-  %indvars.iv642 = phi i64 [ 0, %.lr.ph524 ], [ %indvars.iv.next643, %133 ]
-  %130 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv642
+129:                                              ; preds = %.lr.ph526, %133
+  %indvars.iv644 = phi i64 [ 0, %.lr.ph526 ], [ %indvars.iv.next645, %133 ]
+  %130 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv644
   %131 = load ptr, ptr %130, align 8, !tbaa !24
   %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(1) %128) #36
   %.not355 = icmp eq i32 %132, 0
   br i1 %.not355, label %.loopexit, label %133
 
 133:                                              ; preds = %129
-  %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
-  %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
-  br i1 %exitcond646.not, label %.critedge460.loopexit, label %129, !llvm.loop !98
+  %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
+  %exitcond648.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count647
+  br i1 %exitcond648.not, label %.critedge462.loopexit, label %129, !llvm.loop !98
 
-.critedge460.loopexit:                            ; preds = %133, %.lr.ph528
-  %.1229.lcssa = phi i32 [ 0, %.lr.ph528 ], [ %.0274526, %133 ]
-  %134 = add nsw i32 %.0274526, 1
-  %135 = sext i32 %.0274526 to i64
+.critedge462.loopexit:                            ; preds = %133, %.lr.ph530
+  %.1229.lcssa = phi i32 [ 0, %.lr.ph530 ], [ %.0274528, %133 ]
+  %134 = add nsw i32 %.0274528, 1
+  %135 = sext i32 %.0274528 to i64
   %136 = getelementptr inbounds ptr, ptr %98, i64 %135
   store ptr %128, ptr %136, align 8, !tbaa !24
   br label %138
 
 .loopexit:                                        ; preds = %129
-  %137 = trunc nuw nsw i64 %indvars.iv642 to i32
+  %137 = trunc nuw nsw i64 %indvars.iv644 to i32
   br label %138
 
-138:                                              ; preds = %.loopexit, %.critedge460.loopexit
-  %.1229479 = phi i32 [ %.1229.lcssa, %.critedge460.loopexit ], [ %137, %.loopexit ]
-  %.1275 = phi i32 [ %134, %.critedge460.loopexit ], [ %.0274526, %.loopexit ]
-  %139 = zext nneg i32 %.1229479 to i64
+138:                                              ; preds = %.loopexit, %.critedge462.loopexit
+  %.1229481 = phi i32 [ %.1229.lcssa, %.critedge462.loopexit ], [ %137, %.loopexit ]
+  %.1275 = phi i32 [ %134, %.critedge462.loopexit ], [ %.0274528, %.loopexit ]
+  %139 = zext nneg i32 %.1229481 to i64
   %140 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !91
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %._crit_edge687
+  br i1 %142, label %143, label %._crit_edge689
 
-._crit_edge687:                                   ; preds = %138
-  %.phi.trans.insert688 = getelementptr inbounds nuw i8, ptr %140, i64 20
-  %.pre689 = load i32, ptr %.phi.trans.insert688, align 4, !tbaa !88
+._crit_edge689:                                   ; preds = %138
+  %.phi.trans.insert690 = getelementptr inbounds nuw i8, ptr %140, i64 20
+  %.pre691 = load i32, ptr %.phi.trans.insert690, align 4, !tbaa !88
   br label %147
 
 143:                                              ; preds = %138
@@ -2299,9 +2299,9 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   store i32 %86, ptr %146, align 8, !tbaa !94
   br label %147
 
-147:                                              ; preds = %._crit_edge687, %143
-  %148 = phi i32 [ 0, %143 ], [ %.pre689, %._crit_edge687 ]
-  %149 = phi ptr [ %144, %143 ], [ %141, %._crit_edge687 ]
+147:                                              ; preds = %._crit_edge689, %143
+  %148 = phi i32 [ 0, %143 ], [ %.pre691, %._crit_edge689 ]
+  %149 = phi ptr [ %144, %143 ], [ %141, %._crit_edge689 ]
   %150 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %151 = add nsw i32 %148, 1
   store i32 %151, ptr %150, align 4, !tbaa !88
@@ -2310,174 +2310,174 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   store ptr %126, ptr %153, align 8, !tbaa !92
   %154 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not = icmp eq ptr %154, null
-  br i1 %.not, label %.preheader463, label %.lr.ph528, !llvm.loop !100
+  br i1 %.not, label %.preheader465, label %.lr.ph530, !llvm.loop !100
 
-.preheader462:                                    ; preds = %.preheader462.preheader, %.preheader462
-  br label %.preheader462
+.preheader464:                                    ; preds = %.preheader464.preheader, %.preheader464
+  br label %.preheader464
 
-.lr.ph546:                                        ; preds = %..loopexit_crit_edge.us, %.preheader463, %.preheader463.thread
-  %155 = phi i1 [ false, %.preheader463 ], [ false, %.preheader463.thread ], [ true, %..loopexit_crit_edge.us ]
-  %.0274.lcssa737 = phi i32 [ %.1275, %.preheader463 ], [ 0, %.preheader463.thread ], [ %.1275, %..loopexit_crit_edge.us ]
-  %.0265.lcssa = phi i32 [ 0, %.preheader463 ], [ 0, %.preheader463.thread ], [ %.2267.us, %..loopexit_crit_edge.us ]
+.lr.ph548:                                        ; preds = %..loopexit_crit_edge.us, %.preheader465, %.preheader465.thread
+  %155 = phi i1 [ false, %.preheader465 ], [ false, %.preheader465.thread ], [ true, %..loopexit_crit_edge.us ]
+  %.0274.lcssa739 = phi i32 [ %.1275, %.preheader465 ], [ 0, %.preheader465.thread ], [ %.1275, %..loopexit_crit_edge.us ]
+  %.0265.lcssa = phi i32 [ 0, %.preheader465 ], [ 0, %.preheader465.thread ], [ %.2267.us, %..loopexit_crit_edge.us ]
   %156 = uitofp nneg i32 %89 to float
   %157 = fdiv float 1.638400e+04, %156
   %158 = add nsw i32 %89, -1
   %159 = zext nneg i32 %158 to i64
   %smax = call i32 @llvm.smax.i32(i32 %89, i32 1)
-  %wide.trip.count658 = zext nneg i32 %smax to i64
+  %wide.trip.count660 = zext nneg i32 %smax to i64
   br label %160
 
-160:                                              ; preds = %.lr.ph546, %._crit_edge541
-  %indvars.iv655 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next656, %._crit_edge541 ]
-  %.0284543 = phi i64 [ 0, %.lr.ph546 ], [ %179, %._crit_edge541 ]
-  %.0295542 = phi float [ 0.000000e+00, %.lr.ph546 ], [ %163, %._crit_edge541 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv655
+160:                                              ; preds = %.lr.ph548, %._crit_edge543
+  %indvars.iv657 = phi i64 [ 0, %.lr.ph548 ], [ %indvars.iv.next658, %._crit_edge543 ]
+  %.0284545 = phi i64 [ 0, %.lr.ph548 ], [ %179, %._crit_edge543 ]
+  %.0295544 = phi float [ 0.000000e+00, %.lr.ph548 ], [ %163, %._crit_edge543 ]
+  %161 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv657
   %162 = load ptr, ptr %161, align 8, !tbaa !92
-  %163 = fadd float %157, %.0295542
+  %163 = fadd float %157, %.0295544
   %164 = fadd float %163, -1.000000e+00
   %165 = fpext float %164 to double
   %166 = call i64 @lround(double noundef %165) #34, !tbaa !22
   %167 = icmp sgt i64 %166, 16384
-  %168 = icmp eq i64 %indvars.iv655, %159
+  %168 = icmp eq i64 %indvars.iv657, %159
   %or.cond366 = select i1 %167, i1 true, i1 %168
   %.0302 = select i1 %or.cond366, i64 16383, i64 %166
-  %.1303 = call i64 @llvm.smax.i64(i64 %.0302, i64 %.0284543)
-  %169 = trunc nuw nsw i64 %indvars.iv655 to i32
-  %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %169, i64 noundef %.0284543, i64 noundef %.1303)
+  %.1303 = call i64 @llvm.smax.i64(i64 %.0302, i64 %.0284545)
+  %169 = trunc nuw nsw i64 %indvars.iv657 to i32
+  %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %169, i64 noundef %.0284545, i64 noundef %.1303)
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 16468
   store i32 0, ptr %171, align 4, !tbaa !101
-  %sext602 = shl i64 %.0284543, 32
-  %172 = ashr exact i64 %sext602, 32
-  %.not354537 = icmp slt i64 %.1303, %172
-  br i1 %.not354537, label %._crit_edge541, label %.lr.ph540
+  %sext604 = shl i64 %.0284545, 32
+  %172 = ashr exact i64 %sext604, 32
+  %.not354539 = icmp slt i64 %.1303, %172
+  br i1 %.not354539, label %._crit_edge543, label %.lr.ph542
 
-.lr.ph540:                                        ; preds = %160
+.lr.ph542:                                        ; preds = %160
   %173 = getelementptr inbounds nuw i8, ptr %162, i64 84
   br label %174
 
-174:                                              ; preds = %.lr.ph540, %174
-  %indvars.iv652 = phi i64 [ %172, %.lr.ph540 ], [ %indvars.iv.next653, %174 ]
-  %175 = getelementptr inbounds i8, ptr %173, i64 %indvars.iv652
+174:                                              ; preds = %.lr.ph542, %174
+  %indvars.iv654 = phi i64 [ %172, %.lr.ph542 ], [ %indvars.iv.next655, %174 ]
+  %175 = getelementptr inbounds i8, ptr %173, i64 %indvars.iv654
   store i8 1, ptr %175, align 1, !tbaa !67
   %176 = load i32, ptr %171, align 4, !tbaa !101
   %177 = add nsw i32 %176, 1
   store i32 %177, ptr %171, align 4, !tbaa !101
-  %indvars.iv.next653 = add nsw i64 %indvars.iv652, 1
-  %.not354.not = icmp sgt i64 %.1303, %indvars.iv652
-  br i1 %.not354.not, label %174, label %._crit_edge541, !llvm.loop !102
+  %indvars.iv.next655 = add nsw i64 %indvars.iv654, 1
+  %.not354.not = icmp sgt i64 %.1303, %indvars.iv654
+  br i1 %.not354.not, label %174, label %._crit_edge543, !llvm.loop !102
 
-._crit_edge541:                                   ; preds = %174, %160
+._crit_edge543:                                   ; preds = %174, %160
   %178 = getelementptr inbounds nuw i8, ptr %162, i64 80
   store i32 1, ptr %178, align 8, !tbaa !103
   %179 = add nuw nsw i64 %.1303, 1
-  %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
-  %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
-  br i1 %exitcond659.not, label %._crit_edge547, label %160, !llvm.loop !104
+  %indvars.iv.next658 = add nuw nsw i64 %indvars.iv657, 1
+  %exitcond661.not = icmp eq i64 %indvars.iv.next658, %wide.trip.count660
+  br i1 %exitcond661.not, label %._crit_edge549, label %160, !llvm.loop !104
 
-._crit_edge547:                                   ; preds = %._crit_edge541
+._crit_edge549:                                   ; preds = %._crit_edge543
   %180 = zext nneg i32 %89 to i64
   %181 = getelementptr inbounds nuw ptr, ptr %96, i64 %180
   %182 = sub nsw i32 %.0265.lcssa, %89
   %183 = load ptr, ptr %181, align 8, !tbaa !92
   %184 = add nsw i32 %182, -1
   %185 = icmp sgt i32 %182, 1
-  br i1 %185, label %.lr.ph550.preheader, label %._crit_edge551
+  br i1 %185, label %.lr.ph552.preheader, label %._crit_edge553
 
-.lr.ph550.preheader:                              ; preds = %._crit_edge547
-  %wide.trip.count663 = zext nneg i32 %184 to i64
-  br label %.lr.ph550
+.lr.ph552.preheader:                              ; preds = %._crit_edge549
+  %wide.trip.count665 = zext nneg i32 %184 to i64
+  br label %.lr.ph552
 
-.lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
-  %indvars.iv660 = phi i64 [ 0, %.lr.ph550.preheader ], [ %indvars.iv.next661, %.lr.ph550 ]
-  %indvars.iv.next661 = add nuw nsw i64 %indvars.iv660, 1
-  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv.next661
+.lr.ph552:                                        ; preds = %.lr.ph552.preheader, %.lr.ph552
+  %indvars.iv662 = phi i64 [ 0, %.lr.ph552.preheader ], [ %indvars.iv.next663, %.lr.ph552 ]
+  %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
+  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv.next663
   %187 = load ptr, ptr %186, align 8, !tbaa !92
-  %188 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv660
+  %188 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv662
   store ptr %187, ptr %188, align 8, !tbaa !92
-  %exitcond664.not = icmp eq i64 %indvars.iv.next661, %wide.trip.count663
-  br i1 %exitcond664.not, label %._crit_edge551, label %.lr.ph550, !llvm.loop !105
+  %exitcond666.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count665
+  br i1 %exitcond666.not, label %._crit_edge553, label %.lr.ph552, !llvm.loop !105
 
-._crit_edge551:                                   ; preds = %.lr.ph550, %._crit_edge547
+._crit_edge553:                                   ; preds = %.lr.ph552, %._crit_edge549
   %189 = sext i32 %184 to i64
   %190 = getelementptr inbounds ptr, ptr %181, i64 %189
   store ptr %183, ptr %190, align 8, !tbaa !92
-  %smax673 = call i32 @llvm.smax.i32(i32 %89, i32 1)
-  %wide.trip.count674 = zext nneg i32 %smax673 to i64
-  br label %.lr.ph564.preheader
+  %smax675 = call i32 @llvm.smax.i32(i32 %89, i32 1)
+  %wide.trip.count676 = zext nneg i32 %smax675 to i64
+  br label %.lr.ph566.preheader
 
-.lr.ph564.preheader:                              ; preds = %._crit_edge551, %242
-  %191 = phi i1 [ true, %._crit_edge551 ], [ false, %242 ]
-  %.0296 = phi i32 [ %182, %._crit_edge551 ], [ %.3299, %242 ]
-  %.0276 = phi ptr [ %181, %._crit_edge551 ], [ %.3279, %242 ]
-  %.3268 = phi i32 [ %182, %._crit_edge551 ], [ %.6271, %242 ]
-  br label %.lr.ph564
+.lr.ph566.preheader:                              ; preds = %._crit_edge553, %242
+  %191 = phi i1 [ true, %._crit_edge553 ], [ false, %242 ]
+  %.0296 = phi i32 [ %182, %._crit_edge553 ], [ %.3299, %242 ]
+  %.0276 = phi ptr [ %181, %._crit_edge553 ], [ %.3279, %242 ]
+  %.3268 = phi i32 [ %182, %._crit_edge553 ], [ %.6271, %242 ]
+  br label %.lr.ph566
 
-.lr.ph564:                                        ; preds = %.lr.ph564.preheader, %.thread426
-  %indvars.iv670 = phi i64 [ 0, %.lr.ph564.preheader ], [ %indvars.iv.next671, %.thread426 ]
-  %.4269561 = phi i32 [ %.3268, %.lr.ph564.preheader ], [ %.6271, %.thread426 ]
-  %.1277560 = phi ptr [ %.0276, %.lr.ph564.preheader ], [ %.3279, %.thread426 ]
-  %.1297559 = phi i32 [ %.0296, %.lr.ph564.preheader ], [ %.3299, %.thread426 ]
-  %192 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv670
+.lr.ph566:                                        ; preds = %.lr.ph566.preheader, %.thread428
+  %indvars.iv672 = phi i64 [ 0, %.lr.ph566.preheader ], [ %indvars.iv.next673, %.thread428 ]
+  %.4269563 = phi i32 [ %.3268, %.lr.ph566.preheader ], [ %.6271, %.thread428 ]
+  %.1277562 = phi ptr [ %.0276, %.lr.ph566.preheader ], [ %.3279, %.thread428 ]
+  %.1297561 = phi i32 [ %.0296, %.lr.ph566.preheader ], [ %.3299, %.thread428 ]
+  %192 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv672
   %193 = load ptr, ptr %192, align 8, !tbaa !92
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 24
   br label %197
 
-197:                                              ; preds = %229, %.lr.ph564
-  %.2298 = phi i32 [ %.1297559, %.lr.ph564 ], [ %225, %229 ]
-  %.0293 = phi i32 [ 0, %.lr.ph564 ], [ %224, %229 ]
-  %.2278 = phi ptr [ %.1277560, %.lr.ph564 ], [ %.4280423, %229 ]
-  %.5270 = phi i32 [ %.4269561, %.lr.ph564 ], [ %.7272424, %229 ]
+197:                                              ; preds = %229, %.lr.ph566
+  %.2298 = phi i32 [ %.1297561, %.lr.ph566 ], [ %225, %229 ]
+  %.0293 = phi i32 [ 0, %.lr.ph566 ], [ %224, %229 ]
+  %.2278 = phi ptr [ %.1277562, %.lr.ph566 ], [ %.4280425, %229 ]
+  %.5270 = phi i32 [ %.4269563, %.lr.ph566 ], [ %.7272426, %229 ]
   %198 = icmp slt i32 %.0293, %87
   %199 = icmp ne i32 %.2298, 0
-  %or.cond3.not805 = select i1 %198, i1 %199, i1 false
+  %or.cond3.not807 = select i1 %198, i1 %199, i1 false
   %200 = icmp sgt i32 %.5270, 0
-  %or.cond743 = select i1 %or.cond3.not805, i1 %200, i1 false
-  br i1 %or.cond743, label %.lr.ph556.preheader, label %.thread426
+  %or.cond745 = select i1 %or.cond3.not807, i1 %200, i1 false
+  br i1 %or.cond745, label %.lr.ph558.preheader, label %.thread428
 
-.lr.ph556.preheader:                              ; preds = %197
-  %wide.trip.count668 = zext nneg i32 %.5270 to i64
-  br label %.lr.ph556
+.lr.ph558.preheader:                              ; preds = %197
+  %wide.trip.count670 = zext nneg i32 %.5270 to i64
+  br label %.lr.ph558
 
-.lr.ph556:                                        ; preds = %.lr.ph556.preheader, %212
-  %indvars.iv665 = phi i64 [ 0, %.lr.ph556.preheader ], [ %indvars.iv.next666, %212 ]
-  %.0285554 = phi i32 [ -1, %.lr.ph556.preheader ], [ %.2287.ph, %212 ]
-  %201 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %indvars.iv665
+.lr.ph558:                                        ; preds = %.lr.ph558.preheader, %212
+  %indvars.iv667 = phi i64 [ 0, %.lr.ph558.preheader ], [ %indvars.iv.next668, %212 ]
+  %.0285556 = phi i32 [ -1, %.lr.ph558.preheader ], [ %.2287.ph, %212 ]
+  %201 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %indvars.iv667
   %202 = load ptr, ptr %201, align 8, !tbaa !92
   %203 = icmp eq ptr %202, null
   br i1 %203, label %212, label %204
 
-204:                                              ; preds = %.lr.ph556
+204:                                              ; preds = %.lr.ph558
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %206 = load ptr, ptr %205, align 8, !tbaa !74
   %207 = load ptr, ptr %194, align 8, !tbaa !74
   %208 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %206, ptr noundef nonnull dereferenceable(1) %207) #36
   %.not349 = icmp eq i32 %208, 0
-  br i1 %.not349, label %209, label %.thread417
+  br i1 %.not349, label %209, label %.thread419
 
 209:                                              ; preds = %204
-  %210 = icmp slt i32 %.0285554, 0
-  %211 = trunc nuw nsw i64 %indvars.iv665 to i32
-  %spec.select = select i1 %210, i32 %211, i32 %.0285554
+  %210 = icmp slt i32 %.0285556, 0
+  %211 = trunc nuw nsw i64 %indvars.iv667 to i32
+  %spec.select = select i1 %210, i32 %211, i32 %.0285556
   br label %212
 
-212:                                              ; preds = %209, %.lr.ph556
-  %.2287.ph = phi i32 [ %.0285554, %.lr.ph556 ], [ %spec.select, %209 ]
-  %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
-  %exitcond669.not = icmp eq i64 %indvars.iv.next666, %wide.trip.count668
-  br i1 %exitcond669.not, label %._crit_edge557, label %.lr.ph556, !llvm.loop !106
+212:                                              ; preds = %209, %.lr.ph558
+  %.2287.ph = phi i32 [ %.0285556, %.lr.ph558 ], [ %spec.select, %209 ]
+  %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
+  %exitcond671.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count670
+  br i1 %exitcond671.not, label %._crit_edge559, label %.lr.ph558, !llvm.loop !106
 
-.thread417:                                       ; preds = %204
-  %213 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %indvars.iv665
+.thread419:                                       ; preds = %204
+  %213 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %indvars.iv667
   store ptr null, ptr %213, align 8, !tbaa !92
   br label %223
 
-._crit_edge557:                                   ; preds = %212
+._crit_edge559:                                   ; preds = %212
   %214 = icmp sgt i32 %.2287.ph, -1
-  br i1 %214, label %215, label %.thread426
+  br i1 %214, label %215, label %.thread428
 
-215:                                              ; preds = %._crit_edge557
+215:                                              ; preds = %._crit_edge559
   %216 = zext nneg i32 %.2287.ph to i64
   %217 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !92
@@ -2486,15 +2486,15 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %221 = zext nneg i32 %219 to i64
   %222 = getelementptr inbounds nuw ptr, ptr %.2278, i64 %221
   %.not351 = icmp eq ptr %218, null
-  br i1 %.not351, label %.thread426, label %223
+  br i1 %.not351, label %.thread428, label %223
 
-223:                                              ; preds = %.thread417, %215
-  %.7272424 = phi i32 [ %.5270, %.thread417 ], [ %220, %215 ]
-  %.4280423 = phi ptr [ %.2278, %.thread417 ], [ %222, %215 ]
-  %.0289422 = phi ptr [ %202, %.thread417 ], [ %218, %215 ]
+223:                                              ; preds = %.thread419, %215
+  %.7272426 = phi i32 [ %.5270, %.thread419 ], [ %220, %215 ]
+  %.4280425 = phi ptr [ %.2278, %.thread419 ], [ %222, %215 ]
+  %.0289424 = phi ptr [ %202, %.thread419 ], [ %218, %215 ]
   %224 = add nuw nsw i32 %.0293, 1
   %225 = add nsw i32 %.2298, -1
-  %226 = getelementptr inbounds nuw i8, ptr %.0289422, i64 72
+  %226 = getelementptr inbounds nuw i8, ptr %.0289424, i64 72
   %227 = load ptr, ptr %226, align 8, !tbaa !107
   %.not352 = icmp eq ptr %227, null
   br i1 %.not352, label %229, label %228
@@ -2507,52 +2507,52 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %230 = load ptr, ptr %195, align 8, !tbaa !108
   %231 = call ptr @hi_sdsnew(ptr noundef %230) #34
   store ptr %231, ptr %226, align 8, !tbaa !107
-  %232 = getelementptr inbounds nuw i8, ptr %.0289422, i64 80
+  %232 = getelementptr inbounds nuw i8, ptr %.0289424, i64 80
   store i32 1, ptr %232, align 8, !tbaa !103
-  %233 = getelementptr inbounds nuw i8, ptr %.0289422, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.0289424, i64 16
   %234 = load ptr, ptr %233, align 8, !tbaa !74
-  %235 = getelementptr inbounds nuw i8, ptr %.0289422, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %.0289424, i64 24
   %236 = load i32, ptr %235, align 8, !tbaa !77
   %237 = load ptr, ptr %194, align 8, !tbaa !74
   %238 = load i32, ptr %196, align 8, !tbaa !77
   %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.173, ptr noundef %234, i32 noundef %236, ptr noundef %237, i32 noundef %238)
-  br i1 %191, label %197, label %.thread426
+  br i1 %191, label %197, label %.thread428
 
-.thread426:                                       ; preds = %._crit_edge557, %215, %229, %197
-  %.3299 = phi i32 [ %.2298, %197 ], [ %.2298, %215 ], [ %225, %229 ], [ %.2298, %._crit_edge557 ]
-  %.3279 = phi ptr [ %.2278, %197 ], [ %222, %215 ], [ %.4280423, %229 ], [ %.2278, %._crit_edge557 ]
-  %.6271 = phi i32 [ %.5270, %197 ], [ %220, %215 ], [ %.7272424, %229 ], [ %.5270, %._crit_edge557 ]
-  %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
-  %exitcond675.not = icmp eq i64 %indvars.iv.next671, %wide.trip.count674
-  br i1 %exitcond675.not, label %._crit_edge565, label %.lr.ph564, !llvm.loop !109
+.thread428:                                       ; preds = %._crit_edge559, %215, %229, %197
+  %.3299 = phi i32 [ %.2298, %197 ], [ %.2298, %215 ], [ %225, %229 ], [ %.2298, %._crit_edge559 ]
+  %.3279 = phi ptr [ %.2278, %197 ], [ %222, %215 ], [ %.4280425, %229 ], [ %.2278, %._crit_edge559 ]
+  %.6271 = phi i32 [ %.5270, %197 ], [ %220, %215 ], [ %.7272426, %229 ], [ %.5270, %._crit_edge559 ]
+  %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 1
+  %exitcond677.not = icmp eq i64 %indvars.iv.next673, %wide.trip.count676
+  br i1 %exitcond677.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !109
 
-._crit_edge565:                                   ; preds = %.thread426
+._crit_edge567:                                   ; preds = %.thread428
   %240 = icmp sgt i32 %.3299, 0
   %or.cond = select i1 %191, i1 %240, i1 false
   br i1 %or.cond, label %242, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge565
-  %241 = icmp sgt i32 %.0274.lcssa737, 0
-  br i1 %241, label %.lr.ph570.preheader, label %._crit_edge571
+.preheader:                                       ; preds = %._crit_edge567
+  %241 = icmp sgt i32 %.0274.lcssa739, 0
+  br i1 %241, label %.lr.ph572.preheader, label %._crit_edge573
 
-.lr.ph570.preheader:                              ; preds = %.preheader
-  %wide.trip.count679 = zext nneg i32 %.0274.lcssa737 to i64
-  br label %.lr.ph570
+.lr.ph572.preheader:                              ; preds = %.preheader
+  %wide.trip.count681 = zext nneg i32 %.0274.lcssa739 to i64
+  br label %.lr.ph572
 
-242:                                              ; preds = %._crit_edge565
+242:                                              ; preds = %._crit_edge567
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %.lr.ph564.preheader
+  br label %.lr.ph566.preheader
 
-.lr.ph570:                                        ; preds = %.lr.ph570.preheader, %clusterManagerNodeArrayReset.exit
-  %indvars.iv676 = phi i64 [ 0, %.lr.ph570.preheader ], [ %indvars.iv.next677, %clusterManagerNodeArrayReset.exit ]
-  %243 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv676
+.lr.ph572:                                        ; preds = %.lr.ph572.preheader, %clusterManagerNodeArrayReset.exit
+  %indvars.iv678 = phi i64 [ 0, %.lr.ph572.preheader ], [ %indvars.iv.next679, %clusterManagerNodeArrayReset.exit ]
+  %243 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv678
   %244 = load ptr, ptr %243, align 8, !tbaa !91
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !99
   %247 = icmp ugt ptr %244, %246
   br i1 %247, label %248, label %clusterManagerNodeArrayReset.exit
 
-248:                                              ; preds = %.lr.ph570
+248:                                              ; preds = %.lr.ph572
   %249 = ptrtoint ptr %244 to i64
   %250 = ptrtoint ptr %246 to i64
   %251 = sub i64 %249, %250
@@ -2575,8 +2575,8 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %262 ]
   %258 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv.i
   %259 = load ptr, ptr %258, align 8, !tbaa !92
-  %.not.i381 = icmp eq ptr %259, null
-  br i1 %.not.i381, label %262, label %260
+  %.not.i383 = icmp eq ptr %259, null
+  br i1 %.not.i383, label %262, label %260
 
 260:                                              ; preds = %.lr.ph.i
   %261 = add nsw i32 %257, 1
@@ -2589,19 +2589,19 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %clusterManagerNodeArrayReset.exit, label %.lr.ph.i, !llvm.loop !110
 
-clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %248
-  %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
-  %exitcond680.not = icmp eq i64 %indvars.iv.next677, %wide.trip.count679
-  br i1 %exitcond680.not, label %._crit_edge571, label %.lr.ph570, !llvm.loop !111
+clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph572, %248
+  %indvars.iv.next679 = add nuw nsw i64 %indvars.iv678, 1
+  %exitcond682.not = icmp eq i64 %indvars.iv.next679, %wide.trip.count681
+  br i1 %exitcond682.not, label %._crit_edge573, label %.lr.ph572, !llvm.loop !111
 
-._crit_edge571:                                   ; preds = %clusterManagerNodeArrayReset.exit, %.preheader
+._crit_edge573:                                   ; preds = %clusterManagerNodeArrayReset.exit, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !112
-  %264 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa737, ptr noundef null, ptr noundef null)
+  %264 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa739, ptr noundef null, ptr noundef null)
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %clusterManagerOptimizeAntiAffinity.exit, label %266
 
-266:                                              ; preds = %._crit_edge571
+266:                                              ; preds = %._crit_edge573
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.212)
   %267 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 40
@@ -2625,8 +2625,8 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   %.069.i = phi i32 [ %274, %.lr.ph71.i ], [ %324, %323 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !22
-  %.not.i382 = icmp eq ptr %278, null
-  br i1 %.not.i382, label %280, label %279
+  %.not.i384 = icmp eq ptr %278, null
+  br i1 %.not.i384, label %280, label %279
 
 279:                                              ; preds = %277
   call void @zfree(ptr noundef nonnull %278) #34
@@ -2634,7 +2634,7 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   br label %280
 
 280:                                              ; preds = %279, %277
-  %281 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa737, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %281 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa739, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %282 = icmp eq i32 %281, 0
   %283 = load i32, ptr %6, align 4
   %284 = icmp eq i32 %283, 0
@@ -2659,9 +2659,9 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   call void @listRewind(ptr noundef %293, ptr noundef nonnull %7) #34
   %294 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not5967.i = icmp eq ptr %294, null
-  br i1 %.not5967.i, label %.thread64.i, label %.lr.ph.i383
+  br i1 %.not5967.i, label %.thread64.i, label %.lr.ph.i385
 
-.lr.ph.i383:                                      ; preds = %285, %305
+.lr.ph.i385:                                      ; preds = %285, %305
   %295 = phi ptr [ %306, %305 ], [ %294, %285 ]
   %.05268.i = phi i32 [ %.153.i, %305 ], [ 0, %285 ]
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
@@ -2669,7 +2669,7 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   %.not60.i = icmp eq ptr %297, %291
   br i1 %.not60.i, label %305, label %298
 
-298:                                              ; preds = %.lr.ph.i383
+298:                                              ; preds = %.lr.ph.i385
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 72
   %300 = load ptr, ptr %299, align 8, !tbaa !107
   %.not61.i = icmp eq ptr %300, null
@@ -2682,11 +2682,11 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   store ptr %297, ptr %304, align 8, !tbaa !92
   br label %305
 
-305:                                              ; preds = %301, %298, %.lr.ph.i383
-  %.153.i = phi i32 [ %302, %301 ], [ %.05268.i, %298 ], [ %.05268.i, %.lr.ph.i383 ]
+305:                                              ; preds = %301, %298, %.lr.ph.i385
+  %.153.i = phi i32 [ %302, %301 ], [ %.05268.i, %298 ], [ %.05268.i, %.lr.ph.i385 ]
   %306 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not59.i = icmp eq ptr %306, null
-  br i1 %.not59.i, label %._crit_edge.i, label %.lr.ph.i383, !llvm.loop !113
+  br i1 %.not59.i, label %._crit_edge.i, label %.lr.ph.i385, !llvm.loop !113
 
 ._crit_edge.i:                                    ; preds = %305
   %307 = icmp eq i32 %.153.i, 0
@@ -2714,7 +2714,7 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   store ptr %315, ptr %316, align 8, !tbaa !107
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 80
   store i32 1, ptr %319, align 8, !tbaa !103
-  %320 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa737, ptr noundef null, ptr noundef null)
+  %320 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa739, ptr noundef null, ptr noundef null)
   %321 = icmp samesign ugt i32 %320, %281
   br i1 %321, label %322, label %323
 
@@ -2733,7 +2733,7 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
 
 .loopexit.i:                                      ; preds = %323, %.thread64.i, %.thread.i, %266
   %.pre.i = phi ptr [ null, %266 ], [ %288, %.thread64.i ], [ %.pre.pre.i, %.thread.i ], [ %288, %323 ]
-  %326 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa737, ptr noundef null, ptr noundef null)
+  %326 = call fastcc i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly %100, i32 noundef %.0274.lcssa739, ptr noundef null, ptr noundef null)
   %327 = icmp eq i32 %326, 0
   %328 = select i1 %327, i32 4, i32 2
   %329 = icmp samesign ugt i32 %326, 9999
@@ -2742,8 +2742,8 @@ clusterManagerNodeArrayReset.exit:                ; preds = %262, %.lr.ph570, %2
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef %328, ptr noundef nonnull @.str.4, ptr noundef nonnull %.049.i)
   br label %clusterManagerOptimizeAntiAffinity.exit
 
-clusterManagerOptimizeAntiAffinity.exit:          ; preds = %._crit_edge571, %.loopexit.i
-  %330 = phi ptr [ null, %._crit_edge571 ], [ %.pre.i, %.loopexit.i ]
+clusterManagerOptimizeAntiAffinity.exit:          ; preds = %._crit_edge573, %.loopexit.i
+  %330 = phi ptr [ null, %._crit_edge573 ], [ %.pre.i, %.loopexit.i ]
   call void @zfree(ptr noundef %330) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2751,20 +2751,20 @@ clusterManagerOptimizeAntiAffinity.exit:          ; preds = %._crit_edge571, %.l
   call void @listRewind(ptr noundef %331, ptr noundef nonnull %4) #34
   %332 = call ptr @listNext(ptr noundef nonnull %4) #34
   %.not4.i = icmp eq ptr %332, null
-  br i1 %.not4.i, label %clusterManagerShowNodes.exit, label %.lr.ph.i384
+  br i1 %.not4.i, label %clusterManagerShowNodes.exit, label %.lr.ph.i386
 
-.lr.ph.i384:                                      ; preds = %clusterManagerOptimizeAntiAffinity.exit, %.lr.ph.i384
-  %333 = phi ptr [ %337, %.lr.ph.i384 ], [ %332, %clusterManagerOptimizeAntiAffinity.exit ]
+.lr.ph.i386:                                      ; preds = %clusterManagerOptimizeAntiAffinity.exit, %.lr.ph.i386
+  %333 = phi ptr [ %337, %.lr.ph.i386 ], [ %332, %clusterManagerOptimizeAntiAffinity.exit ]
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 16
   %335 = load ptr, ptr %334, align 8, !tbaa !96
   %336 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %335, i32 noundef 0)
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %336)
   call void @hi_sdsfree(ptr noundef nonnull %336) #34
   %337 = call ptr @listNext(ptr noundef nonnull %4) #34
-  %.not.i385 = icmp eq ptr %337, null
-  br i1 %.not.i385, label %clusterManagerShowNodes.exit, label %.lr.ph.i384, !llvm.loop !114
+  %.not.i387 = icmp eq ptr %337, null
+  br i1 %.not.i387, label %clusterManagerShowNodes.exit, label %.lr.ph.i386, !llvm.loop !114
 
-clusterManagerShowNodes.exit:                     ; preds = %.lr.ph.i384, %clusterManagerOptimizeAntiAffinity.exit
+clusterManagerShowNodes.exit:                     ; preds = %.lr.ph.i386, %clusterManagerOptimizeAntiAffinity.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %338 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
   %339 = and i32 %338, 4
@@ -2782,10 +2782,10 @@ clusterManagerShowNodes.exit:                     ; preds = %.lr.ph.i384, %clust
   %347 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %347, align 1, !tbaa !67
   %348 = and i64 %346, 4294967295
-  %.not4.i388 = icmp eq i64 %348, 0
-  br i1 %.not4.i388, label %confirmWithYes.exit.thread434, label %confirmWithYes.exit
+  %.not4.i390 = icmp eq i64 %348, 0
+  br i1 %.not4.i390, label %confirmWithYes.exit.thread436, label %confirmWithYes.exit
 
-confirmWithYes.exit.thread434:                    ; preds = %340
+confirmWithYes.exit.thread436:                    ; preds = %340
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %465
 
@@ -2799,10 +2799,10 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %349 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %349, ptr noundef nonnull %9) #34
   %350 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not327572 = icmp eq ptr %350, null
-  br i1 %.not327572, label %._crit_edge574, label %.lr.ph573
+  %.not327574 = icmp eq ptr %350, null
+  br i1 %.not327574, label %._crit_edge576, label %.lr.ph575
 
-.lr.ph573:                                        ; preds = %confirmWithYes.exit.thread, %371
+.lr.ph575:                                        ; preds = %confirmWithYes.exit.thread, %371
   %351 = phi ptr [ %372, %371 ], [ %350, %confirmWithYes.exit.thread ]
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
   %353 = load ptr, ptr %352, align 8, !tbaa !96
@@ -2812,7 +2812,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %.not344 = icmp eq i32 %354, 0
   br i1 %.not344, label %355, label %368
 
-355:                                              ; preds = %.lr.ph573
+355:                                              ; preds = %.lr.ph575
   %356 = getelementptr inbounds nuw i8, ptr %353, i64 80
   %357 = load i32, ptr %356, align 8, !tbaa !103
   %.not345 = icmp eq i32 %357, 0
@@ -2827,7 +2827,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
 361:                                              ; preds = %358
   %362 = load ptr, ptr %10, align 8, !tbaa !24
   %.not347 = icmp eq ptr %362, null
-  br i1 %.not347, label %.thread437, label %363
+  br i1 %.not347, label %.thread439, label %363
 
 363:                                              ; preds = %361
   %364 = getelementptr inbounds nuw i8, ptr %353, i64 16
@@ -2836,9 +2836,9 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %367 = load i32, ptr %366, align 8, !tbaa !77
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %365, i32 noundef %367, ptr noundef nonnull %362)
   call void @zfree(ptr noundef nonnull %362) #34
-  br label %.thread437
+  br label %.thread439
 
-368:                                              ; preds = %358, %355, %.lr.ph573
+368:                                              ; preds = %358, %355, %.lr.ph575
   %369 = load ptr, ptr %10, align 8, !tbaa !24
   %.not348 = icmp eq ptr %369, null
   br i1 %.not348, label %371, label %370
@@ -2847,7 +2847,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   call void @zfree(ptr noundef nonnull %369) #34
   br label %371
 
-.thread437:                                       ; preds = %363, %361
+.thread439:                                       ; preds = %363, %361
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %465
 
@@ -2855,62 +2855,62 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %372 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not327 = icmp eq ptr %372, null
-  br i1 %.not327, label %._crit_edge574, label %.lr.ph573
+  br i1 %.not327, label %._crit_edge576, label %.lr.ph575
 
-._crit_edge574:                                   ; preds = %371, %confirmWithYes.exit.thread
+._crit_edge576:                                   ; preds = %371, %confirmWithYes.exit.thread
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.176)
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.177)
   %373 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %373, ptr noundef nonnull %9) #34
   %374 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not328575 = icmp eq ptr %374, null
-  br i1 %.not328575, label %._crit_edge579, label %.lr.ph578
+  %.not328577 = icmp eq ptr %374, null
+  br i1 %.not328577, label %._crit_edge581, label %.lr.ph580
 
-.lr.ph578:                                        ; preds = %._crit_edge574, %382
-  %375 = phi ptr [ %383, %382 ], [ %374, %._crit_edge574 ]
-  %.0273576 = phi i32 [ %379, %382 ], [ 1, %._crit_edge574 ]
+.lr.ph580:                                        ; preds = %._crit_edge576, %382
+  %375 = phi ptr [ %383, %382 ], [ %374, %._crit_edge576 ]
+  %.0273578 = phi i32 [ %379, %382 ], [ 1, %._crit_edge576 ]
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
   %377 = load ptr, ptr %376, align 8, !tbaa !96
   %378 = load ptr, ptr %377, align 8, !tbaa !82
-  %379 = add nuw nsw i32 %.0273576, 1
-  %380 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %378, ptr noundef nonnull @.str.178, i32 noundef %.0273576) #34
+  %379 = add nuw nsw i32 %.0273578, 1
+  %380 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %378, ptr noundef nonnull @.str.178, i32 noundef %.0273578) #34
   %.not343 = icmp eq ptr %380, null
   br i1 %.not343, label %382, label %381
 
-381:                                              ; preds = %.lr.ph578
+381:                                              ; preds = %.lr.ph580
   call void @freeReplyObject(ptr noundef nonnull %380) #34
   br label %382
 
-382:                                              ; preds = %381, %.lr.ph578
+382:                                              ; preds = %381, %.lr.ph580
   %383 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not328 = icmp eq ptr %383, null
-  br i1 %.not328, label %._crit_edge579, label %.lr.ph578, !llvm.loop !116
+  br i1 %.not328, label %._crit_edge581, label %.lr.ph580, !llvm.loop !116
 
-._crit_edge579:                                   ; preds = %382, %._crit_edge574
+._crit_edge581:                                   ; preds = %382, %._crit_edge576
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.179)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %384 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %384, ptr noundef nonnull %9) #34
   %385 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not329581 = icmp eq ptr %385, null
-  br i1 %.not329581, label %._crit_edge585, label %.lr.ph584
+  %.not329583 = icmp eq ptr %385, null
+  br i1 %.not329583, label %._crit_edge587, label %.lr.ph586
 
-.lr.ph584:                                        ; preds = %._crit_edge579, %426
-  %386 = phi ptr [ %427, %426 ], [ %385, %._crit_edge579 ]
-  %.0263582 = phi ptr [ %.1264, %426 ], [ null, %._crit_edge579 ]
+.lr.ph586:                                        ; preds = %._crit_edge581, %426
+  %386 = phi ptr [ %427, %426 ], [ %385, %._crit_edge581 ]
+  %.0263584 = phi ptr [ %.1264, %426 ], [ null, %._crit_edge581 ]
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8, !tbaa !96
-  %389 = icmp eq ptr %.0263582, null
+  %389 = icmp eq ptr %.0263584, null
   br i1 %389, label %390, label %403
 
-390:                                              ; preds = %.lr.ph584
+390:                                              ; preds = %.lr.ph586
   %391 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 704), align 8, !tbaa !117
   %.not341 = icmp eq i32 %391, 0
-  %spec.select369 = select i1 %.not341, i32 0, i32 2
+  %spec.select371 = select i1 %.not341, i32 0, i32 2
   %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 708), align 4, !tbaa !118
   %.not342 = icmp eq i32 %392, 0
-  %393 = or disjoint i32 %spec.select369, 4
-  %.1250 = select i1 %.not342, i32 %spec.select369, i32 %393
+  %393 = or disjoint i32 %spec.select371, 4
+  %.1250 = select i1 %.not342, i32 %spec.select371, i32 %393
   %394 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %395 = load ptr, ptr %394, align 8, !tbaa !74
   %396 = call i32 @anetResolve(ptr noundef null, ptr noundef %395, ptr noundef nonnull %11, i64 noundef 46, i32 noundef %.1250) #34
@@ -2922,42 +2922,42 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %400 = load ptr, ptr @stderr, align 8, !tbaa !5
   %401 = load ptr, ptr %399, align 8, !tbaa !74
   %402 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %400, ptr noundef nonnull @.str.180, ptr noundef %401) #40
-  br label %.thread453
+  br label %.thread455
 
-403:                                              ; preds = %.lr.ph584
-  %404 = getelementptr inbounds nuw i8, ptr %.0263582, i64 28
+403:                                              ; preds = %.lr.ph586
+  %404 = getelementptr inbounds nuw i8, ptr %.0263584, i64 28
   %405 = load i32, ptr %404, align 4, !tbaa !78
   %406 = icmp eq i32 %405, 0
-  %.phi.trans.insert691 = getelementptr inbounds nuw i8, ptr %.0263582, i64 24
-  %.pre692 = load i32, ptr %.phi.trans.insert691, align 8, !tbaa !77
-  %407 = add nsw i32 %.pre692, 10000
+  %.phi.trans.insert693 = getelementptr inbounds nuw i8, ptr %.0263584, i64 24
+  %.pre694 = load i32, ptr %.phi.trans.insert693, align 8, !tbaa !77
+  %407 = add nsw i32 %.pre694, 10000
   %408 = icmp eq i32 %405, %407
-  %or.cond802 = select i1 %406, i1 true, i1 %408
+  %or.cond804 = select i1 %406, i1 true, i1 %408
   %409 = load ptr, ptr %388, align 8, !tbaa !82
-  br i1 %or.cond802, label %._crit_edge690, label %411
+  br i1 %or.cond804, label %._crit_edge692, label %411
 
-._crit_edge690:                                   ; preds = %403
-  %410 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %409, ptr noundef nonnull @.str.181, ptr noundef nonnull %11, i32 noundef %.pre692) #34
+._crit_edge692:                                   ; preds = %403
+  %410 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %409, ptr noundef nonnull @.str.181, ptr noundef nonnull %11, i32 noundef %.pre694) #34
   br label %413
 
 411:                                              ; preds = %403
-  %412 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %409, ptr noundef nonnull @.str.182, ptr noundef nonnull %11, i32 noundef %.pre692, i32 noundef %405) #34
+  %412 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %409, ptr noundef nonnull @.str.182, ptr noundef nonnull %11, i32 noundef %.pre694, i32 noundef %405) #34
   br label %413
 
-413:                                              ; preds = %411, %._crit_edge690
-  %.0248 = phi ptr [ %410, %._crit_edge690 ], [ %412, %411 ]
+413:                                              ; preds = %411, %._crit_edge692
+  %.0248 = phi ptr [ %410, %._crit_edge692 ], [ %412, %411 ]
   %.not339 = icmp eq ptr %.0248, null
-  br i1 %.not339, label %.thread440, label %414
+  br i1 %.not339, label %.thread442, label %414
 
 414:                                              ; preds = %413
   %415 = load i32, ptr %.0248, align 8, !tbaa !56
-  %.not458 = icmp eq i32 %415, 6
-  br i1 %.not458, label %418, label %425
+  %.not460 = icmp eq i32 %415, 6
+  br i1 %.not460, label %418, label %425
 
-.thread440:                                       ; preds = %413
+.thread442:                                       ; preds = %413
   %416 = load ptr, ptr @stderr, align 8, !tbaa !5
   %417 = call i64 @fwrite(ptr nonnull @.str.183, i64 37, i64 1, ptr %416) #35
-  br label %.thread453
+  br label %.thread455
 
 418:                                              ; preds = %414
   %419 = getelementptr inbounds nuw i8, ptr %388, i64 16
@@ -2968,29 +2968,29 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %424 = load ptr, ptr %423, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %420, i32 noundef %422, ptr noundef %424)
   call void @freeReplyObject(ptr noundef nonnull %.0248) #34
-  br label %.thread453
+  br label %.thread455
 
 425:                                              ; preds = %414
   call void @freeReplyObject(ptr noundef nonnull %.0248) #34
   br label %426
 
 426:                                              ; preds = %425, %390
-  %.1264 = phi ptr [ %388, %390 ], [ %.0263582, %425 ]
+  %.1264 = phi ptr [ %388, %390 ], [ %.0263584, %425 ]
   %427 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not329 = icmp eq ptr %427, null
-  br i1 %.not329, label %._crit_edge585, label %.lr.ph584
+  br i1 %.not329, label %._crit_edge587, label %.lr.ph586
 
-._crit_edge585:                                   ; preds = %426, %._crit_edge579
+._crit_edge587:                                   ; preds = %426, %._crit_edge581
   %428 = call i32 @sleep(i32 noundef 1) #34
   call fastcc void @clusterManagerWaitForClusterJoin()
   %429 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %429, ptr noundef nonnull %9) #34
   %430 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not330586 = icmp eq ptr %430, null
-  br i1 %.not330586, label %._crit_edge590, label %.lr.ph589
+  %.not330588 = icmp eq ptr %430, null
+  br i1 %.not330588, label %._crit_edge592, label %.lr.ph591
 
-.lr.ph589:                                        ; preds = %._crit_edge585, %.backedge
-  %431 = phi ptr [ %452, %.backedge ], [ %430, %._crit_edge585 ]
+.lr.ph591:                                        ; preds = %._crit_edge587, %.backedge
+  %431 = phi ptr [ %452, %.backedge ], [ %430, %._crit_edge587 ]
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %433 = load ptr, ptr %432, align 8, !tbaa !96
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 80
@@ -2998,7 +2998,7 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   %.not334 = icmp eq i32 %435, 0
   br i1 %.not334, label %.backedge, label %436, !llvm.loop !120
 
-436:                                              ; preds = %.lr.ph589
+436:                                              ; preds = %.lr.ph591
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !24
   %437 = call fastcc i32 @clusterManagerFlushNodeConfig(ptr noundef nonnull %433, ptr noundef %12)
@@ -3043,80 +3043,80 @@ confirmWithYes.exit.thread:                       ; preds = %clusterManagerShowN
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %465
 
-.backedge:                                        ; preds = %451, %.lr.ph589
+.backedge:                                        ; preds = %451, %.lr.ph591
   %452 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not330 = icmp eq ptr %452, null
-  br i1 %.not330, label %._crit_edge590, label %.lr.ph589, !llvm.loop !120
+  br i1 %.not330, label %._crit_edge592, label %.lr.ph591, !llvm.loop !120
 
-._crit_edge590:                                   ; preds = %.backedge, %._crit_edge585
+._crit_edge592:                                   ; preds = %.backedge, %._crit_edge587
   %453 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %453, ptr noundef nonnull %9) #34
   %454 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not331592 = icmp eq ptr %454, null
-  br i1 %.not331592, label %._crit_edge596, label %.lr.ph595
+  %.not331594 = icmp eq ptr %454, null
+  br i1 %.not331594, label %._crit_edge598, label %.lr.ph597
 
-.lr.ph595:                                        ; preds = %._crit_edge590, %459
-  %455 = phi ptr [ %460, %459 ], [ %454, %._crit_edge590 ]
-  %.0235593 = phi ptr [ %.1236, %459 ], [ null, %._crit_edge590 ]
+.lr.ph597:                                        ; preds = %._crit_edge592, %459
+  %455 = phi ptr [ %460, %459 ], [ %454, %._crit_edge592 ]
+  %.0235595 = phi ptr [ %.1236, %459 ], [ null, %._crit_edge592 ]
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
   %457 = load ptr, ptr %456, align 8, !tbaa !96
-  %.not333 = icmp eq ptr %.0235593, null
+  %.not333 = icmp eq ptr %.0235595, null
   br i1 %.not333, label %459, label %458
 
-458:                                              ; preds = %.lr.ph595
+458:                                              ; preds = %.lr.ph597
   call fastcc void @freeClusterManagerNode(ptr noundef %457)
   br label %459
 
-459:                                              ; preds = %.lr.ph595, %458
-  %.1236 = phi ptr [ %.0235593, %458 ], [ %457, %.lr.ph595 ]
+459:                                              ; preds = %.lr.ph597, %458
+  %.1236 = phi ptr [ %.0235595, %458 ], [ %457, %.lr.ph597 ]
   %460 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not331 = icmp eq ptr %460, null
-  br i1 %.not331, label %._crit_edge596, label %.lr.ph595, !llvm.loop !121
+  br i1 %.not331, label %._crit_edge598, label %.lr.ph597, !llvm.loop !121
 
-._crit_edge596:                                   ; preds = %459, %._crit_edge590
-  %.0235.lcssa = phi ptr [ null, %._crit_edge590 ], [ %.1236, %459 ]
+._crit_edge598:                                   ; preds = %459, %._crit_edge592
+  %.0235.lcssa = phi ptr [ null, %._crit_edge592 ], [ %.1236, %459 ]
   %461 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listEmpty(ptr noundef %461) #34
   %462 = call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %.0235.lcssa)
   %.not332 = icmp eq i32 %462, 0
-  br i1 %.not332, label %.thread453, label %463
+  br i1 %.not332, label %.thread455, label %463
 
-463:                                              ; preds = %._crit_edge596
+463:                                              ; preds = %._crit_edge598
   %464 = call fastcc i32 @clusterManagerCheckCluster(i32 noundef 0)
-  br label %.thread453
+  br label %.thread455
 
-.thread453:                                       ; preds = %463, %._crit_edge596, %398, %418, %.thread440
-  %.7246.ph = phi i32 [ 0, %._crit_edge596 ], [ 1, %463 ], [ 0, %398 ], [ 0, %418 ], [ 0, %.thread440 ]
+.thread455:                                       ; preds = %463, %._crit_edge598, %398, %418, %.thread442
+  %.7246.ph = phi i32 [ 0, %._crit_edge598 ], [ 1, %463 ], [ 0, %398 ], [ 0, %418 ], [ 0, %.thread442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %465
 
-465:                                              ; preds = %.thread, %.thread453, %.thread437, %confirmWithYes.exit.thread434, %confirmWithYes.exit
-  %.2241 = phi i32 [ 1, %confirmWithYes.exit ], [ 1, %confirmWithYes.exit.thread434 ], [ 0, %.thread437 ], [ %.7246.ph, %.thread453 ], [ 0, %.thread ]
+465:                                              ; preds = %.thread, %.thread455, %.thread439, %confirmWithYes.exit.thread436, %confirmWithYes.exit
+  %.2241 = phi i32 [ 1, %confirmWithYes.exit ], [ 1, %confirmWithYes.exit.thread436 ], [ 0, %.thread439 ], [ %.7246.ph, %.thread455 ], [ 0, %.thread ]
   call void @zfree(ptr noundef %96) #34
   call void @zfree(ptr noundef %98) #34
-  br i1 %155, label %.lr.ph600.preheader, label %._crit_edge601
+  br i1 %155, label %.lr.ph602.preheader, label %._crit_edge603
 
-.lr.ph600.preheader:                              ; preds = %465
-  %wide.trip.count684 = and i64 %85, 2147483647
-  br label %.lr.ph600
+.lr.ph602.preheader:                              ; preds = %465
+  %wide.trip.count686 = and i64 %85, 2147483647
+  br label %.lr.ph602
 
-.lr.ph600:                                        ; preds = %.lr.ph600.preheader, %.lr.ph600
-  %indvars.iv681 = phi i64 [ 0, %.lr.ph600.preheader ], [ %indvars.iv.next682, %.lr.ph600 ]
-  %466 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv681
+.lr.ph602:                                        ; preds = %.lr.ph602.preheader, %.lr.ph602
+  %indvars.iv683 = phi i64 [ 0, %.lr.ph602.preheader ], [ %indvars.iv.next684, %.lr.ph602 ]
+  %466 = getelementptr inbounds nuw %struct.clusterManagerNodeArray, ptr %100, i64 %indvars.iv683
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8, !tbaa !99
   call void @zfree(ptr noundef %468) #34
-  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
-  %exitcond685.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count684
-  br i1 %exitcond685.not, label %._crit_edge601, label %.lr.ph600, !llvm.loop !122
+  %indvars.iv.next684 = add nuw nsw i64 %indvars.iv683, 1
+  %exitcond687.not = icmp eq i64 %indvars.iv.next684, %wide.trip.count686
+  br i1 %exitcond687.not, label %._crit_edge603, label %.lr.ph602, !llvm.loop !122
 
-._crit_edge601:                                   ; preds = %.lr.ph600, %465
+._crit_edge603:                                   ; preds = %.lr.ph602, %465
   call void @zfree(ptr noundef %100) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %41, %82, %91, %._crit_edge601
-  %.4 = phi i32 [ 0, %82 ], [ 0, %91 ], [ %.2241, %._crit_edge601 ], [ 0, %41 ], [ 0, %21 ]
+.critedge:                                        ; preds = %21, %41, %82, %91, %._crit_edge603
+  %.4 = phi i32 [ 0, %82 ], [ 0, %91 ], [ %.2241, %._crit_edge603 ], [ 0, %41 ], [ 0, %21 ]
   ret i32 %.4
 }
 
@@ -3388,10 +3388,10 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %21
 49:                                               ; preds = %41, %38
   %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 608), align 8, !tbaa !124
   %.not134 = icmp eq i32 %50, 0
-  br i1 %.not134, label %.preheader284, label %.loopexit285
+  br i1 %.not134, label %.preheader290, label %.loopexit291
 
-.preheader284:                                    ; preds = %49, %68
-  %.192288 = phi i32 [ %.293, %68 ], [ 0, %49 ]
+.preheader290:                                    ; preds = %49, %68
+  %.192294 = phi i32 [ %.293, %68 ], [ 0, %49 ]
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.368, i32 noundef 16384)
   %52 = load ptr, ptr @stdout, align 8, !tbaa !5
   %53 = tail call i32 @fflush(ptr noundef %52)
@@ -3403,43 +3403,43 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %21
   %58 = icmp slt i32 %57, 1
   br i1 %58, label %68, label %59, !llvm.loop !125
 
-59:                                               ; preds = %.preheader284
+59:                                               ; preds = %.preheader290
   %60 = add i64 %56, 4294967295
   %61 = and i64 %60, 4294967295
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !67
   %.not135 = icmp eq i8 %63, 10
-  br i1 %.not135, label %.loopexit283, label %.preheader282
+  br i1 %.not135, label %.loopexit289, label %.preheader288
 
-.preheader282:                                    ; preds = %59, %.preheader282
+.preheader288:                                    ; preds = %59, %.preheader288
   %64 = load ptr, ptr @stdin, align 8, !tbaa !5
   %65 = tail call i32 @getc(ptr noundef %64)
-  switch i32 %65, label %.preheader282 [
-    i32 -1, label %.loopexit283
-    i32 10, label %.loopexit283
+  switch i32 %65, label %.preheader288 [
+    i32 -1, label %.loopexit289
+    i32 10, label %.loopexit289
   ]
 
-.loopexit283:                                     ; preds = %.preheader282, %.preheader282, %59
+.loopexit289:                                     ; preds = %.preheader288, %.preheader288, %59
   store i8 0, ptr %62, align 1, !tbaa !67
   %66 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #34
   %67 = trunc i64 %66 to i32
   br label %68
 
-68:                                               ; preds = %.preheader284, %.loopexit283
-  %.293 = phi i32 [ %67, %.loopexit283 ], [ %.192288, %.preheader284 ]
+68:                                               ; preds = %.preheader290, %.loopexit289
+  %.293 = phi i32 [ %67, %.loopexit289 ], [ %.192294, %.preheader290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = add i32 %.293, -16385
   %70 = icmp ult i32 %69, -16384
-  br i1 %70, label %.preheader284, label %.loopexit285
+  br i1 %70, label %.preheader290, label %.loopexit291
 
-.loopexit285:                                     ; preds = %68, %49
+.loopexit291:                                     ; preds = %68, %49
   %.091 = phi i32 [ %50, %49 ], [ %.293, %68 ]
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 576), align 8, !tbaa !126
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 568), align 8, !tbaa !127
   %73 = icmp eq ptr %71, null
   br i1 %73, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.loopexit285, %.lr.ph.backedge
+.lr.ph:                                           ; preds = %.loopexit291, %.lr.ph.backedge
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.369)
   %75 = load ptr, ptr @stdout, align 8, !tbaa !5
   %76 = tail call i32 @fflush(ptr noundef %75)
@@ -3456,27 +3456,27 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %21
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !67
   %.not171 = icmp eq i8 %86, 10
-  br i1 %.not171, label %.loopexit281, label %.preheader280
+  br i1 %.not171, label %.loopexit287, label %.preheader286
 
-.preheader280:                                    ; preds = %82, %.preheader280
+.preheader286:                                    ; preds = %82, %.preheader286
   %87 = load ptr, ptr @stdin, align 8, !tbaa !5
   %88 = tail call i32 @getc(ptr noundef %87)
-  switch i32 %88, label %.preheader280 [
-    i32 -1, label %.loopexit281
-    i32 10, label %.loopexit281
+  switch i32 %88, label %.preheader286 [
+    i32 -1, label %.loopexit287
+    i32 10, label %.loopexit287
   ]
 
-.loopexit281:                                     ; preds = %.preheader280, %.preheader280, %82
+.loopexit287:                                     ; preds = %.preheader286, %.preheader286, %82
   store i8 0, ptr %85, align 1, !tbaa !67
   %char0172 = load i8, ptr %6, align 16
   %.not173 = icmp eq i8 %char0172, 0
   br i1 %.not173, label %.lr.ph.backedge, label %._crit_edge
 
-.lr.ph.backedge:                                  ; preds = %.loopexit281, %.lr.ph
+.lr.ph.backedge:                                  ; preds = %.loopexit287, %.lr.ph
   br label %.lr.ph, !llvm.loop !128
 
-._crit_edge:                                      ; preds = %.loopexit281, %.loopexit285
-  %.094.lcssa = phi ptr [ %71, %.loopexit285 ], [ %6, %.loopexit281 ]
+._crit_edge:                                      ; preds = %.loopexit287, %.loopexit291
+  %.094.lcssa = phi ptr [ %71, %.loopexit291 ], [ %6, %.loopexit287 ]
   %89 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %.094.lcssa)
   %.not.i = icmp eq ptr %89, null
   br i1 %.not.i, label %clusterNodeForResharding.exit.thread, label %90
@@ -3495,14 +3495,14 @@ clusterNodeForResharding.exit.thread:             ; preds = %._crit_edge, %90
 clusterNodeForResharding.exit:                    ; preds = %90
   %94 = call ptr @listCreate() #34
   %95 = icmp eq ptr %72, null
-  br i1 %95, label %98, label %.preheader278
+  br i1 %95, label %98, label %.preheader284
 
-.preheader278:                                    ; preds = %clusterNodeForResharding.exit
+.preheader284:                                    ; preds = %clusterNodeForResharding.exit
   %96 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %72, i32 noundef 44) #36
-  %.not136289 = icmp eq ptr %96, null
-  br i1 %.not136289, label %.critedge, label %.lr.ph291
+  %.not136295 = icmp eq ptr %96, null
+  br i1 %.not136295, label %.critedge, label %.lr.ph297
 
-.lr.ph291:                                        ; preds = %.preheader278
+.lr.ph297:                                        ; preds = %.preheader284
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 8
   br label %132
 
@@ -3533,38 +3533,38 @@ clusterNodeForResharding.exit:                    ; preds = %90
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !67
   %.not148 = icmp eq i8 %116, 10
-  br i1 %.not148, label %.loopexit276, label %.preheader
+  br i1 %.not148, label %.loopexit282, label %.preheader
 
 .preheader:                                       ; preds = %112, %.preheader
   %117 = load ptr, ptr @stdin, align 8, !tbaa !5
   %118 = call i32 @getc(ptr noundef %117)
   switch i32 %118, label %.preheader [
-    i32 -1, label %.loopexit276
-    i32 10, label %.loopexit276
+    i32 -1, label %.loopexit282
+    i32 10, label %.loopexit282
   ]
 
-.loopexit276:                                     ; preds = %.preheader, %.preheader, %112
+.loopexit282:                                     ; preds = %.preheader, %.preheader, %112
   store i8 0, ptr %115, align 1, !tbaa !67
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.374, i64 5)
   %.not149 = icmp eq i32 %bcmp, 0
-  br i1 %.not149, label %.thread213.thread, label %119
+  br i1 %.not149, label %.thread219.thread, label %119
 
-119:                                              ; preds = %.loopexit276
+119:                                              ; preds = %.loopexit282
   %lhsv = load i32, ptr %6, align 16
   %.not151 = icmp eq i32 %lhsv, 7105633
-  br i1 %.not151, label %.thread213.thread271, label %120
+  br i1 %.not151, label %.thread219.thread277, label %120
 
 120:                                              ; preds = %119
   %121 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %6)
-  %.not.i177 = icmp eq ptr %121, null
-  br i1 %.not.i177, label %.thread217, label %122
+  %.not.i183 = icmp eq ptr %121, null
+  br i1 %.not.i183, label %.thread223, label %122
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %124 = load i32, ptr %123, align 8, !tbaa !129
   %125 = and i32 %124, 2
-  %.not14.i178 = icmp eq i32 %125, 0
-  br i1 %.not14.i178, label %126, label %.thread217
+  %.not14.i184 = icmp eq i32 %125, 0
+  br i1 %.not14.i184, label %126, label %.thread223
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -3572,91 +3572,91 @@ clusterNodeForResharding.exit:                    ; preds = %90
   %129 = load ptr, ptr %100, align 8, !tbaa !108
   %130 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(1) %129) #36
   %.not16.i = icmp eq i32 %130, 0
-  br i1 %.not16.i, label %.thread, label %clusterNodeForResharding.exit180
+  br i1 %.not16.i, label %.thread, label %clusterNodeForResharding.exit186
 
 .thread:                                          ; preds = %126
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.384)
   br label %.backedge
 
-clusterNodeForResharding.exit180:                 ; preds = %126
+clusterNodeForResharding.exit186:                 ; preds = %126
   %131 = call ptr @listAddNodeTail(ptr noundef %94, ptr noundef nonnull %121) #34
   br label %.backedge
 
-.backedge:                                        ; preds = %clusterNodeForResharding.exit180, %.thread, %101
+.backedge:                                        ; preds = %clusterNodeForResharding.exit186, %.thread, %101
   br label %101
 
-.thread217:                                       ; preds = %122, %120
+.thread223:                                       ; preds = %122, %120
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull %6)
-  br label %.thread261
+  br label %.thread267
 
-132:                                              ; preds = %.lr.ph291, %148
-  %133 = phi ptr [ %96, %.lr.ph291 ], [ %150, %148 ]
-  %.097290 = phi ptr [ %72, %.lr.ph291 ], [ %149, %148 ]
+132:                                              ; preds = %.lr.ph297, %148
+  %133 = phi ptr [ %96, %.lr.ph297 ], [ %150, %148 ]
+  %.097296 = phi ptr [ %72, %.lr.ph297 ], [ %149, %148 ]
   store i8 0, ptr %133, align 1, !tbaa !67
-  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.097290, ptr noundef nonnull dereferenceable(4) @.str.375) #36
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.097296, ptr noundef nonnull dereferenceable(4) @.str.375) #36
   %.not137 = icmp eq i32 %134, 0
-  br i1 %.not137, label %.thread213.thread271, label %135
+  br i1 %.not137, label %.thread219.thread277, label %135
 
 135:                                              ; preds = %132
-  %136 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %.097290)
-  %.not.i181 = icmp eq ptr %136, null
-  br i1 %.not.i181, label %147, label %137
+  %136 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %.097296)
+  %.not.i187 = icmp eq ptr %136, null
+  br i1 %.not.i187, label %147, label %137
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 56
   %139 = load i32, ptr %138, align 8, !tbaa !129
   %140 = and i32 %139, 2
-  %.not14.i182 = icmp eq i32 %140, 0
-  br i1 %.not14.i182, label %141, label %147
+  %.not14.i188 = icmp eq i32 %140, 0
+  br i1 %.not14.i188, label %141, label %147
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !108
   %144 = load ptr, ptr %97, align 8, !tbaa !108
   %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) %144) #36
-  %.not16.i185 = icmp eq i32 %145, 0
-  br i1 %.not16.i185, label %.thread225, label %clusterNodeForResharding.exit186
+  %.not16.i191 = icmp eq i32 %145, 0
+  br i1 %.not16.i191, label %.thread231, label %clusterNodeForResharding.exit192
 
-.thread225:                                       ; preds = %141
+.thread231:                                       ; preds = %141
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.384)
   br label %148
 
-clusterNodeForResharding.exit186:                 ; preds = %141
+clusterNodeForResharding.exit192:                 ; preds = %141
   %146 = call ptr @listAddNodeTail(ptr noundef %94, ptr noundef nonnull %136) #34
   br label %148
 
 147:                                              ; preds = %137, %135
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull %.097290)
-  br label %.thread261
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull %.097296)
+  br label %.thread267
 
-148:                                              ; preds = %.thread225, %clusterNodeForResharding.exit186
+148:                                              ; preds = %.thread231, %clusterNodeForResharding.exit192
   %149 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %150 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %149, i32 noundef 44) #36
   %.not136 = icmp eq ptr %150, null
   br i1 %.not136, label %.critedge, label %132, !llvm.loop !130
 
-.critedge:                                        ; preds = %148, %.preheader278
-  %.097.lcssa = phi ptr [ %72, %.preheader278 ], [ %149, %148 ]
+.critedge:                                        ; preds = %148, %.preheader284
+  %.097.lcssa = phi ptr [ %72, %.preheader284 ], [ %149, %148 ]
   %char0 = load i8, ptr %.097.lcssa, align 1
   %.not139 = icmp eq i8 %char0, 0
-  br i1 %.not139, label %.thread213.thread, label %151
+  br i1 %.not139, label %.thread219.thread, label %151
 
 151:                                              ; preds = %.critedge
   %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.097.lcssa, ptr noundef nonnull dereferenceable(4) @.str.375) #36
   %.not140.not = icmp eq i32 %152, 0
-  br i1 %.not140.not, label %.thread213.thread271, label %153
+  br i1 %.not140.not, label %.thread219.thread277, label %153
 
 153:                                              ; preds = %151
   %154 = call fastcc ptr @clusterManagerNodeByName(ptr noundef nonnull %.097.lcssa)
-  %.not.i187 = icmp eq ptr %154, null
-  br i1 %.not.i187, label %166, label %155
+  %.not.i193 = icmp eq ptr %154, null
+  br i1 %.not.i193, label %166, label %155
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 56
   %157 = load i32, ptr %156, align 8, !tbaa !129
   %158 = and i32 %157, 2
-  %.not14.i188 = icmp eq i32 %158, 0
-  br i1 %.not14.i188, label %159, label %166
+  %.not14.i194 = icmp eq i32 %158, 0
+  br i1 %.not14.i194, label %159, label %166
 
 159:                                              ; preds = %155
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -3664,35 +3664,35 @@ clusterNodeForResharding.exit186:                 ; preds = %141
   %162 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !108
   %164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(1) %163) #36
-  %.not16.i191 = icmp eq i32 %164, 0
-  br i1 %.not16.i191, label %.thread238, label %clusterNodeForResharding.exit192
+  %.not16.i197 = icmp eq i32 %164, 0
+  br i1 %.not16.i197, label %.thread244, label %clusterNodeForResharding.exit198
 
-.thread238:                                       ; preds = %159
+.thread244:                                       ; preds = %159
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.384)
-  br label %.thread213.thread
+  br label %.thread219.thread
 
-clusterNodeForResharding.exit192:                 ; preds = %159
+clusterNodeForResharding.exit198:                 ; preds = %159
   %165 = call ptr @listAddNodeTail(ptr noundef %94, ptr noundef nonnull %154) #34
-  br label %.thread213.thread
+  br label %.thread219.thread
 
 166:                                              ; preds = %155, %153
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull %.097.lcssa)
-  br label %.thread261
+  br label %.thread267
 
-.thread213.thread271:                             ; preds = %132, %119, %151
+.thread219.thread277:                             ; preds = %132, %119, %151
   call void @listEmpty(ptr noundef %94) #34
   %167 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %167, ptr noundef nonnull %7) #34
   %168 = call ptr @listNext(ptr noundef nonnull %7) #34
-  %.not155293 = icmp eq ptr %168, null
-  br i1 %.not155293, label %.thread213.thread, label %.lr.ph294
+  %.not155299 = icmp eq ptr %168, null
+  br i1 %.not155299, label %.thread219.thread, label %.lr.ph300
 
-.lr.ph294:                                        ; preds = %.thread213.thread271
+.lr.ph300:                                        ; preds = %.thread219.thread277
   %169 = getelementptr inbounds nuw i8, ptr %89, i64 8
   br label %170
 
-170:                                              ; preds = %.lr.ph294, %187
-  %171 = phi ptr [ %168, %.lr.ph294 ], [ %188, %187 ]
+170:                                              ; preds = %.lr.ph300, %187
+  %171 = phi ptr [ %168, %.lr.ph300 ], [ %188, %187 ]
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !96
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
@@ -3722,29 +3722,29 @@ clusterNodeForResharding.exit192:                 ; preds = %159
 187:                                              ; preds = %180, %170, %177, %185
   %188 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not155 = icmp eq ptr %188, null
-  br i1 %.not155, label %.thread213.thread, label %170
+  br i1 %.not155, label %.thread219.thread, label %170
 
-.thread213.thread:                                ; preds = %.loopexit276, %187, %.thread213.thread271, %.critedge, %clusterNodeForResharding.exit192, %.thread238
+.thread219.thread:                                ; preds = %.loopexit282, %187, %.thread219.thread277, %.critedge, %clusterNodeForResharding.exit198, %.thread244
   %189 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %190 = load i64, ptr %189, align 8, !tbaa !84
   %191 = icmp eq i64 %190, 0
   br i1 %191, label %192, label %195
 
-192:                                              ; preds = %.thread213.thread
+192:                                              ; preds = %.thread219.thread
   %193 = load ptr, ptr @stderr, align 8, !tbaa !5
   %194 = call i64 @fwrite(ptr nonnull @.str.376, i64 46, i64 1, ptr %193) #35
-  br label %.thread261
+  br label %.thread267
 
-195:                                              ; preds = %.thread213.thread
+195:                                              ; preds = %.thread219.thread
   %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.377, i32 noundef %.091)
   %puts156 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   call void @listRewind(ptr noundef nonnull %94, ptr noundef nonnull %7) #34
   %197 = call ptr @listNext(ptr noundef nonnull %7) #34
-  %.not157295 = icmp eq ptr %197, null
-  br i1 %.not157295, label %._crit_edge298, label %.lr.ph297
+  %.not157301 = icmp eq ptr %197, null
+  br i1 %.not157301, label %._crit_edge304, label %.lr.ph303
 
-.lr.ph297:                                        ; preds = %195, %.lr.ph297
-  %198 = phi ptr [ %202, %.lr.ph297 ], [ %197, %195 ]
+.lr.ph303:                                        ; preds = %195, %.lr.ph303
+  %198 = phi ptr [ %202, %.lr.ph303 ], [ %197, %195 ]
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load ptr, ptr %199, align 8, !tbaa !96
   %201 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %200, i32 noundef 4)
@@ -3752,9 +3752,9 @@ clusterNodeForResharding.exit192:                 ; preds = %159
   call void @hi_sdsfree(ptr noundef nonnull %201) #34
   %202 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not157 = icmp eq ptr %202, null
-  br i1 %.not157, label %._crit_edge298, label %.lr.ph297, !llvm.loop !132
+  br i1 %.not157, label %._crit_edge304, label %.lr.ph303, !llvm.loop !132
 
-._crit_edge298:                                   ; preds = %.lr.ph297, %195
+._crit_edge304:                                   ; preds = %.lr.ph303, %195
   %puts158 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %203 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef nonnull %89, i32 noundef 4)
   %puts159 = call i32 @puts(ptr nonnull dereferenceable(1) %203)
@@ -3767,8 +3767,8 @@ clusterNodeForResharding.exit192:                 ; preds = %159
   %.not5.i = icmp eq ptr %205, null
   br i1 %.not5.i, label %clusterManagerShowReshardTable.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge298, %.lr.ph.i
-  %206 = phi ptr [ %215, %.lr.ph.i ], [ %205, %._crit_edge298 ]
+.lr.ph.i:                                         ; preds = %._crit_edge304, %.lr.ph.i
+  %206 = phi ptr [ %215, %.lr.ph.i ], [ %205, %._crit_edge304 ]
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !96
   %209 = load ptr, ptr %208, align 8, !tbaa !133
@@ -3778,10 +3778,10 @@ clusterNodeForResharding.exit192:                 ; preds = %159
   %213 = load ptr, ptr %212, align 8, !tbaa !108
   %214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.385, i32 noundef %211, ptr noundef %213)
   %215 = call ptr @listNext(ptr noundef nonnull %4) #34
-  %.not.i193 = icmp eq ptr %215, null
-  br i1 %.not.i193, label %clusterManagerShowReshardTable.exit, label %.lr.ph.i, !llvm.loop !136
+  %.not.i199 = icmp eq ptr %215, null
+  br i1 %.not.i199, label %clusterManagerShowReshardTable.exit, label %.lr.ph.i, !llvm.loop !136
 
-clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_edge298
+clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_edge304
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
   %217 = and i32 %216, 4
@@ -3800,14 +3800,14 @@ clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_e
   %226 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 0, ptr %226, align 1, !tbaa !67
   %227 = icmp slt i32 %225, 1
-  br i1 %227, label %.thread254, label %228
+  br i1 %227, label %.thread260, label %228
 
 228:                                              ; preds = %218
   %bcmp162 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %8, i64 4)
   %.not163 = icmp eq i32 %bcmp162, 0
-  br i1 %.not163, label %229, label %.thread254
+  br i1 %.not163, label %229, label %.thread260
 
-.thread254:                                       ; preds = %218, %228
+.thread260:                                       ; preds = %218, %228
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
@@ -3818,10 +3818,10 @@ clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_e
 230:                                              ; preds = %229, %clusterManagerShowReshardTable.exit
   call void @listRewind(ptr noundef %204, ptr noundef nonnull %7) #34
   %231 = call ptr @listNext(ptr noundef nonnull %7) #34
-  %.not164299 = icmp eq ptr %231, null
-  br i1 %.not164299, label %.loopexit, label %.lr.ph301
+  %.not164305 = icmp eq ptr %231, null
+  br i1 %.not164305, label %.loopexit, label %.lr.ph307
 
-.lr.ph301:                                        ; preds = %230, %242
+.lr.ph307:                                        ; preds = %230, %242
   %232 = phi ptr [ %243, %242 ], [ %231, %230 ]
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 8, !tbaa !96
@@ -3834,53 +3834,53 @@ clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_e
   %.not165 = icmp eq i32 %238, 0
   br i1 %.not165, label %239, label %242
 
-239:                                              ; preds = %.lr.ph301
+239:                                              ; preds = %.lr.ph307
   %240 = load ptr, ptr %9, align 8, !tbaa !24
   %.not166 = icmp eq ptr %240, null
-  br i1 %.not166, label %.thread258, label %241
+  br i1 %.not166, label %.thread264, label %241
 
 241:                                              ; preds = %239
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.382, ptr noundef nonnull %240)
   call void @zfree(ptr noundef nonnull %240) #34
-  br label %.thread258
+  br label %.thread264
 
-.thread258:                                       ; preds = %241, %239
+.thread264:                                       ; preds = %241, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-242:                                              ; preds = %.lr.ph301
+242:                                              ; preds = %.lr.ph307
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %243 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not164 = icmp eq ptr %243, null
-  br i1 %.not164, label %.loopexit, label %.lr.ph301
+  br i1 %.not164, label %.loopexit, label %.lr.ph307
 
-.thread261:                                       ; preds = %192, %.thread217, %166, %147
+.thread267:                                       ; preds = %192, %.thread223, %166, %147
   call void @listRelease(ptr noundef %94) #34
   br label %clusterManagerReleaseReshardTable.exit
 
-.loopexit:                                        ; preds = %242, %230, %.thread258, %.thread254
-  %.4111 = phi i32 [ 0, %.thread254 ], [ 0, %.thread258 ], [ 1, %230 ], [ 1, %242 ]
+.loopexit:                                        ; preds = %242, %230, %.thread264, %.thread260
+  %.4111 = phi i32 [ 0, %.thread260 ], [ 0, %.thread264 ], [ 1, %230 ], [ 1, %242 ]
   call void @listRelease(ptr noundef nonnull %94) #34
-  %.not.i194 = icmp eq ptr %204, null
-  br i1 %.not.i194, label %clusterManagerReleaseReshardTable.exit, label %244
+  %.not.i200 = icmp eq ptr %204, null
+  br i1 %.not.i200, label %clusterManagerReleaseReshardTable.exit, label %244
 
 244:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @listRewind(ptr noundef nonnull %204, ptr noundef nonnull %3) #34
   %245 = call ptr @listNext(ptr noundef nonnull %3) #34
   %.not67.i = icmp eq ptr %245, null
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i195
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i201
 
-.lr.ph.i195:                                      ; preds = %244, %.lr.ph.i195
-  %246 = phi ptr [ %249, %.lr.ph.i195 ], [ %245, %244 ]
+.lr.ph.i201:                                      ; preds = %244, %.lr.ph.i201
+  %246 = phi ptr [ %249, %.lr.ph.i201 ], [ %245, %244 ]
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %248 = load ptr, ptr %247, align 8, !tbaa !96
   call void @zfree(ptr noundef %248) #34
   %249 = call ptr @listNext(ptr noundef nonnull %3) #34
   %.not6.i = icmp eq ptr %249, null
-  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i195, !llvm.loop !137
+  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i201, !llvm.loop !137
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i195, %244
+._crit_edge.i:                                    ; preds = %.lr.ph.i201, %244
   call void @listRelease(ptr noundef nonnull %204) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %clusterManagerReleaseReshardTable.exit
@@ -3890,13 +3890,13 @@ clusterManagerShowReshardTable.exit:              ; preds = %.lr.ph.i, %._crit_e
   %252 = tail call i64 @fwrite(ptr nonnull @.str.353, i64 138, i64 1, ptr %251) #35
   br label %clusterManagerReleaseReshardTable.exit
 
-clusterManagerReleaseReshardTable.exit:           ; preds = %._crit_edge.i, %.loopexit, %.thread261, %clusterNodeForResharding.exit.thread, %getClusterHostFromCmdArgs.exit, %250, %44
-  %.0 = phi i32 [ 0, %44 ], [ 0, %250 ], [ 0, %getClusterHostFromCmdArgs.exit ], [ 0, %clusterNodeForResharding.exit.thread ], [ 0, %.thread261 ], [ %.4111, %.loopexit ], [ %.4111, %._crit_edge.i ]
+clusterManagerReleaseReshardTable.exit:           ; preds = %._crit_edge.i, %.loopexit, %.thread267, %clusterNodeForResharding.exit.thread, %getClusterHostFromCmdArgs.exit, %250, %44
+  %.0 = phi i32 [ 0, %44 ], [ 0, %250 ], [ 0, %getClusterHostFromCmdArgs.exit ], [ 0, %clusterNodeForResharding.exit.thread ], [ 0, %.thread267 ], [ %.4111, %.loopexit ], [ %.4111, %._crit_edge.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @clusterManagerCommandRebalance(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandRebalance(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.listIter, align 8
   %4 = alloca %struct.listIter, align 8
   %5 = alloca %struct.listIter, align 8
@@ -3917,7 +3917,7 @@ define internal noundef i32 @clusterManagerCommandRebalance(i32 noundef %0, ptr 
 12:                                               ; preds = %11, %9
   %13 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 58) #36
   %.not17.i.i = icmp eq ptr %13, null
-  br i1 %.not17.i.i, label %248, label %parseClusterNodeAddress.exit.i
+  br i1 %.not17.i.i, label %247, label %parseClusterNodeAddress.exit.i
 
 parseClusterNodeAddress.exit.i:                   ; preds = %12
   store i8 0, ptr %13, align 1, !tbaa !67
@@ -3936,7 +3936,7 @@ parseClusterNodeAddress.exit.i:                   ; preds = %12
   %20 = icmp ne ptr %8, null
   %21 = icmp ne i32 %.013.i, 0
   %or.cond.i = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond.i, label %getClusterHostFromCmdArgs.exit, label %248
+  br i1 %or.cond.i, label %getClusterHostFromCmdArgs.exit, label %247
 
 getClusterHostFromCmdArgs.exit:                   ; preds = %18
   %22 = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #38
@@ -3964,15 +3964,15 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %33, i8 0, i64 16388, i1 false)
   %34 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %22)
   %.not176 = icmp eq i32 %34, 0
-  br i1 %.not176, label %.thread238, label %35
+  br i1 %.not176, label %.thread248, label %35
 
 35:                                               ; preds = %getClusterHostFromCmdArgs.exit
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 584), align 8, !tbaa !138
   %.not177 = icmp ne ptr %36, null
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 592), align 8
   %38 = icmp sgt i32 %37, 0
-  %or.cond292 = select i1 %.not177, i1 %38, i1 false
-  br i1 %or.cond292, label %.lr.ph, label %.loopexit250
+  %or.cond308 = select i1 %.not177, i1 %38, i1 false
+  br i1 %or.cond308, label %.lr.ph, label %.loopexit259
 
 .lr.ph:                                           ; preds = %35, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %35 ]
@@ -3985,7 +3985,7 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %18
 
 44:                                               ; preds = %.lr.ph
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.386, ptr noundef nonnull %41)
-  br label %.thread238
+  br label %.thread248
 
 45:                                               ; preds = %.lr.ph
   store i8 0, ptr %42, align 1, !tbaa !67
@@ -4004,7 +4004,7 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %18
   call void @listRewind(ptr noundef %53, ptr noundef nonnull %4) #34
   %54 = call ptr @listNext(ptr noundef nonnull %4) #34
   %.not19.i = icmp eq ptr %54, null
-  br i1 %.not19.i, label %clusterManagerNodeByAbbreviatedName.exit.thread213, label %.lr.ph.i
+  br i1 %.not19.i, label %clusterManagerNodeByAbbreviatedName.exit.thread218, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %61
   %55 = phi ptr [ %62, %61 ], [ %54, %50 ]
@@ -4024,16 +4024,16 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %18
 61:                                               ; preds = %60, %.lr.ph.i
   %62 = call ptr @listNext(ptr noundef nonnull %4) #34
   %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %clusterManagerNodeByAbbreviatedName.exit.thread213, label %.lr.ph.i
+  br i1 %.not.i, label %clusterManagerNodeByAbbreviatedName.exit.thread218, label %.lr.ph.i
 
-clusterManagerNodeByAbbreviatedName.exit.thread213: ; preds = %50, %61
+clusterManagerNodeByAbbreviatedName.exit.thread218: ; preds = %50, %61
   call void @hi_sdsfree(ptr noundef %52) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %clusterManagerNodeByAbbreviatedName.exit.thread
 
-clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManagerNodeByAbbreviatedName.exit.thread213
+clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManagerNodeByAbbreviatedName.exit.thread218
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.387, ptr noundef nonnull %41)
-  br label %.thread238
+  br label %.thread248
 
 63:                                               ; preds = %60
   call void @hi_sdsfree(ptr noundef nonnull %52) #34
@@ -4045,26 +4045,26 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 592), align 8, !tbaa !139
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.loopexit250, !llvm.loop !140
+  br i1 %68, label %.lr.ph, label %.loopexit259, !llvm.loop !140
 
-.loopexit250:                                     ; preds = %63, %35
+.loopexit259:                                     ; preds = %63, %35
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
   %70 = call ptr @listCreate() #34
   %71 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %71, ptr noundef nonnull %5) #34
   %72 = call ptr @listNext(ptr noundef nonnull %5) #34
-  %.not178261 = icmp eq ptr %72, null
-  br i1 %.not178261, label %._crit_edge, label %.lr.ph264
+  %.not178270 = icmp eq ptr %72, null
+  br i1 %.not178270, label %._crit_edge, label %.lr.ph273
 
-.lr.ph264:                                        ; preds = %.loopexit250
+.lr.ph273:                                        ; preds = %.loopexit259
   %73 = and i32 %69, 16
   %.not197 = icmp eq i32 %73, 0
   br label %74
 
-74:                                               ; preds = %.lr.ph264, %97
-  %75 = phi ptr [ %72, %.lr.ph264 ], [ %98, %97 ]
-  %.0143263 = phi float [ 0.000000e+00, %.lr.ph264 ], [ %.1144, %97 ]
-  %.0145262 = phi i32 [ 0, %.lr.ph264 ], [ %.1146, %97 ]
+74:                                               ; preds = %.lr.ph273, %97
+  %75 = phi ptr [ %72, %.lr.ph273 ], [ %98, %97 ]
+  %.0143272 = phi float [ 0.000000e+00, %.lr.ph273 ], [ %.1144, %97 ]
+  %.0145271 = phi i32 [ 0, %.lr.ph273 ], [ %.1146, %97 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !96
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 56
@@ -4096,26 +4096,26 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
 91:                                               ; preds = %85, %84
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 16512
   %93 = load float, ptr %92, align 8, !tbaa !80
-  %94 = fadd float %.0143263, %93
-  %95 = add nsw i32 %.0145262, 1
+  %94 = fadd float %.0143272, %93
+  %95 = add nsw i32 %.0145271, 1
   %96 = call ptr @listAddNodeTail(ptr noundef %70, ptr noundef nonnull %77) #34
   br label %97
 
 97:                                               ; preds = %74, %81, %91, %89
-  %.1146 = phi i32 [ %95, %91 ], [ %.0145262, %89 ], [ %.0145262, %81 ], [ %.0145262, %74 ]
-  %.1144 = phi float [ %94, %91 ], [ %.0143263, %89 ], [ %.0143263, %81 ], [ %.0143263, %74 ]
+  %.1146 = phi i32 [ %95, %91 ], [ %.0145271, %89 ], [ %.0145271, %81 ], [ %.0145271, %74 ]
+  %.1144 = phi float [ %94, %91 ], [ %.0143272, %89 ], [ %.0143272, %81 ], [ %.0143272, %74 ]
   %98 = call ptr @listNext(ptr noundef nonnull %5) #34
   %.not178 = icmp eq ptr %98, null
   br i1 %.not178, label %._crit_edge, label %74
 
-._crit_edge:                                      ; preds = %97, %.loopexit250
-  %.0145.lcssa = phi i32 [ 0, %.loopexit250 ], [ %.1146, %97 ]
-  %.0143.lcssa = phi float [ 0.000000e+00, %.loopexit250 ], [ %.1144, %97 ]
+._crit_edge:                                      ; preds = %97, %.loopexit259
+  %.0145.lcssa = phi i32 [ 0, %.loopexit259 ], [ %.1146, %97 ]
+  %.0143.lcssa = phi float [ 0.000000e+00, %.loopexit259 ], [ %.1144, %97 ]
   %99 = sext i32 %.0145.lcssa to i64
   %100 = shl nsw i64 %99, 3
   %101 = call noalias ptr @zmalloc(i64 noundef %100) #38
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.loopexit, label %103
+  br i1 %102, label %.thread236, label %103
 
 103:                                              ; preds = %._crit_edge
   %104 = call fastcc i32 @clusterManagerCheckCluster(i32 noundef 1)
@@ -4131,30 +4131,30 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
 
 109:                                              ; preds = %106
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.388)
-  br label %.loopexit
+  br label %.thread236
 
 110:                                              ; preds = %106, %103
   %111 = load float, ptr getelementptr inbounds nuw (i8, ptr @config, i64 620), align 4, !tbaa !142
-  %.fr243 = freeze float %111
+  %.fr253 = freeze float %111
   call void @listRewind(ptr noundef %70, ptr noundef nonnull %5) #34
   %112 = call ptr @listNext(ptr noundef nonnull %5) #34
-  %.not181266 = icmp eq ptr %112, null
-  br i1 %.not181266, label %._crit_edge272.thread, label %.lr.ph271
+  %.not181275 = icmp eq ptr %112, null
+  br i1 %.not181275, label %._crit_edge281.thread, label %.lr.ph280
 
-.lr.ph271:                                        ; preds = %110
+.lr.ph280:                                        ; preds = %110
   %113 = fdiv float 1.638400e+04, %.0143.lcssa
-  %114 = fcmp ogt float %.fr243, 0.000000e+00
+  %114 = fcmp ogt float %.fr253, 0.000000e+00
   br label %115
 
-115:                                              ; preds = %.lr.ph271, %142
-  %indvars.iv308 = phi i64 [ 0, %.lr.ph271 ], [ %indvars.iv.next309, %142 ]
-  %116 = phi ptr [ %112, %.lr.ph271 ], [ %144, %142 ]
-  %.0153268 = phi i32 [ 0, %.lr.ph271 ], [ %143, %142 ]
-  %.0155267 = phi i32 [ 0, %.lr.ph271 ], [ %128, %142 ]
+115:                                              ; preds = %.lr.ph280, %142
+  %indvars.iv324 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next325, %142 ]
+  %116 = phi ptr [ %112, %.lr.ph280 ], [ %144, %142 ]
+  %.0153277 = phi i32 [ 0, %.lr.ph280 ], [ %143, %142 ]
+  %.0155276 = phi i32 [ 0, %.lr.ph280 ], [ %128, %142 ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !96
-  %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
-  %119 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv308
+  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
+  %119 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv324
   store ptr %118, ptr %119, align 8, !tbaa !92
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16512
   %121 = load float, ptr %120, align 8, !tbaa !80
@@ -4163,108 +4163,108 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %.fr = freeze i32 %123
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 16468
   %125 = load i32, ptr %124, align 4, !tbaa !101
-  %.fr242 = freeze i32 %125
-  %126 = sub nsw i32 %.fr242, %.fr
+  %.fr252 = freeze i32 %125
+  %126 = sub nsw i32 %.fr252, %.fr
   %127 = getelementptr inbounds nuw i8, ptr %118, i64 16516
   store i32 %126, ptr %127, align 4, !tbaa !81
-  %128 = add nsw i32 %126, %.0155267
-  br i1 %114, label %129, label %.thread217
+  %128 = add nsw i32 %126, %.0155276
+  br i1 %114, label %129, label %.thread222
 
 129:                                              ; preds = %115
-  %130 = icmp sgt i32 %.fr242, 0
+  %130 = icmp sgt i32 %.fr252, 0
   br i1 %130, label %131, label %140
 
 131:                                              ; preds = %129
   %132 = sitofp i32 %.fr to double
   %133 = fmul double %132, 1.000000e+02
-  %134 = uitofp nneg i32 %.fr242 to double
+  %134 = uitofp nneg i32 %.fr252 to double
   %135 = fdiv double %133, %134
   %136 = fsub double 1.000000e+02, %135
   %137 = fptrunc double %136 to float
   %138 = call float @llvm.fabs.f32(float %137)
-  %139 = fcmp ule float %138, %.fr243
-  br i1 %139, label %.thread217, label %142
+  %139 = fcmp ule float %138, %.fr253
+  br i1 %139, label %.thread222, label %142
 
 140:                                              ; preds = %129
   %141 = icmp slt i32 %.fr, 2
-  br i1 %141, label %.thread217, label %142
+  br i1 %141, label %.thread222, label %142
 
-.thread217:                                       ; preds = %115, %131, %140
+.thread222:                                       ; preds = %115, %131, %140
   br label %142
 
-142:                                              ; preds = %131, %140, %.thread217
-  %143 = phi i32 [ %.0153268, %.thread217 ], [ 1, %140 ], [ 1, %131 ]
+142:                                              ; preds = %131, %140, %.thread222
+  %143 = phi i32 [ %.0153277, %.thread222 ], [ 1, %140 ], [ 1, %131 ]
   %144 = call ptr @listNext(ptr noundef nonnull %5) #34
   %.not181 = icmp eq ptr %144, null
-  br i1 %.not181, label %._crit_edge272, label %115, !llvm.loop !143
+  br i1 %.not181, label %._crit_edge281, label %115, !llvm.loop !143
 
-._crit_edge272:                                   ; preds = %142
+._crit_edge281:                                   ; preds = %142
   %145 = icmp eq i32 %143, 0
-  br i1 %145, label %._crit_edge272.thread, label %.preheader248
+  br i1 %145, label %._crit_edge281.thread, label %.preheader257
 
-.preheader248:                                    ; preds = %._crit_edge272
+.preheader257:                                    ; preds = %._crit_edge281
   %146 = icmp sgt i32 %128, 0
-  br i1 %146, label %.lr.ph281, label %._crit_edge282
+  br i1 %146, label %.lr.ph290, label %._crit_edge291
 
-._crit_edge272.thread:                            ; preds = %110, %._crit_edge272
+._crit_edge281.thread:                            ; preds = %110, %._crit_edge281
   %147 = load float, ptr getelementptr inbounds nuw (i8, ptr @config, i64 620), align 4, !tbaa !142
   %148 = fpext float %147 to double
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.389, double noundef %148)
-  br label %.loopexit
+  br label %.thread236
 
-.loopexit247:                                     ; preds = %161, %.lr.ph281
-  %.2157.lcssa = phi i32 [ %.1156280, %.lr.ph281 ], [ %.3158, %161 ]
+.loopexit256:                                     ; preds = %161, %.lr.ph290
+  %.2157.lcssa = phi i32 [ %.1156289, %.lr.ph290 ], [ %.3158, %161 ]
   %149 = icmp sgt i32 %.2157.lcssa, 0
-  br i1 %149, label %.lr.ph281, label %._crit_edge282, !llvm.loop !144
+  br i1 %149, label %.lr.ph290, label %._crit_edge291, !llvm.loop !144
 
-.lr.ph281:                                        ; preds = %.preheader248, %.loopexit247
-  %.1156280 = phi i32 [ %.2157.lcssa, %.loopexit247 ], [ %128, %.preheader248 ]
+.lr.ph290:                                        ; preds = %.preheader257, %.loopexit256
+  %.1156289 = phi i32 [ %.2157.lcssa, %.loopexit256 ], [ %128, %.preheader257 ]
   call void @listRewind(ptr noundef %70, ptr noundef nonnull %5) #34
   %150 = call ptr @listNext(ptr noundef nonnull %5) #34
-  %.not193275 = icmp eq ptr %150, null
-  br i1 %.not193275, label %.loopexit247, label %.lr.ph278
+  %.not193284 = icmp eq ptr %150, null
+  br i1 %.not193284, label %.loopexit256, label %.lr.ph287
 
-.lr.ph278:                                        ; preds = %.lr.ph281, %161
-  %151 = phi ptr [ %162, %161 ], [ %150, %.lr.ph281 ]
-  %.2157276 = phi i32 [ %.3158, %161 ], [ %.1156280, %.lr.ph281 ]
+.lr.ph287:                                        ; preds = %.lr.ph290, %161
+  %151 = phi ptr [ %162, %161 ], [ %150, %.lr.ph290 ]
+  %.2157285 = phi i32 [ %.3158, %161 ], [ %.1156289, %.lr.ph290 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !96
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16516
   %155 = load i32, ptr %154, align 4, !tbaa !81
   %156 = icmp slt i32 %155, 1
-  %157 = icmp sgt i32 %.2157276, 0
+  %157 = icmp sgt i32 %.2157285, 0
   %or.cond = select i1 %156, i1 %157, i1 false
   br i1 %or.cond, label %158, label %161
 
-158:                                              ; preds = %.lr.ph278
+158:                                              ; preds = %.lr.ph287
   %159 = add nsw i32 %155, -1
   store i32 %159, ptr %154, align 4, !tbaa !81
-  %160 = add nsw i32 %.2157276, -1
+  %160 = add nsw i32 %.2157285, -1
   br label %161
 
-161:                                              ; preds = %158, %.lr.ph278
-  %.3158 = phi i32 [ %160, %158 ], [ %.2157276, %.lr.ph278 ]
+161:                                              ; preds = %158, %.lr.ph287
+  %.3158 = phi i32 [ %160, %158 ], [ %.2157285, %.lr.ph287 ]
   %162 = call ptr @listNext(ptr noundef nonnull %5) #34
   %.not193 = icmp eq ptr %162, null
-  br i1 %.not193, label %.loopexit247, label %.lr.ph278, !llvm.loop !145
+  br i1 %.not193, label %.loopexit256, label %.lr.ph287, !llvm.loop !145
 
-._crit_edge282:                                   ; preds = %.loopexit247, %.preheader248
+._crit_edge291:                                   ; preds = %.loopexit256, %.preheader257
   call void @qsort(ptr noundef nonnull %101, i64 noundef %99, i64 noundef 8, ptr noundef nonnull @clusterManagerCompareNodeBalance) #34
   %163 = fpext float %.0143.lcssa to double
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.390, i32 noundef %.0145.lcssa, double noundef %163)
   %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 520), align 8, !tbaa !146
   %.not183 = icmp ne i32 %164, 0
   %165 = icmp sgt i32 %.0145.lcssa, 0
-  %or.cond293 = and i1 %.not183, %165
-  br i1 %or.cond293, label %.lr.ph284.preheader, label %.loopexit246
+  %or.cond309 = and i1 %.not183, %165
+  br i1 %or.cond309, label %.lr.ph293.preheader, label %.loopexit
 
-.lr.ph284.preheader:                              ; preds = %._crit_edge282
+.lr.ph293.preheader:                              ; preds = %._crit_edge291
   %wide.trip.count = zext nneg i32 %.0145.lcssa to i64
-  br label %.lr.ph284
+  br label %.lr.ph293
 
-.lr.ph284:                                        ; preds = %.lr.ph284.preheader, %.lr.ph284
-  %indvars.iv311 = phi i64 [ 0, %.lr.ph284.preheader ], [ %indvars.iv.next312, %.lr.ph284 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv311
+.lr.ph293:                                        ; preds = %.lr.ph293.preheader, %.lr.ph293
+  %indvars.iv327 = phi i64 [ 0, %.lr.ph293.preheader ], [ %indvars.iv.next328, %.lr.ph293 ]
+  %166 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv327
   %167 = load ptr, ptr %166, align 8, !tbaa !92
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !74
@@ -4273,28 +4273,28 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 16516
   %173 = load i32, ptr %172, align 4, !tbaa !81
   %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.391, ptr noundef %169, i32 noundef %171, i32 noundef %173)
-  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit246, label %.lr.ph284, !llvm.loop !147
+  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph293, !llvm.loop !147
 
-.loopexit246:                                     ; preds = %.lr.ph284, %._crit_edge282
-  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
-  %176 = and i32 %175, 32
-  %.not187 = icmp eq i32 %176, 0
-  %177 = icmp sgt i32 %.0145.lcssa, 1
-  br i1 %177, label %.lr.ph367, label %.loopexit
+.loopexit:                                        ; preds = %.lr.ph293, %._crit_edge291
+  %175 = icmp sgt i32 %.0145.lcssa, 1
+  br i1 %175, label %.lr.ph304, label %.thread236
 
-.lr.ph367:                                        ; preds = %.loopexit246
-  %178 = add nsw i32 %.0145.lcssa, -1
+.lr.ph304:                                        ; preds = %.loopexit
+  %176 = add nsw i32 %.0145.lcssa, -1
+  %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
+  %178 = and i32 %177, 32
+  %.not187 = icmp eq i32 %178, 0
   br label %179
 
-179:                                              ; preds = %.lr.ph367, %234
-  %.0147366 = phi i32 [ %178, %.lr.ph367 ], [ %.2149, %234 ]
-  %.0150365 = phi i32 [ 0, %.lr.ph367 ], [ %spec.select202, %234 ]
-  %180 = zext nneg i32 %.0150365 to i64
+179:                                              ; preds = %.lr.ph304, %233
+  %.0147301 = phi i32 [ %176, %.lr.ph304 ], [ %.2149, %233 ]
+  %.0150300 = phi i32 [ 0, %.lr.ph304 ], [ %spec.select205, %233 ]
+  %180 = zext nneg i32 %.0150300 to i64
   %181 = getelementptr inbounds nuw ptr, ptr %101, i64 %180
   %182 = load ptr, ptr %181, align 8, !tbaa !92
-  %183 = sext i32 %.0147366 to i64
+  %183 = sext i32 %.0147301 to i64
   %184 = getelementptr inbounds ptr, ptr %101, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !92
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 16516
@@ -4305,7 +4305,7 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %191 = call i32 @llvm.abs.i32(i32 %190, i1 true)
   %192 = call i32 @llvm.umin.i32(i32 %188, i32 %191)
   %.not184 = icmp eq i32 %192, 0
-  br i1 %.not184, label %234, label %193
+  br i1 %.not184, label %233, label %193
 
 193:                                              ; preds = %179
   %194 = getelementptr inbounds nuw i8, ptr %185, i64 16
@@ -4325,29 +4325,29 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %207 = load i64, ptr %206, align 8, !tbaa !84
   %208 = trunc i64 %207 to i32
   %.not186 = icmp eq i32 %192, %208
-  br i1 %.not186, label %209, label %.thread226
+  br i1 %.not186, label %209, label %.thread231
 
-.thread226:                                       ; preds = %193
+.thread231:                                       ; preds = %193
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.393)
   br label %227
 
 209:                                              ; preds = %193
-  br i1 %.not187, label %211, label %.lr.ph286
+  br i1 %.not187, label %211, label %.lr.ph295
 
-.lr.ph286:                                        ; preds = %209, %.lr.ph286
-  %.3142285 = phi i32 [ %210, %.lr.ph286 ], [ 0, %209 ]
+.lr.ph295:                                        ; preds = %209, %.lr.ph295
+  %.3142294 = phi i32 [ %210, %.lr.ph295 ], [ 0, %209 ]
   %putchar191 = call i32 @putchar(i32 35)
-  %210 = add nuw nsw i32 %.3142285, 1
-  %exitcond314.not = icmp eq i32 %210, %192
-  br i1 %exitcond314.not, label %.thread223, label %.lr.ph286, !llvm.loop !148
+  %210 = add nuw nsw i32 %.3142294, 1
+  %exitcond330.not = icmp eq i32 %210, %192
+  br i1 %exitcond330.not, label %.thread228, label %.lr.ph295, !llvm.loop !148
 
 211:                                              ; preds = %209
   call void @listRewind(ptr noundef nonnull %205, ptr noundef nonnull %5) #34
   %212 = call ptr @listNext(ptr noundef nonnull %5) #34
-  %.not188287 = icmp eq ptr %212, null
-  br i1 %.not188287, label %.thread223, label %.lr.ph289
+  %.not188296 = icmp eq ptr %212, null
+  br i1 %.not188296, label %.thread228, label %.lr.ph298
 
-.lr.ph289:                                        ; preds = %211, %220
+.lr.ph298:                                        ; preds = %211, %220
   %213 = phi ptr [ %223, %220 ], [ %212, %211 ]
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !96
@@ -4359,102 +4359,102 @@ clusterManagerNodeByAbbreviatedName.exit.thread:  ; preds = %45, %clusterManager
   %.not189.not = icmp eq i32 %219, 0
   br i1 %.not189.not, label %224, label %220
 
-220:                                              ; preds = %.lr.ph289
+220:                                              ; preds = %.lr.ph298
   %putchar = call i32 @putchar(i32 35)
   %221 = load ptr, ptr @stdout, align 8, !tbaa !5
   %222 = call i32 @fflush(ptr noundef %221)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %223 = call ptr @listNext(ptr noundef nonnull %5) #34
   %.not188 = icmp eq ptr %223, null
-  br i1 %.not188, label %.thread223, label %.lr.ph289, !llvm.loop !149
+  br i1 %.not188, label %.thread228, label %.lr.ph298, !llvm.loop !149
 
-224:                                              ; preds = %.lr.ph289
+224:                                              ; preds = %.lr.ph298
   %225 = load ptr, ptr %6, align 8, !tbaa !24
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.395, ptr noundef %225)
   call void @zfree(ptr noundef %225) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %226
 
-.thread223:                                       ; preds = %.lr.ph286, %220, %211
+.thread228:                                       ; preds = %.lr.ph295, %220, %211
   %putchar190 = call i32 @putchar(i32 10)
   br label %226
 
-226:                                              ; preds = %224, %.thread223
-  %.7 = phi i32 [ 1, %.thread223 ], [ 0, %224 ]
-  %.not.i204 = icmp eq ptr %205, null
-  br i1 %.not.i204, label %233, label %227
+226:                                              ; preds = %224, %.thread228
+  %.7 = phi i32 [ 1, %.thread228 ], [ 0, %224 ]
+  %.not.i209 = icmp eq ptr %205, null
+  br i1 %.not.i209, label %clusterManagerReleaseReshardTable.exit, label %227
 
-227:                                              ; preds = %.thread226, %226
-  %.7229 = phi i32 [ 0, %.thread226 ], [ %.7, %226 ]
+227:                                              ; preds = %.thread231, %226
+  %.7234 = phi i32 [ 0, %.thread231 ], [ %.7, %226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @listRewind(ptr noundef nonnull %205, ptr noundef nonnull %3) #34
   %228 = call ptr @listNext(ptr noundef nonnull %3) #34
   %.not67.i = icmp eq ptr %228, null
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i205
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i210
 
-.lr.ph.i205:                                      ; preds = %227, %.lr.ph.i205
-  %229 = phi ptr [ %232, %.lr.ph.i205 ], [ %228, %227 ]
+.lr.ph.i210:                                      ; preds = %227, %.lr.ph.i210
+  %229 = phi ptr [ %232, %.lr.ph.i210 ], [ %228, %227 ]
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %231 = load ptr, ptr %230, align 8, !tbaa !96
   call void @zfree(ptr noundef %231) #34
   %232 = call ptr @listNext(ptr noundef nonnull %3) #34
   %.not6.i = icmp eq ptr %232, null
-  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i205, !llvm.loop !137
+  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i210, !llvm.loop !137
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i205, %227
+._crit_edge.i:                                    ; preds = %.lr.ph.i210, %227
   call void @listRelease(ptr noundef nonnull %205) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %clusterManagerReleaseReshardTable.exit
+
+clusterManagerReleaseReshardTable.exit:           ; preds = %226, %._crit_edge.i
+  %.7235 = phi i32 [ %.7, %226 ], [ %.7234, %._crit_edge.i ]
+  %.not192.not = icmp eq i32 %.7235, 0
+  br i1 %.not192.not, label %.thread236, label %clusterManagerReleaseReshardTable.exit._crit_edge
+
+clusterManagerReleaseReshardTable.exit._crit_edge: ; preds = %clusterManagerReleaseReshardTable.exit
+  %.pre = load i32, ptr %186, align 4, !tbaa !81
   br label %233
 
-233:                                              ; preds = %._crit_edge.i, %226
-  %.7230 = phi i32 [ %.7, %226 ], [ %.7229, %._crit_edge.i ]
-  %.not192.not = icmp eq i32 %.7230, 0
-  br i1 %.not192.not, label %.loopexit, label %._crit_edge315
+233:                                              ; preds = %clusterManagerReleaseReshardTable.exit._crit_edge, %179
+  %234 = phi i32 [ %.pre, %clusterManagerReleaseReshardTable.exit._crit_edge ], [ %187, %179 ]
+  %235 = add nsw i32 %234, %192
+  store i32 %235, ptr %186, align 4, !tbaa !81
+  %236 = load i32, ptr %189, align 4, !tbaa !81
+  %237 = sub nsw i32 %236, %192
+  store i32 %237, ptr %189, align 4, !tbaa !81
+  %238 = load i32, ptr %186, align 4, !tbaa !81
+  %239 = icmp eq i32 %238, 0
+  %240 = zext i1 %239 to i32
+  %spec.select205 = add nuw nsw i32 %.0150300, %240
+  %241 = icmp eq i32 %236, %192
+  %242 = sext i1 %241 to i32
+  %.2149 = add nsw i32 %.0147301, %242
+  %243 = icmp slt i32 %spec.select205, %.2149
+  br i1 %243, label %179, label %.thread236
 
-._crit_edge315:                                   ; preds = %233
-  %.pre = load i32, ptr %186, align 4, !tbaa !81
-  br label %234
-
-234:                                              ; preds = %179, %._crit_edge315
-  %235 = phi i32 [ %.pre, %._crit_edge315 ], [ %187, %179 ]
-  %236 = add nsw i32 %235, %192
-  store i32 %236, ptr %186, align 4, !tbaa !81
-  %237 = load i32, ptr %189, align 4, !tbaa !81
-  %238 = sub nsw i32 %237, %192
-  store i32 %238, ptr %189, align 4, !tbaa !81
-  %239 = load i32, ptr %186, align 4, !tbaa !81
-  %240 = icmp eq i32 %239, 0
-  %241 = zext i1 %240 to i32
-  %spec.select202 = add nuw nsw i32 %.0150365, %241
-  %242 = icmp eq i32 %237, %192
-  %243 = sext i1 %242 to i32
-  %.2149 = add nsw i32 %.0147366, %243
-  %244 = icmp slt i32 %spec.select202, %.2149
-  br i1 %244, label %179, label %.loopexit
-
-.loopexit:                                        ; preds = %233, %234, %.loopexit246, %._crit_edge, %._crit_edge272.thread, %109
-  %.4137 = phi i32 [ 1, %._crit_edge ], [ 0, %109 ], [ 1, %._crit_edge272.thread ], [ 1, %.loopexit246 ], [ 1, %234 ], [ 0, %233 ]
+.thread236:                                       ; preds = %233, %clusterManagerReleaseReshardTable.exit, %.loopexit, %._crit_edge, %._crit_edge281.thread, %109
+  %.4137 = phi i32 [ 1, %._crit_edge ], [ 0, %109 ], [ 1, %._crit_edge281.thread ], [ 1, %.loopexit ], [ 1, %233 ], [ 0, %clusterManagerReleaseReshardTable.exit ]
   %.not198 = icmp eq ptr %70, null
-  br i1 %.not198, label %246, label %245
+  br i1 %.not198, label %245, label %244
 
-245:                                              ; preds = %.loopexit
+244:                                              ; preds = %.thread236
   call void @listRelease(ptr noundef nonnull %70) #34
-  br label %246
+  br label %245
 
-246:                                              ; preds = %245, %.loopexit
-  br i1 %102, label %.thread238, label %247
+245:                                              ; preds = %244, %.thread236
+  br i1 %102, label %.thread248, label %246
 
-247:                                              ; preds = %246
+246:                                              ; preds = %245
   call void @zfree(ptr noundef nonnull %101) #34
-  br label %.thread238
+  br label %.thread248
 
-248:                                              ; preds = %18, %12
-  %249 = load ptr, ptr @stderr, align 8, !tbaa !5
-  %250 = tail call i64 @fwrite(ptr nonnull @.str.353, i64 138, i64 1, ptr %249) #35
-  br label %.thread238
+247:                                              ; preds = %18, %12
+  %248 = load ptr, ptr @stderr, align 8, !tbaa !5
+  %249 = tail call i64 @fwrite(ptr nonnull @.str.353, i64 138, i64 1, ptr %248) #35
+  br label %.thread248
 
-.thread238:                                       ; preds = %clusterManagerNodeByAbbreviatedName.exit.thread, %44, %246, %247, %getClusterHostFromCmdArgs.exit, %248
-  %.0 = phi i32 [ 0, %248 ], [ 0, %getClusterHostFromCmdArgs.exit ], [ %.4137, %247 ], [ %.4137, %246 ], [ 0, %44 ], [ 0, %clusterManagerNodeByAbbreviatedName.exit.thread ]
+.thread248:                                       ; preds = %clusterManagerNodeByAbbreviatedName.exit.thread, %44, %245, %246, %getClusterHostFromCmdArgs.exit, %247
+  %.0 = phi i32 [ 0, %247 ], [ 0, %getClusterHostFromCmdArgs.exit ], [ %.4137, %246 ], [ %.4137, %245 ], [ 0, %44 ], [ 0, %clusterManagerNodeByAbbreviatedName.exit.thread ]
   ret i32 %.0
 }
 
@@ -5629,8 +5629,8 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %16
 
 22:                                               ; preds = %getClusterHostFromCmdArgs.exit
   %23 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 64) #36
-  %.not.i.i151 = icmp eq ptr %23, null
-  br i1 %.not.i.i151, label %25, label %24
+  %.not.i.i153 = icmp eq ptr %23, null
+  br i1 %.not.i.i153, label %25, label %24
 
 24:                                               ; preds = %22
   store i8 0, ptr %23, align 1, !tbaa !67
@@ -5638,19 +5638,19 @@ getClusterHostFromCmdArgs.exit:                   ; preds = %16
 
 25:                                               ; preds = %24, %22
   %26 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 58) #36
-  %.not17.i.i152 = icmp eq ptr %26, null
-  br i1 %.not17.i.i152, label %getClusterHostFromCmdArgs.exit.thread, label %parseClusterNodeAddress.exit.i153
+  %.not17.i.i154 = icmp eq ptr %26, null
+  br i1 %.not17.i.i154, label %getClusterHostFromCmdArgs.exit.thread, label %parseClusterNodeAddress.exit.i155
 
-parseClusterNodeAddress.exit.i153:                ; preds = %25
+parseClusterNodeAddress.exit.i155:                ; preds = %25
   store i8 0, ptr %26, align 1, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = tail call i64 @strtol(ptr noundef nonnull captures(none) %27, ptr noundef null, i32 noundef 10) #34
-  %.013.i155 = trunc i64 %28 to i32
-  %.not = icmp eq i32 %.013.i155, 0
-  br i1 %.not, label %getClusterHostFromCmdArgs.exit.thread, label %getClusterHostFromCmdArgs.exit158
+  %.013.i157 = trunc i64 %28 to i32
+  %.not = icmp eq i32 %.013.i157, 0
+  br i1 %.not, label %getClusterHostFromCmdArgs.exit.thread, label %getClusterHostFromCmdArgs.exit160
 
-getClusterHostFromCmdArgs.exit158:                ; preds = %parseClusterNodeAddress.exit.i153
-  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.408, ptr noundef nonnull %20, i32 noundef %.013.i155, ptr noundef nonnull %6, i32 noundef %.013.i)
+getClusterHostFromCmdArgs.exit160:                ; preds = %parseClusterNodeAddress.exit.i155
+  tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.408, ptr noundef nonnull %20, i32 noundef %.013.i157, ptr noundef nonnull %6, i32 noundef %.013.i)
   %29 = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #38
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -5678,7 +5678,7 @@ getClusterHostFromCmdArgs.exit158:                ; preds = %parseClusterNodeAdd
   %.not128 = icmp eq i32 %41, 0
   br i1 %.not128, label %224, label %42
 
-42:                                               ; preds = %getClusterHostFromCmdArgs.exit158
+42:                                               ; preds = %getClusterHostFromCmdArgs.exit160
   %43 = tail call fastcc i32 @clusterManagerCheckCluster(i32 noundef 0)
   %.not129 = icmp eq i32 %43, 0
   br i1 %.not129, label %224, label %44
@@ -5686,7 +5686,7 @@ getClusterHostFromCmdArgs.exit158:                ; preds = %parseClusterNodeAdd
 44:                                               ; preds = %42
   %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @config, i64 32), align 8
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @config, i64 40), align 8
-  %47 = tail call ptr @redisConnectWrapper(ptr noundef nonnull %20, i32 noundef %.013.i155, i64 %45, i64 %46) #34
+  %47 = tail call ptr @redisConnectWrapper(ptr noundef nonnull %20, i32 noundef %.013.i157, i64 %45, i64 %46) #34
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !157
   %.not130 = icmp eq i32 %49, 0
@@ -5695,14 +5695,14 @@ getClusterHostFromCmdArgs.exit158:                ; preds = %parseClusterNodeAdd
 50:                                               ; preds = %44
   %51 = load ptr, ptr @stderr, align 8, !tbaa !5
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.409, ptr noundef nonnull %20, i32 noundef %.013.i155, ptr noundef nonnull %52) #40
-  br label %.thread243
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.409, ptr noundef nonnull %20, i32 noundef %.013.i157, ptr noundef nonnull %52) #40
+  br label %.thread245
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 632), align 8, !tbaa !165
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 640), align 8, !tbaa !166
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %cliAuth.exit.thread186, label %58
+  br i1 %57, label %cliAuth.exit.thread188, label %58
 
 58:                                               ; preds = %54
   %59 = icmp eq ptr %55, null
@@ -5724,37 +5724,37 @@ getClusterHostFromCmdArgs.exit158:                ; preds = %parseClusterNodeAdd
 cliAuth.exit.thread:                              ; preds = %64
   %66 = load ptr, ptr @stderr, align 8, !tbaa !5
   %67 = tail call i64 @fwrite(ptr nonnull @.str.81, i64 11, i64 1, ptr %66) #35
-  br label %.thread243
+  br label %.thread245
 
 68:                                               ; preds = %64
   %69 = load i32, ptr %.012.i, align 8, !tbaa !56
   %70 = icmp eq i32 %69, 6
-  br i1 %70, label %cliAuth.exit.thread188, label %cliAuth.exit
+  br i1 %70, label %cliAuth.exit.thread190, label %cliAuth.exit
 
-cliAuth.exit.thread188:                           ; preds = %68
+cliAuth.exit.thread190:                           ; preds = %68
   %71 = load ptr, ptr @stderr, align 8, !tbaa !5
   %72 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !36
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.421, ptr noundef %73) #40
   tail call void @freeReplyObject(ptr noundef nonnull %.012.i) #34
-  br label %.thread243
+  br label %.thread245
 
 cliAuth.exit:                                     ; preds = %68
   tail call void @freeReplyObject(ptr noundef nonnull %.012.i) #34
-  br label %cliAuth.exit.thread186
+  br label %cliAuth.exit.thread188
 
-cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
+cliAuth.exit.thread188:                           ; preds = %54, %cliAuth.exit
   %75 = tail call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef nonnull %47, ptr noundef nonnull @.str.190)
   %76 = load i32, ptr %75, align 8, !tbaa !56
   %77 = icmp eq i32 %76, 6
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 32
   br i1 %77, label %220, label %79
 
-79:                                               ; preds = %cliAuth.exit.thread186
+79:                                               ; preds = %cliAuth.exit.thread188
   %80 = load ptr, ptr %78, align 8, !tbaa !36
   %81 = tail call fastcc i64 @getLongInfoField(ptr noundef %80, ptr noundef nonnull @.str.189)
   %.not131 = icmp eq i64 %81, 0
-  br i1 %.not131, label %82, label %.thread247
+  br i1 %.not131, label %82, label %.thread249
 
 82:                                               ; preds = %79
   tail call void @freeReplyObject(ptr noundef nonnull %75) #34
@@ -5775,13 +5775,13 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(131072) %3, i8 0, i64 131072, i1 false)
   br label %92
 
-92:                                               ; preds = %88, %.loopexit252
-  %indvars.iv = phi i64 [ 0, %88 ], [ %indvars.iv.next, %.loopexit252 ]
+92:                                               ; preds = %88, %.loopexit254
+  %indvars.iv = phi i64 [ 0, %88 ], [ %indvars.iv.next, %.loopexit254 ]
   %93 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %93, ptr noundef nonnull %4) #34
   %94 = call ptr @listNext(ptr noundef nonnull %4) #34
-  %.not140261 = icmp eq ptr %94, null
-  br i1 %.not140261, label %.loopexit252, label %.lr.ph
+  %.not140263 = icmp eq ptr %94, null
+  br i1 %.not140263, label %.loopexit254, label %.lr.ph
 
 .lr.ph:                                           ; preds = %92, %110
   %95 = phi ptr [ %111, %110 ], [ %94, %92 ]
@@ -5809,19 +5809,19 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
 .thread:                                          ; preds = %105
   %109 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %97, ptr %109, align 8, !tbaa !92
-  br label %.loopexit252
+  br label %.loopexit254
 
 110:                                              ; preds = %105, %101, %.lr.ph
   %111 = call ptr @listNext(ptr noundef nonnull %4) #34
   %.not140 = icmp eq ptr %111, null
-  br i1 %.not140, label %.loopexit252, label %.lr.ph
+  br i1 %.not140, label %.loopexit254, label %.lr.ph
 
-.loopexit252:                                     ; preds = %110, %92, %.thread
+.loopexit254:                                     ; preds = %110, %92, %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
   br i1 %exitcond.not, label %112, label %92, !llvm.loop !169
 
-112:                                              ; preds = %.loopexit252
+112:                                              ; preds = %.loopexit254
   %113 = call ptr @hi_sdsnew(ptr noundef nonnull @.str.412) #34
   %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 16), align 8, !tbaa !170
   %.not132 = icmp eq ptr %114, null
@@ -5870,13 +5870,13 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
 
 .loopexit:                                        ; preds = %219, %153
   %.not136 = icmp eq i32 %.1106, 0
-  br i1 %.not136, label %.thread234, label %133
+  br i1 %.not136, label %.thread236, label %133
 
 133:                                              ; preds = %131, %.loopexit
-  %.1104267 = phi ptr [ %83, %131 ], [ %134, %.loopexit ]
-  %.0105266 = phi i32 [ -999, %131 ], [ %.1106, %.loopexit ]
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %.0105266, i32 0)
-  call void @freeReplyObject(ptr noundef nonnull %.1104267) #34
+  %.1104269 = phi ptr [ %83, %131 ], [ %134, %.loopexit ]
+  %.0105268 = phi i32 [ -999, %131 ], [ %.1106, %.loopexit ]
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %.0105268, i32 0)
+  call void @freeReplyObject(ptr noundef nonnull %.1104269) #34
   %134 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef nonnull %47, ptr noundef nonnull @.str.417, i32 noundef %spec.store.select, i32 noundef 1000)
   %135 = load i32, ptr %134, align 8, !tbaa !56
   %136 = icmp eq i32 %135, 6
@@ -5901,7 +5901,7 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   %146 = load ptr, ptr %145, align 8, !tbaa !36
   %147 = call i64 @strtol(ptr noundef nonnull captures(none) %146, ptr noundef null, i32 noundef 10) #34
   %148 = trunc i64 %147 to i32
-  %.pre281 = load ptr, ptr %140, align 8, !tbaa !33
+  %.pre283 = load ptr, ptr %140, align 8, !tbaa !33
   br label %153
 
 149:                                              ; preds = %139
@@ -5911,7 +5911,7 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   br label %153
 
 153:                                              ; preds = %139, %149, %144
-  %154 = phi ptr [ %.pre281, %144 ], [ %141, %149 ], [ %141, %139 ]
+  %154 = phi ptr [ %.pre283, %144 ], [ %141, %149 ], [ %141, %139 ]
   %.1106 = phi i32 [ %148, %144 ], [ %152, %149 ], [ %spec.store.select, %139 ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !34
@@ -5919,20 +5919,20 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   %158 = load i64, ptr %157, align 8, !tbaa !28
   %159 = trunc i64 %158 to i32
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.lr.ph265.preheader, label %.loopexit
+  br i1 %160, label %.lr.ph267.preheader, label %.loopexit
 
-.lr.ph265.preheader:                              ; preds = %153
+.lr.ph267.preheader:                              ; preds = %153
   %wide.trip.count = and i64 %158, 2147483647
-  br label %.lr.ph265
+  br label %.lr.ph267
 
-.lr.ph265:                                        ; preds = %.lr.ph265.preheader, %219
-  %indvars.iv277 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next278, %219 ]
+.lr.ph267:                                        ; preds = %.lr.ph267.preheader, %219
+  %indvars.iv279 = phi i64 [ 0, %.lr.ph267.preheader ], [ %indvars.iv.next280, %219 ]
   %161 = load ptr, ptr %140, align 8, !tbaa !33
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !34
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
   %165 = load ptr, ptr %164, align 8, !tbaa !33
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv277
+  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv279
   %167 = load ptr, ptr %166, align 8, !tbaa !34
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load ptr, ptr %168, align 8, !tbaa !36
@@ -5942,7 +5942,7 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   %173 = icmp sgt i32 %172, 0
   br i1 %173, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph265
+.lr.ph.preheader.i:                               ; preds = %.lr.ph267
   %wide.trip.count.i = and i64 %171, 2147483647
   br label %.lr.ph.i
 
@@ -5962,8 +5962,8 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   %178 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph265
-  %.025.lcssa.i = phi i32 [ 0, %.lr.ph265 ], [ %178, %._crit_edge.loopexit.i ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph267
+  %.025.lcssa.i = phi i32 [ 0, %.lr.ph267 ], [ %178, %._crit_edge.loopexit.i ]
   %179 = icmp eq i32 %.025.lcssa.i, %172
   br i1 %179, label %._crit_edge.thread.i, label %181
 
@@ -5997,8 +5997,8 @@ cliAuth.exit.thread186:                           ; preds = %54, %cliAuth.exit
   %191 = trunc nuw i64 %indvars.iv39.i to i32
   %192 = icmp eq i32 %172, %191
   %193 = icmp eq i32 %182, %191
-  %or.cond.i160 = or i1 %192, %193
-  br i1 %or.cond.i160, label %._crit_edge34.thread.i, label %195
+  %or.cond.i162 = or i1 %192, %193
+  br i1 %or.cond.i162, label %._crit_edge34.thread.i, label %195
 
 ._crit_edge34.thread.i:                           ; preds = %188, %._crit_edge34.i, %181
   %194 = call zeroext i16 @crc16(ptr noundef %169, i32 noundef %172) #34
@@ -6035,66 +6035,66 @@ clusterManagerKeyHashSlot.exit:                   ; preds = %._crit_edge.thread.
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !36
   %.not137 = icmp eq ptr %217, null
-  br i1 %.not137, label %.thread191, label %218
+  br i1 %.not137, label %.thread193, label %218
 
 218:                                              ; preds = %215
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.419, ptr noundef nonnull %20, i32 noundef %.013.i155, ptr noundef nonnull %217)
-  br label %.thread191
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.419, ptr noundef nonnull %20, i32 noundef %.013.i157, ptr noundef nonnull %217)
+  br label %.thread193
 
-.thread191:                                       ; preds = %218, %215
+.thread193:                                       ; preds = %218, %215
   call void @freeReplyObject(ptr noundef nonnull %212) #34
-  br label %.thread234
+  br label %.thread236
 
 219:                                              ; preds = %clusterManagerKeyHashSlot.exit
   call void @freeReplyObject(ptr noundef nonnull %212) #34
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 4, ptr noundef nonnull @.str.420)
-  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %exitcond280.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count
-  br i1 %exitcond280.not, label %.loopexit, label %.lr.ph265, !llvm.loop !175
+  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
+  %exitcond282.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count
+  br i1 %exitcond282.not, label %.loopexit, label %.lr.ph267, !llvm.loop !175
 
-220:                                              ; preds = %cliAuth.exit.thread186, %137, %86
-  %.0103 = phi ptr [ %83, %86 ], [ %134, %137 ], [ %75, %cliAuth.exit.thread186 ]
-  %.099.in = phi ptr [ %87, %86 ], [ %138, %137 ], [ %78, %cliAuth.exit.thread186 ]
-  %.092 = phi ptr [ null, %86 ], [ %.395, %137 ], [ null, %cliAuth.exit.thread186 ]
+220:                                              ; preds = %cliAuth.exit.thread188, %137, %86
+  %.0103 = phi ptr [ %83, %86 ], [ %134, %137 ], [ %75, %cliAuth.exit.thread188 ]
+  %.099.in = phi ptr [ %87, %86 ], [ %138, %137 ], [ %78, %cliAuth.exit.thread188 ]
+  %.092 = phi ptr [ null, %86 ], [ %.395, %137 ], [ null, %cliAuth.exit.thread188 ]
   %.099 = load ptr, ptr %.099.in, align 8, !tbaa !36
   %.not145 = icmp eq ptr %.099, null
-  br i1 %.not145, label %.thread234, label %221
+  br i1 %.not145, label %.thread236, label %221
 
 221:                                              ; preds = %220
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.419, ptr noundef nonnull %20, i32 noundef %.013.i155, ptr noundef nonnull %.099)
-  br label %.thread234
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.419, ptr noundef nonnull %20, i32 noundef %.013.i157, ptr noundef nonnull %.099)
+  br label %.thread236
 
-.thread234:                                       ; preds = %.loopexit, %220, %221, %.thread191
-  %.090213 = phi i32 [ 0, %221 ], [ 0, %220 ], [ 0, %.thread191 ], [ 1, %.loopexit ]
-  %.092212 = phi ptr [ %.092, %221 ], [ %.092, %220 ], [ %.395, %.thread191 ], [ %.395, %.loopexit ]
-  %.0103211 = phi ptr [ %.0103, %221 ], [ %.0103, %220 ], [ %134, %.thread191 ], [ %134, %.loopexit ]
+.thread236:                                       ; preds = %.loopexit, %220, %221, %.thread193
+  %.090215 = phi i32 [ 0, %221 ], [ 0, %220 ], [ 0, %.thread193 ], [ 1, %.loopexit ]
+  %.092214 = phi ptr [ %.092, %221 ], [ %.092, %220 ], [ %.395, %.thread193 ], [ %.395, %.loopexit ]
+  %.0103213 = phi ptr [ %.0103, %221 ], [ %.0103, %220 ], [ %134, %.thread193 ], [ %134, %.loopexit ]
   call void @redisFree(ptr noundef nonnull %47) #34
-  call void @freeReplyObject(ptr noundef nonnull %.0103211) #34
-  %.not148 = icmp eq ptr %.092212, null
+  call void @freeReplyObject(ptr noundef nonnull %.0103213) #34
+  %.not148 = icmp eq ptr %.092214, null
   br i1 %.not148, label %224, label %222
 
-.thread243:                                       ; preds = %cliAuth.exit.thread188, %cliAuth.exit.thread, %50
+.thread245:                                       ; preds = %cliAuth.exit.thread190, %cliAuth.exit.thread, %50
   tail call void @redisFree(ptr noundef nonnull %47) #34
   br label %224
 
-.thread247:                                       ; preds = %79
+.thread249:                                       ; preds = %79
   tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.410)
   tail call void @redisFree(ptr noundef nonnull %47) #34
   tail call void @freeReplyObject(ptr noundef nonnull %75) #34
   br label %224
 
-222:                                              ; preds = %.thread234
-  call void @hi_sdsfree(ptr noundef nonnull %.092212) #34
+222:                                              ; preds = %.thread236
+  call void @hi_sdsfree(ptr noundef nonnull %.092214) #34
   br label %224
 
-getClusterHostFromCmdArgs.exit.thread:            ; preds = %25, %parseClusterNodeAddress.exit.i153, %10, %16, %getClusterHostFromCmdArgs.exit
-  %.091 = phi ptr [ @.str.406, %getClusterHostFromCmdArgs.exit ], [ @.str.353, %16 ], [ @.str.353, %10 ], [ @.str.407, %parseClusterNodeAddress.exit.i153 ], [ @.str.407, %25 ]
+getClusterHostFromCmdArgs.exit.thread:            ; preds = %25, %parseClusterNodeAddress.exit.i155, %10, %16, %getClusterHostFromCmdArgs.exit
+  %.091 = phi ptr [ @.str.406, %getClusterHostFromCmdArgs.exit ], [ @.str.353, %16 ], [ @.str.353, %10 ], [ @.str.407, %parseClusterNodeAddress.exit.i155 ], [ @.str.407, %25 ]
   %223 = load ptr, ptr @stderr, align 8, !tbaa !5
   %fputs = tail call i32 @fputs(ptr nonnull %.091, ptr %223) #35
   br label %224
 
-224:                                              ; preds = %.thread247, %.thread243, %.thread234, %222, %42, %getClusterHostFromCmdArgs.exit158, %getClusterHostFromCmdArgs.exit.thread
-  %.0 = phi i32 [ 0, %getClusterHostFromCmdArgs.exit.thread ], [ 0, %getClusterHostFromCmdArgs.exit158 ], [ 0, %42 ], [ %.090213, %222 ], [ %.090213, %.thread234 ], [ 0, %.thread243 ], [ 0, %.thread247 ]
+224:                                              ; preds = %.thread249, %.thread245, %.thread236, %222, %42, %getClusterHostFromCmdArgs.exit160, %getClusterHostFromCmdArgs.exit.thread
+  %.0 = phi i32 [ 0, %getClusterHostFromCmdArgs.exit.thread ], [ 0, %getClusterHostFromCmdArgs.exit160 ], [ 0, %42 ], [ %.090215, %222 ], [ %.090215, %.thread236 ], [ 0, %.thread245 ], [ 0, %.thread249 ]
   ret i32 %.0
 }
 
@@ -18213,9 +18213,9 @@ clusterManagerCheckRedisReply.exit:               ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %30
 
-30:                                               ; preds = %.lr.ph279, %select.unfold258
-  %strchr278 = phi ptr [ %strchr275, %.lr.ph279 ], [ %strchr, %select.unfold258 ]
-  %.0164277 = phi ptr [ %19, %.lr.ph279 ], [ %31, %select.unfold258 ]
+30:                                               ; preds = %.lr.ph279, %select.unfold257
+  %strchr278 = phi ptr [ %strchr275, %.lr.ph279 ], [ %strchr, %select.unfold257 ]
+  %.0164277 = phi ptr [ %19, %.lr.ph279 ], [ %31, %select.unfold257 ]
   store i8 0, ptr %strchr278, align 1, !tbaa !67
   %31 = getelementptr inbounds nuw i8, ptr %strchr278, i64 1
   br label %32
@@ -18310,7 +18310,7 @@ clusterManagerCheckRedisReply.exit:               ; preds = %7
   br label %55
 
 55:                                               ; preds = %51, %49
-  %.0249 = phi i32 [ 0, %49 ], [ %54, %51 ]
+  %.0 = phi i32 [ 0, %49 ], [ %54, %51 ]
   %56 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1175, i32 noundef 58) #36
   %.not17.i = icmp eq ptr %56, null
   br i1 %.not17.i, label %parseClusterNodeAddress.exit.thread, label %59
@@ -18330,7 +18330,7 @@ parseClusterNodeAddress.exit.thread:              ; preds = %55, %47
   br i1 %64, label %65, label %147
 
 65:                                               ; preds = %59
-  store i32 %.0249, ptr %22, align 4, !tbaa !78
+  store i32 %.0, ptr %22, align 4, !tbaa !78
   %66 = load i32, ptr %21, align 8, !tbaa !129
   %67 = or i32 %66, 1
   store i32 %67, ptr %21, align 8, !tbaa !129
@@ -18498,7 +18498,7 @@ parseClusterNodeAddress.exit.thread:              ; preds = %55, %47
   %149 = load i32, ptr %21, align 8, !tbaa !129
   %150 = and i32 %149, 1
   %.not224 = icmp eq i32 %150, 0
-  br i1 %.not224, label %select.unfold258, label %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, !llvm.loop !409
+  br i1 %.not224, label %select.unfold257, label %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, !llvm.loop !409
 
 151:                                              ; preds = %147
   %152 = call ptr @hi_sdsnew(ptr noundef nonnull %.1175) #34
@@ -18508,9 +18508,9 @@ parseClusterNodeAddress.exit.thread:              ; preds = %55, %47
   store ptr %152, ptr %154, align 8, !tbaa !74
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i32 %62, ptr %155, align 8, !tbaa !77
-  %.not.i245 = icmp eq i32 %.0249, 0
+  %.not.i245 = icmp eq i32 %.0, 0
   %156 = add nsw i32 %62, 10000
-  %157 = select i1 %.not.i245, i32 %156, i32 %.0249
+  %157 = select i1 %.not.i245, i32 %156, i32 %.0
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 28
   store i32 %157, ptr %158, align 4, !tbaa !78
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 32
@@ -18723,9 +18723,9 @@ freeClusterManagerNodeFlags.exit:                 ; preds = %.lr.ph.i, %184
 
 253:                                              ; preds = %250, %249
   %or.cond = and i1 %.not223, %64
-  br i1 %or.cond, label %clusterManagerCheckRedisReply.exit.thread, label %select.unfold258
+  br i1 %or.cond, label %clusterManagerCheckRedisReply.exit.thread, label %select.unfold257
 
-select.unfold258:                                 ; preds = %148, %253
+select.unfold257:                                 ; preds = %148, %253
   %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %31, i32 10)
   %.not219 = icmp eq ptr %strchr, null
   br i1 %.not219, label %clusterManagerCheckRedisReply.exit.thread, label %30
@@ -18733,14 +18733,14 @@ select.unfold258:                                 ; preds = %148, %253
 .clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280: ; preds = %148
   br label %clusterManagerCheckRedisReply.exit.thread, !llvm.loop !409
 
-clusterManagerCheckRedisReply.exit.thread:        ; preds = %253, %46, %select.unfold258, %clusterManagerCheckRedisReply.exit, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, %parseClusterNodeAddress.exit.thread, %clusterManagerCheckRedisReply.exit.thread.thread262
-  %.0163264 = phi i32 [ 0, %clusterManagerCheckRedisReply.exit.thread.thread262 ], [ 0, %parseClusterNodeAddress.exit.thread ], [ 1, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280 ], [ 1, %clusterManagerCheckRedisReply.exit ], [ 1, %253 ], [ 0, %46 ], [ 1, %select.unfold258 ]
+clusterManagerCheckRedisReply.exit.thread:        ; preds = %253, %46, %select.unfold257, %clusterManagerCheckRedisReply.exit, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280, %parseClusterNodeAddress.exit.thread, %clusterManagerCheckRedisReply.exit.thread.thread262
+  %.0163264 = phi i32 [ 0, %clusterManagerCheckRedisReply.exit.thread.thread262 ], [ 0, %parseClusterNodeAddress.exit.thread ], [ 1, %.clusterManagerCheckRedisReply.exit.thread.loopexit_crit_edge280 ], [ 1, %clusterManagerCheckRedisReply.exit ], [ 1, %253 ], [ 0, %46 ], [ 1, %select.unfold257 ]
   call void @freeReplyObject(ptr noundef nonnull %6) #34
   br label %clusterManagerCheckRedisReply.exit.thread.thread
 
 clusterManagerCheckRedisReply.exit.thread.thread: ; preds = %3, %clusterManagerCheckRedisReply.exit.thread
-  %.0 = phi i32 [ %.0163264, %clusterManagerCheckRedisReply.exit.thread ], [ 0, %3 ]
-  ret i32 %.0
+  %.0163261 = phi i32 [ %.0163264, %clusterManagerCheckRedisReply.exit.thread ], [ 0, %3 ]
+  ret i32 %.0163261
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -20041,8 +20041,8 @@ clusterManagerOnError.exit157:                    ; preds = %._crit_edge340, %12
   %164 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %164, ptr noundef nonnull %17) #34
   %165 = call ptr @listNext(ptr noundef nonnull %17) #34
-  %.not745.i = icmp eq ptr %165, null
-  br i1 %.not745.i, label %._crit_edge.i, label %.lr.ph.i158
+  %.not753.i = icmp eq ptr %165, null
+  br i1 %.not753.i, label %._crit_edge.i, label %.lr.ph.i158
 
 .lr.ph.i158:                                      ; preds = %158
   %sext = shl i64 %150, 32
@@ -20079,7 +20079,7 @@ clusterManagerOnError.exit157:                    ; preds = %._crit_edge340, %12
 183:                                              ; preds = %180
   %184 = load i32, ptr %182, align 8, !tbaa !56
   %.not19.i.i = icmp eq i32 %184, 6
-  br i1 %.not19.i.i, label %.thread511.i, label %clusterManagerCheckRedisReply.exit.i
+  br i1 %.not19.i.i, label %.thread519.i, label %clusterManagerCheckRedisReply.exit.i
 
 clusterManagerCheckRedisReply.exit.i:             ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
@@ -20096,7 +20096,7 @@ clusterManagerCheckRedisReply.exit.i:             ; preds = %183
   %193 = call ptr @listAddNodeTail(ptr noundef %159, ptr noundef nonnull %170) #34
   br label %200
 
-.thread511.i:                                     ; preds = %183
+.thread519.i:                                     ; preds = %183
   %194 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %195 = load ptr, ptr %194, align 8, !tbaa !74
   %196 = getelementptr inbounds nuw i8, ptr %170, i64 24
@@ -20133,56 +20133,56 @@ clusterManagerCheckRedisReply.exit.i:             ; preds = %183
   %211 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %211, ptr noundef nonnull %17) #34
   %212 = call ptr @listNext(ptr noundef nonnull %17) #34
-  %.not381750.i = icmp eq ptr %212, null
-  br i1 %.not381750.i, label %._crit_edge755.i, label %.lr.ph754.i
+  %.not381758.i = icmp eq ptr %212, null
+  br i1 %.not381758.i, label %._crit_edge763.i, label %.lr.ph762.i
 
-.lr.ph754.i:                                      ; preds = %210
+.lr.ph762.i:                                      ; preds = %210
   %213 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %214 = getelementptr inbounds nuw i8, ptr %161, i64 40
   br label %215
 
-215:                                              ; preds = %.thread539.i, %.lr.ph754.i
-  %216 = phi ptr [ %212, %.lr.ph754.i ], [ %296, %.thread539.i ]
-  %.1282752.i = phi ptr [ %162, %.lr.ph754.i ], [ %.2283.i, %.thread539.i ]
-  %.1289751.i = phi ptr [ %163, %.lr.ph754.i ], [ %.2290.i, %.thread539.i ]
+215:                                              ; preds = %.thread547.i, %.lr.ph762.i
+  %216 = phi ptr [ %212, %.lr.ph762.i ], [ %296, %.thread547.i ]
+  %.1282760.i = phi ptr [ %162, %.lr.ph762.i ], [ %.2283.i, %.thread547.i ]
+  %.1289759.i = phi ptr [ %163, %.lr.ph762.i ], [ %.2290.i, %.thread547.i ]
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %218 = load ptr, ptr %217, align 8, !tbaa !96
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 56
   %220 = load i32, ptr %219, align 8, !tbaa !129
   %221 = and i32 %220, 2
   %.not414.i = icmp eq i32 %221, 0
-  br i1 %.not414.i, label %222, label %.thread539.i, !llvm.loop !441
+  br i1 %.not414.i, label %222, label %.thread547.i, !llvm.loop !441
 
 222:                                              ; preds = %215
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 16488
   %224 = load ptr, ptr %223, align 8, !tbaa !180
   %.not415.i = icmp eq ptr %224, null
-  br i1 %.not415.i, label %.thread527.i, label %.preheader698.i
+  br i1 %.not415.i, label %.thread535.i, label %.preheader706.i
 
-.preheader698.i:                                  ; preds = %222
+.preheader706.i:                                  ; preds = %222
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 16504
   %226 = load i32, ptr %225, align 8, !tbaa !179
   %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %.lr.ph747.i, label %.thread527.i
+  br i1 %227, label %.lr.ph755.i, label %.thread535.i
 
-228:                                              ; preds = %.lr.ph747.i
+228:                                              ; preds = %.lr.ph755.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %229 = load i32, ptr %225, align 8, !tbaa !179
   %230 = trunc nuw i64 %indvars.iv.next.i to i32
   %231 = icmp sgt i32 %229, %230
-  br i1 %231, label %.lr.ph747.i, label %.thread527.i, !llvm.loop !442
+  br i1 %231, label %.lr.ph755.i, label %.thread535.i, !llvm.loop !442
 
-.lr.ph747.i:                                      ; preds = %.preheader698.i, %228
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %228 ], [ 0, %.preheader698.i ]
+.lr.ph755.i:                                      ; preds = %.preheader706.i, %228
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %228 ], [ 0, %.preheader706.i ]
   %232 = load ptr, ptr %223, align 8, !tbaa !180
   %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv.i
   %234 = load ptr, ptr %233, align 8, !tbaa !24
   %235 = call i64 @strtol(ptr noundef nonnull captures(none) %234, ptr noundef null, i32 noundef 10) #34
   %236 = trunc i64 %235 to i32
   %.not416.i = icmp eq i32 %151, %236
-  br i1 %.not416.i, label %.thread532.i, label %228
+  br i1 %.not416.i, label %.thread540.i, label %228
 
-.thread532.i:                                     ; preds = %.lr.ph747.i
+.thread540.i:                                     ; preds = %.lr.ph755.i
   %237 = load i64, ptr %213, align 8, !tbaa !84
   %238 = icmp eq i64 %237, 0
   %239 = select i1 %238, ptr @.str.31, ptr @.str.225
@@ -20190,40 +20190,40 @@ clusterManagerCheckRedisReply.exit.i:             ; preds = %183
   %241 = load ptr, ptr %240, align 8, !tbaa !74
   %242 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %243 = load i32, ptr %242, align 8, !tbaa !77
-  %244 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1282752.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %239, ptr noundef %241, i32 noundef %243) #34
+  %244 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1282760.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %239, ptr noundef %241, i32 noundef %243) #34
   %245 = call ptr @listAddNodeTail(ptr noundef %160, ptr noundef nonnull %218) #34
-  br label %.thread539.i
+  br label %.thread547.i
 
-.thread527.i:                                     ; preds = %228, %.preheader698.i, %222
+.thread535.i:                                     ; preds = %228, %.preheader706.i, %222
   %246 = getelementptr inbounds nuw i8, ptr %218, i64 16496
   %247 = load ptr, ptr %246, align 8, !tbaa !183
   %.not417.i = icmp eq ptr %247, null
-  br i1 %.not417.i, label %.loopexit697.i, label %.preheader.i
+  br i1 %.not417.i, label %.loopexit705.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.thread527.i
+.preheader.i:                                     ; preds = %.thread535.i
   %248 = getelementptr inbounds nuw i8, ptr %218, i64 16508
   %249 = load i32, ptr %248, align 4, !tbaa !182
   %250 = icmp sgt i32 %249, 0
-  br i1 %250, label %.lr.ph749.i, label %.loopexit697.i
+  br i1 %250, label %.lr.ph757.i, label %.loopexit705.i
 
-251:                                              ; preds = %.lr.ph749.i
-  %indvars.iv.next853.i = add nuw nsw i64 %indvars.iv852.i, 2
+251:                                              ; preds = %.lr.ph757.i
+  %indvars.iv.next861.i = add nuw nsw i64 %indvars.iv860.i, 2
   %252 = load i32, ptr %248, align 4, !tbaa !182
-  %253 = trunc nuw i64 %indvars.iv.next853.i to i32
+  %253 = trunc nuw i64 %indvars.iv.next861.i to i32
   %254 = icmp sgt i32 %252, %253
-  br i1 %254, label %.lr.ph749.i, label %.loopexit697.i, !llvm.loop !443
+  br i1 %254, label %.lr.ph757.i, label %.loopexit705.i, !llvm.loop !443
 
-.lr.ph749.i:                                      ; preds = %.preheader.i, %251
-  %indvars.iv852.i = phi i64 [ %indvars.iv.next853.i, %251 ], [ 0, %.preheader.i ]
+.lr.ph757.i:                                      ; preds = %.preheader.i, %251
+  %indvars.iv860.i = phi i64 [ %indvars.iv.next861.i, %251 ], [ 0, %.preheader.i ]
   %255 = load ptr, ptr %246, align 8, !tbaa !183
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv852.i
+  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv860.i
   %257 = load ptr, ptr %256, align 8, !tbaa !24
   %258 = call i64 @strtol(ptr noundef nonnull captures(none) %257, ptr noundef null, i32 noundef 10) #34
   %259 = trunc i64 %258 to i32
   %.not418.i = icmp eq i32 %151, %259
-  br i1 %.not418.i, label %.loopexit697.thread.i, label %251
+  br i1 %.not418.i, label %.loopexit705.thread.i, label %251
 
-.loopexit697.thread.i:                            ; preds = %.lr.ph749.i
+.loopexit705.thread.i:                            ; preds = %.lr.ph757.i
   %260 = load i64, ptr %214, align 8, !tbaa !84
   %261 = icmp eq i64 %260, 0
   %262 = select i1 %261, ptr @.str.31, ptr @.str.225
@@ -20231,32 +20231,32 @@ clusterManagerCheckRedisReply.exit.i:             ; preds = %183
   %264 = load ptr, ptr %263, align 8, !tbaa !74
   %265 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %266 = load i32, ptr %265, align 8, !tbaa !77
-  %267 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1289751.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %262, ptr noundef %264, i32 noundef %266) #34
+  %267 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1289759.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %262, ptr noundef %264, i32 noundef %266) #34
   %268 = call ptr @listAddNodeTail(ptr noundef %161, ptr noundef nonnull %218) #34
-  br label %.thread539.i
+  br label %.thread547.i
 
-.loopexit697.i:                                   ; preds = %251, %.preheader.i, %.thread527.i
+.loopexit705.i:                                   ; preds = %251, %.preheader.i, %.thread535.i
   %.not419.i = icmp eq ptr %218, %.0303.i
-  br i1 %.not419.i, label %.thread539.i, label %269
+  br i1 %.not419.i, label %.thread547.i, label %269
 
-269:                                              ; preds = %.loopexit697.i
+269:                                              ; preds = %.loopexit705.i
   %270 = load ptr, ptr %218, align 8, !tbaa !82
   %271 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %270, ptr noundef nonnull @.str.267, i32 noundef %151) #34
-  %.not.i446.i = icmp eq ptr %271, null
-  br i1 %.not.i446.i, label %clusterManagerFixOpenSlot.exit, label %272
+  %.not.i454.i = icmp eq ptr %271, null
+  br i1 %.not.i454.i, label %clusterManagerFixOpenSlot.exit, label %272
 
 272:                                              ; preds = %269
   %273 = load i32, ptr %271, align 8, !tbaa !56
-  %.not19.i447.i = icmp eq i32 %273, 6
-  br i1 %.not19.i447.i, label %.thread571.i, label %clusterManagerCheckRedisReply.exit450.i
+  %.not19.i455.i = icmp eq i32 %273, 6
+  br i1 %.not19.i455.i, label %.thread579.i, label %clusterManagerCheckRedisReply.exit458.i
 
-clusterManagerCheckRedisReply.exit450.i:          ; preds = %272
+clusterManagerCheckRedisReply.exit458.i:          ; preds = %272
   %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %275 = load i64, ptr %274, align 8, !tbaa !167
   %276 = icmp sgt i64 %275, 0
   br i1 %276, label %277, label %295
 
-277:                                              ; preds = %clusterManagerCheckRedisReply.exit450.i
+277:                                              ; preds = %clusterManagerCheckRedisReply.exit458.i
   %278 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %279 = load ptr, ptr %278, align 8, !tbaa !74
   %280 = getelementptr inbounds nuw i8, ptr %218, i64 24
@@ -20267,11 +20267,11 @@ clusterManagerCheckRedisReply.exit450.i:          ; preds = %272
   %284 = select i1 %283, ptr @.str.31, ptr @.str.225
   %285 = load ptr, ptr %278, align 8, !tbaa !74
   %286 = load i32, ptr %280, align 8, !tbaa !77
-  %287 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1289751.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %284, ptr noundef %285, i32 noundef %286) #34
+  %287 = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %.1289759.i, ptr noundef nonnull @.str.269, ptr noundef nonnull %284, ptr noundef %285, i32 noundef %286) #34
   %288 = call ptr @listAddNodeTail(ptr noundef %161, ptr noundef nonnull %218) #34
   br label %295
 
-.thread571.i:                                     ; preds = %272
+.thread579.i:                                     ; preds = %272
   %289 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %290 = load ptr, ptr %289, align 8, !tbaa !74
   %291 = getelementptr inbounds nuw i8, ptr %218, i64 24
@@ -20282,21 +20282,21 @@ clusterManagerCheckRedisReply.exit450.i:          ; preds = %272
   call void @freeReplyObject(ptr noundef nonnull %271) #34
   br label %clusterManagerFixOpenSlot.exit
 
-295:                                              ; preds = %277, %clusterManagerCheckRedisReply.exit450.i
-  %.8296.ph.i = phi ptr [ %.1289751.i, %clusterManagerCheckRedisReply.exit450.i ], [ %287, %277 ]
+295:                                              ; preds = %277, %clusterManagerCheckRedisReply.exit458.i
+  %.8296.ph.i = phi ptr [ %.1289759.i, %clusterManagerCheckRedisReply.exit458.i ], [ %287, %277 ]
   call void @freeReplyObject(ptr noundef nonnull %271) #34
-  br label %.thread539.i
+  br label %.thread547.i
 
-.thread539.i:                                     ; preds = %295, %.loopexit697.i, %.loopexit697.thread.i, %.thread532.i, %215
-  %.2290.i = phi ptr [ %.1289751.i, %215 ], [ %.1289751.i, %.loopexit697.i ], [ %.8296.ph.i, %295 ], [ %.1289751.i, %.thread532.i ], [ %267, %.loopexit697.thread.i ]
-  %.2283.i = phi ptr [ %.1282752.i, %215 ], [ %.1282752.i, %.loopexit697.i ], [ %.1282752.i, %295 ], [ %244, %.thread532.i ], [ %.1282752.i, %.loopexit697.thread.i ]
+.thread547.i:                                     ; preds = %295, %.loopexit705.i, %.loopexit705.thread.i, %.thread540.i, %215
+  %.2290.i = phi ptr [ %.1289759.i, %215 ], [ %.1289759.i, %.loopexit705.i ], [ %.8296.ph.i, %295 ], [ %.1289759.i, %.thread540.i ], [ %267, %.loopexit705.thread.i ]
+  %.2283.i = phi ptr [ %.1282760.i, %215 ], [ %.1282760.i, %.loopexit705.i ], [ %.1282760.i, %295 ], [ %244, %.thread540.i ], [ %.1282760.i, %.loopexit705.thread.i ]
   %296 = call ptr @listNext(ptr noundef nonnull %17) #34
   %.not381.i = icmp eq ptr %296, null
-  br i1 %.not381.i, label %._crit_edge755.i, label %215
+  br i1 %.not381.i, label %._crit_edge763.i, label %215
 
-._crit_edge755.i:                                 ; preds = %.thread539.i, %210
-  %.1289.lcssa.i = phi ptr [ %163, %210 ], [ %.2290.i, %.thread539.i ]
-  %.1282.lcssa.i = phi ptr [ %162, %210 ], [ %.2283.i, %.thread539.i ]
+._crit_edge763.i:                                 ; preds = %.thread547.i, %210
+  %.1289.lcssa.i = phi ptr [ %163, %210 ], [ %.2290.i, %.thread547.i ]
+  %.1282.lcssa.i = phi ptr [ %162, %210 ], [ %.2283.i, %.thread547.i ]
   %297 = getelementptr inbounds i8, ptr %.1282.lcssa.i, i64 -1
   %298 = load i8, ptr %297, align 1, !tbaa !67
   %299 = zext i8 %298 to i32
@@ -20309,30 +20309,30 @@ clusterManagerCheckRedisReply.exit450.i:          ; preds = %272
     i32 4, label %316
   ]
 
-301:                                              ; preds = %._crit_edge755.i
+301:                                              ; preds = %._crit_edge763.i
   %302 = lshr i32 %299, 3
   %303 = zext nneg i32 %302 to i64
   br label %hi_sdslen.exit.i
 
-304:                                              ; preds = %._crit_edge755.i
+304:                                              ; preds = %._crit_edge763.i
   %305 = getelementptr inbounds i8, ptr %.1282.lcssa.i, i64 -3
   %306 = load i8, ptr %305, align 1, !tbaa !67
   %307 = zext i8 %306 to i64
   br label %hi_sdslen.exit.i
 
-308:                                              ; preds = %._crit_edge755.i
+308:                                              ; preds = %._crit_edge763.i
   %309 = getelementptr inbounds i8, ptr %.1282.lcssa.i, i64 -5
   %310 = load i16, ptr %309, align 1, !tbaa !68
   %311 = zext i16 %310 to i64
   br label %hi_sdslen.exit.i
 
-312:                                              ; preds = %._crit_edge755.i
+312:                                              ; preds = %._crit_edge763.i
   %313 = getelementptr inbounds i8, ptr %.1282.lcssa.i, i64 -9
   %314 = load i32, ptr %313, align 1, !tbaa !22
   %315 = zext i32 %314 to i64
   br label %hi_sdslen.exit.i
 
-316:                                              ; preds = %._crit_edge755.i
+316:                                              ; preds = %._crit_edge763.i
   %317 = getelementptr inbounds i8, ptr %.1282.lcssa.i, i64 -17
   %318 = load i64, ptr %317, align 1, !tbaa !20
   br label %hi_sdslen.exit.i
@@ -20346,12 +20346,12 @@ hi_sdslen.exit.i:                                 ; preds = %316, %312, %308, %3
   %320 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.271, ptr noundef nonnull %.1282.lcssa.i)
   br label %hi_sdslen.exit.thread.i
 
-hi_sdslen.exit.thread.i:                          ; preds = %319, %hi_sdslen.exit.i, %._crit_edge755.i
+hi_sdslen.exit.thread.i:                          ; preds = %319, %hi_sdslen.exit.i, %._crit_edge763.i
   %321 = getelementptr inbounds i8, ptr %.1289.lcssa.i, i64 -1
   %322 = load i8, ptr %321, align 1, !tbaa !67
   %323 = zext i8 %322 to i32
   %324 = and i32 %323, 7
-  switch i32 %324, label %hi_sdslen.exit452.thread.i [
+  switch i32 %324, label %hi_sdslen.exit460.thread.i [
     i32 0, label %325
     i32 1, label %328
     i32 2, label %332
@@ -20362,45 +20362,45 @@ hi_sdslen.exit.thread.i:                          ; preds = %319, %hi_sdslen.exi
 325:                                              ; preds = %hi_sdslen.exit.thread.i
   %326 = lshr i32 %323, 3
   %327 = zext nneg i32 %326 to i64
-  br label %hi_sdslen.exit452.i
+  br label %hi_sdslen.exit460.i
 
 328:                                              ; preds = %hi_sdslen.exit.thread.i
   %329 = getelementptr inbounds i8, ptr %.1289.lcssa.i, i64 -3
   %330 = load i8, ptr %329, align 1, !tbaa !67
   %331 = zext i8 %330 to i64
-  br label %hi_sdslen.exit452.i
+  br label %hi_sdslen.exit460.i
 
 332:                                              ; preds = %hi_sdslen.exit.thread.i
   %333 = getelementptr inbounds i8, ptr %.1289.lcssa.i, i64 -5
   %334 = load i16, ptr %333, align 1, !tbaa !68
   %335 = zext i16 %334 to i64
-  br label %hi_sdslen.exit452.i
+  br label %hi_sdslen.exit460.i
 
 336:                                              ; preds = %hi_sdslen.exit.thread.i
   %337 = getelementptr inbounds i8, ptr %.1289.lcssa.i, i64 -9
   %338 = load i32, ptr %337, align 1, !tbaa !22
   %339 = zext i32 %338 to i64
-  br label %hi_sdslen.exit452.i
+  br label %hi_sdslen.exit460.i
 
 340:                                              ; preds = %hi_sdslen.exit.thread.i
   %341 = getelementptr inbounds i8, ptr %.1289.lcssa.i, i64 -17
   %342 = load i64, ptr %341, align 1, !tbaa !20
-  br label %hi_sdslen.exit452.i
+  br label %hi_sdslen.exit460.i
 
-hi_sdslen.exit452.i:                              ; preds = %340, %336, %332, %328, %325
-  %.0.i451.i = phi i64 [ %327, %325 ], [ %331, %328 ], [ %335, %332 ], [ %339, %336 ], [ %342, %340 ]
-  %.not383.i = icmp eq i64 %.0.i451.i, 0
-  br i1 %.not383.i, label %hi_sdslen.exit452.thread.i, label %343
+hi_sdslen.exit460.i:                              ; preds = %340, %336, %332, %328, %325
+  %.0.i459.i = phi i64 [ %327, %325 ], [ %331, %328 ], [ %335, %332 ], [ %339, %336 ], [ %342, %340 ]
+  %.not383.i = icmp eq i64 %.0.i459.i, 0
+  br i1 %.not383.i, label %hi_sdslen.exit460.thread.i, label %343
 
-343:                                              ; preds = %hi_sdslen.exit452.i
+343:                                              ; preds = %hi_sdslen.exit460.i
   %344 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.272, ptr noundef nonnull %.1289.lcssa.i)
-  br label %hi_sdslen.exit452.thread.i
+  br label %hi_sdslen.exit460.thread.i
 
-hi_sdslen.exit452.thread.i:                       ; preds = %343, %hi_sdslen.exit452.i, %hi_sdslen.exit.thread.i
+hi_sdslen.exit460.thread.i:                       ; preds = %343, %hi_sdslen.exit460.i, %hi_sdslen.exit.thread.i
   %345 = icmp eq ptr %.0303.i, null
   br i1 %345, label %346, label %384
 
-346:                                              ; preds = %hi_sdslen.exit452.thread.i
+346:                                              ; preds = %hi_sdslen.exit460.thread.i
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.273)
   %347 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   %348 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %347, i32 noundef %151)
@@ -20425,9 +20425,9 @@ hi_sdslen.exit452.thread.i:                       ; preds = %343, %hi_sdslen.exi
 358:                                              ; preds = %351
   %359 = load i32, ptr %357, align 8, !tbaa !56
   %.not19.i.i.i = icmp eq i32 %359, 6
-  br i1 %.not19.i.i.i, label %clusterManagerClearSlotStatus.exit.thread596.i, label %364
+  br i1 %.not19.i.i.i, label %clusterManagerClearSlotStatus.exit.thread604.i, label %364
 
-clusterManagerClearSlotStatus.exit.thread596.i:   ; preds = %358
+clusterManagerClearSlotStatus.exit.thread604.i:   ; preds = %358
   %360 = load ptr, ptr %352, align 8, !tbaa !74
   %361 = load i32, ptr %354, align 8, !tbaa !77
   %362 = getelementptr inbounds nuw i8, ptr %357, i64 32
@@ -20454,8 +20454,8 @@ clusterManagerClearSlotStatus.exit.thread596.i:   ; preds = %358
 
 370:                                              ; preds = %372, %366
   %371 = call ptr @listNext(ptr noundef nonnull %16) #34
-  %.not.i453.i = icmp eq ptr %371, null
-  br i1 %.not.i453.i, label %clusterManagerRemoveNodeFromList.exit.i, label %372
+  %.not.i461.i = icmp eq ptr %371, null
+  br i1 %.not.i461.i, label %clusterManagerRemoveNodeFromList.exit.i, label %372
 
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 16
@@ -20475,8 +20475,8 @@ clusterManagerRemoveNodeFromList.exit.i:          ; preds = %370, %376
 
 377:                                              ; preds = %379, %clusterManagerRemoveNodeFromList.exit.i
   %378 = call ptr @listNext(ptr noundef nonnull %15) #34
-  %.not.i454.i = icmp eq ptr %378, null
-  br i1 %.not.i454.i, label %clusterManagerRemoveNodeFromList.exit455.i, label %379
+  %.not.i462.i = icmp eq ptr %378, null
+  br i1 %.not.i462.i, label %clusterManagerRemoveNodeFromList.exit463.i, label %379
 
 379:                                              ; preds = %377
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 16
@@ -20486,32 +20486,32 @@ clusterManagerRemoveNodeFromList.exit.i:          ; preds = %370, %376
 
 383:                                              ; preds = %379
   call void @listDelNode(ptr noundef %161, ptr noundef nonnull %378) #34
-  br label %clusterManagerRemoveNodeFromList.exit455.i
+  br label %clusterManagerRemoveNodeFromList.exit463.i
 
-clusterManagerRemoveNodeFromList.exit455.i:       ; preds = %377, %383
+clusterManagerRemoveNodeFromList.exit463.i:       ; preds = %377, %383
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %384
 
-384:                                              ; preds = %clusterManagerRemoveNodeFromList.exit455.i, %hi_sdslen.exit452.thread.i
-  %.1304.i = phi ptr [ %348, %clusterManagerRemoveNodeFromList.exit455.i ], [ %.0303.i, %hi_sdslen.exit452.thread.i ]
+384:                                              ; preds = %clusterManagerRemoveNodeFromList.exit463.i, %hi_sdslen.exit460.thread.i
+  %.1304.i = phi ptr [ %348, %clusterManagerRemoveNodeFromList.exit463.i ], [ %.0303.i, %hi_sdslen.exit460.thread.i ]
   %385 = load i64, ptr %203, align 8, !tbaa !84
   %386 = icmp ugt i64 %385, 1
-  br i1 %386, label %387, label %.loopexit695.i
+  br i1 %386, label %387, label %.loopexit703.i
 
 387:                                              ; preds = %384
   call void @listRewind(ptr noundef nonnull %159, ptr noundef nonnull %17) #34
   %388 = call ptr @listNext(ptr noundef nonnull %17) #34
-  %.not386758.i = icmp eq ptr %388, null
-  br i1 %.not386758.i, label %.loopexit695.i, label %.lr.ph761.i
+  %.not386766.i = icmp eq ptr %388, null
+  br i1 %.not386766.i, label %.loopexit703.i, label %.lr.ph769.i
 
-.lr.ph761.i:                                      ; preds = %387
+.lr.ph769.i:                                      ; preds = %387
   %sext225 = shl i64 %150, 32
   %389 = ashr exact i64 %sext225, 32
   %390 = getelementptr i8, ptr %.1304.i, i64 8
   br label %391
 
-391:                                              ; preds = %440, %.lr.ph761.i
-  %392 = phi ptr [ %388, %.lr.ph761.i ], [ %441, %440 ]
+391:                                              ; preds = %440, %.lr.ph769.i
+  %392 = phi ptr [ %388, %.lr.ph769.i ], [ %441, %440 ]
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %394 = load ptr, ptr %393, align 8, !tbaa !96
   %395 = icmp eq ptr %394, %.1304.i
@@ -20535,9 +20535,9 @@ clusterManagerRemoveNodeFromList.exit455.i:       ; preds = %377, %383
 403:                                              ; preds = %398
   %404 = load i32, ptr %402, align 8, !tbaa !56
   %405 = icmp eq i32 %404, 6
-  br i1 %405, label %clusterManagerSetSlot.exit.thread601.i, label %412
+  br i1 %405, label %clusterManagerSetSlot.exit.thread609.i, label %412
 
-clusterManagerSetSlot.exit.thread601.i:           ; preds = %403
+clusterManagerSetSlot.exit.thread609.i:           ; preds = %403
   %406 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %407 = load ptr, ptr %406, align 8, !tbaa !74
   %408 = getelementptr inbounds nuw i8, ptr %394, i64 24
@@ -20550,18 +20550,18 @@ clusterManagerSetSlot.exit.thread601.i:           ; preds = %403
 
 412:                                              ; preds = %403
   call void @freeReplyObject(ptr noundef nonnull %402) #34
-  %.1304.val444.i = load ptr, ptr %390, align 8, !tbaa !108
+  %.1304.val452.i = load ptr, ptr %390, align 8, !tbaa !108
   %413 = load ptr, ptr %394, align 8, !tbaa !82
-  %414 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %413, ptr noundef nonnull @.str.295, i32 noundef %151, ptr noundef nonnull @.str.277, ptr noundef %.1304.val444.i) #34
-  %.not24.i457.i = icmp eq ptr %414, null
-  br i1 %.not24.i457.i, label %clusterManagerFixOpenSlot.exit, label %415
+  %414 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %413, ptr noundef nonnull @.str.295, i32 noundef %151, ptr noundef nonnull @.str.277, ptr noundef %.1304.val452.i) #34
+  %.not24.i465.i = icmp eq ptr %414, null
+  br i1 %.not24.i465.i, label %clusterManagerFixOpenSlot.exit, label %415
 
 415:                                              ; preds = %412
   %416 = load i32, ptr %414, align 8, !tbaa !56
   %417 = icmp eq i32 %416, 6
-  br i1 %417, label %clusterManagerSetSlot.exit460.thread606.i, label %424
+  br i1 %417, label %clusterManagerSetSlot.exit468.thread614.i, label %424
 
-clusterManagerSetSlot.exit460.thread606.i:        ; preds = %415
+clusterManagerSetSlot.exit468.thread614.i:        ; preds = %415
   %418 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %419 = load ptr, ptr %418, align 8, !tbaa !74
   %420 = getelementptr inbounds nuw i8, ptr %394, i64 24
@@ -20580,8 +20580,8 @@ clusterManagerSetSlot.exit460.thread606.i:        ; preds = %415
 
 425:                                              ; preds = %427, %424
   %426 = call ptr @listNext(ptr noundef nonnull %14) #34
-  %.not.i461.i = icmp eq ptr %426, null
-  br i1 %.not.i461.i, label %clusterManagerRemoveNodeFromList.exit462.i, label %427
+  %.not.i469.i = icmp eq ptr %426, null
+  br i1 %.not.i469.i, label %clusterManagerRemoveNodeFromList.exit470.i, label %427
 
 427:                                              ; preds = %425
   %428 = getelementptr inbounds nuw i8, ptr %426, i64 16
@@ -20591,19 +20591,19 @@ clusterManagerSetSlot.exit460.thread606.i:        ; preds = %415
 
 431:                                              ; preds = %427
   call void @listDelNode(ptr noundef %161, ptr noundef nonnull %426) #34
-  br label %clusterManagerRemoveNodeFromList.exit462.i
+  br label %clusterManagerRemoveNodeFromList.exit470.i
 
-clusterManagerRemoveNodeFromList.exit462.i:       ; preds = %425, %431
+clusterManagerRemoveNodeFromList.exit470.i:       ; preds = %425, %431
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %432 = call ptr @listAddNodeTail(ptr noundef %161, ptr noundef nonnull %394) #34
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @listRewind(ptr noundef %160, ptr noundef nonnull %13) #34
   br label %433
 
-433:                                              ; preds = %435, %clusterManagerRemoveNodeFromList.exit462.i
+433:                                              ; preds = %435, %clusterManagerRemoveNodeFromList.exit470.i
   %434 = call ptr @listNext(ptr noundef nonnull %13) #34
-  %.not.i463.i = icmp eq ptr %434, null
-  br i1 %.not.i463.i, label %clusterManagerRemoveNodeFromList.exit464.i, label %435
+  %.not.i471.i = icmp eq ptr %434, null
+  br i1 %.not.i471.i, label %clusterManagerRemoveNodeFromList.exit472.i, label %435
 
 435:                                              ; preds = %433
   %436 = getelementptr inbounds nuw i8, ptr %434, i64 16
@@ -20613,26 +20613,26 @@ clusterManagerRemoveNodeFromList.exit462.i:       ; preds = %425, %431
 
 439:                                              ; preds = %435
   call void @listDelNode(ptr noundef %160, ptr noundef nonnull %434) #34
-  br label %clusterManagerRemoveNodeFromList.exit464.i
+  br label %clusterManagerRemoveNodeFromList.exit472.i
 
-clusterManagerRemoveNodeFromList.exit464.i:       ; preds = %433, %439
+clusterManagerRemoveNodeFromList.exit472.i:       ; preds = %433, %439
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %440
 
-440:                                              ; preds = %clusterManagerRemoveNodeFromList.exit464.i, %391
+440:                                              ; preds = %clusterManagerRemoveNodeFromList.exit472.i, %391
   %441 = call ptr @listNext(ptr noundef nonnull %17) #34
   %.not386.i = icmp eq ptr %441, null
-  br i1 %.not386.i, label %.loopexit695.i, label %391
+  br i1 %.not386.i, label %.loopexit703.i, label %391
 
-.loopexit695.i:                                   ; preds = %440, %387, %384
+.loopexit703.i:                                   ; preds = %440, %387, %384
   %442 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %443 = load i64, ptr %442, align 8, !tbaa !84
-  switch i64 %443, label %.thread661.i [
+  switch i64 %443, label %.thread669.i [
     i64 1, label %444
     i64 0, label %463
   ]
 
-444:                                              ; preds = %.loopexit695.i
+444:                                              ; preds = %.loopexit703.i
   %445 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %446 = load i64, ptr %445, align 8, !tbaa !84
   %447 = load ptr, ptr %160, align 8, !tbaa !152
@@ -20659,11 +20659,11 @@ clusterManagerRemoveNodeFromList.exit464.i:       ; preds = %433, %439
   %462 = call fastcc i32 @clusterManagerMoveSlot(ptr noundef %449, ptr noundef %453, i32 noundef %151, i32 noundef 132, ptr noundef null)
   br label %clusterManagerFixOpenSlot.exit
 
-463:                                              ; preds = %.loopexit695.i
+463:                                              ; preds = %.loopexit703.i
   %464 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %465 = load i64, ptr %464, align 8, !tbaa !84
   %.not387.i = icmp eq i64 %465, 0
-  br i1 %.not387.i, label %.thread661.i, label %466
+  br i1 %.not387.i, label %.thread669.i, label %466
 
 466:                                              ; preds = %463
   %467 = getelementptr inbounds nuw i8, ptr %.1304.i, i64 16
@@ -20673,17 +20673,17 @@ clusterManagerRemoveNodeFromList.exit464.i:       ; preds = %433, %439
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.279, i32 noundef %151, ptr noundef %468, i32 noundef %470)
   call void @listRewind(ptr noundef nonnull %161, ptr noundef nonnull %17) #34
   %471 = call ptr @listNext(ptr noundef nonnull %17) #34
-  %.not405765.i = icmp eq ptr %471, null
-  br i1 %.not405765.i, label %._crit_edge769.i, label %.lr.ph768.i
+  %.not405773.i = icmp eq ptr %471, null
+  br i1 %.not405773.i, label %._crit_edge777.i, label %.lr.ph776.i
 
-.lr.ph768.i:                                      ; preds = %466, %493
+.lr.ph776.i:                                      ; preds = %466, %493
   %472 = phi ptr [ %494, %493 ], [ %471, %466 ]
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 16
   %474 = load ptr, ptr %473, align 8, !tbaa !96
   %475 = icmp eq ptr %474, %.1304.i
   br i1 %475, label %493, label %476, !llvm.loop !446
 
-476:                                              ; preds = %.lr.ph768.i
+476:                                              ; preds = %.lr.ph776.i
   %477 = call fastcc i32 @clusterManagerMoveSlot(ptr noundef %474, ptr noundef nonnull %.1304.i, i32 noundef %151, i32 noundef 130, ptr noundef null)
   %.not409.i = icmp eq i32 %477, 0
   br i1 %.not409.i, label %clusterManagerFixOpenSlot.exit, label %478
@@ -20696,15 +20696,15 @@ clusterManagerRemoveNodeFromList.exit464.i:       ; preds = %433, %439
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.280, i32 noundef %151, ptr noundef %480, i32 noundef %482)
   %483 = load ptr, ptr %474, align 8, !tbaa !82
   %484 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %483, ptr noundef nonnull @.str.286, i32 noundef %151, ptr noundef nonnull @.str.287) #34
-  %.not.i.i465.i = icmp eq ptr %484, null
-  br i1 %.not.i.i465.i, label %clusterManagerFixOpenSlot.exit, label %485
+  %.not.i.i473.i = icmp eq ptr %484, null
+  br i1 %.not.i.i473.i, label %clusterManagerFixOpenSlot.exit, label %485
 
 485:                                              ; preds = %478
   %486 = load i32, ptr %484, align 8, !tbaa !56
-  %.not19.i.i466.i = icmp eq i32 %486, 6
-  br i1 %.not19.i.i466.i, label %clusterManagerClearSlotStatus.exit470.thread670.i, label %clusterManagerClearSlotStatus.exit470.i
+  %.not19.i.i474.i = icmp eq i32 %486, 6
+  br i1 %.not19.i.i474.i, label %clusterManagerClearSlotStatus.exit478.thread678.i, label %clusterManagerClearSlotStatus.exit478.i
 
-clusterManagerClearSlotStatus.exit470.thread670.i: ; preds = %485
+clusterManagerClearSlotStatus.exit478.thread678.i: ; preds = %485
   %487 = getelementptr inbounds nuw i8, ptr %474, i64 16
   %488 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %489 = load ptr, ptr %487, align 8, !tbaa !74
@@ -20715,28 +20715,28 @@ clusterManagerClearSlotStatus.exit470.thread670.i: ; preds = %485
   call void @freeReplyObject(ptr noundef nonnull %484) #34
   br label %clusterManagerFixOpenSlot.exit
 
-clusterManagerClearSlotStatus.exit470.i:          ; preds = %485
+clusterManagerClearSlotStatus.exit478.i:          ; preds = %485
   call void @freeReplyObject(ptr noundef nonnull %484) #34
   br label %493
 
-493:                                              ; preds = %clusterManagerClearSlotStatus.exit470.i, %.lr.ph768.i
+493:                                              ; preds = %clusterManagerClearSlotStatus.exit478.i, %.lr.ph776.i
   %494 = call ptr @listNext(ptr noundef nonnull %17) #34
   %.not405.i = icmp eq ptr %494, null
-  br i1 %.not405.i, label %._crit_edge769.i, label %.lr.ph768.i
+  br i1 %.not405.i, label %._crit_edge777.i, label %.lr.ph776.i
 
-._crit_edge769.i:                                 ; preds = %493, %466
+._crit_edge777.i:                                 ; preds = %493, %466
   %495 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %495, ptr noundef nonnull %17) #34
   %496 = call ptr @listNext(ptr noundef nonnull %17) #34
-  %.not406771.i = icmp eq ptr %496, null
-  br i1 %.not406771.i, label %clusterManagerFixOpenSlot.exit, label %.lr.ph774.i
+  %.not406779.i = icmp eq ptr %496, null
+  br i1 %.not406779.i, label %clusterManagerFixOpenSlot.exit, label %.lr.ph782.i
 
-.lr.ph774.i:                                      ; preds = %._crit_edge769.i
+.lr.ph782.i:                                      ; preds = %._crit_edge777.i
   %497 = getelementptr i8, ptr %.1304.i, i64 8
   br label %498
 
-498:                                              ; preds = %519, %.lr.ph774.i
-  %499 = phi ptr [ %496, %.lr.ph774.i ], [ %520, %519 ]
+498:                                              ; preds = %519, %.lr.ph782.i
+  %499 = phi ptr [ %496, %.lr.ph782.i ], [ %520, %519 ]
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 16
   %501 = load ptr, ptr %500, align 8, !tbaa !96
   %502 = icmp eq ptr %501, %.1304.i
@@ -20750,18 +20750,18 @@ clusterManagerClearSlotStatus.exit470.i:          ; preds = %485
   br i1 %.not407.i, label %507, label %519, !llvm.loop !447
 
 507:                                              ; preds = %503
-  %.1304.val445.i = load ptr, ptr %497, align 8, !tbaa !108
+  %.1304.val453.i = load ptr, ptr %497, align 8, !tbaa !108
   %508 = load ptr, ptr %501, align 8, !tbaa !82
-  %509 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %508, ptr noundef nonnull @.str.295, i32 noundef %151, ptr noundef nonnull @.str.281, ptr noundef %.1304.val445.i) #34
-  %.not24.i471.i = icmp eq ptr %509, null
-  br i1 %.not24.i471.i, label %clusterManagerFixOpenSlot.exit, label %510
+  %509 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %508, ptr noundef nonnull @.str.295, i32 noundef %151, ptr noundef nonnull @.str.281, ptr noundef %.1304.val453.i) #34
+  %.not24.i479.i = icmp eq ptr %509, null
+  br i1 %.not24.i479.i, label %clusterManagerFixOpenSlot.exit, label %510
 
 510:                                              ; preds = %507
   %511 = load i32, ptr %509, align 8, !tbaa !56
   %512 = icmp eq i32 %511, 6
-  br i1 %512, label %clusterManagerSetSlot.exit474.thread678.i, label %clusterManagerSetSlot.exit474.i
+  br i1 %512, label %clusterManagerSetSlot.exit482.thread686.i, label %clusterManagerSetSlot.exit482.i
 
-clusterManagerSetSlot.exit474.thread678.i:        ; preds = %510
+clusterManagerSetSlot.exit482.thread686.i:        ; preds = %510
   %513 = getelementptr inbounds nuw i8, ptr %501, i64 16
   %514 = load ptr, ptr %513, align 8, !tbaa !74
   %515 = getelementptr inbounds nuw i8, ptr %501, i64 24
@@ -20772,11 +20772,11 @@ clusterManagerSetSlot.exit474.thread678.i:        ; preds = %510
   call void @freeReplyObject(ptr noundef nonnull %509) #34
   br label %clusterManagerFixOpenSlot.exit
 
-clusterManagerSetSlot.exit474.i:                  ; preds = %510
+clusterManagerSetSlot.exit482.i:                  ; preds = %510
   call void @freeReplyObject(ptr noundef nonnull %509) #34
   br label %519
 
-519:                                              ; preds = %clusterManagerSetSlot.exit474.i, %503, %498
+519:                                              ; preds = %clusterManagerSetSlot.exit482.i, %503, %498
   %520 = call ptr @listNext(ptr noundef nonnull %17) #34
   %.not406.i = icmp eq ptr %520, null
   br i1 %.not406.i, label %clusterManagerFixOpenSlot.exit, label %498
@@ -20785,56 +20785,56 @@ clusterManagerSetSlot.exit474.i:                  ; preds = %510
   %522 = getelementptr inbounds nuw i8, ptr %449, i64 16504
   %523 = load i32, ptr %522, align 8, !tbaa !179
   %524 = icmp sgt i32 %523, 0
-  br i1 %524, label %.lr.ph782.i, label %.loopexit.i
+  br i1 %524, label %.lr.ph790.i, label %.loopexit.i
 
-.lr.ph782.i:                                      ; preds = %521
+.lr.ph790.i:                                      ; preds = %521
   %525 = getelementptr inbounds nuw i8, ptr %449, i64 16488
   br label %530
 
 526:                                              ; preds = %530
-  %indvars.iv.next856.i = add nuw nsw i64 %indvars.iv855.i, 2
+  %indvars.iv.next864.i = add nuw nsw i64 %indvars.iv863.i, 2
   %527 = load i32, ptr %522, align 8, !tbaa !179
-  %528 = trunc nuw i64 %indvars.iv.next856.i to i32
+  %528 = trunc nuw i64 %indvars.iv.next864.i to i32
   %529 = icmp sgt i32 %527, %528
   br i1 %529, label %530, label %.loopexit.i, !llvm.loop !448
 
-530:                                              ; preds = %526, %.lr.ph782.i
-  %indvars.iv855.i = phi i64 [ 0, %.lr.ph782.i ], [ %indvars.iv.next856.i, %526 ]
+530:                                              ; preds = %526, %.lr.ph790.i
+  %indvars.iv863.i = phi i64 [ 0, %.lr.ph790.i ], [ %indvars.iv.next864.i, %526 ]
   %531 = load ptr, ptr %525, align 8, !tbaa !180
-  %532 = getelementptr inbounds nuw ptr, ptr %531, i64 %indvars.iv855.i
+  %532 = getelementptr inbounds nuw ptr, ptr %531, i64 %indvars.iv863.i
   %533 = load ptr, ptr %532, align 8, !tbaa !24
   %534 = call i64 @strtol(ptr noundef nonnull captures(none) %533, ptr noundef null, i32 noundef 10) #34
   %535 = trunc i64 %534 to i32
   %.not395.i = icmp eq i32 %151, %535
-  br i1 %.not395.i, label %.thread624.i, label %526
+  br i1 %.not395.i, label %.thread632.i, label %526
 
-.thread624.i:                                     ; preds = %530
-  %536 = getelementptr inbounds nuw ptr, ptr %531, i64 %indvars.iv855.i
+.thread632.i:                                     ; preds = %530
+  %536 = getelementptr inbounds nuw ptr, ptr %531, i64 %indvars.iv863.i
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %538 = load ptr, ptr %537, align 8, !tbaa !24
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %526, %.thread624.i, %521
-  %.1333.i = phi ptr [ %538, %.thread624.i ], [ null, %521 ], [ null, %526 ]
+.loopexit.i:                                      ; preds = %526, %.thread632.i, %521
+  %.1333.i = phi ptr [ %538, %.thread632.i ], [ null, %521 ], [ null, %526 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @listRewind(ptr noundef %161, ptr noundef nonnull %18) #34
   %539 = call ptr @listNext(ptr noundef nonnull %18) #34
-  %.not396783.i = icmp eq ptr %539, null
-  br i1 %.not396783.i, label %._crit_edge787.thread.i, label %.lr.ph786.i
+  %.not396791.i = icmp eq ptr %539, null
+  br i1 %.not396791.i, label %._crit_edge795.thread.i, label %.lr.ph794.i
 
-.lr.ph786.i:                                      ; preds = %.loopexit.i, %clusterManagerCountKeysInSlot.exit.thread.i
+.lr.ph794.i:                                      ; preds = %.loopexit.i, %clusterManagerCountKeysInSlot.exit.thread.i
   %540 = phi ptr [ %562, %clusterManagerCountKeysInSlot.exit.thread.i ], [ %539, %.loopexit.i ]
-  %.0335784.i = phi ptr [ %spec.select.i, %clusterManagerCountKeysInSlot.exit.thread.i ], [ null, %.loopexit.i ]
+  %.0335792.i = phi ptr [ %spec.select.i, %clusterManagerCountKeysInSlot.exit.thread.i ], [ null, %.loopexit.i ]
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 16
   %542 = load ptr, ptr %541, align 8, !tbaa !96
   %543 = load ptr, ptr %542, align 8, !tbaa !82
   %544 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %543, ptr noundef nonnull @.str.267, i32 noundef %151) #34
-  %.not.i.i475.i = icmp eq ptr %544, null
-  br i1 %.not.i.i475.i, label %clusterManagerCountKeysInSlot.exit.thread.i, label %545
+  %.not.i.i483.i = icmp eq ptr %544, null
+  br i1 %.not.i.i483.i, label %clusterManagerCountKeysInSlot.exit.thread.i, label %545
 
-545:                                              ; preds = %.lr.ph786.i
+545:                                              ; preds = %.lr.ph794.i
   %546 = load i32, ptr %544, align 8, !tbaa !56
-  switch i32 %546, label %clusterManagerCountKeysInSlot.exit.thread627.i [
+  switch i32 %546, label %clusterManagerCountKeysInSlot.exit.thread635.i [
     i32 6, label %547
     i32 3, label %clusterManagerCountKeysInSlot.exit.i
   ]
@@ -20847,9 +20847,9 @@ clusterManagerSetSlot.exit474.i:                  ; preds = %510
   %552 = getelementptr inbounds nuw i8, ptr %544, i64 32
   %553 = load ptr, ptr %552, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %549, i32 noundef %551, ptr noundef %553)
-  br label %clusterManagerCountKeysInSlot.exit.thread627.i
+  br label %clusterManagerCountKeysInSlot.exit.thread635.i
 
-clusterManagerCountKeysInSlot.exit.thread627.i:   ; preds = %547, %545
+clusterManagerCountKeysInSlot.exit.thread635.i:   ; preds = %547, %545
   call void @freeReplyObject(ptr noundef nonnull %544) #34
   br label %clusterManagerCountKeysInSlot.exit.thread.i
 
@@ -20861,21 +20861,21 @@ clusterManagerCountKeysInSlot.exit.i:             ; preds = %545
   %557 = icmp sgt i32 %556, 0
   br i1 %557, label %606, label %clusterManagerCountKeysInSlot.exit.thread.i
 
-clusterManagerCountKeysInSlot.exit.thread.i:      ; preds = %clusterManagerCountKeysInSlot.exit.i, %clusterManagerCountKeysInSlot.exit.thread627.i, %.lr.ph786.i
+clusterManagerCountKeysInSlot.exit.thread.i:      ; preds = %clusterManagerCountKeysInSlot.exit.i, %clusterManagerCountKeysInSlot.exit.thread635.i, %.lr.ph794.i
   %558 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %559 = load ptr, ptr %558, align 8, !tbaa !108
   %560 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %559, ptr noundef nonnull dereferenceable(1) %.1333.i) #36
   %561 = icmp eq i32 %560, 0
-  %spec.select.i = select i1 %561, ptr %542, ptr %.0335784.i
+  %spec.select.i = select i1 %561, ptr %542, ptr %.0335792.i
   %562 = call ptr @listNext(ptr noundef nonnull %18) #34
   %.not396.i = icmp eq ptr %562, null
-  br i1 %.not396.i, label %._crit_edge787.i, label %.lr.ph786.i
+  br i1 %.not396.i, label %._crit_edge795.i, label %.lr.ph794.i
 
-._crit_edge787.i:                                 ; preds = %clusterManagerCountKeysInSlot.exit.thread.i
+._crit_edge795.i:                                 ; preds = %clusterManagerCountKeysInSlot.exit.thread.i
   %.not398.i = icmp eq ptr %spec.select.i, null
-  br i1 %.not398.i, label %._crit_edge787.thread.i, label %563
+  br i1 %.not398.i, label %._crit_edge795.thread.i, label %563
 
-563:                                              ; preds = %._crit_edge787.i
+563:                                              ; preds = %._crit_edge795.i
   %564 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %565 = load ptr, ptr %564, align 8, !tbaa !74
   %566 = getelementptr inbounds nuw i8, ptr %449, i64 24
@@ -20887,81 +20887,81 @@ clusterManagerCountKeysInSlot.exit.thread.i:      ; preds = %clusterManagerCount
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.282, i32 noundef %151, ptr noundef %565, i32 noundef %567, ptr noundef %569, i32 noundef %571)
   %572 = call fastcc i32 @clusterManagerMoveSlot(ptr noundef %449, ptr noundef nonnull %spec.select.i, i32 noundef %151, i32 noundef 128, ptr noundef null)
   %.not402.i = icmp eq i32 %572, 0
-  br i1 %.not402.i, label %.thread648.i, label %573
+  br i1 %.not402.i, label %.thread656.i, label %573
 
 573:                                              ; preds = %563
   call void @listRewind(ptr noundef %161, ptr noundef nonnull %18) #34
   %574 = call ptr @listNext(ptr noundef nonnull %18) #34
-  %.not403789.i = icmp eq ptr %574, null
-  br i1 %.not403789.i, label %.thread648.i, label %.lr.ph791.i
+  %.not403797.i = icmp eq ptr %574, null
+  br i1 %.not403797.i, label %.thread656.i, label %.lr.ph799.i
 
-.lr.ph791.i:                                      ; preds = %573, %584
+.lr.ph799.i:                                      ; preds = %573, %584
   %575 = phi ptr [ %585, %584 ], [ %574, %573 ]
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 16
   %577 = load ptr, ptr %576, align 8, !tbaa !96
   %578 = icmp eq ptr %spec.select.i, %577
   br i1 %578, label %584, label %579, !llvm.loop !449
 
-579:                                              ; preds = %.lr.ph791.i
+579:                                              ; preds = %.lr.ph799.i
   %580 = load ptr, ptr %577, align 8, !tbaa !82
   %581 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %580, ptr noundef nonnull @.str.286, i32 noundef %151, ptr noundef nonnull @.str.287) #34
-  %.not.i.i476.i = icmp eq ptr %581, null
-  br i1 %.not.i.i476.i, label %.thread648.i, label %582
+  %.not.i.i484.i = icmp eq ptr %581, null
+  br i1 %.not.i.i484.i, label %.thread656.i, label %582
 
 582:                                              ; preds = %579
   %583 = load i32, ptr %581, align 8, !tbaa !56
-  %.not19.i.i477.i = icmp eq i32 %583, 6
-  br i1 %.not19.i.i477.i, label %.thread648.i.sink.split, label %clusterManagerClearSlotStatus.exit481.i
+  %.not19.i.i485.i = icmp eq i32 %583, 6
+  br i1 %.not19.i.i485.i, label %.thread656.i.sink.split, label %clusterManagerClearSlotStatus.exit489.i
 
-clusterManagerClearSlotStatus.exit481.i:          ; preds = %582
+clusterManagerClearSlotStatus.exit489.i:          ; preds = %582
   call void @freeReplyObject(ptr noundef nonnull %581) #34
   br label %584
 
-584:                                              ; preds = %clusterManagerClearSlotStatus.exit481.i, %.lr.ph791.i
+584:                                              ; preds = %clusterManagerClearSlotStatus.exit489.i, %.lr.ph799.i
   %585 = call ptr @listNext(ptr noundef nonnull %18) #34
   %.not403.i = icmp eq ptr %585, null
-  br i1 %.not403.i, label %.thread648.i, label %.lr.ph791.i
+  br i1 %.not403.i, label %.thread656.i, label %.lr.ph799.i
 
-._crit_edge787.thread.i:                          ; preds = %._crit_edge787.i, %.loopexit.i
+._crit_edge795.thread.i:                          ; preds = %._crit_edge795.i, %.loopexit.i
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.283, i32 noundef %151)
   %586 = load ptr, ptr %449, align 8, !tbaa !82
   %587 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %586, ptr noundef nonnull @.str.286, i32 noundef %151, ptr noundef nonnull @.str.287) #34
   %.not.i.i192 = icmp eq ptr %587, null
-  br i1 %.not.i.i192, label %.thread648.i, label %588
+  br i1 %.not.i.i192, label %.thread656.i, label %588
 
-588:                                              ; preds = %._crit_edge787.thread.i
+588:                                              ; preds = %._crit_edge795.thread.i
   %589 = load i32, ptr %587, align 8, !tbaa !56
   %.not19.i.i193 = icmp eq i32 %589, 6
-  br i1 %.not19.i.i193, label %.thread648.i.sink.split, label %590
+  br i1 %.not19.i.i193, label %.thread656.i.sink.split, label %590
 
 590:                                              ; preds = %588
   call void @freeReplyObject(ptr noundef nonnull %587) #34
   call void @listRewind(ptr noundef %161, ptr noundef nonnull %18) #34
   %591 = call ptr @listNext(ptr noundef nonnull %18) #34
-  %.not400795.i = icmp eq ptr %591, null
-  br i1 %.not400795.i, label %.thread648.i, label %.lr.ph797.i
+  %.not400803.i = icmp eq ptr %591, null
+  br i1 %.not400803.i, label %.thread656.i, label %.lr.ph805.i
 
-.lr.ph797.i:                                      ; preds = %590, %clusterManagerClearSlotStatus.exit487.i
-  %592 = phi ptr [ %599, %clusterManagerClearSlotStatus.exit487.i ], [ %591, %590 ]
+.lr.ph805.i:                                      ; preds = %590, %clusterManagerClearSlotStatus.exit495.i
+  %592 = phi ptr [ %599, %clusterManagerClearSlotStatus.exit495.i ], [ %591, %590 ]
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 16
   %594 = load ptr, ptr %593, align 8, !tbaa !96
   %595 = load ptr, ptr %594, align 8, !tbaa !82
   %596 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %595, ptr noundef nonnull @.str.286, i32 noundef %151, ptr noundef nonnull @.str.287) #34
-  %.not.i.i482.i = icmp eq ptr %596, null
-  br i1 %.not.i.i482.i, label %.thread648.i, label %597
+  %.not.i.i490.i = icmp eq ptr %596, null
+  br i1 %.not.i.i490.i, label %.thread656.i, label %597
 
-597:                                              ; preds = %.lr.ph797.i
+597:                                              ; preds = %.lr.ph805.i
   %598 = load i32, ptr %596, align 8, !tbaa !56
-  %.not19.i.i483.i = icmp eq i32 %598, 6
-  br i1 %.not19.i.i483.i, label %.thread648.i.sink.split, label %clusterManagerClearSlotStatus.exit487.i
+  %.not19.i.i491.i = icmp eq i32 %598, 6
+  br i1 %.not19.i.i491.i, label %.thread656.i.sink.split, label %clusterManagerClearSlotStatus.exit495.i
 
-clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
+clusterManagerClearSlotStatus.exit495.i:          ; preds = %597
   call void @freeReplyObject(ptr noundef nonnull %596) #34
   %599 = call ptr @listNext(ptr noundef nonnull %18) #34
   %.not400.i = icmp eq ptr %599, null
-  br i1 %.not400.i, label %.thread648.i, label %.lr.ph797.i, !llvm.loop !450
+  br i1 %.not400.i, label %.thread656.i, label %.lr.ph805.i, !llvm.loop !450
 
-.thread648.i.sink.split:                          ; preds = %582, %597, %588
+.thread656.i.sink.split:                          ; preds = %582, %597, %588
   %.sink702 = phi ptr [ %449, %588 ], [ %594, %597 ], [ %577, %582 ]
   %.sink698 = phi ptr [ %587, %588 ], [ %596, %597 ], [ %581, %582 ]
   %600 = getelementptr inbounds nuw i8, ptr %.sink702, i64 16
@@ -20972,20 +20972,20 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
   %605 = load ptr, ptr %604, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %601, i32 noundef %603, ptr noundef %605)
   call void @freeReplyObject(ptr noundef nonnull %.sink698) #34
-  br label %.thread648.i
+  br label %.thread656.i
 
-.thread648.i:                                     ; preds = %584, %579, %clusterManagerClearSlotStatus.exit487.i, %.lr.ph797.i, %.thread648.i.sink.split, %._crit_edge787.thread.i, %590, %573, %563
-  %.16.ph.i = phi i32 [ 0, %563 ], [ 1, %590 ], [ 1, %573 ], [ 0, %._crit_edge787.thread.i ], [ 0, %.thread648.i.sink.split ], [ 1, %clusterManagerClearSlotStatus.exit487.i ], [ 0, %.lr.ph797.i ], [ 0, %579 ], [ 1, %584 ]
+.thread656.i:                                     ; preds = %584, %579, %clusterManagerClearSlotStatus.exit495.i, %.lr.ph805.i, %.thread656.i.sink.split, %._crit_edge795.thread.i, %590, %573, %563
+  %.16.ph.i = phi i32 [ 0, %563 ], [ 1, %590 ], [ 1, %573 ], [ 0, %._crit_edge795.thread.i ], [ 0, %.thread656.i.sink.split ], [ 1, %clusterManagerClearSlotStatus.exit495.i ], [ 0, %.lr.ph805.i ], [ 0, %579 ], [ 1, %584 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %clusterManagerFixOpenSlot.exit
 
 606:                                              ; preds = %clusterManagerCountKeysInSlot.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread661.i
+  br label %.thread669.i
 
 607:                                              ; preds = %444
   %.not388.i = icmp eq ptr %.1304.i, %449
-  br i1 %.not388.i, label %.thread656.thread.i, label %608
+  br i1 %.not388.i, label %.thread664.thread.i, label %608
 
 608:                                              ; preds = %607
   %609 = load ptr, ptr %449, align 8, !tbaa !82
@@ -20996,9 +20996,9 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
 611:                                              ; preds = %608
   %612 = load i32, ptr %610, align 8, !tbaa !56
   %.not19.i = icmp eq i32 %612, 6
-  br i1 %.not19.i, label %.thread912.i, label %.thread656.i
+  br i1 %.not19.i, label %.thread920.i, label %.thread664.i
 
-.thread912.i:                                     ; preds = %611
+.thread920.i:                                     ; preds = %611
   %613 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %614 = load ptr, ptr %613, align 8, !tbaa !74
   %615 = getelementptr inbounds nuw i8, ptr %449, i64 24
@@ -21009,21 +21009,21 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
   call void @freeReplyObject(ptr noundef nonnull %610) #34
   br label %clusterManagerFixOpenSlot.exit
 
-.thread656.i:                                     ; preds = %611
+.thread664.i:                                     ; preds = %611
   %619 = getelementptr inbounds nuw i8, ptr %610, i64 48
   %620 = load i64, ptr %619, align 8, !tbaa !28
-  %.not973.i = icmp eq i64 %620, 0
+  %.not981.i = icmp eq i64 %620, 0
   call void @freeReplyObject(ptr noundef nonnull %610) #34
-  br i1 %.not973.i, label %.thread656..thread656.thread_crit_edge.i, label %.thread661.i
+  br i1 %.not981.i, label %.thread664..thread664.thread_crit_edge.i, label %.thread669.i
 
-.thread656..thread656.thread_crit_edge.i:         ; preds = %.thread656.i
+.thread664..thread664.thread_crit_edge.i:         ; preds = %.thread664.i
   %.pre.i = load ptr, ptr %160, align 8, !tbaa !152
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %.pre858.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !96
-  br label %.thread656.thread.i
+  %.pre866.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !96
+  br label %.thread664.thread.i
 
-.thread656.thread.i:                              ; preds = %.thread656..thread656.thread_crit_edge.i, %607
-  %621 = phi ptr [ %.pre858.i, %.thread656..thread656.thread_crit_edge.i ], [ %449, %607 ]
+.thread664.thread.i:                              ; preds = %.thread664..thread664.thread_crit_edge.i, %607
+  %621 = phi ptr [ %.pre866.i, %.thread664..thread664.thread_crit_edge.i ], [ %449, %607 ]
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 16
   %623 = load ptr, ptr %622, align 8, !tbaa !74
   %624 = getelementptr inbounds nuw i8, ptr %621, i64 24
@@ -21031,15 +21031,15 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.285, i32 noundef %151, ptr noundef %623, i32 noundef %625)
   %626 = load ptr, ptr %621, align 8, !tbaa !82
   %627 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %626, ptr noundef nonnull @.str.286, i32 noundef %151, ptr noundef nonnull @.str.287) #34
-  %.not.i488.i = icmp eq ptr %627, null
-  br i1 %.not.i488.i, label %clusterManagerFixOpenSlot.exit, label %628
+  %.not.i496.i = icmp eq ptr %627, null
+  br i1 %.not.i496.i, label %clusterManagerFixOpenSlot.exit, label %628
 
-628:                                              ; preds = %.thread656.thread.i
+628:                                              ; preds = %.thread664.thread.i
   %629 = load i32, ptr %627, align 8, !tbaa !56
-  %.not19.i489.i = icmp eq i32 %629, 6
-  br i1 %.not19.i489.i, label %.critedge18.i491.i, label %634
+  %.not19.i497.i = icmp eq i32 %629, 6
+  br i1 %.not19.i497.i, label %.critedge18.i499.i, label %634
 
-.critedge18.i491.i:                               ; preds = %628
+.critedge18.i499.i:                               ; preds = %628
   %630 = load ptr, ptr %622, align 8, !tbaa !74
   %631 = load i32, ptr %624, align 8, !tbaa !77
   %632 = getelementptr inbounds nuw i8, ptr %627, i64 32
@@ -21047,12 +21047,12 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %630, i32 noundef %631, ptr noundef %633)
   br label %634
 
-634:                                              ; preds = %.critedge18.i491.i, %628
-  %.012.i490.ph.i = phi i32 [ 1, %628 ], [ 0, %.critedge18.i491.i ]
+634:                                              ; preds = %.critedge18.i499.i, %628
+  %.012.i498.ph.i = phi i32 [ 1, %628 ], [ 0, %.critedge18.i499.i ]
   call void @freeReplyObject(ptr noundef nonnull %627) #34
   br label %clusterManagerFixOpenSlot.exit
 
-.thread661.i:                                     ; preds = %.thread656.i, %606, %463, %.loopexit695.i
+.thread669.i:                                     ; preds = %.thread664.i, %606, %463, %.loopexit703.i
   %635 = getelementptr inbounds nuw i8, ptr %.1304.i, i64 16
   %636 = load ptr, ptr %635, align 8, !tbaa !74
   %637 = getelementptr inbounds nuw i8, ptr %.1304.i, i64 24
@@ -21060,10 +21060,10 @@ clusterManagerClearSlotStatus.exit487.i:          ; preds = %597
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.288, ptr noundef %.1282.lcssa.i, ptr noundef %.1289.lcssa.i, ptr noundef %636, i32 noundef %638)
   br label %clusterManagerFixOpenSlot.exit
 
-clusterManagerFixOpenSlot.exit:                   ; preds = %180, %269, %396, %398, %412, %476, %478, %507, %519, %608, %.thread511.i, %.thread571.i, %350, %351, %clusterManagerClearSlotStatus.exit.thread596.i, %364, %clusterManagerSetSlot.exit.thread601.i, %clusterManagerSetSlot.exit460.thread606.i, %450, %clusterManagerClearSlotStatus.exit470.thread670.i, %._crit_edge769.i, %clusterManagerSetSlot.exit474.thread678.i, %.thread648.i, %.thread912.i, %.thread656.thread.i, %634, %.thread661.i
-  %.0288.i = phi ptr [ %.1289.lcssa.i, %350 ], [ %.1289.lcssa.i, %450 ], [ %.1289.lcssa.i, %.thread661.i ], [ %.1289.lcssa.i, %364 ], [ %.1289.lcssa.i, %634 ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit.thread596.i ], [ %.1289.lcssa.i, %.thread648.i ], [ %.1289.lcssa.i, %.thread656.thread.i ], [ %163, %.thread511.i ], [ %.1289751.i, %.thread571.i ], [ %.1289.lcssa.i, %351 ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit.thread601.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit460.thread606.i ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit470.thread670.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit474.thread678.i ], [ %.1289.lcssa.i, %._crit_edge769.i ], [ %.1289.lcssa.i, %.thread912.i ], [ %.1289.lcssa.i, %608 ], [ %.1289.lcssa.i, %519 ], [ %.1289.lcssa.i, %507 ], [ %.1289.lcssa.i, %478 ], [ %.1289.lcssa.i, %476 ], [ %.1289.lcssa.i, %412 ], [ %.1289.lcssa.i, %398 ], [ %.1289.lcssa.i, %396 ], [ %.1289751.i, %269 ], [ %163, %180 ]
-  %.0281.i = phi ptr [ %.1282.lcssa.i, %350 ], [ %.1282.lcssa.i, %450 ], [ %.1282.lcssa.i, %.thread661.i ], [ %.1282.lcssa.i, %364 ], [ %.1282.lcssa.i, %634 ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit.thread596.i ], [ %.1282.lcssa.i, %.thread648.i ], [ %.1282.lcssa.i, %.thread656.thread.i ], [ %162, %.thread511.i ], [ %.1282752.i, %.thread571.i ], [ %.1282.lcssa.i, %351 ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit.thread601.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit460.thread606.i ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit470.thread670.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit474.thread678.i ], [ %.1282.lcssa.i, %._crit_edge769.i ], [ %.1282.lcssa.i, %.thread912.i ], [ %.1282.lcssa.i, %608 ], [ %.1282.lcssa.i, %519 ], [ %.1282.lcssa.i, %507 ], [ %.1282.lcssa.i, %478 ], [ %.1282.lcssa.i, %476 ], [ %.1282.lcssa.i, %412 ], [ %.1282.lcssa.i, %398 ], [ %.1282.lcssa.i, %396 ], [ %.1282752.i, %269 ], [ %162, %180 ]
-  %.3.i = phi i32 [ 0, %350 ], [ %462, %450 ], [ 0, %.thread661.i ], [ 0, %364 ], [ %.012.i490.ph.i, %634 ], [ 0, %clusterManagerClearSlotStatus.exit.thread596.i ], [ %.16.ph.i, %.thread648.i ], [ 0, %.thread656.thread.i ], [ 0, %.thread511.i ], [ 0, %.thread571.i ], [ 0, %351 ], [ 0, %clusterManagerSetSlot.exit.thread601.i ], [ 0, %clusterManagerSetSlot.exit460.thread606.i ], [ 0, %clusterManagerClearSlotStatus.exit470.thread670.i ], [ 0, %clusterManagerSetSlot.exit474.thread678.i ], [ 1, %._crit_edge769.i ], [ 0, %.thread912.i ], [ 0, %608 ], [ 0, %507 ], [ 1, %519 ], [ 0, %478 ], [ 0, %476 ], [ 0, %412 ], [ 0, %398 ], [ 0, %396 ], [ 0, %269 ], [ 0, %180 ]
+clusterManagerFixOpenSlot.exit:                   ; preds = %180, %269, %396, %398, %412, %476, %478, %507, %519, %608, %.thread519.i, %.thread579.i, %350, %351, %clusterManagerClearSlotStatus.exit.thread604.i, %364, %clusterManagerSetSlot.exit.thread609.i, %clusterManagerSetSlot.exit468.thread614.i, %450, %clusterManagerClearSlotStatus.exit478.thread678.i, %._crit_edge777.i, %clusterManagerSetSlot.exit482.thread686.i, %.thread656.i, %.thread920.i, %.thread664.thread.i, %634, %.thread669.i
+  %.0288.i = phi ptr [ %.1289.lcssa.i, %350 ], [ %.1289.lcssa.i, %450 ], [ %.1289.lcssa.i, %.thread669.i ], [ %.1289.lcssa.i, %364 ], [ %.1289.lcssa.i, %634 ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1289.lcssa.i, %.thread656.i ], [ %.1289.lcssa.i, %.thread664.thread.i ], [ %163, %.thread519.i ], [ %.1289759.i, %.thread579.i ], [ %.1289.lcssa.i, %351 ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1289.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1289.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1289.lcssa.i, %._crit_edge777.i ], [ %.1289.lcssa.i, %.thread920.i ], [ %.1289.lcssa.i, %608 ], [ %.1289.lcssa.i, %519 ], [ %.1289.lcssa.i, %507 ], [ %.1289.lcssa.i, %478 ], [ %.1289.lcssa.i, %476 ], [ %.1289.lcssa.i, %412 ], [ %.1289.lcssa.i, %398 ], [ %.1289.lcssa.i, %396 ], [ %.1289759.i, %269 ], [ %163, %180 ]
+  %.0281.i = phi ptr [ %.1282.lcssa.i, %350 ], [ %.1282.lcssa.i, %450 ], [ %.1282.lcssa.i, %.thread669.i ], [ %.1282.lcssa.i, %364 ], [ %.1282.lcssa.i, %634 ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.1282.lcssa.i, %.thread656.i ], [ %.1282.lcssa.i, %.thread664.thread.i ], [ %162, %.thread519.i ], [ %.1282760.i, %.thread579.i ], [ %.1282.lcssa.i, %351 ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit.thread609.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit468.thread614.i ], [ %.1282.lcssa.i, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ %.1282.lcssa.i, %clusterManagerSetSlot.exit482.thread686.i ], [ %.1282.lcssa.i, %._crit_edge777.i ], [ %.1282.lcssa.i, %.thread920.i ], [ %.1282.lcssa.i, %608 ], [ %.1282.lcssa.i, %519 ], [ %.1282.lcssa.i, %507 ], [ %.1282.lcssa.i, %478 ], [ %.1282.lcssa.i, %476 ], [ %.1282.lcssa.i, %412 ], [ %.1282.lcssa.i, %398 ], [ %.1282.lcssa.i, %396 ], [ %.1282760.i, %269 ], [ %162, %180 ]
+  %.3.i = phi i32 [ 0, %350 ], [ %462, %450 ], [ 0, %.thread669.i ], [ 0, %364 ], [ %.012.i498.ph.i, %634 ], [ 0, %clusterManagerClearSlotStatus.exit.thread604.i ], [ %.16.ph.i, %.thread656.i ], [ 0, %.thread664.thread.i ], [ 0, %.thread519.i ], [ 0, %.thread579.i ], [ 0, %351 ], [ 0, %clusterManagerSetSlot.exit.thread609.i ], [ 0, %clusterManagerSetSlot.exit468.thread614.i ], [ 0, %clusterManagerClearSlotStatus.exit478.thread678.i ], [ 0, %clusterManagerSetSlot.exit482.thread686.i ], [ 1, %._crit_edge777.i ], [ 0, %.thread920.i ], [ 0, %608 ], [ 0, %507 ], [ 1, %519 ], [ 0, %478 ], [ 0, %476 ], [ 0, %412 ], [ 0, %398 ], [ 0, %396 ], [ 0, %269 ], [ 0, %180 ]
   call void @listRelease(ptr noundef %159) #34
   call void @listRelease(ptr noundef %160) #34
   call void @listRelease(ptr noundef %161) #34
@@ -21192,12 +21192,12 @@ clusterManagerOnError.exit166:                    ; preds = %clusterManagerGetCo
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.320)
   br label %678
 
-678:                                              ; preds = %.thread222.i, %677
-  %indvars.iv.i168 = phi i64 [ 0, %677 ], [ %indvars.iv.next.i169, %.thread222.i ]
+678:                                              ; preds = %.thread225.i, %677
+  %indvars.iv.i168 = phi i64 [ 0, %677 ], [ %indvars.iv.next.i169, %.thread225.i ]
   %679 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i168
   %680 = load i8, ptr %679, align 1, !tbaa !67
   %.not185.i = icmp eq i8 %680, 0
-  br i1 %.not185.i, label %681, label %.thread222.i
+  br i1 %.not185.i, label %681, label %.thread225.i
 
 681:                                              ; preds = %678
   %682 = call ptr @hi_sdsfromlonglong(i64 noundef %indvars.iv.i168) #34
@@ -21207,8 +21207,8 @@ clusterManagerOnError.exit166:                    ; preds = %clusterManagerGetCo
   %685 = load ptr, ptr @cluster_manager.0, align 8, !tbaa !71
   call void @listRewind(ptr noundef %685, ptr noundef nonnull %7) #34
   %686 = call ptr @listNext(ptr noundef nonnull %7) #34
-  %.not186319.i = icmp eq ptr %686, null
-  br i1 %.not186319.i, label %.thread226.i, label %.lr.ph.i178
+  %.not186322.i = icmp eq ptr %686, null
+  br i1 %.not186322.i, label %.thread229.i, label %.lr.ph.i178
 
 .lr.ph.i178:                                      ; preds = %681
   %687 = getelementptr inbounds nuw i8, ptr %683, i64 40
@@ -21217,7 +21217,7 @@ clusterManagerOnError.exit166:                    ; preds = %clusterManagerGetCo
 
 689:                                              ; preds = %727, %.lr.ph.i178
   %690 = phi ptr [ %686, %.lr.ph.i178 ], [ %728, %727 ]
-  %.0137320.i = phi ptr [ %684, %.lr.ph.i178 ], [ %.1138.i, %727 ]
+  %.0137323.i = phi ptr [ %684, %.lr.ph.i178 ], [ %.1138.i, %727 ]
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 16
   %692 = load ptr, ptr %691, align 8, !tbaa !96
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 56
@@ -21275,11 +21275,11 @@ clusterManagerCheckRedisReply.exit.i181:          ; preds = %702
   br i1 %717, label %718, label %720
 
 718:                                              ; preds = %714
-  %719 = call ptr @hi_sdscat(ptr noundef %.0137320.i, ptr noundef nonnull @.str.321) #34
+  %719 = call ptr @hi_sdscat(ptr noundef %.0137323.i, ptr noundef nonnull @.str.321) #34
   br label %720
 
 720:                                              ; preds = %718, %714
-  %.4141.i = phi ptr [ %719, %718 ], [ %.0137320.i, %714 ]
+  %.4141.i = phi ptr [ %719, %718 ], [ %.0137323.i, %714 ]
   %721 = getelementptr inbounds nuw i8, ptr %692, i64 16
   %722 = load ptr, ptr %721, align 8, !tbaa !74
   %723 = getelementptr inbounds nuw i8, ptr %692, i64 24
@@ -21288,44 +21288,44 @@ clusterManagerCheckRedisReply.exit.i181:          ; preds = %702
   br label %726
 
 726:                                              ; preds = %720, %clusterManagerCheckRedisReply.exit.i181
-  %.3140.i = phi ptr [ %725, %720 ], [ %.0137320.i, %clusterManagerCheckRedisReply.exit.i181 ]
+  %.3140.i = phi ptr [ %725, %720 ], [ %.0137323.i, %clusterManagerCheckRedisReply.exit.i181 ]
   call void @freeReplyObject(ptr noundef nonnull %701) #34
   br label %727
 
 727:                                              ; preds = %726, %696, %689
-  %.1138.i = phi ptr [ %.0137320.i, %696 ], [ %.0137320.i, %689 ], [ %.3140.i, %726 ]
+  %.1138.i = phi ptr [ %.0137323.i, %696 ], [ %.0137323.i, %689 ], [ %.3140.i, %726 ]
   %728 = call ptr @listNext(ptr noundef nonnull %7) #34
   %.not186.i = icmp eq ptr %728, null
-  br i1 %.not186.i, label %.thread226.i, label %689
+  br i1 %.not186.i, label %.thread229.i, label %689
 
-.thread226.i:                                     ; preds = %727, %681
+.thread229.i:                                     ; preds = %727, %681
   %.0137.lcssa.i = phi ptr [ %684, %681 ], [ %.1138.i, %727 ]
   call void @hi_sdsfree(ptr noundef %.0137.lcssa.i) #34
   %729 = load ptr, ptr @clusterManagerUncoveredSlots, align 8, !tbaa !457
   %730 = call i32 @dictAdd(ptr noundef %729, ptr noundef %682, ptr noundef %683) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread222.i
+  br label %.thread225.i
 
 clusterManagerFixSlotsCoverage.exit.thread:       ; preds = %.thread.i182, %711
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %933
 
-.thread222.i:                                     ; preds = %.thread226.i, %678
+.thread225.i:                                     ; preds = %.thread229.i, %678
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 16384
   br i1 %exitcond.not.i170, label %731, label %678, !llvm.loop !460
 
-731:                                              ; preds = %.thread222.i
+731:                                              ; preds = %.thread225.i
   %732 = call ptr @listCreate() #34
   %733 = call ptr @listCreate() #34
   %734 = call ptr @listCreate() #34
   %735 = load ptr, ptr @clusterManagerUncoveredSlots, align 8, !tbaa !457
   %736 = call ptr @dictGetIterator(ptr noundef %735) #34
   %737 = call ptr @dictNext(ptr noundef %736) #34
-  %.not322.i = icmp eq ptr %737, null
-  br i1 %.not322.i, label %._crit_edge.i172, label %.lr.ph323.i
+  %.not325.i = icmp eq ptr %737, null
+  br i1 %.not325.i, label %._crit_edge.i172, label %.lr.ph326.i
 
-.lr.ph323.i:                                      ; preds = %731, %745
+.lr.ph326.i:                                      ; preds = %731, %745
   %738 = phi ptr [ %747, %745 ], [ %737, %731 ]
   %739 = call ptr @dictGetKey(ptr noundef nonnull %738) #34
   %740 = call ptr @dictGetVal(ptr noundef nonnull %738) #34
@@ -21336,18 +21336,18 @@ clusterManagerFixSlotsCoverage.exit.thread:       ; preds = %.thread.i182, %711
     i64 1, label %743
   ]
 
-743:                                              ; preds = %.lr.ph323.i
+743:                                              ; preds = %.lr.ph326.i
   br label %745
 
-744:                                              ; preds = %.lr.ph323.i
+744:                                              ; preds = %.lr.ph326.i
   br label %745
 
-745:                                              ; preds = %744, %743, %.lr.ph323.i
-  %.sink.i = phi ptr [ %734, %744 ], [ %733, %743 ], [ %732, %.lr.ph323.i ]
+745:                                              ; preds = %744, %743, %.lr.ph326.i
+  %.sink.i = phi ptr [ %734, %744 ], [ %733, %743 ], [ %732, %.lr.ph326.i ]
   %746 = call ptr @listAddNodeTail(ptr noundef %.sink.i, ptr noundef %739) #34
   %747 = call ptr @dictNext(ptr noundef %736) #34
   %.not.i171 = icmp eq ptr %747, null
-  br i1 %.not.i171, label %._crit_edge.i172, label %.lr.ph323.i, !llvm.loop !461
+  br i1 %.not.i171, label %._crit_edge.i172, label %.lr.ph326.i, !llvm.loop !461
 
 ._crit_edge.i172:                                 ; preds = %745, %731
   call void @dictReleaseIterator(ptr noundef %736) #34
@@ -21386,17 +21386,17 @@ confirmWithYes.exit.i:                            ; preds = %750
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @listRewind(ptr noundef nonnull %732, ptr noundef nonnull %8) #34
   %760 = call ptr @listNext(ptr noundef nonnull %8) #34
-  %.not168324.i = icmp eq ptr %760, null
-  br i1 %.not168324.i, label %.thread234.i, label %.lr.ph327.i
+  %.not168327.i = icmp eq ptr %760, null
+  br i1 %.not168327.i, label %.thread237.i, label %.lr.ph330.i
 
-.thread234.i:                                     ; preds = %797, %759
+.thread237.i:                                     ; preds = %797, %759
   %.9.lcssa.i = phi i32 [ 0, %759 ], [ %801, %797 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %804
 
-.lr.ph327.i:                                      ; preds = %759, %797
+.lr.ph330.i:                                      ; preds = %759, %797
   %761 = phi ptr [ %802, %797 ], [ %760, %759 ]
-  %.9325.i = phi i32 [ %801, %797 ], [ 0, %759 ]
+  %.9328.i = phi i32 [ %801, %797 ], [ 0, %759 ]
   %762 = getelementptr inbounds nuw i8, ptr %761, i64 16
   %763 = load ptr, ptr %762, align 8, !tbaa !96
   %764 = call i64 @strtol(ptr noundef nonnull captures(none) %763, ptr noundef null, i32 noundef 10) #34
@@ -21408,9 +21408,9 @@ confirmWithYes.exit.i:                            ; preds = %750
   %.not20.i.i = icmp eq ptr %767, null
   br i1 %.not20.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph327.i, %.lr.ph.i.i
-  %768 = phi ptr [ %776, %.lr.ph.i.i ], [ %767, %.lr.ph327.i ]
-  %.01021.i.i = phi i32 [ %.111.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph327.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph330.i, %.lr.ph.i.i
+  %768 = phi ptr [ %776, %.lr.ph.i.i ], [ %767, %.lr.ph330.i ]
+  %.01021.i.i = phi i32 [ %.111.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph330.i ]
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 16
   %770 = load ptr, ptr %769, align 8, !tbaa !96
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 56
@@ -21420,11 +21420,11 @@ confirmWithYes.exit.i:                            ; preds = %750
   %775 = xor i32 %774, 1
   %.111.i.i = add nuw nsw i32 %775, %.01021.i.i
   %776 = call ptr @listNext(ptr noundef nonnull %5) #34
-  %.not.i202.i = icmp eq ptr %776, null
-  br i1 %.not.i202.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not.i205.i = icmp eq ptr %776, null
+  br i1 %.not.i205.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph327.i
-  %.010.lcssa.i.i = phi i32 [ 0, %.lr.ph327.i ], [ %.111.i.i, %.lr.ph.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph330.i
+  %.010.lcssa.i.i = phi i32 [ 0, %.lr.ph330.i ], [ %.111.i.i, %.lr.ph.i.i ]
   %777 = call i64 @time(ptr noundef null) #34
   %778 = trunc i64 %777 to i32
   call void @srand(i32 noundef %778) #34
@@ -21435,7 +21435,7 @@ confirmWithYes.exit.i:                            ; preds = %750
   br label %782
 
 782:                                              ; preds = %784, %._crit_edge.i.i
-  %.012.i203.i = phi i32 [ %780, %._crit_edge.i.i ], [ %.113.i.i, %784 ]
+  %.012.i206.i = phi i32 [ %780, %._crit_edge.i.i ], [ %.113.i.i, %784 ]
   %783 = call ptr @listNext(ptr noundef nonnull %5) #34
   %.not16.i.i = icmp eq ptr %783, null
   br i1 %.not16.i.i, label %clusterManagerNodeMasterRandom.exit.i, label %784
@@ -21447,9 +21447,9 @@ confirmWithYes.exit.i:                            ; preds = %750
   %788 = load i32, ptr %787, align 8, !tbaa !129
   %789 = and i32 %788, 2
   %.not17.i.i = icmp eq i32 %789, 0
-  %.not18.i.i = icmp eq i32 %.012.i203.i, 0
+  %.not18.i.i = icmp eq i32 %.012.i206.i, 0
   %790 = sext i1 %.not17.i.i to i32
-  %.113.i.i = add nsw i32 %.012.i203.i, %790
+  %.113.i.i = add nsw i32 %.012.i206.i, %790
   %791 = select i1 %.not17.i.i, i1 %.not18.i.i, i1 false
   br i1 %791, label %clusterManagerNodeMasterRandom.exit.i, label %782
 
@@ -21471,17 +21471,17 @@ clusterManagerNodeMasterRandom.exit.i:            ; preds = %784, %782
   %799 = ashr exact i64 %sext.i, 32
   %800 = getelementptr inbounds i8, ptr %798, i64 %799
   store i8 1, ptr %800, align 1, !tbaa !67
-  %801 = add nuw nsw i32 %.9325.i, 1
+  %801 = add nuw nsw i32 %.9328.i, 1
   %802 = call ptr @listNext(ptr noundef nonnull %8) #34
   %.not168.i = icmp eq ptr %802, null
-  br i1 %.not168.i, label %.thread234.i, label %.lr.ph327.i, !llvm.loop !462
+  br i1 %.not168.i, label %.thread237.i, label %.lr.ph330.i, !llvm.loop !462
 
 803:                                              ; preds = %clusterManagerNodeMasterRandom.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %926
 
-804:                                              ; preds = %.thread234.i, %confirmWithYes.exit.i, %confirmWithYes.exit.thread.i, %._crit_edge.i172
-  %.8.i = phi i32 [ 0, %confirmWithYes.exit.i ], [ 0, %._crit_edge.i172 ], [ 0, %confirmWithYes.exit.thread.i ], [ %.9.lcssa.i, %.thread234.i ]
+804:                                              ; preds = %.thread237.i, %confirmWithYes.exit.i, %confirmWithYes.exit.thread.i, %._crit_edge.i172
+  %.8.i = phi i32 [ 0, %confirmWithYes.exit.i ], [ 0, %._crit_edge.i172 ], [ 0, %confirmWithYes.exit.thread.i ], [ %.9.lcssa.i, %.thread237.i ]
   %805 = getelementptr inbounds nuw i8, ptr %733, i64 40
   %806 = load i64, ptr %805, align 8, !tbaa !84
   %.not170.i = icmp eq i64 %806, 0
@@ -21500,34 +21500,34 @@ clusterManagerNodeMasterRandom.exit.i:            ; preds = %784, %782
   %814 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 0, ptr %814, align 1, !tbaa !67
   %815 = and i64 %813, 4294967295
-  %.not4.i204.i = icmp eq i64 %815, 0
-  br i1 %.not4.i204.i, label %confirmWithYes.exit207.thread.i, label %confirmWithYes.exit207.i
+  %.not4.i207.i = icmp eq i64 %815, 0
+  br i1 %.not4.i207.i, label %confirmWithYes.exit210.thread.i, label %confirmWithYes.exit210.i
 
-confirmWithYes.exit207.thread.i:                  ; preds = %807
+confirmWithYes.exit210.thread.i:                  ; preds = %807
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %842
 
-confirmWithYes.exit207.i:                         ; preds = %807
-  %bcmp.i205.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %4, i64 4)
-  %.not5.i206.not.i = icmp eq i32 %bcmp.i205.i, 0
+confirmWithYes.exit210.i:                         ; preds = %807
+  %bcmp.i208.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %4, i64 4)
+  %.not5.i209.not.i = icmp eq i32 %bcmp.i208.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not5.i206.not.i, label %816, label %842
+  br i1 %.not5.i209.not.i, label %816, label %842
 
-816:                                              ; preds = %confirmWithYes.exit207.i
+816:                                              ; preds = %confirmWithYes.exit210.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @listRewind(ptr noundef nonnull %733, ptr noundef nonnull %9) #34
   %817 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not173329.i = icmp eq ptr %817, null
-  br i1 %.not173329.i, label %.thread241.i, label %.lr.ph332.i
+  %.not173332.i = icmp eq ptr %817, null
+  br i1 %.not173332.i, label %.thread244.i, label %.lr.ph335.i
 
-.thread241.i:                                     ; preds = %834, %816
+.thread244.i:                                     ; preds = %834, %816
   %.13.lcssa.i = phi i32 [ %.8.i, %816 ], [ %839, %834 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %842
 
-.lr.ph332.i:                                      ; preds = %816, %834
+.lr.ph335.i:                                      ; preds = %816, %834
   %818 = phi ptr [ %840, %834 ], [ %817, %816 ]
-  %.13330.i = phi i32 [ %839, %834 ], [ %.8.i, %816 ]
+  %.13333.i = phi i32 [ %839, %834 ], [ %.8.i, %816 ]
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 16
   %820 = load ptr, ptr %819, align 8, !tbaa !96
   %821 = call i64 @strtol(ptr noundef nonnull captures(none) %820, ptr noundef null, i32 noundef 10) #34
@@ -21547,24 +21547,24 @@ confirmWithYes.exit207.i:                         ; preds = %807
   %.not174.not.i = icmp eq i32 %833, 0
   br i1 %.not174.not.i, label %841, label %834
 
-834:                                              ; preds = %.lr.ph332.i
+834:                                              ; preds = %.lr.ph335.i
   %835 = getelementptr inbounds nuw i8, ptr %828, i64 84
   %836 = call i64 @strtol(ptr noundef nonnull captures(none) %820, ptr noundef null, i32 noundef 10) #34
-  %sext299.i = shl i64 %836, 32
-  %837 = ashr exact i64 %sext299.i, 32
+  %sext302.i = shl i64 %836, 32
+  %837 = ashr exact i64 %sext302.i, 32
   %838 = getelementptr inbounds i8, ptr %835, i64 %837
   store i8 1, ptr %838, align 1, !tbaa !67
-  %839 = add nuw nsw i32 %.13330.i, 1
+  %839 = add nuw nsw i32 %.13333.i, 1
   %840 = call ptr @listNext(ptr noundef nonnull %9) #34
   %.not173.i = icmp eq ptr %840, null
-  br i1 %.not173.i, label %.thread241.i, label %.lr.ph332.i, !llvm.loop !463
+  br i1 %.not173.i, label %.thread244.i, label %.lr.ph335.i, !llvm.loop !463
 
-841:                                              ; preds = %.lr.ph332.i
+841:                                              ; preds = %.lr.ph335.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %926
 
-842:                                              ; preds = %.thread241.i, %confirmWithYes.exit207.i, %confirmWithYes.exit207.thread.i, %804
-  %.12.i = phi i32 [ %.8.i, %confirmWithYes.exit207.i ], [ %.8.i, %804 ], [ %.8.i, %confirmWithYes.exit207.thread.i ], [ %.13.lcssa.i, %.thread241.i ]
+842:                                              ; preds = %.thread244.i, %confirmWithYes.exit210.i, %confirmWithYes.exit210.thread.i, %804
+  %.12.i = phi i32 [ %.8.i, %confirmWithYes.exit210.i ], [ %.8.i, %804 ], [ %.8.i, %confirmWithYes.exit210.thread.i ], [ %.13.lcssa.i, %.thread244.i ]
   %.12.fr.i = freeze i32 %.12.i
   %843 = getelementptr inbounds nuw i8, ptr %734, i64 40
   %844 = load i64, ptr %843, align 8, !tbaa !84
@@ -21584,29 +21584,29 @@ confirmWithYes.exit207.i:                         ; preds = %807
   %852 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 0, ptr %852, align 1, !tbaa !67
   %853 = and i64 %851, 4294967295
-  %.not4.i208.i = icmp eq i64 %853, 0
-  br i1 %.not4.i208.i, label %confirmWithYes.exit211.thread.i, label %confirmWithYes.exit211.i
+  %.not4.i211.i = icmp eq i64 %853, 0
+  br i1 %.not4.i211.i, label %confirmWithYes.exit214.thread.i, label %confirmWithYes.exit214.i
 
-confirmWithYes.exit211.thread.i:                  ; preds = %845
+confirmWithYes.exit214.thread.i:                  ; preds = %845
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %926
 
-confirmWithYes.exit211.i:                         ; preds = %845
-  %bcmp.i209.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %3, i64 4)
-  %.not5.i210.not.i = icmp eq i32 %bcmp.i209.i, 0
+confirmWithYes.exit214.i:                         ; preds = %845
+  %bcmp.i212.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.230, ptr noundef nonnull dereferenceable(4) %3, i64 4)
+  %.not5.i213.not.i = icmp eq i32 %bcmp.i212.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not5.i210.not.i, label %854, label %926
+  br i1 %.not5.i213.not.i, label %854, label %926
 
-854:                                              ; preds = %confirmWithYes.exit211.i
+854:                                              ; preds = %confirmWithYes.exit214.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @listRewind(ptr noundef nonnull %734, ptr noundef nonnull %10) #34
   %855 = call ptr @listNext(ptr noundef nonnull %10) #34
-  %.not178357.i = icmp eq ptr %855, null
-  br i1 %.not178357.i, label %.thread269.i, label %.lr.ph361.i
+  %.not178360.i = icmp eq ptr %855, null
+  br i1 %.not178360.i, label %.thread272.i, label %.lr.ph364.i
 
-.lr.ph361.i:                                      ; preds = %854, %._crit_edge337.i
-  %856 = phi ptr [ %924, %._crit_edge337.i ], [ %855, %854 ]
-  %.16358.i = phi i32 [ %923, %._crit_edge337.i ], [ %.12.fr.i, %854 ]
+.lr.ph364.i:                                      ; preds = %854, %._crit_edge340.i
+  %856 = phi ptr [ %924, %._crit_edge340.i ], [ %855, %854 ]
+  %.16361.i = phi i32 [ %923, %._crit_edge340.i ], [ %.12.fr.i, %854 ]
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 16
   %858 = load ptr, ptr %857, align 8, !tbaa !96
   %859 = load ptr, ptr @clusterManagerUncoveredSlots, align 8, !tbaa !457
@@ -21616,9 +21616,9 @@ confirmWithYes.exit211.i:                         ; preds = %845
   %863 = trunc i64 %862 to i32
   %864 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %861, i32 noundef %863)
   %865 = icmp eq ptr %864, null
-  br i1 %865, label %.thread269.i, label %866
+  br i1 %865, label %.thread272.i, label %866
 
-866:                                              ; preds = %.lr.ph361.i
+866:                                              ; preds = %.lr.ph364.i
   %867 = getelementptr inbounds nuw i8, ptr %864, i64 16
   %868 = load ptr, ptr %867, align 8, !tbaa !74
   %869 = getelementptr inbounds nuw i8, ptr %864, i64 24
@@ -21626,146 +21626,146 @@ confirmWithYes.exit211.i:                         ; preds = %845
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.329, ptr noundef nonnull %858, ptr noundef %868, i32 noundef %870)
   %871 = call fastcc i32 @clusterManagerSetSlotOwner(ptr noundef nonnull %864, i32 noundef %863, i32 noundef 1)
   %.not179.i = icmp eq i32 %871, 0
-  br i1 %.not179.i, label %.thread269.i, label %872
+  br i1 %.not179.i, label %.thread272.i, label %872
 
 872:                                              ; preds = %866
   %873 = getelementptr inbounds nuw i8, ptr %864, i64 84
   %874 = call i64 @strtol(ptr noundef nonnull captures(none) %858, ptr noundef null, i32 noundef 10) #34
-  %sext300.i = shl i64 %874, 32
-  %875 = ashr exact i64 %sext300.i, 32
+  %sext303.i = shl i64 %874, 32
+  %875 = ashr exact i64 %sext303.i, 32
   %876 = getelementptr inbounds i8, ptr %873, i64 %875
   store i8 1, ptr %876, align 1, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @listRewind(ptr noundef %861, ptr noundef nonnull %11) #34
   %877 = call ptr @listNext(ptr noundef nonnull %11) #34
-  %.not180334.i = icmp eq ptr %877, null
-  br i1 %.not180334.i, label %._crit_edge337.i, label %.lr.ph336.i
+  %.not180337.i = icmp eq ptr %877, null
+  br i1 %.not180337.i, label %._crit_edge340.i, label %.lr.ph339.i
 
-.lr.ph336.i:                                      ; preds = %872
+.lr.ph339.i:                                      ; preds = %872
   %878 = getelementptr i8, ptr %864, i64 8
-  %879 = icmp slt i32 %.16358.i, 0
-  br i1 %879, label %.lr.ph336.split.us.i, label %.lr.ph336.split.i
+  %879 = icmp slt i32 %.16361.i, 0
+  br i1 %879, label %.lr.ph339.split.us.i, label %.lr.ph339.split.i
 
-.lr.ph336.split.us.i:                             ; preds = %.lr.ph336.i, %890
-  %880 = phi ptr [ %891, %890 ], [ %877, %.lr.ph336.i ]
+.lr.ph339.split.us.i:                             ; preds = %.lr.ph339.i, %890
+  %880 = phi ptr [ %891, %890 ], [ %877, %.lr.ph339.i ]
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 16
   %882 = load ptr, ptr %881, align 8, !tbaa !96
   %883 = icmp eq ptr %882, %864
   br i1 %883, label %890, label %884, !llvm.loop !464
 
-884:                                              ; preds = %.lr.ph336.split.us.i
+884:                                              ; preds = %.lr.ph339.split.us.i
   %.val.us.i = load ptr, ptr %878, align 8, !tbaa !108
   %885 = load ptr, ptr %882, align 8, !tbaa !82
   %886 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %885, ptr noundef nonnull @.str.295, i32 noundef %863, ptr noundef nonnull @.str.281, ptr noundef %.val.us.i) #34
   %.not24.i.us.i = icmp eq ptr %886, null
-  br i1 %.not24.i.us.i, label %.thread273.i, label %887
+  br i1 %.not24.i.us.i, label %.thread276.i, label %887
 
 887:                                              ; preds = %884
   %888 = load i32, ptr %886, align 8, !tbaa !56
   %889 = icmp eq i32 %888, 6
-  br i1 %889, label %.thread273.sink.split.sink.split.i, label %.thread273.sink.split.i
+  br i1 %889, label %.thread276.sink.split.sink.split.i, label %.thread276.sink.split.i
 
-890:                                              ; preds = %.lr.ph336.split.us.i
+890:                                              ; preds = %.lr.ph339.split.us.i
   %891 = call ptr @listNext(ptr noundef nonnull %11) #34
   %.not180.us.i = icmp eq ptr %891, null
-  br i1 %.not180.us.i, label %._crit_edge337.i, label %.lr.ph336.split.us.i
+  br i1 %.not180.us.i, label %._crit_edge340.i, label %.lr.ph339.split.us.i
 
-.lr.ph336.split.i:                                ; preds = %.lr.ph336.i, %921
-  %892 = phi ptr [ %922, %921 ], [ %877, %.lr.ph336.i ]
+.lr.ph339.split.i:                                ; preds = %.lr.ph339.i, %921
+  %892 = phi ptr [ %922, %921 ], [ %877, %.lr.ph339.i ]
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 16
   %894 = load ptr, ptr %893, align 8, !tbaa !96
   %895 = icmp eq ptr %894, %864
   br i1 %895, label %921, label %896, !llvm.loop !464
 
-896:                                              ; preds = %.lr.ph336.split.i
+896:                                              ; preds = %.lr.ph339.split.i
   %.val.i = load ptr, ptr %878, align 8, !tbaa !108
   %897 = load ptr, ptr %894, align 8, !tbaa !82
   %898 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %897, ptr noundef nonnull @.str.295, i32 noundef %863, ptr noundef nonnull @.str.281, ptr noundef %.val.i) #34
   %.not24.i.i175 = icmp eq ptr %898, null
-  br i1 %.not24.i.i175, label %.thread273.i, label %899
+  br i1 %.not24.i.i175, label %.thread276.i, label %899
 
 899:                                              ; preds = %896
   %900 = load i32, ptr %898, align 8, !tbaa !56
   %901 = icmp eq i32 %900, 6
-  br i1 %901, label %.thread273.sink.split.sink.split.i, label %902
+  br i1 %901, label %.thread276.sink.split.sink.split.i, label %902
 
 902:                                              ; preds = %899
   call void @freeReplyObject(ptr noundef nonnull %898) #34
-  %.val201.i = load ptr, ptr %878, align 8, !tbaa !108
+  %.val204.i = load ptr, ptr %878, align 8, !tbaa !108
   %903 = load ptr, ptr %894, align 8, !tbaa !82
-  %904 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %903, ptr noundef nonnull @.str.295, i32 noundef %863, ptr noundef nonnull @.str.330, ptr noundef %.val201.i) #34
-  %.not24.i212.i = icmp eq ptr %904, null
-  br i1 %.not24.i212.i, label %.thread273.i, label %905
+  %904 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %903, ptr noundef nonnull @.str.295, i32 noundef %863, ptr noundef nonnull @.str.330, ptr noundef %.val204.i) #34
+  %.not24.i215.i = icmp eq ptr %904, null
+  br i1 %.not24.i215.i, label %.thread276.i, label %905
 
 905:                                              ; preds = %902
   %906 = load i32, ptr %904, align 8, !tbaa !56
   %907 = icmp eq i32 %906, 6
-  br i1 %907, label %.thread273.sink.split.sink.split.i, label %908
+  br i1 %907, label %.thread276.sink.split.sink.split.i, label %908
 
 908:                                              ; preds = %905
   call void @freeReplyObject(ptr noundef nonnull %904) #34
   %909 = call fastcc i32 @clusterManagerMoveSlot(ptr noundef nonnull %894, ptr noundef nonnull %864, i32 noundef %863, i32 noundef 130, ptr noundef null)
   %.not183.i = icmp eq i32 %909, 0
-  br i1 %.not183.i, label %.thread273.i, label %910
+  br i1 %.not183.i, label %.thread276.i, label %910
 
 910:                                              ; preds = %908
   %911 = load ptr, ptr %894, align 8, !tbaa !82
   %912 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %911, ptr noundef nonnull @.str.286, i32 noundef %863, ptr noundef nonnull @.str.287) #34
   %.not.i.i.i176 = icmp eq ptr %912, null
-  br i1 %.not.i.i.i176, label %.thread273.i, label %913
+  br i1 %.not.i.i.i176, label %.thread276.i, label %913
 
 913:                                              ; preds = %910
   %914 = load i32, ptr %912, align 8, !tbaa !56
   %.not19.i.i.i177 = icmp eq i32 %914, 6
-  br i1 %.not19.i.i.i177, label %.thread273.sink.split.sink.split.i, label %clusterManagerClearSlotStatus.exit.thread.i
+  br i1 %.not19.i.i.i177, label %.thread276.sink.split.sink.split.i, label %clusterManagerClearSlotStatus.exit.thread.i
 
 clusterManagerClearSlotStatus.exit.thread.i:      ; preds = %913
   call void @freeReplyObject(ptr noundef nonnull %912) #34
   br label %921
 
-.thread273.sink.split.sink.split.i:               ; preds = %913, %905, %899, %887
-  %.us-phi339.sink479.i = phi ptr [ %882, %887 ], [ %894, %899 ], [ %894, %905 ], [ %894, %913 ]
-  %.us-phi338.sink.i = phi ptr [ %886, %887 ], [ %912, %913 ], [ %904, %905 ], [ %898, %899 ]
-  %915 = getelementptr inbounds nuw i8, ptr %.us-phi339.sink479.i, i64 16
+.thread276.sink.split.sink.split.i:               ; preds = %913, %905, %899, %887
+  %.us-phi342.sink482.i = phi ptr [ %882, %887 ], [ %894, %899 ], [ %894, %905 ], [ %894, %913 ]
+  %.us-phi341.sink.i = phi ptr [ %886, %887 ], [ %912, %913 ], [ %904, %905 ], [ %898, %899 ]
+  %915 = getelementptr inbounds nuw i8, ptr %.us-phi342.sink482.i, i64 16
   %916 = load ptr, ptr %915, align 8, !tbaa !74
-  %917 = getelementptr inbounds nuw i8, ptr %.us-phi339.sink479.i, i64 24
+  %917 = getelementptr inbounds nuw i8, ptr %.us-phi342.sink482.i, i64 24
   %918 = load i32, ptr %917, align 8, !tbaa !77
-  %919 = getelementptr inbounds nuw i8, ptr %.us-phi338.sink.i, i64 32
+  %919 = getelementptr inbounds nuw i8, ptr %.us-phi341.sink.i, i64 32
   %920 = load ptr, ptr %919, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %916, i32 noundef %918, ptr noundef %920)
-  br label %.thread273.sink.split.i
+  br label %.thread276.sink.split.i
 
-.thread273.sink.split.i:                          ; preds = %.thread273.sink.split.sink.split.i, %887
-  %.sink472.i = phi ptr [ %886, %887 ], [ %.us-phi338.sink.i, %.thread273.sink.split.sink.split.i ]
-  %.19.ph.ph.i = phi i32 [ %.16358.i, %887 ], [ -1, %.thread273.sink.split.sink.split.i ]
-  call void @freeReplyObject(ptr noundef nonnull %.sink472.i) #34
-  br label %.thread273.i
+.thread276.sink.split.i:                          ; preds = %.thread276.sink.split.sink.split.i, %887
+  %.sink475.i = phi ptr [ %886, %887 ], [ %.us-phi341.sink.i, %.thread276.sink.split.sink.split.i ]
+  %.19.ph.ph.i = phi i32 [ %.16361.i, %887 ], [ -1, %.thread276.sink.split.sink.split.i ]
+  call void @freeReplyObject(ptr noundef nonnull %.sink475.i) #34
+  br label %.thread276.i
 
-.thread273.i:                                     ; preds = %910, %908, %902, %896, %.thread273.sink.split.i, %884
-  %.19.ph.i = phi i32 [ -1, %884 ], [ %.19.ph.ph.i, %.thread273.sink.split.i ], [ -1, %896 ], [ -1, %902 ], [ -1, %908 ], [ -1, %910 ]
+.thread276.i:                                     ; preds = %910, %908, %902, %896, %.thread276.sink.split.i, %884
+  %.19.ph.i = phi i32 [ -1, %884 ], [ %.19.ph.ph.i, %.thread276.sink.split.i ], [ -1, %896 ], [ -1, %902 ], [ -1, %908 ], [ -1, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread269.i
+  br label %.thread272.i
 
-921:                                              ; preds = %clusterManagerClearSlotStatus.exit.thread.i, %.lr.ph336.split.i
+921:                                              ; preds = %clusterManagerClearSlotStatus.exit.thread.i, %.lr.ph339.split.i
   %922 = call ptr @listNext(ptr noundef nonnull %11) #34
   %.not180.i = icmp eq ptr %922, null
-  br i1 %.not180.i, label %._crit_edge337.i, label %.lr.ph336.split.i
+  br i1 %.not180.i, label %._crit_edge340.i, label %.lr.ph339.split.i
 
-._crit_edge337.i:                                 ; preds = %921, %890, %872
-  %923 = add i32 %.16358.i, 1
+._crit_edge340.i:                                 ; preds = %921, %890, %872
+  %923 = add i32 %.16361.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %924 = call ptr @listNext(ptr noundef nonnull %10) #34
   %.not178.i = icmp eq ptr %924, null
-  br i1 %.not178.i, label %.thread269.i, label %.lr.ph361.i, !llvm.loop !465
+  br i1 %.not178.i, label %.thread272.i, label %.lr.ph364.i, !llvm.loop !465
 
-.thread269.i:                                     ; preds = %._crit_edge337.i, %866, %.lr.ph361.i, %.thread273.i, %854
-  %.25.i = phi i32 [ %.19.ph.i, %.thread273.i ], [ %.12.fr.i, %854 ], [ -1, %866 ], [ -1, %.lr.ph361.i ], [ %923, %._crit_edge337.i ]
+.thread272.i:                                     ; preds = %._crit_edge340.i, %866, %.lr.ph364.i, %.thread276.i, %854
+  %.25.i = phi i32 [ %.19.ph.i, %.thread276.i ], [ %.12.fr.i, %854 ], [ -1, %866 ], [ -1, %.lr.ph364.i ], [ %923, %._crit_edge340.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %925 = freeze i32 %.25.i
   br label %926
 
-926:                                              ; preds = %.thread269.i, %confirmWithYes.exit211.i, %confirmWithYes.exit211.thread.i, %842, %841, %803
-  %.7.i = phi i32 [ %925, %.thread269.i ], [ %.12.fr.i, %confirmWithYes.exit211.i ], [ %.12.fr.i, %842 ], [ -1, %841 ], [ -1, %803 ], [ %.12.fr.i, %confirmWithYes.exit211.thread.i ]
+926:                                              ; preds = %.thread272.i, %confirmWithYes.exit214.i, %confirmWithYes.exit214.thread.i, %842, %841, %803
+  %.7.i = phi i32 [ %925, %.thread272.i ], [ %.12.fr.i, %confirmWithYes.exit214.i ], [ %.12.fr.i, %842 ], [ -1, %841 ], [ -1, %803 ], [ %.12.fr.i, %confirmWithYes.exit214.thread.i ]
   %.not193.i = icmp eq ptr %732, null
   br i1 %.not193.i, label %928, label %927
 
@@ -23760,7 +23760,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %.not.i = icmp samesign ult i32 %3, 128
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not201.i = icmp eq i32 %39, 0
+  %.not202.i = icmp eq i32 %39, 0
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = getelementptr i8, ptr %1, i64 8
@@ -23768,8 +23768,8 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %.not132.i = icmp eq ptr %4, null
   %46 = load ptr, ptr %0, align 8, !tbaa !82
   %47 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %46, ptr noundef nonnull @.str.284, i32 noundef %2, i32 noundef %28) #34
-  %.not200.i107 = icmp eq ptr %47, null
-  br i1 %.not200.i107, label %clusterManagerMigrateKeysInSlot.exit, label %.lr.ph
+  %.not201.i107 = icmp eq ptr %47, null
+  br i1 %.not201.i107, label %clusterManagerMigrateKeysInSlot.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %.backedge
   %48 = phi ptr [ %237, %.backedge ], [ %47, %37 ]
@@ -23815,7 +23815,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %.1101.i = phi ptr [ %72, %70 ], [ null, %69 ]
   %74 = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %48, i32 noundef 0, i32 noundef %29, ptr noundef %.1101.i)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread186.i.thread, label %76
+  br i1 %75, label %.thread187.i.thread, label %76
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %74, align 8, !tbaa !56
@@ -23852,19 +23852,19 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
 
 93:                                               ; preds = %90, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread157.i
+  br label %.thread158.i
 
 94:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not201.i, label %clusterManagerSetSlot.exit.i, label %95
+  br i1 %.not202.i, label %clusterManagerSetSlot.exit.i, label %95
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %43, align 8, !tbaa !74
   %97 = load i32, ptr %44, align 8, !tbaa !77
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 2, ptr noundef nonnull @.str.301, ptr noundef %96, i32 noundef %97)
-  %.val137.i = load ptr, ptr %45, align 8, !tbaa !108
+  %.val138.i = load ptr, ptr %45, align 8, !tbaa !108
   %98 = load ptr, ptr %0, align 8, !tbaa !82
-  %99 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %98, ptr noundef nonnull @.str.295, i32 noundef %2, ptr noundef nonnull @.str.276, ptr noundef %.val137.i) #34
+  %99 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %98, ptr noundef nonnull @.str.295, i32 noundef %2, ptr noundef nonnull @.str.276, ptr noundef %.val138.i) #34
   %.not24.i.i = icmp eq ptr %99, null
   br i1 %.not24.i.i, label %clusterManagerSetSlot.exit.i, label %100
 
@@ -23972,7 +23972,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %153, i32 noundef %154, ptr noundef %156)
   %.pr.i.i = load i32, ptr %148, align 8, !tbaa !56
   %157 = icmp eq i32 %.pr.i.i, 6
-  br i1 %157, label %.thread71.i.i, label %.critedge203.i
+  br i1 %157, label %.thread71.i.i, label %.critedge204.i
 
 .thread71.i.i:                                    ; preds = %.thread.i.i, %150
   %158 = load ptr, ptr %43, align 8, !tbaa !74
@@ -23980,7 +23980,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %160 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %161 = load ptr, ptr %160, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %158, i32 noundef %159, ptr noundef %161)
-  br label %.critedge203.i
+  br label %.critedge204.i
 
 .preheader.i.i:                                   ; preds = %150
   %162 = load i64, ptr %66, align 8, !tbaa !28
@@ -24052,13 +24052,13 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %.not126.i = icmp eq i64 %198, 0
   br i1 %.not126.i, label %209, label %199
 
-.critedge203.i:                                   ; preds = %.thread71.i.i, %.thread.i.i
+.critedge204.i:                                   ; preds = %.thread71.i.i, %.thread.i.i
   call void @freeReplyObject(ptr noundef nonnull %141) #34
   br label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %.critedge203.i, %196
-  %.sink221.i = phi ptr [ %148, %.critedge203.i ], [ %141, %196 ]
-  call void @freeReplyObject(ptr noundef nonnull %.sink221.i) #34
+.critedge.sink.split.i:                           ; preds = %.critedge204.i, %196
+  %.sink222.i = phi ptr [ %148, %.critedge204.i ], [ %141, %196 ]
+  call void @freeReplyObject(ptr noundef nonnull %.sink222.i) #34
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %196, %._crit_edge.i.i
@@ -24068,7 +24068,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.304)
   call void @listRelease(ptr noundef %111) #34
-  br label %.thread178.i
+  br label %.thread179.i
 
 199:                                              ; preds = %.loopexit.i.i
   %200 = load ptr, ptr %41, align 8, !tbaa !74
@@ -24079,8 +24079,8 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @listRewind(ptr noundef nonnull %111, ptr noundef nonnull %9) #34
   %204 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not127205.i = icmp eq ptr %204, null
-  br i1 %.not127205.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not127206.i = icmp eq ptr %204, null
+  br i1 %.not127206.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %199, %.lr.ph.i
   %205 = phi ptr [ %208, %.lr.ph.i ], [ %204, %199 ]
@@ -24095,7 +24095,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.307)
   call void @listRelease(ptr noundef nonnull %111) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread178.i
+  br label %.thread179.i
 
 209:                                              ; preds = %.loopexit.i.i
   call void @listRelease(ptr noundef nonnull %111) #34
@@ -24109,83 +24109,83 @@ clusterManagerSetSlot.exit.i:                     ; preds = %210, %108, %95, %94
   call void @freeReplyObject(ptr noundef nonnull %74) #34
   %211 = call fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef %48, i32 noundef %84, i32 noundef %29, ptr noundef null)
   %.not128.i = icmp eq ptr %211, null
-  br i1 %.not128.i, label %.thread186.i, label %212
+  br i1 %.not128.i, label %.thread187.i, label %212
 
 212:                                              ; preds = %clusterManagerSetSlot.exit.i
   %213 = load i32, ptr %211, align 8, !tbaa !56
   %.not130.i = icmp eq i32 %213, 6
-  br i1 %.not130.i, label %.thread157.i, label %228
+  br i1 %.not130.i, label %.thread158.i, label %228
 
-.thread157.i:                                     ; preds = %212, %93
-  %.3107156160.i = phi ptr [ %74, %93 ], [ %211, %212 ]
-  br i1 %.not132.i, label %.thread189.i, label %214
+.thread158.i:                                     ; preds = %212, %93
+  %.3107157161.i = phi ptr [ %74, %93 ], [ %211, %212 ]
+  br i1 %.not132.i, label %.thread190.i, label %214
 
-214:                                              ; preds = %.thread157.i
-  %215 = getelementptr inbounds nuw i8, ptr %.3107156160.i, i64 24
+214:                                              ; preds = %.thread158.i
+  %215 = getelementptr inbounds nuw i8, ptr %.3107157161.i, i64 24
   %216 = load i64, ptr %215, align 8, !tbaa !64
   %217 = add i64 %216, 1
   %218 = call noalias ptr @zmalloc(i64 noundef %217) #38
   store ptr %218, ptr %4, align 8, !tbaa !24
-  %219 = getelementptr inbounds nuw i8, ptr %.3107156160.i, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.3107157161.i, i64 32
   %220 = load ptr, ptr %219, align 8, !tbaa !36
   %221 = load i64, ptr %215, align 8, !tbaa !64
   %222 = add i64 %221, 1
   %223 = call i64 @redis_strlcpy(ptr noundef %218, ptr noundef %220, i64 noundef %222) #34
-  br label %.thread189.i
+  br label %.thread190.i
 
-.thread189.i:                                     ; preds = %214, %.thread157.i
+.thread190.i:                                     ; preds = %214, %.thread158.i
   %putchar.i = call i32 @putchar(i32 10)
   %224 = load ptr, ptr %41, align 8, !tbaa !74
   %225 = load i32, ptr %42, align 8, !tbaa !77
-  %226 = getelementptr inbounds nuw i8, ptr %.3107156160.i, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %.3107157161.i, i64 32
   %227 = load ptr, ptr %226, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %224, i32 noundef %225, ptr noundef %227)
-  br label %.thread178.i
+  br label %.thread179.i
 
 228:                                              ; preds = %212, %76
   %.1105.i = phi ptr [ %74, %76 ], [ %211, %212 ]
-  br i1 %.not.i, label %.thread178.i, label %229
+  br i1 %.not.i, label %.thread179.i, label %229
 
 229:                                              ; preds = %228
   %230 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.242, ptr noundef %.1101.i)
   %231 = load ptr, ptr @stdout, align 8, !tbaa !5
   %232 = call i32 @fflush(ptr noundef %231)
-  br label %.thread178.i
+  br label %.thread179.i
 
-.thread178.i:                                     ; preds = %229, %228, %.thread189.i, %._crit_edge.i, %.critedge.i
-  %233 = phi i1 [ true, %.thread189.i ], [ false, %229 ], [ false, %228 ], [ true, %._crit_edge.i ], [ true, %.critedge.i ]
-  %.0104183.i = phi ptr [ %.3107156160.i, %.thread189.i ], [ %.1105.i, %229 ], [ %.1105.i, %228 ], [ %74, %._crit_edge.i ], [ %74, %.critedge.i ]
+.thread179.i:                                     ; preds = %229, %228, %.thread190.i, %._crit_edge.i, %.critedge.i
+  %233 = phi i1 [ true, %.thread190.i ], [ false, %229 ], [ false, %228 ], [ true, %._crit_edge.i ], [ true, %.critedge.i ]
+  %.0104184.i = phi ptr [ %.3107157161.i, %.thread190.i ], [ %.1105.i, %229 ], [ %.1105.i, %228 ], [ %74, %._crit_edge.i ], [ %74, %.critedge.i ]
   call void @freeReplyObject(ptr noundef nonnull %48) #34
-  br label %.thread186.i
+  br label %.thread187.i
 
-.thread186.i:                                     ; preds = %.thread178.i, %clusterManagerSetSlot.exit.i
-  %.sink.i = phi ptr [ %.0104183.i, %.thread178.i ], [ %48, %clusterManagerSetSlot.exit.i ]
-  %.198176.i = phi i1 [ %233, %.thread178.i ], [ true, %clusterManagerSetSlot.exit.i ]
+.thread187.i:                                     ; preds = %.thread179.i, %clusterManagerSetSlot.exit.i
+  %.sink.i = phi ptr [ %.0104184.i, %.thread179.i ], [ %48, %clusterManagerSetSlot.exit.i ]
+  %.198177.i = phi i1 [ %233, %.thread179.i ], [ true, %clusterManagerSetSlot.exit.i ]
   call void @freeReplyObject(ptr noundef nonnull %.sink.i) #34
   %.not135.i = icmp eq ptr %.1101.i, null
   br i1 %.not135.i, label %235, label %234
 
-.thread186.i.thread:                              ; preds = %73
+.thread187.i.thread:                              ; preds = %73
   call void @freeReplyObject(ptr noundef nonnull %48) #34
   %.not135.i134 = icmp eq ptr %.1101.i, null
   br i1 %.not135.i134, label %.backedge, label %.thread139
 
-.thread139:                                       ; preds = %.thread186.i.thread
+.thread139:                                       ; preds = %.thread187.i.thread
   call void @zfree(ptr noundef nonnull %.1101.i) #34
   br label %.backedge
 
-234:                                              ; preds = %.thread186.i
+234:                                              ; preds = %.thread187.i
   call void @zfree(ptr noundef nonnull %.1101.i) #34
-  br i1 %.198176.i, label %clusterManagerMigrateKeysInSlot.exit, label %.backedge
+  br i1 %.198177.i, label %clusterManagerMigrateKeysInSlot.exit, label %.backedge
 
-235:                                              ; preds = %.thread186.i
-  br i1 %.198176.i, label %clusterManagerMigrateKeysInSlot.exit, label %.backedge
+235:                                              ; preds = %.thread187.i
+  br i1 %.198177.i, label %clusterManagerMigrateKeysInSlot.exit, label %.backedge
 
-.backedge:                                        ; preds = %.thread139, %.thread186.i.thread, %235, %234
+.backedge:                                        ; preds = %.thread139, %.thread187.i.thread, %235, %234
   %236 = load ptr, ptr %0, align 8, !tbaa !82
   %237 = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %236, ptr noundef nonnull @.str.284, i32 noundef %2, i32 noundef %28) #34
-  %.not200.i = icmp eq ptr %237, null
-  br i1 %.not200.i, label %clusterManagerMigrateKeysInSlot.exit, label %.lr.ph
+  %.not201.i = icmp eq ptr %237, null
+  br i1 %.not201.i, label %clusterManagerMigrateKeysInSlot.exit, label %.lr.ph
 
 clusterManagerMigrateKeysInSlot.exit.sink.split:  ; preds = %65, %52, %51
   call void @freeReplyObject(ptr noundef nonnull %48) #34

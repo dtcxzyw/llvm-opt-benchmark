@@ -451,7 +451,7 @@ smart_str_alloc.exit:
   %.fr = freeze ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !tbaa !69
-  %.fr77 = freeze i64 %5
+  %.fr78 = freeze i64 %5
   call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef 2) #26
   %6 = load ptr, ptr %1, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -463,11 +463,11 @@ smart_str_alloc.exit:
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 2, ptr %12, align 8, !tbaa !73
   %13 = icmp ne ptr %.fr, null
-  %14 = and i64 %.fr77, 4294967295
+  %14 = and i64 %.fr78, 4294967295
   %15 = icmp ne i64 %14, 0
   %or.cond = and i1 %13, %15
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %sext = shl i64 %.fr77, 32
+  %sext = shl i64 %.fr78, 32
   %17 = ashr exact i64 %sext, 32
   br i1 %or.cond, label %smart_str_alloc.exit.split.us, label %smart_str_alloc.exit.split
 
@@ -494,17 +494,17 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   br i1 %26, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23
-  %.pre87 = load i8, ptr %.034.us, align 1, !tbaa !76
+  %.pre88 = load i8, ptr %.034.us, align 1, !tbaa !76
   br label %34
 
 27:                                               ; preds = %23
   %bcmp.us = call i32 @bcmp(ptr nonnull %.fr, ptr %.032.us, i64 %17)
   %.not.us = icmp eq i32 %bcmp.us, 0
-  %.pre88 = load i8, ptr %.034.us, align 1, !tbaa !76
+  %.pre89 = load i8, ptr %.034.us, align 1, !tbaa !76
   br i1 %.not.us, label %28, label %34
 
 28:                                               ; preds = %27
-  switch i8 %.pre88, label %34 [
+  switch i8 %.pre89, label %34 [
     i8 10, label %.split.us
     i8 13, label %29
   ]
@@ -513,23 +513,23 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   %30 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   %31 = load i8, ptr %30, align 1, !tbaa !76
   %32 = icmp eq i8 %31, 10
-  br i1 %32, label %.split.us, label %.thread116
+  br i1 %32, label %.split.us, label %.thread117
 
-.thread116:                                       ; preds = %29
+.thread117:                                       ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   br label %38
 
 34:                                               ; preds = %._crit_edge, %28, %27
-  %35 = phi i8 [ %.pre87, %._crit_edge ], [ %.pre88, %28 ], [ %.pre88, %27 ]
-  %.fr125 = freeze i8 %35
-  %36 = icmp eq i8 %.fr125, 10
+  %35 = phi i8 [ %.pre88, %._crit_edge ], [ %.pre89, %28 ], [ %.pre89, %27 ]
+  %.fr126 = freeze i8 %35
+  %36 = icmp eq i8 %.fr126, 10
   %37 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   %spec.select = select i1 %36, ptr %37, ptr %.032.us
   br label %38
 
-38:                                               ; preds = %34, %.thread116
-  %39 = phi ptr [ %33, %.thread116 ], [ %37, %34 ]
-  %40 = phi ptr [ %.032.us, %.thread116 ], [ %spec.select, %34 ]
+38:                                               ; preds = %34, %.thread117
+  %39 = phi ptr [ %33, %.thread117 ], [ %37, %34 ]
+  %40 = phi ptr [ %.032.us, %.thread117 ], [ %spec.select, %34 ]
   %41 = add nsw i32 %24, -1
   store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   %.not42.us = icmp eq i32 %41, 0
@@ -546,35 +546,35 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   %45 = ptrtoint ptr %40 to i64
   %46 = sub i64 %45, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640) to i64)
   %47 = load ptr, ptr %1, align 8, !tbaa !70
-  %.not.i53.us = icmp eq ptr %47, null
-  br i1 %.not.i53.us, label %53, label %48, !prof !77
+  %.not.i54.us = icmp eq ptr %47, null
+  br i1 %.not.i54.us, label %53, label %48, !prof !77
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !73
   %51 = add i64 %50, %46
   %52 = load i64, ptr %16, align 8, !tbaa !78
-  %.not12.i54.us = icmp ult i64 %51, %52
-  br i1 %.not12.i54.us, label %smart_str_alloc.exit57.us, label %53, !prof !79
+  %.not12.i55.us = icmp ult i64 %51, %52
+  br i1 %.not12.i55.us, label %smart_str_alloc.exit58.us, label %53, !prof !79
 
 53:                                               ; preds = %48, %44
-  %.0.i55.us = phi i64 [ %46, %44 ], [ %51, %48 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i55.us) #26
-  %.pre89 = load ptr, ptr %1, align 8, !tbaa !70
-  %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %.pre89, i64 16
-  %.pre91 = load i64, ptr %.phi.trans.insert90, align 8, !tbaa !73
-  br label %smart_str_alloc.exit57.us
+  %.0.i56.us = phi i64 [ %46, %44 ], [ %51, %48 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i56.us) #26
+  %.pre90 = load ptr, ptr %1, align 8, !tbaa !70
+  %.phi.trans.insert91 = getelementptr inbounds nuw i8, ptr %.pre90, i64 16
+  %.pre92 = load i64, ptr %.phi.trans.insert91, align 8, !tbaa !73
+  br label %smart_str_alloc.exit58.us
 
-smart_str_alloc.exit57.us:                        ; preds = %53, %48
-  %54 = phi i64 [ %.pre91, %53 ], [ %50, %48 ]
-  %55 = phi ptr [ %.pre89, %53 ], [ %47, %48 ]
-  %.1.i56.us = phi i64 [ %.0.i55.us, %53 ], [ %51, %48 ]
+smart_str_alloc.exit58.us:                        ; preds = %53, %48
+  %54 = phi i64 [ %.pre92, %53 ], [ %50, %48 ]
+  %55 = phi ptr [ %.pre90, %53 ], [ %47, %48 ]
+  %.1.i57.us = phi i64 [ %.0.i56.us, %53 ], [ %51, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640), i64 %46, i1 false)
   %58 = load ptr, ptr %1, align 8, !tbaa !70
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i64 %.1.i56.us, ptr %59, align 8, !tbaa !73
+  store i64 %.1.i57.us, ptr %59, align 8, !tbaa !73
   %60 = ptrtoint ptr %scevgep to i64
   %61 = sub i64 %60, %45
   %62 = trunc i64 %61 to i32
@@ -588,38 +588,38 @@ smart_str_alloc.exit57.us:                        ; preds = %53, %48
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   %gepdiff = zext nneg i32 %19 to i64
   %65 = load ptr, ptr %1, align 8, !tbaa !70
-  %.not.i58.us = icmp eq ptr %65, null
-  br i1 %.not.i58.us, label %71, label %66, !prof !77
+  %.not.i59.us = icmp eq ptr %65, null
+  br i1 %.not.i59.us, label %71, label %66, !prof !77
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !73
   %69 = add i64 %68, %gepdiff
   %70 = load i64, ptr %16, align 8, !tbaa !78
-  %.not12.i59.us = icmp ult i64 %69, %70
-  br i1 %.not12.i59.us, label %smart_str_alloc.exit62.us, label %71, !prof !79
+  %.not12.i60.us = icmp ult i64 %69, %70
+  br i1 %.not12.i60.us, label %smart_str_alloc.exit63.us, label %71, !prof !79
 
 71:                                               ; preds = %66, %64
-  %.0.i60.us = phi i64 [ %gepdiff, %64 ], [ %69, %66 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i60.us) #26
-  %.pre92 = load ptr, ptr %1, align 8, !tbaa !70
-  %.phi.trans.insert93 = getelementptr inbounds nuw i8, ptr %.pre92, i64 16
-  %.pre94 = load i64, ptr %.phi.trans.insert93, align 8, !tbaa !73
-  br label %smart_str_alloc.exit62.us
+  %.0.i61.us = phi i64 [ %gepdiff, %64 ], [ %69, %66 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i61.us) #26
+  %.pre93 = load ptr, ptr %1, align 8, !tbaa !70
+  %.phi.trans.insert94 = getelementptr inbounds nuw i8, ptr %.pre93, i64 16
+  %.pre95 = load i64, ptr %.phi.trans.insert94, align 8, !tbaa !73
+  br label %smart_str_alloc.exit63.us
 
-smart_str_alloc.exit62.us:                        ; preds = %71, %66
-  %72 = phi i64 [ %.pre94, %71 ], [ %68, %66 ]
-  %73 = phi ptr [ %.pre92, %71 ], [ %65, %66 ]
-  %.1.i61.us = phi i64 [ %.0.i60.us, %71 ], [ %69, %66 ]
+smart_str_alloc.exit63.us:                        ; preds = %71, %66
+  %72 = phi i64 [ %.pre95, %71 ], [ %68, %66 ]
+  %73 = phi ptr [ %.pre93, %71 ], [ %65, %66 ]
+  %.1.i62.us = phi i64 [ %.0.i61.us, %71 ], [ %69, %66 ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr noundef nonnull align 8 dereferenceable(1) getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640), i64 %gepdiff, i1 false)
   %76 = load ptr, ptr %1, align 8, !tbaa !70
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i64 %.1.i61.us, ptr %77, align 8, !tbaa !73
+  store i64 %.1.i62.us, ptr %77, align 8, !tbaa !73
   br label %.thread.us
 
-.thread.us:                                       ; preds = %smart_str_alloc.exit62.us, %smart_str_alloc.exit57.us, %smart_str_alloc.exit.split.us
+.thread.us:                                       ; preds = %smart_str_alloc.exit63.us, %smart_str_alloc.exit58.us, %smart_str_alloc.exit.split.us
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1504), align 8, !tbaa !49
   %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   %80 = sext i32 %79 to i64
@@ -627,7 +627,7 @@ smart_str_alloc.exit62.us:                        ; preds = %71, %66
   %82 = sub nsw i32 500, %79
   %83 = call i32 @phpdbg_mixed_read(i32 noundef %78, ptr noundef nonnull %81, i32 noundef %82, i32 noundef -1) #26
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %smart_str_alloc.exit.split.us, label %.split75.us
+  br i1 %84, label %smart_str_alloc.exit.split.us, label %.split76.us
 
 smart_str_alloc.exit.split:                       ; preds = %smart_str_alloc.exit, %.thread
   %.033 = phi i32 [ %127, %.thread ], [ 0, %smart_str_alloc.exit ]
@@ -640,42 +640,42 @@ smart_str_alloc.exit.split:                       ; preds = %smart_str_alloc.exi
 88:                                               ; preds = %smart_str_alloc.exit.split
   %89 = zext nneg i32 %86 to i64
   %90 = load ptr, ptr %1, align 8, !tbaa !70
-  %.not.i63 = icmp eq ptr %90, null
-  br i1 %.not.i63, label %115, label %110, !prof !77
+  %.not.i64 = icmp eq ptr %90, null
+  br i1 %.not.i64, label %115, label %110, !prof !77
 
 .split.us:                                        ; preds = %28, %29
   %91 = ptrtoint ptr %.032.us to i64
   %92 = sub i64 %91, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640) to i64)
   %93 = load ptr, ptr %1, align 8, !tbaa !70
-  %.not.i48 = icmp eq ptr %93, null
-  br i1 %.not.i48, label %99, label %94, !prof !77
+  %.not.i49 = icmp eq ptr %93, null
+  br i1 %.not.i49, label %99, label %94, !prof !77
 
 94:                                               ; preds = %.split.us
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !73
   %97 = add i64 %96, %92
   %98 = load i64, ptr %16, align 8, !tbaa !78
-  %.not12.i49 = icmp ult i64 %97, %98
-  br i1 %.not12.i49, label %.thread118, label %99, !prof !79
+  %.not12.i50 = icmp ult i64 %97, %98
+  br i1 %.not12.i50, label %.thread119, label %99, !prof !79
 
 99:                                               ; preds = %94, %.split.us
-  %.0.i50 = phi i64 [ %92, %.split.us ], [ %97, %94 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i50) #26
-  %.pre84 = load ptr, ptr %1, align 8, !tbaa !70
-  %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %.pre84, i64 16
-  %.pre86 = load i64, ptr %.phi.trans.insert85, align 8, !tbaa !73
-  br label %.thread118
+  %.0.i51 = phi i64 [ %92, %.split.us ], [ %97, %94 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i51) #26
+  %.pre85 = load ptr, ptr %1, align 8, !tbaa !70
+  %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %.pre85, i64 16
+  %.pre87 = load i64, ptr %.phi.trans.insert86, align 8, !tbaa !73
+  br label %.thread119
 
-.thread118:                                       ; preds = %94, %99
-  %100 = phi i64 [ %.pre86, %99 ], [ %96, %94 ]
-  %101 = phi ptr [ %.pre84, %99 ], [ %93, %94 ]
-  %.1.i51 = phi i64 [ %.0.i50, %99 ], [ %97, %94 ]
+.thread119:                                       ; preds = %94, %99
+  %100 = phi i64 [ %.pre87, %99 ], [ %96, %94 ]
+  %101 = phi ptr [ %.pre85, %99 ], [ %93, %94 ]
+  %.1.i52 = phi i64 [ %.0.i51, %99 ], [ %97, %94 ]
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640), i64 %92, i1 false)
   %104 = load ptr, ptr %1, align 8, !tbaa !70
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i64 %.1.i51, ptr %105, align 8, !tbaa !73
+  store i64 %.1.i52, ptr %105, align 8, !tbaa !73
   %106 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   %108 = add nsw i32 %107, -1
@@ -689,69 +689,69 @@ smart_str_alloc.exit.split:                       ; preds = %smart_str_alloc.exi
   %112 = load i64, ptr %111, align 8, !tbaa !73
   %113 = add i64 %112, %89
   %114 = load i64, ptr %16, align 8, !tbaa !78
-  %.not12.i64 = icmp ult i64 %113, %114
-  br i1 %.not12.i64, label %smart_str_alloc.exit67, label %115, !prof !79
+  %.not12.i65 = icmp ult i64 %113, %114
+  br i1 %.not12.i65, label %smart_str_alloc.exit68, label %115, !prof !79
 
 115:                                              ; preds = %110, %88
-  %.0.i65 = phi i64 [ %89, %88 ], [ %113, %110 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i65) #26
+  %.0.i66 = phi i64 [ %89, %88 ], [ %113, %110 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i66) #26
   %.pre = load ptr, ptr %1, align 8, !tbaa !70
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre83 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !73
-  br label %smart_str_alloc.exit67
+  %.pre84 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !73
+  br label %smart_str_alloc.exit68
 
-smart_str_alloc.exit67:                           ; preds = %110, %115
-  %116 = phi i64 [ %.pre83, %115 ], [ %112, %110 ]
+smart_str_alloc.exit68:                           ; preds = %110, %115
+  %116 = phi i64 [ %.pre84, %115 ], [ %112, %110 ]
   %117 = phi ptr [ %.pre, %115 ], [ %90, %110 ]
-  %.1.i66 = phi i64 [ %.0.i65, %115 ], [ %113, %110 ]
+  %.1.i67 = phi i64 [ %.0.i66, %115 ], [ %113, %110 ]
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr nonnull align 8 getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640), i64 %89, i1 false)
   %120 = load ptr, ptr %1, align 8, !tbaa !70
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store i64 %.1.i66, ptr %121, align 8, !tbaa !73
+  store i64 %.1.i67, ptr %121, align 8, !tbaa !73
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   br label %.thread
 
-.thread:                                          ; preds = %smart_str_alloc.exit67, %smart_str_alloc.exit.split
-  %122 = phi i32 [ 0, %smart_str_alloc.exit67 ], [ %86, %smart_str_alloc.exit.split ]
+.thread:                                          ; preds = %smart_str_alloc.exit68, %smart_str_alloc.exit.split
+  %122 = phi i32 [ 0, %smart_str_alloc.exit68 ], [ %86, %smart_str_alloc.exit.split ]
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1504), align 8, !tbaa !49
   %124 = sext i32 %122 to i64
   %125 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1640), i64 %124
   %126 = sub nsw i32 500, %122
   %127 = call i32 @phpdbg_mixed_read(i32 noundef %123, ptr noundef nonnull %125, i32 noundef %126, i32 noundef -1) #26
   %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %smart_str_alloc.exit.split, label %.split75.us
+  br i1 %128, label %smart_str_alloc.exit.split, label %.split76.us
 
-.split75.us:                                      ; preds = %.thread, %.thread.us
-  %.us-phi76 = phi i32 [ %83, %.thread.us ], [ %127, %.thread ]
-  %129 = icmp slt i32 %.us-phi76, 0
+.split76.us:                                      ; preds = %.thread, %.thread.us
+  %.us-phi77 = phi i32 [ %83, %.thread.us ], [ %127, %.thread ]
+  %129 = icmp slt i32 %.us-phi77, 0
   br i1 %129, label %130, label %133
 
-130:                                              ; preds = %.split75.us
+130:                                              ; preds = %.split76.us
   %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %132 = or i64 %131, 65536
   store i64 %132, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   call void @_zend_bailout(ptr noundef nonnull @.str.78, i32 noundef 483) #28
   unreachable
 
-133:                                              ; preds = %.split75.us
-  %.pre95 = load ptr, ptr %1, align 8, !tbaa !70
-  %.not.i = icmp eq ptr %.pre95, null
+133:                                              ; preds = %.split76.us
+  %.pre96 = load ptr, ptr %1, align 8, !tbaa !70
+  %.not.i = icmp eq ptr %.pre96, null
   br i1 %.not.i, label %smart_str_0.exit, label %134
 
-134:                                              ; preds = %.thread118, %133
-  %135 = phi ptr [ %104, %.thread118 ], [ %.pre95, %133 ]
+134:                                              ; preds = %.thread119, %133
+  %135 = phi ptr [ %104, %.thread119 ], [ %.pre96, %133 ]
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %138 = load i64, ptr %137, align 8, !tbaa !73
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
   store i8 0, ptr %139, align 1, !tbaa !76
-  %.pre96 = load ptr, ptr %1, align 8, !tbaa !70
+  %.pre97 = load ptr, ptr %1, align 8, !tbaa !70
   br label %smart_str_0.exit
 
 smart_str_0.exit:                                 ; preds = %133, %134
-  %140 = phi ptr [ null, %133 ], [ %.pre96, %134 ]
+  %140 = phi ptr [ null, %133 ], [ %.pre97, %134 ]
   %141 = call i32 @phpdbg_compile_stdin(ptr noundef %140)
   %142 = icmp eq i32 %141, -1
   br i1 %142, label %143, label %146
@@ -4633,19 +4633,19 @@ define hidden void @phpdbg_execute_ex(ptr noundef %0) #0 {
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1392), align 8, !tbaa !46
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 600), align 8, !tbaa !228
   %10 = tail call ptr @llvm.frameaddress.p0(i32 0)
-  %.not263 = icmp ugt ptr %10, %9
-  br i1 %.not263, label %.preheader299, label %11, !prof !79
+  %.not266 = icmp ugt ptr %10, %9
+  br i1 %.not266, label %.preheader302, label %11, !prof !79
 
 11:                                               ; preds = %8
   tail call void @zend_call_stack_size_error() #26
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.preheader299
+  br label %.preheader302
 
-.preheader299:                                    ; preds = %11, %8
+.preheader302:                                    ; preds = %11, %8
   br label %.outer
 
-.outer:                                           ; preds = %.preheader299, %534
-  %.0112.ph = phi ptr [ %0, %.preheader299 ], [ %535, %534 ]
+.outer:                                           ; preds = %.preheader302, %534
+  %.0112.ph = phi ptr [ %0, %.preheader302 ], [ %535, %534 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0112.ph, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %.0112.ph, i64 8
   br label %14
@@ -4682,15 +4682,15 @@ define hidden void @phpdbg_execute_ex(ptr noundef %0) #0 {
 
 27:                                               ; preds = %24
   call void @phpdbg_print_opline(ptr noundef %.0112.ph, i1 noundef zeroext false) #26
-  br label %.thread252
+  br label %.thread255
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 736), align 8
   %.not153 = icmp ne ptr %29, %15
-  %or.cond199.not264 = select i1 %.not151, i1 %.not153, i1 false
+  %or.cond199.not267 = select i1 %.not151, i1 %.not153, i1 false
   %30 = and i64 %25, 4096
   %.not154 = icmp eq i64 %30, 0
-  %or.cond200 = and i1 %.not154, %or.cond199.not264
+  %or.cond200 = and i1 %.not154, %or.cond199.not267
   br i1 %or.cond200, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %28, %38
@@ -4733,8 +4733,8 @@ define hidden void @phpdbg_execute_ex(ptr noundef %0) #0 {
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !76
   %53 = and i32 %52, 64
-  %.not.i218 = icmp eq i32 %53, 0
-  br i1 %.not.i218, label %54, label %zval_get_string.exit
+  %.not.i221 = icmp eq i32 %53, 0
+  br i1 %.not.i221, label %54, label %zval_get_string.exit
 
 54:                                               ; preds = %49
   %55 = load i32, ptr %50, align 4, !tbaa !128
@@ -4783,20 +4783,20 @@ zval_get_long.exit:                               ; preds = %68, %70
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !76
   %85 = and i32 %84, 64
-  %.not.i217 = icmp eq i32 %85, 0
-  br i1 %.not.i217, label %86, label %zval_get_string.exit216
+  %.not.i220 = icmp eq i32 %85, 0
+  br i1 %.not.i220, label %86, label %zval_get_string.exit219
 
 86:                                               ; preds = %81
   %87 = load i32, ptr %82, align 4, !tbaa !128
   %88 = add i32 %87, 1
   store i32 %88, ptr %82, align 4, !tbaa !128
-  br label %zval_get_string.exit216
+  br label %zval_get_string.exit219
 
 89:                                               ; preds = %zval_get_long.exit
   %90 = call ptr @zval_get_string_func(ptr noundef nonnull %77) #26
-  br label %zval_get_string.exit216
+  br label %zval_get_string.exit219
 
-zval_get_string.exit216:                          ; preds = %86, %81, %89
+zval_get_string.exit219:                          ; preds = %86, %81, %89
   %91 = phi ptr [ %90, %89 ], [ %82, %81 ], [ %82, %86 ]
   %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !49
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4807,46 +4807,46 @@ zval_get_string.exit216:                          ; preds = %86, %81, %89
   %98 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !73
-  %spec.select268 = call i64 @llvm.umin.i64(i64 %100, i64 80)
-  %spec.select = trunc nuw nsw i64 %spec.select268 to i32
+  %spec.select271 = call i64 @llvm.umin.i64(i64 %100, i64 80)
+  %spec.select = trunc nuw nsw i64 %spec.select271 to i32
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %102 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %92, ptr noundef nonnull @.str.173, ptr noundef nonnull %97, ptr noundef nonnull %98, i64 noundef %72, i32 noundef %spec.select, ptr noundef nonnull %101) #26
   %103 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !76
   %105 = and i32 %104, 64
-  %.not.i213 = icmp eq i32 %105, 0
-  br i1 %.not.i213, label %106, label %zend_string_release.exit215
+  %.not.i216 = icmp eq i32 %105, 0
+  br i1 %.not.i216, label %106, label %zend_string_release.exit218
 
-106:                                              ; preds = %zval_get_string.exit216
+106:                                              ; preds = %zval_get_string.exit219
   %107 = load i32, ptr %91, align 4, !tbaa !128
   %108 = icmp ne i32 %107, 0
   call void @llvm.assume(i1 %108)
   %109 = add i32 %107, -1
   store i32 %109, ptr %91, align 4, !tbaa !128
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %zend_string_release.exit215
+  br i1 %110, label %111, label %zend_string_release.exit218
 
 111:                                              ; preds = %106
   %112 = and i32 %104, 128
-  %.not5.i214 = icmp eq i32 %112, 0
-  br i1 %.not5.i214, label %114, label %113
+  %.not5.i217 = icmp eq i32 %112, 0
+  br i1 %.not5.i217, label %114, label %113
 
 113:                                              ; preds = %111
   call void @free(ptr noundef nonnull %91) #26
-  br label %zend_string_release.exit215
+  br label %zend_string_release.exit218
 
 114:                                              ; preds = %111
   call void @_efree(ptr noundef nonnull %91) #26
-  br label %zend_string_release.exit215
+  br label %zend_string_release.exit218
 
-zend_string_release.exit215:                      ; preds = %zval_get_string.exit216, %106, %113, %114
+zend_string_release.exit218:                      ; preds = %zval_get_string.exit219, %106, %113, %114
   %115 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %116 = load i32, ptr %115, align 4, !tbaa !76
   %117 = and i32 %116, 64
   %.not.i = icmp eq i32 %117, 0
   br i1 %.not.i, label %118, label %zend_string_release.exit
 
-118:                                              ; preds = %zend_string_release.exit215
+118:                                              ; preds = %zend_string_release.exit218
   %119 = load i32, ptr %59, align 4, !tbaa !128
   %120 = icmp ne i32 %119, 0
   call void @llvm.assume(i1 %120)
@@ -4868,7 +4868,7 @@ zend_string_release.exit215:                      ; preds = %zval_get_string.exi
   call void @_efree(ptr noundef nonnull %59) #26
   br label %zend_string_release.exit
 
-zend_string_release.exit:                         ; preds = %zend_string_release.exit215, %118, %125, %126
+zend_string_release.exit:                         ; preds = %zend_string_release.exit218, %118, %125, %126
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !102
   %.not158 = icmp eq ptr %128, null
@@ -4897,8 +4897,8 @@ zend_string_release.exit:                         ; preds = %zend_string_release
   call void @zend_clear_exception() #26
   %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %140 = and i64 %139, 4096
-  %.not.i220 = icmp eq i64 %140, 0
-  br i1 %.not.i220, label %zend_string_alloc.exit.i, label %list_code.exit
+  %.not.i223 = icmp eq i64 %140, 0
+  br i1 %.not.i223, label %zend_string_alloc.exit.i, label %list_code.exit
 
 zend_string_alloc.exit.i:                         ; preds = %136
   %141 = call ptr @zend_get_executed_filename() #26
@@ -4958,7 +4958,7 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
 
 .thread:                                          ; preds = %list_code.exit, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread252
+  br label %.thread255
 
 .loopexit.loopexit:                               ; preds = %36
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
@@ -4968,7 +4968,7 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
   %163 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %25, %28 ]
   %164 = and i64 %163, 33556480
   %.not162 = icmp eq i64 %164, 0
-  br i1 %.not162, label %165, label %.thread252
+  br i1 %.not162, label %165, label %.thread255
 
 165:                                              ; preds = %.loopexit
   call void @phpdbg_print_opline(ptr noundef %.0112.ph, i1 noundef zeroext false) #26
@@ -4977,8 +4977,8 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
   %.not163 = icmp ne i64 %167, 0
   %168 = and i64 %166, 4096
   %.not164 = icmp eq i64 %168, 0
-  %or.cond201 = and i1 %.not163, %.not164
-  br i1 %or.cond201, label %169, label %.thread254
+  %or.cond202 = and i1 %.not163, %.not164
+  br i1 %or.cond202, label %169, label %.thread257
 
 169:                                              ; preds = %165
   %170 = load ptr, ptr %.0112.ph, align 8, !tbaa !167
@@ -4990,7 +4990,7 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
 173:                                              ; preds = %169
   %174 = and i64 %166, 8192
   %.not173 = icmp eq i64 %174, 0
-  br i1 %.not173, label %.thread252, label %273
+  br i1 %.not173, label %.thread255, label %273
 
 175:                                              ; preds = %169
   %176 = and i64 %166, 1048576
@@ -4999,65 +4999,65 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
 
 177:                                              ; preds = %175
   %178 = call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 672), i64 noundef %171) #26
-  %.not265 = icmp eq ptr %178, null
-  br i1 %.not265, label %179, label %182
+  %.not268 = icmp eq ptr %178, null
+  br i1 %.not268, label %179, label %182
 
 179:                                              ; preds = %177
-  br i1 %.not151, label %180, label %.thread252
+  br i1 %.not151, label %180, label %.thread255
 
 180:                                              ; preds = %179
   %181 = call zeroext i1 @phpdbg_check_caught_ex(ptr noundef nonnull %.0112.ph, ptr noundef nonnull %15) #26
-  br i1 %181, label %.thread252, label %182
+  br i1 %181, label %.thread255, label %182
 
 182:                                              ; preds = %180, %177
   %183 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %184 = and i64 %183, -1048577
   store i64 %184, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 672)) #26
-  %.pre269 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
+  %.pre272 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   br label %185
 
 185:                                              ; preds = %182, %175
-  %186 = phi i64 [ %.pre269, %182 ], [ %166, %175 ]
+  %186 = phi i64 [ %.pre272, %182 ], [ %166, %175 ]
   %187 = and i64 %186, 2097152
   %.not167 = icmp eq i64 %187, 0
   br i1 %.not167, label %196, label %188
 
 188:                                              ; preds = %185
   %189 = call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 672), i64 noundef %171) #26
-  %.not266 = icmp eq ptr %189, null
-  br i1 %.not266, label %190, label %193
+  %.not269 = icmp eq ptr %189, null
+  br i1 %.not269, label %190, label %193
 
 190:                                              ; preds = %188
-  br i1 %.not151, label %191, label %.thread252
+  br i1 %.not151, label %191, label %.thread255
 
 191:                                              ; preds = %190
   %192 = call zeroext i1 @phpdbg_check_caught_ex(ptr noundef nonnull %.0112.ph, ptr noundef nonnull %15) #26
-  br i1 %192, label %.thread252, label %193
+  br i1 %192, label %.thread255, label %193
 
 193:                                              ; preds = %191, %188
   %194 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %195 = and i64 %194, -2097153
   store i64 %195, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   call void @zend_hash_clean(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 672)) #26
-  br label %.thread252
+  br label %.thread255
 
 196:                                              ; preds = %185
   %197 = and i64 %186, 4194304
   %.not168 = icmp eq i64 %197, 0
-  br i1 %.not168, label %.thread254, label %198
+  br i1 %.not168, label %.thread257, label %198
 
 198:                                              ; preds = %196
   %199 = call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 672), i64 noundef %171) #26
-  %.not267 = icmp eq ptr %199, null
-  br i1 %.not267, label %200, label %203
+  %.not270 = icmp eq ptr %199, null
+  br i1 %.not270, label %200, label %203
 
 200:                                              ; preds = %198
-  br i1 %.not151, label %201, label %.thread252
+  br i1 %.not151, label %201, label %.thread255
 
 201:                                              ; preds = %200
   %202 = call zeroext i1 @phpdbg_check_caught_ex(ptr noundef nonnull %.0112.ph, ptr noundef nonnull %15) #26
-  br i1 %202, label %.thread252, label %203
+  br i1 %202, label %.thread255, label %203
 
 203:                                              ; preds = %201, %198
   %204 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
@@ -5099,10 +5099,10 @@ list_code.exit:                                   ; preds = %136, %zend_string_a
   call void @zend_clear_exception() #26
   %223 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %224 = and i64 %223, 4096
-  %.not.i221 = icmp eq i64 %224, 0
-  br i1 %.not.i221, label %zend_string_alloc.exit.i222, label %list_code.exit223
+  %.not.i224 = icmp eq i64 %224, 0
+  br i1 %.not.i224, label %zend_string_alloc.exit.i225, label %list_code.exit226
 
-zend_string_alloc.exit.i222:                      ; preds = %220
+zend_string_alloc.exit.i225:                      ; preds = %220
   %225 = call ptr @zend_get_executed_filename() #26
   %226 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %225) #27
   %227 = and i64 %226, -8
@@ -5124,15 +5124,15 @@ zend_string_alloc.exit.i222:                      ; preds = %220
   %237 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %229, i32 noundef 3, i32 noundef %236, i32 noundef %237) #26
   call void @_efree(ptr noundef nonnull %229) #26
-  br label %list_code.exit223
+  br label %list_code.exit226
 
-list_code.exit223:                                ; preds = %220, %zend_string_alloc.exit.i222
+list_code.exit226:                                ; preds = %220, %zend_string_alloc.exit.i225
   %238 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  %.off202 = add i32 %238, -2
-  %switch203 = icmp ult i32 %.off202, 4
-  br i1 %switch203, label %239, label %.thread252
+  %.off203 = add i32 %238, -2
+  %switch204 = icmp ult i32 %.off203, 4
+  br i1 %switch204, label %239, label %.thread255
 
-239:                                              ; preds = %list_code.exit223
+239:                                              ; preds = %list_code.exit226
   %.not172 = icmp eq ptr %.0121, null
   br i1 %.not172, label %245, label %240
 
@@ -5156,15 +5156,15 @@ list_code.exit223:                                ; preds = %220, %zend_string_a
 
 246:                                              ; preds = %245, %243
   store ptr %211, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.thread252
+  br label %.thread255
 
 247:                                              ; preds = %203
   %248 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %249 = and i64 %248, 4096
-  %.not.i224 = icmp eq i64 %249, 0
-  br i1 %.not.i224, label %zend_string_alloc.exit.i225, label %list_code.exit226
+  %.not.i227 = icmp eq i64 %249, 0
+  br i1 %.not.i227, label %zend_string_alloc.exit.i228, label %list_code.exit229
 
-zend_string_alloc.exit.i225:                      ; preds = %247
+zend_string_alloc.exit.i228:                      ; preds = %247
   %250 = call ptr @zend_get_executed_filename() #26
   %251 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %250) #27
   %252 = and i64 %251, -8
@@ -5186,19 +5186,19 @@ zend_string_alloc.exit.i225:                      ; preds = %247
   %262 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %254, i32 noundef 3, i32 noundef %261, i32 noundef %262) #26
   call void @_efree(ptr noundef nonnull %254) #26
-  br label %list_code.exit226
+  br label %list_code.exit229
 
-list_code.exit226:                                ; preds = %247, %zend_string_alloc.exit.i225
+list_code.exit229:                                ; preds = %247, %zend_string_alloc.exit.i228
   %263 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  br label %.thread252
+  br label %.thread255
 
-.thread254:                                       ; preds = %196, %165
+.thread257:                                       ; preds = %196, %165
   %264 = phi i64 [ %186, %196 ], [ %166, %165 ]
   %265 = and i64 %264, 8192
   %.not174 = icmp eq i64 %265, 0
   br i1 %.not174, label %329, label %266
 
-266:                                              ; preds = %.thread254
+266:                                              ; preds = %.thread257
   %267 = and i64 %264, 16384
   %.not175 = icmp eq i64 %267, 0
   br i1 %.not175, label %268, label %273
@@ -5246,10 +5246,10 @@ list_code.exit226:                                ; preds = %247, %zend_string_a
   call void @zend_clear_exception() #26
   %289 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %290 = and i64 %289, 4096
-  %.not.i227 = icmp eq i64 %290, 0
-  br i1 %.not.i227, label %zend_string_alloc.exit.i228, label %list_code.exit229
+  %.not.i230 = icmp eq i64 %290, 0
+  br i1 %.not.i230, label %zend_string_alloc.exit.i231, label %list_code.exit232
 
-zend_string_alloc.exit.i228:                      ; preds = %286
+zend_string_alloc.exit.i231:                      ; preds = %286
   %291 = call ptr @zend_get_executed_filename() #26
   %292 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %291) #27
   %293 = and i64 %292, -8
@@ -5271,15 +5271,15 @@ zend_string_alloc.exit.i228:                      ; preds = %286
   %303 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %295, i32 noundef 3, i32 noundef %302, i32 noundef %303) #26
   call void @_efree(ptr noundef nonnull %295) #26
-  br label %list_code.exit229
+  br label %list_code.exit232
 
-list_code.exit229:                                ; preds = %286, %zend_string_alloc.exit.i228
+list_code.exit232:                                ; preds = %286, %zend_string_alloc.exit.i231
   %304 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  %.off204 = add i32 %304, -2
-  %switch205 = icmp ult i32 %.off204, 4
-  br i1 %switch205, label %305, label %.thread252
+  %.off206 = add i32 %304, -2
+  %switch207 = icmp ult i32 %.off206, 4
+  br i1 %switch207, label %305, label %.thread255
 
-305:                                              ; preds = %list_code.exit229
+305:                                              ; preds = %list_code.exit232
   %.not197 = icmp eq ptr %.0120, null
   br i1 %.not197, label %311, label %306
 
@@ -5303,14 +5303,14 @@ list_code.exit229:                                ; preds = %286, %zend_string_a
 
 312:                                              ; preds = %311, %309
   store ptr %277, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.thread252
+  br label %.thread255
 
 313:                                              ; preds = %273
   %314 = and i64 %274, 4096
-  %.not.i230 = icmp eq i64 %314, 0
-  br i1 %.not.i230, label %zend_string_alloc.exit.i231, label %list_code.exit232
+  %.not.i233 = icmp eq i64 %314, 0
+  br i1 %.not.i233, label %zend_string_alloc.exit.i234, label %list_code.exit235
 
-zend_string_alloc.exit.i231:                      ; preds = %313
+zend_string_alloc.exit.i234:                      ; preds = %313
   %315 = call ptr @zend_get_executed_filename() #26
   %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %315) #27
   %317 = and i64 %316, -8
@@ -5332,13 +5332,13 @@ zend_string_alloc.exit.i231:                      ; preds = %313
   %327 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %319, i32 noundef 3, i32 noundef %326, i32 noundef %327) #26
   call void @_efree(ptr noundef nonnull %319) #26
-  br label %list_code.exit232
+  br label %list_code.exit235
 
-list_code.exit232:                                ; preds = %313, %zend_string_alloc.exit.i231
+list_code.exit235:                                ; preds = %313, %zend_string_alloc.exit.i234
   %328 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  br label %.thread252
+  br label %.thread255
 
-329:                                              ; preds = %268, %.thread254
+329:                                              ; preds = %268, %.thread257
   %330 = call i32 @phpdbg_print_changed_zvals() #26
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %332, label %387
@@ -5375,10 +5375,10 @@ list_code.exit232:                                ; preds = %313, %zend_string_a
   call void @zend_clear_exception() #26
   %346 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %347 = and i64 %346, 4096
-  %.not.i233 = icmp eq i64 %347, 0
-  br i1 %.not.i233, label %zend_string_alloc.exit.i234, label %list_code.exit235
+  %.not.i236 = icmp eq i64 %347, 0
+  br i1 %.not.i236, label %zend_string_alloc.exit.i237, label %list_code.exit238
 
-zend_string_alloc.exit.i234:                      ; preds = %343
+zend_string_alloc.exit.i237:                      ; preds = %343
   %348 = call ptr @zend_get_executed_filename() #26
   %349 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %348) #27
   %350 = and i64 %349, -8
@@ -5400,15 +5400,15 @@ zend_string_alloc.exit.i234:                      ; preds = %343
   %360 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %352, i32 noundef 3, i32 noundef %359, i32 noundef %360) #26
   call void @_efree(ptr noundef nonnull %352) #26
-  br label %list_code.exit235
+  br label %list_code.exit238
 
-list_code.exit235:                                ; preds = %343, %zend_string_alloc.exit.i234
+list_code.exit238:                                ; preds = %343, %zend_string_alloc.exit.i237
   %361 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  %.off206 = add i32 %361, -2
-  %switch207 = icmp ult i32 %.off206, 4
-  br i1 %switch207, label %362, label %.thread252
+  %.off208 = add i32 %361, -2
+  %switch209 = icmp ult i32 %.off208, 4
+  br i1 %switch209, label %362, label %.thread255
 
-362:                                              ; preds = %list_code.exit235
+362:                                              ; preds = %list_code.exit238
   %.not193 = icmp eq ptr %.0116, null
   br i1 %.not193, label %368, label %363
 
@@ -5432,15 +5432,15 @@ list_code.exit235:                                ; preds = %343, %zend_string_a
 
 369:                                              ; preds = %368, %366
   store ptr %334, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.thread252
+  br label %.thread255
 
 370:                                              ; preds = %332
   %371 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %372 = and i64 %371, 4096
-  %.not.i236 = icmp eq i64 %372, 0
-  br i1 %.not.i236, label %zend_string_alloc.exit.i237, label %list_code.exit238
+  %.not.i239 = icmp eq i64 %372, 0
+  br i1 %.not.i239, label %zend_string_alloc.exit.i240, label %list_code.exit241
 
-zend_string_alloc.exit.i237:                      ; preds = %370
+zend_string_alloc.exit.i240:                      ; preds = %370
   %373 = call ptr @zend_get_executed_filename() #26
   %374 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %373) #27
   %375 = and i64 %374, -8
@@ -5462,11 +5462,11 @@ zend_string_alloc.exit.i237:                      ; preds = %370
   %385 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %377, i32 noundef 3, i32 noundef %384, i32 noundef %385) #26
   call void @_efree(ptr noundef nonnull %377) #26
-  br label %list_code.exit238
+  br label %list_code.exit241
 
-list_code.exit238:                                ; preds = %370, %zend_string_alloc.exit.i237
+list_code.exit241:                                ; preds = %370, %zend_string_alloc.exit.i240
   %386 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  br label %.thread252
+  br label %.thread255
 
 387:                                              ; preds = %329
   %388 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
@@ -5526,10 +5526,10 @@ list_code.exit238:                                ; preds = %370, %zend_string_a
   call void @zend_clear_exception() #26
   %414 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %415 = and i64 %414, 4096
-  %.not.i239 = icmp eq i64 %415, 0
-  br i1 %.not.i239, label %zend_string_alloc.exit.i240, label %list_code.exit241
+  %.not.i242 = icmp eq i64 %415, 0
+  br i1 %.not.i242, label %zend_string_alloc.exit.i243, label %list_code.exit244
 
-zend_string_alloc.exit.i240:                      ; preds = %411
+zend_string_alloc.exit.i243:                      ; preds = %411
   %416 = call ptr @zend_get_executed_filename() #26
   %417 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %416) #27
   %418 = and i64 %417, -8
@@ -5551,15 +5551,15 @@ zend_string_alloc.exit.i240:                      ; preds = %411
   %428 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %420, i32 noundef 3, i32 noundef %427, i32 noundef %428) #26
   call void @_efree(ptr noundef nonnull %420) #26
-  br label %list_code.exit241
+  br label %list_code.exit244
 
-list_code.exit241:                                ; preds = %411, %zend_string_alloc.exit.i240
+list_code.exit244:                                ; preds = %411, %zend_string_alloc.exit.i243
   %429 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  %.off208 = add i32 %429, -2
-  %switch209 = icmp ult i32 %.off208, 4
-  br i1 %switch209, label %430, label %.thread252
+  %.off210 = add i32 %429, -2
+  %switch211 = icmp ult i32 %.off210, 4
+  br i1 %switch211, label %430, label %.thread255
 
-430:                                              ; preds = %list_code.exit241
+430:                                              ; preds = %list_code.exit244
   %.not184 = icmp eq ptr %.0113, null
   br i1 %.not184, label %436, label %431
 
@@ -5583,15 +5583,15 @@ list_code.exit241:                                ; preds = %411, %zend_string_a
 
 437:                                              ; preds = %436, %434
   store ptr %402, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.thread252
+  br label %.thread255
 
 438:                                              ; preds = %400
   %439 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %440 = and i64 %439, 4096
-  %.not.i242 = icmp eq i64 %440, 0
-  br i1 %.not.i242, label %zend_string_alloc.exit.i243, label %list_code.exit244
+  %.not.i245 = icmp eq i64 %440, 0
+  br i1 %.not.i245, label %zend_string_alloc.exit.i246, label %list_code.exit247
 
-zend_string_alloc.exit.i243:                      ; preds = %438
+zend_string_alloc.exit.i246:                      ; preds = %438
   %441 = call ptr @zend_get_executed_filename() #26
   %442 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %441) #27
   %443 = and i64 %442, -8
@@ -5613,17 +5613,17 @@ zend_string_alloc.exit.i243:                      ; preds = %438
   %453 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %445, i32 noundef 3, i32 noundef %452, i32 noundef %453) #26
   call void @_efree(ptr noundef nonnull %445) #26
-  br label %list_code.exit244
+  br label %list_code.exit247
 
-list_code.exit244:                                ; preds = %438, %zend_string_alloc.exit.i243
+list_code.exit247:                                ; preds = %438, %zend_string_alloc.exit.i246
   %454 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  br label %.thread252
+  br label %.thread255
 
 455:                                              ; preds = %395, %390, %387
   %456 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %457 = and i64 %456, 67108864
   %.not185 = icmp eq i64 %457, 0
-  br i1 %.not185, label %.thread252, label %458
+  br i1 %.not185, label %.thread255, label %458
 
 458:                                              ; preds = %455
   %459 = and i64 %456, -67108865
@@ -5663,10 +5663,10 @@ list_code.exit244:                                ; preds = %438, %zend_string_a
   call void @zend_clear_exception() #26
   %477 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %478 = and i64 %477, 4096
-  %.not.i245 = icmp eq i64 %478, 0
-  br i1 %.not.i245, label %zend_string_alloc.exit.i246, label %list_code.exit247
+  %.not.i248 = icmp eq i64 %478, 0
+  br i1 %.not.i248, label %zend_string_alloc.exit.i249, label %list_code.exit250
 
-zend_string_alloc.exit.i246:                      ; preds = %474
+zend_string_alloc.exit.i249:                      ; preds = %474
   %479 = call ptr @zend_get_executed_filename() #26
   %480 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %479) #27
   %481 = and i64 %480, -8
@@ -5688,15 +5688,15 @@ zend_string_alloc.exit.i246:                      ; preds = %474
   %491 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %483, i32 noundef 3, i32 noundef %490, i32 noundef %491) #26
   call void @_efree(ptr noundef nonnull %483) #26
-  br label %list_code.exit247
+  br label %list_code.exit250
 
-list_code.exit247:                                ; preds = %474, %zend_string_alloc.exit.i246
+list_code.exit250:                                ; preds = %474, %zend_string_alloc.exit.i249
   %492 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  %.off211 = add i32 %492, -2
-  %switch212 = icmp ult i32 %.off211, 4
-  br i1 %switch212, label %493, label %.thread252
+  %.off214 = add i32 %492, -2
+  %switch215 = icmp ult i32 %.off214, 4
+  br i1 %switch215, label %493, label %.thread255
 
-493:                                              ; preds = %list_code.exit247
+493:                                              ; preds = %list_code.exit250
   %.not189 = icmp eq ptr %.0, null
   br i1 %.not189, label %499, label %494
 
@@ -5720,15 +5720,15 @@ list_code.exit247:                                ; preds = %474, %zend_string_a
 
 500:                                              ; preds = %499, %497
   store ptr %465, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.thread252
+  br label %.thread255
 
 501:                                              ; preds = %458
   %502 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !68
   %503 = and i64 %502, 4096
-  %.not.i248 = icmp eq i64 %503, 0
-  br i1 %.not.i248, label %zend_string_alloc.exit.i249, label %list_code.exit250
+  %.not.i251 = icmp eq i64 %503, 0
+  br i1 %.not.i251, label %zend_string_alloc.exit.i252, label %list_code.exit253
 
-zend_string_alloc.exit.i249:                      ; preds = %501
+zend_string_alloc.exit.i252:                      ; preds = %501
   %504 = call ptr @zend_get_executed_filename() #26
   %505 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %504) #27
   %506 = and i64 %505, -8
@@ -5750,13 +5750,13 @@ zend_string_alloc.exit.i249:                      ; preds = %501
   %516 = call i32 @zend_get_executed_lineno() #26
   call void @phpdbg_list_file(ptr noundef nonnull %508, i32 noundef 3, i32 noundef %515, i32 noundef %516) #26
   call void @_efree(ptr noundef nonnull %508) #26
-  br label %list_code.exit250
+  br label %list_code.exit253
 
-list_code.exit250:                                ; preds = %501, %zend_string_alloc.exit.i249
+list_code.exit253:                                ; preds = %501, %zend_string_alloc.exit.i252
   %517 = call i32 @phpdbg_interactive(i1 noundef zeroext true, ptr noundef null)
-  br label %.thread252
+  br label %.thread255
 
-.thread252:                                       ; preds = %173, %200, %201, %list_code.exit226, %list_code.exit223, %246, %190, %191, %193, %179, %180, %437, %list_code.exit241, %list_code.exit244, %.thread, %500, %list_code.exit247, %369, %list_code.exit235, %312, %list_code.exit229, %455, %list_code.exit250, %list_code.exit238, %list_code.exit232, %.loopexit, %27
+.thread255:                                       ; preds = %173, %200, %201, %list_code.exit229, %list_code.exit226, %246, %190, %191, %193, %179, %180, %437, %list_code.exit244, %list_code.exit247, %.thread, %500, %list_code.exit250, %369, %list_code.exit238, %312, %list_code.exit232, %455, %list_code.exit253, %list_code.exit241, %list_code.exit235, %.loopexit, %27
   %518 = load ptr, ptr %.0112.ph, align 8, !tbaa !167
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 24
   %520 = load i32, ptr %519, align 8, !tbaa !166
@@ -5769,7 +5769,7 @@ list_code.exit250:                                ; preds = %501, %zend_string_a
     i8 -125, label %523
   ]
 
-523:                                              ; preds = %.thread252, %.thread252, %.thread252
+523:                                              ; preds = %.thread255, %.thread255, %.thread255
   %524 = load ptr, ptr %13, align 8, !tbaa !234
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 24
   %526 = load ptr, ptr %525, align 8, !tbaa !156
@@ -5781,7 +5781,7 @@ list_code.exit250:                                ; preds = %501, %zend_string_a
   store ptr @execute_ex, ptr @zend_execute_ex, align 8, !tbaa !135
   br label %530
 
-530:                                              ; preds = %.thread252, %529, %523
+530:                                              ; preds = %.thread255, %529, %523
   %531 = call i32 @zend_vm_call_opcode_handler(ptr noundef nonnull %.0112.ph) #26
   store i32 %531, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1388), align 4, !tbaa !187
   store ptr @phpdbg_execute_ex, ptr @zend_execute_ex, align 8, !tbaa !135

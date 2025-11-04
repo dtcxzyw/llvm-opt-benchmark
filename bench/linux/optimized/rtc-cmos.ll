@@ -581,8 +581,8 @@ define internal fastcc i32 @cmos_do_probe(ptr noundef %0, ptr noundef readonly c
   %221 = phi i32 [ %98, %96 ], [ %219, %.thread ]
   %222 = load i64, ptr %16, align 8
   %223 = load i64, ptr %19, align 8
-  %reass.sub12 = sub i64 %223, %222
-  %224 = add i64 %reass.sub12, 1
+  %reass.sub13 = sub i64 %223, %222
+  %224 = add i64 %reass.sub13, 1
   tail call void @__release_region(ptr noundef nonnull @ioport_resource, i64 noundef %222, i64 noundef %224) #9
   br label %225
 

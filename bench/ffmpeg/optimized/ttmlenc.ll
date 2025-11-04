@@ -101,20 +101,20 @@ ttml_write_header_content.exit.thread:            ; preds = %8
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %23 = load ptr, ptr %19, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw %struct.ASSStyle, ptr %23, i64 %indvars.iv.i
-  %.sroa.047.0.copyload.i = load ptr, ptr %24, align 8
+  %.sroa.048.0.copyload.i = load ptr, ptr %24, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %.sroa.649.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %.sroa.649.0.copyload.i = load i32, ptr %.sroa.649.0..sroa_idx.i, align 8
+  %.sroa.650.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 80
+  %.sroa.650.0.copyload.i = load i32, ptr %.sroa.650.0..sroa_idx.i, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 84
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 88
   %.sroa.8.0.copyload.i = load i32, ptr %.sroa.8.0..sroa_idx.i, align 8
-  %.sroa.950.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 92
-  %.sroa.950.0.copyload.i = load i32, ptr %.sroa.950.0..sroa_idx.i, align 4
-  %.not.i.i = icmp eq ptr %.sroa.047.0.copyload.i, null
+  %.sroa.951.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 92
+  %.sroa.951.0.copyload.i = load i32, ptr %.sroa.951.0..sroa_idx.i, align 4
+  %.not.i.i = icmp eq ptr %.sroa.048.0.copyload.i, null
   br i1 %.not.i.i, label %25, label %26
 
 25:                                               ; preds = %22
@@ -133,16 +133,16 @@ ttml_write_header_content.exit.thread:            ; preds = %8
   %30 = icmp slt i32 %.sroa.7.0.copyload.i, 0
   %31 = icmp slt i32 %.sroa.8.0.copyload.i, 0
   %or.cond.i.i = select i1 %30, i1 true, i1 %31
-  %32 = icmp slt i32 %.sroa.950.0.copyload.i, 0
+  %32 = icmp slt i32 %.sroa.951.0.copyload.i, 0
   %or.cond5.i.i = select i1 %or.cond.i.i, i1 true, i1 %32
   br i1 %or.cond5.i.i, label %33, label %34
 
 33:                                               ; preds = %29
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.8.0.copyload.i, i32 noundef %.sroa.950.0.copyload.i) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %.sroa.7.0.copyload.i, i32 noundef %.sroa.8.0.copyload.i, i32 noundef %.sroa.951.0.copyload.i) #7
   br label %ttml_write_header_content.exit.thread10
 
 34:                                               ; preds = %29
-  switch i32 %.sroa.649.0.copyload.i, label %37 [
+  switch i32 %.sroa.650.0.copyload.i, label %37 [
     i32 1, label %ttml_get_display_alignment.exit.i.i
     i32 2, label %ttml_get_display_alignment.exit.i.i
     i32 3, label %ttml_get_display_alignment.exit.i.i
@@ -166,7 +166,7 @@ ttml_write_header_content.exit.thread:            ; preds = %8
 ttml_get_display_alignment.exit.i.i:              ; preds = %37, %36, %35, %34, %34, %34
   %38 = phi i1 [ false, %37 ], [ true, %35 ], [ true, %36 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
   %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.24, %35 ], [ @.str.25, %36 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
-  %switch.tableidx = add i32 %.sroa.649.0.copyload.i, -1
+  %switch.tableidx = add i32 %.sroa.650.0.copyload.i, -1
   %39 = icmp ult i32 %switch.tableidx, 9
   %.not157 = xor i1 %39, true
   %.not158 = xor i1 %38, true
@@ -174,7 +174,7 @@ ttml_get_display_alignment.exit.i.i:              ; preds = %37, %36, %35, %34, 
   br i1 %brmerge, label %ttml_get_text_alignment.exit.thread.i.i, label %40
 
 ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_alignment.exit.i.i
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.sroa.649.0.copyload.i, ptr noundef nonnull %.sroa.047.0.copyload.i) #7
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.sroa.650.0.copyload.i, ptr noundef nonnull %.sroa.048.0.copyload.i) #7
   br label %ttml_write_header_content.exit.thread10
 
 40:                                               ; preds = %ttml_get_display_alignment.exit.i.i
@@ -184,8 +184,8 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
   %42 = zext nneg i32 %.sroa.7.0.copyload.i to i64
   %43 = tail call i64 @av_rescale(i64 noundef %42, i64 noundef 100, i64 noundef %20) #8
   %44 = trunc i64 %43 to i32
-  %45 = icmp samesign ugt i32 %.sroa.649.0.copyload.i, 6
-  %46 = select i1 %45, i32 %.sroa.950.0.copyload.i, i32 0
+  %45 = icmp samesign ugt i32 %.sroa.650.0.copyload.i, 6
+  %46 = select i1 %45, i32 %.sroa.951.0.copyload.i, i32 0
   %47 = zext nneg i32 %46 to i64
   %48 = tail call i64 @av_rescale(i64 noundef %47, i64 noundef 100, i64 noundef %21) #8
   %49 = trunc i64 %48 to i32
@@ -193,14 +193,14 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
   %51 = sext i32 %50 to i64
   %52 = tail call i64 @av_rescale(i64 noundef %51, i64 noundef 100, i64 noundef %20) #8
   %53 = trunc i64 %52 to i32
-  %54 = icmp samesign ult i32 %.sroa.649.0.copyload.i, 4
-  %55 = select i1 %54, i32 %.sroa.950.0.copyload.i, i32 0
+  %54 = icmp samesign ult i32 %.sroa.650.0.copyload.i, 4
+  %55 = select i1 %54, i32 %.sroa.951.0.copyload.i, i32 0
   %56 = sub nsw i32 %.sroa.6.0.copyload.i, %55
   %57 = sext i32 %56 to i64
   %58 = tail call i64 @av_rescale(i64 noundef %57, i64 noundef 100, i64 noundef %21) #8
   %59 = trunc i64 %58 to i32
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.14) #7
-  tail call void @av_bprint_escape(ptr noundef nonnull %15, ptr noundef nonnull %.sroa.047.0.copyload.i, ptr noundef null, i32 noundef 3, i32 noundef 8) #7
+  tail call void @av_bprint_escape(ptr noundef nonnull %15, ptr noundef nonnull %.sroa.048.0.copyload.i, ptr noundef null, i32 noundef 3, i32 noundef 8) #7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.15) #7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.16, i32 noundef %44, i32 noundef %49) #7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, i32 noundef %53, i32 noundef %59) #7
@@ -235,8 +235,8 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
   %65 = getelementptr i8, ptr %9, i64 24
   %.val.i = load i32, ptr %65, align 8, !tbaa !41
   %66 = getelementptr i8, ptr %9, i64 28
-  %.val42.i = load i32, ptr %66, align 4, !tbaa !42
-  %.not.i = icmp ult i32 %.val.i, %.val42.i
+  %.val43.i = load i32, ptr %66, align 4, !tbaa !42
+  %.not.i = icmp ult i32 %.val.i, %.val43.i
   br i1 %.not.i, label %67, label %ttml_write_header_content.exit.thread10
 
 67:                                               ; preds = %._crit_edge.i

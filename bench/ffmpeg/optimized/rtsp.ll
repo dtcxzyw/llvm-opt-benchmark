@@ -6483,15 +6483,15 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
   %152 = load ptr, ptr %56, align 8, !tbaa !196
   %153 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %53, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %54, ptr noundef null, ptr noundef %151, ptr noundef %152, ptr noundef null) #15
   %154 = icmp slt i32 %153, 0
-  br i1 %154, label %init_satip_stream.exit.thread, label %.thread185
+  br i1 %154, label %init_satip_stream.exit.thread, label %.thread192
 
-.thread185:                                       ; preds = %147
+.thread192:                                       ; preds = %147
   %155 = load ptr, ptr %53, align 8, !tbaa !176
   store ptr %155, ptr %57, align 8, !tbaa !180
   br label %156
 
-156:                                              ; preds = %.thread185, %146
-  %157 = phi ptr [ %155, %.thread185 ], [ %.pre, %146 ]
+156:                                              ; preds = %.thread192, %146
+  %157 = phi ptr [ %155, %.thread192 ], [ %.pre, %146 ]
   store i32 0, ptr %58, align 8, !tbaa !182
   %158 = call i32 @ffurl_get_file_handle(ptr noundef %157) #15
   %159 = icmp slt i32 %158, 0
@@ -6510,23 +6510,23 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
 165:                                              ; preds = %162, %160
   %166 = load i32, ptr %48, align 8, !tbaa !85
   %.not164 = icmp eq i32 %166, 3
-  br i1 %.not164, label %.preheader231, label %.sink.split
+  br i1 %.not164, label %.preheader238, label %.sink.split
 
 .sink.split:                                      ; preds = %165
   store i32 0, ptr %48, align 8, !tbaa !85
-  br label %.preheader231
+  br label %.preheader238
 
-.critedge230:                                     ; preds = %173
+.critedge237:                                     ; preds = %173
   store i32 1, ptr %48, align 8, !tbaa !85
   store i8 0, ptr %6, align 16, !tbaa !9
   %167 = call i64 @av_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.143, i64 noundef 4096) #15
   br label %168
 
-.preheader231:                                    ; preds = %165, %.sink.split
+.preheader238:                                    ; preds = %165, %.sink.split
   store i8 0, ptr %6, align 16, !tbaa !9
   br label %168
 
-168:                                              ; preds = %.preheader231, %.critedge230
+168:                                              ; preds = %.preheader238, %.critedge237
   %169 = call range(i32 -2147483648, 1) i32 @ff_rtsp_send_cmd_with_content(ptr noundef %0, ptr noundef nonnull @.str.87, ptr noundef nonnull %51, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
   %170 = load i32, ptr %59, align 4, !tbaa !178
   %.not165 = icmp eq i32 %170, 200
@@ -6541,8 +6541,8 @@ define i32 @ff_rtsp_connect(ptr noundef %0) local_unnamed_addr #2 {
   %.not166 = icmp eq i32 %174, 1
   %175 = load i8, ptr %60, align 4
   %.not167 = icmp eq i8 %175, 0
-  %or.cond177 = select i1 %.not166, i1 true, i1 %.not167
-  br i1 %or.cond177, label %176, label %.critedge230
+  %or.cond180 = select i1 %.not166, i1 true, i1 %.not167
+  br i1 %or.cond180, label %176, label %.critedge237
 
 176:                                              ; preds = %173
   %177 = call i32 @av_strncasecmp(ptr noundef nonnull %61, ptr noundef nonnull @.str.144, i64 noundef 9) #15
@@ -6752,8 +6752,8 @@ init_satip_stream.exit.thread:                    ; preds = %257, %251, %202, %1
   %271 = load ptr, ptr %270, align 8, !tbaa !180
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %273 = load ptr, ptr %272, align 8, !tbaa !176
-  %.not.i182 = icmp eq ptr %271, %273
-  br i1 %.not.i182, label %ff_rtsp_close_connections.exit, label %274
+  %.not.i189 = icmp eq ptr %271, %273
+  br i1 %.not.i189, label %ff_rtsp_close_connections.exit, label %274
 
 274:                                              ; preds = %init_satip_stream.exit.thread
   %275 = call i32 @ffurl_closep(ptr noundef nonnull %270) #15
@@ -6764,18 +6764,18 @@ ff_rtsp_close_connections.exit:                   ; preds = %init_satip_stream.e
   %276 = call i32 @ffurl_closep(ptr noundef nonnull %272) #15
   %277 = load i32, ptr %59, align 4, !tbaa !178
   %278 = add i32 %277, -300
-  %or.cond181 = icmp ult i32 %278, 100
-  br i1 %or.cond181, label %279, label %.thread196
+  %or.cond186 = icmp ult i32 %278, 100
+  br i1 %or.cond186, label %279, label %.thread203
 
 279:                                              ; preds = %ff_rtsp_close_connections.exit
   %280 = load ptr, ptr %62, align 8, !tbaa !151
   %.not174 = icmp eq ptr %280, null
-  br i1 %.not174, label %.thread196, label %281
+  br i1 %.not174, label %.thread203, label %281
 
 281:                                              ; preds = %279
   %282 = call noalias ptr @av_strdup(ptr noundef nonnull %66) #15
   %.not175 = icmp eq ptr %282, null
-  br i1 %.not175, label %.thread196, label %283
+  br i1 %.not175, label %.thread203, label %283
 
 283:                                              ; preds = %281
   call void @ff_format_set_url(ptr noundef nonnull %0, ptr noundef nonnull %282) #15
@@ -6785,13 +6785,13 @@ ff_rtsp_close_connections.exit:                   ; preds = %init_satip_stream.e
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.145, i32 noundef %284, ptr noundef %285) #15
   br label %68
 
-.thread196:                                       ; preds = %281, %ff_rtsp_close_connections.exit, %279
+.thread203:                                       ; preds = %281, %ff_rtsp_close_connections.exit, %279
   %.7 = phi i32 [ %.1132, %279 ], [ %.1132, %ff_rtsp_close_connections.exit ], [ -12, %281 ]
   call void @ff_network_close() #15
   br label %286
 
-286:                                              ; preds = %25, %.thread196, %264, %24
-  %.0 = phi i32 [ -22, %24 ], [ %.7, %.thread196 ], [ 0, %264 ], [ -5, %25 ]
+286:                                              ; preds = %25, %.thread203, %264, %24
+  %.0 = phi i32 [ -22, %24 ], [ %.7, %.thread203 ], [ 0, %264 ], [ -5, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7857,7 +7857,7 @@ define internal range(i32 -2147483648, 1) i32 @sdp_read_header(ptr noundef %0) #
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = tail call i32 @ff_network_init() #15
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.loopexit92, label %11
+  br i1 %.not, label %.loopexit93, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -7892,7 +7892,7 @@ define internal range(i32 -2147483648, 1) i32 @sdp_read_header(ptr noundef %0) #
 27:                                               ; preds = %22
   call void @ff_network_close() #15
   %28 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef null) #15
-  br label %.loopexit92
+  br label %.loopexit93
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %4, align 8, !tbaa !244
@@ -7901,7 +7901,7 @@ define internal range(i32 -2147483648, 1) i32 @sdp_read_header(ptr noundef %0) #
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !56
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %.loopexit92
+  br i1 %35, label %.lr.ph, label %.loopexit93
 
 .lr.ph:                                           ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7914,8 +7914,8 @@ define internal range(i32 -2147483648, 1) i32 @sdp_read_header(ptr noundef %0) #
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 360
   br label %44
 
-44:                                               ; preds = %.lr.ph, %.thread89
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread89 ]
+44:                                               ; preds = %.lr.ph, %.thread90
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load ptr, ptr %36, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
@@ -7964,7 +7964,7 @@ map_to_opts.exit:                                 ; preds = %50, %58, %60
   call void @av_dict_free(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread85
+  br label %.thread86
 
 66:                                               ; preds = %map_to_opts.exit
   %67 = getelementptr inbounds nuw i8, ptr %47, i64 4124
@@ -8006,8 +8006,8 @@ map_to_opts.exit:                                 ; preds = %50, %58, %60
   %86 = load i32, ptr %85, align 8, !tbaa !138
   %87 = getelementptr inbounds nuw i8, ptr %47, i64 4264
   %88 = load ptr, ptr %87, align 8, !tbaa !139
-  %.not.i73 = icmp eq i32 %86, 0
-  br i1 %.not.i73, label %append_source_addrs.exit, label %89
+  %.not.i74 = icmp eq i32 %86, 0
+  br i1 %.not.i74, label %append_source_addrs.exit, label %89
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %88, align 8, !tbaa !69
@@ -8033,29 +8033,29 @@ append_source_addrs.exit:                         ; preds = %.lr.ph.i, %84, %89
   %97 = load i32, ptr %96, align 8, !tbaa !141
   %98 = getelementptr inbounds nuw i8, ptr %47, i64 4280
   %99 = load ptr, ptr %98, align 8, !tbaa !142
-  %.not.i74 = icmp eq i32 %97, 0
-  br i1 %.not.i74, label %.loopexit, label %100
+  %.not.i75 = icmp eq i32 %97, 0
+  br i1 %.not.i75, label %.loopexit, label %100
 
 100:                                              ; preds = %append_source_addrs.exit
   %101 = load ptr, ptr %99, align 8, !tbaa !69
   %102 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.237, ptr noundef %101) #15
   %103 = icmp sgt i32 %97, 1
-  br i1 %103, label %.lr.ph.preheader.i75, label %.loopexit
+  br i1 %103, label %.lr.ph.preheader.i76, label %.loopexit
 
-.lr.ph.preheader.i75:                             ; preds = %100
-  %wide.trip.count.i76 = zext nneg i32 %97 to i64
-  br label %.lr.ph.i77
+.lr.ph.preheader.i76:                             ; preds = %100
+  %wide.trip.count.i77 = zext nneg i32 %97 to i64
+  br label %.lr.ph.i78
 
-.lr.ph.i77:                                       ; preds = %.lr.ph.i77, %.lr.ph.preheader.i75
-  %indvars.iv.i78 = phi i64 [ 1, %.lr.ph.preheader.i75 ], [ %indvars.iv.next.i79, %.lr.ph.i77 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i78
+.lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
+  %indvars.iv.i79 = phi i64 [ 1, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
+  %104 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i79
   %105 = load ptr, ptr %104, align 8, !tbaa !69
   %106 = call i64 (ptr, i64, ptr, ...) @av_strlcatf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.239, ptr noundef %105) #15
-  %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
-  %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i76
-  br i1 %exitcond.not.i80, label %.loopexit, label %.lr.ph.i77, !llvm.loop !246
+  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
+  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, %wide.trip.count.i77
+  br i1 %exitcond.not.i81, label %.loopexit, label %.lr.ph.i78, !llvm.loop !246
 
-.loopexit:                                        ; preds = %.lr.ph.i77, %100, %append_source_addrs.exit
+.loopexit:                                        ; preds = %.lr.ph.i78, %100, %append_source_addrs.exit
   %107 = load ptr, ptr %42, align 8, !tbaa !195
   %108 = load ptr, ptr %43, align 8, !tbaa !196
   %109 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %47, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %41, ptr noundef nonnull %6, ptr noundef %107, ptr noundef %108, ptr noundef null) #15
@@ -8063,30 +8063,30 @@ append_source_addrs.exit:                         ; preds = %.lr.ph.i, %84, %89
   %110 = icmp sgt i32 %109, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %110, label %111, label %.thread85
+  br i1 %110, label %111, label %.thread86
 
 111:                                              ; preds = %.loopexit, %44
   %112 = call i32 @ff_rtsp_open_transport_ctx(ptr noundef nonnull %0, ptr noundef %47)
   %.not68 = icmp eq i32 %112, 0
-  br i1 %.not68, label %.thread89, label %.thread85
+  br i1 %.not68, label %.thread90, label %.thread86
 
-.thread89:                                        ; preds = %111
+.thread90:                                        ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %33, align 8, !tbaa !56
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %44, label %.loopexit92, !llvm.loop !247
+  br i1 %115, label %44, label %.loopexit93, !llvm.loop !247
 
-.thread85:                                        ; preds = %.loopexit, %111, %.thread
-  %.288 = phi i32 [ -5, %.thread ], [ %112, %111 ], [ -1094995529, %.loopexit ]
+.thread86:                                        ; preds = %.loopexit, %111, %.thread
+  %.289 = phi i32 [ -5, %.thread ], [ %112, %111 ], [ -1094995529, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @ff_rtsp_close_streams(ptr noundef nonnull %0)
   call void @ff_network_close() #15
-  br label %.loopexit92
+  br label %.loopexit93
 
-.loopexit92:                                      ; preds = %.thread89, %29, %1, %.thread85, %27
-  %.0 = phi i32 [ %25, %27 ], [ %.288, %.thread85 ], [ -5, %1 ], [ 0, %29 ], [ 0, %.thread89 ]
+.loopexit93:                                      ; preds = %.thread90, %29, %1, %.thread86, %27
+  %.0 = phi i32 [ %25, %27 ], [ %.289, %.thread86 ], [ -5, %1 ], [ 0, %29 ], [ 0, %.thread90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

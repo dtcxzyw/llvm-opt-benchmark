@@ -3735,8 +3735,8 @@ define internal ptr @array_repr(ptr noundef %0) #0 {
   br i1 %29, label %Py_DECREF.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %27
-  %.val21.i = load i64, ptr %3, align 8, !tbaa !40
-  %30 = icmp sgt i64 %.val21.i, 0
+  %.val22.i = load i64, ptr %3, align 8, !tbaa !40
+  %30 = icmp sgt i64 %.val22.i, 0
   br i1 %30, label %.lr.ph.i, label %array_array_tounicode_impl.exit.thread24
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -3744,19 +3744,19 @@ define internal ptr @array_repr(ptr noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %38, %.lr.ph.i
-  %.01522.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %38 ]
+  %.01523.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %38 ]
   %33 = load ptr, ptr %4, align 8, !tbaa !76
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !97
-  %36 = tail call ptr %35(ptr noundef nonnull %0, i64 noundef %.01522.i) #12
+  %36 = tail call ptr %35(ptr noundef nonnull %0, i64 noundef %.01523.i) #12
   %37 = icmp eq ptr %36, null
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %32
-  %.val19.i = load ptr, ptr %31, align 8, !tbaa !43
-  %39 = getelementptr ptr, ptr %.val19.i, i64 %.01522.i
+  %.val20.i = load ptr, ptr %31, align 8, !tbaa !43
+  %39 = getelementptr ptr, ptr %.val20.i, i64 %.01523.i
   store ptr %36, ptr %39, align 8, !tbaa !18
-  %40 = add nuw nsw i64 %.01522.i, 1
+  %40 = add nuw nsw i64 %.01523.i, 1
   %.val.i21 = load i64, ptr %3, align 8, !tbaa !40
   %41 = icmp slt i64 %40, %.val.i21
   br i1 %41, label %32, label %array_array_tounicode_impl.exit.thread24, !llvm.loop !98
@@ -6661,17 +6661,17 @@ _Py_NewRef.exit.i:                                ; preds = %49, %46
   %54 = icmp slt i64 %34, 3
   %or.cond.i = or i1 %54, %53
   %55 = getelementptr i8, ptr %0, i64 16
-  %.val18.i.i = load i64, ptr %55, align 8, !tbaa !40
+  %.val19.i.i = load i64, ptr %55, align 8, !tbaa !40
   br i1 %or.cond.i, label %56, label %98
 
 56:                                               ; preds = %51
-  %57 = call ptr @PyList_New(i64 noundef %.val18.i.i) #12
+  %57 = call ptr @PyList_New(i64 noundef %.val19.i.i) #12
   %58 = icmp eq ptr %57, null
   br i1 %58, label %77, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %56
-  %.val21.i.i = load i64, ptr %55, align 8, !tbaa !40
-  %59 = icmp sgt i64 %.val21.i.i, 0
+  %.val22.i.i = load i64, ptr %55, align 8, !tbaa !40
+  %59 = icmp sgt i64 %.val22.i.i, 0
   br i1 %59, label %.lr.ph.i.i, label %array_array_tolist_impl.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
@@ -6679,19 +6679,19 @@ _Py_NewRef.exit.i:                                ; preds = %49, %46
   br label %61
 
 61:                                               ; preds = %67, %.lr.ph.i.i
-  %.01522.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %69, %67 ]
+  %.01523.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %69, %67 ]
   %62 = load ptr, ptr %15, align 8, !tbaa !76
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !97
-  %65 = call ptr %64(ptr noundef nonnull %0, i64 noundef %.01522.i.i) #12
+  %65 = call ptr %64(ptr noundef nonnull %0, i64 noundef %.01523.i.i) #12
   %66 = icmp eq ptr %65, null
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %61
-  %.val19.i.i = load ptr, ptr %60, align 8, !tbaa !43
-  %68 = getelementptr ptr, ptr %.val19.i.i, i64 %.01522.i.i
+  %.val20.i.i = load ptr, ptr %60, align 8, !tbaa !43
+  %68 = getelementptr ptr, ptr %.val20.i.i, i64 %.01523.i.i
   store ptr %65, ptr %68, align 8, !tbaa !18
-  %69 = add nuw nsw i64 %.01522.i.i, 1
+  %69 = add nuw nsw i64 %.01523.i.i, 1
   %.val.i.i = load i64, ptr %55, align 8, !tbaa !40
   %70 = icmp slt i64 %69, %.val.i.i
   br i1 %70, label %61, label %array_array_tolist_impl.exit.i, !llvm.loop !98
@@ -6768,13 +6768,13 @@ Py_DECREF.exit38.i:                               ; preds = %91, %88, %array_arr
   %101 = load i32, ptr %100, align 4, !tbaa !49
   %102 = sext i32 %101 to i64
   %103 = sdiv i64 9223372036854775807, %102
-  %.not.i49.i = icmp sgt i64 %.val18.i.i, %103
+  %.not.i49.i = icmp sgt i64 %.val19.i.i, %103
   br i1 %.not.i49.i, label %109, label %104
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = load ptr, ptr %105, align 8, !tbaa !53
-  %107 = mul i64 %.val18.i.i, %102
+  %107 = mul i64 %.val19.i.i, %102
   %108 = call ptr @PyBytes_FromStringAndSize(ptr noundef %106, i64 noundef %107) #12
   br label %array_array_tobytes_impl.exit.i
 
@@ -7098,14 +7098,14 @@ array_array_tofile_impl.exit:                     ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @array_array_tolist(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.val18.i = load i64, ptr %3, align 8, !tbaa !40
-  %4 = tail call ptr @PyList_New(i64 noundef %.val18.i) #12
+  %.val19.i = load i64, ptr %3, align 8, !tbaa !40
+  %4 = tail call ptr @PyList_New(i64 noundef %.val19.i) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %array_array_tolist_impl.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %.val21.i = load i64, ptr %3, align 8, !tbaa !40
-  %6 = icmp sgt i64 %.val21.i, 0
+  %.val22.i = load i64, ptr %3, align 8, !tbaa !40
+  %6 = icmp sgt i64 %.val22.i, 0
   br i1 %6, label %.lr.ph.i, label %array_array_tolist_impl.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -7114,19 +7114,19 @@ define internal ptr @array_array_tolist(ptr noundef %0, ptr readnone captures(no
   br label %9
 
 9:                                                ; preds = %15, %.lr.ph.i
-  %.01522.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
+  %.01523.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !97
-  %13 = tail call ptr %12(ptr noundef nonnull %0, i64 noundef %.01522.i) #12
+  %13 = tail call ptr %12(ptr noundef nonnull %0, i64 noundef %.01523.i) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %9
-  %.val19.i = load ptr, ptr %8, align 8, !tbaa !43
-  %16 = getelementptr ptr, ptr %.val19.i, i64 %.01522.i
+  %.val20.i = load ptr, ptr %8, align 8, !tbaa !43
+  %16 = getelementptr ptr, ptr %.val20.i, i64 %.01523.i
   store ptr %13, ptr %16, align 8, !tbaa !18
-  %17 = add nuw nsw i64 %.01522.i, 1
+  %17 = add nuw nsw i64 %.01523.i, 1
   %.val.i = load i64, ptr %3, align 8, !tbaa !40
   %18 = icmp slt i64 %17, %.val.i
   br i1 %18, label %9, label %array_array_tolist_impl.exit, !llvm.loop !98

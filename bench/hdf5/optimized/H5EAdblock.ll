@@ -724,8 +724,8 @@ define range(i32 -1, 1) i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef %1,
   br label %H5EA__dblock_unprotect.exit.thread
 
 H5EA__dblock_unprotect.exit.thread:               ; preds = %.thread37, %56, %.thread, %4, %65
-  %.029 = phi i32 [ -1, %65 ], [ 0, %4 ], [ -1, %.thread ], [ %.139, %56 ], [ %.139, %.thread37 ]
-  ret i32 %.029
+  %.031 = phi i32 [ -1, %65 ], [ 0, %4 ], [ -1, %.thread ], [ %.139, %56 ], [ %.139, %.thread37 ]
+  ret i32 %.031
 }
 
 declare i32 @H5AC_expunge_entry(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1

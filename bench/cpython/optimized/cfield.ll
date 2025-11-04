@@ -681,9 +681,9 @@ Py_DECREF.exit86.thread:                          ; preds = %52, %Py_DECREF.exit
 
 80:                                               ; preds = %75
   %81 = getelementptr i8, ptr %0, i64 888
-  %.val67.i = load ptr, ptr %81, align 8, !tbaa !62
-  %82 = getelementptr i8, ptr %.val67.i, i64 32
-  %.val67.val.i = load ptr, ptr %82, align 8, !tbaa !70
+  %.val68.i = load ptr, ptr %81, align 8, !tbaa !62
+  %82 = getelementptr i8, ptr %.val68.i, i64 32
+  %.val68.val.i = load ptr, ptr %82, align 8, !tbaa !70
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %84 = load ptr, ptr %83, align 8, !tbaa !73
   %85 = call ptr %84(ptr noundef %0, i64 noundef 0) #8
@@ -718,7 +718,7 @@ _Py_NewRef.exit.i:                                ; preds = %90, %87
   br i1 %.not58.i, label %184, label %96
 
 96:                                               ; preds = %93, %_Py_NewRef.exit.i
-  %97 = getelementptr inbounds nuw i8, ptr %.val67.val.i, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %.val68.val.i, i64 40
   %98 = load ptr, ptr %97, align 8, !tbaa !76
   %99 = call i32 @PyObject_IsInstance(ptr noundef %26, ptr noundef %98) #8
   %.not.i.i.i = icmp eq i32 %99, 0
@@ -782,14 +782,14 @@ PyStgInfo_FromType.exit.i:                        ; preds = %100
 128:                                              ; preds = %118, %109, %109, %109, %109, %109, %PyStgInfo_FromType.exit.i
   %129 = load i32, ptr %26, align 8, !tbaa !10
   %130 = icmp slt i32 %129, 0
-  br i1 %130, label %_Py_NewRef.exit68.i, label %131
+  br i1 %130, label %_Py_NewRef.exit69.i, label %131
 
 131:                                              ; preds = %128
   %132 = add nuw i32 %129, 1
   store i32 %132, ptr %26, align 8, !tbaa !10
-  br label %_Py_NewRef.exit68.i
+  br label %_Py_NewRef.exit69.i
 
-_Py_NewRef.exit68.i:                              ; preds = %131, %128
+_Py_NewRef.exit69.i:                              ; preds = %131, %128
   %133 = getelementptr inbounds nuw i8, ptr %85, i64 40
   store ptr %26, ptr %133, align 8, !tbaa !87
   %134 = getelementptr inbounds nuw i8, ptr %85, i64 24
@@ -800,52 +800,52 @@ _Py_NewRef.exit68.i:                              ; preds = %131, %128
   store i64 %.055114.ph, ptr %136, align 8, !tbaa !90
   %137 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %138 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %139 = getelementptr inbounds nuw i8, ptr %.val67.val.i, i64 72
+  %139 = getelementptr inbounds nuw i8, ptr %.val68.val.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, i8 0, i64 16, i1 false)
   %140 = load ptr, ptr %139, align 8, !tbaa !91
   %141 = getelementptr i8, ptr %26, i64 8
-  %.val66.i = load ptr, ptr %141, align 8, !tbaa !53
-  %.not.i.i = icmp eq ptr %.val66.i, %140
+  %.val67.i = load ptr, ptr %141, align 8, !tbaa !53
+  %.not.i.i = icmp eq ptr %.val67.i, %140
   br i1 %.not.i.i, label %PyObject_TypeCheck.exit.thread.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %_Py_NewRef.exit68.i
-  %142 = call i32 @PyType_IsSubtype(ptr noundef %.val66.i, ptr noundef %140) #8
+PyObject_TypeCheck.exit.i:                        ; preds = %_Py_NewRef.exit69.i
+  %142 = call i32 @PyType_IsSubtype(ptr noundef %.val67.i, ptr noundef %140) #8
   %.not108.i = icmp eq i32 %142, 0
   br i1 %.not108.i, label %PyCField_new_impl.exit, label %PyObject_TypeCheck.exit.thread.i
 
-PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.i, %_Py_NewRef.exit68.i
+PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.exit.i, %_Py_NewRef.exit69.i
   %143 = load ptr, ptr %97, align 8, !tbaa !76
   %144 = call i32 @PyObject_IsInstance(ptr noundef nonnull %26, ptr noundef %143) #8
-  %.not.i.i69.i = icmp eq i32 %144, 0
-  br i1 %.not.i.i69.i, label %PyCField_new_impl.exit, label %145
+  %.not.i.i70.i = icmp eq i32 %144, 0
+  br i1 %.not.i.i70.i, label %PyCField_new_impl.exit, label %145
 
 145:                                              ; preds = %PyObject_TypeCheck.exit.thread.i
   %146 = load ptr, ptr %97, align 8, !tbaa !76
   %147 = call ptr @PyObject_GetTypeData(ptr noundef nonnull %26, ptr noundef %146) #8
   %148 = load i32, ptr %147, align 8, !tbaa !78
-  %.not8.i.i70.i = icmp eq i32 %148, 0
-  br i1 %.not8.i.i70.i, label %PyCField_new_impl.exit, label %PyStgInfo_FromType.exit72.i
+  %.not8.i.i71.i = icmp eq i32 %148, 0
+  br i1 %.not8.i.i71.i, label %PyCField_new_impl.exit, label %PyStgInfo_FromType.exit73.i
 
-PyStgInfo_FromType.exit72.i:                      ; preds = %145
+PyStgInfo_FromType.exit73.i:                      ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 56
   %150 = load ptr, ptr %149, align 8, !tbaa !92
   %.not64.i = icmp eq ptr %150, null
   br i1 %.not64.i, label %PyCField_new_impl.exit, label %151
 
-151:                                              ; preds = %PyStgInfo_FromType.exit72.i
+151:                                              ; preds = %PyStgInfo_FromType.exit73.i
   %152 = load ptr, ptr %97, align 8, !tbaa !76
   %153 = call i32 @PyObject_IsInstance(ptr noundef nonnull %150, ptr noundef %152) #8
-  %.not.i.i73.i = icmp eq i32 %153, 0
-  br i1 %.not.i.i73.i, label %182, label %154
+  %.not.i.i74.i = icmp eq i32 %153, 0
+  br i1 %.not.i.i74.i, label %182, label %154
 
 154:                                              ; preds = %151
   %155 = load ptr, ptr %97, align 8, !tbaa !76
   %156 = call ptr @PyObject_GetTypeData(ptr noundef nonnull %150, ptr noundef %155) #8
   %157 = load i32, ptr %156, align 8, !tbaa !78
-  %.not8.i.i74.i = icmp eq i32 %157, 0
-  br i1 %.not8.i.i74.i, label %182, label %PyStgInfo_FromType.exit76.i
+  %.not8.i.i75.i = icmp eq i32 %157, 0
+  br i1 %.not8.i.i75.i, label %182, label %PyStgInfo_FromType.exit77.i
 
-PyStgInfo_FromType.exit76.i:                      ; preds = %154
+PyStgInfo_FromType.exit77.i:                      ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 72
   %159 = load ptr, ptr %158, align 8, !tbaa !84
   %160 = call ptr @_ctypes_get_fielddesc(ptr noundef nonnull @.str.15)
@@ -854,7 +854,7 @@ PyStgInfo_FromType.exit76.i:                      ; preds = %154
   %163 = icmp eq ptr %159, %162
   br i1 %163, label %164, label %170
 
-164:                                              ; preds = %PyStgInfo_FromType.exit76.i
+164:                                              ; preds = %PyStgInfo_FromType.exit77.i
   %165 = call ptr @_ctypes_get_fielddesc(ptr noundef nonnull @.str.19)
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %167 = load ptr, ptr %166, align 8, !tbaa !85
@@ -864,7 +864,7 @@ PyStgInfo_FromType.exit76.i:                      ; preds = %154
   store ptr %169, ptr %137, align 8, !tbaa !95
   br label %170
 
-170:                                              ; preds = %164, %PyStgInfo_FromType.exit76.i
+170:                                              ; preds = %164, %PyStgInfo_FromType.exit77.i
   %171 = load ptr, ptr %158, align 8, !tbaa !84
   %172 = call ptr @_ctypes_get_fielddesc(ptr noundef nonnull @.str.16)
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
@@ -889,8 +889,8 @@ PyStgInfo_FromType.exit76.i:                      ; preds = %154
 
 184:                                              ; preds = %182, %123, %104, %93
   %185 = load i32, ptr %85, align 8, !tbaa !10
-  %.not.i.i78.i = icmp sgt i32 %185, -1
-  br i1 %.not.i.i78.i, label %186, label %PyCField_new_impl.exit
+  %.not.i.i79.i = icmp sgt i32 %185, -1
+  br i1 %.not.i.i79.i, label %186, label %PyCField_new_impl.exit
 
 186:                                              ; preds = %184
   %187 = add nsw i32 %185, -1
@@ -902,8 +902,8 @@ PyStgInfo_FromType.exit76.i:                      ; preds = %154
   call void @_Py_Dealloc(ptr noundef nonnull %85) #8
   br label %PyCField_new_impl.exit
 
-PyCField_new_impl.exit:                           ; preds = %189, %186, %184, %176, %170, %PyStgInfo_FromType.exit72.i, %145, %PyObject_TypeCheck.exit.thread.i, %PyObject_TypeCheck.exit.i, %80, %77, %72, %Py_DECREF.exit86.thread, %Py_DECREF.exit84.thread, %Py_DECREF.exit.thread, %23, %13
-  %.056 = phi ptr [ null, %23 ], [ null, %13 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit84.thread ], [ null, %Py_DECREF.exit86.thread ], [ null, %80 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ null, %189 ], [ %85, %PyStgInfo_FromType.exit72.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
+PyCField_new_impl.exit:                           ; preds = %189, %186, %184, %176, %170, %PyStgInfo_FromType.exit73.i, %145, %PyObject_TypeCheck.exit.thread.i, %PyObject_TypeCheck.exit.i, %80, %77, %72, %Py_DECREF.exit86.thread, %Py_DECREF.exit84.thread, %Py_DECREF.exit.thread, %23, %13
+  %.056 = phi ptr [ null, %23 ], [ null, %13 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit84.thread ], [ null, %Py_DECREF.exit86.thread ], [ null, %80 ], [ %85, %PyObject_TypeCheck.exit.i ], [ null, %72 ], [ null, %77 ], [ null, %184 ], [ null, %186 ], [ null, %189 ], [ %85, %PyStgInfo_FromType.exit73.i ], [ %85, %PyObject_TypeCheck.exit.thread.i ], [ %85, %145 ], [ %85, %176 ], [ %85, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.056
 }

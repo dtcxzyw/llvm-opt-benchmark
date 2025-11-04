@@ -611,9 +611,9 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_insert(ptr noundef readonl
   %69 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__earray_idx_insert, i32 noundef 1051, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.30) #11
   br label %70
 
-70:                                               ; preds = %62, %3, %63, %66, %39, %32, %19
-  %.025 = phi i32 [ -1, %39 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ], [ 0, %3 ]
-  ret i32 %.025
+70:                                               ; preds = %3, %63, %66, %39, %32, %19, %62
+  %.024 = phi i32 [ -1, %39 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ], [ 0, %3 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -791,8 +791,8 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_get_addr(ptr noundef reado
   br label %106
 
 106:                                              ; preds = %83, %2, %102, %104, %91, %19
-  %.046 = phi i32 [ 0, %102 ], [ 0, %104 ], [ -1, %83 ], [ -1, %91 ], [ -1, %19 ], [ 0, %2 ]
-  ret i32 %.046
+  %.049 = phi i32 [ 0, %102 ], [ 0, %104 ], [ -1, %83 ], [ -1, %91 ], [ -1, %19 ], [ 0, %2 ]
+  ret i32 %.049
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1096,8 +1096,8 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr noundef readonl
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !59
   %43 = add i32 %42, -1
-  %.not64 = icmp eq i32 %43, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  %.not65 = icmp eq i32 %43, 0
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1263,9 +1263,9 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_remove(ptr noundef readonl
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %141
 
-141:                                              ; preds = %140, %108, %2, %28, %20
-  %.050 = phi i32 [ -1, %28 ], [ %.154, %108 ], [ %.2, %140 ], [ -1, %20 ], [ 0, %2 ]
-  ret i32 %.050
+141:                                              ; preds = %2, %28, %20, %108, %140
+  %.053 = phi i32 [ -1, %28 ], [ %.154, %108 ], [ %.2, %140 ], [ -1, %20 ], [ 0, %2 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1365,9 +1365,9 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_delete(ptr noundef readonl
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %65
 
-65:                                               ; preds = %64, %1, %9
-  %.015 = phi i32 [ %.1, %64 ], [ 0, %9 ], [ 0, %1 ]
-  ret i32 %.015
+65:                                               ; preds = %1, %9, %64
+  %.014 = phi i32 [ %.1, %64 ], [ 0, %9 ], [ 0, %1 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1424,9 +1424,9 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_copy_setup(ptr noundef rea
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
-32:                                               ; preds = %31, %2, %18
-  %.08 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
-  ret i32 %.08
+32:                                               ; preds = %2, %18, %31
+  %.07 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
+  ret i32 %.07
 }
 
 ; Function Attrs: nounwind uwtable

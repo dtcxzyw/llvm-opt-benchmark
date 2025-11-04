@@ -529,9 +529,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr noundef readonl
   %69 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__farray_idx_insert, i32 noundef 998, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.27) #12
   br label %70
 
-70:                                               ; preds = %62, %3, %63, %66, %39, %32, %19
-  %.025 = phi i32 [ -1, %39 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ], [ 0, %3 ]
-  ret i32 %.025
+70:                                               ; preds = %3, %63, %66, %39, %32, %19, %62
+  %.024 = phi i32 [ -1, %39 ], [ %.1, %62 ], [ -1, %66 ], [ 0, %63 ], [ -1, %32 ], [ -1, %19 ], [ 0, %3 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -655,8 +655,8 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr noundef reado
   br label %78
 
 78:                                               ; preds = %55, %2, %74, %76, %63, %18
-  %.030 = phi i32 [ 0, %74 ], [ 0, %76 ], [ -1, %55 ], [ -1, %63 ], [ -1, %18 ], [ 0, %2 ]
-  ret i32 %.030
+  %.029 = phi i32 [ 0, %74 ], [ 0, %76 ], [ -1, %55 ], [ -1, %63 ], [ -1, %18 ], [ 0, %2 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -995,9 +995,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr noundef readonl
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
 
-113:                                              ; preds = %112, %80, %2, %27, %19
-  %.035 = phi i32 [ -1, %27 ], [ %.134, %80 ], [ %.2, %112 ], [ -1, %19 ], [ 0, %2 ]
-  ret i32 %.035
+113:                                              ; preds = %2, %27, %19, %80, %112
+  %.033 = phi i32 [ -1, %27 ], [ %.134, %80 ], [ %.2, %112 ], [ -1, %19 ], [ 0, %2 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1097,9 +1097,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr noundef readonl
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %65
 
-65:                                               ; preds = %64, %1, %9
-  %.015 = phi i32 [ %.1, %64 ], [ 0, %9 ], [ 0, %1 ]
-  ret i32 %.015
+65:                                               ; preds = %1, %9, %64
+  %.014 = phi i32 [ %.1, %64 ], [ 0, %9 ], [ 0, %1 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1156,9 +1156,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_setup(ptr noundef rea
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
-32:                                               ; preds = %31, %2, %18
-  %.08 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
-  ret i32 %.08
+32:                                               ; preds = %2, %18, %31
+  %.07 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
+  ret i32 %.07
 }
 
 ; Function Attrs: nounwind uwtable

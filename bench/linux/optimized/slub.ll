@@ -4274,8 +4274,8 @@ define dso_local i32 @kmem_cache_alloc_bulk(ptr noundef %0, i32 noundef %1, i64 
 
 29:                                               ; preds = %93, %17
   %30 = phi i64 [ 0, %17 ], [ %95, %93 ]
-  %31 = phi ptr [ %20, %17 ], [ %.ph17, %93 ]
-  %32 = phi i64 [ %21, %17 ], [ %.ph16, %93 ]
+  %31 = phi ptr [ %20, %17 ], [ %.ph18, %93 ]
+  %32 = phi i64 [ %21, %17 ], [ %.ph17, %93 ]
   %33 = phi i32 [ 0, %17 ], [ %94, %93 ]
   %34 = load ptr, ptr %31, align 16
   %35 = icmp eq ptr %34, null
@@ -4377,22 +4377,22 @@ define dso_local i32 @kmem_cache_alloc_bulk(ptr noundef %0, i32 noundef %1, i64 
   br label %93
 
 93:                                               ; preds = %68, %82, %73, %85, %89
-  %.ph16 = phi i64 [ %32, %89 ], [ %32, %85 ], [ %32, %73 ], [ %32, %82 ], [ %69, %68 ]
-  %.ph17 = phi ptr [ %31, %89 ], [ %31, %85 ], [ %31, %73 ], [ %31, %82 ], [ %56, %68 ]
+  %.ph17 = phi i64 [ %32, %89 ], [ %32, %85 ], [ %32, %73 ], [ %32, %82 ], [ %69, %68 ]
+  %.ph18 = phi ptr [ %31, %89 ], [ %31, %85 ], [ %31, %73 ], [ %31, %82 ], [ %56, %68 ]
   %94 = add i32 %33, 1
   %95 = sext i32 %94 to i64
   %96 = icmp ugt i64 %2, %95
   br i1 %96, label %29, label %97, !llvm.loop !80
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %.ph17, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.ph18, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 64
   store i64 %100, ptr %98, align 8
   %101 = load ptr, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull %102) #29, !srcloc !81
-  %104 = and i64 %.ph16, 512
+  %104 = and i64 %.ph17, 512
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %107, label %106
 

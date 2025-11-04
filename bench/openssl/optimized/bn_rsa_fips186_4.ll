@@ -116,12 +116,10 @@ bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit: ; preds = %48
 
 54:                                               ; preds = %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit
   %55 = tail call i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %18, ptr noundef nonnull %22, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  %.not89 = icmp ne i32 %55, 0
-  %spec.select = zext i1 %.not89 to i32
   br label %bn_rsa_fips186_5_aux_prime_min_size.exit
 
 bn_rsa_fips186_5_aux_prime_min_size.exit:         ; preds = %39, %54, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit, %46, %48, %44, %41, %29
-  %.069 = phi i32 [ 0, %29 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %41 ], [ %spec.select, %54 ], [ 0, %39 ]
+  %.069 = phi i32 [ 0, %29 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %41 ], [ %55, %54 ], [ 0, %39 ]
   br i1 %.not, label %56, label %57
 
 56:                                               ; preds = %bn_rsa_fips186_5_aux_prime_min_size.exit
@@ -203,7 +201,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_rsa_fips186_4_find_aux_prob_prime
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = ashr i32 %5, 1
   tail call void @BN_CTX_start(ptr noundef %7) #3
   %11 = tail call ptr @BN_CTX_get(ptr noundef %7) #3
@@ -354,7 +352,7 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %79 = lshr i32 %77, 30
   %. = and i32 %79, 2
   %.0 = select i1 %78, i32 7, i32 %.
-  switch i32 %.0, label %.loopexit122 [
+  switch i32 %.0, label %.unreachabledefault [
     i32 0, label %80
     i32 7, label %85
     i32 2, label %.loopexit
@@ -384,11 +382,10 @@ define i32 @ossl_bn_rsa_fips186_4_derive_prime(ptr noundef %0, ptr noundef %1, p
   %.095 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 0, %23 ], [ 0, %81 ], [ 1, %85 ], [ 0, %51 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 0, %30 ], [ 0, %26 ], [ 0, %59 ], [ 0, %.critedge ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %82 ]
   tail call void @BN_clear(ptr noundef %16) #3
   tail call void @BN_CTX_end(ptr noundef %7) #3
-  br label %.loopexit122
+  ret i32 %.095
 
-.loopexit122:                                     ; preds = %76, %.loopexit
-  %.094 = phi i32 [ %.095, %.loopexit ], [ undef, %76 ]
-  ret i32 %.094
+.unreachabledefault:                              ; preds = %76
+  unreachable
 }
 
 declare void @BN_clear(ptr noundef) local_unnamed_addr #1

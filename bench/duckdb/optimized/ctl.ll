@@ -7726,7 +7726,7 @@ arena_get.exit.thread:                            ; preds = %26
 34:                                               ; preds = %31
   %35 = load i64, ptr %4, align 8, !tbaa !3
   %.not93 = icmp eq i64 %35, 8
-  br i1 %.not93, label %36, label %.thread108.sink.split
+  br i1 %.not93, label %36, label %.thread110.sink.split
 
 36:                                               ; preds = %34
   store ptr @duckdb_je_ehooks_default_extent_hooks, ptr %3, align 8, !tbaa !208
@@ -7734,7 +7734,7 @@ arena_get.exit.thread:                            ; preds = %26
 
 37:                                               ; preds = %36, %31
   %.not94 = icmp eq ptr %5, null
-  br i1 %.not94, label %.thread104, label %38
+  br i1 %.not94, label %.thread106, label %38
 
 38:                                               ; preds = %37
   %.not95 = icmp eq i64 %6, 8
@@ -7748,7 +7748,7 @@ arena_get.exit.thread:                            ; preds = %26
   %41 = call ptr @duckdb_je_arena_init(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %9) #14
   %42 = icmp eq ptr %41, null
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %42, label %.sink.split, label %.thread104
+  br i1 %42, label %.sink.split, label %.thread106
 
 43:                                               ; preds = %26
   %.not = icmp eq ptr %5, null
@@ -7765,50 +7765,50 @@ arena_get.exit.thread:                            ; preds = %26
   %48 = icmp ne ptr %3, null
   %49 = icmp ne ptr %4, null
   %or.cond4 = and i1 %48, %49
-  br i1 %or.cond4, label %50, label %.thread104
+  br i1 %or.cond4, label %50, label %.thread106
 
 50:                                               ; preds = %45
   %51 = load i64, ptr %4, align 8, !tbaa !3
   %.not91 = icmp eq i64 %51, 8
-  br i1 %.not91, label %.thread104.sink.split, label %.thread108.sink.split
+  br i1 %.not91, label %.thread106.sink.split, label %.thread110.sink.split
 
 52:                                               ; preds = %43
   %53 = tail call ptr @duckdb_je_arena_get_ehooks(ptr noundef nonnull %.0.i.i) #14
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load atomic i64, ptr %54 acquire, align 8
-  %.0.i.i98 = inttoptr i64 %55 to ptr
-  store ptr %.0.i.i98, ptr %8, align 8, !tbaa !208
+  %.0.i.i100 = inttoptr i64 %55 to ptr
+  store ptr %.0.i.i100, ptr %8, align 8, !tbaa !208
   %56 = icmp ne ptr %3, null
   %57 = icmp ne ptr %4, null
   %or.cond6 = and i1 %56, %57
-  br i1 %or.cond6, label %58, label %.thread104
+  br i1 %or.cond6, label %58, label %.thread106
 
 58:                                               ; preds = %52
   %59 = load i64, ptr %4, align 8, !tbaa !3
   %.not89 = icmp eq i64 %59, 8
-  br i1 %.not89, label %.thread104.sink.split, label %.thread108.sink.split
+  br i1 %.not89, label %.thread106.sink.split, label %.thread110.sink.split
 
-.thread108.sink.split:                            ; preds = %58, %50, %34
+.thread110.sink.split:                            ; preds = %58, %50, %34
   %.sink = phi i64 [ %35, %34 ], [ %51, %50 ], [ %59, %58 ]
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.sink, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !3
   br label %.sink.split
 
-.thread104.sink.split:                            ; preds = %58, %50
-  %.sink124 = phi ptr [ %47, %50 ], [ %.0.i.i98, %58 ]
-  store ptr %.sink124, ptr %3, align 8, !tbaa !208
-  br label %.thread104
+.thread106.sink.split:                            ; preds = %58, %50
+  %.sink126 = phi ptr [ %47, %50 ], [ %.0.i.i100, %58 ]
+  store ptr %.sink126, ptr %3, align 8, !tbaa !208
+  br label %.thread106
 
-.thread104:                                       ; preds = %.thread104.sink.split, %45, %39, %52, %37
+.thread106:                                       ; preds = %.thread106.sink.split, %45, %39, %52, %37
   br label %.sink.split
 
-.sink.split:                                      ; preds = %39, %38, %44, %arena_get.exit.thread, %.thread108.sink.split, %.thread104
-  %.068.ph = phi i32 [ 0, %.thread104 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 22, %38 ], [ 14, %39 ], [ 22, %.thread108.sink.split ]
+.sink.split:                                      ; preds = %39, %38, %44, %arena_get.exit.thread, %.thread110.sink.split, %.thread106
+  %.068.ph = phi i32 [ 0, %.thread106 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 22, %38 ], [ 14, %39 ], [ 22, %.thread110.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
-60:                                               ; preds = %.sink.split, %malloc_mutex_lock.exit, %22
+60:                                               ; preds = %.sink.split, %22, %malloc_mutex_lock.exit
   %.068 = phi i32 [ 14, %malloc_mutex_lock.exit ], [ 14, %22 ], [ %.068.ph, %.sink.split ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64) monotonic, align 8
   %61 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 72)) #14

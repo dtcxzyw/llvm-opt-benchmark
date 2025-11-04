@@ -708,7 +708,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %4 = icmp eq i32 %3, 0
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
-  br i1 %or.cond, label %6, label %.thread35
+  br i1 %or.cond, label %6, label %.thread36
 
 6:                                                ; preds = %2
   %7 = tail call ptr @getpwnam(ptr noundef nonnull %0)
@@ -719,7 +719,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %10 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #19
   %11 = load ptr, ptr @stderr, align 8, !tbaa !16
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.17, ptr noundef nonnull %0) #23
-  br label %.thread35
+  br label %.thread36
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -732,7 +732,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %18 = load ptr, ptr @stderr, align 8, !tbaa !16
   %19 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 28, i64 1, ptr %18) #22
   %20 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.19) #19
-  br label %.thread35
+  br label %.thread36
 
 21:                                               ; preds = %13
   %.not30 = icmp eq ptr %1, null
@@ -761,7 +761,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %39 = load i32, ptr %34, align 4, !tbaa !21
   %40 = tail call ptr @strerror(i32 noundef %39) #19
   %41 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef %38, ptr noundef nonnull %1, ptr noundef %40) #19
-  br label %.thread35
+  br label %.thread36
 
 .thread:                                          ; preds = %22, %21
   %42 = load i32, ptr %14, align 4, !tbaa !25
@@ -775,14 +775,14 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.24, i32 noundef %46) #23
   %48 = load i32, ptr %14, align 4, !tbaa !25
   %49 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.25, i32 noundef %48) #19
-  br label %.thread35
+  br label %.thread36
 
 50:                                               ; preds = %.thread
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !27
   %53 = tail call i32 @setuid(i32 noundef %52) #19
   %.not33 = icmp eq i32 %53, 0
-  br i1 %.not33, label %.thread35, label %54
+  br i1 %.not33, label %.thread36, label %54
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr @stderr, align 8, !tbaa !16
@@ -790,11 +790,11 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.26, i32 noundef %56) #23
   %58 = load i32, ptr %51, align 8, !tbaa !27
   %59 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.27, i32 noundef %58) #19
-  br label %.thread35
+  br label %.thread36
 
-.thread35:                                        ; preds = %27, %54, %44, %17, %9, %2, %50
-  %.025 = phi i32 [ 0, %50 ], [ 0, %2 ], [ 1, %9 ], [ 1, %17 ], [ 1, %44 ], [ 1, %54 ], [ 1, %27 ]
-  ret i32 %.025
+.thread36:                                        ; preds = %27, %54, %44, %17, %9, %2, %50
+  %.026 = phi i32 [ 0, %50 ], [ 0, %2 ], [ 1, %9 ], [ 1, %17 ], [ 1, %44 ], [ 1, %54 ], [ 1, %27 ]
+  ret i32 %.026
 }
 
 declare i32 @wait(ptr noundef) local_unnamed_addr #2

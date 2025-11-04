@@ -905,14 +905,14 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
 90:                                               ; preds = %83
   %91 = load i64, ptr %74, align 8, !tbaa !116
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %93, label %.thread85
+  br i1 %92, label %93, label %.thread86
 
 93:                                               ; preds = %90
   %94 = add nsw i32 %3, 3
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef %94, ptr noundef nonnull @.str.6) #9
-  br label %.thread85
+  br label %.thread86
 
-.thread85:                                        ; preds = %93, %90
+.thread86:                                        ; preds = %93, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 
@@ -920,8 +920,8 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %110
 
-97:                                               ; preds = %.thread85, %63
-  %.174 = phi i64 [ 0, %63 ], [ %91, %.thread85 ]
+97:                                               ; preds = %.thread86, %63
+  %.174 = phi i64 [ 0, %63 ], [ %91, %.thread86 ]
   %98 = load i64, ptr %48, align 8, !tbaa !107
   %99 = sub i64 %98, %46
   %100 = sub i64 %99, %.174
@@ -955,7 +955,7 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   br label %128
 
 121:                                              ; preds = %23, %113, %110
-  %.07297.ph = phi ptr [ null, %23 ], [ %50, %110 ], [ %50, %113 ]
+  %.07298.ph = phi ptr [ null, %23 ], [ %50, %110 ], [ %50, %113 ]
   %.4.ph = phi i32 [ -1, %23 ], [ %.1.ph, %110 ], [ -1, %113 ]
   %122 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_FHEAP_HDR, i64 noundef %5, ptr noundef nonnull %18, i32 noundef 0) #9
   %123 = icmp slt i32 %122, 0
@@ -968,14 +968,14 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   br label %128
 
 128:                                              ; preds = %117, %124, %121
-  %.07297104 = phi ptr [ %.07297.ph, %124 ], [ %.07297.ph, %121 ], [ null, %117 ]
+  %.07298105 = phi ptr [ %.07298.ph, %124 ], [ %.07298.ph, %121 ], [ null, %117 ]
   %.5 = phi i32 [ -1, %124 ], [ %.4.ph, %121 ], [ -1, %117 ]
-  %129 = call ptr @H5MM_xfree(ptr noundef %.07297104) #9
+  %129 = call ptr @H5MM_xfree(ptr noundef %.07298105) #9
   br label %130
 
 130:                                              ; preds = %14, %128
-  %.075 = phi i32 [ %.5, %128 ], [ 0, %14 ]
-  ret i32 %.075
+  %.071 = phi i32 [ %.5, %128 ], [ 0, %14 ]
+  ret i32 %.071
 }
 
 declare ptr @H5HF__man_dblock_protect(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1269,8 +1269,8 @@ define range(i32 -1, 1) i32 @H5HF_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %57
 
 57:                                               ; preds = %46, %12, %53, %50
-  %.023 = phi i32 [ -1, %53 ], [ %.1.ph, %50 ], [ -1, %46 ], [ 0, %12 ]
-  ret i32 %.023
+  %.022 = phi i32 [ -1, %53 ], [ %.1.ph, %50 ], [ -1, %46 ], [ 0, %12 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable

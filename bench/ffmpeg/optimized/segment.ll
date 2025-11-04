@@ -1151,9 +1151,9 @@ parse_times.exit.thread:                          ; preds = %45
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %87
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %87 ], [ 0, %.preheader.i ]
-  %.167.i = phi ptr [ null, %87 ], [ %48, %.preheader.i ]
+  %.168.i = phi ptr [ null, %87 ], [ %48, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %64 = call ptr @av_strtok(ptr noundef %.167.i, ptr noundef nonnull @.str.136, ptr noundef nonnull %4) #13
+  %64 = call ptr @av_strtok(ptr noundef %.168.i, ptr noundef nonnull @.str.136, ptr noundef nonnull %4) #13
   %.not54.i = icmp eq ptr %64, null
   br i1 %.not54.i, label %67, label %65
 

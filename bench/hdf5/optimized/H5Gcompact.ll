@@ -244,9 +244,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
   store ptr null, ptr %44, align 8, !tbaa !16
   br label %45
 
-45:                                               ; preds = %42, %5, %43
-  %.017 = phi i32 [ %.1, %42 ], [ 0, %43 ], [ 0, %5 ]
-  ret i32 %.017
+45:                                               ; preds = %5, %43, %42
+  %.016 = phi i32 [ %.1, %42 ], [ 0, %43 ], [ 0, %5 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

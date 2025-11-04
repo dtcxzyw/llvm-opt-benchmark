@@ -986,19 +986,19 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
   %9 = tail call ptr @av_malloc_array(i64 noundef %8, i64 noundef 4) #7
   store ptr %9, ptr %5, align 8, !tbaa !137
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %70, label %.preheader65
+  br i1 %.not, label %70, label %.preheader66
 
-.preheader65:                                     ; preds = %4
+.preheader66:                                     ; preds = %4
   %10 = icmp sgt i32 %2, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader65
+.lr.ph.preheader:                                 ; preds = %.preheader66
   %11 = zext nneg i32 %2 to i64
   %12 = shl nuw nsw i64 %11, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 -1, i64 %12, i1 false), !tbaa !26
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader65
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader66
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = load ptr, ptr %14, align 8, !tbaa !28
@@ -1010,12 +1010,12 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 @vaBeginPicture(ptr noundef %15, i32 noundef %17, i32 noundef %20) #7
   %.not55 = icmp eq i32 %21, 0
-  br i1 %.not55, label %.preheader64, label %22
+  br i1 %.not55, label %.preheader65, label %22
 
-.preheader64:                                     ; preds = %._crit_edge
-  br i1 %10, label %.lr.ph72, label %._crit_edge73
+.preheader65:                                     ; preds = %._crit_edge
+  br i1 %10, label %.lr.ph73, label %._crit_edge74
 
-.lr.ph72:                                         ; preds = %.preheader64
+.lr.ph73:                                         ; preds = %.preheader65
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %25
 
@@ -1027,10 +1027,10 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
 24:                                               ; preds = %vaapi_vpp_render_single_pipeline_buffer.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge73, label %25, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge74, label %25, !llvm.loop !138
 
-25:                                               ; preds = %.lr.ph72, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %24 ]
+25:                                               ; preds = %.lr.ph73, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %24 ]
   %26 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %1, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %28 = load ptr, ptr %6, align 8, !tbaa !4
@@ -1064,7 +1064,7 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.30, i32 noundef %41, ptr noundef %43) #7
   br label %60
 
-._crit_edge73:                                    ; preds = %24, %.preheader64
+._crit_edge74:                                    ; preds = %24, %.preheader65
   %44 = load ptr, ptr %13, align 8, !tbaa !27
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %46 = load i32, ptr %16, align 8, !tbaa !32
@@ -1072,21 +1072,21 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
   %.not57 = icmp eq i32 %47, 0
   br i1 %.not57, label %.preheader, label %48
 
-.preheader:                                       ; preds = %._crit_edge73
-  br i1 %10, label %.lr.ph75, label %.sink.split
+.preheader:                                       ; preds = %._crit_edge74
+  br i1 %10, label %.lr.ph76, label %.sink.split
 
-.lr.ph75:                                         ; preds = %.preheader
-  %wide.trip.count89 = zext nneg i32 %2 to i64
+.lr.ph76:                                         ; preds = %.preheader
+  %wide.trip.count90 = zext nneg i32 %2 to i64
   br label %50
 
-48:                                               ; preds = %._crit_edge73
+48:                                               ; preds = %._crit_edge74
   %49 = tail call ptr @vaErrorStr(i32 noundef %47) #7
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21, i32 noundef %47, ptr noundef %49) #7
   br label %65
 
-50:                                               ; preds = %.lr.ph75, %59
-  %indvars.iv86 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next87, %59 ]
-  %51 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv86
+50:                                               ; preds = %.lr.ph76, %59
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next88, %59 ]
+  %51 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv87
   %52 = load i32, ptr %51, align 4, !tbaa !26
   %.not58 = icmp eq i32 %52, -1
   br i1 %.not58, label %.sink.split, label %53
@@ -1104,9 +1104,9 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
   br label %59
 
 59:                                               ; preds = %53, %57
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.sink.split, label %50, !llvm.loop !139
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
+  br i1 %exitcond91.not, label %.sink.split, label %50, !llvm.loop !139
 
 60:                                               ; preds = %42, %35
   %61 = load ptr, ptr %13, align 8, !tbaa !27

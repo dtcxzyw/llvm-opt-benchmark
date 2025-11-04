@@ -65,7 +65,7 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   store i32 10, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 24, ptr %11, align 8
-  br label %.loopexit3
+  br label %.loopexit4
 
 12:                                               ; preds = %8, %7, %4
   %13 = phi ptr [ @ipcomp6_handlers, %8 ], [ @ah6_handlers, %7 ], [ @esp6_handlers, %4 ]
@@ -146,13 +146,13 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
 63:                                               ; preds = %.thread, %12
   %64 = load volatile ptr, ptr %13, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit3, label %.preheader
+  br i1 %65, label %.loopexit4, label %.preheader
 
 66:                                               ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %68 = load volatile ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.loopexit3, label %.preheader, !llvm.loop !5
+  br i1 %69, label %.loopexit4, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %63, %66
   %70 = phi ptr [ %68, %66 ], [ %64, %63 ]
@@ -162,12 +162,12 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   %74 = icmp eq i32 %73, -22
   br i1 %74, label %66, label %.loopexit
 
-.loopexit3:                                       ; preds = %66, %.critedge, %63
+.loopexit4:                                       ; preds = %66, %.critedge, %63
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %75) #7
   br label %76
 
-76:                                               ; preds = %62, %.loopexit3
+76:                                               ; preds = %62, %.loopexit4
   call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #7
   br label %.loopexit
 

@@ -1441,9 +1441,9 @@ define ptr @H5FL_blk_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %26 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef %0, i64 noundef %2)
   br label %27
 
-27:                                               ; preds = %18, %22, %13, %9, %25
-  %.022 = phi ptr [ %26, %25 ], [ null, %9 ], [ %1, %13 ], [ null, %18 ], [ %17, %22 ]
-  ret ptr %.022
+27:                                               ; preds = %18, %22, %9, %25, %13
+  %.023 = phi ptr [ %26, %25 ], [ null, %9 ], [ %1, %13 ], [ null, %18 ], [ %17, %22 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

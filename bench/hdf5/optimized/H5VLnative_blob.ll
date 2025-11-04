@@ -282,9 +282,9 @@ define range(i32 -1, 1) i32 @H5VL__native_blob_specific(ptr noundef %0, ptr noun
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_blob_specific, i32 noundef 194, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.6) #3
   br label %58
 
-58:                                               ; preds = %53, %54, %16, %10
-  %.015 = phi i32 [ -1, %54 ], [ 0, %10 ], [ 0, %16 ], [ %.014, %53 ]
-  ret i32 %.015
+58:                                               ; preds = %54, %16, %10, %53
+  %.1 = phi i32 [ -1, %54 ], [ 0, %10 ], [ 0, %16 ], [ %.014, %53 ]
+  ret i32 %.1
 }
 
 declare i32 @H5HG_remove(ptr noundef, ptr noundef) local_unnamed_addr #1

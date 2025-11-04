@@ -375,9 +375,9 @@ H5VM_log2_gen.exit:                               ; preds = %49, %55, %61, %67, 
   %202 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_read, i32 noundef 248, i64 noundef %200, i64 noundef %201, ptr noundef nonnull @.str.2) #6
   br label %203
 
-203:                                              ; preds = %141, %.thread, %125, %.thread191, %151, %158, %162, %166, %177, %191, %148, %5, %196, %199
-  %.0157 = phi i32 [ -1, %199 ], [ 0, %196 ], [ 0, %5 ], [ -1, %151 ], [ -1, %158 ], [ 0, %148 ], [ 0, %166 ], [ 0, %177 ], [ 0, %191 ], [ 0, %162 ], [ -1, %125 ], [ 0, %.thread191 ], [ -1, %141 ], [ -1, %.thread ]
-  ret i32 %.0157
+203:                                              ; preds = %141, %.thread, %125, %.thread191, %5, %196, %199, %148, %191, %177, %166, %162, %158, %151
+  %.0158 = phi i32 [ -1, %199 ], [ 0, %196 ], [ 0, %5 ], [ -1, %151 ], [ -1, %158 ], [ 0, %148 ], [ 0, %166 ], [ 0, %177 ], [ 0, %191 ], [ 0, %162 ], [ -1, %125 ], [ 0, %.thread191 ], [ -1, %141 ], [ -1, %.thread ]
+  ret i32 %.0158
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1174,8 +1174,8 @@ H5VM_log2_gen.exit:                               ; preds = %254, %261, %267
   br label %.sink.split
 
 .sink.split:                                      ; preds = %365, %359
-  %.sink526 = phi i64 [ 0, %359 ], [ %366, %365 ]
-  store i64 %.sink526, ptr %356, align 8, !tbaa !44
+  %.sink525 = phi i64 [ 0, %359 ], [ %366, %365 ]
+  store i64 %.sink525, ptr %356, align 8, !tbaa !44
   br label %367
 
 367:                                              ; preds = %.sink.split, %360, %348
@@ -1194,9 +1194,9 @@ H5VM_log2_gen.exit:                               ; preds = %254, %261, %267
   %375 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_write, i32 noundef 822, i64 noundef %373, i64 noundef %374, ptr noundef nonnull @.str.4) #6
   br label %376
 
-376:                                              ; preds = %.thread491, %.thread489, %.thread487, %.thread485, %150, %167, %169, %173, %118, %143, %137, %192, %105, %107, %108, %110, %33, %65, %210, %293, %300, %344, %304, %307, %313, %337, %341, %367, %280, %83, %244, %56, %5, %369, %372
-  %.0 = phi i32 [ -1, %372 ], [ 0, %369 ], [ 0, %5 ], [ -1, %33 ], [ -1, %65 ], [ -1, %210 ], [ -1, %293 ], [ -1, %300 ], [ -1, %344 ], [ 0, %56 ], [ 0, %83 ], [ 0, %244 ], [ 0, %280 ], [ 0, %307 ], [ 0, %313 ], [ 0, %337 ], [ 0, %341 ], [ 0, %367 ], [ 0, %304 ], [ 0, %192 ], [ 0, %105 ], [ 0, %107 ], [ 0, %108 ], [ 0, %110 ], [ -1, %118 ], [ 0, %143 ], [ 0, %137 ], [ -1, %150 ], [ 0, %167 ], [ 0, %169 ], [ 0, %173 ], [ -1, %.thread485 ], [ -1, %.thread487 ], [ -1, %.thread489 ], [ -1, %.thread491 ]
-  ret i32 %.0
+376:                                              ; preds = %.thread491, %.thread489, %.thread487, %.thread485, %150, %167, %169, %173, %118, %143, %137, %192, %105, %107, %108, %110, %5, %369, %372, %56, %244, %83, %280, %367, %341, %337, %313, %307, %304, %344, %300, %293, %210, %65, %33
+  %.0399 = phi i32 [ -1, %372 ], [ 0, %369 ], [ 0, %5 ], [ -1, %33 ], [ -1, %65 ], [ -1, %210 ], [ -1, %293 ], [ -1, %300 ], [ -1, %344 ], [ 0, %56 ], [ 0, %83 ], [ 0, %244 ], [ 0, %280 ], [ 0, %307 ], [ 0, %313 ], [ 0, %337 ], [ 0, %341 ], [ 0, %367 ], [ 0, %304 ], [ 0, %192 ], [ 0, %105 ], [ 0, %107 ], [ 0, %108 ], [ 0, %110 ], [ -1, %118 ], [ 0, %143 ], [ 0, %137 ], [ -1, %150 ], [ 0, %167 ], [ 0, %169 ], [ 0, %173 ], [ -1, %.thread485 ], [ -1, %.thread487 ], [ -1, %.thread489 ], [ -1, %.thread491 ]
+  ret i32 %.0399
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1282,9 +1282,9 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %52 = trunc nuw i8 %51 to i1
   %53 = icmp ult i64 %49, 1048577
   %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %.thread158, label %.thread165
+  br i1 %or.cond, label %.thread157, label %.thread164
 
-.thread158:                                       ; preds = %46
+.thread157:                                       ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !43
   %56 = add i64 %49, %55
@@ -1296,7 +1296,7 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %60 = sub i64 %13, %.188
   %61 = add i64 %60, %3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %.thread172
+  br label %.thread171
 
 63:                                               ; preds = %H5VM_log2_gen.exit.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1305,11 +1305,11 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %65 = icmp eq i32 %2, 0
   br i1 %64, label %73, label %117
 
-.thread165:                                       ; preds = %46
+.thread164:                                       ; preds = %46
   %66 = add i64 %13, -524288
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = trunc nuw i8 %51 to i1
-  br i1 %68, label %.thread172, label %.sink.split
+  br i1 %68, label %.thread171, label %.sink.split
 
 .thread:                                          ; preds = %44
   %69 = add i64 %13, -524288
@@ -1320,7 +1320,7 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
 
 73:                                               ; preds = %63
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %65, label %.thread112, label %.thread172
+  br i1 %65, label %.thread112, label %.thread171
 
 .thread112:                                       ; preds = %.thread, %73
   %.191107118 = phi i64 [ 1048576, %73 ], [ 524288, %.thread ]
@@ -1356,17 +1356,17 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   store i8 0, ptr %75, align 8, !tbaa !42
   br label %.thread119
 
-.thread172:                                       ; preds = %.thread165, %.thread158, %73
-  %.191152164 = phi i64 [ %61, %.thread158 ], [ 1048576, %73 ], [ 524288, %.thread165 ]
-  %.087154163 = phi i64 [ %.188, %.thread158 ], [ %13, %73 ], [ 524288, %.thread165 ]
-  %.085156162 = phi i64 [ %60, %.thread158 ], [ 0, %73 ], [ %66, %.thread165 ]
-  %96 = phi ptr [ %62, %.thread158 ], [ %74, %73 ], [ %67, %.thread165 ]
+.thread171:                                       ; preds = %.thread164, %.thread157, %73
+  %.191151163 = phi i64 [ %61, %.thread157 ], [ 1048576, %73 ], [ 524288, %.thread164 ]
+  %.087153162 = phi i64 [ %.188, %.thread157 ], [ %13, %73 ], [ 524288, %.thread164 ]
+  %.085155161 = phi i64 [ %60, %.thread157 ], [ 0, %73 ], [ %66, %.thread164 ]
+  %96 = phi ptr [ %62, %.thread157 ], [ %74, %73 ], [ %67, %.thread164 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load i64, ptr %97, align 8, !tbaa !43
-  %99 = icmp ugt i64 %.087154163, %98
+  %99 = icmp ugt i64 %.087153162, %98
   br i1 %99, label %100, label %.thread124
 
-100:                                              ; preds = %.thread172
+100:                                              ; preds = %.thread171
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !36
   %103 = add i64 %102, %98
@@ -1389,9 +1389,9 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   %.pre142 = load i64, ptr %97, align 8, !tbaa !43
   br label %.thread124
 
-.thread124:                                       ; preds = %.thread172, %114
-  %115 = phi i64 [ %98, %.thread172 ], [ %.pre142, %114 ]
-  %116 = sub i64 %115, %.087154163
+.thread124:                                       ; preds = %.thread171, %114
+  %115 = phi i64 [ %98, %.thread171 ], [ %.pre142, %114 ]
+  %116 = sub i64 %115, %.087153162
   store i64 %116, ptr %97, align 8, !tbaa !43
   br label %.sink.split
 
@@ -1405,28 +1405,28 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   store i64 0, ptr %12, align 8, !tbaa !37
   br i1 %65, label %.thread133, label %118
 
-.sink.split:                                      ; preds = %.thread165, %.thread124
-  %.sink = phi i64 [ %.085156162, %.thread124 ], [ %66, %.thread165 ]
-  %.087155.ph = phi i64 [ %.087154163, %.thread124 ], [ 524288, %.thread165 ]
-  %.191153.ph = phi i64 [ %.191152164, %.thread124 ], [ 524288, %.thread165 ]
+.sink.split:                                      ; preds = %.thread164, %.thread124
+  %.sink = phi i64 [ %.085155161, %.thread124 ], [ %66, %.thread164 ]
+  %.087154.ph = phi i64 [ %.087153162, %.thread124 ], [ 524288, %.thread164 ]
+  %.191152.ph = phi i64 [ %.191151163, %.thread124 ], [ 524288, %.thread164 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !37
   br label %118
 
 118:                                              ; preds = %.sink.split, %117
-  %.085157 = phi i64 [ 0, %117 ], [ %.sink, %.sink.split ]
-  %.087155 = phi i64 [ %13, %117 ], [ %.087155.ph, %.sink.split ]
-  %.191153 = phi i64 [ 1048576, %117 ], [ %.191153.ph, %.sink.split ]
+  %.085156 = phi i64 [ 0, %117 ], [ %.sink, %.sink.split ]
+  %.087154 = phi i64 [ %13, %117 ], [ %.087154.ph, %.sink.split ]
+  %.191152 = phi i64 [ 1048576, %117 ], [ %.191152.ph, %.sink.split ]
   %119 = load ptr, ptr %0, align 8, !tbaa !40
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.087155
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %120, i64 %.085157, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %.087154
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %119, ptr align 1 %120, i64 %.085156, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !36
-  %123 = add i64 %122, %.087155
+  %123 = add i64 %122, %.087154
   store i64 %123, ptr %121, align 8, !tbaa !36
   br label %.thread133
 
 .thread133:                                       ; preds = %.thread119, %117, %118, %H5VM_log2_gen.exit
-  %.090 = phi i64 [ %41, %H5VM_log2_gen.exit ], [ %.191106.ph, %.thread119 ], [ 1048576, %117 ], [ %.191153, %118 ]
+  %.090 = phi i64 [ %41, %H5VM_log2_gen.exit ], [ %.191106.ph, %.thread119 ], [ 1048576, %117 ], [ %.191152, %118 ]
   %124 = load i64, ptr %15, align 8, !tbaa !38
   %125 = icmp ugt i64 %.090, %124
   br i1 %125, label %126, label %138
@@ -1453,9 +1453,9 @@ H5VM_log2_gen.exit.thread:                        ; preds = %18, %22, %H5VM_log2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %135, i8 0, i64 %137, i1 false)
   br label %138
 
-138:                                              ; preds = %91, %110, %129, %133, %.thread133, %4, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %.thread133 ], [ -1, %129 ], [ 0, %133 ], [ -1, %91 ], [ -1, %110 ]
-  ret i32 %.0
+138:                                              ; preds = %91, %110, %129, %133, %4, %11, %.thread133
+  %.082 = phi i32 [ 0, %11 ], [ 0, %4 ], [ 0, %.thread133 ], [ -1, %129 ], [ 0, %133 ], [ -1, %91 ], [ -1, %110 ]
+  ret i32 %.082
 }
 
 declare i32 @H5FD_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -1764,9 +1764,9 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr noundef captures(none) %0, i32 
   store i64 %119, ptr %21, align 8, !tbaa !37
   br label %120
 
-120:                                              ; preds = %80, %95, %110, %.thread187, %35, %56, %58, %49, %33, %4, %11, %17, %20, %26
-  %.0 = phi i32 [ 0, %20 ], [ 0, %26 ], [ 0, %17 ], [ 0, %11 ], [ 0, %4 ], [ 0, %33 ], [ 0, %49 ], [ 0, %58 ], [ 0, %56 ], [ 0, %35 ], [ 0, %.thread187 ], [ -1, %80 ], [ -1, %95 ], [ -1, %110 ]
-  ret i32 %.0
+120:                                              ; preds = %80, %95, %110, %.thread187, %4, %11, %17, %20, %26, %33, %49, %58, %56, %35
+  %.0144 = phi i32 [ 0, %20 ], [ 0, %26 ], [ 0, %17 ], [ 0, %11 ], [ 0, %4 ], [ 0, %33 ], [ 0, %49 ], [ 0, %58 ], [ 0, %56 ], [ 0, %35 ], [ 0, %.thread187 ], [ -1, %80 ], [ -1, %95 ], [ -1, %110 ]
+  ret i32 %.0144
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1818,9 +1818,9 @@ define range(i32 -1, 1) i32 @H5F__accum_flush(ptr noundef captures(none) %0) loc
   store i8 0, ptr %13, align 8, !tbaa !46
   br label %35
 
-35:                                               ; preds = %30, %34, %1, %8, %12
-  %.013 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 0, %1 ], [ -1, %30 ], [ 0, %34 ]
-  ret i32 %.013
+35:                                               ; preds = %1, %8, %12, %34, %30
+  %.014 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 0, %1 ], [ -1, %30 ], [ 0, %34 ]
+  ret i32 %.014
 }
 
 declare ptr @H5FL_blk_free(ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -67,7 +67,7 @@ define noundef i32 @_ZN6icu_776number4impl10AffixUtils14estimateLengthERKNS_13Un
   %.01929 = phi i32 [ %.120, %25 ], [ 0, %2 ]
   %.02128 = phi i32 [ %28, %25 ], [ 0, %2 ]
   %12 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.02128)
-  switch i32 %.030, label %default.unreachable [
+  switch i32 %.030, label %.unreachabledefault [
     i32 0, label %13
     i32 1, label %16
     i32 2, label %19
@@ -101,7 +101,7 @@ define noundef i32 @_ZN6icu_776number4impl10AffixUtils14estimateLengthERKNS_13Un
   %.22 = select i1 %23, i32 2, i32 3
   br label %25
 
-default.unreachable:                              ; preds = %.lr.ph
+.unreachabledefault:                              ; preds = %.lr.ph
   unreachable
 
 25:                                               ; preds = %19, %13, %22, %16

@@ -110,7 +110,7 @@ define range(i32 -1, 1) i32 @H5SM__get_mesg_count_test(ptr noundef %0, i32 nound
   %50 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5SM__get_mesg_count_test, i32 noundef 105, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.4) #3
   br label %51
 
-51:                                               ; preds = %3, %47, %43, %.thread, %39
+51:                                               ; preds = %39, %.thread, %43, %47, %3
   %.021 = phi i32 [ -1, %47 ], [ %.1.ph, %43 ], [ -1, %39 ], [ 0, %3 ], [ 0, %.thread ]
   %52 = load i64, ptr %4, align 8, !tbaa !3
   call void @H5AC_tag(i64 noundef %52, ptr noundef null) #3

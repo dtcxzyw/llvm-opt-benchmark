@@ -64,7 +64,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread18, label %21
+  br i1 %20, label %.thread19, label %21
 
 21:                                               ; preds = %17
   %22 = zext i1 %6 to i32
@@ -104,9 +104,9 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %46 = call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3264, i64 noundef 128) #5
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread14, label %48
+  br i1 %47, label %.thread15, label %48
 
-.thread14:                                        ; preds = %44
+.thread15:                                        ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
@@ -136,7 +136,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   %62 = phi ptr [ %5, %21 ], [ %53, %52 ]
   %63 = load ptr, ptr %4, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread13, label %65
+  br i1 %64, label %.thread14, label %65
 
 65:                                               ; preds = %.loopexit
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 56
@@ -146,29 +146,29 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
 
 69:                                               ; preds = %65
   %70 = icmp sgt i32 %67, 0
-  br i1 %70, label %.thread13, label %71, !prof !7
+  br i1 %70, label %.thread14, label %71, !prof !7
 
 71:                                               ; preds = %69
   call void @refcount_warn_saturate(ptr noundef nonnull %66, i32 noundef 3) #4
-  br label %.thread13
+  br label %.thread14
 
 72:                                               ; preds = %65
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   call void @dma_fence_release(ptr noundef nonnull %66) #4
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %69, %71, %72, %.loopexit
+.thread14:                                        ; preds = %69, %71, %72, %.loopexit
   store ptr %62, ptr %4, align 8
-  br label %.thread18
+  br label %.thread19
 
 73:                                               ; preds = %.preheader, %34
   %.ph = phi i32 [ %37, %34 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %74 = icmp eq ptr %30, null
-  br i1 %74, label %.thread18, label %75
+  br i1 %74, label %.thread19, label %75
 
-75:                                               ; preds = %.thread14, %73
-  %.ph16 = phi i32 [ -12, %.thread14 ], [ %.ph, %73 ]
+75:                                               ; preds = %.thread15, %73
+  %.ph17 = phi i32 [ -12, %.thread15 ], [ %.ph, %73 ]
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %77 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %76, i32 -1, ptr nonnull elementtype(i32) %76) #4, !srcloc !12
   %78 = icmp eq i32 %77, 1
@@ -176,19 +176,19 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
 
 79:                                               ; preds = %75
   %80 = icmp sgt i32 %77, 0
-  br i1 %80, label %.thread18, label %81, !prof !7
+  br i1 %80, label %.thread19, label %81, !prof !7
 
 81:                                               ; preds = %79
   call void @refcount_warn_saturate(ptr noundef nonnull %76, i32 noundef 3) #4
-  br label %.thread18
+  br label %.thread19
 
 82:                                               ; preds = %75
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   call void @dma_fence_release(ptr noundef nonnull %76) #4
-  br label %.thread18
+  br label %.thread19
 
-.thread18:                                        ; preds = %79, %81, %82, %73, %.thread13, %17
-  %83 = phi i32 [ 0, %.thread13 ], [ 0, %17 ], [ %.ph, %73 ], [ %.ph16, %82 ], [ %.ph16, %81 ], [ %.ph16, %79 ]
+.thread19:                                        ; preds = %79, %81, %82, %73, %.thread14, %17
+  %83 = phi i32 [ 0, %.thread14 ], [ 0, %17 ], [ %.ph, %73 ], [ %.ph17, %82 ], [ %.ph17, %81 ], [ %.ph17, %79 ]
   ret i32 %83
 }
 

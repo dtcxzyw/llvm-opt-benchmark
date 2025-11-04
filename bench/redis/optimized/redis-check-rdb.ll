@@ -272,7 +272,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #6
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = alloca i8, align 1
@@ -288,7 +288,7 @@ define dso_local noundef i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) lo
 11:                                               ; preds = %2
   %12 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.47)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %14
+  br i1 %13, label %170, label %14
 
 14:                                               ; preds = %11, %2
   %.068 = phi ptr [ %12, %11 ], [ %1, %2 ]
@@ -687,7 +687,7 @@ select.unfold.jt2:                                ; preds = %55, %.thread.i109
   br label %.thread122
 
 165:                                              ; preds = %.thread131, %.thread126
-  br i1 %10, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
+  br i1 %10, label %.sink.split.sink.split, label %.sink.split
 
 rioRead.exit.thread:                              ; preds = %88, %79, %68, %126, %123, %109, %106, %103, %91, %85, %82, %76, %71, %51, %46, %.preheader, %select.unfold.jt2, %97, %.thread.i, %14, %.thread133
   %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 60), align 4, !tbaa !27
@@ -703,22 +703,22 @@ rioRead.exit.thread:                              ; preds = %88, %79, %68, %126,
   br label %.thread122
 
 .thread122:                                       ; preds = %select.unfold.jt3, %113, %122, %116, %164, %167, %168, %44, %38
-  br i1 %10, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
+  br i1 %10, label %.sink.split.sink.split, label %.sink.split
 
-.loopexit.sink.split.sink.split:                  ; preds = %.thread122, %165
+.sink.split.sink.split:                           ; preds = %.thread122, %165
   %.sink.ph = phi i32 [ 1, %165 ], [ 0, %.thread122 ]
   %.0.ph.ph = phi i32 [ 0, %165 ], [ 1, %.thread122 ]
   %169 = call i32 @fclose(ptr noundef nonnull %.068)
-  br label %.loopexit.sink.split
+  br label %.sink.split
 
-.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %.thread122, %165
-  %.sink = phi i32 [ 1, %165 ], [ 0, %.thread122 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ]
-  %.0.ph = phi i32 [ 0, %165 ], [ 1, %.thread122 ], [ %.0.ph.ph, %.loopexit.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %.thread122, %165
+  %.sink = phi i32 [ 1, %165 ], [ 0, %.thread122 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.0.ph = phi i32 [ 0, %165 ], [ 1, %.thread122 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   call void @stopLoading(i32 noundef %.sink) #15
-  br label %.loopexit
+  br label %170
 
-.loopexit:                                        ; preds = %.loopexit.sink.split, %11
-  %.0 = phi i32 [ 1, %11 ], [ %.0.ph, %.loopexit.sink.split ]
+170:                                              ; preds = %.sink.split, %11
+  %.0 = phi i32 [ 1, %11 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

@@ -1265,9 +1265,9 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %3, ptr %4, align 8
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %62, label %.preheader9
+  br i1 %5, label %62, label %.preheader10
 
-.preheader9:                                      ; preds = %1, %.thread
+.preheader10:                                     ; preds = %1, %.thread
   %6 = phi i64 [ %55, %.thread ], [ 0, %1 ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %struct.iova_rcache, ptr %7, i64 %6
@@ -1290,10 +1290,10 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
-  br i1 %19, label %.thread8, label %.preheader
+  br i1 %19, label %.thread9, label %.preheader
 
-.preheader:                                       ; preds = %.preheader9, %50
-  %20 = phi i64 [ %54, %50 ], [ 0, %.preheader9 ]
+.preheader:                                       ; preds = %.preheader10, %50
+  %20 = phi i64 [ %54, %50 ], [ 0, %.preheader10 ]
   %21 = and i64 %20, 4294967295
   %22 = icmp samesign ugt i64 %21, 63
   br i1 %22, label %.thread, label %23, !prof !13
@@ -1335,12 +1335,12 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %47 = tail call noalias align 8 dereferenceable_or_null(1024) ptr @kmalloc_trace(ptr noundef %46, i32 noundef 3264, i64 noundef 1024) #12
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread6, label %50
+  br i1 %48, label %.thread7, label %50
 
-.thread6:                                         ; preds = %44
+.thread7:                                         ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr null, ptr %49, align 8
-  br label %.thread8
+  br label %.thread9
 
 50:                                               ; preds = %44
   store i64 0, ptr %47, align 8
@@ -1349,26 +1349,26 @@ define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112
   %52 = load ptr, ptr %45, align 8
   %53 = icmp eq ptr %52, null
   %54 = add nuw nsw i64 %29, 1
-  br i1 %53, label %.thread8, label %.preheader, !llvm.loop !42
+  br i1 %53, label %.thread9, label %.preheader, !llvm.loop !42
 
 .thread:                                          ; preds = %23, %.preheader, %28
   %55 = add nuw nsw i64 %6, 1
   %56 = icmp eq i64 %55, 6
-  br i1 %56, label %57, label %.preheader9, !llvm.loop !43
+  br i1 %56, label %57, label %.preheader10, !llvm.loop !43
 
 57:                                               ; preds = %.thread
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = tail call i32 @__cpuhp_state_add_instance(i32 noundef 34, ptr noundef nonnull %58, i1 noundef zeroext false) #9
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %62, label %.thread8
+  br i1 %60, label %62, label %.thread9
 
-.thread8:                                         ; preds = %.preheader9, %50, %.thread6, %57
-  %61 = phi i32 [ %59, %57 ], [ -12, %.thread6 ], [ -12, %50 ], [ -12, %.preheader9 ]
+.thread9:                                         ; preds = %.preheader10, %50, %.thread7, %57
+  %61 = phi i32 [ %59, %57 ], [ -12, %.thread7 ], [ -12, %50 ], [ -12, %.preheader10 ]
   tail call fastcc void @free_iova_rcaches(ptr noundef %0)
   br label %62
 
-62:                                               ; preds = %.thread8, %57, %1
-  %63 = phi i32 [ %61, %.thread8 ], [ -12, %1 ], [ 0, %57 ]
+62:                                               ; preds = %.thread9, %57, %1
+  %63 = phi i32 [ %61, %.thread9 ], [ -12, %1 ], [ 0, %57 ]
   ret i32 %63
 }
 

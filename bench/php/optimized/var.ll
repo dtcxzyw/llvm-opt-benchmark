@@ -6569,12 +6569,12 @@ define dso_local void @php_unserialize_with_options(ptr noundef %0, ptr noundef 
   %14 = tail call i64 @php_var_unserialize_get_max_depth(ptr noundef %12) #14
   %15 = tail call i64 @php_var_unserialize_get_cur_depth(ptr noundef %12) #14
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %zend_hash_str_find_deref.exit131, label %16
+  br i1 %.not, label %zend_hash_str_find_deref.exit132, label %16
 
 16:                                               ; preds = %11
   %17 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i64 noundef 15) #14
-  %.not.i128 = icmp eq ptr %17, null
-  br i1 %.not.i128, label %.critedge.thread, label %18
+  %.not.i129 = icmp eq ptr %17, null
+  br i1 %.not.i129, label %.critedge.thread, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -6635,8 +6635,8 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   %44 = load ptr, ptr %.0.i.ph, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !25
-  %.not113163 = icmp eq i32 %46, 0
-  br i1 %.not113163, label %.critedge.thread, label %.lr.ph
+  %.not113164 = icmp eq i32 %46, 0
+  br i1 %.not113164, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -6649,26 +6649,26 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   %54 = zext nneg i32 %53 to i64
   br label %55
 
-55:                                               ; preds = %.lr.ph, %zend_string_release_ex.exit127
-  %.098165 = phi i32 [ %46, %.lr.ph ], [ %109, %zend_string_release_ex.exit127 ]
-  %.099164 = phi ptr [ %48, %.lr.ph ], [ %108, %zend_string_release_ex.exit127 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.099164, i64 8
+55:                                               ; preds = %.lr.ph, %zend_string_release_ex.exit128
+  %.098166 = phi i32 [ %46, %.lr.ph ], [ %109, %zend_string_release_ex.exit128 ]
+  %.099165 = phi ptr [ %48, %.lr.ph ], [ %108, %zend_string_release_ex.exit128 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.099165, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !4
   switch i8 %57, label %61 [
-    i8 0, label %zend_string_release_ex.exit127
+    i8 0, label %zend_string_release_ex.exit128
     i8 10, label %58
   ], !prof !142
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %.099164, align 8, !tbaa !4
+  %59 = load ptr, ptr %.099165, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %.pre169 = load i8, ptr %.phi.trans.insert168, align 8, !tbaa !4
+  %.phi.trans.insert169 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %.pre170 = load i8, ptr %.phi.trans.insert169, align 8, !tbaa !4
   br label %61
 
 61:                                               ; preds = %55, %58
-  %62 = phi i8 [ %.pre169, %58 ], [ %57, %55 ]
-  %.097 = phi ptr [ %60, %58 ], [ %.099164, %55 ]
+  %62 = phi i8 [ %.pre170, %58 ], [ %57, %55 ]
+  %.097 = phi ptr [ %60, %58 ], [ %.099165, %55 ]
   switch i8 %62, label %63 [
     i8 6, label %65
     i8 8, label %zval_try_get_string.exit
@@ -6684,8 +6684,8 @@ gc_check_possible_root.exit.thread:               ; preds = %25
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !4
   %69 = and i32 %68, 64
-  %.not.i135 = icmp eq i32 %69, 0
-  br i1 %.not.i135, label %70, label %zval_try_get_string.exit.thread
+  %.not.i136 = icmp eq i32 %69, 0
+  br i1 %.not.i136, label %70, label %zval_try_get_string.exit.thread
 
 70:                                               ; preds = %65
   %71 = load i32, ptr %66, align 4, !tbaa !23
@@ -6699,86 +6699,86 @@ zval_try_get_string.exit:                         ; preds = %61
   br i1 %74, label %gc_check_possible_root.exit, label %zval_try_get_string.exit.thread, !prof !144
 
 zval_try_get_string.exit.thread:                  ; preds = %65, %70, %zval_try_get_string.exit
-  %.0.i132145 = phi ptr [ %73, %zval_try_get_string.exit ], [ %66, %70 ], [ %66, %65 ]
-  %75 = tail call zeroext i1 @zend_is_valid_class_name(ptr noundef nonnull %.0.i132145) #14
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i132145, i64 4
+  %.0.i133146 = phi ptr [ %73, %zval_try_get_string.exit ], [ %66, %70 ], [ %66, %65 ]
+  %75 = tail call zeroext i1 @zend_is_valid_class_name(ptr noundef nonnull %.0.i133146) #14
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i133146, i64 4
   br i1 %75, label %87, label %77, !prof !56
 
 77:                                               ; preds = %zval_try_get_string.exit.thread
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i132145, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i133146, i64 24
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.49, ptr noundef %4, ptr noundef nonnull %78) #14
   %79 = load i32, ptr %76, align 4, !tbaa !4
   %80 = and i32 %79, 64
-  %.not.i126 = icmp eq i32 %80, 0
-  br i1 %.not.i126, label %81, label %gc_check_possible_root.exit
+  %.not.i127 = icmp eq i32 %80, 0
+  br i1 %.not.i127, label %81, label %gc_check_possible_root.exit
 
 81:                                               ; preds = %77
-  %82 = load i32, ptr %.0.i132145, align 4, !tbaa !23
+  %82 = load i32, ptr %.0.i133146, align 4, !tbaa !23
   %83 = icmp ne i32 %82, 0
   tail call void @llvm.assume(i1 %83)
   %84 = add i32 %82, -1
-  store i32 %84, ptr %.0.i132145, align 4, !tbaa !23
+  store i32 %84, ptr %.0.i133146, align 4, !tbaa !23
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %gc_check_possible_root.exit
 
 86:                                               ; preds = %81
-  tail call void @_efree(ptr noundef nonnull %.0.i132145) #14
+  tail call void @_efree(ptr noundef nonnull %.0.i133146) #14
   br label %gc_check_possible_root.exit
 
 87:                                               ; preds = %zval_try_get_string.exit.thread
-  %88 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %.0.i132145, i1 noundef zeroext false) #14
+  %88 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %.0.i133146, i1 noundef zeroext false) #14
   %89 = tail call ptr @zend_hash_add_empty_element(ptr noundef nonnull %32, ptr noundef %88) #14
   %90 = load i32, ptr %76, align 4, !tbaa !4
   %91 = and i32 %90, 64
-  %.not.i124 = icmp eq i32 %91, 0
-  br i1 %.not.i124, label %92, label %zend_string_release_ex.exit125
+  %.not.i125 = icmp eq i32 %91, 0
+  br i1 %.not.i125, label %92, label %zend_string_release_ex.exit126
 
 92:                                               ; preds = %87
-  %93 = load i32, ptr %.0.i132145, align 4, !tbaa !23
+  %93 = load i32, ptr %.0.i133146, align 4, !tbaa !23
   %94 = icmp ne i32 %93, 0
   tail call void @llvm.assume(i1 %94)
   %95 = add i32 %93, -1
-  store i32 %95, ptr %.0.i132145, align 4, !tbaa !23
+  store i32 %95, ptr %.0.i133146, align 4, !tbaa !23
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %zend_string_release_ex.exit125
+  br i1 %96, label %97, label %zend_string_release_ex.exit126
 
 97:                                               ; preds = %92
-  tail call void @_efree(ptr noundef nonnull %.0.i132145) #14
-  br label %zend_string_release_ex.exit125
+  tail call void @_efree(ptr noundef nonnull %.0.i133146) #14
+  br label %zend_string_release_ex.exit126
 
-zend_string_release_ex.exit125:                   ; preds = %87, %92, %97
+zend_string_release_ex.exit126:                   ; preds = %87, %92, %97
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !4
   %100 = and i32 %99, 64
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %101, label %zend_string_release_ex.exit127
+  br i1 %.not.i, label %101, label %zend_string_release_ex.exit128
 
-101:                                              ; preds = %zend_string_release_ex.exit125
+101:                                              ; preds = %zend_string_release_ex.exit126
   %102 = load i32, ptr %88, align 4, !tbaa !23
   %103 = icmp ne i32 %102, 0
   tail call void @llvm.assume(i1 %103)
   %104 = add i32 %102, -1
   store i32 %104, ptr %88, align 4, !tbaa !23
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %zend_string_release_ex.exit127
+  br i1 %105, label %106, label %zend_string_release_ex.exit128
 
 106:                                              ; preds = %101
   tail call void @_efree(ptr noundef nonnull %88) #14
-  br label %zend_string_release_ex.exit127
+  br label %zend_string_release_ex.exit128
 
-zend_string_release_ex.exit127:                   ; preds = %55, %zend_string_release_ex.exit125, %101, %106
-  %107 = getelementptr inbounds nuw i8, ptr %.099164, i64 %54
+zend_string_release_ex.exit128:                   ; preds = %55, %zend_string_release_ex.exit126, %101, %106
+  %107 = getelementptr inbounds nuw i8, ptr %.099165, i64 %54
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = add i32 %.098165, -1
+  %109 = add i32 %.098166, -1
   %.not113 = icmp eq i32 %109, 0
   br i1 %.not113, label %.critedge.thread, label %55
 
-.critedge.thread:                                 ; preds = %zend_string_release_ex.exit127, %43, %16, %29, %40, %.critedge
-  %.2143 = phi ptr [ %32, %40 ], [ null, %.critedge ], [ null, %29 ], [ null, %16 ], [ %32, %43 ], [ %32, %zend_string_release_ex.exit127 ]
-  tail call void @php_var_unserialize_set_allowed_classes(ptr noundef %12, ptr noundef %.2143) #14
+.critedge.thread:                                 ; preds = %zend_string_release_ex.exit128, %43, %16, %29, %40, %.critedge
+  %.2144 = phi ptr [ %32, %40 ], [ null, %.critedge ], [ null, %29 ], [ null, %16 ], [ %32, %43 ], [ %32, %zend_string_release_ex.exit128 ]
+  tail call void @php_var_unserialize_set_allowed_classes(ptr noundef %12, ptr noundef %.2144) #14
   %110 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %3, ptr noundef nonnull @.str.50, i64 noundef 9) #14
-  %.not.i129 = icmp eq ptr %110, null
-  br i1 %.not.i129, label %zend_hash_str_find_deref.exit131, label %111
+  %.not.i130 = icmp eq ptr %110, null
+  br i1 %.not.i130, label %zend_hash_str_find_deref.exit132, label %111
 
 111:                                              ; preds = %.critedge.thread
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -6789,23 +6789,23 @@ zend_string_release_ex.exit127:                   ; preds = %55, %zend_string_re
 115:                                              ; preds = %111
   %116 = load ptr, ptr %110, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %.pre171 = load i8, ptr %.phi.trans.insert170, align 8, !tbaa !4
+  %.phi.trans.insert171 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %.pre172 = load i8, ptr %.phi.trans.insert171, align 8, !tbaa !4
   br label %118
 
 118:                                              ; preds = %115, %111
-  %119 = phi i8 [ %113, %111 ], [ %.pre171, %115 ]
-  %.0.i130.ph = phi ptr [ %110, %111 ], [ %117, %115 ]
+  %119 = phi i8 [ %113, %111 ], [ %.pre172, %115 ]
+  %.0.i131.ph = phi ptr [ %110, %111 ], [ %117, %115 ]
   %.not116 = icmp eq i8 %119, 4
   br i1 %.not116, label %122, label %120
 
 120:                                              ; preds = %118
-  %121 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i130.ph) #14
+  %121 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i131.ph) #14
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.51, ptr noundef %4, ptr noundef %121) #14
   br label %gc_check_possible_root.exit
 
 122:                                              ; preds = %118
-  %123 = load i64, ptr %.0.i130.ph, align 8, !tbaa !4
+  %123 = load i64, ptr %.0.i131.ph, align 8, !tbaa !4
   %124 = icmp slt i64 %123, 0
   br i1 %124, label %125, label %126
 
@@ -6816,20 +6816,20 @@ zend_string_release_ex.exit127:                   ; preds = %55, %zend_string_re
 126:                                              ; preds = %122
   tail call void @php_var_unserialize_set_max_depth(ptr noundef %12, i64 noundef %123) #14
   tail call void @php_var_unserialize_set_cur_depth(ptr noundef %12, i64 noundef 0) #14
-  br label %zend_hash_str_find_deref.exit131
+  br label %zend_hash_str_find_deref.exit132
 
-zend_hash_str_find_deref.exit131:                 ; preds = %126, %.critedge.thread, %11
-  %.093 = phi ptr [ null, %11 ], [ %.2143, %126 ], [ %.2143, %.critedge.thread ]
+zend_hash_str_find_deref.exit132:                 ; preds = %126, %.critedge.thread, %11
+  %.093 = phi ptr [ null, %11 ], [ %.2144, %126 ], [ %.2144, %.critedge.thread ]
   %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 880), align 8, !tbaa !145
   %128 = icmp ugt i32 %127, 1
   br i1 %128, label %129, label %131
 
-129:                                              ; preds = %zend_hash_str_find_deref.exit131
+129:                                              ; preds = %zend_hash_str_find_deref.exit132
   %130 = call ptr @var_tmp_var(ptr noundef nonnull %7) #14
   br label %131
 
-131:                                              ; preds = %zend_hash_str_find_deref.exit131, %129
-  %.0 = phi ptr [ %130, %129 ], [ %0, %zend_hash_str_find_deref.exit131 ]
+131:                                              ; preds = %zend_hash_str_find_deref.exit132, %129
+  %.0 = phi ptr [ %130, %129 ], [ %0, %zend_hash_str_find_deref.exit132 ]
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %133 = call i32 @php_var_unserialize(ptr noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull %132, ptr noundef nonnull %7) #14
   %.not117 = icmp eq i32 %133, 0
@@ -6916,19 +6916,19 @@ zend_hash_str_find_deref.exit131:                 ; preds = %126, %.critedge.thr
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 17
   %178 = load i8, ptr %177, align 1, !tbaa !4
   %179 = and i8 %178, 2
-  %.not.i133 = icmp eq i8 %179, 0
-  br i1 %.not.i133, label %gc_check_possible_root.exit, label %.thread157
+  %.not.i134 = icmp eq i8 %179, 0
+  br i1 %.not.i134, label %gc_check_possible_root.exit, label %.thread158
 
-.thread157:                                       ; preds = %176
+.thread158:                                       ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !4
-  %.phi.trans.insert172 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %.pre173 = load i32, ptr %.phi.trans.insert172, align 4, !tbaa !4
+  %.phi.trans.insert173 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  %.pre174 = load i32, ptr %.phi.trans.insert173, align 4, !tbaa !4
   br label %182
 
-182:                                              ; preds = %.thread157, %171
-  %183 = phi i32 [ %174, %171 ], [ %.pre173, %.thread157 ]
-  %.06.i = phi ptr [ %172, %171 ], [ %181, %.thread157 ]
+182:                                              ; preds = %.thread158, %171
+  %183 = phi i32 [ %174, %171 ], [ %.pre174, %.thread158 ]
+  %.06.i = phi ptr [ %172, %171 ], [ %181, %.thread158 ]
   %184 = and i32 %183, -1008
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %gc_check_possible_root.exit, !prof !30
@@ -6938,7 +6938,7 @@ zend_hash_str_find_deref.exit131:                 ; preds = %126, %.critedge.thr
   br label %gc_check_possible_root.exit
 
 gc_check_possible_root.exit:                      ; preds = %zval_try_get_string.exit, %86, %81, %77, %63, %125, %120, %186, %182, %176, %159, %165, %145, %168
-  %.3 = phi ptr [ %.093, %168 ], [ %.093, %145 ], [ %.093, %165 ], [ %.093, %159 ], [ %.093, %176 ], [ %.093, %182 ], [ %.093, %186 ], [ %.2143, %125 ], [ %.2143, %120 ], [ %32, %63 ], [ %32, %77 ], [ %32, %81 ], [ %32, %86 ], [ %32, %zval_try_get_string.exit ]
+  %.3 = phi ptr [ %.093, %168 ], [ %.093, %145 ], [ %.093, %165 ], [ %.093, %159 ], [ %.093, %176 ], [ %.093, %182 ], [ %.093, %186 ], [ %.2144, %125 ], [ %.2144, %120 ], [ %32, %63 ], [ %32, %77 ], [ %32, %81 ], [ %32, %86 ], [ %32, %zval_try_get_string.exit ]
   %.not121 = icmp eq ptr %.3, null
   br i1 %.not121, label %188, label %187
 
@@ -6990,8 +6990,8 @@ gc_check_possible_root.exit:                      ; preds = %zval_try_get_string
   store ptr %210, ptr %0, align 8, !tbaa !4
   store i32 %212, ptr %193, align 8, !tbaa !4
   %213 = and i32 %212, 65280
-  %.not.i134 = icmp eq i32 %213, 0
-  br i1 %.not.i134, label %zend_unwrap_reference.exit, label %214
+  %.not.i135 = icmp eq i32 %213, 0
+  br i1 %.not.i135, label %zend_unwrap_reference.exit, label %214
 
 214:                                              ; preds = %205
   %215 = load i32, ptr %210, align 4, !tbaa !23

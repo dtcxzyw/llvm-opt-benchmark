@@ -536,10 +536,10 @@ define range(i32 0, 2) i32 @X509_ACERT_add_attr_nconf(ptr noundef %0, ptr nounde
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.thread50
 
-.lr.ph:                                           ; preds = %.preheader, %.thread54
-  %.12764 = phi i32 [ 1, %.thread54 ], [ 0, %.preheader ]
-  %.02863 = phi i32 [ %44, %.thread54 ], [ 0, %.preheader ]
-  %9 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.02863) #8
+.lr.ph:                                           ; preds = %.preheader, %.thread53
+  %.12762 = phi i32 [ 1, %.thread53 ], [ 0, %.preheader ]
+  %.02861 = phi i32 [ %44, %.thread53 ], [ 0, %.preheader ]
+  %9 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.02861) #8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = icmp eq ptr %11, null
@@ -590,12 +590,12 @@ check_asn1_attribute.exit:                        ; preds = %20
   %32 = load ptr, ptr %2, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %34 = call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %33, ptr noundef %30, i32 noundef 16, ptr noundef %31, i32 noundef %28) #8
-  %.not59.not = icmp eq ptr %34, null
+  %.not57.not = icmp eq ptr %34, null
   %35 = load ptr, ptr %4, align 8, !tbaa !52
   call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.8, i32 noundef 295) #8
   call void @ASN1_TYPE_free(ptr noundef nonnull %25) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not59.not, label %.thread50, label %.thread54
+  br i1 %.not57.not, label %.thread50, label %.thread53
 
 36:                                               ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -606,17 +606,17 @@ check_asn1_attribute.exit:                        ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %43 = call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %42, ptr noundef %38, i32 noundef 4, ptr noundef nonnull %11, i32 noundef %40) #8
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %.thread50, label %.thread54
+  br i1 %.not, label %.thread50, label %.thread53
 
-.thread54:                                        ; preds = %36, %27
-  %44 = add nuw nsw i32 %.02863, 1
+.thread53:                                        ; preds = %36, %27
+  %44 = add nuw nsw i32 %.02861, 1
   %45 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #8
   %46 = icmp slt i32 %44, %45
   br i1 %46, label %.lr.ph, label %.thread50, !llvm.loop !53
 
-.thread50:                                        ; preds = %.thread54, %36, %27, %.preheader, %.thread, %13, %3
-  %.025 = phi i32 [ 0, %3 ], [ %.12764, %.thread ], [ %.12764, %13 ], [ 1, %.preheader ], [ 1, %.thread54 ], [ 0, %36 ], [ 0, %27 ]
-  ret i32 %.025
+.thread50:                                        ; preds = %.thread53, %36, %27, %.preheader, %.thread, %13, %3
+  %.026 = phi i32 [ 0, %3 ], [ %.12762, %.thread ], [ %.12762, %13 ], [ 1, %.preheader ], [ 1, %.thread53 ], [ 0, %36 ], [ 0, %27 ]
+  ret i32 %.026
 }
 
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #2

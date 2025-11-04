@@ -786,14 +786,14 @@ define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
 65:                                               ; preds = %.thread
   %66 = ptrtoint ptr %63 to i64
   %67 = trunc i64 %66 to i32
-  br label %.thread18
+  br label %.thread19
 
 68:                                               ; preds = %.thread
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %70 = load i32, ptr %69, align 8
   %71 = tail call ptr @intel_engine_create_ring(ptr noundef %1, i32 noundef %70) #13
   %72 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
-  br i1 %72, label %.thread16, label %73
+  br i1 %72, label %.thread17, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -822,18 +822,18 @@ define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
 88:                                               ; preds = %84, %79
   %89 = phi ptr [ %83, %79 ], [ %87, %84 ]
   %90 = icmp ugt ptr %89, inttoptr (i64 -4096 to ptr)
-  br i1 %90, label %94, label %.thread14
+  br i1 %90, label %94, label %.thread15
 
-.thread14:                                        ; preds = %88
+.thread15:                                        ; preds = %88
   store ptr %89, ptr %74, align 8
   br label %91
 
-91:                                               ; preds = %.thread14, %73
+91:                                               ; preds = %.thread15, %73
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %71, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %63, ptr %93, align 8
-  br label %.thread18
+  br label %.thread19
 
 94:                                               ; preds = %88
   %95 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %71, i32 -1, ptr elementtype(i32) %71) #13, !srcloc !13
@@ -842,18 +842,18 @@ define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
 
 97:                                               ; preds = %94
   %98 = icmp sgt i32 %95, 0
-  br i1 %98, label %.thread16, label %99, !prof !14
+  br i1 %98, label %.thread17, label %99, !prof !14
 
 99:                                               ; preds = %97
   tail call void @refcount_warn_saturate(ptr noundef %71, i32 noundef 3) #13
-  br label %.thread16
+  br label %.thread17
 
 100:                                              ; preds = %94
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   tail call void @intel_ring_free(ptr noundef %71) #13, !callees !16
-  br label %.thread16
+  br label %.thread17
 
-.thread16:                                        ; preds = %68, %97, %99, %100
+.thread17:                                        ; preds = %68, %97, %99, %100
   %.in.in = phi ptr [ %89, %100 ], [ %89, %99 ], [ %89, %97 ], [ %71, %68 ]
   %.in = ptrtoint ptr %.in.in to i64
   %101 = trunc i64 %.in to i32
@@ -863,20 +863,20 @@ define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) l
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %109, label %106
 
-106:                                              ; preds = %.thread16
+106:                                              ; preds = %.thread17
   %107 = icmp sgt i32 %104, 0
-  br i1 %107, label %.thread18, label %108, !prof !14
+  br i1 %107, label %.thread19, label %108, !prof !14
 
 108:                                              ; preds = %106
   tail call void @refcount_warn_saturate(ptr noundef %103, i32 noundef 3) #13
-  br label %.thread18
+  br label %.thread19
 
-109:                                              ; preds = %.thread16
+109:                                              ; preds = %.thread17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   tail call void @drm_gem_object_free(ptr noundef %103) #13, !callees !16
-  br label %.thread18
+  br label %.thread19
 
-.thread18:                                        ; preds = %106, %108, %109, %91, %65
+.thread19:                                        ; preds = %106, %108, %109, %91, %65
   %110 = phi i32 [ %67, %65 ], [ 0, %91 ], [ %101, %109 ], [ %101, %108 ], [ %101, %106 ]
   ret i32 %110
 }

@@ -7525,7 +7525,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   %59 = add i64 %3, %2
   %60 = tail call i32 @inode_newsize_ok(ptr noundef %9, i64 noundef %59) #18
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.thread11
+  br i1 %61, label %62, label %.thread12
 
 62:                                               ; preds = %58
   %63 = getelementptr i8, ptr %9, i64 -124
@@ -7538,7 +7538,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %69 = load i64, ptr %68, align 8
   %70 = icmp sgt i64 %59, %69
-  br i1 %70, label %.thread11, label %71
+  br i1 %70, label %.thread12, label %71
 
 71:                                               ; preds = %67, %62
   %72 = ashr i64 %2, 12
@@ -7549,7 +7549,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   %77 = sub nsw i64 %74, %72
   %78 = icmp ugt i64 %77, %75
   %79 = select i1 %76, i1 %78, i1 false
-  br i1 %79, label %.thread11, label %80
+  br i1 %79, label %.thread12, label %80
 
 80:                                               ; preds = %71
   store ptr null, ptr %5, align 8
@@ -7712,20 +7712,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
 164:                                              ; preds = %162, %56
   %165 = phi i32 [ %57, %56 ], [ %163, %162 ]
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %.thread11
+  br i1 %166, label %167, label %.thread12
 
 167:                                              ; preds = %164
   %168 = call i32 @file_modified(ptr noundef %0) #18
-  br label %.thread11
+  br label %.thread12
 
-.thread11:                                        ; preds = %71, %67, %58, %167, %164
+.thread12:                                        ; preds = %71, %67, %58, %167, %164
   %169 = phi i32 [ 0, %167 ], [ %165, %164 ], [ -28, %71 ], [ -1, %67 ], [ %60, %58 ]
   call void @up_write(ptr noundef nonnull %16) #18
   %170 = sext i32 %169 to i64
   br label %171
 
-171:                                              ; preds = %.thread11, %4
-  %172 = phi i64 [ %170, %.thread11 ], [ -95, %4 ]
+171:                                              ; preds = %.thread12, %4
+  %172 = phi i64 [ %170, %.thread12 ], [ -95, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %172
 }

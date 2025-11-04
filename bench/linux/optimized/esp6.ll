@@ -150,7 +150,7 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   %58 = ptrtoint ptr %57 to i64
   %59 = trunc i64 %58 to i32
   %60 = icmp sgt i32 %59, -1
-  br i1 %60, label %61, label %264
+  br i1 %60, label %61, label %.thread17
 
 61:                                               ; preds = %.thread15, %.thread, %3
   %62 = add i32 %6, 63
@@ -332,7 +332,7 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   %191 = add i32 %190, %6
   store i32 %191, ptr %189, align 8
   %192 = icmp eq ptr %121, null
-  br i1 %192, label %264, label %193
+  br i1 %192, label %.thread17, label %193
 
 193:                                              ; preds = %.loopexit18
   %194 = getelementptr inbounds nuw i8, ptr %121, i64 18
@@ -341,12 +341,12 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   %197 = shl nuw i32 1, %196
   %198 = and i32 %197, -4161
   %199 = icmp eq i32 %198, 0
-  br i1 %199, label %264, label %200
+  br i1 %199, label %.thread17, label %200
 
 200:                                              ; preds = %193
   %201 = getelementptr inbounds nuw i8, ptr %121, i64 340
   tail call fastcc void @refcount_add(i32 noundef %6, ptr noundef nonnull %201)
-  br label %264
+  br label %.thread17
 
 202:                                              ; preds = %119
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %124) #13
@@ -360,7 +360,7 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   %208 = load i16, ptr %207, align 2
   %209 = call i32 @skb_cow_data(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %4) #13
   %210 = icmp slt i32 %209, 0
-  br i1 %210, label %264, label %211
+  br i1 %210, label %.thread17, label %211
 
 211:                                              ; preds = %203
   %212 = zext i16 %208 to i64
@@ -433,12 +433,12 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 %239, ptr %261, align 1
   %262 = load ptr, ptr %4, align 8
   %263 = call ptr @pskb_put(ptr noundef %1, ptr noundef %262, i32 noundef %6) #13
-  br label %264
+  br label %.thread17
 
-264:                                              ; preds = %.loopexit18, %193, %200, %.loopexit, %203, %.thread
-  %265 = phi i32 [ %59, %.thread ], [ %209, %203 ], [ %233, %.loopexit ], [ %183, %200 ], [ %183, %193 ], [ %183, %.loopexit18 ]
+.thread17:                                        ; preds = %.loopexit18, %193, %200, %.loopexit, %203, %.thread
+  %264 = phi i32 [ %59, %.thread ], [ %209, %203 ], [ %233, %.loopexit ], [ %183, %200 ], [ %183, %193 ], [ %183, %.loopexit18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %265
+  ret i32 %264
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -782,7 +782,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
   %151 = add i32 %148, %150
   %152 = tail call i32 @skb_to_sgvec(ptr noundef %1, ptr noundef %77, i32 noundef %146, i32 noundef %151) #13
   %153 = icmp slt i32 %152, 0
-  br i1 %153, label %.thread9, label %154, !prof !13
+  br i1 %153, label %.thread10, label %154, !prof !13
 
 154:                                              ; preds = %136
   %155 = load i8, ptr %78, align 1, !range !14, !noundef !15
@@ -802,7 +802,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
 
 165:                                              ; preds = %157
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %163) #13
-  br label %.thread9
+  br label %.thread10
 
 166:                                              ; preds = %157
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -946,7 +946,7 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
   %262 = add i32 %261, %150
   %263 = tail call i32 @skb_to_sgvec(ptr noundef %1, ptr noundef %86, i32 noundef %260, i32 noundef %262) #13
   %264 = icmp slt i32 %263, 0
-  br i1 %264, label %.thread9, label %265, !prof !13
+  br i1 %264, label %.thread10, label %265, !prof !13
 
 265:                                              ; preds = %246, %154
   %266 = load i8, ptr %4, align 1
@@ -1076,36 +1076,36 @@ define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nound
 
 359:                                              ; preds = %356
   %.val = load i8, ptr %4, align 1
-  %.val8 = load ptr, ptr %11, align 8
-  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val8, ptr noundef nonnull %40)
+  %.val9 = load ptr, ptr %11, align 8
+  tail call fastcc void @esp_ssg_unref(i8 %.val, ptr %.val9, ptr noundef nonnull %40)
   br label %360
 
 360:                                              ; preds = %359, %356
   %361 = icmp eq i32 %357, 0
-  br i1 %361, label %362, label %.thread9
+  br i1 %361, label %362, label %.thread10
 
 362:                                              ; preds = %360
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %364 = load ptr, ptr %363, align 8
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %.thread9, label %366
+  br i1 %365, label %.thread10, label %366
 
 366:                                              ; preds = %362
   %367 = load i16, ptr %364, align 4
   %368 = icmp eq i16 %367, 7
-  br i1 %368, label %369, label %.thread9
+  br i1 %368, label %369, label %.thread10
 
 369:                                              ; preds = %366
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #13
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %246, %165, %369, %366, %362, %360, %136
+.thread10:                                        ; preds = %246, %165, %369, %366, %362, %360, %136
   %370 = phi i32 [ %152, %136 ], [ %357, %360 ], [ -95, %369 ], [ 0, %366 ], [ 0, %362 ], [ %152, %165 ], [ %263, %246 ]
   tail call void @kfree(ptr noundef nonnull %40) #13
   br label %371
 
-371:                                              ; preds = %.thread9, %265, %30
-  %372 = phi i32 [ %370, %.thread9 ], [ %288, %265 ], [ -12, %30 ]
+371:                                              ; preds = %.thread10, %265, %30
+  %372 = phi i32 [ %370, %.thread10 ], [ %288, %265 ], [ -12, %30 ]
   ret i32 %372
 }
 
@@ -2303,16 +2303,16 @@ define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736
 158:                                              ; preds = %45
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @esp6_init_state.__msg) #13
   %159 = icmp eq ptr %1, null
-  br i1 %159, label %.thread15, label %160
+  br i1 %159, label %.thread16, label %160
 
 160:                                              ; preds = %158
   store ptr @esp6_init_state.__msg, ptr %1, align 8
-  br label %.thread15
+  br label %.thread16
 
 161:                                              ; preds = %156, %43
   %162 = phi i32 [ %44, %43 ], [ %157, %156 ]
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %.thread15
+  br i1 %163, label %164, label %.thread16
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr %5, align 8
@@ -2359,11 +2359,11 @@ define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736
 188:                                              ; preds = %186
   call void @do_trace_netlink_extack(ptr noundef nonnull @esp6_init_state.__msg.4) #13
   %189 = icmp eq ptr %1, null
-  br i1 %189, label %.thread15, label %190
+  br i1 %189, label %.thread16, label %190
 
 190:                                              ; preds = %188
   store ptr @esp6_init_state.__msg.4, ptr %1, align 8
-  br label %.thread15
+  br label %.thread16
 
 191:                                              ; preds = %186
   br label %192
@@ -2385,9 +2385,9 @@ define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736
   %203 = add i32 %202, %200
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %203, ptr %204, align 8
-  br label %.thread15
+  br label %.thread16
 
-.thread15:                                        ; preds = %188, %190, %158, %160, %195, %161
+.thread16:                                        ; preds = %188, %190, %158, %160, %195, %161
   %205 = phi i32 [ %162, %161 ], [ 0, %195 ], [ -22, %160 ], [ -22, %158 ], [ -22, %190 ], [ -22, %188 ]
   ret i32 %205
 }

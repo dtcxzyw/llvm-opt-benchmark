@@ -385,9 +385,9 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
   %55 = load ptr, ptr %54, align 8, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %57 = load i32, ptr %56, align 4, !tbaa !26
-  %.off201 = add i32 %57, -5
-  %switch202 = icmp ult i32 %.off201, 7
-  br i1 %switch202, label %58, label %62
+  %.off202 = add i32 %57, -5
+  %switch203 = icmp ult i32 %.off202, 7
+  br i1 %switch203, label %58, label %62
 
 58:                                               ; preds = %53
   %59 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
@@ -621,8 +621,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 .preheader207:                                    ; preds = %185
   %.not226 = icmp eq i64 %4, 0
   %.not227 = icmp ult i64 %189, 2
-  %or.cond248 = select i1 %.not226, i1 true, i1 %.not227
-  br i1 %or.cond248, label %.loopexit, label %.preheader206.us
+  %or.cond247 = select i1 %.not226, i1 true, i1 %.not227
+  br i1 %or.cond247, label %.loopexit, label %.preheader206.us
 
 .preheader206.us:                                 ; preds = %.preheader207, %._crit_edge.us
   %.1211.us = phi ptr [ %203, %._crit_edge.us ], [ %7, %.preheader207 ]
@@ -652,8 +652,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
   %205 = lshr i64 %189, 2
   %.not228 = icmp eq i64 %4, 0
   %.not229 = icmp ult i64 %189, 4
-  %or.cond249 = select i1 %.not228, i1 true, i1 %.not229
-  br i1 %or.cond249, label %.loopexit, label %.preheader.us.us
+  %or.cond248 = select i1 %.not228, i1 true, i1 %.not229
+  br i1 %or.cond248, label %.loopexit, label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %204, %._crit_edge216.us.us
   %.0161218.us.us = phi ptr [ %222, %._crit_edge216.us.us ], [ %7, %204 ]
@@ -703,8 +703,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge216.us.us, %.preheader207, %204, %170, %9, %16, %.thread, %223, %181, %174, %122, %75, %65, %58, %46, %34, %21
-  %.0 = phi i32 [ -1, %223 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %170 ], [ -1, %75 ], [ -1, %181 ], [ 0, %16 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us.us ], [ 0, %._crit_edge.us ]
-  ret i32 %.0
+  %.0163 = phi i32 [ -1, %223 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %170 ], [ -1, %75 ], [ -1, %181 ], [ 0, %16 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us.us ], [ 0, %._crit_edge.us ]
+  ret i32 %.0163
 }
 
 ; Function Attrs: nounwind uwtable

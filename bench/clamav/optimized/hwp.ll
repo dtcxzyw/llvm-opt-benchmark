@@ -1997,7 +1997,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   %98 = call i32 @cli_magic_scan_desc(i32 noundef %.153121, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #10
   br label %hwpml_scan_cb.exit
 
-hwpml_scan_cb.exit:                               ; preds = %97, %96, %93, %92, %87, %72
+hwpml_scan_cb.exit:                               ; preds = %97, %96, %93, %92, %72, %87
   %.155 = phi i32 [ %.256, %87 ], [ 14, %72 ], [ %95, %93 ], [ 2, %92 ], [ %98, %97 ], [ 2, %96 ]
   %99 = load i32, ptr %7, align 4, !tbaa !26
   %.not77 = icmp eq i32 %99, 0

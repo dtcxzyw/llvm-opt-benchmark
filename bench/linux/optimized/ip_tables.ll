@@ -2375,14 +2375,14 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %90 = zext i32 %89 to i64
   %91 = call noalias ptr @vzalloc(i64 noundef %90) #14
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread14, label %93
+  br i1 %92, label %.thread15, label %93
 
 93:                                               ; preds = %85
   %94 = getelementptr inbounds nuw i8, ptr %81, i64 64
   br label %95
 
-95:                                               ; preds = %93, %.loopexit22
-  %96 = phi i64 [ 0, %93 ], [ %159, %.loopexit22 ]
+95:                                               ; preds = %93, %.loopexit23
+  %96 = phi i64 [ 0, %93 ], [ %159, %.loopexit23 ]
   %97 = load i64, ptr @__cpu_possible_mask, align 8
   %98 = shl nsw i64 -1, %96
   %99 = and i64 %97, %98
@@ -2405,9 +2405,9 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %112 = zext i32 %111 to i64
   %113 = getelementptr i8, ptr %94, i64 %112
   %114 = icmp ult ptr %94, %113
-  br i1 %114, label %.preheader21, label %.loopexit22
+  br i1 %114, label %.preheader22, label %.loopexit23
 
-.preheader21:                                     ; preds = %105, %140
+.preheader22:                                     ; preds = %105, %140
   %115 = phi ptr [ %153, %140 ], [ %94, %105 ]
   %116 = phi i32 [ %148, %140 ], [ 0, %105 ]
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 96
@@ -2415,33 +2415,33 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %119 = icmp ugt i32 %118, 1
   br i1 %119, label %120, label %125
 
-120:                                              ; preds = %.preheader21
+120:                                              ; preds = %.preheader22
   %121 = load i64, ptr %117, align 8
   %122 = load i64, ptr %107, align 8
   %123 = add i64 %122, %121
   %124 = inttoptr i64 %123 to ptr
   br label %125
 
-125:                                              ; preds = %120, %.preheader21
-  %126 = phi ptr [ %124, %120 ], [ %117, %.preheader21 ]
+125:                                              ; preds = %120, %.preheader22
+  %126 = phi ptr [ %124, %120 ], [ %117, %.preheader22 ]
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   br label %128
 
-128:                                              ; preds = %.loopexit20, %125
+128:                                              ; preds = %.loopexit21, %125
   %129 = load volatile i32, ptr %110, align 4
   %130 = and i32 %129, 1
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %.loopexit20, label %.preheader19
+  br i1 %131, label %.loopexit21, label %.preheader20
 
-.preheader19:                                     ; preds = %128, %.preheader19
+.preheader20:                                     ; preds = %128, %.preheader20
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !55
   %132 = load volatile i32, ptr %110, align 4
   %133 = and i32 %132, 1
   %134 = icmp eq i32 %133, 0
-  br i1 %134, label %.loopexit20, label %.preheader19, !llvm.loop !56
+  br i1 %134, label %.loopexit21, label %.preheader20, !llvm.loop !56
 
-.loopexit20:                                      ; preds = %.preheader19, %128
-  %135 = phi i32 [ %129, %128 ], [ %132, %.preheader19 ]
+.loopexit21:                                      ; preds = %.preheader20, %128
+  %135 = phi i32 [ %129, %128 ], [ %132, %.preheader20 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57
   %136 = load i64, ptr %127, align 8
   %137 = load i64, ptr %126, align 8
@@ -2450,7 +2450,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %139 = icmp eq i32 %138, %135
   br i1 %139, label %140, label %128, !llvm.loop !59
 
-140:                                              ; preds = %.loopexit20
+140:                                              ; preds = %.loopexit21
   %141 = zext i32 %116 to i64
   %142 = getelementptr %struct.xt_counters, ptr %91, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
@@ -2470,19 +2470,19 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %155 = zext i32 %154 to i64
   %156 = getelementptr i8, ptr %94, i64 %155
   %157 = icmp ult ptr %153, %156
-  br i1 %157, label %.preheader21, label %.loopexit22, !llvm.loop !60
+  br i1 %157, label %.preheader22, label %.loopexit23, !llvm.loop !60
 
-.loopexit22:                                      ; preds = %140, %105
+.loopexit23:                                      ; preds = %140, %105
   %158 = add nuw nsw i64 %102, 1
   %159 = and i64 %158, 127
   %160 = icmp samesign ugt i64 %159, 63
   br i1 %160, label %.thread, label %95, !prof !61, !llvm.loop !62
 
-.thread:                                          ; preds = %95, %.loopexit22, %101
+.thread:                                          ; preds = %95, %.loopexit23, %101
   %161 = icmp ugt ptr %91, inttoptr (i64 -4096 to ptr)
-  br i1 %161, label %.thread14, label %165
+  br i1 %161, label %.thread15, label %165
 
-.thread14:                                        ; preds = %85, %.thread
+.thread15:                                        ; preds = %85, %.thread
   %162 = phi ptr [ %91, %.thread ], [ inttoptr (i64 -12 to ptr), %85 ]
   %163 = ptrtoint ptr %162 to i64
   %164 = trunc i64 %163 to i32
@@ -2490,9 +2490,9 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
 
 165:                                              ; preds = %.thread
   %166 = icmp eq i32 %82, 0
-  br i1 %166, label %.thread16, label %.preheader17
+  br i1 %166, label %.thread17, label %.preheader18
 
-.preheader17:                                     ; preds = %165, %203
+.preheader18:                                     ; preds = %165, %203
   %167 = phi i32 [ %208, %203 ], [ 0, %165 ]
   %168 = phi i32 [ %207, %203 ], [ 0, %165 ]
   %169 = zext i32 %168 to i64
@@ -2500,15 +2500,15 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %171 = getelementptr i8, ptr %86, i64 %169
   %172 = call i64 @_copy_to_user(ptr noundef %171, ptr noundef %170, i64 noundef 112) #15
   %173 = icmp eq i64 %172, 0
-  br i1 %173, label %174, label %.thread16
+  br i1 %173, label %174, label %.thread17
 
-174:                                              ; preds = %.preheader17
+174:                                              ; preds = %.preheader18
   %175 = zext i32 %167 to i64
   %176 = getelementptr %struct.xt_counters, ptr %91, i64 %175
   %177 = getelementptr i8, ptr %171, i64 96
   %178 = call i64 @_copy_to_user(ptr noundef %177, ptr noundef %176, i64 noundef 16) #15
   %179 = icmp eq i64 %178, 0
-  br i1 %179, label %180, label %.thread16
+  br i1 %179, label %180, label %.thread17
 
 180:                                              ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %170, i64 88
@@ -2523,7 +2523,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %187 = getelementptr i8, ptr %171, i64 %185
   %188 = call i32 @xt_match_to_user(ptr noundef %186, ptr noundef %187) #15
   %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %.thread16
+  br i1 %189, label %190, label %.thread17
 
 190:                                              ; preds = %.preheader
   %191 = load i16, ptr %186, align 8
@@ -2541,7 +2541,7 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %200 = getelementptr i8, ptr %171, i64 %198
   %201 = call i32 @xt_target_to_user(ptr noundef %199, ptr noundef %200) #15
   %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %.thread16
+  br i1 %202, label %203, label %.thread17
 
 203:                                              ; preds = %.loopexit
   %204 = getelementptr inbounds nuw i8, ptr %170, i64 90
@@ -2550,15 +2550,15 @@ define internal i32 @do_ipt_get_ctl(ptr noundef readonly captures(none) %0, i32 
   %207 = add i32 %168, %206
   %208 = add i32 %167, 1
   %209 = icmp ult i32 %207, %82
-  br i1 %209, label %.preheader17, label %.thread16, !llvm.loop !64
+  br i1 %209, label %.preheader18, label %.thread17, !llvm.loop !64
 
-.thread16:                                        ; preds = %.loopexit, %174, %.preheader17, %203, %.preheader, %165
-  %210 = phi i32 [ 0, %165 ], [ -14, %.preheader ], [ -14, %.preheader17 ], [ -14, %174 ], [ -14, %.loopexit ], [ 0, %203 ]
+.thread17:                                        ; preds = %.loopexit, %174, %.preheader18, %203, %.preheader, %165
+  %210 = phi i32 [ 0, %165 ], [ -14, %.preheader ], [ -14, %.preheader18 ], [ -14, %174 ], [ -14, %.loopexit ], [ 0, %203 ]
   call void @vfree(ptr noundef nonnull %91) #15
   br label %211
 
-211:                                              ; preds = %.thread16, %.thread14, %79
-  %212 = phi i32 [ -11, %79 ], [ %164, %.thread14 ], [ %210, %.thread16 ]
+211:                                              ; preds = %.thread17, %.thread15, %79
+  %212 = phi i32 [ -11, %79 ], [ %164, %.thread15 ], [ %210, %.thread17 ]
   %213 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %214 = load ptr, ptr %213, align 8
   call void @module_put(ptr noundef %214) #15

@@ -2678,7 +2678,7 @@ module_list_active.exit:                          ; preds = %313, %289
 
 384:                                              ; preds = %805, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i31, %805 ]
-  %.168.i = phi i32 [ 0, %.lr.ph.i29 ], [ %.2.ph.i, %805 ]
+  %.169.i = phi i32 [ 0, %.lr.ph.i29 ], [ %.2.ph.i, %805 ]
   %385 = load ptr, ptr %351, align 8, !tbaa !136
   %386 = getelementptr inbounds nuw %struct.update_clone_data, ptr %385, i64 %indvars.iv.i30
   %.sroa.0.0.copyload.i = load ptr, ptr %386, align 8, !tbaa !137
@@ -2786,8 +2786,8 @@ ensure_core_worktree.exit.i:                      ; preds = %397, %395
   br label %get_submodule_displaypath.exit.i
 
 get_submodule_displaypath.exit.i:                 ; preds = %422, %420, %416
-  %.0.i31.i = phi ptr [ %418, %416 ], [ %421, %420 ], [ %423, %422 ]
-  store ptr %.0.i31.i, ptr %356, align 8, !tbaa !145
+  %.0.i32.i = phi ptr [ %418, %416 ], [ %421, %420 ], [ %423, %422 ]
+  store ptr %.0.i32.i, ptr %356, align 8, !tbaa !145
   %424 = load ptr, ptr %355, align 8, !tbaa !143
   %425 = call i32 @validate_submodule_path(ptr noundef %424) #20
   %426 = icmp slt i32 %425, 0
@@ -2879,8 +2879,8 @@ determine_submodule_update_strategy.exit.i.i:     ; preds = %446, %444
   %461 = call i32 (ptr, ...) @die_message(ptr noundef %.0.i.i.i.i, ptr noundef %460, ptr noundef %430) #20
   call void @free(ptr noundef %436) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not.i36.i = icmp eq i32 %461, 0
-  br i1 %.not.i36.i, label %462, label %update_submodule.exit.i
+  %.not.i37.i = icmp eq i32 %461, 0
+  br i1 %.not.i37.i, label %462, label %update_submodule.exit.i
 
 462:                                              ; preds = %determine_submodule_update_strategy.exit.i.i, %determine_submodule_update_strategy.exit.thread.i.i
   %463 = load i32, ptr %354, align 8, !tbaa !140
@@ -2904,14 +2904,14 @@ determine_submodule_update_strategy.exit.i.i:     ; preds = %446, %444
 
 472:                                              ; preds = %468
   %473 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !17
-  %.not4.i.i34.i = icmp eq i32 %473, 0
-  br i1 %.not4.i.i34.i, label %_.exit.i35.i, label %474
+  %.not4.i.i35.i = icmp eq i32 %473, 0
+  br i1 %.not4.i.i35.i, label %_.exit.i36.i, label %474
 
 474:                                              ; preds = %472
   %475 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.196, i32 noundef 5) #20
-  br label %_.exit.i35.i
+  br label %_.exit.i36.i
 
-_.exit.i35.i:                                     ; preds = %474, %472
+_.exit.i36.i:                                     ; preds = %474, %472
   %.0.i63.i.i = phi ptr [ %475, %474 ], [ @.str.196, %472 ]
   %476 = load ptr, ptr %356, align 8, !tbaa !145
   %477 = call i32 (ptr, ...) @die_message(ptr noundef %.0.i63.i.i, ptr noundef %476) #20
@@ -3751,8 +3751,8 @@ submodule_update_type_to_label.exit.i.i.i:        ; preds = %768, %767, %766
 771:                                              ; preds = %submodule_update_type_to_label.exit.i.i.i, %766
   %.not68.i.i.i = icmp eq i64 %.sroa.10.0.copyload.i.i, 0
   %.not6974.i.i.i = icmp eq ptr %.sroa.8.0.copyload.i.i, null
-  %or.cond.i33.i = select i1 %.not68.i.i.i, i1 true, i1 %.not6974.i.i.i
-  br i1 %or.cond.i33.i, label %.critedge.i.i.i, label %.lr.ph.i.preheader105.i.i
+  %or.cond.i34.i = select i1 %.not68.i.i.i, i1 true, i1 %.not6974.i.i.i
+  br i1 %or.cond.i34.i, label %.critedge.i.i.i, label %.lr.ph.i.preheader105.i.i
 
 .lr.ph.i.preheader105.i.i:                        ; preds = %771
   %.idx.i.i = shl nuw nsw i64 %.sroa.10.0.copyload.i.i, 4
@@ -3839,15 +3839,15 @@ _.exit91.i.i:                                     ; preds = %797, %795
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %update_submodule.exit.i
 
-update_submodule.exit.i:                          ; preds = %801, %728, %run_update_procedure.exit.i.i, %.thread.i.i, %_.exit.i35.i, %determine_submodule_update_strategy.exit.i.i, %get_submodule_displaypath.exit.i
-  %.0.i32.i = phi i32 [ %794, %801 ], [ %477, %_.exit.i35.i ], [ -1, %get_submodule_displaypath.exit.i ], [ %461, %determine_submodule_update_strategy.exit.i.i ], [ %.0.i82.i.i, %run_update_procedure.exit.i.i ], [ 0, %728 ], [ %.1.ph.i.i, %.thread.i.i ]
+update_submodule.exit.i:                          ; preds = %801, %728, %run_update_procedure.exit.i.i, %.thread.i.i, %_.exit.i36.i, %determine_submodule_update_strategy.exit.i.i, %get_submodule_displaypath.exit.i
+  %.0.i33.i = phi i32 [ %794, %801 ], [ %477, %_.exit.i36.i ], [ -1, %get_submodule_displaypath.exit.i ], [ %461, %determine_submodule_update_strategy.exit.i.i ], [ %.0.i82.i.i, %run_update_procedure.exit.i.i ], [ 0, %728 ], [ %.1.ph.i.i, %.thread.i.i ]
   %802 = load ptr, ptr %356, align 8, !tbaa !145
   call void @free(ptr noundef %802) #20
   store ptr null, ptr %356, align 8, !tbaa !145
   br label %803
 
 803:                                              ; preds = %update_submodule.exit.i, %ensure_core_worktree.exit.i
-  %.024.i = phi i32 [ %407, %ensure_core_worktree.exit.i ], [ %.0.i32.i, %update_submodule.exit.i ]
+  %.024.i = phi i32 [ %407, %ensure_core_worktree.exit.i ], [ %.0.i33.i, %update_submodule.exit.i ]
   switch i32 %.024.i, label %804 [
     i32 0, label %805
     i32 128, label %update_submodules.exit
@@ -3857,7 +3857,7 @@ update_submodule.exit.i:                          ; preds = %801, %728, %run_upd
   br label %805
 
 805:                                              ; preds = %804, %803
-  %.2.ph.i = phi i32 [ %.168.i, %803 ], [ %.024.i, %804 ]
+  %.2.ph.i = phi i32 [ %.169.i, %803 ], [ %.024.i, %804 ]
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %806 = load i32, ptr %348, align 8, !tbaa !135
   %807 = sext i32 %806 to i64

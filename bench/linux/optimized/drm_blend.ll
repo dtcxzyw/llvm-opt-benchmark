@@ -254,7 +254,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 728
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %.thread16
+  br i1 %14, label %15, label %.thread17
 
 15:                                               ; preds = %.loopexit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -360,24 +360,24 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %91 = load ptr, ptr %90, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 4, ptr noundef nonnull @.str.14, i32 noundef %89, ptr noundef %91) #6
   %92 = icmp slt i32 %81, 0
-  br i1 %92, label %.thread16, label %93, !prof !5
+  br i1 %92, label %.thread17, label %93, !prof !5
 
 93:                                               ; preds = %86
   %94 = zext nneg i32 %81 to i64
   %95 = shl nuw nsw i64 %94, 3
   %96 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %95, i32 noundef 3264) #8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread16, label %98
+  br i1 %97, label %.thread17, label %98
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %79, i64 712
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, %99
-  br i1 %101, label %.thread15, label %102
+  br i1 %101, label %.thread16, label %102
 
-.thread15:                                        ; preds = %98
+.thread16:                                        ; preds = %98
   tail call void @sort(ptr noundef nonnull %96, i64 noundef 0, i64 noundef 8, ptr noundef nonnull @drm_atomic_state_zpos_cmp, ptr noundef null) #6
-  br label %.thread17
+  br label %.thread18
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -405,13 +405,13 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %119 = sext i32 %106 to i64
   %120 = getelementptr ptr, ptr %96, i64 %119
   store ptr %115, ptr %120, align 8
-  br i1 %82, label %.thread14, label %121
+  br i1 %82, label %.thread15, label %121
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %103, align 8
-  br label %.thread14
+  br label %.thread15
 
-.thread14:                                        ; preds = %117, %121
+.thread15:                                        ; preds = %117, %121
   %123 = phi ptr [ %122, %121 ], [ null, %117 ]
   %124 = getelementptr i8, ptr %105, i64 80
   %125 = load i32, ptr %124, align 8
@@ -422,8 +422,8 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %123, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %125, ptr noundef %127, i32 noundef %129) #6
   br label %130
 
-130:                                              ; preds = %.thread14, %104
-  %131 = phi i32 [ %106, %104 ], [ %118, %.thread14 ]
+130:                                              ; preds = %.thread15, %104
+  %131 = phi i32 [ %106, %104 ], [ %118, %.thread15 ]
   %132 = load ptr, ptr %105, align 8
   %133 = icmp eq ptr %132, %99
   br i1 %133, label %134, label %104, !llvm.loop !22
@@ -432,14 +432,14 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %135 = sext i32 %131 to i64
   tail call void @sort(ptr noundef nonnull %96, i64 noundef %135, i64 noundef 8, ptr noundef nonnull @drm_atomic_state_zpos_cmp, ptr noundef null) #6
   %136 = icmp sgt i32 %131, 0
-  br i1 %136, label %137, label %.thread17
+  br i1 %136, label %137, label %.thread18
 
 137:                                              ; preds = %134
   %138 = zext nneg i32 %131 to i64
-  br i1 %82, label %.split19.us, label %.split19
+  br i1 %82, label %.split20.us, label %.split20
 
-.split19.us:                                      ; preds = %137, %.split19.us
-  %139 = phi i64 [ %149, %.split19.us ], [ 0, %137 ]
+.split20.us:                                      ; preds = %137, %.split20.us
+  %139 = phi i64 [ %149, %.split20.us ], [ 0, %137 ]
   %140 = getelementptr ptr, ptr %96, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
@@ -453,10 +453,10 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %146, ptr noundef %148, i32 noundef %144) #6
   %149 = add nuw nsw i64 %139, 1
   %150 = icmp eq i64 %149, %138
-  br i1 %150, label %.thread17, label %.split19.us, !llvm.loop !23
+  br i1 %150, label %.thread18, label %.split20.us, !llvm.loop !23
 
-.split19:                                         ; preds = %137, %.split19
-  %151 = phi i64 [ %162, %.split19 ], [ 0, %137 ]
+.split20:                                         ; preds = %137, %.split20
+  %151 = phi i64 [ %162, %.split20 ], [ 0, %137 ]
   %152 = getelementptr ptr, ptr %96, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %153, align 8
@@ -471,9 +471,9 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %157, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %159, ptr noundef %161, i32 noundef %156) #6
   %162 = add nuw nsw i64 %151, 1
   %163 = icmp eq i64 %162, %138
-  br i1 %163, label %.thread17, label %.split19, !llvm.loop !23
+  br i1 %163, label %.thread18, label %.split20, !llvm.loop !23
 
-.thread17:                                        ; preds = %.split19, %.split19.us, %134, %.thread15
+.thread18:                                        ; preds = %.split20, %.split20.us, %134, %.thread16
   %164 = getelementptr inbounds nuw i8, ptr %65, i64 10
   %165 = load i8, ptr %164, align 2
   %166 = or i8 %165, 16
@@ -486,18 +486,18 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %169 = trunc i64 %168 to i32
   tail call void @kfree(ptr noundef nonnull %96) #6
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %.thread16
+  br i1 %170, label %171, label %.thread17
 
-171:                                              ; preds = %.thread17, %167, %71, %55
+171:                                              ; preds = %.thread18, %167, %71, %55
   %172 = add nuw nsw i64 %56, 1
   %173 = load ptr, ptr %3, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 728
   %175 = load i32, ptr %174, align 8
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %172, %176
-  br i1 %177, label %55, label %.thread16, !llvm.loop !24
+  br i1 %177, label %55, label %.thread17, !llvm.loop !24
 
-.thread16:                                        ; preds = %86, %93, %171, %167, %.loopexit
+.thread17:                                        ; preds = %86, %93, %171, %167, %.loopexit
   %178 = phi i32 [ 0, %.loopexit ], [ -12, %86 ], [ -12, %93 ], [ 0, %171 ], [ %169, %167 ]
   ret i32 %178
 }

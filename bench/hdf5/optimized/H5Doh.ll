@@ -256,8 +256,8 @@ define internal ptr @H5O__dset_open(ptr noundef %0, ptr noundef writeonly captur
   br label %.thread
 
 .thread:                                          ; preds = %27, %19, %2, %35, %38
-  %.021 = phi ptr [ null, %2 ], [ null, %38 ], [ %36, %35 ], [ null, %19 ], [ null, %27 ]
-  ret ptr %.021
+  %.023 = phi ptr [ null, %2 ], [ null, %38 ], [ %36, %35 ], [ null, %19 ], [ null, %27 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -385,7 +385,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %0, align 8, !tbaa !34
   %15 = call ptr @H5O_msg_read_oh(ptr noundef %14, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %4) #4
   %.not35 = icmp eq ptr %15, null
-  br i1 %.not35, label %.thread44, label %16
+  br i1 %.not35, label %.thread45, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %4, align 8, !tbaa !37
@@ -488,7 +488,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__dset_bh_info, i32 noundef 390, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.19) #4
   br label %76
 
-.thread44:                                        ; preds = %13
+.thread45:                                        ; preds = %13
   %73 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %74 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__dset_bh_info, i32 noundef 354, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.14) #4
@@ -511,7 +511,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   br i1 %.032.ph, label %84, label %91
 
 84:                                               ; preds = %79, %83
-  %.447 = phi i32 [ -1, %79 ], [ %.1.ph, %83 ]
+  %.448 = phi i32 [ -1, %79 ], [ %.1.ph, %83 ]
   %85 = call i32 @H5O_msg_reset(i32 noundef 7, ptr noundef nonnull %5) #4
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %91
@@ -522,11 +522,11 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__dset_bh_info, i32 noundef 398, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.21) #4
   br label %91
 
-91:                                               ; preds = %79, %.thread44, %3, %87, %84, %83
-  %.031 = phi i32 [ -1, %87 ], [ %.447, %84 ], [ %.1.ph, %83 ], [ 0, %3 ], [ -1, %.thread44 ], [ -1, %79 ]
+91:                                               ; preds = %79, %.thread45, %3, %87, %84, %83
+  %.030 = phi i32 [ -1, %87 ], [ %.448, %84 ], [ %.1.ph, %83 ], [ 0, %3 ], [ -1, %.thread45 ], [ -1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.031
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable

@@ -9217,8 +9217,8 @@ define noundef range(i32 0, 84) i32 @_Z27lodepng_compute_color_statsP17LodePNGCo
   %.not.i = icmp eq i32 %25, 0
   %26 = and i32 %22, 4
   %.not3.i = icmp eq i32 %26, 0
-  %or.cond352 = select i1 %.not.i, i1 %.not3.i, i1 false
-  br i1 %or.cond352, label %27, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit
+  %or.cond351 = select i1 %.not.i, i1 %.not3.i, i1 false
+  br i1 %or.cond351, label %27, label %_Z22lodepng_can_have_alphaPK16LodePNGColorMode.exit
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -9299,27 +9299,27 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %.0205 = zext i1 %narrow to i32
   %65 = icmp eq i32 %46, 16
   %.not257 = icmp uge i32 %46, %44
-  %narrow354 = or i1 %.not257, %49
-  %.0240 = zext i1 %narrow354 to i32
+  %narrow353 = or i1 %.not257, %49
+  %.0240 = zext i1 %narrow353 to i32
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.not258 = icmp uge i32 %52, %.0237
   %67 = select i1 %.not258, i1 true, i1 %65
-  %narrow355 = select i1 %67, i1 true, i1 %.not
-  %.2231 = zext i1 %narrow355 to i32
-  br i1 %narrow355, label %.loopexit359, label %.preheader358
+  %narrow354 = select i1 %67, i1 true, i1 %.not
+  %.2231 = zext i1 %narrow354 to i32
+  br i1 %narrow354, label %.loopexit358, label %.preheader357
 
-.preheader358:                                    ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
+.preheader357:                                    ; preds = %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
   %68 = zext nneg i32 %52 to i64
-  %.not386 = icmp eq i32 %52, 0
-  br i1 %.not386, label %.loopexit359, label %.lr.ph
+  %.not385 = icmp eq i32 %52, 0
+  br i1 %.not385, label %.loopexit358, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader358
+.lr.ph:                                           ; preds = %.preheader357
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %70
 
 70:                                               ; preds = %.lr.ph, %110
-  %.0198362 = phi i64 [ 0, %.lr.ph ], [ %112, %110 ]
-  %71 = shl nuw nsw i64 %.0198362, 2
+  %.0198361 = phi i64 [ 0, %.lr.ph ], [ %112, %110 ]
+  %71 = shl nuw nsw i64 %.0198361, 2
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
@@ -9328,7 +9328,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %77 = load i8, ptr %76, align 1, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 3
   %79 = load i8, ptr %78, align 1, !tbaa !18
-  %80 = trunc nuw i64 %.0198362 to i32
+  %80 = trunc nuw i64 %.0198361 to i32
   %81 = zext i8 %73 to i32
   %82 = zext i8 %75 to i32
   %83 = zext i8 %77 to i32
@@ -9355,8 +9355,8 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr inbounds nuw ptr, ptr %.02530.i, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !300
-  %.not.i310 = icmp eq ptr %102, null
-  br i1 %.not.i310, label %103, label %107
+  %.not.i309 = icmp eq ptr %102, null
+  br i1 %.not.i309, label %103, label %107
 
 103:                                              ; preds = %85
   %104 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
@@ -9380,15 +9380,15 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
   store i32 %80, ptr %111, align 8, !tbaa !294
-  %112 = add nuw nsw i64 %.0198362, 1
+  %112 = add nuw nsw i64 %.0198361, 1
   %exitcond.not = icmp eq i64 %112, %68
-  br i1 %exitcond.not, label %.loopexit359, label %70, !llvm.loop !389
+  br i1 %exitcond.not, label %.loopexit358, label %70, !llvm.loop !389
 
-.loopexit359:                                     ; preds = %110, %.preheader358, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
+.loopexit358:                                     ; preds = %110, %.preheader357, %_Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge
   %.not261 = icmp eq i32 %41, 16
   br i1 %.not261, label %113, label %.thread
 
-113:                                              ; preds = %.loopexit359
+113:                                              ; preds = %.loopexit358
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2, !tbaa !88
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -9397,24 +9397,24 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   store i16 0, ptr %9, align 2, !tbaa !88
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2, !tbaa !88
-  %.not262363 = icmp eq i64 %21, 0
-  br i1 %.not262363, label %.thread327, label %.lr.ph365
+  %.not262362 = icmp eq i64 %21, 0
+  br i1 %.not262362, label %.thread326, label %.lr.ph364
 
 114:                                              ; preds = %130
-  %115 = add nuw i64 %.1364, 1
+  %115 = add nuw i64 %.1363, 1
   %.not262 = icmp eq i64 %115, %21
-  br i1 %.not262, label %.thread327, label %.lr.ph365, !llvm.loop !390
+  br i1 %.not262, label %.thread326, label %.lr.ph364, !llvm.loop !390
 
-.thread327:                                       ; preds = %114, %113
+.thread326:                                       ; preds = %114, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.lr.ph365:                                        ; preds = %113, %114
-  %.1364 = phi i64 [ %115, %114 ], [ 0, %113 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %.1364, ptr noundef nonnull %4)
+.lr.ph364:                                        ; preds = %113, %114
+  %.1363 = phi i64 [ %115, %114 ], [ 0, %113 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %1, i64 noundef %.1363, ptr noundef nonnull %4)
   %116 = load i16, ptr %7, align 2, !tbaa !88
   %117 = zext i16 %116 to i32
   %118 = and i32 %117, 255
@@ -9422,7 +9422,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %.not263 = icmp eq i32 %118, %119
   br i1 %.not263, label %120, label %135
 
-120:                                              ; preds = %.lr.ph365
+120:                                              ; preds = %.lr.ph364
   %121 = load i16, ptr %8, align 2, !tbaa !88
   %122 = zext i16 %121 to i32
   %123 = and i32 %122, 255
@@ -9446,7 +9446,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %.not266 = icmp eq i32 %133, %134
   br i1 %.not266, label %114, label %135
 
-135:                                              ; preds = %130, %125, %120, %.lr.ph365
+135:                                              ; preds = %130, %125, %120, %.lr.ph364
   store i32 16, ptr %45, align 8, !tbaa !378
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -9466,14 +9466,14 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %140
 
-140:                                              ; preds = %135, %.thread333
-  %141 = phi i32 [ %63, %135 ], [ %179, %.thread333 ]
-  %142 = phi i32 [ %63, %135 ], [ %180, %.thread333 ]
-  %.2368 = phi i64 [ 0, %135 ], [ %181, %.thread333 ]
-  %.1206367 = phi i32 [ %.0205, %135 ], [ %.2207, %.thread333 ]
-  %.1220366 = phi i32 [ %.0219, %135 ], [ %.2221338, %.thread333 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %1, i64 noundef %.2368, ptr noundef nonnull %4)
-  %.not287 = icmp eq i32 %.1206367, 0
+140:                                              ; preds = %135, %.thread332
+  %141 = phi i32 [ %63, %135 ], [ %179, %.thread332 ]
+  %142 = phi i32 [ %63, %135 ], [ %180, %.thread332 ]
+  %.2367 = phi i64 [ 0, %135 ], [ %181, %.thread332 ]
+  %.1206366 = phi i32 [ %.0205, %135 ], [ %.2207, %.thread332 ]
+  %.1220365 = phi i32 [ %.0219, %135 ], [ %.2221337, %.thread332 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %1, i64 noundef %.2367, ptr noundef nonnull %4)
+  %.not287 = icmp eq i32 %.1206366, 0
   br i1 %.not287, label %143, label %148
 
 143:                                              ; preds = %140
@@ -9492,7 +9492,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 148:                                              ; preds = %143, %147, %140
   %149 = phi i1 [ true, %140 ], [ true, %147 ], [ false, %143 ]
   %.2207 = phi i32 [ 1, %140 ], [ 1, %147 ], [ 0, %143 ]
-  %.not290 = icmp eq i32 %.1220366, 0
+  %.not290 = icmp eq i32 %.1220365, 0
   br i1 %.not290, label %150, label %176
 
 150:                                              ; preds = %148
@@ -9530,7 +9530,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 168:                                              ; preds = %165
   %169 = or i32 %142, %166
   %brmerge.not = icmp eq i32 %169, 0
-  br i1 %brmerge.not, label %170, label %.thread333
+  br i1 %brmerge.not, label %170, label %.thread332
 
 170:                                              ; preds = %168
   store i32 1, ptr %139, align 4, !tbaa !394
@@ -9539,13 +9539,13 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   store i16 %171, ptr %137, align 2, !tbaa !392
   %172 = load i16, ptr %13, align 2, !tbaa !88
   store i16 %172, ptr %138, align 4, !tbaa !393
-  br label %.thread333
+  br label %.thread332
 
 173:                                              ; preds = %162
   %174 = load i32, ptr %139, align 4, !tbaa !394
   %175 = icmp ne i32 %174, 0
   %or.cond5 = select i1 %175, i1 %163, i1 false
-  br i1 %or.cond5, label %.sink.split, label %.thread333
+  br i1 %or.cond5, label %.sink.split, label %.thread332
 
 .sink.split:                                      ; preds = %173, %165, %162
   store i32 1, ptr %62, align 8, !tbaa !375
@@ -9555,32 +9555,32 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
 176:                                              ; preds = %.sink.split, %148
   %177 = phi i32 [ %141, %148 ], [ 1, %.sink.split ]
   %178 = phi i32 [ %142, %148 ], [ 1, %.sink.split ]
-  br i1 %149, label %182, label %.thread333
+  br i1 %149, label %182, label %.thread332
 
-.thread333:                                       ; preds = %168, %170, %173, %176
+.thread332:                                       ; preds = %168, %170, %173, %176
   %179 = phi i32 [ %177, %176 ], [ %141, %173 ], [ %141, %170 ], [ %141, %168 ]
   %180 = phi i32 [ %178, %176 ], [ %142, %173 ], [ 0, %170 ], [ %142, %168 ]
-  %.2221338 = phi i32 [ 1, %176 ], [ 0, %173 ], [ 0, %170 ], [ 0, %168 ]
-  %181 = add i64 %.2368, 1
+  %.2221337 = phi i32 [ 1, %176 ], [ 0, %173 ], [ 0, %170 ], [ 0, %168 ]
+  %181 = add i64 %.2367, 1
   %.not286 = icmp eq i64 %181, %21
   br i1 %.not286, label %182, label %140, !llvm.loop !395
 
-182:                                              ; preds = %176, %.thread333
-  %183 = phi i32 [ %177, %176 ], [ %179, %.thread333 ]
+182:                                              ; preds = %176, %.thread332
+  %183 = phi i32 [ %177, %176 ], [ %179, %.thread332 ]
   %184 = load i32, ptr %139, align 4, !tbaa !394
   %.not295 = icmp ne i32 %184, 0
   %.not296 = icmp eq i32 %183, 0
-  %or.cond415 = select i1 %.not295, i1 %.not296, i1 false
-  br i1 %or.cond415, label %.preheader356, label %.loopexit357
+  %or.cond414 = select i1 %.not295, i1 %.not296, i1 false
+  br i1 %or.cond414, label %.preheader355, label %.loopexit356
 
-.preheader356:                                    ; preds = %182, %199
-  %.3369 = phi i64 [ %200, %199 ], [ 0, %182 ]
-  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %1, i64 noundef %.3369, ptr noundef nonnull %4)
+.preheader355:                                    ; preds = %182, %199
+  %.3368 = phi i64 [ %200, %199 ], [ 0, %182 ]
+  call fastcc void @_ZL19getPixelColorRGBA16PtS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %1, i64 noundef %.3368, ptr noundef nonnull %4)
   %185 = load i16, ptr %14, align 2, !tbaa !88
   %.not298 = icmp eq i16 %185, 0
   br i1 %.not298, label %199, label %186
 
-186:                                              ; preds = %.preheader356
+186:                                              ; preds = %.preheader355
   %187 = load i16, ptr %11, align 2, !tbaa !88
   %188 = load i16, ptr %136, align 8, !tbaa !391
   %189 = icmp eq i16 %187, %188
@@ -9603,19 +9603,19 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   store i32 0, ptr %139, align 4, !tbaa !394
   br label %199
 
-199:                                              ; preds = %.preheader356, %186, %190, %194, %198
-  %200 = add i64 %.3369, 1
+199:                                              ; preds = %.preheader355, %186, %190, %194, %198
+  %200 = add i64 %.3368, 1
   %.not297 = icmp eq i64 %200, %21
-  br i1 %.not297, label %.loopexit357, label %.preheader356, !llvm.loop !396
+  br i1 %.not297, label %.loopexit356, label %.preheader355, !llvm.loop !396
 
-.loopexit357:                                     ; preds = %199, %182
+.loopexit356:                                     ; preds = %199, %182
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL14color_tree_addP9ColorTreehhhhj.exit
 
-.thread:                                          ; preds = %.loopexit359, %.thread327
+.thread:                                          ; preds = %.loopexit358, %.thread326
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -9624,10 +9624,10 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   store i8 0, ptr %17, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1, !tbaa !18
-  %.not268370 = icmp eq i64 %21, 0
-  br i1 %.not268370, label %._crit_edge, label %.lr.ph380
+  %.not268369 = icmp eq i64 %21, 0
+  br i1 %.not268369, label %._crit_edge, label %.lr.ph379
 
-.lr.ph380:                                        ; preds = %.thread
+.lr.ph379:                                        ; preds = %.thread
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -9635,41 +9635,41 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit._crit_edge: ; preds = %_Z15lodepng_
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %206
 
-206:                                              ; preds = %.lr.ph380, %.thread346
-  %207 = phi i32 [ %63, %.lr.ph380 ], [ %344, %.thread346 ]
-  %208 = phi i32 [ %52, %.lr.ph380 ], [ %345, %.thread346 ]
-  %209 = phi i32 [ %63, %.lr.ph380 ], [ %346, %.thread346 ]
-  %.4379 = phi i64 [ 0, %.lr.ph380 ], [ %347, %.thread346 ]
-  %.3208378 = phi i32 [ %.0205, %.lr.ph380 ], [ %.4209, %.thread346 ]
-  %.0211377 = phi i8 [ 0, %.lr.ph380 ], [ %.1212, %.thread346 ]
-  %.0213376 = phi i8 [ 0, %.lr.ph380 ], [ %.1214, %.thread346 ]
-  %.0215375 = phi i8 [ 0, %.lr.ph380 ], [ %.1216, %.thread346 ]
-  %.0217374 = phi i8 [ 0, %.lr.ph380 ], [ %.1218, %.thread346 ]
-  %.4223373 = phi i32 [ %.0219, %.lr.ph380 ], [ %.5224, %.thread346 ]
-  %.5234372 = phi i32 [ %.2231, %.lr.ph380 ], [ %.6235, %.thread346 ]
-  %.3243371 = phi i32 [ %.0240, %.lr.ph380 ], [ %.4244, %.thread346 ]
-  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %1, i64 noundef %.4379, ptr noundef nonnull %4)
-  %.not269 = icmp ne i64 %.4379, 0
+206:                                              ; preds = %.lr.ph379, %.thread345
+  %207 = phi i32 [ %63, %.lr.ph379 ], [ %344, %.thread345 ]
+  %208 = phi i32 [ %52, %.lr.ph379 ], [ %345, %.thread345 ]
+  %209 = phi i32 [ %63, %.lr.ph379 ], [ %346, %.thread345 ]
+  %.4378 = phi i64 [ 0, %.lr.ph379 ], [ %347, %.thread345 ]
+  %.3208377 = phi i32 [ %.0205, %.lr.ph379 ], [ %.4209, %.thread345 ]
+  %.0211376 = phi i8 [ 0, %.lr.ph379 ], [ %.1212, %.thread345 ]
+  %.0213375 = phi i8 [ 0, %.lr.ph379 ], [ %.1214, %.thread345 ]
+  %.0215374 = phi i8 [ 0, %.lr.ph379 ], [ %.1216, %.thread345 ]
+  %.0217373 = phi i8 [ 0, %.lr.ph379 ], [ %.1218, %.thread345 ]
+  %.4223372 = phi i32 [ %.0219, %.lr.ph379 ], [ %.5224, %.thread345 ]
+  %.5234371 = phi i32 [ %.2231, %.lr.ph379 ], [ %.6235, %.thread345 ]
+  %.3243370 = phi i32 [ %.0240, %.lr.ph379 ], [ %.4244, %.thread345 ]
+  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %1, i64 noundef %.4378, ptr noundef nonnull %4)
+  %.not269 = icmp ne i64 %.4378, 0
   %210 = load i8, ptr %15, align 1
-  %211 = icmp eq i8 %210, %.0217374
+  %211 = icmp eq i8 %210, %.0217373
   %or.cond301 = select i1 %.not269, i1 %211, i1 false
   %212 = load i8, ptr %16, align 1
-  %213 = icmp eq i8 %212, %.0215375
+  %213 = icmp eq i8 %212, %.0215374
   %or.cond303 = select i1 %or.cond301, i1 %213, i1 false
   %214 = load i8, ptr %17, align 1
-  %215 = icmp eq i8 %214, %.0213376
+  %215 = icmp eq i8 %214, %.0213375
   %or.cond305 = select i1 %or.cond303, i1 %215, i1 false
   %216 = load i8, ptr %18, align 1
-  %217 = icmp eq i8 %216, %.0211377
+  %217 = icmp eq i8 %216, %.0211376
   %or.cond307 = select i1 %or.cond305, i1 %217, i1 false
-  br i1 %or.cond307, label %.thread346, label %218
+  br i1 %or.cond307, label %.thread345, label %218
 
 218:                                              ; preds = %206
-  %.not270 = icmp eq i32 %.3243371, 0
+  %.not270 = icmp eq i32 %.3243370, 0
   %.pr.pre = load i32, ptr %45, align 8, !tbaa !378
   %219 = icmp ult i32 %.pr.pre, 8
-  %or.cond416 = select i1 %.not270, i1 %219, i1 false
-  br i1 %or.cond416, label %220, label %thread-pre-split
+  %or.cond415 = select i1 %.not270, i1 %219, i1 false
+  br i1 %or.cond415, label %220, label %thread-pre-split
 
 220:                                              ; preds = %218
   %221 = add i8 %210, 1
@@ -9700,7 +9700,7 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   %231 = phi i32 [ %.0.i, %230 ], [ %.pr.pre, %218 ], [ %.pr.pre, %_ZL20getValueRequiredBitsh.exit ]
   %232 = icmp uge i32 %231, %44
   %233 = zext i1 %232 to i32
-  %.not271 = icmp eq i32 %.3208378, 0
+  %.not271 = icmp eq i32 %.3208377, 0
   br i1 %.not271, label %234, label %238
 
 234:                                              ; preds = %thread-pre-split
@@ -9722,8 +9722,8 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   %239 = phi i32 [ %231, %thread-pre-split ], [ 8, %237 ], [ %231, %235 ], [ %231, %234 ]
   %240 = phi i1 [ true, %thread-pre-split ], [ true, %237 ], [ true, %235 ], [ false, %234 ]
   %.5210 = phi i32 [ 1, %thread-pre-split ], [ 1, %237 ], [ 1, %235 ], [ 0, %234 ]
-  %.not274 = icmp eq i32 %.4223373, 0
-  br i1 %.not274, label %241, label %.thread341
+  %.not274 = icmp eq i32 %.4223372, 0
+  br i1 %.not274, label %241, label %.thread340
 
 241:                                              ; preds = %238
   %242 = load i16, ptr %201, align 8, !tbaa !391
@@ -9760,18 +9760,18 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   store i32 1, ptr %62, align 8, !tbaa !375
   store i32 0, ptr %204, align 4, !tbaa !394
   %259 = icmp ult i32 %239, 8
-  br i1 %259, label %260, label %.thread341
+  br i1 %259, label %260, label %.thread340
 
 260:                                              ; preds = %258
   store i32 8, ptr %45, align 8, !tbaa !378
-  br label %.thread341
+  br label %.thread340
 
 261:                                              ; preds = %255
   %.not277 = icmp eq i32 %209, 0
-  br i1 %.not277, label %262, label %.thread341
+  br i1 %.not277, label %262, label %.thread340
 
 262:                                              ; preds = %261
-  br i1 %257, label %263, label %.thread341
+  br i1 %257, label %263, label %.thread340
 
 263:                                              ; preds = %262
   store i32 1, ptr %204, align 4, !tbaa !394
@@ -9780,33 +9780,33 @@ thread-pre-split:                                 ; preds = %_ZL20getValueRequir
   store i16 %264, ptr %202, align 2, !tbaa !392
   %265 = zext i8 %214 to i16
   store i16 %265, ptr %203, align 4, !tbaa !393
-  br label %.thread341
+  br label %.thread340
 
 266:                                              ; preds = %253
   %267 = load i32, ptr %204, align 4, !tbaa !394
   %268 = icmp ne i32 %267, 0
   %or.cond15 = select i1 %268, i1 %254, i1 false
-  br i1 %or.cond15, label %269, label %.thread341
+  br i1 %or.cond15, label %269, label %.thread340
 
 269:                                              ; preds = %266
   store i32 1, ptr %62, align 8, !tbaa !375
   store i32 0, ptr %204, align 4, !tbaa !394
   %270 = icmp ult i32 %239, 8
-  br i1 %270, label %271, label %.thread341
+  br i1 %270, label %271, label %.thread340
 
 271:                                              ; preds = %269
   store i32 8, ptr %45, align 8, !tbaa !378
-  br label %.thread341
+  br label %.thread340
 
-.thread341:                                       ; preds = %261, %262, %260, %258, %266, %271, %269, %263, %238
+.thread340:                                       ; preds = %261, %262, %260, %258, %266, %271, %269, %263, %238
   %272 = phi i32 [ %207, %238 ], [ 1, %260 ], [ 1, %258 ], [ 1, %271 ], [ 1, %269 ], [ %207, %266 ], [ %207, %263 ], [ %207, %262 ], [ %207, %261 ]
   %273 = phi i32 [ %209, %238 ], [ 1, %260 ], [ 1, %258 ], [ 1, %271 ], [ 1, %269 ], [ %209, %266 ], [ 0, %263 ], [ 0, %262 ], [ %209, %261 ]
   %274 = phi i1 [ true, %238 ], [ true, %260 ], [ true, %258 ], [ true, %271 ], [ true, %269 ], [ false, %266 ], [ false, %263 ], [ false, %262 ], [ false, %261 ]
   %.6225 = phi i32 [ 1, %238 ], [ 1, %260 ], [ 1, %258 ], [ 1, %271 ], [ 1, %269 ], [ 0, %266 ], [ 0, %263 ], [ 0, %262 ], [ 0, %261 ]
-  %.not279 = icmp eq i32 %.5234372, 0
+  %.not279 = icmp eq i32 %.5234371, 0
   br i1 %.not279, label %275, label %341
 
-275:                                              ; preds = %.thread341
+275:                                              ; preds = %.thread340
   %276 = zext i8 %210 to i32
   %277 = zext i8 %212 to i32
   %278 = zext i8 %214 to i32
@@ -9845,52 +9845,52 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit:          ; preds = %280
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 128
   %301 = load i32, ptr %300, align 8, !tbaa !294
   %302 = icmp slt i32 %301, 0
-  br i1 %302, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader, label %.thread346
+  br i1 %302, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader, label %.thread345
 
 _ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader: ; preds = %282, %_ZL14color_tree_hasP9ColorTreehhhh.exit
   br label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
 
 _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader, %324
-  %.02431.i311 = phi i32 [ %326, %324 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader ]
-  %.02530.i312 = phi ptr [ %325, %324 ], [ %6, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader ]
-  %303 = lshr i32 %276, %.02431.i311
+  %.02431.i310 = phi i32 [ %326, %324 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader ]
+  %.02530.i311 = phi ptr [ %325, %324 ], [ %6, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread.preheader ]
+  %303 = lshr i32 %276, %.02431.i310
   %304 = shl nuw nsw i32 %303, 3
   %305 = and i32 %304, 8
-  %306 = lshr i32 %277, %.02431.i311
+  %306 = lshr i32 %277, %.02431.i310
   %307 = shl nuw nsw i32 %306, 2
   %308 = and i32 %307, 4
-  %309 = lshr i32 %278, %.02431.i311
+  %309 = lshr i32 %278, %.02431.i310
   %310 = shl nuw nsw i32 %309, 1
   %311 = and i32 %310, 2
-  %312 = lshr i32 %279, %.02431.i311
+  %312 = lshr i32 %279, %.02431.i310
   %313 = and i32 %312, 1
   %314 = or disjoint i32 %308, %313
   %315 = or disjoint i32 %314, %305
   %316 = or disjoint i32 %315, %311
   %317 = zext nneg i32 %316 to i64
-  %318 = getelementptr inbounds nuw ptr, ptr %.02530.i312, i64 %317
+  %318 = getelementptr inbounds nuw ptr, ptr %.02530.i311, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !300
-  %.not.i313 = icmp eq ptr %319, null
-  br i1 %.not.i313, label %320, label %324
+  %.not.i312 = icmp eq ptr %319, null
+  br i1 %.not.i312, label %320, label %324
 
 320:                                              ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
   %321 = tail call noalias noundef dereferenceable_or_null(136) ptr @malloc(i64 noundef 136) #32
   store ptr %321, ptr %318, align 8, !tbaa !300
-  %.not28.i316 = icmp eq ptr %321, null
-  br i1 %.not28.i316, label %_ZL14color_tree_addP9ColorTreehhhhj.exit318, label %322
+  %.not28.i315 = icmp eq ptr %321, null
+  br i1 %.not28.i315, label %_ZL14color_tree_addP9ColorTreehhhhj.exit317, label %322
 
 322:                                              ; preds = %320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %321, i8 0, i64 128, i1 false), !tbaa !18, !alias.scope !397
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 128
   store i32 -1, ptr %323, align 8, !tbaa !294
-  %.pre.i317 = load ptr, ptr %318, align 8, !tbaa !300
+  %.pre.i316 = load ptr, ptr %318, align 8, !tbaa !300
   br label %324
 
 324:                                              ; preds = %322, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread
-  %325 = phi ptr [ %.pre.i317, %322 ], [ %319, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread ]
-  %326 = add nuw nsw i32 %.02431.i311, 1
-  %exitcond.not.i314 = icmp eq i32 %326, 8
-  br i1 %exitcond.not.i314, label %327, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread, !llvm.loop !305
+  %325 = phi ptr [ %.pre.i316, %322 ], [ %319, %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread ]
+  %326 = add nuw nsw i32 %.02431.i310, 1
+  %exitcond.not.i313 = icmp eq i32 %326, 8
+  br i1 %exitcond.not.i313, label %327, label %_ZL14color_tree_hasP9ColorTreehhhh.exit.thread, !llvm.loop !305
 
 327:                                              ; preds = %324
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 128
@@ -9918,50 +9918,50 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   %340 = zext i1 %339 to i32
   br label %341
 
-341:                                              ; preds = %337, %.thread341
-  %342 = phi i32 [ %208, %.thread341 ], [ %338, %337 ]
-  %.7236 = phi i32 [ 1, %.thread341 ], [ %340, %337 ]
+341:                                              ; preds = %337, %.thread340
+  %342 = phi i32 [ %208, %.thread340 ], [ %338, %337 ]
+  %.7236 = phi i32 [ 1, %.thread340 ], [ %340, %337 ]
   %343 = icmp ne i32 %.7236, 0
   %or.cond17 = select i1 %274, i1 %343, i1 false
   %or.cond19 = and i1 %240, %or.cond17
   %or.cond21 = select i1 %or.cond19, i1 %232, i1 false
-  br i1 %or.cond21, label %._crit_edge, label %.thread346
+  br i1 %or.cond21, label %._crit_edge, label %.thread345
 
-.thread346:                                       ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit, %206, %341
+.thread345:                                       ; preds = %_ZL14color_tree_hasP9ColorTreehhhh.exit, %206, %341
   %344 = phi i32 [ %272, %341 ], [ %207, %206 ], [ %272, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
   %345 = phi i32 [ %342, %341 ], [ %208, %206 ], [ %208, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
   %346 = phi i32 [ %273, %341 ], [ %209, %206 ], [ %273, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.4244 = phi i32 [ %233, %341 ], [ %.3243371, %206 ], [ %233, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.6235 = phi i32 [ %.7236, %341 ], [ %.5234372, %206 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.5224 = phi i32 [ %.6225, %341 ], [ %.4223373, %206 ], [ %.6225, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1218 = phi i8 [ %210, %341 ], [ %.0217374, %206 ], [ %210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1216 = phi i8 [ %212, %341 ], [ %.0215375, %206 ], [ %212, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1214 = phi i8 [ %214, %341 ], [ %.0213376, %206 ], [ %214, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.1212 = phi i8 [ %216, %341 ], [ %.0211377, %206 ], [ %216, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %.4209 = phi i32 [ %.5210, %341 ], [ %.3208378, %206 ], [ %.5210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
-  %347 = add nuw i64 %.4379, 1
+  %.4244 = phi i32 [ %233, %341 ], [ %.3243370, %206 ], [ %233, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.6235 = phi i32 [ %.7236, %341 ], [ %.5234371, %206 ], [ 0, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.5224 = phi i32 [ %.6225, %341 ], [ %.4223372, %206 ], [ %.6225, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1218 = phi i8 [ %210, %341 ], [ %.0217373, %206 ], [ %210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1216 = phi i8 [ %212, %341 ], [ %.0215374, %206 ], [ %212, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1214 = phi i8 [ %214, %341 ], [ %.0213375, %206 ], [ %214, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.1212 = phi i8 [ %216, %341 ], [ %.0211376, %206 ], [ %216, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %.4209 = phi i32 [ %.5210, %341 ], [ %.3208377, %206 ], [ %.5210, %_ZL14color_tree_hasP9ColorTreehhhh.exit ]
+  %347 = add nuw i64 %.4378, 1
   %.not268 = icmp eq i64 %347, %21
   br i1 %.not268, label %._crit_edge, label %206, !llvm.loop !400
 
-._crit_edge:                                      ; preds = %.thread346, %341, %.thread
-  %348 = phi i32 [ %63, %.thread ], [ %344, %.thread346 ], [ %272, %341 ]
+._crit_edge:                                      ; preds = %.thread345, %341, %.thread
+  %348 = phi i32 [ %63, %.thread ], [ %344, %.thread345 ], [ %272, %341 ]
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %350 = load i32, ptr %349, align 4, !tbaa !394
   %.not282 = icmp eq i32 %350, 0
   %.not283 = icmp ne i32 %348, 0
-  %or.cond385 = or i1 %.not283, %.not268370
-  %or.cond417 = select i1 %.not282, i1 true, i1 %or.cond385
-  br i1 %or.cond417, label %.loopexit, label %.lr.ph384
+  %or.cond384 = or i1 %.not283, %.not268369
+  %or.cond416 = select i1 %.not282, i1 true, i1 %or.cond384
+  br i1 %or.cond416, label %.loopexit, label %.lr.ph383
 
-.lr.ph384:                                        ; preds = %._crit_edge
+.lr.ph383:                                        ; preds = %._crit_edge
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %354
 
-354:                                              ; preds = %.lr.ph384, %375
-  %.5383 = phi i64 [ 0, %.lr.ph384 ], [ %376, %375 ]
-  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %1, i64 noundef %.5383, ptr noundef nonnull %4)
+354:                                              ; preds = %.lr.ph383, %375
+  %.5382 = phi i64 [ 0, %.lr.ph383 ], [ %376, %375 ]
+  call fastcc void @_ZL18getPixelColorRGBA8PhS_S_S_PKhmPK16LodePNGColorMode(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %1, i64 noundef %.5382, ptr noundef nonnull %4)
   %355 = load i8, ptr %18, align 1, !tbaa !18
   %.not285 = icmp eq i8 %355, 0
   br i1 %.not285, label %375, label %356
@@ -9999,7 +9999,7 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   br label %375
 
 375:                                              ; preds = %354, %356, %361, %366, %374, %371
-  %376 = add nuw i64 %.5383, 1
+  %376 = add nuw i64 %.5382, 1
   %.not284 = icmp eq i64 %376, %21
   br i1 %.not284, label %.loopexit, label %354, !llvm.loop !401
 
@@ -10016,9 +10016,9 @@ _ZL14color_tree_hasP9ColorTreehhhh.exit.thread:   ; preds = %_ZL14color_tree_has
   %384 = load i16, ptr %383, align 4, !tbaa !393
   %385 = mul i16 %384, 257
   store i16 %385, ptr %383, align 4, !tbaa !393
-  br label %_ZL14color_tree_addP9ColorTreehhhhj.exit318
+  br label %_ZL14color_tree_addP9ColorTreehhhhj.exit317
 
-_ZL14color_tree_addP9ColorTreehhhhj.exit318:      ; preds = %320, %.loopexit
+_ZL14color_tree_addP9ColorTreehhhhj.exit317:      ; preds = %320, %.loopexit
   %.7 = phi i32 [ 0, %.loopexit ], [ 83, %320 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -10026,8 +10026,8 @@ _ZL14color_tree_addP9ColorTreehhhhj.exit318:      ; preds = %320, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL14color_tree_addP9ColorTreehhhhj.exit
 
-_ZL14color_tree_addP9ColorTreehhhhj.exit:         ; preds = %103, %_ZL14color_tree_addP9ColorTreehhhhj.exit318, %.loopexit357
-  %.2201 = phi i32 [ 0, %.loopexit357 ], [ %.7, %_ZL14color_tree_addP9ColorTreehhhhj.exit318 ], [ 83, %103 ]
+_ZL14color_tree_addP9ColorTreehhhhj.exit:         ; preds = %103, %_ZL14color_tree_addP9ColorTreehhhhj.exit317, %.loopexit356
+  %.2201 = phi i32 [ 0, %.loopexit356 ], [ %.7, %_ZL14color_tree_addP9ColorTreehhhhj.exit317 ], [ 83, %103 ]
   call fastcc void @_ZL18color_tree_cleanupP9ColorTree(ptr noundef %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2201
@@ -15849,7 +15849,7 @@ _Z15lodepng_get_bppPK16LodePNGColorMode.exit:     ; preds = %278, %switch.lookup
   store i32 %504, ptr %36, align 8, !tbaa !402
   br label %.thread456
 
-.thread456:                                       ; preds = %416, %418, %485, %.thread461.thread, %227, %267, %273, %.thread464, %.thread450, %_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread, %._crit_edge490, %407, %410, %481, %484, %301, %303, %310, %316, %321, %326, %330, %334, %339, %343, %348, %353, %359, %367, %369, %373, %377, %382, %386, %393, %499, %503, %.thread461, %299, %57, %52, %47
+.thread456:                                       ; preds = %416, %418, %485, %.thread461.thread, %227, %267, %273, %.thread464, %.thread450, %_ZL18checkColorValidity16LodePNGColorTypej.exit417.thread, %_ZL18checkColorValidity16LodePNGColorTypej.exit.thread, %._crit_edge490, %.thread461, %407, %410, %481, %484, %301, %303, %310, %316, %321, %326, %330, %334, %339, %343, %348, %353, %359, %367, %369, %373, %377, %382, %386, %393, %499, %503, %299, %57, %52, %47
   call void @_Z20lodepng_info_cleanupP11LodePNGInfo(ptr noundef nonnull %10)
   %505 = load ptr, ptr %7, align 8, !tbaa !7
   tail call void @free(ptr noundef %505) #33

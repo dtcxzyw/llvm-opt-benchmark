@@ -783,7 +783,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_P_hash(ptr noundef captures(non
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %66
 
-66:                                               ; preds = %.sink.split, %29, %27, %25, %23, %21, %11
+66:                                               ; preds = %.sink.split, %11, %21, %23, %25, %27, %29
   %.032 = phi i32 [ 0, %29 ], [ 0, %27 ], [ 0, %25 ], [ 0, %23 ], [ 0, %21 ], [ 0, %11 ], [ %.032.ph, %.sink.split ]
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %12) #8
   call void @HMAC_CTX_cleanup(ptr noundef nonnull %13) #8

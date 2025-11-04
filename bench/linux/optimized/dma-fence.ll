@@ -1831,7 +1831,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   tail call void asm sideeffect "559: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 559b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 559) #14, !srcloc !73
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 855, i32 2305, i64 12) #14, !srcloc !74
   tail call void asm sideeffect "560: nop\0A\09.pushsection .discard.instr_end\0A\09.long 560b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 560) #14, !srcloc !75
-  br label %.loopexit24
+  br label %.loopexit25
 
 12:                                               ; preds = %5
   %13 = icmp eq i64 %3, 0
@@ -1875,23 +1875,23 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
 
 .loopexit:                                        ; preds = %.preheader, %32, %30
   %38 = icmp eq ptr %4, null
-  br i1 %38, label %.loopexit24, label %39
+  br i1 %38, label %.loopexit25, label %39
 
 39:                                               ; preds = %.loopexit
   %40 = trunc i64 %15 to i32
   store i32 %40, ptr %4, align 4
-  br label %.loopexit24
+  br label %.loopexit25
 
 41:                                               ; preds = %28, %22
   %42 = add nuw nsw i64 %15, 1
   %43 = icmp eq i64 %42, %14
-  br i1 %43, label %.loopexit24, label %.preheader, !llvm.loop !76
+  br i1 %43, label %.loopexit25, label %.preheader, !llvm.loop !76
 
 44:                                               ; preds = %12
   %45 = shl nuw nsw i64 %14, 5
   %46 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %45, i32 noundef 3520) #18
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.loopexit26, label %48
+  br i1 %47, label %.loopexit27, label %48
 
 48:                                               ; preds = %44
   %49 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !55
@@ -1939,7 +1939,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   br i1 %72, label %78, label %73
 
 .thread:                                          ; preds = %67, %61
-  br i1 %51, label %.thread21, label %76
+  br i1 %51, label %.thread22, label %76
 
 73:                                               ; preds = %69
   store volatile ptr %58, ptr %58, align 8
@@ -1947,12 +1947,12 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   store volatile ptr %58, ptr %74, align 8
   %75 = load ptr, ptr %57, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %75, i64 noundef %71) #14
-  br i1 %51, label %.thread21, label %76
+  br i1 %51, label %.thread22, label %76
 
 76:                                               ; preds = %.thread, %73
   %77 = trunc i64 %55 to i32
   store i32 %77, ptr %4, align 4
-  br label %.thread21
+  br label %.thread22
 
 78:                                               ; preds = %69
   %79 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -2003,18 +2003,18 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
 
 ._crit_edge:                                      ; preds = %98
   %106 = icmp ult i32 %109, %1
-  br i1 %51, label %.loopexit27, label %107
+  br i1 %51, label %.loopexit28, label %107
 
 ._crit_edge.thread:                               ; preds = %92
-  br i1 %51, label %.thread23, label %.thread88
+  br i1 %51, label %.thread24, label %.thread89
 
-.thread88:                                        ; preds = %._crit_edge.thread
+.thread89:                                        ; preds = %._crit_edge.thread
   store i32 0, ptr %4, align 4
-  br label %.thread23
+  br label %.thread24
 
 107:                                              ; preds = %._crit_edge
   store i32 %109, ptr %4, align 4
-  br i1 %106, label %.thread23, label %.critedge
+  br i1 %106, label %.thread24, label %.critedge
 
 .lr.ph:                                           ; preds = %92, %98
   %108 = phi i32 [ %109, %98 ], [ 0, %92 ]
@@ -2022,10 +2022,10 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   %110 = icmp eq i32 %109, %1
   br i1 %110, label %.critedge, label %98, !llvm.loop !80
 
-.loopexit27:                                      ; preds = %._crit_edge
-  br i1 %106, label %.thread23, label %.critedge
+.loopexit28:                                      ; preds = %._crit_edge
+  br i1 %106, label %.thread24, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %107, %.loopexit27
+.critedge:                                        ; preds = %.lr.ph, %107, %.loopexit28
   %111 = tail call i64 @schedule_timeout(i64 noundef %87) #14
   %112 = icmp sgt i64 %111, 0
   %113 = and i1 %2, %112
@@ -2035,39 +2035,39 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
   %115 = load volatile i64, ptr %50, align 8
   %116 = and i64 %115, 131072
   %117 = icmp eq i64 %116, 0
-  br i1 %117, label %118, label %.thread23, !prof !15
+  br i1 %117, label %118, label %.thread24, !prof !15
 
 118:                                              ; preds = %114
   %119 = load volatile i64, ptr %50, align 8
   %120 = and i64 %119, 4
   %121 = icmp eq i64 %120, 0
   %brmerge.not = and i1 %121, %112
-  br i1 %brmerge.not, label %.backedge.backedge, label %.thread23.loopexit.split.loop.exit
+  br i1 %brmerge.not, label %.backedge.backedge, label %.thread24.loopexit.split.loop.exit
 
 select.unfold:                                    ; preds = %.critedge
-  br i1 %112, label %.backedge.backedge, label %.thread23
+  br i1 %112, label %.backedge.backedge, label %.thread24
 
 .backedge.backedge:                               ; preds = %select.unfold, %118
   br label %.backedge, !llvm.loop !81
 
-.thread23.loopexit.split.loop.exit:               ; preds = %118
+.thread24.loopexit.split.loop.exit:               ; preds = %118
   %.mux.le = select i1 %121, i64 %111, i64 -512
-  br label %.thread23
+  br label %.thread24
 
-.thread23:                                        ; preds = %.thread23.loopexit.split.loop.exit, %.loopexit27, %select.unfold, %107, %114, %._crit_edge.thread, %.thread88
-  %122 = phi i64 [ %87, %.thread88 ], [ %87, %._crit_edge.thread ], [ %.mux.le, %.thread23.loopexit.split.loop.exit ], [ %87, %.loopexit27 ], [ %111, %select.unfold ], [ %87, %107 ], [ -512, %114 ]
+.thread24:                                        ; preds = %.thread24.loopexit.split.loop.exit, %.loopexit28, %select.unfold, %107, %114, %._crit_edge.thread, %.thread89
+  %122 = phi i64 [ %87, %.thread89 ], [ %87, %._crit_edge.thread ], [ %.mux.le, %.thread24.loopexit.split.loop.exit ], [ %87, %.loopexit28 ], [ %111, %select.unfold ], [ %87, %107 ], [ -512, %114 ]
   store volatile i32 0, ptr %53, align 8
-  br label %.thread21
+  br label %.thread22
 
-.thread21:                                        ; preds = %.thread, %73, %76, %.thread23
-  %123 = phi i64 [ %14, %.thread23 ], [ %55, %76 ], [ %55, %73 ], [ %55, %.thread ]
-  %124 = phi i64 [ %122, %.thread23 ], [ %3, %76 ], [ %3, %73 ], [ %3, %.thread ]
+.thread22:                                        ; preds = %.thread, %73, %76, %.thread24
+  %123 = phi i64 [ %14, %.thread24 ], [ %55, %76 ], [ %55, %73 ], [ %55, %.thread ]
+  %124 = phi i64 [ %122, %.thread24 ], [ %3, %76 ], [ %3, %73 ], [ %3, %.thread ]
   %125 = and i64 %123, 4294967295
   %126 = icmp eq i64 %125, 0
-  br i1 %126, label %.loopexit26, label %.preheader25
+  br i1 %126, label %.loopexit27, label %.preheader26
 
-.preheader25:                                     ; preds = %.thread21, %140
-  %127 = phi i64 [ %128, %140 ], [ %125, %.thread21 ]
+.preheader26:                                     ; preds = %.thread22, %140
+  %127 = phi i64 [ %128, %140 ], [ %125, %.thread22 ]
   %128 = add nsw i64 %127, -1
   %129 = getelementptr ptr, ptr %0, i64 %128
   %130 = load ptr, ptr %129, align 8
@@ -2078,7 +2078,7 @@ select.unfold:                                    ; preds = %.critedge
   %135 = icmp eq ptr %134, %131
   br i1 %135, label %140, label %136
 
-136:                                              ; preds = %.preheader25
+136:                                              ; preds = %.preheader26
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -2088,19 +2088,19 @@ select.unfold:                                    ; preds = %.critedge
   store volatile ptr %131, ptr %137, align 8
   br label %140
 
-140:                                              ; preds = %136, %.preheader25
+140:                                              ; preds = %136, %.preheader26
   %141 = load ptr, ptr %130, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %141, i64 noundef %133) #14
   %142 = icmp eq i64 %128, 0
-  br i1 %142, label %.loopexit26, label %.preheader25, !llvm.loop !82
+  br i1 %142, label %.loopexit27, label %.preheader26, !llvm.loop !82
 
-.loopexit26:                                      ; preds = %140, %.thread21, %44
-  %143 = phi i64 [ -12, %44 ], [ %124, %.thread21 ], [ %124, %140 ]
+.loopexit27:                                      ; preds = %140, %.thread22, %44
+  %143 = phi i64 [ -12, %44 ], [ %124, %.thread22 ], [ %124, %140 ]
   tail call void @kfree(ptr noundef %46) #14
-  br label %.loopexit24
+  br label %.loopexit25
 
-.loopexit24:                                      ; preds = %41, %.loopexit26, %39, %.loopexit, %11
-  %144 = phi i64 [ %143, %.loopexit26 ], [ -22, %11 ], [ 1, %39 ], [ 1, %.loopexit ], [ 0, %41 ]
+.loopexit25:                                      ; preds = %41, %.loopexit27, %39, %.loopexit, %11
+  %144 = phi i64 [ %143, %.loopexit27 ], [ -22, %11 ], [ 1, %39 ], [ 1, %.loopexit ], [ 0, %41 ]
   ret i64 %144
 }
 

@@ -5097,7 +5097,7 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 118
   %5 = load i16, ptr %4, align 2
   %6 = icmp eq i16 %5, 29999
-  br i1 %6, label %7, label %check_intr_schedule.exit.thread31
+  br i1 %6, label %7, label %check_intr_schedule.exit.thread32
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -5109,31 +5109,31 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
 12:                                               ; preds = %7
   %13 = ptrtoint ptr %10 to i64
   %14 = trunc i64 %13 to i32
-  br label %check_intr_schedule.exit.thread31
+  br label %check_intr_schedule.exit.thread32
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 770
   %17 = icmp eq ptr %10, null
-  br i1 %17, label %.loopexit37, label %18
+  br i1 %17, label %.loopexit38, label %18
 
 18:                                               ; preds = %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %.loopexit37, label %.preheader
+  br i1 %21, label %.loopexit38, label %.preheader
 
-.loopexit36:                                      ; preds = %.loopexit35, %28, %.preheader
+.loopexit37:                                      ; preds = %.loopexit36, %28, %.preheader
   %22 = load ptr, ptr %24, align 8
   %23 = icmp eq ptr %22, %19
-  br i1 %23, label %.loopexit37, label %.preheader, !llvm.loop !54
+  br i1 %23, label %.loopexit38, label %.preheader, !llvm.loop !54
 
-.preheader:                                       ; preds = %18, %.loopexit36
-  %24 = phi ptr [ %22, %.loopexit36 ], [ %20, %18 ]
+.preheader:                                       ; preds = %18, %.loopexit37
+  %24 = phi ptr [ %22, %.loopexit37 ], [ %20, %18 ]
   %25 = getelementptr i8, ptr %24, i64 24
   %26 = load i8, ptr %25, align 8
   %27 = icmp ult i8 %26, 8
-  br i1 %27, label %28, label %.loopexit36
+  br i1 %27, label %28, label %.loopexit37
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr i8, ptr %24, i64 16
@@ -5141,14 +5141,14 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %31 = getelementptr i8, ptr %24, i64 28
   %32 = load i8, ptr %30, align 1
   %33 = icmp ult i8 %32, 8
-  br i1 %33, label %.split.preheader, label %.loopexit36
+  br i1 %33, label %.split.preheader, label %.loopexit37
 
 .split.preheader:                                 ; preds = %28
   %34 = shl nuw nsw i8 %26, 3
   %35 = zext nneg i8 %34 to i32
   br label %.split
 
-.splitthread-pre-split:                           ; preds = %.loopexit35
+.splitthread-pre-split:                           ; preds = %.loopexit36
   %.pr = load i8, ptr %30, align 1
   br label %.split
 
@@ -5158,7 +5158,7 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr i8, ptr %16, i64 %38
   %40 = icmp ult i8 %36, 8
-  br i1 %40, label %41, label %.loopexit35
+  br i1 %40, label %41, label %.loopexit36
 
 41:                                               ; preds = %.split
   %42 = load i16, ptr %29, align 8
@@ -5179,30 +5179,30 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
 53:                                               ; preds = %45
   %54 = trunc nuw nsw i32 %51 to i8
   store i8 %54, ptr %48, align 1
-  br label %.loopexit35
+  br label %.loopexit36
 
 55:                                               ; preds = %45
   store i8 125, ptr %48, align 1
   %56 = add i32 %51, -125
   %57 = add nuw nsw i64 %46, 1
   %58 = icmp eq i64 %57, 8
-  br i1 %58, label %.loopexit35, label %45, !llvm.loop !55
+  br i1 %58, label %.loopexit36, label %45, !llvm.loop !55
 
-.loopexit35:                                      ; preds = %55, %53, %.split
+.loopexit36:                                      ; preds = %55, %53, %.split
   %59 = load i8, ptr %31, align 4
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %37, %60
   %62 = icmp samesign ult i32 %61, 64
-  br i1 %62, label %.splitthread-pre-split, label %.loopexit36, !llvm.loop !56
+  br i1 %62, label %.splitthread-pre-split, label %.loopexit37, !llvm.loop !56
 
-.loopexit37:                                      ; preds = %.loopexit36, %18, %15
+.loopexit38:                                      ; preds = %.loopexit37, %18, %15
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 125
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 122
   br i1 %65, label %168, label %67
 
-67:                                               ; preds = %.loopexit37
+67:                                               ; preds = %.loopexit38
   %68 = zext i8 %64 to i32
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 123
@@ -5213,9 +5213,9 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %.pre = load i32, ptr %69, align 8
   br label %75
 
-75:                                               ; preds = %.split47.us, %67
-  %76 = phi i32 [ %.pre, %67 ], [ %78, %.split47.us ]
-  %77 = phi i32 [ %68, %67 ], [ %166, %.split47.us ]
+75:                                               ; preds = %.split48.us, %67
+  %76 = phi i32 [ %.pre, %67 ], [ %78, %.split48.us ]
+  %77 = phi i32 [ %68, %67 ], [ %166, %.split48.us ]
   %78 = add i32 %76, 1
   store i32 %78, ptr %69, align 8
   %79 = load i8, ptr %63, align 1
@@ -5223,17 +5223,17 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %81 = add nsw i32 %80, -1
   %82 = and i32 %81, %78
   %83 = load i8, ptr %70, align 1
-  %.fr54 = freeze i8 %83
+  %.fr55 = freeze i8 %83
   %84 = shl i32 %82, 3
-  %85 = icmp eq i8 %.fr54, 0
-  %86 = zext i8 %.fr54 to i32
-  br i1 %85, label %.split45.us.split.us, label %.split45.preheader
+  %85 = icmp eq i8 %.fr55, 0
+  %86 = zext i8 %.fr55 to i32
+  br i1 %85, label %.split46.us.split.us, label %.split46.preheader
 
-.split45.preheader:                               ; preds = %75
+.split46.preheader:                               ; preds = %75
   %87 = zext i32 %84 to i64
-  br label %.split45
+  br label %.split46
 
-.split45.us.split.us:                             ; preds = %75
+.split46.us.split.us:                             ; preds = %75
   %88 = load i8, ptr %71, align 4
   %89 = load i8, ptr %66, align 2
   %90 = zext i8 %89 to i32
@@ -5245,13 +5245,13 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %96 = zext nneg i32 %95 to i64
   br label %97
 
-97:                                               ; preds = %.loopexit33.us.us, %.split45.us.split.us
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.loopexit33.us.us ], [ 0, %.split45.us.split.us ]
-  %exitcond.not = icmp eq i64 %indvars.iv78, %96
+97:                                               ; preds = %.loopexit34.us.us, %.split46.us.split.us
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.loopexit34.us.us ], [ 0, %.split46.us.split.us ]
+  %exitcond.not = icmp eq i64 %indvars.iv79, %96
   br i1 %exitcond.not, label %check_intr_schedule.exit, label %98
 
 98:                                               ; preds = %97
-  %99 = add nuw nsw i64 %indvars.iv78, %94
+  %99 = add nuw nsw i64 %indvars.iv79, %94
   br label %100
 
 100:                                              ; preds = %106, %98
@@ -5260,24 +5260,24 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = icmp ult i32 %92, %104
-  br i1 %105, label %.loopexit33.us.us, label %106
+  br i1 %105, label %.loopexit34.us.us, label %106
 
 106:                                              ; preds = %100
   %107 = add nuw nsw i64 %101, %93
   %108 = icmp samesign ult i64 %107, 64
-  br i1 %108, label %100, label %check_intr_schedule.exit.loopexit55, !llvm.loop !58
+  br i1 %108, label %100, label %check_intr_schedule.exit.loopexit56, !llvm.loop !58
 
-.loopexit33.us.us:                                ; preds = %100
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %109 = icmp eq i64 %indvars.iv.next79, 8
-  br i1 %109, label %.split47.us, label %97, !llvm.loop !59
+.loopexit34.us.us:                                ; preds = %100
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %109 = icmp eq i64 %indvars.iv.next80, 8
+  br i1 %109, label %.split48.us, label %97, !llvm.loop !59
 
-.split45:                                         ; preds = %.split45.preheader, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.split45.preheader ], [ %indvars.iv.next, %.loopexit ]
+.split46:                                         ; preds = %.split46.preheader, %.loopexit
+  %indvars.iv = phi i64 [ 0, %.split46.preheader ], [ %indvars.iv.next, %.loopexit ]
   %110 = icmp samesign ugt i64 %indvars.iv, 5
   br i1 %110, label %.loopexit, label %111
 
-111:                                              ; preds = %.split45
+111:                                              ; preds = %.split46
   %112 = load i8, ptr %71, align 4
   %113 = load i8, ptr %66, align 2
   %114 = zext i8 %113 to i32
@@ -5358,17 +5358,17 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %164 = shl nuw nsw i32 %163, 8
   br label %check_intr_schedule.exit
 
-.loopexit:                                        ; preds = %124, %151, %.split45, %.loopexit8.i
+.loopexit:                                        ; preds = %124, %151, %.split46, %.loopexit8.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %165 = icmp eq i64 %indvars.iv.next, 8
-  br i1 %165, label %.split47.us, label %.split45, !llvm.loop !59
+  br i1 %165, label %.split48.us, label %.split46, !llvm.loop !59
 
-.split47.us:                                      ; preds = %.loopexit, %.loopexit33.us.us
+.split48.us:                                      ; preds = %.loopexit, %.loopexit34.us.us
   %166 = add nsw i32 %77, -1
   %167 = icmp sgt i32 %77, 1
-  br i1 %167, label %75, label %check_intr_schedule.exit.thread31, !llvm.loop !61
+  br i1 %167, label %75, label %check_intr_schedule.exit.thread32, !llvm.loop !61
 
-168:                                              ; preds = %.loopexit37
+168:                                              ; preds = %.loopexit38
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 123
   %170 = load i8, ptr %169, align 1
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -5393,20 +5393,20 @@ define internal fastcc i32 @qh_schedule(ptr noundef captures(none) %0, ptr nound
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
   %188 = icmp ult i32 %177, %187
-  br i1 %188, label %check_intr_schedule.exit.thread31, label %180
+  br i1 %188, label %check_intr_schedule.exit.thread32, label %180
 
 189:                                              ; preds = %180
   %190 = icmp eq i8 %170, 0
-  br i1 %190, label %check_intr_schedule.exit, label %check_intr_schedule.exit.thread31
+  br i1 %190, label %check_intr_schedule.exit, label %check_intr_schedule.exit.thread32
 
-check_intr_schedule.exit.loopexit55:              ; preds = %106
-  %191 = trunc nuw nsw i64 %indvars.iv78 to i32
+check_intr_schedule.exit.loopexit56:              ; preds = %106
+  %191 = trunc nuw nsw i64 %indvars.iv79 to i32
   br label %check_intr_schedule.exit
 
-check_intr_schedule.exit:                         ; preds = %97, %check_intr_schedule.exit.loopexit55, %162, %189
-  %192 = phi i8 [ 0, %189 ], [ %79, %162 ], [ %79, %check_intr_schedule.exit.loopexit55 ], [ %79, %97 ]
-  %.3 = phi i32 [ 0, %189 ], [ %164, %162 ], [ 0, %check_intr_schedule.exit.loopexit55 ], [ 0, %97 ]
-  %193 = phi i32 [ 0, %189 ], [ %130, %162 ], [ %191, %check_intr_schedule.exit.loopexit55 ], [ %95, %97 ]
+check_intr_schedule.exit:                         ; preds = %97, %check_intr_schedule.exit.loopexit56, %162, %189
+  %192 = phi i8 [ 0, %189 ], [ %79, %162 ], [ %79, %check_intr_schedule.exit.loopexit56 ], [ %79, %97 ]
+  %.3 = phi i32 [ 0, %189 ], [ %164, %162 ], [ 0, %check_intr_schedule.exit.loopexit56 ], [ 0, %97 ]
+  %193 = phi i32 [ 0, %189 ], [ %130, %162 ], [ %191, %check_intr_schedule.exit.loopexit56 ], [ %95, %97 ]
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %195 = load i16, ptr %194, align 4
   %196 = icmp eq i16 %195, 0
@@ -5447,10 +5447,10 @@ check_intr_schedule.exit:                         ; preds = %97, %check_intr_sch
   %222 = or disjoint i32 %219, %221
   store i32 %222, ptr %217, align 8
   tail call fastcc void @reserve_release_intr_bandwidth(ptr noundef %0, ptr noundef %1, i32 noundef 1)
-  br label %check_intr_schedule.exit.thread31
+  br label %check_intr_schedule.exit.thread32
 
-check_intr_schedule.exit.thread31:                ; preds = %.split47.us, %183, %189, %204, %12, %2
-  %223 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 0, %204 ], [ -28, %189 ], [ -28, %183 ], [ -28, %.split47.us ]
+check_intr_schedule.exit.thread32:                ; preds = %.split48.us, %183, %189, %204, %12, %2
+  %223 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 0, %204 ], [ -28, %189 ], [ -28, %183 ], [ -28, %.split48.us ]
   ret i32 %223
 }
 

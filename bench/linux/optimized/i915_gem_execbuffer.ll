@@ -2765,8 +2765,8 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
   br label %49
 
 49:                                               ; preds = %90, %44
-  %50 = phi i64 [ %66, %90 ], [ %36, %44 ]
-  %51 = phi ptr [ %91, %90 ], [ %45, %44 ]
+  %50 = phi i64 [ %36, %44 ], [ %66, %90 ]
+  %51 = phi ptr [ %45, %44 ], [ %91, %90 ]
   %52 = call i64 @llvm.umin.i64(i64 %50, i64 16)
   %53 = load i32, ptr %48, align 4
   %54 = add i32 %53, 1
@@ -2786,7 +2786,7 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
   store i32 %61, ptr %48, align 4
   %62 = and i64 %58, 4294967295
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %.thread5.i, !prof !11
+  br i1 %63, label %64, label %.thread6.i, !prof !11
 
 64:                                               ; preds = %49
   %65 = trunc nuw nsw i64 %52 to i32
@@ -2821,7 +2821,7 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
 
 84:                                               ; preds = %72
   %85 = trunc i64 %.fr20 to i32
-  br label %.thread5.i
+  br label %.thread6.i
 
 86:                                               ; preds = %74, %67
   %87 = getelementptr i8, ptr %69, i64 32
@@ -2832,15 +2832,15 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
 90:                                               ; preds = %86
   %91 = getelementptr i8, ptr %51, i64 512
   %92 = icmp eq i64 %66, 0
-  br i1 %92, label %.thread5.i, label %49, !llvm.loop !58
+  br i1 %92, label %.thread6.i, label %49, !llvm.loop !58
 
-.thread5.i:                                       ; preds = %90, %49, %84
+.thread6.i:                                       ; preds = %90, %49, %84
   %.fr = phi i32 [ %85, %84 ], [ 0, %90 ], [ -14, %49 ]
   %93 = load i64, ptr %9, align 8
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %eb_relocate_vma.exit, label %95
 
-95:                                               ; preds = %.thread5.i
+95:                                               ; preds = %.thread6.i
   %96 = and i64 %93, 4
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %105, label %98
@@ -2915,7 +2915,7 @@ define internal fastcc i32 @eb_relocate_parse(ptr noundef %0) unnamed_addr #0 al
   store i64 -1, ptr %14, align 8
   br label %eb_relocate_vma.exit
 
-eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
+eb_relocate_vma.exit:                             ; preds = %134, %.thread6.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.fr, label %.thread17 [
     i32 0, label %.preheader
@@ -3313,8 +3313,8 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
   br label %366
 
 366:                                              ; preds = %407, %364
-  %367 = phi i64 [ %383, %407 ], [ %356, %364 ]
-  %368 = phi ptr [ %408, %407 ], [ %365, %364 ]
+  %367 = phi i64 [ %356, %364 ], [ %383, %407 ]
+  %368 = phi ptr [ %365, %364 ], [ %408, %407 ]
   %369 = call i64 @llvm.umin.i64(i64 %367, i64 16)
   %370 = load i32, ptr %149, align 4
   %371 = add i32 %370, 1
@@ -3334,7 +3334,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
   store i32 %378, ptr %149, align 4
   %379 = and i64 %375, 4294967295
   %380 = icmp eq i64 %379, 0
-  br i1 %380, label %381, label %.thread5.i.us.i, !prof !11
+  br i1 %380, label %381, label %.thread6.i.us.i, !prof !11
 
 381:                                              ; preds = %366
   %382 = trunc nuw nsw i64 %369 to i32
@@ -3368,7 +3368,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
 
 401:                                              ; preds = %389
   %402 = trunc i64 %387 to i32
-  br label %.thread5.i.us.i
+  br label %.thread6.i.us.i
 
 403:                                              ; preds = %391, %384
   %404 = getelementptr i8, ptr %386, i64 32
@@ -3379,15 +3379,15 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
 407:                                              ; preds = %403
   %408 = getelementptr i8, ptr %368, i64 512
   %409 = icmp eq i64 %383, 0
-  br i1 %409, label %.thread5.i.us.i, label %366, !llvm.loop !58
+  br i1 %409, label %.thread6.i.us.i, label %366, !llvm.loop !58
 
-.thread5.i.us.i:                                  ; preds = %407, %366, %401
+.thread6.i.us.i:                                  ; preds = %407, %366, %401
   %410 = phi i32 [ %402, %401 ], [ -14, %366 ], [ 0, %407 ]
   %411 = load i64, ptr %9, align 8
   %412 = icmp eq i64 %411, 0
   br i1 %412, label %eb_relocate_vma.exit.us.i, label %413
 
-413:                                              ; preds = %.thread5.i.us.i
+413:                                              ; preds = %.thread6.i.us.i
   %414 = and i64 %411, 4
   %415 = icmp eq i64 %414, 0
   br i1 %415, label %423, label %416
@@ -3462,7 +3462,7 @@ eb_relocate_vma.exit:                             ; preds = %134, %.thread5.i
   store i64 -1, ptr %14, align 8
   br label %eb_relocate_vma.exit.us.i
 
-eb_relocate_vma.exit.us.i:                        ; preds = %452, %.thread5.i.us.i
+eb_relocate_vma.exit.us.i:                        ; preds = %452, %.thread6.i.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %453 = icmp eq i32 %410, 0
   br i1 %453, label %454, label %.split111.us.i

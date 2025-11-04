@@ -230,7 +230,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
 43:                                               ; preds = %12, %12, %12, %12
   %44 = call i32 @opt_provider(i32 noundef %13) #6
   %.not119 = icmp eq i32 %44, 0
-  br i1 %.not119, label %.loopexit145, label %.backedge
+  br i1 %.not119, label %.loopexit148, label %.backedge
 
 45:                                               ; preds = %12
   %46 = call i32 @opt_check_rest_arg(ptr noundef null) #6
@@ -240,7 +240,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
 47:                                               ; preds = %45
   %48 = call i32 @opt_cipher(ptr noundef %.071, ptr noundef nonnull %3) #6
   %.not106 = icmp eq i32 %48, 0
-  br i1 %.not106, label %.loopexit145, label %49
+  br i1 %.not106, label %.loopexit148, label %49
 
 49:                                               ; preds = %47
   %.not114 = icmp eq i32 %.077, 0
@@ -256,7 +256,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
 
 55:                                               ; preds = %49
   %56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.48) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 57:                                               ; preds = %49
   %58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.49) #6
@@ -282,7 +282,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   %69 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.52) #6
   %70 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %70) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 71:                                               ; preds = %65
   %72 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.196, ptr noundef nonnull @.str.53) #6
@@ -292,13 +292,13 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
 73:                                               ; preds = %71
   %74 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %75 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.54) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 76:                                               ; preds = %71
   %77 = load i32, ptr %7, align 4, !tbaa !11
   %78 = call ptr @bio_open_owner(ptr noundef %.091, i32 noundef %77, i32 noundef %52) #6
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.loopexit145, label %80
+  br i1 %79, label %.loopexit148, label %80
 
 80:                                               ; preds = %76
   %.not110 = icmp eq i32 %.083, 0
@@ -321,7 +321,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   call void @perror(ptr noundef %.091) #7
   %88 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %88) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 89:                                               ; preds = %82, %.critedge, %80
   %.not111 = icmp eq i32 %.079, 0
@@ -348,7 +348,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   %98 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %98) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit145
+  br label %.loopexit148
 
 99:                                               ; preds = %.thread, %89
   %.not113 = icmp eq i32 %.081, 0
@@ -361,7 +361,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   switch i32 %103, label %109 [
     i32 4, label %112
     i32 32773, label %104
-    i32 11, label %.thread124
+    i32 11, label %.thread127
     i32 12, label %105
   ]
 
@@ -369,42 +369,42 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   br label %112
 
 105:                                              ; preds = %100
-  br i1 %.not114, label %.thread124, label %106
+  br i1 %.not114, label %.thread127, label %106
 
 106:                                              ; preds = %105
   %107 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %108 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %107, ptr noundef nonnull @.str.62) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 109:                                              ; preds = %100
   %110 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %111 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.64) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
 112:                                              ; preds = %104, %100
   %.073 = phi ptr [ @.str.60, %104 ], [ @.str.59, %100 ]
   %113 = or i32 %.075, %.077
   %or.cond3.not = icmp eq i32 %113, 0
   %.str.66..str.65 = select i1 %or.cond3.not, ptr @.str.66, ptr @.str.65
-  br label %.thread124
+  br label %.thread127
 
-.thread124:                                       ; preds = %100, %105, %112
-  %.073126 = phi ptr [ %.073, %112 ], [ @.str.63, %105 ], [ @.str.61, %100 ]
+.thread127:                                       ; preds = %100, %105, %112
+  %.073129 = phi ptr [ %.073, %112 ], [ @.str.63, %105 ], [ @.str.61, %100 ]
   %.070 = phi ptr [ %.str.66..str.65, %112 ], [ null, %105 ], [ null, %100 ]
   %114 = or i32 %.075, %.077
   %or.cond5.not = icmp eq i32 %114, 0
   %. = select i1 %or.cond5.not, i32 135, i32 2
-  %115 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef nonnull %.196, i32 noundef %., ptr noundef nonnull %.073126, ptr noundef %.070, ptr noundef null) #6
+  %115 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef nonnull %.196, i32 noundef %., ptr noundef nonnull %.073129, ptr noundef %.070, ptr noundef null) #6
   %116 = call i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef %115) #6
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %121
 
-118:                                              ; preds = %.thread124
+118:                                              ; preds = %.thread127
   %119 = load ptr, ptr @bio_err, align 8, !tbaa !15
-  %120 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %119, ptr noundef nonnull @.str.67, ptr noundef nonnull %.073126) #6
-  br label %.loopexit145
+  %120 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %119, ptr noundef nonnull @.str.67, ptr noundef nonnull %.073129) #6
+  br label %.loopexit148
 
-121:                                              ; preds = %.thread124
+121:                                              ; preds = %.thread127
   %122 = load ptr, ptr %3, align 8, !tbaa !4
   %.not115 = icmp eq ptr %122, null
   br i1 %.not115, label %127, label %123
@@ -421,7 +421,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   %129 = load i32, ptr %7, align 4
   %130 = icmp eq i32 %129, 12
   %or.cond7 = select i1 %128, i1 true, i1 %130
-  br i1 %or.cond7, label %131, label %.thread127
+  br i1 %or.cond7, label %131, label %.thread130
 
 131:                                              ; preds = %127
   %132 = call ptr @get_ui_method() #6
@@ -438,7 +438,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
 138:                                              ; preds = %131, %135
   %.pr = load i32, ptr %7, align 4, !tbaa !11
   %139 = icmp eq i32 %.pr, 12
-  br i1 %139, label %140, label %.thread127
+  br i1 %139, label %140, label %.thread130
 
 140:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -447,29 +447,29 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %141, i8 0, i64 40, i1 false)
   %142 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %115, ptr noundef nonnull %10) #6
   %.not117 = icmp eq i32 %142, 0
-  br i1 %.not117, label %143, label %.thread128
+  br i1 %.not117, label %143, label %.thread131
 
-.thread128:                                       ; preds = %140
+.thread131:                                       ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread127
+  br label %.thread130
 
 143:                                              ; preds = %140
   %144 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %145 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %144, ptr noundef nonnull @.str.69) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit145
+  br label %.loopexit148
 
-.thread127:                                       ; preds = %127, %.thread128, %138
+.thread130:                                       ; preds = %127, %.thread131, %138
   %146 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %115, ptr noundef nonnull %78) #6
   %.not118 = icmp eq i32 %146, 0
   br i1 %.not118, label %147, label %151
 
-147:                                              ; preds = %.thread127
+147:                                              ; preds = %.thread130
   %148 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %149 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %148, ptr noundef nonnull @.str.70) #6
-  br label %.loopexit145
+  br label %.loopexit148
 
-.loopexit145:                                     ; preds = %43, %67, %76, %87, %118, %147, %143, %106, %109, %97, %73, %55, %47
+.loopexit148:                                     ; preds = %43, %67, %76, %87, %118, %147, %143, %106, %109, %97, %73, %55, %47
   %.095.ph = phi ptr [ null, %47 ], [ null, %55 ], [ %.196, %73 ], [ %.196, %97 ], [ %.196, %109 ], [ %.196, %106 ], [ %.196, %143 ], [ %.196, %147 ], [ %.196, %118 ], [ %.196, %87 ], [ %.196, %76 ], [ null, %67 ], [ null, %43 ]
   %.090.ph = phi ptr [ null, %47 ], [ null, %55 ], [ null, %73 ], [ %78, %97 ], [ %78, %109 ], [ %78, %106 ], [ %78, %143 ], [ %78, %147 ], [ %78, %118 ], [ %78, %87 ], [ null, %76 ], [ null, %67 ], [ null, %43 ]
   %.068.ph = phi ptr [ null, %47 ], [ null, %55 ], [ null, %73 ], [ null, %97 ], [ null, %109 ], [ null, %106 ], [ %115, %143 ], [ %115, %147 ], [ %115, %118 ], [ null, %87 ], [ null, %76 ], [ null, %67 ], [ null, %43 ]
@@ -477,14 +477,14 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   call void @ERR_print_errors(ptr noundef %150) #6
   br label %151
 
-151:                                              ; preds = %.loopexit145, %.thread127, %99, %16, %.loopexit
-  %.068144 = phi ptr [ %.068.ph, %.loopexit145 ], [ null, %.loopexit ], [ null, %16 ], [ null, %99 ], [ %115, %.thread127 ]
-  %.074142 = phi i32 [ 1, %.loopexit145 ], [ 0, %.loopexit ], [ 0, %16 ], [ 0, %99 ], [ 0, %.thread127 ]
-  %.090140 = phi ptr [ %.090.ph, %.loopexit145 ], [ null, %.loopexit ], [ null, %16 ], [ %78, %99 ], [ %78, %.thread127 ]
-  %.095138 = phi ptr [ %.095.ph, %.loopexit145 ], [ null, %.loopexit ], [ null, %16 ], [ %.196, %99 ], [ %.196, %.thread127 ]
-  call void @OSSL_ENCODER_CTX_free(ptr noundef %.068144) #6
-  call void @BIO_free_all(ptr noundef %.090140) #6
-  call void @EVP_PKEY_free(ptr noundef %.095138) #6
+151:                                              ; preds = %.loopexit, %16, %99, %.thread130, %.loopexit148
+  %.068147 = phi ptr [ %.068.ph, %.loopexit148 ], [ null, %.loopexit ], [ null, %16 ], [ null, %99 ], [ %115, %.thread130 ]
+  %.074145 = phi i32 [ 1, %.loopexit148 ], [ 0, %.loopexit ], [ 0, %16 ], [ 0, %99 ], [ 0, %.thread130 ]
+  %.090143 = phi ptr [ %.090.ph, %.loopexit148 ], [ null, %.loopexit ], [ null, %16 ], [ %78, %99 ], [ %78, %.thread130 ]
+  %.095141 = phi ptr [ %.095.ph, %.loopexit148 ], [ null, %.loopexit ], [ null, %16 ], [ %.196, %99 ], [ %.196, %.thread130 ]
+  call void @OSSL_ENCODER_CTX_free(ptr noundef %.068147) #6
+  call void @BIO_free_all(ptr noundef %.090143) #6
+  call void @EVP_PKEY_free(ptr noundef %.095141) #6
   %152 = load ptr, ptr %3, align 8, !tbaa !4
   call void @EVP_CIPHER_free(ptr noundef %152) #6
   call void @release_engine(ptr noundef %.097) #6
@@ -498,7 +498,7 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.074142
+  ret i32 %.074145
 }
 
 declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #1

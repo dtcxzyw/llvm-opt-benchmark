@@ -577,7 +577,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   store i32 %144, ptr %145, align 4, !tbaa !78
   %146 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %135, i32 noundef 0) #13
   %147 = icmp slt i32 %146, 0
-  br i1 %147, label %.loopexit168.i, label %148
+  br i1 %147, label %.loopexit186.i, label %148
 
 148:                                              ; preds = %136
   %149 = getelementptr inbounds nuw i8, ptr %120, i64 32
@@ -590,7 +590,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %156 = tail call noalias ptr @av_malloc(i64 noundef %155) #13
   store ptr %156, ptr %7, align 8, !tbaa !58
   %.not130.i = icmp eq ptr %156, null
-  br i1 %.not130.i, label %.loopexit168.i, label %157
+  br i1 %.not130.i, label %.loopexit186.i, label %157
 
 157:                                              ; preds = %148
   %158 = getelementptr inbounds i8, ptr %156, i64 %155
@@ -607,34 +607,34 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %169 = zext nneg i32 %163 to i64
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  br label %.preheader167.i
+  br label %.preheader185.i
 
-.preheader167.i:                                  ; preds = %apng_do_inverse_blend.exit.thread.jt4.i.thread, %157
-  %.sroa.7.1 = phi i32 [ 0, %157 ], [ %.sroa.7.3197, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.sroa.9.1 = phi i32 [ 0, %157 ], [ %.sroa.9.3198, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.sroa.11.1 = phi i32 [ 0, %157 ], [ %.sroa.11.3199, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.sroa.13.1 = phi i32 [ 0, %157 ], [ %.sroa.13.3200, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.sroa.19173.1 = phi i8 [ 0, %157 ], [ %.sroa.19173.3202, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.0101206.i = phi i32 [ undef, %157 ], [ %.2103.jt4.i206, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.0105205.i = phi ptr [ undef, %157 ], [ %.2107.jt4.i205, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.0110204.i = phi i64 [ -1, %157 ], [ %.2112.jt4.i204, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.sroa.918.0203.i = phi i8 [ 0, %157 ], [ %333, %apng_do_inverse_blend.exit.thread.jt4.i.thread ]
-  %.not132.i = icmp eq i8 %.sroa.918.0203.i, 2
-  %172 = icmp ne i8 %.sroa.918.0203.i, 1
+.preheader185.i:                                  ; preds = %apng_do_inverse_blend.exit.thread.thread.i, %157
+  %.sroa.7.1 = phi i32 [ 0, %157 ], [ %.sroa.7.4, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.sroa.9.1 = phi i32 [ 0, %157 ], [ %.sroa.9.4, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.sroa.11.1 = phi i32 [ 0, %157 ], [ %.sroa.11.4, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.sroa.13.1 = phi i32 [ 0, %157 ], [ %.sroa.13.4, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.sroa.19173.1 = phi i8 [ 0, %157 ], [ %.sroa.19173.4, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.0101205.i = phi i32 [ undef, %157 ], [ %.2103.ph233.i, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.0105204.i = phi ptr [ undef, %157 ], [ %.2107.ph232.i, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.0110203.i = phi i64 [ -1, %157 ], [ %.2112.ph231.i, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.sroa.918.0202.i = phi i8 [ 0, %157 ], [ %333, %apng_do_inverse_blend.exit.thread.thread.i ]
+  %.not132.i = icmp eq i8 %.sroa.918.0202.i, 2
+  %172 = icmp ne i8 %.sroa.918.0202.i, 1
   %brmerge.i = select i1 %172, i1 true, i1 %162
   br label %173
 
-173:                                              ; preds = %apng_do_inverse_blend.exit.thread.jt4.i, %.preheader167.i
-  %.sroa.7.2 = phi i32 [ %.sroa.7.1, %.preheader167.i ], [ %.sroa.7.3, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.sroa.9.2 = phi i32 [ %.sroa.9.1, %.preheader167.i ], [ %.sroa.9.3, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.sroa.11.2 = phi i32 [ %.sroa.11.1, %.preheader167.i ], [ %.sroa.11.3, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %.preheader167.i ], [ %.sroa.13.3, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.sroa.19173.2 = phi i8 [ %.sroa.19173.1, %.preheader167.i ], [ %.sroa.19173.3, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.1102200.i = phi i32 [ %.0101206.i, %.preheader167.i ], [ %.2103.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.1106198.i = phi ptr [ %.0105205.i, %.preheader167.i ], [ %.2107.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %.1111196.i = phi i64 [ %.0110204.i, %.preheader167.i ], [ %.2112.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %174 = phi i1 [ true, %.preheader167.i ], [ false, %apng_do_inverse_blend.exit.thread.jt4.i ]
-  %storemerge194.i = phi i8 [ 0, %.preheader167.i ], [ 1, %apng_do_inverse_blend.exit.thread.jt4.i ]
+173:                                              ; preds = %apng_do_inverse_blend.exit.thread.i, %.preheader185.i
+  %.sroa.7.2 = phi i32 [ %.sroa.7.1, %.preheader185.i ], [ %.sroa.7.3, %apng_do_inverse_blend.exit.thread.i ]
+  %.sroa.9.2 = phi i32 [ %.sroa.9.1, %.preheader185.i ], [ %.sroa.9.3, %apng_do_inverse_blend.exit.thread.i ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.1, %.preheader185.i ], [ %.sroa.11.3, %apng_do_inverse_blend.exit.thread.i ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %.preheader185.i ], [ %.sroa.13.3, %apng_do_inverse_blend.exit.thread.i ]
+  %.sroa.19173.2 = phi i8 [ %.sroa.19173.1, %.preheader185.i ], [ %.sroa.19173.3, %apng_do_inverse_blend.exit.thread.i ]
+  %.1102200.i = phi i32 [ %.0101205.i, %.preheader185.i ], [ %.2103.ph.i, %apng_do_inverse_blend.exit.thread.i ]
+  %.1106198.i = phi ptr [ %.0105204.i, %.preheader185.i ], [ %.2107.ph.i, %apng_do_inverse_blend.exit.thread.i ]
+  %.1111196.i = phi i64 [ %.0110203.i, %.preheader185.i ], [ %.2112.ph.i, %apng_do_inverse_blend.exit.thread.i ]
+  %174 = phi i1 [ true, %.preheader185.i ], [ false, %apng_do_inverse_blend.exit.thread.i ]
+  %storemerge194.i = phi i8 [ 0, %.preheader185.i ], [ 1, %apng_do_inverse_blend.exit.thread.i ]
   %175 = load i32, ptr %159, align 4, !tbaa !75
   %176 = load ptr, ptr %149, align 8, !tbaa !53
   br i1 %.not132.i, label %191, label %177
@@ -647,10 +647,10 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %180 = load ptr, ptr %160, align 8, !tbaa !66
   %181 = tail call i32 @av_frame_copy(ptr noundef nonnull %135, ptr noundef %180) #13
   %182 = icmp slt i32 %181, 0
-  br i1 %182, label %.loopexit168.i, label %183
+  br i1 %182, label %.loopexit186.i, label %183
 
 183:                                              ; preds = %177
-  br i1 %brmerge.i, label %.loopexit166.i, label %.lr.ph.i
+  br i1 %brmerge.i, label %.loopexit184.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %183, %.lr.ph.i
   %.0100193.i = phi i32 [ %190, %.lr.ph.i ], [ %.sroa.7.0.copyload.i, %183 ]
@@ -663,12 +663,12 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   tail call void @llvm.memset.p0.i64(ptr align 1 %189, i8 0, i64 %166, i1 false)
   %190 = add nuw i32 %.0100193.i, 1
   %exitcond.not.i = icmp eq i32 %190, %161
-  br i1 %exitcond.not.i, label %.loopexit166.i, label %.lr.ph.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %.loopexit184.i, label %.lr.ph.i, !llvm.loop !81
 
 191:                                              ; preds = %173
   %192 = load ptr, ptr %167, align 8, !tbaa !83
   %.not133.i = icmp eq ptr %192, null
-  br i1 %.not133.i, label %apng_do_inverse_blend.exit.thread.jt4.i, label %193
+  br i1 %.not133.i, label %apng_do_inverse_blend.exit.thread.i, label %193
 
 193:                                              ; preds = %191
   %194 = load i32, ptr %140, align 8, !tbaa !77
@@ -677,9 +677,9 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   store i32 %195, ptr %145, align 4, !tbaa !78
   %196 = tail call i32 @av_frame_copy(ptr noundef nonnull %135, ptr noundef nonnull %192) #13
   %197 = icmp slt i32 %196, 0
-  br i1 %197, label %.loopexit168.i, label %.loopexit166.i
+  br i1 %197, label %.loopexit186.i, label %.loopexit184.i
 
-.loopexit166.i:                                   ; preds = %.lr.ph.i, %193, %183
+.loopexit184.i:                                   ; preds = %.lr.ph.i, %193, %183
   %198 = load i32, ptr %140, align 8, !tbaa !77
   %199 = load i32, ptr %143, align 4, !tbaa !78
   %200 = load ptr, ptr %135, align 8, !tbaa !58
@@ -690,7 +690,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %.not.i.i = icmp eq i32 %199, 0
   br i1 %.not.i.i, label %._crit_edge192.i.i, label %.preheader176.lr.ph.i.i
 
-.preheader176.lr.ph.i.i:                          ; preds = %.loopexit166.i
+.preheader176.lr.ph.i.i:                          ; preds = %.loopexit184.i
   %.not212.i.i = icmp eq i32 %198, 0
   br i1 %.not212.i.i, label %._crit_edge192.i.i, label %.preheader176.us.preheader.i.i
 
@@ -753,11 +753,11 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %exitcond217.not.i.i = icmp eq i32 %206, %199
   br i1 %exitcond217.not.i.i, label %._crit_edge192.i.i, label %.preheader176.us.i.i, !llvm.loop !85
 
-._crit_edge192.i.i:                               ; preds = %._crit_edge.us.i.i, %.preheader176.lr.ph.i.i, %.loopexit166.i
-  %.0158.lcssa.i.i = phi i32 [ %198, %.loopexit166.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2160.us.i.i, %._crit_edge.us.i.i ]
-  %.0153.lcssa.i.i = phi i32 [ 0, %.loopexit166.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2155.us.i.i, %._crit_edge.us.i.i ]
-  %.0149.lcssa.i.i = phi i32 [ 0, %.loopexit166.i ], [ %199, %.preheader176.lr.ph.i.i ], [ %.2151.us.i.i, %._crit_edge.us.i.i ]
-  %.0145.lcssa.i.i = phi i32 [ 0, %.loopexit166.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2147.us.i.i, %._crit_edge.us.i.i ]
+._crit_edge192.i.i:                               ; preds = %._crit_edge.us.i.i, %.preheader176.lr.ph.i.i, %.loopexit184.i
+  %.0158.lcssa.i.i = phi i32 [ %198, %.loopexit184.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2160.us.i.i, %._crit_edge.us.i.i ]
+  %.0153.lcssa.i.i = phi i32 [ 0, %.loopexit184.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2155.us.i.i, %._crit_edge.us.i.i ]
+  %.0149.lcssa.i.i = phi i32 [ 0, %.loopexit184.i ], [ %199, %.preheader176.lr.ph.i.i ], [ %.2151.us.i.i, %._crit_edge.us.i.i ]
+  %.0145.lcssa.i.i = phi i32 [ 0, %.loopexit184.i ], [ 0, %.preheader176.lr.ph.i.i ], [ %.2147.us.i.i, %._crit_edge.us.i.i ]
   %219 = icmp eq i32 %.0158.lcssa.i.i, %198
   %220 = icmp eq i32 %.0153.lcssa.i.i, 0
   %or.cond.i.i = select i1 %219, i1 %220, i1 false
@@ -806,7 +806,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %.4157243.i.i = phi i32 [ 1, %.thread.i.i ], [ %.0153.lcssa.i.i, %221 ]
   %.4162240.i.i = phi i32 [ 0, %.thread.i.i ], [ %.0158.lcssa.i.i, %221 ]
   %236 = load i32, ptr %137, align 4, !tbaa !80
-  switch i32 %236, label %apng_do_inverse_blend.exit.thread.jt4.i.thread [
+  switch i32 %236, label %apng_do_inverse_blend.exit.thread.thread.i [
     i32 104, label %.loopexit175.i.i
     i32 109, label %.loopexit175.i.i
     i32 26, label %.loopexit175.i.i
@@ -897,7 +897,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %274 = getelementptr inbounds nuw i32, ptr %.0134.i.i, i64 %273
   %275 = load i32, ptr %274, align 4, !tbaa !60
   %276 = icmp ult i32 %275, 16777216
-  br i1 %276, label %309, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %276, label %309, label %apng_do_inverse_blend.exit.thread.i
 
 277:                                              ; preds = %264
   %278 = getelementptr inbounds nuw i8, ptr %.0132204.us.i.i, i64 1
@@ -909,7 +909,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %282 = getelementptr inbounds nuw i8, ptr %.0206.us.i.i, i64 1
   %283 = load i8, ptr %282, align 1, !tbaa !57
   %284 = icmp eq i8 %283, 0
-  br i1 %284, label %309, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %284, label %309, label %apng_do_inverse_blend.exit.thread.i
 
 285:                                              ; preds = %264
   %286 = getelementptr inbounds nuw i8, ptr %.0132204.us.i.i, i64 3
@@ -921,7 +921,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %290 = getelementptr inbounds nuw i8, ptr %.0206.us.i.i, i64 3
   %291 = load i8, ptr %290, align 1, !tbaa !57
   %292 = icmp eq i8 %291, 0
-  br i1 %292, label %309, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %292, label %309, label %apng_do_inverse_blend.exit.thread.i
 
 293:                                              ; preds = %264
   %294 = getelementptr inbounds nuw i8, ptr %.0132204.us.i.i, i64 2
@@ -933,7 +933,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %298 = getelementptr inbounds nuw i8, ptr %.0206.us.i.i, i64 2
   %299 = load i16, ptr %298, align 2, !tbaa !88
   %300 = icmp eq i16 %299, 0
-  br i1 %300, label %309, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %300, label %309, label %apng_do_inverse_blend.exit.thread.i
 
 301:                                              ; preds = %264
   %302 = getelementptr inbounds nuw i8, ptr %.0132204.us.i.i, i64 6
@@ -945,7 +945,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %306 = getelementptr inbounds nuw i8, ptr %.0206.us.i.i, i64 6
   %307 = load i16, ptr %306, align 2, !tbaa !88
   %308 = icmp eq i16 %307, 0
-  br i1 %308, label %309, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %308, label %309, label %apng_do_inverse_blend.exit.thread.i
 
 309:                                              ; preds = %305, %301, %297, %293, %289, %285, %281, %277, %271, %265, %264
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2143202.us.i.i, ptr align 1 %.0132204.us.i.i, i64 %169, i1 false)
@@ -960,7 +960,7 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   br label %315
 
 313:                                              ; preds = %310
-  br i1 %248, label %apng_do_inverse_blend.exit.thread.jt4.i, label %314
+  br i1 %248, label %apng_do_inverse_blend.exit.thread.i, label %314
 
 314:                                              ; preds = %313
   store i8 %249, ptr %.2143202.us.i.i, align 1, !tbaa !57
@@ -997,83 +997,83 @@ apng_encode_frame.exit.thread:                    ; preds = %134
   %327 = sub i64 %325, %326
   store ptr %176, ptr %149, align 8, !tbaa !53
   %328 = icmp slt i32 %322, 0
-  br i1 %328, label %.loopexit168.i, label %329
+  br i1 %328, label %.loopexit186.i, label %329
 
 329:                                              ; preds = %.loopexit.i
   %330 = icmp ult i64 %327, %.1111196.i
-  br i1 %330, label %apng_do_inverse_blend.exit.thread.jt4.sink.split.i, label %apng_do_inverse_blend.exit.thread.jt4.i
+  br i1 %330, label %apng_do_inverse_blend.exit.thread.sink.split.i, label %apng_do_inverse_blend.exit.thread.i
 
-apng_do_inverse_blend.exit.thread.jt4.sink.split.i: ; preds = %329
+apng_do_inverse_blend.exit.thread.sink.split.i:   ; preds = %329
   store i32 %.sroa.0.0.copyload.i, ptr %119, align 4, !tbaa !60
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !60
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !60
   store i32 %.sroa.6.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !60
   store i32 %.sroa.7.0.copyload.i, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !60
   store i32 %125, ptr %.sroa.9.0..sroa_idx.i, align 4
-  store i8 %.sroa.918.0203.i, ptr %.sroa.918.0..sroa_idx.i, align 4, !tbaa !57
+  store i8 %.sroa.918.0202.i, ptr %.sroa.918.0..sroa_idx.i, align 4, !tbaa !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.15.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.15.i, i64 3, i1 false), !tbaa.struct !76
   %331 = load ptr, ptr %149, align 8, !tbaa !53
   %332 = icmp eq ptr %331, %150
   %..i = select i1 %332, ptr %156, ptr %150
-  %.247.i = select i1 %332, ptr %158, ptr %152
+  %.236.i = select i1 %332, ptr %158, ptr %152
   store ptr %..i, ptr %149, align 8, !tbaa !53
-  store ptr %.247.i, ptr %151, align 8, !tbaa !56
-  br label %apng_do_inverse_blend.exit.thread.jt4.i
+  store ptr %.236.i, ptr %151, align 8, !tbaa !56
+  br label %apng_do_inverse_blend.exit.thread.i
 
-apng_do_inverse_blend.exit.thread.jt4.i:          ; preds = %313, %305, %297, %289, %281, %271, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i, %329, %191
-  %.sroa.7.3 = phi i32 [ %.sroa.7.2, %191 ], [ %320, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.sroa.7.2, %329 ], [ %.sroa.7.2, %271 ], [ %.sroa.7.2, %281 ], [ %.sroa.7.2, %289 ], [ %.sroa.7.2, %297 ], [ %.sroa.7.2, %305 ], [ %.sroa.7.2, %313 ]
-  %.sroa.9.3 = phi i32 [ %.sroa.9.2, %191 ], [ %321, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.sroa.9.2, %329 ], [ %.sroa.9.2, %271 ], [ %.sroa.9.2, %281 ], [ %.sroa.9.2, %289 ], [ %.sroa.9.2, %297 ], [ %.sroa.9.2, %305 ], [ %.sroa.9.2, %313 ]
-  %.sroa.11.3 = phi i32 [ %.sroa.11.2, %191 ], [ %.4162239.i.i, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.sroa.11.2, %329 ], [ %.sroa.11.2, %271 ], [ %.sroa.11.2, %281 ], [ %.sroa.11.2, %289 ], [ %.sroa.11.2, %297 ], [ %.sroa.11.2, %305 ], [ %.sroa.11.2, %313 ]
-  %.sroa.13.3 = phi i32 [ %.sroa.13.2, %191 ], [ %.4244.i.i, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.sroa.13.2, %329 ], [ %.sroa.13.2, %271 ], [ %.sroa.13.2, %281 ], [ %.sroa.13.2, %289 ], [ %.sroa.13.2, %297 ], [ %.sroa.13.2, %305 ], [ %.sroa.13.2, %313 ]
-  %.sroa.19173.3 = phi i8 [ %.sroa.19173.2, %191 ], [ %storemerge194.i, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.sroa.19173.2, %329 ], [ %.sroa.19173.2, %271 ], [ %.sroa.19173.2, %281 ], [ %.sroa.19173.2, %289 ], [ %.sroa.19173.2, %297 ], [ %.sroa.19173.2, %305 ], [ %.sroa.19173.2, %313 ]
-  %.2112.jt4.i = phi i64 [ %.1111196.i, %191 ], [ %327, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.1111196.i, %329 ], [ %.1111196.i, %271 ], [ %.1111196.i, %281 ], [ %.1111196.i, %289 ], [ %.1111196.i, %297 ], [ %.1111196.i, %305 ], [ %.1111196.i, %313 ]
-  %.2107.jt4.i = phi ptr [ %.1106198.i, %191 ], [ %331, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.1106198.i, %329 ], [ %.1106198.i, %271 ], [ %.1106198.i, %281 ], [ %.1106198.i, %289 ], [ %.1106198.i, %297 ], [ %.1106198.i, %305 ], [ %.1106198.i, %313 ]
-  %.2103.jt4.i = phi i32 [ %.1102200.i, %191 ], [ %323, %apng_do_inverse_blend.exit.thread.jt4.sink.split.i ], [ %.1102200.i, %329 ], [ %.1102200.i, %271 ], [ %.1102200.i, %281 ], [ %.1102200.i, %289 ], [ %.1102200.i, %297 ], [ %.1102200.i, %305 ], [ %.1102200.i, %313 ]
-  br i1 %174, label %173, label %apng_do_inverse_blend.exit.thread.jt4.i.thread, !llvm.loop !91
+apng_do_inverse_blend.exit.thread.i:              ; preds = %313, %305, %297, %289, %281, %271, %apng_do_inverse_blend.exit.thread.sink.split.i, %329, %191
+  %.sroa.7.3 = phi i32 [ %.sroa.7.2, %191 ], [ %320, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.sroa.7.2, %329 ], [ %.sroa.7.2, %271 ], [ %.sroa.7.2, %281 ], [ %.sroa.7.2, %289 ], [ %.sroa.7.2, %297 ], [ %.sroa.7.2, %305 ], [ %.sroa.7.2, %313 ]
+  %.sroa.9.3 = phi i32 [ %.sroa.9.2, %191 ], [ %321, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.sroa.9.2, %329 ], [ %.sroa.9.2, %271 ], [ %.sroa.9.2, %281 ], [ %.sroa.9.2, %289 ], [ %.sroa.9.2, %297 ], [ %.sroa.9.2, %305 ], [ %.sroa.9.2, %313 ]
+  %.sroa.11.3 = phi i32 [ %.sroa.11.2, %191 ], [ %.4162239.i.i, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.sroa.11.2, %329 ], [ %.sroa.11.2, %271 ], [ %.sroa.11.2, %281 ], [ %.sroa.11.2, %289 ], [ %.sroa.11.2, %297 ], [ %.sroa.11.2, %305 ], [ %.sroa.11.2, %313 ]
+  %.sroa.13.3 = phi i32 [ %.sroa.13.2, %191 ], [ %.4244.i.i, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.sroa.13.2, %329 ], [ %.sroa.13.2, %271 ], [ %.sroa.13.2, %281 ], [ %.sroa.13.2, %289 ], [ %.sroa.13.2, %297 ], [ %.sroa.13.2, %305 ], [ %.sroa.13.2, %313 ]
+  %.sroa.19173.3 = phi i8 [ %.sroa.19173.2, %191 ], [ %storemerge194.i, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.sroa.19173.2, %329 ], [ %.sroa.19173.2, %271 ], [ %.sroa.19173.2, %281 ], [ %.sroa.19173.2, %289 ], [ %.sroa.19173.2, %297 ], [ %.sroa.19173.2, %305 ], [ %.sroa.19173.2, %313 ]
+  %.2112.ph.i = phi i64 [ %.1111196.i, %191 ], [ %327, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.1111196.i, %329 ], [ %.1111196.i, %271 ], [ %.1111196.i, %281 ], [ %.1111196.i, %289 ], [ %.1111196.i, %297 ], [ %.1111196.i, %305 ], [ %.1111196.i, %313 ]
+  %.2107.ph.i = phi ptr [ %.1106198.i, %191 ], [ %331, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.1106198.i, %329 ], [ %.1106198.i, %271 ], [ %.1106198.i, %281 ], [ %.1106198.i, %289 ], [ %.1106198.i, %297 ], [ %.1106198.i, %305 ], [ %.1106198.i, %313 ]
+  %.2103.ph.i = phi i32 [ %.1102200.i, %191 ], [ %323, %apng_do_inverse_blend.exit.thread.sink.split.i ], [ %.1102200.i, %329 ], [ %.1102200.i, %271 ], [ %.1102200.i, %281 ], [ %.1102200.i, %289 ], [ %.1102200.i, %297 ], [ %.1102200.i, %305 ], [ %.1102200.i, %313 ]
+  br i1 %174, label %173, label %apng_do_inverse_blend.exit.thread.thread.i, !llvm.loop !91
 
-apng_do_inverse_blend.exit.thread.jt4.i.thread:   ; preds = %235, %apng_do_inverse_blend.exit.thread.jt4.i
-  %.2103.jt4.i206 = phi i32 [ %.2103.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.1102200.i, %235 ]
-  %.2107.jt4.i205 = phi ptr [ %.2107.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.1106198.i, %235 ]
-  %.2112.jt4.i204 = phi i64 [ %.2112.jt4.i, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.1111196.i, %235 ]
-  %.sroa.19173.3202 = phi i8 [ %.sroa.19173.3, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.sroa.19173.2, %235 ]
-  %.sroa.13.3200 = phi i32 [ %.sroa.13.3, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.sroa.13.2, %235 ]
-  %.sroa.11.3199 = phi i32 [ %.sroa.11.3, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.sroa.11.2, %235 ]
-  %.sroa.9.3198 = phi i32 [ %.sroa.9.3, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.sroa.9.2, %235 ]
-  %.sroa.7.3197 = phi i32 [ %.sroa.7.3, %apng_do_inverse_blend.exit.thread.jt4.i ], [ %.sroa.7.2, %235 ]
-  %333 = add nuw nsw i8 %.sroa.918.0203.i, 1
-  %exitcond223.not.i = icmp eq i8 %333, 3
-  br i1 %exitcond223.not.i, label %334, label %.preheader167.i, !llvm.loop !92
+apng_do_inverse_blend.exit.thread.thread.i:       ; preds = %apng_do_inverse_blend.exit.thread.i, %235
+  %.sroa.7.4 = phi i32 [ %.sroa.7.3, %apng_do_inverse_blend.exit.thread.i ], [ %.sroa.7.2, %235 ]
+  %.sroa.9.4 = phi i32 [ %.sroa.9.3, %apng_do_inverse_blend.exit.thread.i ], [ %.sroa.9.2, %235 ]
+  %.sroa.11.4 = phi i32 [ %.sroa.11.3, %apng_do_inverse_blend.exit.thread.i ], [ %.sroa.11.2, %235 ]
+  %.sroa.13.4 = phi i32 [ %.sroa.13.3, %apng_do_inverse_blend.exit.thread.i ], [ %.sroa.13.2, %235 ]
+  %.sroa.19173.4 = phi i8 [ %.sroa.19173.3, %apng_do_inverse_blend.exit.thread.i ], [ %.sroa.19173.2, %235 ]
+  %.2103.ph233.i = phi i32 [ %.2103.ph.i, %apng_do_inverse_blend.exit.thread.i ], [ %.1102200.i, %235 ]
+  %.2107.ph232.i = phi ptr [ %.2107.ph.i, %apng_do_inverse_blend.exit.thread.i ], [ %.1106198.i, %235 ]
+  %.2112.ph231.i = phi i64 [ %.2112.ph.i, %apng_do_inverse_blend.exit.thread.i ], [ %.1111196.i, %235 ]
+  %333 = add nuw nsw i8 %.sroa.918.0202.i, 1
+  %exitcond209.not.i = icmp eq i8 %333, 3
+  br i1 %exitcond209.not.i, label %334, label %.preheader185.i, !llvm.loop !92
 
-334:                                              ; preds = %apng_do_inverse_blend.exit.thread.jt4.i.thread
-  store i32 %.2103.jt4.i206, ptr %159, align 4, !tbaa !75
-  %335 = getelementptr inbounds nuw i8, ptr %150, i64 %.2112.jt4.i204
+334:                                              ; preds = %apng_do_inverse_blend.exit.thread.thread.i
+  store i32 %.2103.ph233.i, ptr %159, align 4, !tbaa !75
+  %335 = getelementptr inbounds nuw i8, ptr %150, i64 %.2112.ph231.i
   store ptr %335, ptr %149, align 8, !tbaa !53
   store ptr %152, ptr %151, align 8, !tbaa !56
-  %.not131.i = icmp eq ptr %.2107.jt4.i205, %150
-  br i1 %.not131.i, label %.loopexit168.i, label %336
+  %.not131.i = icmp eq ptr %.2107.ph232.i, %150
+  br i1 %.not131.i, label %.loopexit186.i, label %336
 
 336:                                              ; preds = %334
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %.2107.jt4.i205, i64 %.2112.jt4.i204, i1 false)
-  br label %.loopexit168.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %.2107.ph232.i, i64 %.2112.ph231.i, i1 false)
+  br label %.loopexit186.i
 
-.loopexit168.i:                                   ; preds = %.loopexit.i, %193, %177, %336, %334, %148, %136
-  %.sroa.7.4 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.7.3197, %334 ], [ %.sroa.7.3197, %336 ], [ %.sroa.7.2, %177 ], [ %.sroa.7.2, %193 ], [ %.sroa.7.2, %.loopexit.i ]
-  %.sroa.9.4 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.9.3198, %334 ], [ %.sroa.9.3198, %336 ], [ %.sroa.9.2, %177 ], [ %.sroa.9.2, %193 ], [ %.sroa.9.2, %.loopexit.i ]
-  %.sroa.11.4 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.11.3199, %334 ], [ %.sroa.11.3199, %336 ], [ %.sroa.11.2, %177 ], [ %.sroa.11.2, %193 ], [ %.sroa.11.2, %.loopexit.i ]
-  %.sroa.13.4 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.13.3200, %334 ], [ %.sroa.13.3200, %336 ], [ %.sroa.13.2, %177 ], [ %.sroa.13.2, %193 ], [ %.sroa.13.2, %.loopexit.i ]
-  %.sroa.19173.4 = phi i8 [ 0, %136 ], [ 0, %148 ], [ %.sroa.19173.3202, %334 ], [ %.sroa.19173.3202, %336 ], [ %.sroa.19173.2, %177 ], [ %.sroa.19173.2, %193 ], [ %.sroa.19173.2, %.loopexit.i ]
+.loopexit186.i:                                   ; preds = %.loopexit.i, %193, %177, %336, %334, %148, %136
+  %.sroa.7.5 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.7.4, %334 ], [ %.sroa.7.4, %336 ], [ %.sroa.7.2, %177 ], [ %.sroa.7.2, %193 ], [ %.sroa.7.2, %.loopexit.i ]
+  %.sroa.9.5 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.9.4, %334 ], [ %.sroa.9.4, %336 ], [ %.sroa.9.2, %177 ], [ %.sroa.9.2, %193 ], [ %.sroa.9.2, %.loopexit.i ]
+  %.sroa.11.5 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.11.4, %334 ], [ %.sroa.11.4, %336 ], [ %.sroa.11.2, %177 ], [ %.sroa.11.2, %193 ], [ %.sroa.11.2, %.loopexit.i ]
+  %.sroa.13.5 = phi i32 [ 0, %136 ], [ 0, %148 ], [ %.sroa.13.4, %334 ], [ %.sroa.13.4, %336 ], [ %.sroa.13.2, %177 ], [ %.sroa.13.2, %193 ], [ %.sroa.13.2, %.loopexit.i ]
+  %.sroa.19173.5 = phi i8 [ 0, %136 ], [ 0, %148 ], [ %.sroa.19173.4, %334 ], [ %.sroa.19173.4, %336 ], [ %.sroa.19173.2, %177 ], [ %.sroa.19173.2, %193 ], [ %.sroa.19173.2, %.loopexit.i ]
   %.099.i = phi i32 [ %146, %136 ], [ -12, %148 ], [ 0, %334 ], [ 0, %336 ], [ %322, %.loopexit.i ], [ %196, %193 ], [ %181, %177 ]
   call void @av_freep(ptr noundef nonnull %7) #13
   call void @av_frame_free(ptr noundef nonnull %6) #13
   br label %apng_encode_frame.exit
 
-apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.i
-  %.sroa.7.5 = phi i32 [ %130, %128 ], [ %.sroa.7.4, %.loopexit168.i ]
-  %.sroa.9.5 = phi i32 [ %132, %128 ], [ %.sroa.9.4, %.loopexit168.i ]
-  %.sroa.11.5 = phi i32 [ 0, %128 ], [ %.sroa.11.4, %.loopexit168.i ]
-  %.sroa.13.5 = phi i32 [ 0, %128 ], [ %.sroa.13.4, %.loopexit168.i ]
-  %.sroa.19173.5 = phi i8 [ 0, %128 ], [ %.sroa.19173.4, %.loopexit168.i ]
-  %.0.i162 = phi i32 [ %133, %128 ], [ %.099.i, %.loopexit168.i ]
+apng_encode_frame.exit:                           ; preds = %128, %.loopexit186.i
+  %.sroa.7.6 = phi i32 [ %130, %128 ], [ %.sroa.7.5, %.loopexit186.i ]
+  %.sroa.9.6 = phi i32 [ %132, %128 ], [ %.sroa.9.5, %.loopexit186.i ]
+  %.sroa.11.6 = phi i32 [ 0, %128 ], [ %.sroa.11.5, %.loopexit186.i ]
+  %.sroa.13.6 = phi i32 [ 0, %128 ], [ %.sroa.13.5, %.loopexit186.i ]
+  %.sroa.19173.6 = phi i8 [ 0, %128 ], [ %.sroa.19173.5, %.loopexit186.i ]
+  %.0.i162 = phi i32 [ %133, %128 ], [ %.099.i, %.loopexit186.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1087,11 +1087,11 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
 
 340:                                              ; preds = %apng_encode_frame.exit, %338
   %.sroa.0.0 = phi i32 [ 0, %338 ], [ %116, %apng_encode_frame.exit ]
-  %.sroa.7.0 = phi i32 [ 0, %338 ], [ %.sroa.7.5, %apng_encode_frame.exit ]
-  %.sroa.9.0 = phi i32 [ 0, %338 ], [ %.sroa.9.5, %apng_encode_frame.exit ]
-  %.sroa.11.0 = phi i32 [ 0, %338 ], [ %.sroa.11.5, %apng_encode_frame.exit ]
-  %.sroa.13.0 = phi i32 [ 0, %338 ], [ %.sroa.13.5, %apng_encode_frame.exit ]
-  %.sroa.19173.0 = phi i8 [ 0, %338 ], [ %.sroa.19173.5, %apng_encode_frame.exit ]
+  %.sroa.7.0 = phi i32 [ 0, %338 ], [ %.sroa.7.6, %apng_encode_frame.exit ]
+  %.sroa.9.0 = phi i32 [ 0, %338 ], [ %.sroa.9.6, %apng_encode_frame.exit ]
+  %.sroa.11.0 = phi i32 [ 0, %338 ], [ %.sroa.11.6, %apng_encode_frame.exit ]
+  %.sroa.13.0 = phi i32 [ 0, %338 ], [ %.sroa.13.6, %apng_encode_frame.exit ]
+  %.sroa.19173.0 = phi i8 [ 0, %338 ], [ %.sroa.19173.6, %apng_encode_frame.exit ]
   %341 = getelementptr inbounds nuw i8, ptr %10, i64 4344
   %342 = load ptr, ptr %341, align 8, !tbaa !66
   %.not153 = icmp eq ptr %342, null
@@ -1176,13 +1176,13 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
   %395 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %396 = call i32 @av_crc(ptr noundef %392, i32 noundef %394, ptr noundef nonnull %8, i64 noundef 26) #14
   %.not.i163 = icmp eq ptr %395, %8
-  br i1 %.not.i163, label %.thread218, label %397
+  br i1 %.not.i163, label %.thread196, label %397
 
 397:                                              ; preds = %358
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %395, ptr noundef nonnull align 16 dereferenceable(26) %8, i64 26, i1 false)
-  br label %.thread218
+  br label %.thread196
 
-.thread218:                                       ; preds = %397, %358
+.thread196:                                       ; preds = %397, %358
   %398 = getelementptr inbounds nuw i8, ptr %345, i64 34
   %399 = xor i32 %396, -1
   %400 = call i32 @llvm.bswap.i32(i32 %399)
@@ -1196,7 +1196,7 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %add_icc_profile_size.exit
 
-402:                                              ; preds = %.thread218, %340
+402:                                              ; preds = %.thread196, %340
   br i1 %.not, label %478, label %403
 
 403:                                              ; preds = %402
@@ -1246,13 +1246,13 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
   br i1 %426, label %add_icc_profile_size.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %415
-  %.pre234 = load ptr, ptr %411, align 8, !tbaa !83
-  %.pre235 = load ptr, ptr %341, align 8, !tbaa !66
+  %.pre212 = load ptr, ptr %411, align 8, !tbaa !83
+  %.pre213 = load ptr, ptr %341, align 8, !tbaa !66
   br label %427
 
 427:                                              ; preds = %._crit_edge, %410
-  %428 = phi ptr [ %.pre235, %._crit_edge ], [ %404, %410 ]
-  %429 = phi ptr [ %.pre234, %._crit_edge ], [ %412, %410 ]
+  %428 = phi ptr [ %.pre213, %._crit_edge ], [ %404, %410 ]
+  %429 = phi ptr [ %.pre212, %._crit_edge ], [ %412, %410 ]
   %430 = call i32 @av_frame_copy(ptr noundef %429, ptr noundef %428) #13
   %431 = load i8, ptr %408, align 8, !tbaa !93
   %432 = icmp eq i8 %431, 1
@@ -1277,11 +1277,11 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
   br label %446
 
 446:                                              ; preds = %.lr.ph, %446
-  %.0133227 = phi i32 [ %435, %.lr.ph ], [ %460, %446 ]
+  %.0133205 = phi i32 [ %435, %.lr.ph ], [ %460, %446 ]
   %447 = load ptr, ptr %411, align 8, !tbaa !83
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 64
   %449 = load i32, ptr %448, align 8, !tbaa !60
-  %450 = mul i32 %449, %.0133227
+  %450 = mul i32 %449, %.0133205
   %451 = load i32, ptr %444, align 4, !tbaa !98
   %452 = mul i32 %451, %443
   %453 = add i32 %452, %450
@@ -1292,7 +1292,7 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit168.
   %458 = mul i32 %457, %443
   %459 = zext i32 %458 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %456, i8 0, i64 %459, i1 false)
-  %460 = add nuw i32 %.0133227, 1
+  %460 = add nuw i32 %.0133205, 1
   %461 = load i32, ptr %434, align 8, !tbaa !99
   %462 = load i32, ptr %436, align 8, !tbaa !97
   %463 = add i32 %462, %461

@@ -550,7 +550,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_av1_split_fragment(ptr nounde
   %.not77 = icmp eq i64 %86, 0
   br i1 %.not77, label %.thread, label %41
 
-.thread:                                          ; preds = %84, %32, %28, %22, %13, %.thread92, %27
+.thread:                                          ; preds = %84, %32, %28, %22, %27, %.thread92, %13
   %.057 = phi i32 [ -1094995529, %13 ], [ %.259.ph, %.thread92 ], [ 0, %27 ], [ -1094995529, %22 ], [ -1094995529, %28 ], [ 0, %32 ], [ 0, %84 ]
   store i32 %8, ptr %7, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

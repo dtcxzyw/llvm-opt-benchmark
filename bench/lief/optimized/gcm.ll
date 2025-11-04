@@ -1063,12 +1063,12 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %11
 
-11:                                               ; preds = %9, %.thread238
-  %indvars.iv260 = phi i64 [ 0, %9 ], [ %indvars.iv.next261, %.thread238 ]
-  %12 = shl nuw nsw i64 %indvars.iv260, 6
+11:                                               ; preds = %9, %.thread239
+  %indvars.iv262 = phi i64 [ 0, %9 ], [ %indvars.iv.next263, %.thread239 ]
+  %12 = shl nuw nsw i64 %indvars.iv262, 6
   %13 = add nuw nsw i64 %12, 128
   %14 = icmp eq i64 %13, 192
-  %15 = mul nuw nsw i64 %indvars.iv260, 6
+  %15 = mul nuw nsw i64 %indvars.iv262, 6
   %16 = trunc nuw nsw i64 %13 to i32
   %.pre = trunc nuw nsw i64 %13 to i32
   br label %17
@@ -1096,11 +1096,11 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
 
 27:                                               ; preds = %._crit_edge
   %puts205 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %.thread238
+  br label %.thread239
 
 28:                                               ; preds = %._crit_edge
   %.not162 = icmp eq i32 %25, 0
-  br i1 %.not162, label %29, label %.thread247
+  br i1 %.not162, label %29, label %.thread249
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i64, ptr @pt_len_test_data, i64 %indvars.iv
@@ -1139,26 +1139,26 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
 mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %29, %49, %51
   %.0.i.ph = phi i32 [ %52, %51 ], [ %50, %49 ], [ %48, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread247
+  br label %.thread249
 
 mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %51
   %53 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not163 = icmp eq i32 %53, 0
-  br i1 %.not163, label %54, label %.thread247
+  br i1 %.not163, label %54, label %.thread249
 
 54:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit
   %55 = add nuw nsw i64 %indvars.iv, %15
   %56 = getelementptr inbounds nuw [64 x i8], ptr @ct_test_data, i64 %55
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %56, i64 %31)
   %.not164 = icmp eq i32 %bcmp, 0
-  br i1 %.not164, label %57, label %.thread247
+  br i1 %.not164, label %57, label %.thread249
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw [16 x i8], ptr @tag_test_data, i64 %55
   %bcmp165 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %58, i64 16)
   %.not166 = icmp eq i32 %bcmp165, 0
-  br i1 %.not166, label %59, label %.thread247
+  br i1 %.not166, label %59, label %.thread249
 
 59:                                               ; preds = %57
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
@@ -1179,44 +1179,44 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %51
 63:                                               ; preds = %.critedge, %60
   %64 = call i32 @mbedtls_gcm_setkey(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %24, i32 noundef %.pre-phi)
   %.not168 = icmp eq i32 %64, 0
-  br i1 %.not168, label %65, label %.thread247
+  br i1 %.not168, label %65, label %.thread249
 
 65:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %66 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull readonly %35, i64 noundef %37)
-  %.not.i215 = icmp eq i32 %66, 0
-  br i1 %.not.i215, label %67, label %mbedtls_gcm_crypt_and_tag.exit219.thread
+  %.not.i216 = icmp eq i32 %66, 0
+  br i1 %.not.i216, label %67, label %mbedtls_gcm_crypt_and_tag.exit220.thread
 
 67:                                               ; preds = %65
   %68 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull readonly %41, i64 noundef %43)
-  %.not23.i217 = icmp eq i32 %68, 0
-  br i1 %.not23.i217, label %69, label %mbedtls_gcm_crypt_and_tag.exit219.thread
+  %.not23.i218 = icmp eq i32 %68, 0
+  br i1 %.not23.i218, label %69, label %mbedtls_gcm_crypt_and_tag.exit220.thread
 
 69:                                               ; preds = %67
   %70 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %56, i64 noundef %31, ptr noundef nonnull %5, i64 noundef %31, ptr noundef nonnull %2)
-  %.not24.i218 = icmp eq i32 %70, 0
-  br i1 %.not24.i218, label %mbedtls_gcm_crypt_and_tag.exit219, label %mbedtls_gcm_crypt_and_tag.exit219.thread
+  %.not24.i219 = icmp eq i32 %70, 0
+  br i1 %.not24.i219, label %mbedtls_gcm_crypt_and_tag.exit220, label %mbedtls_gcm_crypt_and_tag.exit220.thread
 
-mbedtls_gcm_crypt_and_tag.exit219.thread:         ; preds = %65, %67, %69
-  %.0.i216.ph = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+mbedtls_gcm_crypt_and_tag.exit220.thread:         ; preds = %65, %67, %69
+  %.0.i217.ph = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread247
+  br label %.thread249
 
-mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
+mbedtls_gcm_crypt_and_tag.exit220:                ; preds = %69
   %71 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not169 = icmp eq i32 %71, 0
-  br i1 %.not169, label %72, label %.thread247
+  br i1 %.not169, label %72, label %.thread249
 
-72:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit219
+72:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit220
   %bcmp170 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %47, i64 %31)
   %.not171 = icmp eq i32 %bcmp170, 0
-  br i1 %.not171, label %73, label %.thread247
+  br i1 %.not171, label %73, label %.thread249
 
 73:                                               ; preds = %72
   %bcmp172 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %58, i64 16)
   %.not173 = icmp eq i32 %bcmp172, 0
-  br i1 %.not173, label %74, label %.thread247
+  br i1 %.not173, label %74, label %.thread249
 
 74:                                               ; preds = %73
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
@@ -1237,17 +1237,17 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
 78:                                               ; preds = %.critedge209, %75
   %79 = call i32 @mbedtls_gcm_setkey(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %24, i32 noundef %.pre-phi)
   %.not175 = icmp eq i32 %79, 0
-  br i1 %.not175, label %80, label %.thread247
+  br i1 %.not175, label %80, label %.thread249
 
 80:                                               ; preds = %78
   %81 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %35, i64 noundef %37)
   %.not176 = icmp eq i32 %81, 0
-  br i1 %.not176, label %82, label %.thread247
+  br i1 %.not176, label %82, label %.thread249
 
 82:                                               ; preds = %80
   %83 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %41, i64 noundef %43)
   %.not177 = icmp eq i32 %83, 0
-  br i1 %.not177, label %84, label %.thread247
+  br i1 %.not177, label %84, label %.thread249
 
 84:                                               ; preds = %82
   %85 = icmp samesign ugt i64 %indvars.iv, 1
@@ -1257,48 +1257,48 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
   %87 = add i64 %31, -32
   %88 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %47, i64 noundef 32, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %7)
   %.not180 = icmp eq i32 %88, 0
-  br i1 %.not180, label %89, label %.thread247
+  br i1 %.not180, label %89, label %.thread249
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %7, align 8, !tbaa !3
   %.not181 = icmp eq i64 %90, 32
-  br i1 %.not181, label %91, label %.thread243
+  br i1 %.not181, label %91, label %.thread244
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %93 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %92, i64 noundef %87, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %7)
   %.not182 = icmp eq i32 %93, 0
-  br i1 %.not182, label %94, label %.thread247
+  br i1 %.not182, label %94, label %.thread249
 
 94:                                               ; preds = %91
   %95 = load i64, ptr %7, align 8, !tbaa !3
   %.not183 = icmp eq i64 %95, %87
-  br i1 %.not183, label %100, label %.thread243
+  br i1 %.not183, label %100, label %.thread244
 
 96:                                               ; preds = %84
   %97 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %47, i64 noundef %31, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %7)
   %.not178 = icmp eq i32 %97, 0
-  br i1 %.not178, label %98, label %.thread247
+  br i1 %.not178, label %98, label %.thread249
 
 98:                                               ; preds = %96
   %99 = load i64, ptr %7, align 8, !tbaa !3
   %.not179 = icmp eq i64 %99, %31
-  br i1 %.not179, label %100, label %.thread243
+  br i1 %.not179, label %100, label %.thread244
 
 100:                                              ; preds = %98, %94
   %101 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16)
   %.not184 = icmp eq i32 %101, 0
-  br i1 %.not184, label %102, label %.thread247
+  br i1 %.not184, label %102, label %.thread249
 
 102:                                              ; preds = %100
   %bcmp185 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %56, i64 %31)
   %.not186 = icmp eq i32 %bcmp185, 0
-  br i1 %.not186, label %103, label %.thread247
+  br i1 %.not186, label %103, label %.thread249
 
 103:                                              ; preds = %102
   %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %58, i64 16)
   %.not188 = icmp eq i32 %bcmp187, 0
-  br i1 %.not188, label %104, label %.thread247
+  br i1 %.not188, label %104, label %.thread249
 
 104:                                              ; preds = %103
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
@@ -1319,17 +1319,17 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
 108:                                              ; preds = %.critedge212, %105
   %109 = call i32 @mbedtls_gcm_setkey(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %24, i32 noundef %.pre-phi)
   %.not190 = icmp eq i32 %109, 0
-  br i1 %.not190, label %110, label %.thread247
+  br i1 %.not190, label %110, label %.thread249
 
 110:                                              ; preds = %108
   %111 = call i32 @mbedtls_gcm_starts(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %35, i64 noundef %37)
   %.not191 = icmp eq i32 %111, 0
-  br i1 %.not191, label %112, label %.thread247
+  br i1 %.not191, label %112, label %.thread249
 
 112:                                              ; preds = %110
   %113 = call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %4, ptr noundef nonnull %41, i64 noundef %43)
   %.not192 = icmp eq i32 %113, 0
-  br i1 %.not192, label %114, label %.thread247
+  br i1 %.not192, label %114, label %.thread249
 
 114:                                              ; preds = %112
   br i1 %85, label %115, label %125
@@ -1338,48 +1338,48 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
   %116 = add i64 %31, -32
   %117 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %56, i64 noundef 32, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %7)
   %.not195 = icmp eq i32 %117, 0
-  br i1 %.not195, label %118, label %.thread247
+  br i1 %.not195, label %118, label %.thread249
 
 118:                                              ; preds = %115
   %119 = load i64, ptr %7, align 8, !tbaa !3
   %.not196 = icmp eq i64 %119, 32
-  br i1 %.not196, label %120, label %.thread243
+  br i1 %.not196, label %120, label %.thread244
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %122 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %121, i64 noundef %116, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %7)
   %.not197 = icmp eq i32 %122, 0
-  br i1 %.not197, label %123, label %.thread247
+  br i1 %.not197, label %123, label %.thread249
 
 123:                                              ; preds = %120
   %124 = load i64, ptr %7, align 8, !tbaa !3
   %.not198 = icmp eq i64 %124, %116
-  br i1 %.not198, label %129, label %.thread243
+  br i1 %.not198, label %129, label %.thread244
 
 125:                                              ; preds = %114
   %126 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %56, i64 noundef %31, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %7)
   %.not193 = icmp eq i32 %126, 0
-  br i1 %.not193, label %127, label %.thread247
+  br i1 %.not193, label %127, label %.thread249
 
 127:                                              ; preds = %125
   %128 = load i64, ptr %7, align 8, !tbaa !3
   %.not194 = icmp eq i64 %128, %31
-  br i1 %.not194, label %129, label %.thread243
+  br i1 %.not194, label %129, label %.thread244
 
 129:                                              ; preds = %127, %123
   %130 = call i32 @mbedtls_gcm_finish(ptr noundef nonnull %4, ptr poison, i64 poison, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16)
   %.not199 = icmp eq i32 %130, 0
-  br i1 %.not199, label %131, label %.thread247
+  br i1 %.not199, label %131, label %.thread249
 
 131:                                              ; preds = %129
   %bcmp200 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %47, i64 %31)
   %.not201 = icmp eq i32 %bcmp200, 0
-  br i1 %.not201, label %132, label %.thread247
+  br i1 %.not201, label %132, label %.thread249
 
 132:                                              ; preds = %131
   %bcmp202 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %58, i64 16)
   %.not203 = icmp eq i32 %bcmp202, 0
-  br i1 %.not203, label %133, label %.thread247
+  br i1 %.not203, label %133, label %.thread249
 
 133:                                              ; preds = %132
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
@@ -1393,40 +1393,40 @@ mbedtls_gcm_crypt_and_tag.exit219:                ; preds = %69
 135:                                              ; preds = %133, %134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.thread238, label %17, !llvm.loop !32
+  br i1 %exitcond.not, label %.thread239, label %17, !llvm.loop !32
 
-.thread238:                                       ; preds = %135, %27
-  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %exitcond263.not = icmp eq i64 %indvars.iv.next261, 3
-  br i1 %exitcond263.not, label %136, label %11, !llvm.loop !33
+.thread239:                                       ; preds = %135, %27
+  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
+  %exitcond265.not = icmp eq i64 %indvars.iv.next263, 3
+  br i1 %exitcond265.not, label %136, label %11, !llvm.loop !33
 
-136:                                              ; preds = %.thread238
-  br i1 %.not, label %.thread243, label %137
+136:                                              ; preds = %.thread239
+  br i1 %.not, label %.thread244, label %137
 
 137:                                              ; preds = %136
   %putchar = call i32 @putchar(i32 10)
-  br label %.thread243
+  br label %.thread244
 
-.thread247:                                       ; preds = %115, %120, %86, %91, %28, %mbedtls_gcm_crypt_and_tag.exit, %57, %54, %63, %mbedtls_gcm_crypt_and_tag.exit219, %73, %72, %78, %80, %82, %96, %100, %103, %102, %108, %110, %112, %125, %129, %132, %131, %mbedtls_gcm_crypt_and_tag.exit.thread, %mbedtls_gcm_crypt_and_tag.exit219.thread
-  %.3.ph250 = phi i32 [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %.0.i216.ph, %mbedtls_gcm_crypt_and_tag.exit219.thread ], [ %93, %91 ], [ %88, %86 ], [ %122, %120 ], [ %117, %115 ], [ 1, %131 ], [ 1, %132 ], [ %130, %129 ], [ %126, %125 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ 1, %102 ], [ 1, %103 ], [ %101, %100 ], [ %97, %96 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ 1, %72 ], [ 1, %73 ], [ %71, %mbedtls_gcm_crypt_and_tag.exit219 ], [ %64, %63 ], [ 1, %54 ], [ 1, %57 ], [ %53, %mbedtls_gcm_crypt_and_tag.exit ], [ %25, %28 ]
+.thread249:                                       ; preds = %115, %120, %86, %91, %28, %mbedtls_gcm_crypt_and_tag.exit, %57, %54, %63, %mbedtls_gcm_crypt_and_tag.exit220, %73, %72, %78, %80, %82, %96, %100, %103, %102, %108, %110, %112, %125, %129, %132, %131, %mbedtls_gcm_crypt_and_tag.exit.thread, %mbedtls_gcm_crypt_and_tag.exit220.thread
+  %.3.ph252 = phi i32 [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %.0.i217.ph, %mbedtls_gcm_crypt_and_tag.exit220.thread ], [ %93, %91 ], [ %88, %86 ], [ %122, %120 ], [ %117, %115 ], [ 1, %131 ], [ 1, %132 ], [ %130, %129 ], [ %126, %125 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ 1, %102 ], [ 1, %103 ], [ %101, %100 ], [ %97, %96 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ 1, %72 ], [ 1, %73 ], [ %71, %mbedtls_gcm_crypt_and_tag.exit220 ], [ %64, %63 ], [ 1, %54 ], [ 1, %57 ], [ %53, %mbedtls_gcm_crypt_and_tag.exit ], [ %25, %28 ]
   br i1 %.not, label %139, label %138
 
-138:                                              ; preds = %.thread247
+138:                                              ; preds = %.thread249
   %puts207 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   br label %139
 
-139:                                              ; preds = %138, %.thread247
+139:                                              ; preds = %138, %.thread249
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 424) #11
-  br label %.thread243
+  br label %.thread244
 
-.thread243:                                       ; preds = %123, %94, %89, %118, %98, %127, %136, %137, %139
-  %.0 = phi i32 [ %.3.ph250, %139 ], [ 0, %136 ], [ 0, %137 ], [ 0, %127 ], [ 0, %98 ], [ 0, %118 ], [ 0, %89 ], [ 0, %94 ], [ 0, %123 ]
+.thread244:                                       ; preds = %123, %94, %89, %118, %98, %127, %136, %137, %139
+  %.6247 = phi i32 [ %.3.ph252, %139 ], [ 0, %136 ], [ 0, %137 ], [ 0, %127 ], [ 0, %98 ], [ 0, %118 ], [ 0, %89 ], [ 0, %94 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0
+  ret i32 %.6247
 }
 
 declare i32 @mbedtls_aesni_has_support(i32 noundef) local_unnamed_addr #3

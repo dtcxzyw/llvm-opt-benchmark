@@ -1113,7 +1113,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %62 = tail call noalias noundef align 8 dereferenceable_or_null(1120) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3520, i64 noundef 1120) #13
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit11, label %64
+  br i1 %63, label %.loopexit12, label %64
 
 64:                                               ; preds = %60
   store ptr null, ptr %62, align 8
@@ -1181,14 +1181,14 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
 
 103:                                              ; preds = %80
   tail call void @kfree(ptr noundef nonnull %62) #12
-  br label %.loopexit11
+  br label %.loopexit12
 
 104:                                              ; preds = %80
   %105 = getelementptr ptr, ptr %24, i64 %26
   store ptr %62, ptr %105, align 8
   br label %.thread
 
-.loopexit11:                                      ; preds = %60, %103
+.loopexit12:                                      ; preds = %60, %103
   %106 = phi i32 [ %101, %103 ], [ -12, %60 ]
   br label %118
 
@@ -1210,8 +1210,8 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   tail call void %117(ptr noundef nonnull %112, i32 %116, i32 noundef 0, i1 noundef zeroext true) #12
   br label %.loopexit
 
-118:                                              ; preds = %.loopexit11, %124
-  %119 = phi i64 [ %125, %124 ], [ 0, %.loopexit11 ]
+118:                                              ; preds = %.loopexit12, %124
+  %119 = phi i64 [ %125, %124 ], [ 0, %.loopexit12 ]
   %120 = getelementptr ptr, ptr %24, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null

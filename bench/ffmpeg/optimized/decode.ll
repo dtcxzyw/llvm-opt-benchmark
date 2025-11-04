@@ -2207,9 +2207,9 @@ define i32 @ff_get_format(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %25 = tail call ptr @av_memdup(ptr noundef nonnull %1, i64 noundef %24) #10
   store ptr %25, ptr %3, align 8, !tbaa !174
   %.not101 = icmp eq ptr %25, null
-  br i1 %.not101, label %165, label %.preheader132
+  br i1 %.not101, label %165, label %.preheader135
 
-.preheader132:                                    ; preds = %21
+.preheader135:                                    ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -2219,8 +2219,8 @@ define i32 @ff_get_format(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 516
   br label %33
 
-33:                                               ; preds = %.preheader132, %._crit_edge183
-  %.187 = phi i32 [ %154, %._crit_edge183 ], [ %8, %.preheader132 ]
+33:                                               ; preds = %.preheader135, %._crit_edge186
+  %.187 = phi i32 [ %154, %._crit_edge186 ], [ %8, %.preheader135 ]
   %34 = load ptr, ptr %26, align 8, !tbaa !154
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %ff_hwaccel_uninit.exit, label %35
@@ -2244,7 +2244,7 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
   %42 = load ptr, ptr %29, align 8, !tbaa !175
   %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %25) #10
   %44 = icmp eq i32 %43, -1
-  br i1 %44, label %hwaccel_init.exit.thread128, label %45
+  br i1 %44, label %hwaccel_init.exit.thread131, label %45
 
 45:                                               ; preds = %ff_hwaccel_uninit.exit
   %46 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %43) #10
@@ -2253,7 +2253,7 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
 
 47:                                               ; preds = %45
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9) #10
-  br label %hwaccel_init.exit.thread128
+  br label %hwaccel_init.exit.thread131
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %46, align 8, !tbaa !176
@@ -2266,19 +2266,19 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
-  %indvars.iv197 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next198, %54 ]
-  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv197
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next201, %54 ]
+  %51 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv200
   %52 = load i32, ptr %51, align 4, !tbaa !69
   %53 = icmp eq i32 %52, %43
   br i1 %53, label %._crit_edge.loopexit, label %54
 
 54:                                               ; preds = %.lr.ph
-  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !177
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %55 = trunc nuw nsw i64 %indvars.iv197 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv200 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %48
@@ -2289,7 +2289,7 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
 ._crit_edge.thread:                               ; preds = %._crit_edge, %54
   %57 = load ptr, ptr %46, align 8, !tbaa !176
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11, ptr noundef %57) #10
-  br label %hwaccel_init.exit.thread128
+  br label %hwaccel_init.exit.thread131
 
 58:                                               ; preds = %._crit_edge
   %59 = load ptr, ptr %30, align 8, !tbaa !36
@@ -2300,24 +2300,24 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
 
 .preheader:                                       ; preds = %58
   %62 = load ptr, ptr %61, align 8, !tbaa !138
-  %.not104163 = icmp eq ptr %62, null
-  br i1 %.not104163, label %hwaccel_init.exit, label %.lr.ph165
+  %.not104166 = icmp eq ptr %62, null
+  br i1 %.not104166, label %hwaccel_init.exit, label %.lr.ph168
 
-63:                                               ; preds = %.lr.ph165
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next201
+63:                                               ; preds = %.lr.ph168
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.next204
   %65 = load ptr, ptr %64, align 8, !tbaa !138
   %.not104 = icmp eq ptr %65, null
-  br i1 %.not104, label %hwaccel_init.exit, label %.lr.ph165
+  br i1 %.not104, label %hwaccel_init.exit, label %.lr.ph168
 
-.lr.ph165:                                        ; preds = %.preheader, %63
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %63 ], [ 0, %.preheader ]
+.lr.ph168:                                        ; preds = %.preheader, %63
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %63 ], [ 0, %.preheader ]
   %66 = phi ptr [ %65, %63 ], [ %62, %.preheader ]
   %67 = load i32, ptr %66, align 8, !tbaa !162
   %68 = icmp eq i32 %67, %43
   br i1 %68, label %69, label %63
 
-69:                                               ; preds = %.lr.ph165
+69:                                               ; preds = %.lr.ph168
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !143
   %72 = and i32 %71, 2
@@ -2335,7 +2335,7 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 60
   %79 = load i32, ptr %78, align 4, !tbaa !178
   %.not113 = icmp eq i32 %79, %43
-  br i1 %.not113, label %.thread122, label %80
+  br i1 %.not113, label %.thread125, label %80
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %46, align 8, !tbaa !176
@@ -2360,7 +2360,7 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
   %91 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %92 = load i32, ptr %91, align 4, !tbaa !147
   %.not112 = icmp eq i32 %90, %92
-  br i1 %.not112, label %.thread122, label %93
+  br i1 %.not112, label %.thread125, label %93
 
 93:                                               ; preds = %86
   %94 = load ptr, ptr %46, align 8, !tbaa !176
@@ -2370,20 +2370,20 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
 95:                                               ; preds = %84, %82
   %96 = and i32 %71, 12
   %or.cond = icmp eq i32 %96, 0
-  br i1 %or.cond, label %97, label %.thread122
+  br i1 %or.cond, label %97, label %.thread125
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr %46, align 8, !tbaa !176
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.14, ptr noundef %98) #10
   br label %hwaccel_init.exit.thread
 
-.thread122:                                       ; preds = %86, %75, %95
+.thread125:                                       ; preds = %86, %75, %95
   %99 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !165
   %.not114 = icmp eq ptr %100, null
   br i1 %.not114, label %hwaccel_init.exit, label %101
 
-101:                                              ; preds = %.thread122
+101:                                              ; preds = %.thread125
   %102 = load ptr, ptr %46, align 8, !tbaa !176
   %103 = load ptr, ptr %100, align 8, !tbaa !179
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.15, ptr noundef %102, ptr noundef %103) #10
@@ -2391,8 +2391,8 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 20
   %106 = load i32, ptr %105, align 4, !tbaa !180
   %107 = and i32 %106, 512
-  %.not.i115 = icmp eq i32 %107, 0
-  br i1 %.not.i115, label %113, label %108
+  %.not.i118 = icmp eq i32 %107, 0
+  br i1 %.not.i118, label %113, label %108
 
 108:                                              ; preds = %101
   %109 = load i32, ptr %32, align 4, !tbaa !181
@@ -2452,78 +2452,78 @@ ff_hwaccel_uninit.exit:                           ; preds = %33, %35, %38
 hwaccel_init.exit.thread:                         ; preds = %120, %131, %111, %93, %80, %97
   %137 = load ptr, ptr %46, align 8, !tbaa !176
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.16, ptr noundef %137) #10
-  br i1 %50, label %.lr.ph175.preheader, label %._crit_edge176
+  br i1 %50, label %.lr.ph178.preheader, label %._crit_edge179
 
-.lr.ph175.preheader:                              ; preds = %hwaccel_init.exit.thread
-  %wide.trip.count206 = zext nneg i32 %.187 to i64
-  br label %.lr.ph175
+.lr.ph178.preheader:                              ; preds = %hwaccel_init.exit.thread
+  %wide.trip.count209 = zext nneg i32 %.187 to i64
+  br label %.lr.ph178
 
-.lr.ph175:                                        ; preds = %.lr.ph175.preheader, %141
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next204, %141 ]
-  %138 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv203
+.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %141
+  %indvars.iv206 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next207, %141 ]
+  %138 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv206
   %139 = load i32, ptr %138, align 4, !tbaa !69
   %140 = icmp eq i32 %139, %43
-  br i1 %140, label %._crit_edge176.loopexit.split.loop.exit, label %141
+  br i1 %140, label %._crit_edge179.loopexit.split.loop.exit, label %141
 
-141:                                              ; preds = %.lr.ph175
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
-  br i1 %exitcond207.not, label %._crit_edge176, label %.lr.ph175, !llvm.loop !184
+141:                                              ; preds = %.lr.ph178
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
+  br i1 %exitcond210.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !184
 
-._crit_edge176.loopexit.split.loop.exit:          ; preds = %.lr.ph175
-  %142 = trunc nuw nsw i64 %indvars.iv203 to i32
-  br label %._crit_edge176
+._crit_edge179.loopexit.split.loop.exit:          ; preds = %.lr.ph178
+  %142 = trunc nuw nsw i64 %indvars.iv206 to i32
+  br label %._crit_edge179
 
-._crit_edge176:                                   ; preds = %141, %._crit_edge176.loopexit.split.loop.exit, %hwaccel_init.exit.thread
-  %.2.lcssa = phi i32 [ 0, %hwaccel_init.exit.thread ], [ %142, %._crit_edge176.loopexit.split.loop.exit ], [ %.187, %141 ]
+._crit_edge179:                                   ; preds = %141, %._crit_edge179.loopexit.split.loop.exit, %hwaccel_init.exit.thread
+  %.2.lcssa = phi i32 [ 0, %hwaccel_init.exit.thread ], [ %142, %._crit_edge179.loopexit.split.loop.exit ], [ %.187, %141 ]
   %143 = add nuw nsw i32 %.2.lcssa, 1
   %144 = icmp slt i32 %143, %.187
-  br i1 %144, label %.lr.ph182.preheader, label %._crit_edge183
+  br i1 %144, label %.lr.ph185.preheader, label %._crit_edge186
 
-.lr.ph182.preheader:                              ; preds = %._crit_edge176
+.lr.ph185.preheader:                              ; preds = %._crit_edge179
   %145 = zext i32 %.2.lcssa to i64
   %146 = add nuw nsw i64 %145, 1
-  br label %.lr.ph182
+  br label %.lr.ph185
 
-.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
-  %indvars.iv208 = phi i64 [ %146, %.lr.ph182.preheader ], [ %indvars.iv.next209, %.lr.ph182 ]
-  %.3180 = phi i32 [ %.2.lcssa, %.lr.ph182.preheader ], [ %153, %.lr.ph182 ]
-  %147 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv208
+.lr.ph185:                                        ; preds = %.lr.ph185.preheader, %.lr.ph185
+  %indvars.iv211 = phi i64 [ %146, %.lr.ph185.preheader ], [ %indvars.iv.next212, %.lr.ph185 ]
+  %.3183 = phi i32 [ %.2.lcssa, %.lr.ph185.preheader ], [ %153, %.lr.ph185 ]
+  %147 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv211
   %148 = load i32, ptr %147, align 4, !tbaa !69
-  %149 = zext nneg i32 %.3180 to i64
+  %149 = zext nneg i32 %.3183 to i64
   %150 = getelementptr inbounds nuw i32, ptr %25, i64 %149
   store i32 %148, ptr %150, align 4, !tbaa !69
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %151 = trunc nuw i64 %indvars.iv.next209 to i32
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %151 = trunc nuw i64 %indvars.iv.next212 to i32
   %152 = icmp sgt i32 %.187, %151
-  %153 = trunc nuw i64 %indvars.iv208 to i32
-  br i1 %152, label %.lr.ph182, label %._crit_edge183, !llvm.loop !185
+  %153 = trunc nuw i64 %indvars.iv211 to i32
+  br i1 %152, label %.lr.ph185, label %._crit_edge186, !llvm.loop !185
 
-._crit_edge183:                                   ; preds = %.lr.ph182, %._crit_edge176
+._crit_edge186:                                   ; preds = %.lr.ph185, %._crit_edge179
   %154 = add nsw i32 %.187, -1
   br label %33
 
-hwaccel_init.exit:                                ; preds = %58, %128, %125, %.thread122, %.preheader, %63
+hwaccel_init.exit:                                ; preds = %58, %128, %125, %.thread125, %.preheader, %63
   %155 = icmp slt i32 %43, 0
-  br i1 %155, label %hwaccel_init.exit.thread128, label %164
+  br i1 %155, label %hwaccel_init.exit.thread131, label %164
 
-hwaccel_init.exit.thread128:                      ; preds = %ff_hwaccel_uninit.exit, %47, %._crit_edge.thread, %hwaccel_init.exit
-  %.085131 = phi i32 [ %43, %hwaccel_init.exit ], [ -1, %._crit_edge.thread ], [ -1, %47 ], [ -1, %ff_hwaccel_uninit.exit ]
+hwaccel_init.exit.thread131:                      ; preds = %ff_hwaccel_uninit.exit, %47, %._crit_edge.thread, %hwaccel_init.exit
+  %.085134 = phi i32 [ %43, %hwaccel_init.exit ], [ -1, %._crit_edge.thread ], [ -1, %47 ], [ -1, %ff_hwaccel_uninit.exit ]
   %156 = load ptr, ptr %26, align 8, !tbaa !154
-  %.not.i116 = icmp eq ptr %156, null
-  br i1 %.not.i116, label %ff_hwaccel_uninit.exit118, label %157
+  %.not.i119 = icmp eq ptr %156, null
+  br i1 %.not.i119, label %ff_hwaccel_uninit.exit121, label %157
 
-157:                                              ; preds = %hwaccel_init.exit.thread128
+157:                                              ; preds = %hwaccel_init.exit.thread131
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 88
   %159 = load ptr, ptr %158, align 8, !tbaa !171
-  %.not7.i117 = icmp eq ptr %159, null
-  br i1 %.not7.i117, label %ff_hwaccel_uninit.exit118, label %160
+  %.not7.i120 = icmp eq ptr %159, null
+  br i1 %.not7.i120, label %ff_hwaccel_uninit.exit121, label %160
 
 160:                                              ; preds = %157
   %161 = tail call i32 %159(ptr noundef nonnull %0) #10
-  br label %ff_hwaccel_uninit.exit118
+  br label %ff_hwaccel_uninit.exit121
 
-ff_hwaccel_uninit.exit118:                        ; preds = %hwaccel_init.exit.thread128, %157, %160
+ff_hwaccel_uninit.exit121:                        ; preds = %hwaccel_init.exit.thread131, %157, %160
   %162 = load ptr, ptr %27, align 8, !tbaa !4
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 112
   tail call void @av_freep(ptr noundef nonnull %163) #10
@@ -2531,13 +2531,13 @@ ff_hwaccel_uninit.exit118:                        ; preds = %hwaccel_init.exit.t
   tail call void @av_buffer_unref(ptr noundef nonnull %28) #10
   br label %164
 
-164:                                              ; preds = %ff_hwaccel_uninit.exit118, %hwaccel_init.exit
-  %.085130 = phi i32 [ %.085131, %ff_hwaccel_uninit.exit118 ], [ %43, %hwaccel_init.exit ]
+164:                                              ; preds = %ff_hwaccel_uninit.exit121, %hwaccel_init.exit
+  %.085133 = phi i32 [ %.085134, %ff_hwaccel_uninit.exit121 ], [ %43, %hwaccel_init.exit ]
   call void @av_freep(ptr noundef nonnull %3) #10
   br label %165
 
 165:                                              ; preds = %21, %164
-  %.0 = phi i32 [ %.085130, %164 ], [ -1, %21 ]
+  %.0 = phi i32 [ %.085133, %164 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

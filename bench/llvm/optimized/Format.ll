@@ -18872,7 +18872,6 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197:    ; preds = %477, %.thread318, %
   switch i32 %.6, label %.loopexit328 [
     i32 0, label %482
     i32 6, label %482
-    i32 4, label %.thread321
   ]
 
 482:                                              ; preds = %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197
@@ -18882,7 +18881,7 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197:    ; preds = %477, %.thread318, %
   %485 = icmp eq i64 %storemerge, 0
   br i1 %485, label %.thread321, label %314, !llvm.loop !755
 
-.thread321:                                       ; preds = %482, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit197
+.thread321:                                       ; preds = %482
   %.pre376 = load i64, ptr %274, align 8, !tbaa !694
   %.not.i198 = icmp eq i64 %.pre376, 0
   br i1 %.not.i198, label %.thread321.thread, label %486

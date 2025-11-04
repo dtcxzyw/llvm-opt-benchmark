@@ -68,7 +68,7 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr noundef readonly captu
   %15 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !8
   %16 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !8
   %17 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_create, i32 noundef 83, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.1) #4
-  br label %.thread27
+  br label %.thread28
 
 18:                                               ; preds = %8
   %19 = icmp eq ptr %2, null
@@ -92,18 +92,18 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr noundef readonly captu
   %29 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !8
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_create, i32 noundef 96, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread27
+  br label %.thread28
 
 31:                                               ; preds = %18
   %32 = call ptr @H5G__create_named(ptr noundef nonnull %9, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4) #4
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %.thread27
+  br i1 %33, label %34, label %.thread28
 
 34:                                               ; preds = %31
   %35 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !8
   %36 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !8
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_create, i32 noundef 102, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #4
-  br label %.thread27
+  br label %.thread28
 
 38:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -121,18 +121,18 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr noundef readonly captu
   %.3 = phi ptr [ null, %41 ], [ %25, %38 ]
   %46 = call i32 @H5O_dec_rc_by_loc(ptr noundef %39) #4
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %.thread27
+  br i1 %47, label %48, label %.thread28
 
 48:                                               ; preds = %45
   %49 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !8
   %50 = load i64, ptr @H5E_CANTDEC_g, align 8, !tbaa !8
   %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_create, i32 noundef 120, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.4) #4
-  br label %.thread27
+  br label %.thread28
 
-.thread27:                                        ; preds = %27, %14, %34, %31, %48, %45
-  %.0 = phi ptr [ null, %48 ], [ %.3, %45 ], [ %32, %31 ], [ null, %34 ], [ null, %27 ], [ null, %14 ]
+.thread28:                                        ; preds = %27, %14, %34, %31, %48, %45
+  %.2 = phi ptr [ null, %48 ], [ %.3, %45 ], [ null, %27 ], [ %32, %31 ], [ null, %34 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret ptr %.0
+  ret ptr %.2
 }
 
 declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -296,9 +296,9 @@ define range(i32 -1, 1) i32 @H5VL__native_group_get(ptr noundef %0, ptr noundef 
   %73 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_get, i32 noundef 227, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.9) #4
   br label %74
 
-74:                                               ; preds = %69, %11, %70, %7
-  %.026 = phi i32 [ -1, %70 ], [ -1, %11 ], [ 0, %7 ], [ %.1, %69 ]
-  ret i32 %.026
+74:                                               ; preds = %11, %70, %7, %69
+  %.027 = phi i32 [ -1, %70 ], [ -1, %11 ], [ 0, %7 ], [ %.1, %69 ]
+  ret i32 %.027
 }
 
 declare i64 @H5G_get_create_plist(ptr noundef) local_unnamed_addr #1
@@ -430,9 +430,9 @@ define range(i32 -1, 1) i32 @H5VL__native_group_specific(ptr noundef %0, ptr nou
   %76 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_specific, i32 noundef 302, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.16) #4
   br label %77
 
-77:                                               ; preds = %45, %28, %50, %59, %69, %73, %63, %54
-  %.026 = phi i32 [ -1, %73 ], [ %.024, %28 ], [ %.2, %45 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ], [ -1, %69 ], [ 0, %63 ]
-  ret i32 %.026
+77:                                               ; preds = %50, %59, %69, %73, %63, %54, %28, %45
+  %.125 = phi i32 [ -1, %73 ], [ %.024, %28 ], [ %.2, %45 ], [ -1, %50 ], [ -1, %59 ], [ 0, %54 ], [ -1, %69 ], [ 0, %63 ]
+  ret i32 %.125
 }
 
 declare i32 @H5F_mount(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -544,9 +544,9 @@ define i32 @H5VL__native_group_optional(ptr noundef %0, ptr noundef readonly cap
   %64 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__native_group_optional, i32 noundef 373, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.19) #4
   br label %65
 
-65:                                               ; preds = %60, %37, %61
-  %.0 = phi i32 [ -1, %61 ], [ %.024, %37 ], [ %.2, %60 ]
-  ret i32 %.0
+65:                                               ; preds = %61, %37, %60
+  %.125 = phi i32 [ -1, %61 ], [ %.024, %37 ], [ %.2, %60 ]
+  ret i32 %.125
 }
 
 declare i32 @H5G_iterate(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -168,13 +168,13 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
 49:                                               ; preds = %46
   %50 = tail call dereferenceable_or_null(9) ptr @kmemdup(ptr noundef nonnull @lg_probe.cbuf, i64 noundef 9, i32 noundef 3264) #11
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread10, label %52
+  br i1 %51, label %.thread11, label %52
 
 52:                                               ; preds = %49
   %53 = load i8, ptr %50, align 1
   %54 = tail call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext %53, ptr noundef nonnull %50, i64 noundef 9, i32 noundef 2, i32 noundef 9) #8
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %56, label %.thread9
+  br i1 %55, label %56, label %.thread10
 
 56:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -191,7 +191,7 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
   %60 = phi i64 [ %58, %56 ], [ %65, %63 ]
   %61 = phi i64 [ 40, %56 ], [ %64, %63 ]
   %62 = icmp eq i64 %60, 0
-  br i1 %62, label %63, label %.thread8
+  br i1 %62, label %63, label %.thread9
 
 63:                                               ; preds = %59
   %64 = call i64 @schedule_timeout(i64 noundef %61) #8
@@ -201,9 +201,9 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
 
 67:                                               ; preds = %63
   call void @finish_wait(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  br label %.thread8
+  br label %.thread9
 
-.thread8:                                         ; preds = %59, %67
+.thread9:                                         ; preds = %59, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = getelementptr i8, ptr %50, i64 1
   store i8 -78, ptr %68, align 1
@@ -212,15 +212,15 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
   %70 = load i8, ptr %50, align 1
   %71 = call i32 @hid_hw_raw_request(ptr noundef %0, i8 noundef zeroext %70, ptr noundef nonnull %50, i64 noundef 9, i32 noundef 2, i32 noundef 9) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %52, %.thread8
-  %72 = phi i32 [ %71, %.thread8 ], [ %54, %52 ]
+.thread10:                                        ; preds = %52, %.thread9
+  %72 = phi i32 [ %71, %.thread9 ], [ %54, %52 ]
   call void @kfree(ptr noundef nonnull %50) #8
   br label %73
 
-73:                                               ; preds = %.thread9, %46
-  %74 = phi i32 [ 0, %46 ], [ %72, %.thread9 ]
+73:                                               ; preds = %.thread10, %46
+  %74 = phi i32 [ 0, %46 ], [ %72, %.thread10 ]
   %75 = load i64, ptr %21, align 8
   %76 = and i64 %75, 512
   %77 = icmp eq i64 %76, 0
@@ -233,7 +233,7 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
 80:                                               ; preds = %73
   %81 = and i64 %75, 5120
   %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %.thread10
+  br i1 %82, label %83, label %.thread11
 
 83:                                               ; preds = %80
   %84 = and i64 %75, 8192
@@ -247,15 +247,15 @@ define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none
 88:                                               ; preds = %86, %83, %78
   %89 = phi i32 [ %79, %78 ], [ %87, %86 ], [ %74, %83 ]
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %94, label %.thread10
+  br i1 %90, label %94, label %.thread11
 
-.thread10:                                        ; preds = %80, %49, %88
+.thread11:                                        ; preds = %80, %49, %88
   %91 = phi i32 [ %89, %88 ], [ -12, %49 ], [ -1, %80 ]
   call void @hid_hw_stop(ptr noundef %0) #8
   br label %92
 
-92:                                               ; preds = %.thread10, %45, %37
-  %93 = phi i32 [ %35, %37 ], [ %43, %45 ], [ %91, %.thread10 ]
+92:                                               ; preds = %.thread11, %45, %37
+  %93 = phi i32 [ %35, %37 ], [ %43, %45 ], [ %91, %.thread11 ]
   call void @kfree(ptr noundef nonnull %21) #8
   br label %94
 

@@ -3128,10 +3128,10 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 0, ptr %18, align 8, !tbaa !25
   %19 = load i16, ptr %1, align 8, !tbaa !72
-  %.not179 = icmp eq i16 %19, 0
-  br i1 %.not179, label %FT_Stroker_BeginSubPath.exit.thread, label %.lr.ph172
+  %.not184 = icmp eq i16 %19, 0
+  br i1 %.not184, label %FT_Stroker_BeginSubPath.exit.thread, label %.lr.ph177
 
-.lr.ph172:                                        ; preds = %FT_Stroker_Rewind.exit
+.lr.ph177:                                        ; preds = %FT_Stroker_Rewind.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3150,16 +3150,16 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %35
 
-35:                                               ; preds = %.lr.ph172, %124
-  %indvars.iv = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next, %124 ]
-  %.081171 = phi i32 [ -1, %.lr.ph172 ], [ %40, %124 ]
-  %36 = add nsw i32 %.081171, 1
+35:                                               ; preds = %.lr.ph177, %125
+  %indvars.iv = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next, %125 ]
+  %.081176 = phi i32 [ -1, %.lr.ph177 ], [ %40, %125 ]
+  %36 = add nsw i32 %.081176, 1
   %37 = load ptr, ptr %20, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !73
   %40 = zext i16 %39 to i32
   %.not114 = icmp slt i32 %36, %40
-  br i1 %.not114, label %41, label %124
+  br i1 %.not114, label %41, label %125
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %21, align 8, !tbaa !68
@@ -3219,8 +3219,8 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !46
   store i8 %2, ptr %26, align 1, !tbaa !57
   %69 = load i32, ptr %27, align 8, !tbaa !30
-  %.not.i129 = icmp ne i32 %69, 0
-  %brmerge = or i1 %.not.i129, %.not17.i
+  %.not.i130 = icmp ne i32 %69, 0
+  %brmerge = or i1 %.not.i130, %.not17.i
   br i1 %brmerge, label %FT_Stroker_BeginSubPath.exit, label %70
 
 70:                                               ; preds = %68
@@ -3229,31 +3229,31 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   br label %FT_Stroker_BeginSubPath.exit
 
 FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
-  %.in = phi i1 [ %.not.i129, %68 ], [ %72, %70 ]
+  %.in = phi i1 [ %.not.i130, %68 ], [ %72, %70 ]
   %73 = zext i1 %.in to i8
   store i8 %73, ptr %29, align 8, !tbaa !54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !46
   store i64 0, ptr %0, align 8, !tbaa !45
   %74 = icmp ult ptr %.094, %.092
-  br i1 %74, label %.lr.ph, label %.thread154
+  br i1 %74, label %.lr.ph174, label %.thread155
 
-.lr.ph:                                           ; preds = %FT_Stroker_BeginSubPath.exit, %.backedge
-  %.189169 = phi ptr [ %.189.be, %.backedge ], [ %.088, %FT_Stroker_BeginSubPath.exit ]
-  %.195168 = phi ptr [ %.195.be, %.backedge ], [ %.094, %FT_Stroker_BeginSubPath.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.195168, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %.189169, i64 1
+.lr.ph174:                                        ; preds = %FT_Stroker_BeginSubPath.exit, %.backedge
+  %.189173 = phi ptr [ %.189.be, %.backedge ], [ %.088, %FT_Stroker_BeginSubPath.exit ]
+  %.195172 = phi ptr [ %.195.be, %.backedge ], [ %.094, %FT_Stroker_BeginSubPath.exit ]
+  %75 = getelementptr inbounds nuw i8, ptr %.195172, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.189173, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !49
   %78 = and i8 %77, 3
-  switch i8 %78, label %107 [
+  switch i8 %78, label %108 [
     i8 1, label %79
-    i8 0, label %.preheader
+    i8 0, label %85
   ]
 
-79:                                               ; preds = %.lr.ph
+79:                                               ; preds = %.lr.ph174
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %80 = load i64, ptr %75, align 8, !tbaa !37
   store i64 %80, ptr %6, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw i8, ptr %.195168, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.195172, i64 24
   %82 = load i64, ptr %81, align 8, !tbaa !39
   store i64 %82, ptr %34, align 8, !tbaa !39
   %83 = call i32 @FT_Stroker_LineTo(ptr noundef nonnull %0, ptr noundef nonnull %6)
@@ -3261,150 +3261,150 @@ FT_Stroker_BeginSubPath.exit:                     ; preds = %68, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not119, label %.backedge, label %FT_Stroker_BeginSubPath.exit.thread
 
-.backedge:                                        ; preds = %116, %select.unfold.jt7, %79
-  %.195.be = phi ptr [ %75, %79 ], [ %89, %select.unfold.jt7 ], [ %115, %116 ]
-  %.189.be = phi ptr [ %76, %79 ], [ %90, %select.unfold.jt7 ], [ %117, %116 ]
+.backedge:                                        ; preds = %117, %79, %select.unfold
+  %.195.be = phi ptr [ %75, %79 ], [ %90, %select.unfold ], [ %116, %117 ]
+  %.189.be = phi ptr [ %76, %79 ], [ %91, %select.unfold ], [ %118, %117 ]
   %84 = icmp ult ptr %.195.be, %.092
-  br i1 %84, label %.lr.ph, label %.thread154
+  br i1 %84, label %.lr.ph174, label %.thread155
 
-.preheader:                                       ; preds = %.lr.ph
-  %85 = load i64, ptr %75, align 8, !tbaa !37
-  store i64 %85, ptr %4, align 8, !tbaa !37
-  %86 = getelementptr inbounds nuw i8, ptr %.195168, i64 24
-  %87 = load i64, ptr %86, align 8, !tbaa !39
-  store i64 %87, ptr %31, align 8, !tbaa !39
-  %88 = icmp ult ptr %75, %.092
-  br i1 %88, label %.lr.ph223, label %.preheader._crit_edge
+85:                                               ; preds = %.lr.ph174
+  %86 = load i64, ptr %75, align 8, !tbaa !37
+  store i64 %86, ptr %4, align 8, !tbaa !37
+  %87 = getelementptr inbounds nuw i8, ptr %.195172, i64 24
+  %88 = load i64, ptr %87, align 8, !tbaa !39
+  store i64 %88, ptr %31, align 8, !tbaa !39
+  %89 = icmp ult ptr %75, %.092
+  br i1 %89, label %.lr.ph, label %._crit_edge
 
-.lr.ph223:                                        ; preds = %.preheader, %select.unfold.jt10
-  %.290222 = phi ptr [ %90, %select.unfold.jt10 ], [ %76, %.preheader ]
-  %.296221 = phi ptr [ %89, %select.unfold.jt10 ], [ %75, %.preheader ]
+.lr.ph:                                           ; preds = %85, %.critedge
+  %.290170 = phi ptr [ %91, %.critedge ], [ %76, %85 ]
+  %.296169 = phi ptr [ %90, %.critedge ], [ %75, %85 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %89 = getelementptr inbounds nuw i8, ptr %.296221, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %.290222, i64 1
-  %91 = load i8, ptr %90, align 1, !tbaa !49
-  %92 = and i8 %91, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !46
-  switch i8 %92, label %.thread134 [
-    i8 1, label %93
-    i8 0, label %95
+  %90 = getelementptr inbounds nuw i8, ptr %.296169, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.290170, i64 1
+  %92 = load i8, ptr %91, align 1, !tbaa !49
+  %93 = and i8 %92, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !46
+  switch i8 %93, label %.thread135 [
+    i8 1, label %94
+    i8 0, label %96
   ]
 
-.thread134:                                       ; preds = %.lr.ph223
+.thread135:                                       ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %FT_Stroker_BeginSubPath.exit.thread
 
-93:                                               ; preds = %.lr.ph223
-  %94 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
-  %.not118 = icmp eq i32 %94, 0
-  br i1 %.not118, label %select.unfold.jt7, label %.thread, !llvm.loop !75
+94:                                               ; preds = %.lr.ph
+  %95 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  %.not118 = icmp eq i32 %95, 0
+  br i1 %.not118, label %select.unfold, label %.thread, !llvm.loop !75
 
-95:                                               ; preds = %.lr.ph223
-  %96 = load i64, ptr %4, align 8, !tbaa !37
-  %97 = load i64, ptr %7, align 8, !tbaa !37
-  %98 = add nsw i64 %97, %96
-  %99 = sdiv i64 %98, 2
-  store i64 %99, ptr %8, align 8, !tbaa !37
-  %100 = load i64, ptr %31, align 8, !tbaa !39
-  %101 = load i64, ptr %32, align 8, !tbaa !39
-  %102 = add nsw i64 %101, %100
-  %103 = sdiv i64 %102, 2
-  store i64 %103, ptr %33, align 8, !tbaa !39
-  %104 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %8)
-  %.not117 = icmp eq i32 %104, 0
-  br i1 %.not117, label %select.unfold.jt10, label %.thread
+96:                                               ; preds = %.lr.ph
+  %97 = load i64, ptr %4, align 8, !tbaa !37
+  %98 = load i64, ptr %7, align 8, !tbaa !37
+  %99 = add nsw i64 %98, %97
+  %100 = sdiv i64 %99, 2
+  store i64 %100, ptr %8, align 8, !tbaa !37
+  %101 = load i64, ptr %31, align 8, !tbaa !39
+  %102 = load i64, ptr %32, align 8, !tbaa !39
+  %103 = add nsw i64 %102, %101
+  %104 = sdiv i64 %103, 2
+  store i64 %104, ptr %33, align 8, !tbaa !39
+  %105 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %8)
+  %.not117 = icmp eq i32 %105, 0
+  br i1 %.not117, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %93, %95
-  %.387.ph = phi i32 [ %104, %95 ], [ %94, %93 ]
+.critedge:                                        ; preds = %96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !46
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %106 = icmp ult ptr %90, %.092
+  br i1 %106, label %.lr.ph, label %._crit_edge
+
+.thread:                                          ; preds = %94, %96
+  %.387.ph = phi i32 [ %105, %96 ], [ %95, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %FT_Stroker_BeginSubPath.exit.thread
 
-select.unfold.jt7:                                ; preds = %93
+select.unfold:                                    ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
-select.unfold.jt10:                               ; preds = %95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %105 = icmp ult ptr %89, %.092
-  br i1 %105, label %.lr.ph223, label %.preheader._crit_edge
+._crit_edge:                                      ; preds = %85, %.critedge
+  %107 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  br label %121
 
-.preheader._crit_edge:                            ; preds = %.preheader, %select.unfold.jt10
-  %106 = call i32 @FT_Stroker_ConicTo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br label %120
-
-107:                                              ; preds = %.lr.ph
+108:                                              ; preds = %.lr.ph174
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %108 = getelementptr inbounds nuw i8, ptr %.195168, i64 32
-  %109 = icmp ugt ptr %108, %.092
-  br i1 %109, label %.thread139, label %110
+  %109 = getelementptr inbounds nuw i8, ptr %.195172, i64 32
+  %110 = icmp ugt ptr %109, %.092
+  br i1 %110, label %.thread140, label %111
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %.189169, i64 2
-  %112 = load i8, ptr %111, align 1, !tbaa !49
-  %113 = and i8 %112, 3
-  %.not120 = icmp eq i8 %113, 2
-  br i1 %.not120, label %114, label %.thread139
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %.189173, i64 2
+  %113 = load i8, ptr %112, align 1, !tbaa !49
+  %114 = and i8 %113, 3
+  %.not120 = icmp eq i8 %114, 2
+  br i1 %.not120, label %115, label %.thread140
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %.195168, i64 48
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %.195172, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !46
-  %.not121 = icmp ugt ptr %115, %.092
-  br i1 %.not121, label %.thread149, label %116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !46
+  %.not121 = icmp ugt ptr %116, %.092
+  br i1 %.not121, label %.thread145, label %117
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.189169, i64 3
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds nuw i8, ptr %.189173, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false), !tbaa.struct !46
-  %118 = call i32 @FT_Stroker_CubicTo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %.not122 = icmp eq i32 %118, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !46
+  %119 = call i32 @FT_Stroker_CubicTo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %.not122 = icmp eq i32 %119, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not122, label %.backedge, label %FT_Stroker_BeginSubPath.exit.thread
 
-.thread149:                                       ; preds = %114
-  %119 = call i32 @FT_Stroker_CubicTo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5)
+.thread145:                                       ; preds = %115
+  %120 = call i32 @FT_Stroker_CubicTo(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %120
+  br label %121
 
-.thread139:                                       ; preds = %110, %107
+.thread140:                                       ; preds = %111, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %FT_Stroker_BeginSubPath.exit.thread
 
-120:                                              ; preds = %.thread149, %.preheader._crit_edge
-  %.4 = phi i32 [ %106, %.preheader._crit_edge ], [ %119, %.thread149 ]
+121:                                              ; preds = %.thread145, %._crit_edge
+  %.4 = phi i32 [ %107, %._crit_edge ], [ %120, %.thread145 ]
   %.not123 = icmp eq i32 %.4, 0
-  br i1 %.not123, label %.thread154, label %FT_Stroker_BeginSubPath.exit.thread
+  br i1 %.not123, label %.thread155, label %FT_Stroker_BeginSubPath.exit.thread
 
-.thread154:                                       ; preds = %.backedge, %FT_Stroker_BeginSubPath.exit, %120
-  %121 = load i8, ptr %24, align 8, !tbaa !41
-  %.not124 = icmp eq i8 %121, 0
-  br i1 %.not124, label %122, label %124
+.thread155:                                       ; preds = %.backedge, %FT_Stroker_BeginSubPath.exit, %121
+  %122 = load i8, ptr %24, align 8, !tbaa !41
+  %.not124 = icmp eq i8 %122, 0
+  br i1 %.not124, label %123, label %125
 
-122:                                              ; preds = %.thread154
-  %123 = call i32 @FT_Stroker_EndSubPath(ptr noundef nonnull %0)
-  %.not125 = icmp eq i32 %123, 0
-  br i1 %.not125, label %124, label %FT_Stroker_BeginSubPath.exit.thread
+123:                                              ; preds = %.thread155
+  %124 = call i32 @FT_Stroker_EndSubPath(ptr noundef nonnull %0)
+  %.not125 = icmp eq i32 %124, 0
+  br i1 %.not125, label %125, label %FT_Stroker_BeginSubPath.exit.thread
 
-124:                                              ; preds = %.thread154, %122, %35
+125:                                              ; preds = %.thread155, %123, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = load i16, ptr %1, align 8, !tbaa !72
-  %126 = zext i16 %125 to i64
-  %127 = icmp samesign ult i64 %indvars.iv.next, %126
-  br i1 %127, label %35, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !76
+  %126 = load i16, ptr %1, align 8, !tbaa !72
+  %127 = zext i16 %126 to i64
+  %128 = icmp samesign ult i64 %indvars.iv.next, %127
+  br i1 %128, label %35, label %FT_Stroker_BeginSubPath.exit.thread, !llvm.loop !76
 
-FT_Stroker_BeginSubPath.exit.thread:              ; preds = %124, %122, %120, %41, %79, %116, %FT_Stroker_Rewind.exit, %.thread134, %.thread139, %.thread, %12, %3
-  %.082 = phi i32 [ 20, %3 ], [ 6, %12 ], [ %.387.ph, %.thread ], [ 20, %.thread139 ], [ 20, %.thread134 ], [ 0, %FT_Stroker_Rewind.exit ], [ %83, %79 ], [ %118, %116 ], [ 0, %124 ], [ %123, %122 ], [ %.4, %120 ], [ 20, %41 ]
+FT_Stroker_BeginSubPath.exit.thread:              ; preds = %125, %123, %121, %41, %79, %117, %FT_Stroker_Rewind.exit, %.thread135, %.thread140, %.thread, %12, %3
+  %.082 = phi i32 [ 20, %3 ], [ 6, %12 ], [ %.387.ph, %.thread ], [ 20, %.thread140 ], [ 20, %.thread135 ], [ 0, %FT_Stroker_Rewind.exit ], [ %83, %79 ], [ %119, %117 ], [ 0, %125 ], [ %124, %123 ], [ %.4, %121 ], [ 20, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.082

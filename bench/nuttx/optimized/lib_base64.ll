@@ -167,8 +167,8 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   br i1 %.not62, label %10, label %4, !llvm.loop !8
 
 10:                                               ; preds = %6
-  %cond80 = icmp eq i8 %5, 61
-  br i1 %cond80, label %54, label %11
+  %cond81 = icmp eq i8 %5, 61
+  br i1 %cond81, label %54, label %11
 
 11:                                               ; preds = %10
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @g_base64, i32 %7, i64 65)
@@ -176,7 +176,7 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  switch i32 %.044.ph, label %.unreachabledefault162 [
+  switch i32 %.044.ph, label %.unreachabledefault [
     i32 0, label %14
     i32 1, label %20
     i32 2, label %32
@@ -279,11 +279,14 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   %53 = add i64 %.046.ph.ph.ph, 1
   br label %.outer.outer.outer.backedge
 
+.unreachabledefault:                              ; preds = %13
+  unreachable
+
 54:                                               ; preds = %10
   %55 = getelementptr inbounds nuw i8, ptr %.050, i64 2
   %56 = load i8, ptr %8, align 1
   %57 = sext i8 %56 to i32
-  switch i32 %.044.ph, label %.unreachabledefault [
+  switch i32 %.044.ph, label %.unreachabledefault80 [
     i32 0, label %.loopexit
     i32 1, label %.loopexit
     i32 2, label %.preheader
@@ -291,52 +294,52 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
   ]
 
 .preheader:                                       ; preds = %54
-  %cond81101 = icmp eq i8 %56, 0
-  br i1 %cond81101, label %.loopexit, label %.lr.ph
+  %cond82107 = icmp eq i8 %56, 0
+  br i1 %cond82107, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %59
-  %.1103 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
-  %.252102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
-  %58 = tail call i32 @isspace(i32 noundef %.1103) #4
+  %.1109 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
+  %.252108 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
+  %58 = tail call i32 @isspace(i32 noundef %.1109) #4
   %.not74 = icmp eq i32 %58, 0
   br i1 %.not74, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
-  %61 = load i8, ptr %.252102, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.252108, i64 1
+  %61 = load i8, ptr %.252108, align 1
   %62 = sext i8 %61 to i32
-  %cond81 = icmp eq i8 %61, 0
-  br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  %cond82 = icmp eq i8 %61, 0
+  br i1 %cond82, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 63:                                               ; preds = %.lr.ph
-  %.not75 = icmp eq i32 %.1103, 61
+  %.not75 = icmp eq i32 %.1109, 61
   br i1 %.not75, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
-  %66 = load i8, ptr %.252102, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %.252108, i64 1
+  %66 = load i8, ptr %.252108, align 1
   %67 = sext i8 %66 to i32
   br label %68
 
 68:                                               ; preds = %64, %54
   %.151 = phi ptr [ %65, %64 ], [ %55, %54 ]
   %.0 = phi i32 [ %67, %64 ], [ %57, %54 ]
-  %.not76104 = icmp eq i32 %.0, 0
-  br i1 %.not76104, label %._crit_edge, label %.lr.ph107
+  %.not76110 = icmp eq i32 %.0, 0
+  br i1 %.not76110, label %._crit_edge, label %.lr.ph113
 
-.lr.ph107:                                        ; preds = %68, %70
-  %.2106 = phi i32 [ %73, %70 ], [ %.0, %68 ]
-  %.353105 = phi ptr [ %71, %70 ], [ %.151, %68 ]
-  %69 = tail call i32 @isspace(i32 noundef %.2106) #4
+.lr.ph113:                                        ; preds = %68, %70
+  %.2112 = phi i32 [ %73, %70 ], [ %.0, %68 ]
+  %.353111 = phi ptr [ %71, %70 ], [ %.151, %68 ]
+  %69 = tail call i32 @isspace(i32 noundef %.2112) #4
   %.not79 = icmp eq i32 %69, 0
   br i1 %.not79, label %.loopexit, label %70
 
-70:                                               ; preds = %.lr.ph107
-  %71 = getelementptr inbounds nuw i8, ptr %.353105, i64 1
-  %72 = load i8, ptr %.353105, align 1
+70:                                               ; preds = %.lr.ph113
+  %71 = getelementptr inbounds nuw i8, ptr %.353111, i64 1
+  %72 = load i8, ptr %.353111, align 1
   %73 = sext i8 %72 to i32
   %.not76 = icmp eq i8 %72, 0
-  br i1 %.not76, label %._crit_edge, label %.lr.ph107, !llvm.loop !10
+  br i1 %.not76, label %._crit_edge, label %.lr.ph113, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %70, %68
   %.not77 = icmp eq ptr %.054.ph.ph, null
@@ -350,18 +353,15 @@ define i32 @b64_pton(ptr noundef readonly captures(none) %0, ptr noundef capture
 76:                                               ; preds = %4
   br i1 %.not72, label %77, label %.loopexit
 
-.unreachabledefault:                              ; preds = %54
+.unreachabledefault80:                            ; preds = %54
   unreachable
 
 77:                                               ; preds = %76, %74, %._crit_edge
   %78 = trunc i64 %.046.ph.ph.ph to i32
   br label %.loopexit
 
-.unreachabledefault162:                           ; preds = %13
-  unreachable
-
-.loopexit:                                        ; preds = %15, %11, %33, %21, %59, %.lr.ph107, %.preheader, %76, %74, %63, %54, %54, %77
-  %.049 = phi i32 [ %78, %77 ], [ -1, %54 ], [ -1, %54 ], [ -1, %63 ], [ -1, %74 ], [ -1, %76 ], [ -1, %.preheader ], [ -1, %.lr.ph107 ], [ -1, %59 ], [ -1, %21 ], [ -1, %33 ], [ -1, %11 ], [ -1, %15 ]
+.loopexit:                                        ; preds = %15, %11, %33, %21, %59, %.lr.ph113, %.preheader, %76, %74, %63, %54, %54, %77
+  %.049 = phi i32 [ %78, %77 ], [ -1, %54 ], [ -1, %54 ], [ -1, %63 ], [ -1, %74 ], [ -1, %76 ], [ -1, %.preheader ], [ -1, %.lr.ph113 ], [ -1, %59 ], [ -1, %21 ], [ -1, %33 ], [ -1, %11 ], [ -1, %15 ]
   ret i32 %.049
 }
 

@@ -271,12 +271,12 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly 
   br label %164
 
 .thread:                                          ; preds = %57, %66
-  %.088113 = phi ptr [ %70, %66 ], [ %64, %57 ]
+  %.088114 = phi ptr [ %70, %66 ], [ %64, %57 ]
   %74 = call i32 @ERR_pop_to_mark() #5
-  %75 = call i32 @EVP_MD_get_size(ptr noundef nonnull %.088113) #5
-  %76 = call i32 @EVP_MD_get_type(ptr noundef nonnull %.088113) #5
+  %75 = call i32 @EVP_MD_get_size(ptr noundef nonnull %.088114) #5
+  %76 = call i32 @EVP_MD_get_type(ptr noundef nonnull %.088114) #5
   %77 = icmp slt i32 %75, 1
-  br i1 %77, label %.thread138, label %78
+  br i1 %77, label %.thread139, label %78
 
 78:                                               ; preds = %.thread
   %79 = icmp ne i32 %5, 0
@@ -336,11 +336,11 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly 
   br i1 %118, label %PBMAC1_PBKDF2_HMAC.exit.sink.split, label %PBMAC1_PBKDF2_HMAC.exit
 
 PBMAC1_PBKDF2_HMAC.exit.sink.split:               ; preds = %109, %104, %81
-  %.sink157 = phi i32 [ 122, %81 ], [ 137, %104 ], [ 143, %109 ]
+  %.sink158 = phi i32 [ 122, %81 ], [ 137, %104 ], [ 143, %109 ]
   %.sink = phi i32 [ 524556, %81 ], [ 524557, %104 ], [ 786691, %109 ]
   %.0.i.ph = phi ptr [ null, %81 ], [ null, %104 ], [ %107, %109 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink157, ptr noundef nonnull @__func__.PBMAC1_PBKDF2_HMAC) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158, ptr noundef nonnull @__func__.PBMAC1_PBKDF2_HMAC) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #5
   br label %PBMAC1_PBKDF2_HMAC.exit
 
@@ -351,7 +351,7 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   call void @PBKDF2PARAM_free(ptr noundef %88) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %119 = icmp slt i32 %.021.i, 0
-  br i1 %119, label %.thread138, label %.thread142
+  br i1 %119, label %.thread139, label %.thread143
 
 120:                                              ; preds = %78
   switch i32 %76, label %127 [
@@ -366,45 +366,45 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %121
-  %125 = call fastcc i32 @pkcs12_gen_gost_mac_key(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef %.086, ptr noundef %10, ptr noundef %.088113)
+  %125 = call fastcc i32 @pkcs12_gen_gost_mac_key(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef %.086, ptr noundef %10, ptr noundef %.088114)
   %.not105 = icmp eq i32 %125, 0
-  br i1 %.not105, label %126, label %.thread142
+  br i1 %.not105, label %126, label %.thread143
 
 126:                                              ; preds = %124
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.pkcs12_gen_mac) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 107, ptr noundef null) #5
-  br label %.thread138
+  br label %.thread139
 
 127:                                              ; preds = %120, %121
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.thread121, label %128
+  br i1 %.not, label %.thread122, label %128
 
 128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %129 = call ptr @OBJ_nid2obj(i32 noundef %6) #5
   %130 = call i32 @OBJ_obj2txt(ptr noundef nonnull %14, i32 noundef 128, ptr noundef %129, i32 noundef 0) #5
   %131 = icmp slt i32 %130, 0
-  br i1 %131, label %.thread116, label %132
+  br i1 %131, label %.thread117, label %132
 
-.thread116:                                       ; preds = %128
+.thread117:                                       ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread138
+  br label %.thread139
 
 132:                                              ; preds = %128
   %133 = call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull %14, ptr noundef null) #5
-  %.not145.not = icmp eq ptr %133, null
+  %.not146.not = icmp eq ptr %133, null
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %.not145.not, label %.thread138, label %134
+  br i1 %.not146.not, label %.thread139, label %134
 
 134:                                              ; preds = %132
   br i1 %80, label %141, label %136
 
-.thread121:                                       ; preds = %127
-  br i1 %80, label %.thread134, label %.thread128
+.thread122:                                       ; preds = %127
+  br i1 %80, label %.thread135, label %.thread129
 
-.thread128:                                       ; preds = %.thread121
-  %135 = call i32 %7(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef 3, i32 noundef %.086, i32 noundef %75, ptr noundef nonnull %10, ptr noundef nonnull %.088113) #5, !callees !45
+.thread129:                                       ; preds = %.thread122
+  %135 = call i32 %7(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef 3, i32 noundef %.086, i32 noundef %75, ptr noundef nonnull %10, ptr noundef nonnull %.088114) #5, !callees !45
   br label %138
 
 136:                                              ; preds = %134
@@ -412,47 +412,47 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   call void @EVP_MD_free(ptr noundef nonnull %133) #5
   br label %138
 
-138:                                              ; preds = %.thread128, %136
-  %139 = phi i32 [ %135, %.thread128 ], [ %137, %136 ]
+138:                                              ; preds = %.thread129, %136
+  %139 = phi i32 [ %135, %.thread129 ], [ %137, %136 ]
   %.not104 = icmp eq i32 %139, 1
-  br i1 %.not104, label %.thread142, label %140
+  br i1 %.not104, label %.thread143, label %140
 
 140:                                              ; preds = %138
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 257, ptr noundef nonnull @__func__.pkcs12_gen_mac) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 107, ptr noundef null) #5
-  br label %.thread138
+  br label %.thread139
 
 141:                                              ; preds = %134
   call void @EVP_MD_free(ptr noundef nonnull %133) #5
-  br label %.thread134
+  br label %.thread135
 
-.thread134:                                       ; preds = %.thread121, %141
+.thread135:                                       ; preds = %.thread122, %141
   %142 = load ptr, ptr %15, align 8, !tbaa !26
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %144 = load ptr, ptr %143, align 8, !tbaa !38
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %146 = load ptr, ptr %145, align 8, !tbaa !39
-  %147 = call i32 @PKCS12_key_gen_utf8_ex(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef 3, i32 noundef %.086, i32 noundef %75, ptr noundef nonnull %10, ptr noundef nonnull %.088113, ptr noundef %144, ptr noundef %146) #5
+  %147 = call i32 @PKCS12_key_gen_utf8_ex(ptr noundef %1, i32 noundef %2, ptr noundef %34, i32 noundef %35, i32 noundef 3, i32 noundef %.086, i32 noundef %75, ptr noundef nonnull %10, ptr noundef nonnull %.088114, ptr noundef %144, ptr noundef %146) #5
   %.not102 = icmp eq i32 %147, 0
-  br i1 %.not102, label %148, label %.thread142
+  br i1 %.not102, label %148, label %.thread143
 
-148:                                              ; preds = %.thread134
+148:                                              ; preds = %.thread135
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @__func__.pkcs12_gen_mac) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 107, ptr noundef null) #5
-  br label %.thread138
+  br label %.thread139
 
-.thread142:                                       ; preds = %138, %.thread134, %124, %PBMAC1_PBKDF2_HMAC.exit
-  %.085 = phi i32 [ %.021.i, %PBMAC1_PBKDF2_HMAC.exit ], [ 32, %124 ], [ %75, %.thread134 ], [ %75, %138 ]
+.thread143:                                       ; preds = %138, %.thread135, %124, %PBMAC1_PBKDF2_HMAC.exit
+  %.085 = phi i32 [ %.021.i, %PBMAC1_PBKDF2_HMAC.exit ], [ 32, %124 ], [ %75, %.thread135 ], [ %75, %138 ]
   %149 = call ptr @HMAC_CTX_new() #5
   %150 = icmp eq ptr %149, null
-  br i1 %150, label %.thread138, label %151
+  br i1 %150, label %.thread139, label %151
 
-151:                                              ; preds = %.thread142
-  %152 = call i32 @HMAC_Init_ex(ptr noundef nonnull %149, ptr noundef nonnull %10, i32 noundef %.085, ptr noundef nonnull %.088113, ptr noundef null) #5
+151:                                              ; preds = %.thread143
+  %152 = call i32 @HMAC_Init_ex(ptr noundef nonnull %149, ptr noundef nonnull %10, i32 noundef %.085, ptr noundef nonnull %.088114, ptr noundef null) #5
   %.not106 = icmp eq i32 %152, 0
-  br i1 %.not106, label %.thread138, label %153
+  br i1 %.not106, label %.thread139, label %153
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %15, align 8, !tbaa !26
@@ -464,24 +464,24 @@ PBMAC1_PBKDF2_HMAC.exit:                          ; preds = %PBMAC1_PBKDF2_HMAC.
   %160 = sext i32 %159 to i64
   %161 = call i32 @HMAC_Update(ptr noundef nonnull %149, ptr noundef %158, i64 noundef %160) #5
   %.not107 = icmp eq i32 %161, 0
-  br i1 %.not107, label %.thread138, label %162
+  br i1 %.not107, label %.thread139, label %162
 
 162:                                              ; preds = %153
   %163 = call i32 @HMAC_Final(ptr noundef nonnull %149, ptr noundef %3, ptr noundef %4) #5
   %.not108 = icmp ne i32 %163, 0
   %spec.select = zext i1 %.not108 to i32
-  br label %.thread138
+  br label %.thread139
 
-.thread138:                                       ; preds = %132, %.thread116, %148, %140, %162, %.thread142, %151, %153, %PBMAC1_PBKDF2_HMAC.exit, %.thread, %126
-  %.089 = phi ptr [ null, %.thread ], [ null, %PBMAC1_PBKDF2_HMAC.exit ], [ null, %.thread142 ], [ %149, %153 ], [ %149, %151 ], [ null, %126 ], [ %149, %162 ], [ null, %140 ], [ null, %148 ], [ null, %.thread116 ], [ null, %132 ]
-  %.087 = phi i32 [ 0, %.thread ], [ 0, %PBMAC1_PBKDF2_HMAC.exit ], [ 0, %.thread142 ], [ 0, %153 ], [ 0, %151 ], [ 0, %126 ], [ %spec.select, %162 ], [ 0, %140 ], [ 0, %148 ], [ 0, %.thread116 ], [ 0, %132 ]
+.thread139:                                       ; preds = %132, %.thread117, %148, %140, %162, %.thread143, %151, %153, %PBMAC1_PBKDF2_HMAC.exit, %.thread, %126
+  %.089 = phi ptr [ null, %.thread ], [ null, %PBMAC1_PBKDF2_HMAC.exit ], [ null, %.thread143 ], [ %149, %153 ], [ %149, %151 ], [ null, %126 ], [ %149, %162 ], [ null, %140 ], [ null, %148 ], [ null, %.thread117 ], [ null, %132 ]
+  %.087 = phi i32 [ 0, %.thread ], [ 0, %PBMAC1_PBKDF2_HMAC.exit ], [ 0, %.thread143 ], [ 0, %153 ], [ 0, %151 ], [ 0, %126 ], [ %spec.select, %162 ], [ 0, %140 ], [ 0, %148 ], [ 0, %.thread117 ], [ 0, %132 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
   call void @HMAC_CTX_free(ptr noundef %.089) #5
   call void @EVP_MD_free(ptr noundef %64) #5
   br label %164
 
-164:                                              ; preds = %53, %49, %.thread138, %72, %27, %21
-  %.0 = phi i32 [ 0, %27 ], [ 0, %72 ], [ %.087, %.thread138 ], [ 0, %21 ], [ 0, %49 ], [ 0, %53 ]
+164:                                              ; preds = %53, %49, %.thread139, %72, %27, %21
+  %.0 = phi i32 [ 0, %27 ], [ 0, %72 ], [ %.087, %.thread139 ], [ 0, %21 ], [ 0, %49 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

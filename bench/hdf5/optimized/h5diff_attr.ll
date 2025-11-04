@@ -548,8 +548,8 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 294:                                              ; preds = %275
   %295 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i64 1, ptr %295, align 8, !tbaa !19
-  %.not338 = icmp eq i32 %219, 0
-  br i1 %.not338, label %304, label %.lr.ph
+  %.not339 = icmp eq i32 %219, 0
+  br i1 %.not339, label %304, label %.lr.ph
 
 .lr.ph:                                           ; preds = %294
   %296 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -748,28 +748,28 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   store i64 %406, ptr %407, align 8, !tbaa !25
   %408 = load i32, ptr %305, align 8, !tbaa !22
   %409 = icmp sgt i32 %408, 0
-  br i1 %409, label %.lr.ph336, label %._crit_edge337
+  br i1 %409, label %.lr.ph337, label %._crit_edge338
 
-.lr.ph336:                                        ; preds = %403
+.lr.ph337:                                        ; preds = %403
   %410 = getelementptr inbounds nuw i8, ptr %6, i64 1464
   %411 = zext nneg i32 %408 to i64
   %412 = shl nuw nsw i64 %411, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %410, i8 0, i64 %412, i1 false), !tbaa !3
-  br label %._crit_edge337
+  br label %._crit_edge338
 
-._crit_edge337:                                   ; preds = %.lr.ph336, %403
+._crit_edge338:                                   ; preds = %.lr.ph337, %403
   %413 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %414 = load i32, ptr %413, align 8, !tbaa !26
   %.not296 = icmp eq i32 %414, 0
   br i1 %.not296, label %415, label %418
 
-415:                                              ; preds = %._crit_edge337
+415:                                              ; preds = %._crit_edge338
   %416 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %417 = load i32, ptr %416, align 4, !tbaa !27
   %.not297 = icmp eq i32 %417, 0
   br i1 %.not297, label %422, label %418
 
-418:                                              ; preds = %415, %._crit_edge337
+418:                                              ; preds = %415, %._crit_edge338
   %419 = load ptr, ptr %374, align 8, !tbaa !17
   %420 = load ptr, ptr %378, align 8, !tbaa !17
   call void @do_print_attrname(ptr noundef nonnull @.str.20, ptr noundef %419, ptr noundef %420) #15
@@ -1135,7 +1135,7 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %614 = call i32 @H5Eset_auto1(ptr noundef %609, ptr noundef %610) #15
   br label %615
 
-615:                                              ; preds = %611, %613
+615:                                              ; preds = %613, %611
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)

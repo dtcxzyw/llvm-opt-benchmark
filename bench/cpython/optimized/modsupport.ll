@@ -297,15 +297,15 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %22
 
 22:                                               ; preds = %25, %21
-  %.02534.i = phi i64 [ 0, %21 ], [ %27, %25 ]
+  %.02535.i = phi i64 [ 0, %21 ], [ %27, %25 ]
   %23 = call fastcc ptr @do_mkvalue(ptr noundef nonnull %6, ptr noundef nonnull %7)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %36, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr ptr, ptr %.022, i64 %.02534.i
+  %26 = getelementptr ptr, ptr %.022, i64 %.02535.i
   store ptr %23, ptr %26, align 8, !tbaa !23
-  %27 = add nuw nsw i64 %.02534.i, 1
+  %27 = add nuw nsw i64 %.02535.i, 1
   %exitcond.not.i = icmp eq i64 %27, %8
   br i1 %exitcond.not.i, label %28, label %22, !llvm.loop !27
 
@@ -333,23 +333,23 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
 33:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %34 = getelementptr i8, ptr %.021.i.i, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !29
-  %.not.i28.i = icmp eq i8 %35, 0
-  br i1 %.not.i28.i, label %.loopexit27, label %.lr.ph.i.i, !llvm.loop !30
+  %.not.i29.i = icmp eq i8 %35, 0
+  br i1 %.not.i29.i, label %.loopexit27, label %.lr.ph.i.i, !llvm.loop !30
 
 36:                                               ; preds = %22
-  %37 = xor i64 %.02534.i, -1
+  %37 = xor i64 %.02535.i, -1
   %38 = add nsw i64 %8, %37
   call fastcc void @do_ignore(ptr noundef nonnull %6, ptr noundef nonnull %7, i8 noundef signext 0, i64 noundef %38)
-  %.not.i = icmp eq i64 %.02534.i, 0
+  %.not.i = icmp eq i64 %.02535.i, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %36, %.thread.i
-  %.0253348.i = phi i64 [ %8, %.thread.i ], [ %.02534.i, %36 ]
+  %.0253449.i = phi i64 [ %8, %.thread.i ], [ %.02535.i, %36 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit.i, %.lr.ph.preheader.i
-  %.135.i = phi i64 [ %46, %Py_DECREF.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %39 = getelementptr ptr, ptr %.022, i64 %.135.i
+  %.136.i = phi i64 [ %46, %Py_DECREF.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %39 = getelementptr ptr, ptr %.022, i64 %.136.i
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = load i32, ptr %40, align 8, !tbaa !29
   %.not.i.i = icmp sgt i32 %41, -1
@@ -366,9 +366,9 @@ define hidden ptr @_Py_VaBuildStack(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %45, %42, %.lr.ph.i
-  %46 = add nuw nsw i64 %.135.i, 1
-  %exitcond38.not.i = icmp eq i64 %46, %.0253348.i
-  br i1 %exitcond38.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !31
+  %46 = add nuw nsw i64 %.136.i, 1
+  %exitcond39.not.i = icmp eq i64 %46, %.0253449.i
+  br i1 %exitcond39.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !31
 
 .loopexit:                                        ; preds = %Py_DECREF.exit.i, %36
   call void @llvm.va_end.p0(ptr nonnull %7)

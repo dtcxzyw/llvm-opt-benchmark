@@ -259,7 +259,7 @@ OSSL_DECODER_CTX_get_num_decoders.exit:           ; preds = %17, %19, %23
   br label %OSSL_DECODER_INSTANCE_get_decoder.exit
 
 OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
-  %.0.i128 = phi ptr [ %37, %36 ], [ null, %28 ]
+  %.0.i130 = phi ptr [ %37, %36 ], [ null, %28 ]
   %38 = load i8, ptr %8, align 8
   %39 = and i8 %38, -3
   store i8 %39, ptr %8, align 8
@@ -279,18 +279,18 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
   %47 = load i8, ptr %8, align 8
   %48 = or i8 %47, 2
   store i8 %48, ptr %8, align 8
-  br label %.thread135
+  br label %.thread137
 
 49:                                               ; preds = %42, %OSSL_DECODER_INSTANCE_get_decoder.exit
   %50 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread135, label %52
+  br i1 %51, label %.thread137, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !28
   %.not106 = icmp eq i32 %54, 5
-  br i1 %.not106, label %55, label %.thread135
+  br i1 %.not106, label %55, label %.thread137
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -302,7 +302,7 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %61, ptr %62, align 8, !tbaa !17
   %63 = icmp eq ptr %61, null
-  br i1 %63, label %.thread135, label %64
+  br i1 %63, label %.thread137, label %64
 
 64:                                               ; preds = %55
   %65 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #8
@@ -312,7 +312,7 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
 66:                                               ; preds = %64
   %67 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %65, ptr noundef nonnull %4) #8
   %.not108 = icmp eq i32 %67, 0
-  br i1 %.not108, label %.thread135, label %68
+  br i1 %.not108, label %.thread137, label %68
 
 68:                                               ; preds = %66, %64
   %69 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #8
@@ -322,7 +322,7 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
 70:                                               ; preds = %68
   %71 = call i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef nonnull %69, ptr noundef nonnull %5) #8
   %.not110 = icmp eq i32 %71, 0
-  br i1 %.not110, label %.thread135, label %72
+  br i1 %.not110, label %.thread137, label %72
 
 72:                                               ; preds = %70, %68
   %73 = load ptr, ptr %4, align 8, !tbaa !20
@@ -343,11 +343,11 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
 
 81:                                               ; preds = %72, %77, %80, %OSSL_DECODER_CTX_get_num_decoders.exit
   %.083 = phi ptr [ %27, %OSSL_DECODER_CTX_get_num_decoders.exit ], [ %61, %72 ], [ %61, %77 ], [ %61, %80 ]
-  %.081 = phi ptr [ null, %OSSL_DECODER_CTX_get_num_decoders.exit ], [ %.0.i128, %72 ], [ %.0.i128, %77 ], [ %.0.i128, %80 ]
+  %.081 = phi ptr [ null, %OSSL_DECODER_CTX_get_num_decoders.exit ], [ %.0.i130, %72 ], [ %.0.i130, %77 ], [ %.0.i130, %80 ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !22
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.thread135, label %85
+  br i1 %84, label %.thread137, label %85
 
 85:                                               ; preds = %81
   %86 = call i64 @BIO_ctrl(ptr noundef %.083, i32 noundef 133, i64 noundef 0, ptr noundef null) #8
@@ -360,7 +360,7 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__.decoder_process) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef 524320, ptr noundef null) #8
-  br label %.thread135
+  br label %.thread137
 
 90:                                               ; preds = %85
   %91 = call ptr @ossl_core_bio_new_from_bio(ptr noundef %.083) #8
@@ -371,12 +371,12 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 867, ptr noundef nonnull @__func__.decoder_process) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef 524320, ptr noundef null) #8
-  br label %.thread135
+  br label %.thread137
 
 94:                                               ; preds = %90
   %95 = load i64, ptr %82, align 8, !tbaa !22
-  %.not111156 = icmp eq i64 %95, 0
-  br i1 %.not111156, label %.thread135, label %.lr.ph
+  %.not111158 = icmp eq i64 %95, 0
+  br i1 %.not111158, label %.thread137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -388,7 +388,7 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
 
 100:                                              ; preds = %.lr.ph, %select.unfold
   %.in = phi i64 [ %95, %.lr.ph ], [ %101, %select.unfold ]
-  %.4157 = phi i32 [ 0, %.lr.ph ], [ %.5, %select.unfold ]
+  %.4159 = phi i32 [ 0, %.lr.ph ], [ %.5, %select.unfold ]
   %101 = add i64 %.in, -1
   %102 = load ptr, ptr %96, align 8, !tbaa !3
   %103 = trunc i64 %101 to i32
@@ -407,10 +407,10 @@ OSSL_DECODER_INSTANCE_get_decoder.exit:           ; preds = %28, %36
   br label %OSSL_DECODER_INSTANCE_get_input_structure.exit
 
 OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
-  %.0.i132150 = phi ptr [ %111, %106 ], [ null, %100 ]
-  %.0.i129140143149 = phi ptr [ %107, %106 ], [ null, %100 ]
-  %.0.i131144148 = phi ptr [ %109, %106 ], [ null, %100 ]
-  %.0.i133 = phi ptr [ %113, %106 ], [ null, %100 ]
+  %.0.i134152 = phi ptr [ %111, %106 ], [ null, %100 ]
+  %.0.i131142145151 = phi ptr [ %107, %106 ], [ null, %100 ]
+  %.0.i133146150 = phi ptr [ %109, %106 ], [ null, %100 ]
+  %.0.i135 = phi ptr [ %113, %106 ], [ null, %100 ]
   br i1 %cond, label %114, label %118
 
 114:                                              ; preds = %OSSL_DECODER_INSTANCE_get_input_structure.exit
@@ -419,13 +419,13 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   br i1 %.not112, label %121, label %116
 
 116:                                              ; preds = %114
-  %117 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %115, ptr noundef %.0.i132150) #8
+  %117 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %115, ptr noundef %.0.i134152) #8
   %.not113 = icmp eq i32 %117, 0
   br i1 %.not113, label %121, label %select.unfold, !llvm.loop !35
 
 118:                                              ; preds = %OSSL_DECODER_INSTANCE_get_input_structure.exit
   %119 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %120 = call i32 @ossl_decoder_fast_is_a(ptr noundef nonnull %.081, ptr noundef %.0.i132150, ptr noundef nonnull %119) #8
+  %120 = call i32 @ossl_decoder_fast_is_a(ptr noundef nonnull %.081, ptr noundef %.0.i134152, ptr noundef nonnull %119) #8
   %.not115 = icmp eq i32 %120, 0
   br i1 %.not115, label %select.unfold, label %121, !llvm.loop !35
 
@@ -435,7 +435,7 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   br i1 %.not116, label %125, label %123
 
 123:                                              ; preds = %121
-  %124 = call i32 @OSSL_DECODER_is_a(ptr noundef %.0.i129140143149, ptr noundef nonnull %122) #8
+  %124 = call i32 @OSSL_DECODER_is_a(ptr noundef %.0.i131142145151, ptr noundef nonnull %122) #8
   %.not117 = icmp eq i32 %124, 0
   br i1 %.not117, label %select.unfold, label %125, !llvm.loop !35
 
@@ -445,11 +445,11 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   br i1 %.not118, label %131, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp eq ptr %.0.i133, null
+  %128 = icmp eq ptr %.0.i135, null
   br i1 %128, label %select.unfold, label %129, !llvm.loop !35
 
 129:                                              ; preds = %127
-  %130 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %126, ptr noundef nonnull %.0.i133) #8
+  %130 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %126, ptr noundef nonnull %.0.i135) #8
   %.not119 = icmp eq i32 %130, 0
   br i1 %.not119, label %131, label %select.unfold, !llvm.loop !35
 
@@ -462,7 +462,7 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
 134:                                              ; preds = %131
   %135 = load ptr, ptr %97, align 8, !tbaa !19
   %136 = icmp ne ptr %135, null
-  %137 = icmp ne ptr %.0.i133, null
+  %137 = icmp ne ptr %.0.i135, null
   %or.cond3 = select i1 %136, i1 %137, i1 false
   br i1 %or.cond3, label %138, label %142
 
@@ -470,7 +470,7 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   %139 = or disjoint i8 %132, 4
   store i8 %139, ptr %8, align 8
   %140 = load ptr, ptr %97, align 8, !tbaa !19
-  %141 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0.i133, ptr noundef %140) #8
+  %141 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.0.i135, ptr noundef %140) #8
   %.not121 = icmp eq i32 %141, 0
   br i1 %.not121, label %142, label %select.unfold, !llvm.loop !35
 
@@ -479,7 +479,7 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   %144 = call i64 @BIO_ctrl(ptr noundef %.083, i32 noundef 133, i64 noundef 0, ptr noundef null) #8
   %sext122 = shl i64 %144, 32
   %.not123 = icmp eq i64 %sext122, %sext
-  br i1 %.not123, label %145, label %.thread135
+  br i1 %.not123, label %145, label %.thread137
 
 145:                                              ; preds = %142
   %146 = call i32 @ERR_set_mark() #8
@@ -490,13 +490,13 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   %150 = and i8 %149, -5
   %151 = or disjoint i8 %150, %148
   store i8 %151, ptr %99, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i129140143149, i64 104
+  %152 = getelementptr inbounds nuw i8, ptr %.0.i131142145151, i64 104
   %153 = load ptr, ptr %152, align 8, !tbaa !37
   %154 = load ptr, ptr %3, align 8, !tbaa !13
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load i32, ptr %155, align 8, !tbaa !44
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  %158 = call i32 %153(ptr noundef %.0.i131144148, ptr noundef nonnull %91, i32 noundef %156, ptr noundef nonnull @decoder_process, ptr noundef nonnull %3, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %157) #8
+  %158 = call i32 %153(ptr noundef %.0.i133146150, ptr noundef nonnull %91, i32 noundef %156, ptr noundef nonnull @decoder_process, ptr noundef nonnull %3, ptr noundef nonnull @ossl_pw_passphrase_callback_dec, ptr noundef nonnull %157) #8
   %159 = load i8, ptr %99, align 8
   %160 = and i8 %159, 2
   %161 = load i8, ptr %8, align 8
@@ -505,27 +505,27 @@ OSSL_DECODER_INSTANCE_get_input_structure.exit:   ; preds = %100, %106
   store i8 %163, ptr %8, align 8
   %.not124 = icmp ne i32 %158, 0
   %.not125 = icmp eq i8 %160, 0
-  %or.cond127 = select i1 %.not124, i1 %.not125, i1 false
-  br i1 %or.cond127, label %166, label %164
+  %or.cond128 = select i1 %.not124, i1 %.not125, i1 false
+  br i1 %or.cond128, label %166, label %164
 
 164:                                              ; preds = %145
   %165 = call i32 @ERR_clear_last_mark() #8
-  br label %.thread135
+  br label %.thread137
 
 166:                                              ; preds = %145
   %167 = call i32 @ERR_pop_to_mark() #8
   %168 = load i8, ptr %99, align 8
   %169 = and i8 %168, 1
   %.not126 = icmp eq i8 %169, 0
-  br i1 %.not126, label %select.unfold, label %.thread135
+  br i1 %.not126, label %select.unfold, label %.thread137
 
 select.unfold:                                    ; preds = %166, %138, %129, %127, %123, %118, %116
-  %.5 = phi i32 [ %.4157, %116 ], [ %.4157, %118 ], [ %.4157, %123 ], [ %.4157, %127 ], [ %.4157, %129 ], [ %.4157, %138 ], [ %158, %166 ]
+  %.5 = phi i32 [ %.4159, %116 ], [ %.4159, %118 ], [ %.4159, %123 ], [ %.4159, %127 ], [ %.4159, %129 ], [ %.4159, %138 ], [ %158, %166 ]
   %.not111 = icmp eq i64 %101, 0
-  br i1 %.not111, label %.thread135, label %100
+  br i1 %.not111, label %.thread137, label %100
 
-.thread135:                                       ; preds = %select.unfold, %142, %166, %94, %164, %.thread, %70, %66, %55, %49, %52, %89, %93, %81
-  %.3 = phi i32 [ 0, %81 ], [ 0, %89 ], [ 0, %93 ], [ 1, %.thread ], [ 0, %70 ], [ 0, %66 ], [ 0, %55 ], [ 0, %49 ], [ 0, %52 ], [ %158, %164 ], [ 0, %94 ], [ %.5, %select.unfold ], [ %.4157, %142 ], [ %158, %166 ]
+.thread137:                                       ; preds = %select.unfold, %142, %166, %94, %164, %.thread, %70, %66, %55, %49, %52, %81, %93, %89
+  %.3 = phi i32 [ 0, %81 ], [ 0, %89 ], [ 0, %93 ], [ 1, %.thread ], [ 0, %70 ], [ 0, %66 ], [ 0, %55 ], [ 0, %49 ], [ 0, %52 ], [ %158, %164 ], [ 0, %94 ], [ %.5, %select.unfold ], [ %.4159, %142 ], [ %158, %166 ]
   %.082 = phi ptr [ null, %81 ], [ null, %89 ], [ null, %93 ], [ null, %.thread ], [ null, %70 ], [ null, %66 ], [ null, %55 ], [ null, %49 ], [ null, %52 ], [ %91, %164 ], [ %91, %94 ], [ %91, %166 ], [ %91, %142 ], [ %91, %select.unfold ]
   %170 = call i32 @ossl_core_bio_free(ptr noundef %.082) #8
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 8

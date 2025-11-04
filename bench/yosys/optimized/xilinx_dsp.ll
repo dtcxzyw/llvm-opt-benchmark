@@ -156356,7 +156356,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit604.thread: ; preds = %2278
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %54) #28
   br label %.thread1022
 
-.thread1022:                                      ; preds = %.thread1022.critedge, %.critedge534.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit744, %1644, %1890, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit660, %.critedge565.i.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit811, %2312, %.thread918
+.thread1022:                                      ; preds = %.thread1022.critedge, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit811, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit660, %.critedge565.i.thread, %1644, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit744, %1890, %.critedge534.i, %2312, %.thread918
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

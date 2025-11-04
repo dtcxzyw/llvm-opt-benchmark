@@ -200,7 +200,6 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
     i32 0, label %55
     i32 4, label %75
     i32 5, label %.loopexit
-    i32 1, label %.critedge
   ], !llvm.loop !13
 
 75:                                               ; preds = %59, %55
@@ -252,8 +251,8 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nound
 .unreachabledefault:                              ; preds = %59
   unreachable
 
-.critedge:                                        ; preds = %29, %59, %19, %97, %14, %9
-  %101 = phi i64 [ %100, %97 ], [ -22, %9 ], [ -22, %14 ], [ -26, %19 ], [ undef, %59 ], [ -26, %29 ]
+.critedge:                                        ; preds = %29, %19, %97, %14, %9
+  %101 = phi i64 [ %100, %97 ], [ -22, %9 ], [ -22, %14 ], [ -26, %19 ], [ -26, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %101
 }

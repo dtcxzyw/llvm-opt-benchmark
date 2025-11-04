@@ -265,14 +265,14 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 15:                                               ; preds = %1
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #14
-  br label %271
+  br label %252
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @hid_validate_values(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 7) #15
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %271, label %21
+  br i1 %20, label %252, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 6472
@@ -282,13 +282,13 @@ define dso_local i32 @lg4ff_init(ptr noundef %0) local_unnamed_addr #0 align 16 
 
 25:                                               ; preds = %21
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #14
-  br label %271
+  br label %252
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %28 = tail call noalias align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 112) #16
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %271, label %30
+  br i1 %29, label %252, label %30
 
 30:                                               ; preds = %26
   store i32 0, ptr %28, align 8
@@ -394,7 +394,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   %83 = phi ptr [ @lg4ff_mode_switch_ext16_g25, %lg4ff_get_mode_switch_command.exit ], [ @lg4ff_mode_switch_ext01_dfp, %select.unfold ], [ @lg4ff_mode_switch_ext09_g29, %80 ], [ @lg4ff_mode_switch_ext09_dfgt, %81 ], [ @lg4ff_mode_switch_ext09_g27, %79 ]
   %84 = tail call fastcc i32 @lg4ff_switch_compatibility_mode(ptr noundef %0, ptr noundef nonnull %83), !range !9
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %271, label %86
+  br i1 %85, label %252, label %86
 
 86:                                               ; preds = %lg4ff_get_mode_switch_command.exit.thread
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.18, i32 noundef %84) #14
@@ -425,7 +425,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 
 .critedge:                                        ; preds = %93, %96
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.4) #14
-  br label %269
+  br label %250
 
 99:                                               ; preds = %96
   br i1 %.ph34, label %.preheader, label %111
@@ -450,7 +450,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 .thread36:                                        ; preds = %104, %107
   %110 = zext i16 %.ph33 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.5, i32 noundef %110) #14
-  br label %269
+  br label %250
 
 111:                                              ; preds = %107, %99
   %112 = phi i32 [ %108, %107 ], [ -1, %99 ]
@@ -479,7 +479,7 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
 .loopexit39:                                      ; preds = %119, %111
   %128 = tail call i32 @input_ff_create_memless(ptr noundef %18, ptr noundef null, ptr noundef nonnull @lg4ff_play) #15
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %269
+  br i1 %129, label %130, label %250
 
 130:                                              ; preds = %.loopexit39
   br i1 %.ph34, label %131, label %.thread37
@@ -628,136 +628,100 @@ lg4ff_get_mode_switch_command.exit.thread:        ; preds = %lg4ff_get_mode_swit
   ]
 
 203:                                              ; preds = %201, %201
-  %204 = load ptr, ptr %22, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %207
-
-206:                                              ; preds = %203
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.41) #14
-  br label %lg4ff_set_leds.exit
+  tail call fastcc void @lg4ff_set_leds(ptr noundef %0, i8 noundef zeroext 0)
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 6432
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %207, label %209
 
 207:                                              ; preds = %203
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = icmp eq ptr %209, null
-  br i1 %210, label %211, label %212
+  %208 = load ptr, ptr %5, align 8
+  br label %209
 
-211:                                              ; preds = %207
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull @.str.42) #14
-  br label %lg4ff_set_leds.exit
+209:                                              ; preds = %207, %203
+  %210 = phi ptr [ %208, %207 ], [ %205, %203 ]
+  %211 = tail call i64 @strlen(ptr noundef %210) #15
+  %212 = add i64 %211, 8
+  %213 = add i64 %211, 416
+  br label %214
 
-212:                                              ; preds = %207
-  %213 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 64
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 48
-  %218 = load ptr, ptr %217, align 8
-  %219 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %209) #15
-  store i32 248, ptr %218, align 4
-  %220 = getelementptr i8, ptr %218, i64 4
-  store i32 18, ptr %220, align 4
-  %221 = getelementptr i8, ptr %218, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %221, i8 0, i64 20, i1 false)
-  %222 = load ptr, ptr %213, align 8
-  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %222, i32 noundef 9) #15
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %209, i64 noundef %219) #15
-  br label %lg4ff_set_leds.exit
+214:                                              ; preds = %226, %209
+  %215 = phi i64 [ %228, %226 ], [ 0, %209 ]
+  %216 = icmp eq i64 %215, 5
+  br i1 %216, label %.loopexit, label %217
 
-lg4ff_set_leds.exit:                              ; preds = %206, %211, %212
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 6432
-  %224 = load ptr, ptr %223, align 8
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %226, label %228
+217:                                              ; preds = %214
+  %218 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %213, i32 noundef 3520) #17
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %238, label %220
 
-226:                                              ; preds = %lg4ff_set_leds.exit
-  %227 = load ptr, ptr %5, align 8
-  br label %228
+220:                                              ; preds = %217
+  %221 = getelementptr i8, ptr %218, i64 408
+  %222 = load ptr, ptr %204, align 8
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %224, label %226
 
-228:                                              ; preds = %226, %lg4ff_set_leds.exit
-  %229 = phi ptr [ %227, %226 ], [ %224, %lg4ff_set_leds.exit ]
-  %230 = tail call i64 @strlen(ptr noundef %229) #15
-  %231 = add i64 %230, 8
-  %232 = add i64 %230, 416
-  br label %233
+224:                                              ; preds = %220
+  %225 = load ptr, ptr %5, align 8
+  br label %226
 
-233:                                              ; preds = %245, %228
-  %234 = phi i64 [ %247, %245 ], [ 0, %228 ]
-  %235 = icmp eq i64 %234, 5
-  br i1 %235, label %.loopexit, label %236
+226:                                              ; preds = %224, %220
+  %227 = phi ptr [ %225, %224 ], [ %222, %220 ]
+  %228 = add nuw nsw i64 %215, 1
+  %229 = trunc i64 %228 to i32
+  %230 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %221, i64 noundef %212, ptr noundef nonnull @.str.12, ptr noundef %227, i32 noundef %229) #15
+  store ptr %221, ptr %218, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  store i32 0, ptr %231, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  store i32 1, ptr %232, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %218, i64 48
+  store ptr @lg4ff_led_get_brightness, ptr %233, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %218, i64 32
+  store ptr @lg4ff_led_set_brightness, ptr %234, align 8
+  %235 = getelementptr ptr, ptr %202, i64 %215
+  store ptr %218, ptr %235, align 8
+  %236 = tail call i32 @led_classdev_register_ext(ptr noundef nonnull %5, ptr noundef nonnull %218, ptr noundef null) #15
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %214, label %238, !llvm.loop !17
 
-236:                                              ; preds = %233
-  %237 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %232, i32 noundef 3520) #17
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %257, label %239
+238:                                              ; preds = %226, %217
+  %239 = phi ptr [ @.str.11, %217 ], [ @.str.13, %226 ]
+  %240 = trunc i64 %215 to i32
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull %239, i32 noundef %240) #14
+  br label %241
 
-239:                                              ; preds = %236
-  %240 = getelementptr i8, ptr %237, i64 408
-  %241 = load ptr, ptr %223, align 8
-  %242 = icmp eq ptr %241, null
-  br i1 %242, label %243, label %245
+241:                                              ; preds = %247, %238
+  %242 = phi i64 [ 0, %238 ], [ %248, %247 ]
+  %243 = getelementptr ptr, ptr %202, i64 %242
+  %244 = load ptr, ptr %243, align 8
+  store ptr null, ptr %243, align 8
+  %245 = icmp eq ptr %244, null
+  br i1 %245, label %247, label %246
 
-243:                                              ; preds = %239
-  %244 = load ptr, ptr %5, align 8
-  br label %245
+246:                                              ; preds = %241
+  tail call void @led_classdev_unregister(ptr noundef nonnull %244) #15
+  tail call void @kfree(ptr noundef nonnull %244) #15
+  br label %247
 
-245:                                              ; preds = %243, %239
-  %246 = phi ptr [ %244, %243 ], [ %241, %239 ]
-  %247 = add nuw nsw i64 %234, 1
-  %248 = trunc i64 %247 to i32
-  %249 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %240, i64 noundef %231, ptr noundef nonnull @.str.12, ptr noundef %246, i32 noundef %248) #15
-  store ptr %240, ptr %237, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i32 0, ptr %250, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %237, i64 12
-  store i32 1, ptr %251, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  store ptr @lg4ff_led_get_brightness, ptr %252, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  store ptr @lg4ff_led_set_brightness, ptr %253, align 8
-  %254 = getelementptr ptr, ptr %202, i64 %234
-  store ptr %237, ptr %254, align 8
-  %255 = tail call i32 @led_classdev_register_ext(ptr noundef nonnull %5, ptr noundef nonnull %237, ptr noundef null) #15
-  %256 = icmp eq i32 %255, 0
-  br i1 %256, label %233, label %257, !llvm.loop !17
+247:                                              ; preds = %246, %241
+  %248 = add nuw nsw i64 %242, 1
+  %249 = icmp eq i64 %248, 5
+  br i1 %249, label %.loopexit, label %241, !llvm.loop !18
 
-257:                                              ; preds = %245, %236
-  %258 = phi ptr [ @.str.11, %236 ], [ @.str.13, %245 ]
-  %259 = trunc i64 %234 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %5, ptr noundef nonnull %258, i32 noundef %259) #14
-  br label %260
-
-260:                                              ; preds = %266, %257
-  %261 = phi i64 [ 0, %257 ], [ %267, %266 ]
-  %262 = getelementptr ptr, ptr %202, i64 %261
-  %263 = load ptr, ptr %262, align 8
-  store ptr null, ptr %262, align 8
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %266, label %265
-
-265:                                              ; preds = %260
-  tail call void @led_classdev_unregister(ptr noundef nonnull %263) #15
-  tail call void @kfree(ptr noundef nonnull %263) #15
-  br label %266
-
-266:                                              ; preds = %265, %260
-  %267 = add nuw nsw i64 %261, 1
-  %268 = icmp eq i64 %267, 5
-  br i1 %268, label %.loopexit, label %260, !llvm.loop !18
-
-.loopexit:                                        ; preds = %233, %266, %201
+.loopexit:                                        ; preds = %214, %247, %201
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #14
-  br label %271
+  br label %252
 
-269:                                              ; preds = %.loopexit39, %.thread36, %.critedge
-  %270 = phi i32 [ -1, %.critedge ], [ -1, %.thread36 ], [ %128, %.loopexit39 ]
+250:                                              ; preds = %.loopexit39, %.thread36, %.critedge
+  %251 = phi i32 [ -1, %.critedge ], [ -1, %.thread36 ], [ %128, %.loopexit39 ]
   store ptr null, ptr %32, align 8
   tail call void @kfree(ptr noundef nonnull %28) #15
-  br label %271
+  br label %252
 
-271:                                              ; preds = %lg4ff_get_mode_switch_command.exit.thread, %269, %.loopexit, %26, %25, %16, %15
-  %272 = phi i32 [ -19, %15 ], [ %270, %269 ], [ 0, %.loopexit ], [ -1, %25 ], [ -1, %16 ], [ -12, %26 ], [ 0, %lg4ff_get_mode_switch_command.exit.thread ]
-  ret i32 %272
+252:                                              ; preds = %lg4ff_get_mode_switch_command.exit.thread, %250, %.loopexit, %26, %25, %16, %15
+  %253 = phi i32 [ -19, %15 ], [ %251, %250 ], [ 0, %.loopexit ], [ -1, %25 ], [ -1, %16 ], [ -12, %26 ], [ 0, %lg4ff_get_mode_switch_command.exit.thread ]
+  ret i32 %253
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1029,6 +993,54 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @lg4ff_set_leds(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 6472
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %7, ptr noundef nonnull @.str.41) #14
+  br label %27
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %14
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6352
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %13, ptr noundef nonnull @.str.42) #14
+  br label %27
+
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %10) #15
+  store i32 248, ptr %20, align 4
+  %22 = getelementptr i8, ptr %20, i64 4
+  store i32 18, ptr %22, align 4
+  %23 = zext i8 %1 to i32
+  %24 = getelementptr i8, ptr %20, i64 8
+  store i32 %23, ptr %24, align 4
+  %25 = getelementptr i8, ptr %20, i64 12
+  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %26 = load ptr, ptr %15, align 8
+  tail call void @hid_hw_request(ptr noundef %0, ptr noundef %26, i32 noundef 9) #15
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %10, i64 noundef %21) #15
+  br label %27
+
+27:                                               ; preds = %14, %12, %6
+  ret void
+}
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5

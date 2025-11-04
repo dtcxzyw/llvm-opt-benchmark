@@ -185,11 +185,11 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 .loopexit:                                        ; preds = %12, %22, %17, %51, %49
   %14 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.56, ptr noundef %11) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 16:                                               ; preds = %12
   call void @opt_help(ptr noundef nonnull @rsa_options) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 17:                                               ; preds = %12
   %18 = call ptr @opt_arg() #6
@@ -260,7 +260,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 46:                                               ; preds = %12, %12, %12, %12
   %47 = call i32 @opt_provider(i32 noundef %13) #6
   %.not156 = icmp eq i32 %47, 0
-  br i1 %.not156, label %.loopexit173, label %.backedge
+  br i1 %.not156, label %.loopexit176, label %.backedge
 
 48:                                               ; preds = %12
   br label %.backedge
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 60:                                               ; preds = %53
   %61 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %62 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.57) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 63:                                               ; preds = %53
   %64 = icmp ne i32 %.0114, 0
@@ -302,7 +302,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 65:                                               ; preds = %63
   %66 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.58) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 68:                                               ; preds = %63
   br i1 %55, label %69, label %74
@@ -312,9 +312,9 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   %71 = load i32, ptr %6, align 4, !tbaa !11
   %switch.selectcmp = icmp eq i32 %71, 4
   %switch.select = select i1 %switch.selectcmp, i32 10, i32 0
-  %switch.selectcmp159 = icmp eq i32 %71, 32773
-  %switch.select160 = select i1 %switch.selectcmp159, i32 32777, i32 %switch.select
-  %.096 = select i1 %70, i32 %switch.select160, i32 %71
+  %switch.selectcmp162 = icmp eq i32 %71, 32773
+  %switch.select163 = select i1 %switch.selectcmp162, i32 32777, i32 %switch.select
+  %.096 = select i1 %70, i32 %switch.select163, i32 %71
   %72 = load ptr, ptr %4, align 8, !tbaa !9
   %73 = call ptr @load_pubkey(ptr noundef %.0127, i32 noundef %.096, i32 noundef 1, ptr noundef %72, ptr noundef %.0103, ptr noundef nonnull @.str.59) #6
   br label %78
@@ -333,7 +333,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 80:                                               ; preds = %78
   %81 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %81) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 82:                                               ; preds = %78
   %83 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.1130, ptr noundef nonnull @.str.61) #6
@@ -348,13 +348,13 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 86:                                               ; preds = %84
   %87 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %88 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %87, ptr noundef nonnull @.str.63) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 89:                                               ; preds = %84, %82
   %90 = load i32, ptr %7, align 4, !tbaa !11
   %91 = call ptr @bio_open_owner(ptr noundef %.0125, i32 noundef %90, i32 noundef %58) #6
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit173, label %93
+  br i1 %92, label %.loopexit176, label %93
 
 93:                                               ; preds = %89
   br i1 %54, label %102, label %94
@@ -376,7 +376,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   call void @perror(ptr noundef %.0125) #7
   %101 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %101) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 102:                                              ; preds = %95, %.critedge, %93
   %.not148 = icmp eq i32 %.0110, 0
@@ -408,7 +408,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   %116 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %115, ptr noundef nonnull @.str.67) #6
   %117 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %117) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 118:                                              ; preds = %111
   %119 = call i32 @EVP_PKEY_check(ptr noundef nonnull %112) #6
@@ -436,10 +436,10 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 128:                                              ; preds = %126
   %129 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %129) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 .thread:                                          ; preds = %120, %126, %122, %110
-  br i1 %.not143, label %130, label %.loopexit173
+  br i1 %.not143, label %130, label %.loopexit176
 
 130:                                              ; preds = %.thread
   %131 = load ptr, ptr @bio_err, align 8, !tbaa !15
@@ -448,7 +448,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   switch i32 %133, label %139 [
     i32 4, label %143
     i32 32773, label %134
-    i32 11, label %.thread163
+    i32 11, label %.thread166
     i32 12, label %135
   ]
 
@@ -456,23 +456,23 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   br label %143
 
 135:                                              ; preds = %130
-  br i1 %55, label %136, label %.thread163
+  br i1 %55, label %136, label %.thread166
 
 136:                                              ; preds = %135
   %137 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %138 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.74) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
 139:                                              ; preds = %130
   %140 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %141 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %140, ptr noundef nonnull @.str.76) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
-.thread163:                                       ; preds = %135, %130
+.thread166:                                       ; preds = %135, %130
   %.0100.ph = phi ptr [ @.str.75, %135 ], [ @.str.73, %130 ]
   %142 = or i32 %.0106, %.0108
-  %or.cond5165 = icmp ne i32 %142, 0
-  %.166 = select i1 %or.cond5165, i32 2, i32 135
+  %or.cond5168 = icmp ne i32 %142, 0
+  %.169 = select i1 %or.cond5168, i32 2, i32 135
   br label %148
 
 143:                                              ; preds = %134, %130
@@ -491,29 +491,29 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   %.str.79..str.77 = select i1 %.not150, ptr @.str.79, ptr @.str.77
   br label %148
 
-148:                                              ; preds = %.thread163, %147, %145
-  %.169 = phi i32 [ 2, %145 ], [ 135, %147 ], [ %.166, %.thread163 ]
-  %or.cond5168 = phi i1 [ true, %145 ], [ false, %147 ], [ %or.cond5165, %.thread163 ]
-  %.0100167 = phi ptr [ %.0100, %145 ], [ %.0100, %147 ], [ %.0100.ph, %.thread163 ]
-  %.099 = phi ptr [ %.str.77..str.78, %145 ], [ %.str.79..str.77, %147 ], [ null, %.thread163 ]
-  %149 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef nonnull %.1130, i32 noundef %.169, ptr noundef nonnull %.0100167, ptr noundef %.099, ptr noundef null) #6
+148:                                              ; preds = %.thread166, %147, %145
+  %.172 = phi i32 [ 2, %145 ], [ 135, %147 ], [ %.169, %.thread166 ]
+  %or.cond5171 = phi i1 [ true, %145 ], [ false, %147 ], [ %or.cond5168, %.thread166 ]
+  %.0100170 = phi ptr [ %.0100, %145 ], [ %.0100, %147 ], [ %.0100.ph, %.thread166 ]
+  %.099 = phi ptr [ %.str.77..str.78, %145 ], [ %.str.79..str.77, %147 ], [ null, %.thread166 ]
+  %149 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef nonnull %.1130, i32 noundef %.172, ptr noundef nonnull %.0100170, ptr noundef %.099, ptr noundef null) #6
   %150 = call i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef %149) #6
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %159
 
 152:                                              ; preds = %148
-  br i1 %or.cond5168, label %153, label %156
+  br i1 %or.cond5171, label %153, label %156
 
 153:                                              ; preds = %152
   %154 = load i32, ptr %7, align 4, !tbaa !11
   %155 = call fastcc i32 @try_legacy_encoding(ptr noundef %.1130, i32 noundef %154, i32 noundef %.0106, ptr noundef %91)
   %.not155 = icmp eq i32 %155, 0
-  br i1 %.not155, label %156, label %.loopexit173
+  br i1 %.not155, label %156, label %.loopexit176
 
 156:                                              ; preds = %152, %153
   %157 = load ptr, ptr @bio_err, align 8, !tbaa !15
-  %158 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %157, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0100167) #6
-  br label %.loopexit173
+  %158 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %157, ptr noundef nonnull @.str.80, ptr noundef nonnull %.0100170) #6
+  br label %.loopexit176
 
 159:                                              ; preds = %148
   %160 = load ptr, ptr %3, align 8, !tbaa !4
@@ -532,7 +532,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   %167 = load i32, ptr %7, align 4
   %168 = icmp eq i32 %167, 12
   %or.cond13 = select i1 %166, i1 true, i1 %168
-  br i1 %or.cond13, label %169, label %.thread170
+  br i1 %or.cond13, label %169, label %.thread173
 
 169:                                              ; preds = %165
   %170 = call ptr @get_ui_method() #6
@@ -549,7 +549,7 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
 176:                                              ; preds = %169, %173
   %.pr = load i32, ptr %7, align 4, !tbaa !11
   %177 = icmp eq i32 %.pr, 12
-  br i1 %177, label %178, label %.thread170
+  br i1 %177, label %178, label %.thread173
 
 178:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -558,35 +558,35 @@ define dso_local range(i32 0, 2) i32 @rsa_main(i32 noundef %0, ptr noundef %1) l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %179, i8 0, i64 40, i1 false)
   %180 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %149, ptr noundef nonnull %10) #6
   %.not153 = icmp eq i32 %180, 0
-  br i1 %.not153, label %181, label %.thread171
+  br i1 %.not153, label %181, label %.thread174
 
-.thread171:                                       ; preds = %178
+.thread174:                                       ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread170
+  br label %.thread173
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %183 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %182, ptr noundef nonnull @.str.82) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit173
+  br label %.loopexit176
 
-.thread170:                                       ; preds = %165, %.thread171, %176
+.thread173:                                       ; preds = %165, %.thread174, %176
   %184 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %149, ptr noundef nonnull %91) #6
   %.not154 = icmp eq i32 %184, 0
-  br i1 %.not154, label %185, label %.loopexit173
+  br i1 %.not154, label %185, label %.loopexit176
 
-185:                                              ; preds = %.thread170
+185:                                              ; preds = %.thread173
   %186 = load ptr, ptr @bio_err, align 8, !tbaa !15
   %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %186, ptr noundef nonnull @.str.83) #6
   %188 = load ptr, ptr @bio_err, align 8, !tbaa !15
   call void @ERR_print_errors(ptr noundef %188) #6
-  br label %.loopexit173
+  br label %.loopexit176
 
-.loopexit173:                                     ; preds = %46, %.loopexit, %16, %60, %65, %80, %86, %100, %136, %139, %185, %89, %156, %.thread, %153, %.thread170, %128, %114, %181
-  %.0129 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ %.1130, %89 ], [ %.1130, %100 ], [ %.1130, %156 ], [ %.1130, %185 ], [ %.1130, %181 ], [ %.1130, %136 ], [ %.1130, %139 ], [ %.1130, %86 ], [ null, %60 ], [ %.1130, %.thread ], [ %.1130, %153 ], [ %.1130, %.thread170 ], [ %.1130, %128 ], [ %.1130, %114 ], [ null, %46 ]
-  %.0122 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ null, %89 ], [ %91, %100 ], [ %91, %156 ], [ %91, %185 ], [ %91, %181 ], [ %91, %136 ], [ %91, %139 ], [ null, %86 ], [ null, %60 ], [ %91, %.thread ], [ %91, %153 ], [ %91, %.thread170 ], [ %91, %128 ], [ %91, %114 ], [ null, %46 ]
-  %.0105 = phi i32 [ 1, %.loopexit ], [ 0, %16 ], [ 1, %65 ], [ 1, %80 ], [ 1, %89 ], [ 1, %100 ], [ 1, %156 ], [ 1, %185 ], [ 1, %181 ], [ 1, %136 ], [ 1, %139 ], [ 1, %86 ], [ 1, %60 ], [ 0, %.thread ], [ 0, %153 ], [ 0, %.thread170 ], [ 1, %128 ], [ 1, %114 ], [ 1, %46 ]
-  %.097 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ null, %89 ], [ null, %100 ], [ %149, %156 ], [ %149, %185 ], [ %149, %181 ], [ null, %136 ], [ null, %139 ], [ null, %86 ], [ null, %60 ], [ null, %.thread ], [ %149, %153 ], [ %149, %.thread170 ], [ null, %128 ], [ null, %114 ], [ null, %46 ]
+.loopexit176:                                     ; preds = %46, %181, %114, %128, %.thread173, %153, %.thread, %156, %89, %185, %139, %136, %100, %86, %80, %65, %60, %16, %.loopexit
+  %.0129 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ %.1130, %89 ], [ %.1130, %100 ], [ %.1130, %156 ], [ %.1130, %185 ], [ %.1130, %181 ], [ %.1130, %136 ], [ %.1130, %139 ], [ %.1130, %86 ], [ null, %60 ], [ %.1130, %.thread ], [ %.1130, %153 ], [ %.1130, %.thread173 ], [ %.1130, %128 ], [ %.1130, %114 ], [ null, %46 ]
+  %.0122 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ null, %89 ], [ %91, %100 ], [ %91, %156 ], [ %91, %185 ], [ %91, %181 ], [ %91, %136 ], [ %91, %139 ], [ null, %86 ], [ null, %60 ], [ %91, %.thread ], [ %91, %153 ], [ %91, %.thread173 ], [ %91, %128 ], [ %91, %114 ], [ null, %46 ]
+  %.0105 = phi i32 [ 1, %.loopexit ], [ 0, %16 ], [ 1, %65 ], [ 1, %80 ], [ 1, %89 ], [ 1, %100 ], [ 1, %156 ], [ 1, %185 ], [ 1, %181 ], [ 1, %136 ], [ 1, %139 ], [ 1, %86 ], [ 1, %60 ], [ 0, %.thread ], [ 0, %153 ], [ 0, %.thread173 ], [ 1, %128 ], [ 1, %114 ], [ 1, %46 ]
+  %.097 = phi ptr [ null, %.loopexit ], [ null, %16 ], [ null, %65 ], [ null, %80 ], [ null, %89 ], [ null, %100 ], [ %149, %156 ], [ %149, %185 ], [ %149, %181 ], [ null, %136 ], [ null, %139 ], [ null, %86 ], [ null, %60 ], [ null, %.thread ], [ %149, %153 ], [ %149, %.thread173 ], [ null, %128 ], [ null, %114 ], [ null, %46 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef %.097) #6
   call void @release_engine(ptr noundef %.0103) #6
   call void @BIO_free_all(ptr noundef %.0122) #6

@@ -249,8 +249,8 @@ define range(i32 -1, 1) i32 @H5EA__hdr_dest(ptr noundef %0) local_unnamed_addr #
   br label %68
 
 68:                                               ; preds = %46, %1, %66, %61, %18
-  %.030 = phi i32 [ -1, %18 ], [ -1, %61 ], [ 0, %66 ], [ -1, %46 ], [ 0, %1 ]
-  ret i32 %.030
+  %.029 = phi i32 [ -1, %18 ], [ -1, %61 ], [ 0, %66 ], [ -1, %46 ], [ 0, %1 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable
@@ -488,8 +488,8 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   br label %74
 
 74:                                               ; preds = %43, %2, %66, %70, %62
-  %.042 = phi ptr [ null, %2 ], [ null, %62 ], [ null, %70 ], [ null, %43 ], [ %68, %66 ]
-  ret ptr %.042
+  %.044 = phi ptr [ null, %2 ], [ null, %62 ], [ null, %70 ], [ null, %43 ], [ %68, %66 ]
+  ret ptr %.044
 }
 
 declare ptr @H5FL_seq_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

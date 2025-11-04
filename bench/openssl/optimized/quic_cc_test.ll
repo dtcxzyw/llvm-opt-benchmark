@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   %28 = zext i1 %27 to i32
   %29 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @.str.6, i32 noundef %28) #8
   %.not66 = icmp eq i32 %29, 0
-  br i1 %.not66, label %.thread86, label %30
+  br i1 %.not66, label %.thread87, label %30
 
 30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   %35 = zext i1 %34 to i32
   %36 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 368, ptr noundef nonnull @.str.9, i32 noundef %35) #8
   %.not67 = icmp eq i32 %36, 0
-  br i1 %.not67, label %.thread86, label %37
+  br i1 %.not67, label %.thread87, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ossl_cc_newreno_method, i64 16), align 8, !tbaa !29
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   %41 = load i64, ptr %1, align 8, !tbaa !4
   %42 = call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %40, i64 noundef %41) #8
   %.not68 = icmp eq i32 %42, 0
-  br i1 %.not68, label %.thread86, label %.preheader.outer
+  br i1 %.not68, label %.thread87, label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %37, %net_sim_send.exit
   %.161.ph = phi i64 [ %91, %net_sim_send.exit ], [ 0, %37 ]
@@ -181,8 +181,8 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   store i64 %.sroa.03.0.i.i, ptr @fake_time.0, align 8, !tbaa !4
   %50 = call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str.2, i32 noundef 142) #8
   %51 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @.str.23, ptr noundef %50) #8
-  %.not.i81 = icmp eq i32 %51, 0
-  br i1 %.not.i81, label %net_sim_send.exit, label %52
+  %.not.i82 = icmp eq i32 %51, 0
+  br i1 %.not.i82, label %net_sim_send.exit, label %52
 
 52:                                               ; preds = %48
   %53 = call fastcc i32 @net_sim_process(ptr noundef nonnull %4, i64 noundef 0)
@@ -202,11 +202,11 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
   store i32 %60, ptr %62, align 8, !tbaa !31
   %63 = load i64, ptr %16, align 8, !tbaa !18
   %64 = mul i64 %63, 1000000
-  %.sroa.03.0.i.i82 = call i64 @llvm.uadd.sat.i64(i64 %61, i64 %64)
+  %.sroa.03.0.i.i83 = call i64 @llvm.uadd.sat.i64(i64 %61, i64 %64)
   br i1 %59, label %65, label %67
 
 65:                                               ; preds = %57
-  %.sroa.03.0.i46.i = call i64 @llvm.uadd.sat.i64(i64 %.sroa.03.0.i.i82, i64 %64)
+  %.sroa.03.0.i46.i = call i64 @llvm.uadd.sat.i64(i64 %.sroa.03.0.i.i83, i64 %64)
   %66 = sub nuw i64 %58, %46
   store i64 %66, ptr %17, align 8, !tbaa !19
   br label %69
@@ -218,9 +218,9 @@ define internal range(i32 0, 2) i32 @test_simulate() #0 {
 
 69:                                               ; preds = %67, %65
   %.sroa.03.0.i48.sink49.i = phi i64 [ %.sroa.03.0.i46.i, %65 ], [ %.sroa.03.0.i48.i, %67 ]
-  %.sroa.03.0.i48.sink.i = phi i64 [ %.sroa.03.0.i.i82, %65 ], [ %.sroa.03.0.i48.i, %67 ]
+  %.sroa.03.0.i48.sink.i = phi i64 [ %.sroa.03.0.i.i83, %65 ], [ %.sroa.03.0.i48.i, %67 ]
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 %.sroa.03.0.i.i82, ptr %70, align 8, !tbaa !4
+  store i64 %.sroa.03.0.i.i83, ptr %70, align 8, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 %.sroa.03.0.i48.sink49.i, ptr %71, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -257,13 +257,13 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   %90 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 406, ptr noundef nonnull @.str.12, i32 noundef %.0.i) #8
   %.not70 = icmp eq i32 %90, 0
   %91 = add i64 %46, %.161.ph
-  br i1 %.not70, label %.thread86, label %.preheader.outer
+  br i1 %.not70, label %.thread87, label %.preheader.outer
 
 92:                                               ; preds = %.preheader
   %93 = call fastcc i32 @net_sim_process(ptr noundef %4, i64 noundef 1)
   %94 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 414, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %93, i32 noundef 0) #8
   %.not71 = icmp eq i32 %94, 0
-  br i1 %.not71, label %.thread86, label %95
+  br i1 %.not71, label %.thread87, label %95
 
 95:                                               ; preds = %92
   %96 = icmp eq i32 %93, 3
@@ -273,26 +273,26 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   %98 = load i64, ptr %2, align 8, !tbaa !4
   %99 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 422, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.14, i64 noundef %98, i64 noundef 0) #8
   %.not72 = icmp eq i32 %99, 0
-  br i1 %.not72, label %.thread86, label %100
+  br i1 %.not72, label %.thread87, label %100
 
 100:                                              ; preds = %97
   %101 = call i64 %39(ptr noundef %11) #8
   %102 = load i64, ptr %1, align 8, !tbaa !4
   %103 = call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 425, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, i64 noundef %101, i64 noundef %102) #8
   %.not73 = icmp eq i32 %103, 0
-  br i1 %.not73, label %.thread86, label %104
+  br i1 %.not73, label %.thread87, label %104
 
 104:                                              ; preds = %100, %95
   %105 = load i64, ptr %2, align 8, !tbaa !4
   %106 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.2, i32 noundef 433, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i64 noundef %105, i64 noundef -1) #8
   %.not74 = icmp eq i32 %106, 0
-  br i1 %.not74, label %.thread86, label %107
+  br i1 %.not74, label %.thread87, label %107
 
 107:                                              ; preds = %104
   %108 = load i64, ptr %3, align 8, !tbaa !4
   %109 = call i32 @test_uint64_t_ne(ptr noundef nonnull @.str.2, i32 noundef 434, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i64 noundef %108, i64 noundef -1) #8
   %.not75 = icmp eq i32 %109, 0
-  br i1 %.not75, label %.thread86, label %110
+  br i1 %.not75, label %.thread87, label %110
 
 110:                                              ; preds = %107
   br i1 %43, label %.preheader, label %111
@@ -301,17 +301,17 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 454, ptr noundef nonnull @.str.19, i64 noundef 1, i64 noundef 16000, double noundef 0xC058FF999999999A) #8
   %112 = call i32 @test_double_le(ptr noundef nonnull @.str.2, i32 noundef 457, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, double noundef 0xBFEFFF7CED916873, double noundef 5.000000e-02) #8
   %.not69 = icmp ne i32 %112, 0
-  %spec.select80 = zext i1 %.not69 to i32
-  br label %.thread86
+  %spec.select81 = zext i1 %.not69 to i32
+  br label %.thread87
 
-.thread86:                                        ; preds = %104, %107, %100, %97, %92, %net_sim_send.exit, %37, %30, %23, %111
-  %.053.ph = phi i32 [ %spec.select80, %111 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %net_sim_send.exit ], [ 0, %92 ], [ 0, %97 ], [ 0, %100 ], [ 0, %107 ], [ 0, %104 ]
+.thread87:                                        ; preds = %104, %107, %100, %97, %92, %net_sim_send.exit, %37, %30, %23, %111
+  %.053.ph = phi i32 [ %spec.select81, %111 ], [ 0, %23 ], [ 0, %30 ], [ 0, %37 ], [ 0, %net_sim_send.exit ], [ 0, %92 ], [ 0, %97 ], [ 0, %100 ], [ 0, %107 ], [ 0, %104 ]
   %.val = load ptr, ptr %20, align 8, !tbaa !20
   call void @ossl_pqueue_pop_free(ptr noundef %.val, ptr noundef nonnull @do_free) #8
   br label %113
 
-113:                                              ; preds = %0, %13, %.thread86
-  %.05398 = phi i32 [ %.053.ph, %.thread86 ], [ 0, %13 ], [ 0, %0 ]
+113:                                              ; preds = %0, %13, %.thread87
+  %.05399 = phi i32 [ %.053.ph, %.thread87 ], [ 0, %13 ], [ 0, %0 ]
   %.not77 = icmp eq ptr %11, null
   br i1 %.not77, label %116, label %114
 
@@ -326,7 +326,7 @@ net_sim_send.exit:                                ; preds = %48, %82, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.05398
+  ret i32 %.05399
 }
 
 ; Function Attrs: nounwind uwtable

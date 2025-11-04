@@ -2506,8 +2506,8 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   store i32 0, ptr %11, align 4, !tbaa !100
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.55, ptr noundef %1) #15
   %12 = load i8, ptr %1, align 1, !tbaa !11
-  %.not151 = icmp eq i8 %12, 0
-  br i1 %.not151, label %.thread122.thread, label %.lr.ph
+  %.not152 = icmp eq i8 %12, 0
+  br i1 %.not152, label %.thread123.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2538,7 +2538,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
 26:                                               ; preds = %20
   store ptr %23, ptr %5, align 8, !tbaa !9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.59, i32 noundef %22, ptr noundef nonnull %23) #15
-  br label %.thread122
+  br label %.thread123
 
 27:                                               ; preds = %16
   switch i8 %17, label %.thread [
@@ -2548,13 +2548,13 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
     i8 100, label %28
     i8 116, label %28
     i8 86, label %28
-    i8 103, label %._crit_edge178
+    i8 103, label %._crit_edge179
     i8 112, label %._crit_edge
   ]
 
-._crit_edge178:                                   ; preds = %27
-  %.phi.trans.insert179 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %.pre180 = load i8, ptr %.phi.trans.insert179, align 1, !tbaa !11
+._crit_edge179:                                   ; preds = %27
+  %.phi.trans.insert180 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %.pre181 = load i8, ptr %.phi.trans.insert180, align 1, !tbaa !11
   br label %50
 
 ._crit_edge:                                      ; preds = %27
@@ -2627,7 +2627,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %47 = phi i32 [ 0, %44 ], [ 4, %43 ], [ 2, %42 ], [ 3, %41 ], [ 1, %40 ], [ 0, %39 ]
   %48 = call ptr @av_get_media_type_string(i32 noundef %47) #15
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.61, ptr noundef %48, ptr noundef nonnull %29) #15
-  %.pre186 = load ptr, ptr %5, align 8, !tbaa !9
+  %.pre187 = load ptr, ptr %5, align 8, !tbaa !9
   br label %164
 
 49:                                               ; preds = %28
@@ -2636,8 +2636,8 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
     i8 112, label %78
   ]
 
-50:                                               ; preds = %._crit_edge178, %49
-  %51 = phi i8 [ %.pre180, %._crit_edge178 ], [ %30, %49 ]
+50:                                               ; preds = %._crit_edge179, %49
+  %51 = phi i8 [ %.pre181, %._crit_edge179 ], [ %30, %49 ]
   %52 = icmp eq i8 %51, 58
   br i1 %52, label %53, label %.thread
 
@@ -2746,7 +2746,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
 95:                                               ; preds = %91
   %96 = load i32, ptr %15, align 8, !tbaa !103
   %.not101 = icmp eq i32 %96, 0
-  br i1 %.not101, label %97, label %.thread117.sink.split
+  br i1 %.not101, label %97, label %.thread118.sink.split
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 5
@@ -2758,12 +2758,12 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %.074
   %101 = load i8, ptr %100, align 1, !tbaa !11
   %102 = add i8 %101, -58
-  %or.cond.i115 = icmp ult i8 %102, -10
+  %or.cond.i116 = icmp ult i8 %102, -10
   %103 = and i8 %101, -33
   %104 = add i8 %103, -91
   %105 = icmp ult i8 %104, -26
-  %narrow.i116.not = and i1 %or.cond.i115, %105
-  br i1 %narrow.i116.not, label %106, label %.critedge
+  %narrow.i117.not = and i1 %or.cond.i116, %105
+  br i1 %narrow.i117.not, label %106, label %.critedge
 
 106:                                              ; preds = %99
   switch i8 %101, label %108 [
@@ -2779,22 +2779,22 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %109 = call noalias ptr @av_strndup(ptr noundef nonnull %98, i64 noundef %.074) #15
   store ptr %109, ptr %8, align 8, !tbaa !9
   %.not103 = icmp eq ptr %109, null
-  br i1 %.not103, label %.thread117, label %110
+  br i1 %.not103, label %.thread118, label %110
 
 110:                                              ; preds = %108
   %111 = call i32 @av_opt_eval_flags(ptr noundef nonnull %7, ptr noundef nonnull %93, ptr noundef nonnull %109, ptr noundef nonnull %15) #15
   call void @av_freep(ptr noundef nonnull %8) #15
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.thread117.sink.split, label %113
+  br i1 %112, label %.thread118.sink.split, label %113
 
-.thread117.sink.split:                            ; preds = %110, %95
+.thread118.sink.split:                            ; preds = %110, %95
   %.str.71.sink = phi ptr [ @.str.71, %95 ], [ @.str.72, %110 ]
   %.1.ph.ph = phi i32 [ -22, %95 ], [ %111, %110 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull %.str.71.sink) #15
-  br label %.thread117
+  br label %.thread118
 
-.thread117:                                       ; preds = %108, %.thread117.sink.split
-  %.1.ph = phi i32 [ %.1.ph.ph, %.thread117.sink.split ], [ -12, %108 ]
+.thread118:                                       ; preds = %108, %.thread118.sink.split
+  %.1.ph = phi i32 [ %.1.ph.ph, %.thread118.sink.split ], [ -12, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %183
@@ -2810,7 +2810,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   br label %164
 
 117:                                              ; preds = %.thread
-  switch i8 %17, label %.thread122 [
+  switch i8 %17, label %.thread123 [
     i8 35, label %122
     i8 105, label %118
     i8 109, label %134
@@ -2821,7 +2821,7 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %119 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %120 = load i8, ptr %119, align 1, !tbaa !11
   %121 = icmp eq i8 %120, 58
-  br i1 %121, label %122, label %.thread122
+  br i1 %121, label %122, label %.thread123
 
 122:                                              ; preds = %117, %118
   %123 = load i32, ptr %11, align 4, !tbaa !100
@@ -2848,13 +2848,13 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
 133:                                              ; preds = %124
   store ptr %130, ptr %5, align 8, !tbaa !9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.75, i64 noundef %129, ptr noundef %130) #15
-  br label %.thread122
+  br label %.thread123
 
 134:                                              ; preds = %117
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %136 = load i8, ptr %135, align 1, !tbaa !11
   %137 = icmp eq i8 %136, 58
-  br i1 %137, label %138, label %.thread122
+  br i1 %137, label %138, label %.thread123
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2885,10 +2885,10 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %149 = load ptr, ptr %5, align 8, !tbaa !9
   %150 = load i8, ptr %149, align 1, !tbaa !11
   %151 = icmp eq i8 %150, 58
-  br i1 %151, label %152, label %._crit_edge183
+  br i1 %151, label %152, label %._crit_edge184
 
-._crit_edge183:                                   ; preds = %148
-  %.pre184 = load ptr, ptr %142, align 8, !tbaa !106
+._crit_edge184:                                   ; preds = %148
+  %.pre185 = load ptr, ptr %142, align 8, !tbaa !106
   br label %155
 
 152:                                              ; preds = %148
@@ -2897,27 +2897,27 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %154 = call ptr @av_get_token(ptr noundef nonnull %5, ptr noundef nonnull @.str.77) #15
   store ptr %154, ptr %142, align 8, !tbaa !106
   %.not107 = icmp eq ptr %154, null
-  br i1 %.not107, label %183, label %._crit_edge181
+  br i1 %.not107, label %183, label %._crit_edge182
 
-._crit_edge181:                                   ; preds = %152
-  %.pre182 = load ptr, ptr %139, align 8, !tbaa !105
-  %.pre185 = load ptr, ptr %5, align 8, !tbaa !9
+._crit_edge182:                                   ; preds = %152
+  %.pre183 = load ptr, ptr %139, align 8, !tbaa !105
+  %.pre186 = load ptr, ptr %5, align 8, !tbaa !9
   br label %155
 
-155:                                              ; preds = %._crit_edge183, %._crit_edge181
-  %156 = phi ptr [ %.pre185, %._crit_edge181 ], [ %149, %._crit_edge183 ]
-  %157 = phi ptr [ %154, %._crit_edge181 ], [ %.pre184, %._crit_edge183 ]
-  %158 = phi ptr [ %.pre182, %._crit_edge181 ], [ %147, %._crit_edge183 ]
+155:                                              ; preds = %._crit_edge184, %._crit_edge182
+  %156 = phi ptr [ %.pre186, %._crit_edge182 ], [ %149, %._crit_edge184 ]
+  %157 = phi ptr [ %154, %._crit_edge182 ], [ %.pre185, %._crit_edge184 ]
+  %158 = phi ptr [ %.pre183, %._crit_edge182 ], [ %147, %._crit_edge184 ]
   %.not108 = icmp eq ptr %157, null
   %spec.select = select i1 %.not108, ptr @.str.79, ptr %157
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.78, ptr noundef %158, ptr noundef nonnull %spec.select, ptr noundef %156) #15
-  %.pre188 = load ptr, ptr %5, align 8, !tbaa !9
-  br label %.thread122
+  %.pre189 = load ptr, ptr %5, align 8, !tbaa !9
+  br label %.thread123
 
 159:                                              ; preds = %117
   %160 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !11
-  switch i8 %161, label %.thread122 [
+  switch i8 %161, label %.thread123 [
     i8 0, label %162
     i8 58, label %162
   ]
@@ -2927,10 +2927,10 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   store i8 1, ptr %163, align 1, !tbaa !107
   store ptr %160, ptr %5, align 8, !tbaa !9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.80) #15
-  br label %.thread122
+  br label %.thread123
 
 164:                                              ; preds = %113, %46, %89, %74
-  %165 = phi ptr [ %115, %113 ], [ %.pre186, %46 ], [ %86, %89 ], [ %71, %74 ]
+  %165 = phi ptr [ %115, %113 ], [ %.pre187, %46 ], [ %86, %89 ], [ %71, %74 ]
   %166 = load i8, ptr %165, align 1, !tbaa !11
   %167 = icmp eq i8 %166, 58
   br i1 %167, label %168, label %170
@@ -2938,22 +2938,22 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 1
   store ptr %169, ptr %5, align 8, !tbaa !9
-  %.pre187 = load i8, ptr %169, align 1, !tbaa !11
+  %.pre188 = load i8, ptr %169, align 1, !tbaa !11
   br label %170
 
 170:                                              ; preds = %168, %164
-  %171 = phi i8 [ %.pre187, %168 ], [ %166, %164 ]
+  %171 = phi i8 [ %.pre188, %168 ], [ %166, %164 ]
   %172 = phi ptr [ %169, %168 ], [ %165, %164 ]
   %.not = icmp eq i8 %171, 0
-  br i1 %.not, label %.thread122, label %16, !llvm.loop !108
+  br i1 %.not, label %.thread123, label %16, !llvm.loop !108
 
-.thread122:                                       ; preds = %170, %117, %118, %134, %159, %162, %155, %133, %26
-  %.ph = phi ptr [ %23, %26 ], [ %130, %133 ], [ %.pre188, %155 ], [ %160, %162 ], [ %18, %159 ], [ %18, %134 ], [ %18, %118 ], [ %18, %117 ], [ %172, %170 ]
+.thread123:                                       ; preds = %170, %117, %118, %134, %159, %162, %155, %133, %26
+  %.ph = phi ptr [ %23, %26 ], [ %130, %133 ], [ %.pre189, %155 ], [ %160, %162 ], [ %18, %159 ], [ %18, %134 ], [ %18, %118 ], [ %18, %117 ], [ %172, %170 ]
   %.pr = load i8, ptr %.ph, align 1, !tbaa !11
   %.not112 = icmp eq i8 %.pr, 0
-  br i1 %.not112, label %.thread122.thread, label %173
+  br i1 %.not112, label %.thread123.thread, label %173
 
-173:                                              ; preds = %.thread122
+173:                                              ; preds = %.thread123
   %.not113 = icmp eq i32 %2, 0
   br i1 %.not113, label %174, label %175
 
@@ -2976,14 +2976,14 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %181, ptr %182, align 8, !tbaa !109
   %.not114 = icmp eq ptr %181, null
-  br i1 %.not114, label %183, label %.thread122.thread
+  br i1 %.not114, label %183, label %.thread123.thread
 
 .loopexit:                                        ; preds = %81, %53, %122
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.82) #15
   br label %183
 
-183:                                              ; preds = %.thread117, %179, %152, %145, %.loopexit, %174, %132, %88, %73, %37
-  %.076 = phi i32 [ -22, %174 ], [ -22, %.loopexit ], [ -22, %73 ], [ -22, %88 ], [ -22, %132 ], [ -22, %37 ], [ -12, %145 ], [ -12, %152 ], [ -22, %179 ], [ %.1.ph, %.thread117 ]
+183:                                              ; preds = %.thread118, %179, %152, %145, %.loopexit, %174, %132, %88, %73, %37
+  %.076 = phi i32 [ -22, %174 ], [ -22, %.loopexit ], [ -22, %73 ], [ -22, %88 ], [ -22, %132 ], [ -22, %37 ], [ -12, %145 ], [ -12, %152 ], [ -22, %179 ], [ %.1.ph, %.thread118 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @av_freep(ptr noundef nonnull %184) #15
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2991,10 +2991,10 @@ define range(i32 -2147483648, 1) i32 @stream_specifier_parse(ptr noundef initial
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @av_freep(ptr noundef nonnull %186) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  br label %.thread122.thread
+  br label %.thread123.thread
 
-.thread122.thread:                                ; preds = %4, %.thread122, %179, %183
-  %.075 = phi i32 [ %.076, %183 ], [ 0, %179 ], [ 0, %.thread122 ], [ 0, %4 ]
+.thread123.thread:                                ; preds = %4, %.thread123, %179, %183
+  %.075 = phi i32 [ %.076, %183 ], [ 0, %179 ], [ 0, %.thread123 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.075
 }
@@ -3590,14 +3590,14 @@ define range(i32 -2147483648, 1) i32 @setup_find_stream_info_opts(ptr noundef re
   %9 = tail call noalias ptr @av_calloc(i64 noundef %8, i64 noundef 8) #15
   store ptr %9, ptr %4, align 8, !tbaa !173
   %.not28 = icmp eq ptr %9, null
-  br i1 %.not28, label %28, label %.preheader31
+  br i1 %.not28, label %28, label %.preheader32
 
-.preheader31:                                     ; preds = %7
+.preheader32:                                     ; preds = %7
   %10 = load i32, ptr %5, align 4, !tbaa !175
-  %.not36 = icmp eq i32 %10, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp eq i32 %10, 0
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader31
+.lr.ph:                                           ; preds = %.preheader32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %16
 
@@ -3620,29 +3620,29 @@ define range(i32 -2147483648, 1) i32 @setup_find_stream_info_opts(ptr noundef re
 
 .preheader:                                       ; preds = %16
   %23 = load i32, ptr %5, align 4, !tbaa !175
-  %.not37 = icmp eq i32 %23, 0
-  br i1 %.not37, label %._crit_edge35, label %.lr.ph34
+  %.not38 = icmp eq i32 %23, 0
+  br i1 %.not38, label %._crit_edge36, label %.lr.ph35
 
-._crit_edge:                                      ; preds = %12, %.preheader31
+._crit_edge:                                      ; preds = %12, %.preheader32
   store ptr %9, ptr %2, align 8, !tbaa !173
   br label %28
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %.preheader
+._crit_edge36:                                    ; preds = %.lr.ph35, %.preheader
   call void @av_freep(ptr noundef nonnull %4) #15
   br label %28
 
-.lr.ph34:                                         ; preds = %.preheader, %.lr.ph34
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.lr.ph34 ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv40
+.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph35 ], [ 0, %.preheader ]
+  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv41
   tail call void @av_dict_free(ptr noundef nonnull %24) #15
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %25 = load i32, ptr %5, align 4, !tbaa !175
   %26 = zext i32 %25 to i64
-  %27 = icmp samesign ult i64 %indvars.iv.next41, %26
-  br i1 %27, label %.lr.ph34, label %._crit_edge35, !llvm.loop !177
+  %27 = icmp samesign ult i64 %indvars.iv.next42, %26
+  br i1 %27, label %.lr.ph35, label %._crit_edge36, !llvm.loop !177
 
-28:                                               ; preds = %7, %3, %._crit_edge35, %._crit_edge
-  %.024 = phi i32 [ 0, %._crit_edge ], [ %21, %._crit_edge35 ], [ 0, %3 ], [ -12, %7 ]
+28:                                               ; preds = %7, %3, %._crit_edge36, %._crit_edge
+  %.024 = phi i32 [ 0, %._crit_edge ], [ %21, %._crit_edge36 ], [ 0, %3 ], [ -12, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }

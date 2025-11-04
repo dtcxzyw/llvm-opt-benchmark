@@ -68,8 +68,8 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
 
 32:                                               ; preds = %.thread
   %.not205 = icmp eq ptr %7, null
-  %or.cond227 = and i1 %.not205, %18
-  br i1 %or.cond227, label %33, label %44
+  %or.cond228 = and i1 %.not205, %18
+  br i1 %or.cond228, label %33, label %44
 
 33:                                               ; preds = %32
   %34 = load i32, ptr %27, align 8, !tbaa !24
@@ -126,8 +126,8 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %61 = icmp eq ptr %60, null
   %.pre = load ptr, ptr %29, align 8, !tbaa !14
   %62 = icmp eq ptr %60, %.pre
-  %or.cond289 = select i1 %61, i1 true, i1 %62, !prof !37
-  br i1 %or.cond289, label %.critedge, label %73, !prof !37
+  %or.cond290 = select i1 %61, i1 true, i1 %62, !prof !37
+  br i1 %or.cond290, label %.critedge, label %73, !prof !37
 
 63:                                               ; preds = %56
   %64 = icmp eq ptr %3, null
@@ -175,8 +175,8 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
 
 81:                                               ; preds = %.preheader, %107
   %82 = phi i1 [ true, %.preheader ], [ false, %107 ]
-  %.3174268 = phi ptr [ %.0171, %.preheader ], [ %.5.ph, %107 ]
-  call void @EVP_SIGNATURE_free(ptr noundef %.3174268) #6
+  %.3174269 = phi ptr [ %.0171, %.preheader ], [ %.5.ph, %107 ]
+  call void @EVP_SIGNATURE_free(ptr noundef %.3174269) #6
   %83 = load ptr, ptr %11, align 8, !tbaa !3
   call void @EVP_KEYMGMT_free(ptr noundef %83) #6
   br i1 %82, label %84, label %90
@@ -209,7 +209,7 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %100 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1169.ph, ptr noundef %98, ptr noundef %99) #6
   store ptr %100, ptr %11, align 8, !tbaa !3
   %.not210 = icmp eq ptr %100, null
-  br i1 %.not210, label %.thread239, label %101
+  br i1 %.not210, label %.thread240, label %101
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %51, align 8, !tbaa !27
@@ -218,16 +218,16 @@ define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %0, ptr n
   %105 = call ptr @evp_pkey_export_to_provider(ptr noundef %102, ptr noundef %103, ptr noundef nonnull %11, ptr noundef %104) #6
   %.pr = load ptr, ptr %11, align 8, !tbaa !3
   %106 = icmp eq ptr %.pr, null
-  br i1 %106, label %.thread239, label %107
+  br i1 %106, label %.thread240, label %107
 
-.thread239:                                       ; preds = %96, %101
-  %.3241 = phi ptr [ %105, %101 ], [ null, %96 ]
+.thread240:                                       ; preds = %96, %101
+  %.3242 = phi ptr [ %105, %101 ], [ null, %96 ]
   call void @EVP_KEYMGMT_free(ptr noundef %100) #6
   br label %107
 
-107:                                              ; preds = %.thread239, %101, %84
-  %.5.ph = phi ptr [ null, %84 ], [ %.4.ph, %101 ], [ %.4.ph, %.thread239 ]
-  %.2167.ph = phi ptr [ null, %84 ], [ %105, %101 ], [ %.3241, %.thread239 ]
+107:                                              ; preds = %.thread240, %101, %84
+  %.5.ph = phi ptr [ null, %84 ], [ %.4.ph, %101 ], [ %.4.ph, %.thread240 ]
+  %.2167.ph = phi ptr [ null, %84 ], [ %105, %101 ], [ %.3242, %.thread240 ]
   %108 = icmp eq ptr %.2167.ph, null
   %109 = select i1 %82, i1 %108, i1 false
   br i1 %109, label %81, label %110, !llvm.loop !40
@@ -285,61 +285,61 @@ canon_mdname.exit:                                ; preds = %72, %69, %113, %63
 128:                                              ; preds = %127
   store ptr %2, ptr %0, align 8, !tbaa !38
   %129 = icmp eq ptr %.0180, null
-  br i1 %129, label %130, label %canon_mdname.exit230
+  br i1 %129, label %130, label %canon_mdname.exit231
 
 130:                                              ; preds = %128
   %131 = call ptr @EVP_MD_get0_name(ptr noundef nonnull %2) #6
-  %.not.i228 = icmp eq ptr %131, null
-  br i1 %.not.i228, label %135, label %132
+  %.not.i229 = icmp eq ptr %131, null
+  br i1 %.not.i229, label %135, label %132
 
 132:                                              ; preds = %130
   %133 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull dereferenceable(6) @.str.1) #7
   %134 = icmp eq i32 %133, 0
-  br i1 %134, label %canon_mdname.exit230, label %135
+  br i1 %134, label %canon_mdname.exit231, label %135
 
 135:                                              ; preds = %132, %130
-  br label %canon_mdname.exit230
+  br label %canon_mdname.exit231
 
 136:                                              ; preds = %127
   %137 = icmp ne ptr %.0180, null
   %or.cond3 = or i1 %45, %137
-  br i1 %or.cond3, label %canon_mdname.exit233, label %138
+  br i1 %or.cond3, label %canon_mdname.exit234, label %138
 
 138:                                              ; preds = %136
   %139 = load ptr, ptr %11, align 8, !tbaa !3
   %140 = call i32 @evp_keymgmt_util_get_deflt_digest_name(ptr noundef %139, ptr noundef %.0165, ptr noundef nonnull %12, i64 noundef 80) #6
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %142, label %canon_mdname.exit230
+  br i1 %141, label %142, label %canon_mdname.exit231
 
 142:                                              ; preds = %138
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.1, i64 6)
   %143 = icmp eq i32 %bcmp, 0
-  br i1 %143, label %canon_mdname.exit230, label %canon_mdname.exit233.thread253
+  br i1 %143, label %canon_mdname.exit231, label %canon_mdname.exit234.thread254
 
-canon_mdname.exit233:                             ; preds = %136
+canon_mdname.exit234:                             ; preds = %136
   %.not213 = icmp eq ptr %.0180, null
-  br i1 %.not213, label %canon_mdname.exit230, label %canon_mdname.exit233.thread253
+  br i1 %.not213, label %canon_mdname.exit231, label %canon_mdname.exit234.thread254
 
-canon_mdname.exit233.thread253:                   ; preds = %142, %canon_mdname.exit233
-  %.2182256 = phi ptr [ %.0180, %canon_mdname.exit233 ], [ %12, %142 ]
+canon_mdname.exit234.thread254:                   ; preds = %142, %canon_mdname.exit234
+  %.2182257 = phi ptr [ %.0180, %canon_mdname.exit234 ], [ %12, %142 ]
   call void @evp_md_ctx_clear_digest(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0) #6
   %144 = call i32 @ERR_set_mark() #6
   %145 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !39
-  %147 = call ptr @EVP_MD_fetch(ptr noundef %146, ptr noundef nonnull %.2182256, ptr noundef %.0183) #6
+  %147 = call ptr @EVP_MD_fetch(ptr noundef %146, ptr noundef nonnull %.2182257, ptr noundef %.0183) #6
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %147, ptr %148, align 8, !tbaa !47
   %.not214 = icmp eq ptr %147, null
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not214, label %151, label %150
 
-150:                                              ; preds = %canon_mdname.exit233.thread253
+150:                                              ; preds = %canon_mdname.exit234.thread254
   store ptr %147, ptr %0, align 8, !tbaa !38
   store ptr %147, ptr %149, align 8, !tbaa !48
   br label %156
 
-151:                                              ; preds = %canon_mdname.exit233.thread253
-  %152 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %.2182256) #6
+151:                                              ; preds = %canon_mdname.exit234.thread254
+  %152 = call ptr @EVP_get_digestbyname(ptr noundef nonnull %.2182257) #6
   store ptr %152, ptr %149, align 8, !tbaa !48
   store ptr %152, ptr %0, align 8, !tbaa !38
   %153 = icmp eq ptr %152, null
@@ -354,14 +354,14 @@ canon_mdname.exit233.thread253:                   ; preds = %142, %canon_mdname.
 
 156:                                              ; preds = %151, %150
   %157 = call i32 @ERR_pop_to_mark() #6
-  br label %canon_mdname.exit230
+  br label %canon_mdname.exit231
 
-canon_mdname.exit230:                             ; preds = %142, %138, %135, %132, %canon_mdname.exit233, %156, %128
-  %.1181 = phi ptr [ %.0180, %128 ], [ %.2182256, %156 ], [ null, %canon_mdname.exit233 ], [ %131, %135 ], [ null, %132 ], [ null, %138 ], [ null, %142 ]
+canon_mdname.exit231:                             ; preds = %142, %138, %135, %132, %canon_mdname.exit234, %156, %128
+  %.1181 = phi ptr [ %.0180, %128 ], [ %.2182257, %156 ], [ null, %canon_mdname.exit234 ], [ %131, %135 ], [ null, %132 ], [ null, %138 ], [ null, %142 ]
   %.not215 = icmp eq i32 %8, 0
   br i1 %.not215, label %163, label %158
 
-158:                                              ; preds = %canon_mdname.exit230
+158:                                              ; preds = %canon_mdname.exit231
   %159 = getelementptr inbounds nuw i8, ptr %.2173, i64 176
   %160 = load ptr, ptr %159, align 8, !tbaa !49
   %161 = icmp eq ptr %160, null
@@ -373,7 +373,7 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #6
   br label %176
 
-163:                                              ; preds = %canon_mdname.exit230
+163:                                              ; preds = %canon_mdname.exit231
   %164 = getelementptr inbounds nuw i8, ptr %.2173, i64 144
   %165 = load ptr, ptr %164, align 8, !tbaa !50
   %166 = icmp eq ptr %165, null
@@ -386,10 +386,10 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   br label %176
 
 168:                                              ; preds = %163, %158
-  %.sink290 = phi ptr [ %160, %158 ], [ %165, %163 ]
+  %.sink291 = phi ptr [ %160, %158 ], [ %165, %163 ]
   %169 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %170 = load ptr, ptr %169, align 8, !tbaa !25
-  %171 = call i32 %.sink290(ptr noundef %170, ptr noundef %.1181, ptr noundef %.0165, ptr noundef %9) #6
+  %171 = call i32 %.sink291(ptr noundef %170, ptr noundef %.1181, ptr noundef %.0165, ptr noundef %9) #6
   %172 = icmp sgt i32 %171, 0
   %173 = icmp ne ptr %.1181, null
   %or.cond5 = or i1 %173, %172
@@ -447,16 +447,16 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   %195 = and i32 %194, 4
   %.not216 = icmp eq i32 %195, 0
   %196 = icmp eq ptr %.0176, null
-  %or.cond264 = select i1 %.not216, i1 %196, i1 false
-  br i1 %or.cond264, label %197, label %.thread257
+  %or.cond265 = select i1 %.not216, i1 %196, i1 false
+  br i1 %or.cond265, label %197, label %.thread258
 
 197:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %198 = call i32 @EVP_PKEY_get_default_digest_nid(ptr noundef %7, ptr noundef nonnull %13) #6
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %200, label %.thread259
+  br i1 %199, label %200, label %.thread260
 
-.thread259:                                       ; preds = %197
+.thread260:                                       ; preds = %197
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %205
 
@@ -466,15 +466,15 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   %203 = call ptr @EVP_get_digestbyname(ptr noundef %202) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %204 = icmp eq ptr %203, null
-  br i1 %204, label %205, label %.thread257
+  br i1 %204, label %205, label %.thread258
 
-205:                                              ; preds = %.thread259, %200
+205:                                              ; preds = %.thread260, %200
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 311, ptr noundef nonnull @__func__.do_sigver_init) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 158, ptr noundef null) #6
   br label %275
 
-.thread257:                                       ; preds = %200, %192
+.thread258:                                       ; preds = %200, %192
   %.1177 = phi ptr [ %.0176, %192 ], [ %203, %200 ]
   %.not217 = icmp eq i32 %8, 0
   %206 = load ptr, ptr %16, align 8, !tbaa !8
@@ -482,7 +482,7 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   %208 = load ptr, ptr %207, align 8, !tbaa !51
   br i1 %.not217, label %225, label %209
 
-209:                                              ; preds = %.thread257
+209:                                              ; preds = %.thread258
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 128
   %211 = load ptr, ptr %210, align 8, !tbaa !55
   %.not220 = icmp eq ptr %211, null
@@ -515,7 +515,7 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   %224 = icmp slt i32 %223, 1
   br i1 %224, label %275, label %241
 
-225:                                              ; preds = %.thread257
+225:                                              ; preds = %.thread258
   %226 = getelementptr inbounds nuw i8, ptr %208, i64 112
   %227 = load ptr, ptr %226, align 8, !tbaa !58
   %.not218 = icmp eq ptr %227, null
@@ -556,15 +556,15 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
 
 245:                                              ; preds = %241
   %.not222 = icmp eq ptr %1, null
-  %.pre270 = load ptr, ptr %16, align 8, !tbaa !8
+  %.pre271 = load ptr, ptr %16, align 8, !tbaa !8
   br i1 %.not222, label %247, label %246
 
 246:                                              ; preds = %245
-  store ptr %.pre270, ptr %1, align 8, !tbaa !46
+  store ptr %.pre271, ptr %1, align 8, !tbaa !46
   br label %247
 
 247:                                              ; preds = %246, %245
-  %248 = getelementptr inbounds nuw i8, ptr %.pre270, i64 120
+  %248 = getelementptr inbounds nuw i8, ptr %.pre271, i64 120
   %249 = load ptr, ptr %248, align 8, !tbaa !51
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %251 = load i32, ptr %250, align 4, !tbaa !52
@@ -589,26 +589,26 @@ canon_mdname.exit230:                             ; preds = %142, %138, %135, %1
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 248
   %264 = load ptr, ptr %263, align 8, !tbaa !60
   %.not225 = icmp eq ptr %264, null
-  br i1 %.not225, label %.thread262, label %265
+  br i1 %.not225, label %.thread263, label %265
 
 265:                                              ; preds = %255
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 160
   %267 = load i8, ptr %266, align 8
   %268 = or i8 %267, 1
   store i8 %268, ptr %266, align 8
-  br label %.thread262
+  br label %.thread263
 
 269:                                              ; preds = %168
-  br i1 %172, label %.thread262, label %273
+  br i1 %172, label %.thread263, label %273
 
-.thread262:                                       ; preds = %255, %265, %269
+.thread263:                                       ; preds = %255, %265, %269
   %270 = call i32 @evp_pkey_ctx_use_cached_data(ptr noundef nonnull %27) #6
   %271 = icmp sgt i32 %270, 0
   %272 = zext i1 %271 to i32
   br label %273
 
-273:                                              ; preds = %.thread262, %269
-  %.2 = phi i32 [ %272, %.thread262 ], [ 0, %269 ]
+273:                                              ; preds = %.thread263, %269
+  %.2 = phi i32 [ %272, %.thread263 ], [ 0, %269 ]
   %274 = load ptr, ptr %11, align 8, !tbaa !3
   call void @EVP_KEYMGMT_free(ptr noundef %274) #6
   br label %275

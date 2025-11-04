@@ -464,8 +464,8 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   br i1 %5, label %7, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not43 = icmp eq i64 %2, 0
-  br i1 %.not43, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not44 = icmp eq i64 %2, 0
+  br i1 %.not44, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
   %6 = trunc i64 %2 to i32
@@ -475,33 +475,33 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.common_file_write_content, ptr noundef %0) #8
   br label %31
 
-9:                                                ; preds = %.lr.ph42, %11
+9:                                                ; preds = %.lr.ph43, %11
   %10 = load i32, ptr %26, align 4
-  switch i32 %10, label %.split36 [
+  switch i32 %10, label %.split37 [
     i32 11, label %11
     i32 4, label %11
   ]
 
 11:                                               ; preds = %9, %9
-  %12 = tail call i64 @write(i32 noundef %4, ptr noundef %.023.ph46, i64 noundef %.024.ph44) #8
+  %12 = tail call i64 @write(i32 noundef %4, ptr noundef %.023.ph47, i64 noundef %.024.ph45) #8
   %13 = and i64 %12, 2147483648
   %.not30 = icmp eq i64 %13, 0
   br i1 %.not30, label %.split, label %9
 
-.split36:                                         ; preds = %9
+.split37:                                         ; preds = %9
   %14 = tail call i32 @get_log_level() #8
   %15 = icmp sgt i32 %14, 4
   br i1 %15, label %16, label %28
 
-16:                                               ; preds = %.split36
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_file_write_content, ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.common_file_write_content, i64 noundef %.024.ph44, i32 noundef %6) #8
+16:                                               ; preds = %.split37
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_file_write_content, ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @__func__.common_file_write_content, i64 noundef %.024.ph45, i32 noundef %6) #8
   br label %28
 
 .split:                                           ; preds = %11, %.lr.ph.split
   %.us-phi = phi i64 [ %24, %.lr.ph.split ], [ %12, %11 ]
   %17 = and i64 %.us-phi, 2147483647
-  %18 = getelementptr inbounds nuw i8, ptr %.023.ph46, i64 %17
-  %19 = sub i64 %.024.ph44, %17
+  %18 = getelementptr inbounds nuw i8, ptr %.023.ph47, i64 %17
+  %19 = sub i64 %.024.ph45, %17
   %.not31 = icmp eq i64 %19, 0
   br i1 %.not31, label %.outer._crit_edge, label %20
 
@@ -518,14 +518,14 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   br label %.lr.ph.split, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.backedge, %.lr.ph.lr.ph
-  %.023.ph46 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %18, %.lr.ph.split.backedge ]
-  %.024.ph44 = phi i64 [ %2, %.lr.ph.lr.ph ], [ %19, %.lr.ph.split.backedge ]
-  %24 = tail call i64 @write(i32 noundef %4, ptr noundef %.023.ph46, i64 noundef %.024.ph44) #8
+  %.023.ph47 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %18, %.lr.ph.split.backedge ]
+  %.024.ph45 = phi i64 [ %2, %.lr.ph.lr.ph ], [ %19, %.lr.ph.split.backedge ]
+  %24 = tail call i64 @write(i32 noundef %4, ptr noundef %.023.ph47, i64 noundef %.024.ph45) #8
   %25 = and i64 %24, 2147483648
-  %.not3041 = icmp eq i64 %25, 0
-  br i1 %.not3041, label %.split, label %.lr.ph42
+  %.not3042 = icmp eq i64 %25, 0
+  br i1 %.not3042, label %.split, label %.lr.ph43
 
-.lr.ph42:                                         ; preds = %.lr.ph.split
+.lr.ph43:                                         ; preds = %.lr.ph.split
   %26 = tail call ptr @__errno_location() #9
   br label %9
 
@@ -533,7 +533,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   %27 = tail call i32 @close(i32 noundef %4) #8
   br label %31
 
-28:                                               ; preds = %16, %.split36
+28:                                               ; preds = %16, %.split37
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.common_file_write_content, i64 noundef %2, ptr noundef %0) #8
   %30 = tail call i32 @close(i32 noundef %4) #8
   br label %31

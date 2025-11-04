@@ -4293,7 +4293,7 @@ define internal noundef i32 @rev_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %51, %.backedge98
+.lr.ph:                                           ; preds = %51, %.backedge99
   %55 = tail call i32 @BIO_test_flags(ptr noundef nonnull %7, i32 noundef 8) #14
   %.not88 = icmp eq i32 %55, 0
   br i1 %.not88, label %56, label %60
@@ -4308,27 +4308,27 @@ define internal noundef i32 @rev_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 60:                                               ; preds = %.lr.ph
   %61 = tail call i32 @BIO_test_flags(ptr noundef nonnull %7, i32 noundef 4) #14
   %.not89 = icmp eq i32 %61, 0
-  br i1 %.not89, label %.backedge98, label %62
+  br i1 %.not89, label %.backedge99, label %62
 
 62:                                               ; preds = %60
   %63 = tail call i32 @BIO_get_retry_reason(ptr noundef nonnull %7) #14
   %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %.backedge98
+  br i1 %64, label %65, label %.backedge99
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.605) #14
   %68 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   tail call void @lookup_srp_user(ptr noundef nonnull @srp_callback_parm, ptr noundef %68) #14
-  br label %.backedge98
+  br label %.backedge99
 
-.backedge98:                                      ; preds = %60, %62, %65
+.backedge99:                                      ; preds = %60, %62, %65
   %69 = tail call i64 @BIO_ctrl(ptr noundef nonnull %7, i32 noundef 101, i64 noundef 0, ptr noundef null) #14
   %70 = trunc i64 %69 to i32
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge98, %51
+._crit_edge:                                      ; preds = %.backedge99, %51
   %72 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %73 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.606) #14
   tail call void @print_ssl_summary(ptr noundef nonnull %17) #14
@@ -4394,23 +4394,23 @@ define internal noundef i32 @rev_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   br label %101
 
 101:                                              ; preds = %98, %.critedge3
-  %.pn = phi ptr [ %100, %98 ], [ %.069103, %.critedge3 ]
-  %.072102 = phi i32 [ %74, %98 ], [ %103, %.critedge3 ]
-  %.069103 = getelementptr inbounds i8, ptr %.pn, i64 -1
-  %102 = load i8, ptr %.069103, align 1, !tbaa !31
+  %.pn = phi ptr [ %100, %98 ], [ %.069104, %.critedge3 ]
+  %.072103 = phi i32 [ %74, %98 ], [ %103, %.critedge3 ]
+  %.069104 = getelementptr inbounds i8, ptr %.pn, i64 -1
+  %102 = load i8, ptr %.069104, align 1, !tbaa !31
   switch i8 %102, label %.critedge [
     i8 10, label %.critedge3
     i8 13, label %.critedge3
   ]
 
 .critedge3:                                       ; preds = %101, %101
-  %103 = add nsw i32 %.072102, -1
+  %103 = add nsw i32 %.072103, -1
   %.not90 = icmp eq i32 %103, 0
   br i1 %.not90, label %.critedge.thread, label %101, !llvm.loop !71
 
 .critedge:                                        ; preds = %101
   %.b83 = load i1, ptr @s_ign_eof, align 4
-  %104 = icmp ne i32 %.072102, 5
+  %104 = icmp ne i32 %.072103, 5
   %or.cond5.not = or i1 %104, %.b83
   br i1 %or.cond5.not, label %.critedge.thread, label %105
 
@@ -4425,12 +4425,12 @@ define internal noundef i32 @rev_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   br label %.thread
 
 .critedge.thread:                                 ; preds = %.critedge3, %105, %.critedge
-  %.072100 = phi i32 [ 5, %105 ], [ %.072102, %.critedge ], [ 0, %.critedge3 ]
-  %111 = zext nneg i32 %.072100 to i64
+  %.072101 = phi i32 [ 5, %105 ], [ %.072103, %.critedge ], [ 0, %.critedge3 ]
+  %111 = zext nneg i32 %.072101 to i64
   tail call void @BUF_reverse(ptr noundef %5, ptr noundef null, i64 noundef %111) #14
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 %111
   store i8 10, ptr %112, align 1, !tbaa !31
-  %113 = add nuw nsw i32 %.072100, 1
+  %113 = add nuw nsw i32 %.072101, 1
   %114 = tail call i32 @BIO_write(ptr noundef nonnull %7, ptr noundef %5, i32 noundef %113) #14
   br label %115
 
@@ -4449,7 +4449,7 @@ define internal noundef i32 @rev_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   tail call void @do_ssl_shutdown(ptr noundef nonnull %17) #14
   br label %121
 
-121:                                              ; preds = %29, %34, %.thread, %4, %12, %15, %79, %78
+121:                                              ; preds = %78, %79, %15, %12, %4, %.thread, %34, %29
   %.071 = phi ptr [ %9, %4 ], [ %9, %12 ], [ %9, %15 ], [ %9, %34 ], [ null, %78 ], [ null, %79 ], [ null, %.thread ], [ %9, %29 ]
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.412, i32 noundef 3788) #14
   %122 = tail call i32 @BIO_free(ptr noundef %.071) #14
@@ -4475,7 +4475,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %or.cond = select i1 %15, i1 true, i1 %16
   %17 = icmp eq ptr %14, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %17
-  br i1 %or.cond3, label %.thread331, label %18
+  br i1 %or.cond3, label %.thread333, label %18
 
 18:                                               ; preds = %4
   %.b289 = load i1, ptr @s_nbio, align 4
@@ -4503,13 +4503,13 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 27:                                               ; preds = %21, %24, %23, %18
   %28 = tail call i64 @BIO_int_ctrl(ptr noundef nonnull %10, i32 noundef 117, i64 noundef 16384, i32 noundef 1) #14
   %29 = icmp slt i64 %28, 1
-  br i1 %29, label %.thread331, label %30
+  br i1 %29, label %.thread333, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @ctx, align 8, !tbaa !17
   %32 = tail call ptr @SSL_new(ptr noundef %31) #14
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread331, label %34
+  br i1 %33, label %.thread333, label %34
 
 34:                                               ; preds = %30
   %.b294 = load i1, ptr @s_tlsextdebug, align 4
@@ -4534,7 +4534,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 44:                                               ; preds = %40
   tail call void @SSL_free(ptr noundef nonnull %32) #14
-  br label %.thread331
+  br label %.thread333
 
 45:                                               ; preds = %40, %39
   %46 = tail call ptr @BIO_new_socket(i32 noundef %0, i32 noundef 0) #14
@@ -4543,7 +4543,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 48:                                               ; preds = %45
   tail call void @SSL_free(ptr noundef nonnull %32) #14
-  br label %.thread331
+  br label %.thread333
 
 49:                                               ; preds = %45
   %.b = load i1, ptr @s_nbio_test, align 4
@@ -4562,7 +4562,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 55:                                               ; preds = %50
   tail call void @SSL_free(ptr noundef nonnull %32) #14
   %56 = tail call i32 @BIO_free(ptr noundef nonnull %46) #14
-  br label %.thread331
+  br label %.thread333
 
 57:                                               ; preds = %.thread, %49
   %.0259 = phi ptr [ %46, %49 ], [ %54, %.thread ]
@@ -4605,23 +4605,23 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %.b295 = load i1, ptr @early_data, align 4
   br i1 %.b295, label %73, label %.backedge.preheader
 
-.backedge.preheader:                              ; preds = %.thread327, %72
+.backedge.preheader:                              ; preds = %.thread329, %72
   br label %.backedge
 
 73:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %.preheader357
+  br label %.preheader359
 
-.preheader357:                                    ; preds = %73, %82
+.preheader359:                                    ; preds = %73, %82
   %74 = call i32 @SSL_read_early_data(ptr noundef nonnull %32, ptr noundef %8, i64 noundef 16384, ptr noundef nonnull %6) #14
-  %.not302363 = icmp eq i32 %74, 0
-  br i1 %.not302363, label %.lr.ph, label %._crit_edge
+  %.not302365 = icmp eq i32 %74, 0
+  br i1 %.not302365, label %.lr.ph, label %._crit_edge
 
-.thread327:                                       ; preds = %82
+.thread329:                                       ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.preheader
 
-.lr.ph:                                           ; preds = %.preheader357, %76
+.lr.ph:                                           ; preds = %.preheader359, %76
   %75 = call i32 @SSL_get_error(ptr noundef nonnull %32, i32 noundef 0) #14
   switch i32 %75, label %83 [
     i32 3, label %76
@@ -4634,8 +4634,8 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %.not302 = icmp eq i32 %77, 0
   br i1 %.not302, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %76, %.preheader357
-  %.lcssa = phi i32 [ %74, %.preheader357 ], [ %77, %76 ]
+._crit_edge:                                      ; preds = %76, %.preheader359
+  %.lcssa = phi i32 [ %74, %.preheader359 ], [ %77, %76 ]
   %78 = load i64, ptr %6, align 8, !tbaa !38
   %.not320 = icmp eq i64 %78, 0
   br i1 %.not320, label %82, label %79
@@ -4647,7 +4647,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 82:                                               ; preds = %79, %._crit_edge
   %.not301 = icmp eq i32 %.lcssa, 2
-  br i1 %.not301, label %.thread327, label %.preheader357, !llvm.loop !72
+  br i1 %.not301, label %.thread329, label %.preheader359, !llvm.loop !72
 
 83:                                               ; preds = %.lr.ph
   %84 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -4655,7 +4655,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %86 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %86) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread331
+  br label %.thread333
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
   %87 = call i64 @BIO_ctrl(ptr noundef %14, i32 noundef 2, i64 noundef 0, ptr noundef null) #14
@@ -4678,12 +4678,12 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 96:                                               ; preds = %94
   %.b292 = load i1, ptr @s_quiet, align 4
-  br i1 %.b292, label %.thread331, label %97
+  br i1 %.b292, label %.thread333, label %97
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %98) #14
-  br label %.thread331
+  br label %.thread333
 
 99:                                               ; preds = %94, %92
   %100 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -4727,12 +4727,12 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 118:                                              ; preds = %113
   %119 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(12) @.str.567, i64 noundef 11) #16
   %120 = icmp eq i32 %119, 0
-  br i1 %120, label %.loopexit356, label %.thread333
+  br i1 %120, label %.loopexit358, label %.thread335
 
 121:                                              ; preds = %115
   %122 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(11) @.str.569, i64 noundef 10) #16
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.loopexit356
+  br i1 %123, label %124, label %.loopexit358
 
 124:                                              ; preds = %121
   %125 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(15) @.str.570, i64 noundef 14) #16
@@ -4749,9 +4749,9 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %131 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %130, ptr noundef nonnull @.str.571, i32 noundef %129) #14
   %132 = call i32 @SSL_do_handshake(ptr noundef nonnull %32) #14
   %133 = icmp slt i32 %132, 1
-  br i1 %133, label %144, label %.preheader354.preheader
+  br i1 %133, label %144, label %.preheader356.preheader
 
-.preheader354.preheader:                          ; preds = %128
+.preheader356.preheader:                          ; preds = %128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !38
   %134 = srem i32 %0, 64
   %135 = zext nneg i32 %134 to i64
@@ -4772,43 +4772,43 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %147 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %145, ptr noundef nonnull @.str.572, i32 noundef %146) #14
   %148 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %148) #14
-  br label %.thread331
+  br label %.thread333
 
-149:                                              ; preds = %.preheader354.preheader
+149:                                              ; preds = %.preheader356.preheader
   %150 = load i64, ptr %139, align 8, !tbaa !38
   %151 = and i64 %150, %136
   %.not307 = icmp eq i64 %151, 0
   br i1 %.not307, label %152, label %156
 
-152:                                              ; preds = %149, %.preheader354.preheader
+152:                                              ; preds = %149, %.preheader356.preheader
   %153 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %153, ptr noundef nonnull @.str.573) #14
   %155 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %155) #14
-  br label %.thread331
+  br label %.thread333
 
 156:                                              ; preds = %149
   %157 = call i32 @BIO_gets(ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 16385) #14
-  br label %.loopexit356
+  br label %.loopexit358
 
-.loopexit356:                                     ; preds = %118, %156, %121
+.loopexit358:                                     ; preds = %118, %156, %121
   %158 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.574) #14
   %159 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.575) #14
   %160 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.576) #14
   %161 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.477) #14
   %162 = load i32, ptr @local_argc, align 4, !tbaa !13
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph367, label %._crit_edge368
+  br i1 %163, label %.lr.ph369, label %._crit_edge370
 
-.lr.ph367:                                        ; preds = %.loopexit356, %179
-  %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 0, %.loopexit356 ]
+.lr.ph369:                                        ; preds = %.loopexit358, %179
+  %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 0, %.loopexit358 ]
   %164 = load ptr, ptr @local_argv, align 8, !tbaa !15
   %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8, !tbaa !11
   br label %167
 
-167:                                              ; preds = %177, %.lr.ph367
-  %.0241 = phi ptr [ %166, %.lr.ph367 ], [ %178, %177 ]
+167:                                              ; preds = %177, %.lr.ph369
+  %.0241 = phi ptr [ %166, %.lr.ph369 ], [ %178, %177 ]
   %168 = load i8, ptr %.0241, align 1, !tbaa !31
   switch i8 %168, label %175 [
     i8 0, label %179
@@ -4843,45 +4843,45 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %181 = load i32, ptr @local_argc, align 4, !tbaa !13
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next, %182
-  br i1 %183, label %.lr.ph367, label %._crit_edge368, !llvm.loop !74
+  br i1 %183, label %.lr.ph369, label %._crit_edge370, !llvm.loop !74
 
-._crit_edge368:                                   ; preds = %179, %.loopexit356
+._crit_edge370:                                   ; preds = %179, %.loopexit358
   %184 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.477) #14
   call void @ssl_print_secure_renegotiation_notes(ptr noundef nonnull %10, ptr noundef nonnull %32) #14
   %185 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.581) #14
   %186 = call ptr @SSL_get_ciphers(ptr noundef nonnull %32) #14
   %187 = call i32 @OPENSSL_sk_num(ptr noundef %186) #14
   %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %.lr.ph371, label %._crit_edge372
+  br i1 %188, label %.lr.ph373, label %._crit_edge374
 
-.lr.ph371:                                        ; preds = %._crit_edge368, %197
-  %.1249369 = phi i32 [ %193, %197 ], [ 0, %._crit_edge368 ]
-  %189 = call ptr @OPENSSL_sk_value(ptr noundef %186, i32 noundef %.1249369) #14
+.lr.ph373:                                        ; preds = %._crit_edge370, %197
+  %.1249371 = phi i32 [ %193, %197 ], [ 0, %._crit_edge370 ]
+  %189 = call ptr @OPENSSL_sk_value(ptr noundef %186, i32 noundef %.1249371) #14
   %190 = call ptr @SSL_CIPHER_get_version(ptr noundef %189) #14
   %191 = call ptr @SSL_CIPHER_get_name(ptr noundef %189) #14
   %192 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.582, ptr noundef %190, ptr noundef %191) #14
-  %193 = add nuw nsw i32 %.1249369, 1
-  %194 = and i32 %.1249369, 1
+  %193 = add nuw nsw i32 %.1249371, 1
+  %194 = and i32 %.1249371, 1
   %.not313 = icmp eq i32 %194, 0
   %.not314 = icmp eq i32 %193, %187
   %or.cond324 = select i1 %.not313, i1 true, i1 %.not314
   br i1 %or.cond324, label %197, label %195
 
-195:                                              ; preds = %.lr.ph371
+195:                                              ; preds = %.lr.ph373
   %196 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.477) #14
   br label %197
 
-197:                                              ; preds = %.lr.ph371, %195
+197:                                              ; preds = %.lr.ph373, %195
   %exitcond.not = icmp eq i32 %193, %187
-  br i1 %exitcond.not, label %._crit_edge372, label %.lr.ph371, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge374, label %.lr.ph373, !llvm.loop !75
 
-._crit_edge372:                                   ; preds = %197, %._crit_edge368
+._crit_edge374:                                   ; preds = %197, %._crit_edge370
   %198 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.477) #14
   %199 = call ptr @SSL_get_shared_ciphers(ptr noundef nonnull %32, ptr noundef %8, i32 noundef 16384) #14
   %.not308 = icmp eq ptr %199, null
   br i1 %.not308, label %218, label %200
 
-200:                                              ; preds = %._crit_edge372
+200:                                              ; preds = %._crit_edge374
   %201 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.583) #14
   br label %202
 
@@ -4920,7 +4920,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %217 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.477) #14
   br label %218
 
-218:                                              ; preds = %216, %._crit_edge372
+218:                                              ; preds = %216, %._crit_edge374
   %219 = call i32 @ssl_print_sigalgs(ptr noundef nonnull %10, ptr noundef nonnull %32) #14
   %220 = call i32 @ssl_print_groups(ptr noundef nonnull %10, ptr noundef nonnull %32, i32 noundef 0) #14
   call void @print_ca_names(ptr noundef nonnull %10, ptr noundef nonnull %32) #14
@@ -4954,36 +4954,36 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 240:                                              ; preds = %234, %238
   %241 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.589) #14
-  br label %.preheader418
+  br label %.preheader420
 
 242:                                              ; preds = %113
   %243 = and i32 %114, -2
   %or.cond5 = icmp eq i32 %243, 2
-  br i1 %or.cond5, label %.thread333, label %.backedge.backedge
+  br i1 %or.cond5, label %.thread335, label %.backedge.backedge
 
-.thread333:                                       ; preds = %118, %242
+.thread335:                                       ; preds = %118, %242
   %244 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.590, i64 noundef 5) #16
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.thread333, %242, %115, %106, %110
+.backedge.backedge:                               ; preds = %.thread335, %242, %115, %106, %110
   br label %.backedge
 
-246:                                              ; preds = %.thread333
+246:                                              ; preds = %.thread335
   %247 = getelementptr inbounds nuw i8, ptr %8, i64 5
   br label %248
 
-248:                                              ; preds = %.thread340, %246
-  %.0255 = phi i32 [ 1, %246 ], [ %.3258, %.thread340 ]
-  %.0 = phi ptr [ %247, %246 ], [ %264, %.thread340 ]
+248:                                              ; preds = %.thread342, %246
+  %.0255 = phi i32 [ 1, %246 ], [ %.3258, %.thread342 ]
+  %.0 = phi ptr [ %247, %246 ], [ %264, %.thread342 ]
   %249 = load i8, ptr %.0, align 1, !tbaa !31
   switch i8 %249, label %250 [
-    i8 58, label %.thread348
+    i8 58, label %.thread350
     i8 0, label %265
     i8 32, label %268
   ]
 
-.thread348:                                       ; preds = %248
+.thread350:                                       ; preds = %248
   store i8 0, ptr %.0, align 1, !tbaa !31
   br label %269
 
@@ -4996,39 +4996,39 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 251:                                              ; preds = %250
   %252 = icmp eq i8 %249, 46
-  br i1 %252, label %.thread340, label %.thread343
+  br i1 %252, label %.thread342, label %.thread345
 
 253:                                              ; preds = %250
   %254 = icmp eq i8 %249, 46
-  br i1 %254, label %.thread340, label %.thread343
+  br i1 %254, label %.thread342, label %.thread345
 
 255:                                              ; preds = %250
   %256 = icmp eq i8 %249, 47
   %257 = icmp eq i8 %249, 92
   %258 = sext i1 %257 to i32
-  br i1 %256, label %.thread340, label %259
+  br i1 %256, label %.thread342, label %259
 
 259:                                              ; preds = %255, %250
   %.2257 = phi i32 [ %.0255, %250 ], [ %258, %255 ]
   %260 = icmp eq i32 %.2257, 0
-  br i1 %260, label %.thread343, label %.thread340
+  br i1 %260, label %.thread345, label %.thread342
 
-.thread343:                                       ; preds = %253, %251, %259
+.thread345:                                       ; preds = %253, %251, %259
   %261 = icmp eq i8 %249, 47
   %262 = icmp eq i8 %249, 92
   %narrow = or i1 %261, %262
   %263 = zext i1 %narrow to i32
-  br label %.thread340
+  br label %.thread342
 
-.thread340:                                       ; preds = %255, %253, %251, %259, %.thread343
-  %.3258 = phi i32 [ %263, %.thread343 ], [ %.2257, %259 ], [ 2, %251 ], [ 3, %253 ], [ -1, %255 ]
+.thread342:                                       ; preds = %255, %253, %251, %259, %.thread345
+  %.3258 = phi i32 [ %263, %.thread345 ], [ %.2257, %259 ], [ 2, %251 ], [ 3, %253 ], [ -1, %255 ]
   %264 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %248, !llvm.loop !77
 
 265:                                              ; preds = %248
   %266 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.591) #14
   %267 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.592, ptr noundef nonnull %247) #14
-  br label %.preheader418
+  br label %.preheader420
 
 268:                                              ; preds = %248
   store i8 0, ptr %.0, align 1, !tbaa !31
@@ -5037,10 +5037,10 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
     i32 3, label %269
   ]
 
-269:                                              ; preds = %.thread348, %268, %268
+269:                                              ; preds = %.thread350, %268, %268
   %270 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.591) #14
   %271 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.593, ptr noundef nonnull %247) #14
-  br label %.preheader418
+  br label %.preheader420
 
 272:                                              ; preds = %268
   %273 = load i8, ptr %247, align 1, !tbaa !31
@@ -5052,7 +5052,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 274:                                              ; preds = %272, %272
   %275 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.591) #14
   %276 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.594, ptr noundef nonnull %247) #14
-  br label %.preheader418
+  br label %.preheader420
 
 277:                                              ; preds = %272
   %278 = call i32 @app_isdir(ptr noundef nonnull %247) #14
@@ -5062,7 +5062,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 280:                                              ; preds = %277
   %281 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.591) #14
   %282 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.595, ptr noundef nonnull %247) #14
-  br label %.preheader418
+  br label %.preheader420
 
 283:                                              ; preds = %277
   %.b296 = load i1, ptr @http_server_binmode, align 1
@@ -5075,7 +5075,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %288 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull @.str.591) #14
   %289 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %10, ptr noundef nonnull @.str.597, ptr noundef nonnull %247, ptr noundef nonnull %284) #14
   call void @ERR_print_errors(ptr noundef nonnull %10) #14
-  br label %.preheader418
+  br label %.preheader420
 
 290:                                              ; preds = %283
   %.b291 = load i1, ptr @s_quiet, align 4
@@ -5103,13 +5103,13 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %304 = getelementptr inbounds nuw i8, ptr %247, i64 %303
   %305 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %304, ptr noundef nonnull dereferenceable(6) @.str.599) #16
   %306 = icmp eq i32 %305, 0
-  br i1 %306, label %.sink.split, label %.thread350
+  br i1 %306, label %.sink.split, label %.thread352
 
 307:                                              ; preds = %297
   %308 = icmp eq i32 %299, 5
-  br i1 %308, label %.thread350, label %.critedge
+  br i1 %308, label %.thread352, label %.critedge
 
-.thread350:                                       ; preds = %301, %307
+.thread352:                                       ; preds = %301, %307
   %309 = add i64 %298, 4294967292
   %310 = and i64 %309, 4294967295
   %311 = getelementptr inbounds nuw i8, ptr %247, i64 %310
@@ -5117,7 +5117,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   %313 = icmp eq i32 %312, 0
   br i1 %313, label %.sink.split, label %314
 
-314:                                              ; preds = %.thread350
+314:                                              ; preds = %.thread352
   %315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %311, ptr noundef nonnull dereferenceable(5) @.str.601) #16
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %.sink.split, label %.critedge
@@ -5125,30 +5125,30 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 .critedge:                                        ; preds = %307, %314
   br label %.sink.split
 
-.sink.split:                                      ; preds = %301, %.thread350, %314, %.critedge
-  %.str.574.sink = phi ptr [ @.str.591, %.critedge ], [ @.str.574, %314 ], [ @.str.574, %.thread350 ], [ @.str.574, %301 ]
+.sink.split:                                      ; preds = %301, %.thread352, %314, %.critedge
+  %.str.574.sink = phi ptr [ @.str.591, %.critedge ], [ @.str.574, %314 ], [ @.str.574, %.thread352 ], [ @.str.574, %301 ]
   %317 = call i32 @BIO_puts(ptr noundef nonnull %10, ptr noundef nonnull %.str.574.sink) #14
   br label %318
 
 318:                                              ; preds = %.sink.split, %294
   %319 = call i32 @BIO_read(ptr noundef nonnull %285, ptr noundef nonnull %8, i32 noundef 16384) #14
   %320 = icmp slt i32 %319, 1
-  br i1 %320, label %.loopexit352, label %.preheader
+  br i1 %320, label %.loopexit354, label %.preheader
 
-.loopexit351:                                     ; preds = %339
+.loopexit353:                                     ; preds = %339
   %321 = call i32 @BIO_read(ptr noundef nonnull %285, ptr noundef nonnull %8, i32 noundef 16384) #14
   %322 = icmp slt i32 %321, 1
-  br i1 %322, label %.loopexit352, label %.preheader
+  br i1 %322, label %.loopexit354, label %.preheader
 
-.preheader:                                       ; preds = %318, %.loopexit351
-  %323 = phi i32 [ %321, %.loopexit351 ], [ %319, %318 ]
+.preheader:                                       ; preds = %318, %.loopexit353
+  %323 = phi i32 [ %321, %.loopexit353 ], [ %319, %318 ]
   br label %324
 
 324:                                              ; preds = %.preheader, %339
-  %.2253373 = phi i32 [ 0, %.preheader ], [ %.3254, %339 ]
-  %325 = zext nneg i32 %.2253373 to i64
+  %.2253375 = phi i32 [ 0, %.preheader ], [ %.3254, %339 ]
+  %325 = zext nneg i32 %.2253375 to i64
   %326 = getelementptr inbounds nuw i8, ptr %8, i64 %325
-  %327 = sub nsw i32 %323, %.2253373
+  %327 = sub nsw i32 %323, %.2253375
   %328 = call i32 @BIO_write(ptr noundef nonnull %10, ptr noundef nonnull %326, i32 noundef %327) #14
   %329 = icmp slt i32 %328, 1
   br i1 %329, label %330, label %337
@@ -5161,7 +5161,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 332:                                              ; preds = %330
   %333 = call i32 @SSL_waiting_for_async(ptr noundef nonnull %32) #14
   %.not306 = icmp eq i32 %333, 0
-  br i1 %.not306, label %.loopexit352, label %334
+  br i1 %.not306, label %.loopexit354, label %334
 
 334:                                              ; preds = %332, %330
   %335 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -5169,22 +5169,22 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
   br label %339
 
 337:                                              ; preds = %324
-  %338 = add nuw nsw i32 %328, %.2253373
+  %338 = add nuw nsw i32 %328, %.2253375
   br label %339
 
 339:                                              ; preds = %337, %334
-  %.3254 = phi i32 [ %.2253373, %334 ], [ %338, %337 ]
+  %.3254 = phi i32 [ %.2253375, %334 ], [ %338, %337 ]
   %340 = icmp slt i32 %.3254, %323
-  br i1 %340, label %324, label %.loopexit351, !llvm.loop !78
+  br i1 %340, label %324, label %.loopexit353, !llvm.loop !78
 
-.loopexit352:                                     ; preds = %.loopexit351, %332, %318
+.loopexit354:                                     ; preds = %.loopexit353, %332, %318
   %341 = call i32 @BIO_free(ptr noundef nonnull %285) #14
-  br label %.preheader418
+  br label %.preheader420
 
-.preheader418:                                    ; preds = %240, %265, %269, %274, %280, %287, %.loopexit352
+.preheader420:                                    ; preds = %240, %265, %269, %274, %280, %287, %.loopexit354
   br label %342
 
-342:                                              ; preds = %.preheader418, %346
+342:                                              ; preds = %.preheader420, %346
   %343 = call i64 @BIO_ctrl(ptr noundef nonnull %10, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   %344 = trunc i64 %343 to i32
   %345 = icmp slt i32 %344, 1
@@ -5197,9 +5197,9 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 .loopexit:                                        ; preds = %111, %346, %342
   call void @do_ssl_shutdown(ptr noundef nonnull %32) #14
-  br label %.thread331
+  br label %.thread333
 
-.thread331:                                       ; preds = %152, %144, %44, %48, %.loopexit, %4, %27, %30, %97, %96, %55, %83
+.thread333:                                       ; preds = %152, %144, %83, %55, %96, %97, %30, %27, %4, %.loopexit, %48, %44
   %.0261 = phi ptr [ %12, %4 ], [ %12, %27 ], [ %12, %30 ], [ %12, %48 ], [ null, %96 ], [ null, %97 ], [ null, %.loopexit ], [ null, %83 ], [ %12, %55 ], [ %12, %44 ], [ null, %144 ], [ null, %152 ]
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.412, i32 noundef 3629) #14
   %348 = call i32 @BIO_free(ptr noundef %.0261) #14
@@ -5210,7 +5210,7 @@ define internal noundef i32 @www_body(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef %3) #0 {
+define internal range(i32 -11, 2) i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.timeval, align 8
@@ -5246,7 +5246,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %21 = load ptr, ptr @ctx, align 8, !tbaa !17
   %22 = tail call ptr @SSL_new(ptr noundef %21) #14
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread307, label %24
+  br i1 %23, label %.thread309, label %24
 
 24:                                               ; preds = %20
   %.b244 = load i1, ptr @s_tlsextdebug, align 4
@@ -5272,7 +5272,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 34:                                               ; preds = %30
   %35 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.517) #14
-  br label %.thread303
+  br label %.thread305
 
 37:                                               ; preds = %30, %29
   %38 = tail call i32 @SSL_clear(ptr noundef nonnull %22) #14
@@ -5282,7 +5282,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 39:                                               ; preds = %37
   %40 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %40, ptr noundef nonnull @.str.518) #14
-  br label %.thread303
+  br label %.thread305
 
 42:                                               ; preds = %37
   br i1 %10, label %43, label %76
@@ -5297,7 +5297,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %47, ptr noundef nonnull @.str.519) #14
   %49 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %49) #14
-  br label %.thread303
+  br label %.thread305
 
 50:                                               ; preds = %43
   %.b246 = load i1, ptr @enable_timeouts, align 4
@@ -5328,7 +5328,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %62 = call i64 @SSL_ctrl(ptr noundef nonnull %22, i32 noundef 121, i64 noundef 0, ptr noundef null) #14
   %63 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %61, ptr noundef nonnull @.str.520, i64 noundef %62) #14
   %64 = call i32 @BIO_free(ptr noundef nonnull %44) #14
-  br label %.thread303
+  br label %.thread305
 
 65:                                               ; preds = %57
   %66 = call i64 @SSL_set_options(ptr noundef nonnull %22, i64 noundef 4096) #14
@@ -5341,7 +5341,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %70 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %70, ptr noundef nonnull @.str.521) #14
   %72 = call i32 @BIO_free(ptr noundef nonnull %44) #14
-  br label %.thread303
+  br label %.thread305
 
 73:                                               ; preds = %55
   %74 = call i64 @BIO_ctrl(ptr noundef nonnull %44, i32 noundef 39, i64 noundef 0, ptr noundef null) #14
@@ -5361,10 +5361,10 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %81 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.519) #14
   %82 = load ptr, ptr @bio_err, align 8, !tbaa !19
   tail call void @ERR_print_errors(ptr noundef %82) #14
-  br label %.thread303
+  br label %.thread305
 
 83:                                               ; preds = %.thread, %76
-  %.0212281 = phi ptr [ %44, %.thread ], [ %77, %76 ]
+  %.0212283 = phi ptr [ %44, %.thread ], [ %77, %76 ]
   %.b = load i1, ptr @s_nbio_test, align 4
   br i1 %.b, label %84, label %93
 
@@ -5372,20 +5372,20 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %85 = call ptr @BIO_f_nbio_test() #14
   %86 = call ptr @BIO_new(ptr noundef %85) #14
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %89, label %.thread282
+  br i1 %87, label %89, label %.thread284
 
-.thread282:                                       ; preds = %84
-  %88 = call ptr @BIO_push(ptr noundef nonnull %86, ptr noundef nonnull %.0212281) #14
+.thread284:                                       ; preds = %84
+  %88 = call ptr @BIO_push(ptr noundef nonnull %86, ptr noundef nonnull %.0212283) #14
   br label %93
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %91 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %90, ptr noundef nonnull @.str.519) #14
-  %92 = call i32 @BIO_free(ptr noundef nonnull %.0212281) #14
-  br label %.thread303
+  %92 = call i32 @BIO_free(ptr noundef nonnull %.0212283) #14
+  br label %.thread305
 
-93:                                               ; preds = %.thread282, %83
-  %.1213 = phi ptr [ %.0212281, %83 ], [ %88, %.thread282 ]
+93:                                               ; preds = %.thread284, %83
+  %.1213 = phi ptr [ %.0212283, %83 ], [ %88, %.thread284 ]
   call void @SSL_set_bio(ptr noundef nonnull %22, ptr noundef %.1213, ptr noundef %.1213) #14
   call void @SSL_set_accept_state(ptr noundef nonnull %22) #14
   %94 = call ptr @SSL_get_rbio(ptr noundef nonnull %22) #14
@@ -5425,18 +5425,18 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 
 108:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %.preheader318.outer
+  br label %.preheader319.outer
 
-.preheader318.outer:                              ; preds = %.thread399, %108
-  %.not271 = phi i1 [ true, %.thread399 ], [ false, %108 ]
-  br label %.preheader318
+.preheader319.outer:                              ; preds = %.thread396, %108
+  %.not271 = phi i1 [ true, %.thread396 ], [ false, %108 ]
+  br label %.preheader319
 
-.preheader318:                                    ; preds = %.preheader318.outer, %118
+.preheader319:                                    ; preds = %.preheader319.outer, %118
   %109 = call i32 @SSL_read_early_data(ptr noundef nonnull %22, ptr noundef %11, i64 noundef 16384, ptr noundef nonnull %8) #14
-  %.not258331 = icmp eq i32 %109, 0
-  br i1 %.not258331, label %.lr.ph, label %._crit_edge
+  %.not258330 = icmp eq i32 %109, 0
+  br i1 %.not258330, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader318, %111
+.lr.ph:                                           ; preds = %.preheader319, %111
   %110 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef 0) #14
   switch i32 %110, label %138 [
     i32 3, label %111
@@ -5449,36 +5449,36 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %.not258 = icmp eq i32 %112, 0
   br i1 %.not258, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %111, %.preheader318
-  %.lcssa = phi i32 [ %109, %.preheader318 ], [ %112, %111 ]
+._crit_edge:                                      ; preds = %111, %.preheader319
+  %.lcssa = phi i32 [ %109, %.preheader319 ], [ %112, %111 ]
   %113 = load i64, ptr %8, align 8, !tbaa !38
   %.not270 = icmp eq i64 %113, 0
   br i1 %.not270, label %118, label %114
 
 114:                                              ; preds = %._crit_edge
-  br i1 %.not271, label %.thread399, label %115
+  br i1 %.not271, label %.thread396, label %115
 
 115:                                              ; preds = %114
   %116 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %117 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %116, ptr noundef nonnull @.str.523) #14
   %.pre = load i64, ptr %8, align 8, !tbaa !38
-  br label %.thread399
+  br label %.thread396
 
 118:                                              ; preds = %._crit_edge
   %.not255 = icmp eq i32 %.lcssa, 2
-  br i1 %.not255, label %124, label %.preheader318, !llvm.loop !82
+  br i1 %.not255, label %124, label %.preheader319, !llvm.loop !82
 
-.thread399:                                       ; preds = %114, %115
+.thread396:                                       ; preds = %114, %115
   %119 = phi i64 [ %.pre, %115 ], [ %113, %114 ]
   %120 = trunc i64 %119 to i32
   %121 = call i32 @raw_write_stdout(ptr noundef %11, i32 noundef %120) #14
   %122 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %123 = call i64 @BIO_ctrl(ptr noundef %122, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
-  %.not255401 = icmp eq i32 %.lcssa, 2
-  br i1 %.not255401, label %.thread403, label %.preheader318.outer, !llvm.loop !82
+  %.not255398 = icmp eq i32 %.lcssa, 2
+  br i1 %.not255398, label %.thread400, label %.preheader319.outer, !llvm.loop !82
 
 124:                                              ; preds = %118
-  br i1 %.not271, label %.thread403, label %125
+  br i1 %.not271, label %.thread400, label %125
 
 125:                                              ; preds = %124
   %126 = call i32 @SSL_get_early_data_status(ptr noundef nonnull %22) #14
@@ -5494,21 +5494,21 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %132 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %128, ptr noundef nonnull @.str.525) #14
   br label %135
 
-.thread403:                                       ; preds = %.thread399, %124
+.thread400:                                       ; preds = %.thread396, %124
   %133 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %134 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %133, ptr noundef nonnull @.str.526) #14
   br label %135
 
-135:                                              ; preds = %129, %131, %.thread403
+135:                                              ; preds = %129, %131, %.thread400
   %136 = call i32 @SSL_is_init_finished(ptr noundef nonnull %22) #14
   %.not257 = icmp eq i32 %136, 0
-  br i1 %.not257, label %.thread286, label %137
+  br i1 %.not257, label %.thread288, label %137
 
 137:                                              ; preds = %135
   call fastcc void @print_connection_info(ptr noundef %22)
-  br label %.thread286
+  br label %.thread288
 
-.thread286:                                       ; preds = %137, %135
+.thread288:                                       ; preds = %137, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %142
 
@@ -5518,9 +5518,9 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %141 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %141) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread303
+  br label %.thread305
 
-142:                                              ; preds = %.thread286, %107
+142:                                              ; preds = %.thread288, %107
   %143 = call i32 @fileno_stdin() #14
   %144 = icmp sgt i32 %143, %0
   br i1 %144, label %145, label %147
@@ -5544,18 +5544,18 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 .backedge:                                        ; preds = %.backedge.backedge, %147
   %155 = call i32 @SSL_has_pending(ptr noundef nonnull %22) #14
   %.not259 = icmp eq i32 %155, 0
-  br i1 %.not259, label %156, label %.thread290.thread
+  br i1 %.not259, label %156, label %.thread292.thread
 
 156:                                              ; preds = %.backedge
   %.b242 = load i1, ptr @async, align 4
-  br i1 %.b242, label %157, label %.preheader316
+  br i1 %.b242, label %157, label %.preheader318
 
 157:                                              ; preds = %156
   %158 = call i32 @SSL_waiting_for_async(ptr noundef nonnull %22) #14
-  %.not311 = icmp eq i32 %158, 0
-  br i1 %.not311, label %.preheader316, label %.thread290.thread
+  %.not313 = icmp eq i32 %158, 0
+  br i1 %.not313, label %.preheader318, label %.thread292.thread
 
-.preheader316:                                    ; preds = %157, %156
+.preheader318:                                    ; preds = %157, %156
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !38
   %159 = call i32 @fileno_stdin() #14
   %160 = srem i32 %159, 64
@@ -5575,12 +5575,12 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %.not260 = icmp eq i32 %171, 0
   br i1 %.not260, label %174, label %172
 
-172:                                              ; preds = %.preheader316
+172:                                              ; preds = %.preheader318
   %173 = call i64 @SSL_ctrl(ptr noundef nonnull %22, i32 noundef 73, i64 noundef 0, ptr noundef nonnull %7) #14
   %.not261 = icmp eq i64 %173, 0
   br i1 %.not261, label %174, label %175
 
-174:                                              ; preds = %172, %.preheader316
+174:                                              ; preds = %172, %.preheader318
   br label %175
 
 175:                                              ; preds = %172, %174
@@ -5604,6 +5604,9 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %185 = icmp slt i32 %176, 1
   br i1 %185, label %.backedge.backedge, label %186
 
+.backedge.backedge:                               ; preds = %._crit_edge350, %400, %184, %320, %.thread292, %250, %256, %262, %273, %275, %.critedge, %405, %410
+  br label %.backedge
+
 186:                                              ; preds = %184
   %187 = call i32 @fileno_stdin() #14
   %188 = sdiv i32 %187, 64
@@ -5619,10 +5622,10 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %197 = load i64, ptr %153, align 8, !tbaa !38
   %198 = and i64 %197, %150
   %.not264.not = icmp eq i64 %198, 0
-  br i1 %.not263, label %.thread290, label %199
+  br i1 %.not263, label %.thread292, label %199
 
-.thread290:                                       ; preds = %186
-  br i1 %.not264.not, label %.backedge.backedge, label %.thread290.thread
+.thread292:                                       ; preds = %186
+  br i1 %.not264.not, label %.backedge.backedge, label %.thread292.thread
 
 199:                                              ; preds = %186
   %.b245 = load i1, ptr @s_crlf, align 4
@@ -5631,56 +5634,56 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 200:                                              ; preds = %199
   %201 = call i32 @raw_read_stdin(ptr noundef %11, i32 noundef 8192) #14
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph337.preheader, label %.loopexit
+  br i1 %202, label %.lr.ph336.preheader, label %.loopexit
 
-.lr.ph337.preheader:                              ; preds = %200
+.lr.ph336.preheader:                              ; preds = %200
   %wide.trip.count = zext nneg i32 %201 to i64
-  br label %.lr.ph337
+  br label %.lr.ph336
 
-.lr.ph343.preheader:                              ; preds = %.lr.ph337
+.lr.ph342.preheader:                              ; preds = %.lr.ph336
   %203 = zext nneg i32 %201 to i64
-  br label %.lr.ph343
+  br label %.lr.ph342
 
-.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
-  %indvars.iv = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next, %.lr.ph337 ]
-  %.0335 = phi i32 [ 0, %.lr.ph337.preheader ], [ %spec.select276, %.lr.ph337 ]
+.lr.ph336:                                        ; preds = %.lr.ph336.preheader, %.lr.ph336
+  %indvars.iv = phi i64 [ 0, %.lr.ph336.preheader ], [ %indvars.iv.next, %.lr.ph336 ]
+  %.0334 = phi i32 [ 0, %.lr.ph336.preheader ], [ %spec.select276, %.lr.ph336 ]
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %205 = load i8, ptr %204, align 1, !tbaa !31
   %206 = icmp eq i8 %205, 10
   %207 = zext i1 %206 to i32
-  %spec.select276 = add nuw nsw i32 %.0335, %207
+  %spec.select276 = add nuw nsw i32 %.0334, %207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph343.preheader, label %.lr.ph337, !llvm.loop !83
+  br i1 %exitcond.not, label %.lr.ph342.preheader, label %.lr.ph336, !llvm.loop !83
 
-.lr.ph343:                                        ; preds = %.lr.ph343.preheader, %220
-  %indvars.iv376 = phi i64 [ %203, %.lr.ph343.preheader ], [ %indvars.iv.next377, %220 ]
-  %.2341 = phi i32 [ %spec.select276, %.lr.ph343.preheader ], [ %.3, %220 ]
-  %.0193340 = phi i32 [ %201, %.lr.ph343.preheader ], [ %.1194, %220 ]
-  %indvars.iv.next377 = add nsw i64 %indvars.iv376, -1
-  %208 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next377
+.lr.ph342:                                        ; preds = %.lr.ph342.preheader, %220
+  %indvars.iv373 = phi i64 [ %203, %.lr.ph342.preheader ], [ %indvars.iv.next374, %220 ]
+  %.2340 = phi i32 [ %spec.select276, %.lr.ph342.preheader ], [ %.3, %220 ]
+  %.0193339 = phi i32 [ %201, %.lr.ph342.preheader ], [ %.1194, %220 ]
+  %indvars.iv.next374 = add nsw i64 %indvars.iv373, -1
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next374
   %209 = load i8, ptr %208, align 1, !tbaa !31
-  %210 = sext i32 %.2341 to i64
-  %211 = getelementptr i8, ptr %11, i64 %indvars.iv.next377
+  %210 = sext i32 %.2340 to i64
+  %211 = getelementptr i8, ptr %11, i64 %indvars.iv.next374
   %212 = getelementptr i8, ptr %211, i64 %210
   store i8 %209, ptr %212, align 1, !tbaa !31
   %213 = icmp eq i8 %209, 10
   br i1 %213, label %214, label %220
 
-214:                                              ; preds = %.lr.ph343
-  %215 = add nsw i32 %.2341, -1
-  %216 = add nuw nsw i32 %.0193340, 1
+214:                                              ; preds = %.lr.ph342
+  %215 = add nsw i32 %.2340, -1
+  %216 = add nuw nsw i32 %.0193339, 1
   %217 = sext i32 %215 to i64
-  %218 = getelementptr i8, ptr %11, i64 %indvars.iv.next377
+  %218 = getelementptr i8, ptr %11, i64 %indvars.iv.next374
   %219 = getelementptr i8, ptr %218, i64 %217
   store i8 13, ptr %219, align 1, !tbaa !31
   br label %220
 
-220:                                              ; preds = %.lr.ph343, %214
-  %.1194 = phi i32 [ %216, %214 ], [ %.0193340, %.lr.ph343 ]
-  %.3 = phi i32 [ %215, %214 ], [ %.2341, %.lr.ph343 ]
-  %221 = icmp samesign ugt i64 %indvars.iv376, 1
-  br i1 %221, label %.lr.ph343, label %.loopexit, !llvm.loop !84
+220:                                              ; preds = %.lr.ph342, %214
+  %.1194 = phi i32 [ %216, %214 ], [ %.0193339, %.lr.ph342 ]
+  %.3 = phi i32 [ %215, %214 ], [ %.2340, %.lr.ph342 ]
+  %221 = icmp samesign ugt i64 %indvars.iv373, 1
+  br i1 %221, label %.lr.ph342, label %.loopexit, !llvm.loop !84
 
 222:                                              ; preds = %199
   %223 = call i32 @raw_read_stdin(ptr noundef %11, i32 noundef 16384) #14
@@ -5691,7 +5694,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %.b238 = load i1, ptr @s_quiet, align 4
   %.b240 = load i1, ptr @s_brief, align 4
   %or.cond = select i1 %.b238, i1 true, i1 %.b240
-  br i1 %or.cond, label %.thread298.thread.preheader, label %224
+  br i1 %or.cond, label %.thread300.thread.preheader, label %224
 
 224:                                              ; preds = %.loopexit
   %225 = icmp slt i32 %.2195, 1
@@ -5699,19 +5702,19 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 
 226:                                              ; preds = %224
   %227 = load i8, ptr %11, align 1, !tbaa !31
-  switch i8 %227, label %.thread298 [
+  switch i8 %227, label %.thread300 [
     i8 81, label %228
     i8 113, label %240
     i8 114, label %248
     i8 82, label %254
     i8 75, label %260
     i8 107, label %260
-    i8 99, label %._crit_edge379
+    i8 99, label %._crit_edge376
     i8 80, label %278
   ]
 
-._crit_edge379:                                   ; preds = %226
-  %.pre380 = load i8, ptr %154, align 1, !tbaa !31
+._crit_edge376:                                   ; preds = %226
+  %.pre377 = load i8, ptr %154, align 1, !tbaa !31
   br label %268
 
 228:                                              ; preds = %226, %224
@@ -5724,11 +5727,11 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %235 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %234, ptr noundef nonnull @.str.558) #14
   %236 = load i32, ptr @accept_socket, align 4, !tbaa !13
   %237 = icmp sgt i32 %236, -1
-  br i1 %237, label %238, label %.thread303
+  br i1 %237, label %238, label %.thread305
 
 238:                                              ; preds = %228
   %239 = call i32 @BIO_closesocket(i32 noundef %236) #14
-  br label %.thread303
+  br label %.thread305
 
 240:                                              ; preds = %226
   %241 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -5737,15 +5740,15 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %244 = call i64 @BIO_ctrl(ptr noundef %243, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   %245 = call i32 @SSL_version(ptr noundef nonnull %22) #14
   %.not266 = icmp eq i32 %245, 65279
-  br i1 %.not266, label %.thread303, label %246
+  br i1 %.not266, label %.thread305, label %246
 
 246:                                              ; preds = %240
   %247 = call i32 @BIO_closesocket(i32 noundef %0) #14
-  br label %.thread303
+  br label %.thread305
 
 248:                                              ; preds = %226
   %249 = load i8, ptr %154, align 1, !tbaa !31
-  switch i8 %249, label %.thread298.thread.preheader [
+  switch i8 %249, label %.thread300.thread.preheader [
     i8 10, label %250
     i8 13, label %250
   ]
@@ -5756,12 +5759,9 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.529, i32 noundef %252)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %._crit_edge351, %400, %250, %256, %262, %184, %275, %273, %405, %410, %320, %.thread290, %.thread410.critedge
-  br label %.backedge
-
 254:                                              ; preds = %226
   %255 = load i8, ptr %154, align 1, !tbaa !31
-  switch i8 %255, label %.thread298.thread.preheader [
+  switch i8 %255, label %.thread300.thread.preheader [
     i8 10, label %256
     i8 13, label %256
   ]
@@ -5775,7 +5775,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 
 260:                                              ; preds = %226, %226
   %261 = load i8, ptr %154, align 1, !tbaa !31
-  switch i8 %261, label %.thread297 [
+  switch i8 %261, label %.thread299 [
     i8 10, label %262
     i8 13, label %262
   ]
@@ -5788,15 +5788,15 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %267 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.529, i32 noundef %266)
   br label %.backedge.backedge
 
-.thread297:                                       ; preds = %260
-  switch i8 %227, label %.thread298 [
+.thread299:                                       ; preds = %260
+  switch i8 %227, label %.thread300 [
     i8 99, label %268
     i8 80, label %278
   ]
 
-268:                                              ; preds = %._crit_edge379, %.thread297
-  %269 = phi i8 [ %.pre380, %._crit_edge379 ], [ %261, %.thread297 ]
-  switch i8 %269, label %.thread298.thread.preheader [
+268:                                              ; preds = %._crit_edge376, %.thread299
+  %269 = phi i8 [ %.pre377, %._crit_edge376 ], [ %261, %.thread299 ]
+  switch i8 %269, label %.thread300.thread.preheader [
     i8 10, label %270
     i8 13, label %270
   ]
@@ -5818,36 +5818,36 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.529, i32 noundef %276)
   br label %.backedge.backedge
 
-278:                                              ; preds = %226, %.thread297
+278:                                              ; preds = %226, %.thread299
   %279 = call ptr @SSL_get_wbio(ptr noundef nonnull %22) #14
   %280 = call i32 @BIO_write(ptr noundef %279, ptr noundef nonnull @sv_body.str, i32 noundef 27) #14
   %.pr.pre = load i8, ptr %11, align 1, !tbaa !31
-  br label %.thread298
+  br label %.thread300
 
-.thread298:                                       ; preds = %226, %.thread297, %278
-  %.pr = phi i8 [ %227, %226 ], [ %227, %.thread297 ], [ %.pr.pre, %278 ]
+.thread300:                                       ; preds = %226, %.thread299, %278
+  %.pr = phi i8 [ %227, %226 ], [ %227, %.thread299 ], [ %.pr.pre, %278 ]
   %281 = icmp eq i8 %.pr, 83
-  br i1 %281, label %282, label %.thread298.thread.preheader
+  br i1 %281, label %282, label %.thread300.thread.preheader
 
-282:                                              ; preds = %.thread298
+282:                                              ; preds = %.thread300
   %283 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %284 = call ptr @SSL_get_SSL_CTX(ptr noundef nonnull %22) #14
   call fastcc void @print_stats(ptr noundef %283, ptr noundef %284)
-  br label %.thread298.thread.preheader
+  br label %.thread300.thread.preheader
 
-.thread298.thread.preheader:                      ; preds = %268, %254, %248, %.thread298, %282, %.loopexit
-  br label %.thread298.thread
+.thread300.thread.preheader:                      ; preds = %268, %254, %248, %.thread300, %282, %.loopexit
+  br label %.thread300.thread
 
-.thread298.thread:                                ; preds = %.thread298.thread.preheader, %317
-  %.0215 = phi i64 [ %.1216, %317 ], [ 0, %.thread298.thread.preheader ]
-  %.3196 = phi i32 [ %.4, %317 ], [ %.2195, %.thread298.thread.preheader ]
+.thread300.thread:                                ; preds = %.thread300.thread.preheader, %317
+  %.0215 = phi i64 [ %.1216, %317 ], [ 0, %.thread300.thread.preheader ]
+  %.3196 = phi i32 [ %.4, %317 ], [ %.2195, %.thread300.thread.preheader ]
   %285 = getelementptr inbounds nuw i8, ptr %11, i64 %.0215
   %286 = call i32 @SSL_write(ptr noundef nonnull %22, ptr noundef %285, i32 noundef %.3196) #14
   %287 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %286) #14
   %288 = icmp eq i32 %287, 4
-  br i1 %288, label %.lr.ph346, label %._crit_edge347
+  br i1 %288, label %.lr.ph345, label %._crit_edge346
 
-.lr.ph346:                                        ; preds = %.thread298.thread, %.lr.ph346
+.lr.ph345:                                        ; preds = %.thread300.thread, %.lr.ph345
   %289 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %290 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %289, ptr noundef nonnull @.str.531) #14
   %291 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -5855,10 +5855,10 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   %292 = call i32 @SSL_write(ptr noundef nonnull %22, ptr noundef %285, i32 noundef %.3196) #14
   %293 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %292) #14
   %294 = icmp eq i32 %293, 4
-  br i1 %294, label %.lr.ph346, label %._crit_edge347, !llvm.loop !85
+  br i1 %294, label %.lr.ph345, label %._crit_edge346, !llvm.loop !85
 
-._crit_edge347:                                   ; preds = %.lr.ph346, %.thread298.thread
-  %.0217.lcssa = phi i32 [ %286, %.thread298.thread ], [ %292, %.lr.ph346 ]
+._crit_edge346:                                   ; preds = %.lr.ph345, %.thread300.thread
+  %.0217.lcssa = phi i32 [ %286, %.thread300.thread ], [ %292, %.lr.ph345 ]
   %295 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %.0217.lcssa) #14
   switch i32 %295, label %317 [
     i32 6, label %312
@@ -5871,7 +5871,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
     i32 1, label %306
   ]
 
-296:                                              ; preds = %._crit_edge347
+296:                                              ; preds = %._crit_edge346
   %297 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %298 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %297, ptr noundef nonnull @.str.532) #14
   %299 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -5879,45 +5879,45 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
   call void @wait_for_async(ptr noundef nonnull %22) #14
   br label %317
 
-301:                                              ; preds = %._crit_edge347, %._crit_edge347, %._crit_edge347
+301:                                              ; preds = %._crit_edge346, %._crit_edge346, %._crit_edge346
   %302 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %303 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %302, ptr noundef nonnull @.str.533) #14
   %304 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %305 = call i64 @BIO_ctrl(ptr noundef %304, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   br label %317
 
-306:                                              ; preds = %._crit_edge347, %._crit_edge347, %._crit_edge347
+306:                                              ; preds = %._crit_edge346, %._crit_edge346, %._crit_edge346
   %307 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %308 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %307, ptr noundef nonnull @.str.534) #14
   %309 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %310 = call i64 @BIO_ctrl(ptr noundef %309, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   %311 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %311) #14
-  br label %.thread303
+  br label %.thread305
 
-312:                                              ; preds = %._crit_edge347
+312:                                              ; preds = %._crit_edge346
   %313 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %314 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %313, ptr noundef nonnull @.str.528) #14
   %315 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %316 = call i64 @BIO_ctrl(ptr noundef %315, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
-  br label %.thread303
+  br label %.thread305
 
-317:                                              ; preds = %301, %296, %._crit_edge347
+317:                                              ; preds = %301, %296, %._crit_edge346
   %narrow = call i32 @llvm.smax.i32(i32 %.0217.lcssa, i32 0)
   %318 = zext nneg i32 %narrow to i64
   %.1216 = add i64 %.0215, %318
   %.4 = sub nsw i32 %.3196, %narrow
   %319 = icmp slt i32 %.4, 1
-  br i1 %319, label %320, label %.thread298.thread
+  br i1 %319, label %320, label %.thread300.thread
 
 320:                                              ; preds = %317
-  br i1 %.not264.not, label %.backedge.backedge, label %.thread290.thread
+  br i1 %.not264.not, label %.backedge.backedge, label %.thread292.thread
 
-.thread290.thread:                                ; preds = %.backedge, %157, %.thread290, %320
+.thread292.thread:                                ; preds = %.backedge, %157, %.thread292, %320
   %.b241 = load i1, ptr @async, align 4
   br i1 %.b241, label %321, label %323
 
-321:                                              ; preds = %.thread290.thread
+321:                                              ; preds = %.thread292.thread
   %322 = call i32 @SSL_waiting_for_async(ptr noundef nonnull %22) #14
   %.not267 = icmp eq i32 %322, 0
   br i1 %.not267, label %323, label %.preheader
@@ -5925,7 +5925,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 .preheader:                                       ; preds = %323, %321
   br label %389
 
-323:                                              ; preds = %321, %.thread290.thread
+323:                                              ; preds = %321, %.thread292.thread
   %324 = call i32 @SSL_is_init_finished(ptr noundef nonnull %22) #14
   %.not268 = icmp eq i32 %324, 0
   br i1 %.not268, label %325, label %.preheader
@@ -6061,7 +6061,7 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 373:                                              ; preds = %.critedge4.thread.i
   %374 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %375 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %374, ptr noundef nonnull @.str.562) #14
-  br label %.thread410.critedge
+  br label %.critedge
 
 376:                                              ; preds = %.critedge4.thread.i
   %377 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -6083,18 +6083,18 @@ define internal i32 @sv_body(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef
 
 .critedge4.thread84.i:                            ; preds = %.preheader.i, %358, %.critedge4.i
   call fastcc void @print_connection_info(ptr noundef nonnull %22)
-  br label %.thread410.critedge
+  br label %.critedge
 
 init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i, %384
   %386 = call ptr @SSL_get_rbio(ptr noundef nonnull %22) #14
   call void @BIO_set_callback_arg(ptr noundef %386, ptr noundef null) #14
   %387 = load i32, ptr %9, align 4
-  %.not314.le = icmp eq i32 %387, 0
-  %..3208.le = select i1 %.not314.le, i32 -1, i32 1
+  %.not316.le = icmp eq i32 %387, 0
+  %..3208.le = select i1 %.not316.le, i32 -1, i32 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread303
+  br label %.thread305
 
-.thread410.critedge:                              ; preds = %.critedge4.thread84.i, %373
+.critedge:                                        ; preds = %.critedge4.thread84.i, %373
   %388 = call ptr @SSL_get_rbio(ptr noundef nonnull %22) #14
   call void @BIO_set_callback_arg(ptr noundef %388, ptr noundef null) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6104,9 +6104,9 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   %390 = call i32 @SSL_read(ptr noundef nonnull %22, ptr noundef %11, i32 noundef 16384) #14
   %391 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %390) #14
   %392 = icmp eq i32 %391, 4
-  br i1 %392, label %.lr.ph350, label %._crit_edge351
+  br i1 %392, label %.lr.ph349, label %._crit_edge350
 
-.lr.ph350:                                        ; preds = %389, %.lr.ph350
+.lr.ph349:                                        ; preds = %389, %.lr.ph349
   %393 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %394 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %393, ptr noundef nonnull @.str.535) #14
   %395 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -6114,10 +6114,10 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   %396 = call i32 @SSL_read(ptr noundef nonnull %22, ptr noundef %11, i32 noundef 16384) #14
   %397 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %396) #14
   %398 = icmp eq i32 %397, 4
-  br i1 %398, label %.lr.ph350, label %._crit_edge351, !llvm.loop !92
+  br i1 %398, label %.lr.ph349, label %._crit_edge350, !llvm.loop !92
 
-._crit_edge351:                                   ; preds = %.lr.ph350, %389
-  %.5.lcssa = phi i32 [ %390, %389 ], [ %396, %.lr.ph350 ]
+._crit_edge350:                                   ; preds = %.lr.ph349, %389
+  %.5.lcssa = phi i32 [ %390, %389 ], [ %396, %.lr.ph349 ]
   %399 = call i32 @SSL_get_error(ptr noundef nonnull %22, i32 noundef %.5.lcssa) #14
   switch i32 %399, label %.backedge.backedge [
     i32 0, label %400
@@ -6130,7 +6130,7 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
     i32 6, label %421
   ]
 
-400:                                              ; preds = %._crit_edge351
+400:                                              ; preds = %._crit_edge350
   %401 = call i32 @raw_write_stdout(ptr noundef %11, i32 noundef %.5.lcssa) #14
   %402 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %403 = call i64 @BIO_ctrl(ptr noundef %402, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
@@ -6138,7 +6138,7 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   %.not269 = icmp eq i32 %404, 0
   br i1 %.not269, label %.backedge.backedge, label %389
 
-405:                                              ; preds = %._crit_edge351
+405:                                              ; preds = %._crit_edge350
   %406 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %407 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %406, ptr noundef nonnull @.str.536) #14
   %408 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
@@ -6146,45 +6146,45 @@ init_ssl_connection.exit:                         ; preds = %331, %.critedge73.i
   call void @wait_for_async(ptr noundef nonnull %22) #14
   br label %.backedge.backedge
 
-410:                                              ; preds = %._crit_edge351, %._crit_edge351
+410:                                              ; preds = %._crit_edge350, %._crit_edge350
   %411 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %412 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %411, ptr noundef nonnull @.str.537) #14
   %413 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %414 = call i64 @BIO_ctrl(ptr noundef %413, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   br label %.backedge.backedge
 
-415:                                              ; preds = %._crit_edge351, %._crit_edge351, %._crit_edge351
+415:                                              ; preds = %._crit_edge350, %._crit_edge350, %._crit_edge350
   %416 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %417 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %416, ptr noundef nonnull @.str.534) #14
   %418 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %419 = call i64 @BIO_ctrl(ptr noundef %418, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
   %420 = load ptr, ptr @bio_err, align 8, !tbaa !19
   call void @ERR_print_errors(ptr noundef %420) #14
-  br label %.thread303
+  br label %.thread305
 
-421:                                              ; preds = %._crit_edge351
+421:                                              ; preds = %._crit_edge350
   %422 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %423 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %422, ptr noundef nonnull @.str.528) #14
   %424 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %425 = call i64 @BIO_ctrl(ptr noundef %424, i32 noundef 11, i64 noundef 0, ptr noundef null) #14
-  br label %.thread303
+  br label %.thread305
 
-.thread303:                                       ; preds = %init_ssl_connection.exit, %138, %415, %421, %312, %306, %246, %240, %228, %238, %34, %39, %46, %60, %69, %79, %89
-  %.0205305 = phi i32 [ -1, %34 ], [ -1, %39 ], [ -1, %69 ], [ -1, %89 ], [ 1, %79 ], [ -1, %60 ], [ 1, %46 ], [ 1, %138 ], [ -11, %238 ], [ -11, %228 ], [ 1, %240 ], [ 1, %246 ], [ 1, %306 ], [ 1, %312 ], [ 1, %421 ], [ 1, %415 ], [ %..3208.le, %init_ssl_connection.exit ]
+.thread305:                                       ; preds = %init_ssl_connection.exit, %138, %415, %421, %312, %306, %246, %240, %228, %238, %34, %39, %46, %60, %69, %79, %89
+  %.0205307 = phi i32 [ -1, %34 ], [ -1, %39 ], [ -1, %69 ], [ -1, %89 ], [ 1, %79 ], [ -1, %60 ], [ 1, %46 ], [ 1, %138 ], [ -11, %238 ], [ -11, %228 ], [ 1, %240 ], [ 1, %246 ], [ 1, %306 ], [ 1, %312 ], [ 1, %421 ], [ 1, %415 ], [ %..3208.le, %init_ssl_connection.exit ]
   %426 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %427 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %426, ptr noundef nonnull @.str.538) #14
   call void @do_ssl_shutdown(ptr noundef nonnull %22) #14
   call void @SSL_free(ptr noundef nonnull %22) #14
-  br label %.thread307
+  br label %.thread309
 
-.thread307:                                       ; preds = %20, %.thread303
-  %.0205306 = phi i32 [ %.0205305, %.thread303 ], [ -1, %20 ]
+.thread309:                                       ; preds = %20, %.thread305
+  %.0205308 = phi i32 [ %.0205307, %.thread305 ], [ -1, %20 ]
   %428 = load ptr, ptr @bio_s_out, align 8, !tbaa !19
   %429 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %428, ptr noundef nonnull @.str.539) #14
   call void @CRYPTO_clear_free(ptr noundef %11, i64 noundef 16384, ptr noundef nonnull @.str.412, i32 noundef 2923) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.0205306
+  ret i32 %.0205308
 }
 
 ; Function Attrs: nofree nounwind

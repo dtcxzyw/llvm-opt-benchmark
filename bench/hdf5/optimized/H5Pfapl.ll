@@ -1250,9 +1250,9 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %H5P__facc_set_def_d
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %.thread48, %202, %0, %203, %206, %209
-  %.024 = phi i32 [ -1, %209 ], [ -1, %206 ], [ -1, %203 ], [ 0, %202 ], [ 0, %0 ], [ -1, %.thread48 ], [ 0, %11 ], [ 0, %9 ]
+  %.026 = phi i32 [ -1, %209 ], [ -1, %206 ], [ -1, %203 ], [ 0, %202 ], [ 0, %0 ], [ -1, %.thread48 ], [ 0, %11 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.024
+  ret i32 %.026
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -1354,9 +1354,9 @@ define range(i32 -1, 1) i32 @H5P_set_driver(ptr noundef %0, i64 noundef %1, ptr 
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_set_driver, i32 noundef 1185, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.28) #15
   br label %48
 
-48:                                               ; preds = %43, %18, %44, %24, %14
-  %.013 = phi i32 [ -1, %14 ], [ -1, %24 ], [ %.1, %43 ], [ -1, %44 ], [ 0, %18 ]
-  ret i32 %.013
+48:                                               ; preds = %18, %44, %24, %14, %43
+  %.012 = phi i32 [ -1, %14 ], [ -1, %24 ], [ %.1, %43 ], [ -1, %44 ], [ 0, %18 ]
+  ret i32 %.012
 }
 
 declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #2
@@ -2136,9 +2136,9 @@ define i64 @H5P_peek_driver(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %8
   %.pre = load i8, ptr @H5P_init_g, align 1, !tbaa !16, !range !18
-  %.pre14 = load i8, ptr @H5_libterm_g, align 1, !range !18
-  %.pre15 = trunc nuw i8 %.pre to i1
-  %.pre16 = trunc nuw i8 %.pre14 to i1
+  %.pre11 = load i8, ptr @H5_libterm_g, align 1, !range !18
+  %.pre12 = trunc nuw i8 %.pre to i1
+  %.pre13 = trunc nuw i8 %.pre11 to i1
   br label %15
 
 11:                                               ; preds = %8
@@ -2146,14 +2146,14 @@ define i64 @H5P_peek_driver(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %13 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver, i32 noundef 1421, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.16) #15
-  br label %39
+  br label %40
 
 15:                                               ; preds = %._crit_edge, %1
-  %.pre-phi17 = phi i1 [ %.pre16, %._crit_edge ], [ %6, %1 ]
-  %.pre-phi = phi i1 [ %.pre15, %._crit_edge ], [ %4, %1 ]
-  %16 = xor i1 %.pre-phi17, true
+  %.pre-phi14 = phi i1 [ %.pre13, %._crit_edge ], [ %6, %1 ]
+  %.pre-phi = phi i1 [ %.pre12, %._crit_edge ], [ %4, %1 ]
+  %16 = xor i1 %.pre-phi14, true
   %17 = select i1 %.pre-phi, i1 true, i1 %16
-  br i1 %17, label %18, label %39, !prof !20
+  br i1 %17, label %18, label %40, !prof !20
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2161,38 +2161,42 @@ define i64 @H5P_peek_driver(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %22 = tail call i32 @H5P_isa_class(i64 noundef %20, i64 noundef %21) #15
   %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %31
+  br i1 %23, label %24, label %36
 
 24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = call i32 @H5P_peek(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #15
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %35
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %29 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver, i32 noundef 1428, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.36) #15
+  br label %33
+
+31:                                               ; preds = %24
+  %32 = load i64, ptr %2, align 8, !tbaa !7
+  br label %33
+
+33:                                               ; preds = %31, %27
+  %.1 = phi i64 [ -1, %27 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %39
+  %34 = icmp eq i64 %.1, 0
+  %or.cond = select i1 %26, i1 %34, i1 false
+  %35 = load i64, ptr @H5FD_SEC2_id_g, align 8
+  %spec.select = select i1 %or.cond, i64 %35, i64 %.1
+  br label %40
 
-31:                                               ; preds = %18
-  %32 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
-  %33 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
-  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver, i32 noundef 1432, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.28) #15
-  br label %39
+36:                                               ; preds = %18
+  %37 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
+  %38 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
+  %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver, i32 noundef 1432, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.28) #15
+  br label %40
 
-35:                                               ; preds = %24
-  %36 = load i64, ptr %2, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %37 = icmp eq i64 %36, 0
-  %38 = load i64, ptr @H5FD_SEC2_id_g, align 8
-  %spec.select = select i1 %37, i64 %38, i64 %36
-  br label %39
-
-39:                                               ; preds = %27, %35, %15, %31, %11
-  %.09 = phi i64 [ -1, %11 ], [ -1, %27 ], [ -1, %31 ], [ -1, %15 ], [ %spec.select, %35 ]
-  ret i64 %.09
+40:                                               ; preds = %33, %15, %36, %11
+  %.08 = phi i64 [ -1, %11 ], [ -1, %36 ], [ -1, %15 ], [ %spec.select, %33 ]
+  ret i64 %.08
 }
 
 declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2370,9 +2374,9 @@ define ptr @H5P_peek_driver_info(ptr noundef %0) local_unnamed_addr #0 {
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver_info, i32 noundef 1508, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.28) #15
   br label %39
 
-39:                                               ; preds = %34, %15, %35, %11
-  %.08 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
-  ret ptr %.08
+39:                                               ; preds = %15, %35, %11, %34
+  %.07 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
+  ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2548,9 +2552,9 @@ define ptr @H5P_peek_driver_config_str(ptr noundef %0) local_unnamed_addr #0 {
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_peek_driver_config_str, i32 noundef 1579, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.28) #15
   br label %39
 
-39:                                               ; preds = %34, %15, %35, %11
-  %.08 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
-  ret ptr %.08
+39:                                               ; preds = %15, %35, %11, %34
+  %.07 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ null, %15 ]
+  ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5448,7 +5452,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %18 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %19 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2979, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.15) #15
-  br label %.thread97
+  br label %.thread102
 
 21:                                               ; preds = %._crit_edge, %3
   %22 = phi i8 [ %.pre, %._crit_edge ], [ %11, %3 ]
@@ -5469,7 +5473,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %31 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %32 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2979, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.16) #15
-  br label %.thread97
+  br label %.thread102
 
 34:                                               ; preds = %21, %27
   %35 = call i32 @H5CX_push(ptr noundef nonnull %5) #15
@@ -5480,7 +5484,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %38 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %39 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2979, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.17) #15
-  br label %.thread97
+  br label %.thread102
 
 41:                                               ; preds = %34
   %42 = call i32 @H5E_clear_stack() #15
@@ -5499,7 +5503,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %50 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !3
   %51 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2983, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.95) #15
-  br label %.thread103
+  br label %.thread108
 
 52:                                               ; preds = %45, %41
   %53 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
@@ -5511,7 +5515,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %57 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %58 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !3
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2987, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.19) #15
-  br label %.thread103
+  br label %.thread108
 
 60:                                               ; preds = %52
   %61 = call i32 @H5P_peek(ptr noundef nonnull %54, ptr noundef nonnull @.str.96, ptr noundef nonnull %4) #15
@@ -5522,7 +5526,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %64 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %65 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 2991, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.97) #15
-  br label %.thread103
+  br label %.thread108
 
 67:                                               ; preds = %60
   %68 = load ptr, ptr %4, align 8, !tbaa !40
@@ -5558,7 +5562,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %84 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %85 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef %.sink, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread103
+  br label %.thread108
 
 86:                                               ; preds = %75
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5569,7 +5573,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %89 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %90 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !3
   %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3004, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.99) #15
-  br label %.thread103
+  br label %.thread108
 
 92:                                               ; preds = %69
   %93 = call ptr @H5MM_xfree(ptr noundef nonnull %68) #15
@@ -5589,7 +5593,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %99 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #15
   %100 = icmp slt i32 %99, 0
-  br i1 %100, label %.thread71, label %101
+  br i1 %100, label %.thread76, label %101
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %96, align 8, !tbaa !45
@@ -5599,16 +5603,16 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   store ptr %105, ptr %4, align 8, !tbaa !40
   %106 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #15
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.thread71, label %111
+  br i1 %107, label %.thread76, label %111
 
-.thread71:                                        ; preds = %101, %98
-  %H5E_CANTSET_g.sink116 = phi ptr [ @H5E_CANTSET_g, %98 ], [ @H5E_CANTRESTORE_g, %101 ]
-  %.sink113 = phi i32 [ 3015, %98 ], [ 3020, %101 ]
+.thread76:                                        ; preds = %101, %98
+  %H5E_CANTSET_g.sink121 = phi ptr [ @H5E_CANTSET_g, %98 ], [ @H5E_CANTRESTORE_g, %101 ]
+  %.sink118 = phi i32 [ 3015, %98 ], [ 3020, %101 ]
   %108 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %109 = load i64, ptr %H5E_CANTSET_g.sink116, align 8, !tbaa !3
-  %110 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef %.sink113, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.98) #15
+  %109 = load i64, ptr %H5E_CANTSET_g.sink121, align 8, !tbaa !3
+  %110 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef %.sink118, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread103
+  br label %.thread108
 
 111:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5620,7 +5624,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %115 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %116 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !3
   %117 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3022, i64 noundef %115, i64 noundef %116, ptr noundef nonnull @.str.100) #15
-  br label %.thread103
+  br label %.thread108
 
 118:                                              ; preds = %95
   %119 = call noalias ptr @malloc(i64 noundef %2) #17
@@ -5632,7 +5636,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %122 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %123 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !3
   %124 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3025, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.101) #15
-  br label %.thread103
+  br label %.thread108
 
 125:                                              ; preds = %118, %111
   %126 = phi ptr [ %119, %118 ], [ %112, %111 ]
@@ -5645,7 +5649,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %130 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #15
   %131 = icmp slt i32 %130, 0
-  br i1 %131, label %.thread76, label %132
+  br i1 %131, label %.thread81, label %132
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %127, align 8, !tbaa !46
@@ -5655,16 +5659,16 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %137 = call ptr %133(ptr noundef %134, ptr noundef nonnull %1, i64 noundef %2, i32 noundef 1, ptr noundef %136) #15
   %138 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #15
   %139 = icmp slt i32 %138, 0
-  br i1 %139, label %.thread76, label %143
+  br i1 %139, label %.thread81, label %143
 
-.thread76:                                        ; preds = %132, %129
-  %H5E_CANTSET_g.sink120 = phi ptr [ @H5E_CANTSET_g, %129 ], [ @H5E_CANTRESTORE_g, %132 ]
-  %.sink117 = phi i32 [ 3032, %129 ], [ 3038, %132 ]
+.thread81:                                        ; preds = %132, %129
+  %H5E_CANTSET_g.sink125 = phi ptr [ @H5E_CANTSET_g, %129 ], [ @H5E_CANTRESTORE_g, %132 ]
+  %.sink122 = phi i32 [ 3032, %129 ], [ 3038, %132 ]
   %140 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %141 = load i64, ptr %H5E_CANTSET_g.sink120, align 8, !tbaa !3
-  %142 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef %.sink117, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.98) #15
+  %141 = load i64, ptr %H5E_CANTSET_g.sink125, align 8, !tbaa !3
+  %142 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef %.sink122, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread103
+  br label %.thread108
 
 143:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5676,7 +5680,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %146 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %147 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !3
   %148 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3040, i64 noundef %146, i64 noundef %147, ptr noundef nonnull @.str.102) #15
-  br label %.thread103
+  br label %.thread108
 
 149:                                              ; preds = %125
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -5697,25 +5701,25 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image(i64 noundef %0, ptr nou
   %156 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %157 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %158 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image, i32 noundef 3052, i64 noundef %156, i64 noundef %157, ptr noundef nonnull @.str.103) #15
-  br label %.thread103
+  br label %.thread108
 
-.thread103:                                       ; preds = %.thread71, %.thread, %48, %121, %155, %114, %88, %63, %56, %145, %.thread76
+.thread108:                                       ; preds = %.thread76, %.thread, %48, %121, %155, %114, %88, %63, %56, %145, %.thread81
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %.thread97
+  br label %.thread102
 
 160:                                              ; preds = %151
   %161 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %163
 
-.thread97:                                        ; preds = %37, %30, %17, %.thread103
+.thread102:                                       ; preds = %37, %30, %17, %.thread108
   %162 = call i32 @H5E_dump_api_stack() #15
   br label %163
 
-163:                                              ; preds = %160, %.thread97
-  %.05092100 = phi i32 [ %.151, %160 ], [ -1, %.thread97 ]
+163:                                              ; preds = %160, %.thread102
+  %.05097105 = phi i32 [ %.151, %160 ], [ -1, %.thread102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.05092100
+  ret i32 %.05097105
 }
 
 declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #2
@@ -5761,7 +5765,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   %17 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image, i32 noundef 3091, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.15) #15
-  br label %.thread87
+  br label %.thread86
 
 20:                                               ; preds = %._crit_edge, %3
   %21 = phi i8 [ %.pre, %._crit_edge ], [ %10, %3 ]
@@ -5782,7 +5786,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   %30 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image, i32 noundef 3091, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.16) #15
-  br label %.thread87
+  br label %.thread86
 
 33:                                               ; preds = %20, %26
   %34 = call i32 @H5CX_push(ptr noundef nonnull %5) #15
@@ -5793,7 +5797,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   %37 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %38 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image, i32 noundef 3091, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.17) #15
-  br label %.thread87
+  br label %.thread86
 
 40:                                               ; preds = %33
   %41 = call i32 @H5E_clear_stack() #15
@@ -5905,7 +5909,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %100 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #15
   %101 = icmp slt i32 %100, 0
-  br i1 %101, label %.thread65, label %102
+  br i1 %101, label %.thread64, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %97, align 8, !tbaa !46
@@ -5917,9 +5921,9 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   %109 = call ptr %103(ptr noundef nonnull %.236, ptr noundef %104, i64 noundef %106, i32 noundef 3, ptr noundef %108) #15
   %110 = call i32 @H5_user_cb_restore(ptr noundef nonnull %7) #15
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %.thread65, label %115
+  br i1 %111, label %.thread64, label %115
 
-.thread65:                                        ; preds = %102, %99
+.thread64:                                        ; preds = %102, %99
   %H5E_CANTSET_g.sink104 = phi ptr [ @H5E_CANTSET_g, %99 ], [ @H5E_CANTRESTORE_g, %102 ]
   %.sink101 = phi i32 [ 3135, %99 ], [ 3141, %102 ]
   %112 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
@@ -5951,23 +5955,23 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   store ptr %.034, ptr %1, align 8, !tbaa !48
   br label %126
 
-.thread92:                                        ; preds = %.thread, %92, %83, %52, %45, %116, %.thread65
+.thread92:                                        ; preds = %.thread, %92, %83, %52, %45, %116, %.thread64
   %125 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %.thread87
+  br label %.thread86
 
 126:                                              ; preds = %124, %60
   %127 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %129
 
-.thread87:                                        ; preds = %36, %29, %16, %.thread92
+.thread86:                                        ; preds = %36, %29, %16, %.thread92
   %128 = call i32 @H5E_dump_api_stack() #15
   br label %129
 
-129:                                              ; preds = %126, %.thread87
-  %.049 = phi i32 [ -1, %.thread87 ], [ 0, %126 ]
+129:                                              ; preds = %126, %.thread86
+  %.0428189 = phi i32 [ 0, %126 ], [ -1, %.thread86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.049
+  ret i32 %.0428189
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6000,7 +6004,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %17 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3177, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.15) #15
-  br label %.loopexit.thread107
+  br label %.loopexit.thread111
 
 20:                                               ; preds = %._crit_edge, %2
   %21 = phi i8 [ %.pre, %._crit_edge ], [ %10, %2 ]
@@ -6021,7 +6025,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %30 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3177, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.16) #15
-  br label %.loopexit.thread107
+  br label %.loopexit.thread111
 
 33:                                               ; preds = %20, %26
   %34 = call i32 @H5CX_push(ptr noundef nonnull %4) #15
@@ -6032,7 +6036,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %37 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %38 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3177, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.17) #15
-  br label %.loopexit.thread107
+  br label %.loopexit.thread111
 
 40:                                               ; preds = %33
   %41 = call i32 @H5E_clear_stack() #15
@@ -6045,7 +6049,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %46 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %47 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !3
   %48 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3181, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.19) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 49:                                               ; preds = %40
   %50 = call i32 @H5P_peek(ptr noundef nonnull %43, ptr noundef nonnull @.str.96, ptr noundef nonnull %3) #15
@@ -6056,7 +6060,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %53 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %54 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %55 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3185, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.106) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 56:                                               ; preds = %49
   %57 = load ptr, ptr %3, align 8, !tbaa !40
@@ -6071,7 +6075,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %63 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %64 = load i64, ptr @H5E_SETDISALLOWED_g, align 8, !tbaa !3
   %65 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3194, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.107) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 66:                                               ; preds = %56
   %67 = icmp eq ptr %1, null
@@ -6081,7 +6085,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %69 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %70 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !3
   %71 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3198, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.108) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6105,7 +6109,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %84 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %85 = load i64, ptr @H5E_SETDISALLOWED_g, align 8, !tbaa !3
   %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3203, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.109) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 87:                                               ; preds = %79, %72
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6136,26 +6140,26 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %103 = load i64, ptr %H5E_CANTRESTORE_g.sink, align 8, !tbaa !3
   %104 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef %.sink, i64 noundef %102, i64 noundef %103, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 105:                                              ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %106 = icmp slt i32 %98, 0
-  br i1 %106, label %107, label %._crit_edge84
+  br i1 %106, label %107, label %._crit_edge88
 
-._crit_edge84:                                    ; preds = %105
-  %.pre85 = load ptr, ptr %73, align 8, !tbaa !50
+._crit_edge88:                                    ; preds = %105
+  %.pre89 = load ptr, ptr %73, align 8, !tbaa !50
   br label %111
 
 107:                                              ; preds = %105
   %108 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %109 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !3
   %110 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3216, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.110) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
-111:                                              ; preds = %._crit_edge84, %87
-  %112 = phi ptr [ %.pre85, %._crit_edge84 ], [ %74, %87 ]
-  %.149 = phi i32 [ %98, %._crit_edge84 ], [ 0, %87 ]
+111:                                              ; preds = %._crit_edge88, %87
+  %112 = phi ptr [ %.pre89, %._crit_edge88 ], [ %74, %87 ]
+  %.149 = phi i32 [ %98, %._crit_edge88 ], [ 0, %87 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false), !tbaa.struct !54
   %.not60 = icmp eq ptr %112, null
   br i1 %.not60, label %134, label %113
@@ -6177,13 +6181,13 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %116, %113
-  %H5E_CANTRESTORE_g.sink124 = phi ptr [ @H5E_CANTSET_g, %113 ], [ @H5E_CANTRESTORE_g, %116 ]
-  %.sink121 = phi i32 [ 3227, %113 ], [ 3231, %116 ]
+  %H5E_CANTRESTORE_g.sink128 = phi ptr [ @H5E_CANTSET_g, %113 ], [ @H5E_CANTRESTORE_g, %116 ]
+  %.sink125 = phi i32 [ 3227, %113 ], [ 3231, %116 ]
   %124 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %125 = load i64, ptr %H5E_CANTRESTORE_g.sink124, align 8, !tbaa !3
-  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef %.sink121, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.98) #15
+  %125 = load i64, ptr %H5E_CANTRESTORE_g.sink128, align 8, !tbaa !3
+  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef %.sink125, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 127:                                              ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6195,7 +6199,7 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
   %131 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %132 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3233, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.111) #15
-  br label %.loopexit.thread116
+  br label %.loopexit.thread120
 
 134:                                              ; preds = %127, %111
   %135 = call i32 @H5P_poke(ptr noundef nonnull %43, ptr noundef nonnull @.str.96, ptr noundef nonnull %3) #15
@@ -6226,47 +6230,47 @@ define range(i32 -1, -2147483648) i32 @H5Pset_file_image_callbacks(i64 noundef %
 
 150:                                              ; preds = %.lr.ph.split.us, %144
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTRESTORE_g, %144 ], [ @H5E_CANTSET_g, %.lr.ph.split.us ]
-  %.sink125 = phi i32 [ 3250, %144 ], [ 3246, %.lr.ph.split.us ]
+  %.sink129 = phi i32 [ 3250, %144 ], [ 3246, %.lr.ph.split.us ]
   %151 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %152 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
-  %153 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef %.sink125, i64 noundef %151, i64 noundef %152, ptr noundef nonnull @.str.98) #15
+  %153 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef %.sink129, i64 noundef %151, i64 noundef %152, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.lr.ph.split.us
 
 .split.us:                                        ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %154 = icmp slt i32 %147, 0
-  br i1 %154, label %155, label %.loopexit.thread112
+  br i1 %154, label %155, label %.loopexit.thread116
 
 155:                                              ; preds = %.split.us
   %156 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %157 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !3
   %158 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pset_file_image_callbacks, i32 noundef 3252, i64 noundef %156, i64 noundef %157, ptr noundef nonnull @.str.110) #15
-  br label %.loopexit.thread112
+  br label %.loopexit.thread116
 
-.loopexit.thread112:                              ; preds = %.split.us, %155
+.loopexit.thread116:                              ; preds = %.split.us, %155
   %.553.ph = phi i32 [ %147, %.split.us ], [ -1, %155 ]
   %159 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %.loopexit.thread107
+  br label %.loopexit.thread111
 
-.loopexit.thread116:                              ; preds = %101, %123, %130, %107, %83, %68, %62, %52, %45
+.loopexit.thread120:                              ; preds = %101, %123, %130, %107, %83, %68, %62, %52, %45
   %160 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %.loopexit.thread107
+  br label %.loopexit.thread111
 
 .loopexit:                                        ; preds = %134
   %161 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %163
 
-.loopexit.thread107:                              ; preds = %36, %29, %16, %.loopexit.thread116, %.loopexit.thread112
-  %.55397111 = phi i32 [ %.553.ph, %.loopexit.thread112 ], [ -1, %.loopexit.thread116 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
+.loopexit.thread111:                              ; preds = %36, %29, %16, %.loopexit.thread120, %.loopexit.thread116
+  %.553101115 = phi i32 [ %.553.ph, %.loopexit.thread116 ], [ -1, %.loopexit.thread120 ], [ -1, %16 ], [ -1, %29 ], [ -1, %36 ]
   %162 = call i32 @H5E_dump_api_stack() #15
   br label %163
 
-163:                                              ; preds = %.loopexit, %.loopexit.thread107
-  %.55397110 = phi i32 [ %.149, %.loopexit ], [ %.55397111, %.loopexit.thread107 ]
+163:                                              ; preds = %.loopexit, %.loopexit.thread111
+  %.553101114 = phi i32 [ %.149, %.loopexit ], [ %.553101115, %.loopexit.thread111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.55397110
+  ret i32 %.553101114
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6297,7 +6301,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %15 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %16 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3278, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.15) #15
-  br label %.thread39
+  br label %.thread40
 
 18:                                               ; preds = %._crit_edge, %2
   %19 = phi i8 [ %.pre, %._crit_edge ], [ %8, %2 ]
@@ -6318,7 +6322,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %28 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %29 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !3
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3278, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.16) #15
-  br label %.thread39
+  br label %.thread40
 
 31:                                               ; preds = %18, %24
   %32 = call i32 @H5CX_push(ptr noundef nonnull %4) #15
@@ -6329,7 +6333,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %35 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !3
   %36 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3278, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.17) #15
-  br label %.thread39
+  br label %.thread40
 
 38:                                               ; preds = %31
   %39 = call i32 @H5E_clear_stack() #15
@@ -6342,7 +6346,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %44 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %45 = load i64, ptr @H5E_BADID_g, align 8, !tbaa !3
   %46 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3282, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.19) #15
-  br label %.thread45
+  br label %.thread46
 
 47:                                               ; preds = %38
   %48 = call i32 @H5P_peek(ptr noundef nonnull %41, ptr noundef nonnull @.str.96, ptr noundef nonnull %3) #15
@@ -6353,7 +6357,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %51 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %52 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3286, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.104) #15
-  br label %.thread45
+  br label %.thread46
 
 54:                                               ; preds = %47
   %55 = icmp eq ptr %1, null
@@ -6363,7 +6367,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %57 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %58 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !3
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3293, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.112) #15
-  br label %.thread45
+  br label %.thread46
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6397,7 +6401,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %76 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef %.sink, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread45
+  br label %.thread46
 
 78:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6409,25 +6413,25 @@ define range(i32 -1, 1) i32 @H5Pget_file_image_callbacks(i64 noundef %0, ptr nou
   %82 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %83 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !3
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_file_image_callbacks, i32 noundef 3309, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.113) #15
-  br label %.thread45
+  br label %.thread46
 
-.thread45:                                        ; preds = %.thread, %81, %56, %50, %43
+.thread46:                                        ; preds = %.thread, %81, %56, %50, %43
   %85 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %.thread39
+  br label %.thread40
 
 86:                                               ; preds = %60, %78
   %87 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %89
 
-.thread39:                                        ; preds = %34, %27, %14, %.thread45
+.thread40:                                        ; preds = %34, %27, %14, %.thread46
   %88 = call i32 @H5E_dump_api_stack() #15
   br label %89
 
-89:                                               ; preds = %86, %.thread39
-  %.0213442 = phi i32 [ 0, %86 ], [ -1, %.thread39 ]
+89:                                               ; preds = %86, %.thread40
+  %.0213543 = phi i32 [ 0, %86 ], [ -1, %.thread40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.0213442
+  ret i32 %.0213543
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6605,7 +6609,7 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
 36:                                               ; preds = %29
   %37 = call i32 @H5E_clear_stack() #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread35, label %38
+  br i1 %.not, label %.thread36, label %38
 
 38:                                               ; preds = %36
   %39 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
@@ -6633,13 +6637,13 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
 53:                                               ; preds = %46
   %54 = load i32, ptr %1, align 4, !tbaa !31
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread35
+  br i1 %55, label %56, label %.thread36
 
 56:                                               ; preds = %53
   store i32 1, ptr %1, align 4, !tbaa !31
-  br label %.thread35
+  br label %.thread36
 
-.thread35:                                        ; preds = %53, %56, %36
+.thread36:                                        ; preds = %53, %56, %36
   %57 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %61
 
@@ -6651,10 +6655,10 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
   %60 = call i32 @H5E_dump_api_stack() #15
   br label %61
 
-61:                                               ; preds = %.thread35, %.thread30
-  %.015 = phi i32 [ -1, %.thread30 ], [ 0, %.thread35 ]
+61:                                               ; preds = %.thread36, %.thread30
+  %.0182533 = phi i32 [ -1, %.thread30 ], [ 0, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.015
+  ret i32 %.0182533
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8088,9 +8092,9 @@ define range(i32 -1, 1) i32 @H5P_set_vol(ptr noundef %0, ptr noundef %1, ptr nou
   %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P_set_vol, i32 noundef 5857, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.28) #15
   br label %39
 
-39:                                               ; preds = %34, %17, %35, %13
-  %.010 = phi i32 [ -1, %13 ], [ %.1, %34 ], [ -1, %35 ], [ 0, %17 ]
-  ret i32 %.010
+39:                                               ; preds = %17, %35, %13, %34
+  %.09 = phi i32 [ -1, %13 ], [ %.1, %34 ], [ -1, %35 ], [ 0, %17 ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8346,7 +8350,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %45 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %46 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_id, i32 noundef 5954, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.29) #15
-  br label %.thread37
+  br label %.thread38
 
 47:                                               ; preds = %37
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -8366,7 +8370,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %57 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %58 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_id, i32 noundef 5962, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.161) #15
-  br label %.thread41
+  br label %.thread42
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %4, align 8, !tbaa !13
@@ -8379,19 +8383,19 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %65 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %66 = load i64, ptr @H5E_CANTINC_g, align 8, !tbaa !3
   %67 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_id, i32 noundef 5966, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.162) #15
-  br label %.thread41
+  br label %.thread42
 
 68:                                               ; preds = %47
   %69 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %70 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %71 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_id, i32 noundef 5969, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.28) #15
-  br label %.thread37
+  br label %.thread38
 
-.thread37:                                        ; preds = %68, %43
+.thread38:                                        ; preds = %68, %43
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread32
 
-.thread41:                                        ; preds = %56, %64
+.thread42:                                        ; preds = %56, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread32
@@ -8401,14 +8405,14 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %75 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %77
 
-.thread32:                                        ; preds = %33, %26, %13, %.thread41, %.thread37
+.thread32:                                        ; preds = %33, %26, %13, %.thread42, %.thread38
   %76 = call i32 @H5E_dump_api_stack() #15
   br label %77
 
 77:                                               ; preds = %74, %.thread32
-  %.020 = phi i32 [ -1, %.thread32 ], [ 0, %74 ]
+  %.0182735 = phi i32 [ 0, %74 ], [ -1, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.020
+  ret i32 %.0182735
 }
 
 declare i64 @H5VL_conn_register(ptr noundef) local_unnamed_addr #2
@@ -8484,7 +8488,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %44 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %45 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_info, i32 noundef 5996, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.29) #15
-  br label %.thread35
+  br label %.thread36
 
 46:                                               ; preds = %38
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -8506,7 +8510,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %56 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %57 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %58 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_info, i32 noundef 6005, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.163) #15
-  br label %.thread39
+  br label %.thread40
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8518,50 +8522,50 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %63 = load ptr, ptr %5, align 8, !tbaa !13
   %64 = call i32 @H5VL_copy_connector_info(ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %61) #15
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %._crit_edge42
+  br i1 %65, label %66, label %._crit_edge43
 
-._crit_edge42:                                    ; preds = %62
-  %.pre43 = load ptr, ptr %4, align 8, !tbaa !48
+._crit_edge43:                                    ; preds = %62
+  %.pre44 = load ptr, ptr %4, align 8, !tbaa !48
   br label %76
 
 66:                                               ; preds = %62
   %67 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %68 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !3
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_info, i32 noundef 6012, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.164) #15
-  br label %.thread39
+  br label %.thread40
 
 70:                                               ; preds = %46
   %71 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %72 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %73 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_info, i32 noundef 6018, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.28) #15
-  br label %.thread35
+  br label %.thread36
 
-.thread35:                                        ; preds = %70, %42
+.thread36:                                        ; preds = %70, %42
   %74 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread30
 
-.thread39:                                        ; preds = %55, %66
+.thread40:                                        ; preds = %55, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %75 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread30
 
-76:                                               ; preds = %._crit_edge42, %59
-  %77 = phi ptr [ %.pre43, %._crit_edge42 ], [ null, %59 ]
+76:                                               ; preds = %._crit_edge43, %59
+  %77 = phi ptr [ %.pre44, %._crit_edge43 ], [ null, %59 ]
   store ptr %77, ptr %1, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %80
 
-.thread30:                                        ; preds = %34, %27, %14, %.thread39, %.thread35
+.thread30:                                        ; preds = %34, %27, %14, %.thread40, %.thread36
   %79 = call i32 @H5E_dump_api_stack() #15
   br label %80
 
 80:                                               ; preds = %76, %.thread30
-  %.019 = phi i32 [ -1, %.thread30 ], [ 0, %76 ]
+  %.0172533 = phi i32 [ 0, %76 ], [ -1, %.thread30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.019
+  ret i32 %.0172533
 }
 
 declare i32 @H5VL_copy_connector_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -8629,9 +8633,9 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
 37:                                               ; preds = %30
   %38 = call i32 @H5E_clear_stack() #15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread41, label %40
+  br i1 %.not, label %.thread42, label %40
 
-.thread41:                                        ; preds = %37
+.thread42:                                        ; preds = %37
   %39 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %75
 
@@ -8642,7 +8646,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %43 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %44 = call i32 @H5P_isa_class(i64 noundef %spec.select, i64 noundef %43) #15
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %.thread38
+  br i1 %45, label %46, label %.thread39
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8654,7 +8658,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %51 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_cap_flags, i32 noundef 6066, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.29) #15
-  br label %.thread45
+  br label %.thread46
 
 53:                                               ; preds = %46
   %54 = call i32 @H5P_peek(ptr noundef nonnull %47, ptr noundef nonnull @.str.156, ptr noundef nonnull %4) #15
@@ -8665,7 +8669,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %57 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %58 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_cap_flags, i32 noundef 6070, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.163) #15
-  br label %.thread45
+  br label %.thread46
 
 60:                                               ; preds = %53
   %61 = call i32 @H5VL_conn_prop_get_cap_flags(ptr noundef nonnull %4, ptr noundef nonnull %1) #15
@@ -8676,16 +8680,16 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %64 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %65 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !3
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_cap_flags, i32 noundef 6074, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.165) #15
-  br label %.thread45
+  br label %.thread46
 
-.thread38:                                        ; preds = %40
+.thread39:                                        ; preds = %40
   %67 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
   %68 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !3
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Pget_vol_cap_flags, i32 noundef 6077, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.28) #15
   %70 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread34
 
-.thread45:                                        ; preds = %49, %56, %63
+.thread46:                                        ; preds = %49, %56, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread34
@@ -8695,14 +8699,14 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %73 = call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %75
 
-.thread34:                                        ; preds = %33, %26, %13, %.thread45, %.thread38
+.thread34:                                        ; preds = %33, %26, %13, %.thread46, %.thread39
   %74 = call i32 @H5E_dump_api_stack() #15
   br label %75
 
-75:                                               ; preds = %72, %.thread41, %.thread34
-  %.017 = phi i32 [ -1, %.thread34 ], [ 0, %72 ], [ 0, %.thread41 ]
+75:                                               ; preds = %72, %.thread42, %.thread34
+  %.0202937 = phi i32 [ 0, %72 ], [ -1, %.thread34 ], [ 0, %.thread42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.017
+  ret i32 %.0202937
 }
 
 declare i32 @H5VL_conn_prop_get_cap_flags(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -13272,9 +13276,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_copy(ptr noundef c
   store ptr %62, ptr %59, align 8, !tbaa !23
   br label %.thread
 
-.thread:                                          ; preds = %53, %47, %37, %26, %63, %67, %15, %58, %9, %1
-  %.033 = phi i32 [ 0, %1 ], [ -1, %15 ], [ 0, %58 ], [ 0, %9 ], [ -1, %63 ], [ 0, %67 ], [ -1, %26 ], [ -1, %37 ], [ -1, %47 ], [ -1, %53 ]
-  ret i32 %.033
+.thread:                                          ; preds = %53, %47, %37, %26, %63, %67, %1, %9, %58, %15
+  %.034 = phi i32 [ 0, %1 ], [ -1, %15 ], [ 0, %58 ], [ 0, %9 ], [ -1, %63 ], [ 0, %67 ], [ -1, %26 ], [ -1, %37 ], [ -1, %47 ], [ -1, %53 ]
+  ret i32 %.034
 }
 
 declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #2
@@ -13328,9 +13332,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_driver_free(ptr noundef r
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_driver_free, i32 noundef 1742, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.189) #15
   br label %33
 
-33:                                               ; preds = %18, %29, %22, %9, %1
-  %.013 = phi i32 [ 0, %1 ], [ -1, %18 ], [ -1, %29 ], [ 0, %22 ], [ 0, %9 ]
-  ret i32 %.013
+33:                                               ; preds = %1, %9, %22, %29, %18
+  %.014 = phi i32 [ 0, %1 ], [ -1, %18 ], [ -1, %29 ], [ 0, %22 ], [ 0, %9 ]
+  ret i32 %.014
 }
 
 declare i32 @H5FD_free_driver_info(i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -13360,7 +13364,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %10 = select i1 %6, i1 true, i1 %9
   %11 = icmp ne ptr %0, null
   %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %12, label %.thread83, !prof !126
+  br i1 %or.cond, label %12, label %.thread82, !prof !126
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %0, align 8, !tbaa !40
@@ -13403,7 +13407,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread83
+  br label %.thread82
 
 34:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -13415,7 +13419,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %38 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %39 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !3
   %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef 3363, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.100) #15
-  br label %.thread83
+  br label %.thread82
 
 41:                                               ; preds = %17
   %42 = tail call noalias ptr @malloc(i64 noundef %16) #17
@@ -13427,20 +13431,20 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %45 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %46 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !3
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef 3366, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.101) #15
-  br label %.thread83
+  br label %.thread82
 
 48:                                               ; preds = %41, %34
   %49 = phi ptr [ %42, %41 ], [ %35, %34 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !46
   %.not69 = icmp eq ptr %51, null
-  br i1 %.not69, label %.thread87, label %52
+  br i1 %.not69, label %.thread86, label %52
 
 52:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #15
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.thread77, label %55
+  br i1 %54, label %.thread76, label %55
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %50, align 8, !tbaa !46
@@ -13451,16 +13455,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %61 = call ptr %56(ptr noundef %57, ptr noundef nonnull %13, i64 noundef %58, i32 noundef 2, ptr noundef %60) #15
   %62 = call i32 @H5_user_cb_restore(ptr noundef nonnull %3) #15
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.thread77, label %67
+  br i1 %63, label %.thread76, label %67
 
-.thread77:                                        ; preds = %55, %52
-  %H5E_CANTSET_g.sink108 = phi ptr [ @H5E_CANTSET_g, %52 ], [ @H5E_CANTRESTORE_g, %55 ]
-  %.sink105 = phi i32 [ 3373, %52 ], [ 3379, %55 ]
+.thread76:                                        ; preds = %55, %52
+  %H5E_CANTSET_g.sink106 = phi ptr [ @H5E_CANTSET_g, %52 ], [ @H5E_CANTRESTORE_g, %55 ]
+  %.sink103 = phi i32 [ 3373, %52 ], [ 3379, %55 ]
   %64 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %65 = load i64, ptr %H5E_CANTSET_g.sink108, align 8, !tbaa !3
-  %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef %.sink105, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.98) #15
+  %65 = load i64, ptr %H5E_CANTSET_g.sink106, align 8, !tbaa !3
+  %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef %.sink103, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.98) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread83
+  br label %.thread82
 
 67:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -13472,18 +13476,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %70 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %71 = load i64, ptr @H5E_CANTCOPY_g, align 8, !tbaa !3
   %72 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef 3381, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.102) #15
-  br label %.thread83
+  br label %.thread82
 
-.thread87:                                        ; preds = %48
+.thread86:                                        ; preds = %48
   %73 = load i64, ptr %15, align 8, !tbaa !47
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %13, i64 %73, i1 false)
   br label %74
 
-74:                                               ; preds = %67, %.thread87, %14, %12
+74:                                               ; preds = %67, %.thread86, %14, %12
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %76 = load ptr, ptr %75, align 8, !tbaa !44
   %.not71 = icmp eq ptr %76, null
-  br i1 %.not71, label %.thread83, label %77
+  br i1 %.not71, label %.thread82, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -13495,7 +13499,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
   %82 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
   %83 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !3
   %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef 3392, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.191) #15
-  br label %.thread83
+  br label %.thread82
 
 85:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -13513,20 +13517,20 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__file_image_info_copy(ptr nound
 
 .sink.split:                                      ; preds = %88, %85
   %H5E_CANTRESTORE_g.sink = phi ptr [ @H5E_CANTSET_g, %85 ], [ @H5E_CANTRESTORE_g, %88 ]
-  %.sink109 = phi i32 [ 3395, %85 ], [ 3399, %88 ]
+  %.sink107 = phi i32 [ 3395, %85 ], [ 3399, %88 ]
   %93 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %94 = load i64, ptr %H5E_CANTRESTORE_g.sink, align 8, !tbaa !3
-  %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef %.sink109, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.98) #15
+  %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_copy, i32 noundef %.sink107, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.98) #15
   br label %96
 
 96:                                               ; preds = %.sink.split, %88
   %.11 = phi i32 [ 0, %88 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread83
+  br label %.thread82
 
-.thread83:                                        ; preds = %.thread77, %69, %.thread, %44, %37, %81, %96, %74, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %74 ], [ -1, %81 ], [ %.11, %96 ], [ -1, %37 ], [ -1, %44 ], [ -1, %.thread ], [ -1, %69 ], [ -1, %.thread77 ]
-  ret i32 %.0
+.thread82:                                        ; preds = %.thread76, %69, %.thread, %44, %37, %81, %96, %1, %74
+  %.056 = phi i32 [ 0, %1 ], [ 0, %74 ], [ -1, %81 ], [ %.11, %96 ], [ -1, %37 ], [ -1, %44 ], [ -1, %.thread ], [ -1, %69 ], [ -1, %.thread76 ]
+  ret i32 %.056
 }
 
 ; Function Attrs: nounwind uwtable
@@ -13653,9 +13657,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5P__file_image_info_free
   %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__file_image_info_free, i32 noundef 3462, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.110) #15
   br label %70
 
-70:                                               ; preds = %.thread41, %.thread, %35, %48, %66, %64, %41, %1
-  %.028 = phi i32 [ 0, %1 ], [ -1, %35 ], [ -1, %48 ], [ -1, %66 ], [ %58, %64 ], [ %.130, %41 ], [ -1, %.thread ], [ -1, %.thread41 ]
-  ret i32 %.028
+70:                                               ; preds = %.thread41, %.thread, %1, %41, %64, %66, %48, %35
+  %.029 = phi i32 [ 0, %1 ], [ -1, %35 ], [ -1, %48 ], [ -1, %66 ], [ %58, %64 ], [ %.130, %41 ], [ -1, %.thread ], [ -1, %.thread41 ]
+  ret i32 %.029
 }
 
 declare i32 @H5VL_conn_prop_copy(ptr noundef) local_unnamed_addr #2

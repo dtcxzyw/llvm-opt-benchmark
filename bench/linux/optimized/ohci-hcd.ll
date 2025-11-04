@@ -6202,7 +6202,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %16) #14
   br label %375
 
-121:                                              ; preds = %118, %3
+121:                                              ; preds = %3, %118
   %122 = phi ptr [ %18, %3 ], [ %31, %118 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %16) #14
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 81

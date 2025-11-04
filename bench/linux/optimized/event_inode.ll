@@ -1446,16 +1446,16 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread11, label %45
+  br i1 %44, label %.thread12, label %45
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %.thread11
+  br i1 %49, label %50, label %.thread12
 
-.thread11:                                        ; preds = %45, %38
+.thread12:                                        ; preds = %45, %38
   tail call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
   br label %.loopexit
 
@@ -1472,8 +1472,8 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
   %57 = sext i32 %40 to i64
   br label %58
 
-58:                                               ; preds = %select.unfold12, %54
-  %59 = phi i64 [ %57, %54 ], [ %79, %select.unfold12 ]
+58:                                               ; preds = %select.unfold13, %54
+  %59 = phi i64 [ %57, %54 ], [ %79, %select.unfold13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load ptr, ptr %55, align 8
   store ptr %60, ptr %5, align 8
@@ -1488,7 +1488,7 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
 
 67:                                               ; preds = %58
   call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
-  br label %.loopexit15
+  br label %.thread15
 
 68:                                               ; preds = %58
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -1496,7 +1496,7 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
   %71 = call i32 %70(ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   call void @mutex_unlock(ptr noundef nonnull @eventfs_mutex) #7
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %select.unfold12, label %73
+  br i1 %72, label %select.unfold13, label %73
 
 73:                                               ; preds = %68
   %74 = call i64 @strlen(ptr noundef %63) #7
@@ -1504,13 +1504,13 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
   %76 = load ptr, ptr %1, align 8
   %77 = load i64, ptr %8, align 8
   %78 = call zeroext i1 %76(ptr noundef %1, ptr noundef %63, i32 noundef %75, i64 noundef %77, i64 noundef 19680823, i32 noundef 8) #7
-  br i1 %78, label %select.unfold12, label %.loopexit15
+  br i1 %78, label %select.unfold13, label %.thread15
 
-.loopexit15:                                      ; preds = %73, %67
+.thread15:                                        ; preds = %73, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-select.unfold12:                                  ; preds = %73, %68
+select.unfold13:                                  ; preds = %73, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = add nsw i64 %59, 1
   %80 = load i64, ptr %8, align 8
@@ -1522,8 +1522,8 @@ select.unfold12:                                  ; preds = %73, %68
   %85 = icmp slt i64 %79, %84
   br i1 %85, label %58, label %.loopexit16, !llvm.loop !28
 
-.loopexit16:                                      ; preds = %select.unfold12, %50
-  %86 = phi i32 [ %52, %50 ], [ %83, %select.unfold12 ]
+.loopexit16:                                      ; preds = %select.unfold13, %50
+  %86 = phi i32 [ %52, %50 ], [ %83, %select.unfold13 ]
   %87 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %88 = load volatile ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %87
@@ -1583,8 +1583,8 @@ select.unfold12:                                  ; preds = %73, %68
   %124 = icmp eq ptr %123, %87
   br i1 %124, label %.loopexit, label %92, !llvm.loop !29
 
-.loopexit:                                        ; preds = %121, %.loopexit15, %.thread11, %129, %.loopexit16
-  %125 = phi i32 [ 0, %129 ], [ 1, %.loopexit16 ], [ 0, %.loopexit15 ], [ -22, %.thread11 ], [ 1, %121 ]
+.loopexit:                                        ; preds = %121, %.thread15, %.thread12, %129, %.loopexit16
+  %125 = phi i32 [ 0, %129 ], [ 1, %.loopexit16 ], [ -22, %.thread12 ], [ 0, %.thread15 ], [ 1, %121 ]
   %126 = icmp ult i32 %41, 2
   br i1 %126, label %128, label %127, !prof !6
 

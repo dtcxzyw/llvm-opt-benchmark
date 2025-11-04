@@ -2088,12 +2088,12 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 
 15:                                               ; preds = %11
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %16, label %.thread180
+  br i1 %.not, label %16, label %.thread182
 
 16:                                               ; preds = %15
   %17 = tail call i32 @OBJ_obj2nid(ptr noundef nonnull %2)
   %.not155 = icmp eq i32 %17, 0
-  br i1 %.not155, label %.thread180, label %18
+  br i1 %.not155, label %.thread182, label %18
 
 18:                                               ; preds = %16
   %19 = tail call ptr @OBJ_nid2ln(i32 noundef %17)
@@ -2103,73 +2103,73 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 21:                                               ; preds = %18
   %22 = tail call ptr @OBJ_nid2sn(i32 noundef %17)
   %.not156 = icmp eq ptr %22, null
-  br i1 %.not156, label %.thread180, label %.thread
+  br i1 %.not156, label %.thread182, label %.thread
 
 .thread:                                          ; preds = %18, %21
-  %.0108177 = phi ptr [ %22, %21 ], [ %19, %18 ]
+  %.0108179 = phi ptr [ %22, %21 ], [ %19, %18 ]
   br i1 %6, label %23, label %26
 
 23:                                               ; preds = %.thread
   %24 = sext i32 %1 to i64
-  %25 = tail call i64 @BUF_strlcpy(ptr noundef nonnull %0, ptr noundef nonnull %.0108177, i64 noundef %24) #10
+  %25 = tail call i64 @BUF_strlcpy(ptr noundef nonnull %0, ptr noundef nonnull %.0108179, i64 noundef %24) #10
   br label %26
 
 26:                                               ; preds = %.thread, %23
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0108177) #12
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0108179) #12
   %28 = trunc i64 %27 to i32
   br label %124
 
-.thread180:                                       ; preds = %21, %16, %15
+.thread182:                                       ; preds = %21, %16, %15
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.preheader.preheader, label %._crit_edge
 
-.preheader.preheader:                             ; preds = %.thread180
+.preheader.preheader:                             ; preds = %.thread182
   %32 = load ptr, ptr %12, align 8, !tbaa !14
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
-  %.0105240 = phi ptr [ %.6, %122 ], [ %0, %.preheader.preheader ]
-  %.0112239 = phi ptr [ %38, %122 ], [ %32, %.preheader.preheader ]
-  %.0120238 = phi ptr [ %.1121223, %122 ], [ null, %.preheader.preheader ]
-  %.not166237 = phi i1 [ true, %122 ], [ false, %.preheader.preheader ]
-  %.0130236 = phi i32 [ %.6136, %122 ], [ %1, %.preheader.preheader ]
-  %.0138235 = phi i32 [ %36, %122 ], [ %30, %.preheader.preheader ]
-  %.0140234 = phi i32 [ %.3143, %122 ], [ 0, %.preheader.preheader ]
-  %33 = load i8, ptr %.0112239, align 1, !tbaa !24
-  %34 = add nsw i32 %.0138235, -1
+  %.0105242 = phi ptr [ %.6, %122 ], [ %0, %.preheader.preheader ]
+  %.0112241 = phi ptr [ %38, %122 ], [ %32, %.preheader.preheader ]
+  %.0120240 = phi ptr [ %.1121225, %122 ], [ null, %.preheader.preheader ]
+  %.not166239 = phi i1 [ true, %122 ], [ false, %.preheader.preheader ]
+  %.0130238 = phi i32 [ %.6136, %122 ], [ %1, %.preheader.preheader ]
+  %.0138237 = phi i32 [ %36, %122 ], [ %30, %.preheader.preheader ]
+  %.0140236 = phi i32 [ %.3143, %122 ], [ 0, %.preheader.preheader ]
+  %33 = load i8, ptr %.0112241, align 1, !tbaa !24
+  %34 = add nsw i32 %.0138237, -1
   %35 = icmp ne i32 %34, 0
-  %.not157220 = icmp sgt i8 %33, -1
-  %or.cond173221 = select i1 %35, i1 true, i1 %.not157220
-  br i1 %or.cond173221, label %.lr.ph, label %.thread189
+  %.not157222 = icmp sgt i8 %33, -1
+  %or.cond173223 = select i1 %35, i1 true, i1 %.not157222
+  br i1 %or.cond173223, label %.lr.ph, label %.thread191
 
 .lr.ph:                                           ; preds = %.preheader, %57
-  %.not157225 = phi i1 [ %.not157, %57 ], [ %.not157220, %.preheader ]
+  %.not157227 = phi i1 [ %.not157, %57 ], [ %.not157222, %.preheader ]
   %36 = phi i32 [ %59, %57 ], [ %34, %.preheader ]
   %37 = phi i8 [ %58, %57 ], [ %33, %.preheader ]
-  %.pn = phi ptr [ %38, %57 ], [ %.0112239, %.preheader ]
-  %.0114224 = phi i64 [ %.1115, %57 ], [ 0, %.preheader ]
-  %.1121223 = phi ptr [ %.2122, %57 ], [ %.0120238, %.preheader ]
-  %.0125222 = phi i32 [ %.1126, %57 ], [ 0, %.preheader ]
+  %.pn = phi ptr [ %38, %57 ], [ %.0112241, %.preheader ]
+  %.0114226 = phi i64 [ %.1115, %57 ], [ 0, %.preheader ]
+  %.1121225 = phi ptr [ %.2122, %57 ], [ %.0120240, %.preheader ]
+  %.0125224 = phi i32 [ %.1126, %57 ], [ 0, %.preheader ]
   %38 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %.not158 = icmp eq i32 %.0125222, 0
+  %.not158 = icmp eq i32 %.0125224, 0
   %39 = and i8 %37, 127
   %40 = zext nneg i8 %39 to i64
   br i1 %.not158, label %43, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = call i32 @BN_add_word(ptr noundef %.1121223, i64 noundef %40) #10
+  %42 = call i32 @BN_add_word(ptr noundef %.1121225, i64 noundef %40) #10
   %.not159 = icmp eq i32 %42, 0
-  br i1 %.not159, label %.thread189, label %45
+  br i1 %.not159, label %.thread191, label %45
 
 43:                                               ; preds = %.lr.ph
-  %44 = or i64 %.0114224, %40
+  %44 = or i64 %.0114226, %40
   br label %45
 
 45:                                               ; preds = %41, %43
-  %.2116 = phi i64 [ %.0114224, %41 ], [ %44, %43 ]
-  br i1 %.not157225, label %61, label %46
+  %.2116 = phi i64 [ %.0114226, %41 ], [ %44, %43 ]
+  br i1 %.not157227, label %61, label %46
 
 46:                                               ; preds = %45
   %47 = icmp ugt i64 %.2116, 144115188075855871
@@ -2177,46 +2177,46 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %or.cond3, label %48, label %53
 
 48:                                               ; preds = %46
-  %.not161 = icmp eq ptr %.1121223, null
+  %.not161 = icmp eq ptr %.1121225, null
   br i1 %.not161, label %49, label %51
 
 49:                                               ; preds = %48
   %50 = call ptr @BN_new() #10
   %.not162 = icmp eq ptr %50, null
-  br i1 %.not162, label %.thread189, label %51
+  br i1 %.not162, label %.thread191, label %51
 
 51:                                               ; preds = %49, %48
-  %.4124 = phi ptr [ %.1121223, %48 ], [ %50, %49 ]
+  %.4124 = phi ptr [ %.1121225, %48 ], [ %50, %49 ]
   %52 = call i32 @BN_set_word(ptr noundef nonnull %.4124, i64 noundef %.2116) #10
   %.not163 = icmp eq i32 %52, 0
-  br i1 %.not163, label %.thread189, label %.thread183
+  br i1 %.not163, label %.thread191, label %.thread185
 
 53:                                               ; preds = %46
-  br i1 %.not158, label %55, label %.thread183
+  br i1 %.not158, label %55, label %.thread185
 
-.thread183:                                       ; preds = %51, %53
-  %.3123188 = phi ptr [ %.1121223, %53 ], [ %.4124, %51 ]
-  %54 = call i32 @BN_lshift(ptr noundef %.3123188, ptr noundef %.3123188, i32 noundef 7) #10
+.thread185:                                       ; preds = %51, %53
+  %.3123190 = phi ptr [ %.1121225, %53 ], [ %.4124, %51 ]
+  %54 = call i32 @BN_lshift(ptr noundef %.3123190, ptr noundef %.3123190, i32 noundef 7) #10
   %.not165 = icmp eq i32 %54, 0
-  br i1 %.not165, label %.thread189, label %57
+  br i1 %.not165, label %.thread191, label %57
 
 55:                                               ; preds = %53
   %56 = shl i64 %.2116, 7
   br label %57
 
-57:                                               ; preds = %.thread183, %55
-  %.1126 = phi i32 [ 0, %55 ], [ 1, %.thread183 ]
-  %.2122 = phi ptr [ %.1121223, %55 ], [ %.3123188, %.thread183 ]
-  %.1115 = phi i64 [ %56, %55 ], [ %.2116, %.thread183 ]
+57:                                               ; preds = %.thread185, %55
+  %.1126 = phi i32 [ 0, %55 ], [ 1, %.thread185 ]
+  %.2122 = phi ptr [ %.1121225, %55 ], [ %.3123190, %.thread185 ]
+  %.1115 = phi i64 [ %56, %55 ], [ %.2116, %.thread185 ]
   %58 = load i8, ptr %38, align 1, !tbaa !24
   %59 = add nsw i32 %36, -1
   %60 = icmp ne i32 %59, 0
   %.not157 = icmp sgt i8 %58, -1
   %or.cond173 = select i1 %60, i1 true, i1 %.not157
-  br i1 %or.cond173, label %.lr.ph, label %.thread189
+  br i1 %or.cond173, label %.lr.ph, label %.thread191
 
 61:                                               ; preds = %45
-  br i1 %.not166237, label %81, label %62
+  br i1 %.not166239, label %81, label %62
 
 62:                                               ; preds = %61
   %63 = icmp ugt i64 %.2116, 79
@@ -2226,9 +2226,9 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %.not158, label %67, label %65
 
 65:                                               ; preds = %64
-  %66 = call i32 @BN_sub_word(ptr noundef %.1121223, i64 noundef 80) #10
+  %66 = call i32 @BN_sub_word(ptr noundef %.1121225, i64 noundef 80) #10
   %.not168 = icmp eq i32 %66, 0
-  br i1 %.not168, label %.thread189, label %73
+  br i1 %.not168, label %.thread191, label %73
 
 67:                                               ; preds = %64
   %68 = add i64 %.2116, -80
@@ -2245,41 +2245,41 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 73:                                               ; preds = %67, %65, %69
   %.0144 = phi i8 [ 50, %65 ], [ 50, %67 ], [ %72, %69 ]
   %.5119 = phi i64 [ %.2116, %65 ], [ %68, %67 ], [ %71, %69 ]
-  %74 = icmp ne ptr %.0105240, null
-  %75 = icmp sgt i32 %.0130236, 1
+  %74 = icmp ne ptr %.0105242, null
+  %75 = icmp sgt i32 %.0130238, 1
   %or.cond5 = select i1 %74, i1 %75, i1 false
   br i1 %or.cond5, label %76, label %79
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %.0105240, i64 1
-  store i8 %.0144, ptr %.0105240, align 1, !tbaa !24
+  %77 = getelementptr inbounds nuw i8, ptr %.0105242, i64 1
+  store i8 %.0144, ptr %.0105242, align 1, !tbaa !24
   store i8 48, ptr %77, align 1, !tbaa !24
-  %78 = add nsw i32 %.0130236, -1
+  %78 = add nsw i32 %.0130238, -1
   br label %79
 
 79:                                               ; preds = %76, %73
-  %.2132 = phi i32 [ %78, %76 ], [ %.0130236, %73 ]
-  %.2107 = phi ptr [ %77, %76 ], [ %.0105240, %73 ]
-  %80 = add nsw i32 %.0140234, 1
+  %.2132 = phi i32 [ %78, %76 ], [ %.0130238, %73 ]
+  %.2107 = phi ptr [ %77, %76 ], [ %.0105242, %73 ]
+  %80 = add nsw i32 %.0140236, 1
   br label %81
 
 81:                                               ; preds = %79, %61
-  %.1141 = phi i32 [ %80, %79 ], [ %.0140234, %61 ]
-  %.1131 = phi i32 [ %.2132, %79 ], [ %.0130236, %61 ]
+  %.1141 = phi i32 [ %80, %79 ], [ %.0140236, %61 ]
+  %.1131 = phi i32 [ %.2132, %79 ], [ %.0130238, %61 ]
   %.4118 = phi i64 [ %.5119, %79 ], [ %.2116, %61 ]
-  %.1106 = phi ptr [ %.2107, %79 ], [ %.0105240, %61 ]
+  %.1106 = phi ptr [ %.2107, %79 ], [ %.0105242, %61 ]
   br i1 %.not158, label %104, label %82
 
 82:                                               ; preds = %81
-  %83 = call ptr @BN_bn2dec(ptr noundef %.1121223) #10
+  %83 = call ptr @BN_bn2dec(ptr noundef %.1121225) #10
   %.not170 = icmp eq ptr %83, null
-  br i1 %.not170, label %.thread189, label %84
+  br i1 %.not170, label %.thread191, label %84
 
 84:                                               ; preds = %82
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #12
   %86 = trunc i64 %85 to i32
   %.not171 = icmp eq ptr %.1106, null
-  br i1 %.not171, label %.thread205, label %87
+  br i1 %.not171, label %.thread207, label %87
 
 87:                                               ; preds = %84
   %88 = icmp sgt i32 %.1131, 1
@@ -2302,16 +2302,16 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds i8, ptr %.5, i64 %93
-  br label %.thread205
+  br label %.thread207
 
 98:                                               ; preds = %92
   %sext172 = shl i64 %85, 32
   %99 = ashr exact i64 %sext172, 32
   %100 = getelementptr inbounds i8, ptr %.5, i64 %99
   %101 = sub nsw i32 %.5135, %86
-  br label %.thread205
+  br label %.thread207
 
-.thread205:                                       ; preds = %84, %98, %96
+.thread207:                                       ; preds = %84, %98, %96
   %.4134 = phi i32 [ 0, %96 ], [ %101, %98 ], [ %.1131, %84 ]
   %.4 = phi ptr [ %97, %96 ], [ %100, %98 ], [ null, %84 ]
   %102 = add nsw i32 %.1141, 1
@@ -2351,26 +2351,26 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %121 = add nsw i32 %.1141, %107
   br label %122
 
-122:                                              ; preds = %.thread205, %120
-  %.3143 = phi i32 [ %121, %120 ], [ %103, %.thread205 ]
-  %.6136 = phi i32 [ %.7137, %120 ], [ %.4134, %.thread205 ]
-  %.6 = phi ptr [ %.7, %120 ], [ %.4, %.thread205 ]
+122:                                              ; preds = %.thread207, %120
+  %.3143 = phi i32 [ %121, %120 ], [ %103, %.thread207 ]
+  %.6136 = phi i32 [ %.7137, %120 ], [ %.4134, %.thread207 ]
+  %.6 = phi ptr [ %.7, %120 ], [ %.4, %.thread207 ]
   %123 = icmp sgt i32 %36, 0
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %122, %.thread180
-  %.0140.lcssa = phi i32 [ 0, %.thread180 ], [ %.3143, %122 ]
-  %.0120.lcssa = phi ptr [ null, %.thread180 ], [ %.1121223, %122 ]
+._crit_edge:                                      ; preds = %122, %.thread182
+  %.0140.lcssa = phi i32 [ 0, %.thread182 ], [ %.3143, %122 ]
+  %.0120.lcssa = phi ptr [ null, %.thread182 ], [ %.1121225, %122 ]
   call void @BN_free(ptr noundef %.0120.lcssa) #10
   br label %124
 
-.thread189:                                       ; preds = %82, %65, %.preheader, %57, %41, %49, %51, %.thread183
-  %.2122196 = phi ptr [ %.2122, %57 ], [ %.1121223, %41 ], [ null, %49 ], [ %.4124, %51 ], [ %.3123188, %.thread183 ], [ %.0120238, %.preheader ], [ %.1121223, %65 ], [ %.1121223, %82 ]
-  call void @BN_free(ptr noundef %.2122196) #10
+.thread191:                                       ; preds = %82, %65, %.preheader, %57, %41, %49, %51, %.thread185
+  %.2122198 = phi ptr [ %.2122, %57 ], [ %.1121225, %41 ], [ null, %49 ], [ %.4124, %51 ], [ %.3123190, %.thread185 ], [ %.0120240, %.preheader ], [ %.1121225, %65 ], [ %.1121225, %82 ]
+  call void @BN_free(ptr noundef %.2122198) #10
   br label %124
 
-124:                                              ; preds = %26, %9, %11, %.thread189, %._crit_edge
-  %.0 = phi i32 [ -1, %.thread189 ], [ %.0140.lcssa, %._crit_edge ], [ %28, %26 ], [ 0, %11 ], [ 0, %9 ]
+124:                                              ; preds = %26, %9, %11, %.thread191, %._crit_edge
+  %.0 = phi i32 [ -1, %.thread191 ], [ %.0140.lcssa, %._crit_edge ], [ %28, %26 ], [ 0, %11 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

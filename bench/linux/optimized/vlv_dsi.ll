@@ -281,16 +281,16 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %97 = and i16 %96, %95
   store i16 %97, ptr %76, align 8
   %.pre = load i16, ptr %75, align 8
-  %.pre21 = zext i16 %.pre to i32
-  %.pre22 = xor i32 %.pre21, -1
+  %.pre22 = zext i16 %.pre to i32
+  %.pre23 = xor i32 %.pre22, -1
   br label %98
 
 98:                                               ; preds = %93, %60
-  %.pre-phi23 = phi i32 [ %.pre22, %93 ], [ %80, %60 ]
+  %.pre-phi24 = phi i32 [ %.pre23, %93 ], [ %80, %60 ]
   %99 = getelementptr inbounds nuw i8, ptr %22, i64 2266
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
-  %102 = and i32 %.pre-phi23, %101
+  %102 = and i32 %.pre-phi24, %101
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %119, label %104, !prof !11
 

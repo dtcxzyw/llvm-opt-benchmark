@@ -1267,27 +1267,27 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %106, %H5FD__onion_g
 
 206:                                              ; preds = %201
   %207 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8, !tbaa !10
-  br label %H5FD__onion_get_legit_fapl_id.exit325
+  br label %H5FD__onion_get_legit_fapl_id.exit326
 
 208:                                              ; preds = %201
   %209 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !10
   %210 = tail call i32 @H5P_isa_class(i64 noundef %204, i64 noundef %209) #18
   %211 = icmp eq i32 %210, 1
-  br i1 %211, label %H5FD__onion_get_legit_fapl_id.exit325, label %H5FD__onion_get_legit_fapl_id.exit325.thread
+  br i1 %211, label %H5FD__onion_get_legit_fapl_id.exit326, label %H5FD__onion_get_legit_fapl_id.exit326.thread
 
-H5FD__onion_get_legit_fapl_id.exit325:            ; preds = %208, %206
-  %.0.i324 = phi i64 [ %207, %206 ], [ %204, %208 ]
-  %212 = icmp eq i64 %.0.i324, -1
-  br i1 %212, label %H5FD__onion_get_legit_fapl_id.exit325.thread, label %216
+H5FD__onion_get_legit_fapl_id.exit326:            ; preds = %208, %206
+  %.0.i325 = phi i64 [ %207, %206 ], [ %204, %208 ]
+  %212 = icmp eq i64 %.0.i325, -1
+  br i1 %212, label %H5FD__onion_get_legit_fapl_id.exit326.thread, label %216
 
-H5FD__onion_get_legit_fapl_id.exit325.thread:     ; preds = %208, %H5FD__onion_get_legit_fapl_id.exit325
+H5FD__onion_get_legit_fapl_id.exit326.thread:     ; preds = %208, %H5FD__onion_get_legit_fapl_id.exit326
   %213 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %214 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %215 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_open, i32 noundef 1051, i64 noundef %213, i64 noundef %214, ptr noundef nonnull @.str.42) #18
   br label %.thread
 
-216:                                              ; preds = %H5FD__onion_get_legit_fapl_id.exit325
-  %217 = tail call i32 @H5FD_open(i1 noundef zeroext false, ptr noundef nonnull %164, ptr noundef nonnull %72, i32 noundef 19, i64 noundef %.0.i324, i64 noundef %3) #18
+216:                                              ; preds = %H5FD__onion_get_legit_fapl_id.exit326
+  %217 = tail call i32 @H5FD_open(i1 noundef zeroext false, ptr noundef nonnull %164, ptr noundef nonnull %72, i32 noundef 19, i64 noundef %.0.i325, i64 noundef %3) #18
   %218 = icmp slt i32 %217, 0
   br i1 %218, label %219, label %223
 
@@ -1498,8 +1498,8 @@ H5FD__onion_get_legit_fapl_id.exit325.thread:     ; preds = %208, %H5FD__onion_g
   %352 = load i64, ptr %351, align 8, !tbaa !68
   %353 = icmp ule i64 %350, %352
   %.not310 = icmp eq i64 %350, -1
-  %or.cond321 = or i1 %.not310, %353
-  br i1 %or.cond321, label %358, label %354
+  %or.cond322 = or i1 %.not310, %353
+  br i1 %or.cond322, label %358, label %354
 
 354:                                              ; preds = %348
   %355 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
@@ -1590,8 +1590,8 @@ H5FD__onion_get_legit_fapl_id.exit325.thread:     ; preds = %208, %H5FD__onion_g
   %405 = load i64, ptr %404, align 8, !tbaa !69
   %406 = getelementptr inbounds nuw i8, ptr %63, i64 624
   %407 = load i64, ptr %406, align 8, !tbaa !60
-  %.322 = tail call i64 @llvm.umax.i64(i64 %405, i64 %407)
-  store i64 %.322, ptr %406, align 8, !tbaa !60
+  %.323 = tail call i64 @llvm.umax.i64(i64 %405, i64 %407)
+  store i64 %.323, ptr %406, align 8, !tbaa !60
   %408 = getelementptr inbounds nuw i8, ptr %63, i64 616
   store i64 0, ptr %408, align 8, !tbaa !74
   %409 = getelementptr inbounds nuw i8, ptr %63, i64 392
@@ -1615,14 +1615,14 @@ H5FD__onion_get_legit_fapl_id.exit325.thread:     ; preds = %208, %H5FD__onion_g
   store i64 %423, ptr %412, align 8, !tbaa !38
   br label %.thread
 
-.thread:                                          ; preds = %289, %266, %258, %250, %242, %235, %228, %219, %H5FD__onion_get_legit_fapl_id.exit325.thread, %197, %189, %400, %416, %391, %378, %369, %354, %344, %332, %320, %312, %304, %296, %167, %159, %149, %126, %H5FD__onion_get_legit_fapl_id.exit.thread, %95, %84, %74, %65, %58, %51, %44, %37, %27, %20, %14
-  %.0262 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ %63, %74 ], [ %63, %84 ], [ %63, %95 ], [ %63, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %63, %126 ], [ %63, %149 ], [ %63, %391 ], [ %63, %159 ], [ %63, %167 ], [ %63, %304 ], [ %63, %312 ], [ %63, %320 ], [ %63, %332 ], [ %63, %344 ], [ %63, %354 ], [ %63, %378 ], [ %63, %369 ], [ %63, %296 ], [ null, %14 ], [ %63, %416 ], [ %63, %400 ], [ %63, %189 ], [ %63, %197 ], [ %63, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %63, %219 ], [ %63, %228 ], [ %63, %235 ], [ %63, %242 ], [ %63, %250 ], [ %63, %258 ], [ %63, %266 ], [ %63, %289 ]
-  %.0260 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ %.1261, %58 ], [ %.1261, %65 ], [ %.1261, %74 ], [ %.1261, %84 ], [ %.1261, %95 ], [ %.1261, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1261, %126 ], [ %.1261, %149 ], [ %.1261, %391 ], [ %.1261, %159 ], [ %.1261, %167 ], [ %.1261, %304 ], [ %.1261, %312 ], [ %.1261, %320 ], [ %.1261, %332 ], [ %.1261, %344 ], [ %.1261, %354 ], [ %.1261, %378 ], [ %.1261, %369 ], [ %.1261, %296 ], [ null, %14 ], [ %.1261, %416 ], [ %.1261, %400 ], [ %.1261, %189 ], [ %.1261, %197 ], [ %.1261, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %.1261, %219 ], [ %.1261, %228 ], [ %.1261, %235 ], [ %.1261, %242 ], [ %.1261, %250 ], [ %.1261, %258 ], [ %.1261, %266 ], [ %.1261, %289 ]
-  %.0258 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ %42, %51 ], [ %.1259, %58 ], [ %.1259, %65 ], [ %.1259, %74 ], [ %.1259, %84 ], [ %.1259, %95 ], [ %.1259, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1259, %126 ], [ %.1259, %149 ], [ %.1259, %391 ], [ %.1259, %159 ], [ %.1259, %167 ], [ %.1259, %304 ], [ %.1259, %312 ], [ %.1259, %320 ], [ %.1259, %332 ], [ %.1259, %344 ], [ %.1259, %354 ], [ %.1259, %378 ], [ %.1259, %369 ], [ %.1259, %296 ], [ null, %14 ], [ %.1259, %416 ], [ %.1259, %400 ], [ %.1259, %189 ], [ %.1259, %197 ], [ %.1259, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %.1259, %219 ], [ %.1259, %228 ], [ %.1259, %235 ], [ %.1259, %242 ], [ %.1259, %250 ], [ %.1259, %258 ], [ %.1259, %266 ], [ %.1259, %289 ]
-  %.0256 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ %35, %44 ], [ %35, %51 ], [ %.1257, %58 ], [ %.1257, %65 ], [ %.1257, %74 ], [ %.1257, %84 ], [ %.1257, %95 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1257, %126 ], [ %.1257, %149 ], [ %.1257, %391 ], [ %.1257, %159 ], [ %.1257, %167 ], [ %.1257, %304 ], [ %.1257, %312 ], [ %.1257, %320 ], [ %.1257, %332 ], [ %.1257, %344 ], [ %.1257, %354 ], [ %.1257, %378 ], [ %.1257, %369 ], [ %.1257, %296 ], [ null, %14 ], [ %.1257, %416 ], [ %.1257, %400 ], [ %.1257, %189 ], [ %.1257, %197 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %.1257, %219 ], [ %.1257, %228 ], [ %.1257, %235 ], [ %.1257, %242 ], [ %.1257, %250 ], [ %.1257, %258 ], [ %.1257, %266 ], [ %.1257, %289 ]
-  %.0255 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ %72, %84 ], [ %72, %95 ], [ %72, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %72, %126 ], [ %72, %149 ], [ %72, %391 ], [ %72, %159 ], [ %72, %167 ], [ %72, %304 ], [ %72, %312 ], [ %72, %320 ], [ %72, %332 ], [ %72, %344 ], [ %72, %354 ], [ %72, %378 ], [ %72, %369 ], [ %72, %296 ], [ null, %14 ], [ %72, %416 ], [ %72, %400 ], [ %72, %189 ], [ %72, %197 ], [ %72, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %72, %219 ], [ %72, %228 ], [ %72, %235 ], [ %72, %242 ], [ %72, %250 ], [ %72, %258 ], [ %72, %266 ], [ %72, %289 ]
-  %.0254 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ null, %84 ], [ %82, %95 ], [ %82, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %82, %126 ], [ %82, %149 ], [ %82, %391 ], [ %82, %159 ], [ %82, %167 ], [ %82, %304 ], [ %82, %312 ], [ %82, %320 ], [ %82, %332 ], [ %82, %344 ], [ %82, %354 ], [ %82, %378 ], [ %82, %369 ], [ %82, %296 ], [ null, %14 ], [ %82, %416 ], [ %82, %400 ], [ %82, %189 ], [ %82, %197 ], [ %82, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ %82, %219 ], [ %82, %228 ], [ %82, %235 ], [ %82, %242 ], [ %82, %250 ], [ %82, %258 ], [ %82, %266 ], [ %82, %289 ]
-  %.1 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ null, %84 ], [ null, %95 ], [ null, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ null, %126 ], [ null, %149 ], [ null, %391 ], [ null, %159 ], [ null, %167 ], [ null, %304 ], [ null, %312 ], [ null, %320 ], [ null, %332 ], [ null, %344 ], [ null, %354 ], [ null, %378 ], [ null, %369 ], [ null, %296 ], [ null, %14 ], [ %63, %416 ], [ %63, %400 ], [ null, %189 ], [ null, %197 ], [ null, %H5FD__onion_get_legit_fapl_id.exit325.thread ], [ null, %219 ], [ null, %228 ], [ null, %235 ], [ null, %242 ], [ null, %250 ], [ null, %258 ], [ null, %266 ], [ null, %289 ]
+.thread:                                          ; preds = %289, %266, %258, %250, %242, %235, %228, %219, %H5FD__onion_get_legit_fapl_id.exit326.thread, %197, %189, %400, %416, %391, %378, %369, %354, %344, %332, %320, %312, %304, %296, %167, %159, %149, %126, %H5FD__onion_get_legit_fapl_id.exit.thread, %95, %84, %74, %65, %58, %51, %44, %37, %27, %20, %14
+  %.0262 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ %63, %74 ], [ %63, %84 ], [ %63, %95 ], [ %63, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %63, %126 ], [ %63, %149 ], [ %63, %391 ], [ %63, %159 ], [ %63, %167 ], [ %63, %304 ], [ %63, %312 ], [ %63, %320 ], [ %63, %332 ], [ %63, %344 ], [ %63, %354 ], [ %63, %378 ], [ %63, %369 ], [ %63, %296 ], [ null, %14 ], [ %63, %416 ], [ %63, %400 ], [ %63, %189 ], [ %63, %197 ], [ %63, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %63, %219 ], [ %63, %228 ], [ %63, %235 ], [ %63, %242 ], [ %63, %250 ], [ %63, %258 ], [ %63, %266 ], [ %63, %289 ]
+  %.0260 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ %.1261, %58 ], [ %.1261, %65 ], [ %.1261, %74 ], [ %.1261, %84 ], [ %.1261, %95 ], [ %.1261, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1261, %126 ], [ %.1261, %149 ], [ %.1261, %391 ], [ %.1261, %159 ], [ %.1261, %167 ], [ %.1261, %304 ], [ %.1261, %312 ], [ %.1261, %320 ], [ %.1261, %332 ], [ %.1261, %344 ], [ %.1261, %354 ], [ %.1261, %378 ], [ %.1261, %369 ], [ %.1261, %296 ], [ null, %14 ], [ %.1261, %416 ], [ %.1261, %400 ], [ %.1261, %189 ], [ %.1261, %197 ], [ %.1261, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %.1261, %219 ], [ %.1261, %228 ], [ %.1261, %235 ], [ %.1261, %242 ], [ %.1261, %250 ], [ %.1261, %258 ], [ %.1261, %266 ], [ %.1261, %289 ]
+  %.0258 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ %42, %51 ], [ %.1259, %58 ], [ %.1259, %65 ], [ %.1259, %74 ], [ %.1259, %84 ], [ %.1259, %95 ], [ %.1259, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1259, %126 ], [ %.1259, %149 ], [ %.1259, %391 ], [ %.1259, %159 ], [ %.1259, %167 ], [ %.1259, %304 ], [ %.1259, %312 ], [ %.1259, %320 ], [ %.1259, %332 ], [ %.1259, %344 ], [ %.1259, %354 ], [ %.1259, %378 ], [ %.1259, %369 ], [ %.1259, %296 ], [ null, %14 ], [ %.1259, %416 ], [ %.1259, %400 ], [ %.1259, %189 ], [ %.1259, %197 ], [ %.1259, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %.1259, %219 ], [ %.1259, %228 ], [ %.1259, %235 ], [ %.1259, %242 ], [ %.1259, %250 ], [ %.1259, %258 ], [ %.1259, %266 ], [ %.1259, %289 ]
+  %.0256 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ %35, %44 ], [ %35, %51 ], [ %.1257, %58 ], [ %.1257, %65 ], [ %.1257, %74 ], [ %.1257, %84 ], [ %.1257, %95 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %.1257, %126 ], [ %.1257, %149 ], [ %.1257, %391 ], [ %.1257, %159 ], [ %.1257, %167 ], [ %.1257, %304 ], [ %.1257, %312 ], [ %.1257, %320 ], [ %.1257, %332 ], [ %.1257, %344 ], [ %.1257, %354 ], [ %.1257, %378 ], [ %.1257, %369 ], [ %.1257, %296 ], [ null, %14 ], [ %.1257, %416 ], [ %.1257, %400 ], [ %.1257, %189 ], [ %.1257, %197 ], [ %.1257, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %.1257, %219 ], [ %.1257, %228 ], [ %.1257, %235 ], [ %.1257, %242 ], [ %.1257, %250 ], [ %.1257, %258 ], [ %.1257, %266 ], [ %.1257, %289 ]
+  %.0255 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ %72, %84 ], [ %72, %95 ], [ %72, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %72, %126 ], [ %72, %149 ], [ %72, %391 ], [ %72, %159 ], [ %72, %167 ], [ %72, %304 ], [ %72, %312 ], [ %72, %320 ], [ %72, %332 ], [ %72, %344 ], [ %72, %354 ], [ %72, %378 ], [ %72, %369 ], [ %72, %296 ], [ null, %14 ], [ %72, %416 ], [ %72, %400 ], [ %72, %189 ], [ %72, %197 ], [ %72, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %72, %219 ], [ %72, %228 ], [ %72, %235 ], [ %72, %242 ], [ %72, %250 ], [ %72, %258 ], [ %72, %266 ], [ %72, %289 ]
+  %.0254 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ null, %84 ], [ %82, %95 ], [ %82, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ %82, %126 ], [ %82, %149 ], [ %82, %391 ], [ %82, %159 ], [ %82, %167 ], [ %82, %304 ], [ %82, %312 ], [ %82, %320 ], [ %82, %332 ], [ %82, %344 ], [ %82, %354 ], [ %82, %378 ], [ %82, %369 ], [ %82, %296 ], [ null, %14 ], [ %82, %416 ], [ %82, %400 ], [ %82, %189 ], [ %82, %197 ], [ %82, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ %82, %219 ], [ %82, %228 ], [ %82, %235 ], [ %82, %242 ], [ %82, %250 ], [ %82, %258 ], [ %82, %266 ], [ %82, %289 ]
+  %.1 = phi ptr [ null, %20 ], [ null, %27 ], [ null, %37 ], [ null, %44 ], [ null, %51 ], [ null, %58 ], [ null, %65 ], [ null, %74 ], [ null, %84 ], [ null, %95 ], [ null, %H5FD__onion_get_legit_fapl_id.exit.thread ], [ null, %126 ], [ null, %149 ], [ null, %391 ], [ null, %159 ], [ null, %167 ], [ null, %304 ], [ null, %312 ], [ null, %320 ], [ null, %332 ], [ null, %344 ], [ null, %354 ], [ null, %378 ], [ null, %369 ], [ null, %296 ], [ null, %14 ], [ %63, %416 ], [ %63, %400 ], [ null, %189 ], [ null, %197 ], [ null, %H5FD__onion_get_legit_fapl_id.exit326.thread ], [ null, %219 ], [ null, %228 ], [ null, %235 ], [ null, %242 ], [ null, %250 ], [ null, %258 ], [ null, %266 ], [ null, %289 ]
   %424 = tail call ptr @H5MM_xfree(ptr noundef %.0255) #18
   %425 = tail call ptr @H5MM_xfree(ptr noundef %.0254) #18
   %426 = icmp ne ptr %.0256, null
@@ -1740,8 +1740,8 @@ H5FD__onion_get_legit_fapl_id.exit325.thread:     ; preds = %208, %H5FD__onion_g
   br label %494
 
 494:                                              ; preds = %4, %492
-  %.0263 = phi ptr [ %.1, %492 ], [ null, %4 ]
-  ret ptr %.0263
+  %.0252 = phi ptr [ %.1, %492 ], [ null, %4 ]
+  ret ptr %.0252
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1897,32 +1897,32 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %104
 
 104:                                              ; preds = %104, %102
-  %.0136168.i = phi ptr [ %48, %102 ], [ %106, %104 ]
-  %.0138167.i = phi i64 [ 0, %102 ], [ %107, %104 ]
-  %.0140166.i = phi i64 [ %63, %102 ], [ %108, %104 ]
-  %105 = trunc i64 %.0140166.i to i8
-  %106 = getelementptr inbounds nuw i8, ptr %.0136168.i, i64 1
-  store i8 %105, ptr %.0136168.i, align 1, !tbaa !41
-  %107 = add nuw nsw i64 %.0138167.i, 1
-  %108 = lshr i64 %.0140166.i, 8
-  %exitcond173.not.i = icmp eq i64 %107, 8
-  br i1 %exitcond173.not.i, label %109, label %104, !llvm.loop !86
+  %.0136171.i = phi ptr [ %48, %102 ], [ %106, %104 ]
+  %.0138170.i = phi i64 [ 0, %102 ], [ %107, %104 ]
+  %.0140169.i = phi i64 [ %63, %102 ], [ %108, %104 ]
+  %105 = trunc i64 %.0140169.i to i8
+  %106 = getelementptr inbounds nuw i8, ptr %.0136171.i, i64 1
+  store i8 %105, ptr %.0136171.i, align 1, !tbaa !41
+  %107 = add nuw nsw i64 %.0138170.i, 1
+  %108 = lshr i64 %.0140169.i, 8
+  %exitcond176.not.i = icmp eq i64 %107, 8
+  br i1 %exitcond176.not.i, label %109, label %104, !llvm.loop !86
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %48, i64 8
   br label %111
 
 111:                                              ; preds = %111, %109
-  %.0131171.i = phi ptr [ %110, %109 ], [ %113, %111 ]
-  %.0133170.i = phi i64 [ 0, %109 ], [ %114, %111 ]
-  %.0135169.i = phi i64 [ %55, %109 ], [ %115, %111 ]
-  %112 = trunc i64 %.0135169.i to i8
-  %113 = getelementptr inbounds nuw i8, ptr %.0131171.i, i64 1
-  store i8 %112, ptr %.0131171.i, align 1, !tbaa !41
-  %114 = add nuw nsw i64 %.0133170.i, 1
-  %115 = lshr i64 %.0135169.i, 8
-  %exitcond174.not.i = icmp eq i64 %114, 8
-  br i1 %exitcond174.not.i, label %.thread.i, label %111, !llvm.loop !88
+  %.0131174.i = phi ptr [ %110, %109 ], [ %113, %111 ]
+  %.0133173.i = phi i64 [ 0, %109 ], [ %114, %111 ]
+  %.0135172.i = phi i64 [ %55, %109 ], [ %115, %111 ]
+  %112 = trunc i64 %.0135172.i to i8
+  %113 = getelementptr inbounds nuw i8, ptr %.0131174.i, i64 1
+  store i8 %112, ptr %.0131174.i, align 1, !tbaa !41
+  %114 = add nuw nsw i64 %.0133173.i, 1
+  %115 = lshr i64 %.0135172.i, 8
+  %exitcond177.not.i = icmp eq i64 %114, 8
+  br i1 %exitcond177.not.i, label %.thread.i, label %111, !llvm.loop !88
 
 .thread.i:                                        ; preds = %111
   %116 = call i32 @H5_checksum_fletcher32(ptr noundef nonnull %48, i64 noundef 16) #18
@@ -1962,14 +1962,14 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %138
 
 138:                                              ; preds = %138, %131
-  %.0124162.i = phi ptr [ %48, %131 ], [ %140, %138 ]
-  %.0126161.i = phi i64 [ 0, %131 ], [ %141, %138 ]
-  %.0128160.i = phi i64 [ %63, %131 ], [ %142, %138 ]
-  %139 = trunc i64 %.0128160.i to i8
-  %140 = getelementptr inbounds nuw i8, ptr %.0124162.i, i64 1
-  store i8 %139, ptr %.0124162.i, align 1, !tbaa !41
-  %141 = add nuw nsw i64 %.0126161.i, 1
-  %142 = lshr i64 %.0128160.i, 8
+  %.0124165.i = phi ptr [ %48, %131 ], [ %140, %138 ]
+  %.0126164.i = phi i64 [ 0, %131 ], [ %141, %138 ]
+  %.0128163.i = phi i64 [ %63, %131 ], [ %142, %138 ]
+  %139 = trunc i64 %.0128163.i to i8
+  %140 = getelementptr inbounds nuw i8, ptr %.0124165.i, i64 1
+  store i8 %139, ptr %.0124165.i, align 1, !tbaa !41
+  %141 = add nuw nsw i64 %.0126164.i, 1
+  %142 = lshr i64 %.0128163.i, 8
   %exitcond.not.i = icmp eq i64 %141, 8
   br i1 %exitcond.not.i, label %143, label %138, !llvm.loop !90
 
@@ -1978,18 +1978,18 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %145
 
 145:                                              ; preds = %145, %143
-  %.0165.i = phi ptr [ %144, %143 ], [ %147, %145 ]
-  %.0121164.i = phi i64 [ 0, %143 ], [ %148, %145 ]
-  %.0123163.i = phi i64 [ %55, %143 ], [ %149, %145 ]
-  %146 = trunc i64 %.0123163.i to i8
-  %147 = getelementptr inbounds nuw i8, ptr %.0165.i, i64 1
-  store i8 %146, ptr %.0165.i, align 1, !tbaa !41
-  %148 = add nuw nsw i64 %.0121164.i, 1
-  %149 = lshr i64 %.0123163.i, 8
-  %exitcond172.not.i = icmp eq i64 %148, 8
-  br i1 %exitcond172.not.i, label %.thread157.i, label %145, !llvm.loop !91
+  %.0168.i = phi ptr [ %144, %143 ], [ %147, %145 ]
+  %.0121167.i = phi i64 [ 0, %143 ], [ %148, %145 ]
+  %.0123166.i = phi i64 [ %55, %143 ], [ %149, %145 ]
+  %146 = trunc i64 %.0123166.i to i8
+  %147 = getelementptr inbounds nuw i8, ptr %.0168.i, i64 1
+  store i8 %146, ptr %.0168.i, align 1, !tbaa !41
+  %148 = add nuw nsw i64 %.0121167.i, 1
+  %149 = lshr i64 %.0123166.i, 8
+  %exitcond175.not.i = icmp eq i64 %148, 8
+  br i1 %exitcond175.not.i, label %.thread160.i, label %145, !llvm.loop !91
 
-.thread157.i:                                     ; preds = %145
+.thread160.i:                                     ; preds = %145
   %150 = call i32 @H5_checksum_fletcher32(ptr noundef nonnull %48, i64 noundef 16) #18
   %151 = load ptr, ptr %132, align 8, !tbaa !82
   %152 = load i64, ptr %95, align 8, !tbaa !63
@@ -2010,7 +2010,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %162 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_commit_new_revision_record, i32 noundef 507, i64 noundef %160, i64 noundef %161, ptr noundef nonnull @.str.114) #18
   br label %.critedge
 
-H5FD__onion_commit_new_revision_record.exit:      ; preds = %.thread157.i, %.thread.i
+H5FD__onion_commit_new_revision_record.exit:      ; preds = %.thread160.i, %.thread.i
   %163 = load i64, ptr %62, align 8, !tbaa !38
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 %163, ptr %164, align 8, !tbaa !66
@@ -3065,15 +3065,15 @@ H5FD__onion_remove_unused_symbols.exit:           ; preds = %42, %32
   %118 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 873, i64 noundef %116, i64 noundef %117, ptr noundef nonnull @.str.85) #18
   br label %.thread
 
-.thread:                                          ; preds = %45, %96, %28, %108, %115, %112, %.loopexit, %10
+.thread:                                          ; preds = %45, %96, %28, %.loopexit, %108, %115, %112, %10
   %.067 = phi ptr [ null, %10 ], [ %.168, %.loopexit ], [ %.168, %112 ], [ %.168, %115 ], [ %.168, %108 ], [ null, %28 ], [ %26, %96 ], [ %26, %45 ]
   %.166 = phi i32 [ -1, %10 ], [ 0, %.loopexit ], [ 0, %112 ], [ -1, %115 ], [ -1, %108 ], [ -1, %28 ], [ -1, %96 ], [ -1, %45 ]
   tail call void @free(ptr noundef %.067) #18
   br label %119
 
 119:                                              ; preds = %2, %.thread
-  %.0 = phi i32 [ %.166, %.thread ], [ 0, %2 ]
-  ret i32 %.0
+  %.065 = phi i32 [ %.166, %.thread ], [ 0, %2 ]
+  ret i32 %.065
 }
 
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1

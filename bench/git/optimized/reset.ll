@@ -544,8 +544,8 @@ parse_args.exit:                                  ; preds = %sub_042.i, %sub_143
 206:                                              ; preds = %204
   %207 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %208 = call i32 @repo_get_oid(ptr noundef %207, ptr noundef nonnull @.str.31, ptr noundef nonnull %18) #13
-  %.not117 = icmp eq i32 %208, 0
-  br i1 %.not117, label %.thread, label %209
+  %.not118 = icmp eq i32 %208, 0
+  br i1 %.not118, label %.thread, label %209
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -656,7 +656,7 @@ parse_args.exit:                                  ; preds = %sub_042.i, %sub_143
   %260 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %260, label %265 [
     i32 0, label %261
-    i32 5, label %.thread98
+    i32 5, label %.thread99
   ]
 
 261:                                              ; preds = %259
@@ -669,8 +669,8 @@ parse_args.exit:                                  ; preds = %sub_042.i, %sub_143
   br label %_.exit
 
 _.exit:                                           ; preds = %261, %263
-  %.0.i77 = phi ptr [ %264, %263 ], [ @.str.38, %261 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i77) #13
+  %.0.i78 = phi ptr [ %264, %263 ], [ @.str.38, %261 ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i78) #13
   br label %272
 
 265:                                              ; preds = %259
@@ -686,14 +686,14 @@ _.exit:                                           ; preds = %261, %263
 272:                                              ; preds = %_.exit, %257
   %.pr = load i32, ptr %12, align 4, !tbaa !4
   %273 = icmp eq i32 %.pr, 5
-  br i1 %273, label %.thread98, label %274
+  br i1 %273, label %.thread99, label %274
 
-.thread98:                                        ; preds = %259, %272
+.thread99:                                        ; preds = %259, %272
   store i32 0, ptr %12, align 4, !tbaa !4
   br label %274
 
-274:                                              ; preds = %.thread98, %272
-  %275 = phi i32 [ 0, %.thread98 ], [ %.pr, %272 ]
+274:                                              ; preds = %.thread99, %272
+  %275 = phi i32 [ 0, %.thread99 ], [ %.pr, %272 ]
   %276 = load i32, ptr %19, align 8, !tbaa !24
   %.not60 = icmp eq i32 %276, 0
   br i1 %.not60, label %278, label %277
@@ -712,7 +712,7 @@ _.exit:                                           ; preds = %261, %263
 282:                                              ; preds = %278, %277
   %283 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %283, label %287 [
-    i32 1, label %.thread101
+    i32 1, label %.thread102
     i32 0, label %284
   ]
 
@@ -727,19 +727,19 @@ _.exit:                                           ; preds = %261, %263
   br label %288
 
 288:                                              ; preds = %287, %284
-  %.pr100 = load i32, ptr %12, align 4, !tbaa !4
-  %289 = icmp eq i32 %.pr100, 0
-  br i1 %289, label %290, label %.thread101
+  %.pr101 = load i32, ptr %12, align 4, !tbaa !4
+  %289 = icmp eq i32 %.pr101, 0
+  br i1 %289, label %290, label %.thread102
 
 290:                                              ; preds = %288
   %291 = call i32 @is_bare_repository() #13
   %.not64 = icmp eq i32 %291, 0
-  br i1 %.not64, label %..thread101_crit_edge, label %293
+  br i1 %.not64, label %..thread102_crit_edge, label %293
 
-..thread101_crit_edge:                            ; preds = %290
+..thread102_crit_edge:                            ; preds = %290
   %.pre = load i32, ptr %12, align 4
   %292 = icmp ne i32 %.pre, 0
-  br label %.thread101
+  br label %.thread102
 
 293:                                              ; preds = %290
   %294 = call fastcc ptr @_(ptr noundef nonnull @.str.41)
@@ -751,19 +751,19 @@ _.exit:                                           ; preds = %261, %263
   call void (ptr, ...) @die(ptr noundef %294, ptr noundef %299) #14
   unreachable
 
-.thread101:                                       ; preds = %..thread101_crit_edge, %282, %288
-  %300 = phi i1 [ %292, %..thread101_crit_edge ], [ true, %282 ], [ true, %288 ]
+.thread102:                                       ; preds = %..thread102_crit_edge, %282, %288
+  %300 = phi i1 [ %292, %..thread102_crit_edge ], [ true, %282 ], [ true, %288 ]
   %301 = load i32, ptr %20, align 4, !tbaa !4
   %302 = icmp ne i32 %301, 0
   %or.cond3 = select i1 %302, i1 %300, i1 false
   br i1 %or.cond3, label %303, label %305
 
-303:                                              ; preds = %.thread101
+303:                                              ; preds = %.thread102
   %304 = call fastcc ptr @_(ptr noundef nonnull @.str.29)
   call void (ptr, ...) @die(ptr noundef %304, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #14
   unreachable
 
-305:                                              ; preds = %.thread101
+305:                                              ; preds = %.thread102
   %306 = load ptr, ptr @the_repository, align 8, !tbaa !22
   call void @prepare_repo_settings(ptr noundef %306) #13
   %307 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -810,8 +810,8 @@ _.exit:                                           ; preds = %261, %263
   unreachable
 
 die_if_unmerged_cache.exit:                       ; preds = %319
-  %.pr102 = load i32, ptr %12, align 4, !tbaa !4
-  %.not65 = icmp eq i32 %.pr102, 1
+  %.pr103 = load i32, ptr %12, align 4, !tbaa !4
+  %.not65 = icmp eq i32 %.pr103, 1
   br i1 %.not65, label %425, label %die_if_unmerged_cache.exit.thread
 
 die_if_unmerged_cache.exit.thread:                ; preds = %313, %die_if_unmerged_cache.exit
@@ -852,15 +852,15 @@ die_if_unmerged_cache.exit.thread:                ; preds = %313, %die_if_unmerg
   %347 = getelementptr inbounds nuw i8, ptr %10, i64 496
   store ptr @diff_addremove, ptr %347, align 8, !tbaa !67
   %348 = load i32, ptr %19, align 8, !tbaa !24
-  %.not.i78 = icmp eq i32 %348, 0
-  br i1 %.not.i78, label %357, label %349
+  %.not.i79 = icmp eq i32 %348, 0
+  br i1 %.not.i79, label %357, label %349
 
 349:                                              ; preds = %334
   %350 = getelementptr inbounds nuw i8, ptr %344, i64 384
   %351 = load ptr, ptr %350, align 8, !tbaa !51
   %352 = call i32 @pathspec_needs_expanded_index(ptr noundef %351, ptr noundef nonnull %19) #13
-  %.not4.i79 = icmp eq i32 %352, 0
-  br i1 %.not4.i79, label %357, label %353
+  %.not4.i80 = icmp eq i32 %352, 0
+  br i1 %.not4.i80, label %357, label %353
 
 353:                                              ; preds = %349
   %354 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -888,12 +888,12 @@ die_if_unmerged_cache.exit.thread:                ; preds = %313, %die_if_unmerg
   store i8 %365, ptr %363, align 8
   %366 = load i32, ptr %14, align 4, !tbaa !4
   %.not71 = icmp eq i32 %366, 0
-  br i1 %.not71, label %367, label %.thread108
+  br i1 %.not71, label %367, label %.thread109
 
 367:                                              ; preds = %359
   %368 = call ptr @repo_get_work_tree(ptr noundef nonnull %360) #13
   %.not72 = icmp eq ptr %368, null
-  br i1 %.not72, label %.thread108, label %369
+  br i1 %.not72, label %.thread109, label %369
 
 369:                                              ; preds = %367
   %370 = call i64 @getnanotime() #13
@@ -901,45 +901,45 @@ die_if_unmerged_cache.exit.thread:                ; preds = %313, %die_if_unmerg
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 384
   %373 = load ptr, ptr %372, align 8, !tbaa !51
   %374 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i81 = icmp eq i32 %374, 0
-  br i1 %.not4.i81, label %_.exit83, label %375
+  %.not4.i82 = icmp eq i32 %374, 0
+  br i1 %.not4.i82, label %_.exit84, label %375
 
 375:                                              ; preds = %369
   %376 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef 5) #13
-  br label %_.exit83
+  br label %_.exit84
 
-_.exit83:                                         ; preds = %369, %375
-  %.0.i82 = phi ptr [ %376, %375 ], [ @.str.45, %369 ]
-  %377 = call i32 @refresh_index(ptr noundef %373, i32 noundef %336, ptr noundef null, ptr noundef null, ptr noundef %.0.i82) #13
+_.exit84:                                         ; preds = %369, %375
+  %.0.i83 = phi ptr [ %376, %375 ], [ @.str.45, %369 ]
+  %377 = call i32 @refresh_index(ptr noundef %373, i32 noundef %336, ptr noundef null, ptr noundef null, ptr noundef %.0.i83) #13
   %378 = call i64 @getnanotime() #13
   %379 = sub i64 %378, %370
   %380 = udiv i64 %379, 1000000
   %381 = load i32, ptr %13, align 4, !tbaa !4
   %.not73 = icmp eq i32 %381, 0
-  br i1 %.not73, label %382, label %.thread108
+  br i1 %.not73, label %382, label %.thread109
 
-382:                                              ; preds = %_.exit83
+382:                                              ; preds = %_.exit84
   %383 = call i32 @advice_enabled(i32 noundef 29) #13
   %384 = icmp ne i32 %383, 0
   %385 = icmp ugt i64 %379, 2000999999
   %or.cond7 = select i1 %384, i1 %385, i1 false
-  br i1 %or.cond7, label %386, label %.thread108
+  br i1 %or.cond7, label %386, label %.thread109
 
 386:                                              ; preds = %382
   %387 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i84 = icmp eq i32 %387, 0
-  br i1 %.not4.i84, label %_.exit86, label %388
+  %.not4.i85 = icmp eq i32 %387, 0
+  br i1 %.not4.i85, label %_.exit87, label %388
 
 388:                                              ; preds = %386
   %389 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #13
-  br label %_.exit86
+  br label %_.exit87
 
-_.exit86:                                         ; preds = %386, %388
-  %.0.i85 = phi ptr [ %389, %388 ], [ @.str.46, %386 ]
+_.exit87:                                         ; preds = %386, %388
+  %.0.i86 = phi ptr [ %389, %388 ], [ @.str.46, %386 ]
   %390 = uitofp nneg i64 %380 to double
   %391 = fdiv double %390, 1.000000e+03
-  call void (ptr, ...) @advise(ptr noundef %.0.i85, double noundef %391) #13
-  br label %.thread108
+  call void (ptr, ...) @advise(ptr noundef %.0.i86, double noundef %391) #13
+  br label %.thread109
 
 392:                                              ; preds = %die_if_unmerged_cache.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -956,16 +956,16 @@ _.exit86:                                         ; preds = %386, %388
 398:                                              ; preds = %392
   %399 = call i32 @starts_with(ptr noundef nonnull %397, ptr noundef nonnull @.str.47) #13
   %.not67 = icmp eq i32 %399, 0
-  %.pre118 = load ptr, ptr %24, align 8, !tbaa !8
+  %.pre119 = load ptr, ptr %24, align 8, !tbaa !8
   br i1 %.not67, label %400, label %401
 
 400:                                              ; preds = %398
-  call void @free(ptr noundef %.pre118) #13
+  call void @free(ptr noundef %.pre119) #13
   store ptr null, ptr %24, align 8, !tbaa !8
   br label %401
 
 401:                                              ; preds = %400, %398, %392
-  %402 = phi ptr [ null, %400 ], [ %.pre118, %398 ], [ null, %392 ]
+  %402 = phi ptr [ null, %400 ], [ %.pre119, %398 ], [ null, %392 ]
   %403 = load i32, ptr %12, align 4, !tbaa !4
   %404 = load i32, ptr %13, align 4, !tbaa !4
   %405 = call fastcc i32 @reset_index(ptr noundef %402, ptr noundef %18, i32 noundef %403, i32 noundef %404)
@@ -996,21 +996,21 @@ _.exit86:                                         ; preds = %386, %388
   call void @free(ptr noundef %417) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.thread108
+  br label %.thread109
 
-.thread108:                                       ; preds = %359, %367, %_.exit86, %382, %_.exit83, %416
+.thread109:                                       ; preds = %359, %367, %_.exit87, %382, %_.exit84, %416
   %418 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 384
   %420 = load ptr, ptr %419, align 8, !tbaa !51
   %421 = call i32 @write_locked_index(ptr noundef %420, ptr noundef nonnull %22, i32 noundef 1) #13
   %.not74 = icmp eq i32 %421, 0
-  br i1 %.not74, label %.thread112, label %422
+  br i1 %.not74, label %.thread113, label %422
 
-.thread112:                                       ; preds = %.thread108
+.thread113:                                       ; preds = %.thread109
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %425
 
-422:                                              ; preds = %.thread108
+422:                                              ; preds = %.thread109
   %423 = call fastcc ptr @_(ptr noundef nonnull @.str.49)
   call void (ptr, ...) @die(ptr noundef %423) #14
   unreachable
@@ -1021,7 +1021,7 @@ _.exit86:                                         ; preds = %386, %388
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %491
 
-425:                                              ; preds = %.thread112, %die_if_unmerged_cache.exit
+425:                                              ; preds = %.thread113, %die_if_unmerged_cache.exit
   %426 = load i32, ptr %19, align 8, !tbaa !24
   %427 = icmp ne i32 %426, 0
   %or.cond11 = or i1 %245, %427
@@ -1115,7 +1115,7 @@ reset_refs.exit:                                  ; preds = %453, %454
   %462 = load i32, ptr %13, align 4
   %463 = icmp ne i32 %462, 0
   %or.cond15 = select i1 %or.cond13, i1 true, i1 %463
-  br i1 %or.cond15, label %thread-pre-split115, label %464
+  br i1 %or.cond15, label %thread-pre-split116, label %464
 
 464:                                              ; preds = %reset_refs.exit
   %465 = load ptr, ptr @the_repository, align 8, !tbaa !22
@@ -1140,8 +1140,8 @@ _.exit.i:                                         ; preds = %468, %464
   call void @pp_commit_easy(i32 noundef 5, ptr noundef %466, ptr noundef nonnull %5) #13
   %475 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %476 = load i64, ptr %475, align 8, !tbaa !68
-  %.not.i87 = icmp eq i64 %476, 0
-  br i1 %.not.i87, label %print_new_head_line.exit, label %477
+  %.not.i88 = icmp eq i64 %476, 0
+  br i1 %.not.i88, label %print_new_head_line.exit, label %477
 
 477:                                              ; preds = %_.exit.i
   %478 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1154,16 +1154,16 @@ print_new_head_line.exit:                         ; preds = %_.exit.i, %477
   %482 = call i32 @putc(i32 noundef 10, ptr noundef %481)
   call void @strbuf_release(ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %thread-pre-split115
+  br label %thread-pre-split116
 
-thread-pre-split115:                              ; preds = %print_new_head_line.exit, %reset_refs.exit
+thread-pre-split116:                              ; preds = %print_new_head_line.exit, %reset_refs.exit
   %.5.ph = phi i32 [ 0, %print_new_head_line.exit ], [ %458, %reset_refs.exit ]
-  %.pr116 = load i32, ptr %19, align 8, !tbaa !24
+  %.pr117 = load i32, ptr %19, align 8, !tbaa !24
   br label %483
 
-483:                                              ; preds = %thread-pre-split115, %425
-  %484 = phi i32 [ %.pr116, %thread-pre-split115 ], [ %426, %425 ]
-  %.5 = phi i32 [ %.5.ph, %thread-pre-split115 ], [ 0, %425 ]
+483:                                              ; preds = %thread-pre-split116, %425
+  %484 = phi i32 [ %.pr117, %thread-pre-split116 ], [ %426, %425 ]
+  %.5 = phi i32 [ %.5.ph, %thread-pre-split116 ], [ 0, %425 ]
   %.not75 = icmp eq i32 %484, 0
   br i1 %.not75, label %485, label %487
 
@@ -1179,7 +1179,7 @@ thread-pre-split115:                              ; preds = %print_new_head_line
   call void @discard_index(ptr noundef %490) #13
   br label %491
 
-491:                                              ; preds = %252, %487, %424
+491:                                              ; preds = %424, %487, %252
   %.039 = phi i32 [ %256, %252 ], [ %.5, %487 ], [ 1, %424 ]
   call void @clear_pathspec(ptr noundef nonnull %19) #13
   %492 = load ptr, ptr %17, align 8, !tbaa !8

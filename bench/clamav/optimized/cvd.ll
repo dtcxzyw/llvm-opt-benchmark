@@ -1815,7 +1815,7 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr noundef captures(n
 
 11:                                               ; preds = %2
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.38, ptr noundef %0) #19
-  br label %.thread75
+  br label %.thread76
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1860,7 +1860,7 @@ cvdgetfileage.exit:                               ; preds = %20, %30
   %.0.i = phi i32 [ 8, %20 ], [ %22, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread75
+  br label %.thread76
 
 32:                                               ; preds = %12
   %33 = tail call ptr @opendir(ptr noundef %0)
@@ -1869,7 +1869,7 @@ cvdgetfileage.exit:                               ; preds = %20, %30
 
 35:                                               ; preds = %32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.39, ptr noundef %0) #19
-  br label %.thread75
+  br label %.thread76
 
 36:                                               ; preds = %32
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -1880,8 +1880,8 @@ sub_0:                                            ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1
-  %.not97 = icmp eq i8 %40, 47
-  br i1 %.not97, label %.tail, label %.tail.thread
+  %.not99 = icmp eq i8 %40, 47
+  br i1 %.not99, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %41 = load i8, ptr %38, align 1
@@ -1895,8 +1895,8 @@ sub_0:                                            ; preds = %36
 .tail.thread:                                     ; preds = %sub_0, %.tail, %43, %36
   %.035 = phi ptr [ @.str.45, %43 ], [ @.str.46, %.tail ], [ @.str.46, %36 ], [ @.str.46, %sub_0 ]
   %44 = tail call ptr @readdir(ptr noundef nonnull %33) #19
-  %.not4595 = icmp eq ptr %44, null
-  br i1 %.not4595, label %.thread79, label %.lr.ph
+  %.not4597 = icmp eq ptr %44, null
+  br i1 %.not4597, label %.thread81, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.tail.thread
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1904,65 +1904,65 @@ sub_0:                                            ; preds = %36
 
 46:                                               ; preds = %.lr.ph, %80
   %47 = phi ptr [ %44, %.lr.ph ], [ %81, %80 ]
-  %.03196 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
+  %.03198 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %48 = load i64, ptr %47, align 8, !tbaa !69
   %.not46 = icmp eq i64 %48, 0
-  br i1 %.not46, label %80, label %sub_086
+  br i1 %.not46, label %80, label %sub_088
 
-sub_086:                                          ; preds = %46
+sub_088:                                          ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 19
   %50 = load i8, ptr %49, align 1
-  %.not98 = icmp eq i8 %50, 46
-  br i1 %.not98, label %.tail85, label %.tail89.thread
+  %.not100 = icmp eq i8 %50, 46
+  br i1 %.not100, label %.tail87, label %.tail91.thread
 
-.tail85:                                          ; preds = %sub_086
+.tail87:                                          ; preds = %sub_088
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %80, label %sub_191
+  br i1 %53, label %80, label %sub_193
 
-sub_191:                                          ; preds = %.tail85
+sub_193:                                          ; preds = %.tail87
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %55 = load i8, ptr %54, align 1
-  %.not100 = icmp eq i8 %55, 46
-  br i1 %.not100, label %.tail89, label %.tail89.thread
+  %.not102 = icmp eq i8 %55, 46
+  br i1 %.not102, label %.tail91, label %.tail91.thread
 
-.tail89:                                          ; preds = %sub_191
+.tail91:                                          ; preds = %sub_193
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 21
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %80, label %.tail89.thread
+  br i1 %58, label %80, label %.tail91.thread
 
-.tail89.thread:                                   ; preds = %sub_086, %sub_191, %.tail89
+.tail91.thread:                                   ; preds = %sub_088, %sub_193, %.tail91
   %59 = call i32 @cli_strbcasestr(ptr noundef nonnull %49, ptr noundef nonnull @.str.44) #19
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %60, label %62
 
-60:                                               ; preds = %.tail89.thread
+60:                                               ; preds = %.tail91.thread
   %61 = call i32 @cli_strbcasestr(ptr noundef nonnull %49, ptr noundef nonnull @.str.18) #19
   %.not50 = icmp eq i32 %61, 0
   br i1 %.not50, label %80, label %62
 
-62:                                               ; preds = %60, %.tail89.thread
+62:                                               ; preds = %60, %.tail91.thread
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1023, ptr noundef nonnull %.035, ptr noundef nonnull %0, ptr noundef nonnull %49) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = call noalias ptr @fopen(ptr noundef nonnull %8, ptr noundef nonnull @.str.12)
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %cvdgetfileage.exit57.thread, label %66
+  br i1 %65, label %cvdgetfileage.exit58.thread, label %66
 
-cvdgetfileage.exit57.thread:                      ; preds = %62
+cvdgetfileage.exit58.thread:                      ; preds = %62
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %8) #19
   br label %82
 
 66:                                               ; preds = %62
   %67 = call fastcc i32 @cli_cvdverify(ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef 1)
-  %.not.i53 = icmp eq i32 %67, 0
-  br i1 %.not.i53, label %69, label %cvdgetfileage.exit57
+  %.not.i54 = icmp eq i32 %67, 0
+  br i1 %.not.i54, label %69, label %cvdgetfileage.exit58
 
-cvdgetfileage.exit57:                             ; preds = %66
+cvdgetfileage.exit58:                             ; preds = %66
   %68 = call i32 @fclose(ptr noundef nonnull %64)
   br label %82
 
@@ -1973,46 +1973,46 @@ cvdgetfileage.exit57:                             ; preds = %66
   %73 = load i64, ptr %4, align 8, !tbaa !44
   %74 = icmp slt i64 %73, %72
   %75 = sub nsw i64 %73, %72
-  %.sink.i56 = select i1 %74, i64 0, i64 %75
+  %.sink.i57 = select i1 %74, i64 0, i64 %75
   %76 = call i32 @fclose(ptr noundef nonnull %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.03196, label %79, label %77
+  br i1 %.03198, label %79, label %77
 
 77:                                               ; preds = %69
   %78 = load i64, ptr %1, align 8, !tbaa !44
-  %. = call i64 @llvm.smin.i64(i64 %.sink.i56, i64 %78)
+  %. = call i64 @llvm.smin.i64(i64 %.sink.i57, i64 %78)
   br label %79
 
 79:                                               ; preds = %69, %77
-  %storemerge = phi i64 [ %., %77 ], [ %.sink.i56, %69 ]
+  %storemerge = phi i64 [ %., %77 ], [ %.sink.i57, %69 ]
   store i64 %storemerge, ptr %1, align 8, !tbaa !44
   br label %80
 
-80:                                               ; preds = %60, %.tail85, %.tail89, %46, %79
-  %.132 = phi i1 [ false, %79 ], [ %.03196, %46 ], [ %.03196, %.tail89 ], [ %.03196, %.tail85 ], [ %.03196, %60 ]
+80:                                               ; preds = %60, %.tail87, %.tail91, %46, %79
+  %.132 = phi i1 [ false, %79 ], [ %.03198, %46 ], [ %.03198, %.tail91 ], [ %.03198, %.tail87 ], [ %.03198, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = call ptr @readdir(ptr noundef nonnull %33) #19
   %.not45 = icmp eq ptr %81, null
-  br i1 %.not45, label %.thread79, label %46
+  br i1 %.not45, label %.thread81, label %46
 
-82:                                               ; preds = %cvdgetfileage.exit57.thread, %cvdgetfileage.exit57
-  %.0.i5466 = phi i32 [ 8, %cvdgetfileage.exit57.thread ], [ %67, %cvdgetfileage.exit57 ]
+82:                                               ; preds = %cvdgetfileage.exit58.thread, %cvdgetfileage.exit58
+  %.0.i5567 = phi i32 [ 8, %cvdgetfileage.exit58.thread ], [ %67, %cvdgetfileage.exit58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread79
+  br label %.thread81
 
-.thread79:                                        ; preds = %80, %.tail.thread, %82
-  %.03084 = phi i32 [ %.0.i5466, %82 ], [ 0, %.tail.thread ], [ 0, %80 ]
+.thread81:                                        ; preds = %80, %.tail.thread, %82
+  %.03086 = phi i32 [ %.0.i5567, %82 ], [ 0, %.tail.thread ], [ 0, %80 ]
   %83 = call i32 @closedir(ptr noundef nonnull %33)
-  br label %.thread75
+  br label %.thread76
 
-.thread75:                                        ; preds = %cvdgetfileage.exit, %35, %11, %.thread79
-  %.036 = phi i32 [ %.03084, %.thread79 ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
+.thread76:                                        ; preds = %cvdgetfileage.exit, %35, %11, %.thread81
+  %.03080 = phi i32 [ %.03086, %.thread81 ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.036
+  ret i32 %.03080
 }
 
 ; Function Attrs: nofree nounwind

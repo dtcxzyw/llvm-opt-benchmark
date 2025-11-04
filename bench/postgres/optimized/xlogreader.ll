@@ -1887,23 +1887,23 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   store i32 -1, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
   %15 = add i32 %14, -24
-  %.not446 = icmp eq i32 %15, 0
+  %.not450 = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br i1 %.not446, label %._crit_edge443.thread, label %.lr.ph434.preheader
+  br i1 %.not450, label %._crit_edge447.thread, label %.lr.ph438.preheader
 
-.lr.ph434.preheader:                              ; preds = %5
+.lr.ph438.preheader:                              ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %.lr.ph434
+  br label %.lr.ph438
 
-.lr.ph434:                                        ; preds = %.lr.ph434.preheader, %207
-  %18 = phi i32 [ %208, %207 ], [ -1, %.lr.ph434.preheader ]
-  %.0238432 = phi ptr [ %.8, %207 ], [ %17, %.lr.ph434.preheader ]
-  %.0244431 = phi i32 [ %.8252, %207 ], [ %15, %.lr.ph434.preheader ]
-  %.0253430 = phi i32 [ %.6259, %207 ], [ 0, %.lr.ph434.preheader ]
-  %.0260429 = phi ptr [ %.3263, %207 ], [ null, %.lr.ph434.preheader ]
-  %.0.copyload78 = load i8, ptr %.0238432, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.0238432, i64 1
-  %20 = add i32 %.0244431, -1
+.lr.ph438:                                        ; preds = %.lr.ph438.preheader, %207
+  %18 = phi i32 [ %208, %207 ], [ -1, %.lr.ph438.preheader ]
+  %.0238436 = phi ptr [ %.8, %207 ], [ %17, %.lr.ph438.preheader ]
+  %.0244435 = phi i32 [ %.8252, %207 ], [ %15, %.lr.ph438.preheader ]
+  %.0253434 = phi i32 [ %.6259, %207 ], [ 0, %.lr.ph438.preheader ]
+  %.0260433 = phi ptr [ %.3263, %207 ], [ null, %.lr.ph438.preheader ]
+  %.0.copyload78 = load i8, ptr %.0238436, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0238436, i64 1
+  %20 = add i32 %.0244435, -1
   %21 = zext i8 %.0.copyload78 to i32
   switch i8 %.0.copyload78, label %45 [
     i8 -1, label %22
@@ -1912,64 +1912,64 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
     i8 -4, label %39
   ]
 
-22:                                               ; preds = %.lr.ph434
+22:                                               ; preds = %.lr.ph438
   %23 = icmp eq i32 %20, 0
-  br i1 %23, label %.thread313, label %.thread
+  br i1 %23, label %.thread317, label %.thread
 
 .thread:                                          ; preds = %22
   %.0.copyload75 = load i8, ptr %19, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.0238432, i64 2
-  %25 = add i32 %.0244431, -2
+  %24 = getelementptr inbounds nuw i8, ptr %.0238436, i64 2
+  %25 = add i32 %.0244435, -2
   %26 = zext i8 %.0.copyload75 to i32
   store i32 %26, ptr %12, align 8
-  %27 = add i32 %.0253430, %26
+  %27 = add i32 %.0253434, %26
   br label %.loopexit
 
-28:                                               ; preds = %.lr.ph434
-  %29 = icmp ult i32 %.0244431, 5
-  br i1 %29, label %.thread313, label %.thread306
+28:                                               ; preds = %.lr.ph438
+  %29 = icmp ult i32 %.0244435, 5
+  br i1 %29, label %.thread317, label %.thread310
 
-.thread306:                                       ; preds = %28
+.thread310:                                       ; preds = %28
   %.0.copyload69 = load i32, ptr %19, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %.0238432, i64 5
-  %31 = add i32 %.0244431, -5
+  %30 = getelementptr inbounds nuw i8, ptr %.0238436, i64 5
+  %31 = add i32 %.0244435, -5
   store i32 %.0.copyload69, ptr %12, align 8
-  %32 = add i32 %.0.copyload69, %.0253430
+  %32 = add i32 %.0.copyload69, %.0253434
   br label %.loopexit
 
-33:                                               ; preds = %.lr.ph434
-  %34 = icmp ult i32 %.0244431, 3
-  br i1 %34, label %.thread313, label %35
+33:                                               ; preds = %.lr.ph438
+  %34 = icmp ult i32 %.0244435, 3
+  br i1 %34, label %.thread317, label %35
 
 35:                                               ; preds = %33
   %36 = load i16, ptr %19, align 1
   store i16 %36, ptr %9, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.0238432, i64 3
-  %38 = add i32 %.0244431, -3
+  %37 = getelementptr inbounds nuw i8, ptr %.0238436, i64 3
+  %38 = add i32 %.0244435, -3
   br label %207
 
-39:                                               ; preds = %.lr.ph434
-  %40 = icmp ult i32 %.0244431, 5
-  br i1 %40, label %.thread313, label %41
+39:                                               ; preds = %.lr.ph438
+  %40 = icmp ult i32 %.0244435, 5
+  br i1 %40, label %.thread317, label %41
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %19, align 1
   store i32 %42, ptr %10, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %.0238432, i64 5
-  %44 = add i32 %.0244431, -5
+  %43 = getelementptr inbounds nuw i8, ptr %.0238436, i64 5
+  %44 = add i32 %.0244435, -5
   br label %207
 
-45:                                               ; preds = %.lr.ph434
+45:                                               ; preds = %.lr.ph438
   %46 = icmp ult i8 %.0.copyload78, 33
   br i1 %46, label %47, label %201
 
 47:                                               ; preds = %45
-  %.0268426 = add nsw i32 %18, 1
-  %48 = icmp slt i32 %.0268426, %21
+  %.0268430 = add nsw i32 %18, 1
+  %48 = icmp slt i32 %.0268430, %21
   br i1 %48, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %47
-  %49 = zext nneg i32 %.0268426 to i64
+  %49 = zext nneg i32 %.0268430 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
@@ -1992,7 +1992,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %53 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %21, i32 noundef %55, i32 noundef %56)
-  br label %.thread320
+  br label %.thread324
 
 57:                                               ; preds = %._crit_edge
   store i32 %21, ptr %13, align 4
@@ -2002,7 +2002,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 30
   store i8 0, ptr %60, align 2
   %61 = icmp eq i32 %20, 0
-  br i1 %61, label %.thread313, label %62
+  br i1 %61, label %.thread317, label %62
 
 62:                                               ; preds = %57
   %.0.copyload = load i8, ptr %19, align 1
@@ -2022,23 +2022,23 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   store i8 %.lobit284, ptr %69, align 1
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i32 0, ptr %71, align 8
-  %72 = and i32 %.0244431, -2
+  %72 = and i32 %.0244435, -2
   %73 = icmp eq i32 %72, 2
-  br i1 %73, label %.thread313, label %74
+  br i1 %73, label %.thread317, label %74
 
 74:                                               ; preds = %62
-  %75 = getelementptr inbounds nuw i8, ptr %.0238432, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.0238436, i64 2
   %76 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %77 = load i16, ptr %75, align 1
   store i16 %77, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.0238432, i64 4
-  %79 = add i32 %.0244431, -4
+  %78 = getelementptr inbounds nuw i8, ptr %.0238436, i64 4
+  %79 = add i32 %.0244435, -4
   %80 = trunc i8 %70 to i1
   %81 = icmp eq i16 %77, 0
   br i1 %80, label %82, label %89
 
 82:                                               ; preds = %74
-  br i1 %81, label %83, label %.thread311
+  br i1 %81, label %83, label %.thread315
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2047,10 +2047,10 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %87 = trunc nuw i64 %86 to i32
   %88 = trunc i64 %85 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %87, i32 noundef %88)
-  br label %.thread320
+  br label %.thread324
 
 89:                                               ; preds = %74
-  br i1 %81, label %.thread311, label %90
+  br i1 %81, label %.thread315, label %90
 
 90:                                               ; preds = %89
   %91 = zext i16 %77 to i32
@@ -2060,40 +2060,40 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %95 = trunc nuw i64 %94 to i32
   %96 = trunc i64 %93 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %91, i32 noundef %95, i32 noundef %96)
-  br label %.thread320
+  br label %.thread324
 
-.thread311:                                       ; preds = %82, %89
+.thread315:                                       ; preds = %82, %89
   %97 = zext i16 %77 to i32
-  %98 = add i32 %.0253430, %97
+  %98 = add i32 %.0253434, %97
   %99 = trunc i8 %68 to i1
   br i1 %99, label %100, label %177
 
-100:                                              ; preds = %.thread311
+100:                                              ; preds = %.thread315
   %101 = icmp ult i32 %79, 2
-  br i1 %101, label %.thread313, label %102
+  br i1 %101, label %.thread317, label %102
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %59, i64 44
   %104 = load i16, ptr %78, align 1
   store i16 %104, ptr %103, align 4
   %105 = icmp eq i32 %72, 6
-  br i1 %105, label %.thread313, label %106
+  br i1 %105, label %.thread317, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw i8, ptr %.0238432, i64 6
+  %107 = getelementptr inbounds nuw i8, ptr %.0238436, i64 6
   %108 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %109 = load i16, ptr %107, align 1
   store i16 %109, ptr %108, align 8
-  %110 = icmp eq i32 %.0244431, 8
-  br i1 %110, label %.thread313, label %111
+  %110 = icmp eq i32 %.0244435, 8
+  br i1 %110, label %.thread317, label %111
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %.0238432, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0238436, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %59, i64 46
   %114 = load i8, ptr %112, align 1
   store i8 %114, ptr %113, align 2
-  %115 = getelementptr inbounds nuw i8, ptr %.0238432, i64 9
-  %116 = add i32 %.0244431, -9
+  %115 = getelementptr inbounds nuw i8, ptr %.0238436, i64 9
+  %116 = add i32 %.0244435, -9
   %117 = lshr i8 %114, 1
   %.lobit286 = and i8 %117, 1
   store i8 %.lobit286, ptr %60, align 2
@@ -2109,14 +2109,14 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
 
 122:                                              ; preds = %120
   %123 = icmp ult i32 %116, 2
-  br i1 %123, label %.thread313, label %124
+  br i1 %123, label %.thread317, label %124
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds nuw i8, ptr %59, i64 42
   %126 = load i16, ptr %115, align 1
   store i16 %126, ptr %125, align 2
-  %127 = getelementptr inbounds nuw i8, ptr %.0238432, i64 11
-  %128 = add i32 %.0244431, -11
+  %127 = getelementptr inbounds nuw i8, ptr %.0238436, i64 11
+  %128 = add i32 %.0244435, -11
   br label %134
 
 129:                                              ; preds = %120
@@ -2148,7 +2148,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %141 = icmp eq i16 %135, 0
   %142 = icmp eq i16 %104, 8192
   %or.cond = select i1 %141, i1 true, i1 %142
-  br i1 %or.cond, label %143, label %.thread550
+  br i1 %or.cond, label %143, label %.thread554
 
 143:                                              ; preds = %140, %139
   %144 = zext i16 %109 to i32
@@ -2159,12 +2159,12 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %149 = trunc nuw i64 %148 to i32
   %150 = trunc i64 %147 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %144, i32 noundef %145, i32 noundef %136, i32 noundef %149, i32 noundef %150)
-  br label %.thread320
+  br label %.thread324
 
 151:                                              ; preds = %134
   %.not292 = icmp eq i16 %135, 0
-  %or.cond676 = select i1 %.not291, i1 %.not292, i1 false
-  br i1 %or.cond676, label %160, label %152
+  %or.cond680 = select i1 %.not291, i1 %.not292, i1 false
+  br i1 %or.cond680, label %160, label %152
 
 152:                                              ; preds = %151
   %153 = zext i16 %109 to i32
@@ -2175,14 +2175,14 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %158 = trunc nuw i64 %157 to i32
   %159 = trunc i64 %156 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %153, i32 noundef %154, i32 noundef %158, i32 noundef %159)
-  br label %.thread320
+  br label %.thread324
 
 160:                                              ; preds = %151
   %161 = and i8 %114, 28
   %.not293 = icmp ne i8 %161, 0
   %162 = icmp eq i16 %104, 8192
-  %or.cond326 = select i1 %.not293, i1 %162, i1 false
-  br i1 %or.cond326, label %163, label %.thread550
+  %or.cond330 = select i1 %.not293, i1 %162, i1 false
+  br i1 %or.cond330, label %163, label %.thread554
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2191,34 +2191,34 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %167 = trunc nuw i64 %166 to i32
   %168 = trunc i64 %165 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef 8192, i32 noundef %167, i32 noundef %168)
-  br label %.thread320
+  br label %.thread324
 
-.thread550:                                       ; preds = %140, %160
+.thread554:                                       ; preds = %140, %160
   %169 = phi i1 [ %162, %160 ], [ false, %140 ]
   %170 = and i8 %114, 29
-  %or.cond301 = icmp ne i8 %170, 0
-  %or.cond327 = select i1 %or.cond301, i1 true, i1 %169
-  br i1 %or.cond327, label %177, label %171
+  %or.cond304 = icmp ne i8 %170, 0
+  %or.cond331 = select i1 %or.cond304, i1 true, i1 %169
+  br i1 %or.cond331, label %177, label %171
 
-171:                                              ; preds = %.thread550
+171:                                              ; preds = %.thread554
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %173 = load i64, ptr %172, align 8
   %174 = lshr i64 %173, 32
   %175 = trunc nuw i64 %174 to i32
   %176 = trunc i64 %173 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %97, i32 noundef %175, i32 noundef %176)
-  br label %.thread320
+  br label %.thread324
 
-177:                                              ; preds = %.thread550, %.thread311
-  %.5258 = phi i32 [ %137, %.thread550 ], [ %98, %.thread311 ]
-  %.5249 = phi i32 [ %.6250, %.thread550 ], [ %79, %.thread311 ]
-  %.5 = phi ptr [ %.6, %.thread550 ], [ %78, %.thread311 ]
+177:                                              ; preds = %.thread554, %.thread315
+  %.5258 = phi i32 [ %137, %.thread554 ], [ %98, %.thread315 ]
+  %.5249 = phi i32 [ %.6250, %.thread554 ], [ %79, %.thread315 ]
+  %.5 = phi ptr [ %.6, %.thread554 ], [ %78, %.thread315 ]
   %.not297 = icmp sgt i8 %.0.copyload, -1
   br i1 %.not297, label %178, label %184
 
 178:                                              ; preds = %177
   %179 = icmp ult i32 %.5249, 12
-  br i1 %179, label %.thread313, label %180
+  br i1 %179, label %.thread317, label %180
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -2228,7 +2228,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   br label %194
 
 184:                                              ; preds = %177
-  %185 = icmp eq ptr %.0260429, null
+  %185 = icmp eq ptr %.0260433, null
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %184
@@ -2238,19 +2238,19 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %190 = trunc nuw i64 %189 to i32
   %191 = trunc i64 %188 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %190, i32 noundef %191)
-  br label %.thread320
+  br label %.thread324
 
 192:                                              ; preds = %184
   %193 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %193, ptr noundef nonnull align 4 dereferenceable(12) %.0260429, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %193, ptr noundef nonnull align 4 dereferenceable(12) %.0260433, i64 12, i1 false)
   br label %194
 
 194:                                              ; preds = %180, %192
-  %.2262 = phi ptr [ %.0260429, %192 ], [ %181, %180 ]
+  %.2262 = phi ptr [ %.0260433, %192 ], [ %181, %180 ]
   %.7251 = phi i32 [ %.5249, %192 ], [ %183, %180 ]
   %.7 = phi ptr [ %.5, %192 ], [ %182, %180 ]
   %195 = icmp ult i32 %.7251, 4
-  br i1 %195, label %.thread313, label %196
+  br i1 %195, label %.thread317, label %196
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %59, i64 20
@@ -2267,25 +2267,25 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %205 = trunc nuw i64 %204 to i32
   %206 = trunc i64 %203 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %21, i32 noundef %205, i32 noundef %206)
-  br label %.thread320
+  br label %.thread324
 
 207:                                              ; preds = %196, %41, %35
   %208 = phi i32 [ %18, %35 ], [ %18, %41 ], [ %21, %196 ]
-  %.3263 = phi ptr [ %.0260429, %35 ], [ %.0260429, %41 ], [ %.2262, %196 ]
-  %.6259 = phi i32 [ %.0253430, %35 ], [ %.0253430, %41 ], [ %.5258, %196 ]
+  %.3263 = phi ptr [ %.0260433, %35 ], [ %.0260433, %41 ], [ %.2262, %196 ]
+  %.6259 = phi i32 [ %.0253434, %35 ], [ %.0253434, %41 ], [ %.5258, %196 ]
   %.8252 = phi i32 [ %38, %35 ], [ %44, %41 ], [ %200, %196 ]
   %.8 = phi ptr [ %37, %35 ], [ %43, %41 ], [ %199, %196 ]
   %209 = icmp ugt i32 %.8252, %.6259
-  br i1 %209, label %.lr.ph434, label %.loopexit, !llvm.loop !14
+  br i1 %209, label %.lr.ph438, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %207, %.thread306, %.thread
-  %210 = phi i32 [ %26, %.thread ], [ %.0.copyload69, %.thread306 ], [ 0, %207 ]
-  %211 = phi i32 [ %18, %.thread ], [ %18, %.thread306 ], [ %208, %207 ]
-  %.1254 = phi i32 [ %27, %.thread ], [ %32, %.thread306 ], [ %.6259, %207 ]
-  %.1245 = phi i32 [ %25, %.thread ], [ %31, %.thread306 ], [ %.8252, %207 ]
-  %.1 = phi ptr [ %24, %.thread ], [ %30, %.thread306 ], [ %.8, %207 ]
+.loopexit:                                        ; preds = %207, %.thread310, %.thread
+  %210 = phi i32 [ %26, %.thread ], [ %.0.copyload69, %.thread310 ], [ 0, %207 ]
+  %211 = phi i32 [ %18, %.thread ], [ %18, %.thread310 ], [ %208, %207 ]
+  %.1254 = phi i32 [ %27, %.thread ], [ %32, %.thread310 ], [ %.6259, %207 ]
+  %.1245 = phi i32 [ %25, %.thread ], [ %31, %.thread310 ], [ %.8252, %207 ]
+  %.1 = phi ptr [ %24, %.thread ], [ %30, %.thread310 ], [ %.8, %207 ]
   %.not298 = icmp eq i32 %.1245, %.1254
-  br i1 %.not298, label %212, label %.thread313
+  br i1 %.not298, label %212, label %.thread317
 
 212:                                              ; preds = %.loopexit
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2293,20 +2293,20 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %215 = zext nneg i32 %214 to i64
   %216 = shl nuw nsw i64 %215, 6
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 %216
-  %.not299437 = icmp slt i32 %211, 0
-  br i1 %.not299437, label %._crit_edge443, label %.lr.ph442
+  %.not299441 = icmp slt i32 %211, 0
+  br i1 %.not299441, label %._crit_edge447, label %.lr.ph446
 
-.lr.ph442:                                        ; preds = %212, %252
-  %.9440 = phi ptr [ %.10, %252 ], [ %.1, %212 ]
-  %.0239439 = phi ptr [ %.1240, %252 ], [ %217, %212 ]
-  %.0264438 = phi i8 [ %253, %252 ], [ 0, %212 ]
-  %218 = zext i8 %.0264438 to i64
+.lr.ph446:                                        ; preds = %212, %252
+  %.9444 = phi ptr [ %.10, %252 ], [ %.1, %212 ]
+  %.0239443 = phi ptr [ %.1240, %252 ], [ %217, %212 ]
+  %.0264442 = phi i8 [ %253, %252 ], [ 0, %212 ]
+  %218 = zext i8 %.0264442 to i64
   %219 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %213, i64 %218
   %220 = load i8, ptr %219, align 8, !range !4, !noundef !5
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %252
 
-222:                                              ; preds = %.lr.ph442
+222:                                              ; preds = %.lr.ph446
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 29
   %224 = load i8, ptr %223, align 1, !range !4, !noundef !5
   %225 = trunc nuw i8 %224 to i1
@@ -2314,20 +2314,20 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
 
 226:                                              ; preds = %222
   %227 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  store ptr %.0239439, ptr %227, align 8
+  store ptr %.0239443, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %219, i64 44
   %229 = load i16, ptr %228, align 4
   %230 = zext i16 %229 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0239439, ptr align 1 %.9440, i64 %230, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0239443, ptr align 1 %.9444, i64 %230, i1 false)
   %231 = load i16, ptr %228, align 4
   %232 = zext i16 %231 to i64
-  %233 = getelementptr inbounds nuw i8, ptr %.9440, i64 %232
-  %234 = getelementptr inbounds nuw i8, ptr %.0239439, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %.9444, i64 %232
+  %234 = getelementptr inbounds nuw i8, ptr %.0239443, i64 %232
   br label %235
 
 235:                                              ; preds = %226, %222
-  %.2241 = phi ptr [ %234, %226 ], [ %.0239439, %222 ]
-  %.11 = phi ptr [ %233, %226 ], [ %.9440, %222 ]
+  %.2241 = phi ptr [ %234, %226 ], [ %.0239443, %222 ]
+  %.11 = phi ptr [ %233, %226 ], [ %.9444, %222 ]
   %236 = getelementptr inbounds nuw i8, ptr %219, i64 47
   %237 = load i8, ptr %236, align 1, !range !4, !noundef !5
   %238 = trunc nuw i8 %237 to i1
@@ -2350,27 +2350,27 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %251 = getelementptr inbounds nuw i8, ptr %243, i64 %249
   br label %252
 
-252:                                              ; preds = %235, %239, %.lr.ph442
-  %.1240 = phi ptr [ %.0239439, %.lr.ph442 ], [ %251, %239 ], [ %.2241, %235 ]
-  %.10 = phi ptr [ %.9440, %.lr.ph442 ], [ %250, %239 ], [ %.11, %235 ]
-  %253 = add i8 %.0264438, 1
+252:                                              ; preds = %235, %239, %.lr.ph446
+  %.1240 = phi ptr [ %.0239443, %.lr.ph446 ], [ %251, %239 ], [ %.2241, %235 ]
+  %.10 = phi ptr [ %.9444, %.lr.ph446 ], [ %250, %239 ], [ %.11, %235 ]
+  %253 = add i8 %.0264442, 1
   %254 = zext i8 %253 to i32
   %255 = load i32, ptr %13, align 4
   %.not299 = icmp slt i32 %255, %254
-  br i1 %.not299, label %._crit_edge443.loopexit, label %.lr.ph442, !llvm.loop !15
+  br i1 %.not299, label %._crit_edge447.loopexit, label %.lr.ph446, !llvm.loop !15
 
-._crit_edge443.loopexit:                          ; preds = %252
+._crit_edge447.loopexit:                          ; preds = %252
   %.pre = load i32, ptr %12, align 8
-  br label %._crit_edge443
+  br label %._crit_edge447
 
-._crit_edge443:                                   ; preds = %._crit_edge443.loopexit, %212
-  %256 = phi i32 [ %210, %212 ], [ %.pre, %._crit_edge443.loopexit ]
-  %.0239.lcssa = phi ptr [ %217, %212 ], [ %.1240, %._crit_edge443.loopexit ]
-  %.9.lcssa = phi ptr [ %.1, %212 ], [ %.10, %._crit_edge443.loopexit ]
+._crit_edge447:                                   ; preds = %._crit_edge447.loopexit, %212
+  %256 = phi i32 [ %210, %212 ], [ %.pre, %._crit_edge447.loopexit ]
+  %.0239.lcssa = phi ptr [ %217, %212 ], [ %.1240, %._crit_edge447.loopexit ]
+  %.9.lcssa = phi ptr [ %.1, %212 ], [ %.10, %._crit_edge447.loopexit ]
   %.not300 = icmp eq i32 %256, 0
-  br i1 %.not300, label %._crit_edge443.thread, label %257
+  br i1 %.not300, label %._crit_edge447.thread, label %257
 
-257:                                              ; preds = %._crit_edge443
+257:                                              ; preds = %._crit_edge447
   %258 = ptrtoint ptr %.0239.lcssa to i64
   %259 = add i64 %258, 7
   %260 = and i64 %259, -8
@@ -2381,10 +2381,10 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   %263 = load i32, ptr %12, align 8
   %264 = zext i32 %263 to i64
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 %264
-  br label %._crit_edge443.thread
+  br label %._crit_edge447.thread
 
-._crit_edge443.thread:                            ; preds = %5, %257, %._crit_edge443
-  %.4243 = phi ptr [ %265, %257 ], [ %.0239.lcssa, %._crit_edge443 ], [ %16, %5 ]
+._crit_edge447.thread:                            ; preds = %5, %257, %._crit_edge447
+  %.4243 = phi ptr [ %265, %257 ], [ %.0239.lcssa, %._crit_edge447 ], [ %16, %5 ]
   %266 = ptrtoint ptr %.4243 to i64
   %267 = ptrtoint ptr %1 to i64
   %reass.sub = sub i64 %266, %267
@@ -2393,23 +2393,23 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   store i64 %269, ptr %1, align 8
   br label %277
 
-.thread313:                                       ; preds = %194, %178, %122, %106, %102, %100, %62, %57, %39, %33, %28, %22, %.loopexit
+.thread317:                                       ; preds = %194, %178, %122, %106, %102, %100, %62, %57, %39, %33, %28, %22, %.loopexit
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %271 = load i64, ptr %270, align 8
   %272 = lshr i64 %271, 32
   %273 = trunc nuw i64 %272 to i32
   %274 = trunc i64 %271 to i32
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %273, i32 noundef %274)
-  br label %.thread320
+  br label %.thread324
 
-.thread320:                                       ; preds = %90, %152, %171, %186, %163, %143, %83, %51, %.thread313, %201
+.thread324:                                       ; preds = %90, %152, %171, %186, %163, %143, %83, %51, %.thread317, %201
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %276 = load ptr, ptr %275, align 8
   store ptr %276, ptr %4, align 8
   br label %277
 
-277:                                              ; preds = %.thread320, %._crit_edge443.thread
-  %.0 = phi i1 [ false, %.thread320 ], [ true, %._crit_edge443.thread ]
+277:                                              ; preds = %.thread324, %._crit_edge447.thread
+  %.0 = phi i1 [ false, %.thread324 ], [ true, %._crit_edge447.thread ]
   ret i1 %.0
 }
 

@@ -247,7 +247,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %4 = alloca i64, align 8
   %5 = alloca [5 x i8], align 1
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %.thread13, label %7
+  br i1 %6, label %.thread14, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -256,7 +256,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %11 = icmp eq i32 %10, 0
   %12 = icmp ugt i32 %1, 4
   %13 = or i1 %12, %11
-  br i1 %13, label %.thread13, label %14
+  br i1 %13, label %.thread14, label %14
 
 14:                                               ; preds = %7
   %.not = icmp eq i32 %1, 0
@@ -266,7 +266,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, %1
-  br i1 %18, label %.thread13, label %19
+  br i1 %18, label %.thread14, label %19
 
 19:                                               ; preds = %15
   %20 = icmp eq i32 %1, 4
@@ -287,7 +287,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.thread13, label %33
+  br i1 %32, label %.thread14, label %33
 
 33:                                               ; preds = %.thread, %21
   %34 = phi i32 [ %1, %.thread ], [ %26, %21 ]
@@ -312,20 +312,20 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %49 = getelementptr i8, ptr %43, i64 -376
   %50 = load i32, ptr %49, align 8
   %51 = icmp slt i32 %35, %50
-  br i1 %51, label %.thread13, label %52
+  br i1 %51, label %.thread14, label %52
 
 52:                                               ; preds = %48, %41, %33
-  %.not15 = icmp eq i32 %35, 0
+  %.not16 = icmp eq i32 %35, 0
   %53 = load i32, ptr %36, align 8
-  br i1 %.not15, label %81, label %54
+  br i1 %.not16, label %81, label %54
 
 54:                                               ; preds = %52
   %55 = icmp slt i32 %35, %53
-  br i1 %55, label %.thread13, label %56
+  br i1 %55, label %.thread14, label %56
 
 56:                                               ; preds = %54
   %57 = icmp slt i32 %53, 3
-  br i1 %57, label %58, label %.thread7
+  br i1 %57, label %58, label %.thread8
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -334,7 +334,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %62 = load i8, ptr %61, align 8
   %63 = and i8 %62, 2
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.thread7, label %65
+  br i1 %64, label %.thread8, label %65
 
 65:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -354,22 +354,22 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %74 = call i32 @acpi_evaluate_object(ptr noundef %73, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #6
   %75 = icmp eq i32 %74, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %75, label %..thread7_crit_edge, label %.thread13
+  br i1 %75, label %..thread8_crit_edge, label %.thread14
 
-..thread7_crit_edge:                              ; preds = %65
+..thread8_crit_edge:                              ; preds = %65
   %.pre = load i32, ptr %37, align 4
-  br label %.thread7
+  br label %.thread8
 
-.thread7:                                         ; preds = %..thread7_crit_edge, %58, %56
-  %76 = phi i32 [ %.pre, %..thread7_crit_edge ], [ %38, %58 ], [ %38, %56 ]
+.thread8:                                         ; preds = %..thread8_crit_edge, %58, %56
+  %76 = phi i32 [ %.pre, %..thread8_crit_edge ], [ %38, %58 ], [ %38, %56 ]
   %77 = and i32 %76, 2
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.thread12, label %.thread10
+  br i1 %78, label %.thread13, label %.thread11
 
-.thread10:                                        ; preds = %.thread7
+.thread11:                                        ; preds = %.thread8
   %79 = call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef %34) #6
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %.thread12, label %.thread13
+  br i1 %80, label %.thread13, label %.thread14
 
 81:                                               ; preds = %52
   %82 = and i32 %38, 2
@@ -379,7 +379,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 84:                                               ; preds = %81
   %85 = tail call i32 @acpi_power_transition(ptr noundef nonnull %0, i32 noundef 0) #6
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.thread13
+  br i1 %86, label %87, label %.thread14
 
 87:                                               ; preds = %84, %81
   %88 = icmp eq i32 %53, 0
@@ -389,7 +389,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %90 = load i32, ptr %37, align 4
   %91 = and i32 %90, 1
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.thread13, label %93
+  br i1 %92, label %.thread14, label %93
 
 93:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -403,14 +403,14 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %99 = and i64 %98, 4294967295
   %100 = icmp ne i64 %99, 0
   %101 = select i1 %97, i1 %100, i1 false
-  br i1 %101, label %102, label %.thread13
+  br i1 %101, label %102, label %.thread14
 
 102:                                              ; preds = %93, %87
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %104 = load i8, ptr %103, align 8
   %105 = and i8 %104, 2
   %106 = icmp eq i8 %105, 0
-  br i1 %106, label %.thread12, label %107
+  br i1 %106, label %.thread13, label %107
 
 107:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -428,14 +428,14 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
   %114 = call i32 @acpi_evaluate_object(ptr noundef %113, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %115 = icmp eq i32 %114, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %115, label %.thread12, label %.thread13
+  br i1 %115, label %.thread13, label %.thread14
 
-.thread12:                                        ; preds = %107, %102, %.thread7, %.thread10
+.thread13:                                        ; preds = %107, %102, %.thread8, %.thread11
   store i32 %34, ptr %36, align 8
-  br label %.thread13
+  br label %.thread14
 
-.thread13:                                        ; preds = %15, %89, %93, %84, %107, %65, %.thread12, %.thread10, %54, %48, %.thread, %7, %2
-  %116 = phi i32 [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ %79, %.thread10 ], [ 0, %.thread12 ], [ -19, %65 ], [ %85, %84 ], [ -19, %107 ], [ 0, %93 ], [ 0, %89 ], [ 0, %15 ]
+.thread14:                                        ; preds = %93, %84, %107, %89, %65, %15, %.thread13, %.thread11, %54, %48, %.thread, %7, %2
+  %116 = phi i32 [ -22, %7 ], [ -22, %2 ], [ -19, %.thread ], [ -19, %48 ], [ -19, %54 ], [ %79, %.thread11 ], [ 0, %.thread13 ], [ 0, %15 ], [ -19, %65 ], [ 0, %89 ], [ %85, %84 ], [ -19, %107 ], [ 0, %93 ]
   ret i32 %116
 }
 

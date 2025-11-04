@@ -309,18 +309,18 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
   tail call void @mutex_lock(ptr noundef nonnull %11) #17
   %12 = load volatile ptr, ptr %7, align 8
   %13 = icmp eq ptr %12, %7
-  br i1 %13, label %.loopexit, label %14
+  br i1 %13, label %.thread14, label %14
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %.loopexit, label %19
+  br i1 %18, label %.thread14, label %19
 
 19:                                               ; preds = %14
   %20 = icmp slt i64 %10, 0
-  br i1 %20, label %.loopexit, label %21
+  br i1 %20, label %.thread14, label %21
 
 21:                                               ; preds = %19
   %22 = icmp samesign ult i64 %10, 18
@@ -348,14 +348,14 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
 
 34:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit
+  br label %.thread14
 
 35:                                               ; preds = %.thread, %21
   %36 = phi i64 [ 0, %21 ], [ %26, %.thread ]
   %37 = phi i64 [ %2, %21 ], [ %33, %.thread ]
   %38 = phi ptr [ %1, %21 ], [ %32, %.thread ]
   %39 = icmp eq i64 %37, 0
-  br i1 %39, label %.loopexit, label %40
+  br i1 %39, label %.thread14, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 913
@@ -364,15 +364,15 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
   br label %44
 
 44:                                               ; preds = %93, %40
-  %45 = phi i64 [ 0, %40 ], [ %94, %93 ]
-  %46 = phi ptr [ %38, %40 ], [ %.ph13, %93 ]
-  %47 = phi i64 [ %37, %40 ], [ %.ph12, %93 ]
+  %45 = phi i64 [ 0, %40 ], [ %97, %93 ]
+  %46 = phi ptr [ %38, %40 ], [ %96, %93 ]
+  %47 = phi i64 [ %37, %40 ], [ %95, %93 ]
   %48 = phi i64 [ 18, %40 ], [ %61, %93 ]
-  %49 = phi i64 [ %36, %40 ], [ %.ph, %93 ]
+  %49 = phi i64 [ %36, %40 ], [ %94, %93 ]
   %50 = load i8, ptr %41, align 1
   %51 = zext i8 %50 to i64
   %52 = icmp samesign ult i64 %45, %51
-  br i1 %52, label %53, label %.loopexit
+  br i1 %52, label %53, label %.thread14
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %42, align 8
@@ -413,14 +413,14 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #17, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 2307, i64 12) #17, !srcloc !14
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #17, !srcloc !15
-  br label %.loopexit
+  br label %.thread14
 
 81:                                               ; preds = %75
   %82 = zext nneg i32 %79 to i64
   %83 = getelementptr i8, ptr %56, i64 %73
   %84 = call i64 @_copy_to_user(ptr noundef %46, ptr noundef %83, i64 noundef %82) #17
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %._crit_edge, label %.loopexit
+  br i1 %85, label %._crit_edge, label %.thread14
 
 ._crit_edge:                                      ; preds = %81
   %.pre = load i64, ptr %3, align 8
@@ -436,18 +436,18 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
   %92 = add i64 %88, %49
   br label %93
 
-93:                                               ; preds = %53, %86
-  %.ph = phi i64 [ %92, %86 ], [ %49, %53 ]
-  %.ph12 = phi i64 [ %91, %86 ], [ %47, %53 ]
-  %.ph13 = phi ptr [ %90, %86 ], [ %46, %53 ]
-  %94 = add nuw nsw i64 %45, 1
-  %95 = icmp eq i64 %.ph12, 0
-  br i1 %95, label %.loopexit, label %44, !llvm.loop !16
+93:                                               ; preds = %86, %53
+  %94 = phi i64 [ %49, %53 ], [ %92, %86 ]
+  %95 = phi i64 [ %47, %53 ], [ %91, %86 ]
+  %96 = phi ptr [ %46, %53 ], [ %90, %86 ]
+  %97 = add nuw nsw i64 %45, 1
+  %98 = icmp eq i64 %95, 0
+  br i1 %98, label %.thread14, label %44, !llvm.loop !16
 
-.loopexit:                                        ; preds = %44, %93, %81, %4, %14, %19, %35, %34, %.critedge
-  %96 = phi i64 [ -14, %34 ], [ -19, %14 ], [ -22, %19 ], [ %36, %35 ], [ -19, %4 ], [ -14, %.critedge ], [ -14, %81 ], [ %.ph, %93 ], [ %49, %44 ]
+.thread14:                                        ; preds = %81, %93, %44, %.critedge, %34, %35, %19, %14, %4
+  %99 = phi i64 [ -14, %34 ], [ -19, %14 ], [ -22, %19 ], [ %36, %35 ], [ -19, %4 ], [ -14, %.critedge ], [ -14, %81 ], [ %94, %93 ], [ %49, %44 ]
   call void @mutex_unlock(ptr noundef nonnull %11) #17
-  ret i64 %96
+  ret i64 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

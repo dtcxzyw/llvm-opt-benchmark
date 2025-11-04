@@ -613,7 +613,7 @@ define dso_local void @strbuf_add_wrapped_text(ptr noundef %0, ptr noundef %1, i
   %spec.select76 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %spec.select = select i1 %10, ptr %1, ptr null
-  br label %.loopexit132.outer.outer
+  br label %.loopexit133.outer.outer
 
 12:                                               ; preds = %5
   %13 = load i8, ptr %1, align 1, !tbaa !4
@@ -642,14 +642,14 @@ define dso_local void @strbuf_add_wrapped_text(ptr noundef %0, ptr noundef %1, i
   %.not.i = icmp eq i8 %21, 0
   br i1 %.not.i, label %strbuf_add_indented_text.exit, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit132:                                     ; preds = %.loopexit132.backedge, %.loopexit132.outer
-  %.promoted = phi ptr [ %.promoted.ph, %.loopexit132.outer ], [ %.promoted.be, %.loopexit132.backedge ]
-  %.153 = phi i32 [ %.153.ph, %.loopexit132.outer ], [ %.153.be, %.loopexit132.backedge ]
-  %.148 = phi i32 [ %.148.ph, %.loopexit132.outer ], [ %.148.be, %.loopexit132.backedge ]
+.loopexit133:                                     ; preds = %.loopexit133.backedge, %.loopexit133.outer
+  %.promoted = phi ptr [ %.promoted.ph, %.loopexit133.outer ], [ %.promoted.be, %.loopexit133.backedge ]
+  %.153 = phi i32 [ %.153.ph, %.loopexit133.outer ], [ %.153.be, %.loopexit133.backedge ]
+  %.148 = phi i32 [ %.148.ph, %.loopexit133.outer ], [ %.148.be, %.loopexit133.backedge ]
   br label %22
 
-22:                                               ; preds = %display_mode_esc_sequence_len.exit, %.loopexit132
-  %23 = phi ptr [ %40, %display_mode_esc_sequence_len.exit ], [ %.promoted, %.loopexit132 ]
+22:                                               ; preds = %display_mode_esc_sequence_len.exit, %.loopexit133
+  %23 = phi ptr [ %40, %display_mode_esc_sequence_len.exit ], [ %.promoted, %.loopexit133 ]
   %24 = load i8, ptr %23, align 1, !tbaa !4
   switch i8 %24, label %.thread [
     i8 27, label %25
@@ -697,20 +697,20 @@ display_mode_esc_sequence_len.exit:               ; preds = %36
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = and i8 %43, 1
   %.not72 = icmp eq i8 %44, 0
-  br i1 %.not72, label %103, label %.loopexit181
+  br i1 %.not72, label %103, label %.loopexit186
 
 .loopexit:                                        ; preds = %22
   store ptr %23, ptr %6, align 8
-  br label %.loopexit181
+  br label %.loopexit186
 
-.loopexit181:                                     ; preds = %.thread, %.loopexit
+.loopexit186:                                     ; preds = %.thread, %.loopexit
   %.not71109 = phi i1 [ true, %.loopexit ], [ false, %.thread ]
   %45 = icmp sgt i32 %.148, %4
   %46 = icmp ne ptr %.159.ph, null
   %or.cond = and i1 %45, %46
   br i1 %or.cond, label %.thread118, label %47
 
-47:                                               ; preds = %.loopexit181
+47:                                               ; preds = %.loopexit186
   %48 = icmp eq ptr %23, %.055.ph.ph
   %or.cond78 = select i1 %.not71109, i1 %48, i1 false
   br i1 %or.cond78, label %strbuf_add_indented_text.exit, label %49
@@ -814,8 +814,8 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %84, align 1, !tbaa !4
   br label %100
 
-.thread118:                                       ; preds = %71, %.loopexit181, %strbuf_addch.exit
-  %.563 = phi ptr [ %59, %strbuf_addch.exit ], [ %59, %71 ], [ %.159.ph, %.loopexit181 ]
+.thread118:                                       ; preds = %71, %.loopexit186, %strbuf_addch.exit
+  %.563 = phi ptr [ %59, %strbuf_addch.exit ], [ %59, %71 ], [ %.159.ph, %.loopexit186 ]
   %85 = load i64, ptr %0, align 8, !tbaa !25
   %.not.i.i91 = icmp eq i64 %85, 0
   br i1 %.not.i.i91, label %strbuf_avail.exit.thread.i96, label %strbuf_avail.exit.i92
@@ -851,15 +851,15 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %98 = zext nneg i8 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.563, i64 %98
   store ptr %99, ptr %6, align 8, !tbaa !9
-  br label %.loopexit132.outer.outer.backedge
+  br label %.loopexit133.outer.outer.backedge
 
-.loopexit132.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %153, %155
+.loopexit133.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %153, %155
   %.159.ph.ph.be = phi ptr [ %spec.select, %155 ], [ %spec.select, %153 ], [ null, %strbuf_addch.exit100 ]
   %.055.ph.ph.be = phi ptr [ %1, %155 ], [ %1, %153 ], [ %99, %strbuf_addch.exit100 ]
   %.153.ph.ph.be = phi i32 [ 0, %155 ], [ 0, %153 ], [ %.153, %strbuf_addch.exit100 ]
   %.148.ph.ph.be = phi i32 [ %spec.select76, %155 ], [ %spec.select76, %153 ], [ %3, %strbuf_addch.exit100 ]
   %.046.ph.ph.be = phi i32 [ %2, %155 ], [ %2, %153 ], [ %3, %strbuf_addch.exit100 ]
-  br label %.loopexit132.outer.outer
+  br label %.loopexit133.outer.outer
 
 100:                                              ; preds = %55, %strbuf_addch.exit90, %56
   %.361 = phi ptr [ %23, %56 ], [ %59, %strbuf_addch.exit90 ], [ %23, %55 ]
@@ -867,7 +867,7 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %101 = add nsw i32 %.3, 1
   %102 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %102, ptr %6, align 8, !tbaa !9
-  br label %.loopexit132.outer
+  br label %.loopexit133.outer
 
 103:                                              ; preds = %.thread
   %.not73 = icmp eq i32 %.153, 0
@@ -965,18 +965,18 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
 utf8_width.exit.thread:                           ; preds = %108, %111
   %.0.i103.ph = phi i32 [ 1, %111 ], [ -1, %108 ]
   %147 = add nsw i32 %.0.i103.ph, %.148
-  br label %.loopexit132.backedge
+  br label %.loopexit133.backedge
+
+.loopexit133.backedge:                            ; preds = %utf8_width.exit.thread, %158, %utf8_width.exit
+  %.promoted.be = phi ptr [ %106, %utf8_width.exit ], [ %160, %158 ], [ %106, %utf8_width.exit.thread ]
+  %.153.be = phi i32 [ 1, %utf8_width.exit ], [ 0, %158 ], [ 1, %utf8_width.exit.thread ]
+  %.148.be = phi i32 [ %148, %utf8_width.exit ], [ %159, %158 ], [ %147, %utf8_width.exit.thread ]
+  br label %.loopexit133
 
 utf8_width.exit:                                  ; preds = %123, %141, %146, %104, %129
   %.0.i103 = phi i32 [ 0, %104 ], [ 1, %129 ], [ 1, %146 ], [ 2, %141 ], [ 0, %123 ]
   %148 = add nsw i32 %.0.i103, %.148
-  br i1 %.not.i101, label %149, label %.loopexit132.backedge
-
-.loopexit132.backedge:                            ; preds = %utf8_width.exit, %158, %utf8_width.exit.thread
-  %.promoted.be = phi ptr [ %106, %utf8_width.exit ], [ %160, %158 ], [ %106, %utf8_width.exit.thread ]
-  %.153.be = phi i32 [ 1, %utf8_width.exit ], [ 0, %158 ], [ 1, %utf8_width.exit.thread ]
-  %.148.be = phi i32 [ %148, %utf8_width.exit ], [ %159, %158 ], [ %147, %utf8_width.exit.thread ]
-  br label %.loopexit132
+  br i1 %.not.i101, label %149, label %.loopexit133.backedge
 
 149:                                              ; preds = %utf8_width.exit
   store ptr %1, ptr %6, align 8, !tbaa !9
@@ -993,34 +993,34 @@ utf8_width.exit:                                  ; preds = %123, %141, %146, %1
   store i64 %8, ptr %7, align 8, !tbaa !21
   %154 = load ptr, ptr %11, align 8, !tbaa !26
   %.not9.i = icmp eq ptr %154, @strbuf_slopbuf
-  br i1 %.not9.i, label %.loopexit132.outer.outer.backedge, label %155
+  br i1 %.not9.i, label %.loopexit133.outer.outer.backedge, label %155
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 %8
   store i8 0, ptr %156, align 1, !tbaa !4
-  br label %.loopexit132.outer.outer.backedge
+  br label %.loopexit133.outer.outer.backedge
 
-.loopexit132.outer.outer:                         ; preds = %.loopexit132.outer.outer.backedge, %.preheader
-  %.159.ph.ph = phi ptr [ %spec.select, %.preheader ], [ %.159.ph.ph.be, %.loopexit132.outer.outer.backedge ]
-  %.055.ph.ph = phi ptr [ %1, %.preheader ], [ %.055.ph.ph.be, %.loopexit132.outer.outer.backedge ]
-  %.153.ph.ph = phi i32 [ 1, %.preheader ], [ %.153.ph.ph.be, %.loopexit132.outer.outer.backedge ]
-  %.148.ph.ph = phi i32 [ %spec.select76, %.preheader ], [ %.148.ph.ph.be, %.loopexit132.outer.outer.backedge ]
-  %.046.ph.ph = phi i32 [ %2, %.preheader ], [ %.046.ph.ph.be, %.loopexit132.outer.outer.backedge ]
+.loopexit133.outer.outer:                         ; preds = %.loopexit133.outer.outer.backedge, %.preheader
+  %.159.ph.ph = phi ptr [ %spec.select, %.preheader ], [ %.159.ph.ph.be, %.loopexit133.outer.outer.backedge ]
+  %.055.ph.ph = phi ptr [ %1, %.preheader ], [ %.055.ph.ph.be, %.loopexit133.outer.outer.backedge ]
+  %.153.ph.ph = phi i32 [ 1, %.preheader ], [ %.153.ph.ph.be, %.loopexit133.outer.outer.backedge ]
+  %.148.ph.ph = phi i32 [ %spec.select76, %.preheader ], [ %.148.ph.ph.be, %.loopexit133.outer.outer.backedge ]
+  %.046.ph.ph = phi i32 [ %2, %.preheader ], [ %.046.ph.ph.be, %.loopexit133.outer.outer.backedge ]
   %157 = sext i32 %.046.ph.ph to i64
-  br label %.loopexit132.outer
+  br label %.loopexit133.outer
 
-.loopexit132.outer:                               ; preds = %.loopexit132.outer.outer, %100
-  %.promoted.ph = phi ptr [ %102, %100 ], [ %.055.ph.ph, %.loopexit132.outer.outer ]
-  %.159.ph = phi ptr [ %.361, %100 ], [ %.159.ph.ph, %.loopexit132.outer.outer ]
-  %.153.ph = phi i32 [ %.153, %100 ], [ %.153.ph.ph, %.loopexit132.outer.outer ]
-  %.148.ph = phi i32 [ %101, %100 ], [ %.148.ph.ph, %.loopexit132.outer.outer ]
-  br label %.loopexit132
+.loopexit133.outer:                               ; preds = %.loopexit133.outer.outer, %100
+  %.promoted.ph = phi ptr [ %102, %100 ], [ %.055.ph.ph, %.loopexit133.outer.outer ]
+  %.159.ph = phi ptr [ %.361, %100 ], [ %.159.ph.ph, %.loopexit133.outer.outer ]
+  %.153.ph = phi i32 [ %.153, %100 ], [ %.153.ph.ph, %.loopexit133.outer.outer ]
+  %.148.ph = phi i32 [ %101, %100 ], [ %.148.ph.ph, %.loopexit133.outer.outer ]
+  br label %.loopexit133
 
 158:                                              ; preds = %103
   %159 = add nsw i32 %.148, 1
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %160, ptr %6, align 8, !tbaa !9
-  br label %.loopexit132.backedge
+  br label %.loopexit133.backedge
 
 strbuf_add_indented_text.exit:                    ; preds = %47, %51, %.lr.ph.i, %12
   ret void

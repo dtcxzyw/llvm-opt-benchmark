@@ -1704,19 +1704,19 @@ ensure_server_supports_v2.exit:                   ; preds = %24, %24
 .preheader.i:                                     ; preds = %81
   %85 = load i64, ptr %71, align 8, !tbaa !44
   %86 = icmp ugt i64 %85, 2
-  br i1 %86, label %.lr.ph88.i, label %process_ref_v2.exit
+  br i1 %86, label %.lr.ph89.i, label %process_ref_v2.exit
 
-.lr.ph88.i:                                       ; preds = %.preheader.i, %96
-  %.04187.i = phi i64 [ %97, %96 ], [ 2, %.preheader.i ]
-  %87 = getelementptr inbounds nuw %struct.string_list_item, ptr %77, i64 %.04187.i
+.lr.ph89.i:                                       ; preds = %.preheader.i, %96
+  %.04188.i = phi i64 [ %97, %96 ], [ 2, %.preheader.i ]
+  %87 = getelementptr inbounds nuw %struct.string_list_item, ptr %77, i64 %.04188.i
   %88 = load ptr, ptr %87, align 8, !tbaa !48
   br label %89
 
-89:                                               ; preds = %90, %.lr.ph88.i
-  %.07.i.i = phi ptr [ %88, %.lr.ph88.i ], [ %92, %90 ]
-  %.06.i.idx.i = phi i64 [ 0, %.lr.ph88.i ], [ %.06.i.add.i, %90 ]
-  %exitcond96.i = icmp eq i64 %.06.i.idx.i, 14
-  br i1 %exitcond96.i, label %skip_prefix.exit.i, label %90
+89:                                               ; preds = %90, %.lr.ph89.i
+  %.07.i.i = phi ptr [ %88, %.lr.ph89.i ], [ %92, %90 ]
+  %.06.i.idx.i = phi i64 [ 0, %.lr.ph89.i ], [ %.06.i.add.i, %90 ]
+  %exitcond97.i = icmp eq i64 %.06.i.idx.i, 14
+  br i1 %exitcond97.i, label %skip_prefix.exit.i, label %90
 
 90:                                               ; preds = %89
   %.06.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.64, i64 %.06.i.idx.i
@@ -1728,15 +1728,15 @@ ensure_server_supports_v2.exit:                   ; preds = %24, %24
   br i1 %94, label %89, label %96, !llvm.loop !7
 
 skip_prefix.exit.i:                               ; preds = %89
-  %scevgep95.le.i = getelementptr i8, ptr %88, i64 14
-  %95 = call ptr @xstrdup(ptr noundef %scevgep95.le.i) #24
+  %scevgep96.le.i = getelementptr i8, ptr %88, i64 14
+  %95 = call ptr @xstrdup(ptr noundef %scevgep96.le.i) #24
   store ptr %95, ptr %12, align 8, !tbaa !15
   br label %process_ref_v2.exit
 
 96:                                               ; preds = %90
-  %97 = add nuw i64 %.04187.i, 1
-  %exitcond97.not.i = icmp eq i64 %97, %85
-  br i1 %exitcond97.not.i, label %process_ref_v2.exit, label %.lr.ph88.i, !llvm.loop !50
+  %97 = add nuw i64 %.04188.i, 1
+  %exitcond98.not.i = icmp eq i64 %97, %85
+  br i1 %exitcond98.not.i, label %process_ref_v2.exit, label %.lr.ph89.i, !llvm.loop !50
 
 98:                                               ; preds = %76
   %99 = load ptr, ptr %70, align 8, !tbaa !33
@@ -1770,67 +1770,67 @@ skip_prefix.exit.i:                               ; preds = %89
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 176
   br label %117
 
-117:                                              ; preds = %.loopexit81.i, %.lr.ph.i
-  %.157 = phi ptr [ %108, %.lr.ph.i ], [ %.2, %.loopexit81.i ]
-  %.14286.i = phi i64 [ 2, %.lr.ph.i ], [ %148, %.loopexit81.i ]
+117:                                              ; preds = %.loopexit82.i, %.lr.ph.i
+  %.157 = phi ptr [ %108, %.lr.ph.i ], [ %.2, %.loopexit82.i ]
+  %.14287.i = phi i64 [ 2, %.lr.ph.i ], [ %148, %.loopexit82.i ]
   %118 = load ptr, ptr %9, align 8, !tbaa !47
-  %119 = getelementptr inbounds nuw %struct.string_list_item, ptr %118, i64 %.14286.i
+  %119 = getelementptr inbounds nuw %struct.string_list_item, ptr %118, i64 %.14287.i
   %120 = load ptr, ptr %119, align 8, !tbaa !48
   %scevgep.i = getelementptr i8, ptr %120, i64 14
   br label %121
 
 121:                                              ; preds = %122, %117
-  %.07.i50.i = phi ptr [ %120, %117 ], [ %124, %122 ]
-  %.06.i51.idx.i = phi i64 [ 0, %117 ], [ %.06.i51.add.i, %122 ]
-  %exitcond.i = icmp eq i64 %.06.i51.idx.i, 14
+  %.07.i52.i = phi ptr [ %120, %117 ], [ %124, %122 ]
+  %.06.i53.idx.i = phi i64 [ 0, %117 ], [ %.06.i53.add.i, %122 ]
+  %exitcond.i = icmp eq i64 %.06.i53.idx.i, 14
   br i1 %exitcond.i, label %127, label %122
 
 122:                                              ; preds = %121
-  %.06.i51.ptr.i = getelementptr inbounds nuw i8, ptr @.str.64, i64 %.06.i51.idx.i
-  %123 = load i8, ptr %.06.i51.ptr.i, align 1, !tbaa !4
-  %124 = getelementptr inbounds nuw i8, ptr %.07.i50.i, i64 1
-  %125 = load i8, ptr %.07.i50.i, align 1, !tbaa !4
-  %.06.i51.add.i = add nuw nsw i64 %.06.i51.idx.i, 1
+  %.06.i53.ptr.i = getelementptr inbounds nuw i8, ptr @.str.64, i64 %.06.i53.idx.i
+  %123 = load i8, ptr %.06.i53.ptr.i, align 1, !tbaa !4
+  %124 = getelementptr inbounds nuw i8, ptr %.07.i52.i, i64 1
+  %125 = load i8, ptr %.07.i52.i, align 1, !tbaa !4
+  %.06.i53.add.i = add nuw nsw i64 %.06.i53.idx.i, 1
   %126 = icmp eq i8 %125, %123
-  br i1 %126, label %121, label %skip_prefix.exit53.i, !llvm.loop !7
+  br i1 %126, label %121, label %skip_prefix.exit55.i, !llvm.loop !7
 
 127:                                              ; preds = %121
   %128 = call ptr @xstrdup(ptr noundef %scevgep.i) #24
   store ptr %128, ptr %115, align 8, !tbaa !15
-  br label %skip_prefix.exit53.i
+  br label %skip_prefix.exit55.i
 
-skip_prefix.exit53.i:                             ; preds = %122, %127
-  %.06170.i = phi ptr [ %scevgep.i, %127 ], [ %120, %122 ]
-  %scevgep93.i = getelementptr i8, ptr %.06170.i, i64 7
+skip_prefix.exit55.i:                             ; preds = %122, %127
+  %.071.i = phi ptr [ %scevgep.i, %127 ], [ %120, %122 ]
+  %scevgep94.i = getelementptr i8, ptr %.071.i, i64 7
   br label %129
 
-129:                                              ; preds = %130, %skip_prefix.exit53.i
-  %.07.i54.i = phi ptr [ %.06170.i, %skip_prefix.exit53.i ], [ %132, %130 ]
-  %.06.i55.idx.i = phi i64 [ 0, %skip_prefix.exit53.i ], [ %.06.i55.add.i, %130 ]
-  %exitcond94.i = icmp eq i64 %.06.i55.idx.i, 7
-  br i1 %exitcond94.i, label %135, label %130
+129:                                              ; preds = %130, %skip_prefix.exit55.i
+  %.07.i56.i = phi ptr [ %.071.i, %skip_prefix.exit55.i ], [ %132, %130 ]
+  %.06.i57.idx.i = phi i64 [ 0, %skip_prefix.exit55.i ], [ %.06.i57.add.i, %130 ]
+  %exitcond95.i = icmp eq i64 %.06.i57.idx.i, 7
+  br i1 %exitcond95.i, label %135, label %130
 
 130:                                              ; preds = %129
-  %.06.i55.ptr.i = getelementptr inbounds nuw i8, ptr @.str.65, i64 %.06.i55.idx.i
-  %131 = load i8, ptr %.06.i55.ptr.i, align 1, !tbaa !4
-  %132 = getelementptr inbounds nuw i8, ptr %.07.i54.i, i64 1
-  %133 = load i8, ptr %.07.i54.i, align 1, !tbaa !4
-  %.06.i55.add.i = add nuw nsw i64 %.06.i55.idx.i, 1
+  %.06.i57.ptr.i = getelementptr inbounds nuw i8, ptr @.str.65, i64 %.06.i57.idx.i
+  %131 = load i8, ptr %.06.i57.ptr.i, align 1, !tbaa !4
+  %132 = getelementptr inbounds nuw i8, ptr %.07.i56.i, i64 1
+  %133 = load i8, ptr %.07.i56.i, align 1, !tbaa !4
+  %.06.i57.add.i = add nuw nsw i64 %.06.i57.idx.i, 1
   %134 = icmp eq i8 %133, %131
-  br i1 %134, label %129, label %.loopexit81.i, !llvm.loop !7
+  br i1 %134, label %129, label %.loopexit82.i, !llvm.loop !7
 
 135:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %136 = load ptr, ptr %70, align 8, !tbaa !33
-  %137 = call i32 @parse_oid_hex_algop(ptr noundef %scevgep93.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %136) #24
+  %137 = call i32 @parse_oid_hex_algop(ptr noundef %scevgep94.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef %136) #24
   %.not48.i = icmp eq i32 %137, 0
-  br i1 %.not48.i, label %138, label %skip_prefix.exit57.i
+  br i1 %.not48.i, label %138, label %skip_prefix.exit59.i
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %10, align 8, !tbaa !15
   %140 = load i8, ptr %139, align 1, !tbaa !4
   %.not49.i = icmp eq i8 %140, 0
-  br i1 %.not49.i, label %141, label %skip_prefix.exit57.i
+  br i1 %.not49.i, label %141, label %skip_prefix.exit59.i
 
 141:                                              ; preds = %138
   %142 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.66, ptr noundef nonnull %116) #24
@@ -1843,21 +1843,21 @@ skip_prefix.exit53.i:                             ; preds = %122, %127
   store ptr %143, ptr %.157, align 8, !tbaa !29
   call void @free(ptr noundef %142) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.loopexit81.i
+  br label %.loopexit82.i
 
-skip_prefix.exit57.i:                             ; preds = %138, %135
+skip_prefix.exit59.i:                             ; preds = %138, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.loopexit81.i:                                    ; preds = %130, %141
+.loopexit82.i:                                    ; preds = %130, %141
   %.2 = phi ptr [ %143, %141 ], [ %.157, %130 ]
-  %148 = add nuw i64 %.14286.i, 1
+  %148 = add nuw i64 %.14287.i, 1
   %149 = load i64, ptr %71, align 8, !tbaa !44
   %150 = icmp ult i64 %148, %149
   br i1 %150, label %117, label %process_ref_v2.exit, !llvm.loop !52
 
-process_ref_v2.exit:                              ; preds = %.loopexit81.i, %96, %80, %81, %.preheader.i, %skip_prefix.exit.i, %104
-  %.3 = phi ptr [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %108, %104 ], [ %.05676, %96 ], [ %.2, %.loopexit81.i ]
+process_ref_v2.exit:                              ; preds = %.loopexit82.i, %96, %80, %81, %.preheader.i, %skip_prefix.exit.i, %104
+  %.3 = phi ptr [ %.05676, %80 ], [ %.05676, %skip_prefix.exit.i ], [ %.05676, %.preheader.i ], [ %.05676, %81 ], [ %108, %104 ], [ %.05676, %96 ], [ %.2, %.loopexit82.i ]
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1866,7 +1866,7 @@ process_ref_v2.exit:                              ; preds = %.loopexit81.i, %96,
   %152 = icmp eq i32 %151, 1
   br i1 %152, label %72, label %._crit_edge, !llvm.loop !53
 
-.loopexit:                                        ; preds = %72, %101, %98, %skip_prefix.exit57.i
+.loopexit:                                        ; preds = %72, %101, %98, %skip_prefix.exit59.i
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

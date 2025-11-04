@@ -1686,13 +1686,13 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
 122:                                              ; preds = %.thread
   %123 = call ptr @strpbrk(ptr noundef nonnull %120, ptr noundef nonnull @.str.6) #18
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.thread20, label %125
+  br i1 %124, label %.thread21, label %125
 
 125:                                              ; preds = %122
   store i8 0, ptr %123, align 1
-  br label %.thread20
+  br label %.thread21
 
-.thread20:                                        ; preds = %122, %125
+.thread21:                                        ; preds = %122, %125
   %126 = load i64, ptr %8, align 8
   %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull %120, i64 noundef %126) #18
   store ptr %5, ptr %3, align 8
@@ -1700,8 +1700,8 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %.pre = load ptr, ptr %3, align 8
   br label %128
 
-128:                                              ; preds = %.thread20, %114
-  %129 = phi ptr [ %.pre, %.thread20 ], [ %.pr, %114 ]
+128:                                              ; preds = %.thread21, %114
+  %129 = phi ptr [ %.pre, %.thread21 ], [ %.pr, %114 ]
   %130 = add nsw i32 %0, -2
   %131 = getelementptr i8, ptr %1, i64 16
   %132 = load ptr, ptr %4, align 8
@@ -1733,7 +1733,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %146 = getelementptr inbounds nuw i8, ptr %133, i64 80
   store ptr %30, ptr %146, align 8
   %147 = icmp eq i32 %0, 2
-  br i1 %147, label %.loopexit21, label %148
+  br i1 %147, label %.loopexit22, label %148
 
 148:                                              ; preds = %140
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -1748,7 +1748,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %156 = icmp samesign ult i64 %155, %153
   %157 = icmp samesign ult i64 %160, 127
   %158 = and i1 %157, %156
-  br i1 %158, label %159, label %.loopexit21, !llvm.loop !24
+  br i1 %158, label %159, label %.loopexit22, !llvm.loop !24
 
 159:                                              ; preds = %154, %148
   %160 = phi i64 [ 0, %148 ], [ %155, %154 ]
@@ -1766,7 +1766,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %166, label %154, label %.loopexit
 
-.loopexit21:                                      ; preds = %154, %140
+.loopexit22:                                      ; preds = %154, %140
   %167 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %168 = load ptr, ptr %167, align 8
   %169 = icmp ne ptr %168, null
@@ -1776,13 +1776,13 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %173 = icmp slt i32 %172, 0
   br i1 %173, label %.loopexit, label %174
 
-174:                                              ; preds = %.loopexit21
+174:                                              ; preds = %.loopexit22
   %175 = call fastcc i32 @register_trace_uprobe(ptr noundef %133)
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %178, label %.loopexit
 
-.loopexit:                                        ; preds = %159, %174, %.loopexit21
-  %177 = phi i32 [ %172, %.loopexit21 ], [ %175, %174 ], [ %165, %159 ]
+.loopexit:                                        ; preds = %159, %174, %.loopexit22
+  %177 = phi i32 [ %172, %.loopexit22 ], [ %175, %174 ], [ %165, %159 ]
   call fastcc void @free_trace_uprobe(ptr noundef %133)
   br label %178
 
@@ -3370,7 +3370,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   tail call void asm sideeffect "823: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 823b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 823) #18, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 1098, i32 2307, i64 12) #18, !srcloc !66
   tail call void asm sideeffect "824: nop\0A\09.pushsection .discard.instr_end\0A\09.long 824b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 824) #18, !srcloc !67
-  br label %.loopexit24
+  br label %.loopexit25
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3384,17 +3384,17 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 17:                                               ; preds = %10
   %18 = and i32 %13, 2
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.loopexit24
+  br i1 %19, label %20, label %.loopexit25
 
 20:                                               ; preds = %17
   %21 = tail call i32 @trace_probe_add_file(ptr noundef nonnull %5, ptr noundef nonnull %1) #18
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.loopexit24, label %28
+  br i1 %22, label %.loopexit25, label %28
 
 23:                                               ; preds = %10
   %24 = and i32 %13, 1
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.loopexit24
+  br i1 %25, label %26, label %.loopexit25
 
 26:                                               ; preds = %23
   %27 = or i32 %13, 2
@@ -3421,7 +3421,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   br label %38
 
 38:                                               ; preds = %37, %33
-  br i1 %15, label %39, label %.loopexit24
+  br i1 %15, label %39, label %.loopexit25
 
 39:                                               ; preds = %38
   %40 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull @event_mutex) #18
@@ -3443,9 +3443,9 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %47 = tail call noalias dereferenceable_or_null(40) ptr @__alloc_percpu(i64 noundef 40, i64 noundef 8) #22
   store ptr %47, ptr @uprobe_cpu_buffer, align 8
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %119, label %.preheader27
+  br i1 %48, label %119, label %.preheader28
 
-.preheader27:                                     ; preds = %46, %72
+.preheader28:                                     ; preds = %46, %72
   %49 = phi i64 [ %90, %72 ], [ 0, %46 ]
   %50 = load i64, ptr @__cpu_possible_mask, align 8
   %51 = shl nsw i64 -1, %49
@@ -3453,7 +3453,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %.thread, label %54
 
-54:                                               ; preds = %.preheader27
+54:                                               ; preds = %.preheader28
   %55 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %52) #23, !srcloc !73
   %56 = trunc i64 %55 to i32
   %57 = icmp ult i32 %56, 64
@@ -3477,7 +3477,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %69 = phi i32 [ %67, %66 ], [ %64, %58 ]
   %70 = tail call ptr @__alloc_pages(i32 noundef 3264, i32 noundef 0, i32 noundef %69, ptr noundef null) #18
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.preheader25, label %72
+  br i1 %71, label %.preheader26, label %72
 
 72:                                               ; preds = %68
   %73 = load i64, ptr @vmemmap_base, align 8
@@ -3501,28 +3501,28 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %89 = add nuw nsw i64 %55, 1
   %90 = and i64 %89, 127
   %91 = icmp samesign ugt i64 %90, 63
-  br i1 %91, label %.thread, label %.preheader27, !prof !75, !llvm.loop !76
+  br i1 %91, label %.thread, label %.preheader28, !prof !75, !llvm.loop !76
 
-.preheader25:                                     ; preds = %68, %105
+.preheader26:                                     ; preds = %68, %105
   %92 = phi i64 [ %116, %105 ], [ 0, %68 ]
   %93 = load i64, ptr @__cpu_possible_mask, align 8
   %94 = shl nsw i64 -1, %92
   %95 = and i64 %93, %94
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.thread19, label %98
+  br i1 %96, label %.thread20, label %98
 
-.thread19:                                        ; preds = %105, %.preheader25
+.thread20:                                        ; preds = %105, %.preheader26
   %97 = load ptr, ptr @uprobe_cpu_buffer, align 8
-  br label %.loopexit26
+  br label %.loopexit27
 
-98:                                               ; preds = %.preheader25
+98:                                               ; preds = %.preheader26
   %99 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %95) #23, !srcloc !73
   %100 = trunc i64 %99 to i32
   %101 = icmp ugt i32 %100, 63
   %102 = icmp eq i32 %56, %100
   %103 = or i1 %101, %102
   %104 = load ptr, ptr @uprobe_cpu_buffer, align 8
-  br i1 %103, label %.loopexit26, label %105
+  br i1 %103, label %.loopexit27, label %105
 
 105:                                              ; preds = %98
   %106 = ptrtoint ptr %104 to i64
@@ -3538,20 +3538,20 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %115 = add nuw nsw i64 %99, 1
   %116 = and i64 %115, 127
   %117 = icmp samesign ugt i64 %116, 63
-  br i1 %117, label %.thread19, label %.preheader25, !prof !75, !llvm.loop !77
+  br i1 %117, label %.thread20, label %.preheader26, !prof !75, !llvm.loop !77
 
-.loopexit26:                                      ; preds = %98, %.thread19
-  %118 = phi ptr [ %97, %.thread19 ], [ %104, %98 ]
+.loopexit27:                                      ; preds = %98, %.thread20
+  %118 = phi ptr [ %97, %.thread20 ], [ %104, %98 ]
   tail call void @free_percpu(ptr noundef %118) #18
   br label %119
 
-119:                                              ; preds = %46, %.loopexit26
+119:                                              ; preds = %46, %.loopexit27
   %120 = load i32, ptr @uprobe_buffer_refcnt, align 4
   %121 = add i32 %120, -1
   store i32 %121, ptr @uprobe_buffer_refcnt, align 4
   br label %191
 
-.thread:                                          ; preds = %.preheader27, %72, %54, %42
+.thread:                                          ; preds = %.preheader28, %72, %54, %42
   %122 = load ptr, ptr %11, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 224
   br label %124
@@ -3562,7 +3562,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %127 = load ptr, ptr %11, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 224
   %129 = icmp eq ptr %126, %128
-  br i1 %129, label %.loopexit24, label %130
+  br i1 %129, label %.loopexit25, label %130
 
 130:                                              ; preds = %124
   %131 = getelementptr i8, ptr %126, i64 -88
@@ -3652,11 +3652,11 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
   %185 = getelementptr i8, ptr %178, i64 -88
   tail call void @uprobe_unregister(ptr noundef nonnull %180, i64 noundef %184, ptr noundef %185) #18
   store ptr null, ptr %179, align 8
-  %.pre35 = load ptr, ptr %11, align 8
+  %.pre36 = load ptr, ptr %11, align 8
   br label %186
 
 186:                                              ; preds = %182, %.preheader
-  %187 = phi ptr [ %.pre35, %182 ], [ %177, %.preheader ]
+  %187 = phi ptr [ %.pre36, %182 ], [ %177, %.preheader ]
   %188 = load ptr, ptr %178, align 8
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 224
   %190 = icmp eq ptr %188, %189
@@ -3672,16 +3672,16 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 
 193:                                              ; preds = %191
   %194 = tail call i32 @trace_probe_remove_file(ptr noundef nonnull %5, ptr noundef nonnull %1) #18
-  br label %.loopexit24
+  br label %.loopexit25
 
 195:                                              ; preds = %191
   %196 = load ptr, ptr %11, align 8
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %197, -3
   store i32 %198, ptr %196, align 8
-  br label %.loopexit24
+  br label %.loopexit25
 
-.loopexit24:                                      ; preds = %124, %195, %193, %38, %23, %20, %17, %9
+.loopexit25:                                      ; preds = %124, %195, %193, %38, %23, %20, %17, %9
   %199 = phi i32 [ -19, %9 ], [ -4, %17 ], [ %21, %20 ], [ -4, %23 ], [ 0, %38 ], [ %192, %195 ], [ %192, %193 ], [ 0, %124 ]
   ret i32 %199
 }

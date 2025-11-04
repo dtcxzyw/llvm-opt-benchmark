@@ -1735,7 +1735,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
   %13 = trunc i64 %12 to i32
   %14 = lshr i32 %10, %7
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.loopexit5
+  br i1 %15, label %16, label %.loopexit6
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1827,7 +1827,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
 
 .thread:                                          ; preds = %36, %64, %58
   tail call void @__rcu_read_unlock() #12
-  br label %.loopexit5
+  br label %.loopexit6
 
 .loopexit:                                        ; preds = %70, %21
   %74 = phi i32 [ 0, %21 ], [ %71, %70 ]
@@ -1835,9 +1835,9 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
   %75 = add i32 %22, 1
   %76 = lshr i32 %75, %7
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %21, label %.loopexit5, !llvm.loop !32
+  br i1 %77, label %21, label %.loopexit6, !llvm.loop !32
 
-.loopexit5:                                       ; preds = %.loopexit, %2, %.thread
+.loopexit6:                                       ; preds = %.loopexit, %.thread, %2
   %78 = phi i32 [ %10, %2 ], [ %22, %.thread ], [ %75, %.loopexit ]
   %79 = phi i32 [ %13, %2 ], [ %30, %.thread ], [ %74, %.loopexit ]
   %80 = zext i32 %78 to i64

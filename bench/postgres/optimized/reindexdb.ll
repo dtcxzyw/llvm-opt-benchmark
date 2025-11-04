@@ -683,14 +683,14 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   br label %50
 
 50:                                               ; preds = %96, %44
-  %.1101 = phi ptr [ %.0100, %44 ], [ %.3124, %96 ]
+  %.1101 = phi ptr [ %.0100, %44 ], [ %.3125, %96 ]
   %.195 = phi ptr [ %47, %44 ], [ %97, %96 ]
-  %.086 = phi ptr [ null, %44 ], [ %.288126, %96 ]
+  %.086 = phi ptr [ null, %44 ], [ %.288127, %96 ]
   %.084 = phi ptr [ null, %44 ], [ %.2, %96 ]
   %51 = getelementptr inbounds nuw i8, ptr %.195, i64 9
   %52 = load volatile i32, ptr @CancelRequested, align 4
   %.not114 = icmp eq i32 %52, 0
-  br i1 %.not114, label %53, label %.thread130
+  br i1 %.not114, label %53, label %.thread131
 
 53:                                               ; preds = %50
   br i1 %or.cond, label %54, label %.thread
@@ -698,24 +698,24 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
 54:                                               ; preds = %53
   %.not115 = icmp eq ptr %.086, null
   %55 = getelementptr inbounds nuw i8, ptr %.1101, i64 9
-  br i1 %.not115, label %.thread128, label %57
+  br i1 %.not115, label %.thread129, label %57
 
-.thread128:                                       ; preds = %54
+.thread129:                                       ; preds = %54
   %56 = load ptr, ptr %.1101, align 8
   br label %.thread
 
 57:                                               ; preds = %54
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.086, ptr noundef nonnull dereferenceable(1) %55) #14
-  %.not137 = icmp eq i32 %58, 0
+  %.not138 = icmp eq i32 %58, 0
   %59 = load ptr, ptr %.1101, align 8
-  br i1 %.not137, label %64, label %.thread
+  br i1 %.not138, label %64, label %.thread
 
-.thread:                                          ; preds = %53, %.thread128, %57
-  %.288127 = phi ptr [ %55, %57 ], [ %55, %.thread128 ], [ %.086, %53 ]
-  %.3125 = phi ptr [ %59, %57 ], [ %56, %.thread128 ], [ %.1101, %53 ]
+.thread:                                          ; preds = %53, %.thread129, %57
+  %.288128 = phi ptr [ %55, %57 ], [ %55, %.thread129 ], [ %.086, %53 ]
+  %.3126 = phi ptr [ %59, %57 ], [ %56, %.thread129 ], [ %.1101, %53 ]
   %60 = call ptr @ParallelSlotsGetIdle(ptr noundef %46, ptr noundef null) #11
   %.not116 = icmp eq ptr %60, null
-  br i1 %.not116, label %.thread130, label %61
+  br i1 %.not116, label %.thread131, label %61
 
 61:                                               ; preds = %.thread
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -725,8 +725,8 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   br label %64
 
 64:                                               ; preds = %61, %57
-  %.288126 = phi ptr [ %.288127, %61 ], [ %55, %57 ]
-  %.3124 = phi ptr [ %.3125, %61 ], [ %59, %57 ]
+  %.288127 = phi ptr [ %.288128, %61 ], [ %55, %57 ]
+  %.3125 = phi ptr [ %.3126, %61 ], [ %59, %57 ]
   %.2 = phi ptr [ %60, %61 ], [ %.084, %57 ]
   %65 = load ptr, ptr %.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -848,19 +848,19 @@ switch.lookup:                                    ; preds = %71, %72
 98:                                               ; preds = %96
   %99 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %46) #11
   %not. = xor i1 %99, true
-  br label %.thread130
+  br label %.thread131
 
-.thread130:                                       ; preds = %.thread, %50, %98
+.thread131:                                       ; preds = %.thread, %50, %98
   %.293 = phi i1 [ %not., %98 ], [ true, %50 ], [ true, %.thread ]
   %.not118 = icmp eq ptr %.099, %2
   br i1 %.not118, label %101, label %100
 
-100:                                              ; preds = %.thread130
+100:                                              ; preds = %.thread131
   call void @simple_string_list_destroy(ptr noundef nonnull %.099) #11
   call void @pg_free(ptr noundef nonnull %.099) #11
   br label %101
 
-101:                                              ; preds = %100, %.thread130
+101:                                              ; preds = %100, %.thread131
   %.not119 = icmp eq ptr %.098, null
   br i1 %.not119, label %103, label %102
 

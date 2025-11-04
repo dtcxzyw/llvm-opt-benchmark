@@ -7847,7 +7847,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
   %68 = load i64, ptr %67, align 8
   %69 = icmp slt i64 %64, %68
-  br i1 %69, label %70, label %.thread18
+  br i1 %69, label %70, label %.thread19
 
 70:                                               ; preds = %49
   %71 = zext i32 %61 to i64
@@ -7863,7 +7863,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %90
 
-82:                                               ; preds = %.thread19
+82:                                               ; preds = %.thread20
   %83 = call i32 @__SCT__cond_resched() #14
   %84 = load i64, ptr %1, align 8
   %85 = load ptr, ptr %10, align 8
@@ -7871,7 +7871,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %88 = load i64, ptr %87, align 8
   %89 = icmp slt i64 %84, %88
-  br i1 %89, label %90, label %.thread18, !llvm.loop !111
+  br i1 %89, label %90, label %.thread19, !llvm.loop !111
 
 90:                                               ; preds = %82, %70
   %91 = phi i64 [ %64, %70 ], [ %84, %82 ]
@@ -7880,7 +7880,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   store i64 %91, ptr %51, align 8
   %94 = call fastcc i32 @filemap_get_pages(ptr noundef nonnull %7, i64 noundef %92, ptr noundef nonnull %6, i1 noundef zeroext true), !range !105
   %95 = icmp slt i32 %94, 0
-  br i1 %95, label %.thread18, label %96
+  br i1 %95, label %.thread19, label %96
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %10, align 8
@@ -7889,7 +7889,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %100 = load i64, ptr %99, align 8
   %101 = load i64, ptr %1, align 8
   %102 = icmp slt i64 %101, %100
-  br i1 %102, label %103, label %.thread18, !prof !12
+  br i1 %102, label %103, label %.thread19, !prof !12
 
 103:                                              ; preds = %96
   %104 = add i64 %101, %92
@@ -7898,7 +7898,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %107 = load volatile i32, ptr %106, align 4
   %108 = load i8, ptr %6, align 8
   %109 = icmp eq i8 %108, 0
-  br i1 %109, label %.thread19, label %.preheader
+  br i1 %109, label %.thread20, label %.preheader
 
 .preheader:                                       ; preds = %103, %195
   %110 = phi i64 [ %197, %195 ], [ 0, %103 ]
@@ -7910,7 +7910,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %116 = load i64, ptr %115, align 8
   %117 = shl i64 %116, 12
   %118 = icmp slt i64 %117, %105
-  br i1 %118, label %119, label %.thread18
+  br i1 %118, label %119, label %.thread19
 
 119:                                              ; preds = %.preheader
   call void @folio_mark_accessed(ptr noundef %114) #14
@@ -7952,7 +7952,7 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %147 = sub i64 %146, %134
   %148 = call i64 @llvm.umin.i64(i64 %147, i64 %122)
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.thread18, label %150
+  br i1 %149, label %.thread19, label %150
 
 150:                                              ; preds = %144
   %151 = and i64 %120, 4095
@@ -8001,13 +8001,13 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %181 = getelementptr i8, ptr %155, i64 64
   %182 = add i64 %171, %156
   %183 = icmp ult i64 %182, %148
-  br i1 %183, label %153, label %.thread16, !llvm.loop !110
+  br i1 %183, label %153, label %.thread17, !llvm.loop !110
 
 184:                                              ; preds = %153
   %185 = icmp eq i64 %156, 0
-  br i1 %185, label %.thread18, label %.thread16
+  br i1 %185, label %.thread19, label %.thread17
 
-.thread16:                                        ; preds = %162, %184
+.thread17:                                        ; preds = %162, %184
   %186 = phi i64 [ %156, %184 ], [ %182, %162 ]
   %187 = add i64 %186, %112
   %188 = load i64, ptr %1, align 8
@@ -8019,9 +8019,9 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
   %192 = load i32, ptr %60, align 8
   %193 = sub i32 %190, %191
   %194 = icmp ult i32 %193, %192
-  br i1 %194, label %195, label %.thread18
+  br i1 %194, label %195, label %.thread19
 
-195:                                              ; preds = %.thread16
+195:                                              ; preds = %.thread17
   %196 = sub i64 %111, %186
   %197 = add nuw nsw i64 %110, 1
   %198 = load i8, ptr %6, align 8
@@ -8031,30 +8031,30 @@ define dso_local i64 @filemap_splice_read(ptr noundef %0, ptr noundef captures(n
 
 201:                                              ; preds = %195
   %202 = icmp eq i8 %198, 0
-  br i1 %202, label %.thread19, label %203
+  br i1 %202, label %.thread20, label %203
 
 203:                                              ; preds = %201
   call void @__folio_batch_release(ptr noundef nonnull %6) #14
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %103, %203, %201
+.thread20:                                        ; preds = %103, %203, %201
   %204 = phi i64 [ %196, %203 ], [ %196, %201 ], [ %92, %103 ]
   %205 = phi i64 [ %187, %203 ], [ %187, %201 ], [ %93, %103 ]
   %206 = icmp eq i64 %204, 0
-  br i1 %206, label %.thread18, label %82, !llvm.loop !111
+  br i1 %206, label %.thread19, label %82, !llvm.loop !111
 
-.thread18:                                        ; preds = %.thread19, %96, %90, %82, %144, %.thread16, %184, %.preheader, %49
-  %207 = phi i32 [ 0, %49 ], [ %94, %.preheader ], [ %94, %184 ], [ %94, %.thread16 ], [ %94, %144 ], [ %94, %82 ], [ %94, %90 ], [ %94, %96 ], [ %94, %.thread19 ]
-  %208 = phi i64 [ 0, %49 ], [ %112, %144 ], [ %187, %.thread16 ], [ %112, %184 ], [ %112, %.preheader ], [ %205, %.thread19 ], [ %93, %96 ], [ %93, %90 ], [ %205, %82 ]
+.thread19:                                        ; preds = %.thread20, %96, %90, %82, %144, %.thread17, %184, %.preheader, %49
+  %207 = phi i32 [ 0, %49 ], [ %94, %.preheader ], [ %94, %184 ], [ %94, %.thread17 ], [ %94, %144 ], [ %94, %82 ], [ %94, %90 ], [ %94, %96 ], [ %94, %.thread20 ]
+  %208 = phi i64 [ 0, %49 ], [ %112, %144 ], [ %187, %.thread17 ], [ %112, %184 ], [ %112, %.preheader ], [ %205, %.thread20 ], [ %93, %96 ], [ %93, %90 ], [ %205, %82 ]
   %209 = load i8, ptr %6, align 8
   %210 = icmp eq i8 %209, 0
   br i1 %210, label %212, label %211
 
-211:                                              ; preds = %.thread18
+211:                                              ; preds = %.thread19
   call void @__folio_batch_release(ptr noundef nonnull %6) #14
   br label %212
 
-212:                                              ; preds = %211, %.thread18
+212:                                              ; preds = %211, %.thread19
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, 262144

@@ -32,7 +32,7 @@ define dso_local i32 @intel_migrate_init(ptr noundef writeonly captures(none) in
 7:                                                ; preds = %10
   %8 = add nuw nsw i64 %11, 1
   %9 = icmp eq i64 %8, 9
-  br i1 %9, label %.thread24, label %10, !llvm.loop !5
+  br i1 %9, label %.thread25, label %10, !llvm.loop !5
 
 10:                                               ; preds = %7, %2
   %11 = phi i64 [ 0, %2 ], [ %8, %7 ]
@@ -46,7 +46,7 @@ define dso_local i32 @intel_migrate_init(ptr noundef writeonly captures(none) in
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %16 = tail call ptr @i915_ppgtt_create(ptr noundef %1, i64 noundef 32) #10
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
-  br i1 %17, label %.loopexit25, label %18
+  br i1 %17, label %.loopexit26, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 592
@@ -117,9 +117,9 @@ define dso_local i32 @intel_migrate_init(ptr noundef writeonly captures(none) in
 59:                                               ; preds = %56
   %60 = call i32 @i915_vm_map_pt_stash(ptr noundef %16, ptr noundef nonnull %3) #10
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.thread17, label %63
+  br i1 %61, label %.thread18, label %63
 
-.thread17:                                        ; preds = %59
+.thread18:                                        ; preds = %59
   %62 = load ptr, ptr %19, align 8
   call void %62(ptr noundef %16, ptr noundef nonnull %3, i64 noundef %38, i64 noundef %52) #10
   br label %.loopexit
@@ -140,8 +140,8 @@ select.unfold:                                    ; preds = %66, %63
   %70 = icmp eq i32 %69, -35
   br i1 %70, label %56, label %.loopexit
 
-.loopexit:                                        ; preds = %select.unfold, %.thread17
-  %71 = phi i32 [ 0, %.thread17 ], [ %69, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %.thread18
+  %71 = phi i32 [ 0, %.thread18 ], [ %69, %select.unfold ]
   call void @i915_gem_ww_ctx_fini(ptr noundef nonnull %5) #10
   call void @i915_vm_free_pt_stash(ptr noundef %16, ptr noundef nonnull %3) #10
   %72 = icmp eq i32 %71, 0
@@ -177,7 +177,7 @@ select.unfold:                                    ; preds = %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %89 = add nuw nsw i64 %37, 1
   %90 = icmp eq i64 %89, 9
-  br i1 %90, label %.loopexit25, label %36, !llvm.loop !9
+  br i1 %90, label %.loopexit26, label %36, !llvm.loop !9
 
 91:                                               ; preds = %42, %.loopexit
   %92 = phi i32 [ %53, %42 ], [ %71, %.loopexit ]
@@ -194,28 +194,28 @@ select.unfold:                                    ; preds = %66, %63
 
 98:                                               ; preds = %94
   %99 = icmp sgt i32 %96, 0
-  br i1 %99, label %.thread21, label %100, !prof !11
+  br i1 %99, label %.thread22, label %100, !prof !11
 
 100:                                              ; preds = %98
   call void @refcount_warn_saturate(ptr noundef %16, i32 noundef 3) #10
-  br label %.thread21
+  br label %.thread22
 
 101:                                              ; preds = %94
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   call void @i915_vm_release(ptr noundef %16) #10
-  br label %.thread21
+  br label %.thread22
 
-.thread21:                                        ; preds = %98, %100, %101
+.thread22:                                        ; preds = %98, %100, %101
   %102 = inttoptr i64 %95 to ptr
-  br label %.loopexit25
+  br label %.loopexit26
 
-.loopexit25:                                      ; preds = %88, %.thread21, %15
-  %103 = phi ptr [ %102, %.thread21 ], [ %16, %15 ], [ %16, %88 ]
+.loopexit26:                                      ; preds = %88, %.thread22, %15
+  %103 = phi ptr [ %102, %.thread22 ], [ %16, %15 ], [ %16, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %104 = icmp ugt ptr %103, inttoptr (i64 -4096 to ptr)
-  br i1 %104, label %.thread23, label %105
+  br i1 %104, label %.thread24, label %105
 
-105:                                              ; preds = %.loopexit25
+105:                                              ; preds = %.loopexit26
   %106 = call ptr @intel_engine_create_pinned_context(ptr noundef nonnull %13, ptr noundef %103, i32 noundef 524288, i32 noundef 264, ptr noundef nonnull @pinned_context.key, ptr noundef nonnull @.str.1) #10
   %107 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103, i32 -1, ptr elementtype(i32) %103) #10, !srcloc !10
   %108 = icmp eq i32 %107, 1
@@ -223,34 +223,34 @@ select.unfold:                                    ; preds = %66, %63
 
 109:                                              ; preds = %105
   %110 = icmp sgt i32 %107, 0
-  br i1 %110, label %.thread23, label %111, !prof !11
+  br i1 %110, label %.thread24, label %111, !prof !11
 
 111:                                              ; preds = %109
   call void @refcount_warn_saturate(ptr noundef %103, i32 noundef 3) #10
-  br label %.thread23
+  br label %.thread24
 
 112:                                              ; preds = %105
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   call void @i915_vm_release(ptr noundef %103) #10
-  br label %.thread23
+  br label %.thread24
 
-.thread23:                                        ; preds = %109, %111, %112, %.loopexit25
-  %113 = phi ptr [ %103, %.loopexit25 ], [ %106, %112 ], [ %106, %111 ], [ %106, %109 ]
+.thread24:                                        ; preds = %109, %111, %112, %.loopexit26
+  %113 = phi ptr [ %103, %.loopexit26 ], [ %106, %112 ], [ %106, %111 ], [ %106, %109 ]
   %114 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
-  br i1 %114, label %.thread24, label %118
+  br i1 %114, label %.thread25, label %118
 
-.thread24:                                        ; preds = %7, %.thread23
-  %115 = phi ptr [ %113, %.thread23 ], [ inttoptr (i64 -19 to ptr), %7 ]
+.thread25:                                        ; preds = %7, %.thread24
+  %115 = phi ptr [ %113, %.thread24 ], [ inttoptr (i64 -19 to ptr), %7 ]
   %116 = ptrtoint ptr %115 to i64
   %117 = trunc i64 %116 to i32
   br label %119
 
-118:                                              ; preds = %.thread23
+118:                                              ; preds = %.thread24
   store ptr %113, ptr %0, align 8
   br label %119
 
-119:                                              ; preds = %118, %.thread24
-  %120 = phi i32 [ %117, %.thread24 ], [ 0, %118 ]
+119:                                              ; preds = %118, %.thread25
+  %120 = phi i32 [ %117, %.thread25 ], [ 0, %118 ]
   ret i32 %120
 }
 

@@ -99599,8 +99599,8 @@ ma_device_get_log.exit:                           ; preds = %ma_device_get_conte
 70:                                               ; preds = %41
   %71 = load i32, ptr %1, align 8
   %72 = and i32 %71, -2
-  %switch339 = icmp eq i32 %72, 2
-  br i1 %switch339, label %73, label %354
+  %switch340 = icmp eq i32 %72, 2
+  br i1 %switch340, label %73, label %354
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %0, align 8
@@ -99610,7 +99610,7 @@ ma_device_get_log.exit:                           ; preds = %ma_device_get_conte
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr %76(ptr noundef %78, ptr noundef %.0265, ptr noundef nonnull @ma_device_source_info_callback, ptr noundef nonnull %7) #69
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %ma_device_get_context.exit.i347, label %81
+  br i1 %80, label %ma_device_get_context.exit.i348, label %81
 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 920
@@ -99636,50 +99636,50 @@ ma_device_get_log.exit:                           ; preds = %ma_device_get_conte
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull %79) #69
   %96 = icmp eq ptr %0, null
-  br i1 %96, label %ma_log_post.exit, label %ma_device_get_context.exit.i347
+  br i1 %96, label %ma_log_post.exit, label %ma_device_get_context.exit.i348
 
-ma_device_get_context.exit.i347:                  ; preds = %73, %93
+ma_device_get_context.exit.i348:                  ; preds = %73, %93
   %97 = load ptr, ptr %0, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %ma_log_post.exit, label %ma_device_get_log.exit349
+  br i1 %98, label %ma_log_post.exit, label %ma_device_get_log.exit350
 
-ma_device_get_log.exit349:                        ; preds = %ma_device_get_context.exit.i347
+ma_device_get_log.exit350:                        ; preds = %ma_device_get_context.exit.i348
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 112
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %ma_log_post.exit, label %102
 
-102:                                              ; preds = %ma_device_get_log.exit349
+102:                                              ; preds = %ma_device_get_log.exit350
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 104
   %104 = call i32 @pthread_mutex_lock(ptr noundef nonnull %103) #69
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %106 = load i32, ptr %105, align 8
-  %.not21.i350 = icmp eq i32 %106, 0
-  br i1 %.not21.i350, label %._crit_edge.i356, label %.lr.ph.i351
+  %.not21.i351 = icmp eq i32 %106, 0
+  br i1 %.not21.i351, label %._crit_edge.i357, label %.lr.ph.i352
 
-.lr.ph.i351:                                      ; preds = %102, %113
+.lr.ph.i352:                                      ; preds = %102, %113
   %107 = phi i32 [ %114, %113 ], [ %106, %102 ]
-  %indvars.iv.i352 = phi i64 [ %indvars.iv.next.i355, %113 ], [ 0, %102 ]
-  %108 = getelementptr inbounds nuw %struct.ma_log_callback, ptr %100, i64 %indvars.iv.i352
+  %indvars.iv.i353 = phi i64 [ %indvars.iv.next.i356, %113 ], [ 0, %102 ]
+  %108 = getelementptr inbounds nuw %struct.ma_log_callback, ptr %100, i64 %indvars.iv.i353
   %109 = load ptr, ptr %108, align 8
-  %.not.i353 = icmp eq ptr %109, null
-  br i1 %.not.i353, label %113, label %110
+  %.not.i354 = icmp eq ptr %109, null
+  br i1 %.not.i354, label %113, label %110
 
-110:                                              ; preds = %.lr.ph.i351
+110:                                              ; preds = %.lr.ph.i352
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %112 = load ptr, ptr %111, align 8
   call void %109(ptr noundef %112, i32 noundef 1, ptr noundef nonnull @.str.386) #69
-  %.pre.i354 = load i32, ptr %105, align 8
+  %.pre.i355 = load i32, ptr %105, align 8
   br label %113
 
-113:                                              ; preds = %110, %.lr.ph.i351
-  %114 = phi i32 [ %107, %.lr.ph.i351 ], [ %.pre.i354, %110 ]
-  %indvars.iv.next.i355 = add nuw nsw i64 %indvars.iv.i352, 1
+113:                                              ; preds = %110, %.lr.ph.i352
+  %114 = phi i32 [ %107, %.lr.ph.i352 ], [ %.pre.i355, %110 ]
+  %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i353, 1
   %115 = zext i32 %114 to i64
-  %116 = icmp samesign ult i64 %indvars.iv.next.i355, %115
-  br i1 %116, label %.lr.ph.i351, label %._crit_edge.i356
+  %116 = icmp samesign ult i64 %indvars.iv.next.i356, %115
+  br i1 %116, label %.lr.ph.i352, label %._crit_edge.i357
 
-._crit_edge.i356:                                 ; preds = %113, %102
+._crit_edge.i357:                                 ; preds = %113, %102
   %117 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %103) #69
   br label %ma_log_post.exit
 
@@ -99732,73 +99732,73 @@ ma_device_get_log.exit349:                        ; preds = %ma_device_get_conte
   %switch.shifted = lshr i16 681, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond599 = select i1 %142, i1 %switch.lobit, i1 false
-  br i1 %or.cond599, label %ma_format_from_pulse.exit.thread, label %ma_device_get_context.exit.i360
+  br i1 %or.cond599, label %ma_format_from_pulse.exit.thread, label %ma_device_get_context.exit.i361
 
-ma_device_get_context.exit.i360:                  ; preds = %140
+ma_device_get_context.exit.i361:                  ; preds = %140
   store i32 5, ptr %8, align 4
   %143 = load ptr, ptr %0, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %ma_device_get_log.exit362, label %145
+  br i1 %144, label %ma_device_get_log.exit363, label %145
 
-145:                                              ; preds = %ma_device_get_context.exit.i360
+145:                                              ; preds = %ma_device_get_context.exit.i361
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 112
   %147 = load ptr, ptr %146, align 8
-  br label %ma_device_get_log.exit362
+  br label %ma_device_get_log.exit363
 
-ma_device_get_log.exit362:                        ; preds = %ma_device_get_context.exit.i360, %145
-  %.0.i1.i361 = phi ptr [ %147, %145 ], [ null, %ma_device_get_context.exit.i360 ]
-  %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i361, i32 noundef 3, ptr noundef nonnull @.str.387)
+ma_device_get_log.exit363:                        ; preds = %ma_device_get_context.exit.i361, %145
+  %.0.i1.i362 = phi ptr [ %147, %145 ], [ null, %ma_device_get_context.exit.i361 ]
+  %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i362, i32 noundef 3, ptr noundef nonnull @.str.387)
   br label %ma_format_from_pulse.exit.thread
 
-ma_format_from_pulse.exit.thread:                 ; preds = %140, %ma_device_get_log.exit362
-  %.0252 = phi i32 [ 8257, %ma_device_get_log.exit362 ], [ 8193, %140 ]
+ma_format_from_pulse.exit.thread:                 ; preds = %140, %ma_device_get_log.exit363
+  %.0252 = phi i32 [ 8257, %ma_device_get_log.exit363 ], [ 8193, %140 ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 0
-  br i1 %151, label %ma_device_get_context.exit.i363, label %159
+  br i1 %151, label %ma_device_get_context.exit.i364, label %159
 
-ma_device_get_context.exit.i363:                  ; preds = %ma_format_from_pulse.exit.thread
+ma_device_get_context.exit.i364:                  ; preds = %ma_format_from_pulse.exit.thread
   store i32 48000, ptr %149, align 4
   %152 = or disjoint i32 %.0252, 128
   %153 = load ptr, ptr %0, align 8
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %ma_device_get_log.exit365, label %155
+  br i1 %154, label %ma_device_get_log.exit366, label %155
 
-155:                                              ; preds = %ma_device_get_context.exit.i363
+155:                                              ; preds = %ma_device_get_context.exit.i364
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 112
   %157 = load ptr, ptr %156, align 8
-  br label %ma_device_get_log.exit365
+  br label %ma_device_get_log.exit366
 
-ma_device_get_log.exit365:                        ; preds = %ma_device_get_context.exit.i363, %155
-  %.0.i1.i364 = phi ptr [ %157, %155 ], [ null, %ma_device_get_context.exit.i363 ]
-  %158 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i364, i32 noundef 3, ptr noundef nonnull @.str.388, i32 noundef 48000)
+ma_device_get_log.exit366:                        ; preds = %ma_device_get_context.exit.i364, %155
+  %.0.i1.i365 = phi ptr [ %157, %155 ], [ null, %ma_device_get_context.exit.i364 ]
+  %158 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i365, i32 noundef 3, ptr noundef nonnull @.str.388, i32 noundef 48000)
   br label %159
 
-159:                                              ; preds = %ma_device_get_log.exit365, %ma_format_from_pulse.exit.thread
-  %.1253 = phi i32 [ %152, %ma_device_get_log.exit365 ], [ %.0252, %ma_format_from_pulse.exit.thread ]
+159:                                              ; preds = %ma_device_get_log.exit366, %ma_format_from_pulse.exit.thread
+  %.1253 = phi i32 [ %152, %ma_device_get_log.exit366 ], [ %.0252, %ma_format_from_pulse.exit.thread ]
   %160 = load i8, ptr %133, align 4
   %161 = icmp eq i8 %160, 0
-  br i1 %161, label %ma_device_get_context.exit.i366, label %169
+  br i1 %161, label %ma_device_get_context.exit.i367, label %169
 
-ma_device_get_context.exit.i366:                  ; preds = %159
+ma_device_get_context.exit.i367:                  ; preds = %159
   store i8 2, ptr %133, align 4
   %162 = or i32 %.1253, 256
   %163 = load ptr, ptr %0, align 8
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %ma_device_get_log.exit368, label %165
+  br i1 %164, label %ma_device_get_log.exit369, label %165
 
-165:                                              ; preds = %ma_device_get_context.exit.i366
+165:                                              ; preds = %ma_device_get_context.exit.i367
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 112
   %167 = load ptr, ptr %166, align 8
-  br label %ma_device_get_log.exit368
+  br label %ma_device_get_log.exit369
 
-ma_device_get_log.exit368:                        ; preds = %ma_device_get_context.exit.i366, %165
-  %.0.i1.i367 = phi ptr [ %167, %165 ], [ null, %ma_device_get_context.exit.i366 ]
-  %168 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i367, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 2)
+ma_device_get_log.exit369:                        ; preds = %ma_device_get_context.exit.i367, %165
+  %.0.i1.i368 = phi ptr [ %167, %165 ], [ null, %ma_device_get_context.exit.i367 ]
+  %168 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i368, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 2)
   br label %169
 
-169:                                              ; preds = %ma_device_get_log.exit368, %159
-  %.2254 = phi i32 [ %162, %ma_device_get_log.exit368 ], [ %.1253, %159 ]
+169:                                              ; preds = %ma_device_get_log.exit369, %159
+  %.2254 = phi i32 [ %162, %ma_device_get_log.exit369 ], [ %.1253, %159 ]
   %170 = load i32, ptr %149, align 4
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %172 = load i32, ptr %171, align 4
@@ -99844,27 +99844,27 @@ ma_device_get_log.exit368:                        ; preds = %ma_device_get_conte
   br label %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit
 
 ma_calculate_period_size_in_frames_from_descriptor__pulse.exit: ; preds = %169, %183, %184, %187, %188, %191, %193
-  %.0.i369 = phi i32 [ %174, %169 ], [ %186, %184 ], [ 0, %183 ], [ %190, %188 ], [ 0, %187 ], [ %195, %193 ], [ 0, %191 ]
-  store i32 %.0.i369, ptr %173, align 8
+  %.0.i370 = phi i32 [ %174, %169 ], [ %186, %184 ], [ 0, %183 ], [ %190, %188 ], [ 0, %187 ], [ %195, %193 ], [ 0, %191 ]
+  store i32 %.0.i370, ptr %173, align 8
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %197 = load i32, ptr %196, align 8
   %.val = load i32, ptr %8, align 4
-  %.val344 = load i8, ptr %133, align 4
+  %.val345 = load i8, ptr %133, align 4
   %198 = icmp ult i32 %.val, 10
-  br i1 %198, label %switch.lookup, label %ma_device_get_context.exit.i370
+  br i1 %198, label %switch.lookup, label %ma_device_get_context.exit.i371
 
 switch.lookup:                                    ; preds = %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit
   %199 = zext nneg i32 %.val to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ma_device__pa_buffer_attr_new, i64 %199
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %ma_device_get_context.exit.i370
+  br label %ma_device_get_context.exit.i371
 
-ma_device_get_context.exit.i370:                  ; preds = %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit, %switch.lookup
+ma_device_get_context.exit.i371:                  ; preds = %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit, %switch.lookup
   %.0.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %ma_calculate_period_size_in_frames_from_descriptor__pulse.exit ]
-  %200 = zext i8 %.val344 to i32
+  %200 = zext i8 %.val345 to i32
   %201 = getelementptr inbounds nuw i32, ptr @__const.ma_get_bytes_per_sample.sizes, i64 %.0.i.i
   %202 = load i32, ptr %201, align 4, !noalias !275
-  %203 = mul i32 %197, %.0.i369
+  %203 = mul i32 %197, %.0.i370
   %204 = mul i32 %203, %200
   %205 = mul i32 %204, %202
   %206 = udiv i32 %205, %197
@@ -99879,28 +99879,28 @@ ma_device_get_context.exit.i370:                  ; preds = %ma_calculate_period
   store i32 %206, ptr %.sroa.7.0..sroa_idx, align 4
   %207 = load ptr, ptr %0, align 8
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %ma_device_get_log.exit372, label %209
+  br i1 %208, label %ma_device_get_log.exit373, label %209
 
-209:                                              ; preds = %ma_device_get_context.exit.i370
+209:                                              ; preds = %ma_device_get_context.exit.i371
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 112
   %211 = load ptr, ptr %210, align 8
-  br label %ma_device_get_log.exit372
+  br label %ma_device_get_log.exit373
 
-ma_device_get_log.exit372:                        ; preds = %ma_device_get_context.exit.i370, %209
-  %.0.i1.i371 = phi ptr [ %211, %209 ], [ null, %ma_device_get_context.exit.i370 ]
-  %212 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i371, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef %205, i32 noundef %206, i32 noundef -1, i32 noundef -1, i32 noundef %206, i32 noundef %.0.i369)
+ma_device_get_log.exit373:                        ; preds = %ma_device_get_context.exit.i371, %209
+  %.0.i1.i372 = phi ptr [ %211, %209 ], [ null, %ma_device_get_context.exit.i371 ]
+  %212 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i372, i32 noundef 3, ptr noundef nonnull @.str.390, i32 noundef %205, i32 noundef %206, i32 noundef -1, i32 noundef -1, i32 noundef %206, i32 noundef %.0.i370)
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %214 = load ptr, ptr %213, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not.i373 = icmp eq ptr %214, null
-  br i1 %.not.i373, label %217, label %215
+  %.not.i374 = icmp eq ptr %214, null
+  br i1 %.not.i374, label %217, label %215
 
-215:                                              ; preds = %ma_device_get_log.exit372
+215:                                              ; preds = %ma_device_get_log.exit373
   %216 = call i32 @ma_strncpy_s(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull readonly %214, i64 noundef -1)
-  %.pre.i374 = load i32, ptr @ma_device__pa_stream_new__pulse.g_StreamCounter, align 4
+  %.pre.i375 = load i32, ptr @ma_device__pa_stream_new__pulse.g_StreamCounter, align 4
   br label %ma_device__pa_stream_new__pulse.exit
 
-217:                                              ; preds = %ma_device_get_log.exit372
+217:                                              ; preds = %ma_device_get_log.exit373
   %218 = call i32 @ma_strcpy_s(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.406)
   %219 = load i32, ptr @ma_device__pa_stream_new__pulse.g_StreamCounter, align 4
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -99908,7 +99908,7 @@ ma_device_get_log.exit372:                        ; preds = %ma_device_get_conte
   br label %ma_device__pa_stream_new__pulse.exit
 
 ma_device__pa_stream_new__pulse.exit:             ; preds = %215, %217
-  %222 = phi i32 [ %219, %217 ], [ %.pre.i374, %215 ]
+  %222 = phi i32 [ %219, %217 ], [ %.pre.i375, %215 ]
   %223 = add nsw i32 %222, 1
   store i32 %223, ptr @ma_device__pa_stream_new__pulse.g_StreamCounter, align 4
   %224 = load ptr, ptr %0, align 8
@@ -99921,20 +99921,20 @@ ma_device__pa_stream_new__pulse.exit:             ; preds = %215, %217
   store ptr %228, ptr %229, align 8
   %230 = icmp eq ptr %228, null
   %231 = load ptr, ptr %0, align 8
-  br i1 %230, label %ma_device_get_context.exit.i375, label %237
+  br i1 %230, label %ma_device_get_context.exit.i376, label %237
 
-ma_device_get_context.exit.i375:                  ; preds = %ma_device__pa_stream_new__pulse.exit
+ma_device_get_context.exit.i376:                  ; preds = %ma_device__pa_stream_new__pulse.exit
   %232 = icmp eq ptr %231, null
-  br i1 %232, label %ma_device_get_log.exit377, label %233
+  br i1 %232, label %ma_device_get_log.exit378, label %233
 
-233:                                              ; preds = %ma_device_get_context.exit.i375
+233:                                              ; preds = %ma_device_get_context.exit.i376
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 112
   %235 = load ptr, ptr %234, align 8
-  br label %ma_device_get_log.exit377
+  br label %ma_device_get_log.exit378
 
-ma_device_get_log.exit377:                        ; preds = %ma_device_get_context.exit.i375, %233
-  %.0.i1.i376 = phi ptr [ %235, %233 ], [ null, %ma_device_get_context.exit.i375 ]
-  %236 = call i32 @ma_log_post(ptr noundef %.0.i1.i376, i32 noundef 1, ptr noundef nonnull @.str.391)
+ma_device_get_log.exit378:                        ; preds = %ma_device_get_context.exit.i376, %233
+  %.0.i1.i377 = phi ptr [ %235, %233 ], [ null, %ma_device_get_context.exit.i376 ]
+  %236 = call i32 @ma_log_post(ptr noundef %.0.i1.i377, i32 noundef 1, ptr noundef nonnull @.str.391)
   br label %ma_log_post.exit
 
 237:                                              ; preds = %ma_device__pa_stream_new__pulse.exit
@@ -99961,20 +99961,20 @@ ma_device_get_log.exit377:                        ; preds = %ma_device_get_conte
   %253 = call i32 %251(ptr noundef %252, ptr noundef %.0265, ptr noundef nonnull %10, i32 noundef %spec.select331) #69
   %.not311 = icmp eq i32 %253, 0
   %254 = load ptr, ptr %0, align 8
-  br i1 %.not311, label %262, label %ma_device_get_context.exit.i378
+  br i1 %.not311, label %262, label %ma_device_get_context.exit.i379
 
-ma_device_get_context.exit.i378:                  ; preds = %237
+ma_device_get_context.exit.i379:                  ; preds = %237
   %255 = icmp eq ptr %254, null
-  br i1 %255, label %ma_device_get_log.exit380, label %256
+  br i1 %255, label %ma_device_get_log.exit381, label %256
 
-256:                                              ; preds = %ma_device_get_context.exit.i378
+256:                                              ; preds = %ma_device_get_context.exit.i379
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 112
   %258 = load ptr, ptr %257, align 8
-  br label %ma_device_get_log.exit380
+  br label %ma_device_get_log.exit381
 
-ma_device_get_log.exit380:                        ; preds = %ma_device_get_context.exit.i378, %256
-  %.0.i1.i379 = phi ptr [ %258, %256 ], [ null, %ma_device_get_context.exit.i378 ]
-  %259 = call i32 @ma_log_post(ptr noundef %.0.i1.i379, i32 noundef 1, ptr noundef nonnull @.str.392)
+ma_device_get_log.exit381:                        ; preds = %ma_device_get_context.exit.i379, %256
+  %.0.i1.i380 = phi ptr [ %258, %256 ], [ null, %ma_device_get_context.exit.i379 ]
+  %259 = call i32 @ma_log_post(ptr noundef %.0.i1.i380, i32 noundef 1, ptr noundef nonnull @.str.392)
   %260 = icmp sge i32 %253, 0
   %261 = icmp ult i32 %253, 6
   %or.cond641 = and i1 %260, %261
@@ -99985,7 +99985,7 @@ ma_device_get_log.exit380:                        ; preds = %ma_device_get_conte
   %264 = load ptr, ptr %229, align 8
   %265 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %254, ptr noundef %263, ptr noundef %264)
   %.not312 = icmp eq i32 %265, 0
-  br i1 %.not312, label %266, label %ma_log_post.exit416
+  br i1 %.not312, label %266, label %ma_log_post.exit417
 
 266:                                              ; preds = %262
   %267 = load ptr, ptr %0, align 8
@@ -99994,64 +99994,64 @@ ma_device_get_log.exit380:                        ; preds = %ma_device_get_conte
   %270 = load ptr, ptr %229, align 8
   %271 = call ptr %269(ptr noundef %270) #69
   %.not313 = icmp eq ptr %271, null
-  br i1 %.not313, label %ma_device_get_context.exit.i388, label %ma_device_get_context.exit.i382
+  br i1 %.not313, label %ma_device_get_context.exit.i389, label %ma_device_get_context.exit.i383
 
-ma_device_get_context.exit.i382:                  ; preds = %266
+ma_device_get_context.exit.i383:                  ; preds = %266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %271, i64 12, i1 false)
   %272 = load ptr, ptr %0, align 8
   %273 = icmp eq ptr %272, null
-  br i1 %273, label %ma_device_get_log.exit384, label %274
+  br i1 %273, label %ma_device_get_log.exit385, label %274
 
-274:                                              ; preds = %ma_device_get_context.exit.i382
+274:                                              ; preds = %ma_device_get_context.exit.i383
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 112
   %276 = load ptr, ptr %275, align 8
-  br label %ma_device_get_log.exit384
+  br label %ma_device_get_log.exit385
 
-ma_device_get_log.exit384:                        ; preds = %ma_device_get_context.exit.i382, %274
-  %.0.i1.i383 = phi ptr [ %276, %274 ], [ null, %ma_device_get_context.exit.i382 ]
+ma_device_get_log.exit385:                        ; preds = %ma_device_get_context.exit.i383, %274
+  %.0.i1.i384 = phi ptr [ %276, %274 ], [ null, %ma_device_get_context.exit.i383 ]
   %277 = load i32, ptr %8, align 4
   %278 = icmp ult i32 %277, 10
   br i1 %278, label %switch.lookup603, label %ma_get_format_name.exit
 
-switch.lookup603:                                 ; preds = %ma_device_get_log.exit384
+switch.lookup603:                                 ; preds = %ma_device_get_log.exit385
   %279 = zext nneg i32 %277 to i64
   %switch.gep604 = getelementptr inbounds nuw ptr, ptr @switch.table.ma_device_init__pulse.55, i64 %279
   %switch.load605 = load ptr, ptr %switch.gep604, align 8
   br label %ma_get_format_name.exit
 
-ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit384, %switch.lookup603
-  %.0.i387 = phi ptr [ %switch.load605, %switch.lookup603 ], [ @.str.9, %ma_device_get_log.exit384 ]
+ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit385, %switch.lookup603
+  %.0.i388 = phi ptr [ %switch.load605, %switch.lookup603 ], [ @.str.9, %ma_device_get_log.exit385 ]
   %280 = load i8, ptr %133, align 4
   %281 = zext i8 %280 to i32
   %282 = load i32, ptr %149, align 4
-  %283 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i383, i32 noundef 3, ptr noundef nonnull @.str.393, ptr noundef nonnull %.0.i387, i32 noundef %281, i32 noundef %282)
+  %283 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i384, i32 noundef 3, ptr noundef nonnull @.str.393, ptr noundef nonnull %.0.i388, i32 noundef %281, i32 noundef %282)
   br label %290
 
-ma_device_get_context.exit.i388:                  ; preds = %266
+ma_device_get_context.exit.i389:                  ; preds = %266
   %284 = load ptr, ptr %0, align 8
   %285 = icmp eq ptr %284, null
-  br i1 %285, label %ma_device_get_log.exit390, label %286
+  br i1 %285, label %ma_device_get_log.exit391, label %286
 
-286:                                              ; preds = %ma_device_get_context.exit.i388
+286:                                              ; preds = %ma_device_get_context.exit.i389
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 112
   %288 = load ptr, ptr %287, align 8
-  br label %ma_device_get_log.exit390
+  br label %ma_device_get_log.exit391
 
-ma_device_get_log.exit390:                        ; preds = %ma_device_get_context.exit.i388, %286
-  %.0.i1.i389 = phi ptr [ %288, %286 ], [ null, %ma_device_get_context.exit.i388 ]
-  %289 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i389, i32 noundef 3, ptr noundef nonnull @.str.394)
+ma_device_get_log.exit391:                        ; preds = %ma_device_get_context.exit.i389, %286
+  %.0.i1.i390 = phi ptr [ %288, %286 ], [ null, %ma_device_get_context.exit.i389 ]
+  %289 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i390, i32 noundef 3, ptr noundef nonnull @.str.394)
   br label %290
 
-290:                                              ; preds = %ma_device_get_log.exit390, %ma_get_format_name.exit
+290:                                              ; preds = %ma_device_get_log.exit391, %ma_get_format_name.exit
   %291 = load i32, ptr %8, align 4
   %292 = icmp ult i32 %291, 10
   %switch.maskindex608 = trunc i32 %291 to i16
   %switch.shifted609 = lshr i16 681, %switch.maskindex608
   %switch.lobit610 = trunc i16 %switch.shifted609 to i1
   %or.cond613 = select i1 %292, i1 %switch.lobit610, i1 false
-  br i1 %or.cond613, label %switch.lookup607, label %ma_format_from_pulse.exit392
+  br i1 %or.cond613, label %switch.lookup607, label %ma_format_from_pulse.exit393
 
-ma_format_from_pulse.exit392:                     ; preds = %290
+ma_format_from_pulse.exit393:                     ; preds = %290
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %293, align 4
   %294 = load i8, ptr %133, align 4
@@ -100059,7 +100059,7 @@ ma_format_from_pulse.exit392:                     ; preds = %290
   store i32 %295, ptr %123, align 8
   %296 = load i32, ptr %149, align 4
   store i32 %296, ptr %136, align 4
-  br label %ma_device_get_context.exit.i393
+  br label %ma_device_get_context.exit.i394
 
 switch.lookup607:                                 ; preds = %290
   %297 = zext nneg i32 %291 to i64
@@ -100075,28 +100075,28 @@ switch.lookup607:                                 ; preds = %290
   %302 = icmp eq i8 %299, 0
   %303 = icmp eq i32 %301, 0
   %or.cond = select i1 %302, i1 true, i1 %303
-  br i1 %or.cond, label %ma_device_get_context.exit.i393, label %313
+  br i1 %or.cond, label %ma_device_get_context.exit.i394, label %313
 
-ma_device_get_context.exit.i393:                  ; preds = %switch.lookup607, %ma_format_from_pulse.exit392
-  %304 = phi i32 [ %301, %switch.lookup607 ], [ %296, %ma_format_from_pulse.exit392 ]
-  %305 = phi i32 [ %300, %switch.lookup607 ], [ %295, %ma_format_from_pulse.exit392 ]
-  %.0.i391487 = phi i32 [ %switch.load612, %switch.lookup607 ], [ 0, %ma_format_from_pulse.exit392 ]
+ma_device_get_context.exit.i394:                  ; preds = %switch.lookup607, %ma_format_from_pulse.exit393
+  %304 = phi i32 [ %301, %switch.lookup607 ], [ %296, %ma_format_from_pulse.exit393 ]
+  %305 = phi i32 [ %300, %switch.lookup607 ], [ %295, %ma_format_from_pulse.exit393 ]
+  %.0.i392488 = phi i32 [ %switch.load612, %switch.lookup607 ], [ 0, %ma_format_from_pulse.exit393 ]
   %306 = load ptr, ptr %0, align 8
   %307 = icmp eq ptr %306, null
   br i1 %307, label %switch.lookup614, label %308
 
-308:                                              ; preds = %ma_device_get_context.exit.i393
+308:                                              ; preds = %ma_device_get_context.exit.i394
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 112
   %310 = load ptr, ptr %309, align 8
   br label %switch.lookup614
 
-switch.lookup614:                                 ; preds = %308, %ma_device_get_context.exit.i393
-  %.0.i1.i394 = phi ptr [ %310, %308 ], [ null, %ma_device_get_context.exit.i393 ]
-  %311 = zext nneg i32 %.0.i391487 to i64
+switch.lookup614:                                 ; preds = %308, %ma_device_get_context.exit.i394
+  %.0.i1.i395 = phi ptr [ %310, %308 ], [ null, %ma_device_get_context.exit.i394 ]
+  %311 = zext nneg i32 %.0.i392488 to i64
   %switch.gep615 = getelementptr inbounds nuw ptr, ptr @switch.table.ma_device_init__pulse.57, i64 %311
   %switch.load616 = load ptr, ptr %switch.gep615, align 8
-  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.395, ptr noundef nonnull %switch.load616, i32 noundef %305, i32 noundef %304)
-  br label %630
+  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i395, i32 noundef 1, ptr noundef nonnull @.str.395, ptr noundef nonnull %switch.load616, i32 noundef %305, i32 noundef %304)
+  br label %631
 
 313:                                              ; preds = %switch.lookup607
   %314 = icmp ugt i8 %299, 2
@@ -100150,14 +100150,14 @@ switch.lookup614:                                 ; preds = %308, %ma_device_get
   %334 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
   %.not315 = icmp eq i32 %334, 0
   %.pre529 = load i32, ptr %10, align 4
-  br i1 %.not315, label %ma_device_get_context.exit.i398, label %335
+  br i1 %.not315, label %ma_device_get_context.exit.i399, label %335
 
 335:                                              ; preds = %333
   %336 = udiv i32 %.pre529, %334
   %spec.select332 = call i32 @llvm.umax.i32(i32 %336, i32 1)
-  br label %ma_device_get_context.exit.i398
+  br label %ma_device_get_context.exit.i399
 
-ma_device_get_context.exit.i398:                  ; preds = %335, %333
+ma_device_get_context.exit.i399:                  ; preds = %335, %333
   %storemerge = phi i32 [ %spec.select332, %335 ], [ 1, %333 ]
   store i32 %storemerge, ptr %196, align 8
   %337 = load i32, ptr %298, align 4
@@ -100171,24 +100171,24 @@ ma_device_get_context.exit.i398:                  ; preds = %335, %333
   store i32 %344, ptr %173, align 8
   %345 = load ptr, ptr %0, align 8
   %346 = icmp eq ptr %345, null
-  br i1 %346, label %ma_device_get_log.exit400, label %347
+  br i1 %346, label %ma_device_get_log.exit401, label %347
 
-347:                                              ; preds = %ma_device_get_context.exit.i398
+347:                                              ; preds = %ma_device_get_context.exit.i399
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 112
   %349 = load ptr, ptr %348, align 8
-  br label %ma_device_get_log.exit400
+  br label %ma_device_get_log.exit401
 
-ma_device_get_log.exit400:                        ; preds = %ma_device_get_context.exit.i398, %347
-  %.0.i1.i399 = phi ptr [ %349, %347 ], [ null, %ma_device_get_context.exit.i398 ]
+ma_device_get_log.exit401:                        ; preds = %ma_device_get_context.exit.i399, %347
+  %.0.i1.i400 = phi ptr [ %349, %347 ], [ null, %ma_device_get_context.exit.i399 ]
   %350 = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %351 = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   %352 = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %353 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i399, i32 noundef 3, ptr noundef nonnull @.str.396, i32 noundef %.pre529, i32 noundef %350, i32 noundef %351, i32 noundef %352, i32 noundef %334, i32 noundef %344)
+  %353 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i400, i32 noundef 3, ptr noundef nonnull @.str.396, i32 noundef %.pre529, i32 noundef %350, i32 noundef %351, i32 noundef %352, i32 noundef %334, i32 noundef %344)
   %.pr = load i32, ptr %1, align 8
   br label %354
 
-354:                                              ; preds = %70, %ma_device_get_log.exit400
-  %355 = phi i32 [ %71, %70 ], [ %.pr, %ma_device_get_log.exit400 ]
+354:                                              ; preds = %70, %ma_device_get_log.exit401
+  %355 = phi i32 [ %71, %70 ], [ %.pr, %ma_device_get_log.exit401 ]
   switch i32 %355, label %ma_log_post.exit [
     i32 1, label %356
     i32 3, label %356
@@ -100202,7 +100202,7 @@ ma_device_get_log.exit400:                        ; preds = %ma_device_get_conte
   %361 = load ptr, ptr %360, align 8
   %362 = call ptr %359(ptr noundef %361, ptr noundef %.0267, ptr noundef nonnull @ma_device_sink_info_callback, ptr noundef nonnull %6) #69
   %363 = icmp eq ptr %362, null
-  br i1 %363, label %ma_device_get_context.exit.i405, label %364
+  br i1 %363, label %ma_device_get_context.exit.i406, label %364
 
 364:                                              ; preds = %356
   %365 = getelementptr inbounds nuw i8, ptr %357, i64 920
@@ -100214,8 +100214,8 @@ ma_device_get_log.exit400:                        ; preds = %ma_device_get_conte
 369:                                              ; preds = %372, %364
   %370 = load ptr, ptr %368, align 8
   %371 = call i32 %370(ptr noundef nonnull %362) #69
-  %.not.i.i.i401 = icmp eq i32 %371, 0
-  br i1 %.not.i.i.i401, label %372, label %401
+  %.not.i.i.i402 = icmp eq i32 %371, 0
+  br i1 %.not.i.i.i402, label %372, label %401
 
 372:                                              ; preds = %369
   %373 = load ptr, ptr %367, align 8
@@ -100228,52 +100228,52 @@ ma_device_get_log.exit400:                        ; preds = %ma_device_get_conte
   %378 = load ptr, ptr %377, align 8
   call void %378(ptr noundef nonnull %362) #69
   %379 = icmp eq ptr %0, null
-  br i1 %379, label %ma_log_post.exit416, label %ma_device_get_context.exit.i405
+  br i1 %379, label %ma_log_post.exit417, label %ma_device_get_context.exit.i406
 
-ma_device_get_context.exit.i405:                  ; preds = %356, %376
+ma_device_get_context.exit.i406:                  ; preds = %356, %376
   %380 = load ptr, ptr %0, align 8
   %381 = icmp eq ptr %380, null
-  br i1 %381, label %ma_log_post.exit416, label %ma_device_get_log.exit407
+  br i1 %381, label %ma_log_post.exit417, label %ma_device_get_log.exit408
 
-ma_device_get_log.exit407:                        ; preds = %ma_device_get_context.exit.i405
+ma_device_get_log.exit408:                        ; preds = %ma_device_get_context.exit.i406
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 112
   %383 = load ptr, ptr %382, align 8
   %384 = icmp eq ptr %383, null
-  br i1 %384, label %ma_log_post.exit416, label %385
+  br i1 %384, label %ma_log_post.exit417, label %385
 
-385:                                              ; preds = %ma_device_get_log.exit407
+385:                                              ; preds = %ma_device_get_log.exit408
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 104
   %387 = call i32 @pthread_mutex_lock(ptr noundef nonnull %386) #69
   %388 = getelementptr inbounds nuw i8, ptr %383, i64 64
   %389 = load i32, ptr %388, align 8
-  %.not21.i408 = icmp eq i32 %389, 0
-  br i1 %.not21.i408, label %._crit_edge.i414, label %.lr.ph.i409
+  %.not21.i409 = icmp eq i32 %389, 0
+  br i1 %.not21.i409, label %._crit_edge.i415, label %.lr.ph.i410
 
-.lr.ph.i409:                                      ; preds = %385, %396
+.lr.ph.i410:                                      ; preds = %385, %396
   %390 = phi i32 [ %397, %396 ], [ %389, %385 ]
-  %indvars.iv.i410 = phi i64 [ %indvars.iv.next.i413, %396 ], [ 0, %385 ]
-  %391 = getelementptr inbounds nuw %struct.ma_log_callback, ptr %383, i64 %indvars.iv.i410
+  %indvars.iv.i411 = phi i64 [ %indvars.iv.next.i414, %396 ], [ 0, %385 ]
+  %391 = getelementptr inbounds nuw %struct.ma_log_callback, ptr %383, i64 %indvars.iv.i411
   %392 = load ptr, ptr %391, align 8
-  %.not.i411 = icmp eq ptr %392, null
-  br i1 %.not.i411, label %396, label %393
+  %.not.i412 = icmp eq ptr %392, null
+  br i1 %.not.i412, label %396, label %393
 
-393:                                              ; preds = %.lr.ph.i409
+393:                                              ; preds = %.lr.ph.i410
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %395 = load ptr, ptr %394, align 8
   call void %392(ptr noundef %395, i32 noundef 1, ptr noundef nonnull @.str.397) #69
-  %.pre.i412 = load i32, ptr %388, align 8
+  %.pre.i413 = load i32, ptr %388, align 8
   br label %396
 
-396:                                              ; preds = %393, %.lr.ph.i409
-  %397 = phi i32 [ %390, %.lr.ph.i409 ], [ %.pre.i412, %393 ]
-  %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i410, 1
+396:                                              ; preds = %393, %.lr.ph.i410
+  %397 = phi i32 [ %390, %.lr.ph.i410 ], [ %.pre.i413, %393 ]
+  %indvars.iv.next.i414 = add nuw nsw i64 %indvars.iv.i411, 1
   %398 = zext i32 %397 to i64
-  %399 = icmp samesign ult i64 %indvars.iv.next.i413, %398
-  br i1 %399, label %.lr.ph.i409, label %._crit_edge.i414
+  %399 = icmp samesign ult i64 %indvars.iv.next.i414, %398
+  br i1 %399, label %.lr.ph.i410, label %._crit_edge.i415
 
-._crit_edge.i414:                                 ; preds = %396, %385
+._crit_edge.i415:                                 ; preds = %396, %385
   %400 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %386) #69
-  br label %ma_log_post.exit416
+  br label %ma_log_post.exit417
 
 401:                                              ; preds = %369
   %402 = getelementptr inbounds nuw i8, ptr %357, i64 664
@@ -100324,75 +100324,75 @@ ma_device_get_log.exit407:                        ; preds = %ma_device_get_conte
   %switch.shifted620 = lshr i16 681, %switch.maskindex619
   %switch.lobit621 = trunc i16 %switch.shifted620 to i1
   %or.cond622 = select i1 %425, i1 %switch.lobit621, i1 false
-  br i1 %or.cond622, label %ma_format_from_pulse.exit418.thread, label %ma_device_get_context.exit.i419
+  br i1 %or.cond622, label %ma_format_from_pulse.exit419.thread, label %ma_device_get_context.exit.i420
 
-ma_device_get_context.exit.i419:                  ; preds = %423
+ma_device_get_context.exit.i420:                  ; preds = %423
   store i32 5, ptr %8, align 4
   %426 = load ptr, ptr %0, align 8
   %427 = icmp eq ptr %426, null
-  br i1 %427, label %ma_device_get_log.exit421, label %428
+  br i1 %427, label %ma_device_get_log.exit422, label %428
 
-428:                                              ; preds = %ma_device_get_context.exit.i419
+428:                                              ; preds = %ma_device_get_context.exit.i420
   %429 = getelementptr inbounds nuw i8, ptr %426, i64 112
   %430 = load ptr, ptr %429, align 8
-  br label %ma_device_get_log.exit421
+  br label %ma_device_get_log.exit422
 
-ma_device_get_log.exit421:                        ; preds = %ma_device_get_context.exit.i419, %428
-  %.0.i1.i420 = phi ptr [ %430, %428 ], [ null, %ma_device_get_context.exit.i419 ]
-  %431 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i420, i32 noundef 3, ptr noundef nonnull @.str.387)
-  br label %ma_format_from_pulse.exit418.thread
+ma_device_get_log.exit422:                        ; preds = %ma_device_get_context.exit.i420, %428
+  %.0.i1.i421 = phi ptr [ %430, %428 ], [ null, %ma_device_get_context.exit.i420 ]
+  %431 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i421, i32 noundef 3, ptr noundef nonnull @.str.387)
+  br label %ma_format_from_pulse.exit419.thread
 
-ma_format_from_pulse.exit418.thread:              ; preds = %423, %ma_device_get_log.exit421
-  %.4256 = phi i32 [ 8257, %ma_device_get_log.exit421 ], [ 8193, %423 ]
+ma_format_from_pulse.exit419.thread:              ; preds = %423, %ma_device_get_log.exit422
+  %.4256 = phi i32 [ 8257, %ma_device_get_log.exit422 ], [ 8193, %423 ]
   %432 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %433 = load i32, ptr %432, align 4
   %434 = icmp eq i32 %433, 0
-  br i1 %434, label %ma_device_get_context.exit.i422, label %442
+  br i1 %434, label %ma_device_get_context.exit.i423, label %442
 
-ma_device_get_context.exit.i422:                  ; preds = %ma_format_from_pulse.exit418.thread
+ma_device_get_context.exit.i423:                  ; preds = %ma_format_from_pulse.exit419.thread
   store i32 48000, ptr %432, align 4
   %435 = or disjoint i32 %.4256, 128
   %436 = load ptr, ptr %0, align 8
   %437 = icmp eq ptr %436, null
-  br i1 %437, label %ma_device_get_log.exit424, label %438
+  br i1 %437, label %ma_device_get_log.exit425, label %438
 
-438:                                              ; preds = %ma_device_get_context.exit.i422
+438:                                              ; preds = %ma_device_get_context.exit.i423
   %439 = getelementptr inbounds nuw i8, ptr %436, i64 112
   %440 = load ptr, ptr %439, align 8
-  br label %ma_device_get_log.exit424
+  br label %ma_device_get_log.exit425
 
-ma_device_get_log.exit424:                        ; preds = %ma_device_get_context.exit.i422, %438
-  %.0.i1.i423 = phi ptr [ %440, %438 ], [ null, %ma_device_get_context.exit.i422 ]
-  %441 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i423, i32 noundef 3, ptr noundef nonnull @.str.388, i32 noundef 48000)
+ma_device_get_log.exit425:                        ; preds = %ma_device_get_context.exit.i423, %438
+  %.0.i1.i424 = phi ptr [ %440, %438 ], [ null, %ma_device_get_context.exit.i423 ]
+  %441 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i424, i32 noundef 3, ptr noundef nonnull @.str.388, i32 noundef 48000)
   br label %442
 
-442:                                              ; preds = %ma_device_get_log.exit424, %ma_format_from_pulse.exit418.thread
-  %.5 = phi i32 [ %435, %ma_device_get_log.exit424 ], [ %.4256, %ma_format_from_pulse.exit418.thread ]
+442:                                              ; preds = %ma_device_get_log.exit425, %ma_format_from_pulse.exit419.thread
+  %.5 = phi i32 [ %435, %ma_device_get_log.exit425 ], [ %.4256, %ma_format_from_pulse.exit419.thread ]
   %443 = load i8, ptr %416, align 4
   %444 = icmp eq i8 %443, 0
-  br i1 %444, label %ma_device_get_context.exit.i425, label %ma_device_get_context.exit.i428
+  br i1 %444, label %ma_device_get_context.exit.i426, label %ma_device_get_context.exit.i429
 
-ma_device_get_context.exit.i425:                  ; preds = %442
+ma_device_get_context.exit.i426:                  ; preds = %442
   store i8 2, ptr %416, align 4
   %445 = or i32 %.5, 256
   %446 = load ptr, ptr %0, align 8
   %447 = icmp eq ptr %446, null
-  br i1 %447, label %ma_device_get_log.exit427, label %448
+  br i1 %447, label %ma_device_get_log.exit428, label %448
 
-448:                                              ; preds = %ma_device_get_context.exit.i425
+448:                                              ; preds = %ma_device_get_context.exit.i426
   %449 = getelementptr inbounds nuw i8, ptr %446, i64 112
   %450 = load ptr, ptr %449, align 8
-  br label %ma_device_get_log.exit427
+  br label %ma_device_get_log.exit428
 
-ma_device_get_log.exit427:                        ; preds = %ma_device_get_context.exit.i425, %448
-  %.0.i1.i426 = phi ptr [ %450, %448 ], [ null, %ma_device_get_context.exit.i425 ]
-  %451 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i426, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 2)
-  %.val346.pre = load i8, ptr %416, align 4
-  br label %ma_device_get_context.exit.i428
+ma_device_get_log.exit428:                        ; preds = %ma_device_get_context.exit.i426, %448
+  %.0.i1.i427 = phi ptr [ %450, %448 ], [ null, %ma_device_get_context.exit.i426 ]
+  %451 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i427, i32 noundef 3, ptr noundef nonnull @.str.389, i32 noundef 2)
+  %.val347.pre = load i8, ptr %416, align 4
+  br label %ma_device_get_context.exit.i429
 
-ma_device_get_context.exit.i428:                  ; preds = %442, %ma_device_get_log.exit427
-  %.val346 = phi i8 [ %.val346.pre, %ma_device_get_log.exit427 ], [ %443, %442 ]
-  %.6 = phi i32 [ %445, %ma_device_get_log.exit427 ], [ %.5, %442 ]
+ma_device_get_context.exit.i429:                  ; preds = %442, %ma_device_get_log.exit428
+  %.val347 = phi i8 [ %.val347.pre, %ma_device_get_log.exit428 ], [ %443, %442 ]
+  %.6 = phi i32 [ %445, %ma_device_get_log.exit428 ], [ %.5, %442 ]
   %452 = load i32, ptr %432, align 4
   %453 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %454 = load i32, ptr %453, align 4
@@ -100401,19 +100401,19 @@ ma_device_get_context.exit.i428:                  ; preds = %442, %ma_device_get
   store i32 %455, ptr %456, align 8
   %457 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %458 = load i32, ptr %457, align 8
-  %.val345 = load i32, ptr %8, align 4
-  call fastcc void @ma_device__pa_buffer_attr_new(ptr dead_on_unwind noalias writable align 4 %10, i32 noundef %455, i32 noundef %458, i32 %.val345, i8 %.val346)
+  %.val346 = load i32, ptr %8, align 4
+  call fastcc void @ma_device__pa_buffer_attr_new(ptr dead_on_unwind noalias writable align 4 %10, i32 noundef %455, i32 noundef %458, i32 %.val346, i8 %.val347)
   %459 = load ptr, ptr %0, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %ma_device_get_log.exit430, label %461
+  br i1 %460, label %ma_device_get_log.exit431, label %461
 
-461:                                              ; preds = %ma_device_get_context.exit.i428
+461:                                              ; preds = %ma_device_get_context.exit.i429
   %462 = getelementptr inbounds nuw i8, ptr %459, i64 112
   %463 = load ptr, ptr %462, align 8
-  br label %ma_device_get_log.exit430
+  br label %ma_device_get_log.exit431
 
-ma_device_get_log.exit430:                        ; preds = %ma_device_get_context.exit.i428, %461
-  %.0.i1.i429 = phi ptr [ %463, %461 ], [ null, %ma_device_get_context.exit.i428 ]
+ma_device_get_log.exit431:                        ; preds = %ma_device_get_context.exit.i429, %461
+  %.0.i1.i430 = phi ptr [ %463, %461 ], [ null, %ma_device_get_context.exit.i429 ]
   %464 = load i32, ptr %10, align 4
   %465 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %466 = load i32, ptr %465, align 4
@@ -100423,7 +100423,7 @@ ma_device_get_log.exit430:                        ; preds = %ma_device_get_conte
   %470 = load i32, ptr %469, align 4
   %471 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %472 = load i32, ptr %471, align 4
-  %473 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i429, i32 noundef 3, ptr noundef nonnull @.str.398, i32 noundef %464, i32 noundef %466, i32 noundef %468, i32 noundef %470, i32 noundef %472, i32 noundef %455)
+  %473 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i430, i32 noundef 3, ptr noundef nonnull @.str.398, i32 noundef %464, i32 noundef %466, i32 noundef %468, i32 noundef %470, i32 noundef %472, i32 noundef %455)
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %475 = load ptr, ptr %474, align 8
   %476 = call fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef nonnull %0, ptr noundef %475, ptr noundef %8, ptr noundef %9)
@@ -100431,23 +100431,23 @@ ma_device_get_log.exit430:                        ; preds = %ma_device_get_conte
   store ptr %476, ptr %477, align 8
   %478 = icmp eq ptr %476, null
   %479 = load ptr, ptr %0, align 8
-  br i1 %478, label %ma_device_get_context.exit.i431, label %485
+  br i1 %478, label %ma_device_get_context.exit.i432, label %485
 
-ma_device_get_context.exit.i431:                  ; preds = %ma_device_get_log.exit430
+ma_device_get_context.exit.i432:                  ; preds = %ma_device_get_log.exit431
   %480 = icmp eq ptr %479, null
-  br i1 %480, label %ma_device_get_log.exit433, label %481
+  br i1 %480, label %ma_device_get_log.exit434, label %481
 
-481:                                              ; preds = %ma_device_get_context.exit.i431
+481:                                              ; preds = %ma_device_get_context.exit.i432
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 112
   %483 = load ptr, ptr %482, align 8
-  br label %ma_device_get_log.exit433
+  br label %ma_device_get_log.exit434
 
-ma_device_get_log.exit433:                        ; preds = %ma_device_get_context.exit.i431, %481
-  %.0.i1.i432 = phi ptr [ %483, %481 ], [ null, %ma_device_get_context.exit.i431 ]
-  %484 = call i32 @ma_log_post(ptr noundef %.0.i1.i432, i32 noundef 1, ptr noundef nonnull @.str.399)
-  br label %ma_log_post.exit416
+ma_device_get_log.exit434:                        ; preds = %ma_device_get_context.exit.i432, %481
+  %.0.i1.i433 = phi ptr [ %483, %481 ], [ null, %ma_device_get_context.exit.i432 ]
+  %484 = call i32 @ma_log_post(ptr noundef %.0.i1.i433, i32 noundef 1, ptr noundef nonnull @.str.399)
+  br label %ma_log_post.exit417
 
-485:                                              ; preds = %ma_device_get_log.exit430
+485:                                              ; preds = %ma_device_get_log.exit431
   %486 = getelementptr inbounds nuw i8, ptr %479, i64 792
   %487 = load ptr, ptr %486, align 8
   call void %487(ptr noundef nonnull %476, ptr noundef nonnull @ma_device_on_write__pulse, ptr noundef nonnull %0) #69
@@ -100471,31 +100471,31 @@ ma_device_get_log.exit433:                        ; preds = %ma_device_get_conte
   %501 = call i32 %499(ptr noundef %500, ptr noundef %.0267, ptr noundef nonnull %10, i32 noundef %spec.select333, ptr noundef null, ptr noundef null) #69
   %.not320 = icmp eq i32 %501, 0
   %502 = load ptr, ptr %0, align 8
-  br i1 %.not320, label %510, label %ma_device_get_context.exit.i434
+  br i1 %.not320, label %510, label %ma_device_get_context.exit.i435
 
-ma_device_get_context.exit.i434:                  ; preds = %485
+ma_device_get_context.exit.i435:                  ; preds = %485
   %503 = icmp eq ptr %502, null
-  br i1 %503, label %ma_device_get_log.exit436, label %504
+  br i1 %503, label %ma_device_get_log.exit437, label %504
 
-504:                                              ; preds = %ma_device_get_context.exit.i434
+504:                                              ; preds = %ma_device_get_context.exit.i435
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 112
   %506 = load ptr, ptr %505, align 8
-  br label %ma_device_get_log.exit436
+  br label %ma_device_get_log.exit437
 
-ma_device_get_log.exit436:                        ; preds = %ma_device_get_context.exit.i434, %504
-  %.0.i1.i435 = phi ptr [ %506, %504 ], [ null, %ma_device_get_context.exit.i434 ]
-  %507 = call i32 @ma_log_post(ptr noundef %.0.i1.i435, i32 noundef 1, ptr noundef nonnull @.str.400)
+ma_device_get_log.exit437:                        ; preds = %ma_device_get_context.exit.i435, %504
+  %.0.i1.i436 = phi ptr [ %506, %504 ], [ null, %ma_device_get_context.exit.i435 ]
+  %507 = call i32 @ma_log_post(ptr noundef %.0.i1.i436, i32 noundef 1, ptr noundef nonnull @.str.400)
   %508 = icmp sge i32 %501, 0
   %509 = icmp ult i32 %501, 6
   %or.cond642 = and i1 %508, %509
-  br i1 %or.cond642, label %switch.lookup624, label %ma_result_from_pulse.exit438thread-pre-split
+  br i1 %or.cond642, label %switch.lookup624, label %ma_result_from_pulse.exit439thread-pre-split
 
 510:                                              ; preds = %485
   %511 = load ptr, ptr %11, align 8
   %512 = load ptr, ptr %477, align 8
   %513 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %502, ptr noundef %511, ptr noundef %512)
   %.not321 = icmp eq i32 %513, 0
-  br i1 %.not321, label %514, label %ma_result_from_pulse.exit438thread-pre-split
+  br i1 %.not321, label %514, label %ma_result_from_pulse.exit439thread-pre-split
 
 514:                                              ; preds = %510
   %515 = load ptr, ptr %0, align 8
@@ -100504,64 +100504,64 @@ ma_device_get_log.exit436:                        ; preds = %ma_device_get_conte
   %518 = load ptr, ptr %477, align 8
   %519 = call ptr %517(ptr noundef %518) #69
   %.not322 = icmp eq ptr %519, null
-  br i1 %.not322, label %ma_device_get_context.exit.i446, label %ma_device_get_context.exit.i439
+  br i1 %.not322, label %ma_device_get_context.exit.i447, label %ma_device_get_context.exit.i440
 
-ma_device_get_context.exit.i439:                  ; preds = %514
+ma_device_get_context.exit.i440:                  ; preds = %514
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %519, i64 12, i1 false)
   %520 = load ptr, ptr %0, align 8
   %521 = icmp eq ptr %520, null
-  br i1 %521, label %ma_device_get_log.exit441, label %522
+  br i1 %521, label %ma_device_get_log.exit442, label %522
 
-522:                                              ; preds = %ma_device_get_context.exit.i439
+522:                                              ; preds = %ma_device_get_context.exit.i440
   %523 = getelementptr inbounds nuw i8, ptr %520, i64 112
   %524 = load ptr, ptr %523, align 8
-  br label %ma_device_get_log.exit441
+  br label %ma_device_get_log.exit442
 
-ma_device_get_log.exit441:                        ; preds = %ma_device_get_context.exit.i439, %522
-  %.0.i1.i440 = phi ptr [ %524, %522 ], [ null, %ma_device_get_context.exit.i439 ]
+ma_device_get_log.exit442:                        ; preds = %ma_device_get_context.exit.i440, %522
+  %.0.i1.i441 = phi ptr [ %524, %522 ], [ null, %ma_device_get_context.exit.i440 ]
   %525 = load i32, ptr %8, align 4
   %526 = icmp ult i32 %525, 10
-  br i1 %526, label %switch.lookup627, label %ma_get_format_name.exit445
+  br i1 %526, label %switch.lookup627, label %ma_get_format_name.exit446
 
-switch.lookup627:                                 ; preds = %ma_device_get_log.exit441
+switch.lookup627:                                 ; preds = %ma_device_get_log.exit442
   %527 = zext nneg i32 %525 to i64
   %switch.gep628 = getelementptr inbounds nuw ptr, ptr @switch.table.ma_device_init__pulse.55, i64 %527
   %switch.load629 = load ptr, ptr %switch.gep628, align 8
-  br label %ma_get_format_name.exit445
+  br label %ma_get_format_name.exit446
 
-ma_get_format_name.exit445:                       ; preds = %ma_device_get_log.exit441, %switch.lookup627
-  %.0.i444 = phi ptr [ %switch.load629, %switch.lookup627 ], [ @.str.9, %ma_device_get_log.exit441 ]
+ma_get_format_name.exit446:                       ; preds = %ma_device_get_log.exit442, %switch.lookup627
+  %.0.i445 = phi ptr [ %switch.load629, %switch.lookup627 ], [ @.str.9, %ma_device_get_log.exit442 ]
   %528 = load i8, ptr %416, align 4
   %529 = zext i8 %528 to i32
   %530 = load i32, ptr %432, align 4
-  %531 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i440, i32 noundef 3, ptr noundef nonnull @.str.401, ptr noundef nonnull %.0.i444, i32 noundef %529, i32 noundef %530)
+  %531 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i441, i32 noundef 3, ptr noundef nonnull @.str.401, ptr noundef nonnull %.0.i445, i32 noundef %529, i32 noundef %530)
   br label %538
 
-ma_device_get_context.exit.i446:                  ; preds = %514
+ma_device_get_context.exit.i447:                  ; preds = %514
   %532 = load ptr, ptr %0, align 8
   %533 = icmp eq ptr %532, null
-  br i1 %533, label %ma_device_get_log.exit448, label %534
+  br i1 %533, label %ma_device_get_log.exit449, label %534
 
-534:                                              ; preds = %ma_device_get_context.exit.i446
+534:                                              ; preds = %ma_device_get_context.exit.i447
   %535 = getelementptr inbounds nuw i8, ptr %532, i64 112
   %536 = load ptr, ptr %535, align 8
-  br label %ma_device_get_log.exit448
+  br label %ma_device_get_log.exit449
 
-ma_device_get_log.exit448:                        ; preds = %ma_device_get_context.exit.i446, %534
-  %.0.i1.i447 = phi ptr [ %536, %534 ], [ null, %ma_device_get_context.exit.i446 ]
-  %537 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i447, i32 noundef 3, ptr noundef nonnull @.str.402)
+ma_device_get_log.exit449:                        ; preds = %ma_device_get_context.exit.i447, %534
+  %.0.i1.i448 = phi ptr [ %536, %534 ], [ null, %ma_device_get_context.exit.i447 ]
+  %537 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i448, i32 noundef 3, ptr noundef nonnull @.str.402)
   br label %538
 
-538:                                              ; preds = %ma_device_get_log.exit448, %ma_get_format_name.exit445
+538:                                              ; preds = %ma_device_get_log.exit449, %ma_get_format_name.exit446
   %539 = load i32, ptr %8, align 4
   %540 = icmp ult i32 %539, 10
   %switch.maskindex632 = trunc i32 %539 to i16
   %switch.shifted633 = lshr i16 681, %switch.maskindex632
   %switch.lobit634 = trunc i16 %switch.shifted633 to i1
   %or.cond637 = select i1 %540, i1 %switch.lobit634, i1 false
-  br i1 %or.cond637, label %switch.lookup631, label %ma_format_from_pulse.exit450
+  br i1 %or.cond637, label %switch.lookup631, label %ma_format_from_pulse.exit451
 
-ma_format_from_pulse.exit450:                     ; preds = %538
+ma_format_from_pulse.exit451:                     ; preds = %538
   %541 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %541, align 4
   %542 = load i8, ptr %416, align 4
@@ -100569,7 +100569,7 @@ ma_format_from_pulse.exit450:                     ; preds = %538
   store i32 %543, ptr %406, align 8
   %544 = load i32, ptr %432, align 4
   store i32 %544, ptr %419, align 4
-  br label %ma_device_get_context.exit.i451
+  br label %ma_device_get_context.exit.i452
 
 switch.lookup631:                                 ; preds = %538
   %545 = zext nneg i32 %539 to i64
@@ -100585,28 +100585,28 @@ switch.lookup631:                                 ; preds = %538
   %550 = icmp eq i8 %547, 0
   %551 = icmp eq i32 %549, 0
   %or.cond334 = select i1 %550, i1 true, i1 %551
-  br i1 %or.cond334, label %ma_device_get_context.exit.i451, label %561
+  br i1 %or.cond334, label %ma_device_get_context.exit.i452, label %561
 
-ma_device_get_context.exit.i451:                  ; preds = %switch.lookup631, %ma_format_from_pulse.exit450
-  %552 = phi i32 [ %549, %switch.lookup631 ], [ %544, %ma_format_from_pulse.exit450 ]
-  %553 = phi i32 [ %548, %switch.lookup631 ], [ %543, %ma_format_from_pulse.exit450 ]
-  %.0.i449513 = phi i32 [ %switch.load636, %switch.lookup631 ], [ 0, %ma_format_from_pulse.exit450 ]
+ma_device_get_context.exit.i452:                  ; preds = %switch.lookup631, %ma_format_from_pulse.exit451
+  %552 = phi i32 [ %549, %switch.lookup631 ], [ %544, %ma_format_from_pulse.exit451 ]
+  %553 = phi i32 [ %548, %switch.lookup631 ], [ %543, %ma_format_from_pulse.exit451 ]
+  %.0.i450514 = phi i32 [ %switch.load636, %switch.lookup631 ], [ 0, %ma_format_from_pulse.exit451 ]
   %554 = load ptr, ptr %0, align 8
   %555 = icmp eq ptr %554, null
   br i1 %555, label %switch.lookup638, label %556
 
-556:                                              ; preds = %ma_device_get_context.exit.i451
+556:                                              ; preds = %ma_device_get_context.exit.i452
   %557 = getelementptr inbounds nuw i8, ptr %554, i64 112
   %558 = load ptr, ptr %557, align 8
   br label %switch.lookup638
 
-switch.lookup638:                                 ; preds = %556, %ma_device_get_context.exit.i451
-  %.0.i1.i452 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i451 ]
-  %559 = zext nneg i32 %.0.i449513 to i64
+switch.lookup638:                                 ; preds = %556, %ma_device_get_context.exit.i452
+  %.0.i1.i453 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i452 ]
+  %559 = zext nneg i32 %.0.i450514 to i64
   %switch.gep639 = getelementptr inbounds nuw ptr, ptr @switch.table.ma_device_init__pulse.57, i64 %559
   %switch.load640 = load ptr, ptr %switch.gep639, align 8
-  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.403, ptr noundef nonnull %switch.load640, i32 noundef %553, i32 noundef %552)
-  br label %630
+  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i453, i32 noundef 1, ptr noundef nonnull @.str.403, ptr noundef nonnull %switch.load640, i32 noundef %553, i32 noundef %552)
+  br label %631
 
 561:                                              ; preds = %switch.lookup631
   %562 = icmp ugt i8 %547, 2
@@ -100660,14 +100660,14 @@ switch.lookup638:                                 ; preds = %556, %ma_device_get
   %582 = load i32, ptr %465, align 4
   %.not324 = icmp eq i32 %582, 0
   %.pre534 = load i32, ptr %10, align 4
-  br i1 %.not324, label %ma_device_get_context.exit.i456, label %583
+  br i1 %.not324, label %ma_device_get_context.exit.i457, label %583
 
 583:                                              ; preds = %581
   %584 = udiv i32 %.pre534, %582
   %spec.select335 = call i32 @llvm.umax.i32(i32 %584, i32 1)
-  br label %ma_device_get_context.exit.i456
+  br label %ma_device_get_context.exit.i457
 
-ma_device_get_context.exit.i456:                  ; preds = %583, %581
+ma_device_get_context.exit.i457:                  ; preds = %583, %581
   %storemerge325 = phi i32 [ %spec.select335, %583 ], [ 1, %581 ]
   store i32 %storemerge325, ptr %457, align 8
   %585 = load i32, ptr %546, align 4
@@ -100683,17 +100683,17 @@ ma_device_get_context.exit.i456:                  ; preds = %583, %581
   %594 = icmp eq ptr %593, null
   br i1 %594, label %598, label %595
 
-595:                                              ; preds = %ma_device_get_context.exit.i456
+595:                                              ; preds = %ma_device_get_context.exit.i457
   %596 = getelementptr inbounds nuw i8, ptr %593, i64 112
   %597 = load ptr, ptr %596, align 8
   br label %598
 
-598:                                              ; preds = %595, %ma_device_get_context.exit.i456
-  %.0.i1.i457 = phi ptr [ %597, %595 ], [ null, %ma_device_get_context.exit.i456 ]
+598:                                              ; preds = %595, %ma_device_get_context.exit.i457
+  %.0.i1.i458 = phi ptr [ %597, %595 ], [ null, %ma_device_get_context.exit.i457 ]
   %599 = load i32, ptr %467, align 4
   %600 = load i32, ptr %469, align 4
   %601 = load i32, ptr %471, align 4
-  %602 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i457, i32 noundef 3, ptr noundef nonnull @.str.404, i32 noundef %.pre534, i32 noundef %582, i32 noundef %599, i32 noundef %600, i32 noundef %601, i32 noundef %592)
+  %602 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i458, i32 noundef 3, ptr noundef nonnull @.str.404, i32 noundef %.pre534, i32 noundef %582, i32 noundef %599, i32 noundef %600, i32 noundef %601, i32 noundef %592)
   %.pre535 = load i32, ptr %1, align 8
   %603 = icmp eq i32 %.pre535, 3
   br i1 %603, label %604, label %ma_log_post.exit
@@ -100730,111 +100730,111 @@ ma_device_get_context.exit.i456:                  ; preds = %583, %581
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %622 = call i32 @ma_duplex_rb_init(i32 noundef %609, i32 noundef %614, i32 noundef %..1260, i32 noundef %616, i32 noundef %618, ptr noundef nonnull %620, ptr noundef nonnull %621)
   %.not329 = icmp eq i32 %622, 0
-  br i1 %.not329, label %ma_log_post.exit, label %ma_device_get_context.exit.i459
+  br i1 %.not329, label %ma_log_post.exit, label %ma_device_get_context.exit.i460
 
-ma_device_get_context.exit.i459:                  ; preds = %613
+ma_device_get_context.exit.i460:                  ; preds = %613
   %623 = load ptr, ptr %0, align 8
   %624 = icmp eq ptr %623, null
-  br i1 %624, label %.thread514, label %625
+  br i1 %624, label %628, label %625
 
-625:                                              ; preds = %ma_device_get_context.exit.i459
+625:                                              ; preds = %ma_device_get_context.exit.i460
   %626 = getelementptr inbounds nuw i8, ptr %623, i64 112
   %627 = load ptr, ptr %626, align 8
-  br label %.thread514
+  br label %628
 
-.thread514:                                       ; preds = %625, %ma_device_get_context.exit.i459
-  %.0.i1.i460 = phi ptr [ %627, %625 ], [ null, %ma_device_get_context.exit.i459 ]
-  %628 = call ptr @ma_result_description(i32 noundef %622)
-  %629 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i460, i32 noundef 1, ptr noundef nonnull @.str.405, ptr noundef nonnull %628)
-  br label %630
+628:                                              ; preds = %625, %ma_device_get_context.exit.i460
+  %.0.i1.i461 = phi ptr [ %627, %625 ], [ null, %ma_device_get_context.exit.i460 ]
+  %629 = call ptr @ma_result_description(i32 noundef %622)
+  %630 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i461, i32 noundef 1, ptr noundef nonnull @.str.405, ptr noundef nonnull %629)
+  br label %631
 
-630:                                              ; preds = %.thread514, %switch.lookup638, %switch.lookup614
-  %.3 = phi i32 [ -1, %switch.lookup614 ], [ -1, %switch.lookup638 ], [ %622, %.thread514 ]
-  %631 = load i32, ptr %1, align 8
-  switch i32 %631, label %ma_result_from_pulse.exit438 [
-    i32 1, label %632
-    i32 3, label %632
+631:                                              ; preds = %628, %switch.lookup638, %switch.lookup614
+  %.3 = phi i32 [ -1, %switch.lookup614 ], [ -1, %switch.lookup638 ], [ %622, %628 ]
+  %632 = load i32, ptr %1, align 8
+  switch i32 %632, label %ma_result_from_pulse.exit439 [
+    i32 1, label %633
+    i32 3, label %633
   ]
 
-632:                                              ; preds = %630, %630
-  %633 = load ptr, ptr %0, align 8
-  %634 = getelementptr inbounds nuw i8, ptr %633, i64 736
-  %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds nuw i8, ptr %0, i64 3440
-  %637 = load ptr, ptr %636, align 8
-  %638 = call i32 %635(ptr noundef %637) #69
-  br label %ma_result_from_pulse.exit438thread-pre-split
+633:                                              ; preds = %631, %631
+  %634 = load ptr, ptr %0, align 8
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 736
+  %636 = load ptr, ptr %635, align 8
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 3440
+  %638 = load ptr, ptr %637, align 8
+  %639 = call i32 %636(ptr noundef %638) #69
+  br label %ma_result_from_pulse.exit439thread-pre-split
 
-switch.lookup624:                                 ; preds = %ma_device_get_log.exit436
-  %639 = zext nneg i32 %501 to i64
-  %640 = getelementptr i32, ptr @switch.table.ma_device_init__pulse.54, i64 %639
-  %switch.gep625 = getelementptr i8, ptr %640, i64 -4
+switch.lookup624:                                 ; preds = %ma_device_get_log.exit437
+  %640 = zext nneg i32 %501 to i64
+  %641 = getelementptr i32, ptr @switch.table.ma_device_init__pulse.54, i64 %640
+  %switch.gep625 = getelementptr i8, ptr %641, i64 -4
   %switch.load626 = load i32, ptr %switch.gep625, align 4
-  br label %ma_result_from_pulse.exit438thread-pre-split
+  br label %ma_result_from_pulse.exit439thread-pre-split
 
-ma_result_from_pulse.exit438thread-pre-split:     ; preds = %switch.lookup624, %510, %632, %ma_device_get_log.exit436
-  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit436 ], [ -1, %510 ], [ %.3, %632 ], [ %switch.load626, %switch.lookup624 ]
+ma_result_from_pulse.exit439thread-pre-split:     ; preds = %switch.lookup624, %510, %633, %ma_device_get_log.exit437
+  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit437 ], [ -1, %510 ], [ %.3, %633 ], [ %switch.load626, %switch.lookup624 ]
   %.pr517 = load i32, ptr %1, align 8
-  br label %ma_result_from_pulse.exit438
+  br label %ma_result_from_pulse.exit439
 
-ma_result_from_pulse.exit438:                     ; preds = %ma_result_from_pulse.exit438thread-pre-split, %630
-  %641 = phi i32 [ %.pr517, %ma_result_from_pulse.exit438thread-pre-split ], [ %631, %630 ]
-  %.4 = phi i32 [ %.4.ph, %ma_result_from_pulse.exit438thread-pre-split ], [ %.3, %630 ]
-  switch i32 %641, label %ma_log_post.exit416 [
-    i32 1, label %642
-    i32 3, label %642
+ma_result_from_pulse.exit439:                     ; preds = %ma_result_from_pulse.exit439thread-pre-split, %631
+  %642 = phi i32 [ %.pr517, %ma_result_from_pulse.exit439thread-pre-split ], [ %632, %631 ]
+  %.4 = phi i32 [ %.4.ph, %ma_result_from_pulse.exit439thread-pre-split ], [ %.3, %631 ]
+  switch i32 %642, label %ma_log_post.exit417 [
+    i32 1, label %643
+    i32 3, label %643
   ]
 
-642:                                              ; preds = %ma_result_from_pulse.exit438, %ma_result_from_pulse.exit438
-  %643 = load ptr, ptr %0, align 8
-  %644 = getelementptr inbounds nuw i8, ptr %643, i64 712
-  %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds nuw i8, ptr %0, i64 3440
-  %647 = load ptr, ptr %646, align 8
-  call void %645(ptr noundef %647) #69
-  br label %ma_log_post.exit416
+643:                                              ; preds = %ma_result_from_pulse.exit439, %ma_result_from_pulse.exit439
+  %644 = load ptr, ptr %0, align 8
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 712
+  %646 = load ptr, ptr %645, align 8
+  %647 = getelementptr inbounds nuw i8, ptr %0, i64 3440
+  %648 = load ptr, ptr %647, align 8
+  call void %646(ptr noundef %648) #69
+  br label %ma_log_post.exit417
 
-ma_log_post.exit416:                              ; preds = %376, %ma_device_get_context.exit.i405, %._crit_edge.i414, %ma_device_get_log.exit407, %ma_result_from_pulse.exit438, %642, %262, %ma_device_get_log.exit433
-  %.2 = phi i32 [ -1, %262 ], [ %.4, %642 ], [ -1, %ma_device_get_log.exit433 ], [ %.4, %ma_result_from_pulse.exit438 ], [ -1, %ma_device_get_log.exit407 ], [ -1, %._crit_edge.i414 ], [ -1, %376 ], [ -1, %ma_device_get_context.exit.i405 ]
-  %648 = load i32, ptr %1, align 8
-  %649 = and i32 %648, -2
-  %switch341 = icmp eq i32 %649, 2
-  br i1 %switch341, label %650, label %ma_result_from_pulse.exit
+ma_log_post.exit417:                              ; preds = %376, %ma_device_get_context.exit.i406, %._crit_edge.i415, %ma_device_get_log.exit408, %ma_result_from_pulse.exit439, %643, %262, %ma_device_get_log.exit434
+  %.2 = phi i32 [ -1, %262 ], [ %.4, %643 ], [ -1, %ma_device_get_log.exit434 ], [ %.4, %ma_result_from_pulse.exit439 ], [ -1, %ma_device_get_log.exit408 ], [ -1, %._crit_edge.i415 ], [ -1, %376 ], [ -1, %ma_device_get_context.exit.i406 ]
+  %649 = load i32, ptr %1, align 8
+  %650 = and i32 %649, -2
+  %switch342 = icmp eq i32 %650, 2
+  br i1 %switch342, label %651, label %ma_result_from_pulse.exit
 
-650:                                              ; preds = %ma_log_post.exit416
-  %651 = load ptr, ptr %0, align 8
-  %652 = getelementptr inbounds nuw i8, ptr %651, i64 736
-  %653 = load ptr, ptr %652, align 8
-  %654 = getelementptr inbounds nuw i8, ptr %0, i64 3448
-  %655 = load ptr, ptr %654, align 8
-  %656 = call i32 %653(ptr noundef %655) #69
+651:                                              ; preds = %ma_log_post.exit417
+  %652 = load ptr, ptr %0, align 8
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 736
+  %654 = load ptr, ptr %653, align 8
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 3448
+  %656 = load ptr, ptr %655, align 8
+  %657 = call i32 %654(ptr noundef %656) #69
   br label %ma_result_from_pulse.exit
 
-switch.lookup600:                                 ; preds = %ma_device_get_log.exit380
-  %657 = zext nneg i32 %253 to i64
-  %658 = getelementptr i32, ptr @switch.table.ma_device_init__pulse.54, i64 %657
-  %switch.gep601 = getelementptr i8, ptr %658, i64 -4
+switch.lookup600:                                 ; preds = %ma_device_get_log.exit381
+  %658 = zext nneg i32 %253 to i64
+  %659 = getelementptr i32, ptr @switch.table.ma_device_init__pulse.54, i64 %658
+  %switch.gep601 = getelementptr i8, ptr %659, i64 -4
   %switch.load602 = load i32, ptr %switch.gep601, align 4
   br label %ma_result_from_pulse.exit
 
-ma_result_from_pulse.exit:                        ; preds = %switch.lookup600, %ma_device_get_log.exit380, %ma_log_post.exit416, %650
-  %.1 = phi i32 [ %.2, %650 ], [ %.2, %ma_log_post.exit416 ], [ -1, %ma_device_get_log.exit380 ], [ %switch.load602, %switch.lookup600 ]
-  %659 = load i32, ptr %1, align 8
-  %660 = and i32 %659, -2
-  %switch343 = icmp eq i32 %660, 2
-  br i1 %switch343, label %661, label %ma_log_post.exit
+ma_result_from_pulse.exit:                        ; preds = %switch.lookup600, %ma_device_get_log.exit381, %ma_log_post.exit417, %651
+  %.1 = phi i32 [ %.2, %651 ], [ %.2, %ma_log_post.exit417 ], [ -1, %ma_device_get_log.exit381 ], [ %switch.load602, %switch.lookup600 ]
+  %660 = load i32, ptr %1, align 8
+  %661 = and i32 %660, -2
+  %switch344 = icmp eq i32 %661, 2
+  br i1 %switch344, label %662, label %ma_log_post.exit
 
-661:                                              ; preds = %ma_result_from_pulse.exit
-  %662 = load ptr, ptr %0, align 8
-  %663 = getelementptr inbounds nuw i8, ptr %662, i64 712
-  %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds nuw i8, ptr %0, i64 3448
-  %666 = load ptr, ptr %665, align 8
-  call void %664(ptr noundef %666) #69
+662:                                              ; preds = %ma_result_from_pulse.exit
+  %663 = load ptr, ptr %0, align 8
+  %664 = getelementptr inbounds nuw i8, ptr %663, i64 712
+  %665 = load ptr, ptr %664, align 8
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 3448
+  %667 = load ptr, ptr %666, align 8
+  call void %665(ptr noundef %667) #69
   br label %ma_log_post.exit
 
-ma_log_post.exit:                                 ; preds = %354, %93, %ma_device_get_context.exit.i347, %ma_device_get_context.exit.i, %613, %._crit_edge.i356, %ma_device_get_log.exit349, %._crit_edge.i, %ma_device_get_log.exit, %ma_result_from_pulse.exit, %ma_device_get_log.exit377, %661, %598, %13, %19, %4
-  %.0 = phi i32 [ -201, %4 ], [ -202, %19 ], [ -202, %13 ], [ 0, %598 ], [ -1, %ma_device_get_log.exit377 ], [ %.1, %661 ], [ %.1, %ma_result_from_pulse.exit ], [ %48, %ma_device_get_log.exit ], [ %48, %._crit_edge.i ], [ -1, %ma_device_get_log.exit349 ], [ -1, %._crit_edge.i356 ], [ 0, %613 ], [ %48, %ma_device_get_context.exit.i ], [ -1, %93 ], [ -1, %ma_device_get_context.exit.i347 ], [ 0, %354 ]
+ma_log_post.exit:                                 ; preds = %354, %613, %93, %ma_device_get_context.exit.i348, %ma_device_get_context.exit.i, %._crit_edge.i357, %ma_device_get_log.exit350, %._crit_edge.i, %ma_device_get_log.exit, %ma_result_from_pulse.exit, %ma_device_get_log.exit378, %662, %598, %13, %19, %4
+  %.0 = phi i32 [ -201, %4 ], [ -202, %19 ], [ -202, %13 ], [ 0, %598 ], [ -1, %ma_device_get_log.exit378 ], [ %.1, %662 ], [ %.1, %ma_result_from_pulse.exit ], [ %48, %ma_device_get_log.exit ], [ %48, %._crit_edge.i ], [ -1, %ma_device_get_log.exit350 ], [ -1, %._crit_edge.i357 ], [ %48, %ma_device_get_context.exit.i ], [ -1, %93 ], [ -1, %ma_device_get_context.exit.i348 ], [ 0, %613 ], [ 0, %354 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -102338,62 +102338,61 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
   %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #69
   %16 = sub nsw i32 0, %12
   %17 = call fastcc i32 @ma_result_from_errno(i32 noundef %16)
-  br label %193
+  br label %191
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %19, align 8
-  %.not175 = icmp eq ptr %20, null
-  br i1 %.not175, label %ma_free.exit, label %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1000
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 512
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  br label %30
 
-.lr.ph:                                           ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 512
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  br label %31
+30:                                               ; preds = %ma_does_id_exist_in_list__alsa.exit, %18
+  %.091 = phi ptr [ %19, %18 ], [ %178, %ma_does_id_exist_in_list__alsa.exit ]
+  %.086 = phi i32 [ 0, %18 ], [ %.187, %ma_does_id_exist_in_list__alsa.exit ]
+  %.081 = phi ptr [ null, %18 ], [ %.283, %ma_does_id_exist_in_list__alsa.exit ]
+  %.075 = phi i32 [ 1, %18 ], [ %.1, %ma_does_id_exist_in_list__alsa.exit ]
+  %31 = load ptr, ptr %.091, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %179, label %32
 
-31:                                               ; preds = %.lr.ph, %178
-  %32 = phi ptr [ %20, %.lr.ph ], [ %180, %178 ]
-  %.075179 = phi i32 [ 1, %.lr.ph ], [ %.1, %178 ]
-  %.081178 = phi ptr [ null, %.lr.ph ], [ %.283, %178 ]
-  %.086177 = phi i32 [ 0, %.lr.ph ], [ %.187, %178 ]
-  %.091176 = phi ptr [ %19, %.lr.ph ], [ %179, %178 ]
-  %33 = load ptr, ptr %21, align 8
-  %34 = call ptr %33(ptr noundef nonnull %32, ptr noundef nonnull @.str.488) #69
-  %35 = load ptr, ptr %21, align 8
-  %36 = load ptr, ptr %.091176, align 8
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %20, align 8
+  %34 = call ptr %33(ptr noundef nonnull %31, ptr noundef nonnull @.str.488) #69
+  %35 = load ptr, ptr %20, align 8
+  %36 = load ptr, ptr %.091, align 8
   %37 = call ptr %35(ptr noundef %36, ptr noundef nonnull @.str.489) #69
-  %38 = load ptr, ptr %21, align 8
-  %39 = load ptr, ptr %.091176, align 8
+  %38 = load ptr, ptr %20, align 8
+  %39 = load ptr, ptr %.091, align 8
   %40 = call ptr %38(ptr noundef %39, ptr noundef nonnull @.str.490) #69
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42
 
-42:                                               ; preds = %31
+42:                                               ; preds = %32
   %43 = call i32 @ma_strcmp(ptr noundef nonnull %40, ptr noundef nonnull @.str.491)
   %44 = call i32 @ma_strcmp(ptr noundef nonnull %40, ptr noundef nonnull @.str.492)
-  %.not236 = icmp eq i32 %44, 0
-  %spec.select116 = select i1 %.not236, i32 2, i32 1
-  %45 = select i1 %.not236, i32 1, i32 2
+  %.not222 = icmp eq i32 %44, 0
+  %spec.select116 = select i1 %.not222, i32 2, i32 1
+  %45 = select i1 %.not222, i32 1, i32 2
   br label %.thread
 
-.thread:                                          ; preds = %31, %42
-  %. = phi i32 [ %45, %42 ], [ 2, %31 ]
-  %.180 = phi i32 [ %spec.select116, %42 ], [ 1, %31 ]
+.thread:                                          ; preds = %32, %42
+  %. = phi i32 [ %45, %42 ], [ 2, %32 ]
+  %.180 = phi i32 [ %spec.select116, %42 ], [ 1, %32 ]
   %.not104 = icmp eq ptr %34, null
   br i1 %.not104, label %135, label %46
 
 46:                                               ; preds = %.thread
-  %47 = load i32, ptr %22, align 8
+  %47 = load i32, ptr %21, align 8
   %.not105 = icmp eq i32 %47, 0
   br i1 %.not105, label %50, label %48
 
@@ -102536,16 +102535,16 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
 
 103:                                              ; preds = %96, %.loopexit.i
   %.028.i = phi ptr [ @.str.206, %.loopexit.i ], [ %98, %96 ]
-  %104 = load ptr, ptr %23, align 8
+  %104 = load ptr, ptr %22, align 8
   %105 = call i32 %104(ptr noundef nonnull %4) #69
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %ma_convert_device_name_to_hw_format__alsa.exit.thread, label %107
 
 107:                                              ; preds = %103
   store i8 104, ptr %6, align 16
-  store i8 119, ptr %24, align 1
-  store i8 58, ptr %25, align 2
-  %108 = call i32 @ma_itoa_s(i32 noundef %105, ptr noundef nonnull %26, i64 noundef 253, i32 noundef 10)
+  store i8 119, ptr %23, align 1
+  store i8 58, ptr %24, align 2
+  %108 = call i32 @ma_itoa_s(i32 noundef %105, ptr noundef nonnull %25, i64 noundef 253, i32 noundef 10)
   %.not35.i = icmp eq i32 %108, 0
   br i1 %.not35.i, label %109, label %ma_convert_device_name_to_hw_format__alsa.exit.thread
 
@@ -102557,9 +102556,9 @@ define internal range(i32 -51, 1) i32 @ma_context_enumerate_devices__alsa(ptr no
 111:                                              ; preds = %109
   %112 = call i32 @ma_strcat_s(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull %.028.i)
   %.not37.i = icmp eq i32 %112, 0
-  br i1 %.not37.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread131, label %ma_convert_device_name_to_hw_format__alsa.exit.thread
+  br i1 %.not37.i, label %ma_convert_device_name_to_hw_format__alsa.exit.thread132, label %ma_convert_device_name_to_hw_format__alsa.exit.thread
 
-ma_convert_device_name_to_hw_format__alsa.exit.thread131: ; preds = %111
+ma_convert_device_name_to_hw_format__alsa.exit.thread132: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
@@ -102573,12 +102572,12 @@ ma_convert_device_name_to_hw_format__alsa.exit:   ; preds = %76, %.preheader.i.i
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %.preheader, label %119
 
-.preheader:                                       ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread131, %ma_convert_device_name_to_hw_format__alsa.exit
+.preheader:                                       ; preds = %ma_convert_device_name_to_hw_format__alsa.exit.thread132, %ma_convert_device_name_to_hw_format__alsa.exit
   br label %115
 
 115:                                              ; preds = %.preheader, %115
   %.077 = phi ptr [ %118, %115 ], [ %6, %.preheader ]
-  %.076 = phi ptr [ %116, %115 ], [ %25, %.preheader ]
+  %.076 = phi ptr [ %116, %115 ], [ %24, %.preheader ]
   %116 = getelementptr inbounds nuw i8, ptr %.076, i64 1
   %117 = load i8, ptr %.076, align 1
   %118 = getelementptr inbounds nuw i8, ptr %.077, i64 1
@@ -102591,11 +102590,11 @@ ma_convert_device_name_to_hw_format__alsa.exit:   ; preds = %76, %.preheader.i.i
   br label %.loopexit165
 
 .loopexit165:                                     ; preds = %115, %119
-  %.not.i = icmp eq i32 %.086177, 0
+  %.not.i = icmp eq i32 %.086, 0
   br i1 %.not.i, label %.loopexit164, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit165
-  %wide.trip.count.i = zext i32 %.086177 to i64
+  %wide.trip.count.i = zext i32 %.086 to i64
   br label %.lr.ph.i
 
 121:                                              ; preds = %.lr.ph.i
@@ -102605,27 +102604,27 @@ ma_convert_device_name_to_hw_format__alsa.exit:   ; preds = %76, %.preheader.i.i
 
 .lr.ph.i:                                         ; preds = %121, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %121 ]
-  %122 = getelementptr inbounds nuw %union.ma_device_id, ptr %.081178, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw %union.ma_device_id, ptr %.081, i64 %indvars.iv.i
   %123 = call i32 @ma_strcmp(ptr noundef readonly %122, ptr noundef nonnull readonly %6)
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %ma_does_id_exist_in_list__alsa.exit, label %121
 
 .loopexit164:                                     ; preds = %121, %.loopexit165
-  %125 = add i32 %.086177, 1
-  %126 = load ptr, ptr %27, align 8
+  %125 = add i32 %.086, 1
+  %126 = load ptr, ptr %26, align 8
   %.not10.i = icmp eq ptr %126, null
   br i1 %.not10.i, label %ma_does_id_exist_in_list__alsa.exit, label %ma_realloc.exit
 
 ma_realloc.exit:                                  ; preds = %.loopexit164
   %127 = zext i32 %125 to i64
   %128 = shl nuw nsw i64 %127, 8
-  %129 = load ptr, ptr %28, align 8
-  %130 = call ptr %126(ptr noundef %.081178, i64 noundef %128, ptr noundef %129) #69
+  %129 = load ptr, ptr %27, align 8
+  %130 = call ptr %126(ptr noundef %.081, i64 noundef %128, ptr noundef %129) #69
   %131 = icmp eq ptr %130, null
   br i1 %131, label %ma_does_id_exist_in_list__alsa.exit, label %132
 
 132:                                              ; preds = %ma_realloc.exit
-  %133 = zext i32 %.086177 to i64
+  %133 = zext i32 %.086 to i64
   %134 = getelementptr inbounds nuw %union.ma_device_id, ptr %130, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %134, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   br label %136
@@ -102635,8 +102634,8 @@ ma_realloc.exit:                                  ; preds = %.loopexit164
   br label %136
 
 136:                                              ; preds = %132, %48, %135
-  %.490 = phi i32 [ %.086177, %48 ], [ %125, %132 ], [ %.086177, %135 ]
-  %.5 = phi ptr [ %.081178, %48 ], [ %130, %132 ], [ %.081178, %135 ]
+  %.490 = phi i32 [ %.086, %48 ], [ %125, %132 ], [ %.086, %135 ]
+  %.5 = phi ptr [ %.081, %48 ], [ %130, %132 ], [ %.081, %135 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1544) %7, i8 0, i64 1544, i1 false)
   %137 = call i32 @ma_strncpy_s(ptr noundef nonnull %7, i64 noundef 256, ptr noundef nonnull %6, i64 noundef -1)
   %138 = call i32 @ma_strcmp(ptr noundef nonnull %7, ptr noundef nonnull @.str.493)
@@ -102644,7 +102643,7 @@ ma_realloc.exit:                                  ; preds = %.loopexit164
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %136
-  store i32 1, ptr %29, align 8
+  store i32 1, ptr %28, align 8
   br label %141
 
 141:                                              ; preds = %140, %136
@@ -102654,45 +102653,45 @@ ma_realloc.exit:                                  ; preds = %.loopexit164
 142:                                              ; preds = %141
   %143 = load i8, ptr %37, align 1
   %144 = icmp eq i8 %143, 0
-  br i1 %144, label %ma_find_char.exit.thread, label %.lr.ph.i121
+  br i1 %144, label %ma_find_char.exit.thread, label %.lr.ph.i122
 
-.lr.ph.i121:                                      ; preds = %142, %147
-  %indvars.iv.i122 = phi i64 [ %indvars.iv.next.i123, %147 ], [ 0, %142 ]
+.lr.ph.i122:                                      ; preds = %142, %147
+  %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i124, %147 ], [ 0, %142 ]
   %145 = phi i8 [ %149, %147 ], [ %143, %142 ]
   %146 = icmp eq i8 %145, 10
   br i1 %146, label %ma_find_char.exit, label %147
 
-147:                                              ; preds = %.lr.ph.i121
-  %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
-  %148 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i123
+147:                                              ; preds = %.lr.ph.i122
+  %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
+  %148 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i124
   %149 = load i8, ptr %148, align 1
   %150 = icmp eq i8 %149, 0
-  br i1 %150, label %ma_find_char.exit.thread, label %.lr.ph.i121
+  br i1 %150, label %ma_find_char.exit.thread, label %.lr.ph.i122
 
-ma_find_char.exit:                                ; preds = %.lr.ph.i121
-  %151 = load i32, ptr %22, align 8
+ma_find_char.exit:                                ; preds = %.lr.ph.i122
+  %151 = load i32, ptr %21, align 8
   %.not110 = icmp eq i32 %151, 0
   br i1 %.not110, label %160, label %152
 
 152:                                              ; preds = %ma_find_char.exit
-  %153 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i122
+  %153 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i123
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
-  %sext = shl i64 %indvars.iv.i122, 32
+  %sext = shl i64 %indvars.iv.i123, 32
   %155 = ashr exact i64 %sext, 32
-  %156 = call i32 @ma_strncpy_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull %37, i64 noundef %155)
-  %157 = call i32 @ma_strcat_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull @.str.494)
-  %158 = call i32 @ma_strcat_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull %154)
-  %159 = call i32 @ma_strcat_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull @.str.495)
+  %156 = call i32 @ma_strncpy_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull %37, i64 noundef %155)
+  %157 = call i32 @ma_strcat_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull @.str.494)
+  %158 = call i32 @ma_strcat_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull %154)
+  %159 = call i32 @ma_strcat_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull @.str.495)
   br label %164
 
 160:                                              ; preds = %ma_find_char.exit
-  %sext158 = shl i64 %indvars.iv.i122, 32
+  %sext158 = shl i64 %indvars.iv.i123, 32
   %161 = ashr exact i64 %sext158, 32
-  %162 = call i32 @ma_strncpy_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull %37, i64 noundef %161)
+  %162 = call i32 @ma_strncpy_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull %37, i64 noundef %161)
   br label %164
 
 ma_find_char.exit.thread:                         ; preds = %147, %142
-  %163 = call i32 @ma_strncpy_s(ptr noundef nonnull %30, i64 noundef 256, ptr noundef nonnull %37, i64 noundef -1)
+  %163 = call i32 @ma_strncpy_s(ptr noundef nonnull %29, i64 noundef 256, ptr noundef nonnull %37, i64 noundef -1)
   br label %164
 
 164:                                              ; preds = %ma_find_char.exit.thread, %160, %152, %141
@@ -102705,14 +102704,14 @@ ma_find_char.exit.thread:                         ; preds = %147, %142
   br label %ma_is_device_blacklisted__alsa.exit
 
 ma_is_device_blacklisted__alsa.exit:              ; preds = %164, %.loopexit
-  %.3 = phi i32 [ %167, %.loopexit ], [ %.075179, %164 ]
+  %.3 = phi i32 [ %167, %.loopexit ], [ %.075, %164 ]
   %.not112 = icmp eq i32 %.3, 0
   br i1 %.not112, label %ma_does_id_exist_in_list__alsa.exit, label %.preheader161
 
 168:                                              ; preds = %.preheader161
   %169 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i125 = icmp eq i64 %169, 4
-  br i1 %exitcond.not.i125, label %ma_is_common_device_name__alsa.exit, label %.preheader161
+  %exitcond.not.i126 = icmp eq i64 %169, 4
+  br i1 %exitcond.not.i126, label %ma_is_common_device_name__alsa.exit, label %.preheader161
 
 .preheader161:                                    ; preds = %ma_is_device_blacklisted__alsa.exit, %168
   %.05.i = phi i64 [ %169, %168 ], [ 0, %ma_is_device_blacklisted__alsa.exit ]
@@ -102741,53 +102740,43 @@ ma_is_capture_device_blacklisted__alsa.exit:      ; preds = %ma_is_common_device
   br label %ma_does_id_exist_in_list__alsa.exit
 
 ma_does_id_exist_in_list__alsa.exit:              ; preds = %.lr.ph.i, %ma_is_capture_device_blacklisted__alsa.exit, %ma_is_device_blacklisted__alsa.exit, %.loopexit164, %ma_realloc.exit
-  %.187 = phi i32 [ %.086177, %ma_realloc.exit ], [ %.086177, %.loopexit164 ], [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086177, %.lr.ph.i ]
-  %.283 = phi ptr [ %.081178, %ma_realloc.exit ], [ %.081178, %.loopexit164 ], [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081178, %.lr.ph.i ]
+  %.187 = phi i32 [ %.086, %ma_realloc.exit ], [ %.086, %.loopexit164 ], [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086, %.lr.ph.i ]
+  %.283 = phi ptr [ %.081, %ma_realloc.exit ], [ %.081, %.loopexit164 ], [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081, %.lr.ph.i ]
   %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit164 ], [ false, %ma_is_device_blacklisted__alsa.exit ], [ %177, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
-  %.1 = phi i32 [ %.075179, %ma_realloc.exit ], [ %.075179, %.loopexit164 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075179, %.lr.ph.i ]
+  %.1 = phi i32 [ %.075, %ma_realloc.exit ], [ %.075, %.loopexit164 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075, %.lr.ph.i ]
   call void @free(ptr noundef %34) #69
   call void @free(ptr noundef %37) #69
   call void @free(ptr noundef %40) #69
-  br i1 %.not115, label %178, label %.thread156
-
-.thread156:                                       ; preds = %ma_does_id_exist_in_list__alsa.exit
+  %178 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit168
+  br i1 %.not115, label %30, label %179
 
-178:                                              ; preds = %ma_does_id_exist_in_list__alsa.exit
-  %179 = getelementptr inbounds nuw i8, ptr %.091176, i64 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %180 = load ptr, ptr %179, align 8
-  %.not = icmp eq ptr %180, null
-  br i1 %.not, label %.loopexit168, label %31
+179:                                              ; preds = %ma_does_id_exist_in_list__alsa.exit, %30
+  %.182 = phi ptr [ %.283, %ma_does_id_exist_in_list__alsa.exit ], [ %.081, %30 ]
+  %180 = icmp eq ptr %.182, null
+  br i1 %180, label %ma_free.exit, label %181
 
-.loopexit168:                                     ; preds = %178, %.thread156
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %182 = icmp eq ptr %.283, null
-  br i1 %182, label %ma_free.exit, label %183
+181:                                              ; preds = %179
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %183 = load ptr, ptr %182, align 8
+  %.not9.i = icmp eq ptr %183, null
+  br i1 %.not9.i, label %ma_free.exit, label %184
 
-183:                                              ; preds = %.loopexit168
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %185 = load ptr, ptr %184, align 8
-  %.not9.i = icmp eq ptr %185, null
-  br i1 %.not9.i, label %ma_free.exit, label %186
-
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %181, align 8
-  call void %185(ptr noundef nonnull %.283, ptr noundef %187) #69
+184:                                              ; preds = %181
+  %185 = load ptr, ptr %27, align 8
+  call void %183(ptr noundef nonnull %.182, ptr noundef %185) #69
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %18, %.loopexit168, %183, %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %5, align 8
-  %191 = call i32 %189(ptr noundef %190) #69
-  %192 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #69
-  br label %193
+ma_free.exit:                                     ; preds = %179, %181, %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %187 = load ptr, ptr %186, align 8
+  %188 = load ptr, ptr %5, align 8
+  %189 = call i32 %187(ptr noundef %188) #69
+  %190 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #69
+  br label %191
 
-193:                                              ; preds = %ma_free.exit, %14
+191:                                              ; preds = %ma_free.exit, %14
   %.0 = phi i32 [ %17, %14 ], [ 0, %ma_free.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

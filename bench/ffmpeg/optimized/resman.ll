@@ -131,8 +131,8 @@ get_resman_context.exit:                          ; preds = %1, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   %21 = tail call noalias ptr @av_mallocz(i64 noundef 65535) #5
-  %.not.i45 = icmp eq ptr %21, null
-  br i1 %.not.i45, label %22, label %23
+  %.not.i46 = icmp eq ptr %21, null
+  br i1 %.not.i46, label %22, label %23
 
 22:                                               ; preds = %19
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %.0.i, i32 noundef 16, ptr noundef nonnull @.str.10) #5
@@ -183,7 +183,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 41:                                               ; preds = %25, %33, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %0) #5
-  br label %.thread54
+  br label %.thread55
 
 42:                                               ; preds = %40, %37
   %43 = phi i32 [ %.pre.i, %40 ], [ %38, %37 ]
@@ -201,7 +201,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 50:                                               ; preds = %42
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %48) #5
   call void @av_freep(ptr noundef nonnull %3) #5
-  br label %.thread54
+  br label %.thread55
 
 51:                                               ; preds = %42
   call void @av_freep(ptr noundef nonnull %3) #5
@@ -212,9 +212,9 @@ get_resman_context.exit:                          ; preds = %1, %9
 
 54:                                               ; preds = %51
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.3) #5
-  br label %.thread54
+  br label %.thread55
 
-.thread54:                                        ; preds = %41, %50, %54
+.thread55:                                        ; preds = %41, %50, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
@@ -228,8 +228,8 @@ get_resman_context.exit:                          ; preds = %1, %9
   %58 = load ptr, ptr %57, align 8, !tbaa !31
   br label %59
 
-59:                                               ; preds = %.thread54, %56
-  %.030 = phi ptr [ %58, %56 ], [ null, %.thread54 ]
+59:                                               ; preds = %.thread55, %56
+  %.030 = phi ptr [ %58, %56 ], [ null, %.thread55 ]
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #5
   br label %61
 

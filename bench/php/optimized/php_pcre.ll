@@ -3768,7 +3768,7 @@ zend_string_copy.exit:                            ; preds = %63, %58, %54, %53, 
   br label %344
 
 344:                                              ; preds = %343, %zend_string_copy.exit, %18
-  %.0 = phi ptr [ null, %18 ], [ %.5, %343 ], [ %.5, %zend_string_copy.exit ]
+  %.0 = phi ptr [ null, %18 ], [ %.5, %zend_string_copy.exit ], [ %.5, %343 ]
   ret ptr %.0
 }
 

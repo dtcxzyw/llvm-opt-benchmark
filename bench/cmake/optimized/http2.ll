@@ -605,8 +605,8 @@ h2_client_new.exit.i:                             ; preds = %36
   %90 = load ptr, ptr %30, align 8, !tbaa !121
   %91 = load i32, ptr %80, align 8, !tbaa !128
   %92 = call i32 @nghttp2_session_set_stream_user_data(ptr noundef %90, i32 noundef %91, ptr noundef nonnull %1) #11
-  %.not106.i = icmp eq i32 %92, 0
-  br i1 %.not106.i, label %106, label %93
+  %.not109.i = icmp eq i32 %92, 0
+  br i1 %.not109.i, label %106, label %93
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 2562
@@ -695,9 +695,9 @@ h2_client_new.exit.i:                             ; preds = %36
   %138 = load ptr, ptr %30, align 8, !tbaa !121
   %139 = call i32 @nghttp2_submit_settings(ptr noundef %138, i8 noundef zeroext 0, ptr noundef nonnull %11, i64 noundef 3) #11
   %.not86.i = icmp eq i32 %139, 0
-  br i1 %.not86.i, label %.thread103.i, label %140
+  br i1 %.not86.i, label %.thread106.i, label %140
 
-.thread103.i:                                     ; preds = %124
+.thread106.i:                                     ; preds = %124
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %142
 
@@ -707,7 +707,7 @@ h2_client_new.exit.i:                             ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %167
 
-142:                                              ; preds = %.thread103.i, %.thread.i
+142:                                              ; preds = %.thread106.i, %.thread.i
   %143 = load ptr, ptr %30, align 8, !tbaa !121
   %144 = call i32 @nghttp2_session_set_local_window_size(ptr noundef %143, i8 noundef zeroext 0, i32 noundef 0, i32 noundef 1048576000) #11
   %.not93.i = icmp eq i32 %144, 0

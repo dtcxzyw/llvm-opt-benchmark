@@ -886,9 +886,9 @@ define range(i32 -1, 1) i32 @H5G__dense_lookup_by_idx(ptr noundef %0, ptr nounde
   br label %99
 
 99:                                               ; preds = %6, %95, %92, %.thread67
-  %.045 = phi i32 [ -1, %95 ], [ %.4, %92 ], [ %.4, %.thread67 ], [ 0, %6 ]
+  %.039 = phi i32 [ -1, %95 ], [ %.4, %92 ], [ %.4, %.thread67 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.045
+  ret i32 %.039
 }
 
 declare i32 @H5B2_index(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -998,9 +998,9 @@ define noundef range(i32 -1, 1) i32 @H5G__dense_build_table(ptr noundef %0, ptr 
   store ptr null, ptr %42, align 8, !tbaa !70
   br label %43
 
-43:                                               ; preds = %40, %5, %41
-  %.018 = phi i32 [ %.1, %40 ], [ 0, %41 ], [ 0, %5 ]
-  ret i32 %.018
+43:                                               ; preds = %5, %41, %40
+  %.017 = phi i32 [ %.1, %40 ], [ 0, %41 ], [ 0, %5 ]
+  ret i32 %.017
 }
 
 declare ptr @H5O_msg_copy(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1176,9 +1176,9 @@ define i32 @H5G__dense_iterate(ptr noundef %0, ptr noundef readonly captures(non
   br label %98
 
 98:                                               ; preds = %8, %94, %91, %.thread72
-  %.045 = phi i32 [ -1, %94 ], [ %.4, %91 ], [ %.4, %.thread72 ], [ -1, %8 ]
+  %.039 = phi i32 [ -1, %94 ], [ %.4, %91 ], [ %.4, %.thread72 ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.045
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1291,8 +1291,8 @@ define internal i32 @H5G__dense_iterate_bt2_cb(ptr noundef %0, ptr noundef captu
   br label %45
 
 45:                                               ; preds = %.thread20, %23, %2, %27, %41
-  %.015 = phi i32 [ %34, %41 ], [ %34, %27 ], [ -1, %23 ], [ 0, %2 ], [ 0, %.thread20 ]
-  ret i32 %.015
+  %.014 = phi i32 [ %34, %41 ], [ %34, %27 ], [ -1, %23 ], [ 0, %2 ], [ 0, %.thread20 ]
+  ret i32 %.014
 }
 
 declare i32 @H5G__link_iterate_table(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1481,9 +1481,9 @@ define range(i32 -1, 1) i32 @H5G__dense_get_name_by_idx(ptr noundef %0, ptr noun
   br label %109
 
 109:                                              ; preds = %8, %105, %102, %.thread85
-  %.057 = phi i32 [ -1, %105 ], [ %.4, %102 ], [ %.4, %.thread85 ], [ 0, %8 ]
+  %.051 = phi i32 [ -1, %105 ], [ %.4, %102 ], [ %.4, %.thread85 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.057
+  ret i32 %.051
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1879,9 +1879,9 @@ define range(i32 -1, 1) i32 @H5G__dense_remove_by_idx(ptr noundef %0, ptr nounde
   br label %104
 
 104:                                              ; preds = %6, %100, %97, %.thread73
-  %.051 = phi i32 [ -1, %100 ], [ %.4, %97 ], [ %.4, %.thread73 ], [ 0, %6 ]
+  %.045 = phi i32 [ -1, %100 ], [ %.4, %97 ], [ %.4, %.thread73 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.051
+  ret i32 %.045
 }
 
 declare i32 @H5B2_remove_by_idx(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1909,9 +1909,9 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_bt2_cb(ptr nounde
   %16 = load ptr, ptr %15, align 8, !tbaa !113
   %17 = call i32 @H5HF_op(ptr noundef %16, ptr noundef %0, ptr noundef nonnull @H5G__dense_remove_by_idx_fh_cb, ptr noundef nonnull %3) #9
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.thread41, label %22
+  br i1 %18, label %.thread42, label %22
 
-.thread41:                                        ; preds = %11
+.thread42:                                        ; preds = %11
   %19 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !31
   %20 = load i64, ptr @H5E_CANTOPERATE_g, align 8, !tbaa !31
   %21 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_remove_by_idx_bt2_cb, i32 noundef 1401, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.44) #9
@@ -2049,10 +2049,10 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_bt2_cb(ptr nounde
   %99 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__dense_remove_by_idx_bt2_cb, i32 noundef 1457, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.51) #9
   br label %100
 
-100:                                              ; preds = %.thread41, %2, %96, %93, %92
-  %.032 = phi i32 [ -1, %96 ], [ %.135, %93 ], [ %.135, %92 ], [ 0, %2 ], [ -1, %.thread41 ]
+100:                                              ; preds = %.thread42, %2, %96, %93, %92
+  %.034 = phi i32 [ -1, %96 ], [ %.135, %93 ], [ %.135, %92 ], [ 0, %2 ], [ -1, %.thread42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.032
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2188,8 +2188,8 @@ define range(i32 -1, 1) i32 @H5G__dense_delete(ptr noundef %0, ptr noundef captu
   br label %81
 
 81:                                               ; preds = %.thread, %3, %80, %76, %66, %52
-  %.028 = phi i32 [ -1, %66 ], [ -1, %76 ], [ 0, %80 ], [ -1, %52 ], [ 0, %3 ], [ -1, %.thread ]
-  ret i32 %.028
+  %.027 = phi i32 [ -1, %66 ], [ -1, %76 ], [ 0, %80 ], [ -1, %52 ], [ 0, %3 ], [ -1, %.thread ]
+  ret i32 %.027
 }
 
 declare i32 @H5B2_delete(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -2457,8 +2457,8 @@ define internal range(i32 -1, 1) i32 @H5G__dense_remove_fh_cb(ptr noundef %0, i6
   br label %73
 
 73:                                               ; preds = %67, %3, %71
-  %.030 = phi i32 [ %.4.ph, %71 ], [ -1, %67 ], [ 0, %3 ]
-  ret i32 %.030
+  %.027 = phi i32 [ %.4.ph, %71 ], [ -1, %67 ], [ 0, %3 ]
+  ret i32 %.027
 }
 
 declare i32 @H5HF_remove(ptr noundef, ptr noundef) local_unnamed_addr #3

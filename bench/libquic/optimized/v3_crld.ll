@@ -115,8 +115,8 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 .preheader.i:                                     ; preds = %13
   %15 = tail call i64 @sk_num(ptr noundef nonnull %12) #4
-  %.not33.i = icmp eq i64 %15, 0
-  br i1 %.not33.i, label %.loopexit, label %.lr.ph.i
+  %.not34.i = icmp eq i64 %15, 0
+  br i1 %.not34.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -124,8 +124,8 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %18
 
 18:                                               ; preds = %38, %.lr.ph.i
-  %.02432.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %38 ]
-  %19 = tail call ptr @sk_value(ptr noundef nonnull %12, i64 noundef %.02432.i) #4
+  %.02433.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %38 ]
+  %19 = tail call ptr @sk_value(ptr noundef nonnull %12, i64 noundef %.02433.i) #4
   %20 = tail call fastcc i32 @set_dist_point_name(ptr noundef %14, ptr noundef %1, ptr noundef %19)
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %38, label %22
@@ -162,7 +162,7 @@ define internal ptr @v2i_crld(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not30.i, label %42, label %38
 
 38:                                               ; preds = %34, %32, %28, %18
-  %39 = add nuw i64 %.02432.i, 1
+  %39 = add nuw i64 %.02433.i, 1
   %40 = tail call i64 @sk_num(ptr noundef nonnull %12) #4
   %41 = icmp ult i64 %39, %40
   br i1 %41, label %18, label %.loopexit, !llvm.loop !19

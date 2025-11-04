@@ -145,12 +145,12 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %18 = sub nuw nsw i64 %.0107, %16
   %19 = add i64 %18, %.099
   %20 = icmp ult i64 %19, %.099
-  br i1 %20, label %.thread142.sink.split, label %21
+  br i1 %20, label %.thread144.sink.split, label %21
 
 21:                                               ; preds = %17
   %22 = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %7, i64 noundef %19) #4
   %.not124 = icmp eq i64 %22, 0
-  br i1 %.not124, label %.thread142.sink.split, label %23
+  br i1 %.not124, label %.thread144.sink.split, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %12, align 8, !tbaa !8
@@ -160,7 +160,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %28 = icmp slt i32 %27, 0
   %29 = icmp eq i64 %.099, %.0102.ph
   %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %.thread142.sink.split, label %30
+  br i1 %or.cond, label %.thread144.sink.split, label %30
 
 30:                                               ; preds = %23
   %31 = icmp sgt i32 %27, 0
@@ -170,7 +170,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %33 = zext nneg i32 %27 to i64
   %34 = add i64 %.099, %33
   %35 = icmp ult i64 %34, %.099
-  br i1 %35, label %.thread142.sink.split, label %36
+  br i1 %35, label %.thread144.sink.split, label %36
 
 36:                                               ; preds = %32
   %37 = icmp ugt i64 %18, %33
@@ -182,7 +182,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.0102.ph
   store ptr %40, ptr %3, align 8, !tbaa !12
   %41 = icmp eq i64 %.1100, %.0102.ph
-  br i1 %41, label %.thread142, label %42
+  br i1 %41, label %.thread144, label %42
 
 42:                                               ; preds = %38
   %43 = sub i64 %.1100, %.0102.ph
@@ -199,7 +199,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %.0.v.i = select i1 %.not.i, i32 8388607, i32 2147483647
   %.0.i = and i32 %.0.v.i, %49
   %.not126 = icmp eq i32 %.0.i, 155
-  br i1 %.not126, label %.thread, label %.thread142
+  br i1 %.not126, label %.thread, label %.thread144
 
 .thread:                                          ; preds = %46
   %50 = call i32 @ERR_pop_to_mark() #4
@@ -219,7 +219,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 
 59:                                               ; preds = %51
   %60 = icmp eq i32 %.0105.ph.ph, -1
-  br i1 %60, label %.thread142.sink.split, label %61
+  br i1 %60, label %.thread144.sink.split, label %61
 
 61:                                               ; preds = %59
   %62 = add nuw i32 %.0105.ph.ph, 1
@@ -241,7 +241,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 68:                                               ; preds = %63
   %69 = add i32 %.0105.ph.ph, -1
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.loopexit178, label %.outer.outer.backedge
+  br i1 %70, label %.loopexit180, label %.outer.outer.backedge
 
 71:                                               ; preds = %63
   %72 = sub i64 %.1100, %57
@@ -254,47 +254,47 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %77 = xor i64 %.1100, -1
   %78 = icmp ugt i64 %75, %77
   %or.cond133 = or i1 %76, %78
-  br i1 %or.cond133, label %.thread142.sink.split, label %.preheader
+  br i1 %or.cond133, label %.thread144.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %74
-  %.not128150 = icmp eq i64 %75, 0
-  br i1 %.not128150, label %.loopexit, label %.lr.ph
+  %.not128152 = icmp eq i64 %75, 0
+  br i1 %.not128152, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %94
-  %.094153 = phi i64 [ %spec.select, %94 ], [ 16384, %.preheader ]
-  %.5152 = phi i64 [ %92, %94 ], [ %.1100, %.preheader ]
-  %.2109151 = phi i64 [ %83, %94 ], [ %75, %.preheader ]
-  %79 = call i64 @llvm.umin.i64(i64 %.2109151, i64 %.094153)
-  %80 = add i64 %79, %.5152
+  %.094155 = phi i64 [ %spec.select, %94 ], [ 16384, %.preheader ]
+  %.5154 = phi i64 [ %92, %94 ], [ %.1100, %.preheader ]
+  %.2109153 = phi i64 [ %83, %94 ], [ %75, %.preheader ]
+  %79 = call i64 @llvm.umin.i64(i64 %.2109153, i64 %.094155)
+  %80 = add i64 %79, %.5154
   %81 = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %7, i64 noundef %80) #4
   %.not129 = icmp eq i64 %81, 0
-  br i1 %.not129, label %.thread142.sink.split, label %82
+  br i1 %.not129, label %.thread144.sink.split, label %82
 
 82:                                               ; preds = %.lr.ph
-  %83 = sub i64 %.2109151, %79
+  %83 = sub i64 %.2109153, %79
   br label %84
 
 84:                                               ; preds = %82, %90
-  %.0149 = phi i64 [ %79, %82 ], [ %93, %90 ]
-  %.7148 = phi i64 [ %.5152, %82 ], [ %92, %90 ]
+  %.0151 = phi i64 [ %79, %82 ], [ %93, %90 ]
+  %.7150 = phi i64 [ %.5154, %82 ], [ %92, %90 ]
   %85 = load ptr, ptr %12, align 8, !tbaa !8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.7148
-  %87 = trunc i64 %.0149 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.7150
+  %87 = trunc i64 %.0151 to i32
   %88 = call i32 @BIO_read(ptr noundef %0, ptr noundef %86, i32 noundef %87) #4
   %89 = icmp slt i32 %88, 1
-  br i1 %89, label %.thread142.sink.split, label %90
+  br i1 %89, label %.thread144.sink.split, label %90
 
 90:                                               ; preds = %84
   %91 = zext nneg i32 %88 to i64
-  %92 = add i64 %.7148, %91
-  %93 = sub i64 %.0149, %91
+  %92 = add i64 %.7150, %91
+  %93 = sub i64 %.0151, %91
   %.not130 = icmp eq i64 %93, 0
   br i1 %.not130, label %94, label %84, !llvm.loop !13
 
 94:                                               ; preds = %90
-  %95 = icmp samesign ult i64 %.094153, 1073741823
+  %95 = icmp samesign ult i64 %.094155, 1073741823
   %96 = zext i1 %95 to i64
-  %spec.select = shl nuw nsw i64 %.094153, %96
+  %spec.select = shl nuw nsw i64 %.094155, %96
   %.not128 = icmp eq i64 %83, 0
   br i1 %.not128, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !15
 
@@ -307,36 +307,36 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   %.3 = phi i64 [ %.1100, %71 ], [ %.1100, %.preheader ], [ %92, %.loopexit.loopexit ]
   %98 = add i64 %97, %57
   %99 = icmp ult i64 %98, %57
-  br i1 %99, label %.thread142.sink.split, label %100
+  br i1 %99, label %.thread144.sink.split, label %100
 
 100:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit178, label %.outer
+  br i1 %14, label %.loopexit180, label %.outer
 
-.loopexit178:                                     ; preds = %68, %100
+.loopexit180:                                     ; preds = %68, %100
   %.2104 = phi i64 [ %98, %100 ], [ %57, %68 ]
   %101 = icmp ugt i64 %.2104, 2147483647
-  br i1 %101, label %.thread142.sink.split, label %102
+  br i1 %101, label %.thread144.sink.split, label %102
 
-102:                                              ; preds = %.loopexit178
+102:                                              ; preds = %.loopexit180
   store ptr %7, ptr %1, align 8, !tbaa !3
   %103 = trunc nuw nsw i64 %.2104 to i32
   br label %105
 
-.thread142.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit178
-  %.sink167 = phi i32 [ 246, %.loopexit178 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 137, %21 ], [ 137, %17 ], [ 142, %23 ], [ 147, %32 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
-  %.sink = phi i32 [ 155, %.loopexit178 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 524295, %21 ], [ 524295, %17 ], [ 142, %23 ], [ 155, %32 ], [ 155, %.loopexit ], [ 155, %74 ], [ 123, %59 ]
+.thread144.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit180
+  %.sink169 = phi i32 [ 246, %.loopexit180 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 137, %21 ], [ 137, %17 ], [ 142, %23 ], [ 147, %32 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
+  %.sink = phi i32 [ 155, %.loopexit180 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 524295, %21 ], [ 524295, %17 ], [ 142, %23 ], [ 155, %32 ], [ 155, %.loopexit ], [ 155, %74 ], [ 123, %59 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink167, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink169, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #4
-  br label %.thread142
+  br label %.thread144
 
-.thread142:                                       ; preds = %46, %38, %.thread142.sink.split
+.thread144:                                       ; preds = %46, %38, %.thread144.sink.split
   %104 = call i32 @ERR_clear_last_mark() #4
   call void @BUF_MEM_free(ptr noundef nonnull %7) #4
   br label %105
 
-105:                                              ; preds = %.thread142, %102, %9
-  %.095 = phi i32 [ -1, %9 ], [ -1, %.thread142 ], [ %103, %102 ]
+105:                                              ; preds = %.thread144, %102, %9
+  %.095 = phi i32 [ -1, %9 ], [ -1, %.thread144 ], [ %103, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

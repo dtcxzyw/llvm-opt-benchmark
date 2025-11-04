@@ -1209,11 +1209,11 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._cri
   %108 = call i32 %107(ptr noundef nonnull %93, ptr noundef nonnull %10, ptr noundef nonnull %103) #10
   %109 = icmp ne i32 %108, 1
   call void @llvm.assume(i1 %109)
-  %.val28.i = load i64, ptr %94, align 8, !tbaa !125
+  %.val29.i = load i64, ptr %94, align 8, !tbaa !125
   %110 = load ptr, ptr %96, align 8, !tbaa !78
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store i64 %.val.i, ptr %111, align 8, !tbaa !133
-  %112 = call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef nonnull %95, i64 noundef %.val28.i) #10
+  %112 = call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef nonnull %95, i64 noundef %.val29.i) #10
   %.not.i.i18 = icmp eq i32 %112, 0
   br i1 %.not.i.i18, label %113, label %152, !prof !100
 
@@ -1572,8 +1572,8 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
 28:                                               ; preds = %24
   %29 = load i64, ptr %9, align 8, !tbaa !13
   %30 = and i64 %29, -2147557409
-  %.not.i101 = icmp eq i64 %30, 0
-  br i1 %.not.i101, label %32, label %31
+  %.not.i102 = icmp eq i64 %30, 0
+  br i1 %.not.i102, label %32, label %31
 
 31:                                               ; preds = %28
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.23) #10
@@ -1599,8 +1599,8 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
   call void @lexbor_libxml2_bridge_parse_context_init(ptr noundef nonnull %11) #10
   %41 = load i64, ptr %9, align 8, !tbaa !13
   %42 = and i64 %41, 32
-  %.not.i102 = icmp eq i64 %42, 0
-  br i1 %.not.i102, label %43, label %dom_should_register_error_handlers.exit.thread117
+  %.not.i103 = icmp eq i64 %42, 0
+  br i1 %.not.i103, label %43, label %dom_should_register_error_handlers.exit.thread118
 
 43:                                               ; preds = %32
   %44 = call zeroext i1 @php_libxml_uses_internal_errors() #10
@@ -1611,14 +1611,14 @@ dom_should_register_error_handlers.exit:          ; preds = %43
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !77
   %47 = or i32 %46, %45
   %48 = and i32 %47, 2
-  %.not139 = icmp eq i32 %48, 0
-  br i1 %.not139, label %dom_should_register_error_handlers.exit.thread117, label %dom_should_register_error_handlers.exit.thread
+  %.not140 = icmp eq i32 %48, 0
+  br i1 %.not140, label %dom_should_register_error_handlers.exit.thread118, label %dom_should_register_error_handlers.exit.thread
 
 dom_should_register_error_handlers.exit.thread:   ; preds = %43, %dom_should_register_error_handlers.exit
   call void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef nonnull %11, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tokenizer_error_reporter, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tree_error_reporter) #10
-  br label %dom_should_register_error_handlers.exit.thread117
+  br label %dom_should_register_error_handlers.exit.thread118
 
-dom_should_register_error_handlers.exit.thread117: ; preds = %32, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
+dom_should_register_error_handlers.exit.thread118: ; preds = %32, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %49, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1660,7 +1660,7 @@ dom_should_register_error_handlers.exit.thread117: ; preds = %32, %dom_should_re
   %.not79 = icmp eq ptr %66, null
   br i1 %.not79, label %81, label %67
 
-67:                                               ; preds = %dom_should_register_error_handlers.exit.thread117
+67:                                               ; preds = %dom_should_register_error_handlers.exit.thread118
   %68 = load i64, ptr %8, align 8, !tbaa !13
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.thread, label %70
@@ -1700,7 +1700,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %70
   store ptr %spec.select18.i, ptr %80, align 8, !tbaa !99
   br label %81
 
-81:                                               ; preds = %75, %dom_should_register_error_handlers.exit.thread117
+81:                                               ; preds = %75, %dom_should_register_error_handlers.exit.thread118
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !160
   %82 = load ptr, ptr %5, align 8, !tbaa !10
@@ -1712,12 +1712,12 @@ lxb_encoding_data_by_name.exit:                   ; preds = %70
 85:                                               ; preds = %81
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !161
   %.not82 = icmp eq ptr %86, null
-  br i1 %.not82, label %87, label %zend_string_release_ex.exit100
+  br i1 %.not82, label %87, label %zend_string_release_ex.exit101
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %5, align 8, !tbaa !10
   %89 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %88) #10
-  br label %zend_string_release_ex.exit100
+  br label %zend_string_release_ex.exit101
 
 90:                                               ; preds = %81
   br i1 %.not79, label %91, label %zend_string_release_ex.exit
@@ -1731,21 +1731,21 @@ lxb_encoding_data_by_name.exit:                   ; preds = %70
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !162
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %lxb_encoding_data_by_name.exit105.thread, label %97
+  br i1 %96, label %lxb_encoding_data_by_name.exit106.thread, label %97
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %99 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %98, i64 noundef %95) #10
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %lxb_encoding_data_by_name.exit105.thread, label %lxb_encoding_data_by_name.exit105
+  br i1 %100, label %lxb_encoding_data_by_name.exit106.thread, label %lxb_encoding_data_by_name.exit106
 
-lxb_encoding_data_by_name.exit105:                ; preds = %97
+lxb_encoding_data_by_name.exit106:                ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !15
   %.not84 = icmp eq ptr %102, null
-  br i1 %.not84, label %lxb_encoding_data_by_name.exit105.thread, label %dom_setup_parser_encoding_manually.exit112
+  br i1 %.not84, label %lxb_encoding_data_by_name.exit106.thread, label %dom_setup_parser_encoding_manually.exit113
 
-dom_setup_parser_encoding_manually.exit112:       ; preds = %lxb_encoding_data_by_name.exit105
+dom_setup_parser_encoding_manually.exit113:       ; preds = %lxb_encoding_data_by_name.exit106
   store ptr %102, ptr %51, align 8, !tbaa !86
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 56, i1 false)
   store ptr %60, ptr %62, align 8, !tbaa !93
@@ -1757,23 +1757,23 @@ dom_setup_parser_encoding_manually.exit112:       ; preds = %lxb_encoding_data_b
   %104 = icmp eq ptr %102, %103
   %105 = zext i1 %104 to i8
   store i8 %105, ptr %13, align 8, !tbaa !87
-  %spec.select.i107 = select i1 %104, ptr null, ptr %60
-  %spec.select18.i108 = select i1 %104, ptr %12, ptr null
+  %spec.select.i108 = select i1 %104, ptr null, ptr %60
+  %spec.select18.i109 = select i1 %104, ptr %12, ptr null
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select.i107, ptr %106, align 8, !tbaa !98
+  store ptr %spec.select.i108, ptr %106, align 8, !tbaa !98
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %spec.select18.i108, ptr %107, align 8, !tbaa !99
-  br label %lxb_encoding_data_by_name.exit105.thread
+  store ptr %spec.select18.i109, ptr %107, align 8, !tbaa !99
+  br label %lxb_encoding_data_by_name.exit106.thread
 
-lxb_encoding_data_by_name.exit105.thread:         ; preds = %97, %93, %dom_setup_parser_encoding_manually.exit112, %lxb_encoding_data_by_name.exit105
-  %.467 = phi i1 [ false, %dom_setup_parser_encoding_manually.exit112 ], [ true, %lxb_encoding_data_by_name.exit105 ], [ true, %93 ], [ true, %97 ]
+lxb_encoding_data_by_name.exit106.thread:         ; preds = %97, %93, %dom_setup_parser_encoding_manually.exit113, %lxb_encoding_data_by_name.exit106
+  %.467 = phi i1 [ false, %dom_setup_parser_encoding_manually.exit113 ], [ true, %lxb_encoding_data_by_name.exit106 ], [ true, %93 ], [ true, %97 ]
   %108 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !4
   %110 = and i32 %109, 64
   %.not.i = icmp eq i32 %110, 0
   br i1 %.not.i, label %111, label %zend_string_release_ex.exit
 
-111:                                              ; preds = %lxb_encoding_data_by_name.exit105.thread
+111:                                              ; preds = %lxb_encoding_data_by_name.exit106.thread
   %112 = load i32, ptr %92, align 4, !tbaa !7
   %113 = icmp ne i32 %112, 0
   call void @llvm.assume(i1 %113)
@@ -1786,8 +1786,8 @@ lxb_encoding_data_by_name.exit105.thread:         ; preds = %97, %93, %dom_setup
   call void @_efree(ptr noundef nonnull %92) #10
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %116, %111, %lxb_encoding_data_by_name.exit105.thread, %91, %90
-  %.265 = phi i1 [ false, %90 ], [ true, %91 ], [ %.467, %lxb_encoding_data_by_name.exit105.thread ], [ %.467, %111 ], [ %.467, %116 ]
+zend_string_release_ex.exit:                      ; preds = %116, %111, %lxb_encoding_data_by_name.exit106.thread, %91, %90
+  %.265 = phi i1 [ false, %90 ], [ true, %91 ], [ %.467, %lxb_encoding_data_by_name.exit106.thread ], [ %.467, %111 ], [ %.467, %116 ]
   %117 = call ptr @lxb_html_document_create() #10
   %118 = icmp eq ptr %117, null
   br i1 %118, label %dom_parse_decode_encode_finish.exit, label %119, !prof !17
@@ -1819,11 +1819,11 @@ zend_string_release_ex.exit:                      ; preds = %116, %111, %lxb_enc
 128:                                              ; preds = %127
   call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %18, ptr noundef %17, ptr noundef %13, ptr noundef %10)
   %.pre = load ptr, ptr %18, align 8, !tbaa !10
-  %.pre140 = load i64, ptr %17, align 8, !tbaa !13
+  %.pre141 = load i64, ptr %17, align 8, !tbaa !13
   br label %129
 
 129:                                              ; preds = %128, %127
-  %130 = phi i64 [ %.pre140, %128 ], [ %125, %127 ]
+  %130 = phi i64 [ %.pre141, %128 ], [ %125, %127 ]
   %131 = phi ptr [ %.pre, %128 ], [ %12, %127 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 %130
   %133 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %117, ptr noundef %123, ptr noundef %18, ptr noundef %132, ptr noundef %13, ptr noundef %15, ptr noundef %16)
@@ -1843,8 +1843,8 @@ zend_string_release_ex.exit:                      ; preds = %116, %111, %lxb_enc
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 132
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
-  %or.cond138 = select i1 %140, i1 %143, i1 false
-  br i1 %or.cond138, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %lxb_encoding_decode_buf_add_to.exit.i.i
+  %or.cond139 = select i1 %140, i1 %143, i1 false
+  br i1 %or.cond139, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %lxb_encoding_decode_buf_add_to.exit.i.i
 
 lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %137
   %144 = load ptr, ptr %64, align 8, !tbaa !96, !nonnull !121, !noundef !121
@@ -1865,8 +1865,8 @@ lxb_encoding_decode_finish.exit.ithread-pre-split: ; preds = %137, %134
 
 lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode_finish.exit.ithread-pre-split, %lxb_encoding_decode_buf_add_to.exit.i.i
   %.val.i = phi i64 [ %.val.i.pr, %lxb_encoding_decode_finish.exit.ithread-pre-split ], [ %151, %lxb_encoding_decode_buf_add_to.exit.i.i ]
-  %.not.i113 = icmp eq i64 %.val.i, 0
-  br i1 %.not.i113, label %158, label %152
+  %.not.i114 = icmp eq i64 %.val.i, 0
+  br i1 %.not.i114, label %158, label %152
 
 152:                                              ; preds = %lxb_encoding_decode_finish.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1937,9 +1937,9 @@ lxb_encoding_encode_finish.exit.i:                ; preds = %162, %158
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
 dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179, %180, %181
-  %.0.i115 = phi ptr [ @.str.74, %181 ], [ @.str.115, %178 ], [ @.str.116, %179 ], [ @.str.117, %180 ], [ @.str.114, %168 ]
+  %.0.i116 = phi ptr [ @.str.74, %181 ], [ @.str.115, %178 ], [ @.str.116, %179 ], [ @.str.117, %180 ], [ @.str.114, %168 ]
   %182 = load ptr, ptr %5, align 8, !tbaa !10
-  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i115, ptr noundef %182) #10
+  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i116, ptr noundef %182) #10
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %183, align 8, !tbaa !4
   br label %248
@@ -1981,7 +1981,7 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179
 204:                                              ; preds = %201
   %205 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #11
   %.not91 = icmp eq i32 %205, 0
-  br i1 %.not91, label %.thread134, label %206
+  br i1 %.not91, label %.thread135, label %206
 
 206:                                              ; preds = %204
   %207 = call ptr @xmlStrdup(ptr noundef nonnull @.str.12) #10
@@ -2000,28 +2000,28 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179
 
 212:                                              ; preds = %208
   call void %210(ptr noundef nonnull %203) #10
-  br label %.thread134
+  br label %.thread135
 
 213:                                              ; preds = %192
   %214 = load ptr, ptr %5, align 8, !tbaa !10
   %215 = call ptr @xmlStrdup(ptr noundef %214) #10
-  br label %.thread134
+  br label %.thread135
 
-.thread134:                                       ; preds = %204, %212, %213
+.thread135:                                       ; preds = %204, %212, %213
   %.sink = phi ptr [ %209, %212 ], [ %215, %213 ], [ %203, %204 ]
   %216 = load ptr, ptr %19, align 8, !tbaa !130
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 136
   store ptr %.sink, ptr %217, align 8, !tbaa !175
   %218 = load ptr, ptr %14, align 8, !tbaa !160
   %.not94 = icmp eq ptr %218, null
-  br i1 %.not94, label %zend_string_release_ex.exit98, label %219
+  br i1 %.not94, label %zend_string_release_ex.exit99, label %219
 
-219:                                              ; preds = %.thread134
+219:                                              ; preds = %.thread135
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %221 = load i32, ptr %220, align 4, !tbaa !4
   %222 = and i32 %221, 64
-  %.not.i97 = icmp eq i32 %222, 0
-  br i1 %.not.i97, label %223, label %zend_string_release_ex.exit98
+  %.not.i98 = icmp eq i32 %222, 0
+  br i1 %.not.i98, label %223, label %zend_string_release_ex.exit99
 
 223:                                              ; preds = %219
   %224 = load i32, ptr %218, align 4, !tbaa !7
@@ -2030,13 +2030,13 @@ dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179
   %226 = add i32 %224, -1
   store i32 %226, ptr %218, align 4, !tbaa !7
   %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %zend_string_release_ex.exit98
+  br i1 %227, label %228, label %zend_string_release_ex.exit99
 
 228:                                              ; preds = %223
   call void @_efree(ptr noundef nonnull %218) #10
-  br label %zend_string_release_ex.exit98
+  br label %zend_string_release_ex.exit99
 
-zend_string_release_ex.exit98:                    ; preds = %228, %223, %219, %.thread134
+zend_string_release_ex.exit99:                    ; preds = %228, %223, %219, %.thread135
   %229 = call i32 @_php_stream_free(ptr noundef nonnull %84, i32 noundef 3) #10
   %230 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !25
   %231 = load ptr, ptr %19, align 8, !tbaa !130
@@ -2058,7 +2058,7 @@ zend_string_release_ex.exit98:                    ; preds = %228, %223, %219, %.
   %245 = load ptr, ptr %233, align 8, !tbaa !27
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   store ptr %244, ptr %246, align 8, !tbaa !33
-  br label %zend_string_release_ex.exit100
+  br label %zend_string_release_ex.exit101
 
 dom_parse_decode_encode_finish.exit.sink.split:   ; preds = %206, %211
   %247 = load ptr, ptr @xmlFree, align 8, !tbaa !174
@@ -2084,14 +2084,14 @@ dom_parse_decode_encode_finish.exit:              ; preds = %129, %dom_parse_dec
   %252 = call i32 @_php_stream_free(ptr noundef nonnull %84, i32 noundef 3) #10
   %253 = load ptr, ptr %14, align 8, !tbaa !160
   %.not96 = icmp eq ptr %253, null
-  br i1 %.not96, label %zend_string_release_ex.exit100, label %254
+  br i1 %.not96, label %zend_string_release_ex.exit101, label %254
 
 254:                                              ; preds = %250
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %256 = load i32, ptr %255, align 4, !tbaa !4
   %257 = and i32 %256, 64
-  %.not.i99 = icmp eq i32 %257, 0
-  br i1 %.not.i99, label %258, label %zend_string_release_ex.exit100
+  %.not.i100 = icmp eq i32 %257, 0
+  br i1 %.not.i100, label %258, label %zend_string_release_ex.exit101
 
 258:                                              ; preds = %254
   %259 = load i32, ptr %253, align 4, !tbaa !7
@@ -2100,17 +2100,17 @@ dom_parse_decode_encode_finish.exit:              ; preds = %129, %dom_parse_dec
   %261 = add i32 %259, -1
   store i32 %261, ptr %253, align 4, !tbaa !7
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %zend_string_release_ex.exit100
+  br i1 %262, label %263, label %zend_string_release_ex.exit101
 
 263:                                              ; preds = %258
   call void @_efree(ptr noundef nonnull %253) #10
-  br label %zend_string_release_ex.exit100
+  br label %zend_string_release_ex.exit101
 
-zend_string_release_ex.exit100:                   ; preds = %87, %85, %263, %258, %254, %zend_string_release_ex.exit98, %250
+zend_string_release_ex.exit101:                   ; preds = %87, %85, %263, %258, %254, %zend_string_release_ex.exit99, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %264
 
-264:                                              ; preds = %.thread, %zend_string_release_ex.exit100
+264:                                              ; preds = %.thread, %zend_string_release_ex.exit101
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

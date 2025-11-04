@@ -1034,9 +1034,9 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_copy_setup(ptr noundef readon
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
-32:                                               ; preds = %31, %2, %18
-  %.08 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
-  ret i32 %.08
+32:                                               ; preds = %2, %18, %31
+  %.07 = phi i32 [ %.1, %31 ], [ -1, %18 ], [ 0, %2 ]
+  ret i32 %.07
 }
 
 ; Function Attrs: nounwind uwtable

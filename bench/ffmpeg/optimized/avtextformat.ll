@@ -1006,8 +1006,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @validate_string(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %8
   store ptr %2, ptr %4, align 8, !tbaa !51
   %10 = load i8, ptr %2, align 1, !tbaa !52
-  %.not45 = icmp eq i8 %10, 0
-  br i1 %.not45, label %._crit_edge.thread, label %.lr.ph
+  %.not46 = icmp eq i8 %10, 0
+  br i1 %.not46, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 17336
@@ -1017,7 +1017,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @validate_string(ptr nounde
 
 14:                                               ; preds = %.lr.ph, %43
   %15 = phi ptr [ %2, %.lr.ph ], [ %44, %43 ]
-  %.03346 = phi i32 [ 0, %.lr.ph ], [ %.235, %43 ]
+  %.03347 = phi i32 [ 0, %.lr.ph ], [ %.235, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = load i32, ptr %11, align 8, !tbaa !53
   %17 = call i32 @av_utf8_decode(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %9, i32 noundef %16) #12
@@ -1025,7 +1025,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @validate_string(ptr nounde
   br i1 %18, label %..critedge_crit_edge, label %19
 
 ..critedge_crit_edge:                             ; preds = %14
-  %.pre47 = ptrtoint ptr %15 to i64
+  %.pre48 = ptrtoint ptr %15 to i64
   br label %.critedge
 
 19:                                               ; preds = %14
@@ -1053,7 +1053,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @validate_string(ptr nounde
 bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   %31 = load ptr, ptr %6, align 8, !tbaa !56
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.55, ptr noundef %31, ptr noundef nonnull %2) #12
-  %32 = add nsw i32 %.03346, 1
+  %32 = add nsw i32 %.03347, 1
   %33 = load i32, ptr %12, align 8, !tbaa !73
   switch i32 %33, label %36 [
     i32 0, label %.thread
@@ -1077,8 +1077,8 @@ bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   br i1 %38, label %.critedge, label %43
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %36
-  %.pre-phi = phi i64 [ %.pre47, %..critedge_crit_edge ], [ %22, %36 ]
-  %.13440 = phi i32 [ %.03346, %..critedge_crit_edge ], [ %32, %36 ]
+  %.pre-phi = phi i64 [ %.pre48, %..critedge_crit_edge ], [ %22, %36 ]
+  %.13441 = phi i32 [ %.03347, %..critedge_crit_edge ], [ %32, %36 ]
   %39 = load ptr, ptr %4, align 8, !tbaa !51
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %.pre-phi
@@ -1087,7 +1087,7 @@ bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   br label %43
 
 43:                                               ; preds = %36, %.critedge
-  %.235 = phi i32 [ %.13440, %.critedge ], [ %32, %36 ]
+  %.235 = phi i32 [ %.13441, %.critedge ], [ %32, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = load ptr, ptr %4, align 8, !tbaa !51
   %45 = load i8, ptr %44, align 1, !tbaa !52
@@ -1110,7 +1110,7 @@ bprint_bytes.exit:                                ; preds = %.lr.ph.i, %19
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.58, i32 noundef %.235, ptr noundef nonnull %2, ptr noundef %52) #12
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %3, %50, %46, %._crit_edge, %.thread
+._crit_edge.thread:                               ; preds = %3, %.thread, %._crit_edge, %46, %50
   %.2 = phi i32 [ 0, %50 ], [ 0, %46 ], [ 0, %._crit_edge ], [ -1094995529, %.thread ], [ 0, %3 ]
   %53 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef nonnull %1) #12
   %54 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #12

@@ -197,8 +197,8 @@ _ZL13isVoidPointerN5clang8QualTypeE.exit.i:       ; preds = %.lr.ph.i.i, %.loope
   %76 = load i32, ptr %75, align 8, !tbaa !76, !noalias !56
   %77 = add i32 %76, -27
   %78 = icmp ult i32 %77, -13
-  %.not89.i = icmp eq ptr %74, null
-  %.not.i = or i1 %.not89.i, %78
+  %.not90.i = icmp eq ptr %74, null
+  %.not.i = or i1 %.not90.i, %78
   br i1 %.not.i, label %.thread.i, label %79
 
 79:                                               ; preds = %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
@@ -347,8 +347,8 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
   ]
 
 .preheader.i:                                     ; preds = %129, %129, %129, %129, %98
-  %.180.jt3.i = phi ptr [ %.079.i, %98 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.180.jt3.i, i64 16
+  %.180.ph.i = phi ptr [ %.079.i, %98 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ], [ %107, %129 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.180.ph.i, i64 16
   %148 = load i32, ptr %147, align 8, !tbaa !76, !noalias !56
   %149 = icmp eq i32 %148, 15
   br i1 %149, label %.lr.ph.i, label %.thread.i
@@ -358,19 +358,19 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i
   br i1 %151, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %150
-  %.295.i = phi ptr [ %153, %150 ], [ %.180.jt3.i, %.preheader.i ]
+  %.295.i = phi ptr [ %153, %150 ], [ %.180.ph.i, %.preheader.i ]
   %152 = getelementptr inbounds nuw i8, ptr %.295.i, i64 48
   %153 = load ptr, ptr %152, align 8, !tbaa !91, !noalias !56
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8, !tbaa !76, !noalias !56
   %156 = add i32 %155, -27
   %157 = icmp ult i32 %156, -13
-  %.not2390.i = icmp eq ptr %153, null
-  %.not23.i = or i1 %.not2390.i, %157
+  %.not2391.i = icmp eq ptr %153, null
+  %.not23.i = or i1 %.not2391.i, %157
   br i1 %.not23.i, label %.thread.i, label %150
 
 .thread.i:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i, %108, %.lr.ph.i.i45.i, %150, %.lr.ph.i, %.preheader.i, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
-  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.180.jt3.i, %.preheader.i ], [ %153, %150 ], [ %.295.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i45.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ null, %108 ]
+  %.sroa.077.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.180.ph.i, %.preheader.i ], [ %153, %150 ], [ %.295.i, %.lr.ph.i ], [ %spec.select.i25.i, %.lr.ph.i.i45.i ], [ %spec.select.i25.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ null, %108 ]
   %.sroa.4.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ %73, %.lr.ph.i.i45.i ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ], [ undef, %108 ]
   %.sroa.6.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ false, %.preheader.i ], [ false, %.lr.ph.i ], [ false, %150 ], [ true, %.lr.ph.i.i45.i ], [ true, %108 ], [ true, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]
   %.sink.i = phi i1 [ false, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ true, %.preheader.i ], [ true, %.lr.ph.i ], [ true, %150 ], [ true, %.lr.ph.i.i45.i ], [ %112, %108 ], [ %112, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit55.i ]

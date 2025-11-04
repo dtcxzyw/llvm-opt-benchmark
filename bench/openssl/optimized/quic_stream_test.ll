@@ -1226,19 +1226,19 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 10000, ptr noundef nonnull @.str.4, i32 noundef 486) #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 486, ptr noundef nonnull @.str.89, ptr noundef %6) #7
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.loopexit156, label %8
+  br i1 %.not, label %.loopexit157, label %8
 
 8:                                                ; preds = %1
   %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 10000, ptr noundef nonnull @.str.4, i32 noundef 487) #7
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 487, ptr noundef nonnull @.str.90, ptr noundef %9) #7
   %.not121 = icmp eq i32 %10, 0
-  br i1 %.not121, label %.loopexit156, label %11
+  br i1 %.not121, label %.loopexit157, label %11
 
 11:                                               ; preds = %8
   %12 = tail call ptr @ossl_quic_rstream_new(ptr noundef null, ptr noundef null, i64 noundef 0) #7
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 488, ptr noundef nonnull @.str.57, ptr noundef %12) #7
   %.not122 = icmp eq i32 %13, 0
-  br i1 %.not122, label %.loopexit156, label %14
+  br i1 %.not122, label %.loopexit157, label %14
 
 14:                                               ; preds = %11
   %15 = srem i32 %0, 3
@@ -1252,33 +1252,33 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   tail call void @ossl_quic_rstream_set_cleanse(ptr noundef %12, i32 noundef 1) #7
   br label %.preheader
 
-.preheader159:                                    ; preds = %20
+.preheader160:                                    ; preds = %20
   %18 = and i32 %0, 1
   %19 = icmp eq i32 %18, 0
-  br label %.preheader157
+  br label %.preheader158
 
 20:                                               ; preds = %.preheader, %20
-  %.0110167 = phi i64 [ %24, %20 ], [ 0, %.preheader ]
+  %.0110168 = phi i64 [ %24, %20 ], [ 0, %.preheader ]
   %21 = tail call i32 @test_random() #7
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.0110167
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.0110168
   store i8 %22, ptr %23, align 1, !tbaa !17
-  %24 = add nuw nsw i64 %.0110167, 1
+  %24 = add nuw nsw i64 %.0110168, 1
   %exitcond.not = icmp eq i64 %24, 10000
-  br i1 %exitcond.not, label %.preheader159, label %20, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader160, label %20, !llvm.loop !28
 
-.preheader157:                                    ; preds = %.preheader159, %133
-  %indvars.iv181 = phi i64 [ 0, %.preheader159 ], [ %indvars.iv.next182, %133 ]
-  %.097174 = phi i32 [ 0, %.preheader159 ], [ %.198, %133 ]
-  %.0102172 = phi i64 [ 0, %.preheader159 ], [ %.2.ph, %133 ]
-  %.0104171 = phi i64 [ 0, %.preheader159 ], [ %107, %133 ]
-  %25 = mul nuw nsw i64 %indvars.iv181, 10
+.preheader158:                                    ; preds = %.preheader160, %133
+  %indvars.iv182 = phi i64 [ 0, %.preheader160 ], [ %indvars.iv.next183, %133 ]
+  %.097175 = phi i32 [ 0, %.preheader160 ], [ %.198, %133 ]
+  %.0102173 = phi i64 [ 0, %.preheader160 ], [ %.2.ph, %133 ]
+  %.0104172 = phi i64 [ 0, %.preheader160 ], [ %107, %133 ]
+  %25 = mul nuw nsw i64 %indvars.iv182, 10
   br label %26
 
-26:                                               ; preds = %.preheader157, %63
-  %indvars.iv = phi i64 [ 0, %.preheader157 ], [ %indvars.iv.next, %63 ]
-  %.1103169 = phi i64 [ %.0102172, %.preheader157 ], [ %.2.ph, %63 ]
-  %.1105168 = phi i64 [ %.0104171, %.preheader157 ], [ %.2106.ph, %63 ]
+26:                                               ; preds = %.preheader158, %63
+  %indvars.iv = phi i64 [ 0, %.preheader158 ], [ %indvars.iv.next, %63 ]
+  %.1103170 = phi i64 [ %.0102173, %.preheader158 ], [ %.2.ph, %63 ]
+  %.1105169 = phi i64 [ %.0104172, %.preheader158 ], [ %.2106.ph, %63 ]
   %27 = call i32 @test_random() #7
   %28 = urem i32 %27, 10
   %29 = icmp eq i32 %28, 0
@@ -1287,20 +1287,20 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
 30:                                               ; preds = %26
   %31 = add nuw nsw i64 %indvars.iv, %25
   %32 = mul nuw nsw i64 %31, 10
-  %.not142 = icmp ult i64 %.1105168, %32
+  %.not142 = icmp ult i64 %.1105169, %32
   %33 = add nuw nsw i64 %32, 10
-  %spec.select = call i64 @llvm.umax.i64(i64 %33, i64 %.1105168)
-  %.3107 = select i1 %.not142, i64 %.1105168, i64 %spec.select
+  %spec.select = call i64 @llvm.umax.i64(i64 %33, i64 %.1105169)
+  %.3107 = select i1 %.not142, i64 %.1105169, i64 %spec.select
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 %32
   %35 = call i32 @ossl_quic_rstream_queue_data(ptr noundef %12, ptr noundef null, i64 noundef %32, ptr noundef %34, i64 noundef 10, i32 noundef 0) #7
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
   %38 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 511, ptr noundef nonnull @.str.91, i32 noundef %37) #7
   %.not143 = icmp eq i32 %38, 0
-  br i1 %.not143, label %.loopexit156, label %39
+  br i1 %.not143, label %.loopexit157, label %39
 
 39:                                               ; preds = %30
-  %spec.select147 = call i64 @llvm.umax.i64(i64 %.1103169, i64 %33)
+  %spec.select147 = call i64 @llvm.umax.i64(i64 %.1103170, i64 %33)
   %40 = call i32 @test_random() #7
   %41 = urem i32 %40, 5
   %.not144 = icmp eq i32 %41, 0
@@ -1310,7 +1310,7 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %43 = call i32 @test_random() #7
   %44 = urem i32 %43, 50
   %45 = zext nneg i32 %44 to i64
-  %46 = add i64 %.0104171, %45
+  %46 = add i64 %.0104172, %45
   %47 = icmp ugt i64 %46, 50
   %48 = add i64 %46, -50
   %spec.select148 = select i1 %47, i64 %48, i64 %46
@@ -1328,7 +1328,7 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   %59 = zext i1 %58 to i32
   %60 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 531, ptr noundef nonnull @.str.91, i32 noundef %59) #7
   %.not146 = icmp eq i32 %60, 0
-  br i1 %.not146, label %.loopexit156, label %61
+  br i1 %.not146, label %.loopexit157, label %61
 
 61:                                               ; preds = %42
   %.not145 = icmp ugt i64 %.1, %.3107
@@ -1339,11 +1339,11 @@ define internal range(i32 0, 2) i32 @test_rstream_random(i32 noundef %0) #0 {
   br label %63
 
 63:                                               ; preds = %61, %26, %39
-  %.2106.ph = phi i64 [ %.3107, %39 ], [ %.1105168, %26 ], [ %.4108, %61 ]
-  %.2.ph = phi i64 [ %spec.select147, %39 ], [ %.1103169, %26 ], [ %spec.select150, %61 ]
+  %.2106.ph = phi i64 [ %.3107, %39 ], [ %.1105169, %26 ], [ %.4108, %61 ]
+  %.2.ph = phi i64 [ %spec.select147, %39 ], [ %.1103170, %26 ], [ %spec.select150, %61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond180.not, label %64, label %26, !llvm.loop !29
+  %exitcond181.not = icmp eq i64 %indvars.iv.next, 10
+  br i1 %exitcond181.not, label %64, label %26, !llvm.loop !29
 
 64:                                               ; preds = %63
   br i1 %19, label %65, label %87
@@ -1401,7 +1401,7 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %86 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 538, ptr noundef nonnull @.str.92, i32 noundef %.0.i) #7
   %.not132 = icmp eq i32 %86, 0
-  br i1 %.not132, label %.loopexit156, label %92
+  br i1 %.not132, label %.loopexit157, label %92
 
 87:                                               ; preds = %64
   %88 = call i32 @ossl_quic_rstream_read(ptr noundef %12, ptr noundef %9, i64 noundef 10000, ptr noundef nonnull %5, ptr noundef nonnull %4) #7
@@ -1409,35 +1409,35 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %90 = zext i1 %89 to i32
   %91 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 542, ptr noundef nonnull @.str.93, i32 noundef %90) #7
   %.not131 = icmp eq i32 %91, 0
-  br i1 %.not131, label %.loopexit156, label %92
+  br i1 %.not131, label %.loopexit157, label %92
 
 92:                                               ; preds = %87, %test_single_copy_read.exit
   %93 = load i64, ptr %5, align 8, !tbaa !4
-  %94 = sub i64 %.2106.ph, %.0104171
+  %94 = sub i64 %.2106.ph, %.0104172
   %95 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.4, i32 noundef 545, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.94, i64 noundef %93, i64 noundef %94) #7
   %.not133 = icmp eq i32 %95, 0
-  br i1 %.not133, label %.loopexit156, label %96
+  br i1 %.not133, label %.loopexit157, label %96
 
 96:                                               ; preds = %92
   %97 = load i64, ptr %5, align 8, !tbaa !4
-  %98 = add i64 %97, %.0104171
+  %98 = add i64 %97, %.0104172
   %99 = call i32 @test_size_t_le(ptr noundef nonnull @.str.4, i32 noundef 546, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, i64 noundef %98, i64 noundef 10000) #7
   %.not134 = icmp eq i32 %99, 0
-  br i1 %.not134, label %.loopexit156, label %100
+  br i1 %.not134, label %.loopexit157, label %100
 
 100:                                              ; preds = %96
   br i1 %16, label %105, label %101
 
 101:                                              ; preds = %100
   %102 = load i64, ptr %5, align 8, !tbaa !4
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 %.0104171
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 %.0104172
   %104 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 549, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef %9, i64 noundef %102, ptr noundef %103, i64 noundef %102) #7
   %.not136 = icmp eq i32 %104, 0
-  br i1 %.not136, label %.loopexit156, label %105
+  br i1 %.not136, label %.loopexit157, label %105
 
 105:                                              ; preds = %101, %100
   %106 = load i64, ptr %5, align 8, !tbaa !4
-  %107 = add i64 %106, %.0104171
+  %107 = add i64 %106, %.0104172
   %108 = call i32 @test_random() #7
   %109 = urem i32 %108, 50
   %110 = icmp eq i32 %109, 0
@@ -1451,7 +1451,7 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %116 = zext i1 %115 to i32
   %117 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 555, ptr noundef nonnull @.str.99, i32 noundef %116) #7
   %.not137 = icmp eq i32 %117, 0
-  br i1 %.not137, label %.loopexit156, label %118
+  br i1 %.not137, label %.loopexit157, label %118
 
 118:                                              ; preds = %111
   %119 = call i32 @ossl_quic_rstream_move_to_rbuf(ptr noundef %12) #7
@@ -1459,10 +1459,10 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %121 = zext i1 %120 to i32
   %122 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 556, ptr noundef nonnull @.str.68, i32 noundef %121) #7
   %.not138 = icmp eq i32 %122, 0
-  br i1 %.not138, label %.loopexit156, label %123
+  br i1 %.not138, label %.loopexit157, label %123
 
 123:                                              ; preds = %118, %105
-  %.not139 = icmp eq i32 %.097174, 0
+  %.not139 = icmp eq i32 %.097175, 0
   br i1 %.not139, label %124, label %133
 
 124:                                              ; preds = %123
@@ -1479,14 +1479,14 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %131 = zext i1 %130 to i32
   %132 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 562, ptr noundef nonnull @.str.100, i32 noundef %131) #7
   %.not141 = icmp eq i32 %132, 0
-  br i1 %.not141, label %.loopexit156, label %133
+  br i1 %.not141, label %.loopexit157, label %133
 
 133:                                              ; preds = %123, %124, %128
   %134 = phi i1 [ false, %123 ], [ false, %128 ], [ true, %124 ]
   %.198 = phi i32 [ 1, %123 ], [ 1, %128 ], [ 0, %124 ]
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next182, 100
-  br i1 %exitcond184.not, label %135, label %.preheader157, !llvm.loop !31
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond185.not = icmp eq i64 %indvars.iv.next183, 100
+  br i1 %exitcond185.not, label %135, label %.preheader158, !llvm.loop !31
 
 135:                                              ; preds = %133
   %136 = load i32, ptr %4, align 4, !tbaa !26
@@ -1496,17 +1496,17 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 138:                                              ; preds = %.lr.ph
-  %139 = add nuw i64 %.1111175, 1
-  %exitcond185.not = icmp eq i64 %139, %107
-  br i1 %exitcond185.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  %139 = add nuw i64 %.1111176, 1
+  %exitcond186.not = icmp eq i64 %139, %107
+  br i1 %exitcond186.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %135, %138
-  %.1111175 = phi i64 [ %139, %138 ], [ 0, %135 ]
-  %140 = getelementptr inbounds nuw i8, ptr %6, i64 %.1111175
+  %.1111176 = phi i64 [ %139, %138 ], [ 0, %135 ]
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 %.1111176
   %141 = load i8, ptr %140, align 1, !tbaa !17
   %142 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.4, i32 noundef 571, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.12, i8 noundef zeroext %141, i8 noundef zeroext 0) #7
   %.not130 = icmp eq i32 %142, 0
-  br i1 %.not130, label %.loopexit156, label %138
+  br i1 %.not130, label %.loopexit157, label %138
 
 .loopexit:                                        ; preds = %138, %135
   %143 = icmp ne i64 %107, 10000
@@ -1523,7 +1523,7 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %148 = call i32 @test_single_copy_read(ptr noundef %12, ptr noundef %9, i64 noundef 10000, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %149 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 578, ptr noundef nonnull @.str.92, i32 noundef %148) #7
   %.not127 = icmp eq i32 %149, 0
-  br i1 %.not127, label %.loopexit156, label %155
+  br i1 %.not127, label %.loopexit157, label %155
 
 150:                                              ; preds = %146
   %151 = call i32 @ossl_quic_rstream_read(ptr noundef %12, ptr noundef %9, i64 noundef 10000, ptr noundef nonnull %5, ptr noundef nonnull %4) #7
@@ -1531,13 +1531,13 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %153 = zext i1 %152 to i32
   %154 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 582, ptr noundef nonnull @.str.93, i32 noundef %153) #7
   %.not126 = icmp eq i32 %154, 0
-  br i1 %.not126, label %.loopexit156, label %155
+  br i1 %.not126, label %.loopexit157, label %155
 
 155:                                              ; preds = %150, %147
   %156 = load i64, ptr %5, align 8, !tbaa !4
   %157 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.12, i64 noundef %156, i64 noundef 0) #7
   %.not128 = icmp eq i32 %157, 0
-  br i1 %.not128, label %.loopexit156, label %158
+  br i1 %.not128, label %.loopexit157, label %158
 
 158:                                              ; preds = %155
   %159 = load i32, ptr %4, align 4, !tbaa !26
@@ -1545,15 +1545,15 @@ test_single_copy_read.exit:                       ; preds = %66, %68, %74, %80
   %161 = zext i1 %160 to i32
   %162 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 585, ptr noundef nonnull @.str.61, i32 noundef %161) #7
   %.not129 = icmp eq i32 %162, 0
-  br i1 %.not129, label %.loopexit156, label %163
+  br i1 %.not129, label %.loopexit157, label %163
 
 163:                                              ; preds = %158, %.loopexit
-  br label %.loopexit156
+  br label %.loopexit157
 
-.loopexit156:                                     ; preds = %test_single_copy_read.exit, %87, %101, %96, %92, %118, %111, %128, %42, %30, %.lr.ph, %163, %11, %8, %1, %147, %150, %158, %155
-  %.0113 = phi ptr [ %9, %163 ], [ %9, %158 ], [ %9, %155 ], [ %9, %147 ], [ %9, %150 ], [ %9, %11 ], [ %9, %8 ], [ null, %1 ], [ %9, %.lr.ph ], [ %9, %30 ], [ %9, %42 ], [ %9, %128 ], [ %9, %111 ], [ %9, %118 ], [ %9, %92 ], [ %9, %96 ], [ %9, %101 ], [ %9, %87 ], [ %9, %test_single_copy_read.exit ]
-  %.0112 = phi ptr [ %12, %163 ], [ %12, %158 ], [ %12, %155 ], [ %12, %147 ], [ %12, %150 ], [ %12, %11 ], [ null, %8 ], [ null, %1 ], [ %12, %.lr.ph ], [ %12, %30 ], [ %12, %42 ], [ %12, %128 ], [ %12, %111 ], [ %12, %118 ], [ %12, %92 ], [ %12, %96 ], [ %12, %101 ], [ %12, %87 ], [ %12, %test_single_copy_read.exit ]
-  %.096 = phi i32 [ 1, %163 ], [ 0, %158 ], [ 0, %155 ], [ 0, %147 ], [ 0, %150 ], [ 0, %11 ], [ 0, %8 ], [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %30 ], [ 0, %42 ], [ 0, %128 ], [ 0, %111 ], [ 0, %118 ], [ 0, %92 ], [ 0, %96 ], [ 0, %101 ], [ 0, %87 ], [ 0, %test_single_copy_read.exit ]
+.loopexit157:                                     ; preds = %128, %111, %118, %92, %96, %101, %87, %test_single_copy_read.exit, %30, %42, %.lr.ph, %155, %158, %150, %147, %1, %8, %11, %163
+  %.0113 = phi ptr [ %9, %163 ], [ %9, %158 ], [ %9, %155 ], [ %9, %147 ], [ %9, %150 ], [ %9, %11 ], [ %9, %8 ], [ null, %1 ], [ %9, %.lr.ph ], [ %9, %42 ], [ %9, %30 ], [ %9, %test_single_copy_read.exit ], [ %9, %87 ], [ %9, %101 ], [ %9, %96 ], [ %9, %92 ], [ %9, %118 ], [ %9, %111 ], [ %9, %128 ]
+  %.0112 = phi ptr [ %12, %163 ], [ %12, %158 ], [ %12, %155 ], [ %12, %147 ], [ %12, %150 ], [ %12, %11 ], [ null, %8 ], [ null, %1 ], [ %12, %.lr.ph ], [ %12, %42 ], [ %12, %30 ], [ %12, %test_single_copy_read.exit ], [ %12, %87 ], [ %12, %101 ], [ %12, %96 ], [ %12, %92 ], [ %12, %118 ], [ %12, %111 ], [ %12, %128 ]
+  %.096 = phi i32 [ 1, %163 ], [ 0, %158 ], [ 0, %155 ], [ 0, %147 ], [ 0, %150 ], [ 0, %11 ], [ 0, %8 ], [ 0, %1 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %30 ], [ 0, %test_single_copy_read.exit ], [ 0, %87 ], [ 0, %101 ], [ 0, %96 ], [ 0, %92 ], [ 0, %118 ], [ 0, %111 ], [ 0, %128 ]
   call void @ossl_quic_rstream_free(ptr noundef %.0112) #7
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.4, i32 noundef 593) #7
   call void @CRYPTO_free(ptr noundef %.0113, ptr noundef nonnull @.str.4, i32 noundef 594) #7

@@ -528,9 +528,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit82, label %.preheader81
+  br i1 %63, label %.loopexit83, label %.preheader82
 
-.preheader81:                                     ; preds = %51, %79
+.preheader82:                                     ; preds = %51, %79
   %64 = phi ptr [ %81, %79 ], [ %62, %51 ]
   %65 = phi ptr [ %80, %79 ], [ %61, %51 ]
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 48
@@ -539,7 +539,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %70, label %83
 
-70:                                               ; preds = %.preheader81
+70:                                               ; preds = %.preheader82
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 448
   %72 = load volatile ptr, ptr %71, align 8
   %73 = load volatile i32, ptr %72, align 4
@@ -554,9 +554,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %80 = getelementptr i8, ptr %65, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.loopexit82, label %.preheader81, !llvm.loop !14
+  br i1 %82, label %.loopexit83, label %.preheader82, !llvm.loop !14
 
-83:                                               ; preds = %70, %.preheader81
+83:                                               ; preds = %70, %.preheader82
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   %86 = load i32, ptr %85, align 8
@@ -627,7 +627,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   store i32 1, ptr %132, align 4
   call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %133 = call fastcc ptr @__unwind_incomplete_requests(ptr noundef %6)
-  br label %.loopexit82
+  br label %.loopexit83
 
 134:                                              ; preds = %126, %89, %83
   %135 = load volatile i64, ptr %84, align 8
@@ -653,16 +653,16 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 151:                                              ; preds = %134
   %152 = and i32 %86, 16
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %256, label %._crit_edge155
+  br i1 %153, label %256, label %._crit_edge156
 
-._crit_edge155:                                   ; preds = %151
+._crit_edge156:                                   ; preds = %151
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %64, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre158 = trunc i64 %.pre to i32
+  %.pre159 = trunc i64 %.pre to i32
   br label %154
 
-154:                                              ; preds = %._crit_edge155, %138
-  %.pre-phi = phi i32 [ %.pre158, %._crit_edge155 ], [ %144, %138 ]
+154:                                              ; preds = %._crit_edge156, %138
+  %.pre-phi = phi i32 [ %.pre159, %._crit_edge156 ], [ %144, %138 ]
   %155 = getelementptr inbounds nuw i8, ptr %64, i64 448
   %156 = load volatile ptr, ptr %155, align 8
   %157 = load volatile i32, ptr %156, align 4
@@ -726,7 +726,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %197 = call fastcc ptr @__unwind_incomplete_requests(ptr noundef %6)
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.loopexit82, label %199
+  br i1 %198, label %.loopexit83, label %199
 
 199:                                              ; preds = %193
   %200 = load ptr, ptr %53, align 8
@@ -740,8 +740,8 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
   br label %206
 
-206:                                              ; preds = %.loopexit80, %199
-  %207 = phi ptr [ %197, %199 ], [ %252, %.loopexit80 ]
+206:                                              ; preds = %.loopexit81, %199
+  %207 = phi ptr [ %197, %199 ], [ %252, %.loopexit81 ]
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 336
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 344
   %210 = load ptr, ptr %209, align 8
@@ -757,7 +757,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 320
   %215 = load volatile ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, %214
-  br i1 %216, label %.loopexit80, label %217
+  br i1 %216, label %.loopexit81, label %217
 
 217:                                              ; preds = %206
   %218 = getelementptr inbounds nuw i8, ptr %207, i64 80
@@ -810,9 +810,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 247:                                              ; preds = %242, %237, %233, %228, %220
   %248 = load volatile ptr, ptr %221, align 8
   %249 = icmp eq ptr %248, %214
-  br i1 %249, label %.loopexit80, label %220, !llvm.loop !16
+  br i1 %249, label %.loopexit81, label %220, !llvm.loop !16
 
-.loopexit80:                                      ; preds = %247, %206
+.loopexit81:                                      ; preds = %247, %206
   %250 = load volatile ptr, ptr %3, align 8
   %251 = icmp eq ptr %250, %3
   %252 = getelementptr i8, ptr %250, i64 -336
@@ -820,21 +820,21 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %254 = or i1 %251, %253
   br i1 %254, label %255, label %206, !llvm.loop !17
 
-255:                                              ; preds = %.loopexit80
+255:                                              ; preds = %.loopexit81
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit82
+  br label %.loopexit83
 
 256:                                              ; preds = %185, %173, %160, %154, %151, %138
   %257 = getelementptr i8, ptr %65, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %.loopexit82, label %260
+  br i1 %259, label %.loopexit83, label %260
 
 260:                                              ; preds = %256
   call void @_raw_spin_unlock(ptr noundef nonnull %59) #17
   br label %902
 
-.loopexit82:                                      ; preds = %79, %256, %255, %193, %129, %51
+.loopexit83:                                      ; preds = %79, %256, %255, %193, %129, %51
   %261 = phi ptr [ %65, %129 ], [ %65, %256 ], [ %65, %193 ], [ %65, %255 ], [ %61, %51 ], [ %80, %79 ]
   %262 = phi ptr [ null, %129 ], [ %64, %256 ], [ null, %193 ], [ null, %255 ], [ null, %51 ], [ null, %79 ]
   %263 = getelementptr inbounds nuw i8, ptr %6, i64 1152
@@ -845,11 +845,11 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %268 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   %269 = load ptr, ptr %264, align 8
   %270 = icmp eq ptr %269, null
-  br i1 %270, label %.thread55, label %.lr.ph
+  br i1 %270, label %.thread56, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit82, %422
-  %271 = phi ptr [ %424, %422 ], [ %269, %.loopexit82 ]
-  %272 = phi ptr [ %423, %422 ], [ %262, %.loopexit82 ]
+.lr.ph:                                           ; preds = %.loopexit83, %422
+  %271 = phi ptr [ %424, %422 ], [ %269, %.loopexit83 ]
+  %272 = phi ptr [ %423, %422 ], [ %262, %.loopexit83 ]
   br label %273
 
 273:                                              ; preds = %.lr.ph, %298
@@ -891,13 +891,13 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   store i64 %300, ptr %274, align 8
   %301 = load ptr, ptr %264, align 8
   %302 = icmp eq ptr %301, null
-  br i1 %302, label %.thread55, label %273
+  br i1 %302, label %.thread56, label %273
 
 303:                                              ; preds = %289
   %304 = getelementptr inbounds nuw i8, ptr %279, i64 6312
   %305 = getelementptr inbounds nuw i8, ptr %279, i64 5520
   %306 = icmp eq ptr %279, null
-  br i1 %306, label %.thread55, label %307
+  br i1 %306, label %.thread56, label %307
 
 307:                                              ; preds = %303
   %308 = getelementptr inbounds nuw i8, ptr %279, i64 144
@@ -906,7 +906,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void @_raw_spin_lock(ptr noundef nonnull %310) #17
   %311 = load ptr, ptr %304, align 8
   %312 = icmp eq ptr %311, null
-  br i1 %312, label %.thread56.thread, label %313
+  br i1 %312, label %.thread57.thread, label %313
 
 313:                                              ; preds = %307
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 440
@@ -914,7 +914,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %316 = load i32, ptr %266, align 4
   %317 = and i32 %316, %315
   %318 = icmp eq i32 %317, 0
-  br i1 %318, label %.thread56.thread, label %319
+  br i1 %318, label %.thread57.thread, label %319
 
 319:                                              ; preds = %313
   %320 = load volatile ptr, ptr %305, align 8
@@ -924,7 +924,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %324 = inttoptr i64 %322 to ptr
   %325 = icmp eq ptr %6, %324
   %326 = or i1 %323, %325
-  br i1 %326, label %327, label %.thread56.thread, !prof !12
+  br i1 %326, label %327, label %.thread57.thread, !prof !12
 
 327:                                              ; preds = %319
   %328 = getelementptr inbounds nuw i8, ptr %311, i64 352
@@ -943,7 +943,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %337 = load ptr, ptr %308, align 8
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %338) #17
-  br label %.thread55
+  br label %.thread56
 
 .critedge:                                        ; preds = %327, %332
   %339 = icmp eq ptr %272, null
@@ -968,7 +968,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %354 = or i64 %353, %351
   %355 = and i64 %354, 768
   %356 = icmp eq i64 %355, 0
-  br i1 %356, label %357, label %.thread60, !prof !12
+  br i1 %356, label %357, label %.thread61, !prof !12
 
 357:                                              ; preds = %349
   %358 = getelementptr inbounds nuw i8, ptr %272, i64 88
@@ -976,9 +976,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %360 = getelementptr inbounds nuw i8, ptr %311, i64 88
   %361 = load ptr, ptr %360, align 8
   %362 = icmp eq ptr %359, %361
-  br i1 %362, label %367, label %.thread60
+  br i1 %362, label %367, label %.thread61
 
-.thread60:                                        ; preds = %349, %357
+.thread61:                                        ; preds = %349, %357
   %363 = load ptr, ptr %308, align 8
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %364) #17
@@ -1012,13 +1012,13 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %380 = getelementptr inbounds nuw i8, ptr %311, i64 80
   store volatile ptr %6, ptr %380, align 8
   %381 = call zeroext i1 @__i915_request_submit(ptr noundef nonnull %311) #17
-  br i1 %381, label %382, label %.loopexit77
+  br i1 %381, label %382, label %.loopexit78
 
 382:                                              ; preds = %378
   %383 = getelementptr inbounds nuw i8, ptr %279, i64 7192
   %384 = load ptr, ptr %383, align 8
   %385 = icmp eq ptr %384, %6
-  br i1 %385, label %.loopexit77, label %386, !prof !12
+  br i1 %385, label %.loopexit78, label %386, !prof !12
 
 386:                                              ; preds = %382
   %387 = load i32, ptr %268, align 8
@@ -1035,7 +1035,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %393 = getelementptr inbounds nuw i8, ptr %279, i64 7184
   %394 = load i32, ptr %393, align 8
   %395 = icmp ugt i32 %394, 1
-  br i1 %395, label %396, label %.loopexit77
+  br i1 %395, label %396, label %.loopexit78
 
 396:                                              ; preds = %392
   %397 = zext i32 %394 to i64
@@ -1044,7 +1044,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 398:                                              ; preds = %401
   %399 = add nuw nsw i64 %402, 1
   %400 = icmp eq i64 %399, %397
-  br i1 %400, label %.loopexit77, label %401, !llvm.loop !19
+  br i1 %400, label %.loopexit78, label %401, !llvm.loop !19
 
 401:                                              ; preds = %398, %396
   %402 = phi i64 [ 1, %396 ], [ %399, %398 ]
@@ -1058,9 +1058,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %408 = load ptr, ptr %383, align 8
   store ptr %408, ptr %407, align 8
   store ptr %404, ptr %383, align 8
-  br label %.loopexit77
+  br label %.loopexit78
 
-.loopexit77:                                      ; preds = %398, %406, %392, %382, %378
+.loopexit78:                                      ; preds = %398, %406, %392, %382, %378
   %409 = phi i8 [ 0, %378 ], [ 1, %382 ], [ 1, %392 ], [ 1, %406 ], [ 1, %398 ]
   %410 = phi ptr [ %272, %378 ], [ %311, %382 ], [ %311, %392 ], [ %311, %406 ], [ %311, %398 ]
   %411 = getelementptr inbounds nuw i8, ptr %311, i64 56
@@ -1068,66 +1068,66 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %413 = icmp eq i32 %412, 1
   br i1 %413, label %417, label %414
 
-414:                                              ; preds = %.loopexit77
+414:                                              ; preds = %.loopexit78
   %415 = icmp sgt i32 %412, 0
-  br i1 %415, label %.thread56, label %416, !prof !12
+  br i1 %415, label %.thread57, label %416, !prof !12
 
 416:                                              ; preds = %414
   call void @refcount_warn_saturate(ptr noundef nonnull %411, i32 noundef 3) #17
-  br label %.thread56
+  br label %.thread57
 
-417:                                              ; preds = %.loopexit77
+417:                                              ; preds = %.loopexit78
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   call void @dma_fence_release(ptr noundef nonnull %411) #17
-  br label %.thread56
+  br label %.thread57
 
-.thread56.thread:                                 ; preds = %319, %313, %307
+.thread57.thread:                                 ; preds = %319, %313, %307
   %418 = load ptr, ptr %308, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %419) #17
   br label %422
 
-.thread56:                                        ; preds = %414, %416, %417
+.thread57:                                        ; preds = %414, %416, %417
   %420 = load ptr, ptr %308, align 8
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 4
   call void @_raw_spin_unlock(ptr noundef nonnull %421) #17
-  br i1 %381, label %.thread55, label %422
+  br i1 %381, label %.thread56, label %422
 
-422:                                              ; preds = %.thread56.thread, %.thread56
-  %423 = phi ptr [ %272, %.thread56.thread ], [ %410, %.thread56 ]
+422:                                              ; preds = %.thread57.thread, %.thread57
+  %423 = phi ptr [ %272, %.thread57.thread ], [ %410, %.thread57 ]
   %424 = load ptr, ptr %264, align 8
   %425 = icmp eq ptr %424, null
-  br i1 %425, label %.thread55, label %.lr.ph
+  br i1 %425, label %.thread56, label %.lr.ph
 
-.thread55:                                        ; preds = %.thread56, %303, %422, %298, %.loopexit82, %336
-  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit82 ], [ 0, %298 ], [ 0, %422 ], [ %409, %.thread56 ], [ 0, %303 ]
-  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit82 ], [ %272, %298 ], [ %423, %422 ], [ %410, %.thread56 ], [ %272, %303 ]
+.thread56:                                        ; preds = %.thread57, %303, %422, %298, %.loopexit83, %336
+  %426 = phi i8 [ 0, %336 ], [ 0, %.loopexit83 ], [ 0, %298 ], [ 0, %422 ], [ %409, %.thread57 ], [ 0, %303 ]
+  %427 = phi ptr [ %272, %336 ], [ %262, %.loopexit83 ], [ %272, %298 ], [ %423, %422 ], [ %410, %.thread57 ], [ %272, %303 ]
   %428 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %429 = load ptr, ptr %267, align 8
   %430 = icmp eq ptr %429, null
-  br i1 %430, label %._crit_edge123, label %.lr.ph122
+  br i1 %430, label %._crit_edge124, label %.lr.ph123
 
-.lr.ph122:                                        ; preds = %.thread55, %512
-  %431 = phi ptr [ %513, %512 ], [ %429, %.thread55 ]
-  %432 = phi ptr [ %.lcssa83225, %512 ], [ %48, %.thread55 ]
-  %433 = phi ptr [ %.lcssa85223, %512 ], [ %427, %.thread55 ]
-  %434 = phi i8 [ %.lcssa87221, %512 ], [ %426, %.thread55 ]
+.lr.ph123:                                        ; preds = %.thread56, %512
+  %431 = phi ptr [ %513, %512 ], [ %429, %.thread56 ]
+  %432 = phi ptr [ %.lcssa84226, %512 ], [ %48, %.thread56 ]
+  %433 = phi ptr [ %.lcssa86224, %512 ], [ %427, %.thread56 ]
+  %434 = phi i8 [ %.lcssa88222, %512 ], [ %426, %.thread56 ]
   %435 = getelementptr i8, ptr %431, i64 -16
   %436 = load ptr, ptr %435, align 8
   %437 = icmp eq ptr %436, %435
-  br i1 %437, label %._crit_edge.thread, label %.lr.ph118
+  br i1 %437, label %._crit_edge.thread, label %.lr.ph119
 
-.lr.ph118:                                        ; preds = %.lr.ph122, %500
-  %438 = phi ptr [ %503, %500 ], [ %432, %.lr.ph122 ]
-  %439 = phi ptr [ %502, %500 ], [ %433, %.lr.ph122 ]
-  %440 = phi ptr [ %443, %500 ], [ %436, %.lr.ph122 ]
-  %441 = phi i8 [ %501, %500 ], [ %434, %.lr.ph122 ]
+.lr.ph119:                                        ; preds = %.lr.ph123, %500
+  %438 = phi ptr [ %503, %500 ], [ %432, %.lr.ph123 ]
+  %439 = phi ptr [ %502, %500 ], [ %433, %.lr.ph123 ]
+  %440 = phi ptr [ %443, %500 ], [ %436, %.lr.ph123 ]
+  %441 = phi i8 [ %501, %500 ], [ %434, %.lr.ph123 ]
   %442 = getelementptr i8, ptr %440, i64 -336
   %443 = load ptr, ptr %440, align 8
   %444 = icmp eq ptr %439, null
   br i1 %444, label %485, label %445
 
-445:                                              ; preds = %.lr.ph118
+445:                                              ; preds = %.lr.ph119
   %446 = getelementptr i8, ptr %440, i64 112
   %447 = load volatile ptr, ptr %446, align 8
   %448 = load volatile i32, ptr %447, align 4
@@ -1158,7 +1158,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 
 468:                                              ; preds = %462, %454
   %469 = icmp eq ptr %438, %58
-  br i1 %469, label %.thread66, label %470
+  br i1 %469, label %.thread67, label %470
 
 470:                                              ; preds = %468
   %471 = getelementptr inbounds nuw i8, ptr %439, i64 88
@@ -1166,32 +1166,32 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %473 = getelementptr i8, ptr %440, i64 -248
   %474 = load ptr, ptr %473, align 8
   %475 = icmp eq ptr %472, %474
-  br i1 %475, label %.thread66, label %476
+  br i1 %475, label %.thread67, label %476
 
 476:                                              ; preds = %470
   %477 = load volatile i64, ptr %455, align 8
   %478 = and i64 %477, 512
   %479 = icmp eq i64 %478, 0
-  br i1 %479, label %480, label %.thread66
+  br i1 %479, label %480, label %.thread67
 
 480:                                              ; preds = %476
   %481 = getelementptr i8, ptr %440, i64 104
   %482 = load i32, ptr %481, align 8
   %483 = load i32, ptr %266, align 4
   %484 = icmp eq i32 %482, %483
-  br i1 %484, label %.thread61, label %.thread66
+  br i1 %484, label %.thread62, label %.thread67
 
-485:                                              ; preds = %462, %445, %.lr.ph118
+485:                                              ; preds = %462, %445, %.lr.ph119
   %486 = call zeroext i1 @__i915_request_submit(ptr noundef %442) #17
   %spec.select = select i1 %486, i8 1, i8 %441
-  %spec.select69 = select i1 %486, ptr %442, ptr %439
+  %spec.select70 = select i1 %486, ptr %442, ptr %439
   br label %500
 
-.thread61:                                        ; preds = %480
+.thread62:                                        ; preds = %480
   %487 = call zeroext i1 @__i915_request_submit(ptr noundef %442) #17
   br i1 %487, label %488, label %500
 
-488:                                              ; preds = %.thread61
+488:                                              ; preds = %.thread62
   %489 = getelementptr inbounds nuw i8, ptr %439, i64 56
   %490 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %489, i32 1, ptr nonnull elementtype(i32) %489) #17, !srcloc !22
   %491 = icmp eq i32 %490, 0
@@ -1213,30 +1213,30 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   store ptr %439, ptr %438, align 8
   br label %500
 
-500:                                              ; preds = %485, %.thread61, %498
-  %501 = phi i8 [ 1, %498 ], [ %441, %.thread61 ], [ %spec.select, %485 ]
-  %502 = phi ptr [ %442, %498 ], [ %439, %.thread61 ], [ %spec.select69, %485 ]
-  %503 = phi ptr [ %499, %498 ], [ %438, %.thread61 ], [ %438, %485 ]
+500:                                              ; preds = %485, %.thread62, %498
+  %501 = phi i8 [ 1, %498 ], [ %441, %.thread62 ], [ %spec.select, %485 ]
+  %502 = phi ptr [ %442, %498 ], [ %439, %.thread62 ], [ %spec.select70, %485 ]
+  %503 = phi ptr [ %499, %498 ], [ %438, %.thread62 ], [ %438, %485 ]
   %504 = icmp eq ptr %443, %435
-  br i1 %504, label %._crit_edge, label %.lr.ph118, !llvm.loop !23
+  br i1 %504, label %._crit_edge, label %.lr.ph119, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %500
-  %.pre157 = load ptr, ptr %267, align 8
-  %505 = icmp eq ptr %.pre157, %431
+  %.pre158 = load ptr, ptr %267, align 8
+  %505 = icmp eq ptr %.pre158, %431
   br i1 %505, label %._crit_edge.thread, label %507
 
-._crit_edge.thread:                               ; preds = %.lr.ph122, %._crit_edge
-  %.lcssa83226 = phi ptr [ %503, %._crit_edge ], [ %432, %.lr.ph122 ]
-  %.lcssa85224 = phi ptr [ %502, %._crit_edge ], [ %433, %.lr.ph122 ]
-  %.lcssa87222 = phi i8 [ %501, %._crit_edge ], [ %434, %.lr.ph122 ]
+._crit_edge.thread:                               ; preds = %.lr.ph123, %._crit_edge
+  %.lcssa84227 = phi ptr [ %503, %._crit_edge ], [ %432, %.lr.ph123 ]
+  %.lcssa86225 = phi ptr [ %502, %._crit_edge ], [ %433, %.lr.ph123 ]
+  %.lcssa88223 = phi i8 [ %501, %._crit_edge ], [ %434, %.lr.ph123 ]
   %506 = call ptr @rb_next(ptr noundef nonnull %431) #17
   store ptr %506, ptr %267, align 8
   br label %507
 
 507:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.lcssa83225 = phi ptr [ %.lcssa83226, %._crit_edge.thread ], [ %503, %._crit_edge ]
-  %.lcssa85223 = phi ptr [ %.lcssa85224, %._crit_edge.thread ], [ %502, %._crit_edge ]
-  %.lcssa87221 = phi i8 [ %.lcssa87222, %._crit_edge.thread ], [ %501, %._crit_edge ]
+  %.lcssa84226 = phi ptr [ %.lcssa84227, %._crit_edge.thread ], [ %503, %._crit_edge ]
+  %.lcssa86224 = phi ptr [ %.lcssa86225, %._crit_edge.thread ], [ %502, %._crit_edge ]
+  %.lcssa88222 = phi i8 [ %.lcssa88223, %._crit_edge.thread ], [ %501, %._crit_edge ]
   call void @rb_erase(ptr noundef nonnull %431, ptr noundef nonnull %428) #17
   %508 = getelementptr i8, ptr %431, i64 24
   %509 = load i32, ptr %508, align 8
@@ -1250,39 +1250,39 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 512:                                              ; preds = %511, %507
   %513 = load ptr, ptr %267, align 8
   %514 = icmp eq ptr %513, null
-  br i1 %514, label %._crit_edge123, label %.lr.ph122
+  br i1 %514, label %._crit_edge124, label %.lr.ph123
 
-._crit_edge123:                                   ; preds = %512, %.thread55
-  %.lcssa93 = phi i8 [ %426, %.thread55 ], [ %.lcssa87221, %512 ]
-  %.lcssa91 = phi ptr [ %427, %.thread55 ], [ %.lcssa85223, %512 ]
-  %.lcssa89 = phi ptr [ %48, %.thread55 ], [ %.lcssa83225, %512 ]
-  %515 = icmp eq ptr %.lcssa91, null
-  br i1 %515, label %528, label %.thread66
+._crit_edge124:                                   ; preds = %512, %.thread56
+  %.lcssa94 = phi i8 [ %426, %.thread56 ], [ %.lcssa88222, %512 ]
+  %.lcssa92 = phi ptr [ %427, %.thread56 ], [ %.lcssa86224, %512 ]
+  %.lcssa90 = phi ptr [ %48, %.thread56 ], [ %.lcssa84226, %512 ]
+  %515 = icmp eq ptr %.lcssa92, null
+  br i1 %515, label %528, label %.thread67
 
-.thread66:                                        ; preds = %480, %476, %470, %468, %._crit_edge123
-  %516 = phi ptr [ %.lcssa89, %._crit_edge123 ], [ %438, %480 ], [ %438, %476 ], [ %438, %470 ], [ %58, %468 ]
-  %517 = phi ptr [ %.lcssa91, %._crit_edge123 ], [ %439, %468 ], [ %439, %470 ], [ %439, %476 ], [ %439, %480 ]
-  %518 = phi i8 [ %.lcssa93, %._crit_edge123 ], [ %441, %468 ], [ %441, %470 ], [ %441, %476 ], [ %441, %480 ]
+.thread67:                                        ; preds = %480, %476, %470, %468, %._crit_edge124
+  %516 = phi ptr [ %.lcssa90, %._crit_edge124 ], [ %438, %480 ], [ %438, %476 ], [ %438, %470 ], [ %58, %468 ]
+  %517 = phi ptr [ %.lcssa92, %._crit_edge124 ], [ %439, %468 ], [ %439, %470 ], [ %439, %476 ], [ %439, %480 ]
+  %518 = phi i8 [ %.lcssa94, %._crit_edge124 ], [ %441, %468 ], [ %441, %470 ], [ %441, %476 ], [ %441, %480 ]
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 56
   %520 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %519, i32 1, ptr nonnull elementtype(i32) %519) #17, !srcloc !22
   %521 = icmp eq i32 %520, 0
   br i1 %521, label %526, label %522, !prof !18
 
-522:                                              ; preds = %.thread66
+522:                                              ; preds = %.thread67
   %523 = add i32 %520, 1
   %524 = or i32 %523, %520
   %525 = icmp sgt i32 %524, -1
   br i1 %525, label %528, label %526, !prof !12
 
-526:                                              ; preds = %522, %.thread66
-  %527 = phi i32 [ 2, %.thread66 ], [ 1, %522 ]
+526:                                              ; preds = %522, %.thread67
+  %527 = phi i32 [ 2, %.thread67 ], [ 1, %522 ]
   call void @refcount_warn_saturate(ptr noundef nonnull %519, i32 noundef %527) #17
   br label %528
 
-528:                                              ; preds = %526, %522, %._crit_edge123
-  %529 = phi ptr [ %516, %526 ], [ %516, %522 ], [ %.lcssa89, %._crit_edge123 ]
-  %530 = phi ptr [ %517, %526 ], [ %517, %522 ], [ null, %._crit_edge123 ]
-  %531 = phi i8 [ %518, %526 ], [ %518, %522 ], [ %.lcssa93, %._crit_edge123 ]
+528:                                              ; preds = %526, %522, %._crit_edge124
+  %529 = phi ptr [ %516, %526 ], [ %516, %522 ], [ %.lcssa90, %._crit_edge124 ]
+  %530 = phi ptr [ %517, %526 ], [ %517, %522 ], [ null, %._crit_edge124 ]
+  %531 = phi i8 [ %518, %526 ], [ %518, %522 ], [ %.lcssa94, %._crit_edge124 ]
   %532 = getelementptr i8, ptr %529, i64 8
   store ptr %530, ptr %529, align 8
   %533 = load ptr, ptr %267, align 8
@@ -1324,9 +1324,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 554:                                              ; preds = %548
   store ptr null, ptr %532, align 8
   %555 = icmp eq ptr %532, %48
-  br i1 %555, label %.loopexit76, label %.preheader75
+  br i1 %555, label %.loopexit77, label %.preheader76
 
-.preheader75:                                     ; preds = %554, %745
+.preheader76:                                     ; preds = %554, %745
   %556 = phi ptr [ %557, %745 ], [ %532, %554 ]
   %557 = getelementptr i8, ptr %556, i64 -8
   %558 = load ptr, ptr %557, align 8
@@ -1337,7 +1337,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %563 = icmp eq ptr %562, null
   br i1 %563, label %564, label %745
 
-564:                                              ; preds = %.preheader75
+564:                                              ; preds = %.preheader76
   %565 = getelementptr inbounds nuw i8, ptr %558, i64 80
   %566 = load ptr, ptr %565, align 8
   %567 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %560, i32 1, ptr elementtype(i32) %560) #17, !srcloc !22
@@ -1454,16 +1454,16 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 88
   %640 = getelementptr inbounds nuw i8, ptr %558, i64 504
   %641 = icmp eq ptr %640, %639
-  br i1 %641, label %.loopexit74, label %642
+  br i1 %641, label %.loopexit75, label %642
 
 642:                                              ; preds = %636
   %643 = load volatile ptr, ptr %626, align 8
   %644 = load volatile i32, ptr %643, align 4
   %645 = sub i32 %644, %631
   %646 = icmp sgt i32 %645, -1
-  br i1 %646, label %.loopexit74, label %.preheader73
+  br i1 %646, label %.loopexit75, label %.preheader74
 
-647:                                              ; preds = %.preheader73
+647:                                              ; preds = %.preheader74
   %648 = getelementptr i8, ptr %660, i64 -504
   %649 = getelementptr i8, ptr %660, i64 -56
   %650 = load volatile ptr, ptr %649, align 8
@@ -1473,24 +1473,24 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %654 = trunc i64 %653 to i32
   %655 = sub i32 %651, %654
   %656 = icmp sgt i32 %655, -1
-  br i1 %656, label %.loopexit74, label %.preheader73, !llvm.loop !25
+  br i1 %656, label %.loopexit75, label %.preheader74, !llvm.loop !25
 
-.preheader73:                                     ; preds = %642, %647
+.preheader74:                                     ; preds = %642, %647
   %657 = phi ptr [ %648, %647 ], [ %558, %642 ]
   %658 = call zeroext i1 @i915_request_set_error_once(ptr noundef %657, i32 noundef -5) #17
   call void @__i915_request_skip(ptr noundef %657) #17
   %659 = getelementptr inbounds nuw i8, ptr %657, i64 512
   %660 = load ptr, ptr %659, align 8
   %661 = icmp eq ptr %660, %639
-  br i1 %661, label %.loopexit74, label %647, !llvm.loop !25
+  br i1 %661, label %.loopexit75, label %647, !llvm.loop !25
 
-.loopexit74:                                      ; preds = %.preheader73, %647, %642, %636
-  %662 = phi ptr [ %558, %636 ], [ %558, %642 ], [ %657, %647 ], [ %657, %.preheader73 ]
+.loopexit75:                                      ; preds = %.preheader74, %647, %642, %636
+  %662 = phi ptr [ %558, %636 ], [ %558, %642 ], [ %657, %647 ], [ %657, %.preheader74 ]
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 456
   br label %664
 
-664:                                              ; preds = %.loopexit74, %634
-  %665 = phi ptr [ %635, %634 ], [ %663, %.loopexit74 ]
+664:                                              ; preds = %.loopexit75, %634
+  %665 = phi ptr [ %635, %634 ], [ %663, %.loopexit75 ]
   %666 = load i32, ptr %665, align 4
   %667 = getelementptr inbounds nuw i8, ptr %625, i64 104
   %668 = load ptr, ptr %667, align 8
@@ -1616,16 +1616,16 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
   br label %745
 
-745:                                              ; preds = %744, %731, %729, %.preheader75
-  %746 = phi ptr [ %562, %.preheader75 ], [ %566, %729 ], [ %566, %731 ], [ %566, %744 ]
+745:                                              ; preds = %744, %731, %729, %.preheader76
+  %746 = phi ptr [ %562, %.preheader76 ], [ %566, %729 ], [ %566, %731 ], [ %566, %744 ]
   %747 = ptrtoint ptr %746 to i64
   %748 = add i64 %747, 1
   %749 = inttoptr i64 %748 to ptr
   store volatile ptr %749, ptr %561, align 8
   %750 = icmp eq ptr %557, %48
-  br i1 %750, label %.loopexit76, label %.preheader75, !llvm.loop !35
+  br i1 %750, label %.loopexit77, label %.preheader76, !llvm.loop !35
 
-.loopexit76:                                      ; preds = %745, %554
+.loopexit77:                                      ; preds = %745, %554
   %751 = getelementptr inbounds nuw i8, ptr %6, i64 1060
   store volatile i32 -1, ptr %751, align 4
   %752 = load ptr, ptr %261, align 8
@@ -1634,7 +1634,7 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %755 = icmp eq i32 %754, 0
   br i1 %755, label %796, label %756
 
-756:                                              ; preds = %.loopexit76
+756:                                              ; preds = %.loopexit77
   %757 = getelementptr inbounds nuw i8, ptr %6, i64 1008
   %758 = icmp eq ptr %752, null
   br i1 %758, label %794, label %759
@@ -1697,10 +1697,10 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   call void @set_timer_ms(ptr noundef nonnull %757, i64 noundef %795) #17
   br label %796
 
-796:                                              ; preds = %794, %.loopexit76
+796:                                              ; preds = %794, %.loopexit77
   %797 = load i32, ptr %55, align 8
   %798 = icmp eq i32 %797, -1
-  br i1 %798, label %.loopexit72, label %799
+  br i1 %798, label %.loopexit73, label %799
 
 799:                                              ; preds = %796
   %800 = getelementptr inbounds nuw i8, ptr %6, i64 1080
@@ -1812,15 +1812,15 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 877:                                              ; preds = %871, %860
   %878 = add nsw i64 %804, -1
   %879 = icmp eq i64 %804, 0
-  br i1 %879, label %.loopexit72, label %803, !llvm.loop !38
+  br i1 %879, label %.loopexit73, label %803, !llvm.loop !38
 
-.loopexit72:                                      ; preds = %877, %796
+.loopexit73:                                      ; preds = %877, %796
   %880 = getelementptr inbounds nuw i8, ptr %6, i64 1080
   %881 = load ptr, ptr %880, align 8
   %882 = icmp eq ptr %881, null
   br i1 %882, label %902, label %883
 
-883:                                              ; preds = %.loopexit72
+883:                                              ; preds = %.loopexit73
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull elementtype(i32) %881) #17, !srcloc !37
   br label %902
 
@@ -1832,12 +1832,12 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   %888 = icmp eq ptr %532, %48
   br i1 %888, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %884, %.thread68
-  %889 = phi ptr [ %890, %.thread68 ], [ %532, %884 ]
+.preheader:                                       ; preds = %884, %.thread69
+  %889 = phi ptr [ %890, %.thread69 ], [ %532, %884 ]
   %890 = getelementptr i8, ptr %889, i64 -8
   %891 = load ptr, ptr %890, align 8
   %892 = icmp eq ptr %891, null
-  br i1 %892, label %.thread68, label %893
+  br i1 %892, label %.thread69, label %893
 
 893:                                              ; preds = %.preheader
   %894 = getelementptr inbounds nuw i8, ptr %891, i64 56
@@ -1847,26 +1847,26 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
 
 897:                                              ; preds = %893
   %898 = icmp sgt i32 %895, 0
-  br i1 %898, label %.thread68, label %899, !prof !12
+  br i1 %898, label %.thread69, label %899, !prof !12
 
 899:                                              ; preds = %897
   call void @refcount_warn_saturate(ptr noundef nonnull %894, i32 noundef 3) #17
-  br label %.thread68
+  br label %.thread69
 
 900:                                              ; preds = %893
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   call void @dma_fence_release(ptr noundef nonnull %894) #17
-  br label %.thread68
+  br label %.thread69
 
-.thread68:                                        ; preds = %897, %899, %900, %.preheader
+.thread69:                                        ; preds = %897, %899, %900, %.preheader
   %901 = icmp eq ptr %890, %48
   br i1 %901, label %.loopexit, label %.preheader, !llvm.loop !39
 
-.loopexit:                                        ; preds = %.thread68, %884
+.loopexit:                                        ; preds = %.thread69, %884
   store ptr null, ptr %48, align 8
   br label %902
 
-902:                                              ; preds = %.thread60, %.loopexit, %883, %.loopexit72, %260
+902:                                              ; preds = %.thread61, %.loopexit, %883, %.loopexit73, %260
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !34
   %903 = load ptr, ptr %60, align 8
   %904 = load ptr, ptr %903, align 8
@@ -5079,7 +5079,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
 
 47:                                               ; preds = %29
   %48 = icmp eq i32 %1, 0
-  br i1 %48, label %.loopexit10, label %49
+  br i1 %48, label %.loopexit11, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -5216,9 +5216,9 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
 139:                                              ; preds = %107, %116
   %140 = add nuw nsw i64 %67, 1
   %141 = icmp eq i64 %140, %6
-  br i1 %141, label %.loopexit10, label %66, !llvm.loop !95
+  br i1 %141, label %.loopexit11, label %66, !llvm.loop !95
 
-.loopexit10:                                      ; preds = %139, %47
+.loopexit11:                                      ; preds = %139, %47
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 1248
   %143 = load i32, ptr %142, align 8
   %144 = or i32 %143, 32
@@ -5229,7 +5229,7 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %168, label %149
 
-149:                                              ; preds = %.loopexit10
+149:                                              ; preds = %.loopexit11
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 7192
   %151 = sext i32 %147 to i64
   %152 = getelementptr ptr, ptr %150, i64 %151
@@ -5252,23 +5252,23 @@ define internal noundef nonnull ptr @execlists_create_virtual(ptr noundef readon
 
 163:                                              ; preds = %.loopexit
   %164 = icmp sgt i32 %161, 0
-  br i1 %164, label %.thread9, label %165, !prof !12
+  br i1 %164, label %.thread10, label %165, !prof !12
 
 165:                                              ; preds = %163
   tail call void @refcount_warn_saturate(ptr noundef nonnull %156, i32 noundef 3) #17
-  br label %.thread9
+  br label %.thread10
 
 166:                                              ; preds = %.loopexit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
   tail call void %160(ptr noundef nonnull %156) #17
-  br label %.thread9
+  br label %.thread10
 
-.thread9:                                         ; preds = %163, %165, %166
+.thread10:                                        ; preds = %163, %165, %166
   %167 = inttoptr i64 %155 to ptr
   br label %168
 
-168:                                              ; preds = %.thread9, %149, %.loopexit10, %3
-  %169 = phi ptr [ %167, %.thread9 ], [ inttoptr (i64 -12 to ptr), %3 ], [ %43, %.loopexit10 ], [ %43, %149 ]
+168:                                              ; preds = %.thread10, %149, %.loopexit11, %3
+  %169 = phi ptr [ %167, %.thread10 ], [ inttoptr (i64 -12 to ptr), %3 ], [ %43, %.loopexit11 ], [ %43, %149 ]
   ret ptr %169
 }
 

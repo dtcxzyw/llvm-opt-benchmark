@@ -1071,14 +1071,14 @@ handle_opts_upfront.exit:                         ; preds = %53, %._crit_edge.i
   %.180.i = phi i32 [ %.079163.i, %111 ], [ %114, %113 ]
   %116 = getelementptr inbounds nuw i8, ptr %.081162.i, i64 24
   %117 = load ptr, ptr %116, align 8, !tbaa !21
-  %.not.i213 = icmp eq ptr %117, null
-  br i1 %.not.i213, label %118, label %.loopexit, !llvm.loop !23
+  %.not.i215 = icmp eq ptr %117, null
+  br i1 %.not.i215, label %118, label %.loopexit, !llvm.loop !23
 
 118:                                              ; preds = %115
   %119 = icmp eq i32 %.180.i, 157
-  br i1 %119, label %.preheader.i214, label %122
+  br i1 %119, label %.preheader.i216, label %122
 
-.preheader.i214:                                  ; preds = %118
+.preheader.i216:                                  ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %123
@@ -1087,12 +1087,12 @@ handle_opts_upfront.exit:                         ; preds = %53, %._crit_edge.i
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.391, ptr noundef nonnull @.str.351, i32 noundef 2672) #14
   unreachable
 
-123:                                              ; preds = %279, %.preheader.i214
-  %124 = phi ptr [ @.str.6, %.preheader.i214 ], [ %282, %279 ]
-  %.171167.i = phi i32 [ 2, %.preheader.i214 ], [ %280, %279 ]
-  %.074166.i = phi ptr [ null, %.preheader.i214 ], [ %.175.ph.i, %279 ]
-  %.182165.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @cmp_options, i64 72), %.preheader.i214 ], [ %281, %279 ]
-  %.0116164.i = phi i64 [ 0, %.preheader.i214 ], [ %.1.ph.i, %279 ]
+123:                                              ; preds = %279, %.preheader.i216
+  %124 = phi ptr [ @.str.6, %.preheader.i216 ], [ %282, %279 ]
+  %.171167.i = phi i32 [ 2, %.preheader.i216 ], [ %280, %279 ]
+  %.074166.i = phi ptr [ null, %.preheader.i216 ], [ %.175.ph.i, %279 ]
+  %.182165.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @cmp_options, i64 72), %.preheader.i216 ], [ %281, %279 ]
+  %.0116164.i = phi i64 [ 0, %.preheader.i216 ], [ %.1.ph.i, %279 ]
   %125 = getelementptr inbounds nuw i8, ptr %.182165.i, i64 8
   %126 = load i32, ptr %125, align 8, !tbaa !24
   %127 = add i32 %126, -1600
@@ -1235,8 +1235,8 @@ prev_item.exit.thread.i:                          ; preds = %186, %179, %174
 192:                                              ; preds = %189
   %193 = call i64 @strtol(ptr noundef nonnull %188, ptr noundef nonnull %3, i32 noundef 10) #12
   %194 = add i64 %193, -9223372036854775807
-  %or.cond.i.i215 = icmp ult i64 %194, 2
-  br i1 %or.cond.i.i215, label %198, label %195
+  %or.cond.i.i217 = icmp ult i64 %194, 2
+  br i1 %or.cond.i.i217, label %198, label %195
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr %3, align 8, !tbaa !4
@@ -1449,29 +1449,29 @@ read_config.exit:                                 ; preds = %279, %202, %207, %2
   %283 = phi i1 [ true, %254 ], [ true, %222 ], [ true, %259 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
   %284 = phi i1 [ false, %254 ], [ false, %222 ], [ false, %259 ], [ true, %207 ], [ true, %202 ], [ false, %279 ]
   %.pr = load i32, ptr @opt_verbosity, align 4, !tbaa !10
-  %or.cond.i216 = icmp ugt i32 %.pr, 8
-  br i1 %or.cond.i216, label %285, label %set_verbosity.exit
+  %or.cond.i218 = icmp ugt i32 %.pr, 8
+  br i1 %or.cond.i218, label %285, label %set_verbosity.exit
 
 read_config.exit.thread:                          ; preds = %219
-  %or.cond.i216351 = icmp ugt i32 %220, 8
-  br i1 %or.cond.i216351, label %.thread233, label %handle_opts_upfront.exit.thread
+  %or.cond.i218354 = icmp ugt i32 %220, 8
+  br i1 %or.cond.i218354, label %.thread235, label %handle_opts_upfront.exit.thread
 
 285:                                              ; preds = %read_config.exit
   %286 = icmp slt i32 %.pr, 3
-  br i1 %286, label %.thread233, label %287
+  br i1 %286, label %.thread235, label %287
 
 287:                                              ; preds = %285
   %288 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %289 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %288, ptr noundef nonnull @.str.400, ptr noundef nonnull @__func__.set_verbosity, ptr noundef nonnull @.str.351, i32 noundef 763, ptr noundef nonnull @.str.352, i32 noundef %.pr, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  br label %.thread233
+  br label %.thread235
 
 set_verbosity.exit:                               ; preds = %read_config.exit
   br i1 %283, label %290, label %293
 
 290:                                              ; preds = %set_verbosity.exit
-  br i1 %284, label %.thread233, label %handle_opts_upfront.exit.thread
+  br i1 %284, label %.thread235, label %handle_opts_upfront.exit.thread
 
-.thread233:                                       ; preds = %read_config.exit.thread, %285, %287, %290
+.thread235:                                       ; preds = %read_config.exit.thread, %285, %287, %290
   %291 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %292 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %291, ptr noundef nonnull @.str.359) #12
   br label %handle_opts_upfront.exit.thread
@@ -1492,9 +1492,9 @@ set_verbosity.exit:                               ; preds = %read_config.exit
   store ptr %301, ptr @prog, align 8, !tbaa !4
   %302 = call i32 @opt_next() #12
   %.not19.i = icmp eq i32 %302, 0
-  br i1 %.not19.i, label %._crit_edge.i219, label %.lr.ph.i217
+  br i1 %.not19.i, label %._crit_edge.i221, label %.lr.ph.i219
 
-.lr.ph.i217:                                      ; preds = %300, %559
+.lr.ph.i219:                                      ; preds = %300, %559
   %303 = phi i32 [ %560, %559 ], [ %302, %300 ]
   switch i32 %303, label %559 [
     i32 1543, label %547
@@ -1655,20 +1655,20 @@ set_verbosity.exit:                               ; preds = %read_config.exit
     i32 1542, label %545
   ]
 
-set_verbosity.exit.thread.i:                      ; preds = %485, %483, %402, %.lr.ph.i217, %._crit_edge.i219, %466, %463, %444, %441, %332, %329, %313, %310
+set_verbosity.exit.thread.i:                      ; preds = %485, %483, %402, %.lr.ph.i219, %._crit_edge.i221, %466, %463, %444, %441, %332, %329, %313, %310
   %304 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %305 = load ptr, ptr @prog, align 8, !tbaa !4
   %306 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %304, ptr noundef nonnull @.str.401, ptr noundef %305) #12
   br label %handle_opts_upfront.exit.thread
 
-307:                                              ; preds = %.lr.ph.i217
+307:                                              ; preds = %.lr.ph.i219
   call void @opt_help(ptr noundef nonnull @cmp_options) #12
   br label %handle_opts_upfront.exit.thread
 
-308:                                              ; preds = %.lr.ph.i217
+308:                                              ; preds = %.lr.ph.i219
   %309 = call i32 @opt_int_arg() #12
-  %or.cond.i.i224 = icmp ugt i32 %309, 8
-  br i1 %or.cond.i.i224, label %310, label %set_verbosity.exit.i225
+  %or.cond.i.i226 = icmp ugt i32 %309, 8
+  br i1 %or.cond.i.i226, label %310, label %set_verbosity.exit.i227
 
 310:                                              ; preds = %308
   %311 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -1680,36 +1680,36 @@ set_verbosity.exit.thread.i:                      ; preds = %485, %483, %402, %.
   %315 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %314, ptr noundef nonnull @.str.400, ptr noundef nonnull @__func__.set_verbosity, ptr noundef nonnull @.str.351, i32 noundef 763, ptr noundef nonnull @.str.352, i32 noundef %309, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %set_verbosity.exit.thread.i
 
-set_verbosity.exit.i225:                          ; preds = %308
+set_verbosity.exit.i227:                          ; preds = %308
   store i32 %309, ptr @opt_verbosity, align 4, !tbaa !10
   br label %559
 
-316:                                              ; preds = %.lr.ph.i217
+316:                                              ; preds = %.lr.ph.i219
   %317 = call fastcc ptr @opt_str()
   store ptr %317, ptr @opt_server, align 8, !tbaa !4
   br label %559
 
-318:                                              ; preds = %.lr.ph.i217
+318:                                              ; preds = %.lr.ph.i219
   %319 = call fastcc ptr @opt_str()
   store ptr %319, ptr @opt_proxy, align 8, !tbaa !4
   br label %559
 
-320:                                              ; preds = %.lr.ph.i217
+320:                                              ; preds = %.lr.ph.i219
   %321 = call fastcc ptr @opt_str()
   store ptr %321, ptr @opt_no_proxy, align 8, !tbaa !4
   br label %559
 
-322:                                              ; preds = %.lr.ph.i217
+322:                                              ; preds = %.lr.ph.i219
   %323 = call fastcc ptr @opt_str()
   store ptr %323, ptr @opt_recipient, align 8, !tbaa !4
   br label %559
 
-324:                                              ; preds = %.lr.ph.i217
+324:                                              ; preds = %.lr.ph.i219
   %325 = call fastcc ptr @opt_str()
   store ptr %325, ptr @opt_path, align 8, !tbaa !4
   br label %559
 
-326:                                              ; preds = %.lr.ph.i217
+326:                                              ; preds = %.lr.ph.i219
   %327 = call i32 @opt_int_arg() #12
   store i32 %327, ptr @opt_keep_alive, align 4, !tbaa !10
   %328 = icmp sgt i32 %327, 2
@@ -1725,280 +1725,280 @@ set_verbosity.exit.i225:                          ; preds = %308
   %334 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %333, ptr noundef nonnull @.str.402, ptr noundef nonnull @__func__.get_opts, ptr noundef nonnull @.str.351, i32 noundef 2839, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %set_verbosity.exit.thread.i
 
-335:                                              ; preds = %.lr.ph.i217
+335:                                              ; preds = %.lr.ph.i219
   %336 = call i32 @opt_int_arg() #12
   store i32 %336, ptr @opt_msg_timeout, align 4, !tbaa !10
   br label %559
 
-337:                                              ; preds = %.lr.ph.i217
+337:                                              ; preds = %.lr.ph.i219
   %338 = call i32 @opt_int_arg() #12
   store i32 %338, ptr @opt_total_timeout, align 4, !tbaa !10
   br label %559
 
-339:                                              ; preds = %.lr.ph.i217
+339:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_tls_used, align 4, !tbaa !10
   br label %559
 
-340:                                              ; preds = %.lr.ph.i217
+340:                                              ; preds = %.lr.ph.i219
   %341 = call fastcc ptr @opt_str()
   store ptr %341, ptr @opt_tls_cert, align 8, !tbaa !4
   br label %559
 
-342:                                              ; preds = %.lr.ph.i217
+342:                                              ; preds = %.lr.ph.i219
   %343 = call fastcc ptr @opt_str()
   store ptr %343, ptr @opt_tls_key, align 8, !tbaa !4
   br label %559
 
-344:                                              ; preds = %.lr.ph.i217
+344:                                              ; preds = %.lr.ph.i219
   %345 = call fastcc ptr @opt_str()
   store ptr %345, ptr @opt_tls_keypass, align 8, !tbaa !4
   br label %559
 
-346:                                              ; preds = %.lr.ph.i217
+346:                                              ; preds = %.lr.ph.i219
   %347 = call fastcc ptr @opt_str()
   store ptr %347, ptr @opt_tls_extra, align 8, !tbaa !4
   br label %559
 
-348:                                              ; preds = %.lr.ph.i217
+348:                                              ; preds = %.lr.ph.i219
   %349 = call fastcc ptr @opt_str()
   store ptr %349, ptr @opt_tls_trusted, align 8, !tbaa !4
   br label %559
 
-350:                                              ; preds = %.lr.ph.i217
+350:                                              ; preds = %.lr.ph.i219
   %351 = call fastcc ptr @opt_str()
   store ptr %351, ptr @opt_tls_host, align 8, !tbaa !4
   br label %559
 
-352:                                              ; preds = %.lr.ph.i217
+352:                                              ; preds = %.lr.ph.i219
   %353 = call fastcc ptr @opt_str()
   store ptr %353, ptr @opt_ref, align 8, !tbaa !4
   br label %559
 
-354:                                              ; preds = %.lr.ph.i217
+354:                                              ; preds = %.lr.ph.i219
   %355 = call fastcc ptr @opt_str()
   store ptr %355, ptr @opt_secret, align 8, !tbaa !4
   br label %559
 
-356:                                              ; preds = %.lr.ph.i217
+356:                                              ; preds = %.lr.ph.i219
   %357 = call fastcc ptr @opt_str()
   store ptr %357, ptr @opt_cert, align 8, !tbaa !4
   br label %559
 
-358:                                              ; preds = %.lr.ph.i217
+358:                                              ; preds = %.lr.ph.i219
   %359 = call fastcc ptr @opt_str()
   store ptr %359, ptr @opt_own_trusted, align 8, !tbaa !4
   br label %559
 
-360:                                              ; preds = %.lr.ph.i217
+360:                                              ; preds = %.lr.ph.i219
   %361 = call fastcc ptr @opt_str()
   store ptr %361, ptr @opt_key, align 8, !tbaa !4
   br label %559
 
-362:                                              ; preds = %.lr.ph.i217
+362:                                              ; preds = %.lr.ph.i219
   %363 = call fastcc ptr @opt_str()
   store ptr %363, ptr @opt_keypass, align 8, !tbaa !4
   br label %559
 
-364:                                              ; preds = %.lr.ph.i217
+364:                                              ; preds = %.lr.ph.i219
   %365 = call fastcc ptr @opt_str()
   store ptr %365, ptr @opt_digest, align 8, !tbaa !4
   br label %559
 
-366:                                              ; preds = %.lr.ph.i217
+366:                                              ; preds = %.lr.ph.i219
   %367 = call fastcc ptr @opt_str()
   store ptr %367, ptr @opt_mac, align 8, !tbaa !4
   br label %559
 
-368:                                              ; preds = %.lr.ph.i217
+368:                                              ; preds = %.lr.ph.i219
   %369 = call fastcc ptr @opt_str()
   store ptr %369, ptr @opt_extracerts, align 8, !tbaa !4
   br label %559
 
-370:                                              ; preds = %.lr.ph.i217
+370:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_unprotected_requests, align 4, !tbaa !10
   br label %559
 
-371:                                              ; preds = %.lr.ph.i217
+371:                                              ; preds = %.lr.ph.i219
   %372 = call fastcc ptr @opt_str()
   store ptr %372, ptr @opt_trusted, align 8, !tbaa !4
   br label %559
 
-373:                                              ; preds = %.lr.ph.i217
+373:                                              ; preds = %.lr.ph.i219
   %374 = call fastcc ptr @opt_str()
   store ptr %374, ptr @opt_untrusted, align 8, !tbaa !4
   br label %559
 
-375:                                              ; preds = %.lr.ph.i217
+375:                                              ; preds = %.lr.ph.i219
   %376 = call fastcc ptr @opt_str()
   store ptr %376, ptr @opt_srvcert, align 8, !tbaa !4
   br label %559
 
-377:                                              ; preds = %.lr.ph.i217
+377:                                              ; preds = %.lr.ph.i219
   %378 = call fastcc ptr @opt_str()
   store ptr %378, ptr @opt_expect_sender, align 8, !tbaa !4
   br label %559
 
-379:                                              ; preds = %.lr.ph.i217
+379:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_ignore_keyusage, align 4, !tbaa !10
   br label %559
 
-380:                                              ; preds = %.lr.ph.i217
+380:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_unprotected_errors, align 4, !tbaa !10
   br label %559
 
-381:                                              ; preds = %.lr.ph.i217
+381:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_no_cache_extracerts, align 4, !tbaa !10
   br label %559
 
-382:                                              ; preds = %.lr.ph.i217
+382:                                              ; preds = %.lr.ph.i219
   %383 = call fastcc ptr @opt_str()
   store ptr %383, ptr @opt_srvcertout, align 8, !tbaa !4
   br label %559
 
-384:                                              ; preds = %.lr.ph.i217
+384:                                              ; preds = %.lr.ph.i219
   %385 = call fastcc ptr @opt_str()
   store ptr %385, ptr @opt_extracertsout, align 8, !tbaa !4
   br label %559
 
-386:                                              ; preds = %.lr.ph.i217
+386:                                              ; preds = %.lr.ph.i219
   %387 = call fastcc ptr @opt_str()
   store ptr %387, ptr @opt_cacertsout, align 8, !tbaa !4
   br label %559
 
-388:                                              ; preds = %.lr.ph.i217
+388:                                              ; preds = %.lr.ph.i219
   %389 = call fastcc ptr @opt_str()
   store ptr %389, ptr @opt_oldwithold, align 8, !tbaa !4
   br label %559
 
-390:                                              ; preds = %.lr.ph.i217
+390:                                              ; preds = %.lr.ph.i219
   %391 = call fastcc ptr @opt_str()
   store ptr %391, ptr @opt_newwithnew, align 8, !tbaa !4
   br label %559
 
-392:                                              ; preds = %.lr.ph.i217
+392:                                              ; preds = %.lr.ph.i219
   %393 = call fastcc ptr @opt_str()
   store ptr %393, ptr @opt_newwithold, align 8, !tbaa !4
   br label %559
 
-394:                                              ; preds = %.lr.ph.i217
+394:                                              ; preds = %.lr.ph.i219
   %395 = call fastcc ptr @opt_str()
   store ptr %395, ptr @opt_oldwithnew, align 8, !tbaa !4
   br label %559
 
-396:                                              ; preds = %.lr.ph.i217
+396:                                              ; preds = %.lr.ph.i219
   %397 = call fastcc ptr @opt_str()
   store ptr %397, ptr @opt_crlcert, align 8, !tbaa !4
   br label %559
 
-398:                                              ; preds = %.lr.ph.i217
+398:                                              ; preds = %.lr.ph.i219
   %399 = call fastcc ptr @opt_str()
   store ptr %399, ptr @opt_oldcrl, align 8, !tbaa !4
   br label %559
 
-400:                                              ; preds = %.lr.ph.i217
+400:                                              ; preds = %.lr.ph.i219
   %401 = call fastcc ptr @opt_str()
   store ptr %401, ptr @opt_crlout, align 8, !tbaa !4
   br label %559
 
-402:                                              ; preds = %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217
+402:                                              ; preds = %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219
   %403 = load ptr, ptr @vpm, align 8, !tbaa !16
   %404 = call i32 @opt_verify(i32 noundef %303, ptr noundef %403) #12
   %.not15.i = icmp eq i32 %404, 0
   br i1 %.not15.i, label %set_verbosity.exit.thread.i, label %559
 
-405:                                              ; preds = %.lr.ph.i217
+405:                                              ; preds = %.lr.ph.i219
   %406 = call fastcc ptr @opt_str()
   store ptr %406, ptr @opt_cmd_s, align 8, !tbaa !4
   br label %559
 
-407:                                              ; preds = %.lr.ph.i217
+407:                                              ; preds = %.lr.ph.i219
   %408 = call fastcc ptr @opt_str()
   store ptr %408, ptr @opt_infotype_s, align 8, !tbaa !4
   br label %559
 
-409:                                              ; preds = %.lr.ph.i217
+409:                                              ; preds = %.lr.ph.i219
   %410 = call fastcc ptr @opt_str()
   store ptr %410, ptr @opt_profile, align 8, !tbaa !4
   br label %559
 
-411:                                              ; preds = %.lr.ph.i217
+411:                                              ; preds = %.lr.ph.i219
   %412 = call fastcc ptr @opt_str()
   store ptr %412, ptr @opt_geninfo, align 8, !tbaa !4
   br label %559
 
-413:                                              ; preds = %.lr.ph.i217
+413:                                              ; preds = %.lr.ph.i219
   %414 = call fastcc ptr @opt_str()
   store ptr %414, ptr @opt_template, align 8, !tbaa !4
   br label %559
 
-415:                                              ; preds = %.lr.ph.i217
+415:                                              ; preds = %.lr.ph.i219
   %416 = call fastcc ptr @opt_str()
   store ptr %416, ptr @opt_keyspec, align 8, !tbaa !4
   br label %559
 
-417:                                              ; preds = %.lr.ph.i217
+417:                                              ; preds = %.lr.ph.i219
   %418 = call fastcc ptr @opt_str()
   store ptr %418, ptr @opt_newkey, align 8, !tbaa !4
   br label %559
 
-419:                                              ; preds = %.lr.ph.i217
+419:                                              ; preds = %.lr.ph.i219
   %420 = call fastcc ptr @opt_str()
   store ptr %420, ptr @opt_newkeypass, align 8, !tbaa !4
   br label %559
 
-421:                                              ; preds = %.lr.ph.i217
+421:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_centralkeygen, align 4, !tbaa !10
   br label %559
 
-422:                                              ; preds = %.lr.ph.i217
+422:                                              ; preds = %.lr.ph.i219
   %423 = call fastcc ptr @opt_str()
   store ptr %423, ptr @opt_newkeyout, align 8, !tbaa !4
   br label %559
 
-424:                                              ; preds = %.lr.ph.i217
+424:                                              ; preds = %.lr.ph.i219
   %425 = call fastcc ptr @opt_str()
   store ptr %425, ptr @opt_subject, align 8, !tbaa !4
   br label %559
 
-426:                                              ; preds = %.lr.ph.i217
+426:                                              ; preds = %.lr.ph.i219
   %427 = call i32 @opt_int_arg() #12
   store i32 %427, ptr @opt_days, align 4, !tbaa !10
   br label %559
 
-428:                                              ; preds = %.lr.ph.i217
+428:                                              ; preds = %.lr.ph.i219
   %429 = call fastcc ptr @opt_str()
   store ptr %429, ptr @opt_reqexts, align 8, !tbaa !4
   br label %559
 
-430:                                              ; preds = %.lr.ph.i217
+430:                                              ; preds = %.lr.ph.i219
   %431 = call fastcc ptr @opt_str()
   store ptr %431, ptr @opt_sans, align 8, !tbaa !4
   br label %559
 
-432:                                              ; preds = %.lr.ph.i217
+432:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_san_nodefault, align 4, !tbaa !10
   br label %559
 
-433:                                              ; preds = %.lr.ph.i217
+433:                                              ; preds = %.lr.ph.i219
   %434 = call fastcc ptr @opt_str()
   store ptr %434, ptr @opt_policies, align 8, !tbaa !4
   br label %559
 
-435:                                              ; preds = %.lr.ph.i217
+435:                                              ; preds = %.lr.ph.i219
   %436 = call fastcc ptr @opt_str()
   store ptr %436, ptr @opt_policy_oids, align 8, !tbaa !4
   br label %559
 
-437:                                              ; preds = %.lr.ph.i217
+437:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_policy_oids_critical, align 4, !tbaa !10
   br label %559
 
-438:                                              ; preds = %.lr.ph.i217
+438:                                              ; preds = %.lr.ph.i219
   %439 = call i32 @opt_int_arg() #12
   store i32 %439, ptr @opt_popo, align 4, !tbaa !10
   %440 = add i32 %439, -3
-  %or.cond.i223 = icmp ult i32 %440, -4
-  br i1 %or.cond.i223, label %441, label %559
+  %or.cond.i225 = icmp ult i32 %440, -4
+  br i1 %or.cond.i225, label %441, label %559
 
 441:                                              ; preds = %438
   %442 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2010,47 +2010,47 @@ set_verbosity.exit.i225:                          ; preds = %308
   %446 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %445, ptr noundef nonnull @.str.403, ptr noundef nonnull @__func__.get_opts, ptr noundef nonnull @.str.351, i32 noundef 3018, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %set_verbosity.exit.thread.i
 
-447:                                              ; preds = %.lr.ph.i217
+447:                                              ; preds = %.lr.ph.i219
   %448 = call fastcc ptr @opt_str()
   store ptr %448, ptr @opt_csr, align 8, !tbaa !4
   br label %559
 
-449:                                              ; preds = %.lr.ph.i217
+449:                                              ; preds = %.lr.ph.i219
   %450 = call fastcc ptr @opt_str()
   store ptr %450, ptr @opt_out_trusted, align 8, !tbaa !4
   br label %559
 
-451:                                              ; preds = %.lr.ph.i217
+451:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_implicit_confirm, align 4, !tbaa !10
   br label %559
 
-452:                                              ; preds = %.lr.ph.i217
+452:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_disable_confirm, align 4, !tbaa !10
   br label %559
 
-453:                                              ; preds = %.lr.ph.i217
+453:                                              ; preds = %.lr.ph.i219
   %454 = call fastcc ptr @opt_str()
   store ptr %454, ptr @opt_certout, align 8, !tbaa !4
   br label %559
 
-455:                                              ; preds = %.lr.ph.i217
+455:                                              ; preds = %.lr.ph.i219
   %456 = call fastcc ptr @opt_str()
   store ptr %456, ptr @opt_chainout, align 8, !tbaa !4
   br label %559
 
-457:                                              ; preds = %.lr.ph.i217
+457:                                              ; preds = %.lr.ph.i219
   %458 = call fastcc ptr @opt_str()
   store ptr %458, ptr @opt_oldcert, align 8, !tbaa !4
   br label %559
 
-459:                                              ; preds = %.lr.ph.i217
+459:                                              ; preds = %.lr.ph.i219
   %460 = call i32 @opt_int_arg() #12
   store i32 %460, ptr @opt_revreason, align 4, !tbaa !10
   %461 = add i32 %460, -11
-  %or.cond3.i221 = icmp ult i32 %461, -12
+  %or.cond3.i223 = icmp ult i32 %461, -12
   %462 = icmp eq i32 %460, 7
-  %or.cond5.i222 = or i1 %462, %or.cond3.i221
-  br i1 %or.cond5.i222, label %463, label %559
+  %or.cond5.i224 = or i1 %462, %or.cond3.i223
+  br i1 %or.cond5.i224, label %463, label %559
 
 463:                                              ; preds = %459
   %464 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2062,257 +2062,257 @@ set_verbosity.exit.i225:                          ; preds = %308
   %468 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %467, ptr noundef nonnull @.str.404, ptr noundef nonnull @__func__.get_opts, ptr noundef nonnull @.str.351, i32 noundef 3048, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %set_verbosity.exit.thread.i
 
-469:                                              ; preds = %.lr.ph.i217
+469:                                              ; preds = %.lr.ph.i219
   %470 = call fastcc ptr @opt_str()
   store ptr %470, ptr @opt_issuer, align 8, !tbaa !4
   br label %559
 
-471:                                              ; preds = %.lr.ph.i217
+471:                                              ; preds = %.lr.ph.i219
   %472 = call fastcc ptr @opt_str()
   store ptr %472, ptr @opt_serial, align 8, !tbaa !4
   br label %559
 
-473:                                              ; preds = %.lr.ph.i217
+473:                                              ; preds = %.lr.ph.i219
   %474 = call fastcc ptr @opt_str()
   store ptr %474, ptr @opt_certform_s, align 8, !tbaa !4
   br label %559
 
-475:                                              ; preds = %.lr.ph.i217
+475:                                              ; preds = %.lr.ph.i219
   %476 = call fastcc ptr @opt_str()
   store ptr %476, ptr @opt_crlform_s, align 8, !tbaa !4
   br label %559
 
-477:                                              ; preds = %.lr.ph.i217
+477:                                              ; preds = %.lr.ph.i219
   %478 = call fastcc ptr @opt_str()
   store ptr %478, ptr @opt_keyform_s, align 8, !tbaa !4
   br label %559
 
-479:                                              ; preds = %.lr.ph.i217
+479:                                              ; preds = %.lr.ph.i219
   %480 = call fastcc ptr @opt_str()
   store ptr %480, ptr @opt_otherpass, align 8, !tbaa !4
   br label %559
 
-481:                                              ; preds = %.lr.ph.i217
+481:                                              ; preds = %.lr.ph.i219
   %482 = call fastcc ptr @opt_str()
   store ptr %482, ptr @opt_engine, align 8, !tbaa !4
   br label %559
 
-483:                                              ; preds = %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217, %.lr.ph.i217
+483:                                              ; preds = %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219, %.lr.ph.i219
   %484 = call i32 @opt_provider(i32 noundef %303) #12
   %.not14.i = icmp eq i32 %484, 0
   br i1 %.not14.i, label %set_verbosity.exit.thread.i, label %559
 
-485:                                              ; preds = %.lr.ph.i217, %.lr.ph.i217
+485:                                              ; preds = %.lr.ph.i219, %.lr.ph.i219
   %486 = call i32 @opt_rand(i32 noundef %303) #12
   %.not13.i = icmp eq i32 %486, 0
   br i1 %.not13.i, label %set_verbosity.exit.thread.i, label %559
 
-487:                                              ; preds = %.lr.ph.i217
+487:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_batch, align 4, !tbaa !10
   br label %559
 
-488:                                              ; preds = %.lr.ph.i217
+488:                                              ; preds = %.lr.ph.i219
   %489 = call i32 @opt_int_arg() #12
   store i32 %489, ptr @opt_repeat, align 4, !tbaa !10
   br label %559
 
-490:                                              ; preds = %.lr.ph.i217
+490:                                              ; preds = %.lr.ph.i219
   %491 = call fastcc ptr @opt_str()
   store ptr %491, ptr @opt_reqin, align 8, !tbaa !4
   br label %559
 
-492:                                              ; preds = %.lr.ph.i217
+492:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_reqin_new_tid, align 4, !tbaa !10
   br label %559
 
-493:                                              ; preds = %.lr.ph.i217
+493:                                              ; preds = %.lr.ph.i219
   %494 = call fastcc ptr @opt_str()
   store ptr %494, ptr @opt_reqout, align 8, !tbaa !4
   br label %559
 
-495:                                              ; preds = %.lr.ph.i217
+495:                                              ; preds = %.lr.ph.i219
   %496 = call fastcc ptr @opt_str()
   store ptr %496, ptr @opt_reqout_only, align 8, !tbaa !4
   br label %559
 
-497:                                              ; preds = %.lr.ph.i217
+497:                                              ; preds = %.lr.ph.i219
   %498 = call fastcc ptr @opt_str()
   store ptr %498, ptr @opt_rspin, align 8, !tbaa !4
   br label %559
 
-499:                                              ; preds = %.lr.ph.i217
+499:                                              ; preds = %.lr.ph.i219
   %500 = call fastcc ptr @opt_str()
   store ptr %500, ptr @opt_rspout, align 8, !tbaa !4
   br label %559
 
-501:                                              ; preds = %.lr.ph.i217
+501:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_use_mock_srv, align 4, !tbaa !10
   br label %559
 
-502:                                              ; preds = %.lr.ph.i217
+502:                                              ; preds = %.lr.ph.i219
   %503 = call fastcc ptr @opt_str()
   store ptr %503, ptr @opt_port, align 8, !tbaa !4
   br label %559
 
-504:                                              ; preds = %.lr.ph.i217
+504:                                              ; preds = %.lr.ph.i219
   %505 = call i32 @opt_int_arg() #12
   store i32 %505, ptr @opt_max_msgs, align 4, !tbaa !10
   br label %559
 
-506:                                              ; preds = %.lr.ph.i217
+506:                                              ; preds = %.lr.ph.i219
   %507 = call fastcc ptr @opt_str()
   store ptr %507, ptr @opt_srv_ref, align 8, !tbaa !4
   br label %559
 
-508:                                              ; preds = %.lr.ph.i217
+508:                                              ; preds = %.lr.ph.i219
   %509 = call fastcc ptr @opt_str()
   store ptr %509, ptr @opt_srv_secret, align 8, !tbaa !4
   br label %559
 
-510:                                              ; preds = %.lr.ph.i217
+510:                                              ; preds = %.lr.ph.i219
   %511 = call fastcc ptr @opt_str()
   store ptr %511, ptr @opt_srv_cert, align 8, !tbaa !4
   br label %559
 
-512:                                              ; preds = %.lr.ph.i217
+512:                                              ; preds = %.lr.ph.i219
   %513 = call fastcc ptr @opt_str()
   store ptr %513, ptr @opt_srv_key, align 8, !tbaa !4
   br label %559
 
-514:                                              ; preds = %.lr.ph.i217
+514:                                              ; preds = %.lr.ph.i219
   %515 = call fastcc ptr @opt_str()
   store ptr %515, ptr @opt_srv_keypass, align 8, !tbaa !4
   br label %559
 
-516:                                              ; preds = %.lr.ph.i217
+516:                                              ; preds = %.lr.ph.i219
   %517 = call fastcc ptr @opt_str()
   store ptr %517, ptr @opt_srv_trusted, align 8, !tbaa !4
   br label %559
 
-518:                                              ; preds = %.lr.ph.i217
+518:                                              ; preds = %.lr.ph.i219
   %519 = call fastcc ptr @opt_str()
   store ptr %519, ptr @opt_srv_untrusted, align 8, !tbaa !4
   br label %559
 
-520:                                              ; preds = %.lr.ph.i217
+520:                                              ; preds = %.lr.ph.i219
   %521 = call fastcc ptr @opt_str()
   store ptr %521, ptr @opt_ref_cert, align 8, !tbaa !4
   br label %559
 
-522:                                              ; preds = %.lr.ph.i217
+522:                                              ; preds = %.lr.ph.i219
   %523 = call fastcc ptr @opt_str()
   store ptr %523, ptr @opt_rsp_cert, align 8, !tbaa !4
   br label %559
 
-524:                                              ; preds = %.lr.ph.i217
+524:                                              ; preds = %.lr.ph.i219
   %525 = call fastcc ptr @opt_str()
   store ptr %525, ptr @opt_rsp_key, align 8, !tbaa !4
   br label %559
 
-526:                                              ; preds = %.lr.ph.i217
+526:                                              ; preds = %.lr.ph.i219
   %527 = call fastcc ptr @opt_str()
   store ptr %527, ptr @opt_rsp_keypass, align 8, !tbaa !4
   br label %559
 
-528:                                              ; preds = %.lr.ph.i217
+528:                                              ; preds = %.lr.ph.i219
   %529 = call fastcc ptr @opt_str()
   store ptr %529, ptr @opt_rsp_crl, align 8, !tbaa !4
   br label %559
 
-530:                                              ; preds = %.lr.ph.i217
+530:                                              ; preds = %.lr.ph.i219
   %531 = call fastcc ptr @opt_str()
   store ptr %531, ptr @opt_rsp_extracerts, align 8, !tbaa !4
   br label %559
 
-532:                                              ; preds = %.lr.ph.i217
+532:                                              ; preds = %.lr.ph.i219
   %533 = call fastcc ptr @opt_str()
   store ptr %533, ptr @opt_rsp_capubs, align 8, !tbaa !4
   br label %559
 
-534:                                              ; preds = %.lr.ph.i217
+534:                                              ; preds = %.lr.ph.i219
   %535 = call fastcc ptr @opt_str()
   store ptr %535, ptr @opt_rsp_newwithnew, align 8, !tbaa !4
   br label %559
 
-536:                                              ; preds = %.lr.ph.i217
+536:                                              ; preds = %.lr.ph.i219
   %537 = call fastcc ptr @opt_str()
   store ptr %537, ptr @opt_rsp_newwithold, align 8, !tbaa !4
   br label %559
 
-538:                                              ; preds = %.lr.ph.i217
+538:                                              ; preds = %.lr.ph.i219
   %539 = call fastcc ptr @opt_str()
   store ptr %539, ptr @opt_rsp_oldwithnew, align 8, !tbaa !4
   br label %559
 
-540:                                              ; preds = %.lr.ph.i217
+540:                                              ; preds = %.lr.ph.i219
   %541 = call i32 @opt_int_arg() #12
   store i32 %541, ptr @opt_poll_count, align 4, !tbaa !10
   br label %559
 
-542:                                              ; preds = %.lr.ph.i217
+542:                                              ; preds = %.lr.ph.i219
   %543 = call i32 @opt_int_arg() #12
   store i32 %543, ptr @opt_check_after, align 4, !tbaa !10
   br label %559
 
-544:                                              ; preds = %.lr.ph.i217
+544:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_grant_implicitconf, align 4, !tbaa !10
   br label %559
 
-545:                                              ; preds = %.lr.ph.i217
+545:                                              ; preds = %.lr.ph.i219
   %546 = call i32 @opt_int_arg() #12
   store i32 %546, ptr @opt_pkistatus, align 4, !tbaa !10
   br label %559
 
-547:                                              ; preds = %.lr.ph.i217
+547:                                              ; preds = %.lr.ph.i219
   %548 = call i32 @opt_int_arg() #12
   store i32 %548, ptr @opt_failure, align 4, !tbaa !10
   br label %559
 
-549:                                              ; preds = %.lr.ph.i217
+549:                                              ; preds = %.lr.ph.i219
   %550 = call i32 @opt_int_arg() #12
   store i32 %550, ptr @opt_failurebits, align 4, !tbaa !10
   br label %559
 
-551:                                              ; preds = %.lr.ph.i217
+551:                                              ; preds = %.lr.ph.i219
   %552 = call fastcc ptr @opt_str()
   store ptr %552, ptr @opt_statusstring, align 8, !tbaa !4
   br label %559
 
-553:                                              ; preds = %.lr.ph.i217
+553:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_send_error, align 4, !tbaa !10
   br label %559
 
-554:                                              ; preds = %.lr.ph.i217
+554:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_send_unprotected, align 4, !tbaa !10
   br label %559
 
-555:                                              ; preds = %.lr.ph.i217
+555:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_send_unprot_err, align 4, !tbaa !10
   br label %559
 
-556:                                              ; preds = %.lr.ph.i217
+556:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_accept_unprotected, align 4, !tbaa !10
   br label %559
 
-557:                                              ; preds = %.lr.ph.i217
+557:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_accept_unprot_err, align 4, !tbaa !10
   br label %559
 
-558:                                              ; preds = %.lr.ph.i217
+558:                                              ; preds = %.lr.ph.i219
   store i32 1, ptr @opt_accept_raverified, align 4, !tbaa !10
   br label %559
 
-559:                                              ; preds = %558, %557, %556, %555, %554, %553, %551, %549, %547, %545, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %501, %499, %497, %495, %493, %492, %490, %488, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %459, %457, %455, %453, %452, %451, %449, %447, %438, %437, %435, %433, %432, %430, %428, %426, %424, %422, %421, %419, %417, %415, %413, %411, %409, %407, %405, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %381, %380, %379, %377, %375, %373, %371, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %339, %337, %335, %326, %324, %322, %320, %318, %316, %set_verbosity.exit.i225, %.lr.ph.i217
+559:                                              ; preds = %558, %557, %556, %555, %554, %553, %551, %549, %547, %545, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %501, %499, %497, %495, %493, %492, %490, %488, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %459, %457, %455, %453, %452, %451, %449, %447, %438, %437, %435, %433, %432, %430, %428, %426, %424, %422, %421, %419, %417, %415, %413, %411, %409, %407, %405, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %381, %380, %379, %377, %375, %373, %371, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %339, %337, %335, %326, %324, %322, %320, %318, %316, %set_verbosity.exit.i227, %.lr.ph.i219
   %560 = call i32 @opt_next() #12
-  %.not.i218 = icmp eq i32 %560, 0
-  br i1 %.not.i218, label %._crit_edge.i219, label %.lr.ph.i217, !llvm.loop !38
+  %.not.i220 = icmp eq i32 %560, 0
+  br i1 %.not.i220, label %._crit_edge.i221, label %.lr.ph.i219, !llvm.loop !38
 
-._crit_edge.i219:                                 ; preds = %559, %300
+._crit_edge.i221:                                 ; preds = %559, %300
   %561 = call i32 @opt_check_rest_arg(ptr noundef null) #12
   %.not12.i = icmp eq i32 %561, 0
   br i1 %.not12.i, label %set_verbosity.exit.thread.i, label %get_opts.exit
 
-get_opts.exit:                                    ; preds = %._crit_edge.i219
+get_opts.exit:                                    ; preds = %._crit_edge.i221
   %562 = call i32 @app_RAND_load() #12
   %.not166 = icmp eq i32 %562, 0
   br i1 %.not166, label %handle_opts_upfront.exit.thread, label %563
@@ -2474,7 +2474,7 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %654 = load ptr, ptr @opt_rspout, align 8
   %655 = icmp ne ptr %654, null
   %or.cond15 = select i1 %653, i1 true, i1 %655
-  br i1 %or.cond15, label %656, label %.thread356
+  br i1 %or.cond15, label %656, label %.thread359
 
 656:                                              ; preds = %651
   %657 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2488,11 +2488,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 
 662:                                              ; preds = %619
   %.pre = load ptr, ptr @opt_server, align 8, !tbaa !4
-  %.pre306 = load i32, ptr @opt_use_mock_srv, align 4
+  %.pre309 = load i32, ptr @opt_use_mock_srv, align 4
   %663 = icmp ne ptr %.pre, null
-  %664 = icmp ne i32 %.pre306, 0
+  %664 = icmp ne i32 %.pre309, 0
   %665 = select i1 %663, i1 %664, i1 false
-  br i1 %665, label %666, label %.thread356
+  br i1 %665, label %666, label %.thread359
 
 666:                                              ; preds = %662
   %667 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2504,17 +2504,17 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %671 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %670, ptr noundef nonnull @.str.369, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3717, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %handle_opts_upfront.exit.thread
 
-.thread356:                                       ; preds = %651, %662
+.thread359:                                       ; preds = %651, %662
   %672 = load i32, ptr @opt_ignore_keyusage, align 4, !tbaa !10
   %.not172 = icmp eq i32 %672, 0
   br i1 %.not172, label %676, label %673
 
-673:                                              ; preds = %.thread356
+673:                                              ; preds = %.thread359
   %674 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
   %675 = call i32 @OSSL_CMP_CTX_set_option(ptr noundef %674, i32 noundef 35, i32 noundef 1) #12
   br label %676
 
-676:                                              ; preds = %673, %.thread356
+676:                                              ; preds = %673, %.thread359
   %677 = load i32, ptr @opt_no_cache_extracerts, align 4, !tbaa !10
   %.not173 = icmp eq i32 %677, 0
   br i1 %.not173, label %681, label %678
@@ -2618,11 +2618,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 731:                                              ; preds = %726
   %732 = load ptr, ptr @bio_out, align 8, !tbaa !12
   %733 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %732, ptr noundef nonnull @.str.372, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3764, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  %.pre307 = load i32, ptr @opt_verbosity, align 4
+  %.pre310 = load i32, ptr @opt_verbosity, align 4
   br label %734
 
 734:                                              ; preds = %731, %726
-  %735 = phi i32 [ %.pre307, %731 ], [ %729, %726 ]
+  %735 = phi i32 [ %.pre310, %731 ], [ %729, %726 ]
   %736 = load i32, ptr @opt_use_mock_srv, align 4, !tbaa !10
   %737 = icmp eq i32 %736, 0
   %738 = icmp slt i32 %735, 4
@@ -2632,11 +2632,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 739:                                              ; preds = %734
   %740 = load ptr, ptr @bio_out, align 8, !tbaa !12
   %741 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %740, ptr noundef nonnull @.str.373, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3767, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  %.pre308 = load i32, ptr @opt_verbosity, align 4
+  %.pre311 = load i32, ptr @opt_verbosity, align 4
   br label %742
 
 742:                                              ; preds = %739, %734
-  %743 = phi i32 [ %.pre308, %739 ], [ %735, %734 ]
+  %743 = phi i32 [ %.pre311, %739 ], [ %735, %734 ]
   %744 = load ptr, ptr @opt_reqout, align 8, !tbaa !4
   %745 = icmp eq ptr %744, null
   %746 = icmp slt i32 %743, 4
@@ -2646,11 +2646,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 747:                                              ; preds = %742
   %748 = load ptr, ptr @bio_out, align 8, !tbaa !12
   %749 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %748, ptr noundef nonnull @.str.374, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3769, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  %.pre309 = load i32, ptr @opt_verbosity, align 4
+  %.pre312 = load i32, ptr @opt_verbosity, align 4
   br label %750
 
 750:                                              ; preds = %747, %742
-  %751 = phi i32 [ %.pre309, %747 ], [ %743, %742 ]
+  %751 = phi i32 [ %.pre312, %747 ], [ %743, %742 ]
   %752 = load ptr, ptr @opt_rspin, align 8, !tbaa !4
   %753 = icmp eq ptr %752, null
   %754 = icmp slt i32 %751, 4
@@ -2660,11 +2660,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 755:                                              ; preds = %750
   %756 = load ptr, ptr @bio_out, align 8, !tbaa !12
   %757 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %756, ptr noundef nonnull @.str.375, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3771, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.371, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  %.pre310 = load i32, ptr @opt_verbosity, align 4
+  %.pre313 = load i32, ptr @opt_verbosity, align 4
   br label %758
 
 758:                                              ; preds = %755, %750
-  %759 = phi i32 [ %.pre310, %755 ], [ %751, %750 ]
+  %759 = phi i32 [ %.pre313, %755 ], [ %751, %750 ]
   %760 = load ptr, ptr @opt_rspout, align 8, !tbaa !4
   %761 = icmp eq ptr %760, null
   %762 = icmp slt i32 %759, 4
@@ -2697,11 +2697,11 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 775:                                              ; preds = %770
   %776 = load ptr, ptr @bio_out, align 8, !tbaa !12
   %777 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %776, ptr noundef nonnull @.str.377, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3778, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  %.pre311 = load i32, ptr @opt_verbosity, align 4
+  %.pre314 = load i32, ptr @opt_verbosity, align 4
   br label %778
 
 778:                                              ; preds = %775, %770
-  %779 = phi i32 [ %.pre311, %775 ], [ %773, %770 ]
+  %779 = phi i32 [ %.pre314, %775 ], [ %773, %770 ]
   %780 = load i32, ptr @opt_use_mock_srv, align 4, !tbaa !10
   %781 = icmp eq i32 %780, 0
   %782 = icmp slt i32 %779, 4
@@ -2734,15 +2734,15 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %796 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %795, ptr noundef nonnull @.str.379, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3785, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %handle_opts_upfront.exit.thread
 
-797:                                              ; preds = %.thread246
-  %798 = add nuw nsw i32 %.0119268, 1
+797:                                              ; preds = %.thread248
+  %798 = add nuw nsw i32 %.0119271, 1
   %799 = load i32, ptr @opt_repeat, align 4, !tbaa !10
   %800 = icmp slt i32 %798, %799
   br i1 %800, label %.lr.ph, label %handle_opts_upfront.exit.thread, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %797
-  %.0119268 = phi i32 [ %798, %797 ], [ 0, %.preheader ]
-  %.0122267 = phi ptr [ %.1, %797 ], [ null, %.preheader ]
+  %.0119271 = phi i32 [ %798, %797 ], [ 0, %.preheader ]
+  %.0122270 = phi ptr [ %.1, %797 ], [ null, %.preheader ]
   %801 = load i32, ptr @opt_cmd, align 4, !tbaa !10
   switch i32 %801, label %820 [
     i32 0, label %802
@@ -2793,7 +2793,7 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 
 820:                                              ; preds = %811, %808, %805, %802, %.lr.ph, %817, %814
   %.4 = phi i32 [ 0, %.lr.ph ], [ %816, %814 ], [ %819, %817 ], [ %spec.select200, %802 ], [ %spec.select202, %805 ], [ %spec.select204, %808 ], [ %spec.select206, %811 ]
-  %.1 = phi ptr [ %.0122267, %.lr.ph ], [ %.0122267, %814 ], [ %.0122267, %817 ], [ %804, %802 ], [ %807, %805 ], [ %810, %808 ], [ %813, %811 ]
+  %.1 = phi ptr [ %.0122270, %.lr.ph ], [ %.0122270, %814 ], [ %.0122270, %817 ], [ %804, %802 ], [ %807, %805 ], [ %810, %808 ], [ %813, %811 ]
   %821 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
   %822 = call i32 @OSSL_CMP_CTX_get_status(ptr noundef %821) #12
   %823 = icmp slt i32 %822, 0
@@ -2814,8 +2814,8 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %829 = load ptr, ptr @opt_srvcertout, align 8, !tbaa !4
   %830 = call fastcc i32 @save_cert_or_delete(ptr noundef %828, ptr noundef %829, ptr noundef nonnull @.str.380)
   %.not184 = icmp eq i32 %830, 0
-  %.not185248 = icmp eq i32 %.4, 0
-  %.not185 = select i1 %.not184, i1 true, i1 %.not185248
+  %.not185251 = icmp eq i32 %.4, 0
+  %.not185 = select i1 %.not184, i1 true, i1 %.not185251
   br i1 %.not185, label %handle_opts_upfront.exit.thread, label %831
 
 831:                                              ; preds = %826
@@ -2830,8 +2830,8 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %.not186 = icmp ne ptr %.1, null
   %838 = load i32, ptr @opt_cmd, align 4
   %839 = icmp ult i32 %838, 4
-  %or.cond210 = select i1 %.not186, i1 %839, i1 false
-  br i1 %or.cond210, label %840, label %.thread246
+  %or.cond212 = select i1 %.not186, i1 %839, i1 false
+  br i1 %or.cond212, label %840, label %.thread248
 
 840:                                              ; preds = %837
   %841 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
@@ -2887,7 +2887,7 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
 869:                                              ; preds = %863
   %870 = load i32, ptr @opt_centralkeygen, align 4, !tbaa !10
   %.not190 = icmp eq i32 %870, 0
-  br i1 %.not190, label %.thread246, label %871
+  br i1 %.not190, label %.thread248, label %871
 
 871:                                              ; preds = %869
   %872 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
@@ -2932,17 +2932,17 @@ get_opts.exit:                                    ; preds = %._crit_edge.i219
   %896 = call i32 @BIO_free(ptr noundef nonnull %877) #12
   call void @clear_free(ptr noundef %.0120) #12
   call void @EVP_CIPHER_free(ptr noundef %.0121) #12
-  br i1 %895, label %.thread246, label %handle_opts_upfront.exit.thread
+  br i1 %895, label %.thread248, label %handle_opts_upfront.exit.thread
 
-.thread246:                                       ; preds = %893, %869, %837
+.thread248:                                       ; preds = %893, %869, %837
   %897 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
   %898 = call i32 @OSSL_CMP_CTX_reinit(ptr noundef %897) #12
   %.not193 = icmp eq i32 %898, 0
   br i1 %.not193, label %handle_opts_upfront.exit.thread, label %797
 
-handle_opts_upfront.exit.thread:                  ; preds = %826, %831, %.thread246, %797, %854, %860, %857, %863, %871, %875, %893, %read_config.exit.thread, %.preheader, %853, %700, %698, %689, %307, %set_verbosity.exit.thread.i, %106, %103, %44, %41, %10, %824, %825, %794, %791, %669, %666, %659, %656, %648, %645, %637, %634, %626, %623, %589, %586, %576, %573, %get_opts.exit, %293, %290, %.thread233, %78, %59, %56, %722
-  %.0130 = phi i32 [ 0, %56 ], [ 0, %59 ], [ 0, %78 ], [ -1, %.thread233 ], [ 0, %290 ], [ %.1131, %293 ], [ 0, %573 ], [ 0, %576 ], [ 0, %623 ], [ 0, %626 ], [ 0, %634 ], [ 0, %637 ], [ 0, %645 ], [ 0, %648 ], [ 0, %656 ], [ 0, %659 ], [ 0, %666 ], [ 0, %669 ], [ %723, %722 ], [ 1, %825 ], [ 0, %824 ], [ 0, %791 ], [ 0, %794 ], [ 0, %586 ], [ 0, %589 ], [ 0, %get_opts.exit ], [ 0, %10 ], [ 0, %41 ], [ 0, %44 ], [ 0, %103 ], [ 0, %106 ], [ -1, %307 ], [ 0, %set_verbosity.exit.thread.i ], [ 0, %689 ], [ 0, %698 ], [ 0, %700 ], [ 0, %853 ], [ 1, %.preheader ], [ 0, %read_config.exit.thread ], [ 0, %826 ], [ 0, %831 ], [ 0, %.thread246 ], [ 1, %797 ], [ 0, %854 ], [ 0, %860 ], [ 0, %857 ], [ 0, %863 ], [ 0, %871 ], [ 0, %875 ], [ 0, %893 ]
-  %.0123 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %78 ], [ null, %.thread233 ], [ null, %290 ], [ null, %293 ], [ null, %573 ], [ null, %576 ], [ %.1124, %623 ], [ %.1124, %626 ], [ %.1124, %634 ], [ %.1124, %637 ], [ %.1124, %645 ], [ %.1124, %648 ], [ %.1124, %656 ], [ %.1124, %659 ], [ %.1124, %666 ], [ %.1124, %669 ], [ %.1124, %722 ], [ %.1124, %825 ], [ %.1124, %824 ], [ %.1124, %791 ], [ %.1124, %794 ], [ %.1124, %586 ], [ %.1124, %589 ], [ null, %get_opts.exit ], [ null, %10 ], [ null, %41 ], [ null, %44 ], [ null, %103 ], [ null, %106 ], [ null, %307 ], [ null, %set_verbosity.exit.thread.i ], [ %.1124, %689 ], [ %.1124, %698 ], [ %.1124, %700 ], [ %.1124, %853 ], [ %.1124, %.preheader ], [ null, %read_config.exit.thread ], [ %.1124, %893 ], [ %.1124, %875 ], [ %.1124, %871 ], [ %.1124, %863 ], [ %.1124, %857 ], [ %.1124, %860 ], [ %.1124, %854 ], [ %.1124, %797 ], [ %.1124, %.thread246 ], [ %.1124, %831 ], [ %.1124, %826 ]
+handle_opts_upfront.exit.thread:                  ; preds = %826, %831, %.thread248, %797, %854, %860, %857, %863, %871, %875, %893, %read_config.exit.thread, %.preheader, %853, %700, %698, %689, %307, %set_verbosity.exit.thread.i, %106, %103, %44, %41, %10, %824, %825, %794, %791, %669, %666, %659, %656, %648, %645, %637, %634, %626, %623, %589, %586, %576, %573, %get_opts.exit, %293, %290, %.thread235, %78, %59, %56, %722
+  %.0130 = phi i32 [ 0, %56 ], [ 0, %59 ], [ 0, %78 ], [ -1, %.thread235 ], [ 0, %290 ], [ %.1131, %293 ], [ 0, %573 ], [ 0, %576 ], [ 0, %623 ], [ 0, %626 ], [ 0, %634 ], [ 0, %637 ], [ 0, %645 ], [ 0, %648 ], [ 0, %656 ], [ 0, %659 ], [ 0, %666 ], [ 0, %669 ], [ %723, %722 ], [ 1, %825 ], [ 0, %824 ], [ 0, %791 ], [ 0, %794 ], [ 0, %586 ], [ 0, %589 ], [ 0, %get_opts.exit ], [ 0, %10 ], [ 0, %41 ], [ 0, %44 ], [ 0, %103 ], [ 0, %106 ], [ -1, %307 ], [ 0, %set_verbosity.exit.thread.i ], [ 0, %689 ], [ 0, %698 ], [ 0, %700 ], [ 0, %853 ], [ 1, %.preheader ], [ 0, %read_config.exit.thread ], [ 0, %826 ], [ 0, %831 ], [ 0, %.thread248 ], [ 1, %797 ], [ 0, %854 ], [ 0, %860 ], [ 0, %857 ], [ 0, %863 ], [ 0, %871 ], [ 0, %875 ], [ 0, %893 ]
+  %.0123 = phi ptr [ null, %56 ], [ null, %59 ], [ null, %78 ], [ null, %.thread235 ], [ null, %290 ], [ null, %293 ], [ null, %573 ], [ null, %576 ], [ %.1124, %623 ], [ %.1124, %626 ], [ %.1124, %634 ], [ %.1124, %637 ], [ %.1124, %645 ], [ %.1124, %648 ], [ %.1124, %656 ], [ %.1124, %659 ], [ %.1124, %666 ], [ %.1124, %669 ], [ %.1124, %722 ], [ %.1124, %825 ], [ %.1124, %824 ], [ %.1124, %791 ], [ %.1124, %794 ], [ %.1124, %586 ], [ %.1124, %589 ], [ null, %get_opts.exit ], [ null, %10 ], [ null, %41 ], [ null, %44 ], [ null, %103 ], [ null, %106 ], [ null, %307 ], [ null, %set_verbosity.exit.thread.i ], [ %.1124, %689 ], [ %.1124, %698 ], [ %.1124, %700 ], [ %.1124, %853 ], [ %.1124, %.preheader ], [ null, %read_config.exit.thread ], [ %.1124, %893 ], [ %.1124, %875 ], [ %.1124, %871 ], [ %.1124, %863 ], [ %.1124, %857 ], [ %.1124, %860 ], [ %.1124, %854 ], [ %.1124, %797 ], [ %.1124, %.thread248 ], [ %.1124, %831 ], [ %.1124, %826 ]
   %899 = load ptr, ptr @opt_keypass, align 8, !tbaa !4
   call void @cleanse(ptr noundef %899) #12
   %900 = load ptr, ptr @opt_newkeypass, align 8, !tbaa !4
@@ -6418,7 +6418,7 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %29 = load ptr, ptr @vpm, align 8, !tbaa !16
   %30 = call i32 @load_cert_certs(ptr noundef nonnull %23, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %28, ptr noundef nonnull @.str.498, ptr noundef %29) #12
   %.not66 = icmp eq i32 %30, 0
-  br i1 %.not66, label %.thread84, label %31
+  br i1 %.not66, label %.thread85, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %4, align 8, !tbaa !54
@@ -6432,9 +6432,9 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %37 = load ptr, ptr %5, align 8, !tbaa !52
   %38 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %8, i32 noundef 88, i64 noundef 0, ptr noundef %37) #12
   %.not67 = icmp eq i64 %38, 0
-  br i1 %.not67, label %41, label %.preheader86
+  br i1 %.not67, label %41, label %.preheader87
 
-.preheader86:                                     ; preds = %36
+.preheader87:                                     ; preds = %36
   %39 = call i32 @OPENSSL_sk_num(ptr noundef %6) #12
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
@@ -6453,17 +6453,17 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
 48:                                               ; preds = %41, %44
   %49 = load ptr, ptr %5, align 8, !tbaa !52
   call void @OSSL_STACK_OF_X509_free(ptr noundef %49) #12
-  br label %.thread84
+  br label %.thread85
 
 50:                                               ; preds = %.lr.ph
-  %51 = add nuw nsw i32 %.05787, 1
+  %51 = add nuw nsw i32 %.05788, 1
   %52 = call i32 @OPENSSL_sk_num(ptr noundef %6) #12
   %53 = icmp slt i32 %51, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 
-.lr.ph:                                           ; preds = %.preheader86, %50
-  %.05787 = phi i32 [ %51, %50 ], [ 0, %.preheader86 ]
-  %54 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %.05787) #12
+.lr.ph:                                           ; preds = %.preheader87, %50
+  %.05788 = phi i32 [ %51, %50 ], [ 0, %.preheader87 ]
+  %54 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %.05788) #12
   store ptr %54, ptr %4, align 8, !tbaa !54
   %55 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %8, i32 noundef 89, i64 noundef 1, ptr noundef %54) #12
   %.not73 = icmp eq i64 %55, 0
@@ -6472,14 +6472,14 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
 56:                                               ; preds = %.lr.ph
   %57 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
   %58 = icmp slt i32 %57, 3
-  br i1 %58, label %.thread84, label %59
+  br i1 %58, label %.thread85, label %59
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %61 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %60, ptr noundef nonnull @.str.500, ptr noundef nonnull @__func__.setup_ssl_ctx, ptr noundef nonnull @.str.351, i32 noundef 1423, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
-  br label %.thread84
+  br label %.thread85
 
-._crit_edge:                                      ; preds = %50, %.preheader86
+._crit_edge:                                      ; preds = %50, %.preheader87
   %.not68 = icmp eq ptr %.059, null
   br i1 %.not68, label %66, label %62
 
@@ -6544,26 +6544,26 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %93 = load ptr, ptr @vpm, align 8, !tbaa !16
   %94 = call ptr @load_certs_multifile(ptr noundef nonnull %90, ptr noundef %92, ptr noundef nonnull @.str.505, ptr noundef %93) #12
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.thread84, label %.preheader
+  br i1 %95, label %.thread85, label %.preheader
 
 .preheader:                                       ; preds = %91
   %96 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %94) #12
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph90, label %._crit_edge91.thread
+  br i1 %97, label %.lr.ph91, label %._crit_edge92.thread
 
-._crit_edge91.thread:                             ; preds = %.preheader
+._crit_edge92.thread:                             ; preds = %.preheader
   call void @OPENSSL_sk_free(ptr noundef nonnull %94) #12
   br label %112
 
-.lr.ph90:                                         ; preds = %.preheader, %104
-  %.089 = phi i32 [ %.178, %104 ], [ 1, %.preheader ]
-  %.15888 = phi i32 [ %105, %104 ], [ 0, %.preheader ]
-  %98 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %94, i32 noundef %.15888) #12
+.lr.ph91:                                         ; preds = %.preheader, %104
+  %.090 = phi i32 [ %.179, %104 ], [ 1, %.preheader ]
+  %.15889 = phi i32 [ %105, %104 ], [ 0, %.preheader ]
+  %98 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %94, i32 noundef %.15889) #12
   store ptr %98, ptr %4, align 8, !tbaa !54
-  %.not71 = icmp eq i32 %.089, 0
+  %.not71 = icmp eq i32 %.090, 0
   br i1 %.not71, label %.thread, label %99
 
-99:                                               ; preds = %.lr.ph90
+99:                                               ; preds = %.lr.ph91
   %100 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %8, i32 noundef 14, i64 noundef 0, ptr noundef %98) #12
   %101 = trunc i64 %100 to i32
   %102 = icmp eq i32 %101, 0
@@ -6573,29 +6573,29 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %.pre = load ptr, ptr %4, align 8, !tbaa !54
   br label %.thread
 
-.thread:                                          ; preds = %..thread_crit_edge, %.lr.ph90
-  %103 = phi ptr [ %.pre, %..thread_crit_edge ], [ %98, %.lr.ph90 ]
+.thread:                                          ; preds = %..thread_crit_edge, %.lr.ph91
+  %103 = phi ptr [ %.pre, %..thread_crit_edge ], [ %98, %.lr.ph91 ]
   call void @X509_free(ptr noundef %103) #12
   br label %104
 
 104:                                              ; preds = %99, %.thread
-  %.178 = phi i32 [ %101, %99 ], [ 0, %.thread ]
-  %105 = add nuw nsw i32 %.15888, 1
+  %.179 = phi i32 [ %101, %99 ], [ 0, %.thread ]
+  %105 = add nuw nsw i32 %.15889, 1
   %106 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %94) #12
   %107 = icmp slt i32 %105, %106
-  br i1 %107, label %.lr.ph90, label %._crit_edge91, !llvm.loop !71
+  br i1 %107, label %.lr.ph91, label %._crit_edge92, !llvm.loop !71
 
-._crit_edge91:                                    ; preds = %104
-  %108 = icmp eq i32 %.178, 0
+._crit_edge92:                                    ; preds = %104
+  %108 = icmp eq i32 %.179, 0
   call void @OPENSSL_sk_free(ptr noundef nonnull %94) #12
   br i1 %108, label %109, label %112
 
-109:                                              ; preds = %._crit_edge91
+109:                                              ; preds = %._crit_edge92
   %110 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %111 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.506) #12
-  br label %.thread84
+  br label %.thread85
 
-112:                                              ; preds = %._crit_edge91.thread, %._crit_edge91, %89
+112:                                              ; preds = %._crit_edge92.thread, %._crit_edge92, %89
   %113 = load ptr, ptr @opt_tls_key, align 8, !tbaa !4
   %114 = load i32, ptr @opt_keyform, align 4, !tbaa !10
   %115 = load ptr, ptr @opt_tls_keypass, align 8, !tbaa !4
@@ -6605,7 +6605,7 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %118 = load ptr, ptr @opt_tls_keypass, align 8, !tbaa !4
   call void @cleanse(ptr noundef %118) #12
   %119 = icmp eq ptr %117, null
-  br i1 %119, label %.thread84, label %120
+  br i1 %119, label %.thread85, label %120
 
 120:                                              ; preds = %112
   %121 = call ptr @SSL_CTX_get0_certificate(ptr noundef nonnull %8) #12
@@ -6627,7 +6627,7 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
 
 131:                                              ; preds = %123, %126
   call void @EVP_PKEY_free(ptr noundef nonnull %117) #12
-  br label %.thread84
+  br label %.thread85
 
 132:                                              ; preds = %120
   %133 = call i32 @SSL_CTX_use_PrivateKey(ptr noundef nonnull %8, ptr noundef nonnull %117) #12
@@ -6647,9 +6647,9 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
 
 142:                                              ; preds = %135, %138
   call void @EVP_PKEY_free(ptr noundef nonnull %117) #12
-  br label %.thread84
+  br label %.thread85
 
-.thread84:                                        ; preds = %142, %131, %48, %27, %56, %59, %112, %109, %91
+.thread85:                                        ; preds = %142, %131, %48, %27, %56, %59, %112, %109, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %155
@@ -6682,7 +6682,7 @@ define internal fastcc ptr @setup_ssl_ctx(ptr noundef %0, ptr noundef %1, ptr no
   %.not76 = icmp eq i32 %154, 0
   br i1 %.not76, label %155, label %156
 
-155:                                              ; preds = %.thread84, %151, %12
+155:                                              ; preds = %.thread85, %151, %12
   call void @SSL_CTX_free(ptr noundef nonnull %8) #12
   br label %156
 

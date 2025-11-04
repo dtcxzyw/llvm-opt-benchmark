@@ -141,7 +141,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %17 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 359, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.1) #5
-  br label %.thread48
+  br label %.thread49
 
 20:                                               ; preds = %._crit_edge, %2
   %21 = phi i8 [ %.pre, %._crit_edge ], [ %10, %2 ]
@@ -162,7 +162,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %30 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 359, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #5
-  br label %.thread48
+  br label %.thread49
 
 33:                                               ; preds = %20, %26
   %34 = call i32 @H5CX_push(ptr noundef nonnull %7) #5
@@ -173,7 +173,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %37 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %38 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 359, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.3) #5
-  br label %.thread48
+  br label %.thread49
 
 40:                                               ; preds = %33
   %41 = call i32 @H5E_clear_stack() #5
@@ -185,7 +185,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %45 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %46 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 363, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.4) #5
-  br label %.thread54
+  br label %.thread55
 
 48:                                               ; preds = %40
   %49 = call i32 @H5I_get_type(i64 noundef %0) #5
@@ -196,7 +196,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %52 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %53 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 367, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.4) #5
-  br label %.thread54
+  br label %.thread55
 
 55:                                               ; preds = %48
   %56 = call i32 @H5VL_object_is_native(ptr noundef nonnull %42, ptr noundef nonnull %6) #5
@@ -207,7 +207,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %59 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %60 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %61 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 372, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.5) #5
-  br label %.thread54
+  br label %.thread55
 
 62:                                               ; preds = %55
   %63 = load i8, ptr %6, align 1, !tbaa !3, !range !7, !noundef !8
@@ -223,7 +223,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %69 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %70 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %71 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 378, i64 noundef %69, i64 noundef %70, ptr noundef nonnull @.str.6) #5
-  br label %.thread54
+  br label %.thread55
 
 72:                                               ; preds = %65
   %73 = call i32 @H5VL_native_addr_to_token(ptr noundef nonnull %66, i32 noundef %49, i64 noundef %1, ptr noundef nonnull %5) #5
@@ -234,13 +234,13 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %76 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %77 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8, !tbaa !11
   %78 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 383, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.7) #5
-  br label %.thread54
+  br label %.thread55
 
 79:                                               ; preds = %62
   %80 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %81 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %82 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 387, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.8) #5
-  br label %.thread54
+  br label %.thread55
 
 83:                                               ; preds = %72
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -257,7 +257,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %90 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %91 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !11
   %92 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 396, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.9) #5
-  br label %.thread54
+  br label %.thread55
 
 93:                                               ; preds = %83
   %94 = load i32, ptr %3, align 4, !tbaa !19
@@ -270,28 +270,28 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
   %99 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %100 = load i64, ptr @H5E_CANTREGISTER_g, align 8, !tbaa !11
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Oopen_by_addr, i32 noundef 400, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.10) #5
-  br label %.thread54
+  br label %.thread55
 
-.thread54:                                        ; preds = %79, %98, %89, %58, %51, %44, %68, %75
+.thread55:                                        ; preds = %79, %98, %89, %58, %51, %44, %68, %75
   %102 = call i32 @H5CX_pop(i1 noundef zeroext true) #5
-  br label %.thread48
+  br label %.thread49
 
 103:                                              ; preds = %93
   %104 = call i32 @H5CX_pop(i1 noundef zeroext true) #5
   br label %106
 
-.thread48:                                        ; preds = %36, %29, %16, %.thread54
+.thread49:                                        ; preds = %36, %29, %16, %.thread55
   %105 = call i32 @H5E_dump_api_stack() #5
   br label %106
 
-106:                                              ; preds = %103, %.thread48
-  %.0294351 = phi i64 [ %96, %103 ], [ -1, %.thread48 ]
+106:                                              ; preds = %103, %.thread49
+  %.0294452 = phi i64 [ %96, %103 ], [ -1, %.thread49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %.0294351
+  ret i64 %.0294452
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -582,16 +582,16 @@ H5O__reset_info1.exit:                            ; preds = %4
 71:                                               ; preds = %58, %56
   %72 = and i32 %3, 4
   %.not49 = icmp eq i32 %72, 0
-  br i1 %.not49, label %.thread58, label %73
+  br i1 %.not49, label %.thread59, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %75 = load i64, ptr %74, align 8, !tbaa !47
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %75, ptr %76, align 8, !tbaa !48
-  br label %.thread58
+  br label %.thread59
 
-.thread58:                                        ; preds = %73, %71
+.thread59:                                        ; preds = %73, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
@@ -601,7 +601,7 @@ H5O__reset_info1.exit:                            ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
-77:                                               ; preds = %.thread58, %H5O__reset_info1.exit
+77:                                               ; preds = %.thread59, %H5O__reset_info1.exit
   %78 = and i32 %3, 24
   %.not50 = icmp eq i32 %78, 0
   br i1 %.not50, label %101, label %79
@@ -658,9 +658,9 @@ H5O__reset_info1.exit:                            ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %101
 
-101:                                              ; preds = %.thread, %100, %4, %77
-  %.040 = phi i32 [ %.5, %100 ], [ 0, %77 ], [ -1, %.thread ], [ 0, %4 ]
-  ret i32 %.040
+101:                                              ; preds = %.thread, %4, %77, %100
+  %.041 = phi i32 [ %.5, %100 ], [ 0, %77 ], [ -1, %.thread ], [ 0, %4 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1965,7 +1965,7 @@ H5O__reset_info1.exit:                            ; preds = %4
 102:                                              ; preds = %100, %97
   %103 = and i32 %98, 16
   %.not53 = icmp eq i32 %103, 0
-  br i1 %.not53, label %.thread59, label %104
+  br i1 %.not53, label %.thread60, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1974,9 +1974,9 @@ H5O__reset_info1.exit:                            ; preds = %4
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false)
-  br label %.thread59
+  br label %.thread60
 
-.thread59:                                        ; preds = %104, %102
+.thread60:                                        ; preds = %104, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1993,7 +1993,7 @@ H5O__reset_info1.exit:                            ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-113:                                              ; preds = %.thread59, %83
+113:                                              ; preds = %.thread60, %83
   %114 = load ptr, ptr %3, align 8, !tbaa !53
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !56
@@ -2001,9 +2001,9 @@ H5O__reset_info1.exit:                            ; preds = %4
   br label %.thread
 
 .thread:                                          ; preds = %57, %46, %39, %109, %4, %113, %20
-  %.041 = phi i32 [ -1, %20 ], [ %117, %113 ], [ -1, %109 ], [ 0, %4 ], [ -1, %39 ], [ -1, %46 ], [ -1, %57 ]
+  %.042 = phi i32 [ -1, %20 ], [ %117, %113 ], [ -1, %109 ], [ 0, %4 ], [ -1, %39 ], [ -1, %46 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.041
+  ret i32 %.042
 }
 
 declare i32 @H5VL_object_specific(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2

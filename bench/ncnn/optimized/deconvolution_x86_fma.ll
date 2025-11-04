@@ -2873,27 +2873,27 @@ _ZN4ncnn3MatD2Ev.exit126:                         ; preds = %312, %_ZN4ncnn3MatD
   %333 = sub nsw i32 %329, %332
   %334 = mul nsw i32 %333, %.0103
   store i32 %334, ptr %103, align 4, !tbaa !92
-  switch i32 %.0103, label %339 [
-    i32 8, label %.sink.split
-    i32 4, label %335
-    i32 1, label %336
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %336 = load i32, ptr %335, align 4, !tbaa !97
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %104, i32 %336)
+  switch i32 %.0103, label %.unreachabledefault [
+    i32 8, label %339
+    i32 4, label %337
+    i32 1, label %338
   ]
 
-335:                                              ; preds = %327
-  br label %.sink.split
-
-336:                                              ; preds = %327
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %327, %336, %335
-  %_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1.sink = phi ptr [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1, %335 ], [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %336 ], [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined, %327 ]
-  %337 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %338 = load i32, ptr %337, align 4, !tbaa !97
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %104, i32 %338)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull %_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1.sink, ptr nonnull %97, ptr nonnull %101, ptr nonnull %99, ptr nonnull %98, ptr nonnull %0, ptr nonnull %94, ptr nonnull %93, ptr nonnull %103)
+337:                                              ; preds = %327
   br label %339
 
-339:                                              ; preds = %.sink.split, %327
+338:                                              ; preds = %327
+  br label %339
+
+.unreachabledefault:                              ; preds = %327
+  unreachable
+
+339:                                              ; preds = %327, %337, %338
+  %_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1.sink = phi ptr [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1, %337 ], [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %338 ], [ @_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined, %327 ]
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull %_ZNK4ncnn21Deconvolution_x86_fma7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1.sink, ptr nonnull %97, ptr nonnull %101, ptr nonnull %99, ptr nonnull %98, ptr nonnull %0, ptr nonnull %94, ptr nonnull %93, ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %341 = load ptr, ptr %340, align 8, !tbaa !37

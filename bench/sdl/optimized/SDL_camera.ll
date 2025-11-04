@@ -1871,7 +1871,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %59, ptr %60, align 8
   %.not109 = icmp eq ptr %59, null
-  br i1 %.not109, label %.thread123, label %61
+  br i1 %.not109, label %.thread124, label %61
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1900,7 +1900,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %78, ptr %79, align 8
   %.not111 = icmp eq ptr %78, null
-  br i1 %.not111, label %.thread120, label %.thread
+  br i1 %.not111, label %.thread121, label %.thread
 
 .thread:                                          ; preds = %70
   %80 = load i32, ptr %62, align 4
@@ -1928,7 +1928,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   br i1 %exitcond.not, label %84, label %87, !llvm.loop !13
 
 91:                                               ; preds = %84, %107
-  %indvars.iv129 = phi i64 [ 0, %84 ], [ %indvars.iv.next130, %107 ]
+  %indvars.iv130 = phi i64 [ 0, %84 ], [ %indvars.iv.next131, %107 ]
   %92 = load i32, ptr %65, align 8
   %.not112 = icmp eq i32 %92, 0
   br i1 %.not112, label %93, label %96
@@ -1955,39 +1955,39 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
 106:                                              ; preds = %101, %96
   %.096 = phi ptr [ %100, %96 ], [ %105, %101 ]
   %.not113.not = icmp eq ptr %.096, null
-  br i1 %.not113.not, label %.thread120, label %107
+  br i1 %.not113.not, label %.thread121, label %107
 
 107:                                              ; preds = %106
   %108 = load i32, ptr %62, align 4
   %109 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %108) #11
-  %110 = getelementptr inbounds nuw %struct.SurfaceList, ptr %83, i64 %indvars.iv129
+  %110 = getelementptr inbounds nuw %struct.SurfaceList, ptr %83, i64 %indvars.iv130
   store ptr %.096, ptr %110, align 8
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next130, 8
-  br i1 %exitcond132.not, label %.loopexit, label %91, !llvm.loop !14
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 8
+  br i1 %exitcond133.not, label %.loopexit, label %91, !llvm.loop !14
 
-.thread120:                                       ; preds = %106, %70
+.thread121:                                       ; preds = %106, %70
   %.pr = load ptr, ptr %60, align 8
   %.not114 = icmp eq ptr %.pr, null
-  br i1 %.not114, label %.thread123, label %111
+  br i1 %.not114, label %.thread124, label %111
 
-111:                                              ; preds = %.thread120
+111:                                              ; preds = %.thread121
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.pr) #11
   store ptr null, ptr %60, align 8
-  br label %.thread123
+  br label %.thread124
 
-.thread123:                                       ; preds = %53, %111, %.thread120
+.thread124:                                       ; preds = %53, %111, %.thread121
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %113 = load ptr, ptr %112, align 8
   %.not115 = icmp eq ptr %113, null
   br i1 %.not115, label %115, label %114
 
-114:                                              ; preds = %.thread123
+114:                                              ; preds = %.thread124
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %113) #11
   store ptr null, ptr %112, align 8
   br label %115
 
-115:                                              ; preds = %114, %.thread123
+115:                                              ; preds = %114, %.thread124
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %118
 
@@ -1996,8 +1996,8 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   br label %.loopexit
 
 118:                                              ; preds = %115, %122
-  %indvars.iv133 = phi i64 [ 0, %115 ], [ %indvars.iv.next134, %122 ]
-  %119 = getelementptr inbounds nuw %struct.SurfaceList, ptr %116, i64 %indvars.iv133
+  %indvars.iv134 = phi i64 [ 0, %115 ], [ %indvars.iv.next135, %122 ]
+  %119 = getelementptr inbounds nuw %struct.SurfaceList, ptr %116, i64 %indvars.iv134
   %120 = load ptr, ptr %119, align 8
   %.not116 = icmp eq ptr %120, null
   br i1 %.not116, label %122, label %121
@@ -2007,9 +2007,9 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   br label %122
 
 122:                                              ; preds = %121, %118
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 8
-  br i1 %exitcond136.not, label %117, label %118, !llvm.loop !15
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next135, 8
+  br i1 %exitcond137.not, label %117, label %118, !llvm.loop !15
 
 .loopexit:                                        ; preds = %107, %117
   %.0 = phi i1 [ false, %117 ], [ true, %107 ]

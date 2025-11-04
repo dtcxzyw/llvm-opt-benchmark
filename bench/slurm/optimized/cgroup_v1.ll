@@ -1358,52 +1358,52 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr(ptr noundef readnone captures(
   %38 = load ptr, ptr %4, align 8
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #12
   %40 = add i64 %39, 1
-  %.not6587 = icmp eq i64 %40, 0
-  br i1 %.not6587, label %.outer._crit_edge, label %.lr.ph.split
+  %.not6588 = icmp eq i64 %40, 0
+  br i1 %.not6588, label %.outer._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %37, %.lr.ph.split.backedge
-  %.043.ph90 = phi ptr [ %57, %.lr.ph.split.backedge ], [ %38, %37 ]
-  %.044.ph88 = phi i64 [ %58, %.lr.ph.split.backedge ], [ %40, %37 ]
-  %41 = call i64 @write(i32 noundef %27, ptr noundef %.043.ph90, i64 noundef %.044.ph88) #11
+  %.043.ph91 = phi ptr [ %57, %.lr.ph.split.backedge ], [ %38, %37 ]
+  %.044.ph89 = phi i64 [ %58, %.lr.ph.split.backedge ], [ %40, %37 ]
+  %41 = call i64 @write(i32 noundef %27, ptr noundef %.043.ph91, i64 noundef %.044.ph89) #11
   %42 = and i64 %41, 2147483648
-  %.not6685 = icmp eq i64 %42, 0
-  br i1 %.not6685, label %.split.us, label %.lr.ph86
+  %.not6686 = icmp eq i64 %42, 0
+  br i1 %.not6686, label %.split.us, label %.lr.ph87
 
-.lr.ph86:                                         ; preds = %.lr.ph.split
+.lr.ph87:                                         ; preds = %.lr.ph.split
   %43 = tail call ptr @__errno_location() #13
   br label %44
 
-44:                                               ; preds = %.lr.ph86, %46
+44:                                               ; preds = %.lr.ph87, %46
   %45 = load i32, ptr %43, align 4
-  switch i32 %45, label %.split80.us [
+  switch i32 %45, label %.split81.us [
     i32 11, label %46
     i32 4, label %46
   ]
 
 46:                                               ; preds = %44, %44
-  %47 = call i64 @write(i32 noundef %27, ptr noundef %.043.ph90, i64 noundef %.044.ph88) #11
+  %47 = call i64 @write(i32 noundef %27, ptr noundef %.043.ph91, i64 noundef %.044.ph89) #11
   %48 = and i64 %47, 2147483648
   %.not66 = icmp eq i64 %48, 0
   br i1 %.not66, label %.split.us, label %44
 
-.split80.us:                                      ; preds = %44
+.split81.us:                                      ; preds = %44
   %49 = call i32 @get_log_level() #11
   %50 = icmp sgt i32 %49, 4
   br i1 %50, label %51, label %116
 
-51:                                               ; preds = %.split80.us
+51:                                               ; preds = %.split81.us
   %52 = load ptr, ptr %4, align 8
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #12
   %54 = trunc i64 %53 to i32
   %55 = add nsw i32 %54, 1
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1251, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, i64 noundef %.044.ph88, i32 noundef %55) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, ptr noundef nonnull @.str.24, i32 noundef 1251, ptr noundef nonnull @__func__.cgroup_p_step_start_oom_mgr, i64 noundef %.044.ph89, i32 noundef %55) #11
   br label %116
 
 .split.us:                                        ; preds = %46, %.lr.ph.split
   %.us-phi = phi i64 [ %41, %.lr.ph.split ], [ %47, %46 ]
   %56 = and i64 %.us-phi, 2147483647
-  %57 = getelementptr inbounds nuw i8, ptr %.043.ph90, i64 %56
-  %58 = sub i64 %.044.ph88, %56
+  %57 = getelementptr inbounds nuw i8, ptr %.043.ph91, i64 %56
+  %58 = sub i64 %.044.ph89, %56
   %.not67 = icmp eq i64 %58, 0
   br i1 %.not67, label %.outer._crit_edge, label %59
 
@@ -1540,7 +1540,7 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr(ptr noundef readnone captures(
   %115 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50, ptr noundef %114) #11
   br label %119
 
-116:                                              ; preds = %51, %.split80.us
+116:                                              ; preds = %51, %.split81.us
   %117 = load ptr, ptr %3, align 8
   %118 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.51, ptr noundef %117) #11
   br label %102

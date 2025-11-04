@@ -4776,8 +4776,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   br label %21
 
-21:                                               ; preds = %.thread29, %8
-  %22 = phi ptr [ %15, %8 ], [ %168, %.thread29 ]
+21:                                               ; preds = %.thread30, %8
+  %22 = phi ptr [ %15, %8 ], [ %168, %.thread30 ]
   %23 = load i16, ptr %16, align 2
   %24 = zext i16 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -4843,7 +4843,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 74:                                               ; preds = %70, %68
   %75 = phi ptr [ %69, %68 ], [ %73, %70 ]
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread29, label %77
+  br i1 %76, label %.thread30, label %77
 
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4858,26 +4858,26 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %80 = icmp ult i8 %79, 2
   call void @llvm.assume(i1 %80)
   %81 = icmp eq i8 %79, 0
-  br i1 %81, label %.loopexit34, label %.preheader33, !prof !62
+  br i1 %81, label %.loopexit35, label %.preheader34, !prof !62
 
-.preheader33:                                     ; preds = %77, %92
+.preheader34:                                     ; preds = %77, %92
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !63
   %82 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !19
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
   %84 = icmp eq i8 %82, 0
-  br i1 %84, label %.preheader104, label %85, !prof !9
+  br i1 %84, label %.preheader105, label %85, !prof !9
 
-85:                                               ; preds = %.preheader33
+85:                                               ; preds = %.preheader34
   %86 = call i64 @llvm.read_register.i64(metadata !0)
   %87 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %86) #23, !srcloc !64
   call void @llvm.write_register.i64(metadata !0, i64 %87)
-  br label %.preheader104
+  br label %.preheader105
 
-.preheader104:                                    ; preds = %85, %.preheader33
+.preheader105:                                    ; preds = %85, %.preheader34
   br label %88
 
-88:                                               ; preds = %.preheader104, %88
+88:                                               ; preds = %.preheader105, %88
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !65
   %89 = load volatile i64, ptr %75, align 8
   %90 = and i64 %89, 1
@@ -4891,9 +4891,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %94 = icmp ult i8 %93, 2
   call void @llvm.assume(i1 %94)
   %95 = icmp eq i8 %93, 0
-  br i1 %95, label %.loopexit34, label %.preheader33, !prof !68, !llvm.loop !69
+  br i1 %95, label %.loopexit35, label %.preheader34, !prof !68, !llvm.loop !69
 
-.loopexit34:                                      ; preds = %92, %77
+.loopexit35:                                      ; preds = %92, %77
   %96 = load ptr, ptr %75, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, -2
@@ -4903,16 +4903,16 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %102 = select i1 %99, i64 %101, i64 %98
   %103 = and i64 %102, 1
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %105, label %.loopexit32
+  br i1 %104, label %105, label %.loopexit33
 
-105:                                              ; preds = %.loopexit34
+105:                                              ; preds = %.loopexit35
   %106 = inttoptr i64 %102 to ptr
   %107 = icmp eq ptr %14, %106
   br i1 %107, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %105
-  %.lcssa37.in81 = and i64 %78, 512
-  %.lcssa3782 = icmp eq i64 %.lcssa37.in81, 0
+  %.lcssa38.in82 = and i64 %78, 512
+  %.lcssa3883 = icmp eq i64 %.lcssa38.in82, 0
   %108 = load ptr, ptr %14, align 8
   br label %122
 
@@ -4921,8 +4921,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br i1 %110, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %109
-  %.lcssa37.in = and i64 %78, 512
-  %.lcssa37 = icmp eq i64 %.lcssa37.in, 0
+  %.lcssa38.in = and i64 %78, 512
+  %.lcssa38 = icmp eq i64 %.lcssa38.in, 0
   %111 = load ptr, ptr %14, align 8
   %112 = icmp eq ptr %136, null
   br i1 %112, label %122, label %113
@@ -4946,7 +4946,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br label %120
 
 120:                                              ; preds = %117, %113
-  br i1 %.lcssa37, label %151, label %121
+  br i1 %.lcssa38, label %151, label %121
 
 121:                                              ; preds = %120
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
@@ -4954,7 +4954,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 
 122:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %123 = phi ptr [ %108, %._crit_edge.thread ], [ %111, %._crit_edge ]
-  %.lcssa3783 = phi i1 [ %.lcssa3782, %._crit_edge.thread ], [ %.lcssa37, %._crit_edge ]
+  %.lcssa3884 = phi i1 [ %.lcssa3883, %._crit_edge.thread ], [ %.lcssa38, %._crit_edge ]
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
   %126 = icmp eq i64 %125, 0
@@ -4975,7 +4975,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br label %134
 
 134:                                              ; preds = %131, %122
-  br i1 %.lcssa3783, label %151, label %135
+  br i1 %.lcssa3884, label %151, label %135
 
 135:                                              ; preds = %134
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
@@ -4987,9 +4987,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %138 = ptrtoint ptr %137 to i64
   %139 = and i64 %138, 1
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %109, label %.loopexit32, !llvm.loop !128
+  br i1 %140, label %109, label %.loopexit33, !llvm.loop !128
 
-.loopexit32:                                      ; preds = %.lr.ph, %.loopexit34
+.loopexit33:                                      ; preds = %.lr.ph, %.loopexit35
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !70
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %75, i32 -2, ptr nonnull elementtype(i8) %75) #23, !srcloc !71
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !72
@@ -4999,26 +4999,26 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %143 = icmp eq i8 %141, 0
   br i1 %143, label %147, label %144, !prof !9
 
-144:                                              ; preds = %.loopexit32
+144:                                              ; preds = %.loopexit33
   %145 = call i64 @llvm.read_register.i64(metadata !0)
   %146 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %145) #23, !srcloc !73
   call void @llvm.write_register.i64(metadata !0, i64 %146)
   br label %147
 
-147:                                              ; preds = %144, %.loopexit32
+147:                                              ; preds = %144, %.loopexit33
   %148 = and i64 %78, 512
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %.thread29, label %150
+  br i1 %149, label %.thread30, label %150
 
 150:                                              ; preds = %147
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74
-  br label %.thread29
+  br label %.thread30
 
 151:                                              ; preds = %135, %134, %121, %120
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, ptr nonnull elementtype(i32) %17) #23, !srcloc !130
   %152 = load i8, ptr %18, align 2, !range !54, !noundef !55
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %.thread28, label %154
+  br i1 %153, label %.thread29, label %154
 
 154:                                              ; preds = %151
   %155 = load volatile i32, ptr %17, align 4
@@ -5026,43 +5026,43 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %157 = mul i32 %156, 3
   %158 = udiv i32 %157, 10
   %159 = icmp ult i32 %155, %158
-  br i1 %159, label %160, label %.thread28
+  br i1 %159, label %160, label %.thread29
 
 160:                                              ; preds = %154
   %161 = load i16, ptr %19, align 4
   %162 = zext i16 %161 to i32
   %163 = icmp ugt i32 %156, %162
-  br i1 %163, label %164, label %.thread28, !prof !10
+  br i1 %163, label %164, label %.thread29, !prof !10
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr @system_wq, align 8
   %166 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %165, ptr noundef nonnull %20) #23
-  br label %.thread28
+  br label %.thread29
 
-.thread29:                                        ; preds = %150, %147, %74
+.thread30:                                        ; preds = %150, %147, %74
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %168 = load volatile ptr, ptr %167, align 16
   %169 = icmp eq ptr %168, null
   br i1 %169, label %170, label %21, !llvm.loop !131
 
-170:                                              ; preds = %.thread29
+170:                                              ; preds = %.thread30
   call void @__rcu_read_unlock() #23
   br label %179
 
-.thread28:                                        ; preds = %154, %160, %164, %151
+.thread29:                                        ; preds = %154, %160, %164, %151
   call void @__rcu_read_unlock() #23
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %172 = load volatile i32, ptr %171, align 4
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %174, label %175, !prof !10
 
-174:                                              ; preds = %.thread28
+174:                                              ; preds = %.thread29
   call void asm sideeffect "884: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 884b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 884) #23, !srcloc !132
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 618, i32 2305, i64 12) #23, !srcloc !133
   call void asm sideeffect "885: nop\0A\09.pushsection .discard.instr_end\0A\09.long 885b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 885) #23, !srcloc !134
   br label %175
 
-175:                                              ; preds = %174, %.thread28
+175:                                              ; preds = %174, %.thread29
   %176 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %171, i32 -1, ptr nonnull elementtype(i32) %171) #23, !srcloc !30
   %177 = icmp slt i32 %176, 2
   br i1 %177, label %178, label %179, !prof !10
@@ -5076,7 +5076,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 764
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.loopexit31, label %183
+  br i1 %182, label %.loopexit32, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5100,28 +5100,28 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 144
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.loopexit31, label %199
+  br i1 %198, label %.loopexit32, label %199
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 156
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, 63
   %203 = icmp ult i32 %202, 64
-  br i1 %203, label %.loopexit31, label %204
+  br i1 %203, label %.loopexit32, label %204
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %195, i64 136
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 16
   br label %207
 
-207:                                              ; preds = %.loopexit30, %204
-  %208 = phi i64 [ 0, %204 ], [ %238, %.loopexit30 ]
+207:                                              ; preds = %.loopexit31, %204
+  %208 = phi i64 [ 0, %204 ], [ %238, %.loopexit31 ]
   %209 = load ptr, ptr %205, align 8
   %210 = icmp eq ptr %209, null
   %211 = getelementptr i8, ptr %209, i64 -24
   %212 = icmp eq ptr %211, null
   %213 = or i1 %210, %212
-  br i1 %213, label %.loopexit30, label %.preheader
+  br i1 %213, label %.loopexit31, label %.preheader
 
 .preheader:                                       ; preds = %207, %228
   %214 = phi ptr [ %233, %228 ], [ %211, %207 ]
@@ -5150,9 +5150,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %233 = getelementptr i8, ptr %231, i64 -24
   %234 = icmp eq ptr %233, null
   %235 = or i1 %232, %234
-  br i1 %235, label %.loopexit30, label %.preheader, !llvm.loop !85
+  br i1 %235, label %.loopexit31, label %.preheader, !llvm.loop !85
 
-.loopexit30:                                      ; preds = %228, %207
+.loopexit31:                                      ; preds = %228, %207
   %236 = phi i64 [ 0, %207 ], [ %229, %228 ]
   %237 = getelementptr i64, ptr %206, i64 %208
   store i64 %236, ptr %237, align 8
@@ -5162,18 +5162,18 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %241 = lshr i32 %240, 6
   %242 = zext nneg i32 %241 to i64
   %243 = icmp samesign ult i64 %238, %242
-  br i1 %243, label %207, label %.loopexit31, !llvm.loop !86
+  br i1 %243, label %207, label %.loopexit32, !llvm.loop !86
 
-.loopexit31:                                      ; preds = %.loopexit30, %199, %191, %179
+.loopexit32:                                      ; preds = %.loopexit31, %199, %191, %179
   %244 = load i16, ptr %10, align 4
   %245 = icmp eq i16 %244, 16
   br i1 %245, label %246, label %247
 
-246:                                              ; preds = %.loopexit31
+246:                                              ; preds = %.loopexit32
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @genl_sk_destructing_cnt, ptr nonnull elementtype(i32) @genl_sk_destructing_cnt) #23, !srcloc !29
   br label %247
 
-247:                                              ; preds = %246, %.loopexit31
+247:                                              ; preds = %246, %.loopexit32
   call void @_raw_write_unlock_irq(ptr noundef nonnull @nl_table_lock) #23
   %248 = call i32 @__wake_up(ptr noundef nonnull @nl_table_wait, i32 noundef 3, i32 noundef 1, ptr noundef null) #23
   %249 = getelementptr inbounds nuw i8, ptr %6, i64 536
@@ -5221,9 +5221,9 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %275 = icmp ult i8 %274, 2
   call void @llvm.assume(i1 %275)
   %276 = icmp eq i8 %274, 0
-  br i1 %276, label %._crit_edge64, label %277
+  br i1 %276, label %._crit_edge65, label %277
 
-._crit_edge64:                                    ; preds = %270
+._crit_edge65:                                    ; preds = %270
   %.pre = add nuw i32 %271, 1
   br label %281
 
@@ -5234,8 +5234,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   call void %278(ptr noundef %279, i32 noundef %280) #23
   br label %281
 
-281:                                              ; preds = %._crit_edge64, %277
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge64 ], [ %280, %277 ]
+281:                                              ; preds = %._crit_edge65, %277
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge65 ], [ %280, %277 ]
   %282 = load i32, ptr %264, align 8
   %283 = icmp ult i32 %.pre-phi, %282
   br i1 %283, label %270, label %.loopexit, !llvm.loop !135

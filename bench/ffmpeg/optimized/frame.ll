@@ -1144,7 +1144,7 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 20:                                               ; preds = %15
   %21 = tail call fastcc i32 @frame_copy_props(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread158, label %23
+  br i1 %22, label %.thread160, label %23
 
 23:                                               ; preds = %20, %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -1167,7 +1167,7 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %38 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %36, ptr noundef nonnull %37) #8
   %39 = icmp slt i32 %38, 0
-  br i1 %39, label %.thread158, label %40
+  br i1 %39, label %.thread160, label %40
 
 40:                                               ; preds = %23
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1177,9 +1177,9 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   tail call void @av_dict_free(ptr noundef nonnull %43) #8
   %44 = tail call fastcc i32 @frame_copy_props(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %.thread158, label %.preheader161
+  br i1 %45, label %.thread160, label %.preheader163
 
-.preheader161:                                    ; preds = %40
+.preheader163:                                    ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %48
 
@@ -1188,14 +1188,14 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %54, label %48, !llvm.loop !85
 
-48:                                               ; preds = %.preheader161, %47
-  %indvars.iv = phi i64 [ 0, %.preheader161 ], [ %indvars.iv.next, %47 ]
+48:                                               ; preds = %.preheader163, %47
+  %indvars.iv = phi i64 [ 0, %.preheader163 ], [ %indvars.iv.next, %47 ]
   %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %52 = tail call i32 @av_buffer_replace(ptr noundef nonnull %49, ptr noundef %51) #8
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %.thread158, label %47
+  br i1 %53, label %.thread160, label %47
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -1232,20 +1232,20 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %69 = sext i32 %66 to i64
   %70 = tail call ptr @av_realloc_array(ptr noundef %68, i64 noundef 8, i64 noundef %69) #8
   %.not138 = icmp eq ptr %70, null
-  br i1 %.not138, label %.thread158, label %.thread152
+  br i1 %.not138, label %.thread160, label %.thread154
 
 71:                                               ; preds = %.lr.ph, %71
-  %indvars.iv177 = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next178, %71 ]
+  %indvars.iv179 = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next180, %71 ]
   %72 = load ptr, ptr %64, align 8, !tbaa !33
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv177
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv179
   tail call void @av_buffer_unref(ptr noundef %73) #8
-  %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
+  %indvars.iv.next180 = add nsw i64 %indvars.iv179, 1
   %74 = load i32, ptr %58, align 8, !tbaa !30
   %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next178, %75
+  %76 = icmp slt i64 %indvars.iv.next180, %75
   br i1 %76, label %71, label %._crit_edge.loopexit, !llvm.loop !86
 
-.thread152:                                       ; preds = %._crit_edge
+.thread154:                                       ; preds = %._crit_edge
   store ptr %70, ptr %67, align 8, !tbaa !33
   %77 = load i32, ptr %60, align 8, !tbaa !30
   store i32 %77, ptr %58, align 8, !tbaa !30
@@ -1255,72 +1255,72 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %81 = sext i32 %80 to i64
   %82 = shl nsw i64 %81, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %82, i1 false)
-  %.pre185 = load i32, ptr %60, align 8, !tbaa !30
+  %.pre187 = load i32, ptr %60, align 8, !tbaa !30
   br label %83
 
-83:                                               ; preds = %.thread152, %57
-  %84 = phi i32 [ %.pre185, %.thread152 ], [ %59, %57 ]
+83:                                               ; preds = %.thread154, %57
+  %84 = phi i32 [ %.pre187, %.thread154 ], [ %59, %57 ]
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph168, label %.thread155
+  br i1 %85, label %.lr.ph170, label %.thread157
 
-.lr.ph168:                                        ; preds = %83
+.lr.ph170:                                        ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %91
 
 87:                                               ; preds = %91
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %88 = load i32, ptr %60, align 8, !tbaa !30
   %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next180, %89
-  br i1 %90, label %91, label %.thread155, !llvm.loop !87
+  %90 = icmp slt i64 %indvars.iv.next182, %89
+  br i1 %90, label %91, label %.thread157, !llvm.loop !87
 
-91:                                               ; preds = %.lr.ph168, %87
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next180, %87 ]
+91:                                               ; preds = %.lr.ph170, %87
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next182, %87 ]
   %92 = load ptr, ptr %86, align 8, !tbaa !33
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv179
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv181
   %94 = load ptr, ptr %55, align 8, !tbaa !33
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv179
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv181
   %96 = load ptr, ptr %95, align 8, !tbaa !42
   %97 = tail call i32 @av_buffer_replace(ptr noundef %93, ptr noundef %96) #8
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread158, label %87
+  br i1 %98, label %.thread160, label %87
 
 99:                                               ; preds = %54
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   %.not136 = icmp eq ptr %101, null
-  br i1 %.not136, label %.thread155, label %.preheader
+  br i1 %.not136, label %.thread157, label %.preheader
 
 .preheader:                                       ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %103 = load i32, ptr %102, align 8, !tbaa !30
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph170, label %._crit_edge171
+  br i1 %104, label %.lr.ph172, label %._crit_edge173
 
-._crit_edge171:                                   ; preds = %.lr.ph170, %.preheader
+._crit_edge173:                                   ; preds = %.lr.ph172, %.preheader
   tail call void @av_freep(ptr noundef nonnull %100) #8
-  br label %.thread155
+  br label %.thread157
 
-.lr.ph170:                                        ; preds = %.preheader, %.lr.ph170
-  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.lr.ph170 ], [ 0, %.preheader ]
+.lr.ph172:                                        ; preds = %.preheader, %.lr.ph172
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph172 ], [ 0, %.preheader ]
   %105 = load ptr, ptr %100, align 8, !tbaa !33
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv182
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv184
   tail call void @av_buffer_unref(ptr noundef %106) #8
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %107 = load i32, ptr %102, align 8, !tbaa !30
   %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %indvars.iv.next183, %108
-  br i1 %109, label %.lr.ph170, label %._crit_edge171, !llvm.loop !88
+  %109 = icmp slt i64 %indvars.iv.next185, %108
+  br i1 %109, label %.lr.ph172, label %._crit_edge173, !llvm.loop !88
 
-.thread155:                                       ; preds = %87, %83, %99, %._crit_edge171
+.thread157:                                       ; preds = %87, %83, %99, %._crit_edge173
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %112 = load ptr, ptr %111, align 8, !tbaa !55
   %113 = tail call i32 @av_buffer_replace(ptr noundef nonnull %110, ptr noundef %112) #8
   %114 = icmp slt i32 %113, 0
-  br i1 %114, label %.thread158, label %115
+  br i1 %114, label %.thread160, label %115
 
-115:                                              ; preds = %.thread155
+115:                                              ; preds = %.thread157
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %117 = load ptr, ptr %116, align 8, !tbaa !24
   %.not139 = icmp eq ptr %117, %0
@@ -1340,11 +1340,11 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %124 = load i32, ptr %123, align 4, !tbaa !50
   %.not141 = icmp eq i32 %124, 0
-  br i1 %.not141, label %.thread158, label %125
+  br i1 %.not141, label %.thread160, label %125
 
 125:                                              ; preds = %122
   %126 = icmp slt i32 %124, 0
-  br i1 %126, label %.thread158, label %127
+  br i1 %126, label %.thread160, label %127
 
 127:                                              ; preds = %125
   %128 = zext nneg i32 %124 to i64
@@ -1352,7 +1352,7 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %130 = tail call ptr @av_memdup(ptr noundef %121, i64 noundef %129) #8
   store ptr %130, ptr %116, align 8, !tbaa !24
   %.not142 = icmp eq ptr %130, null
-  br i1 %.not142, label %.thread158, label %132
+  br i1 %.not142, label %.thread160, label %132
 
 131:                                              ; preds = %119
   store ptr %0, ptr %116, align 8, !tbaa !24
@@ -1365,13 +1365,13 @@ define i32 @av_frame_replace(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %134, i64 32, i1 false)
   br label %135
 
-.thread158:                                       ; preds = %48, %91, %127, %125, %122, %._crit_edge, %.thread155, %40, %23, %20
-  %.0106 = phi i32 [ %38, %23 ], [ %44, %40 ], [ %113, %.thread155 ], [ %21, %20 ], [ -12, %._crit_edge ], [ %113, %125 ], [ -22, %122 ], [ -12, %127 ], [ %97, %91 ], [ %52, %48 ]
+.thread160:                                       ; preds = %48, %91, %127, %125, %122, %._crit_edge, %.thread157, %40, %23, %20
+  %.0106 = phi i32 [ %38, %23 ], [ %44, %40 ], [ %113, %.thread157 ], [ %21, %20 ], [ -12, %._crit_edge ], [ %113, %125 ], [ -22, %122 ], [ -12, %127 ], [ %97, %91 ], [ %52, %48 ]
   tail call void @av_frame_unref(ptr noundef %0)
   br label %135
 
-135:                                              ; preds = %2, %.thread158, %132, %18
-  %.0 = phi i32 [ %.0106, %.thread158 ], [ 0, %132 ], [ %19, %18 ], [ -22, %2 ]
+135:                                              ; preds = %2, %.thread160, %132, %18
+  %.0 = phi i32 [ %.0106, %.thread160 ], [ 0, %132 ], [ %19, %18 ], [ -22, %2 ]
   ret i32 %.0
 }
 

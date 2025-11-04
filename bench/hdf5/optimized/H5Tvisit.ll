@@ -141,8 +141,8 @@ switch.edge:                                      ; preds = %4
 .thread:                                          ; preds = %29, %.preheader, %60, %62, %47
   %69 = and i32 %1, 2
   %.not46 = icmp eq i32 %69, 0
-  %or.cond49 = or i1 %.not46, %switch
-  br i1 %or.cond49, label %77, label %70
+  %or.cond50 = or i1 %.not46, %switch
+  br i1 %or.cond50, label %77, label %70
 
 70:                                               ; preds = %.thread
   %71 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %3) #2
@@ -156,8 +156,8 @@ switch.edge:                                      ; preds = %4
   br label %77
 
 77:                                               ; preds = %43, %4, %.thread, %70, %73, %65, %56, %52, %20
-  %.043 = phi i32 [ -1, %20 ], [ -1, %65 ], [ -1, %73 ], [ 0, %70 ], [ 0, %.thread ], [ -1, %43 ], [ -1, %52 ], [ -1, %56 ], [ 0, %4 ]
-  ret i32 %.043
+  %.042 = phi i32 [ -1, %20 ], [ -1, %65 ], [ -1, %73 ], [ 0, %70 ], [ 0, %.thread ], [ -1, %43 ], [ -1, %52 ], [ -1, %56 ], [ 0, %4 ]
+  ret i32 %.042
 }
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1

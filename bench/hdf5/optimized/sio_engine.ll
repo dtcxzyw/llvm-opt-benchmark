@@ -2060,7 +2060,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
   store ptr %56, ptr @buf_p, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %19, %.preheader, %41, %50, %53
+.loopexit:                                        ; preds = %15, %19, %.preheader, %53, %50, %41
   ret void
 }
 
@@ -2309,9 +2309,9 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   store ptr %57, ptr @buf_p, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %19, %.preheader, %42, %51, %54
-  %.042 = phi i32 [ 0, %54 ], [ -1, %51 ], [ -1, %42 ], [ 0, %.preheader ], [ %20, %19 ], [ %20, %15 ]
-  ret i32 %.042
+.loopexit:                                        ; preds = %15, %19, %.preheader, %54, %51, %42
+  %.3 = phi i32 [ 0, %54 ], [ -1, %51 ], [ -1, %42 ], [ 0, %.preheader ], [ %20, %19 ], [ %20, %15 ]
+  ret i32 %.3
 }
 
 declare i32 @H5Dread(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

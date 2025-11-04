@@ -951,7 +951,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %26 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %27 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !17
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 393, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.11) #7
-  br label %.thread108
+  br label %.thread111
 
 29:                                               ; preds = %22
   %30 = load i32, ptr %9, align 4, !tbaa !18
@@ -959,13 +959,13 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %32 = load i64, ptr %31, align 8, !tbaa !44
   %.not96 = icmp eq i64 %32, 0
-  br i1 %.not96, label %.thread113, label %33
+  br i1 %.not96, label %.thread116, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %35 = load i64, ptr %34, align 8, !tbaa !24
   %.not97 = icmp eq i64 %35, -1
-  br i1 %.not97, label %.thread113, label %36
+  br i1 %.not97, label %.thread116, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -986,7 +986,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %45 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %46 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !17
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 492, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.12) #7
-  br label %.thread103
+  br label %.thread106
 
 48:                                               ; preds = %39
   %49 = load i64, ptr %40, align 8, !tbaa !54
@@ -1002,7 +1002,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %55 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %56 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !17
   %57 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 503, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.13) #7
-  br label %.thread103
+  br label %.thread106
 
 58:                                               ; preds = %51
   %59 = call i64 @H5MF_alloc(ptr noundef %0, i32 noundef 5, i64 noundef %49) #7
@@ -1013,7 +1013,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %62 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %63 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !17
   %64 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 508, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.12) #7
-  br label %.thread103
+  br label %.thread106
 
 65:                                               ; preds = %58
   store i64 %49, ptr %40, align 8, !tbaa !54
@@ -1038,7 +1038,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %73 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %74 = load i64, ptr @H5E_CANTTAG_g, align 8, !tbaa !17
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 520, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.14) #7
-  br label %.thread103
+  br label %.thread106
 
 76:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1058,21 +1058,21 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %85 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !17
   %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 524, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.15) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread103
+  br label %.thread106
 
-.thread103:                                       ; preds = %44, %54, %61, %72, %83
+.thread106:                                       ; preds = %44, %54, %61, %72, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread108
+  br label %.thread111
 
 87:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr null, ptr %20, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread113
+  br label %.thread116
 
 88:                                               ; preds = %36
   %89 = call zeroext i1 @H5F_is_tmp_addr(ptr noundef %0, i64 noundef %38) #7
-  br i1 %89, label %90, label %.thread113
+  br i1 %89, label %90, label %.thread116
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -1085,7 +1085,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %96 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %97 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !17
   %98 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 552, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.12) #7
-  br label %.thread108
+  br label %.thread111
 
 99:                                               ; preds = %90
   %100 = load i64, ptr %91, align 8, !tbaa !54
@@ -1100,17 +1100,17 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %106 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !17
   %107 = load i64, ptr @H5E_CANTMOVE_g, align 8, !tbaa !17
   %108 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 559, i64 noundef %106, i64 noundef %107, ptr noundef nonnull @.str.16) #7
-  br label %.thread108
+  br label %.thread111
 
 109:                                              ; preds = %99
   store i64 %93, ptr %37, align 8, !tbaa !60
-  br label %.thread113
+  br label %.thread116
 
-.thread113:                                       ; preds = %109, %87, %29, %33, %88
+.thread116:                                       ; preds = %109, %87, %29, %33, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %145
 
-.thread108:                                       ; preds = %105, %95, %.thread103, %25
+.thread111:                                       ; preds = %105, %95, %.thread106, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %146
 
@@ -1138,7 +1138,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %122 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %123 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !17
   %124 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 605, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.17) #7
-  br label %.thread117
+  br label %.thread120
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -1151,7 +1151,7 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %131 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %132 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !17
   %133 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 614, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.12) #7
-  br label %.thread117
+  br label %.thread120
 
 134:                                              ; preds = %125
   %135 = load i64, ptr %126, align 8, !tbaa !54
@@ -1166,9 +1166,9 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   %141 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !17
   %142 = load i64, ptr @H5E_CANTMOVE_g, align 8, !tbaa !17
   %143 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__cache_hdr_pre_serialize, i32 noundef 623, i64 noundef %141, i64 noundef %142, ptr noundef nonnull @.str.16) #7
-  br label %.thread117
+  br label %.thread120
 
-.thread117:                                       ; preds = %121, %130, %140
+.thread120:                                       ; preds = %121, %130, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %146
 
@@ -1177,12 +1177,12 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %145
 
-145:                                              ; preds = %144, %.thread113, %113, %110
+145:                                              ; preds = %144, %.thread116, %113, %110
   store i32 0, ptr %6, align 4, !tbaa !18
   br label %146
 
-146:                                              ; preds = %.thread117, %.thread108, %145
-  %.6 = phi i32 [ 0, %145 ], [ -1, %.thread108 ], [ -1, %.thread117 ]
+146:                                              ; preds = %.thread120, %.thread111, %145
+  %.6 = phi i32 [ 0, %145 ], [ -1, %.thread111 ], [ -1, %.thread120 ]
   %147 = load i32, ptr %8, align 4, !tbaa !18
   %.not99 = icmp eq i32 %147, 0
   br i1 %.not99, label %149, label %148
@@ -1192,9 +1192,9 @@ define internal range(i32 -1, 1) i32 @H5FS__cache_hdr_pre_serialize(ptr noundef 
   br label %149
 
 149:                                              ; preds = %7, %148, %146
-  %.0 = phi i32 [ %.6, %148 ], [ %.6, %146 ], [ 0, %7 ]
+  %.079 = phi i32 [ %.6, %148 ], [ %.6, %146 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %.0
+  ret i32 %.079
 }
 
 ; Function Attrs: nounwind uwtable

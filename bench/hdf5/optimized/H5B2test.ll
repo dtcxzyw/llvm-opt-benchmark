@@ -662,7 +662,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %.thread96.thread, !prof !9
+  br i1 %13, label %14, label %.thread99.thread, !prof !9
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -685,14 +685,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %27 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %28 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !10
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 475, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.3) #8
-  br label %.thread96
+  br label %.thread99
 
 30:                                               ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 284
   %32 = load i16, ptr %31, align 4, !tbaa !53
   store i32 -1, ptr %5, align 4, !tbaa !14
-  %.not128 = icmp eq i16 %32, 0
-  br i1 %.not128, label %._crit_edge, label %.lr.ph
+  %.not131 = icmp eq i16 %32, 0
+  br i1 %.not131, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 424
@@ -700,10 +700,10 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %35
 
 35:                                               ; preds = %.lr.ph, %99
-  %.2126 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select86, %99 ]
-  %.075125 = phi i16 [ %32, %.lr.ph ], [ %102, %99 ]
+  %.2129 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select86, %99 ]
+  %.075128 = phi i16 [ %32, %.lr.ph ], [ %102, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %36 = call ptr @H5B2__protect_internal(ptr noundef nonnull %17, ptr noundef %.2126, ptr noundef nonnull %4, i16 noundef zeroext %.075125, i1 noundef zeroext false, i32 noundef 128) #8
+  %36 = call ptr @H5B2__protect_internal(ptr noundef nonnull %17, ptr noundef %.2129, ptr noundef nonnull %4, i16 noundef zeroext %.075128, i1 noundef zeroext false, i32 noundef 128) #8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %42
 
@@ -711,16 +711,16 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %39 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %40 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 486, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.4) #8
-  br label %.thread90
+  br label %.thread93
 
 42:                                               ; preds = %35
-  %.not81 = icmp eq ptr %.2126, null
-  %.not82 = icmp eq ptr %.2126, %17
-  %or.cond87 = or i1 %.not81, %.not82
-  br i1 %or.cond87, label %50, label %43
+  %.not81 = icmp eq ptr %.2129, null
+  %.not82 = icmp eq ptr %.2129, %17
+  %or.cond90 = or i1 %.not81, %.not82
+  br i1 %or.cond90, label %50, label %43
 
 43:                                               ; preds = %42
-  %44 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.2126) #8
+  %44 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.2129) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %50
 
@@ -728,7 +728,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %47 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %48 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !10
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 491, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.5) #8
-  br label %.thread90
+  br label %.thread93
 
 50:                                               ; preds = %43, %42
   %51 = load ptr, ptr %33, align 8, !tbaa !54
@@ -746,7 +746,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %61 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %62 = load i64, ptr @H5E_CANTCOMPARE_g, align 8, !tbaa !10
   %63 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 498, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.6) #8
-  br label %.thread90
+  br label %.thread93
 
 64:                                               ; preds = %50
   %65 = load i32, ptr %5, align 4, !tbaa !14
@@ -761,14 +761,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
 
 69:                                               ; preds = %64
   %.not83 = icmp eq i32 %65, 0
-  br i1 %.not83, label %87, label %._crit_edge145
+  br i1 %.not83, label %87, label %._crit_edge148
 
-._crit_edge145:                                   ; preds = %69
+._crit_edge148:                                   ; preds = %69
   %.pre = load i32, ptr %6, align 4, !tbaa !14
   br label %70
 
-70:                                               ; preds = %._crit_edge145, %.thread
-  %71 = phi i32 [ %.pre, %._crit_edge145 ], [ %68, %.thread ]
+70:                                               ; preds = %._crit_edge148, %.thread
+  %71 = phi i32 [ %.pre, %._crit_edge148 ], [ %68, %.thread ]
   %72 = getelementptr inbounds nuw i8, ptr %36, i64 264
   %73 = load ptr, ptr %72, align 8, !tbaa !59
   %74 = zext i32 %71 to i64
@@ -787,7 +787,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %84 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %85 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %86 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 510, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.7) #8
-  br label %.thread90
+  br label %.thread93
 
 87:                                               ; preds = %69
   %88 = load ptr, ptr %18, align 8, !tbaa !48
@@ -800,27 +800,27 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %93 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %94 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 522, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.7) #8
-  br label %.thread90
+  br label %.thread93
 
 96:                                               ; preds = %87
-  store i16 %.075125, ptr %2, align 2, !tbaa !61
+  store i16 %.075128, ptr %2, align 2, !tbaa !61
   %97 = load i16, ptr %23, align 8, !tbaa !52
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %97, ptr %98, align 2, !tbaa !63
-  br label %.thread90
+  br label %.thread93
 
-.thread90:                                        ; preds = %38, %46, %60, %83, %92, %96
+.thread93:                                        ; preds = %38, %46, %60, %83, %92, %96
   %.373.ph = phi i32 [ 0, %96 ], [ -1, %92 ], [ -1, %83 ], [ -1, %60 ], [ -1, %46 ], [ -1, %38 ]
-  %.3.ph = phi ptr [ null, %96 ], [ null, %92 ], [ null, %83 ], [ null, %60 ], [ %.2126, %46 ], [ %.2126, %38 ]
+  %.3.ph = phi ptr [ null, %96 ], [ null, %92 ], [ null, %83 ], [ null, %60 ], [ %.2129, %46 ], [ %.2129, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread96
+  br label %.thread99
 
 99:                                               ; preds = %70
   %100 = load i8, ptr %20, align 8, !tbaa !51, !range !7, !noundef !8
   %101 = trunc nuw i8 %100 to i1
   %spec.select86 = select i1 %101, ptr %36, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !49
-  %102 = add i16 %.075125, -1
+  %102 = add i16 %.075128, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %103 = icmp ne i16 %102, 0
   %104 = load i32, ptr %5, align 4
@@ -839,13 +839,13 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %110 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %111 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 541, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.8) #8
-  br label %.thread96
+  br label %.thread99
 
 113:                                              ; preds = %._crit_edge
   %.not = icmp eq ptr %.2.lcssa, null
   %.not79 = icmp eq ptr %.2.lcssa, %17
-  %or.cond88 = or i1 %.not, %.not79
-  br i1 %or.cond88, label %121, label %114
+  %or.cond91 = or i1 %.not, %.not79
+  br i1 %or.cond91, label %121, label %114
 
 114:                                              ; preds = %113
   %115 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.2.lcssa) #8
@@ -856,7 +856,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %118 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %119 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !10
   %120 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 546, i64 noundef %118, i64 noundef %119, ptr noundef nonnull @.str.5) #8
-  br label %.thread96
+  br label %.thread99
 
 121:                                              ; preds = %114, %113
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 424
@@ -876,7 +876,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %134 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %135 = load i64, ptr @H5E_CANTCOMPARE_g, align 8, !tbaa !10
   %136 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 552, i64 noundef %134, i64 noundef %135, ptr noundef nonnull @.str.6) #8
-  br label %.thread96.thread
+  br label %.thread99.thread
 
 137:                                              ; preds = %121
   %138 = load ptr, ptr %18, align 8, !tbaa !48
@@ -889,51 +889,51 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %143 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %144 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %145 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 556, i64 noundef %143, i64 noundef %144, ptr noundef nonnull @.str.7) #8
-  br label %.thread96.thread
+  br label %.thread99.thread
 
 146:                                              ; preds = %137
   %147 = load i32, ptr %5, align 4, !tbaa !14
   %.not80 = icmp eq i32 %147, 0
-  br i1 %.not80, label %.thread100, label %148
+  br i1 %.not80, label %.thread103, label %148
 
 148:                                              ; preds = %146
   %149 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %150 = load i64, ptr @H5E_NOTFOUND_g, align 8, !tbaa !10
   %151 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 560, i64 noundef %149, i64 noundef %150, ptr noundef nonnull @.str.9) #8
-  br label %.thread96.thread
+  br label %.thread99.thread
 
-.thread100:                                       ; preds = %146
+.thread103:                                       ; preds = %146
   store i16 %.075.lcssa, ptr %2, align 2, !tbaa !61
   %152 = load i16, ptr %23, align 8, !tbaa !52
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %152, ptr %153, align 2, !tbaa !63
-  br label %.thread96.thread
+  br label %.thread99.thread
 
-.thread96:                                        ; preds = %117, %109, %.thread90, %26
-  %.171 = phi i32 [ -1, %26 ], [ %.373.ph, %.thread90 ], [ -1, %109 ], [ -1, %117 ]
-  %.169 = phi ptr [ %spec.select, %26 ], [ %.3.ph, %.thread90 ], [ %.2.lcssa, %109 ], [ %.2.lcssa, %117 ]
+.thread99:                                        ; preds = %117, %109, %.thread93, %26
+  %.171 = phi i32 [ -1, %26 ], [ %.373.ph, %.thread93 ], [ -1, %109 ], [ -1, %117 ]
+  %.169 = phi ptr [ %spec.select, %26 ], [ %.3.ph, %.thread93 ], [ %.2.lcssa, %109 ], [ %.2.lcssa, %117 ]
   %.not84 = icmp eq ptr %.169, null
   %.not85 = icmp eq ptr %.169, %17
   %or.cond = or i1 %.not84, %.not85
-  br i1 %or.cond, label %.thread96.thread, label %154
+  br i1 %or.cond, label %.thread99.thread, label %154
 
-154:                                              ; preds = %.thread96
+154:                                              ; preds = %.thread99
   %155 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.169) #8
   %156 = icmp slt i32 %155, 0
-  br i1 %156, label %157, label %.thread96.thread
+  br i1 %156, label %157, label %.thread99.thread
 
 157:                                              ; preds = %154
   %158 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %159 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !10
   %160 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5B2__get_node_info_test, i32 noundef 571, i64 noundef %158, i64 noundef %159, ptr noundef nonnull @.str.5) #8
-  br label %.thread96.thread
+  br label %.thread99.thread
 
-.thread96.thread:                                 ; preds = %133, %142, %148, %.thread100, %3, %154, %157, %.thread96
-  %.0 = phi i32 [ -1, %157 ], [ %.171, %154 ], [ %.171, %.thread96 ], [ 0, %3 ], [ 0, %.thread100 ], [ -1, %148 ], [ -1, %142 ], [ -1, %133 ]
+.thread99.thread:                                 ; preds = %133, %142, %148, %.thread103, %3, %154, %157, %.thread99
+  %.070 = phi i32 [ -1, %157 ], [ %.171, %154 ], [ %.171, %.thread99 ], [ 0, %3 ], [ 0, %.thread103 ], [ -1, %148 ], [ -1, %142 ], [ -1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0
+  ret i32 %.070
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

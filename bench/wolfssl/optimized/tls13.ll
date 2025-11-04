@@ -2622,13 +2622,13 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
 20:                                               ; preds = %16
   %.not131 = icmp ne i8 %.sroa.0.sroa.0.0.extract.trunc, 3
   %21 = icmp ugt i16 %12, 1023
-  %or.cond255 = or i1 %21, %.not131
-  br i1 %or.cond255, label %22, label %24
+  %or.cond257 = or i1 %21, %.not131
+  br i1 %or.cond257, label %22, label %24
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 711
   store i8 3, ptr %23, align 1, !tbaa !51
-  br label %.thread236
+  br label %.thread238
 
 24:                                               ; preds = %20
   %.not132 = icmp eq i16 %.sroa.0.sroa.6.0.extract.shift, 3
@@ -2637,7 +2637,7 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 711
   store i8 %.sroa.0.sroa.6.0.extract.trunc, ptr %26, align 1, !tbaa !51
-  br label %.thread236
+  br label %.thread238
 
 27:                                               ; preds = %24, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2665,8 +2665,8 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
   %42 = zext i8 %.val50.i to i32
   %43 = or disjoint i32 %41, %42
   %44 = add nuw nsw i32 %43, %34
-  %.not256 = icmp ult i32 %44, %3
-  br i1 %.not256, label %45, label %DoTls13SupportedVersions.exit.thread
+  %.not258 = icmp ult i32 %44, %3
+  br i1 %.not258, label %45, label %DoTls13SupportedVersions.exit.thread
 
 45:                                               ; preds = %36
   %46 = add nuw nsw i32 %44, 1
@@ -2680,7 +2680,7 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
 
 53:                                               ; preds = %45
   %54 = icmp ult i32 %51, %3
-  br i1 %54, label %55, label %.thread246
+  br i1 %54, label %55, label %.thread248
 
 55:                                               ; preds = %53
   %56 = add nuw nsw i32 %51, 2
@@ -2712,7 +2712,7 @@ define i32 @DoTls13ClientHello(ptr noundef initializes((1050, 1051)) %0, ptr nou
 72:                                               ; preds = %68
   %.pre.i = load i32, ptr %5, align 4, !tbaa !109
   %73 = icmp eq i32 %.pre.i, 0
-  br i1 %73, label %.thread246, label %75
+  br i1 %73, label %.thread248, label %75
 
 DoTls13SupportedVersions.exit.thread:             ; preds = %27, %33, %36, %45, %55, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2721,11 +2721,11 @@ DoTls13SupportedVersions.exit.thread:             ; preds = %27, %33, %36, %45, 
 DoTls13SupportedVersions.exit:                    ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = icmp slt i32 %71, 0
-  br i1 %74, label %DeriveEarlySecret.exit, label %.thread241
+  br i1 %74, label %DeriveEarlySecret.exit, label %.thread243
 
-.thread246:                                       ; preds = %53, %72
+.thread248:                                       ; preds = %53, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread236
+  br label %.thread238
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 710
@@ -2733,16 +2733,16 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
   %78 = call i32 @IsAtLeastTLSv1_3(i16 %77) #11
   %.not47.i.not = icmp eq i32 %78, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not47.i.not, label %.thread236, label %.thread241
+  br i1 %.not47.i.not, label %.thread238, label %.thread243
 
-.thread236:                                       ; preds = %25, %22, %.thread246, %75
-  %.sroa.0.sroa.6.0226240 = phi i8 [ %.sroa.0.sroa.6.0.extract.trunc, %75 ], [ %.sroa.0.sroa.6.0.extract.trunc, %.thread246 ], [ %.sroa.0.sroa.6.0.extract.trunc, %25 ], [ 3, %22 ]
+.thread238:                                       ; preds = %25, %22, %.thread248, %75
+  %.sroa.0.sroa.6.0228242 = phi i8 [ %.sroa.0.sroa.6.0.extract.trunc, %75 ], [ %.sroa.0.sroa.6.0.extract.trunc, %.thread248 ], [ %.sroa.0.sroa.6.0.extract.trunc, %25 ], [ 3, %22 ]
   %79 = load i64, ptr %17, align 8
   %80 = and i64 %79, 1024
   %.not144 = icmp eq i64 %80, 0
   br i1 %.not144, label %DeriveEarlySecret.exit, label %81
 
-81:                                               ; preds = %.thread236
+81:                                               ; preds = %.thread238
   %82 = and i64 %79, 131072
   %.not145 = icmp eq i64 %82, 0
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1047
@@ -2750,27 +2750,27 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
   br i1 %.not145, label %85, label %87
 
 85:                                               ; preds = %81
-  %86 = icmp ult i8 %.sroa.0.sroa.6.0226240, %84
-  br i1 %86, label %DeriveEarlySecret.exit, label %.thread249
+  %86 = icmp ult i8 %.sroa.0.sroa.6.0228242, %84
+  br i1 %86, label %DeriveEarlySecret.exit, label %.thread251
 
 87:                                               ; preds = %81
-  %88 = icmp ugt i8 %.sroa.0.sroa.6.0226240, %84
-  br i1 %88, label %DeriveEarlySecret.exit, label %.thread249
+  %88 = icmp ugt i8 %.sroa.0.sroa.6.0228242, %84
+  br i1 %88, label %DeriveEarlySecret.exit, label %.thread251
 
-.thread249:                                       ; preds = %85, %87
+.thread251:                                       ; preds = %85, %87
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 711
   %90 = load i8, ptr %89, align 1, !tbaa !51
-  store i8 %.sroa.0.sroa.6.0226240, ptr %89, align 1, !tbaa !51
+  store i8 %.sroa.0.sroa.6.0228242, ptr %89, align 1, !tbaa !51
   %91 = call i32 @HashInput(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef %3) #11
   store i8 %90, ptr %89, align 1, !tbaa !51
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %DeriveEarlySecret.exit
 
-93:                                               ; preds = %.thread249
+93:                                               ; preds = %.thread251
   %94 = call i32 @DoClientHello(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #11
   br label %DeriveEarlySecret.exit
 
-.thread241:                                       ; preds = %DoTls13SupportedVersions.exit, %75
+.thread243:                                       ; preds = %DoTls13SupportedVersions.exit, %75
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !45
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 28
@@ -2785,7 +2785,7 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
   %105 = icmp ugt i8 %104, 32
   br i1 %105, label %DeriveEarlySecret.exit, label %106
 
-106:                                              ; preds = %.thread241
+106:                                              ; preds = %.thread243
   %107 = zext nneg i8 %104 to i32
   %108 = add i32 %101, %107
   %109 = icmp ugt i32 %108, %3
@@ -2831,12 +2831,12 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
 129:                                              ; preds = %126
   %130 = zext i32 %108 to i64
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 %130
-  %.val158 = load i8, ptr %131, align 1, !tbaa !57
+  %.val161 = load i8, ptr %131, align 1, !tbaa !57
   %132 = getelementptr i8, ptr %131, i64 1
-  %.val159 = load i8, ptr %132, align 1, !tbaa !57
-  %133 = zext i8 %.val158 to i16
+  %.val162 = load i8, ptr %132, align 1, !tbaa !57
+  %133 = zext i8 %.val161 to i16
   %134 = shl nuw i16 %133, 8
-  %135 = zext i8 %.val159 to i16
+  %135 = zext i8 %.val162 to i16
   %136 = or disjoint i16 %134, %135
   store i16 %136, ptr %124, align 2, !tbaa !119
   %137 = add i32 %108, 2
@@ -2893,18 +2893,18 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
   %172 = icmp eq i32 %171, %3
   %173 = add i32 %171, 2
   %174 = icmp ugt i32 %173, %3
-  %or.cond156 = or i1 %172, %174
-  br i1 %or.cond156, label %DeriveEarlySecret.exit, label %175
+  %or.cond159 = or i1 %172, %174
+  br i1 %or.cond159, label %DeriveEarlySecret.exit, label %175
 
 175:                                              ; preds = %170
   %176 = zext i32 %166 to i64
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 %176
   %.val = load i8, ptr %177, align 1, !tbaa !57
   %178 = getelementptr i8, ptr %177, i64 1
-  %.val157 = load i8, ptr %178, align 1, !tbaa !57
+  %.val160 = load i8, ptr %178, align 1, !tbaa !57
   %179 = zext i8 %.val to i16
   %180 = shl nuw i16 %179, 8
-  %181 = zext i8 %.val157 to i16
+  %181 = zext i8 %.val160 to i16
   %182 = or disjoint i16 %180, %181
   %183 = add i32 %154, 4
   %184 = sub i32 %183, %7
@@ -2986,25 +2986,25 @@ DoTls13SupportedVersions.exit:                    ; preds = %68
   %switch.selectcmp2.i.i = icmp eq i8 %227, 4
   %switch.select3.i.i = select i1 %switch.selectcmp2.i.i, i32 6, i32 %switch.select.i.i
   %228 = getelementptr i8, ptr %0, i64 176
-  %.val.i160 = load ptr, ptr %228, align 16, !tbaa !43
+  %.val.i163 = load ptr, ptr %228, align 16, !tbaa !43
   %229 = getelementptr i8, ptr %0, i64 1204
   %.val9.i = load i32, ptr %229, align 4, !tbaa !44
-  %230 = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %224, ptr noundef null, i32 noundef 0, ptr noundef nonnull %225, i32 noundef 0, i32 noundef range(i32 0, 8) %switch.select3.i.i, ptr noundef %.val.i160, i32 noundef %.val9.i) #11
+  %230 = call i32 @wc_Tls13_HKDF_Extract_ex(ptr noundef nonnull %224, ptr noundef null, i32 noundef 0, ptr noundef nonnull %225, i32 noundef 0, i32 noundef range(i32 0, 8) %switch.select3.i.i, ptr noundef %.val.i163, i32 noundef %.val9.i) #11
   br label %DeriveEarlySecret.exit
 
-DeriveEarlySecret.exit:                           ; preds = %208, %DoTls13SupportedVersions.exit.thread, %203, %197, %195, %190, %188, %175, %170, %165, %164, %146, %140, %129, %126, %123, %106, %.thread241, %.thread236, %85, %87, %93, %.thread249, %DoTls13SupportedVersions.exit, %9, %4, %223, %220, %216, %213
-  %.11 = phi i32 [ %214, %213 ], [ -501, %216 ], [ %230, %223 ], [ -173, %220 ], [ -328, %DoTls13SupportedVersions.exit.thread ], [ -310, %203 ], [ %202, %197 ], [ %196, %195 ], [ %194, %190 ], [ %189, %188 ], [ -328, %175 ], [ -328, %170 ], [ -425, %165 ], [ -425, %164 ], [ -328, %146 ], [ -328, %140 ], [ -425, %129 ], [ -328, %126 ], [ -125, %123 ], [ -328, %106 ], [ -425, %.thread241 ], [ %91, %.thread249 ], [ %94, %93 ], [ -326, %87 ], [ -326, %85 ], [ -326, %.thread236 ], [ %71, %DoTls13SupportedVersions.exit ], [ -326, %9 ], [ -328, %4 ], [ -310, %208 ]
+DeriveEarlySecret.exit:                           ; preds = %208, %DoTls13SupportedVersions.exit.thread, %203, %197, %195, %190, %188, %175, %170, %165, %164, %146, %140, %129, %126, %123, %106, %.thread243, %.thread238, %85, %87, %93, %.thread251, %DoTls13SupportedVersions.exit, %9, %4, %223, %220, %216, %213
+  %.11 = phi i32 [ %214, %213 ], [ -501, %216 ], [ %230, %223 ], [ -173, %220 ], [ -328, %DoTls13SupportedVersions.exit.thread ], [ -310, %203 ], [ %202, %197 ], [ %196, %195 ], [ %194, %190 ], [ %189, %188 ], [ -328, %175 ], [ -328, %170 ], [ -425, %165 ], [ -425, %164 ], [ -328, %146 ], [ -328, %140 ], [ -425, %129 ], [ -328, %126 ], [ -125, %123 ], [ -328, %106 ], [ -425, %.thread243 ], [ %91, %.thread251 ], [ %94, %93 ], [ -326, %87 ], [ -326, %85 ], [ -326, %.thread238 ], [ %71, %DoTls13SupportedVersions.exit ], [ -326, %9 ], [ -328, %4 ], [ -310, %208 ]
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %232 = load ptr, ptr %231, align 16, !tbaa !118
-  %.not.i162 = icmp eq ptr %232, null
-  br i1 %.not.i162, label %FreeDch13Args.exit, label %233
+  %.not.i165 = icmp eq ptr %232, null
+  br i1 %.not.i165, label %FreeDch13Args.exit, label %233
 
 233:                                              ; preds = %DeriveEarlySecret.exit
   call void @wolfSSL_Free(ptr noundef nonnull %232) #11
   store ptr null, ptr %231, align 16, !tbaa !118
   br label %FreeDch13Args.exit
 
-FreeDch13Args.exit:                               ; preds = %233, %DeriveEarlySecret.exit
+FreeDch13Args.exit:                               ; preds = %DeriveEarlySecret.exit, %233
   ret i32 %.11
 }
 
@@ -4581,7 +4581,7 @@ define internal fastcc i32 @DoTls13CertificateVerify(ptr noundef initializes((10
   store i32 %12, ptr %14, align 8, !tbaa !136
   store i8 1, ptr %9, align 2, !tbaa !100
   %15 = icmp ult i32 %3, 2
-  br i1 %15, label %.thread148.thread, label %16
+  br i1 %15, label %.thread151.thread, label %16
 
 16:                                               ; preds = %4
   %17 = zext i32 %12 to i64
@@ -4602,7 +4602,7 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %.0.i.i = select i1 %22, i8 %switch.masked, i8 0
   store i8 %.0.i.i, ptr %10, align 1, !tbaa !57
   %23 = load i8, ptr %20, align 1, !tbaa !57
-  switch i8 %23, label %.thread169 [
+  switch i8 %23, label %.thread172 [
     i8 11, label %26
     i8 10, label %26
     i8 9, label %26
@@ -4623,7 +4623,7 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %27 = add i32 %12, 2
   store i32 %27, ptr %13, align 4, !tbaa !134
   %28 = icmp ult i32 %3, 4
-  br i1 %28, label %.thread148.thread, label %29
+  br i1 %28, label %.thread151.thread, label %29
 
 29:                                               ; preds = %26
   %30 = zext i32 %27 to i64
@@ -4631,10 +4631,10 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.val = load i8, ptr %31, align 1, !tbaa !57
   %33 = getelementptr i8, ptr %31, i64 1
-  %.val136 = load i8, ptr %33, align 1, !tbaa !57
+  %.val139 = load i8, ptr %33, align 1, !tbaa !57
   %34 = zext i8 %.val to i16
   %35 = shl nuw i16 %34, 8
-  %36 = zext i8 %.val136 to i16
+  %36 = zext i8 %.val139 to i16
   %37 = or disjoint i16 %35, %36
   store i16 %37, ptr %32, align 4, !tbaa !119
   %38 = add i32 %12, 4
@@ -4644,12 +4644,12 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %41 = icmp ugt i32 %40, %3
   %42 = icmp ugt i16 %37, 512
   %or.cond = or i1 %42, %41
-  br i1 %or.cond, label %.thread148.thread, label %43
+  br i1 %or.cond, label %.thread151.thread, label %43
 
 43:                                               ; preds = %29
-  switch i8 %.sink.i, label %.thread148.thread [
+  switch i8 %.sink.i, label %.thread151.thread [
     i8 3, label %44
-    i8 1, label %.thread169
+    i8 1, label %.thread172
     i8 8, label %47
   ]
 
@@ -4657,20 +4657,20 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %46 = load ptr, ptr %45, align 16, !tbaa !137
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.thread148.thread, label %.thread
+  br i1 %.not, label %.thread151.thread, label %.thread
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %49 = load ptr, ptr %48, align 16, !tbaa !138
   %.not123 = icmp eq ptr %49, null
-  br i1 %.not123, label %.thread148.thread, label %.thread
+  br i1 %.not123, label %.thread151.thread, label %.thread
 
 .thread:                                          ; preds = %47, %44
   %.sink = phi i64 [ 1194, %44 ], [ 1080, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.1107.in.in = load i8, ptr %50, align 2, !tbaa !57
   %.1107.in.not = icmp eq i8 %.1107.in.in, 0
-  br i1 %.1107.in.not, label %.thread148.thread, label %51
+  br i1 %.1107.in.not, label %.thread151.thread, label %51
 
 51:                                               ; preds = %.thread
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4691,7 +4691,7 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %60 = tail call ptr @wolfSSL_Malloc(i64 noundef %59) #11
   store ptr %60, ptr %8, align 8, !tbaa !141
   %.not127 = icmp eq ptr %60, null
-  br i1 %.not127, label %.thread148.thread, label %61
+  br i1 %.not127, label %.thread151.thread, label %61
 
 61:                                               ; preds = %58
   %62 = zext i32 %38 to i64
@@ -4706,13 +4706,13 @@ GetNewSAHashAlgo.exit.i:                          ; preds = %16
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %66, ptr %67, align 16, !tbaa !143
   %68 = icmp eq ptr %66, null
-  br i1 %68, label %.thread148.thread, label %69
+  br i1 %68, label %.thread151.thread, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %71 = call i32 @CreateSigData(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef nonnull %70, i32 noundef 1)
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.thread148, label %73
+  br i1 %72, label %.thread151, label %73
 
 73:                                               ; preds = %69
   %74 = load i8, ptr %11, align 2, !tbaa !133
@@ -4738,7 +4738,7 @@ thread-pre-split.thread:                          ; preds = %76
   %85 = zext i8 %84 to i32
   %86 = tail call fastcc i32 @CreateECCEncodedSig(ptr noundef %81, i32 noundef %83, i32 noundef %85)
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.thread148, label %88
+  br i1 %87, label %.thread151, label %88
 
 88:                                               ; preds = %80
   %89 = trunc i32 %86 to i16
@@ -4803,7 +4803,7 @@ thread-pre-split:                                 ; preds = %88, %73
   %121 = load ptr, ptr %120, align 16, !tbaa !137
   %122 = call i32 @EccVerify(ptr noundef nonnull %0, ptr noundef %109, i32 noundef %116, ptr noundef %117, i32 noundef %119, ptr noundef %121, ptr noundef null) #11
   %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %124, label %.thread148
+  br i1 %123, label %124, label %.thread151
 
 124:                                              ; preds = %115
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -4817,7 +4817,7 @@ thread-pre-split:                                 ; preds = %88, %73
 128:                                              ; preds = %124, %112, %108
   %.7 = phi i32 [ %122, %124 ], [ %.6, %112 ], [ %.6, %108 ]
   %.not132 = icmp eq i32 %.7, 0
-  br i1 %.not132, label %129, label %.thread148
+  br i1 %.not132, label %129, label %.thread151
 
 129:                                              ; preds = %128
   store i8 3, ptr %9, align 2, !tbaa !100
@@ -4888,7 +4888,7 @@ thread-pre-split:                                 ; preds = %88, %73
 GetMsgHash.exit.i.i:                              ; preds = %159, %153
   %.0.i.i.i = phi i32 [ %157, %153 ], [ %163, %159 ]
   %165 = icmp slt i32 %.0.i.i.i, 0
-  br i1 %165, label %.thread148.sink.split, label %166
+  br i1 %165, label %.thread151.sink.split, label %166
 
 166:                                              ; preds = %GetMsgHash.exit.i.i, %159, %153, %149
   %.0.i36.i.i = phi i32 [ %.0.i.i.i, %GetMsgHash.exit.i.i ], [ 0, %149 ], [ 32, %153 ], [ 48, %159 ]
@@ -4905,18 +4905,18 @@ CheckRSASignature.exit.thread:                    ; preds = %166
   store i32 0, ptr %6, align 4, !tbaa !109
   %170 = call i32 @ConvertHashPss(i32 noundef range(i32 0, 256) %137, ptr noundef nonnull %6, ptr noundef null) #11
   %171 = icmp slt i32 %170, 0
-  br i1 %171, label %CheckRSASignature.exit.thread161, label %172
+  br i1 %171, label %CheckRSASignature.exit.thread164, label %172
 
 172:                                              ; preds = %169
   %173 = and i32 %167, 65535
   %174 = call i32 @CreateRSAEncodedSig(ptr noundef nonnull %5, ptr noundef nonnull %5, i32 noundef %173, i32 poison, i32 noundef range(i32 0, 256) %137)
   %175 = icmp slt i32 %174, 0
-  br i1 %175, label %CheckRSASignature.exit.thread161, label %CheckRSASignature.exit
+  br i1 %175, label %CheckRSASignature.exit.thread164, label %CheckRSASignature.exit
 
-CheckRSASignature.exit.thread161:                 ; preds = %172, %169
+CheckRSASignature.exit.thread164:                 ; preds = %172, %169
   %.0.ph.i.ph = phi i32 [ %170, %169 ], [ %174, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread148.sink.split
+  br label %.thread151.sink.split
 
 CheckRSASignature.exit:                           ; preds = %172
   %176 = load i32, ptr %6, align 4, !tbaa !109
@@ -4924,7 +4924,7 @@ CheckRSASignature.exit:                           ; preds = %172
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not135 = icmp eq i32 %177, 0
-  br i1 %.not135, label %178, label %.thread148
+  br i1 %.not135, label %178, label %.thread151
 
 178:                                              ; preds = %CheckRSASignature.exit, %CheckRSASignature.exit.thread
   store i8 0, ptr %132, align 8, !tbaa !140
@@ -4953,45 +4953,45 @@ CheckRSASignature.exit:                           ; preds = %172
   %192 = load i64, ptr %182, align 8
   %193 = and i64 %192, 48
   %194 = icmp eq i64 %193, 16
-  br i1 %194, label %195, label %.thread169
+  br i1 %194, label %195, label %.thread172
 
 195:                                              ; preds = %181
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1043
   store i8 6, ptr %196, align 1, !tbaa !114
-  br label %.thread169
+  br label %.thread172
 
-.thread148.sink.split:                            ; preds = %GetMsgHash.exit.i.i, %CheckRSASignature.exit.thread161
-  %.9.ph = phi i32 [ %.0.ph.i.ph, %CheckRSASignature.exit.thread161 ], [ %.0.i.i.i, %GetMsgHash.exit.i.i ]
+.thread151.sink.split:                            ; preds = %GetMsgHash.exit.i.i, %CheckRSASignature.exit.thread164
+  %.9.ph = phi i32 [ %.0.ph.i.ph, %CheckRSASignature.exit.thread164 ], [ %.0.i.i.i, %GetMsgHash.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread148
+  br label %.thread151
 
-.thread148:                                       ; preds = %.thread148.sink.split, %CheckRSASignature.exit, %115, %80, %69, %128
-  %.9 = phi i32 [ %.7, %128 ], [ %86, %80 ], [ %71, %69 ], [ %122, %115 ], [ %177, %CheckRSASignature.exit ], [ %.9.ph, %.thread148.sink.split ]
+.thread151:                                       ; preds = %.thread151.sink.split, %CheckRSASignature.exit, %115, %80, %69, %128
+  %.9 = phi i32 [ %.7, %128 ], [ %86, %80 ], [ %71, %69 ], [ %122, %115 ], [ %177, %CheckRSASignature.exit ], [ %.9.ph, %.thread151.sink.split ]
   %cond = icmp eq i32 %.9, -425
-  br i1 %cond, label %.thread169, label %.thread148.thread
+  br i1 %cond, label %.thread172, label %.thread151.thread
 
-.thread148.thread:                                ; preds = %43, %.thread148, %47, %44, %58, %4, %26, %29, %.thread, %65
-  %.9175 = phi i32 [ %.9, %.thread148 ], [ -125, %58 ], [ -328, %4 ], [ -328, %26 ], [ -328, %29 ], [ -229, %.thread ], [ -125, %65 ], [ -229, %44 ], [ -229, %47 ], [ -229, %43 ]
+.thread151.thread:                                ; preds = %43, %.thread151, %47, %44, %58, %4, %26, %29, %.thread, %65
+  %.9178 = phi i32 [ %.9, %.thread151 ], [ -125, %58 ], [ -328, %4 ], [ -328, %26 ], [ -328, %29 ], [ -229, %.thread ], [ -125, %65 ], [ -229, %44 ], [ -229, %47 ], [ -229, %43 ]
   %197 = call i32 @SendAlert(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 51) #11
-  br label %.thread169
+  br label %.thread172
 
-.thread169:                                       ; preds = %GetNewSAHashAlgo.exit.i, %43, %.thread148, %181, %195, %.thread148.thread
-  %.9171 = phi i32 [ -425, %.thread148 ], [ %.9175, %.thread148.thread ], [ 0, %195 ], [ 0, %181 ], [ -425, %GetNewSAHashAlgo.exit.i ], [ -425, %43 ]
+.thread172:                                       ; preds = %GetNewSAHashAlgo.exit.i, %43, %.thread151, %181, %195, %.thread151.thread
+  %.9174 = phi i32 [ -425, %.thread151 ], [ %.9178, %.thread151.thread ], [ 0, %195 ], [ 0, %181 ], [ -425, %GetNewSAHashAlgo.exit.i ], [ -425, %43 ]
   %198 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %199 = load ptr, ptr %198, align 16, !tbaa !143
   %.not.i = icmp eq ptr %199, null
-  br i1 %.not.i, label %201, label %200
+  br i1 %.not.i, label %FreeDcv13Args.exit, label %200
 
-200:                                              ; preds = %.thread169
+200:                                              ; preds = %.thread172
   call void @wolfSSL_Free(ptr noundef nonnull %199) #11
   store ptr null, ptr %198, align 16, !tbaa !143
-  br label %201
+  br label %FreeDcv13Args.exit
 
-201:                                              ; preds = %200, %.thread169
+FreeDcv13Args.exit:                               ; preds = %.thread172, %200
   call void @FreeKeyExchange(ptr noundef nonnull %0) #11
   call void @FreeAsyncCtx(ptr noundef nonnull %0, i8 noundef zeroext 0) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.9171
+  ret i32 %.9174
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6182,10 +6182,10 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
   %39 = load i32, ptr %38, align 8, !tbaa !171
   switch i32 %39, label %.thread [
     i32 10, label %43
-    i32 37, label %.thread152
+    i32 37, label %.thread155
   ]
 
-.thread152:                                       ; preds = %37
+.thread155:                                       ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 30
   store i8 3, ptr %40, align 2, !tbaa !172
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1039
@@ -6199,10 +6199,10 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
   %46 = load i8, ptr %45, align 1, !tbaa !173
   br label %EncodeSigAlg.exit
 
-EncodeSigAlg.exit:                                ; preds = %43, %.thread152
-  %47 = phi ptr [ %45, %43 ], [ %41, %.thread152 ]
-  %.sink7.i = phi i8 [ 8, %43 ], [ %42, %.thread152 ]
-  %.sink.i = phi i8 [ %46, %43 ], [ 3, %.thread152 ]
+EncodeSigAlg.exit:                                ; preds = %43, %.thread155
+  %47 = phi ptr [ %45, %43 ], [ %41, %.thread155 ]
+  %.sink7.i = phi i8 [ 8, %43 ], [ %42, %.thread155 ]
+  %.sink.i = phi i8 [ %46, %43 ], [ 3, %.thread155 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %49 = load ptr, ptr %23, align 8, !tbaa !169
   store i8 %.sink7.i, ptr %49, align 1, !tbaa !57
@@ -6264,9 +6264,9 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
 81:                                               ; preds = %80, %65
   %82 = phi i32 [ %.pr, %80 ], [ %66, %65 ]
   %83 = icmp eq i32 %82, 37
-  br i1 %83, label %86, label %.thread113.thread
+  br i1 %83, label %86, label %.thread116.thread
 
-.thread113.thread:                                ; preds = %81
+.thread116.thread:                                ; preds = %81
   store i8 2, ptr %5, align 2, !tbaa !100
   %84 = load ptr, ptr %23, align 8, !tbaa !169
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -6285,9 +6285,9 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %95 = zext i8 %94 to i32
   %96 = call fastcc i32 @CreateECCEncodedSig(ptr noundef %91, i32 noundef %93, i32 noundef %95)
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %.thread, label %.thread113
+  br i1 %97, label %.thread, label %.thread116
 
-.thread113:                                       ; preds = %86
+.thread116:                                       ; preds = %86
   %98 = trunc i32 %96 to i16
   store i16 %98, ptr %63, align 8, !tbaa !175
   %.pre = load i32, ptr %38, align 8, !tbaa !171
@@ -6297,7 +6297,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %101 = icmp eq i32 %.pre, 37
   br i1 %101, label %102, label %112
 
-102:                                              ; preds = %.thread113
+102:                                              ; preds = %.thread116
   %103 = load ptr, ptr %51, align 16, !tbaa !174
   %104 = load i16, ptr %63, align 8, !tbaa !175
   %105 = zext i16 %104 to i32
@@ -6308,13 +6308,13 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %110 = trunc i32 %109 to i16
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i16 %110, ptr %111, align 4, !tbaa !177
-  %.pr117 = load i32, ptr %38, align 8, !tbaa !171
+  %.pr120 = load i32, ptr %38, align 8, !tbaa !171
   br label %112
 
-112:                                              ; preds = %.thread113.thread, %102, %.thread113
-  %113 = phi ptr [ %100, %102 ], [ %100, %.thread113 ], [ %85, %.thread113.thread ]
-  %114 = phi i32 [ %.pr117, %102 ], [ %.pre, %.thread113 ], [ %82, %.thread113.thread ]
-  %.6 = phi i32 [ %108, %102 ], [ 0, %.thread113 ], [ 0, %.thread113.thread ]
+112:                                              ; preds = %.thread116.thread, %102, %.thread116
+  %113 = phi ptr [ %100, %102 ], [ %100, %.thread116 ], [ %85, %.thread116.thread ]
+  %114 = phi i32 [ %.pr120, %102 ], [ %.pre, %.thread116 ], [ %82, %.thread116.thread ]
+  %.6 = phi i32 [ %108, %102 ], [ 0, %.thread116 ], [ 0, %.thread116.thread ]
   %115 = icmp eq i32 %114, 10
   br i1 %115, label %116, label %136
 
@@ -6335,9 +6335,9 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %128 = load ptr, ptr %24, align 16, !tbaa !131
   %129 = call i32 @RsaSign(ptr noundef nonnull %0, ptr noundef %117, i32 noundef %120, ptr noundef nonnull %113, ptr noundef nonnull %28, i32 noundef %123, i32 noundef %125, ptr noundef %127, ptr noundef %128) #11
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.thread118, label %.thread
+  br i1 %130, label %.thread121, label %.thread
 
-.thread118:                                       ; preds = %116
+.thread121:                                       ; preds = %116
   %131 = load i32, ptr %28, align 4, !tbaa !170
   %132 = trunc i32 %131 to i16
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -6351,7 +6351,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %.not108 = icmp eq i32 %.6, 0
   br i1 %.not108, label %137, label %.thread
 
-137:                                              ; preds = %.thread118, %136
+137:                                              ; preds = %.thread121, %136
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %139 = load i16, ptr %138, align 4, !tbaa !177
   %140 = load ptr, ptr %23, align 8, !tbaa !169
@@ -6365,7 +6365,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   store i8 3, ptr %5, align 2, !tbaa !100
   %146 = load i32, ptr %38, align 8, !tbaa !171
   %147 = icmp eq i32 %146, 10
-  br i1 %147, label %148, label %.thread130
+  br i1 %147, label %148, label %.thread133
 
 148:                                              ; preds = %137
   %149 = load ptr, ptr %51, align 16, !tbaa !174
@@ -6382,9 +6382,9 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %160 = load ptr, ptr %24, align 16, !tbaa !131
   %161 = call i32 @VerifyRsaSign(ptr noundef nonnull %0, ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %153, i32 noundef %155, i32 noundef %157, ptr noundef %159, ptr noundef %160) #11
   %.not109 = icmp eq i32 %161, 0
-  br i1 %.not109, label %.thread130, label %.thread
+  br i1 %.not109, label %.thread133, label %.thread
 
-.thread130:                                       ; preds = %137, %148
+.thread133:                                       ; preds = %137, %148
   %162 = load ptr, ptr %2, align 16, !tbaa !166
   %163 = load i16, ptr %138, align 4, !tbaa !177
   %164 = zext i16 %163 to i32
@@ -6429,7 +6429,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %191 = icmp slt i32 %190, 0
   br i1 %191, label %.thread, label %192
 
-192:                                              ; preds = %.thread130
+192:                                              ; preds = %.thread133
   store i32 %190, ptr %11, align 8, !tbaa !164
   %193 = load i32, ptr %17, align 16, !tbaa !108
   %194 = add i32 %193, %190
@@ -6444,8 +6444,8 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread152
   %198 = call i32 @SendBuffered(ptr noundef nonnull %0) #11
   br label %.thread
 
-.thread:                                          ; preds = %54, %116, %136, %86, %72, %68, %61, %37, %35, %30, %32, %27, %13, %197, %192, %.thread130, %148, %10
-  %.9 = phi i32 [ %12, %10 ], [ %161, %148 ], [ %190, %.thread130 ], [ 0, %192 ], [ %198, %197 ], [ %96, %86 ], [ %78, %72 ], [ -125, %68 ], [ %64, %61 ], [ -133, %37 ], [ -317, %35 ], [ -132, %30 ], [ -132, %32 ], [ %29, %27 ], [ -317, %13 ], [ %.6, %136 ], [ %129, %116 ], [ -125, %54 ]
+.thread:                                          ; preds = %54, %116, %136, %86, %72, %68, %61, %37, %35, %30, %32, %27, %13, %197, %192, %.thread133, %148, %10
+  %.9 = phi i32 [ %12, %10 ], [ %161, %148 ], [ %190, %.thread133 ], [ 0, %192 ], [ %198, %197 ], [ %96, %86 ], [ %78, %72 ], [ -125, %68 ], [ %64, %61 ], [ -133, %37 ], [ -317, %35 ], [ -132, %30 ], [ -132, %32 ], [ %29, %27 ], [ -317, %13 ], [ %.6, %136 ], [ %129, %116 ], [ -125, %54 ]
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %200 = load ptr, ptr %199, align 16, !tbaa !174
   %.not.i = icmp eq ptr %200, null

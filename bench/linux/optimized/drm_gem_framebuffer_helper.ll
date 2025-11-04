@@ -278,9 +278,9 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.thread18, label %52
+  br i1 %51, label %.thread19, label %52
 
-.thread18:                                        ; preds = %48
+.thread19:                                        ; preds = %48
   tail call void @drm_helper_mode_fill_fb_struct(ptr noundef %0, ptr noundef %1, ptr noundef %3) #7
   br label %123
 
@@ -333,7 +333,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %84 = phi ptr [ %82, %81 ], [ null, %80 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %84, i32 noundef 2, ptr noundef nonnull @.str.7) #7
   %.pre = trunc nuw nsw i64 %63 to i32
-  br label %.thread15
+  br label %.thread16
 
 85:                                               ; preds = %.thread
   %86 = udiv i32 %74, %73
@@ -370,16 +370,16 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 
 109:                                              ; preds = %105
   %110 = icmp sgt i32 %107, 0
-  br i1 %110, label %.thread15, label %111, !prof !5
+  br i1 %110, label %.thread16, label %111, !prof !5
 
 111:                                              ; preds = %109
   tail call void @refcount_warn_saturate(ptr noundef nonnull %77, i32 noundef 3) #7
-  br label %.thread15
+  br label %.thread16
 
 112:                                              ; preds = %105
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   tail call void @drm_gem_object_free(ptr noundef nonnull %77) #7
-  br label %.thread15
+  br label %.thread16
 
 113:                                              ; preds = %85
   %114 = add nuw nsw i64 %63, 1
@@ -397,8 +397,8 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %120, ptr nonnull align 16 %6, i64 %122, i1 false)
   br label %123
 
-123:                                              ; preds = %.thread18, %118
-  %124 = phi i32 [ 0, %.thread18 ], [ %119, %118 ]
+123:                                              ; preds = %.thread19, %118
+  %124 = phi i32 [ 0, %.thread19 ], [ %119, %118 ]
   %125 = tail call i32 @drm_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr noundef %4) #7
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %.loopexit, label %127
@@ -415,25 +415,25 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 132:                                              ; preds = %129, %127
   %133 = phi ptr [ %131, %129 ], [ null, %127 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %133, ptr noundef nonnull @.str.9, i32 noundef %125) #8
-  br label %.thread15
+  br label %.thread16
 
-.thread15:                                        ; preds = %112, %83, %111, %109, %132
+.thread16:                                        ; preds = %112, %83, %111, %109, %132
   %134 = phi i32 [ %124, %132 ], [ %91, %109 ], [ %91, %111 ], [ %.pre, %83 ], [ %91, %112 ]
   %135 = phi i32 [ %125, %132 ], [ -22, %109 ], [ -22, %111 ], [ -2, %83 ], [ -22, %112 ]
   %136 = icmp eq i32 %134, 0
   br i1 %136, label %.loopexit, label %137
 
-137:                                              ; preds = %.thread15
+137:                                              ; preds = %.thread16
   %138 = zext nneg i32 %134 to i64
   br label %139
 
-139:                                              ; preds = %.thread20, %137
-  %140 = phi i64 [ %138, %137 ], [ %141, %.thread20 ]
+139:                                              ; preds = %.thread21, %137
+  %140 = phi i64 [ %138, %137 ], [ %141, %.thread21 ]
   %141 = add nsw i64 %140, -1
   %142 = getelementptr ptr, ptr %6, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %.thread20, label %145
+  br i1 %144, label %.thread21, label %145
 
 145:                                              ; preds = %139
   %146 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %143, i32 -1, ptr nonnull elementtype(i32) %143) #7, !srcloc !16
@@ -442,23 +442,23 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 
 148:                                              ; preds = %145
   %149 = icmp sgt i32 %146, 0
-  br i1 %149, label %.thread20, label %150, !prof !5
+  br i1 %149, label %.thread21, label %150, !prof !5
 
 150:                                              ; preds = %148
   tail call void @refcount_warn_saturate(ptr noundef nonnull %143, i32 noundef 3) #7
-  br label %.thread20
+  br label %.thread21
 
 151:                                              ; preds = %145
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   tail call void @drm_gem_object_free(ptr noundef nonnull %143) #7
-  br label %.thread20
+  br label %.thread21
 
-.thread20:                                        ; preds = %148, %150, %151, %139
+.thread21:                                        ; preds = %148, %150, %151, %139
   %152 = icmp eq i64 %141, 0
   br i1 %152, label %.loopexit, label %139, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.thread20, %.thread15, %123, %45, %14
-  %153 = phi i32 [ -22, %45 ], [ -22, %14 ], [ 0, %123 ], [ %135, %.thread15 ], [ %135, %.thread20 ]
+.loopexit:                                        ; preds = %.thread21, %.thread16, %123, %45, %14
+  %153 = phi i32 [ -22, %45 ], [ -22, %14 ], [ 0, %123 ], [ %135, %.thread16 ], [ %135, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %153
 }

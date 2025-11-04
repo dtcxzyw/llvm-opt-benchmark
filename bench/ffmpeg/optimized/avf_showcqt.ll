@@ -958,14 +958,14 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   %275 = getelementptr inbounds nuw i8, ptr %18, i64 104
   store ptr %274, ptr %275, align 8, !tbaa !102
   %.not.i187 = icmp eq ptr %274, null
-  br i1 %.not.i187, label %382, label %.preheader115.i
+  br i1 %.not.i187, label %382, label %.preheader116.i
 
-.preheader115.i:                                  ; preds = %271
+.preheader116.i:                                  ; preds = %271
   %276 = load i32, ptr %50, align 8, !tbaa !68
   %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %.lr.ph122.i, label %.loopexit
+  br i1 %277, label %.lr.ph123.i, label %.loopexit
 
-.lr.ph122.i:                                      ; preds = %.preheader115.i
+.lr.ph123.i:                                      ; preds = %.preheader116.i
   %278 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %279 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -974,15 +974,15 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   %283 = fmul nsz double %282, 5.000000e-01
   br label %284
 
-284:                                              ; preds = %378, %.lr.ph122.i
-  %indvars.iv127.i = phi i64 [ 0, %.lr.ph122.i ], [ %indvars.iv.next128.i, %378 ]
-  %.095121.i = phi i32 [ 0, %.lr.ph122.i ], [ %.1.ph.i, %378 ]
+284:                                              ; preds = %378, %.lr.ph123.i
+  %indvars.iv128.i = phi i64 [ 0, %.lr.ph123.i ], [ %indvars.iv.next129.i, %378 ]
+  %.095122.i = phi i32 [ 0, %.lr.ph123.i ], [ %.1.ph.i, %378 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %285 = load double, ptr %171, align 8, !tbaa !80
   store double %285, ptr %4, align 16, !tbaa !71
   store double %285, ptr %278, align 8, !tbaa !71
   %286 = load ptr, ptr %73, align 8, !tbaa !73
-  %287 = getelementptr inbounds nuw double, ptr %286, i64 %indvars.iv127.i
+  %287 = getelementptr inbounds nuw double, ptr %286, i64 %indvars.iv128.i
   %288 = load double, ptr %287, align 8, !tbaa !71
   store double %288, ptr %279, align 16, !tbaa !71
   store double %288, ptr %280, align 8, !tbaa !71
@@ -1000,7 +1000,7 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   br i1 %296, label %297, label %299
 
 297:                                              ; preds = %291
-  %298 = trunc nuw nsw i64 %indvars.iv127.i to i32
+  %298 = trunc nuw nsw i64 %indvars.iv128.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %292, i32 noundef 24, ptr noundef nonnull @.str.28, i32 noundef %298, ptr noundef nonnull @.str.31, double noundef %295) #16
   br label %clip_with_log.exit.i189
 
@@ -1009,7 +1009,7 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   br i1 %300, label %301, label %303
 
 301:                                              ; preds = %299
-  %302 = trunc nuw nsw i64 %indvars.iv127.i to i32
+  %302 = trunc nuw nsw i64 %indvars.iv128.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %292, i32 noundef 24, ptr noundef nonnull @.str.29, i32 noundef %302, ptr noundef nonnull @.str.31, double noundef %294, double noundef 1.000000e-03) #16
   br label %clip_with_log.exit.i189
 
@@ -1018,7 +1018,7 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   br i1 %304, label %305, label %clip_with_log.exit.i189
 
 305:                                              ; preds = %303
-  %306 = trunc nuw nsw i64 %indvars.iv127.i to i32
+  %306 = trunc nuw nsw i64 %indvars.iv128.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %292, i32 noundef 24, ptr noundef nonnull @.str.30, i32 noundef %306, ptr noundef nonnull @.str.31, double noundef %294, double noundef %295) #16
   br label %clip_with_log.exit.i189
 
@@ -1030,7 +1030,7 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %310 = fmul nsz double %.0.i.i190, %282
   %311 = fdiv nsz double %309, %310
   %312 = load ptr, ptr %73, align 8, !tbaa !73
-  %313 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv127.i
+  %313 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv128.i
   %314 = load double, ptr %313, align 8, !tbaa !71
   %315 = fmul nsz double %314, %308
   %316 = fdiv nsz double %315, %282
@@ -1048,7 +1048,7 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %327 = sub i32 0, %326
   %328 = and i32 %320, %327
   %329 = load ptr, ptr %275, align 8, !tbaa !102
-  %330 = getelementptr inbounds nuw %struct.Coeffs, ptr %329, i64 %indvars.iv127.i
+  %330 = getelementptr inbounds nuw %struct.Coeffs, ptr %329, i64 %indvars.iv128.i
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i32 %328, ptr %331, align 8, !tbaa !103
   %332 = add nsw i32 %326, -1
@@ -1057,20 +1057,20 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %335 = sub i32 %334, %328
   %336 = getelementptr inbounds nuw i8, ptr %330, i64 12
   store i32 %335, ptr %336, align 4, !tbaa !105
-  %337 = add nsw i32 %335, %.095121.i
+  %337 = add nsw i32 %335, %.095122.i
   %338 = sext i32 %335 to i64
   %339 = call noalias ptr @av_calloc(i64 noundef %338, i64 noundef 4) #16
   %340 = load ptr, ptr %275, align 8, !tbaa !102
-  %341 = getelementptr inbounds nuw %struct.Coeffs, ptr %340, i64 %indvars.iv127.i
+  %341 = getelementptr inbounds nuw %struct.Coeffs, ptr %340, i64 %indvars.iv128.i
   store ptr %339, ptr %341, align 8, !tbaa !106
   %.not106.i = icmp eq ptr %339, null
-  br i1 %.not106.i, label %377, label %.preheader114.i
+  br i1 %.not106.i, label %377, label %.preheader115.i
 
-.preheader114.i:                                  ; preds = %clip_with_log.exit.i189
-  %.not107117.i = icmp sgt i32 %320, %325
-  br i1 %.not107117.i, label %._crit_edge.i, label %.lr.ph.i191
+.preheader115.i:                                  ; preds = %clip_with_log.exit.i189
+  %.not107118.i = icmp sgt i32 %320, %325
+  br i1 %.not107118.i, label %._crit_edge.i, label %.lr.ph.i191
 
-.lr.ph.i191:                                      ; preds = %.preheader114.i
+.lr.ph.i191:                                      ; preds = %.preheader115.i
   %342 = fdiv nsz double 1.000000e+00, %311
   %343 = load i32, ptr %181, align 4, !tbaa !84
   %344 = sitofp i32 %343 to double
@@ -1112,7 +1112,7 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %exitcond.not.i194 = icmp eq i32 %350, %lftr.wideiv.i
   br i1 %exitcond.not.i194, label %._crit_edge.i, label %351, !llvm.loop !107
 
-._crit_edge.i:                                    ; preds = %351, %.preheader114.i
+._crit_edge.i:                                    ; preds = %351, %.preheader115.i
   %373 = load ptr, ptr %253, align 8, !tbaa !96
   %.not108.i = icmp eq ptr %373, null
   br i1 %.not108.i, label %378, label %374
@@ -1128,12 +1128,12 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   br label %382
 
 378:                                              ; preds = %374, %._crit_edge.i, %284
-  %.1.ph.i = phi i32 [ %337, %._crit_edge.i ], [ %337, %374 ], [ %.095121.i, %284 ]
+  %.1.ph.i = phi i32 [ %337, %._crit_edge.i ], [ %337, %374 ], [ %.095122.i, %284 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
+  %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %379 = load i32, ptr %50, align 8, !tbaa !68
   %380 = sext i32 %379 to i64
-  %381 = icmp slt i64 %indvars.iv.next128.i, %380
+  %381 = icmp slt i64 %indvars.iv.next129.i, %380
   br i1 %381, label %284, label %.loopexit, !llvm.loop !108
 
 382:                                              ; preds = %377, %271, %.loopexit197
@@ -1148,27 +1148,27 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
 .preheader.i195:                                  ; preds = %382
   %386 = load i32, ptr %50, align 8, !tbaa !68
   %387 = icmp sgt i32 %386, 0
-  br i1 %387, label %.lr.ph125.i, label %init_cqt.exit.thread
+  br i1 %387, label %.lr.ph126.i, label %init_cqt.exit.thread
 
-.lr.ph125.i:                                      ; preds = %.preheader.i195, %.lr.ph125.i
-  %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.lr.ph125.i ], [ 0, %.preheader.i195 ]
+.lr.ph126.i:                                      ; preds = %.preheader.i195, %.lr.ph126.i
+  %indvars.iv131.i = phi i64 [ %indvars.iv.next132.i, %.lr.ph126.i ], [ 0, %.preheader.i195 ]
   %388 = load ptr, ptr %384, align 8, !tbaa !102
-  %389 = getelementptr inbounds nuw %struct.Coeffs, ptr %388, i64 %indvars.iv130.i
+  %389 = getelementptr inbounds nuw %struct.Coeffs, ptr %388, i64 %indvars.iv131.i
   call void @av_freep(ptr noundef %389) #16
-  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %390 = load i32, ptr %50, align 8, !tbaa !68
   %391 = sext i32 %390 to i64
-  %392 = icmp slt i64 %indvars.iv.next131.i, %391
-  br i1 %392, label %.lr.ph125.i, label %init_cqt.exit.thread, !llvm.loop !109
+  %392 = icmp slt i64 %indvars.iv.next132.i, %391
+  br i1 %392, label %.lr.ph126.i, label %init_cqt.exit.thread, !llvm.loop !109
 
-init_cqt.exit.thread:                             ; preds = %.lr.ph125.i, %382, %.preheader.i195
+init_cqt.exit.thread:                             ; preds = %.lr.ph126.i, %382, %.preheader.i195
   call void @av_freep(ptr noundef nonnull %384) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.critedge
 
-.loopexit:                                        ; preds = %378, %.preheader115.i
-  %.095.lcssa.i = phi i32 [ 0, %.preheader115.i ], [ %.1.ph.i, %378 ]
+.loopexit:                                        ; preds = %378, %.preheader116.i
+  %.095.lcssa.i = phi i32 [ 0, %.preheader116.i ], [ %.1.ph.i, %378 ]
   %393 = load ptr, ptr %3, align 8, !tbaa !74
   call void @av_expr_free(ptr noundef %393) #16
   %394 = load ptr, ptr %260, align 8, !tbaa !20

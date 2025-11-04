@@ -1475,7 +1475,7 @@ _validate_operator.exit.thread:                   ; preds = %10, %.critedge, %_v
   %63 = call i32 @acct_storage_g_add_assocs(ptr noundef %59, i32 noundef %61, ptr noundef %62) #10
   br label %64
 
-64:                                               ; preds = %_validate_operator.exit.thread, %.thread
+64:                                               ; preds = %.thread, %_validate_operator.exit.thread
   %.142 = phi i32 [ %63, %_validate_operator.exit.thread ], [ %.041.ph, %.thread ]
   %.2 = phi ptr [ null, %_validate_operator.exit.thread ], [ %.str.29.sink, %.thread ]
   %65 = load ptr, ptr %0, align 8

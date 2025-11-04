@@ -3420,8 +3420,8 @@ opt_match_per_type_str.exit:                      ; preds = %29, %3, %18, %30
 
 .preheader:                                       ; preds = %opt_match_per_type_str.exit
   %37 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1000, ptr noundef nonnull %36)
-  %.not3245 = icmp eq ptr %37, null
-  br i1 %.not3245, label %.loopexit, label %.lr.ph
+  %.not3246 = icmp eq ptr %37, null
+  br i1 %.not3246, label %.loopexit, label %.lr.ph
 
 38:                                               ; preds = %opt_match_per_type_str.exit
   %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(17) @.str.631, i64 noundef 16) #17

@@ -416,9 +416,9 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %49, ptr %51, align 4
   %52 = icmp ugt i32 %50, 2
-  br i1 %52, label %60, label %.thread15
+  br i1 %52, label %60, label %.thread16
 
-.thread15:                                        ; preds = %48
+.thread16:                                        ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
@@ -571,12 +571,12 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   store i32 %133, ptr %143, align 4
   %144 = add i32 %50, -2
   %145 = icmp ult i32 %144, 21
-  br i1 %145, label %146, label %.loopexit16
+  br i1 %145, label %146, label %.loopexit17
 
-146:                                              ; preds = %.thread15, %136
-  %147 = phi i32 [ 0, %.thread15 ], [ %144, %136 ]
-  %148 = phi ptr [ %53, %.thread15 ], [ %137, %136 ]
-  %149 = phi i32 [ -1, %.thread15 ], [ %133, %136 ]
+146:                                              ; preds = %.thread16, %136
+  %147 = phi i32 [ 0, %.thread16 ], [ %144, %136 ]
+  %148 = phi ptr [ %53, %.thread16 ], [ %137, %136 ]
+  %149 = phi i32 [ -1, %.thread16 ], [ %133, %136 ]
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %151 = zext nneg i32 %147 to i64
   br label %152
@@ -590,9 +590,9 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %156 = add nuw nsw i64 %153, 1
   %157 = and i64 %156, 4294967295
   %158 = icmp eq i64 %157, 21
-  br i1 %158, label %.loopexit16, label %152, !llvm.loop !18
+  br i1 %158, label %.loopexit17, label %152, !llvm.loop !18
 
-.loopexit16:                                      ; preds = %152, %136
+.loopexit17:                                      ; preds = %152, %136
   %159 = phi ptr [ %137, %136 ], [ %148, %152 ]
   %160 = phi i32 [ %133, %136 ], [ %149, %152 ]
   %161 = load i32, ptr %159, align 8
@@ -602,7 +602,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %.thread
 
-165:                                              ; preds = %.loopexit16
+165:                                              ; preds = %.loopexit17
   %166 = icmp sgt i32 %160, -1
   br i1 %166, label %167, label %182
 
@@ -663,8 +663,8 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
   call void @init_freq_invariance_cppc() #13
   br label %221
 
-.thread:                                          ; preds = %99, %97, %125, %123, %116, %111, %88, %85, %75, %63, %196, %182, %174, %.loopexit16, %44, %40, %36, %31, %27, %22, %17
-  %204 = phi i32 [ %163, %.loopexit16 ], [ %194, %196 ], [ %175, %174 ], [ -61, %22 ], [ -61, %17 ], [ -61, %27 ], [ -61, %31 ], [ -61, %44 ], [ -61, %40 ], [ -61, %36 ], [ -22, %182 ], [ -61, %63 ], [ -61, %75 ], [ -61, %85 ], [ -61, %88 ], [ -61, %111 ], [ -61, %116 ], [ -61, %123 ], [ -61, %125 ], [ -61, %97 ], [ -61, %99 ]
+.thread:                                          ; preds = %99, %97, %125, %123, %116, %111, %88, %85, %75, %63, %196, %182, %174, %.loopexit17, %44, %40, %36, %31, %27, %22, %17
+  %204 = phi i32 [ %163, %.loopexit17 ], [ %194, %196 ], [ %175, %174 ], [ -61, %22 ], [ -61, %17 ], [ -61, %27 ], [ -61, %31 ], [ -61, %44 ], [ -61, %40 ], [ -61, %36 ], [ -22, %182 ], [ -61, %63 ], [ -61, %75 ], [ -61, %85 ], [ -61, %88 ], [ -61, %111 ], [ -61, %116 ], [ -61, %123 ], [ -61, %125 ], [ -61, %97 ], [ -61, %99 ]
   %205 = load i32, ptr %15, align 8
   %206 = icmp ugt i32 %205, 2
   br i1 %206, label %.preheader, label %.loopexit
@@ -684,11 +684,11 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr noundef readonly captures(no
 
 215:                                              ; preds = %208
   call void @iounmap(ptr noundef nonnull %213) #13
-  %.pre17 = load i32, ptr %15, align 8
+  %.pre18 = load i32, ptr %15, align 8
   br label %216
 
 216:                                              ; preds = %215, %208
-  %217 = phi i32 [ %.pre17, %215 ], [ %209, %208 ]
+  %217 = phi i32 [ %.pre18, %215 ], [ %209, %208 ]
   %218 = add nuw nsw i64 %210, 1
   %219 = zext i32 %217 to i64
   %220 = icmp samesign ult i64 %218, %219
